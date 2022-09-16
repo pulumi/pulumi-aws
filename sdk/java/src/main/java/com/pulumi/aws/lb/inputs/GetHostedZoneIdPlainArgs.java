@@ -15,14 +15,14 @@ public final class GetHostedZoneIdPlainArgs extends com.pulumi.resources.InvokeA
     public static final GetHostedZoneIdPlainArgs Empty = new GetHostedZoneIdPlainArgs();
 
     /**
-     * The type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
+     * Type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
      * 
      */
     @Import(name="loadBalancerType")
     private @Nullable String loadBalancerType;
 
     /**
-     * @return The type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
+     * @return Type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
      * 
      */
     public Optional<String> loadBalancerType() {
@@ -72,7 +72,7 @@ public final class GetHostedZoneIdPlainArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param loadBalancerType The type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
+         * @param loadBalancerType Type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
          * 
          * @return builder
          * 

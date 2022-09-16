@@ -16,14 +16,14 @@ public final class ScalingPlanScalingInstructionPredefinedLoadMetricSpecificatio
     public static final ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs Empty = new ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs();
 
     /**
-     * The metric type. Valid values: `ALBTargetGroupRequestCount`, `ASGTotalCPUUtilization`, `ASGTotalNetworkIn`, `ASGTotalNetworkOut`.
+     * Metric type. Valid values: `ALBTargetGroupRequestCount`, `ASGTotalCPUUtilization`, `ASGTotalNetworkIn`, `ASGTotalNetworkOut`.
      * 
      */
     @Import(name="predefinedLoadMetricType", required=true)
     private Output<String> predefinedLoadMetricType;
 
     /**
-     * @return The metric type. Valid values: `ALBTargetGroupRequestCount`, `ASGTotalCPUUtilization`, `ASGTotalNetworkIn`, `ASGTotalNetworkOut`.
+     * @return Metric type. Valid values: `ALBTargetGroupRequestCount`, `ASGTotalCPUUtilization`, `ASGTotalNetworkIn`, `ASGTotalNetworkOut`.
      * 
      */
     public Output<String> predefinedLoadMetricType() {
@@ -71,7 +71,7 @@ public final class ScalingPlanScalingInstructionPredefinedLoadMetricSpecificatio
         }
 
         /**
-         * @param predefinedLoadMetricType The metric type. Valid values: `ALBTargetGroupRequestCount`, `ASGTotalCPUUtilization`, `ASGTotalNetworkIn`, `ASGTotalNetworkOut`.
+         * @param predefinedLoadMetricType Metric type. Valid values: `ALBTargetGroupRequestCount`, `ASGTotalCPUUtilization`, `ASGTotalNetworkIn`, `ASGTotalNetworkOut`.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class ScalingPlanScalingInstructionPredefinedLoadMetricSpecificatio
         }
 
         /**
-         * @param predefinedLoadMetricType The metric type. Valid values: `ALBTargetGroupRequestCount`, `ASGTotalCPUUtilization`, `ASGTotalNetworkIn`, `ASGTotalNetworkOut`.
+         * @param predefinedLoadMetricType Metric type. Valid values: `ALBTargetGroupRequestCount`, `ASGTotalCPUUtilization`, `ASGTotalNetworkIn`, `ASGTotalNetworkOut`.
          * 
          * @return builder
          * 

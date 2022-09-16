@@ -17,14 +17,14 @@ public final class GetWorkspaceArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetWorkspaceArgs Empty = new GetWorkspaceArgs();
 
     /**
-     * The tags assigned to the resource
+     * Tags assigned to the resource
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return The tags assigned to the resource
+     * @return Tags assigned to the resource
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -32,14 +32,14 @@ public final class GetWorkspaceArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The Grafana workspace ID.
+     * Grafana workspace ID.
      * 
      */
     @Import(name="workspaceId", required=true)
     private Output<String> workspaceId;
 
     /**
-     * @return The Grafana workspace ID.
+     * @return Grafana workspace ID.
      * 
      */
     public Output<String> workspaceId() {
@@ -72,7 +72,7 @@ public final class GetWorkspaceArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags The tags assigned to the resource
+         * @param tags Tags assigned to the resource
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class GetWorkspaceArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags The tags assigned to the resource
+         * @param tags Tags assigned to the resource
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class GetWorkspaceArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param workspaceId The Grafana workspace ID.
+         * @param workspaceId Grafana workspace ID.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class GetWorkspaceArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param workspaceId The Grafana workspace ID.
+         * @param workspaceId Grafana workspace ID.
          * 
          * @return builder
          * 

@@ -16,14 +16,14 @@ public final class GetParameterPlainArgs extends com.pulumi.resources.InvokeArgs
     public static final GetParameterPlainArgs Empty = new GetParameterPlainArgs();
 
     /**
-     * The name of the parameter.
+     * Name of the parameter.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return The name of the parameter.
+     * @return Name of the parameter.
      * 
      */
     public String name() {
@@ -71,7 +71,7 @@ public final class GetParameterPlainArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param name The name of the parameter.
+         * @param name Name of the parameter.
          * 
          * @return builder
          * 

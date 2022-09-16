@@ -14,11 +14,11 @@ namespace Pulumi.Aws.AutoScaling.Outputs
     public sealed class GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification
     {
         /// <summary>
-        /// The ID of the launch template. Conflicts with `launch_template_name`.
+        /// ID of the launch template. Conflicts with `launch_template_name`.
         /// </summary>
         public readonly string? LaunchTemplateId;
         /// <summary>
-        /// The name of the launch template. Conflicts with `launch_template_id`.
+        /// Name of the launch template. Conflicts with `launch_template_id`.
         /// </summary>
         public readonly string? LaunchTemplateName;
         /// <summary>

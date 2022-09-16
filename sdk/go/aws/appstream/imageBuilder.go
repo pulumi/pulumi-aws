@@ -65,7 +65,7 @@ type ImageBuilder struct {
 
 	// Set of interface VPC endpoint (interface endpoint) objects. Maximum of 4. See below.
 	AccessEndpoints ImageBuilderAccessEndpointArrayOutput `pulumi:"accessEndpoints"`
-	// The version of the AppStream 2.0 agent to use for this image builder.
+	// Version of the AppStream 2.0 agent to use for this image builder.
 	AppstreamAgentVersion pulumi.StringOutput `pulumi:"appstreamAgentVersion"`
 	// ARN of the appstream image builder.
 	Arn pulumi.StringOutput `pulumi:"arn"`
@@ -85,15 +85,15 @@ type ImageBuilder struct {
 	ImageArn pulumi.StringOutput `pulumi:"imageArn"`
 	// Name of the image used to create the image builder.
 	ImageName pulumi.StringOutput `pulumi:"imageName"`
-	// The instance type to use when launching the image builder.
+	// Instance type to use when launching the image builder.
 	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
 	// Unique name for the image builder.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// State of the image builder. Can be: `PENDING`, `UPDATING_AGENT`, `RUNNING`, `STOPPING`, `STOPPED`, `REBOOTING`, `SNAPSHOTTING`, `DELETING`, `FAILED`, `UPDATING`, `PENDING_QUALIFICATION`
 	State pulumi.StringOutput `pulumi:"state"`
-	// A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Configuration block for the VPC configuration for the image builder. See below.
 	VpcConfig ImageBuilderVpcConfigOutput `pulumi:"vpcConfig"`
@@ -133,7 +133,7 @@ func GetImageBuilder(ctx *pulumi.Context,
 type imageBuilderState struct {
 	// Set of interface VPC endpoint (interface endpoint) objects. Maximum of 4. See below.
 	AccessEndpoints []ImageBuilderAccessEndpoint `pulumi:"accessEndpoints"`
-	// The version of the AppStream 2.0 agent to use for this image builder.
+	// Version of the AppStream 2.0 agent to use for this image builder.
 	AppstreamAgentVersion *string `pulumi:"appstreamAgentVersion"`
 	// ARN of the appstream image builder.
 	Arn *string `pulumi:"arn"`
@@ -153,15 +153,15 @@ type imageBuilderState struct {
 	ImageArn *string `pulumi:"imageArn"`
 	// Name of the image used to create the image builder.
 	ImageName *string `pulumi:"imageName"`
-	// The instance type to use when launching the image builder.
+	// Instance type to use when launching the image builder.
 	InstanceType *string `pulumi:"instanceType"`
 	// Unique name for the image builder.
 	Name *string `pulumi:"name"`
 	// State of the image builder. Can be: `PENDING`, `UPDATING_AGENT`, `RUNNING`, `STOPPING`, `STOPPED`, `REBOOTING`, `SNAPSHOTTING`, `DELETING`, `FAILED`, `UPDATING`, `PENDING_QUALIFICATION`
 	State *string `pulumi:"state"`
-	// A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Configuration block for the VPC configuration for the image builder. See below.
 	VpcConfig *ImageBuilderVpcConfig `pulumi:"vpcConfig"`
@@ -170,7 +170,7 @@ type imageBuilderState struct {
 type ImageBuilderState struct {
 	// Set of interface VPC endpoint (interface endpoint) objects. Maximum of 4. See below.
 	AccessEndpoints ImageBuilderAccessEndpointArrayInput
-	// The version of the AppStream 2.0 agent to use for this image builder.
+	// Version of the AppStream 2.0 agent to use for this image builder.
 	AppstreamAgentVersion pulumi.StringPtrInput
 	// ARN of the appstream image builder.
 	Arn pulumi.StringPtrInput
@@ -190,15 +190,15 @@ type ImageBuilderState struct {
 	ImageArn pulumi.StringPtrInput
 	// Name of the image used to create the image builder.
 	ImageName pulumi.StringPtrInput
-	// The instance type to use when launching the image builder.
+	// Instance type to use when launching the image builder.
 	InstanceType pulumi.StringPtrInput
 	// Unique name for the image builder.
 	Name pulumi.StringPtrInput
 	// State of the image builder. Can be: `PENDING`, `UPDATING_AGENT`, `RUNNING`, `STOPPING`, `STOPPED`, `REBOOTING`, `SNAPSHOTTING`, `DELETING`, `FAILED`, `UPDATING`, `PENDING_QUALIFICATION`
 	State pulumi.StringPtrInput
-	// A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Configuration block for the VPC configuration for the image builder. See below.
 	VpcConfig ImageBuilderVpcConfigPtrInput
@@ -211,7 +211,7 @@ func (ImageBuilderState) ElementType() reflect.Type {
 type imageBuilderArgs struct {
 	// Set of interface VPC endpoint (interface endpoint) objects. Maximum of 4. See below.
 	AccessEndpoints []ImageBuilderAccessEndpoint `pulumi:"accessEndpoints"`
-	// The version of the AppStream 2.0 agent to use for this image builder.
+	// Version of the AppStream 2.0 agent to use for this image builder.
 	AppstreamAgentVersion *string `pulumi:"appstreamAgentVersion"`
 	// Description to display.
 	Description *string `pulumi:"description"`
@@ -227,11 +227,11 @@ type imageBuilderArgs struct {
 	ImageArn *string `pulumi:"imageArn"`
 	// Name of the image used to create the image builder.
 	ImageName *string `pulumi:"imageName"`
-	// The instance type to use when launching the image builder.
+	// Instance type to use when launching the image builder.
 	InstanceType string `pulumi:"instanceType"`
 	// Unique name for the image builder.
 	Name *string `pulumi:"name"`
-	// A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Configuration block for the VPC configuration for the image builder. See below.
 	VpcConfig *ImageBuilderVpcConfig `pulumi:"vpcConfig"`
@@ -241,7 +241,7 @@ type imageBuilderArgs struct {
 type ImageBuilderArgs struct {
 	// Set of interface VPC endpoint (interface endpoint) objects. Maximum of 4. See below.
 	AccessEndpoints ImageBuilderAccessEndpointArrayInput
-	// The version of the AppStream 2.0 agent to use for this image builder.
+	// Version of the AppStream 2.0 agent to use for this image builder.
 	AppstreamAgentVersion pulumi.StringPtrInput
 	// Description to display.
 	Description pulumi.StringPtrInput
@@ -257,11 +257,11 @@ type ImageBuilderArgs struct {
 	ImageArn pulumi.StringPtrInput
 	// Name of the image used to create the image builder.
 	ImageName pulumi.StringPtrInput
-	// The instance type to use when launching the image builder.
+	// Instance type to use when launching the image builder.
 	InstanceType pulumi.StringInput
 	// Unique name for the image builder.
 	Name pulumi.StringPtrInput
-	// A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Configuration block for the VPC configuration for the image builder. See below.
 	VpcConfig ImageBuilderVpcConfigPtrInput
@@ -359,7 +359,7 @@ func (o ImageBuilderOutput) AccessEndpoints() ImageBuilderAccessEndpointArrayOut
 	return o.ApplyT(func(v *ImageBuilder) ImageBuilderAccessEndpointArrayOutput { return v.AccessEndpoints }).(ImageBuilderAccessEndpointArrayOutput)
 }
 
-// The version of the AppStream 2.0 agent to use for this image builder.
+// Version of the AppStream 2.0 agent to use for this image builder.
 func (o ImageBuilderOutput) AppstreamAgentVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImageBuilder) pulumi.StringOutput { return v.AppstreamAgentVersion }).(pulumi.StringOutput)
 }
@@ -409,7 +409,7 @@ func (o ImageBuilderOutput) ImageName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImageBuilder) pulumi.StringOutput { return v.ImageName }).(pulumi.StringOutput)
 }
 
-// The instance type to use when launching the image builder.
+// Instance type to use when launching the image builder.
 func (o ImageBuilderOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImageBuilder) pulumi.StringOutput { return v.InstanceType }).(pulumi.StringOutput)
 }
@@ -424,12 +424,12 @@ func (o ImageBuilderOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImageBuilder) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ImageBuilderOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ImageBuilder) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ImageBuilderOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ImageBuilder) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -50,9 +50,9 @@ func LookupTrackerAssociation(ctx *pulumi.Context, args *LookupTrackerAssociatio
 
 // A collection of arguments for invoking getTrackerAssociation.
 type LookupTrackerAssociationArgs struct {
-	// The Amazon Resource Name (ARN) of the geofence collection associated to tracker resource.
+	// ARN of the geofence collection associated to tracker resource.
 	ConsumerArn string `pulumi:"consumerArn"`
-	// The name of the tracker resource associated with a geofence collection.
+	// Name of the tracker resource associated with a geofence collection.
 	TrackerName string `pulumi:"trackerName"`
 }
 
@@ -79,9 +79,9 @@ func LookupTrackerAssociationOutput(ctx *pulumi.Context, args LookupTrackerAssoc
 
 // A collection of arguments for invoking getTrackerAssociation.
 type LookupTrackerAssociationOutputArgs struct {
-	// The Amazon Resource Name (ARN) of the geofence collection associated to tracker resource.
+	// ARN of the geofence collection associated to tracker resource.
 	ConsumerArn pulumi.StringInput `pulumi:"consumerArn"`
-	// The name of the tracker resource associated with a geofence collection.
+	// Name of the tracker resource associated with a geofence collection.
 	TrackerName pulumi.StringInput `pulumi:"trackerName"`
 }
 

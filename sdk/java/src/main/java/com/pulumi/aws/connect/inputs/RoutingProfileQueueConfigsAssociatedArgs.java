@@ -62,14 +62,14 @@ public final class RoutingProfileQueueConfigsAssociatedArgs extends com.pulumi.r
     }
 
     /**
-     * Specifies the ARN for the queue.
+     * ARN for the queue.
      * 
      */
     @Import(name="queueArn")
     private @Nullable Output<String> queueArn;
 
     /**
-     * @return Specifies the ARN for the queue.
+     * @return ARN for the queue.
      * 
      */
     public Optional<Output<String>> queueArn() {
@@ -92,14 +92,14 @@ public final class RoutingProfileQueueConfigsAssociatedArgs extends com.pulumi.r
     }
 
     /**
-     * Specifies the name for the queue.
+     * Name for the queue.
      * 
      */
     @Import(name="queueName")
     private @Nullable Output<String> queueName;
 
     /**
-     * @return Specifies the name for the queue.
+     * @return Name for the queue.
      * 
      */
     public Optional<Output<String>> queueName() {
@@ -199,7 +199,7 @@ public final class RoutingProfileQueueConfigsAssociatedArgs extends com.pulumi.r
         }
 
         /**
-         * @param queueArn Specifies the ARN for the queue.
+         * @param queueArn ARN for the queue.
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class RoutingProfileQueueConfigsAssociatedArgs extends com.pulumi.r
         }
 
         /**
-         * @param queueArn Specifies the ARN for the queue.
+         * @param queueArn ARN for the queue.
          * 
          * @return builder
          * 
@@ -241,7 +241,7 @@ public final class RoutingProfileQueueConfigsAssociatedArgs extends com.pulumi.r
         }
 
         /**
-         * @param queueName Specifies the name for the queue.
+         * @param queueName Name for the queue.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class RoutingProfileQueueConfigsAssociatedArgs extends com.pulumi.r
         }
 
         /**
-         * @param queueName Specifies the name for the queue.
+         * @param queueName Name for the queue.
          * 
          * @return builder
          * 

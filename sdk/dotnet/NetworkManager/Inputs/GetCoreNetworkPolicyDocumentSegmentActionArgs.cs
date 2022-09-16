@@ -13,7 +13,7 @@ namespace Pulumi.Aws.NetworkManager.Inputs
     public sealed class GetCoreNetworkPolicyDocumentSegmentActionInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The action to take for the chosen segment. Valid values `create-route` or `share`.
+        /// Action to take for the chosen segment. Valid values `create-route` or `share`.
         /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
@@ -49,13 +49,13 @@ namespace Pulumi.Aws.NetworkManager.Inputs
         }
 
         /// <summary>
-        /// A string. This mode places the attachment and return routes in each of the `share_with` segments. Valid values include: `attachment-route`.
+        /// String. This mode places the attachment and return routes in each of the `share_with` segments. Valid values include: `attachment-route`.
         /// </summary>
         [Input("mode")]
         public Input<string>? Mode { get; set; }
 
         /// <summary>
-        /// The name of the segment.
+        /// Name of the segment.
         /// </summary>
         [Input("segment", required: true)]
         public Input<string> Segment { get; set; } = null!;

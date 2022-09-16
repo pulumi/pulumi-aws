@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -35,7 +37,7 @@ export function getVpc(args?: GetVpcArgs, opts?: pulumi.InvokeOptions): Promise<
  */
 export interface GetVpcArgs {
     /**
-     * The cidr block of the desired VPC.
+     * Cidr block of the desired VPC.
      */
     cidrBlock?: string;
     /**
@@ -44,7 +46,7 @@ export interface GetVpcArgs {
      */
     default?: boolean;
     /**
-     * The DHCP options id of the desired VPC.
+     * DHCP options id of the desired VPC.
      */
     dhcpOptionsId?: string;
     /**
@@ -52,16 +54,16 @@ export interface GetVpcArgs {
      */
     filters?: inputs.ec2.GetVpcFilter[];
     /**
-     * The id of the specific VPC to retrieve.
+     * ID of the specific VPC to retrieve.
      */
     id?: string;
     /**
-     * The current state of the desired VPC.
+     * Current state of the desired VPC.
      * Can be either `"pending"` or `"available"`.
      */
     state?: string;
     /**
-     * A map of tags, each pair of which must exactly match
+     * Map of tags, each pair of which must exactly match
      * a pair on the desired VPC.
      */
     tags?: {[key: string]: string};
@@ -72,11 +74,11 @@ export interface GetVpcArgs {
  */
 export interface GetVpcResult {
     /**
-     * Amazon Resource Name (ARN) of VPC
+     * ARN of VPC
      */
     readonly arn: string;
     /**
-     * The CIDR block for the association.
+     * CIDR block for the association.
      */
     readonly cidrBlock: string;
     readonly cidrBlockAssociations: outputs.ec2.GetVpcCidrBlockAssociation[];
@@ -93,28 +95,28 @@ export interface GetVpcResult {
     readonly filters?: outputs.ec2.GetVpcFilter[];
     readonly id: string;
     /**
-     * The allowed tenancy of instances launched into the
+     * Allowed tenancy of instances launched into the
      * selected VPC. May be any of `"default"`, `"dedicated"`, or `"host"`.
      */
     readonly instanceTenancy: string;
     /**
-     * The association ID for the IPv6 CIDR block.
+     * Association ID for the IPv6 CIDR block.
      */
     readonly ipv6AssociationId: string;
     /**
-     * The IPv6 CIDR block.
+     * IPv6 CIDR block.
      */
     readonly ipv6CidrBlock: string;
     /**
-     * The ID of the main route table associated with this VPC.
+     * ID of the main route table associated with this VPC.
      */
     readonly mainRouteTableId: string;
     /**
-     * The ID of the AWS account that owns the VPC.
+     * ID of the AWS account that owns the VPC.
      */
     readonly ownerId: string;
     /**
-     * The State of the association.
+     * State of the association.
      */
     readonly state: string;
     readonly tags: {[key: string]: string};
@@ -129,7 +131,7 @@ export function getVpcOutput(args?: GetVpcOutputArgs, opts?: pulumi.InvokeOption
  */
 export interface GetVpcOutputArgs {
     /**
-     * The cidr block of the desired VPC.
+     * Cidr block of the desired VPC.
      */
     cidrBlock?: pulumi.Input<string>;
     /**
@@ -138,7 +140,7 @@ export interface GetVpcOutputArgs {
      */
     default?: pulumi.Input<boolean>;
     /**
-     * The DHCP options id of the desired VPC.
+     * DHCP options id of the desired VPC.
      */
     dhcpOptionsId?: pulumi.Input<string>;
     /**
@@ -146,16 +148,16 @@ export interface GetVpcOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetVpcFilterArgs>[]>;
     /**
-     * The id of the specific VPC to retrieve.
+     * ID of the specific VPC to retrieve.
      */
     id?: pulumi.Input<string>;
     /**
-     * The current state of the desired VPC.
+     * Current state of the desired VPC.
      * Can be either `"pending"` or `"available"`.
      */
     state?: pulumi.Input<string>;
     /**
-     * A map of tags, each pair of which must exactly match
+     * Map of tags, each pair of which must exactly match
      * a pair on the desired VPC.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

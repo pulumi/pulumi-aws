@@ -19,7 +19,7 @@ namespace Pulumi.Aws.AppRunner.Inputs
         public Input<Inputs.ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesGetArgs>? CodeConfigurationValues { get; set; }
 
         /// <summary>
-        /// The source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Values are interpreted as follows:
+        /// Source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Values are interpreted as follows:
         /// </summary>
         [Input("configurationSource", required: true)]
         public Input<string> ConfigurationSource { get; set; } = null!;

@@ -243,6 +243,8 @@ if typing.TYPE_CHECKING:
     macie2 = __macie2
     import pulumi_aws.mediaconvert as __mediaconvert
     mediaconvert = __mediaconvert
+    import pulumi_aws.medialive as __medialive
+    medialive = __medialive
     import pulumi_aws.mediapackage as __mediapackage
     mediapackage = __mediapackage
     import pulumi_aws.mediastore as __mediastore
@@ -477,6 +479,7 @@ else:
     macie = _utilities.lazy_import('pulumi_aws.macie')
     macie2 = _utilities.lazy_import('pulumi_aws.macie2')
     mediaconvert = _utilities.lazy_import('pulumi_aws.mediaconvert')
+    medialive = _utilities.lazy_import('pulumi_aws.medialive')
     mediapackage = _utilities.lazy_import('pulumi_aws.mediapackage')
     mediastore = _utilities.lazy_import('pulumi_aws.mediastore')
     memorydb = _utilities.lazy_import('pulumi_aws.memorydb')
@@ -1878,6 +1881,14 @@ _utilities.register(
   "fqn": "pulumi_aws.cloudfront",
   "classes": {
    "aws:cloudfront/monitoringSubscription:MonitoringSubscription": "MonitoringSubscription"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "cloudfront/originAccessControl",
+  "fqn": "pulumi_aws.cloudfront",
+  "classes": {
+   "aws:cloudfront/originAccessControl:OriginAccessControl": "OriginAccessControl"
   }
  },
  {
@@ -6170,6 +6181,30 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "medialive/input",
+  "fqn": "pulumi_aws.medialive",
+  "classes": {
+   "aws:medialive/input:Input": "Input"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "medialive/inputSecurityGroup",
+  "fqn": "pulumi_aws.medialive",
+  "classes": {
+   "aws:medialive/inputSecurityGroup:InputSecurityGroup": "InputSecurityGroup"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "medialive/multiplex",
+  "fqn": "pulumi_aws.medialive",
+  "classes": {
+   "aws:medialive/multiplex:Multiplex": "Multiplex"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "mediapackage/channel",
   "fqn": "pulumi_aws.mediapackage",
   "classes": {
@@ -7210,10 +7245,26 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "redshiftserverless/endpointAccess",
+  "fqn": "pulumi_aws.redshiftserverless",
+  "classes": {
+   "aws:redshiftserverless/endpointAccess:EndpointAccess": "EndpointAccess"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "redshiftserverless/namespace",
   "fqn": "pulumi_aws.redshiftserverless",
   "classes": {
    "aws:redshiftserverless/namespace:Namespace": "Namespace"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "redshiftserverless/usageLimit",
+  "fqn": "pulumi_aws.redshiftserverless",
+  "classes": {
+   "aws:redshiftserverless/usageLimit:UsageLimit": "UsageLimit"
   }
  },
  {
@@ -8614,6 +8665,14 @@ _utilities.register(
   "fqn": "pulumi_aws.ssoadmin",
   "classes": {
    "aws:ssoadmin/accountAssignment:AccountAssignment": "AccountAssignment"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ssoadmin/customerManagedPolicyAttachment",
+  "fqn": "pulumi_aws.ssoadmin",
+  "classes": {
+   "aws:ssoadmin/customerManagedPolicyAttachment:CustomerManagedPolicyAttachment": "CustomerManagedPolicyAttachment"
   }
  },
  {

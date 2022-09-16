@@ -33,14 +33,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:acm/certificateValidation:CertificateValidation")
 public class CertificateValidation extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the certificate that is being validated.
+     * ARN of the certificate that is being validated.
      * 
      */
     @Export(name="certificateArn", type=String.class, parameters={})
     private Output<String> certificateArn;
 
     /**
-     * @return The ARN of the certificate that is being validated.
+     * @return ARN of the certificate that is being validated.
      * 
      */
     public Output<String> certificateArn() {

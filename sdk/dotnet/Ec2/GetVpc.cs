@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class GetVpcArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The cidr block of the desired VPC.
+        /// Cidr block of the desired VPC.
         /// </summary>
         [Input("cidrBlock")]
         public string? CidrBlock { get; set; }
@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Ec2
         public bool? Default { get; set; }
 
         /// <summary>
-        /// The DHCP options id of the desired VPC.
+        /// DHCP options id of the desired VPC.
         /// </summary>
         [Input("dhcpOptionsId")]
         public string? DhcpOptionsId { get; set; }
@@ -67,13 +67,13 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The id of the specific VPC to retrieve.
+        /// ID of the specific VPC to retrieve.
         /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// The current state of the desired VPC.
+        /// Current state of the desired VPC.
         /// Can be either `"pending"` or `"available"`.
         /// </summary>
         [Input("state")]
@@ -83,7 +83,7 @@ namespace Pulumi.Aws.Ec2
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A map of tags, each pair of which must exactly match
+        /// Map of tags, each pair of which must exactly match
         /// a pair on the desired VPC.
         /// </summary>
         public Dictionary<string, string> Tags
@@ -101,7 +101,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class GetVpcInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The cidr block of the desired VPC.
+        /// Cidr block of the desired VPC.
         /// </summary>
         [Input("cidrBlock")]
         public Input<string>? CidrBlock { get; set; }
@@ -114,7 +114,7 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? Default { get; set; }
 
         /// <summary>
-        /// The DHCP options id of the desired VPC.
+        /// DHCP options id of the desired VPC.
         /// </summary>
         [Input("dhcpOptionsId")]
         public Input<string>? DhcpOptionsId { get; set; }
@@ -132,13 +132,13 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The id of the specific VPC to retrieve.
+        /// ID of the specific VPC to retrieve.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The current state of the desired VPC.
+        /// Current state of the desired VPC.
         /// Can be either `"pending"` or `"available"`.
         /// </summary>
         [Input("state")]
@@ -148,7 +148,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags, each pair of which must exactly match
+        /// Map of tags, each pair of which must exactly match
         /// a pair on the desired VPC.
         /// </summary>
         public InputMap<string> Tags
@@ -168,11 +168,11 @@ namespace Pulumi.Aws.Ec2
     public sealed class GetVpcResult
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of VPC
+        /// ARN of VPC
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The CIDR block for the association.
+        /// CIDR block for the association.
         /// </summary>
         public readonly string CidrBlock;
         public readonly ImmutableArray<Outputs.GetVpcCidrBlockAssociationResult> CidrBlockAssociations;
@@ -189,28 +189,28 @@ namespace Pulumi.Aws.Ec2
         public readonly ImmutableArray<Outputs.GetVpcFilterResult> Filters;
         public readonly string Id;
         /// <summary>
-        /// The allowed tenancy of instances launched into the
+        /// Allowed tenancy of instances launched into the
         /// selected VPC. May be any of `"default"`, `"dedicated"`, or `"host"`.
         /// </summary>
         public readonly string InstanceTenancy;
         /// <summary>
-        /// The association ID for the IPv6 CIDR block.
+        /// Association ID for the IPv6 CIDR block.
         /// </summary>
         public readonly string Ipv6AssociationId;
         /// <summary>
-        /// The IPv6 CIDR block.
+        /// IPv6 CIDR block.
         /// </summary>
         public readonly string Ipv6CidrBlock;
         /// <summary>
-        /// The ID of the main route table associated with this VPC.
+        /// ID of the main route table associated with this VPC.
         /// </summary>
         public readonly string MainRouteTableId;
         /// <summary>
-        /// The ID of the AWS account that owns the VPC.
+        /// ID of the AWS account that owns the VPC.
         /// </summary>
         public readonly string OwnerId;
         /// <summary>
-        /// The State of the association.
+        /// State of the association.
         /// </summary>
         public readonly string State;
         public readonly ImmutableDictionary<string, string> Tags;

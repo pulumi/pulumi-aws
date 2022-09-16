@@ -71,7 +71,7 @@ public final class GetOrderableDbInstanceResult {
      */
     private Boolean readReplicaCapable;
     /**
-     * @return The storage type for a DB instance.
+     * @return Storage type for a DB instance.
      * 
      */
     private String storageType;
@@ -189,7 +189,7 @@ public final class GetOrderableDbInstanceResult {
         return this.readReplicaCapable;
     }
     /**
-     * @return The storage type for a DB instance.
+     * @return Storage type for a DB instance.
      * 
      */
     public String storageType() {

@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Rds
     public sealed class GetInstanceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the RDS instance
+        /// Name of the RDS instance
         /// </summary>
         [Input("dbInstanceIdentifier", required: true)]
         public string DbInstanceIdentifier { get; set; } = null!;
@@ -92,7 +92,7 @@ namespace Pulumi.Aws.Rds
     public sealed class GetInstanceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the RDS instance
+        /// Name of the RDS instance
         /// </summary>
         [Input("dbInstanceIdentifier", required: true)]
         public Input<string> DbInstanceIdentifier { get; set; } = null!;
@@ -116,11 +116,11 @@ namespace Pulumi.Aws.Rds
     public sealed class GetInstanceResult
     {
         /// <summary>
-        /// The hostname of the RDS instance. See also `endpoint` and `port`.
+        /// Hostname of the RDS instance. See also `endpoint` and `port`.
         /// </summary>
         public readonly string Address;
         /// <summary>
-        /// Specifies the allocated storage size specified in gigabytes.
+        /// Allocated storage size specified in gigabytes.
         /// </summary>
         public readonly int AllocatedStorage;
         /// <summary>
@@ -128,7 +128,7 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public readonly bool AutoMinorVersionUpgrade;
         /// <summary>
-        /// Specifies the name of the Availability Zone the DB instance is located in.
+        /// Name of the Availability Zone the DB instance is located in.
         /// </summary>
         public readonly string AvailabilityZone;
         /// <summary>
@@ -136,7 +136,7 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public readonly int BackupRetentionPeriod;
         /// <summary>
-        /// Specifies the identifier of the CA certificate for the DB instance.
+        /// Identifier of the CA certificate for the DB instance.
         /// </summary>
         public readonly string CaCertIdentifier;
         /// <summary>
@@ -144,7 +144,7 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public readonly string DbClusterIdentifier;
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the DB instance.
+        /// ARN for the DB instance.
         /// </summary>
         public readonly string DbInstanceArn;
         /// <summary>
@@ -153,7 +153,7 @@ namespace Pulumi.Aws.Rds
         public readonly string DbInstanceClass;
         public readonly string DbInstanceIdentifier;
         /// <summary>
-        /// Specifies the port that the DB instance listens on.
+        /// Port that the DB instance listens on.
         /// </summary>
         public readonly int DbInstancePort;
         /// <summary>
@@ -169,7 +169,7 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public readonly ImmutableArray<string> DbSecurityGroups;
         /// <summary>
-        /// Specifies the name of the subnet group associated with the DB instance.
+        /// Name of the subnet group associated with the DB instance.
         /// </summary>
         public readonly string DbSubnetGroup;
         /// <summary>
@@ -177,7 +177,7 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public readonly ImmutableArray<string> EnabledCloudwatchLogsExports;
         /// <summary>
-        /// The connection endpoint in `address:port` format.
+        /// Connection endpoint in `address:port` format.
         /// </summary>
         public readonly string Endpoint;
         /// <summary>
@@ -185,11 +185,11 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public readonly string Engine;
         /// <summary>
-        /// Indicates the database engine version.
+        /// Database engine version.
         /// </summary>
         public readonly string EngineVersion;
         /// <summary>
-        /// The canonical hosted zone ID of the DB instance (to be used in a Route 53 Alias record).
+        /// Canonical hosted zone ID of the DB instance (to be used in a Route 53 Alias record).
         /// </summary>
         public readonly string HostedZoneId;
         /// <summary>
@@ -197,7 +197,7 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Specifies the Provisioned IOPS (I/O operations per second) value.
+        /// Provisioned IOPS (I/O operations per second) value.
         /// </summary>
         public readonly int Iops;
         /// <summary>
@@ -213,19 +213,19 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public readonly string MasterUsername;
         /// <summary>
-        /// The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
+        /// Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
         /// </summary>
         public readonly int MonitoringInterval;
         /// <summary>
-        /// The ARN for the IAM role that permits RDS to send Enhanced Monitoring metrics to CloudWatch Logs.
+        /// ARN for the IAM role that permits RDS to send Enhanced Monitoring metrics to CloudWatch Logs.
         /// </summary>
         public readonly string MonitoringRoleArn;
         /// <summary>
-        /// Specifies if the DB instance is a Multi-AZ deployment.
+        /// If the DB instance is a Multi-AZ deployment.
         /// </summary>
         public readonly bool MultiAz;
         /// <summary>
-        /// The network type of the DB instance.
+        /// Network type of the DB instance.
         /// </summary>
         public readonly string NetworkType;
         /// <summary>
@@ -233,7 +233,7 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public readonly ImmutableArray<string> OptionGroupMemberships;
         /// <summary>
-        /// The database port.
+        /// Database port.
         /// </summary>
         public readonly int Port;
         /// <summary>
@@ -245,28 +245,28 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public readonly string PreferredMaintenanceWindow;
         /// <summary>
-        /// Specifies the accessibility options for the DB instance.
+        /// Accessibility options for the DB instance.
         /// </summary>
         public readonly bool PubliclyAccessible;
         /// <summary>
-        /// The identifier of the source DB that this is a replica of.
+        /// Identifier of the source DB that this is a replica of.
         /// </summary>
         public readonly string ReplicateSourceDb;
         /// <summary>
-        /// The RDS Resource ID of this instance.
+        /// RDS Resource ID of this instance.
         /// </summary>
         public readonly string ResourceId;
         /// <summary>
-        /// Specifies whether the DB instance is encrypted.
+        /// Whether the DB instance is encrypted.
         /// </summary>
         public readonly bool StorageEncrypted;
         /// <summary>
-        /// Specifies the storage type associated with DB instance.
+        /// Storage type associated with DB instance.
         /// </summary>
         public readonly string StorageType;
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The time zone of the DB instance.
+        /// Time zone of the DB instance.
         /// </summary>
         public readonly string Timezone;
         /// <summary>

@@ -20,7 +20,7 @@ public final class GetSubnetsResult {
      */
     private String id;
     /**
-     * @return A list of all the subnet ids found.
+     * @return List of all the subnet ids found.
      * 
      */
     private List<String> ids;
@@ -38,7 +38,7 @@ public final class GetSubnetsResult {
         return this.id;
     }
     /**
-     * @return A list of all the subnet ids found.
+     * @return List of all the subnet ids found.
      * 
      */
     public List<String> ids() {

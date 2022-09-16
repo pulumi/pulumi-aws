@@ -16,7 +16,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
         private InputList<Inputs.RouteSpecGrpcRouteMatchMetadataArgs>? _metadatas;
 
         /// <summary>
-        /// The data to match from the gRPC request.
+        /// Data to match from the gRPC request.
         /// </summary>
         public InputList<Inputs.RouteSpecGrpcRouteMatchMetadataArgs> Metadatas
         {
@@ -25,20 +25,20 @@ namespace Pulumi.Aws.AppMesh.Inputs
         }
 
         /// <summary>
-        /// The method name to match from the request. If you specify a name, you must also specify a `service_name`.
+        /// Method name to match from the request. If you specify a name, you must also specify a `service_name`.
         /// </summary>
         [Input("methodName")]
         public Input<string>? MethodName { get; set; }
 
         /// <summary>
-        /// The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
+        /// Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
         /// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
         /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
 
         /// <summary>
-        /// The fully qualified domain name for the service to match from the request.
+        /// Fully qualified domain name for the service to match from the request.
         /// </summary>
         [Input("serviceName")]
         public Input<string>? ServiceName { get; set; }

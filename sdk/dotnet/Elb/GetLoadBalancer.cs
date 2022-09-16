@@ -86,7 +86,7 @@ namespace Pulumi.Aws.Elb
     public sealed class GetLoadBalancerArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The unique name of the load balancer.
+        /// Unique name of the load balancer.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -108,7 +108,7 @@ namespace Pulumi.Aws.Elb
     public sealed class GetLoadBalancerInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The unique name of the load balancer.
+        /// Unique name of the load balancer.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

@@ -17,14 +17,14 @@ public final class GetServiceArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetServiceArgs Empty = new GetServiceArgs();
 
     /**
-     * The arn of the ECS Cluster
+     * ARN of the ECS Cluster
      * 
      */
     @Import(name="clusterArn", required=true)
     private Output<String> clusterArn;
 
     /**
-     * @return The arn of the ECS Cluster
+     * @return ARN of the ECS Cluster
      * 
      */
     public Output<String> clusterArn() {
@@ -32,14 +32,14 @@ public final class GetServiceArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The name of the ECS Service
+     * Name of the ECS Service
      * 
      */
     @Import(name="serviceName", required=true)
     private Output<String> serviceName;
 
     /**
-     * @return The name of the ECS Service
+     * @return Name of the ECS Service
      * 
      */
     public Output<String> serviceName() {
@@ -88,7 +88,7 @@ public final class GetServiceArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param clusterArn The arn of the ECS Cluster
+         * @param clusterArn ARN of the ECS Cluster
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class GetServiceArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param clusterArn The arn of the ECS Cluster
+         * @param clusterArn ARN of the ECS Cluster
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class GetServiceArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param serviceName The name of the ECS Service
+         * @param serviceName Name of the ECS Service
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class GetServiceArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param serviceName The name of the ECS Service
+         * @param serviceName Name of the ECS Service
          * 
          * @return builder
          * 

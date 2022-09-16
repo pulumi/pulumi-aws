@@ -51,7 +51,7 @@ func LookupRestApi(ctx *pulumi.Context, args *LookupRestApiArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getRestApi.
 type LookupRestApiArgs struct {
-	// The name of the REST API to look up. If no REST API is found with this name, an error will be returned. If multiple REST APIs are found with this name, an error will be returned.
+	// Name of the REST API to look up. If no REST API is found with this name, an error will be returned. If multiple REST APIs are found with this name, an error will be returned.
 	Name string `pulumi:"name"`
 	// Key-value map of resource tags.
 	Tags map[string]string `pulumi:"tags"`
@@ -59,13 +59,13 @@ type LookupRestApiArgs struct {
 
 // A collection of values returned by getRestApi.
 type LookupRestApiResult struct {
-	// The source of the API key for requests.
+	// Source of the API key for requests.
 	ApiKeySource string `pulumi:"apiKeySource"`
-	// The ARN of the REST API.
+	// ARN of the REST API.
 	Arn string `pulumi:"arn"`
-	// The list of binary media types supported by the REST API.
+	// List of binary media types supported by the REST API.
 	BinaryMediaTypes []string `pulumi:"binaryMediaTypes"`
-	// The description of the REST API.
+	// Description of the REST API.
 	Description string `pulumi:"description"`
 	// The endpoint configuration of this RestApi showing the endpoint types of the API.
 	EndpointConfigurations []GetRestApiEndpointConfiguration `pulumi:"endpointConfigurations"`
@@ -99,7 +99,7 @@ func LookupRestApiOutput(ctx *pulumi.Context, args LookupRestApiOutputArgs, opts
 
 // A collection of arguments for invoking getRestApi.
 type LookupRestApiOutputArgs struct {
-	// The name of the REST API to look up. If no REST API is found with this name, an error will be returned. If multiple REST APIs are found with this name, an error will be returned.
+	// Name of the REST API to look up. If no REST API is found with this name, an error will be returned. If multiple REST APIs are found with this name, an error will be returned.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Key-value map of resource tags.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -124,22 +124,22 @@ func (o LookupRestApiResultOutput) ToLookupRestApiResultOutputWithContext(ctx co
 	return o
 }
 
-// The source of the API key for requests.
+// Source of the API key for requests.
 func (o LookupRestApiResultOutput) ApiKeySource() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRestApiResult) string { return v.ApiKeySource }).(pulumi.StringOutput)
 }
 
-// The ARN of the REST API.
+// ARN of the REST API.
 func (o LookupRestApiResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRestApiResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The list of binary media types supported by the REST API.
+// List of binary media types supported by the REST API.
 func (o LookupRestApiResultOutput) BinaryMediaTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupRestApiResult) []string { return v.BinaryMediaTypes }).(pulumi.StringArrayOutput)
 }
 
-// The description of the REST API.
+// Description of the REST API.
 func (o LookupRestApiResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRestApiResult) string { return v.Description }).(pulumi.StringOutput)
 }

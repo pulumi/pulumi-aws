@@ -66,14 +66,14 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The security groups.
+     * A list of security group IDs that will be attached to the user.
      * 
      */
     @Import(name="securityGroups")
     private @Nullable Output<List<String>> securityGroups;
 
     /**
-     * @return The security groups.
+     * @return A list of security group IDs that will be attached to the user.
      * 
      */
     public Optional<Output<List<String>>> securityGroups() {
@@ -203,7 +203,7 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param securityGroups The security groups.
+         * @param securityGroups A list of security group IDs that will be attached to the user.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param securityGroups The security groups.
+         * @param securityGroups A list of security group IDs that will be attached to the user.
          * 
          * @return builder
          * 
@@ -224,7 +224,7 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param securityGroups The security groups.
+         * @param securityGroups A list of security group IDs that will be attached to the user.
          * 
          * @return builder
          * 

@@ -4314,7 +4314,7 @@ type LoadBalancerSubnetMapping struct {
 	OutpostId   *string `pulumi:"outpostId"`
 	// A private ipv4 address within the subnet to assign to the internal-facing load balancer.
 	PrivateIpv4Address *string `pulumi:"privateIpv4Address"`
-	// The id of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
+	// ID of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
 	SubnetId string `pulumi:"subnetId"`
 }
 
@@ -4337,7 +4337,7 @@ type LoadBalancerSubnetMappingArgs struct {
 	OutpostId   pulumi.StringPtrInput `pulumi:"outpostId"`
 	// A private ipv4 address within the subnet to assign to the internal-facing load balancer.
 	PrivateIpv4Address pulumi.StringPtrInput `pulumi:"privateIpv4Address"`
-	// The id of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
+	// ID of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 }
 
@@ -4411,7 +4411,7 @@ func (o LoadBalancerSubnetMappingOutput) PrivateIpv4Address() pulumi.StringPtrOu
 	return o.ApplyT(func(v LoadBalancerSubnetMapping) *string { return v.PrivateIpv4Address }).(pulumi.StringPtrOutput)
 }
 
-// The id of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
+// ID of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
 func (o LoadBalancerSubnetMappingOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v LoadBalancerSubnetMapping) string { return v.SubnetId }).(pulumi.StringOutput)
 }

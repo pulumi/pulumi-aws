@@ -82,14 +82,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:emr/managedScalingPolicy:ManagedScalingPolicy")
 public class ManagedScalingPolicy extends com.pulumi.resources.CustomResource {
     /**
-     * The id of the EMR cluster
+     * ID of the EMR cluster
      * 
      */
     @Export(name="clusterId", type=String.class, parameters={})
     private Output<String> clusterId;
 
     /**
-     * @return The id of the EMR cluster
+     * @return ID of the EMR cluster
      * 
      */
     public Output<String> clusterId() {

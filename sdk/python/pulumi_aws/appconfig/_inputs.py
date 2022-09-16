@@ -21,8 +21,8 @@ class ConfigurationProfileValidatorArgs:
                  type: pulumi.Input[str],
                  content: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: The type of validator. Valid values: `JSON_SCHEMA` and `LAMBDA`.
-        :param pulumi.Input[str] content: Either the JSON Schema content or the Amazon Resource Name (ARN) of an AWS Lambda function.
+        :param pulumi.Input[str] type: Type of validator. Valid values: `JSON_SCHEMA` and `LAMBDA`.
+        :param pulumi.Input[str] content: Either the JSON Schema content or the ARN of an AWS Lambda function.
         """
         pulumi.set(__self__, "type", type)
         if content is not None:
@@ -32,7 +32,7 @@ class ConfigurationProfileValidatorArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The type of validator. Valid values: `JSON_SCHEMA` and `LAMBDA`.
+        Type of validator. Valid values: `JSON_SCHEMA` and `LAMBDA`.
         """
         return pulumi.get(self, "type")
 
@@ -44,7 +44,7 @@ class ConfigurationProfileValidatorArgs:
     @pulumi.getter
     def content(self) -> Optional[pulumi.Input[str]]:
         """
-        Either the JSON Schema content or the Amazon Resource Name (ARN) of an AWS Lambda function.
+        Either the JSON Schema content or the ARN of an AWS Lambda function.
         """
         return pulumi.get(self, "content")
 
@@ -96,7 +96,7 @@ class EventIntegrationEventFilterArgs:
     def __init__(__self__, *,
                  source: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] source: The source of the events.
+        :param pulumi.Input[str] source: Source of the events.
         """
         pulumi.set(__self__, "source", source)
 
@@ -104,7 +104,7 @@ class EventIntegrationEventFilterArgs:
     @pulumi.getter
     def source(self) -> pulumi.Input[str]:
         """
-        The source of the events.
+        Source of the events.
         """
         return pulumi.get(self, "source")
 

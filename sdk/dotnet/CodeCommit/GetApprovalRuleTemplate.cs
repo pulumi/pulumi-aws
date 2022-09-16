@@ -70,7 +70,7 @@ namespace Pulumi.Aws.CodeCommit
     public sealed class GetApprovalRuleTemplateArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name for the approval rule template. This needs to be less than 100 characters.
+        /// Name for the approval rule template. This needs to be less than 100 characters.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.Aws.CodeCommit
     public sealed class GetApprovalRuleTemplateInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name for the approval rule template. This needs to be less than 100 characters.
+        /// Name for the approval rule template. This needs to be less than 100 characters.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -104,15 +104,15 @@ namespace Pulumi.Aws.CodeCommit
         /// </summary>
         public readonly string ApprovalRuleTemplateId;
         /// <summary>
-        /// The content of the approval rule template.
+        /// Content of the approval rule template.
         /// </summary>
         public readonly string Content;
         /// <summary>
-        /// The date the approval rule template was created, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        /// Date the approval rule template was created, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         /// </summary>
         public readonly string CreationDate;
         /// <summary>
-        /// The description of the approval rule template.
+        /// Description of the approval rule template.
         /// </summary>
         public readonly string Description;
         /// <summary>
@@ -120,16 +120,16 @@ namespace Pulumi.Aws.CodeCommit
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The date the approval rule template was most recently changed, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        /// Date the approval rule template was most recently changed, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         /// </summary>
         public readonly string LastModifiedDate;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
+        /// ARN of the user who made the most recent changes to the approval rule template.
         /// </summary>
         public readonly string LastModifiedUser;
         public readonly string Name;
         /// <summary>
-        /// The SHA-256 hash signature for the content of the approval rule template.
+        /// SHA-256 hash signature for the content of the approval rule template.
         /// </summary>
         public readonly string RuleContentSha256;
 

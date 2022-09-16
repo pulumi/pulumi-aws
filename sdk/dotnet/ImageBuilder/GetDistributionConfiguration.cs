@@ -70,7 +70,7 @@ namespace Pulumi.Aws.ImageBuilder
     public sealed class GetDistributionConfigurationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the distribution configuration.
+        /// ARN of the distribution configuration.
         /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
@@ -96,7 +96,7 @@ namespace Pulumi.Aws.ImageBuilder
     public sealed class GetDistributionConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the distribution configuration.
+        /// ARN of the distribution configuration.
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;

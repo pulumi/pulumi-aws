@@ -75,7 +75,8 @@ type SecurityProfile struct {
 	// The identifier for the Security Profile.
 	SecurityProfileId pulumi.StringOutput    `pulumi:"securityProfileId"`
 	Tags              pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll           pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewSecurityProfile registers a new resource with the given unique name, arguments, and options.
@@ -125,7 +126,8 @@ type securityProfileState struct {
 	// The identifier for the Security Profile.
 	SecurityProfileId *string           `pulumi:"securityProfileId"`
 	Tags              map[string]string `pulumi:"tags"`
-	TagsAll           map[string]string `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type SecurityProfileState struct {
@@ -144,7 +146,8 @@ type SecurityProfileState struct {
 	// The identifier for the Security Profile.
 	SecurityProfileId pulumi.StringPtrInput
 	Tags              pulumi.StringMapInput
-	TagsAll           pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (SecurityProfileState) ElementType() reflect.Type {
@@ -302,6 +305,7 @@ func (o SecurityProfileOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SecurityProfile) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o SecurityProfileOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SecurityProfile) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetSubnetGroupResult {
     /**
-     * @return The Amazon Resource Name (ARN) for the DB subnet group.
+     * @return ARN for the DB subnet group.
      * 
      */
     private String arn;
@@ -49,7 +49,7 @@ public final class GetSubnetGroupResult {
 
     private GetSubnetGroupResult() {}
     /**
-     * @return The Amazon Resource Name (ARN) for the DB subnet group.
+     * @return ARN for the DB subnet group.
      * 
      */
     public String arn() {

@@ -62,7 +62,7 @@ class GetHoursOfOperationResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the Hours of Operation.
+        ARN of the Hours of Operation.
         """
         return pulumi.get(self, "arn")
 
@@ -70,7 +70,7 @@ class GetHoursOfOperationResult:
     @pulumi.getter
     def configs(self) -> Sequence['outputs.GetHoursOfOperationConfigResult']:
         """
-        Specifies configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below. Config blocks are documented below.
+        Configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below. Config blocks are documented below.
         """
         return pulumi.get(self, "configs")
 
@@ -78,7 +78,7 @@ class GetHoursOfOperationResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        Specifies the description of the Hours of Operation.
+        Description of the Hours of Operation.
         """
         return pulumi.get(self, "description")
 
@@ -86,7 +86,7 @@ class GetHoursOfOperationResult:
     @pulumi.getter(name="hoursOfOperationArn")
     def hours_of_operation_arn(self) -> str:
         """
-        (**Deprecated**) The Amazon Resource Name (ARN) of the Hours of Operation.
+        (**Deprecated**) ARN of the Hours of Operation.
         """
         return pulumi.get(self, "hours_of_operation_arn")
 
@@ -110,7 +110,7 @@ class GetHoursOfOperationResult:
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> str:
         """
-        Specifies the identifier of the hosting Amazon Connect Instance.
+        Identifier of the hosting Amazon Connect Instance.
         """
         return pulumi.get(self, "instance_id")
 
@@ -118,7 +118,7 @@ class GetHoursOfOperationResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Specifies the name of the Hours of Operation.
+        Name of the Hours of Operation.
         """
         return pulumi.get(self, "name")
 
@@ -126,7 +126,7 @@ class GetHoursOfOperationResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        A map of tags to assign to the Hours of Operation.
+        Map of tags to assign to the Hours of Operation.
         """
         return pulumi.get(self, "tags")
 
@@ -134,7 +134,7 @@ class GetHoursOfOperationResult:
     @pulumi.getter(name="timeZone")
     def time_zone(self) -> str:
         """
-        Specifies the time zone of the Hours of Operation.
+        Time zone of the Hours of Operation.
         """
         return pulumi.get(self, "time_zone")
 
@@ -191,7 +191,7 @@ def get_hours_of_operation(hours_of_operation_id: Optional[str] = None,
     :param str hours_of_operation_id: Returns information on a specific Hours of Operation by hours of operation id
     :param str instance_id: Reference to the hosting Amazon Connect Instance
     :param str name: Returns information on a specific Hours of Operation by name
-    :param Mapping[str, str] tags: A map of tags to assign to the Hours of Operation.
+    :param Mapping[str, str] tags: Map of tags to assign to the Hours of Operation.
     """
     __args__ = dict()
     __args__['hoursOfOperationId'] = hours_of_operation_id
@@ -249,6 +249,6 @@ def get_hours_of_operation_output(hours_of_operation_id: Optional[pulumi.Input[O
     :param str hours_of_operation_id: Returns information on a specific Hours of Operation by hours of operation id
     :param str instance_id: Reference to the hosting Amazon Connect Instance
     :param str name: Returns information on a specific Hours of Operation by name
-    :param Mapping[str, str] tags: A map of tags to assign to the Hours of Operation.
+    :param Mapping[str, str] tags: Map of tags to assign to the Hours of Operation.
     """
     ...

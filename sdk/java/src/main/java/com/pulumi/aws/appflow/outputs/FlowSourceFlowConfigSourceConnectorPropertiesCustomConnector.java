@@ -12,26 +12,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector {
     /**
-     * @return The custom properties that are specific to the connector when it&#39;s used as a source in the flow. Maximum of 50 items.
+     * @return Custom properties that are specific to the connector when it&#39;s used as a source in the flow. Maximum of 50 items.
      * 
      */
     private @Nullable Map<String,String> customProperties;
     /**
-     * @return The entity specified in the custom connector as a source in the flow.
+     * @return Entity specified in the custom connector as a source in the flow.
      * 
      */
     private String entityName;
 
     private FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector() {}
     /**
-     * @return The custom properties that are specific to the connector when it&#39;s used as a source in the flow. Maximum of 50 items.
+     * @return Custom properties that are specific to the connector when it&#39;s used as a source in the flow. Maximum of 50 items.
      * 
      */
     public Map<String,String> customProperties() {
         return this.customProperties == null ? Map.of() : this.customProperties;
     }
     /**
-     * @return The entity specified in the custom connector as a source in the flow.
+     * @return Entity specified in the custom connector as a source in the flow.
      * 
      */
     public String entityName() {

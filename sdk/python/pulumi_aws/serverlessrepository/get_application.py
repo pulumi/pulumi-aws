@@ -48,7 +48,7 @@ class GetApplicationResult:
     @pulumi.getter(name="applicationId")
     def application_id(self) -> str:
         """
-        The ARN of the application.
+        ARN of the application.
         """
         return pulumi.get(self, "application_id")
 
@@ -64,7 +64,7 @@ class GetApplicationResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the application.
+        Name of the application.
         """
         return pulumi.get(self, "name")
 
@@ -85,7 +85,7 @@ class GetApplicationResult:
     @pulumi.getter(name="sourceCodeUrl")
     def source_code_url(self) -> str:
         """
-        A URL pointing to the source code of the application version.
+        URL pointing to the source code of the application version.
         """
         return pulumi.get(self, "source_code_url")
 
@@ -93,7 +93,7 @@ class GetApplicationResult:
     @pulumi.getter(name="templateUrl")
     def template_url(self) -> str:
         """
-        A URL pointing to the Cloud Formation template for the application version.
+        URL pointing to the Cloud Formation template for the application version.
         """
         return pulumi.get(self, "template_url")
 
@@ -133,8 +133,8 @@ def get_application(application_id: Optional[str] = None,
     ```
 
 
-    :param str application_id: The ARN of the application.
-    :param str semantic_version: The requested version of the application. By default, retrieves the latest version.
+    :param str application_id: ARN of the application.
+    :param str semantic_version: Requested version of the application. By default, retrieves the latest version.
     """
     __args__ = dict()
     __args__['applicationId'] = application_id
@@ -173,7 +173,7 @@ def get_application_output(application_id: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str application_id: The ARN of the application.
-    :param str semantic_version: The requested version of the application. By default, retrieves the latest version.
+    :param str application_id: ARN of the application.
+    :param str semantic_version: Requested version of the application. By default, retrieves the latest version.
     """
     ...

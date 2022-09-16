@@ -13,7 +13,7 @@ import (
 // Retrieve information about a firewall.
 //
 // ## Example Usage
-// ### Find firewall policy by Amazon Resource Name (ARN)
+// ### Find firewall policy by ARN
 //
 // ```go
 // package main
@@ -63,7 +63,7 @@ import (
 //	}
 //
 // ```
-// ### Find firewall policy by Amazon Resource Name (ARN) and Name
+// ### Find firewall policy by ARN and Name
 //
 // ```go
 // package main
@@ -100,9 +100,9 @@ func LookupFirewall(ctx *pulumi.Context, args *LookupFirewallArgs, opts ...pulum
 
 // A collection of arguments for invoking getFirewall.
 type LookupFirewallArgs struct {
-	// The Amazon Resource Name (ARN) of the firewall.
+	// ARN of the firewall.
 	Arn *string `pulumi:"arn"`
-	// The descriptive name of the firewall.
+	// Descriptive name of the firewall.
 	Name *string `pulumi:"name"`
 	// Map of resource tags to associate with the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -110,15 +110,15 @@ type LookupFirewallArgs struct {
 
 // A collection of values returned by getFirewall.
 type LookupFirewallResult struct {
-	// The Amazon Resource Name (ARN) of the firewall.
+	// ARN of the firewall.
 	Arn string `pulumi:"arn"`
-	// A boolean flag indicating whether it is possible to delete the firewall.
+	// Boolean flag indicating whether it is possible to delete the firewall.
 	DeleteProtection bool `pulumi:"deleteProtection"`
-	// A description of the firewall.
+	// Description of the firewall.
 	Description string `pulumi:"description"`
 	// AWS Key Management Service (AWS KMS) encryption settings for the firewall.
 	EncryptionConfigurations []GetFirewallEncryptionConfiguration `pulumi:"encryptionConfigurations"`
-	// The Amazon Resource Name (ARN) of the VPC Firewall policy.
+	// ARN of the VPC Firewall policy.
 	FirewallPolicyArn string `pulumi:"firewallPolicyArn"`
 	// A boolean flag indicating whether it is possible to change the associated firewall policy.
 	FirewallPolicyChangeProtection bool `pulumi:"firewallPolicyChangeProtection"`
@@ -126,7 +126,7 @@ type LookupFirewallResult struct {
 	FirewallStatuses []GetFirewallFirewallStatus `pulumi:"firewallStatuses"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The descriptive name of the firewall.
+	// Descriptive name of the firewall.
 	Name string `pulumi:"name"`
 	// A boolean flag indicating whether it is possible to change the associated subnet(s).
 	SubnetChangeProtection bool `pulumi:"subnetChangeProtection"`
@@ -134,9 +134,9 @@ type LookupFirewallResult struct {
 	SubnetMappings []GetFirewallSubnetMapping `pulumi:"subnetMappings"`
 	// Map of resource tags to associate with the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A string token used when updating a firewall.
+	// String token used when updating a firewall.
 	UpdateToken string `pulumi:"updateToken"`
-	// The unique identifier of the VPC where AWS Network Firewall should create the firewall.
+	// Unique identifier of the VPC where AWS Network Firewall should create the firewall.
 	VpcId string `pulumi:"vpcId"`
 }
 
@@ -155,9 +155,9 @@ func LookupFirewallOutput(ctx *pulumi.Context, args LookupFirewallOutputArgs, op
 
 // A collection of arguments for invoking getFirewall.
 type LookupFirewallOutputArgs struct {
-	// The Amazon Resource Name (ARN) of the firewall.
+	// ARN of the firewall.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
-	// The descriptive name of the firewall.
+	// Descriptive name of the firewall.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Map of resource tags to associate with the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -182,17 +182,17 @@ func (o LookupFirewallResultOutput) ToLookupFirewallResultOutputWithContext(ctx 
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the firewall.
+// ARN of the firewall.
 func (o LookupFirewallResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFirewallResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A boolean flag indicating whether it is possible to delete the firewall.
+// Boolean flag indicating whether it is possible to delete the firewall.
 func (o LookupFirewallResultOutput) DeleteProtection() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupFirewallResult) bool { return v.DeleteProtection }).(pulumi.BoolOutput)
 }
 
-// A description of the firewall.
+// Description of the firewall.
 func (o LookupFirewallResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFirewallResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -202,7 +202,7 @@ func (o LookupFirewallResultOutput) EncryptionConfigurations() GetFirewallEncryp
 	return o.ApplyT(func(v LookupFirewallResult) []GetFirewallEncryptionConfiguration { return v.EncryptionConfigurations }).(GetFirewallEncryptionConfigurationArrayOutput)
 }
 
-// The Amazon Resource Name (ARN) of the VPC Firewall policy.
+// ARN of the VPC Firewall policy.
 func (o LookupFirewallResultOutput) FirewallPolicyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFirewallResult) string { return v.FirewallPolicyArn }).(pulumi.StringOutput)
 }
@@ -222,7 +222,7 @@ func (o LookupFirewallResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFirewallResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The descriptive name of the firewall.
+// Descriptive name of the firewall.
 func (o LookupFirewallResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFirewallResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -242,12 +242,12 @@ func (o LookupFirewallResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupFirewallResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A string token used when updating a firewall.
+// String token used when updating a firewall.
 func (o LookupFirewallResultOutput) UpdateToken() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFirewallResult) string { return v.UpdateToken }).(pulumi.StringOutput)
 }
 
-// The unique identifier of the VPC where AWS Network Firewall should create the firewall.
+// Unique identifier of the VPC where AWS Network Firewall should create the firewall.
 func (o LookupFirewallResultOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFirewallResult) string { return v.VpcId }).(pulumi.StringOutput)
 }

@@ -17,14 +17,14 @@ public final class GetOpenidConnectProviderArgs extends com.pulumi.resources.Inv
     public static final GetOpenidConnectProviderArgs Empty = new GetOpenidConnectProviderArgs();
 
     /**
-     * The Amazon Resource Name (ARN) specifying the OpenID Connect provider.
+     * ARN of the OpenID Connect provider.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) specifying the OpenID Connect provider.
+     * @return ARN of the OpenID Connect provider.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -47,14 +47,14 @@ public final class GetOpenidConnectProviderArgs extends com.pulumi.resources.Inv
     }
 
     /**
-     * The URL of the OpenID Connect provider.
+     * URL of the OpenID Connect provider.
      * 
      */
     @Import(name="url")
     private @Nullable Output<String> url;
 
     /**
-     * @return The URL of the OpenID Connect provider.
+     * @return URL of the OpenID Connect provider.
      * 
      */
     public Optional<Output<String>> url() {
@@ -88,7 +88,7 @@ public final class GetOpenidConnectProviderArgs extends com.pulumi.resources.Inv
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) specifying the OpenID Connect provider.
+         * @param arn ARN of the OpenID Connect provider.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class GetOpenidConnectProviderArgs extends com.pulumi.resources.Inv
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) specifying the OpenID Connect provider.
+         * @param arn ARN of the OpenID Connect provider.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class GetOpenidConnectProviderArgs extends com.pulumi.resources.Inv
         }
 
         /**
-         * @param url The URL of the OpenID Connect provider.
+         * @param url URL of the OpenID Connect provider.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class GetOpenidConnectProviderArgs extends com.pulumi.resources.Inv
         }
 
         /**
-         * @param url The URL of the OpenID Connect provider.
+         * @param url URL of the OpenID Connect provider.
          * 
          * @return builder
          * 

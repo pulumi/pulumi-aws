@@ -48,7 +48,7 @@ func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getCluster.
 type LookupClusterArgs struct {
-	// The cluster identifier of the RDS cluster.
+	// Cluster identifier of the RDS cluster.
 	ClusterIdentifier string            `pulumi:"clusterIdentifier"`
 	Tags              map[string]string `pulumi:"tags"`
 }
@@ -77,6 +77,7 @@ type LookupClusterResult struct {
 	Id                          string            `pulumi:"id"`
 	KmsKeyId                    string            `pulumi:"kmsKeyId"`
 	MasterUsername              string            `pulumi:"masterUsername"`
+	NetworkType                 string            `pulumi:"networkType"`
 	Port                        int               `pulumi:"port"`
 	PreferredBackupWindow       string            `pulumi:"preferredBackupWindow"`
 	PreferredMaintenanceWindow  string            `pulumi:"preferredMaintenanceWindow"`
@@ -102,7 +103,7 @@ func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts
 
 // A collection of arguments for invoking getCluster.
 type LookupClusterOutputArgs struct {
-	// The cluster identifier of the RDS cluster.
+	// Cluster identifier of the RDS cluster.
 	ClusterIdentifier pulumi.StringInput    `pulumi:"clusterIdentifier"`
 	Tags              pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -209,6 +210,10 @@ func (o LookupClusterResultOutput) KmsKeyId() pulumi.StringOutput {
 
 func (o LookupClusterResultOutput) MasterUsername() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.MasterUsername }).(pulumi.StringOutput)
+}
+
+func (o LookupClusterResultOutput) NetworkType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.NetworkType }).(pulumi.StringOutput)
 }
 
 func (o LookupClusterResultOutput) Port() pulumi.IntOutput {

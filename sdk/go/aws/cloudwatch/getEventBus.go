@@ -50,13 +50,13 @@ func LookupEventBus(ctx *pulumi.Context, args *LookupEventBusArgs, opts ...pulum
 
 // A collection of arguments for invoking getEventBus.
 type LookupEventBusArgs struct {
-	// The friendly EventBridge event bus name.
+	// Friendly EventBridge event bus name.
 	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getEventBus.
 type LookupEventBusResult struct {
-	// The Amazon Resource Name (ARN) specifying the role.
+	// ARN.
 	Arn string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
@@ -78,7 +78,7 @@ func LookupEventBusOutput(ctx *pulumi.Context, args LookupEventBusOutputArgs, op
 
 // A collection of arguments for invoking getEventBus.
 type LookupEventBusOutputArgs struct {
-	// The friendly EventBridge event bus name.
+	// Friendly EventBridge event bus name.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -101,7 +101,7 @@ func (o LookupEventBusResultOutput) ToLookupEventBusResultOutputWithContext(ctx 
 	return o
 }
 
-// The Amazon Resource Name (ARN) specifying the role.
+// ARN.
 func (o LookupEventBusResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEventBusResult) string { return v.Arn }).(pulumi.StringOutput)
 }

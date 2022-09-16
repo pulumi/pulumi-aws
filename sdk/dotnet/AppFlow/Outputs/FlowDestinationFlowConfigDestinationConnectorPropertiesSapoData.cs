@@ -14,15 +14,15 @@ namespace Pulumi.Aws.AppFlow.Outputs
     public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData
     {
         /// <summary>
-        /// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+        /// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
         /// </summary>
         public readonly Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig? ErrorHandlingConfig;
         /// <summary>
-        /// The name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+        /// Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
         /// </summary>
         public readonly ImmutableArray<string> IdFieldNames;
         /// <summary>
-        /// The object path specified in the SAPOData flow source.
+        /// Object path specified in the SAPOData flow source.
         /// </summary>
         public readonly string ObjectPath;
         /// <summary>

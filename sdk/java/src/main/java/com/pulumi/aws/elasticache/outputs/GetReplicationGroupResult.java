@@ -14,12 +14,12 @@ import java.util.Objects;
 @CustomType
 public final class GetReplicationGroupResult {
     /**
-     * @return The Amazon Resource Name (ARN) of the created ElastiCache Replication Group.
+     * @return ARN of the created ElastiCache Replication Group.
      * 
      */
     private String arn;
     /**
-     * @return Specifies whether an AuthToken (password) is enabled.
+     * @return Whether an AuthToken (password) is enabled.
      * 
      */
     private Boolean authTokenEnabled;
@@ -34,7 +34,7 @@ public final class GetReplicationGroupResult {
      */
     private String configurationEndpointAddress;
     /**
-     * @return The description of the replication group.
+     * @return Description of the replication group.
      * 
      */
     private String description;
@@ -49,12 +49,12 @@ public final class GetReplicationGroupResult {
      */
     private List<GetReplicationGroupLogDeliveryConfiguration> logDeliveryConfigurations;
     /**
-     * @return The identifiers of all the nodes that are part of this replication group.
+     * @return Identifiers of all the nodes that are part of this replication group.
      * 
      */
     private List<String> memberClusters;
     /**
-     * @return Specifies whether Multi-AZ Support is enabled for the replication group.
+     * @return Whether Multi-AZ Support is enabled for the replication group.
      * 
      */
     private Boolean multiAzEnabled;
@@ -74,7 +74,7 @@ public final class GetReplicationGroupResult {
      */
     private Integer numNodeGroups;
     /**
-     * @return (**Deprecated** use `num_cache_clusters` instead) The number of cache clusters that the replication group has.
+     * @return (**Deprecated** use `num_cache_clusters` instead) Number of cache clusters that the replication group has.
      * 
      * @deprecated
      * Use num_cache_clusters instead
@@ -103,7 +103,7 @@ public final class GetReplicationGroupResult {
      */
     private Integer replicasPerNodeGroup;
     /**
-     * @return (**Deprecated** use `description` instead) The description of the replication group.
+     * @return (**Deprecated** use `description` instead) Description of the replication group.
      * 
      * @deprecated
      * Use description instead
@@ -118,21 +118,21 @@ public final class GetReplicationGroupResult {
      */
     private Integer snapshotRetentionLimit;
     /**
-     * @return The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard).
+     * @return Daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard).
      * 
      */
     private String snapshotWindow;
 
     private GetReplicationGroupResult() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the created ElastiCache Replication Group.
+     * @return ARN of the created ElastiCache Replication Group.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return Specifies whether an AuthToken (password) is enabled.
+     * @return Whether an AuthToken (password) is enabled.
      * 
      */
     public Boolean authTokenEnabled() {
@@ -153,7 +153,7 @@ public final class GetReplicationGroupResult {
         return this.configurationEndpointAddress;
     }
     /**
-     * @return The description of the replication group.
+     * @return Description of the replication group.
      * 
      */
     public String description() {
@@ -174,14 +174,14 @@ public final class GetReplicationGroupResult {
         return this.logDeliveryConfigurations;
     }
     /**
-     * @return The identifiers of all the nodes that are part of this replication group.
+     * @return Identifiers of all the nodes that are part of this replication group.
      * 
      */
     public List<String> memberClusters() {
         return this.memberClusters;
     }
     /**
-     * @return Specifies whether Multi-AZ Support is enabled for the replication group.
+     * @return Whether Multi-AZ Support is enabled for the replication group.
      * 
      */
     public Boolean multiAzEnabled() {
@@ -209,7 +209,7 @@ public final class GetReplicationGroupResult {
         return this.numNodeGroups;
     }
     /**
-     * @return (**Deprecated** use `num_cache_clusters` instead) The number of cache clusters that the replication group has.
+     * @return (**Deprecated** use `num_cache_clusters` instead) Number of cache clusters that the replication group has.
      * 
      * @deprecated
      * Use num_cache_clusters instead
@@ -248,7 +248,7 @@ public final class GetReplicationGroupResult {
         return this.replicasPerNodeGroup;
     }
     /**
-     * @return (**Deprecated** use `description` instead) The description of the replication group.
+     * @return (**Deprecated** use `description` instead) Description of the replication group.
      * 
      * @deprecated
      * Use description instead
@@ -269,7 +269,7 @@ public final class GetReplicationGroupResult {
         return this.snapshotRetentionLimit;
     }
     /**
-     * @return The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard).
+     * @return Daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard).
      * 
      */
     public String snapshotWindow() {

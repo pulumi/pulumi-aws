@@ -72,13 +72,13 @@ namespace Pulumi.Aws.Kendra
     public sealed class GetExperienceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The identifier of the Experience.
+        /// Identifier of the Experience.
         /// </summary>
         [Input("experienceId", required: true)]
         public string ExperienceId { get; set; } = null!;
 
         /// <summary>
-        /// The identifier of the index that contains the Experience.
+        /// Identifier of the index that contains the Experience.
         /// </summary>
         [Input("indexId", required: true)]
         public string IndexId { get; set; } = null!;
@@ -92,13 +92,13 @@ namespace Pulumi.Aws.Kendra
     public sealed class GetExperienceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The identifier of the Experience.
+        /// Identifier of the Experience.
         /// </summary>
         [Input("experienceId", required: true)]
         public Input<string> ExperienceId { get; set; } = null!;
 
         /// <summary>
-        /// The identifier of the index that contains the Experience.
+        /// Identifier of the index that contains the Experience.
         /// </summary>
         [Input("indexId", required: true)]
         public Input<string> IndexId { get; set; } = null!;
@@ -114,19 +114,19 @@ namespace Pulumi.Aws.Kendra
     public sealed class GetExperienceResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Experience.
+        /// ARN of the Experience.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// A block that specifies the configuration information for your Amazon Kendra Experience. This includes `content_source_configuration`, which specifies the data source IDs and/or FAQ IDs, and `user_identity_configuration`, which specifies the user or group information to grant access to your Amazon Kendra Experience. Documented below.
+        /// Block that specifies the configuration information for your Amazon Kendra Experience. This includes `content_source_configuration`, which specifies the data source IDs and/or FAQ IDs, and `user_identity_configuration`, which specifies the user or group information to grant access to your Amazon Kendra Experience. Documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetExperienceConfigurationResult> Configurations;
         /// <summary>
-        /// The Unix datetime that the Experience was created.
+        /// Unix datetime that the Experience was created.
         /// </summary>
         public readonly string CreatedAt;
         /// <summary>
-        /// The description of the Experience.
+        /// Description of the Experience.
         /// </summary>
         public readonly string Description;
         /// <summary>
@@ -134,7 +134,7 @@ namespace Pulumi.Aws.Kendra
         /// </summary>
         public readonly ImmutableArray<Outputs.GetExperienceEndpointResult> Endpoints;
         /// <summary>
-        /// The reason your Amazon Kendra Experience could not properly process.
+        /// Reason your Amazon Kendra Experience could not properly process.
         /// </summary>
         public readonly string ErrorMessage;
         public readonly string ExperienceId;
@@ -144,19 +144,19 @@ namespace Pulumi.Aws.Kendra
         public readonly string Id;
         public readonly string IndexId;
         /// <summary>
-        /// The name of the Experience.
+        /// Name of the Experience.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Shows the Amazon Resource Name (ARN) of a role with permission to access `Query` API, `QuerySuggestions` API, `SubmitFeedback` API, and AWS SSO that stores your user and group information.
+        /// Shows the ARN of a role with permission to access `Query` API, `QuerySuggestions` API, `SubmitFeedback` API, and AWS SSO that stores your user and group information.
         /// </summary>
         public readonly string RoleArn;
         /// <summary>
-        /// The current processing status of your Amazon Kendra Experience. When the status is `ACTIVE`, your Amazon Kendra Experience is ready to use. When the status is `FAILED`, the `error_message` field contains the reason that this failed.
+        /// Current processing status of your Amazon Kendra Experience. When the status is `ACTIVE`, your Amazon Kendra Experience is ready to use. When the status is `FAILED`, the `error_message` field contains the reason that this failed.
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// The date and time that the Experience was last updated.
+        /// Date and time that the Experience was last updated.
         /// </summary>
         public readonly string UpdatedAt;
 

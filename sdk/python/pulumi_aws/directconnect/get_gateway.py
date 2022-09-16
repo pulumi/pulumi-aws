@@ -39,7 +39,7 @@ class GetGatewayResult:
     @pulumi.getter(name="amazonSideAsn")
     def amazon_side_asn(self) -> str:
         """
-        The ASN on the Amazon side of the connection.
+        ASN on the Amazon side of the connection.
         """
         return pulumi.get(self, "amazon_side_asn")
 
@@ -92,7 +92,7 @@ def get_gateway(name: Optional[str] = None,
     ```
 
 
-    :param str name: The name of the gateway to retrieve.
+    :param str name: Name of the gateway to retrieve.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -122,6 +122,6 @@ def get_gateway_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str name: The name of the gateway to retrieve.
+    :param str name: Name of the gateway to retrieve.
     """
     ...

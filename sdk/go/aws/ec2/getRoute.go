@@ -76,7 +76,7 @@ type LookupRouteArgs struct {
 	DestinationCidrBlock *string `pulumi:"destinationCidrBlock"`
 	// IPv6 CIDR block of the Route belonging to the Route Table.
 	DestinationIpv6CidrBlock *string `pulumi:"destinationIpv6CidrBlock"`
-	// The ID of a managed prefix list destination of the Route belonging to the Route Table.
+	// ID of a managed prefix list destination of the Route belonging to the Route Table.
 	DestinationPrefixListId *string `pulumi:"destinationPrefixListId"`
 	// Egress Only Gateway ID of the Route belonging to the Route Table.
 	EgressOnlyGatewayId *string `pulumi:"egressOnlyGatewayId"`
@@ -90,7 +90,7 @@ type LookupRouteArgs struct {
 	NatGatewayId *string `pulumi:"natGatewayId"`
 	// Network Interface ID of the Route belonging to the Route Table.
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
-	// The ID of the specific Route Table containing the Route entry.
+	// ID of the specific Route Table containing the Route entry.
 	RouteTableId string `pulumi:"routeTableId"`
 	// EC2 Transit Gateway ID of the Route belonging to the Route Table.
 	TransitGatewayId *string `pulumi:"transitGatewayId"`
@@ -141,7 +141,7 @@ type LookupRouteOutputArgs struct {
 	DestinationCidrBlock pulumi.StringPtrInput `pulumi:"destinationCidrBlock"`
 	// IPv6 CIDR block of the Route belonging to the Route Table.
 	DestinationIpv6CidrBlock pulumi.StringPtrInput `pulumi:"destinationIpv6CidrBlock"`
-	// The ID of a managed prefix list destination of the Route belonging to the Route Table.
+	// ID of a managed prefix list destination of the Route belonging to the Route Table.
 	DestinationPrefixListId pulumi.StringPtrInput `pulumi:"destinationPrefixListId"`
 	// Egress Only Gateway ID of the Route belonging to the Route Table.
 	EgressOnlyGatewayId pulumi.StringPtrInput `pulumi:"egressOnlyGatewayId"`
@@ -155,7 +155,7 @@ type LookupRouteOutputArgs struct {
 	NatGatewayId pulumi.StringPtrInput `pulumi:"natGatewayId"`
 	// Network Interface ID of the Route belonging to the Route Table.
 	NetworkInterfaceId pulumi.StringPtrInput `pulumi:"networkInterfaceId"`
-	// The ID of the specific Route Table containing the Route entry.
+	// ID of the specific Route Table containing the Route entry.
 	RouteTableId pulumi.StringInput `pulumi:"routeTableId"`
 	// EC2 Transit Gateway ID of the Route belonging to the Route Table.
 	TransitGatewayId pulumi.StringPtrInput `pulumi:"transitGatewayId"`

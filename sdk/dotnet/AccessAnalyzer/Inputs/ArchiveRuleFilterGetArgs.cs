@@ -25,7 +25,7 @@ namespace Pulumi.Aws.AccessAnalyzer.Inputs
         }
 
         /// <summary>
-        /// The filter criteria.
+        /// Filter criteria.
         /// </summary>
         [Input("criteria", required: true)]
         public Input<string> Criteria { get; set; } = null!;

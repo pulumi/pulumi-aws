@@ -17,14 +17,14 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs extend
     public static final FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs Empty = new FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs();
 
     /**
-     * The document type specified in the Veeva document extract flow.
+     * Document type specified in the Veeva document extract flow.
      * 
      */
     @Import(name="documentType")
     private @Nullable Output<String> documentType;
 
     /**
-     * @return The document type specified in the Veeva document extract flow.
+     * @return Document type specified in the Veeva document extract flow.
      * 
      */
     public Optional<Output<String>> documentType() {
@@ -77,14 +77,14 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs extend
     }
 
     /**
-     * The object specified in the Veeva flow source.
+     * Object specified in the Veeva flow source.
      * 
      */
     @Import(name="object", required=true)
     private Output<String> object;
 
     /**
-     * @return The object specified in the Veeva flow source.
+     * @return Object specified in the Veeva flow source.
      * 
      */
     public Output<String> object() {
@@ -120,7 +120,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs extend
         }
 
         /**
-         * @param documentType The document type specified in the Veeva document extract flow.
+         * @param documentType Document type specified in the Veeva document extract flow.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs extend
         }
 
         /**
-         * @param documentType The document type specified in the Veeva document extract flow.
+         * @param documentType Document type specified in the Veeva document extract flow.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs extend
         }
 
         /**
-         * @param object The object specified in the Veeva flow source.
+         * @param object Object specified in the Veeva flow source.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs extend
         }
 
         /**
-         * @param object The object specified in the Veeva flow source.
+         * @param object Object specified in the Veeva flow source.
          * 
          * @return builder
          * 

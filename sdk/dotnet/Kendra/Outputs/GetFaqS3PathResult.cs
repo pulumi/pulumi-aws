@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Kendra.Outputs
     public sealed class GetFaqS3PathResult
     {
         /// <summary>
-        /// The name of the S3 bucket that contains the file.
+        /// Name of the S3 bucket that contains the file.
         /// </summary>
         public readonly string Bucket;
         /// <summary>
-        /// The name of the file.
+        /// Name of the file.
         /// </summary>
         public readonly string Key;
 

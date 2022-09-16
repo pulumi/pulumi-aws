@@ -14,23 +14,23 @@ namespace Pulumi.Aws.Connect.Outputs
     public sealed class GetUserHierarchyGroupHierarchyPathResult
     {
         /// <summary>
-        /// A block that defines the details of level five. The level block is documented below.
+        /// Details of level five. See below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetUserHierarchyGroupHierarchyPathLevelFifeResult> LevelFives;
         /// <summary>
-        /// A block that defines the details of level four. The level block is documented below.
+        /// Details of level four. See below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetUserHierarchyGroupHierarchyPathLevelFourResult> LevelFours;
         /// <summary>
-        /// A block that defines the details of level one. The level block is documented below.
+        /// Details of level one. See below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetUserHierarchyGroupHierarchyPathLevelOneResult> LevelOnes;
         /// <summary>
-        /// A block that defines the details of level three. The level block is documented below.
+        /// Details of level three. See below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetUserHierarchyGroupHierarchyPathLevelThreeResult> LevelThrees;
         /// <summary>
-        /// A block that defines the details of level two. The level block is documented below.
+        /// Details of level two. See below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetUserHierarchyGroupHierarchyPathLevelTwoResult> LevelTwos;
 

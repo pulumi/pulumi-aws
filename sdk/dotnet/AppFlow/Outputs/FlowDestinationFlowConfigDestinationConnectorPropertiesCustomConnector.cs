@@ -14,19 +14,19 @@ namespace Pulumi.Aws.AppFlow.Outputs
     public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector
     {
         /// <summary>
-        /// The custom properties that are specific to the connector when it's used as a source in the flow. Maximum of 50 items.
+        /// Custom properties that are specific to the connector when it's used as a source in the flow. Maximum of 50 items.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? CustomProperties;
         /// <summary>
-        /// The entity specified in the custom connector as a source in the flow.
+        /// Entity specified in the custom connector as a source in the flow.
         /// </summary>
         public readonly string EntityName;
         /// <summary>
-        /// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+        /// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
         /// </summary>
         public readonly Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig? ErrorHandlingConfig;
         /// <summary>
-        /// The name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+        /// Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
         /// </summary>
         public readonly ImmutableArray<string> IdFieldNames;
         /// <summary>

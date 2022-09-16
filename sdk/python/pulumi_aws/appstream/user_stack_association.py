@@ -23,7 +23,7 @@ class UserStackAssociationArgs:
         :param pulumi.Input[str] authentication_type: Authentication type for the user.
         :param pulumi.Input[str] stack_name: Name of the stack that is associated with the user.
         :param pulumi.Input[str] user_name: Email address of the user who is associated with the stack.
-        :param pulumi.Input[bool] send_email_notification: Specifies whether a welcome email is sent to a user after the user is created in the user pool.
+        :param pulumi.Input[bool] send_email_notification: Whether a welcome email is sent to a user after the user is created in the user pool.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
         pulumi.set(__self__, "stack_name", stack_name)
@@ -71,7 +71,7 @@ class UserStackAssociationArgs:
     @pulumi.getter(name="sendEmailNotification")
     def send_email_notification(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies whether a welcome email is sent to a user after the user is created in the user pool.
+        Whether a welcome email is sent to a user after the user is created in the user pool.
         """
         return pulumi.get(self, "send_email_notification")
 
@@ -90,7 +90,7 @@ class _UserStackAssociationState:
         """
         Input properties used for looking up and filtering UserStackAssociation resources.
         :param pulumi.Input[str] authentication_type: Authentication type for the user.
-        :param pulumi.Input[bool] send_email_notification: Specifies whether a welcome email is sent to a user after the user is created in the user pool.
+        :param pulumi.Input[bool] send_email_notification: Whether a welcome email is sent to a user after the user is created in the user pool.
         :param pulumi.Input[str] stack_name: Name of the stack that is associated with the user.
         :param pulumi.Input[str] user_name: Email address of the user who is associated with the stack.
         """
@@ -119,7 +119,7 @@ class _UserStackAssociationState:
     @pulumi.getter(name="sendEmailNotification")
     def send_email_notification(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies whether a welcome email is sent to a user after the user is created in the user pool.
+        Whether a welcome email is sent to a user after the user is created in the user pool.
         """
         return pulumi.get(self, "send_email_notification")
 
@@ -192,7 +192,7 @@ class UserStackAssociation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authentication_type: Authentication type for the user.
-        :param pulumi.Input[bool] send_email_notification: Specifies whether a welcome email is sent to a user after the user is created in the user pool.
+        :param pulumi.Input[bool] send_email_notification: Whether a welcome email is sent to a user after the user is created in the user pool.
         :param pulumi.Input[str] stack_name: Name of the stack that is associated with the user.
         :param pulumi.Input[str] user_name: Email address of the user who is associated with the stack.
         """
@@ -289,7 +289,7 @@ class UserStackAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authentication_type: Authentication type for the user.
-        :param pulumi.Input[bool] send_email_notification: Specifies whether a welcome email is sent to a user after the user is created in the user pool.
+        :param pulumi.Input[bool] send_email_notification: Whether a welcome email is sent to a user after the user is created in the user pool.
         :param pulumi.Input[str] stack_name: Name of the stack that is associated with the user.
         :param pulumi.Input[str] user_name: Email address of the user who is associated with the stack.
         """
@@ -315,7 +315,7 @@ class UserStackAssociation(pulumi.CustomResource):
     @pulumi.getter(name="sendEmailNotification")
     def send_email_notification(self) -> pulumi.Output[Optional[bool]]:
         """
-        Specifies whether a welcome email is sent to a user after the user is created in the user pool.
+        Whether a welcome email is sent to a user after the user is created in the user pool.
         """
         return pulumi.get(self, "send_email_notification")
 

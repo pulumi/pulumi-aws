@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Glue.Outputs
     public sealed class GetScriptDagNodeArgResult
     {
         /// <summary>
-        /// The name of the argument or property.
+        /// Name of the argument or property.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Glue.Outputs
         /// </summary>
         public readonly bool? Param;
         /// <summary>
-        /// The value of the argument or property.
+        /// Value of the argument or property.
         /// </summary>
         public readonly string Value;
 

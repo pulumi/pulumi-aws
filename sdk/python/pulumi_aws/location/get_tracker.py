@@ -54,7 +54,7 @@ class GetTrackerResult:
     @pulumi.getter(name="createTime")
     def create_time(self) -> str:
         """
-        The timestamp for when the tracker resource was created in ISO 8601 format.
+        Timestamp for when the tracker resource was created in ISO 8601 format.
         """
         return pulumi.get(self, "create_time")
 
@@ -62,7 +62,7 @@ class GetTrackerResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        The optional description for the tracker resource.
+        Optional description for the tracker resource.
         """
         return pulumi.get(self, "description")
 
@@ -78,7 +78,7 @@ class GetTrackerResult:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> str:
         """
-        A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
+        Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -86,7 +86,7 @@ class GetTrackerResult:
     @pulumi.getter(name="positionFiltering")
     def position_filtering(self) -> str:
         """
-        The position filtering method of the tracker resource.
+        Position filtering method of the tracker resource.
         """
         return pulumi.get(self, "position_filtering")
 
@@ -102,7 +102,7 @@ class GetTrackerResult:
     @pulumi.getter(name="trackerArn")
     def tracker_arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS.
+        ARN for the tracker resource. Used when you need to specify a resource across all AWS.
         """
         return pulumi.get(self, "tracker_arn")
 
@@ -115,7 +115,7 @@ class GetTrackerResult:
     @pulumi.getter(name="updateTime")
     def update_time(self) -> str:
         """
-        The timestamp for when the tracker resource was last updated in ISO 8601 format.
+        Timestamp for when the tracker resource was last updated in ISO 8601 format.
         """
         return pulumi.get(self, "update_time")
 
@@ -154,7 +154,7 @@ def get_tracker(tags: Optional[Mapping[str, str]] = None,
 
 
     :param Mapping[str, str] tags: Key-value map of resource tags for the tracker.
-    :param str tracker_name: The name of the tracker resource.
+    :param str tracker_name: Name of the tracker resource.
     """
     __args__ = dict()
     __args__['tags'] = tags
@@ -192,6 +192,6 @@ def get_tracker_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]]
 
 
     :param Mapping[str, str] tags: Key-value map of resource tags for the tracker.
-    :param str tracker_name: The name of the tracker resource.
+    :param str tracker_name: Name of the tracker resource.
     """
     ...

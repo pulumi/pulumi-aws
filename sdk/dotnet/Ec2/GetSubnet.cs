@@ -360,7 +360,7 @@ namespace Pulumi.Aws.Ec2
         public readonly string CustomerOwnedIpv4Pool;
         public readonly bool DefaultForAz;
         /// <summary>
-        /// Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet return synthetic IPv6 addresses for IPv4-only destinations.
+        /// Whether DNS queries made to the Amazon-provided DNS Resolver in this subnet return synthetic IPv6 addresses for IPv4-only destinations.
         /// </summary>
         public readonly bool EnableDns64;
         /// <summary>
@@ -379,7 +379,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string Ipv6CidrBlockAssociationId;
         /// <summary>
-        /// Indicates whether this is an IPv6-only subnet.
+        /// Whether this is an IPv6-only subnet.
         /// </summary>
         public readonly bool Ipv6Native;
         /// <summary>

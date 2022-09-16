@@ -14,7 +14,7 @@ namespace Pulumi.Aws.ElasticSearch.Outputs
     public sealed class GetDomainAutoTuneOptionMaintenanceScheduleResult
     {
         /// <summary>
-        /// A cron expression specifying the recurrence pattern for an Auto-Tune maintenance schedule.
+        /// Cron expression for an Auto-Tune maintenance schedule.
         /// </summary>
         public readonly string CronExpressionForRecurrence;
         /// <summary>

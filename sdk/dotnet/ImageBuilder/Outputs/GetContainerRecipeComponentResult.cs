@@ -14,7 +14,7 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
     public sealed class GetContainerRecipeComponentResult
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Image Builder Component.
+        /// ARN of the Image Builder Component.
         /// </summary>
         public readonly string ComponentArn;
         /// <summary>

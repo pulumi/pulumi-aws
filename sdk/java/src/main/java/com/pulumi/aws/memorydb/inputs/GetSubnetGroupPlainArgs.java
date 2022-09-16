@@ -31,14 +31,14 @@ public final class GetSubnetGroupPlainArgs extends com.pulumi.resources.InvokeAr
     }
 
     /**
-     * A map of tags assigned to the subnet group.
+     * Map of tags assigned to the subnet group.
      * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return A map of tags assigned to the subnet group.
+     * @return Map of tags assigned to the subnet group.
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -82,7 +82,7 @@ public final class GetSubnetGroupPlainArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param tags A map of tags assigned to the subnet group.
+         * @param tags Map of tags assigned to the subnet group.
          * 
          * @return builder
          * 

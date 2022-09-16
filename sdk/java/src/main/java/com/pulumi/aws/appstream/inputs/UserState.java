@@ -62,14 +62,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether the user in the user pool is enabled.
+     * Whether the user in the user pool is enabled.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Specifies whether the user in the user pool is enabled.
+     * @return Whether the user in the user pool is enabled.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -231,7 +231,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled Specifies whether the user in the user pool is enabled.
+         * @param enabled Whether the user in the user pool is enabled.
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled Specifies whether the user in the user pool is enabled.
+         * @param enabled Whether the user in the user pool is enabled.
          * 
          * @return builder
          * 

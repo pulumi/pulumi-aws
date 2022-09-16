@@ -166,11 +166,11 @@ namespace Pulumi.Aws.Mq
         /// </summary>
         public readonly ImmutableArray<Outputs.GetInstanceTypeOfferingsBrokerInstanceOptionResult> BrokerInstanceOptions;
         /// <summary>
-        /// The broker's engine type.
+        /// Broker's engine type.
         /// </summary>
         public readonly string? EngineType;
         /// <summary>
-        /// The broker's instance type.
+        /// Broker's instance type.
         /// </summary>
         public readonly string? HostInstanceType;
         /// <summary>
@@ -178,7 +178,7 @@ namespace Pulumi.Aws.Mq
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The broker's storage type.
+        /// Broker's storage type.
         /// </summary>
         public readonly string? StorageType;
 

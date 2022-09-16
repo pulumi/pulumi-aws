@@ -16,14 +16,14 @@ public final class GetLinksPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetLinksPlainArgs Empty = new GetLinksPlainArgs();
 
     /**
-     * The ID of the Global Network of the links to retrieve.
+     * ID of the Global Network of the links to retrieve.
      * 
      */
     @Import(name="globalNetworkId", required=true)
     private String globalNetworkId;
 
     /**
-     * @return The ID of the Global Network of the links to retrieve.
+     * @return ID of the Global Network of the links to retrieve.
      * 
      */
     public String globalNetworkId() {
@@ -31,14 +31,14 @@ public final class GetLinksPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The link provider to retrieve.
+     * Link provider to retrieve.
      * 
      */
     @Import(name="providerName")
     private @Nullable String providerName;
 
     /**
-     * @return The link provider to retrieve.
+     * @return Link provider to retrieve.
      * 
      */
     public Optional<String> providerName() {
@@ -46,14 +46,14 @@ public final class GetLinksPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The ID of the site of the links to retrieve.
+     * ID of the site of the links to retrieve.
      * 
      */
     @Import(name="siteId")
     private @Nullable String siteId;
 
     /**
-     * @return The ID of the site of the links to retrieve.
+     * @return ID of the site of the links to retrieve.
      * 
      */
     public Optional<String> siteId() {
@@ -76,14 +76,14 @@ public final class GetLinksPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The link type to retrieve.
+     * Link type to retrieve.
      * 
      */
     @Import(name="type")
     private @Nullable String type;
 
     /**
-     * @return The link type to retrieve.
+     * @return Link type to retrieve.
      * 
      */
     public Optional<String> type() {
@@ -119,7 +119,7 @@ public final class GetLinksPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param globalNetworkId The ID of the Global Network of the links to retrieve.
+         * @param globalNetworkId ID of the Global Network of the links to retrieve.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class GetLinksPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param providerName The link provider to retrieve.
+         * @param providerName Link provider to retrieve.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class GetLinksPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param siteId The ID of the site of the links to retrieve.
+         * @param siteId ID of the site of the links to retrieve.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class GetLinksPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param type The link type to retrieve.
+         * @param type Link type to retrieve.
          * 
          * @return builder
          * 

@@ -78,13 +78,13 @@ namespace Pulumi.Aws.NetworkManager
     public sealed class GetDevicesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID of the Global Network of the devices to retrieve.
+        /// ID of the Global Network of the devices to retrieve.
         /// </summary>
         [Input("globalNetworkId", required: true)]
         public string GlobalNetworkId { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the site of the devices to retrieve.
+        /// ID of the site of the devices to retrieve.
         /// </summary>
         [Input("siteId")]
         public string? SiteId { get; set; }
@@ -110,13 +110,13 @@ namespace Pulumi.Aws.NetworkManager
     public sealed class GetDevicesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID of the Global Network of the devices to retrieve.
+        /// ID of the Global Network of the devices to retrieve.
         /// </summary>
         [Input("globalNetworkId", required: true)]
         public Input<string> GlobalNetworkId { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the site of the devices to retrieve.
+        /// ID of the site of the devices to retrieve.
         /// </summary>
         [Input("siteId")]
         public Input<string>? SiteId { get; set; }
@@ -149,7 +149,7 @@ namespace Pulumi.Aws.NetworkManager
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The IDs of the devices.
+        /// IDs of the devices.
         /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly string? SiteId;

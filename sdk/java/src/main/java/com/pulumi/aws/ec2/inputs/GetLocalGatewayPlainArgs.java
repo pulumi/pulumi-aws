@@ -33,14 +33,14 @@ public final class GetLocalGatewayPlainArgs extends com.pulumi.resources.InvokeA
     }
 
     /**
-     * The id of the specific Local Gateway to retrieve.
+     * Id of the specific Local Gateway to retrieve.
      * 
      */
     @Import(name="id")
     private @Nullable String id;
 
     /**
-     * @return The id of the specific Local Gateway to retrieve.
+     * @return Id of the specific Local Gateway to retrieve.
      * 
      */
     public Optional<String> id() {
@@ -48,7 +48,7 @@ public final class GetLocalGatewayPlainArgs extends com.pulumi.resources.InvokeA
     }
 
     /**
-     * The current state of the desired Local Gateway.
+     * Current state of the desired Local Gateway.
      * Can be either `&#34;pending&#34;` or `&#34;available&#34;`.
      * 
      */
@@ -56,7 +56,7 @@ public final class GetLocalGatewayPlainArgs extends com.pulumi.resources.InvokeA
     private @Nullable String state;
 
     /**
-     * @return The current state of the desired Local Gateway.
+     * @return Current state of the desired Local Gateway.
      * Can be either `&#34;pending&#34;` or `&#34;available&#34;`.
      * 
      */
@@ -65,7 +65,7 @@ public final class GetLocalGatewayPlainArgs extends com.pulumi.resources.InvokeA
     }
 
     /**
-     * A mapping of tags, each pair of which must exactly match
+     * Mapping of tags, each pair of which must exactly match
      * a pair on the desired Local Gateway.
      * 
      */
@@ -73,7 +73,7 @@ public final class GetLocalGatewayPlainArgs extends com.pulumi.resources.InvokeA
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return A mapping of tags, each pair of which must exactly match
+     * @return Mapping of tags, each pair of which must exactly match
      * a pair on the desired Local Gateway.
      * 
      */
@@ -130,7 +130,7 @@ public final class GetLocalGatewayPlainArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param id The id of the specific Local Gateway to retrieve.
+         * @param id Id of the specific Local Gateway to retrieve.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class GetLocalGatewayPlainArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param state The current state of the desired Local Gateway.
+         * @param state Current state of the desired Local Gateway.
          * Can be either `&#34;pending&#34;` or `&#34;available&#34;`.
          * 
          * @return builder
@@ -153,7 +153,7 @@ public final class GetLocalGatewayPlainArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param tags A mapping of tags, each pair of which must exactly match
+         * @param tags Mapping of tags, each pair of which must exactly match
          * a pair on the desired Local Gateway.
          * 
          * @return builder

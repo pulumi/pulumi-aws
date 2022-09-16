@@ -39,11 +39,11 @@ export function getDevices(args: GetDevicesArgs, opts?: pulumi.InvokeOptions): P
  */
 export interface GetDevicesArgs {
     /**
-     * The ID of the Global Network of the devices to retrieve.
+     * ID of the Global Network of the devices to retrieve.
      */
     globalNetworkId: string;
     /**
-     * The ID of the site of the devices to retrieve.
+     * ID of the site of the devices to retrieve.
      */
     siteId?: string;
     /**
@@ -62,7 +62,7 @@ export interface GetDevicesResult {
      */
     readonly id: string;
     /**
-     * The IDs of the devices.
+     * IDs of the devices.
      */
     readonly ids: string[];
     readonly siteId?: string;
@@ -78,11 +78,11 @@ export function getDevicesOutput(args: GetDevicesOutputArgs, opts?: pulumi.Invok
  */
 export interface GetDevicesOutputArgs {
     /**
-     * The ID of the Global Network of the devices to retrieve.
+     * ID of the Global Network of the devices to retrieve.
      */
     globalNetworkId: pulumi.Input<string>;
     /**
-     * The ID of the site of the devices to retrieve.
+     * ID of the site of the devices to retrieve.
      */
     siteId?: pulumi.Input<string>;
     /**

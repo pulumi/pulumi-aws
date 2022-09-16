@@ -38,6 +38,7 @@ public final class GetClusterResult {
     private String id;
     private String kmsKeyId;
     private String masterUsername;
+    private String networkType;
     private Integer port;
     private String preferredBackupWindow;
     private String preferredMaintenanceWindow;
@@ -115,6 +116,9 @@ public final class GetClusterResult {
     public String masterUsername() {
         return this.masterUsername;
     }
+    public String networkType() {
+        return this.networkType;
+    }
     public Integer port() {
         return this.port;
     }
@@ -170,6 +174,7 @@ public final class GetClusterResult {
         private String id;
         private String kmsKeyId;
         private String masterUsername;
+        private String networkType;
         private Integer port;
         private String preferredBackupWindow;
         private String preferredMaintenanceWindow;
@@ -202,6 +207,7 @@ public final class GetClusterResult {
     	      this.id = defaults.id;
     	      this.kmsKeyId = defaults.kmsKeyId;
     	      this.masterUsername = defaults.masterUsername;
+    	      this.networkType = defaults.networkType;
     	      this.port = defaults.port;
     	      this.preferredBackupWindow = defaults.preferredBackupWindow;
     	      this.preferredMaintenanceWindow = defaults.preferredMaintenanceWindow;
@@ -330,6 +336,11 @@ public final class GetClusterResult {
             return this;
         }
         @CustomType.Setter
+        public Builder networkType(String networkType) {
+            this.networkType = Objects.requireNonNull(networkType);
+            return this;
+        }
+        @CustomType.Setter
         public Builder port(Integer port) {
             this.port = Objects.requireNonNull(port);
             return this;
@@ -395,6 +406,7 @@ public final class GetClusterResult {
             o.id = id;
             o.kmsKeyId = kmsKeyId;
             o.masterUsername = masterUsername;
+            o.networkType = networkType;
             o.port = port;
             o.preferredBackupWindow = preferredBackupWindow;
             o.preferredMaintenanceWindow = preferredMaintenanceWindow;

@@ -17,14 +17,14 @@ public final class GetStreamArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetStreamArgs Empty = new GetStreamArgs();
 
     /**
-     * The name of the Kinesis Stream.
+     * Name of the Kinesis Stream.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the Kinesis Stream.
+     * @return Name of the Kinesis Stream.
      * 
      */
     public Output<String> name() {
@@ -32,14 +32,14 @@ public final class GetStreamArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * A map of tags to assigned to the stream.
+     * Map of tags to assigned to the stream.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assigned to the stream.
+     * @return Map of tags to assigned to the stream.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -72,7 +72,7 @@ public final class GetStreamArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the Kinesis Stream.
+         * @param name Name of the Kinesis Stream.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class GetStreamArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the Kinesis Stream.
+         * @param name Name of the Kinesis Stream.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class GetStreamArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags A map of tags to assigned to the stream.
+         * @param tags Map of tags to assigned to the stream.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class GetStreamArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags A map of tags to assigned to the stream.
+         * @param tags Map of tags to assigned to the stream.
          * 
          * @return builder
          * 

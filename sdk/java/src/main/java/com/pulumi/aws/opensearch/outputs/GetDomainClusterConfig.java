@@ -52,7 +52,7 @@ public final class GetDomainClusterConfig {
      */
     private Integer warmCount;
     /**
-     * @return Indicates warm storage is enabled.
+     * @return Warm storage is enabled.
      * 
      */
     private @Nullable Boolean warmEnabled;
@@ -123,7 +123,7 @@ public final class GetDomainClusterConfig {
         return this.warmCount;
     }
     /**
-     * @return Indicates warm storage is enabled.
+     * @return Warm storage is enabled.
      * 
      */
     public Optional<Boolean> warmEnabled() {

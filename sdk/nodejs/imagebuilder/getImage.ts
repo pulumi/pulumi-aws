@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -37,7 +39,7 @@ export function getImage(args: GetImageArgs, opts?: pulumi.InvokeOptions): Promi
  */
 export interface GetImageArgs {
     /**
-     * Amazon Resource Name (ARN) of the image. The suffix can either be specified with wildcards (`x.x.x`) to fetch the latest build version or a full build version (e.g., `2020.11.26/1`) to fetch an exact version.
+     * ARN of the image. The suffix can either be specified with wildcards (`x.x.x`) to fetch the latest build version or a full build version (e.g., `2020.11.26/1`) to fetch an exact version.
      */
     arn: string;
     /**
@@ -52,11 +54,11 @@ export interface GetImageArgs {
 export interface GetImageResult {
     readonly arn: string;
     /**
-     * Build version Amazon Resource Name (ARN) of the image. This will always have the `#.#.#/#` suffix.
+     * Build version ARN of the image. This will always have the `#.#.#/#` suffix.
      */
     readonly buildVersionArn: string;
     /**
-     * Amazon Resource Name (ARN) of the container recipe.
+     * ARN of the container recipe.
      */
     readonly containerRecipeArn: string;
     /**
@@ -64,7 +66,7 @@ export interface GetImageResult {
      */
     readonly dateCreated: string;
     /**
-     * Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+     * ARN of the Image Builder Distribution Configuration.
      */
     readonly distributionConfigurationArn: string;
     /**
@@ -76,7 +78,7 @@ export interface GetImageResult {
      */
     readonly id: string;
     /**
-     * Amazon Resource Name (ARN) of the image recipe.
+     * ARN of the image recipe.
      */
     readonly imageRecipeArn: string;
     /**
@@ -84,7 +86,7 @@ export interface GetImageResult {
      */
     readonly imageTestsConfigurations: outputs.imagebuilder.GetImageImageTestsConfiguration[];
     /**
-     * Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+     * ARN of the Image Builder Infrastructure Configuration.
      */
     readonly infrastructureConfigurationArn: string;
     /**
@@ -122,7 +124,7 @@ export function getImageOutput(args: GetImageOutputArgs, opts?: pulumi.InvokeOpt
  */
 export interface GetImageOutputArgs {
     /**
-     * Amazon Resource Name (ARN) of the image. The suffix can either be specified with wildcards (`x.x.x`) to fetch the latest build version or a full build version (e.g., `2020.11.26/1`) to fetch an exact version.
+     * ARN of the image. The suffix can either be specified with wildcards (`x.x.x`) to fetch the latest build version or a full build version (e.g., `2020.11.26/1`) to fetch an exact version.
      */
     arn: pulumi.Input<string>;
     /**

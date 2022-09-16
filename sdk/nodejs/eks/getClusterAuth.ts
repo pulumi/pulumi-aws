@@ -28,7 +28,7 @@ export function getClusterAuth(args: GetClusterAuthArgs, opts?: pulumi.InvokeOpt
  */
 export interface GetClusterAuthArgs {
     /**
-     * The name of the cluster
+     * Name of the cluster
      */
     name: string;
 }
@@ -43,7 +43,7 @@ export interface GetClusterAuthResult {
     readonly id: string;
     readonly name: string;
     /**
-     * The token to use to authenticate with the cluster.
+     * Token to use to authenticate with the cluster.
      */
     readonly token: string;
 }
@@ -57,7 +57,7 @@ export function getClusterAuthOutput(args: GetClusterAuthOutputArgs, opts?: pulu
  */
 export interface GetClusterAuthOutputArgs {
     /**
-     * The name of the cluster
+     * Name of the cluster
      */
     name: pulumi.Input<string>;
 }

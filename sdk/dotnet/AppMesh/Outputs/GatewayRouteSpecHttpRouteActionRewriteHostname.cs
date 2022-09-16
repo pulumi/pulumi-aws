@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class GatewayRouteSpecHttpRouteActionRewriteHostname
     {
         /// <summary>
-        /// The default target host name to write to. Valid values: `ENABLED`, `DISABLED`.
+        /// Default target host name to write to. Valid values: `ENABLED`, `DISABLED`.
         /// </summary>
         public readonly string DefaultTargetHostname;
 

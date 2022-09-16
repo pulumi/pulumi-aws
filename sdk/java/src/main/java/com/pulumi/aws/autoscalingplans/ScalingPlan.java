@@ -39,42 +39,42 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:autoscalingplans/scalingPlan:ScalingPlan")
 public class ScalingPlan extends com.pulumi.resources.CustomResource {
     /**
-     * A CloudFormation stack or set of tags. You can create one scaling plan per application source.
+     * CloudFormation stack or set of tags. You can create one scaling plan per application source.
      * 
      */
     @Export(name="applicationSource", type=ScalingPlanApplicationSource.class, parameters={})
     private Output<ScalingPlanApplicationSource> applicationSource;
 
     /**
-     * @return A CloudFormation stack or set of tags. You can create one scaling plan per application source.
+     * @return CloudFormation stack or set of tags. You can create one scaling plan per application source.
      * 
      */
     public Output<ScalingPlanApplicationSource> applicationSource() {
         return this.applicationSource;
     }
     /**
-     * The name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
+     * Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
+     * @return Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
+     * Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
      * 
      */
     @Export(name="scalingInstructions", type=List.class, parameters={ScalingPlanScalingInstruction.class})
     private Output<List<ScalingPlanScalingInstruction>> scalingInstructions;
 
     /**
-     * @return The scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
+     * @return Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
      * 
      */
     public Output<List<ScalingPlanScalingInstruction>> scalingInstructions() {

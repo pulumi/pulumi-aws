@@ -16,14 +16,14 @@ public final class GetScriptDagEdgeArgs extends com.pulumi.resources.ResourceArg
     public static final GetScriptDagEdgeArgs Empty = new GetScriptDagEdgeArgs();
 
     /**
-     * The ID of the node at which the edge starts.
+     * ID of the node at which the edge starts.
      * 
      */
     @Import(name="source", required=true)
     private Output<String> source;
 
     /**
-     * @return The ID of the node at which the edge starts.
+     * @return ID of the node at which the edge starts.
      * 
      */
     public Output<String> source() {
@@ -31,14 +31,14 @@ public final class GetScriptDagEdgeArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The ID of the node at which the edge ends.
+     * ID of the node at which the edge ends.
      * 
      */
     @Import(name="target", required=true)
     private Output<String> target;
 
     /**
-     * @return The ID of the node at which the edge ends.
+     * @return ID of the node at which the edge ends.
      * 
      */
     public Output<String> target() {
@@ -46,14 +46,14 @@ public final class GetScriptDagEdgeArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The target of the edge.
+     * Target of the edge.
      * 
      */
     @Import(name="targetParameter")
     private @Nullable Output<String> targetParameter;
 
     /**
-     * @return The target of the edge.
+     * @return Target of the edge.
      * 
      */
     public Optional<Output<String>> targetParameter() {
@@ -87,7 +87,7 @@ public final class GetScriptDagEdgeArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param source The ID of the node at which the edge starts.
+         * @param source ID of the node at which the edge starts.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class GetScriptDagEdgeArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param source The ID of the node at which the edge starts.
+         * @param source ID of the node at which the edge starts.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class GetScriptDagEdgeArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param target The ID of the node at which the edge ends.
+         * @param target ID of the node at which the edge ends.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class GetScriptDagEdgeArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param target The ID of the node at which the edge ends.
+         * @param target ID of the node at which the edge ends.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class GetScriptDagEdgeArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param targetParameter The target of the edge.
+         * @param targetParameter Target of the edge.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class GetScriptDagEdgeArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param targetParameter The target of the edge.
+         * @param targetParameter Target of the edge.
          * 
          * @return builder
          * 

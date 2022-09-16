@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ServiceSourceConfigurationImageRepositoryImageConfiguration {
     /**
-     * @return The port that your application listens to in the container. Defaults to `&#34;8080&#34;`.
+     * @return Port that your application listens to in the container. Defaults to `&#34;8080&#34;`.
      * 
      */
     private @Nullable String port;
@@ -23,14 +23,14 @@ public final class ServiceSourceConfigurationImageRepositoryImageConfiguration {
      */
     private @Nullable Map<String,String> runtimeEnvironmentVariables;
     /**
-     * @return A command App Runner runs to start the application in the source image. If specified, this command overrides the Docker image’s default start command.
+     * @return Command App Runner runs to start the application in the source image. If specified, this command overrides the Docker image’s default start command.
      * 
      */
     private @Nullable String startCommand;
 
     private ServiceSourceConfigurationImageRepositoryImageConfiguration() {}
     /**
-     * @return The port that your application listens to in the container. Defaults to `&#34;8080&#34;`.
+     * @return Port that your application listens to in the container. Defaults to `&#34;8080&#34;`.
      * 
      */
     public Optional<String> port() {
@@ -44,7 +44,7 @@ public final class ServiceSourceConfigurationImageRepositoryImageConfiguration {
         return this.runtimeEnvironmentVariables == null ? Map.of() : this.runtimeEnvironmentVariables;
     }
     /**
-     * @return A command App Runner runs to start the application in the source image. If specified, this command overrides the Docker image’s default start command.
+     * @return Command App Runner runs to start the application in the source image. If specified, this command overrides the Docker image’s default start command.
      * 
      */
     public Optional<String> startCommand() {

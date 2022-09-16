@@ -4,6 +4,8 @@
 package com.pulumi.aws.ec2.inputs;
 
 import com.pulumi.aws.ec2.inputs.VpnConnectionRouteArgs;
+import com.pulumi.aws.ec2.inputs.VpnConnectionTunnel1LogOptionsArgs;
+import com.pulumi.aws.ec2.inputs.VpnConnectionTunnel2LogOptionsArgs;
 import com.pulumi.aws.ec2.inputs.VpnConnectionVgwTelemetryArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -427,6 +429,21 @@ public final class VpnConnectionState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * Options for logging VPN tunnel activity. See Log Options below for more details.
+     * 
+     */
+    @Import(name="tunnel1LogOptions")
+    private @Nullable Output<VpnConnectionTunnel1LogOptionsArgs> tunnel1LogOptions;
+
+    /**
+     * @return Options for logging VPN tunnel activity. See Log Options below for more details.
+     * 
+     */
+    public Optional<Output<VpnConnectionTunnel1LogOptionsArgs>> tunnel1LogOptions() {
+        return Optional.ofNullable(this.tunnel1LogOptions);
+    }
+
+    /**
      * List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
      * 
      */
@@ -772,6 +789,21 @@ public final class VpnConnectionState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * Options for logging VPN tunnel activity. See Log Options below for more details.
+     * 
+     */
+    @Import(name="tunnel2LogOptions")
+    private @Nullable Output<VpnConnectionTunnel2LogOptionsArgs> tunnel2LogOptions;
+
+    /**
+     * @return Options for logging VPN tunnel activity. See Log Options below for more details.
+     * 
+     */
+    public Optional<Output<VpnConnectionTunnel2LogOptionsArgs>> tunnel2LogOptions() {
+        return Optional.ofNullable(this.tunnel2LogOptions);
+    }
+
+    /**
      * List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
      * 
      */
@@ -1071,6 +1103,7 @@ public final class VpnConnectionState extends com.pulumi.resources.ResourceArgs 
         this.tunnel1IkeVersions = $.tunnel1IkeVersions;
         this.tunnel1InsideCidr = $.tunnel1InsideCidr;
         this.tunnel1InsideIpv6Cidr = $.tunnel1InsideIpv6Cidr;
+        this.tunnel1LogOptions = $.tunnel1LogOptions;
         this.tunnel1Phase1DhGroupNumbers = $.tunnel1Phase1DhGroupNumbers;
         this.tunnel1Phase1EncryptionAlgorithms = $.tunnel1Phase1EncryptionAlgorithms;
         this.tunnel1Phase1IntegrityAlgorithms = $.tunnel1Phase1IntegrityAlgorithms;
@@ -1094,6 +1127,7 @@ public final class VpnConnectionState extends com.pulumi.resources.ResourceArgs 
         this.tunnel2IkeVersions = $.tunnel2IkeVersions;
         this.tunnel2InsideCidr = $.tunnel2InsideCidr;
         this.tunnel2InsideIpv6Cidr = $.tunnel2InsideIpv6Cidr;
+        this.tunnel2LogOptions = $.tunnel2LogOptions;
         this.tunnel2Phase1DhGroupNumbers = $.tunnel2Phase1DhGroupNumbers;
         this.tunnel2Phase1EncryptionAlgorithms = $.tunnel2Phase1EncryptionAlgorithms;
         this.tunnel2Phase1IntegrityAlgorithms = $.tunnel2Phase1IntegrityAlgorithms;
@@ -1720,6 +1754,27 @@ public final class VpnConnectionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
+         * @param tunnel1LogOptions Options for logging VPN tunnel activity. See Log Options below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tunnel1LogOptions(@Nullable Output<VpnConnectionTunnel1LogOptionsArgs> tunnel1LogOptions) {
+            $.tunnel1LogOptions = tunnel1LogOptions;
+            return this;
+        }
+
+        /**
+         * @param tunnel1LogOptions Options for logging VPN tunnel activity. See Log Options below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tunnel1LogOptions(VpnConnectionTunnel1LogOptionsArgs tunnel1LogOptions) {
+            return tunnel1LogOptions(Output.of(tunnel1LogOptions));
+        }
+
+        /**
          * @param tunnel1Phase1DhGroupNumbers List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
          * 
          * @return builder
@@ -2270,6 +2325,27 @@ public final class VpnConnectionState extends com.pulumi.resources.ResourceArgs 
          */
         public Builder tunnel2InsideIpv6Cidr(String tunnel2InsideIpv6Cidr) {
             return tunnel2InsideIpv6Cidr(Output.of(tunnel2InsideIpv6Cidr));
+        }
+
+        /**
+         * @param tunnel2LogOptions Options for logging VPN tunnel activity. See Log Options below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tunnel2LogOptions(@Nullable Output<VpnConnectionTunnel2LogOptionsArgs> tunnel2LogOptions) {
+            $.tunnel2LogOptions = tunnel2LogOptions;
+            return this;
+        }
+
+        /**
+         * @param tunnel2LogOptions Options for logging VPN tunnel activity. See Log Options below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tunnel2LogOptions(VpnConnectionTunnel2LogOptionsArgs tunnel2LogOptions) {
+            return tunnel2LogOptions(Output.of(tunnel2LogOptions));
         }
 
         /**

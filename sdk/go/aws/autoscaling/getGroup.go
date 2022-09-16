@@ -54,18 +54,18 @@ type LookupGroupArgs struct {
 
 // A collection of values returned by getGroup.
 type LookupGroupResult struct {
-	// The Amazon Resource Name (ARN) of the Auto Scaling group.
+	// ARN of the Auto Scaling group.
 	Arn string `pulumi:"arn"`
 	// One or more Availability Zones for the group.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	DefaultCooldown   int      `pulumi:"defaultCooldown"`
-	// The desired size of the group.
+	// Desired size of the group.
 	DesiredCapacity int `pulumi:"desiredCapacity"`
-	// The list of metrics enabled for collection.
+	// List of metrics enabled for collection.
 	EnabledMetrics []string `pulumi:"enabledMetrics"`
 	// The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service.
 	HealthCheckGracePeriod int `pulumi:"healthCheckGracePeriod"`
-	// The service to use for the health checks. The valid values are EC2 and ELB.
+	// Service to use for the health checks. The valid values are EC2 and ELB.
 	HealthCheckType string `pulumi:"healthCheckType"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -74,20 +74,20 @@ type LookupGroupResult struct {
 	LaunchTemplates     []GetGroupLaunchTemplate `pulumi:"launchTemplates"`
 	// One or more load balancers associated with the group.
 	LoadBalancers []string `pulumi:"loadBalancers"`
-	// The maximum size of the group.
+	// Maximum size of the group.
 	MaxSize int `pulumi:"maxSize"`
-	// The minimum size of the group.
+	// Minimum size of the group.
 	MinSize int `pulumi:"minSize"`
 	// Name of the Auto Scaling Group.
 	Name                             string `pulumi:"name"`
 	NewInstancesProtectedFromScaleIn bool   `pulumi:"newInstancesProtectedFromScaleIn"`
-	// The name of the placement group into which to launch your instances, if any. For more information, see Placement Groups (http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the Amazon Elastic Compute Cloud User Guide.
+	// Name of the placement group into which to launch your instances, if any. For more information, see Placement Groups (http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the Amazon Elastic Compute Cloud User Guide.
 	PlacementGroup string `pulumi:"placementGroup"`
-	// The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf.
+	// ARN of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf.
 	ServiceLinkedRoleArn string `pulumi:"serviceLinkedRoleArn"`
-	// The current state of the group when DeleteAutoScalingGroup is in progress.
+	// Current state of the group when DeleteAutoScalingGroup is in progress.
 	Status string `pulumi:"status"`
-	// The Amazon Resource Names (ARN) of the target groups for your load balancer.
+	// ARNs of the target groups for your load balancer.
 	TargetGroupArns []string `pulumi:"targetGroupArns"`
 	// The termination policies for the group.
 	TerminationPolicies []string `pulumi:"terminationPolicies"`
@@ -133,7 +133,7 @@ func (o LookupGroupResultOutput) ToLookupGroupResultOutputWithContext(ctx contex
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the Auto Scaling group.
+// ARN of the Auto Scaling group.
 func (o LookupGroupResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGroupResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -147,12 +147,12 @@ func (o LookupGroupResultOutput) DefaultCooldown() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupGroupResult) int { return v.DefaultCooldown }).(pulumi.IntOutput)
 }
 
-// The desired size of the group.
+// Desired size of the group.
 func (o LookupGroupResultOutput) DesiredCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupGroupResult) int { return v.DesiredCapacity }).(pulumi.IntOutput)
 }
 
-// The list of metrics enabled for collection.
+// List of metrics enabled for collection.
 func (o LookupGroupResultOutput) EnabledMetrics() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupGroupResult) []string { return v.EnabledMetrics }).(pulumi.StringArrayOutput)
 }
@@ -162,7 +162,7 @@ func (o LookupGroupResultOutput) HealthCheckGracePeriod() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupGroupResult) int { return v.HealthCheckGracePeriod }).(pulumi.IntOutput)
 }
 
-// The service to use for the health checks. The valid values are EC2 and ELB.
+// Service to use for the health checks. The valid values are EC2 and ELB.
 func (o LookupGroupResultOutput) HealthCheckType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGroupResult) string { return v.HealthCheckType }).(pulumi.StringOutput)
 }
@@ -186,12 +186,12 @@ func (o LookupGroupResultOutput) LoadBalancers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupGroupResult) []string { return v.LoadBalancers }).(pulumi.StringArrayOutput)
 }
 
-// The maximum size of the group.
+// Maximum size of the group.
 func (o LookupGroupResultOutput) MaxSize() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupGroupResult) int { return v.MaxSize }).(pulumi.IntOutput)
 }
 
-// The minimum size of the group.
+// Minimum size of the group.
 func (o LookupGroupResultOutput) MinSize() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupGroupResult) int { return v.MinSize }).(pulumi.IntOutput)
 }
@@ -205,22 +205,22 @@ func (o LookupGroupResultOutput) NewInstancesProtectedFromScaleIn() pulumi.BoolO
 	return o.ApplyT(func(v LookupGroupResult) bool { return v.NewInstancesProtectedFromScaleIn }).(pulumi.BoolOutput)
 }
 
-// The name of the placement group into which to launch your instances, if any. For more information, see Placement Groups (http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the Amazon Elastic Compute Cloud User Guide.
+// Name of the placement group into which to launch your instances, if any. For more information, see Placement Groups (http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the Amazon Elastic Compute Cloud User Guide.
 func (o LookupGroupResultOutput) PlacementGroup() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGroupResult) string { return v.PlacementGroup }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf.
+// ARN of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf.
 func (o LookupGroupResultOutput) ServiceLinkedRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGroupResult) string { return v.ServiceLinkedRoleArn }).(pulumi.StringOutput)
 }
 
-// The current state of the group when DeleteAutoScalingGroup is in progress.
+// Current state of the group when DeleteAutoScalingGroup is in progress.
 func (o LookupGroupResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGroupResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Names (ARN) of the target groups for your load balancer.
+// ARNs of the target groups for your load balancer.
 func (o LookupGroupResultOutput) TargetGroupArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupGroupResult) []string { return v.TargetGroupArns }).(pulumi.StringArrayOutput)
 }

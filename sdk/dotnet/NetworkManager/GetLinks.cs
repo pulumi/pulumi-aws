@@ -78,19 +78,19 @@ namespace Pulumi.Aws.NetworkManager
     public sealed class GetLinksArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID of the Global Network of the links to retrieve.
+        /// ID of the Global Network of the links to retrieve.
         /// </summary>
         [Input("globalNetworkId", required: true)]
         public string GlobalNetworkId { get; set; } = null!;
 
         /// <summary>
-        /// The link provider to retrieve.
+        /// Link provider to retrieve.
         /// </summary>
         [Input("providerName")]
         public string? ProviderName { get; set; }
 
         /// <summary>
-        /// The ID of the site of the links to retrieve.
+        /// ID of the site of the links to retrieve.
         /// </summary>
         [Input("siteId")]
         public string? SiteId { get; set; }
@@ -108,7 +108,7 @@ namespace Pulumi.Aws.NetworkManager
         }
 
         /// <summary>
-        /// The link type to retrieve.
+        /// Link type to retrieve.
         /// </summary>
         [Input("type")]
         public string? Type { get; set; }
@@ -122,19 +122,19 @@ namespace Pulumi.Aws.NetworkManager
     public sealed class GetLinksInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID of the Global Network of the links to retrieve.
+        /// ID of the Global Network of the links to retrieve.
         /// </summary>
         [Input("globalNetworkId", required: true)]
         public Input<string> GlobalNetworkId { get; set; } = null!;
 
         /// <summary>
-        /// The link provider to retrieve.
+        /// Link provider to retrieve.
         /// </summary>
         [Input("providerName")]
         public Input<string>? ProviderName { get; set; }
 
         /// <summary>
-        /// The ID of the site of the links to retrieve.
+        /// ID of the site of the links to retrieve.
         /// </summary>
         [Input("siteId")]
         public Input<string>? SiteId { get; set; }
@@ -152,7 +152,7 @@ namespace Pulumi.Aws.NetworkManager
         }
 
         /// <summary>
-        /// The link type to retrieve.
+        /// Link type to retrieve.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -173,7 +173,7 @@ namespace Pulumi.Aws.NetworkManager
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The IDs of the links.
+        /// IDs of the links.
         /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly string? ProviderName;

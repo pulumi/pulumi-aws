@@ -23,7 +23,7 @@ export function getNodeGroups(args: GetNodeGroupsArgs, opts?: pulumi.InvokeOptio
  */
 export interface GetNodeGroupsArgs {
     /**
-     * The name of the cluster.
+     * Name of the cluster.
      */
     clusterName: string;
 }
@@ -38,7 +38,7 @@ export interface GetNodeGroupsResult {
      */
     readonly id: string;
     /**
-     * A set of all node group names in an EKS Cluster.
+     * Set of all node group names in an EKS Cluster.
      */
     readonly names: string[];
 }
@@ -52,7 +52,7 @@ export function getNodeGroupsOutput(args: GetNodeGroupsOutputArgs, opts?: pulumi
  */
 export interface GetNodeGroupsOutputArgs {
     /**
-     * The name of the cluster.
+     * Name of the cluster.
      */
     clusterName: pulumi.Input<string>;
 }

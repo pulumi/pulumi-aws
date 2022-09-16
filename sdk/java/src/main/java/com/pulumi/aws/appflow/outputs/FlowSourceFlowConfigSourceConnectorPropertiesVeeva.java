@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FlowSourceFlowConfigSourceConnectorPropertiesVeeva {
     /**
-     * @return The document type specified in the Veeva document extract flow.
+     * @return Document type specified in the Veeva document extract flow.
      * 
      */
     private @Nullable String documentType;
@@ -33,14 +33,14 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesVeeva {
      */
     private @Nullable Boolean includeSourceFiles;
     /**
-     * @return The object specified in the Veeva flow source.
+     * @return Object specified in the Veeva flow source.
      * 
      */
     private String object;
 
     private FlowSourceFlowConfigSourceConnectorPropertiesVeeva() {}
     /**
-     * @return The document type specified in the Veeva document extract flow.
+     * @return Document type specified in the Veeva document extract flow.
      * 
      */
     public Optional<String> documentType() {
@@ -68,7 +68,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesVeeva {
         return Optional.ofNullable(this.includeSourceFiles);
     }
     /**
-     * @return The object specified in the Veeva flow source.
+     * @return Object specified in the Veeva flow source.
      * 
      */
     public String object() {

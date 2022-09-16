@@ -114,14 +114,14 @@ public class Analyzer extends com.pulumi.resources.CustomResource {
         return this.analyzerName;
     }
     /**
-     * The Amazon Resource Name (ARN) of the Analyzer.
+     * ARN of the Analyzer.
      * 
      */
     @Export(name="arn", type=String.class, parameters={})
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Analyzer.
+     * @return ARN of the Analyzer.
      * 
      */
     public Output<String> arn() {
@@ -142,14 +142,14 @@ public class Analyzer extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

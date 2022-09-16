@@ -19,8 +19,7 @@ class ServerlessClusterArgs:
                  client_authentication: pulumi.Input['ServerlessClusterClientAuthenticationArgs'],
                  vpc_configs: pulumi.Input[Sequence[pulumi.Input['ServerlessClusterVpcConfigArgs']]],
                  cluster_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ServerlessCluster resource.
         :param pulumi.Input['ServerlessClusterClientAuthenticationArgs'] client_authentication: Specifies client authentication information for the serverless cluster. See below.
@@ -33,8 +32,6 @@ class ServerlessClusterArgs:
             pulumi.set(__self__, "cluster_name", cluster_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="clientAuthentication")
@@ -81,15 +78,6 @@ class ServerlessClusterArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
-
 
 @pulumi.input_type
 class _ServerlessClusterState:
@@ -105,6 +93,7 @@ class _ServerlessClusterState:
         :param pulumi.Input[str] arn: The ARN of the serverless cluster.
         :param pulumi.Input['ServerlessClusterClientAuthenticationArgs'] client_authentication: Specifies client authentication information for the serverless cluster. See below.
         :param pulumi.Input[str] cluster_name: The name of the serverless cluster.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input['ServerlessClusterVpcConfigArgs']]] vpc_configs: VPC configuration information. See below.
         """
         if arn is not None:
@@ -168,6 +157,9 @@ class _ServerlessClusterState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -195,7 +187,6 @@ class ServerlessCluster(pulumi.CustomResource):
                  client_authentication: Optional[pulumi.Input[pulumi.InputType['ServerlessClusterClientAuthenticationArgs']]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerlessClusterVpcConfigArgs']]]]] = None,
                  __props__=None):
         """
@@ -254,7 +245,6 @@ class ServerlessCluster(pulumi.CustomResource):
                  client_authentication: Optional[pulumi.Input[pulumi.InputType['ServerlessClusterClientAuthenticationArgs']]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerlessClusterVpcConfigArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -270,11 +260,11 @@ class ServerlessCluster(pulumi.CustomResource):
             __props__.__dict__["client_authentication"] = client_authentication
             __props__.__dict__["cluster_name"] = cluster_name
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             if vpc_configs is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_configs'")
             __props__.__dict__["vpc_configs"] = vpc_configs
             __props__.__dict__["arn"] = None
+            __props__.__dict__["tags_all"] = None
         super(ServerlessCluster, __self__).__init__(
             'aws:msk/serverlessCluster:ServerlessCluster',
             resource_name,
@@ -301,6 +291,7 @@ class ServerlessCluster(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN of the serverless cluster.
         :param pulumi.Input[pulumi.InputType['ServerlessClusterClientAuthenticationArgs']] client_authentication: Specifies client authentication information for the serverless cluster. See below.
         :param pulumi.Input[str] cluster_name: The name of the serverless cluster.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerlessClusterVpcConfigArgs']]]] vpc_configs: VPC configuration information. See below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -347,6 +338,9 @@ class ServerlessCluster(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property

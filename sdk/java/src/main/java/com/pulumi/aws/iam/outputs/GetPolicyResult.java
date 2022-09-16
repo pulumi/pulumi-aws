@@ -13,12 +13,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetPolicyResult {
     /**
-     * @return The ARN of the policy.
+     * @return ARN of the policy.
      * 
      */
     private String arn;
     /**
-     * @return The description of the policy.
+     * @return Description of the policy.
      * 
      */
     private String description;
@@ -29,18 +29,18 @@ public final class GetPolicyResult {
     private String id;
     private String name;
     /**
-     * @return The path to the policy.
+     * @return Path to the policy.
      * 
      */
     private String path;
     private @Nullable String pathPrefix;
     /**
-     * @return The policy document of the policy.
+     * @return Policy document of the policy.
      * 
      */
     private String policy;
     /**
-     * @return The policy&#39;s ID.
+     * @return Policy&#39;s ID.
      * 
      */
     private String policyId;
@@ -52,14 +52,14 @@ public final class GetPolicyResult {
 
     private GetPolicyResult() {}
     /**
-     * @return The ARN of the policy.
+     * @return ARN of the policy.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return The description of the policy.
+     * @return Description of the policy.
      * 
      */
     public String description() {
@@ -76,7 +76,7 @@ public final class GetPolicyResult {
         return this.name;
     }
     /**
-     * @return The path to the policy.
+     * @return Path to the policy.
      * 
      */
     public String path() {
@@ -86,14 +86,14 @@ public final class GetPolicyResult {
         return Optional.ofNullable(this.pathPrefix);
     }
     /**
-     * @return The policy document of the policy.
+     * @return Policy document of the policy.
      * 
      */
     public String policy() {
         return this.policy;
     }
     /**
-     * @return The policy&#39;s ID.
+     * @return Policy&#39;s ID.
      * 
      */
     public String policyId() {

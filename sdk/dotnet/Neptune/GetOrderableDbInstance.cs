@@ -229,7 +229,7 @@ namespace Pulumi.Aws.Neptune
         /// </summary>
         public readonly bool ReadReplicaCapable;
         /// <summary>
-        /// The storage type for a DB instance.
+        /// Storage type for a DB instance.
         /// </summary>
         public readonly string StorageType;
         /// <summary>

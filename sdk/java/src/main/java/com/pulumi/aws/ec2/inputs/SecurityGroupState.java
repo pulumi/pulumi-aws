@@ -173,6 +173,7 @@ public final class SecurityGroupState extends com.pulumi.resources.ResourceArgs 
 
     /**
      * VPC ID.
+     * Defaults to the region&#39;s default VPC.
      * 
      */
     @Import(name="vpcId")
@@ -180,6 +181,7 @@ public final class SecurityGroupState extends com.pulumi.resources.ResourceArgs 
 
     /**
      * @return VPC ID.
+     * Defaults to the region&#39;s default VPC.
      * 
      */
     public Optional<Output<String>> vpcId() {
@@ -452,6 +454,7 @@ public final class SecurityGroupState extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param vpcId VPC ID.
+         * Defaults to the region&#39;s default VPC.
          * 
          * @return builder
          * 
@@ -463,6 +466,7 @@ public final class SecurityGroupState extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param vpcId VPC ID.
+         * Defaults to the region&#39;s default VPC.
          * 
          * @return builder
          * 

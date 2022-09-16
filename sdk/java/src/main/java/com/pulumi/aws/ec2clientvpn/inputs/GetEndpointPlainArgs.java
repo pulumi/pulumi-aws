@@ -18,14 +18,14 @@ public final class GetEndpointPlainArgs extends com.pulumi.resources.InvokeArgs 
     public static final GetEndpointPlainArgs Empty = new GetEndpointPlainArgs();
 
     /**
-     * The ID of the Client VPN endpoint.
+     * ID of the Client VPN endpoint.
      * 
      */
     @Import(name="clientVpnEndpointId")
     private @Nullable String clientVpnEndpointId;
 
     /**
-     * @return The ID of the Client VPN endpoint.
+     * @return ID of the Client VPN endpoint.
      * 
      */
     public Optional<String> clientVpnEndpointId() {
@@ -89,7 +89,7 @@ public final class GetEndpointPlainArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param clientVpnEndpointId The ID of the Client VPN endpoint.
+         * @param clientVpnEndpointId ID of the Client VPN endpoint.
          * 
          * @return builder
          * 

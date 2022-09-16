@@ -48,7 +48,7 @@ func LookupOriginRequestPolicy(ctx *pulumi.Context, args *LookupOriginRequestPol
 
 // A collection of arguments for invoking getOriginRequestPolicy.
 type LookupOriginRequestPolicyArgs struct {
-	// The identifier for the origin request policy.
+	// Identifier for the origin request policy.
 	Id *string `pulumi:"id"`
 	// Unique name to identify the origin request policy.
 	Name *string `pulumi:"name"`
@@ -60,7 +60,7 @@ type LookupOriginRequestPolicyResult struct {
 	Comment string `pulumi:"comment"`
 	// Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
 	CookiesConfigs []GetOriginRequestPolicyCookiesConfig `pulumi:"cookiesConfigs"`
-	// The current version of the origin request policy.
+	// Current version of the origin request policy.
 	Etag string `pulumi:"etag"`
 	// Object that determines whether any HTTP headers (and if so, which headers) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
 	HeadersConfigs []GetOriginRequestPolicyHeadersConfig `pulumi:"headersConfigs"`
@@ -85,7 +85,7 @@ func LookupOriginRequestPolicyOutput(ctx *pulumi.Context, args LookupOriginReque
 
 // A collection of arguments for invoking getOriginRequestPolicy.
 type LookupOriginRequestPolicyOutputArgs struct {
-	// The identifier for the origin request policy.
+	// Identifier for the origin request policy.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Unique name to identify the origin request policy.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -120,7 +120,7 @@ func (o LookupOriginRequestPolicyResultOutput) CookiesConfigs() GetOriginRequest
 	return o.ApplyT(func(v LookupOriginRequestPolicyResult) []GetOriginRequestPolicyCookiesConfig { return v.CookiesConfigs }).(GetOriginRequestPolicyCookiesConfigArrayOutput)
 }
 
-// The current version of the origin request policy.
+// Current version of the origin request policy.
 func (o LookupOriginRequestPolicyResultOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOriginRequestPolicyResult) string { return v.Etag }).(pulumi.StringOutput)
 }

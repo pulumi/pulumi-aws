@@ -48,7 +48,7 @@ func LookupAccessPoint(ctx *pulumi.Context, args *LookupAccessPointArgs, opts ..
 
 // A collection of arguments for invoking getAccessPoint.
 type LookupAccessPointArgs struct {
-	// The ID that identifies the file system.
+	// ID that identifies the file system.
 	AccessPointId string `pulumi:"accessPointId"`
 	// Key-value mapping of resource tags.
 	Tags map[string]string `pulumi:"tags"`
@@ -61,7 +61,7 @@ type LookupAccessPointResult struct {
 	Arn string `pulumi:"arn"`
 	// Amazon Resource Name of the file system.
 	FileSystemArn string `pulumi:"fileSystemArn"`
-	// The ID of the file system for which the access point is intended.
+	// ID of the file system for which the access point is intended.
 	FileSystemId string `pulumi:"fileSystemId"`
 	// The provider-assigned unique ID for this managed resource.
 	Id      string `pulumi:"id"`
@@ -88,7 +88,7 @@ func LookupAccessPointOutput(ctx *pulumi.Context, args LookupAccessPointOutputAr
 
 // A collection of arguments for invoking getAccessPoint.
 type LookupAccessPointOutputArgs struct {
-	// The ID that identifies the file system.
+	// ID that identifies the file system.
 	AccessPointId pulumi.StringInput `pulumi:"accessPointId"`
 	// Key-value mapping of resource tags.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -127,7 +127,7 @@ func (o LookupAccessPointResultOutput) FileSystemArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccessPointResult) string { return v.FileSystemArn }).(pulumi.StringOutput)
 }
 
-// The ID of the file system for which the access point is intended.
+// ID of the file system for which the access point is intended.
 func (o LookupAccessPointResultOutput) FileSystemId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccessPointResult) string { return v.FileSystemId }).(pulumi.StringOutput)
 }

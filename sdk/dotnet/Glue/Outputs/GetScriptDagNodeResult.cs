@@ -18,15 +18,15 @@ namespace Pulumi.Aws.Glue.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.GetScriptDagNodeArgResult> Args;
         /// <summary>
-        /// A node identifier that is unique within the node's graph.
+        /// Node identifier that is unique within the node's graph.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The line number of the node.
+        /// Line number of the node.
         /// </summary>
         public readonly int? LineNumber;
         /// <summary>
-        /// The type of node this is.
+        /// Type of node this is.
         /// </summary>
         public readonly string NodeType;
 

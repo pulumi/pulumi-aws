@@ -36,7 +36,7 @@ export function getIpSet(args: GetIpSetArgs, opts?: pulumi.InvokeOptions): Promi
  */
 export interface GetIpSetArgs {
     /**
-     * The name of the WAFv2 IP Set.
+     * Name of the WAFv2 IP Set.
      */
     name: string;
     /**
@@ -54,11 +54,11 @@ export interface GetIpSetResult {
      */
     readonly addresses: string[];
     /**
-     * The Amazon Resource Name (ARN) of the entity.
+     * ARN of the entity.
      */
     readonly arn: string;
     /**
-     * The description of the set that helps with identification.
+     * Description of the set that helps with identification.
      */
     readonly description: string;
     /**
@@ -66,7 +66,7 @@ export interface GetIpSetResult {
      */
     readonly id: string;
     /**
-     * The IP address version of the set.
+     * IP address version of the set.
      */
     readonly ipAddressVersion: string;
     readonly name: string;
@@ -82,7 +82,7 @@ export function getIpSetOutput(args: GetIpSetOutputArgs, opts?: pulumi.InvokeOpt
  */
 export interface GetIpSetOutputArgs {
     /**
-     * The name of the WAFv2 IP Set.
+     * Name of the WAFv2 IP Set.
      */
     name: pulumi.Input<string>;
     /**

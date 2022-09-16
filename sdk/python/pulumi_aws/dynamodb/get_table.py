@@ -243,7 +243,7 @@ def get_table(name: Optional[str] = None,
     ```
 
 
-    :param str name: The name of the DynamoDB table.
+    :param str name: Name of the DynamoDB table.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -294,6 +294,6 @@ def get_table_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str name: The name of the DynamoDB table.
+    :param str name: Name of the DynamoDB table.
     """
     ...

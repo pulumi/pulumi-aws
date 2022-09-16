@@ -31,9 +31,9 @@ class ImageBuilderArgs:
                  vpc_config: Optional[pulumi.Input['ImageBuilderVpcConfigArgs']] = None):
         """
         The set of arguments for constructing a ImageBuilder resource.
-        :param pulumi.Input[str] instance_type: The instance type to use when launching the image builder.
+        :param pulumi.Input[str] instance_type: Instance type to use when launching the image builder.
         :param pulumi.Input[Sequence[pulumi.Input['ImageBuilderAccessEndpointArgs']]] access_endpoints: Set of interface VPC endpoint (interface endpoint) objects. Maximum of 4. See below.
-        :param pulumi.Input[str] appstream_agent_version: The version of the AppStream 2.0 agent to use for this image builder.
+        :param pulumi.Input[str] appstream_agent_version: Version of the AppStream 2.0 agent to use for this image builder.
         :param pulumi.Input[str] description: Description to display.
         :param pulumi.Input[str] display_name: Human-readable friendly name for the AppStream image builder.
         :param pulumi.Input['ImageBuilderDomainJoinInfoArgs'] domain_join_info: Configuration block for the name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. See below.
@@ -42,7 +42,7 @@ class ImageBuilderArgs:
         :param pulumi.Input[str] image_arn: ARN of the public, private, or shared image to use.
         :param pulumi.Input[str] image_name: Name of the image used to create the image builder.
         :param pulumi.Input[str] name: Unique name for the image builder.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['ImageBuilderVpcConfigArgs'] vpc_config: Configuration block for the VPC configuration for the image builder. See below.
         """
         pulumi.set(__self__, "instance_type", instance_type)
@@ -75,7 +75,7 @@ class ImageBuilderArgs:
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> pulumi.Input[str]:
         """
-        The instance type to use when launching the image builder.
+        Instance type to use when launching the image builder.
         """
         return pulumi.get(self, "instance_type")
 
@@ -99,7 +99,7 @@ class ImageBuilderArgs:
     @pulumi.getter(name="appstreamAgentVersion")
     def appstream_agent_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of the AppStream 2.0 agent to use for this image builder.
+        Version of the AppStream 2.0 agent to use for this image builder.
         """
         return pulumi.get(self, "appstream_agent_version")
 
@@ -207,7 +207,7 @@ class ImageBuilderArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -251,7 +251,7 @@ class _ImageBuilderState:
         """
         Input properties used for looking up and filtering ImageBuilder resources.
         :param pulumi.Input[Sequence[pulumi.Input['ImageBuilderAccessEndpointArgs']]] access_endpoints: Set of interface VPC endpoint (interface endpoint) objects. Maximum of 4. See below.
-        :param pulumi.Input[str] appstream_agent_version: The version of the AppStream 2.0 agent to use for this image builder.
+        :param pulumi.Input[str] appstream_agent_version: Version of the AppStream 2.0 agent to use for this image builder.
         :param pulumi.Input[str] arn: ARN of the appstream image builder.
         :param pulumi.Input[str] created_time: Date and time, in UTC and extended RFC 3339 format, when the image builder was created.
         :param pulumi.Input[str] description: Description to display.
@@ -261,11 +261,11 @@ class _ImageBuilderState:
         :param pulumi.Input[str] iam_role_arn: ARN of the IAM role to apply to the image builder.
         :param pulumi.Input[str] image_arn: ARN of the public, private, or shared image to use.
         :param pulumi.Input[str] image_name: Name of the image used to create the image builder.
-        :param pulumi.Input[str] instance_type: The instance type to use when launching the image builder.
+        :param pulumi.Input[str] instance_type: Instance type to use when launching the image builder.
         :param pulumi.Input[str] name: Unique name for the image builder.
         :param pulumi.Input[str] state: State of the image builder. Can be: `PENDING`, `UPDATING_AGENT`, `RUNNING`, `STOPPING`, `STOPPED`, `REBOOTING`, `SNAPSHOTTING`, `DELETING`, `FAILED`, `UPDATING`, `PENDING_QUALIFICATION`
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['ImageBuilderVpcConfigArgs'] vpc_config: Configuration block for the VPC configuration for the image builder. See below.
         """
         if access_endpoints is not None:
@@ -319,7 +319,7 @@ class _ImageBuilderState:
     @pulumi.getter(name="appstreamAgentVersion")
     def appstream_agent_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of the AppStream 2.0 agent to use for this image builder.
+        Version of the AppStream 2.0 agent to use for this image builder.
         """
         return pulumi.get(self, "appstream_agent_version")
 
@@ -439,7 +439,7 @@ class _ImageBuilderState:
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The instance type to use when launching the image builder.
+        Instance type to use when launching the image builder.
         """
         return pulumi.get(self, "instance_type")
 
@@ -475,7 +475,7 @@ class _ImageBuilderState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -487,7 +487,7 @@ class _ImageBuilderState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -561,7 +561,7 @@ class ImageBuilder(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageBuilderAccessEndpointArgs']]]] access_endpoints: Set of interface VPC endpoint (interface endpoint) objects. Maximum of 4. See below.
-        :param pulumi.Input[str] appstream_agent_version: The version of the AppStream 2.0 agent to use for this image builder.
+        :param pulumi.Input[str] appstream_agent_version: Version of the AppStream 2.0 agent to use for this image builder.
         :param pulumi.Input[str] description: Description to display.
         :param pulumi.Input[str] display_name: Human-readable friendly name for the AppStream image builder.
         :param pulumi.Input[pulumi.InputType['ImageBuilderDomainJoinInfoArgs']] domain_join_info: Configuration block for the name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. See below.
@@ -569,9 +569,9 @@ class ImageBuilder(pulumi.CustomResource):
         :param pulumi.Input[str] iam_role_arn: ARN of the IAM role to apply to the image builder.
         :param pulumi.Input[str] image_arn: ARN of the public, private, or shared image to use.
         :param pulumi.Input[str] image_name: Name of the image used to create the image builder.
-        :param pulumi.Input[str] instance_type: The instance type to use when launching the image builder.
+        :param pulumi.Input[str] instance_type: Instance type to use when launching the image builder.
         :param pulumi.Input[str] name: Unique name for the image builder.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[pulumi.InputType['ImageBuilderVpcConfigArgs']] vpc_config: Configuration block for the VPC configuration for the image builder. See below.
         """
         ...
@@ -702,7 +702,7 @@ class ImageBuilder(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageBuilderAccessEndpointArgs']]]] access_endpoints: Set of interface VPC endpoint (interface endpoint) objects. Maximum of 4. See below.
-        :param pulumi.Input[str] appstream_agent_version: The version of the AppStream 2.0 agent to use for this image builder.
+        :param pulumi.Input[str] appstream_agent_version: Version of the AppStream 2.0 agent to use for this image builder.
         :param pulumi.Input[str] arn: ARN of the appstream image builder.
         :param pulumi.Input[str] created_time: Date and time, in UTC and extended RFC 3339 format, when the image builder was created.
         :param pulumi.Input[str] description: Description to display.
@@ -712,11 +712,11 @@ class ImageBuilder(pulumi.CustomResource):
         :param pulumi.Input[str] iam_role_arn: ARN of the IAM role to apply to the image builder.
         :param pulumi.Input[str] image_arn: ARN of the public, private, or shared image to use.
         :param pulumi.Input[str] image_name: Name of the image used to create the image builder.
-        :param pulumi.Input[str] instance_type: The instance type to use when launching the image builder.
+        :param pulumi.Input[str] instance_type: Instance type to use when launching the image builder.
         :param pulumi.Input[str] name: Unique name for the image builder.
         :param pulumi.Input[str] state: State of the image builder. Can be: `PENDING`, `UPDATING_AGENT`, `RUNNING`, `STOPPING`, `STOPPED`, `REBOOTING`, `SNAPSHOTTING`, `DELETING`, `FAILED`, `UPDATING`, `PENDING_QUALIFICATION`
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[pulumi.InputType['ImageBuilderVpcConfigArgs']] vpc_config: Configuration block for the VPC configuration for the image builder. See below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -754,7 +754,7 @@ class ImageBuilder(pulumi.CustomResource):
     @pulumi.getter(name="appstreamAgentVersion")
     def appstream_agent_version(self) -> pulumi.Output[str]:
         """
-        The version of the AppStream 2.0 agent to use for this image builder.
+        Version of the AppStream 2.0 agent to use for this image builder.
         """
         return pulumi.get(self, "appstream_agent_version")
 
@@ -834,7 +834,7 @@ class ImageBuilder(pulumi.CustomResource):
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> pulumi.Output[str]:
         """
-        The instance type to use when launching the image builder.
+        Instance type to use when launching the image builder.
         """
         return pulumi.get(self, "instance_type")
 
@@ -858,7 +858,7 @@ class ImageBuilder(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -866,7 +866,7 @@ class ImageBuilder(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

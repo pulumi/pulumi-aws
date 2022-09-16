@@ -23,7 +23,7 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicyAction {
      */
     private @Nullable Boolean requireAcceptance;
     /**
-     * @return The name of the segment.
+     * @return Name of the segment.
      * 
      */
     private @Nullable String segment;
@@ -49,7 +49,7 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicyAction {
         return Optional.ofNullable(this.requireAcceptance);
     }
     /**
-     * @return The name of the segment.
+     * @return Name of the segment.
      * 
      */
     public Optional<String> segment() {

@@ -10,14 +10,14 @@ import java.util.Objects;
 @CustomType
 public final class EventIntegrationEventFilter {
     /**
-     * @return The source of the events.
+     * @return Source of the events.
      * 
      */
     private String source;
 
     private EventIntegrationEventFilter() {}
     /**
-     * @return The source of the events.
+     * @return Source of the events.
      * 
      */
     public String source() {

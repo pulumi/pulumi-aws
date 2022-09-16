@@ -49,14 +49,14 @@ public final class GetAttachmentArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The ID of the attachment.
+     * ID of the attachment.
      * 
      */
     @Import(name="transitGatewayAttachmentId")
     private @Nullable Output<String> transitGatewayAttachmentId;
 
     /**
-     * @return The ID of the attachment.
+     * @return ID of the attachment.
      * 
      */
     public Optional<Output<String>> transitGatewayAttachmentId() {
@@ -142,7 +142,7 @@ public final class GetAttachmentArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param transitGatewayAttachmentId The ID of the attachment.
+         * @param transitGatewayAttachmentId ID of the attachment.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class GetAttachmentArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param transitGatewayAttachmentId The ID of the attachment.
+         * @param transitGatewayAttachmentId ID of the attachment.
          * 
          * @return builder
          * 

@@ -13,43 +13,43 @@ namespace Pulumi.Aws.AutoScaling.Inputs
     public sealed class PolicyPredictiveScalingConfigurationMetricSpecificationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The customized capacity metric specification. The field is only valid when you use `customized_load_metric_specification`
+        /// Customized capacity metric specification. The field is only valid when you use `customized_load_metric_specification`
         /// </summary>
         [Input("customizedCapacityMetricSpecification")]
         public Input<Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationGetArgs>? CustomizedCapacityMetricSpecification { get; set; }
 
         /// <summary>
-        /// The customized load metric specification.
+        /// Customized load metric specification.
         /// </summary>
         [Input("customizedLoadMetricSpecification")]
         public Input<Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationGetArgs>? CustomizedLoadMetricSpecification { get; set; }
 
         /// <summary>
-        /// The customized scaling metric specification.
+        /// Customized scaling metric specification.
         /// </summary>
         [Input("customizedScalingMetricSpecification")]
         public Input<Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationGetArgs>? CustomizedScalingMetricSpecification { get; set; }
 
         /// <summary>
-        /// The predefined load metric specification.
+        /// Predefined load metric specification.
         /// </summary>
         [Input("predefinedLoadMetricSpecification")]
         public Input<Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationGetArgs>? PredefinedLoadMetricSpecification { get; set; }
 
         /// <summary>
-        /// The metric pair specification from which Amazon EC2 Auto Scaling determines the appropriate scaling metric and load metric to use.
+        /// Metric pair specification from which Amazon EC2 Auto Scaling determines the appropriate scaling metric and load metric to use.
         /// </summary>
         [Input("predefinedMetricPairSpecification")]
         public Input<Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationGetArgs>? PredefinedMetricPairSpecification { get; set; }
 
         /// <summary>
-        /// The predefined scaling metric specification.
+        /// Predefined scaling metric specification.
         /// </summary>
         [Input("predefinedScalingMetricSpecification")]
         public Input<Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationGetArgs>? PredefinedScalingMetricSpecification { get; set; }
 
         /// <summary>
-        /// The target value for the metric.
+        /// Target value for the metric.
         /// </summary>
         [Input("targetValue", required: true)]
         public Input<int> TargetValue { get; set; } = null!;

@@ -18,7 +18,7 @@ public final class GetGlobalNetworksResult {
      */
     private String id;
     /**
-     * @return The IDs of the global networks.
+     * @return IDs of the global networks.
      * 
      */
     private List<String> ids;
@@ -33,7 +33,7 @@ public final class GetGlobalNetworksResult {
         return this.id;
     }
     /**
-     * @return The IDs of the global networks.
+     * @return IDs of the global networks.
      * 
      */
     public List<String> ids() {

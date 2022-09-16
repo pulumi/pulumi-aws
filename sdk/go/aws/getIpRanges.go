@@ -89,17 +89,17 @@ type GetIpRangesArgs struct {
 
 // A collection of values returned by getIpRanges.
 type GetIpRangesResult struct {
-	// The lexically ordered list of CIDR blocks.
+	// Lexically ordered list of CIDR blocks.
 	CidrBlocks []string `pulumi:"cidrBlocks"`
-	// The publication time of the IP ranges (e.g., `2016-08-03-23-46-05`).
+	// Publication time of the IP ranges (e.g., `2016-08-03-23-46-05`).
 	CreateDate string `pulumi:"createDate"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The lexically ordered list of IPv6 CIDR blocks.
+	// Lexically ordered list of IPv6 CIDR blocks.
 	Ipv6CidrBlocks []string `pulumi:"ipv6CidrBlocks"`
 	Regions        []string `pulumi:"regions"`
 	Services       []string `pulumi:"services"`
-	// The publication time of the IP ranges, in Unix epoch time format
+	// Publication time of the IP ranges, in Unix epoch time format
 	// (e.g., `1470267965`).
 	SyncToken int     `pulumi:"syncToken"`
 	Url       *string `pulumi:"url"`
@@ -153,12 +153,12 @@ func (o GetIpRangesResultOutput) ToGetIpRangesResultOutputWithContext(ctx contex
 	return o
 }
 
-// The lexically ordered list of CIDR blocks.
+// Lexically ordered list of CIDR blocks.
 func (o GetIpRangesResultOutput) CidrBlocks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetIpRangesResult) []string { return v.CidrBlocks }).(pulumi.StringArrayOutput)
 }
 
-// The publication time of the IP ranges (e.g., `2016-08-03-23-46-05`).
+// Publication time of the IP ranges (e.g., `2016-08-03-23-46-05`).
 func (o GetIpRangesResultOutput) CreateDate() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIpRangesResult) string { return v.CreateDate }).(pulumi.StringOutput)
 }
@@ -168,7 +168,7 @@ func (o GetIpRangesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIpRangesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The lexically ordered list of IPv6 CIDR blocks.
+// Lexically ordered list of IPv6 CIDR blocks.
 func (o GetIpRangesResultOutput) Ipv6CidrBlocks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetIpRangesResult) []string { return v.Ipv6CidrBlocks }).(pulumi.StringArrayOutput)
 }
@@ -181,7 +181,7 @@ func (o GetIpRangesResultOutput) Services() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetIpRangesResult) []string { return v.Services }).(pulumi.StringArrayOutput)
 }
 
-// The publication time of the IP ranges, in Unix epoch time format
+// Publication time of the IP ranges, in Unix epoch time format
 // (e.g., `1470267965`).
 func (o GetIpRangesResultOutput) SyncToken() pulumi.IntOutput {
 	return o.ApplyT(func(v GetIpRangesResult) int { return v.SyncToken }).(pulumi.IntOutput)

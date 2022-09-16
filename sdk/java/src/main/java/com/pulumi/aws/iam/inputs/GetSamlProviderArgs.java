@@ -17,14 +17,14 @@ public final class GetSamlProviderArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetSamlProviderArgs Empty = new GetSamlProviderArgs();
 
     /**
-     * The ARN assigned by AWS for the provider.
+     * ARN assigned by AWS for the provider.
      * 
      */
     @Import(name="arn", required=true)
     private Output<String> arn;
 
     /**
-     * @return The ARN assigned by AWS for the provider.
+     * @return ARN assigned by AWS for the provider.
      * 
      */
     public Output<String> arn() {
@@ -32,14 +32,14 @@ public final class GetSamlProviderArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The tags attached to the SAML provider.
+     * Tags attached to the SAML provider.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return The tags attached to the SAML provider.
+     * @return Tags attached to the SAML provider.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -72,7 +72,7 @@ public final class GetSamlProviderArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param arn The ARN assigned by AWS for the provider.
+         * @param arn ARN assigned by AWS for the provider.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class GetSamlProviderArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param arn The ARN assigned by AWS for the provider.
+         * @param arn ARN assigned by AWS for the provider.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class GetSamlProviderArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags The tags attached to the SAML provider.
+         * @param tags Tags attached to the SAML provider.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class GetSamlProviderArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags The tags attached to the SAML provider.
+         * @param tags Tags attached to the SAML provider.
          * 
          * @return builder
          * 

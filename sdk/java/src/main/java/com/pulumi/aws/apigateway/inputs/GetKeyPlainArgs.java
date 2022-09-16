@@ -16,14 +16,14 @@ public final class GetKeyPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetKeyPlainArgs Empty = new GetKeyPlainArgs();
 
     /**
-     * The ID of the API Key to look up.
+     * ID of the API Key to look up.
      * 
      */
     @Import(name="id", required=true)
     private String id;
 
     /**
-     * @return The ID of the API Key to look up.
+     * @return ID of the API Key to look up.
      * 
      */
     public String id() {
@@ -31,14 +31,14 @@ public final class GetKeyPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * A map of tags for the resource.
+     * Map of tags for the resource.
      * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return A map of tags for the resource.
+     * @return Map of tags for the resource.
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -71,7 +71,7 @@ public final class GetKeyPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param id The ID of the API Key to look up.
+         * @param id ID of the API Key to look up.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class GetKeyPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags A map of tags for the resource.
+         * @param tags Map of tags for the resource.
          * 
          * @return builder
          * 

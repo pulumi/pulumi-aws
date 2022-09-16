@@ -95,6 +95,12 @@ public class GlobalCluster extends com.pulumi.resources.CustomResource {
     public Output<String> engineVersion() {
         return this.engineVersion;
     }
+    @Export(name="engineVersionActual", type=String.class, parameters={})
+    private Output<String> engineVersionActual;
+
+    public Output<String> engineVersionActual() {
+        return this.engineVersionActual;
+    }
     /**
      * Enable to remove DB Cluster members from Global Cluster on destroy. Required with `source_db_cluster_identifier`.
      * 

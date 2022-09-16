@@ -93,7 +93,7 @@ type LookupTransitGatewayArgs struct {
 type LookupTransitGatewayResult struct {
 	// Private Autonomous System Number (ASN) for the Amazon side of a BGP session
 	AmazonSideAsn int `pulumi:"amazonSideAsn"`
-	// EC2 Transit Gateway Amazon Resource Name (ARN)
+	// EC2 Transit Gateway ARN
 	Arn string `pulumi:"arn"`
 	// Identifier of the default association route table
 	AssociationDefaultRouteTableId string `pulumi:"associationDefaultRouteTableId"`
@@ -171,7 +171,7 @@ func (o LookupTransitGatewayResultOutput) AmazonSideAsn() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupTransitGatewayResult) int { return v.AmazonSideAsn }).(pulumi.IntOutput)
 }
 
-// EC2 Transit Gateway Amazon Resource Name (ARN)
+// EC2 Transit Gateway ARN
 func (o LookupTransitGatewayResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTransitGatewayResult) string { return v.Arn }).(pulumi.StringOutput)
 }

@@ -12,7 +12,7 @@ import java.util.Objects;
 public final class GetClusterCacheNode {
     private String address;
     /**
-     * @return The Availability Zone for the cache cluster.
+     * @return Availability Zone for the cache cluster.
      * 
      */
     private String availabilityZone;
@@ -29,7 +29,7 @@ public final class GetClusterCacheNode {
         return this.address;
     }
     /**
-     * @return The Availability Zone for the cache cluster.
+     * @return Availability Zone for the cache cluster.
      * 
      */
     public String availabilityZone() {

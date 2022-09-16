@@ -19,9 +19,9 @@ class ResourceArgs:
                  rest_api: pulumi.Input[str]):
         """
         The set of arguments for constructing a Resource resource.
-        :param pulumi.Input[str] parent_id: The ID of the parent API resource
-        :param pulumi.Input[str] path_part: The last path segment of this API resource.
-        :param pulumi.Input[str] rest_api: The ID of the associated REST API
+        :param pulumi.Input[str] parent_id: ID of the parent API resource
+        :param pulumi.Input[str] path_part: Last path segment of this API resource.
+        :param pulumi.Input[str] rest_api: ID of the associated REST API
         """
         pulumi.set(__self__, "parent_id", parent_id)
         pulumi.set(__self__, "path_part", path_part)
@@ -31,7 +31,7 @@ class ResourceArgs:
     @pulumi.getter(name="parentId")
     def parent_id(self) -> pulumi.Input[str]:
         """
-        The ID of the parent API resource
+        ID of the parent API resource
         """
         return pulumi.get(self, "parent_id")
 
@@ -43,7 +43,7 @@ class ResourceArgs:
     @pulumi.getter(name="pathPart")
     def path_part(self) -> pulumi.Input[str]:
         """
-        The last path segment of this API resource.
+        Last path segment of this API resource.
         """
         return pulumi.get(self, "path_part")
 
@@ -55,7 +55,7 @@ class ResourceArgs:
     @pulumi.getter(name="restApi")
     def rest_api(self) -> pulumi.Input[str]:
         """
-        The ID of the associated REST API
+        ID of the associated REST API
         """
         return pulumi.get(self, "rest_api")
 
@@ -73,10 +73,10 @@ class _ResourceState:
                  rest_api: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Resource resources.
-        :param pulumi.Input[str] parent_id: The ID of the parent API resource
-        :param pulumi.Input[str] path: The complete path for this API resource, including all parent paths.
-        :param pulumi.Input[str] path_part: The last path segment of this API resource.
-        :param pulumi.Input[str] rest_api: The ID of the associated REST API
+        :param pulumi.Input[str] parent_id: ID of the parent API resource
+        :param pulumi.Input[str] path: Complete path for this API resource, including all parent paths.
+        :param pulumi.Input[str] path_part: Last path segment of this API resource.
+        :param pulumi.Input[str] rest_api: ID of the associated REST API
         """
         if parent_id is not None:
             pulumi.set(__self__, "parent_id", parent_id)
@@ -91,7 +91,7 @@ class _ResourceState:
     @pulumi.getter(name="parentId")
     def parent_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the parent API resource
+        ID of the parent API resource
         """
         return pulumi.get(self, "parent_id")
 
@@ -103,7 +103,7 @@ class _ResourceState:
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input[str]]:
         """
-        The complete path for this API resource, including all parent paths.
+        Complete path for this API resource, including all parent paths.
         """
         return pulumi.get(self, "path")
 
@@ -115,7 +115,7 @@ class _ResourceState:
     @pulumi.getter(name="pathPart")
     def path_part(self) -> Optional[pulumi.Input[str]]:
         """
-        The last path segment of this API resource.
+        Last path segment of this API resource.
         """
         return pulumi.get(self, "path_part")
 
@@ -127,7 +127,7 @@ class _ResourceState:
     @pulumi.getter(name="restApi")
     def rest_api(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the associated REST API
+        ID of the associated REST API
         """
         return pulumi.get(self, "rest_api")
 
@@ -171,9 +171,9 @@ class Resource(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] parent_id: The ID of the parent API resource
-        :param pulumi.Input[str] path_part: The last path segment of this API resource.
-        :param pulumi.Input[str] rest_api: The ID of the associated REST API
+        :param pulumi.Input[str] parent_id: ID of the parent API resource
+        :param pulumi.Input[str] path_part: Last path segment of this API resource.
+        :param pulumi.Input[str] rest_api: ID of the associated REST API
         """
         ...
     @overload
@@ -263,10 +263,10 @@ class Resource(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] parent_id: The ID of the parent API resource
-        :param pulumi.Input[str] path: The complete path for this API resource, including all parent paths.
-        :param pulumi.Input[str] path_part: The last path segment of this API resource.
-        :param pulumi.Input[str] rest_api: The ID of the associated REST API
+        :param pulumi.Input[str] parent_id: ID of the parent API resource
+        :param pulumi.Input[str] path: Complete path for this API resource, including all parent paths.
+        :param pulumi.Input[str] path_part: Last path segment of this API resource.
+        :param pulumi.Input[str] rest_api: ID of the associated REST API
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -282,7 +282,7 @@ class Resource(pulumi.CustomResource):
     @pulumi.getter(name="parentId")
     def parent_id(self) -> pulumi.Output[str]:
         """
-        The ID of the parent API resource
+        ID of the parent API resource
         """
         return pulumi.get(self, "parent_id")
 
@@ -290,7 +290,7 @@ class Resource(pulumi.CustomResource):
     @pulumi.getter
     def path(self) -> pulumi.Output[str]:
         """
-        The complete path for this API resource, including all parent paths.
+        Complete path for this API resource, including all parent paths.
         """
         return pulumi.get(self, "path")
 
@@ -298,7 +298,7 @@ class Resource(pulumi.CustomResource):
     @pulumi.getter(name="pathPart")
     def path_part(self) -> pulumi.Output[str]:
         """
-        The last path segment of this API resource.
+        Last path segment of this API resource.
         """
         return pulumi.get(self, "path_part")
 
@@ -306,7 +306,7 @@ class Resource(pulumi.CustomResource):
     @pulumi.getter(name="restApi")
     def rest_api(self) -> pulumi.Output[str]:
         """
-        The ID of the associated REST API
+        ID of the associated REST API
         """
         return pulumi.get(self, "rest_api")
 

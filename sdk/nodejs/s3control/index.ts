@@ -5,24 +5,46 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./accessPointPolicy";
-export * from "./bucket";
-export * from "./bucketLifecycleConfiguration";
-export * from "./bucketPolicy";
-export * from "./multiRegionAccessPoint";
-export * from "./multiRegionAccessPointPolicy";
-export * from "./objectLambdaAccessPoint";
-export * from "./objectLambdaAccessPointPolicy";
+export { AccessPointPolicyArgs, AccessPointPolicyState } from "./accessPointPolicy";
+export type AccessPointPolicy = import("./accessPointPolicy").AccessPointPolicy;
+export const AccessPointPolicy: typeof import("./accessPointPolicy").AccessPointPolicy = null as any;
 
-// Import resources to register:
-import { AccessPointPolicy } from "./accessPointPolicy";
-import { Bucket } from "./bucket";
-import { BucketLifecycleConfiguration } from "./bucketLifecycleConfiguration";
-import { BucketPolicy } from "./bucketPolicy";
-import { MultiRegionAccessPoint } from "./multiRegionAccessPoint";
-import { MultiRegionAccessPointPolicy } from "./multiRegionAccessPointPolicy";
-import { ObjectLambdaAccessPoint } from "./objectLambdaAccessPoint";
-import { ObjectLambdaAccessPointPolicy } from "./objectLambdaAccessPointPolicy";
+export { BucketArgs, BucketState } from "./bucket";
+export type Bucket = import("./bucket").Bucket;
+export const Bucket: typeof import("./bucket").Bucket = null as any;
+
+export { BucketLifecycleConfigurationArgs, BucketLifecycleConfigurationState } from "./bucketLifecycleConfiguration";
+export type BucketLifecycleConfiguration = import("./bucketLifecycleConfiguration").BucketLifecycleConfiguration;
+export const BucketLifecycleConfiguration: typeof import("./bucketLifecycleConfiguration").BucketLifecycleConfiguration = null as any;
+
+export { BucketPolicyArgs, BucketPolicyState } from "./bucketPolicy";
+export type BucketPolicy = import("./bucketPolicy").BucketPolicy;
+export const BucketPolicy: typeof import("./bucketPolicy").BucketPolicy = null as any;
+
+export { MultiRegionAccessPointArgs, MultiRegionAccessPointState } from "./multiRegionAccessPoint";
+export type MultiRegionAccessPoint = import("./multiRegionAccessPoint").MultiRegionAccessPoint;
+export const MultiRegionAccessPoint: typeof import("./multiRegionAccessPoint").MultiRegionAccessPoint = null as any;
+
+export { MultiRegionAccessPointPolicyArgs, MultiRegionAccessPointPolicyState } from "./multiRegionAccessPointPolicy";
+export type MultiRegionAccessPointPolicy = import("./multiRegionAccessPointPolicy").MultiRegionAccessPointPolicy;
+export const MultiRegionAccessPointPolicy: typeof import("./multiRegionAccessPointPolicy").MultiRegionAccessPointPolicy = null as any;
+
+export { ObjectLambdaAccessPointArgs, ObjectLambdaAccessPointState } from "./objectLambdaAccessPoint";
+export type ObjectLambdaAccessPoint = import("./objectLambdaAccessPoint").ObjectLambdaAccessPoint;
+export const ObjectLambdaAccessPoint: typeof import("./objectLambdaAccessPoint").ObjectLambdaAccessPoint = null as any;
+
+export { ObjectLambdaAccessPointPolicyArgs, ObjectLambdaAccessPointPolicyState } from "./objectLambdaAccessPointPolicy";
+export type ObjectLambdaAccessPointPolicy = import("./objectLambdaAccessPointPolicy").ObjectLambdaAccessPointPolicy;
+export const ObjectLambdaAccessPointPolicy: typeof import("./objectLambdaAccessPointPolicy").ObjectLambdaAccessPointPolicy = null as any;
+
+utilities.lazyLoad(exports, ["AccessPointPolicy"], () => require("./accessPointPolicy"));
+utilities.lazyLoad(exports, ["Bucket"], () => require("./bucket"));
+utilities.lazyLoad(exports, ["BucketLifecycleConfiguration"], () => require("./bucketLifecycleConfiguration"));
+utilities.lazyLoad(exports, ["BucketPolicy"], () => require("./bucketPolicy"));
+utilities.lazyLoad(exports, ["MultiRegionAccessPoint"], () => require("./multiRegionAccessPoint"));
+utilities.lazyLoad(exports, ["MultiRegionAccessPointPolicy"], () => require("./multiRegionAccessPointPolicy"));
+utilities.lazyLoad(exports, ["ObjectLambdaAccessPoint"], () => require("./objectLambdaAccessPoint"));
+utilities.lazyLoad(exports, ["ObjectLambdaAccessPointPolicy"], () => require("./objectLambdaAccessPointPolicy"));
 
 const _module = {
     version: utilities.getVersion(),

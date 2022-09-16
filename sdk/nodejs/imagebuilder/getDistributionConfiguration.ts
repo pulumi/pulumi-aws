@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -36,7 +38,7 @@ export function getDistributionConfiguration(args: GetDistributionConfigurationA
  */
 export interface GetDistributionConfigurationArgs {
     /**
-     * Amazon Resource Name (ARN) of the distribution configuration.
+     * ARN of the distribution configuration.
      */
     arn: string;
     /**
@@ -89,7 +91,7 @@ export function getDistributionConfigurationOutput(args: GetDistributionConfigur
  */
 export interface GetDistributionConfigurationOutputArgs {
     /**
-     * Amazon Resource Name (ARN) of the distribution configuration.
+     * ARN of the distribution configuration.
      */
     arn: pulumi.Input<string>;
     /**

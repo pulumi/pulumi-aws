@@ -18,14 +18,14 @@ public final class FlowSourceFlowConfigArgs extends com.pulumi.resources.Resourc
     public static final FlowSourceFlowConfigArgs Empty = new FlowSourceFlowConfigArgs();
 
     /**
-     * The API version that the destination connector uses.
+     * API version that the destination connector uses.
      * 
      */
     @Import(name="apiVersion")
     private @Nullable Output<String> apiVersion;
 
     /**
-     * @return The API version that the destination connector uses.
+     * @return API version that the destination connector uses.
      * 
      */
     public Optional<Output<String>> apiVersion() {
@@ -33,14 +33,14 @@ public final class FlowSourceFlowConfigArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The name of the connector profile. This name must be unique for each connector profile in the AWS account.
+     * Name of the connector profile. This name must be unique for each connector profile in the AWS account.
      * 
      */
     @Import(name="connectorProfileName")
     private @Nullable Output<String> connectorProfileName;
 
     /**
-     * @return The name of the connector profile. This name must be unique for each connector profile in the AWS account.
+     * @return Name of the connector profile. This name must be unique for each connector profile in the AWS account.
      * 
      */
     public Optional<Output<String>> connectorProfileName() {
@@ -48,14 +48,14 @@ public final class FlowSourceFlowConfigArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The type of connector, such as Salesforce, Amplitude, and so on. Valid values are `Salesforce`, `Singular`, `Slack`, `Redshift`, `S3`, `Marketo`, `Googleanalytics`, `Zendesk`, `Servicenow`, `Datadog`, `Trendmicro`, `Snowflake`, `Dynatrace`, `Infornexus`, `Amplitude`, `Veeva`, `EventBridge`, `LookoutMetrics`, `Upsolver`, `Honeycode`, `CustomerProfiles`, `SAPOData`, and `CustomConnector`.
+     * Type of connector, such as Salesforce, Amplitude, and so on. Valid values are `Salesforce`, `Singular`, `Slack`, `Redshift`, `S3`, `Marketo`, `Googleanalytics`, `Zendesk`, `Servicenow`, `Datadog`, `Trendmicro`, `Snowflake`, `Dynatrace`, `Infornexus`, `Amplitude`, `Veeva`, `EventBridge`, `LookoutMetrics`, `Upsolver`, `Honeycode`, `CustomerProfiles`, `SAPOData`, and `CustomConnector`.
      * 
      */
     @Import(name="connectorType", required=true)
     private Output<String> connectorType;
 
     /**
-     * @return The type of connector, such as Salesforce, Amplitude, and so on. Valid values are `Salesforce`, `Singular`, `Slack`, `Redshift`, `S3`, `Marketo`, `Googleanalytics`, `Zendesk`, `Servicenow`, `Datadog`, `Trendmicro`, `Snowflake`, `Dynatrace`, `Infornexus`, `Amplitude`, `Veeva`, `EventBridge`, `LookoutMetrics`, `Upsolver`, `Honeycode`, `CustomerProfiles`, `SAPOData`, and `CustomConnector`.
+     * @return Type of connector, such as Salesforce, Amplitude, and so on. Valid values are `Salesforce`, `Singular`, `Slack`, `Redshift`, `S3`, `Marketo`, `Googleanalytics`, `Zendesk`, `Servicenow`, `Datadog`, `Trendmicro`, `Snowflake`, `Dynatrace`, `Infornexus`, `Amplitude`, `Veeva`, `EventBridge`, `LookoutMetrics`, `Upsolver`, `Honeycode`, `CustomerProfiles`, `SAPOData`, and `CustomConnector`.
      * 
      */
     public Output<String> connectorType() {
@@ -78,14 +78,14 @@ public final class FlowSourceFlowConfigArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Specifies the information that is required to query a particular source connector. See Source Connector Properties for details.
+     * Information that is required to query a particular source connector. See Source Connector Properties for details.
      * 
      */
     @Import(name="sourceConnectorProperties", required=true)
     private Output<FlowSourceFlowConfigSourceConnectorPropertiesArgs> sourceConnectorProperties;
 
     /**
-     * @return Specifies the information that is required to query a particular source connector. See Source Connector Properties for details.
+     * @return Information that is required to query a particular source connector. See Source Connector Properties for details.
      * 
      */
     public Output<FlowSourceFlowConfigSourceConnectorPropertiesArgs> sourceConnectorProperties() {
@@ -121,7 +121,7 @@ public final class FlowSourceFlowConfigArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param apiVersion The API version that the destination connector uses.
+         * @param apiVersion API version that the destination connector uses.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class FlowSourceFlowConfigArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param apiVersion The API version that the destination connector uses.
+         * @param apiVersion API version that the destination connector uses.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class FlowSourceFlowConfigArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param connectorProfileName The name of the connector profile. This name must be unique for each connector profile in the AWS account.
+         * @param connectorProfileName Name of the connector profile. This name must be unique for each connector profile in the AWS account.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class FlowSourceFlowConfigArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param connectorProfileName The name of the connector profile. This name must be unique for each connector profile in the AWS account.
+         * @param connectorProfileName Name of the connector profile. This name must be unique for each connector profile in the AWS account.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class FlowSourceFlowConfigArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param connectorType The type of connector, such as Salesforce, Amplitude, and so on. Valid values are `Salesforce`, `Singular`, `Slack`, `Redshift`, `S3`, `Marketo`, `Googleanalytics`, `Zendesk`, `Servicenow`, `Datadog`, `Trendmicro`, `Snowflake`, `Dynatrace`, `Infornexus`, `Amplitude`, `Veeva`, `EventBridge`, `LookoutMetrics`, `Upsolver`, `Honeycode`, `CustomerProfiles`, `SAPOData`, and `CustomConnector`.
+         * @param connectorType Type of connector, such as Salesforce, Amplitude, and so on. Valid values are `Salesforce`, `Singular`, `Slack`, `Redshift`, `S3`, `Marketo`, `Googleanalytics`, `Zendesk`, `Servicenow`, `Datadog`, `Trendmicro`, `Snowflake`, `Dynatrace`, `Infornexus`, `Amplitude`, `Veeva`, `EventBridge`, `LookoutMetrics`, `Upsolver`, `Honeycode`, `CustomerProfiles`, `SAPOData`, and `CustomConnector`.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class FlowSourceFlowConfigArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param connectorType The type of connector, such as Salesforce, Amplitude, and so on. Valid values are `Salesforce`, `Singular`, `Slack`, `Redshift`, `S3`, `Marketo`, `Googleanalytics`, `Zendesk`, `Servicenow`, `Datadog`, `Trendmicro`, `Snowflake`, `Dynatrace`, `Infornexus`, `Amplitude`, `Veeva`, `EventBridge`, `LookoutMetrics`, `Upsolver`, `Honeycode`, `CustomerProfiles`, `SAPOData`, and `CustomConnector`.
+         * @param connectorType Type of connector, such as Salesforce, Amplitude, and so on. Valid values are `Salesforce`, `Singular`, `Slack`, `Redshift`, `S3`, `Marketo`, `Googleanalytics`, `Zendesk`, `Servicenow`, `Datadog`, `Trendmicro`, `Snowflake`, `Dynatrace`, `Infornexus`, `Amplitude`, `Veeva`, `EventBridge`, `LookoutMetrics`, `Upsolver`, `Honeycode`, `CustomerProfiles`, `SAPOData`, and `CustomConnector`.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class FlowSourceFlowConfigArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param sourceConnectorProperties Specifies the information that is required to query a particular source connector. See Source Connector Properties for details.
+         * @param sourceConnectorProperties Information that is required to query a particular source connector. See Source Connector Properties for details.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class FlowSourceFlowConfigArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param sourceConnectorProperties Specifies the information that is required to query a particular source connector. See Source Connector Properties for details.
+         * @param sourceConnectorProperties Information that is required to query a particular source connector. See Source Connector Properties for details.
          * 
          * @return builder
          * 

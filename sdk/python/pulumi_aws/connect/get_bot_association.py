@@ -84,7 +84,7 @@ def get_bot_association(instance_id: Optional[str] = None,
     ```
 
 
-    :param str instance_id: The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
+    :param str instance_id: Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
     :param pulumi.InputType['GetBotAssociationLexBotArgs'] lex_bot: Configuration information of an Amazon Lex (V1) bot. Detailed below.
     """
     __args__ = dict()
@@ -120,7 +120,7 @@ def get_bot_association_output(instance_id: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str instance_id: The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
+    :param str instance_id: Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
     :param pulumi.InputType['GetBotAssociationLexBotArgs'] lex_bot: Configuration information of an Amazon Lex (V1) bot. Detailed below.
     """
     ...

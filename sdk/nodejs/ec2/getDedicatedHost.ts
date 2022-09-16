@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -46,7 +48,7 @@ export interface GetDedicatedHostArgs {
      */
     filters?: inputs.ec2.GetDedicatedHostFilter[];
     /**
-     * The ID of the Dedicated Host.
+     * ID of the Dedicated Host.
      */
     hostId?: string;
     tags?: {[key: string]: string};
@@ -57,7 +59,7 @@ export interface GetDedicatedHostArgs {
  */
 export interface GetDedicatedHostResult {
     /**
-     * The ARN of the Dedicated Host.
+     * ARN of the Dedicated Host.
      */
     readonly arn: string;
     /**
@@ -65,17 +67,17 @@ export interface GetDedicatedHostResult {
      */
     readonly autoPlacement: string;
     /**
-     * The Availability Zone of the Dedicated Host.
+     * Availability Zone of the Dedicated Host.
      */
     readonly availabilityZone: string;
     /**
-     * The number of cores on the Dedicated Host.
+     * Number of cores on the Dedicated Host.
      */
     readonly cores: number;
     readonly filters?: outputs.ec2.GetDedicatedHostFilter[];
     readonly hostId: string;
     /**
-     * Indicates whether host recovery is enabled or disabled for the Dedicated Host.
+     * Whether host recovery is enabled or disabled for the Dedicated Host.
      */
     readonly hostRecovery: string;
     /**
@@ -83,28 +85,28 @@ export interface GetDedicatedHostResult {
      */
     readonly id: string;
     /**
-     * The instance family supported by the Dedicated Host. For example, "m5".
+     * Instance family supported by the Dedicated Host. For example, "m5".
      */
     readonly instanceFamily: string;
     /**
-     * The instance type supported by the Dedicated Host. For example, "m5.large". If the host supports multiple instance types, no instanceType is returned.
+     * Instance type supported by the Dedicated Host. For example, "m5.large". If the host supports multiple instance types, no instanceType is returned.
      */
     readonly instanceType: string;
     /**
-     * The Amazon Resource Name (ARN) of the AWS Outpost on which the Dedicated Host is allocated.
+     * ARN of the AWS Outpost on which the Dedicated Host is allocated.
      */
     readonly outpostArn: string;
     /**
-     * The ID of the AWS account that owns the Dedicated Host.
+     * ID of the AWS account that owns the Dedicated Host.
      */
     readonly ownerId: string;
     /**
-     * The number of sockets on the Dedicated Host.
+     * Number of sockets on the Dedicated Host.
      */
     readonly sockets: number;
     readonly tags: {[key: string]: string};
     /**
-     * The total number of vCPUs on the Dedicated Host.
+     * Total number of vCPUs on the Dedicated Host.
      */
     readonly totalVcpus: number;
 }
@@ -122,7 +124,7 @@ export interface GetDedicatedHostOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetDedicatedHostFilterArgs>[]>;
     /**
-     * The ID of the Dedicated Host.
+     * ID of the Dedicated Host.
      */
     hostId?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

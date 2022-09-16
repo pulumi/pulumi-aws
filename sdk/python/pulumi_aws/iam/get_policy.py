@@ -54,7 +54,7 @@ class GetPolicyResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The ARN of the policy.
+        ARN of the policy.
         """
         return pulumi.get(self, "arn")
 
@@ -62,7 +62,7 @@ class GetPolicyResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        The description of the policy.
+        Description of the policy.
         """
         return pulumi.get(self, "description")
 
@@ -83,7 +83,7 @@ class GetPolicyResult:
     @pulumi.getter
     def path(self) -> str:
         """
-        The path to the policy.
+        Path to the policy.
         """
         return pulumi.get(self, "path")
 
@@ -96,7 +96,7 @@ class GetPolicyResult:
     @pulumi.getter
     def policy(self) -> str:
         """
-        The policy document of the policy.
+        Policy document of the policy.
         """
         return pulumi.get(self, "policy")
 
@@ -104,7 +104,7 @@ class GetPolicyResult:
     @pulumi.getter(name="policyId")
     def policy_id(self) -> str:
         """
-        The policy's ID.
+        Policy's ID.
         """
         return pulumi.get(self, "policy_id")
 
@@ -162,11 +162,11 @@ def get_policy(arn: Optional[str] = None,
     ```
 
 
-    :param str arn: The ARN of the IAM policy.
+    :param str arn: ARN of the IAM policy.
            Conflicts with `name` and `path_prefix`.
-    :param str name: The name of the IAM policy.
+    :param str name: Name of the IAM policy.
            Conflicts with `arn`.
-    :param str path_prefix: The prefix of the path to the IAM policy.
+    :param str path_prefix: Prefix of the path to the IAM policy.
            Defaults to a slash (`/`).
            Conflicts with `arn`.
     :param Mapping[str, str] tags: Key-value mapping of tags for the IAM Policy.
@@ -220,11 +220,11 @@ def get_policy_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     ```
 
 
-    :param str arn: The ARN of the IAM policy.
+    :param str arn: ARN of the IAM policy.
            Conflicts with `name` and `path_prefix`.
-    :param str name: The name of the IAM policy.
+    :param str name: Name of the IAM policy.
            Conflicts with `arn`.
-    :param str path_prefix: The prefix of the path to the IAM policy.
+    :param str path_prefix: Prefix of the path to the IAM policy.
            Defaults to a slash (`/`).
            Conflicts with `arn`.
     :param Mapping[str, str] tags: Key-value mapping of tags for the IAM Policy.

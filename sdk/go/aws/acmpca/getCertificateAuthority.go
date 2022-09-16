@@ -48,7 +48,7 @@ func LookupCertificateAuthority(ctx *pulumi.Context, args *LookupCertificateAuth
 
 // A collection of arguments for invoking getCertificateAuthority.
 type LookupCertificateAuthorityArgs struct {
-	// Amazon Resource Name (ARN) of the certificate authority.
+	// ARN of the certificate authority.
 	Arn string `pulumi:"arn"`
 	// Nested attribute containing revocation configuration.
 	// * `revocation_configuration.0.crl_configuration` - Nested attribute containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority.
@@ -60,7 +60,7 @@ type LookupCertificateAuthorityArgs struct {
 	// * `revocation_configuration.0.ocsp_configuration.0.enabled` - Boolean value that specifies whether a custom OCSP responder is enabled.
 	// * `revocation_configuration.0.ocsp_configuration.0.ocsp_custom_cname` - A CNAME specifying a customized OCSP domain.
 	RevocationConfigurations []GetCertificateAuthorityRevocationConfiguration `pulumi:"revocationConfigurations"`
-	// Specifies a key-value map of user-defined tags that are attached to the certificate authority.
+	// Key-value map of user-defined tags that are attached to the certificate authority.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -93,9 +93,9 @@ type LookupCertificateAuthorityResult struct {
 	Serial string `pulumi:"serial"`
 	// Status of the certificate authority.
 	Status string `pulumi:"status"`
-	// Specifies a key-value map of user-defined tags that are attached to the certificate authority.
+	// Key-value map of user-defined tags that are attached to the certificate authority.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the certificate authority.
+	// Type of the certificate authority.
 	Type string `pulumi:"type"`
 }
 
@@ -114,7 +114,7 @@ func LookupCertificateAuthorityOutput(ctx *pulumi.Context, args LookupCertificat
 
 // A collection of arguments for invoking getCertificateAuthority.
 type LookupCertificateAuthorityOutputArgs struct {
-	// Amazon Resource Name (ARN) of the certificate authority.
+	// ARN of the certificate authority.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// Nested attribute containing revocation configuration.
 	// * `revocation_configuration.0.crl_configuration` - Nested attribute containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority.
@@ -126,7 +126,7 @@ type LookupCertificateAuthorityOutputArgs struct {
 	// * `revocation_configuration.0.ocsp_configuration.0.enabled` - Boolean value that specifies whether a custom OCSP responder is enabled.
 	// * `revocation_configuration.0.ocsp_configuration.0.ocsp_custom_cname` - A CNAME specifying a customized OCSP domain.
 	RevocationConfigurations GetCertificateAuthorityRevocationConfigurationArrayInput `pulumi:"revocationConfigurations"`
-	// Specifies a key-value map of user-defined tags that are attached to the certificate authority.
+	// Key-value map of user-defined tags that are attached to the certificate authority.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -208,12 +208,12 @@ func (o LookupCertificateAuthorityResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateAuthorityResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// Specifies a key-value map of user-defined tags that are attached to the certificate authority.
+// Key-value map of user-defined tags that are attached to the certificate authority.
 func (o LookupCertificateAuthorityResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupCertificateAuthorityResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The type of the certificate authority.
+// Type of the certificate authority.
 func (o LookupCertificateAuthorityResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateAuthorityResult) string { return v.Type }).(pulumi.StringOutput)
 }

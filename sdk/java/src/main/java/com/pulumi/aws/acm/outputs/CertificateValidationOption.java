@@ -10,26 +10,26 @@ import java.util.Objects;
 @CustomType
 public final class CertificateValidationOption {
     /**
-     * @return A fully qualified domain name (FQDN) in the certificate.
+     * @return Fully qualified domain name (FQDN) in the certificate.
      * 
      */
     private String domainName;
     /**
-     * @return The domain name that you want ACM to use to send you validation emails. This domain name is the suffix of the email addresses that you want ACM to use. This must be the same as the `domain_name` value or a superdomain of the `domain_name` value. For example, if you request a certificate for `&#34;testing.example.com&#34;`, you can specify `&#34;example.com&#34;` for this value.
+     * @return Domain name that you want ACM to use to send you validation emails. This domain name is the suffix of the email addresses that you want ACM to use. This must be the same as the `domain_name` value or a superdomain of the `domain_name` value. For example, if you request a certificate for `&#34;testing.example.com&#34;`, you can specify `&#34;example.com&#34;` for this value.
      * 
      */
     private String validationDomain;
 
     private CertificateValidationOption() {}
     /**
-     * @return A fully qualified domain name (FQDN) in the certificate.
+     * @return Fully qualified domain name (FQDN) in the certificate.
      * 
      */
     public String domainName() {
         return this.domainName;
     }
     /**
-     * @return The domain name that you want ACM to use to send you validation emails. This domain name is the suffix of the email addresses that you want ACM to use. This must be the same as the `domain_name` value or a superdomain of the `domain_name` value. For example, if you request a certificate for `&#34;testing.example.com&#34;`, you can specify `&#34;example.com&#34;` for this value.
+     * @return Domain name that you want ACM to use to send you validation emails. This domain name is the suffix of the email addresses that you want ACM to use. This must be the same as the `domain_name` value or a superdomain of the `domain_name` value. For example, if you request a certificate for `&#34;testing.example.com&#34;`, you can specify `&#34;example.com&#34;` for this value.
      * 
      */
     public String validationDomain() {

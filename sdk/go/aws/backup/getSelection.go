@@ -49,19 +49,19 @@ func LookupSelection(ctx *pulumi.Context, args *LookupSelectionArgs, opts ...pul
 
 // A collection of arguments for invoking getSelection.
 type LookupSelectionArgs struct {
-	// The backup plan ID associated with the selection of resources.
+	// Backup plan ID associated with the selection of resources.
 	PlanId string `pulumi:"planId"`
-	// The backup selection ID.
+	// Backup selection ID.
 	SelectionId string `pulumi:"selectionId"`
 }
 
 // A collection of values returned by getSelection.
 type LookupSelectionResult struct {
-	// The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
+	// ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
 	IamRoleArn string `pulumi:"iamRoleArn"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The display name of a resource selection document.
+	// Display name of a resource selection document.
 	Name   string `pulumi:"name"`
 	PlanId string `pulumi:"planId"`
 	// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan..
@@ -84,9 +84,9 @@ func LookupSelectionOutput(ctx *pulumi.Context, args LookupSelectionOutputArgs, 
 
 // A collection of arguments for invoking getSelection.
 type LookupSelectionOutputArgs struct {
-	// The backup plan ID associated with the selection of resources.
+	// Backup plan ID associated with the selection of resources.
 	PlanId pulumi.StringInput `pulumi:"planId"`
-	// The backup selection ID.
+	// Backup selection ID.
 	SelectionId pulumi.StringInput `pulumi:"selectionId"`
 }
 
@@ -109,7 +109,7 @@ func (o LookupSelectionResultOutput) ToLookupSelectionResultOutputWithContext(ct
 	return o
 }
 
-// The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
+// ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
 func (o LookupSelectionResultOutput) IamRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSelectionResult) string { return v.IamRoleArn }).(pulumi.StringOutput)
 }
@@ -119,7 +119,7 @@ func (o LookupSelectionResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSelectionResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The display name of a resource selection document.
+// Display name of a resource selection document.
 func (o LookupSelectionResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSelectionResult) string { return v.Name }).(pulumi.StringOutput)
 }

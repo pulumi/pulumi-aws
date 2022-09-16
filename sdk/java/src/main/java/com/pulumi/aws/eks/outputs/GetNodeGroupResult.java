@@ -22,10 +22,15 @@ public final class GetNodeGroupResult {
      */
     private String amiType;
     /**
-     * @return Amazon Resource Name (ARN) of the EKS Node Group.
+     * @return ARN of the EKS Node Group.
      * 
      */
     private String arn;
+    /**
+     * @return Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`.
+     * 
+     */
+    private String capacityType;
     private String clusterName;
     /**
      * @return Disk size in GiB for worker nodes.
@@ -49,7 +54,7 @@ public final class GetNodeGroupResult {
     private Map<String,String> labels;
     private String nodeGroupName;
     /**
-     * @return Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
+     * @return ARN of the IAM Role that provides permissions for the EKS Node Group.
      * 
      */
     private String nodeRoleArn;
@@ -108,11 +113,18 @@ public final class GetNodeGroupResult {
         return this.amiType;
     }
     /**
-     * @return Amazon Resource Name (ARN) of the EKS Node Group.
+     * @return ARN of the EKS Node Group.
      * 
      */
     public String arn() {
         return this.arn;
+    }
+    /**
+     * @return Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`.
+     * 
+     */
+    public String capacityType() {
+        return this.capacityType;
     }
     public String clusterName() {
         return this.clusterName;
@@ -149,7 +161,7 @@ public final class GetNodeGroupResult {
         return this.nodeGroupName;
     }
     /**
-     * @return Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
+     * @return ARN of the IAM Role that provides permissions for the EKS Node Group.
      * 
      */
     public String nodeRoleArn() {
@@ -230,6 +242,7 @@ public final class GetNodeGroupResult {
     public static final class Builder {
         private String amiType;
         private String arn;
+        private String capacityType;
         private String clusterName;
         private Integer diskSize;
         private String id;
@@ -251,6 +264,7 @@ public final class GetNodeGroupResult {
     	      Objects.requireNonNull(defaults);
     	      this.amiType = defaults.amiType;
     	      this.arn = defaults.arn;
+    	      this.capacityType = defaults.capacityType;
     	      this.clusterName = defaults.clusterName;
     	      this.diskSize = defaults.diskSize;
     	      this.id = defaults.id;
@@ -277,6 +291,11 @@ public final class GetNodeGroupResult {
         @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder capacityType(String capacityType) {
+            this.capacityType = Objects.requireNonNull(capacityType);
             return this;
         }
         @CustomType.Setter
@@ -381,6 +400,7 @@ public final class GetNodeGroupResult {
             final var o = new GetNodeGroupResult();
             o.amiType = amiType;
             o.arn = arn;
+            o.capacityType = capacityType;
             o.clusterName = clusterName;
             o.diskSize = diskSize;
             o.id = id;

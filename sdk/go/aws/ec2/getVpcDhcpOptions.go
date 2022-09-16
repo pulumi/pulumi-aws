@@ -87,21 +87,21 @@ func LookupVpcDhcpOptions(ctx *pulumi.Context, args *LookupVpcDhcpOptionsArgs, o
 
 // A collection of arguments for invoking getVpcDhcpOptions.
 type LookupVpcDhcpOptionsArgs struct {
-	// The EC2 DHCP Options ID.
+	// EC2 DHCP Options ID.
 	DhcpOptionsId *string `pulumi:"dhcpOptionsId"`
 	// List of custom filters as described below.
 	Filters []GetVpcDhcpOptionsFilter `pulumi:"filters"`
-	// A map of tags assigned to the resource.
+	// Map of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getVpcDhcpOptions.
 type LookupVpcDhcpOptionsResult struct {
-	// The ARN of the DHCP Options Set.
+	// ARN of the DHCP Options Set.
 	Arn string `pulumi:"arn"`
 	// EC2 DHCP Options ID
 	DhcpOptionsId string `pulumi:"dhcpOptionsId"`
-	// The suffix domain name to used when resolving non Fully Qualified Domain NamesE.g., the `search` value in the `/etc/resolv.conf` file.
+	// Suffix domain name to used when resolving non Fully Qualified Domain NamesE.g., the `search` value in the `/etc/resolv.conf` file.
 	DomainName string `pulumi:"domainName"`
 	// List of name servers.
 	DomainNameServers []string                  `pulumi:"domainNameServers"`
@@ -110,13 +110,13 @@ type LookupVpcDhcpOptionsResult struct {
 	Id string `pulumi:"id"`
 	// List of NETBIOS name servers.
 	NetbiosNameServers []string `pulumi:"netbiosNameServers"`
-	// The NetBIOS node type (1, 2, 4, or 8). For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
+	// NetBIOS node type (1, 2, 4, or 8). For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
 	NetbiosNodeType string `pulumi:"netbiosNodeType"`
 	// List of NTP servers.
 	NtpServers []string `pulumi:"ntpServers"`
-	// The ID of the AWS account that owns the DHCP options set.
+	// ID of the AWS account that owns the DHCP options set.
 	OwnerId string `pulumi:"ownerId"`
-	// A map of tags assigned to the resource.
+	// Map of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -135,11 +135,11 @@ func LookupVpcDhcpOptionsOutput(ctx *pulumi.Context, args LookupVpcDhcpOptionsOu
 
 // A collection of arguments for invoking getVpcDhcpOptions.
 type LookupVpcDhcpOptionsOutputArgs struct {
-	// The EC2 DHCP Options ID.
+	// EC2 DHCP Options ID.
 	DhcpOptionsId pulumi.StringPtrInput `pulumi:"dhcpOptionsId"`
 	// List of custom filters as described below.
 	Filters GetVpcDhcpOptionsFilterArrayInput `pulumi:"filters"`
-	// A map of tags assigned to the resource.
+	// Map of tags assigned to the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -162,7 +162,7 @@ func (o LookupVpcDhcpOptionsResultOutput) ToLookupVpcDhcpOptionsResultOutputWith
 	return o
 }
 
-// The ARN of the DHCP Options Set.
+// ARN of the DHCP Options Set.
 func (o LookupVpcDhcpOptionsResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcDhcpOptionsResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -172,7 +172,7 @@ func (o LookupVpcDhcpOptionsResultOutput) DhcpOptionsId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcDhcpOptionsResult) string { return v.DhcpOptionsId }).(pulumi.StringOutput)
 }
 
-// The suffix domain name to used when resolving non Fully Qualified Domain NamesE.g., the `search` value in the `/etc/resolv.conf` file.
+// Suffix domain name to used when resolving non Fully Qualified Domain NamesE.g., the `search` value in the `/etc/resolv.conf` file.
 func (o LookupVpcDhcpOptionsResultOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcDhcpOptionsResult) string { return v.DomainName }).(pulumi.StringOutput)
 }
@@ -196,7 +196,7 @@ func (o LookupVpcDhcpOptionsResultOutput) NetbiosNameServers() pulumi.StringArra
 	return o.ApplyT(func(v LookupVpcDhcpOptionsResult) []string { return v.NetbiosNameServers }).(pulumi.StringArrayOutput)
 }
 
-// The NetBIOS node type (1, 2, 4, or 8). For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
+// NetBIOS node type (1, 2, 4, or 8). For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
 func (o LookupVpcDhcpOptionsResultOutput) NetbiosNodeType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcDhcpOptionsResult) string { return v.NetbiosNodeType }).(pulumi.StringOutput)
 }
@@ -206,12 +206,12 @@ func (o LookupVpcDhcpOptionsResultOutput) NtpServers() pulumi.StringArrayOutput 
 	return o.ApplyT(func(v LookupVpcDhcpOptionsResult) []string { return v.NtpServers }).(pulumi.StringArrayOutput)
 }
 
-// The ID of the AWS account that owns the DHCP options set.
+// ID of the AWS account that owns the DHCP options set.
 func (o LookupVpcDhcpOptionsResultOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcDhcpOptionsResult) string { return v.OwnerId }).(pulumi.StringOutput)
 }
 
-// A map of tags assigned to the resource.
+// Map of tags assigned to the resource.
 func (o LookupVpcDhcpOptionsResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupVpcDhcpOptionsResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

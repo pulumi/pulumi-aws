@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -37,7 +39,7 @@ export function getRegexPatternSet(args: GetRegexPatternSetArgs, opts?: pulumi.I
  */
 export interface GetRegexPatternSetArgs {
     /**
-     * The name of the WAFv2 Regex Pattern Set.
+     * Name of the WAFv2 Regex Pattern Set.
      */
     name: string;
     /**
@@ -51,11 +53,11 @@ export interface GetRegexPatternSetArgs {
  */
 export interface GetRegexPatternSetResult {
     /**
-     * The Amazon Resource Name (ARN) of the entity.
+     * ARN of the entity.
      */
     readonly arn: string;
     /**
-     * The description of the set that helps with identification.
+     * Description of the set that helps with identification.
      */
     readonly description: string;
     /**
@@ -79,7 +81,7 @@ export function getRegexPatternSetOutput(args: GetRegexPatternSetOutputArgs, opt
  */
 export interface GetRegexPatternSetOutputArgs {
     /**
-     * The name of the WAFv2 Regex Pattern Set.
+     * Name of the WAFv2 Regex Pattern Set.
      */
     name: pulumi.Input<string>;
     /**

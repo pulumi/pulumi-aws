@@ -36,7 +36,7 @@ export function getWebAcl(args: GetWebAclArgs, opts?: pulumi.InvokeOptions): Pro
  */
 export interface GetWebAclArgs {
     /**
-     * The name of the WAFv2 Web ACL.
+     * Name of the WAFv2 Web ACL.
      */
     name: string;
     /**
@@ -50,11 +50,11 @@ export interface GetWebAclArgs {
  */
 export interface GetWebAclResult {
     /**
-     * The Amazon Resource Name (ARN) of the entity.
+     * ARN of the entity.
      */
     readonly arn: string;
     /**
-     * The description of the WebACL that helps with identification.
+     * Description of the WebACL that helps with identification.
      */
     readonly description: string;
     /**
@@ -74,7 +74,7 @@ export function getWebAclOutput(args: GetWebAclOutputArgs, opts?: pulumi.InvokeO
  */
 export interface GetWebAclOutputArgs {
     /**
-     * The name of the WAFv2 Web ACL.
+     * Name of the WAFv2 Web ACL.
      */
     name: pulumi.Input<string>;
     /**

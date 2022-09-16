@@ -39,7 +39,7 @@ class GetRegionResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        The region's description in this format: "Location (Region name)".
+        Region's description in this format: "Location (Region name)".
         """
         return pulumi.get(self, "description")
 
@@ -47,7 +47,7 @@ class GetRegionResult:
     @pulumi.getter
     def endpoint(self) -> str:
         """
-        The EC2 endpoint for the selected region.
+        EC2 endpoint for the selected region.
         """
         return pulumi.get(self, "endpoint")
 
@@ -63,7 +63,7 @@ class GetRegionResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the selected region.
+        Name of the selected region.
         """
         return pulumi.get(self, "name")
 
@@ -104,8 +104,8 @@ def get_region(endpoint: Optional[str] = None,
     ```
 
 
-    :param str endpoint: The EC2 endpoint of the region to select.
-    :param str name: The full name of the region to select.
+    :param str endpoint: EC2 endpoint of the region to select.
+    :param str name: Full name of the region to select.
     """
     __args__ = dict()
     __args__['endpoint'] = endpoint
@@ -145,7 +145,7 @@ def get_region_output(endpoint: Optional[pulumi.Input[Optional[str]]] = None,
     ```
 
 
-    :param str endpoint: The EC2 endpoint of the region to select.
-    :param str name: The full name of the region to select.
+    :param str endpoint: EC2 endpoint of the region to select.
+    :param str name: Full name of the region to select.
     """
     ...

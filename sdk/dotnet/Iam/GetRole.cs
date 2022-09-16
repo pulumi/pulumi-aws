@@ -74,7 +74,7 @@ namespace Pulumi.Aws.Iam
     public sealed class GetRoleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The friendly IAM role name to match.
+        /// Friendly IAM role name to match.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -83,7 +83,7 @@ namespace Pulumi.Aws.Iam
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// The tags attached to the role.
+        /// Tags attached to the role.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -100,7 +100,7 @@ namespace Pulumi.Aws.Iam
     public sealed class GetRoleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The friendly IAM role name to match.
+        /// Friendly IAM role name to match.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -109,7 +109,7 @@ namespace Pulumi.Aws.Iam
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// The tags attached to the role.
+        /// Tags attached to the role.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -128,11 +128,11 @@ namespace Pulumi.Aws.Iam
     public sealed class GetRoleResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) specifying the role.
+        /// ARN of the role.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The policy document associated with the role.
+        /// Policy document associated with the role.
         /// </summary>
         public readonly string AssumeRolePolicy;
         /// <summary>
@@ -153,7 +153,7 @@ namespace Pulumi.Aws.Iam
         public readonly int MaxSessionDuration;
         public readonly string Name;
         /// <summary>
-        /// The path to the role.
+        /// Path to the role.
         /// </summary>
         public readonly string Path;
         /// <summary>
@@ -161,11 +161,11 @@ namespace Pulumi.Aws.Iam
         /// </summary>
         public readonly string PermissionsBoundary;
         /// <summary>
-        /// The tags attached to the role.
+        /// Tags attached to the role.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The stable and unique string identifying the role.
+        /// Stable and unique string identifying the role.
         /// </summary>
         public readonly string UniqueId;
 

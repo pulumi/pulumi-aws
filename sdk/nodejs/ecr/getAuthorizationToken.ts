@@ -47,7 +47,7 @@ export interface GetAuthorizationTokenResult {
      */
     readonly authorizationToken: string;
     /**
-     * The time in UTC RFC3339 format when the authorization token expires.
+     * Time in UTC RFC3339 format when the authorization token expires.
      */
     readonly expiresAt: string;
     /**
@@ -59,7 +59,7 @@ export interface GetAuthorizationTokenResult {
      */
     readonly password: string;
     /**
-     * The registry URL to use in the docker login command.
+     * Registry URL to use in the docker login command.
      */
     readonly proxyEndpoint: string;
     readonly registryId?: string;

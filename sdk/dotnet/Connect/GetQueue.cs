@@ -133,7 +133,7 @@ namespace Pulumi.Aws.Connect
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A map of tags assigned to the Queue.
+        /// Map of tags assigned to the Queue.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -171,7 +171,7 @@ namespace Pulumi.Aws.Connect
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags assigned to the Queue.
+        /// Map of tags assigned to the Queue.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -190,11 +190,11 @@ namespace Pulumi.Aws.Connect
     public sealed class GetQueueResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Queue.
+        /// ARN of the Queue.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// Specifies the description of the Queue.
+        /// Description of the Queue.
         /// </summary>
         public readonly string Description;
         /// <summary>
@@ -207,7 +207,7 @@ namespace Pulumi.Aws.Connect
         public readonly string Id;
         public readonly string InstanceId;
         /// <summary>
-        /// Specifies the maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
+        /// Maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
         /// </summary>
         public readonly int MaxContacts;
         public readonly string Name;
@@ -216,15 +216,15 @@ namespace Pulumi.Aws.Connect
         /// </summary>
         public readonly ImmutableArray<Outputs.GetQueueOutboundCallerConfigResult> OutboundCallerConfigs;
         /// <summary>
-        /// The identifier for the Queue.
+        /// Identifier for the Queue.
         /// </summary>
         public readonly string QueueId;
         /// <summary>
-        /// Specifies the description of the Queue. Values are `ENABLED` or `DISABLED`.
+        /// Description of the Queue. Values are `ENABLED` or `DISABLED`.
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// A map of tags assigned to the Queue.
+        /// Map of tags assigned to the Queue.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 

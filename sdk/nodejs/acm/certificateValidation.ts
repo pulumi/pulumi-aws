@@ -90,7 +90,7 @@ export class CertificateValidation extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the certificate that is being validated.
+     * ARN of the certificate that is being validated.
      */
     public readonly certificateArn!: pulumi.Output<string>;
     /**
@@ -131,7 +131,7 @@ export class CertificateValidation extends pulumi.CustomResource {
  */
 export interface CertificateValidationState {
     /**
-     * The ARN of the certificate that is being validated.
+     * ARN of the certificate that is being validated.
      */
     certificateArn?: pulumi.Input<string>;
     /**
@@ -145,7 +145,7 @@ export interface CertificateValidationState {
  */
 export interface CertificateValidationArgs {
     /**
-     * The ARN of the certificate that is being validated.
+     * ARN of the certificate that is being validated.
      */
     certificateArn: pulumi.Input<string>;
     /**

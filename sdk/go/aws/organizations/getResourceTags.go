@@ -48,7 +48,7 @@ func GetResourceTags(ctx *pulumi.Context, args *GetResourceTagsArgs, opts ...pul
 
 // A collection of arguments for invoking getResourceTags.
 type GetResourceTagsArgs struct {
-	// The ID of the resource with the tags to list. See details below.
+	// ID of the resource with the tags to list. See details below.
 	ResourceId string `pulumi:"resourceId"`
 	// Map of key=value pairs for each tag set on the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -78,7 +78,7 @@ func GetResourceTagsOutput(ctx *pulumi.Context, args GetResourceTagsOutputArgs, 
 
 // A collection of arguments for invoking getResourceTags.
 type GetResourceTagsOutputArgs struct {
-	// The ID of the resource with the tags to list. See details below.
+	// ID of the resource with the tags to list. See details below.
 	ResourceId pulumi.StringInput `pulumi:"resourceId"`
 	// Map of key=value pairs for each tag set on the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

@@ -72,7 +72,7 @@ namespace Pulumi.Aws.ServiceDiscovery
     public sealed class GetDnsNamespaceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the namespace.
+        /// Name of the namespace.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -81,7 +81,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A map of tags for the resource.
+        /// Map of tags for the resource.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -90,7 +90,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         }
 
         /// <summary>
-        /// The type of the namespace. Allowed values are `DNS_PUBLIC` or `DNS_PRIVATE`.
+        /// Type of the namespace. Allowed values are `DNS_PUBLIC` or `DNS_PRIVATE`.
         /// </summary>
         [Input("type", required: true)]
         public string Type { get; set; } = null!;
@@ -104,7 +104,7 @@ namespace Pulumi.Aws.ServiceDiscovery
     public sealed class GetDnsNamespaceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the namespace.
+        /// Name of the namespace.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -113,7 +113,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags for the resource.
+        /// Map of tags for the resource.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -122,7 +122,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         }
 
         /// <summary>
-        /// The type of the namespace. Allowed values are `DNS_PUBLIC` or `DNS_PRIVATE`.
+        /// Type of the namespace. Allowed values are `DNS_PUBLIC` or `DNS_PRIVATE`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -138,15 +138,15 @@ namespace Pulumi.Aws.ServiceDiscovery
     public sealed class GetDnsNamespaceResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the namespace.
+        /// ARN of the namespace.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// A description of the namespace.
+        /// Description of the namespace.
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// The ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
+        /// ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
         /// </summary>
         public readonly string HostedZone;
         /// <summary>
@@ -155,7 +155,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         public readonly string Id;
         public readonly string Name;
         /// <summary>
-        /// A map of tags for the resource.
+        /// Map of tags for the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         public readonly string Type;

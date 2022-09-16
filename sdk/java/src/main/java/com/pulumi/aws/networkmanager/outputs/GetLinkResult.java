@@ -13,17 +13,17 @@ import java.util.Objects;
 @CustomType
 public final class GetLinkResult {
     /**
-     * @return The ARN of the link.
+     * @return ARN of the link.
      * 
      */
     private String arn;
     /**
-     * @return The upload speed and download speed of the link as documented below
+     * @return Upload speed and download speed of the link as documented below
      * 
      */
     private List<GetLinkBandwidth> bandwidths;
     /**
-     * @return The description of the link.
+     * @return Description of the link.
      * 
      */
     private String description;
@@ -35,12 +35,12 @@ public final class GetLinkResult {
     private String id;
     private String linkId;
     /**
-     * @return The provider of the link.
+     * @return Provider of the link.
      * 
      */
     private String providerName;
     /**
-     * @return The ID of the site.
+     * @return ID of the site.
      * 
      */
     private String siteId;
@@ -50,28 +50,28 @@ public final class GetLinkResult {
      */
     private Map<String,String> tags;
     /**
-     * @return The type of the link.
+     * @return Type of the link.
      * 
      */
     private String type;
 
     private GetLinkResult() {}
     /**
-     * @return The ARN of the link.
+     * @return ARN of the link.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return The upload speed and download speed of the link as documented below
+     * @return Upload speed and download speed of the link as documented below
      * 
      */
     public List<GetLinkBandwidth> bandwidths() {
         return this.bandwidths;
     }
     /**
-     * @return The description of the link.
+     * @return Description of the link.
      * 
      */
     public String description() {
@@ -91,14 +91,14 @@ public final class GetLinkResult {
         return this.linkId;
     }
     /**
-     * @return The provider of the link.
+     * @return Provider of the link.
      * 
      */
     public String providerName() {
         return this.providerName;
     }
     /**
-     * @return The ID of the site.
+     * @return ID of the site.
      * 
      */
     public String siteId() {
@@ -112,7 +112,7 @@ public final class GetLinkResult {
         return this.tags;
     }
     /**
-     * @return The type of the link.
+     * @return Type of the link.
      * 
      */
     public String type() {

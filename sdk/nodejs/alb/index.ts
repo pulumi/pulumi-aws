@@ -5,28 +5,56 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getListener";
-export * from "./getLoadBalancer";
-export * from "./getTargetGroup";
+export { GetListenerArgs, GetListenerResult, GetListenerOutputArgs } from "./getListener";
+export const getListener: typeof import("./getListener").getListener = null as any;
+export const getListenerOutput: typeof import("./getListener").getListenerOutput = null as any;
+
+export { GetLoadBalancerArgs, GetLoadBalancerResult, GetLoadBalancerOutputArgs } from "./getLoadBalancer";
+export const getLoadBalancer: typeof import("./getLoadBalancer").getLoadBalancer = null as any;
+export const getLoadBalancerOutput: typeof import("./getLoadBalancer").getLoadBalancerOutput = null as any;
+
+export { GetTargetGroupArgs, GetTargetGroupResult, GetTargetGroupOutputArgs } from "./getTargetGroup";
+export const getTargetGroup: typeof import("./getTargetGroup").getTargetGroup = null as any;
+export const getTargetGroupOutput: typeof import("./getTargetGroup").getTargetGroupOutput = null as any;
+
 export * from "./ipAddressType";
-export * from "./listener";
-export * from "./listenerCertificate";
-export * from "./listenerRule";
-export * from "./loadBalancer";
+export { ListenerArgs, ListenerState } from "./listener";
+export type Listener = import("./listener").Listener;
+export const Listener: typeof import("./listener").Listener = null as any;
+
+export { ListenerCertificateArgs, ListenerCertificateState } from "./listenerCertificate";
+export type ListenerCertificate = import("./listenerCertificate").ListenerCertificate;
+export const ListenerCertificate: typeof import("./listenerCertificate").ListenerCertificate = null as any;
+
+export { ListenerRuleArgs, ListenerRuleState } from "./listenerRule";
+export type ListenerRule = import("./listenerRule").ListenerRule;
+export const ListenerRule: typeof import("./listenerRule").ListenerRule = null as any;
+
+export { LoadBalancerArgs, LoadBalancerState } from "./loadBalancer";
+export type LoadBalancer = import("./loadBalancer").LoadBalancer;
+export const LoadBalancer: typeof import("./loadBalancer").LoadBalancer = null as any;
+
 export * from "./loadBalancerType";
-export * from "./targetGroup";
-export * from "./targetGroupAttachment";
+export { TargetGroupArgs, TargetGroupState } from "./targetGroup";
+export type TargetGroup = import("./targetGroup").TargetGroup;
+export const TargetGroup: typeof import("./targetGroup").TargetGroup = null as any;
+
+export { TargetGroupAttachmentArgs, TargetGroupAttachmentState } from "./targetGroupAttachment";
+export type TargetGroupAttachment = import("./targetGroupAttachment").TargetGroupAttachment;
+export const TargetGroupAttachment: typeof import("./targetGroupAttachment").TargetGroupAttachment = null as any;
+
+utilities.lazyLoad(exports, ["getListener","getListenerOutput"], () => require("./getListener"));
+utilities.lazyLoad(exports, ["getLoadBalancer","getLoadBalancerOutput"], () => require("./getLoadBalancer"));
+utilities.lazyLoad(exports, ["getTargetGroup","getTargetGroupOutput"], () => require("./getTargetGroup"));
+utilities.lazyLoad(exports, ["Listener"], () => require("./listener"));
+utilities.lazyLoad(exports, ["ListenerCertificate"], () => require("./listenerCertificate"));
+utilities.lazyLoad(exports, ["ListenerRule"], () => require("./listenerRule"));
+utilities.lazyLoad(exports, ["LoadBalancer"], () => require("./loadBalancer"));
+utilities.lazyLoad(exports, ["TargetGroup"], () => require("./targetGroup"));
+utilities.lazyLoad(exports, ["TargetGroupAttachment"], () => require("./targetGroupAttachment"));
 
 // Export enums:
 export * from "../types/enums/alb";
-
-// Import resources to register:
-import { Listener } from "./listener";
-import { ListenerCertificate } from "./listenerCertificate";
-import { ListenerRule } from "./listenerRule";
-import { LoadBalancer } from "./loadBalancer";
-import { TargetGroup } from "./targetGroup";
-import { TargetGroupAttachment } from "./targetGroupAttachment";
 
 const _module = {
     version: utilities.getVersion(),

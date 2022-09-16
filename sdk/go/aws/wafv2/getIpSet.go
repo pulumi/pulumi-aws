@@ -49,7 +49,7 @@ func LookupIpSet(ctx *pulumi.Context, args *LookupIpSetArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getIpSet.
 type LookupIpSetArgs struct {
-	// The name of the WAFv2 IP Set.
+	// Name of the WAFv2 IP Set.
 	Name string `pulumi:"name"`
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
 	Scope string `pulumi:"scope"`
@@ -59,13 +59,13 @@ type LookupIpSetArgs struct {
 type LookupIpSetResult struct {
 	// An array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation.
 	Addresses []string `pulumi:"addresses"`
-	// The Amazon Resource Name (ARN) of the entity.
+	// ARN of the entity.
 	Arn string `pulumi:"arn"`
-	// The description of the set that helps with identification.
+	// Description of the set that helps with identification.
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The IP address version of the set.
+	// IP address version of the set.
 	IpAddressVersion string `pulumi:"ipAddressVersion"`
 	Name             string `pulumi:"name"`
 	Scope            string `pulumi:"scope"`
@@ -86,7 +86,7 @@ func LookupIpSetOutput(ctx *pulumi.Context, args LookupIpSetOutputArgs, opts ...
 
 // A collection of arguments for invoking getIpSet.
 type LookupIpSetOutputArgs struct {
-	// The name of the WAFv2 IP Set.
+	// Name of the WAFv2 IP Set.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
 	Scope pulumi.StringInput `pulumi:"scope"`
@@ -116,12 +116,12 @@ func (o LookupIpSetResultOutput) Addresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupIpSetResult) []string { return v.Addresses }).(pulumi.StringArrayOutput)
 }
 
-// The Amazon Resource Name (ARN) of the entity.
+// ARN of the entity.
 func (o LookupIpSetResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupIpSetResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The description of the set that helps with identification.
+// Description of the set that helps with identification.
 func (o LookupIpSetResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupIpSetResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -131,7 +131,7 @@ func (o LookupIpSetResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupIpSetResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The IP address version of the set.
+// IP address version of the set.
 func (o LookupIpSetResultOutput) IpAddressVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupIpSetResult) string { return v.IpAddressVersion }).(pulumi.StringOutput)
 }

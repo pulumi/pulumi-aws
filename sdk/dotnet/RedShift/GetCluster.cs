@@ -126,7 +126,7 @@ namespace Pulumi.Aws.RedShift
     public sealed class GetClusterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The cluster identifier
+        /// Cluster identifier
         /// </summary>
         [Input("clusterIdentifier", required: true)]
         public string ClusterIdentifier { get; set; } = null!;
@@ -135,7 +135,7 @@ namespace Pulumi.Aws.RedShift
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// The tags associated to the cluster
+        /// Tags associated to the cluster
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -152,7 +152,7 @@ namespace Pulumi.Aws.RedShift
     public sealed class GetClusterInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The cluster identifier
+        /// Cluster identifier
         /// </summary>
         [Input("clusterIdentifier", required: true)]
         public Input<string> ClusterIdentifier { get; set; } = null!;
@@ -161,7 +161,7 @@ namespace Pulumi.Aws.RedShift
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// The tags associated to the cluster
+        /// Tags associated to the cluster
         /// </summary>
         public InputMap<string> Tags
         {
@@ -188,7 +188,7 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         public readonly string AquaConfigurationStatus;
         /// <summary>
-        /// Amazon Resource Name (ARN) of cluster.
+        /// ARN of cluster.
         /// </summary>
         public readonly string Arn;
         /// <summary>
@@ -196,7 +196,7 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         public readonly int AutomatedSnapshotRetentionPeriod;
         /// <summary>
-        /// The availability zone of the cluster
+        /// Availability zone of the cluster
         /// </summary>
         public readonly string AvailabilityZone;
         /// <summary>
@@ -204,15 +204,15 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         public readonly bool AvailabilityZoneRelocationEnabled;
         /// <summary>
-        /// The name of the S3 bucket where the log files are to be stored
+        /// Name of the S3 bucket where the log files are to be stored
         /// </summary>
         public readonly string BucketName;
         /// <summary>
-        /// The cluster identifier
+        /// Cluster identifier
         /// </summary>
         public readonly string ClusterIdentifier;
         /// <summary>
-        /// The nodes in the cluster. Cluster node blocks are documented below
+        /// Nodes in the cluster. Cluster node blocks are documented below
         /// </summary>
         public readonly ImmutableArray<Outputs.GetClusterClusterNodeResult> ClusterNodes;
         /// <summary>
@@ -220,7 +220,7 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         public readonly string ClusterParameterGroupName;
         /// <summary>
-        /// The public key for the cluster
+        /// Public key for the cluster
         /// </summary>
         public readonly string ClusterPublicKey;
         /// <summary>
@@ -236,20 +236,20 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         public readonly string ClusterSubnetGroupName;
         /// <summary>
-        /// The cluster type
+        /// Cluster type
         /// </summary>
         public readonly string ClusterType;
         public readonly string ClusterVersion;
         /// <summary>
-        /// The name of the default database in the cluster
+        /// Name of the default database in the cluster
         /// </summary>
         public readonly string DatabaseName;
         /// <summary>
-        /// ∂The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+        /// ∂The ARN for the IAM role that was set as default for the cluster when the cluster was created.
         /// </summary>
         public readonly string DefaultIamRoleArn;
         /// <summary>
-        /// The Elastic IP of the cluster
+        /// Elastic IP of the cluster
         /// </summary>
         public readonly string ElasticIp;
         /// <summary>
@@ -261,7 +261,7 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         public readonly bool Encrypted;
         /// <summary>
-        /// The cluster endpoint
+        /// Cluster endpoint
         /// </summary>
         public readonly string Endpoint;
         /// <summary>
@@ -269,7 +269,7 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         public readonly bool EnhancedVpcRouting;
         /// <summary>
-        /// The IAM roles associated to the cluster
+        /// IAM roles associated to the cluster
         /// </summary>
         public readonly ImmutableArray<string> IamRoles;
         /// <summary>
@@ -277,7 +277,7 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The KMS encryption key associated to the cluster
+        /// KMS encryption key associated to the cluster
         /// </summary>
         public readonly string KmsKeyId;
         /// <summary>
@@ -285,7 +285,7 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         public readonly string LogDestinationType;
         /// <summary>
-        /// The collection of exported log types. Log types include the connection log, user log and user activity log.
+        /// Collection of exported log types. Log types include the connection log, user log and user activity log.
         /// </summary>
         public readonly ImmutableArray<string> LogExports;
         /// <summary>
@@ -301,15 +301,15 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         public readonly string MasterUsername;
         /// <summary>
-        /// The cluster node type
+        /// Cluster node type
         /// </summary>
         public readonly string NodeType;
         /// <summary>
-        /// The number of nodes in the cluster
+        /// Number of nodes in the cluster
         /// </summary>
         public readonly int NumberOfNodes;
         /// <summary>
-        /// The port the cluster responds on
+        /// Port the cluster responds on
         /// </summary>
         public readonly int Port;
         /// <summary>
@@ -321,15 +321,15 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         public readonly bool PubliclyAccessible;
         /// <summary>
-        /// The folder inside the S3 bucket where the log files are stored
+        /// Folder inside the S3 bucket where the log files are stored
         /// </summary>
         public readonly string S3KeyPrefix;
         /// <summary>
-        /// The tags associated to the cluster
+        /// Tags associated to the cluster
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// The VPC Id associated with the cluster
+        /// VPC Id associated with the cluster
         /// </summary>
         public readonly string VpcId;
         /// <summary>

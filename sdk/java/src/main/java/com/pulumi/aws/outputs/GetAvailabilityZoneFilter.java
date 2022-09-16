@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetAvailabilityZoneFilter {
     /**
-     * @return The name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
+     * @return Name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
      * 
      */
     private String name;
@@ -23,7 +23,7 @@ public final class GetAvailabilityZoneFilter {
 
     private GetAvailabilityZoneFilter() {}
     /**
-     * @return The name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
+     * @return Name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
      * 
      */
     public String name() {

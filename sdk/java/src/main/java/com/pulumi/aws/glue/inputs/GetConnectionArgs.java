@@ -17,7 +17,7 @@ public final class GetConnectionArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetConnectionArgs Empty = new GetConnectionArgs();
 
     /**
-     * A concatenation of the catalog ID and connection name. For example, if your account ID is
+     * Concatenation of the catalog ID and connection name. For example, if your account ID is
      * `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
      * 
      */
@@ -25,7 +25,7 @@ public final class GetConnectionArgs extends com.pulumi.resources.InvokeArgs {
     private Output<String> id;
 
     /**
-     * @return A concatenation of the catalog ID and connection name. For example, if your account ID is
+     * @return Concatenation of the catalog ID and connection name. For example, if your account ID is
      * `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
      * 
      */
@@ -34,14 +34,14 @@ public final class GetConnectionArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The tags assigned to the resource
+     * Tags assigned to the resource
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return The tags assigned to the resource
+     * @return Tags assigned to the resource
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -74,7 +74,7 @@ public final class GetConnectionArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param id A concatenation of the catalog ID and connection name. For example, if your account ID is
+         * @param id Concatenation of the catalog ID and connection name. For example, if your account ID is
          * `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
          * 
          * @return builder
@@ -86,7 +86,7 @@ public final class GetConnectionArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param id A concatenation of the catalog ID and connection name. For example, if your account ID is
+         * @param id Concatenation of the catalog ID and connection name. For example, if your account ID is
          * `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
          * 
          * @return builder
@@ -97,7 +97,7 @@ public final class GetConnectionArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags The tags assigned to the resource
+         * @param tags Tags assigned to the resource
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class GetConnectionArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags The tags assigned to the resource
+         * @param tags Tags assigned to the resource
          * 
          * @return builder
          * 

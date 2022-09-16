@@ -55,19 +55,19 @@ export class ClientCertificate extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN)
+     * ARN
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The date when the client certificate was created.
+     * Date when the client certificate was created.
      */
     public /*out*/ readonly createdDate!: pulumi.Output<string>;
     /**
-     * The description of the client certificate.
+     * Description of the client certificate.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The date when the client certificate will expire.
+     * Date when the client certificate will expire.
      */
     public /*out*/ readonly expirationDate!: pulumi.Output<string>;
     /**
@@ -79,7 +79,7 @@ export class ClientCertificate extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -123,19 +123,19 @@ export class ClientCertificate extends pulumi.CustomResource {
  */
 export interface ClientCertificateState {
     /**
-     * Amazon Resource Name (ARN)
+     * ARN
      */
     arn?: pulumi.Input<string>;
     /**
-     * The date when the client certificate was created.
+     * Date when the client certificate was created.
      */
     createdDate?: pulumi.Input<string>;
     /**
-     * The description of the client certificate.
+     * Description of the client certificate.
      */
     description?: pulumi.Input<string>;
     /**
-     * The date when the client certificate will expire.
+     * Date when the client certificate will expire.
      */
     expirationDate?: pulumi.Input<string>;
     /**
@@ -147,7 +147,7 @@ export interface ClientCertificateState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -157,7 +157,7 @@ export interface ClientCertificateState {
  */
 export interface ClientCertificateArgs {
     /**
-     * The description of the client certificate.
+     * Description of the client certificate.
      */
     description?: pulumi.Input<string>;
     /**

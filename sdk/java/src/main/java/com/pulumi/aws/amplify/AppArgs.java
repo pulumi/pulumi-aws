@@ -21,14 +21,14 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
     public static final AppArgs Empty = new AppArgs();
 
     /**
-     * The personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
+     * Personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
      * 
      */
     @Import(name="accessToken")
     private @Nullable Output<String> accessToken;
 
     /**
-     * @return The personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
+     * @return Personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
      * 
      */
     public Optional<Output<String>> accessToken() {
@@ -36,14 +36,14 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The automated branch creation configuration for an Amplify app. An `auto_branch_creation_config` block is documented below.
+     * Automated branch creation configuration for an Amplify app. An `auto_branch_creation_config` block is documented below.
      * 
      */
     @Import(name="autoBranchCreationConfig")
     private @Nullable Output<AppAutoBranchCreationConfigArgs> autoBranchCreationConfig;
 
     /**
-     * @return The automated branch creation configuration for an Amplify app. An `auto_branch_creation_config` block is documented below.
+     * @return Automated branch creation configuration for an Amplify app. An `auto_branch_creation_config` block is documented below.
      * 
      */
     public Optional<Output<AppAutoBranchCreationConfigArgs>> autoBranchCreationConfig() {
@@ -51,14 +51,14 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The automated branch creation glob patterns for an Amplify app.
+     * Automated branch creation glob patterns for an Amplify app.
      * 
      */
     @Import(name="autoBranchCreationPatterns")
     private @Nullable Output<List<String>> autoBranchCreationPatterns;
 
     /**
-     * @return The automated branch creation glob patterns for an Amplify app.
+     * @return Automated branch creation glob patterns for an Amplify app.
      * 
      */
     public Optional<Output<List<String>>> autoBranchCreationPatterns() {
@@ -66,14 +66,14 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The credentials for basic authorization for an Amplify app.
+     * Credentials for basic authorization for an Amplify app.
      * 
      */
     @Import(name="basicAuthCredentials")
     private @Nullable Output<String> basicAuthCredentials;
 
     /**
-     * @return The credentials for basic authorization for an Amplify app.
+     * @return Credentials for basic authorization for an Amplify app.
      * 
      */
     public Optional<Output<String>> basicAuthCredentials() {
@@ -96,14 +96,14 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
+     * Custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
      * 
      */
     @Import(name="customRules")
     private @Nullable Output<List<AppCustomRuleArgs>> customRules;
 
     /**
-     * @return The custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
+     * @return Custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
      * 
      */
     public Optional<Output<List<AppCustomRuleArgs>>> customRules() {
@@ -111,14 +111,14 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The description for an Amplify app.
+     * Description for an Amplify app.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description for an Amplify app.
+     * @return Description for an Amplify app.
      * 
      */
     public Optional<Output<String>> description() {
@@ -186,14 +186,14 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The environment variables map for an Amplify app.
+     * Environment variables map for an Amplify app.
      * 
      */
     @Import(name="environmentVariables")
     private @Nullable Output<Map<String,String>> environmentVariables;
 
     /**
-     * @return The environment variables map for an Amplify app.
+     * @return Environment variables map for an Amplify app.
      * 
      */
     public Optional<Output<Map<String,String>>> environmentVariables() {
@@ -201,14 +201,14 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The AWS Identity and Access Management (IAM) service role for an Amplify app.
+     * AWS Identity and Access Management (IAM) service role for an Amplify app.
      * 
      */
     @Import(name="iamServiceRoleArn")
     private @Nullable Output<String> iamServiceRoleArn;
 
     /**
-     * @return The AWS Identity and Access Management (IAM) service role for an Amplify app.
+     * @return AWS Identity and Access Management (IAM) service role for an Amplify app.
      * 
      */
     public Optional<Output<String>> iamServiceRoleArn() {
@@ -216,14 +216,14 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name for an Amplify app.
+     * Name for an Amplify app.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name for an Amplify app.
+     * @return Name for an Amplify app.
      * 
      */
     public Optional<Output<String>> name() {
@@ -231,14 +231,14 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
+     * OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
      * 
      */
     @Import(name="oauthToken")
     private @Nullable Output<String> oauthToken;
 
     /**
-     * @return The OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
+     * @return OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
      * 
      */
     public Optional<Output<String>> oauthToken() {
@@ -246,14 +246,14 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The platform or framework for an Amplify app. Valid values: `WEB`.
+     * Platform or framework for an Amplify app. Valid values: `WEB`.
      * 
      */
     @Import(name="platform")
     private @Nullable Output<String> platform;
 
     /**
-     * @return The platform or framework for an Amplify app. Valid values: `WEB`.
+     * @return Platform or framework for an Amplify app. Valid values: `WEB`.
      * 
      */
     public Optional<Output<String>> platform() {
@@ -261,14 +261,14 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The repository for an Amplify app.
+     * Repository for an Amplify app.
      * 
      */
     @Import(name="repository")
     private @Nullable Output<String> repository;
 
     /**
-     * @return The repository for an Amplify app.
+     * @return Repository for an Amplify app.
      * 
      */
     public Optional<Output<String>> repository() {
@@ -332,7 +332,7 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessToken The personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
+         * @param accessToken Personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
          * 
          * @return builder
          * 
@@ -343,7 +343,7 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessToken The personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
+         * @param accessToken Personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
          * 
          * @return builder
          * 
@@ -353,7 +353,7 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoBranchCreationConfig The automated branch creation configuration for an Amplify app. An `auto_branch_creation_config` block is documented below.
+         * @param autoBranchCreationConfig Automated branch creation configuration for an Amplify app. An `auto_branch_creation_config` block is documented below.
          * 
          * @return builder
          * 
@@ -364,7 +364,7 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoBranchCreationConfig The automated branch creation configuration for an Amplify app. An `auto_branch_creation_config` block is documented below.
+         * @param autoBranchCreationConfig Automated branch creation configuration for an Amplify app. An `auto_branch_creation_config` block is documented below.
          * 
          * @return builder
          * 
@@ -374,7 +374,7 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoBranchCreationPatterns The automated branch creation glob patterns for an Amplify app.
+         * @param autoBranchCreationPatterns Automated branch creation glob patterns for an Amplify app.
          * 
          * @return builder
          * 
@@ -385,7 +385,7 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoBranchCreationPatterns The automated branch creation glob patterns for an Amplify app.
+         * @param autoBranchCreationPatterns Automated branch creation glob patterns for an Amplify app.
          * 
          * @return builder
          * 
@@ -395,7 +395,7 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoBranchCreationPatterns The automated branch creation glob patterns for an Amplify app.
+         * @param autoBranchCreationPatterns Automated branch creation glob patterns for an Amplify app.
          * 
          * @return builder
          * 
@@ -405,7 +405,7 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param basicAuthCredentials The credentials for basic authorization for an Amplify app.
+         * @param basicAuthCredentials Credentials for basic authorization for an Amplify app.
          * 
          * @return builder
          * 
@@ -416,7 +416,7 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param basicAuthCredentials The credentials for basic authorization for an Amplify app.
+         * @param basicAuthCredentials Credentials for basic authorization for an Amplify app.
          * 
          * @return builder
          * 
@@ -447,7 +447,7 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customRules The custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
+         * @param customRules Custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
          * 
          * @return builder
          * 
@@ -458,7 +458,7 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customRules The custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
+         * @param customRules Custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
          * 
          * @return builder
          * 
@@ -468,7 +468,7 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customRules The custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
+         * @param customRules Custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
          * 
          * @return builder
          * 
@@ -478,7 +478,7 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The description for an Amplify app.
+         * @param description Description for an Amplify app.
          * 
          * @return builder
          * 
@@ -489,7 +489,7 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The description for an Amplify app.
+         * @param description Description for an Amplify app.
          * 
          * @return builder
          * 
@@ -583,7 +583,7 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param environmentVariables The environment variables map for an Amplify app.
+         * @param environmentVariables Environment variables map for an Amplify app.
          * 
          * @return builder
          * 
@@ -594,7 +594,7 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param environmentVariables The environment variables map for an Amplify app.
+         * @param environmentVariables Environment variables map for an Amplify app.
          * 
          * @return builder
          * 
@@ -604,7 +604,7 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param iamServiceRoleArn The AWS Identity and Access Management (IAM) service role for an Amplify app.
+         * @param iamServiceRoleArn AWS Identity and Access Management (IAM) service role for an Amplify app.
          * 
          * @return builder
          * 
@@ -615,7 +615,7 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param iamServiceRoleArn The AWS Identity and Access Management (IAM) service role for an Amplify app.
+         * @param iamServiceRoleArn AWS Identity and Access Management (IAM) service role for an Amplify app.
          * 
          * @return builder
          * 
@@ -625,7 +625,7 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name for an Amplify app.
+         * @param name Name for an Amplify app.
          * 
          * @return builder
          * 
@@ -636,7 +636,7 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name for an Amplify app.
+         * @param name Name for an Amplify app.
          * 
          * @return builder
          * 
@@ -646,7 +646,7 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param oauthToken The OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
+         * @param oauthToken OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
          * 
          * @return builder
          * 
@@ -657,7 +657,7 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param oauthToken The OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
+         * @param oauthToken OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
          * 
          * @return builder
          * 
@@ -667,7 +667,7 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param platform The platform or framework for an Amplify app. Valid values: `WEB`.
+         * @param platform Platform or framework for an Amplify app. Valid values: `WEB`.
          * 
          * @return builder
          * 
@@ -678,7 +678,7 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param platform The platform or framework for an Amplify app. Valid values: `WEB`.
+         * @param platform Platform or framework for an Amplify app. Valid values: `WEB`.
          * 
          * @return builder
          * 
@@ -688,7 +688,7 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param repository The repository for an Amplify app.
+         * @param repository Repository for an Amplify app.
          * 
          * @return builder
          * 
@@ -699,7 +699,7 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param repository The repository for an Amplify app.
+         * @param repository Repository for an Amplify app.
          * 
          * @return builder
          * 

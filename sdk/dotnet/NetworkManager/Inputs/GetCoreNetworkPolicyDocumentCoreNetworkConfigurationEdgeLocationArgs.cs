@@ -13,7 +13,7 @@ namespace Pulumi.Aws.NetworkManager.Inputs
     public sealed class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ASN of the Core Network Edge in an AWS Region. By default, the ASN will be a single integer automatically assigned from `asn_ranges`
+        /// ASN of the Core Network Edge in an AWS Region. By default, the ASN will be a single integer automatically assigned from `asn_ranges`
         /// </summary>
         [Input("asn")]
         public Input<int>? Asn { get; set; }

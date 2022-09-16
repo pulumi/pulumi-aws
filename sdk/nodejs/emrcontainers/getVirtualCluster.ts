@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -42,7 +44,7 @@ export interface GetVirtualClusterArgs {
      */
     tags?: {[key: string]: string};
     /**
-     * The ID of the cluster.
+     * ID of the cluster.
      */
     virtualClusterId: string;
 }
@@ -52,7 +54,7 @@ export interface GetVirtualClusterArgs {
  */
 export interface GetVirtualClusterResult {
     /**
-     * The Amazon Resource Name (ARN) of the cluster.
+     * ARN of the cluster.
      */
     readonly arn: string;
     /**
@@ -60,7 +62,7 @@ export interface GetVirtualClusterResult {
      */
     readonly containerProviders: outputs.emrcontainers.GetVirtualClusterContainerProvider[];
     /**
-     * The Unix epoch time stamp in seconds for when the cluster was created.
+     * Unix epoch time stamp in seconds for when the cluster was created.
      */
     readonly createdAt: string;
     /**
@@ -68,11 +70,11 @@ export interface GetVirtualClusterResult {
      */
     readonly id: string;
     /**
-     * The name of the cluster.
+     * Name of the cluster.
      */
     readonly name: string;
     /**
-     * The status of the EKS cluster. One of `RUNNING`, `TERMINATING`, `TERMINATED`, `ARRESTED`.
+     * Status of the EKS cluster. One of `RUNNING`, `TERMINATING`, `TERMINATED`, `ARRESTED`.
      */
     readonly state: string;
     /**
@@ -95,7 +97,7 @@ export interface GetVirtualClusterOutputArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The ID of the cluster.
+     * ID of the cluster.
      */
     virtualClusterId: pulumi.Input<string>;
 }

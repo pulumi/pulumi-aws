@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Outputs
     public sealed class GetAmiFilterResult
     {
         /// <summary>
-        /// The name of the AMI that was provided during image creation.
+        /// Name of the AMI that was provided during image creation.
         /// </summary>
         public readonly string Name;
         public readonly ImmutableArray<string> Values;

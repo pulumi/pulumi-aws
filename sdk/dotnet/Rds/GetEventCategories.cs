@@ -114,7 +114,7 @@ namespace Pulumi.Aws.Rds
     public sealed class GetEventCategoriesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot.
+        /// Type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot.
         /// </summary>
         [Input("sourceType")]
         public string? SourceType { get; set; }
@@ -128,7 +128,7 @@ namespace Pulumi.Aws.Rds
     public sealed class GetEventCategoriesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot.
+        /// Type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot.
         /// </summary>
         [Input("sourceType")]
         public Input<string>? SourceType { get; set; }
@@ -144,7 +144,7 @@ namespace Pulumi.Aws.Rds
     public sealed class GetEventCategoriesResult
     {
         /// <summary>
-        /// A list of the event categories.
+        /// List of the event categories.
         /// </summary>
         public readonly ImmutableArray<string> EventCategories;
         /// <summary>

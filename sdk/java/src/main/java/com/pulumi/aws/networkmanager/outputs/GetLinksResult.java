@@ -20,7 +20,7 @@ public final class GetLinksResult {
      */
     private String id;
     /**
-     * @return The IDs of the links.
+     * @return IDs of the links.
      * 
      */
     private List<String> ids;
@@ -41,7 +41,7 @@ public final class GetLinksResult {
         return this.id;
     }
     /**
-     * @return The IDs of the links.
+     * @return IDs of the links.
      * 
      */
     public List<String> ids() {

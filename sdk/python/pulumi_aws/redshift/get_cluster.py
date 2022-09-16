@@ -164,7 +164,7 @@ class GetClusterResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        Amazon Resource Name (ARN) of cluster.
+        ARN of cluster.
         """
         return pulumi.get(self, "arn")
 
@@ -180,7 +180,7 @@ class GetClusterResult:
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> str:
         """
-        The availability zone of the cluster
+        Availability zone of the cluster
         """
         return pulumi.get(self, "availability_zone")
 
@@ -196,7 +196,7 @@ class GetClusterResult:
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> str:
         """
-        The name of the S3 bucket where the log files are to be stored
+        Name of the S3 bucket where the log files are to be stored
         """
         return pulumi.get(self, "bucket_name")
 
@@ -204,7 +204,7 @@ class GetClusterResult:
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> str:
         """
-        The cluster identifier
+        Cluster identifier
         """
         return pulumi.get(self, "cluster_identifier")
 
@@ -212,7 +212,7 @@ class GetClusterResult:
     @pulumi.getter(name="clusterNodes")
     def cluster_nodes(self) -> Sequence['outputs.GetClusterClusterNodeResult']:
         """
-        The nodes in the cluster. Cluster node blocks are documented below
+        Nodes in the cluster. Cluster node blocks are documented below
         """
         return pulumi.get(self, "cluster_nodes")
 
@@ -228,7 +228,7 @@ class GetClusterResult:
     @pulumi.getter(name="clusterPublicKey")
     def cluster_public_key(self) -> str:
         """
-        The public key for the cluster
+        Public key for the cluster
         """
         return pulumi.get(self, "cluster_public_key")
 
@@ -260,7 +260,7 @@ class GetClusterResult:
     @pulumi.getter(name="clusterType")
     def cluster_type(self) -> str:
         """
-        The cluster type
+        Cluster type
         """
         return pulumi.get(self, "cluster_type")
 
@@ -273,7 +273,7 @@ class GetClusterResult:
     @pulumi.getter(name="databaseName")
     def database_name(self) -> str:
         """
-        The name of the default database in the cluster
+        Name of the default database in the cluster
         """
         return pulumi.get(self, "database_name")
 
@@ -281,7 +281,7 @@ class GetClusterResult:
     @pulumi.getter(name="defaultIamRoleArn")
     def default_iam_role_arn(self) -> str:
         """
-        ∂The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+        ∂The ARN for the IAM role that was set as default for the cluster when the cluster was created.
         """
         return pulumi.get(self, "default_iam_role_arn")
 
@@ -289,7 +289,7 @@ class GetClusterResult:
     @pulumi.getter(name="elasticIp")
     def elastic_ip(self) -> str:
         """
-        The Elastic IP of the cluster
+        Elastic IP of the cluster
         """
         return pulumi.get(self, "elastic_ip")
 
@@ -313,7 +313,7 @@ class GetClusterResult:
     @pulumi.getter
     def endpoint(self) -> str:
         """
-        The cluster endpoint
+        Cluster endpoint
         """
         return pulumi.get(self, "endpoint")
 
@@ -329,7 +329,7 @@ class GetClusterResult:
     @pulumi.getter(name="iamRoles")
     def iam_roles(self) -> Sequence[str]:
         """
-        The IAM roles associated to the cluster
+        IAM roles associated to the cluster
         """
         return pulumi.get(self, "iam_roles")
 
@@ -345,7 +345,7 @@ class GetClusterResult:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> str:
         """
-        The KMS encryption key associated to the cluster
+        KMS encryption key associated to the cluster
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -361,7 +361,7 @@ class GetClusterResult:
     @pulumi.getter(name="logExports")
     def log_exports(self) -> Sequence[str]:
         """
-        The collection of exported log types. Log types include the connection log, user log and user activity log.
+        Collection of exported log types. Log types include the connection log, user log and user activity log.
         """
         return pulumi.get(self, "log_exports")
 
@@ -393,7 +393,7 @@ class GetClusterResult:
     @pulumi.getter(name="nodeType")
     def node_type(self) -> str:
         """
-        The cluster node type
+        Cluster node type
         """
         return pulumi.get(self, "node_type")
 
@@ -401,7 +401,7 @@ class GetClusterResult:
     @pulumi.getter(name="numberOfNodes")
     def number_of_nodes(self) -> int:
         """
-        The number of nodes in the cluster
+        Number of nodes in the cluster
         """
         return pulumi.get(self, "number_of_nodes")
 
@@ -409,7 +409,7 @@ class GetClusterResult:
     @pulumi.getter
     def port(self) -> int:
         """
-        The port the cluster responds on
+        Port the cluster responds on
         """
         return pulumi.get(self, "port")
 
@@ -433,7 +433,7 @@ class GetClusterResult:
     @pulumi.getter(name="s3KeyPrefix")
     def s3_key_prefix(self) -> str:
         """
-        The folder inside the S3 bucket where the log files are stored
+        Folder inside the S3 bucket where the log files are stored
         """
         return pulumi.get(self, "s3_key_prefix")
 
@@ -441,7 +441,7 @@ class GetClusterResult:
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
-        The tags associated to the cluster
+        Tags associated to the cluster
         """
         return pulumi.get(self, "tags")
 
@@ -449,7 +449,7 @@ class GetClusterResult:
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> str:
         """
-        The VPC Id associated with the cluster
+        VPC Id associated with the cluster
         """
         return pulumi.get(self, "vpc_id")
 
@@ -544,8 +544,8 @@ def get_cluster(cluster_identifier: Optional[str] = None,
     ```
 
 
-    :param str cluster_identifier: The cluster identifier
-    :param Mapping[str, str] tags: The tags associated to the cluster
+    :param str cluster_identifier: Cluster identifier
+    :param Mapping[str, str] tags: Tags associated to the cluster
     """
     __args__ = dict()
     __args__['clusterIdentifier'] = cluster_identifier
@@ -631,7 +631,7 @@ def get_cluster_output(cluster_identifier: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str cluster_identifier: The cluster identifier
-    :param Mapping[str, str] tags: The tags associated to the cluster
+    :param str cluster_identifier: Cluster identifier
+    :param Mapping[str, str] tags: Tags associated to the cluster
     """
     ...

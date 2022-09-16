@@ -85,7 +85,7 @@ class GetNetworkInsightsAnalysisResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The ARN of the selected Network Insights Analysis.
+        ARN of the selected Network Insights Analysis.
         """
         return pulumi.get(self, "arn")
 
@@ -101,7 +101,7 @@ class GetNetworkInsightsAnalysisResult:
     @pulumi.getter(name="filterInArns")
     def filter_in_arns(self) -> Sequence[str]:
         """
-        The Amazon Resource Names (ARN) of the AWS resources that the path must traverse.
+        ARNs of the AWS resources that the path must traverse.
         """
         return pulumi.get(self, "filter_in_arns")
 
@@ -159,7 +159,7 @@ class GetNetworkInsightsAnalysisResult:
     @pulumi.getter(name="startDate")
     def start_date(self) -> str:
         """
-        The date/time the analysis was started.
+        Date/time the analysis was started.
         """
         return pulumi.get(self, "start_date")
 
@@ -167,7 +167,7 @@ class GetNetworkInsightsAnalysisResult:
     @pulumi.getter
     def status(self) -> str:
         """
-        The status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `path_found`.
+        Status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `path_found`.
         """
         return pulumi.get(self, "status")
 
@@ -175,7 +175,7 @@ class GetNetworkInsightsAnalysisResult:
     @pulumi.getter(name="statusMessage")
     def status_message(self) -> str:
         """
-        A message to provide more context when the `status` is `failed`.
+        Message to provide more context when the `status` is `failed`.
         """
         return pulumi.get(self, "status_message")
 
@@ -188,7 +188,7 @@ class GetNetworkInsightsAnalysisResult:
     @pulumi.getter(name="warningMessage")
     def warning_message(self) -> str:
         """
-        The warning message.
+        Warning message.
         """
         return pulumi.get(self, "warning_message")
 
@@ -235,7 +235,7 @@ def get_network_insights_analysis(filters: Optional[Sequence[pulumi.InputType['G
 
 
     :param Sequence[pulumi.InputType['GetNetworkInsightsAnalysisFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
-    :param str network_insights_analysis_id: The ID of the Network Insights Analysis to select.
+    :param str network_insights_analysis_id: ID of the Network Insights Analysis to select.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -282,6 +282,6 @@ def get_network_insights_analysis_output(filters: Optional[pulumi.Input[Optional
 
 
     :param Sequence[pulumi.InputType['GetNetworkInsightsAnalysisFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
-    :param str network_insights_analysis_id: The ID of the Network Insights Analysis to select.
+    :param str network_insights_analysis_id: ID of the Network Insights Analysis to select.
     """
     ...

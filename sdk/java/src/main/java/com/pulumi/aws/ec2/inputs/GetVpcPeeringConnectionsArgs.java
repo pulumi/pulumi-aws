@@ -34,7 +34,7 @@ public final class GetVpcPeeringConnectionsArgs extends com.pulumi.resources.Inv
     }
 
     /**
-     * A mapping of tags, each pair of which must exactly match
+     * Mapping of tags, each pair of which must exactly match
      * a pair on the desired VPC Peering Connection.
      * 
      */
@@ -42,7 +42,7 @@ public final class GetVpcPeeringConnectionsArgs extends com.pulumi.resources.Inv
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags, each pair of which must exactly match
+     * @return Mapping of tags, each pair of which must exactly match
      * a pair on the desired VPC Peering Connection.
      * 
      */
@@ -107,7 +107,7 @@ public final class GetVpcPeeringConnectionsArgs extends com.pulumi.resources.Inv
         }
 
         /**
-         * @param tags A mapping of tags, each pair of which must exactly match
+         * @param tags Mapping of tags, each pair of which must exactly match
          * a pair on the desired VPC Peering Connection.
          * 
          * @return builder
@@ -119,7 +119,7 @@ public final class GetVpcPeeringConnectionsArgs extends com.pulumi.resources.Inv
         }
 
         /**
-         * @param tags A mapping of tags, each pair of which must exactly match
+         * @param tags Mapping of tags, each pair of which must exactly match
          * a pair on the desired VPC Peering Connection.
          * 
          * @return builder

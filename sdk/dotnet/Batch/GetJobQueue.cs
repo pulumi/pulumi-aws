@@ -72,7 +72,7 @@ namespace Pulumi.Aws.Batch
     public sealed class GetJobQueueArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the job queue.
+        /// Name of the job queue.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -98,7 +98,7 @@ namespace Pulumi.Aws.Batch
     public sealed class GetJobQueueInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the job queue.
+        /// Name of the job queue.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -126,7 +126,7 @@ namespace Pulumi.Aws.Batch
     public sealed class GetJobQueueResult
     {
         /// <summary>
-        /// The ARN of the job queue.
+        /// ARN of the job queue.
         /// </summary>
         public readonly string Arn;
         /// <summary>
@@ -142,7 +142,7 @@ namespace Pulumi.Aws.Batch
         public readonly string Id;
         public readonly string Name;
         /// <summary>
-        /// The priority of the job queue. Job queues with a higher priority are evaluated first when
+        /// Priority of the job queue. Job queues with a higher priority are evaluated first when
         /// associated with the same compute environment.
         /// </summary>
         public readonly int Priority;
@@ -155,11 +155,11 @@ namespace Pulumi.Aws.Batch
         /// </summary>
         public readonly string State;
         /// <summary>
-        /// The current status of the job queue (for example, `CREATING` or `VALID`).
+        /// Current status of the job queue (for example, `CREATING` or `VALID`).
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// A short, human-readable string to provide additional details about the current status
+        /// Short, human-readable string to provide additional details about the current status
         /// of the job queue.
         /// </summary>
         public readonly string StatusReason;

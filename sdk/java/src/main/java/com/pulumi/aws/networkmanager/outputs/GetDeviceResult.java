@@ -14,17 +14,17 @@ import java.util.Objects;
 @CustomType
 public final class GetDeviceResult {
     /**
-     * @return The Amazon Resource Name (ARN) of the device.
+     * @return ARN of the device.
      * 
      */
     private String arn;
     /**
-     * @return The AWS location of the device. Documented below.
+     * @return AWS location of the device. Documented below.
      * 
      */
     private List<GetDeviceAwsLocation> awsLocations;
     /**
-     * @return A description of the device.
+     * @return Description of the device.
      * 
      */
     private String description;
@@ -36,22 +36,22 @@ public final class GetDeviceResult {
      */
     private String id;
     /**
-     * @return The location of the device. Documented below.
+     * @return Location of the device. Documented below.
      * 
      */
     private List<GetDeviceLocation> locations;
     /**
-     * @return The model of device.
+     * @return Model of device.
      * 
      */
     private String model;
     /**
-     * @return The serial number of the device.
+     * @return Serial number of the device.
      * 
      */
     private String serialNumber;
     /**
-     * @return The ID of the site.
+     * @return ID of the site.
      * 
      */
     private String siteId;
@@ -61,33 +61,33 @@ public final class GetDeviceResult {
      */
     private Map<String,String> tags;
     /**
-     * @return The type of device.
+     * @return Type of device.
      * 
      */
     private String type;
     /**
-     * @return The vendor of the device.
+     * @return Vendor of the device.
      * 
      */
     private String vendor;
 
     private GetDeviceResult() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the device.
+     * @return ARN of the device.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return The AWS location of the device. Documented below.
+     * @return AWS location of the device. Documented below.
      * 
      */
     public List<GetDeviceAwsLocation> awsLocations() {
         return this.awsLocations;
     }
     /**
-     * @return A description of the device.
+     * @return Description of the device.
      * 
      */
     public String description() {
@@ -107,28 +107,28 @@ public final class GetDeviceResult {
         return this.id;
     }
     /**
-     * @return The location of the device. Documented below.
+     * @return Location of the device. Documented below.
      * 
      */
     public List<GetDeviceLocation> locations() {
         return this.locations;
     }
     /**
-     * @return The model of device.
+     * @return Model of device.
      * 
      */
     public String model() {
         return this.model;
     }
     /**
-     * @return The serial number of the device.
+     * @return Serial number of the device.
      * 
      */
     public String serialNumber() {
         return this.serialNumber;
     }
     /**
-     * @return The ID of the site.
+     * @return ID of the site.
      * 
      */
     public String siteId() {
@@ -142,14 +142,14 @@ public final class GetDeviceResult {
         return this.tags;
     }
     /**
-     * @return The type of device.
+     * @return Type of device.
      * 
      */
     public String type() {
         return this.type;
     }
     /**
-     * @return The vendor of the device.
+     * @return Vendor of the device.
      * 
      */
     public String vendor() {

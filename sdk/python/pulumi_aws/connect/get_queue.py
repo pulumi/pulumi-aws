@@ -61,7 +61,7 @@ class GetQueueResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the Queue.
+        ARN of the Queue.
         """
         return pulumi.get(self, "arn")
 
@@ -69,7 +69,7 @@ class GetQueueResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        Specifies the description of the Queue.
+        Description of the Queue.
         """
         return pulumi.get(self, "description")
 
@@ -98,7 +98,7 @@ class GetQueueResult:
     @pulumi.getter(name="maxContacts")
     def max_contacts(self) -> int:
         """
-        Specifies the maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
+        Maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
         """
         return pulumi.get(self, "max_contacts")
 
@@ -119,7 +119,7 @@ class GetQueueResult:
     @pulumi.getter(name="queueId")
     def queue_id(self) -> str:
         """
-        The identifier for the Queue.
+        Identifier for the Queue.
         """
         return pulumi.get(self, "queue_id")
 
@@ -127,7 +127,7 @@ class GetQueueResult:
     @pulumi.getter
     def status(self) -> str:
         """
-        Specifies the description of the Queue. Values are `ENABLED` or `DISABLED`.
+        Description of the Queue. Values are `ENABLED` or `DISABLED`.
         """
         return pulumi.get(self, "status")
 
@@ -135,7 +135,7 @@ class GetQueueResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        A map of tags assigned to the Queue.
+        Map of tags assigned to the Queue.
         """
         return pulumi.get(self, "tags")
 
@@ -193,7 +193,7 @@ def get_queue(instance_id: Optional[str] = None,
     :param str instance_id: Reference to the hosting Amazon Connect Instance
     :param str name: Returns information on a specific Queue by name
     :param str queue_id: Returns information on a specific Queue by Queue id
-    :param Mapping[str, str] tags: A map of tags assigned to the Queue.
+    :param Mapping[str, str] tags: Map of tags assigned to the Queue.
     """
     __args__ = dict()
     __args__['instanceId'] = instance_id
@@ -252,6 +252,6 @@ def get_queue_output(instance_id: Optional[pulumi.Input[str]] = None,
     :param str instance_id: Reference to the hosting Amazon Connect Instance
     :param str name: Returns information on a specific Queue by name
     :param str queue_id: Returns information on a specific Queue by Queue id
-    :param Mapping[str, str] tags: A map of tags assigned to the Queue.
+    :param Mapping[str, str] tags: Map of tags assigned to the Queue.
     """
     ...

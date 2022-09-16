@@ -86,7 +86,7 @@ namespace Pulumi.Aws.Neptune
         public string? Engine { get; set; }
 
         /// <summary>
-        /// The name of a specific DB parameter group family. An example parameter group family is `neptune1`.
+        /// Name of a specific DB parameter group family. An example parameter group family is `neptune1`.
         /// </summary>
         [Input("parameterGroupFamily")]
         public string? ParameterGroupFamily { get; set; }
@@ -124,7 +124,7 @@ namespace Pulumi.Aws.Neptune
         public Input<string>? Engine { get; set; }
 
         /// <summary>
-        /// The name of a specific DB parameter group family. An example parameter group family is `neptune1`.
+        /// Name of a specific DB parameter group family. An example parameter group family is `neptune1`.
         /// </summary>
         [Input("parameterGroupFamily")]
         public Input<string>? ParameterGroupFamily { get; set; }
@@ -159,7 +159,7 @@ namespace Pulumi.Aws.Neptune
     {
         public readonly string? Engine;
         /// <summary>
-        /// The description of the database engine.
+        /// Description of the database engine.
         /// </summary>
         public readonly string EngineDescription;
         /// <summary>
@@ -190,7 +190,7 @@ namespace Pulumi.Aws.Neptune
         public readonly ImmutableArray<string> ValidUpgradeTargets;
         public readonly string Version;
         /// <summary>
-        /// The description of the database engine version.
+        /// Description of the database engine version.
         /// </summary>
         public readonly string VersionDescription;
 

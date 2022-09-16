@@ -17,14 +17,14 @@ public final class GetLoadBalancerArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetLoadBalancerArgs Empty = new GetLoadBalancerArgs();
 
     /**
-     * The unique name of the load balancer.
+     * Unique name of the load balancer.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The unique name of the load balancer.
+     * @return Unique name of the load balancer.
      * 
      */
     public Output<String> name() {
@@ -64,7 +64,7 @@ public final class GetLoadBalancerArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The unique name of the load balancer.
+         * @param name Unique name of the load balancer.
          * 
          * @return builder
          * 
@@ -75,7 +75,7 @@ public final class GetLoadBalancerArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The unique name of the load balancer.
+         * @param name Unique name of the load balancer.
          * 
          * @return builder
          * 

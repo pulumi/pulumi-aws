@@ -17,14 +17,14 @@ public final class PolicyStepScalingPolicyConfigurationStepAdjustmentArgs extend
     public static final PolicyStepScalingPolicyConfigurationStepAdjustmentArgs Empty = new PolicyStepScalingPolicyConfigurationStepAdjustmentArgs();
 
     /**
-     * The lower bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as negative infinity.
+     * Lower bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as negative infinity.
      * 
      */
     @Import(name="metricIntervalLowerBound")
     private @Nullable Output<String> metricIntervalLowerBound;
 
     /**
-     * @return The lower bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as negative infinity.
+     * @return Lower bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as negative infinity.
      * 
      */
     public Optional<Output<String>> metricIntervalLowerBound() {
@@ -32,14 +32,14 @@ public final class PolicyStepScalingPolicyConfigurationStepAdjustmentArgs extend
     }
 
     /**
-     * The upper bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as infinity. The upper bound must be greater than the lower bound.
+     * Upper bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as infinity. The upper bound must be greater than the lower bound.
      * 
      */
     @Import(name="metricIntervalUpperBound")
     private @Nullable Output<String> metricIntervalUpperBound;
 
     /**
-     * @return The upper bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as infinity. The upper bound must be greater than the lower bound.
+     * @return Upper bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as infinity. The upper bound must be greater than the lower bound.
      * 
      */
     public Optional<Output<String>> metricIntervalUpperBound() {
@@ -47,14 +47,14 @@ public final class PolicyStepScalingPolicyConfigurationStepAdjustmentArgs extend
     }
 
     /**
-     * The number of members by which to scale, when the adjustment bounds are breached. A positive value scales up. A negative value scales down.
+     * Number of members by which to scale, when the adjustment bounds are breached. A positive value scales up. A negative value scales down.
      * 
      */
     @Import(name="scalingAdjustment", required=true)
     private Output<Integer> scalingAdjustment;
 
     /**
-     * @return The number of members by which to scale, when the adjustment bounds are breached. A positive value scales up. A negative value scales down.
+     * @return Number of members by which to scale, when the adjustment bounds are breached. A positive value scales up. A negative value scales down.
      * 
      */
     public Output<Integer> scalingAdjustment() {
@@ -88,7 +88,7 @@ public final class PolicyStepScalingPolicyConfigurationStepAdjustmentArgs extend
         }
 
         /**
-         * @param metricIntervalLowerBound The lower bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as negative infinity.
+         * @param metricIntervalLowerBound Lower bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as negative infinity.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class PolicyStepScalingPolicyConfigurationStepAdjustmentArgs extend
         }
 
         /**
-         * @param metricIntervalLowerBound The lower bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as negative infinity.
+         * @param metricIntervalLowerBound Lower bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as negative infinity.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class PolicyStepScalingPolicyConfigurationStepAdjustmentArgs extend
         }
 
         /**
-         * @param metricIntervalUpperBound The upper bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as infinity. The upper bound must be greater than the lower bound.
+         * @param metricIntervalUpperBound Upper bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as infinity. The upper bound must be greater than the lower bound.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class PolicyStepScalingPolicyConfigurationStepAdjustmentArgs extend
         }
 
         /**
-         * @param metricIntervalUpperBound The upper bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as infinity. The upper bound must be greater than the lower bound.
+         * @param metricIntervalUpperBound Upper bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as infinity. The upper bound must be greater than the lower bound.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class PolicyStepScalingPolicyConfigurationStepAdjustmentArgs extend
         }
 
         /**
-         * @param scalingAdjustment The number of members by which to scale, when the adjustment bounds are breached. A positive value scales up. A negative value scales down.
+         * @param scalingAdjustment Number of members by which to scale, when the adjustment bounds are breached. A positive value scales up. A negative value scales down.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class PolicyStepScalingPolicyConfigurationStepAdjustmentArgs extend
         }
 
         /**
-         * @param scalingAdjustment The number of members by which to scale, when the adjustment bounds are breached. A positive value scales up. A negative value scales down.
+         * @param scalingAdjustment Number of members by which to scale, when the adjustment bounds are breached. A positive value scales up. A negative value scales down.
          * 
          * @return builder
          * 

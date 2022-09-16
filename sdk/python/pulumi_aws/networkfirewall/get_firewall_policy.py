@@ -54,7 +54,7 @@ class GetFirewallPolicyResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        A description of the firewall policy.
+        Description of the firewall policy.
         """
         return pulumi.get(self, "description")
 
@@ -91,7 +91,7 @@ class GetFirewallPolicyResult:
     @pulumi.getter(name="updateToken")
     def update_token(self) -> str:
         """
-        A token used for optimistic locking.
+        Token used for optimistic locking.
         """
         return pulumi.get(self, "update_token")
 
@@ -127,7 +127,7 @@ def get_firewall_policy(arn: Optional[str] = None,
 
     example = aws.networkfirewall.get_firewall_policy(name=var["firewall_policy_name"])
     ```
-    ### Find firewall policy by Amazon Resource Name (ARN)
+    ### Find firewall policy by ARN
 
     ```python
     import pulumi
@@ -150,8 +150,8 @@ def get_firewall_policy(arn: Optional[str] = None,
     > **Note:** If there are multiple firewall policies in an account with the same `name`, and `arn` is not specified, the default behavior will return the firewall policy with `name` that was created in the account.
 
 
-    :param str arn: The Amazon Resource Name (ARN) of the firewall policy.
-    :param str name: The descriptive name of the firewall policy.
+    :param str arn: ARN of the firewall policy.
+    :param str name: Descriptive name of the firewall policy.
     :param Mapping[str, str] tags: Key-value tags for the firewall policy.
     """
     __args__ = dict()
@@ -188,7 +188,7 @@ def get_firewall_policy_output(arn: Optional[pulumi.Input[Optional[str]]] = None
 
     example = aws.networkfirewall.get_firewall_policy(name=var["firewall_policy_name"])
     ```
-    ### Find firewall policy by Amazon Resource Name (ARN)
+    ### Find firewall policy by ARN
 
     ```python
     import pulumi
@@ -211,8 +211,8 @@ def get_firewall_policy_output(arn: Optional[pulumi.Input[Optional[str]]] = None
     > **Note:** If there are multiple firewall policies in an account with the same `name`, and `arn` is not specified, the default behavior will return the firewall policy with `name` that was created in the account.
 
 
-    :param str arn: The Amazon Resource Name (ARN) of the firewall policy.
-    :param str name: The descriptive name of the firewall policy.
+    :param str arn: ARN of the firewall policy.
+    :param str name: Descriptive name of the firewall policy.
     :param Mapping[str, str] tags: Key-value tags for the firewall policy.
     """
     ...

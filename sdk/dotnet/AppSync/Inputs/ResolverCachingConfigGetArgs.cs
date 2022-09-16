@@ -16,7 +16,7 @@ namespace Pulumi.Aws.AppSync.Inputs
         private InputList<string>? _cachingKeys;
 
         /// <summary>
-        /// The list of caching key.
+        /// List of caching key.
         /// </summary>
         public InputList<string> CachingKeys
         {
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.AppSync.Inputs
         }
 
         /// <summary>
-        /// The TTL in seconds.
+        /// TTL in seconds.
         /// </summary>
         [Input("ttl")]
         public Input<int>? Ttl { get; set; }

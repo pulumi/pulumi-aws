@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -51,24 +53,24 @@ export interface GetVpcEndpointArgs {
      */
     filters?: inputs.ec2.GetVpcEndpointFilter[];
     /**
-     * The ID of the specific VPC Endpoint to retrieve.
+     * ID of the specific VPC Endpoint to retrieve.
      */
     id?: string;
     /**
-     * The service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
+     * Service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
      */
     serviceName?: string;
     /**
-     * The state of the specific VPC Endpoint to retrieve.
+     * State of the specific VPC Endpoint to retrieve.
      */
     state?: string;
     /**
-     * A map of tags, each pair of which must exactly match
+     * Map of tags, each pair of which must exactly match
      * a pair on the specific VPC Endpoint to retrieve.
      */
     tags?: {[key: string]: string};
     /**
-     * The ID of the VPC in which the specific VPC Endpoint is used.
+     * ID of the VPC in which the specific VPC Endpoint is used.
      */
     vpcId?: string;
 }
@@ -78,15 +80,15 @@ export interface GetVpcEndpointArgs {
  */
 export interface GetVpcEndpointResult {
     /**
-     * The Amazon Resource Name (ARN) of the VPC endpoint.
+     * ARN of the VPC endpoint.
      */
     readonly arn: string;
     /**
-     * The list of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
+     * List of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
      */
     readonly cidrBlocks: string[];
     /**
-     * The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
+     * DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
      */
     readonly dnsEntries: outputs.ec2.GetVpcEndpointDnsEntry[];
     readonly dnsOptions: outputs.ec2.GetVpcEndpointDnsOption[];
@@ -98,15 +100,15 @@ export interface GetVpcEndpointResult {
      */
     readonly networkInterfaceIds: string[];
     /**
-     * The ID of the AWS account that owns the VPC endpoint.
+     * ID of the AWS account that owns the VPC endpoint.
      */
     readonly ownerId: string;
     /**
-     * The policy document associated with the VPC Endpoint. Applicable for endpoints of type `Gateway`.
+     * Policy document associated with the VPC Endpoint. Applicable for endpoints of type `Gateway`.
      */
     readonly policy: string;
     /**
-     * The prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
+     * Prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
      */
     readonly prefixListId: string;
     /**
@@ -133,7 +135,7 @@ export interface GetVpcEndpointResult {
     readonly subnetIds: string[];
     readonly tags: {[key: string]: string};
     /**
-     * The VPC Endpoint type, `Gateway` or `Interface`.
+     * VPC Endpoint type, `Gateway` or `Interface`.
      */
     readonly vpcEndpointType: string;
     readonly vpcId: string;
@@ -152,24 +154,24 @@ export interface GetVpcEndpointOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetVpcEndpointFilterArgs>[]>;
     /**
-     * The ID of the specific VPC Endpoint to retrieve.
+     * ID of the specific VPC Endpoint to retrieve.
      */
     id?: pulumi.Input<string>;
     /**
-     * The service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
+     * Service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
      */
     serviceName?: pulumi.Input<string>;
     /**
-     * The state of the specific VPC Endpoint to retrieve.
+     * State of the specific VPC Endpoint to retrieve.
      */
     state?: pulumi.Input<string>;
     /**
-     * A map of tags, each pair of which must exactly match
+     * Map of tags, each pair of which must exactly match
      * a pair on the specific VPC Endpoint to retrieve.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The ID of the VPC in which the specific VPC Endpoint is used.
+     * ID of the VPC in which the specific VPC Endpoint is used.
      */
     vpcId?: pulumi.Input<string>;
 }

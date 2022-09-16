@@ -49,9 +49,9 @@ func LookupNodeGroup(ctx *pulumi.Context, args *LookupNodeGroupArgs, opts ...pul
 
 // A collection of arguments for invoking getNodeGroup.
 type LookupNodeGroupArgs struct {
-	// The name of the cluster.
+	// Name of the cluster.
 	ClusterName string `pulumi:"clusterName"`
-	// The name of the node group.
+	// Name of the node group.
 	NodeGroupName string `pulumi:"nodeGroupName"`
 	// Key-value map of resource tags.
 	Tags map[string]string `pulumi:"tags"`
@@ -61,9 +61,11 @@ type LookupNodeGroupArgs struct {
 type LookupNodeGroupResult struct {
 	// Type of Amazon Machine Image (AMI) associated with the EKS Node Group.
 	AmiType string `pulumi:"amiType"`
-	// Amazon Resource Name (ARN) of the EKS Node Group.
-	Arn         string `pulumi:"arn"`
-	ClusterName string `pulumi:"clusterName"`
+	// ARN of the EKS Node Group.
+	Arn string `pulumi:"arn"`
+	// Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`.
+	CapacityType string `pulumi:"capacityType"`
+	ClusterName  string `pulumi:"clusterName"`
 	// Disk size in GiB for worker nodes.
 	DiskSize int `pulumi:"diskSize"`
 	// The provider-assigned unique ID for this managed resource.
@@ -73,7 +75,7 @@ type LookupNodeGroupResult struct {
 	// Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
 	Labels        map[string]string `pulumi:"labels"`
 	NodeGroupName string            `pulumi:"nodeGroupName"`
-	// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
+	// ARN of the IAM Role that provides permissions for the EKS Node Group.
 	NodeRoleArn string `pulumi:"nodeRoleArn"`
 	// AMI version of the EKS Node Group.
 	ReleaseVersion string `pulumi:"releaseVersion"`
@@ -110,9 +112,9 @@ func LookupNodeGroupOutput(ctx *pulumi.Context, args LookupNodeGroupOutputArgs, 
 
 // A collection of arguments for invoking getNodeGroup.
 type LookupNodeGroupOutputArgs struct {
-	// The name of the cluster.
+	// Name of the cluster.
 	ClusterName pulumi.StringInput `pulumi:"clusterName"`
-	// The name of the node group.
+	// Name of the node group.
 	NodeGroupName pulumi.StringInput `pulumi:"nodeGroupName"`
 	// Key-value map of resource tags.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -142,9 +144,14 @@ func (o LookupNodeGroupResultOutput) AmiType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNodeGroupResult) string { return v.AmiType }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the EKS Node Group.
+// ARN of the EKS Node Group.
 func (o LookupNodeGroupResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNodeGroupResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`.
+func (o LookupNodeGroupResultOutput) CapacityType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNodeGroupResult) string { return v.CapacityType }).(pulumi.StringOutput)
 }
 
 func (o LookupNodeGroupResultOutput) ClusterName() pulumi.StringOutput {
@@ -175,7 +182,7 @@ func (o LookupNodeGroupResultOutput) NodeGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNodeGroupResult) string { return v.NodeGroupName }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
+// ARN of the IAM Role that provides permissions for the EKS Node Group.
 func (o LookupNodeGroupResultOutput) NodeRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNodeGroupResult) string { return v.NodeRoleArn }).(pulumi.StringOutput)
 }

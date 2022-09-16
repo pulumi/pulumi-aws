@@ -60,7 +60,7 @@ class GetDistributionResult:
     @pulumi.getter
     def aliases(self) -> Sequence[str]:
         """
-        A list that contains information about CNAMEs (alternate domain names), if any, for this distribution.
+        List that contains information about CNAMEs (alternate domain names), if any, for this distribution.
         """
         return pulumi.get(self, "aliases")
 
@@ -68,7 +68,7 @@ class GetDistributionResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
+        ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
         """
         return pulumi.get(self, "arn")
 
@@ -76,7 +76,7 @@ class GetDistributionResult:
     @pulumi.getter(name="domainName")
     def domain_name(self) -> str:
         """
-        The domain name corresponding to the distribution. For
+        Domain name corresponding to the distribution. For
         example: `d604721fxaaqy9.cloudfront.net`.
         """
         return pulumi.get(self, "domain_name")
@@ -90,7 +90,7 @@ class GetDistributionResult:
     @pulumi.getter
     def etag(self) -> str:
         """
-        The current version of the distribution's information. For example:
+        Current version of the distribution's information. For example:
         `E2QWRUHAPOMQZL`.
         """
         return pulumi.get(self, "etag")
@@ -99,7 +99,7 @@ class GetDistributionResult:
     @pulumi.getter(name="hostedZoneId")
     def hosted_zone_id(self) -> str:
         """
-        The CloudFront Route 53 zone ID that can be used to
+        CloudFront Route 53 zone ID that can be used to
         route an [Alias Resource Record Set][7] to. This attribute is simply an
         alias for the zone ID `Z2FDTNDATAQYW2`.
         """
@@ -109,7 +109,7 @@ class GetDistributionResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        The identifier for the distribution. For example: `EDFDVBD632BHDS5`.
+        Identifier for the distribution. For example: `EDFDVBD632BHDS5`.
         """
         return pulumi.get(self, "id")
 
@@ -126,7 +126,7 @@ class GetDistributionResult:
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> str:
         """
-        The date and time the distribution was last modified.
+        Date and time the distribution was last modified.
         """
         return pulumi.get(self, "last_modified_time")
 
@@ -134,7 +134,7 @@ class GetDistributionResult:
     @pulumi.getter
     def status(self) -> str:
         """
-        The current status of the distribution. `Deployed` if the
+        Current status of the distribution. `Deployed` if the
         distribution's information is fully propagated throughout the Amazon
         CloudFront system.
         """
@@ -181,7 +181,7 @@ def get_distribution(id: Optional[str] = None,
     ```
 
 
-    :param str id: The identifier for the distribution. For example: `EDFDVBD632BHDS5`.
+    :param str id: Identifier for the distribution. For example: `EDFDVBD632BHDS5`.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -220,6 +220,6 @@ def get_distribution_output(id: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str id: The identifier for the distribution. For example: `EDFDVBD632BHDS5`.
+    :param str id: Identifier for the distribution. For example: `EDFDVBD632BHDS5`.
     """
     ...

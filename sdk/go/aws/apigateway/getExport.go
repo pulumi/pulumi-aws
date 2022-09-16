@@ -48,26 +48,26 @@ func GetExport(ctx *pulumi.Context, args *GetExportArgs, opts ...pulumi.InvokeOp
 
 // A collection of arguments for invoking getExport.
 type GetExportArgs struct {
-	// The content-type of the export. Valid values are `application/json` and `application/yaml` are supported for `exportType` `ofoas30` and `swagger`.
+	// Content-type of the export. Valid values are `application/json` and `application/yaml` are supported for `exportType` `ofoas30` and `swagger`.
 	Accepts *string `pulumi:"accepts"`
-	// The type of export. Acceptable values are `oas30` for OpenAPI 3.0.x and `swagger` for Swagger/OpenAPI 2.0.
+	// Type of export. Acceptable values are `oas30` for OpenAPI 3.0.x and `swagger` for Swagger/OpenAPI 2.0.
 	ExportType string `pulumi:"exportType"`
-	// A key-value map of query string parameters that specify properties of the export. the following parameters are supported: `extensions='integrations'` or `extensions='apigateway'` will export the API with x-amazon-apigateway-integration extensions. `extensions='authorizers'` will export the API with x-amazon-apigateway-authorizer extensions.
+	// Key-value map of query string parameters that specify properties of the export. the following parameters are supported: `extensions='integrations'` or `extensions='apigateway'` will export the API with x-amazon-apigateway-integration extensions. `extensions='authorizers'` will export the API with x-amazon-apigateway-authorizer extensions.
 	Parameters map[string]string `pulumi:"parameters"`
-	// The identifier of the associated REST API.
+	// Identifier of the associated REST API.
 	RestApiId string `pulumi:"restApiId"`
-	// The name of the Stage that will be exported.
+	// Name of the Stage that will be exported.
 	StageName string `pulumi:"stageName"`
 }
 
 // A collection of values returned by getExport.
 type GetExportResult struct {
 	Accepts *string `pulumi:"accepts"`
-	// The API Spec.
+	// API Spec.
 	Body string `pulumi:"body"`
-	// The content-disposition header value in the HTTP response.
+	// Content-disposition header value in the HTTP response.
 	ContentDisposition string `pulumi:"contentDisposition"`
-	// The content-type header value in the HTTP response.
+	// Content-type header value in the HTTP response.
 	ContentType string `pulumi:"contentType"`
 	ExportType  string `pulumi:"exportType"`
 	// The provider-assigned unique ID for this managed resource.
@@ -92,15 +92,15 @@ func GetExportOutput(ctx *pulumi.Context, args GetExportOutputArgs, opts ...pulu
 
 // A collection of arguments for invoking getExport.
 type GetExportOutputArgs struct {
-	// The content-type of the export. Valid values are `application/json` and `application/yaml` are supported for `exportType` `ofoas30` and `swagger`.
+	// Content-type of the export. Valid values are `application/json` and `application/yaml` are supported for `exportType` `ofoas30` and `swagger`.
 	Accepts pulumi.StringPtrInput `pulumi:"accepts"`
-	// The type of export. Acceptable values are `oas30` for OpenAPI 3.0.x and `swagger` for Swagger/OpenAPI 2.0.
+	// Type of export. Acceptable values are `oas30` for OpenAPI 3.0.x and `swagger` for Swagger/OpenAPI 2.0.
 	ExportType pulumi.StringInput `pulumi:"exportType"`
-	// A key-value map of query string parameters that specify properties of the export. the following parameters are supported: `extensions='integrations'` or `extensions='apigateway'` will export the API with x-amazon-apigateway-integration extensions. `extensions='authorizers'` will export the API with x-amazon-apigateway-authorizer extensions.
+	// Key-value map of query string parameters that specify properties of the export. the following parameters are supported: `extensions='integrations'` or `extensions='apigateway'` will export the API with x-amazon-apigateway-integration extensions. `extensions='authorizers'` will export the API with x-amazon-apigateway-authorizer extensions.
 	Parameters pulumi.StringMapInput `pulumi:"parameters"`
-	// The identifier of the associated REST API.
+	// Identifier of the associated REST API.
 	RestApiId pulumi.StringInput `pulumi:"restApiId"`
-	// The name of the Stage that will be exported.
+	// Name of the Stage that will be exported.
 	StageName pulumi.StringInput `pulumi:"stageName"`
 }
 
@@ -127,17 +127,17 @@ func (o GetExportResultOutput) Accepts() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetExportResult) *string { return v.Accepts }).(pulumi.StringPtrOutput)
 }
 
-// The API Spec.
+// API Spec.
 func (o GetExportResultOutput) Body() pulumi.StringOutput {
 	return o.ApplyT(func(v GetExportResult) string { return v.Body }).(pulumi.StringOutput)
 }
 
-// The content-disposition header value in the HTTP response.
+// Content-disposition header value in the HTTP response.
 func (o GetExportResultOutput) ContentDisposition() pulumi.StringOutput {
 	return o.ApplyT(func(v GetExportResult) string { return v.ContentDisposition }).(pulumi.StringOutput)
 }
 
-// The content-type header value in the HTTP response.
+// Content-type header value in the HTTP response.
 func (o GetExportResultOutput) ContentType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetExportResult) string { return v.ContentType }).(pulumi.StringOutput)
 }

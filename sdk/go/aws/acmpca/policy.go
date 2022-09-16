@@ -95,7 +95,7 @@ type Policy struct {
 
 	// JSON-formatted IAM policy to attach to the specified private CA resource.
 	Policy pulumi.StringOutput `pulumi:"policy"`
-	// Amazon Resource Name (ARN) of the private CA to associate with the policy.
+	// ARN of the private CA to associate with the policy.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
 }
 
@@ -136,14 +136,14 @@ func GetPolicy(ctx *pulumi.Context,
 type policyState struct {
 	// JSON-formatted IAM policy to attach to the specified private CA resource.
 	Policy *string `pulumi:"policy"`
-	// Amazon Resource Name (ARN) of the private CA to associate with the policy.
+	// ARN of the private CA to associate with the policy.
 	ResourceArn *string `pulumi:"resourceArn"`
 }
 
 type PolicyState struct {
 	// JSON-formatted IAM policy to attach to the specified private CA resource.
 	Policy pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the private CA to associate with the policy.
+	// ARN of the private CA to associate with the policy.
 	ResourceArn pulumi.StringPtrInput
 }
 
@@ -154,7 +154,7 @@ func (PolicyState) ElementType() reflect.Type {
 type policyArgs struct {
 	// JSON-formatted IAM policy to attach to the specified private CA resource.
 	Policy string `pulumi:"policy"`
-	// Amazon Resource Name (ARN) of the private CA to associate with the policy.
+	// ARN of the private CA to associate with the policy.
 	ResourceArn string `pulumi:"resourceArn"`
 }
 
@@ -162,7 +162,7 @@ type policyArgs struct {
 type PolicyArgs struct {
 	// JSON-formatted IAM policy to attach to the specified private CA resource.
 	Policy pulumi.StringInput
-	// Amazon Resource Name (ARN) of the private CA to associate with the policy.
+	// ARN of the private CA to associate with the policy.
 	ResourceArn pulumi.StringInput
 }
 
@@ -258,7 +258,7 @@ func (o PolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the private CA to associate with the policy.
+// ARN of the private CA to associate with the policy.
 func (o PolicyOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
 }

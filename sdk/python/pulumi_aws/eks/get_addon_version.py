@@ -65,7 +65,7 @@ class GetAddonVersionResult:
     @pulumi.getter
     def version(self) -> str:
         """
-        The version of the EKS add-on.
+        Version of the EKS add-on.
         """
         return pulumi.get(self, "version")
 

@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetIpamPreviewNextCidrResult {
     /**
-     * @return The previewed CIDR from the pool.
+     * @return Previewed CIDR from the pool.
      * 
      */
     private String cidr;
@@ -29,7 +29,7 @@ public final class GetIpamPreviewNextCidrResult {
 
     private GetIpamPreviewNextCidrResult() {}
     /**
-     * @return The previewed CIDR from the pool.
+     * @return Previewed CIDR from the pool.
      * 
      */
     public String cidr() {

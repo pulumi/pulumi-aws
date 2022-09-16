@@ -26,7 +26,7 @@ namespace Pulumi.Aws.AppFlow.Outputs
         /// </summary>
         public readonly string? DatabaseUrl;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role.
+        /// ARN of the IAM role.
         /// </summary>
         public readonly string RoleArn;
 

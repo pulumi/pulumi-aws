@@ -79,7 +79,7 @@ namespace Pulumi.Aws.MemoryDb
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A map of tags assigned to the snapshot.
+        /// Map of tags assigned to the snapshot.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -105,7 +105,7 @@ namespace Pulumi.Aws.MemoryDb
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags assigned to the snapshot.
+        /// Map of tags assigned to the snapshot.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -124,7 +124,7 @@ namespace Pulumi.Aws.MemoryDb
     public sealed class GetSnapshotResult
     {
         /// <summary>
-        /// The ARN of the snapshot.
+        /// ARN of the snapshot.
         /// </summary>
         public readonly string Arn;
         /// <summary>
@@ -148,11 +148,11 @@ namespace Pulumi.Aws.MemoryDb
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Indicates whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
+        /// Whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
         /// </summary>
         public readonly string Source;
         /// <summary>
-        /// A map of tags assigned to the snapshot.
+        /// Map of tags assigned to the snapshot.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 

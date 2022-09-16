@@ -84,7 +84,7 @@ def get_coip_pools(filters: Optional[Sequence[pulumi.InputType['GetCoipPoolsFilt
 
 
     :param Sequence[pulumi.InputType['GetCoipPoolsFilterArgs']] filters: Custom filter block as described below.
-    :param Mapping[str, str] tags: A mapping of tags, each pair of which must exactly match
+    :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the desired aws_ec2_coip_pools.
     """
     __args__ = dict()
@@ -109,7 +109,7 @@ def get_coip_pools_output(filters: Optional[pulumi.Input[Optional[Sequence[pulum
 
 
     :param Sequence[pulumi.InputType['GetCoipPoolsFilterArgs']] filters: Custom filter block as described below.
-    :param Mapping[str, str] tags: A mapping of tags, each pair of which must exactly match
+    :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the desired aws_ec2_coip_pools.
     """
     ...

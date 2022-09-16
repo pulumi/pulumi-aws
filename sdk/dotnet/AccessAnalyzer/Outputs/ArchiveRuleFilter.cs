@@ -18,7 +18,7 @@ namespace Pulumi.Aws.AccessAnalyzer.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Contains;
         /// <summary>
-        /// The filter criteria.
+        /// Filter criteria.
         /// </summary>
         public readonly string Criteria;
         /// <summary>

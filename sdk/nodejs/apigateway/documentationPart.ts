@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -63,15 +65,15 @@ export class DocumentationPart extends pulumi.CustomResource {
     }
 
     /**
-     * The location of the targeted API entity of the to-be-created documentation part. See below.
+     * Location of the targeted API entity of the to-be-created documentation part. See below.
      */
     public readonly location!: pulumi.Output<outputs.apigateway.DocumentationPartLocation>;
     /**
-     * A content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., "{ \"description\": \"The API does ...\" }". Only Swagger-compliant key-value pairs can be exported and, hence, published.
+     * Content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., "{ \"description\": \"The API does ...\" }". Only Swagger-compliant key-value pairs can be exported and, hence, published.
      */
     public readonly properties!: pulumi.Output<string>;
     /**
-     * The ID of the associated Rest API
+     * ID of the associated Rest API
      */
     public readonly restApiId!: pulumi.Output<string>;
 
@@ -116,15 +118,15 @@ export class DocumentationPart extends pulumi.CustomResource {
  */
 export interface DocumentationPartState {
     /**
-     * The location of the targeted API entity of the to-be-created documentation part. See below.
+     * Location of the targeted API entity of the to-be-created documentation part. See below.
      */
     location?: pulumi.Input<inputs.apigateway.DocumentationPartLocation>;
     /**
-     * A content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., "{ \"description\": \"The API does ...\" }". Only Swagger-compliant key-value pairs can be exported and, hence, published.
+     * Content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., "{ \"description\": \"The API does ...\" }". Only Swagger-compliant key-value pairs can be exported and, hence, published.
      */
     properties?: pulumi.Input<string>;
     /**
-     * The ID of the associated Rest API
+     * ID of the associated Rest API
      */
     restApiId?: pulumi.Input<string>;
 }
@@ -134,15 +136,15 @@ export interface DocumentationPartState {
  */
 export interface DocumentationPartArgs {
     /**
-     * The location of the targeted API entity of the to-be-created documentation part. See below.
+     * Location of the targeted API entity of the to-be-created documentation part. See below.
      */
     location: pulumi.Input<inputs.apigateway.DocumentationPartLocation>;
     /**
-     * A content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., "{ \"description\": \"The API does ...\" }". Only Swagger-compliant key-value pairs can be exported and, hence, published.
+     * Content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., "{ \"description\": \"The API does ...\" }". Only Swagger-compliant key-value pairs can be exported and, hence, published.
      */
     properties: pulumi.Input<string>;
     /**
-     * The ID of the associated Rest API
+     * ID of the associated Rest API
      */
     restApiId: pulumi.Input<string>;
 }

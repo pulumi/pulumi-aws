@@ -44,7 +44,7 @@ class GetGroupResult:
     @pulumi.getter(name="displayName")
     def display_name(self) -> str:
         """
-        The group's display name value.
+        Group's display name value.
         """
         return pulumi.get(self, "display_name")
 
@@ -95,7 +95,7 @@ def get_group(filters: Optional[Sequence[pulumi.InputType['GetGroupFilterArgs']]
 
     :param Sequence[pulumi.InputType['GetGroupFilterArgs']] filters: Configuration block(s) for filtering. Currently, the AWS Identity Store API supports only 1 filter. Detailed below.
     :param str group_id: The identifier for a group in the Identity Store.
-    :param str identity_store_id: The Identity Store ID associated with the Single Sign-On Instance.
+    :param str identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -123,6 +123,6 @@ def get_group_output(filters: Optional[pulumi.Input[Sequence[pulumi.InputType['G
 
     :param Sequence[pulumi.InputType['GetGroupFilterArgs']] filters: Configuration block(s) for filtering. Currently, the AWS Identity Store API supports only 1 filter. Detailed below.
     :param str group_id: The identifier for a group in the Identity Store.
-    :param str identity_store_id: The Identity Store ID associated with the Single Sign-On Instance.
+    :param str identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
     """
     ...

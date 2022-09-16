@@ -55,7 +55,7 @@ type GetAssetsArgs struct {
 // A collection of values returned by getAssets.
 type GetAssetsResult struct {
 	Arn string `pulumi:"arn"`
-	// A list of all the subnet ids found. This data source will fail if none are found.
+	// List of all the subnet ids found. This data source will fail if none are found.
 	AssetIds []string `pulumi:"assetIds"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -103,7 +103,7 @@ func (o GetAssetsResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAssetsResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A list of all the subnet ids found. This data source will fail if none are found.
+// List of all the subnet ids found. This data source will fail if none are found.
 func (o GetAssetsResultOutput) AssetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetAssetsResult) []string { return v.AssetIds }).(pulumi.StringArrayOutput)
 }

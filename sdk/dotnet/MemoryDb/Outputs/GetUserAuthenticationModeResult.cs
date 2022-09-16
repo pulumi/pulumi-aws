@@ -18,7 +18,7 @@ namespace Pulumi.Aws.MemoryDb.Outputs
         /// </summary>
         public readonly int PasswordCount;
         /// <summary>
-        /// Indicates whether the user requires a password to authenticate.
+        /// Whether the user requires a password to authenticate.
         /// </summary>
         public readonly string Type;
 

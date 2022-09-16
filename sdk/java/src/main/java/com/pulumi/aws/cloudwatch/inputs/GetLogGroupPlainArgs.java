@@ -16,14 +16,14 @@ public final class GetLogGroupPlainArgs extends com.pulumi.resources.InvokeArgs 
     public static final GetLogGroupPlainArgs Empty = new GetLogGroupPlainArgs();
 
     /**
-     * The name of the Cloudwatch log group
+     * Name of the Cloudwatch log group
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return The name of the Cloudwatch log group
+     * @return Name of the Cloudwatch log group
      * 
      */
     public String name() {
@@ -31,14 +31,14 @@ public final class GetLogGroupPlainArgs extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
-     * A map of tags to assign to the resource.
+     * Map of tags to assign to the resource.
      * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return A map of tags to assign to the resource.
+     * @return Map of tags to assign to the resource.
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -71,7 +71,7 @@ public final class GetLogGroupPlainArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param name The name of the Cloudwatch log group
+         * @param name Name of the Cloudwatch log group
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class GetLogGroupPlainArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param tags A map of tags to assign to the resource.
+         * @param tags Map of tags to assign to the resource.
          * 
          * @return builder
          * 

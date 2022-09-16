@@ -48,7 +48,7 @@ namespace Pulumi.Aws.DirectConnect
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The code for the locations.
+        /// Code for the locations.
         /// </summary>
         public readonly ImmutableArray<string> LocationCodes;
 

@@ -99,7 +99,7 @@ public final class GetSnapshotPlainArgs extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
-     * The type of snapshots to be returned. If you don&#39;t specify a SnapshotType
+     * Type of snapshots to be returned. If you don&#39;t specify a SnapshotType
      * value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not
      * included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
      * 
@@ -108,7 +108,7 @@ public final class GetSnapshotPlainArgs extends com.pulumi.resources.InvokeArgs 
     private @Nullable String snapshotType;
 
     /**
-     * @return The type of snapshots to be returned. If you don&#39;t specify a SnapshotType
+     * @return Type of snapshots to be returned. If you don&#39;t specify a SnapshotType
      * value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not
      * included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
      * 
@@ -206,7 +206,7 @@ public final class GetSnapshotPlainArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param snapshotType The type of snapshots to be returned. If you don&#39;t specify a SnapshotType
+         * @param snapshotType Type of snapshots to be returned. If you don&#39;t specify a SnapshotType
          * value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not
          * included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
          * 

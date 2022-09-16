@@ -45,7 +45,7 @@ namespace Pulumi.Aws.EcrPublic
         /// </summary>
         public readonly string AuthorizationToken;
         /// <summary>
-        /// The time in UTC RFC3339 format when the authorization token expires.
+        /// Time in UTC RFC3339 format when the authorization token expires.
         /// </summary>
         public readonly string ExpiresAt;
         /// <summary>

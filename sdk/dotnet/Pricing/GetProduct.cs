@@ -207,7 +207,7 @@ namespace Pulumi.Aws.Pricing
         private List<Inputs.GetProductFilterArgs>? _filters;
 
         /// <summary>
-        /// A list of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
+        /// List of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
         /// </summary>
         public List<Inputs.GetProductFilterArgs> Filters
         {
@@ -216,7 +216,7 @@ namespace Pulumi.Aws.Pricing
         }
 
         /// <summary>
-        /// The code of the service. Available service codes can be fetched using the DescribeServices pricing API call.
+        /// Code of the service. Available service codes can be fetched using the DescribeServices pricing API call.
         /// </summary>
         [Input("serviceCode", required: true)]
         public string ServiceCode { get; set; } = null!;
@@ -233,7 +233,7 @@ namespace Pulumi.Aws.Pricing
         private InputList<Inputs.GetProductFilterInputArgs>? _filters;
 
         /// <summary>
-        /// A list of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
+        /// List of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
         /// </summary>
         public InputList<Inputs.GetProductFilterInputArgs> Filters
         {
@@ -242,7 +242,7 @@ namespace Pulumi.Aws.Pricing
         }
 
         /// <summary>
-        /// The code of the service. Available service codes can be fetched using the DescribeServices pricing API call.
+        /// Code of the service. Available service codes can be fetched using the DescribeServices pricing API call.
         /// </summary>
         [Input("serviceCode", required: true)]
         public Input<string> ServiceCode { get; set; } = null!;

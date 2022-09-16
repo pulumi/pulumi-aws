@@ -87,7 +87,7 @@ type CustomLayer struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A short, machine-readable name for the layer, which will be used to identify it in the Chef node JSON.
 	ShortName pulumi.StringOutput `pulumi:"shortName"`
-	// The id of the stack the layer will belong to.
+	// ID of the stack the layer will belong to.
 	StackId pulumi.StringOutput `pulumi:"stackId"`
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages pulumi.StringArrayOutput `pulumi:"systemPackages"`
@@ -169,7 +169,7 @@ type customLayerState struct {
 	Name *string `pulumi:"name"`
 	// A short, machine-readable name for the layer, which will be used to identify it in the Chef node JSON.
 	ShortName *string `pulumi:"shortName"`
-	// The id of the stack the layer will belong to.
+	// ID of the stack the layer will belong to.
 	StackId *string `pulumi:"stackId"`
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages []string `pulumi:"systemPackages"`
@@ -217,7 +217,7 @@ type CustomLayerState struct {
 	Name pulumi.StringPtrInput
 	// A short, machine-readable name for the layer, which will be used to identify it in the Chef node JSON.
 	ShortName pulumi.StringPtrInput
-	// The id of the stack the layer will belong to.
+	// ID of the stack the layer will belong to.
 	StackId pulumi.StringPtrInput
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages pulumi.StringArrayInput
@@ -267,7 +267,7 @@ type customLayerArgs struct {
 	Name *string `pulumi:"name"`
 	// A short, machine-readable name for the layer, which will be used to identify it in the Chef node JSON.
 	ShortName string `pulumi:"shortName"`
-	// The id of the stack the layer will belong to.
+	// ID of the stack the layer will belong to.
 	StackId string `pulumi:"stackId"`
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages []string `pulumi:"systemPackages"`
@@ -312,7 +312,7 @@ type CustomLayerArgs struct {
 	Name pulumi.StringPtrInput
 	// A short, machine-readable name for the layer, which will be used to identify it in the Chef node JSON.
 	ShortName pulumi.StringInput
-	// The id of the stack the layer will belong to.
+	// ID of the stack the layer will belong to.
 	StackId pulumi.StringInput
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages pulumi.StringArrayInput
@@ -504,7 +504,7 @@ func (o CustomLayerOutput) ShortName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomLayer) pulumi.StringOutput { return v.ShortName }).(pulumi.StringOutput)
 }
 
-// The id of the stack the layer will belong to.
+// ID of the stack the layer will belong to.
 func (o CustomLayerOutput) StackId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomLayer) pulumi.StringOutput { return v.StackId }).(pulumi.StringOutput)
 }

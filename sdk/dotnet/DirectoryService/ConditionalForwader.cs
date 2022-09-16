@@ -47,7 +47,7 @@ namespace Pulumi.Aws.DirectoryService
     public partial class ConditionalForwader : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The id of directory.
+        /// ID of directory.
         /// </summary>
         [Output("directoryId")]
         public Output<string> DirectoryId { get; private set; } = null!;
@@ -111,7 +111,7 @@ namespace Pulumi.Aws.DirectoryService
     public sealed class ConditionalForwaderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The id of directory.
+        /// ID of directory.
         /// </summary>
         [Input("directoryId", required: true)]
         public Input<string> DirectoryId { get; set; } = null!;
@@ -143,7 +143,7 @@ namespace Pulumi.Aws.DirectoryService
     public sealed class ConditionalForwaderState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The id of directory.
+        /// ID of directory.
         /// </summary>
         [Input("directoryId")]
         public Input<string>? DirectoryId { get; set; }

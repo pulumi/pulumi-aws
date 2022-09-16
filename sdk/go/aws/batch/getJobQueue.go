@@ -49,7 +49,7 @@ func LookupJobQueue(ctx *pulumi.Context, args *LookupJobQueueArgs, opts ...pulum
 
 // A collection of arguments for invoking getJobQueue.
 type LookupJobQueueArgs struct {
-	// The name of the job queue.
+	// Name of the job queue.
 	Name string `pulumi:"name"`
 	// Key-value map of resource tags
 	Tags map[string]string `pulumi:"tags"`
@@ -57,7 +57,7 @@ type LookupJobQueueArgs struct {
 
 // A collection of values returned by getJobQueue.
 type LookupJobQueueResult struct {
-	// The ARN of the job queue.
+	// ARN of the job queue.
 	Arn string `pulumi:"arn"`
 	// The compute environments that are attached to the job queue and the order in
 	// which job placement is preferred. Compute environments are selected for job placement in ascending order.
@@ -67,16 +67,16 @@ type LookupJobQueueResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
-	// The priority of the job queue. Job queues with a higher priority are evaluated first when
+	// Priority of the job queue. Job queues with a higher priority are evaluated first when
 	// associated with the same compute environment.
 	Priority int `pulumi:"priority"`
 	// The ARN of the fair share scheduling policy. If this attribute has a value, the job queue uses a fair share scheduling policy. If this attribute does not have a value, the job queue uses a first in, first out (FIFO) scheduling policy.
 	SchedulingPolicyArn string `pulumi:"schedulingPolicyArn"`
 	// Describes the ability of the queue to accept new jobs (for example, `ENABLED` or `DISABLED`).
 	State string `pulumi:"state"`
-	// The current status of the job queue (for example, `CREATING` or `VALID`).
+	// Current status of the job queue (for example, `CREATING` or `VALID`).
 	Status string `pulumi:"status"`
-	// A short, human-readable string to provide additional details about the current status
+	// Short, human-readable string to provide additional details about the current status
 	// of the job queue.
 	StatusReason string `pulumi:"statusReason"`
 	// Key-value map of resource tags
@@ -98,7 +98,7 @@ func LookupJobQueueOutput(ctx *pulumi.Context, args LookupJobQueueOutputArgs, op
 
 // A collection of arguments for invoking getJobQueue.
 type LookupJobQueueOutputArgs struct {
-	// The name of the job queue.
+	// Name of the job queue.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Key-value map of resource tags
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -123,7 +123,7 @@ func (o LookupJobQueueResultOutput) ToLookupJobQueueResultOutputWithContext(ctx 
 	return o
 }
 
-// The ARN of the job queue.
+// ARN of the job queue.
 func (o LookupJobQueueResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupJobQueueResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -145,7 +145,7 @@ func (o LookupJobQueueResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupJobQueueResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The priority of the job queue. Job queues with a higher priority are evaluated first when
+// Priority of the job queue. Job queues with a higher priority are evaluated first when
 // associated with the same compute environment.
 func (o LookupJobQueueResultOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupJobQueueResult) int { return v.Priority }).(pulumi.IntOutput)
@@ -161,12 +161,12 @@ func (o LookupJobQueueResultOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupJobQueueResult) string { return v.State }).(pulumi.StringOutput)
 }
 
-// The current status of the job queue (for example, `CREATING` or `VALID`).
+// Current status of the job queue (for example, `CREATING` or `VALID`).
 func (o LookupJobQueueResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupJobQueueResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// A short, human-readable string to provide additional details about the current status
+// Short, human-readable string to provide additional details about the current status
 // of the job queue.
 func (o LookupJobQueueResultOutput) StatusReason() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupJobQueueResult) string { return v.StatusReason }).(pulumi.StringOutput)

@@ -31,14 +31,14 @@ public final class GetFunctionPlainArgs extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
-     * Alias name or version number of the lambda functionE.g., `$LATEST`, `my-alias`, or `1`
+     * Alias name or version number of the lambda functionE.g., `$LATEST`, `my-alias`, or `1`. When not included: the data source resolves to the most recent published version; if no published version exists: it resolves to the most recent unpublished version.
      * 
      */
     @Import(name="qualifier")
     private @Nullable String qualifier;
 
     /**
-     * @return Alias name or version number of the lambda functionE.g., `$LATEST`, `my-alias`, or `1`
+     * @return Alias name or version number of the lambda functionE.g., `$LATEST`, `my-alias`, or `1`. When not included: the data source resolves to the most recent published version; if no published version exists: it resolves to the most recent unpublished version.
      * 
      */
     public Optional<String> qualifier() {
@@ -90,7 +90,7 @@ public final class GetFunctionPlainArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param qualifier Alias name or version number of the lambda functionE.g., `$LATEST`, `my-alias`, or `1`
+         * @param qualifier Alias name or version number of the lambda functionE.g., `$LATEST`, `my-alias`, or `1`. When not included: the data source resolves to the most recent published version; if no published version exists: it resolves to the most recent unpublished version.
          * 
          * @return builder
          * 

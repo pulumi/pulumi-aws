@@ -16,14 +16,14 @@ public final class GetAccessPointPlainArgs extends com.pulumi.resources.InvokeAr
     public static final GetAccessPointPlainArgs Empty = new GetAccessPointPlainArgs();
 
     /**
-     * The ID that identifies the file system.
+     * ID that identifies the file system.
      * 
      */
     @Import(name="accessPointId", required=true)
     private String accessPointId;
 
     /**
-     * @return The ID that identifies the file system.
+     * @return ID that identifies the file system.
      * 
      */
     public String accessPointId() {
@@ -71,7 +71,7 @@ public final class GetAccessPointPlainArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param accessPointId The ID that identifies the file system.
+         * @param accessPointId ID that identifies the file system.
          * 
          * @return builder
          * 

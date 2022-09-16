@@ -57,7 +57,7 @@ class GetConnectionResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The ARN of the connection.
+        ARN of the connection.
         """
         return pulumi.get(self, "arn")
 
@@ -65,7 +65,7 @@ class GetConnectionResult:
     @pulumi.getter(name="connectedDeviceId")
     def connected_device_id(self) -> str:
         """
-        The ID of the second device in the connection.
+        ID of the second device in the connection.
         """
         return pulumi.get(self, "connected_device_id")
 
@@ -73,7 +73,7 @@ class GetConnectionResult:
     @pulumi.getter(name="connectedLinkId")
     def connected_link_id(self) -> str:
         """
-        The ID of the link for the second device.
+        ID of the link for the second device.
         """
         return pulumi.get(self, "connected_link_id")
 
@@ -86,7 +86,7 @@ class GetConnectionResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        A description of the connection.
+        Description of the connection.
         """
         return pulumi.get(self, "description")
 
@@ -94,7 +94,7 @@ class GetConnectionResult:
     @pulumi.getter(name="deviceId")
     def device_id(self) -> str:
         """
-        The ID of the first device in the connection.
+        ID of the first device in the connection.
         """
         return pulumi.get(self, "device_id")
 
@@ -115,7 +115,7 @@ class GetConnectionResult:
     @pulumi.getter(name="linkId")
     def link_id(self) -> str:
         """
-        The ID of the link for the first device.
+        ID of the link for the first device.
         """
         return pulumi.get(self, "link_id")
 
@@ -164,8 +164,8 @@ def get_connection(connection_id: Optional[str] = None,
     ```
 
 
-    :param str connection_id: The id of the specific connection to retrieve.
-    :param str global_network_id: The ID of the Global Network of the connection to retrieve.
+    :param str connection_id: ID of the specific connection to retrieve.
+    :param str global_network_id: ID of the Global Network of the connection to retrieve.
     :param Mapping[str, str] tags: Key-value tags for the connection.
     """
     __args__ = dict()
@@ -207,8 +207,8 @@ def get_connection_output(connection_id: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str connection_id: The id of the specific connection to retrieve.
-    :param str global_network_id: The ID of the Global Network of the connection to retrieve.
+    :param str connection_id: ID of the specific connection to retrieve.
+    :param str global_network_id: ID of the Global Network of the connection to retrieve.
     :param Mapping[str, str] tags: Key-value tags for the connection.
     """
     ...

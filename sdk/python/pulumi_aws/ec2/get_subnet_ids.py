@@ -57,7 +57,7 @@ class GetSubnetIdsResult:
     @pulumi.getter
     def ids(self) -> Sequence[str]:
         """
-        A set of all the subnet ids found. This data source will fail if none are found.
+        Set of all the subnet ids found. This data source will fail if none are found.
         """
         return pulumi.get(self, "ids")
 
@@ -98,9 +98,9 @@ def get_subnet_ids(filters: Optional[Sequence[pulumi.InputType['GetSubnetIdsFilt
 
 
     :param Sequence[pulumi.InputType['GetSubnetIdsFilterArgs']] filters: Custom filter block as described below.
-    :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired subnets.
-    :param str vpc_id: The VPC ID that you want to filter from.
+    :param str vpc_id: VPC ID that you want to filter from.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -131,8 +131,8 @@ def get_subnet_ids_output(filters: Optional[pulumi.Input[Optional[Sequence[pulum
 
 
     :param Sequence[pulumi.InputType['GetSubnetIdsFilterArgs']] filters: Custom filter block as described below.
-    :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired subnets.
-    :param str vpc_id: The VPC ID that you want to filter from.
+    :param str vpc_id: VPC ID that you want to filter from.
     """
     ...

@@ -16,14 +16,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDa
     public static final FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigArgs Empty = new FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigArgs();
 
     /**
-     * The Amazon S3 bucket name where the source files are stored.
+     * Amazon S3 bucket name where the source files are stored.
      * 
      */
     @Import(name="bucketName")
     private @Nullable Output<String> bucketName;
 
     /**
-     * @return The Amazon S3 bucket name where the source files are stored.
+     * @return Amazon S3 bucket name where the source files are stored.
      * 
      */
     public Optional<Output<String>> bucketName() {
@@ -31,14 +31,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDa
     }
 
     /**
-     * The object key for the Amazon S3 bucket in which the source files are stored.
+     * Object key for the Amazon S3 bucket in which the source files are stored.
      * 
      */
     @Import(name="bucketPrefix")
     private @Nullable Output<String> bucketPrefix;
 
     /**
-     * @return The object key for the Amazon S3 bucket in which the source files are stored.
+     * @return Object key for the Amazon S3 bucket in which the source files are stored.
      * 
      */
     public Optional<Output<String>> bucketPrefix() {
@@ -71,7 +71,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDa
         }
 
         /**
-         * @param bucketName The Amazon S3 bucket name where the source files are stored.
+         * @param bucketName Amazon S3 bucket name where the source files are stored.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDa
         }
 
         /**
-         * @param bucketName The Amazon S3 bucket name where the source files are stored.
+         * @param bucketName Amazon S3 bucket name where the source files are stored.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDa
         }
 
         /**
-         * @param bucketPrefix The object key for the Amazon S3 bucket in which the source files are stored.
+         * @param bucketPrefix Object key for the Amazon S3 bucket in which the source files are stored.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDa
         }
 
         /**
-         * @param bucketPrefix The object key for the Amazon S3 bucket in which the source files are stored.
+         * @param bucketPrefix Object key for the Amazon S3 bucket in which the source files are stored.
          * 
          * @return builder
          * 

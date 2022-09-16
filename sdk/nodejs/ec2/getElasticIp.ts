@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -79,15 +81,15 @@ export interface GetElasticIpArgs {
      */
     filters?: inputs.ec2.GetElasticIpFilter[];
     /**
-     * The allocation id of the specific VPC EIP to retrieve. If a classic EIP is required, do NOT set `id`, only set `publicIp`
+     * Allocation ID of the specific VPC EIP to retrieve. If a classic EIP is required, do NOT set `id`, only set `publicIp`
      */
     id?: string;
     /**
-     * The public IP of the specific EIP to retrieve.
+     * Public IP of the specific EIP to retrieve.
      */
     publicIp?: string;
     /**
-     * A map of tags, each pair of which must exactly match a pair on the desired Elastic IP
+     * Map of tags, each pair of which must exactly match a pair on the desired Elastic IP
      */
     tags?: {[key: string]: string};
 }
@@ -97,11 +99,11 @@ export interface GetElasticIpArgs {
  */
 export interface GetElasticIpResult {
     /**
-     * The ID representing the association of the address with an instance in a VPC.
+     * ID representing the association of the address with an instance in a VPC.
      */
     readonly associationId: string;
     /**
-     * The carrier IP address.
+     * Carrier IP address.
      */
     readonly carrierIp: string;
     /**
@@ -113,7 +115,7 @@ export interface GetElasticIpResult {
      */
     readonly customerOwnedIpv4Pool: string;
     /**
-     * Indicates whether the address is for use in EC2-Classic (standard) or in a VPC (vpc).
+     * Whether the address is for use in EC2-Classic (standard) or in a VPC (vpc).
      */
     readonly domain: string;
     readonly filters?: outputs.ec2.GetElasticIpFilter[];
@@ -122,7 +124,7 @@ export interface GetElasticIpResult {
      */
     readonly id: string;
     /**
-     * The ID of the instance that the address is associated with (if any).
+     * ID of the instance that the address is associated with (if any).
      */
     readonly instanceId: string;
     /**
@@ -134,11 +136,11 @@ export interface GetElasticIpResult {
      */
     readonly networkInterfaceOwnerId: string;
     /**
-     * The Private DNS associated with the Elastic IP address.
+     * Private DNS associated with the Elastic IP address.
      */
     readonly privateDns: string;
     /**
-     * The private IP address associated with the Elastic IP address.
+     * Private IP address associated with the Elastic IP address.
      */
     readonly privateIp: string;
     /**
@@ -150,7 +152,7 @@ export interface GetElasticIpResult {
      */
     readonly publicIp: string;
     /**
-     * The ID of an address pool.
+     * ID of an address pool.
      */
     readonly publicIpv4Pool: string;
     /**
@@ -172,15 +174,15 @@ export interface GetElasticIpOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetElasticIpFilterArgs>[]>;
     /**
-     * The allocation id of the specific VPC EIP to retrieve. If a classic EIP is required, do NOT set `id`, only set `publicIp`
+     * Allocation ID of the specific VPC EIP to retrieve. If a classic EIP is required, do NOT set `id`, only set `publicIp`
      */
     id?: pulumi.Input<string>;
     /**
-     * The public IP of the specific EIP to retrieve.
+     * Public IP of the specific EIP to retrieve.
      */
     publicIp?: pulumi.Input<string>;
     /**
-     * A map of tags, each pair of which must exactly match a pair on the desired Elastic IP
+     * Map of tags, each pair of which must exactly match a pair on the desired Elastic IP
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

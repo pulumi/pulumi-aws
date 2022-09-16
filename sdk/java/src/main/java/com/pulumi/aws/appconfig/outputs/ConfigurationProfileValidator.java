@@ -12,26 +12,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ConfigurationProfileValidator {
     /**
-     * @return Either the JSON Schema content or the Amazon Resource Name (ARN) of an AWS Lambda function.
+     * @return Either the JSON Schema content or the ARN of an AWS Lambda function.
      * 
      */
     private @Nullable String content;
     /**
-     * @return The type of validator. Valid values: `JSON_SCHEMA` and `LAMBDA`.
+     * @return Type of validator. Valid values: `JSON_SCHEMA` and `LAMBDA`.
      * 
      */
     private String type;
 
     private ConfigurationProfileValidator() {}
     /**
-     * @return Either the JSON Schema content or the Amazon Resource Name (ARN) of an AWS Lambda function.
+     * @return Either the JSON Schema content or the ARN of an AWS Lambda function.
      * 
      */
     public Optional<String> content() {
         return Optional.ofNullable(this.content);
     }
     /**
-     * @return The type of validator. Valid values: `JSON_SCHEMA` and `LAMBDA`.
+     * @return Type of validator. Valid values: `JSON_SCHEMA` and `LAMBDA`.
      * 
      */
     public String type() {

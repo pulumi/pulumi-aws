@@ -71,21 +71,21 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:autoscaling/notification:Notification")
 public class Notification extends com.pulumi.resources.CustomResource {
     /**
-     * A list of AutoScaling Group Names
+     * List of AutoScaling Group Names
      * 
      */
     @Export(name="groupNames", type=List.class, parameters={String.class})
     private Output<List<String>> groupNames;
 
     /**
-     * @return A list of AutoScaling Group Names
+     * @return List of AutoScaling Group Names
      * 
      */
     public Output<List<String>> groupNames() {
         return this.groupNames;
     }
     /**
-     * A list of Notification Types that trigger
+     * List of Notification Types that trigger
      * notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
      * 
      */
@@ -93,7 +93,7 @@ public class Notification extends com.pulumi.resources.CustomResource {
     private Output<List<String>> notifications;
 
     /**
-     * @return A list of Notification Types that trigger
+     * @return List of Notification Types that trigger
      * notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
      * 
      */
@@ -101,14 +101,14 @@ public class Notification extends com.pulumi.resources.CustomResource {
         return this.notifications;
     }
     /**
-     * The Topic ARN for notifications to be sent through
+     * Topic ARN for notifications to be sent through
      * 
      */
     @Export(name="topicArn", type=String.class, parameters={})
     private Output<String> topicArn;
 
     /**
-     * @return The Topic ARN for notifications to be sent through
+     * @return Topic ARN for notifications to be sent through
      * 
      */
     public Output<String> topicArn() {

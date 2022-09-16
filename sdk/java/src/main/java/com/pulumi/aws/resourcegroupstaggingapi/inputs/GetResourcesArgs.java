@@ -64,14 +64,14 @@ public final class GetResourcesArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The constraints on the resources that you want returned. The format of each resource type is `service:resourceType`. For example, specifying a resource type of `ec2` returns all Amazon EC2 resources (which includes EC2 instances). Specifying a resource type of `ec2:instance` returns only EC2 instances.
+     * Constraints on the resources that you want returned. The format of each resource type is `service:resourceType`. For example, specifying a resource type of `ec2` returns all Amazon EC2 resources (which includes EC2 instances). Specifying a resource type of `ec2:instance` returns only EC2 instances.
      * 
      */
     @Import(name="resourceTypeFilters")
     private @Nullable Output<List<String>> resourceTypeFilters;
 
     /**
-     * @return The constraints on the resources that you want returned. The format of each resource type is `service:resourceType`. For example, specifying a resource type of `ec2` returns all Amazon EC2 resources (which includes EC2 instances). Specifying a resource type of `ec2:instance` returns only EC2 instances.
+     * @return Constraints on the resources that you want returned. The format of each resource type is `service:resourceType`. For example, specifying a resource type of `ec2` returns all Amazon EC2 resources (which includes EC2 instances). Specifying a resource type of `ec2:instance` returns only EC2 instances.
      * 
      */
     public Optional<Output<List<String>>> resourceTypeFilters() {
@@ -195,7 +195,7 @@ public final class GetResourcesArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param resourceTypeFilters The constraints on the resources that you want returned. The format of each resource type is `service:resourceType`. For example, specifying a resource type of `ec2` returns all Amazon EC2 resources (which includes EC2 instances). Specifying a resource type of `ec2:instance` returns only EC2 instances.
+         * @param resourceTypeFilters Constraints on the resources that you want returned. The format of each resource type is `service:resourceType`. For example, specifying a resource type of `ec2` returns all Amazon EC2 resources (which includes EC2 instances). Specifying a resource type of `ec2:instance` returns only EC2 instances.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class GetResourcesArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param resourceTypeFilters The constraints on the resources that you want returned. The format of each resource type is `service:resourceType`. For example, specifying a resource type of `ec2` returns all Amazon EC2 resources (which includes EC2 instances). Specifying a resource type of `ec2:instance` returns only EC2 instances.
+         * @param resourceTypeFilters Constraints on the resources that you want returned. The format of each resource type is `service:resourceType`. For example, specifying a resource type of `ec2` returns all Amazon EC2 resources (which includes EC2 instances). Specifying a resource type of `ec2:instance` returns only EC2 instances.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class GetResourcesArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param resourceTypeFilters The constraints on the resources that you want returned. The format of each resource type is `service:resourceType`. For example, specifying a resource type of `ec2` returns all Amazon EC2 resources (which includes EC2 instances). Specifying a resource type of `ec2:instance` returns only EC2 instances.
+         * @param resourceTypeFilters Constraints on the resources that you want returned. The format of each resource type is `service:resourceType`. For example, specifying a resource type of `ec2` returns all Amazon EC2 resources (which includes EC2 instances). Specifying a resource type of `ec2:instance` returns only EC2 instances.
          * 
          * @return builder
          * 

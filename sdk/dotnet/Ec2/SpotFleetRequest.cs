@@ -156,6 +156,12 @@ namespace Pulumi.Aws.Ec2
         public Output<int> TargetCapacity { get; private set; } = null!;
 
         /// <summary>
+        /// The unit for the target capacity. This can only be done with `instance_requirements` defined
+        /// </summary>
+        [Output("targetCapacityUnitType")]
+        public Output<string?> TargetCapacityUnitType { get; private set; } = null!;
+
+        /// <summary>
         /// A list of `aws.alb.TargetGroup` ARNs, for use with Application Load Balancing.
         /// </summary>
         [Output("targetGroupArns")]
@@ -385,6 +391,12 @@ namespace Pulumi.Aws.Ec2
         [Input("targetCapacity", required: true)]
         public Input<int> TargetCapacity { get; set; } = null!;
 
+        /// <summary>
+        /// The unit for the target capacity. This can only be done with `instance_requirements` defined
+        /// </summary>
+        [Input("targetCapacityUnitType")]
+        public Input<string>? TargetCapacityUnitType { get; set; }
+
         [Input("targetGroupArns")]
         private InputList<string>? _targetGroupArns;
 
@@ -603,6 +615,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("targetCapacity")]
         public Input<int>? TargetCapacity { get; set; }
+
+        /// <summary>
+        /// The unit for the target capacity. This can only be done with `instance_requirements` defined
+        /// </summary>
+        [Input("targetCapacityUnitType")]
+        public Input<string>? TargetCapacityUnitType { get; set; }
 
         [Input("targetGroupArns")]
         private InputList<string>? _targetGroupArns;

@@ -14,14 +14,14 @@ public final class GetAmiFilter extends com.pulumi.resources.InvokeArgs {
     public static final GetAmiFilter Empty = new GetAmiFilter();
 
     /**
-     * The name of the AMI that was provided during image creation.
+     * Name of the AMI that was provided during image creation.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return The name of the AMI that was provided during image creation.
+     * @return Name of the AMI that was provided during image creation.
      * 
      */
     public String name() {
@@ -61,7 +61,7 @@ public final class GetAmiFilter extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the AMI that was provided during image creation.
+         * @param name Name of the AMI that was provided during image creation.
          * 
          * @return builder
          * 

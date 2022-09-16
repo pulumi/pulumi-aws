@@ -43,10 +43,10 @@ func LookupActiveReceiptRuleSet(ctx *pulumi.Context, opts ...pulumi.InvokeOption
 
 // A collection of values returned by getActiveReceiptRuleSet.
 type LookupActiveReceiptRuleSetResult struct {
-	// The SES receipt rule set ARN.
+	// SES receipt rule set ARN.
 	Arn string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The name of the rule set
+	// Name of the rule set
 	RuleSetName string `pulumi:"ruleSetName"`
 }

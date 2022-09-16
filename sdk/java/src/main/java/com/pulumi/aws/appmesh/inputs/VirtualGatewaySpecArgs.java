@@ -18,14 +18,14 @@ public final class VirtualGatewaySpecArgs extends com.pulumi.resources.ResourceA
     public static final VirtualGatewaySpecArgs Empty = new VirtualGatewaySpecArgs();
 
     /**
-     * The defaults for backends.
+     * Defaults for backends.
      * 
      */
     @Import(name="backendDefaults")
     private @Nullable Output<VirtualGatewaySpecBackendDefaultsArgs> backendDefaults;
 
     /**
-     * @return The defaults for backends.
+     * @return Defaults for backends.
      * 
      */
     public Optional<Output<VirtualGatewaySpecBackendDefaultsArgs>> backendDefaults() {
@@ -33,14 +33,14 @@ public final class VirtualGatewaySpecArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
+     * Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
      * 
      */
     @Import(name="listener", required=true)
     private Output<VirtualGatewaySpecListenerArgs> listener;
 
     /**
-     * @return The listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
+     * @return Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
      * 
      */
     public Output<VirtualGatewaySpecListenerArgs> listener() {
@@ -48,14 +48,14 @@ public final class VirtualGatewaySpecArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The inbound and outbound access logging information for the virtual gateway.
+     * Inbound and outbound access logging information for the virtual gateway.
      * 
      */
     @Import(name="logging")
     private @Nullable Output<VirtualGatewaySpecLoggingArgs> logging;
 
     /**
-     * @return The inbound and outbound access logging information for the virtual gateway.
+     * @return Inbound and outbound access logging information for the virtual gateway.
      * 
      */
     public Optional<Output<VirtualGatewaySpecLoggingArgs>> logging() {
@@ -89,7 +89,7 @@ public final class VirtualGatewaySpecArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param backendDefaults The defaults for backends.
+         * @param backendDefaults Defaults for backends.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class VirtualGatewaySpecArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param backendDefaults The defaults for backends.
+         * @param backendDefaults Defaults for backends.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class VirtualGatewaySpecArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param listener The listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
+         * @param listener Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class VirtualGatewaySpecArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param listener The listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
+         * @param listener Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class VirtualGatewaySpecArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param logging The inbound and outbound access logging information for the virtual gateway.
+         * @param logging Inbound and outbound access logging information for the virtual gateway.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class VirtualGatewaySpecArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param logging The inbound and outbound access logging information for the virtual gateway.
+         * @param logging Inbound and outbound access logging information for the virtual gateway.
          * 
          * @return builder
          * 

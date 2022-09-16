@@ -32,7 +32,7 @@ class GetAccountAliasResult:
     @pulumi.getter(name="accountAlias")
     def account_alias(self) -> str:
         """
-        The alias associated with the AWS account.
+        Alias associated with the AWS account.
         """
         return pulumi.get(self, "account_alias")
 

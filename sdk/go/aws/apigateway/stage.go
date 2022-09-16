@@ -172,39 +172,40 @@ type Stage struct {
 
 	// Enables access logs for the API stage. See Access Log Settings below.
 	AccessLogSettings StageAccessLogSettingsPtrOutput `pulumi:"accessLogSettings"`
-	// Amazon Resource Name (ARN)
+	// ARN
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Specifies whether a cache cluster is enabled for the stage
+	// Whether a cache cluster is enabled for the stage
 	CacheClusterEnabled pulumi.BoolPtrOutput `pulumi:"cacheClusterEnabled"`
-	// The size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
+	// Size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
 	CacheClusterSize pulumi.StringPtrOutput `pulumi:"cacheClusterSize"`
 	// Configuration settings of a canary deployment. See Canary Settings below.
 	CanarySettings StageCanarySettingsPtrOutput `pulumi:"canarySettings"`
-	// The identifier of a client certificate for the stage.
+	// Identifier of a client certificate for the stage.
 	ClientCertificateId pulumi.StringPtrOutput `pulumi:"clientCertificateId"`
-	// The ID of the deployment that the stage points to
+	// ID of the deployment that the stage points to
 	Deployment pulumi.StringOutput `pulumi:"deployment"`
-	// The description of the stage.
+	// Description of the stage.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The version of the associated API documentation
+	// Version of the associated API documentation
 	DocumentationVersion pulumi.StringPtrOutput `pulumi:"documentationVersion"`
-	// The execution ARN to be used in `lambdaPermission`'s `sourceArn`
+	// Execution ARN to be used in `lambdaPermission`'s `sourceArn`
 	// when allowing API Gateway to invoke a Lambda function,
 	// e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
 	ExecutionArn pulumi.StringOutput `pulumi:"executionArn"`
-	// The URL to invoke the API pointing to the stage,
+	// URL to invoke the API pointing to the stage,
 	// e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
 	InvokeUrl pulumi.StringOutput `pulumi:"invokeUrl"`
-	// The ID of the associated REST API
+	// ID of the associated REST API
 	RestApi pulumi.StringOutput `pulumi:"restApi"`
-	// The name of the stage
+	// Name of the stage
 	StageName pulumi.StringOutput `pulumi:"stageName"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// A map that defines the stage variables
+	// Map that defines the stage variables
 	Variables pulumi.StringMapOutput `pulumi:"variables"`
-	// The ARN of the WebAcl associated with the Stage.
+	// ARN of the WebAcl associated with the Stage.
 	WebAclArn pulumi.StringOutput `pulumi:"webAclArn"`
 	// Whether active tracing with X-ray is enabled. Defaults to `false`.
 	XrayTracingEnabled pulumi.BoolPtrOutput `pulumi:"xrayTracingEnabled"`
@@ -250,39 +251,40 @@ func GetStage(ctx *pulumi.Context,
 type stageState struct {
 	// Enables access logs for the API stage. See Access Log Settings below.
 	AccessLogSettings *StageAccessLogSettings `pulumi:"accessLogSettings"`
-	// Amazon Resource Name (ARN)
+	// ARN
 	Arn *string `pulumi:"arn"`
-	// Specifies whether a cache cluster is enabled for the stage
+	// Whether a cache cluster is enabled for the stage
 	CacheClusterEnabled *bool `pulumi:"cacheClusterEnabled"`
-	// The size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
+	// Size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
 	CacheClusterSize *string `pulumi:"cacheClusterSize"`
 	// Configuration settings of a canary deployment. See Canary Settings below.
 	CanarySettings *StageCanarySettings `pulumi:"canarySettings"`
-	// The identifier of a client certificate for the stage.
+	// Identifier of a client certificate for the stage.
 	ClientCertificateId *string `pulumi:"clientCertificateId"`
-	// The ID of the deployment that the stage points to
+	// ID of the deployment that the stage points to
 	Deployment interface{} `pulumi:"deployment"`
-	// The description of the stage.
+	// Description of the stage.
 	Description *string `pulumi:"description"`
-	// The version of the associated API documentation
+	// Version of the associated API documentation
 	DocumentationVersion *string `pulumi:"documentationVersion"`
-	// The execution ARN to be used in `lambdaPermission`'s `sourceArn`
+	// Execution ARN to be used in `lambdaPermission`'s `sourceArn`
 	// when allowing API Gateway to invoke a Lambda function,
 	// e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
 	ExecutionArn *string `pulumi:"executionArn"`
-	// The URL to invoke the API pointing to the stage,
+	// URL to invoke the API pointing to the stage,
 	// e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
 	InvokeUrl *string `pulumi:"invokeUrl"`
-	// The ID of the associated REST API
+	// ID of the associated REST API
 	RestApi interface{} `pulumi:"restApi"`
-	// The name of the stage
+	// Name of the stage
 	StageName *string `pulumi:"stageName"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// A map that defines the stage variables
+	// Map that defines the stage variables
 	Variables map[string]string `pulumi:"variables"`
-	// The ARN of the WebAcl associated with the Stage.
+	// ARN of the WebAcl associated with the Stage.
 	WebAclArn *string `pulumi:"webAclArn"`
 	// Whether active tracing with X-ray is enabled. Defaults to `false`.
 	XrayTracingEnabled *bool `pulumi:"xrayTracingEnabled"`
@@ -291,39 +293,40 @@ type stageState struct {
 type StageState struct {
 	// Enables access logs for the API stage. See Access Log Settings below.
 	AccessLogSettings StageAccessLogSettingsPtrInput
-	// Amazon Resource Name (ARN)
+	// ARN
 	Arn pulumi.StringPtrInput
-	// Specifies whether a cache cluster is enabled for the stage
+	// Whether a cache cluster is enabled for the stage
 	CacheClusterEnabled pulumi.BoolPtrInput
-	// The size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
+	// Size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
 	CacheClusterSize pulumi.StringPtrInput
 	// Configuration settings of a canary deployment. See Canary Settings below.
 	CanarySettings StageCanarySettingsPtrInput
-	// The identifier of a client certificate for the stage.
+	// Identifier of a client certificate for the stage.
 	ClientCertificateId pulumi.StringPtrInput
-	// The ID of the deployment that the stage points to
+	// ID of the deployment that the stage points to
 	Deployment pulumi.Input
-	// The description of the stage.
+	// Description of the stage.
 	Description pulumi.StringPtrInput
-	// The version of the associated API documentation
+	// Version of the associated API documentation
 	DocumentationVersion pulumi.StringPtrInput
-	// The execution ARN to be used in `lambdaPermission`'s `sourceArn`
+	// Execution ARN to be used in `lambdaPermission`'s `sourceArn`
 	// when allowing API Gateway to invoke a Lambda function,
 	// e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
 	ExecutionArn pulumi.StringPtrInput
-	// The URL to invoke the API pointing to the stage,
+	// URL to invoke the API pointing to the stage,
 	// e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
 	InvokeUrl pulumi.StringPtrInput
-	// The ID of the associated REST API
+	// ID of the associated REST API
 	RestApi pulumi.Input
-	// The name of the stage
+	// Name of the stage
 	StageName pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// A map that defines the stage variables
+	// Map that defines the stage variables
 	Variables pulumi.StringMapInput
-	// The ARN of the WebAcl associated with the Stage.
+	// ARN of the WebAcl associated with the Stage.
 	WebAclArn pulumi.StringPtrInput
 	// Whether active tracing with X-ray is enabled. Defaults to `false`.
 	XrayTracingEnabled pulumi.BoolPtrInput
@@ -336,27 +339,27 @@ func (StageState) ElementType() reflect.Type {
 type stageArgs struct {
 	// Enables access logs for the API stage. See Access Log Settings below.
 	AccessLogSettings *StageAccessLogSettings `pulumi:"accessLogSettings"`
-	// Specifies whether a cache cluster is enabled for the stage
+	// Whether a cache cluster is enabled for the stage
 	CacheClusterEnabled *bool `pulumi:"cacheClusterEnabled"`
-	// The size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
+	// Size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
 	CacheClusterSize *string `pulumi:"cacheClusterSize"`
 	// Configuration settings of a canary deployment. See Canary Settings below.
 	CanarySettings *StageCanarySettings `pulumi:"canarySettings"`
-	// The identifier of a client certificate for the stage.
+	// Identifier of a client certificate for the stage.
 	ClientCertificateId *string `pulumi:"clientCertificateId"`
-	// The ID of the deployment that the stage points to
+	// ID of the deployment that the stage points to
 	Deployment interface{} `pulumi:"deployment"`
-	// The description of the stage.
+	// Description of the stage.
 	Description *string `pulumi:"description"`
-	// The version of the associated API documentation
+	// Version of the associated API documentation
 	DocumentationVersion *string `pulumi:"documentationVersion"`
-	// The ID of the associated REST API
+	// ID of the associated REST API
 	RestApi interface{} `pulumi:"restApi"`
-	// The name of the stage
+	// Name of the stage
 	StageName string `pulumi:"stageName"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map that defines the stage variables
+	// Map that defines the stage variables
 	Variables map[string]string `pulumi:"variables"`
 	// Whether active tracing with X-ray is enabled. Defaults to `false`.
 	XrayTracingEnabled *bool `pulumi:"xrayTracingEnabled"`
@@ -366,27 +369,27 @@ type stageArgs struct {
 type StageArgs struct {
 	// Enables access logs for the API stage. See Access Log Settings below.
 	AccessLogSettings StageAccessLogSettingsPtrInput
-	// Specifies whether a cache cluster is enabled for the stage
+	// Whether a cache cluster is enabled for the stage
 	CacheClusterEnabled pulumi.BoolPtrInput
-	// The size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
+	// Size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
 	CacheClusterSize pulumi.StringPtrInput
 	// Configuration settings of a canary deployment. See Canary Settings below.
 	CanarySettings StageCanarySettingsPtrInput
-	// The identifier of a client certificate for the stage.
+	// Identifier of a client certificate for the stage.
 	ClientCertificateId pulumi.StringPtrInput
-	// The ID of the deployment that the stage points to
+	// ID of the deployment that the stage points to
 	Deployment pulumi.Input
-	// The description of the stage.
+	// Description of the stage.
 	Description pulumi.StringPtrInput
-	// The version of the associated API documentation
+	// Version of the associated API documentation
 	DocumentationVersion pulumi.StringPtrInput
-	// The ID of the associated REST API
+	// ID of the associated REST API
 	RestApi pulumi.Input
-	// The name of the stage
+	// Name of the stage
 	StageName pulumi.StringInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map that defines the stage variables
+	// Map that defines the stage variables
 	Variables pulumi.StringMapInput
 	// Whether active tracing with X-ray is enabled. Defaults to `false`.
 	XrayTracingEnabled pulumi.BoolPtrInput
@@ -484,17 +487,17 @@ func (o StageOutput) AccessLogSettings() StageAccessLogSettingsPtrOutput {
 	return o.ApplyT(func(v *Stage) StageAccessLogSettingsPtrOutput { return v.AccessLogSettings }).(StageAccessLogSettingsPtrOutput)
 }
 
-// Amazon Resource Name (ARN)
+// ARN
 func (o StageOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Specifies whether a cache cluster is enabled for the stage
+// Whether a cache cluster is enabled for the stage
 func (o StageOutput) CacheClusterEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Stage) pulumi.BoolPtrOutput { return v.CacheClusterEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
+// Size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
 func (o StageOutput) CacheClusterSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringPtrOutput { return v.CacheClusterSize }).(pulumi.StringPtrOutput)
 }
@@ -504,64 +507,65 @@ func (o StageOutput) CanarySettings() StageCanarySettingsPtrOutput {
 	return o.ApplyT(func(v *Stage) StageCanarySettingsPtrOutput { return v.CanarySettings }).(StageCanarySettingsPtrOutput)
 }
 
-// The identifier of a client certificate for the stage.
+// Identifier of a client certificate for the stage.
 func (o StageOutput) ClientCertificateId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringPtrOutput { return v.ClientCertificateId }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the deployment that the stage points to
+// ID of the deployment that the stage points to
 func (o StageOutput) Deployment() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringOutput { return v.Deployment }).(pulumi.StringOutput)
 }
 
-// The description of the stage.
+// Description of the stage.
 func (o StageOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The version of the associated API documentation
+// Version of the associated API documentation
 func (o StageOutput) DocumentationVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringPtrOutput { return v.DocumentationVersion }).(pulumi.StringPtrOutput)
 }
 
-// The execution ARN to be used in `lambdaPermission`'s `sourceArn`
+// Execution ARN to be used in `lambdaPermission`'s `sourceArn`
 // when allowing API Gateway to invoke a Lambda function,
 // e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
 func (o StageOutput) ExecutionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringOutput { return v.ExecutionArn }).(pulumi.StringOutput)
 }
 
-// The URL to invoke the API pointing to the stage,
+// URL to invoke the API pointing to the stage,
 // e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
 func (o StageOutput) InvokeUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringOutput { return v.InvokeUrl }).(pulumi.StringOutput)
 }
 
-// The ID of the associated REST API
+// ID of the associated REST API
 func (o StageOutput) RestApi() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringOutput { return v.RestApi }).(pulumi.StringOutput)
 }
 
-// The name of the stage
+// Name of the stage
 func (o StageOutput) StageName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringOutput { return v.StageName }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o StageOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o StageOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// A map that defines the stage variables
+// Map that defines the stage variables
 func (o StageOutput) Variables() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringMapOutput { return v.Variables }).(pulumi.StringMapOutput)
 }
 
-// The ARN of the WebAcl associated with the Stage.
+// ARN of the WebAcl associated with the Stage.
 func (o StageOutput) WebAclArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringOutput { return v.WebAclArn }).(pulumi.StringOutput)
 }

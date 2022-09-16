@@ -49,7 +49,7 @@ func LookupRegexPatternSet(ctx *pulumi.Context, args *LookupRegexPatternSetArgs,
 
 // A collection of arguments for invoking getRegexPatternSet.
 type LookupRegexPatternSetArgs struct {
-	// The name of the WAFv2 Regex Pattern Set.
+	// Name of the WAFv2 Regex Pattern Set.
 	Name string `pulumi:"name"`
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
 	Scope string `pulumi:"scope"`
@@ -57,9 +57,9 @@ type LookupRegexPatternSetArgs struct {
 
 // A collection of values returned by getRegexPatternSet.
 type LookupRegexPatternSetResult struct {
-	// The Amazon Resource Name (ARN) of the entity.
+	// ARN of the entity.
 	Arn string `pulumi:"arn"`
-	// The description of the set that helps with identification.
+	// Description of the set that helps with identification.
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
@@ -84,7 +84,7 @@ func LookupRegexPatternSetOutput(ctx *pulumi.Context, args LookupRegexPatternSet
 
 // A collection of arguments for invoking getRegexPatternSet.
 type LookupRegexPatternSetOutputArgs struct {
-	// The name of the WAFv2 Regex Pattern Set.
+	// Name of the WAFv2 Regex Pattern Set.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
 	Scope pulumi.StringInput `pulumi:"scope"`
@@ -109,12 +109,12 @@ func (o LookupRegexPatternSetResultOutput) ToLookupRegexPatternSetResultOutputWi
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the entity.
+// ARN of the entity.
 func (o LookupRegexPatternSetResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRegexPatternSetResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The description of the set that helps with identification.
+// Description of the set that helps with identification.
 func (o LookupRegexPatternSetResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRegexPatternSetResult) string { return v.Description }).(pulumi.StringOutput)
 }

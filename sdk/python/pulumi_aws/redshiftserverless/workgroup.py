@@ -24,8 +24,7 @@ class WorkgroupArgs:
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Workgroup resource.
         :param pulumi.Input[str] workgroup_name: The name of the workgroup.
@@ -52,8 +51,6 @@ class WorkgroupArgs:
             pulumi.set(__self__, "subnet_ids", subnet_ids)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="namespaceName")
@@ -157,15 +154,6 @@ class WorkgroupArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
-
 
 @pulumi.input_type
 class _WorkgroupState:
@@ -173,6 +161,7 @@ class _WorkgroupState:
                  arn: Optional[pulumi.Input[str]] = None,
                  base_capacity: Optional[pulumi.Input[int]] = None,
                  config_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['WorkgroupConfigParameterArgs']]]] = None,
+                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['WorkgroupEndpointArgs']]]] = None,
                  enhanced_vpc_routing: Optional[pulumi.Input[bool]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
@@ -187,10 +176,12 @@ class _WorkgroupState:
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
         :param pulumi.Input[int] base_capacity: The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
         :param pulumi.Input[Sequence[pulumi.Input['WorkgroupConfigParameterArgs']]] config_parameters: An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
+        :param pulumi.Input[Sequence[pulumi.Input['WorkgroupEndpointArgs']]] endpoints: The endpoint that is created from the workgroup. See `Endpoint` below.
         :param pulumi.Input[bool] enhanced_vpc_routing: The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
         :param pulumi.Input[bool] publicly_accessible: A value that specifies whether the workgroup can be accessed from a public network.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: An array of security group IDs to associate with the workgroup.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: An array of VPC subnet IDs to associate with the workgroup.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] workgroup_id: The Redshift Workgroup ID.
         :param pulumi.Input[str] workgroup_name: The name of the workgroup.
         """
@@ -200,6 +191,8 @@ class _WorkgroupState:
             pulumi.set(__self__, "base_capacity", base_capacity)
         if config_parameters is not None:
             pulumi.set(__self__, "config_parameters", config_parameters)
+        if endpoints is not None:
+            pulumi.set(__self__, "endpoints", endpoints)
         if enhanced_vpc_routing is not None:
             pulumi.set(__self__, "enhanced_vpc_routing", enhanced_vpc_routing)
         if namespace_name is not None:
@@ -254,6 +247,18 @@ class _WorkgroupState:
     @config_parameters.setter
     def config_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkgroupConfigParameterArgs']]]]):
         pulumi.set(self, "config_parameters", value)
+
+    @property
+    @pulumi.getter
+    def endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkgroupEndpointArgs']]]]:
+        """
+        The endpoint that is created from the workgroup. See `Endpoint` below.
+        """
+        return pulumi.get(self, "endpoints")
+
+    @endpoints.setter
+    def endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkgroupEndpointArgs']]]]):
+        pulumi.set(self, "endpoints", value)
 
     @property
     @pulumi.getter(name="enhancedVpcRouting")
@@ -324,6 +329,9 @@ class _WorkgroupState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -368,7 +376,6 @@ class Workgroup(pulumi.CustomResource):
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workgroup_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -454,7 +461,6 @@ class Workgroup(pulumi.CustomResource):
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workgroup_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -475,11 +481,12 @@ class Workgroup(pulumi.CustomResource):
             __props__.__dict__["security_group_ids"] = security_group_ids
             __props__.__dict__["subnet_ids"] = subnet_ids
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             if workgroup_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workgroup_name'")
             __props__.__dict__["workgroup_name"] = workgroup_name
             __props__.__dict__["arn"] = None
+            __props__.__dict__["endpoints"] = None
+            __props__.__dict__["tags_all"] = None
             __props__.__dict__["workgroup_id"] = None
         super(Workgroup, __self__).__init__(
             'aws:redshiftserverless/workgroup:Workgroup',
@@ -494,6 +501,7 @@ class Workgroup(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             base_capacity: Optional[pulumi.Input[int]] = None,
             config_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkgroupConfigParameterArgs']]]]] = None,
+            endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkgroupEndpointArgs']]]]] = None,
             enhanced_vpc_routing: Optional[pulumi.Input[bool]] = None,
             namespace_name: Optional[pulumi.Input[str]] = None,
             publicly_accessible: Optional[pulumi.Input[bool]] = None,
@@ -513,10 +521,12 @@ class Workgroup(pulumi.CustomResource):
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
         :param pulumi.Input[int] base_capacity: The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkgroupConfigParameterArgs']]]] config_parameters: An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkgroupEndpointArgs']]]] endpoints: The endpoint that is created from the workgroup. See `Endpoint` below.
         :param pulumi.Input[bool] enhanced_vpc_routing: The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
         :param pulumi.Input[bool] publicly_accessible: A value that specifies whether the workgroup can be accessed from a public network.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: An array of security group IDs to associate with the workgroup.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: An array of VPC subnet IDs to associate with the workgroup.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] workgroup_id: The Redshift Workgroup ID.
         :param pulumi.Input[str] workgroup_name: The name of the workgroup.
         """
@@ -527,6 +537,7 @@ class Workgroup(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["base_capacity"] = base_capacity
         __props__.__dict__["config_parameters"] = config_parameters
+        __props__.__dict__["endpoints"] = endpoints
         __props__.__dict__["enhanced_vpc_routing"] = enhanced_vpc_routing
         __props__.__dict__["namespace_name"] = namespace_name
         __props__.__dict__["publicly_accessible"] = publicly_accessible
@@ -561,6 +572,14 @@ class Workgroup(pulumi.CustomResource):
         An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
         """
         return pulumi.get(self, "config_parameters")
+
+    @property
+    @pulumi.getter
+    def endpoints(self) -> pulumi.Output[Sequence['outputs.WorkgroupEndpoint']]:
+        """
+        The endpoint that is created from the workgroup. See `Endpoint` below.
+        """
+        return pulumi.get(self, "endpoints")
 
     @property
     @pulumi.getter(name="enhancedVpcRouting")
@@ -607,6 +626,9 @@ class Workgroup(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property

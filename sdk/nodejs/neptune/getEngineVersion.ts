@@ -46,7 +46,7 @@ export interface GetEngineVersionArgs {
      */
     engine?: string;
     /**
-     * The name of a specific DB parameter group family. An example parameter group family is `neptune1`.
+     * Name of a specific DB parameter group family. An example parameter group family is `neptune1`.
      */
     parameterGroupFamily?: string;
     /**
@@ -65,7 +65,7 @@ export interface GetEngineVersionArgs {
 export interface GetEngineVersionResult {
     readonly engine?: string;
     /**
-     * The description of the database engine.
+     * Description of the database engine.
      */
     readonly engineDescription: string;
     /**
@@ -96,7 +96,7 @@ export interface GetEngineVersionResult {
     readonly validUpgradeTargets: string[];
     readonly version: string;
     /**
-     * The description of the database engine version.
+     * Description of the database engine version.
      */
     readonly versionDescription: string;
 }
@@ -114,7 +114,7 @@ export interface GetEngineVersionOutputArgs {
      */
     engine?: pulumi.Input<string>;
     /**
-     * The name of a specific DB parameter group family. An example parameter group family is `neptune1`.
+     * Name of a specific DB parameter group family. An example parameter group family is `neptune1`.
      */
     parameterGroupFamily?: pulumi.Input<string>;
     /**

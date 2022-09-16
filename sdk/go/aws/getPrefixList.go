@@ -107,20 +107,20 @@ func GetPrefixList(ctx *pulumi.Context, args *GetPrefixListArgs, opts ...pulumi.
 type GetPrefixListArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
 	Filters []GetPrefixListFilter `pulumi:"filters"`
-	// The name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
+	// Name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
 	Name *string `pulumi:"name"`
-	// The ID of the prefix list to select.
+	// ID of the prefix list to select.
 	PrefixListId *string `pulumi:"prefixListId"`
 }
 
 // A collection of values returned by getPrefixList.
 type GetPrefixListResult struct {
-	// The list of CIDR blocks for the AWS service associated with the prefix list.
+	// List of CIDR blocks for the AWS service associated with the prefix list.
 	CidrBlocks []string              `pulumi:"cidrBlocks"`
 	Filters    []GetPrefixListFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The name of the selected prefix list.
+	// Name of the selected prefix list.
 	Name         string  `pulumi:"name"`
 	PrefixListId *string `pulumi:"prefixListId"`
 }
@@ -142,9 +142,9 @@ func GetPrefixListOutput(ctx *pulumi.Context, args GetPrefixListOutputArgs, opts
 type GetPrefixListOutputArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
 	Filters GetPrefixListFilterArrayInput `pulumi:"filters"`
-	// The name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
+	// Name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The ID of the prefix list to select.
+	// ID of the prefix list to select.
 	PrefixListId pulumi.StringPtrInput `pulumi:"prefixListId"`
 }
 
@@ -167,7 +167,7 @@ func (o GetPrefixListResultOutput) ToGetPrefixListResultOutputWithContext(ctx co
 	return o
 }
 
-// The list of CIDR blocks for the AWS service associated with the prefix list.
+// List of CIDR blocks for the AWS service associated with the prefix list.
 func (o GetPrefixListResultOutput) CidrBlocks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetPrefixListResult) []string { return v.CidrBlocks }).(pulumi.StringArrayOutput)
 }
@@ -181,7 +181,7 @@ func (o GetPrefixListResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrefixListResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the selected prefix list.
+// Name of the selected prefix list.
 func (o GetPrefixListResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrefixListResult) string { return v.Name }).(pulumi.StringOutput)
 }

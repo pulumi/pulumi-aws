@@ -24,23 +24,23 @@ func LookupInternetGateway(ctx *pulumi.Context, args *LookupInternetGatewayArgs,
 type LookupInternetGatewayArgs struct {
 	// Custom filter block as described below.
 	Filters []GetInternetGatewayFilter `pulumi:"filters"`
-	// The id of the specific Internet Gateway to retrieve.
+	// ID of the specific Internet Gateway to retrieve.
 	InternetGatewayId *string `pulumi:"internetGatewayId"`
-	// A map of tags, each pair of which must exactly match
+	// Map of tags, each pair of which must exactly match
 	// a pair on the desired Internet Gateway.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getInternetGateway.
 type LookupInternetGatewayResult struct {
-	// The ARN of the Internet Gateway.
+	// ARN of the Internet Gateway.
 	Arn         string                             `pulumi:"arn"`
 	Attachments []GetInternetGatewayAttachmentType `pulumi:"attachments"`
 	Filters     []GetInternetGatewayFilter         `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                string `pulumi:"id"`
 	InternetGatewayId string `pulumi:"internetGatewayId"`
-	// The ID of the AWS account that owns the internet gateway.
+	// ID of the AWS account that owns the internet gateway.
 	OwnerId string            `pulumi:"ownerId"`
 	Tags    map[string]string `pulumi:"tags"`
 }
@@ -62,9 +62,9 @@ func LookupInternetGatewayOutput(ctx *pulumi.Context, args LookupInternetGateway
 type LookupInternetGatewayOutputArgs struct {
 	// Custom filter block as described below.
 	Filters GetInternetGatewayFilterArrayInput `pulumi:"filters"`
-	// The id of the specific Internet Gateway to retrieve.
+	// ID of the specific Internet Gateway to retrieve.
 	InternetGatewayId pulumi.StringPtrInput `pulumi:"internetGatewayId"`
-	// A map of tags, each pair of which must exactly match
+	// Map of tags, each pair of which must exactly match
 	// a pair on the desired Internet Gateway.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -88,7 +88,7 @@ func (o LookupInternetGatewayResultOutput) ToLookupInternetGatewayResultOutputWi
 	return o
 }
 
-// The ARN of the Internet Gateway.
+// ARN of the Internet Gateway.
 func (o LookupInternetGatewayResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInternetGatewayResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -110,7 +110,7 @@ func (o LookupInternetGatewayResultOutput) InternetGatewayId() pulumi.StringOutp
 	return o.ApplyT(func(v LookupInternetGatewayResult) string { return v.InternetGatewayId }).(pulumi.StringOutput)
 }
 
-// The ID of the AWS account that owns the internet gateway.
+// ID of the AWS account that owns the internet gateway.
 func (o LookupInternetGatewayResultOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInternetGatewayResult) string { return v.OwnerId }).(pulumi.StringOutput)
 }

@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class GetActiveReceiptRuleSetResult {
     /**
-     * @return The SES receipt rule set ARN.
+     * @return SES receipt rule set ARN.
      * 
      */
     private String arn;
@@ -20,14 +20,14 @@ public final class GetActiveReceiptRuleSetResult {
      */
     private String id;
     /**
-     * @return The name of the rule set
+     * @return Name of the rule set
      * 
      */
     private String ruleSetName;
 
     private GetActiveReceiptRuleSetResult() {}
     /**
-     * @return The SES receipt rule set ARN.
+     * @return SES receipt rule set ARN.
      * 
      */
     public String arn() {
@@ -41,7 +41,7 @@ public final class GetActiveReceiptRuleSetResult {
         return this.id;
     }
     /**
-     * @return The name of the rule set
+     * @return Name of the rule set
      * 
      */
     public String ruleSetName() {

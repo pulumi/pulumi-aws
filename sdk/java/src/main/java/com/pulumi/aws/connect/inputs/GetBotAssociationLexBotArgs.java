@@ -14,14 +14,14 @@ public final class GetBotAssociationLexBotArgs extends com.pulumi.resources.Reso
     public static final GetBotAssociationLexBotArgs Empty = new GetBotAssociationLexBotArgs();
 
     /**
-     * The Region that the Amazon Lex (V1) bot was created in.
+     * Region that the Amazon Lex (V1) bot was created in.
      * 
      */
     @Import(name="lexRegion", required=true)
     private Output<String> lexRegion;
 
     /**
-     * @return The Region that the Amazon Lex (V1) bot was created in.
+     * @return Region that the Amazon Lex (V1) bot was created in.
      * 
      */
     public Output<String> lexRegion() {
@@ -29,14 +29,14 @@ public final class GetBotAssociationLexBotArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The name of the Amazon Lex (V1) bot.
+     * Name of the Amazon Lex (V1) bot.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the Amazon Lex (V1) bot.
+     * @return Name of the Amazon Lex (V1) bot.
      * 
      */
     public Output<String> name() {
@@ -69,7 +69,7 @@ public final class GetBotAssociationLexBotArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param lexRegion The Region that the Amazon Lex (V1) bot was created in.
+         * @param lexRegion Region that the Amazon Lex (V1) bot was created in.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class GetBotAssociationLexBotArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param lexRegion The Region that the Amazon Lex (V1) bot was created in.
+         * @param lexRegion Region that the Amazon Lex (V1) bot was created in.
          * 
          * @return builder
          * 
@@ -90,7 +90,7 @@ public final class GetBotAssociationLexBotArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param name The name of the Amazon Lex (V1) bot.
+         * @param name Name of the Amazon Lex (V1) bot.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class GetBotAssociationLexBotArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param name The name of the Amazon Lex (V1) bot.
+         * @param name Name of the Amazon Lex (V1) bot.
          * 
          * @return builder
          * 

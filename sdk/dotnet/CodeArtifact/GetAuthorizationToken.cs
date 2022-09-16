@@ -70,19 +70,19 @@ namespace Pulumi.Aws.CodeArtifact
     public sealed class GetAuthorizationTokenArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the domain that is in scope for the generated authorization token.
+        /// Name of the domain that is in scope for the generated authorization token.
         /// </summary>
         [Input("domain", required: true)]
         public string Domain { get; set; } = null!;
 
         /// <summary>
-        /// The account number of the AWS account that owns the domain.
+        /// Account number of the AWS account that owns the domain.
         /// </summary>
         [Input("domainOwner")]
         public string? DomainOwner { get; set; }
 
         /// <summary>
-        /// The time, in seconds, that the generated authorization token is valid. Valid values are `0` and between `900` and `43200`.
+        /// Time, in seconds, that the generated authorization token is valid. Valid values are `0` and between `900` and `43200`.
         /// </summary>
         [Input("durationSeconds")]
         public int? DurationSeconds { get; set; }
@@ -96,19 +96,19 @@ namespace Pulumi.Aws.CodeArtifact
     public sealed class GetAuthorizationTokenInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the domain that is in scope for the generated authorization token.
+        /// Name of the domain that is in scope for the generated authorization token.
         /// </summary>
         [Input("domain", required: true)]
         public Input<string> Domain { get; set; } = null!;
 
         /// <summary>
-        /// The account number of the AWS account that owns the domain.
+        /// Account number of the AWS account that owns the domain.
         /// </summary>
         [Input("domainOwner")]
         public Input<string>? DomainOwner { get; set; }
 
         /// <summary>
-        /// The time, in seconds, that the generated authorization token is valid. Valid values are `0` and between `900` and `43200`.
+        /// Time, in seconds, that the generated authorization token is valid. Valid values are `0` and between `900` and `43200`.
         /// </summary>
         [Input("durationSeconds")]
         public Input<int>? DurationSeconds { get; set; }
@@ -131,7 +131,7 @@ namespace Pulumi.Aws.CodeArtifact
         public readonly string DomainOwner;
         public readonly int? DurationSeconds;
         /// <summary>
-        /// The time in UTC RFC3339 format when the authorization token expires.
+        /// Time in UTC RFC3339 format when the authorization token expires.
         /// </summary>
         public readonly string Expiration;
         /// <summary>

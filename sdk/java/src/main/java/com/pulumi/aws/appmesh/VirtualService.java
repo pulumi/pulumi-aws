@@ -113,140 +113,140 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:appmesh/virtualService:VirtualService")
 public class VirtualService extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the virtual service.
+     * ARN of the virtual service.
      * 
      */
     @Export(name="arn", type=String.class, parameters={})
     private Output<String> arn;
 
     /**
-     * @return The ARN of the virtual service.
+     * @return ARN of the virtual service.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The creation date of the virtual service.
+     * Creation date of the virtual service.
      * 
      */
     @Export(name="createdDate", type=String.class, parameters={})
     private Output<String> createdDate;
 
     /**
-     * @return The creation date of the virtual service.
+     * @return Creation date of the virtual service.
      * 
      */
     public Output<String> createdDate() {
         return this.createdDate;
     }
     /**
-     * The last update date of the virtual service.
+     * Last update date of the virtual service.
      * 
      */
     @Export(name="lastUpdatedDate", type=String.class, parameters={})
     private Output<String> lastUpdatedDate;
 
     /**
-     * @return The last update date of the virtual service.
+     * @return Last update date of the virtual service.
      * 
      */
     public Output<String> lastUpdatedDate() {
         return this.lastUpdatedDate;
     }
     /**
-     * The name of the service mesh in which to create the virtual service. Must be between 1 and 255 characters in length.
+     * Name of the service mesh in which to create the virtual service. Must be between 1 and 255 characters in length.
      * 
      */
     @Export(name="meshName", type=String.class, parameters={})
     private Output<String> meshName;
 
     /**
-     * @return The name of the service mesh in which to create the virtual service. Must be between 1 and 255 characters in length.
+     * @return Name of the service mesh in which to create the virtual service. Must be between 1 and 255 characters in length.
      * 
      */
     public Output<String> meshName() {
         return this.meshName;
     }
     /**
-     * The AWS account ID of the service mesh&#39;s owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+     * AWS account ID of the service mesh&#39;s owner. Defaults to the account ID the AWS provider is currently connected to.
      * 
      */
     @Export(name="meshOwner", type=String.class, parameters={})
     private Output<String> meshOwner;
 
     /**
-     * @return The AWS account ID of the service mesh&#39;s owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+     * @return AWS account ID of the service mesh&#39;s owner. Defaults to the account ID the AWS provider is currently connected to.
      * 
      */
     public Output<String> meshOwner() {
         return this.meshOwner;
     }
     /**
-     * The name to use for the virtual service. Must be between 1 and 255 characters in length.
+     * Name to use for the virtual service. Must be between 1 and 255 characters in length.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name to use for the virtual service. Must be between 1 and 255 characters in length.
+     * @return Name to use for the virtual service. Must be between 1 and 255 characters in length.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The resource owner&#39;s AWS account ID.
+     * Resource owner&#39;s AWS account ID.
      * 
      */
     @Export(name="resourceOwner", type=String.class, parameters={})
     private Output<String> resourceOwner;
 
     /**
-     * @return The resource owner&#39;s AWS account ID.
+     * @return Resource owner&#39;s AWS account ID.
      * 
      */
     public Output<String> resourceOwner() {
         return this.resourceOwner;
     }
     /**
-     * The virtual service specification to apply.
+     * Virtual service specification to apply.
      * 
      */
     @Export(name="spec", type=VirtualServiceSpec.class, parameters={})
     private Output<VirtualServiceSpec> spec;
 
     /**
-     * @return The virtual service specification to apply.
+     * @return Virtual service specification to apply.
      * 
      */
     public Output<VirtualServiceSpec> spec() {
         return this.spec;
     }
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

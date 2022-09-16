@@ -61,19 +61,19 @@ namespace Pulumi.Aws.ApiGateway
     public partial class DocumentationVersion : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The description of the API documentation version.
+        /// Description of the API documentation version.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the associated Rest API
+        /// ID of the associated Rest API
         /// </summary>
         [Output("restApiId")]
         public Output<string> RestApiId { get; private set; } = null!;
 
         /// <summary>
-        /// The version identifier of the API documentation snapshot.
+        /// Version identifier of the API documentation snapshot.
         /// </summary>
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
@@ -125,19 +125,19 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class DocumentationVersionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The description of the API documentation version.
+        /// Description of the API documentation version.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The ID of the associated Rest API
+        /// ID of the associated Rest API
         /// </summary>
         [Input("restApiId", required: true)]
         public Input<string> RestApiId { get; set; } = null!;
 
         /// <summary>
-        /// The version identifier of the API documentation snapshot.
+        /// Version identifier of the API documentation snapshot.
         /// </summary>
         [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;
@@ -151,19 +151,19 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class DocumentationVersionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The description of the API documentation version.
+        /// Description of the API documentation version.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The ID of the associated Rest API
+        /// ID of the associated Rest API
         /// </summary>
         [Input("restApiId")]
         public Input<string>? RestApiId { get; set; }
 
         /// <summary>
-        /// The version identifier of the API documentation snapshot.
+        /// Version identifier of the API documentation snapshot.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

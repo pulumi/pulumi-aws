@@ -16,14 +16,14 @@ public final class GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecific
     public static final GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs Empty = new GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs();
 
     /**
-     * The ID of the launch template. Conflicts with `launch_template_name`.
+     * ID of the launch template. Conflicts with `launch_template_name`.
      * 
      */
     @Import(name="launchTemplateId")
     private @Nullable Output<String> launchTemplateId;
 
     /**
-     * @return The ID of the launch template. Conflicts with `launch_template_name`.
+     * @return ID of the launch template. Conflicts with `launch_template_name`.
      * 
      */
     public Optional<Output<String>> launchTemplateId() {
@@ -31,14 +31,14 @@ public final class GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecific
     }
 
     /**
-     * The name of the launch template. Conflicts with `launch_template_id`.
+     * Name of the launch template. Conflicts with `launch_template_id`.
      * 
      */
     @Import(name="launchTemplateName")
     private @Nullable Output<String> launchTemplateName;
 
     /**
-     * @return The name of the launch template. Conflicts with `launch_template_id`.
+     * @return Name of the launch template. Conflicts with `launch_template_id`.
      * 
      */
     public Optional<Output<String>> launchTemplateName() {
@@ -87,7 +87,7 @@ public final class GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecific
         }
 
         /**
-         * @param launchTemplateId The ID of the launch template. Conflicts with `launch_template_name`.
+         * @param launchTemplateId ID of the launch template. Conflicts with `launch_template_name`.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecific
         }
 
         /**
-         * @param launchTemplateId The ID of the launch template. Conflicts with `launch_template_name`.
+         * @param launchTemplateId ID of the launch template. Conflicts with `launch_template_name`.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecific
         }
 
         /**
-         * @param launchTemplateName The name of the launch template. Conflicts with `launch_template_id`.
+         * @param launchTemplateName Name of the launch template. Conflicts with `launch_template_id`.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecific
         }
 
         /**
-         * @param launchTemplateName The name of the launch template. Conflicts with `launch_template_id`.
+         * @param launchTemplateName Name of the launch template. Conflicts with `launch_template_id`.
          * 
          * @return builder
          * 

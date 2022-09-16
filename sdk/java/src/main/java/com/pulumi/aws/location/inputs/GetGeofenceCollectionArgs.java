@@ -17,14 +17,14 @@ public final class GetGeofenceCollectionArgs extends com.pulumi.resources.Invoke
     public static final GetGeofenceCollectionArgs Empty = new GetGeofenceCollectionArgs();
 
     /**
-     * The name of the geofence collection.
+     * Name of the geofence collection.
      * 
      */
     @Import(name="collectionName", required=true)
     private Output<String> collectionName;
 
     /**
-     * @return The name of the geofence collection.
+     * @return Name of the geofence collection.
      * 
      */
     public Output<String> collectionName() {
@@ -32,14 +32,14 @@ public final class GetGeofenceCollectionArgs extends com.pulumi.resources.Invoke
     }
 
     /**
-     * A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
+     * Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
      * 
      */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
     /**
-     * @return A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
+     * @return Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
      * 
      */
     public Optional<Output<String>> kmsKeyId() {
@@ -88,7 +88,7 @@ public final class GetGeofenceCollectionArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param collectionName The name of the geofence collection.
+         * @param collectionName Name of the geofence collection.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class GetGeofenceCollectionArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param collectionName The name of the geofence collection.
+         * @param collectionName Name of the geofence collection.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class GetGeofenceCollectionArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param kmsKeyId A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
+         * @param kmsKeyId Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class GetGeofenceCollectionArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param kmsKeyId A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
+         * @param kmsKeyId Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
          * 
          * @return builder
          * 

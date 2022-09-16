@@ -16,7 +16,7 @@ import java.util.Objects;
 public final class GetImagePipelineResult {
     private String arn;
     /**
-     * @return Amazon Resource Name (ARN) of the container recipe.
+     * @return ARN of the container recipe.
      * 
      */
     private String containerRecipeArn;
@@ -46,7 +46,7 @@ public final class GetImagePipelineResult {
      */
     private String description;
     /**
-     * @return Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+     * @return ARN of the Image Builder Distribution Configuration.
      * 
      */
     private String distributionConfigurationArn;
@@ -61,7 +61,7 @@ public final class GetImagePipelineResult {
      */
     private String id;
     /**
-     * @return Amazon Resource Name (ARN) of the image recipe.
+     * @return ARN of the image recipe.
      * 
      */
     private String imageRecipeArn;
@@ -71,7 +71,7 @@ public final class GetImagePipelineResult {
      */
     private List<GetImagePipelineImageTestsConfiguration> imageTestsConfigurations;
     /**
-     * @return Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+     * @return ARN of the Image Builder Infrastructure Configuration.
      * 
      */
     private String infrastructureConfigurationArn;
@@ -106,7 +106,7 @@ public final class GetImagePipelineResult {
         return this.arn;
     }
     /**
-     * @return Amazon Resource Name (ARN) of the container recipe.
+     * @return ARN of the container recipe.
      * 
      */
     public String containerRecipeArn() {
@@ -148,7 +148,7 @@ public final class GetImagePipelineResult {
         return this.description;
     }
     /**
-     * @return Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+     * @return ARN of the Image Builder Distribution Configuration.
      * 
      */
     public String distributionConfigurationArn() {
@@ -169,7 +169,7 @@ public final class GetImagePipelineResult {
         return this.id;
     }
     /**
-     * @return Amazon Resource Name (ARN) of the image recipe.
+     * @return ARN of the image recipe.
      * 
      */
     public String imageRecipeArn() {
@@ -183,7 +183,7 @@ public final class GetImagePipelineResult {
         return this.imageTestsConfigurations;
     }
     /**
-     * @return Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+     * @return ARN of the Image Builder Infrastructure Configuration.
      * 
      */
     public String infrastructureConfigurationArn() {

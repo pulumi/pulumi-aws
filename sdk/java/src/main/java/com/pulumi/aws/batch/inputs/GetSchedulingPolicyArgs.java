@@ -17,14 +17,14 @@ public final class GetSchedulingPolicyArgs extends com.pulumi.resources.InvokeAr
     public static final GetSchedulingPolicyArgs Empty = new GetSchedulingPolicyArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the scheduling policy.
+     * ARN of the scheduling policy.
      * 
      */
     @Import(name="arn", required=true)
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the scheduling policy.
+     * @return ARN of the scheduling policy.
      * 
      */
     public Output<String> arn() {
@@ -72,7 +72,7 @@ public final class GetSchedulingPolicyArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the scheduling policy.
+         * @param arn ARN of the scheduling policy.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class GetSchedulingPolicyArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the scheduling policy.
+         * @param arn ARN of the scheduling policy.
          * 
          * @return builder
          * 

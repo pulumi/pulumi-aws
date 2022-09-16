@@ -77,7 +77,7 @@ class GetVolumeResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
+        Volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
         """
         return pulumi.get(self, "arn")
 
@@ -85,7 +85,7 @@ class GetVolumeResult:
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> str:
         """
-        The AZ where the EBS volume exists.
+        AZ where the EBS volume exists.
         """
         return pulumi.get(self, "availability_zone")
 
@@ -114,7 +114,7 @@ class GetVolumeResult:
     @pulumi.getter
     def iops(self) -> int:
         """
-        The amount of IOPS for the disk.
+        Amount of IOPS for the disk.
         """
         return pulumi.get(self, "iops")
 
@@ -122,7 +122,7 @@ class GetVolumeResult:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> str:
         """
-        The ARN for the KMS encryption key.
+        ARN for the KMS encryption key.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -143,7 +143,7 @@ class GetVolumeResult:
     @pulumi.getter(name="outpostArn")
     def outpost_arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the Outpost.
+        ARN of the Outpost.
         """
         return pulumi.get(self, "outpost_arn")
 
@@ -151,7 +151,7 @@ class GetVolumeResult:
     @pulumi.getter
     def size(self) -> int:
         """
-        The size of the drive in GiBs.
+        Size of the drive in GiBs.
         """
         return pulumi.get(self, "size")
 
@@ -159,7 +159,7 @@ class GetVolumeResult:
     @pulumi.getter(name="snapshotId")
     def snapshot_id(self) -> str:
         """
-        The snapshot_id the EBS volume is based off.
+        Snapshot_id the EBS volume is based off.
         """
         return pulumi.get(self, "snapshot_id")
 
@@ -167,7 +167,7 @@ class GetVolumeResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        A map of tags for the resource.
+        Map of tags for the resource.
         """
         return pulumi.get(self, "tags")
 
@@ -175,7 +175,7 @@ class GetVolumeResult:
     @pulumi.getter
     def throughput(self) -> int:
         """
-        The throughput that the volume supports, in MiB/s.
+        Throughput that the volume supports, in MiB/s.
         """
         return pulumi.get(self, "throughput")
 
@@ -183,7 +183,7 @@ class GetVolumeResult:
     @pulumi.getter(name="volumeId")
     def volume_id(self) -> str:
         """
-        The volume ID (e.g., vol-59fcb34e).
+        Volume ID (e.g., vol-59fcb34e).
         """
         return pulumi.get(self, "volume_id")
 
@@ -191,7 +191,7 @@ class GetVolumeResult:
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> str:
         """
-        The type of EBS volume.
+        Type of EBS volume.
         """
         return pulumi.get(self, "volume_type")
 
@@ -253,7 +253,7 @@ def get_volume(filters: Optional[Sequence[pulumi.InputType['GetVolumeFilterArgs'
            [describe-volumes in the AWS CLI reference][1].
     :param bool most_recent: If more than one result is returned, use the most
            recent Volume.
-    :param Mapping[str, str] tags: A map of tags for the resource.
+    :param Mapping[str, str] tags: Map of tags for the resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -315,6 +315,6 @@ def get_volume_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.In
            [describe-volumes in the AWS CLI reference][1].
     :param bool most_recent: If more than one result is returned, use the most
            recent Volume.
-    :param Mapping[str, str] tags: A map of tags for the resource.
+    :param Mapping[str, str] tags: Map of tags for the resource.
     """
     ...

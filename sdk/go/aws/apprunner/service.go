@@ -189,15 +189,15 @@ type Service struct {
 	ServiceId pulumi.StringOutput `pulumi:"serviceId"`
 	// Name of the service.
 	ServiceName pulumi.StringOutput `pulumi:"serviceName"`
-	// A subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
+	// Subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
 	ServiceUrl pulumi.StringOutput `pulumi:"serviceUrl"`
 	// The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
 	SourceConfiguration ServiceSourceConfigurationOutput `pulumi:"sourceConfiguration"`
-	// The current state of the App Runner service.
+	// Current state of the App Runner service.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -254,15 +254,15 @@ type serviceState struct {
 	ServiceId *string `pulumi:"serviceId"`
 	// Name of the service.
 	ServiceName *string `pulumi:"serviceName"`
-	// A subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
+	// Subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
 	ServiceUrl *string `pulumi:"serviceUrl"`
 	// The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
 	SourceConfiguration *ServiceSourceConfiguration `pulumi:"sourceConfiguration"`
-	// The current state of the App Runner service.
+	// Current state of the App Runner service.
 	Status *string `pulumi:"status"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -285,15 +285,15 @@ type ServiceState struct {
 	ServiceId pulumi.StringPtrInput
 	// Name of the service.
 	ServiceName pulumi.StringPtrInput
-	// A subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
+	// Subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
 	ServiceUrl pulumi.StringPtrInput
 	// The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
 	SourceConfiguration ServiceSourceConfigurationPtrInput
-	// The current state of the App Runner service.
+	// Current state of the App Runner service.
 	Status pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -476,7 +476,7 @@ func (o ServiceOutput) ServiceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.ServiceName }).(pulumi.StringOutput)
 }
 
-// A subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
+// Subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
 func (o ServiceOutput) ServiceUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.ServiceUrl }).(pulumi.StringOutput)
 }
@@ -486,7 +486,7 @@ func (o ServiceOutput) SourceConfiguration() ServiceSourceConfigurationOutput {
 	return o.ApplyT(func(v *Service) ServiceSourceConfigurationOutput { return v.SourceConfiguration }).(ServiceSourceConfigurationOutput)
 }
 
-// The current state of the App Runner service.
+// Current state of the App Runner service.
 func (o ServiceOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
@@ -496,7 +496,7 @@ func (o ServiceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ServiceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

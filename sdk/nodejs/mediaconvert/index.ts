@@ -5,10 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./queue";
+export { QueueArgs, QueueState } from "./queue";
+export type Queue = import("./queue").Queue;
+export const Queue: typeof import("./queue").Queue = null as any;
 
-// Import resources to register:
-import { Queue } from "./queue";
+utilities.lazyLoad(exports, ["Queue"], () => require("./queue"));
 
 const _module = {
     version: utilities.getVersion(),

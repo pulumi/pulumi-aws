@@ -78,7 +78,7 @@ def get_broker_nodes(cluster_arn: Optional[str] = None,
     ```
 
 
-    :param str cluster_arn: The ARN of the cluster the nodes belong to.
+    :param str cluster_arn: ARN of the cluster the nodes belong to.
     """
     __args__ = dict()
     __args__['clusterArn'] = cluster_arn
@@ -107,6 +107,6 @@ def get_broker_nodes_output(cluster_arn: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str cluster_arn: The ARN of the cluster the nodes belong to.
+    :param str cluster_arn: ARN of the cluster the nodes belong to.
     """
     ...

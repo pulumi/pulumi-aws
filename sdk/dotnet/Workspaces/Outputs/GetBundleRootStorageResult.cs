@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Workspaces.Outputs
     public sealed class GetBundleRootStorageResult
     {
         /// <summary>
-        /// The size of the user storage.
+        /// Size of the user storage.
         /// </summary>
         public readonly string Capacity;
 

@@ -34,7 +34,7 @@ export function getGateway(args: GetGatewayArgs, opts?: pulumi.InvokeOptions): P
  */
 export interface GetGatewayArgs {
     /**
-     * The name of the gateway to retrieve.
+     * Name of the gateway to retrieve.
      */
     name: string;
 }
@@ -44,7 +44,7 @@ export interface GetGatewayArgs {
  */
 export interface GetGatewayResult {
     /**
-     * The ASN on the Amazon side of the connection.
+     * ASN on the Amazon side of the connection.
      */
     readonly amazonSideAsn: string;
     /**
@@ -67,7 +67,7 @@ export function getGatewayOutput(args: GetGatewayOutputArgs, opts?: pulumi.Invok
  */
 export interface GetGatewayOutputArgs {
     /**
-     * The name of the gateway to retrieve.
+     * Name of the gateway to retrieve.
      */
     name: pulumi.Input<string>;
 }

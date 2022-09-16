@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -37,7 +39,7 @@ export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promi
  */
 export interface GetGroupArgs {
     /**
-     * The friendly IAM group name to match.
+     * Friendly IAM group name to match.
      */
     groupName: string;
 }
@@ -47,11 +49,11 @@ export interface GetGroupArgs {
  */
 export interface GetGroupResult {
     /**
-     * The Amazon Resource Name (ARN) specifying the iam user.
+     * User ARN.
      */
     readonly arn: string;
     /**
-     * The stable and unique string identifying the group.
+     * Stable and unique string identifying the group.
      */
     readonly groupId: string;
     readonly groupName: string;
@@ -60,11 +62,11 @@ export interface GetGroupResult {
      */
     readonly id: string;
     /**
-     * The path to the iam user.
+     * Path to the IAM user.
      */
     readonly path: string;
     /**
-     * List of objects containing group member information. See supported fields below.
+     * List of objects containing group member information. See below.
      */
     readonly users: outputs.iam.GetGroupUser[];
 }
@@ -78,7 +80,7 @@ export function getGroupOutput(args: GetGroupOutputArgs, opts?: pulumi.InvokeOpt
  */
 export interface GetGroupOutputArgs {
     /**
-     * The friendly IAM group name to match.
+     * Friendly IAM group name to match.
      */
     groupName: pulumi.Input<string>;
 }

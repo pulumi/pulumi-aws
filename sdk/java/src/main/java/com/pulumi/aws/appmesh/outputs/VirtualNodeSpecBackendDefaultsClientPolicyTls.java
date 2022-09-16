@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VirtualNodeSpecBackendDefaultsClientPolicyTls {
     /**
-     * @return The listener&#39;s TLS certificate.
+     * @return Listener&#39;s TLS certificate.
      * 
      */
     private @Nullable VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate certificate;
@@ -31,14 +31,14 @@ public final class VirtualNodeSpecBackendDefaultsClientPolicyTls {
      */
     private @Nullable List<Integer> ports;
     /**
-     * @return The listener&#39;s Transport Layer Security (TLS) validation context.
+     * @return Listener&#39;s Transport Layer Security (TLS) validation context.
      * 
      */
     private VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation validation;
 
     private VirtualNodeSpecBackendDefaultsClientPolicyTls() {}
     /**
-     * @return The listener&#39;s TLS certificate.
+     * @return Listener&#39;s TLS certificate.
      * 
      */
     public Optional<VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate> certificate() {
@@ -59,7 +59,7 @@ public final class VirtualNodeSpecBackendDefaultsClientPolicyTls {
         return this.ports == null ? List.of() : this.ports;
     }
     /**
-     * @return The listener&#39;s Transport Layer Security (TLS) validation context.
+     * @return Listener&#39;s Transport Layer Security (TLS) validation context.
      * 
      */
     public VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation validation() {

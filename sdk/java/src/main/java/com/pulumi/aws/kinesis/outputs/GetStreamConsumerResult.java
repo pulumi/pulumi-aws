@@ -22,7 +22,7 @@ public final class GetStreamConsumerResult {
     private String id;
     private String name;
     /**
-     * @return The current status of the stream consumer.
+     * @return Current status of the stream consumer.
      * 
      */
     private String status;
@@ -50,7 +50,7 @@ public final class GetStreamConsumerResult {
         return this.name;
     }
     /**
-     * @return The current status of the stream consumer.
+     * @return Current status of the stream consumer.
      * 
      */
     public String status() {

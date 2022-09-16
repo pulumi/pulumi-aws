@@ -12,7 +12,7 @@ namespace Pulumi.Aws
     public static class GetArn
     {
         /// <summary>
-        /// Parses an Amazon Resource Name (ARN) into its constituent parts.
+        /// Parses an ARN into its constituent parts.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -39,7 +39,7 @@ namespace Pulumi.Aws
             => Pulumi.Deployment.Instance.InvokeAsync<GetArnResult>("aws:index/getArn:getArn", args ?? new GetArnArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Parses an Amazon Resource Name (ARN) into its constituent parts.
+        /// Parses an ARN into its constituent parts.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -70,7 +70,7 @@ namespace Pulumi.Aws
     public sealed class GetArnArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ARN to parse.
+        /// ARN to parse.
         /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.Aws
     public sealed class GetArnInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ARN to parse.
+        /// ARN to parse.
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
@@ -109,16 +109,16 @@ namespace Pulumi.Aws
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The partition that the resource is in.
+        /// Partition that the resource is in.
         /// </summary>
         public readonly string Partition;
         /// <summary>
-        /// The region the resource resides in.
+        /// Region the resource resides in.
         /// Note that the ARNs for some resources do not require a region, so this component might be omitted.
         /// </summary>
         public readonly string Region;
         /// <summary>
-        /// The content of this part of the ARN varies by service.
+        /// Content of this part of the ARN varies by service.
         /// It often includes an indicator of the type of resource—for example, an IAM user or Amazon RDS database —followed by a slash (/) or a colon (:), followed by the resource name itself.
         /// </summary>
         public readonly string Resource;

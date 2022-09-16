@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class GetPermissionsDataLocation {
     /**
-     * @return Amazon Resource Name (ARN) that uniquely identifies the data location resource.
+     * @return ARN that uniquely identifies the data location resource.
      * 
      */
     private String arn;
@@ -22,7 +22,7 @@ public final class GetPermissionsDataLocation {
 
     private GetPermissionsDataLocation() {}
     /**
-     * @return Amazon Resource Name (ARN) that uniquely identifies the data location resource.
+     * @return ARN that uniquely identifies the data location resource.
      * 
      */
     public String arn() {

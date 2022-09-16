@@ -18,14 +18,14 @@ public final class GetZonePlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetZonePlainArgs Empty = new GetZonePlainArgs();
 
     /**
-     * The Hosted Zone name of the desired Hosted Zone.
+     * Hosted Zone name of the desired Hosted Zone.
      * 
      */
     @Import(name="name")
     private @Nullable String name;
 
     /**
-     * @return The Hosted Zone name of the desired Hosted Zone.
+     * @return Hosted Zone name of the desired Hosted Zone.
      * 
      */
     public Optional<String> name() {
@@ -93,14 +93,14 @@ public final class GetZonePlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The Hosted Zone id of the desired Hosted Zone.
+     * Hosted Zone id of the desired Hosted Zone.
      * 
      */
     @Import(name="zoneId")
     private @Nullable String zoneId;
 
     /**
-     * @return The Hosted Zone id of the desired Hosted Zone.
+     * @return Hosted Zone id of the desired Hosted Zone.
      * 
      */
     public Optional<String> zoneId() {
@@ -137,7 +137,7 @@ public final class GetZonePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The Hosted Zone name of the desired Hosted Zone.
+         * @param name Hosted Zone name of the desired Hosted Zone.
          * 
          * @return builder
          * 
@@ -192,7 +192,7 @@ public final class GetZonePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param zoneId The Hosted Zone id of the desired Hosted Zone.
+         * @param zoneId Hosted Zone id of the desired Hosted Zone.
          * 
          * @return builder
          * 

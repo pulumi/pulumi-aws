@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetPlanResult {
     /**
-     * @return The ARN of the backup plan.
+     * @return ARN of the backup plan.
      * 
      */
     private String arn;
@@ -21,7 +21,7 @@ public final class GetPlanResult {
      */
     private String id;
     /**
-     * @return The display name of a backup plan.
+     * @return Display name of a backup plan.
      * 
      */
     private String name;
@@ -39,7 +39,7 @@ public final class GetPlanResult {
 
     private GetPlanResult() {}
     /**
-     * @return The ARN of the backup plan.
+     * @return ARN of the backup plan.
      * 
      */
     public String arn() {
@@ -53,7 +53,7 @@ public final class GetPlanResult {
         return this.id;
     }
     /**
-     * @return The display name of a backup plan.
+     * @return Display name of a backup plan.
      * 
      */
     public String name() {

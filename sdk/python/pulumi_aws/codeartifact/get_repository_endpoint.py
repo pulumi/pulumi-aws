@@ -73,7 +73,7 @@ class GetRepositoryEndpointResult:
     @pulumi.getter(name="repositoryEndpoint")
     def repository_endpoint(self) -> str:
         """
-        The URL of the returned endpoint.
+        URL of the returned endpoint.
         """
         return pulumi.get(self, "repository_endpoint")
 
@@ -112,10 +112,10 @@ def get_repository_endpoint(domain: Optional[str] = None,
     ```
 
 
-    :param str domain: The name of the domain that contains the repository.
-    :param str domain_owner: The account number of the AWS account that owns the domain.
+    :param str domain: Name of the domain that contains the repository.
+    :param str domain_owner: Account number of the AWS account that owns the domain.
     :param str format: Which endpoint of a repository to return. A repository has one endpoint for each package format: `npm`, `pypi`, `maven`, and `nuget`.
-    :param str repository: The name of the repository.
+    :param str repository: Name of the repository.
     """
     __args__ = dict()
     __args__['domain'] = domain
@@ -155,9 +155,9 @@ def get_repository_endpoint_output(domain: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str domain: The name of the domain that contains the repository.
-    :param str domain_owner: The account number of the AWS account that owns the domain.
+    :param str domain: Name of the domain that contains the repository.
+    :param str domain_owner: Account number of the AWS account that owns the domain.
     :param str format: Which endpoint of a repository to return. A repository has one endpoint for each package format: `npm`, `pypi`, `maven`, and `nuget`.
-    :param str repository: The name of the repository.
+    :param str repository: Name of the repository.
     """
     ...

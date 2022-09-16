@@ -14,12 +14,12 @@ import java.util.Objects;
 @CustomType
 public final class GetProxyResult {
     /**
-     * @return The ARN of the DB Proxy.
+     * @return ARN of the DB Proxy.
      * 
      */
     private String arn;
     /**
-     * @return The configuration(s) with authorization mechanisms to connect to the associated instance or cluster.
+     * @return Configuration(s) with authorization mechanisms to connect to the associated instance or cluster.
      * 
      */
     private List<GetProxyAuth> auths;
@@ -29,12 +29,12 @@ public final class GetProxyResult {
      */
     private Boolean debugLogging;
     /**
-     * @return The endpoint that you can use to connect to the DB proxy.
+     * @return Endpoint that you can use to connect to the DB proxy.
      * 
      */
     private String endpoint;
     /**
-     * @return The kinds of databases that the proxy can connect to.
+     * @return Kinds of databases that the proxy can connect to.
      * 
      */
     private String engineFamily;
@@ -44,18 +44,18 @@ public final class GetProxyResult {
      */
     private String id;
     /**
-     * @return The number of seconds a connection to the proxy can have no activity before the proxy drops the client connection.
+     * @return Number of seconds a connection to the proxy can have no activity before the proxy drops the client connection.
      * 
      */
     private Integer idleClientTimeout;
     private String name;
     /**
-     * @return Indicates whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
+     * @return Whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
      * 
      */
     private Boolean requireTls;
     /**
-     * @return The Amazon Resource Name (ARN) for the IAM role that the proxy uses to access Amazon Secrets Manager.
+     * @return ARN for the IAM role that the proxy uses to access Amazon Secrets Manager.
      * 
      */
     private String roleArn;
@@ -70,21 +70,21 @@ public final class GetProxyResult {
      */
     private List<String> vpcSecurityGroupIds;
     /**
-     * @return The EC2 subnet IDs for the proxy.
+     * @return EC2 subnet IDs for the proxy.
      * 
      */
     private List<String> vpcSubnetIds;
 
     private GetProxyResult() {}
     /**
-     * @return The ARN of the DB Proxy.
+     * @return ARN of the DB Proxy.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return The configuration(s) with authorization mechanisms to connect to the associated instance or cluster.
+     * @return Configuration(s) with authorization mechanisms to connect to the associated instance or cluster.
      * 
      */
     public List<GetProxyAuth> auths() {
@@ -98,14 +98,14 @@ public final class GetProxyResult {
         return this.debugLogging;
     }
     /**
-     * @return The endpoint that you can use to connect to the DB proxy.
+     * @return Endpoint that you can use to connect to the DB proxy.
      * 
      */
     public String endpoint() {
         return this.endpoint;
     }
     /**
-     * @return The kinds of databases that the proxy can connect to.
+     * @return Kinds of databases that the proxy can connect to.
      * 
      */
     public String engineFamily() {
@@ -119,7 +119,7 @@ public final class GetProxyResult {
         return this.id;
     }
     /**
-     * @return The number of seconds a connection to the proxy can have no activity before the proxy drops the client connection.
+     * @return Number of seconds a connection to the proxy can have no activity before the proxy drops the client connection.
      * 
      */
     public Integer idleClientTimeout() {
@@ -129,14 +129,14 @@ public final class GetProxyResult {
         return this.name;
     }
     /**
-     * @return Indicates whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
+     * @return Whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
      * 
      */
     public Boolean requireTls() {
         return this.requireTls;
     }
     /**
-     * @return The Amazon Resource Name (ARN) for the IAM role that the proxy uses to access Amazon Secrets Manager.
+     * @return ARN for the IAM role that the proxy uses to access Amazon Secrets Manager.
      * 
      */
     public String roleArn() {
@@ -157,7 +157,7 @@ public final class GetProxyResult {
         return this.vpcSecurityGroupIds;
     }
     /**
-     * @return The EC2 subnet IDs for the proxy.
+     * @return EC2 subnet IDs for the proxy.
      * 
      */
     public List<String> vpcSubnetIds() {

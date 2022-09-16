@@ -13,13 +13,13 @@ namespace Pulumi.Aws.AppFlow.Inputs
     public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon S3 bucket name where the source files are stored.
+        /// Amazon S3 bucket name where the source files are stored.
         /// </summary>
         [Input("bucketName")]
         public Input<string>? BucketName { get; set; }
 
         /// <summary>
-        /// The object key for the Amazon S3 bucket in which the source files are stored.
+        /// Object key for the Amazon S3 bucket in which the source files are stored.
         /// </summary>
         [Input("bucketPrefix")]
         public Input<string>? BucketPrefix { get; set; }

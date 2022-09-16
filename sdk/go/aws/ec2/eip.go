@@ -186,7 +186,7 @@ import (
 //
 // ```
 //
-//	EIPs in EC2 Classic can be imported using their Public IP, e.g.,
+//	EIPs in EC2-Classic can be imported using their Public IP, e.g.,
 //
 // ```sh
 //
@@ -212,7 +212,7 @@ type Eip struct {
 	CustomerOwnedIp pulumi.StringOutput `pulumi:"customerOwnedIp"`
 	// ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing).
 	CustomerOwnedIpv4Pool pulumi.StringPtrOutput `pulumi:"customerOwnedIpv4Pool"`
-	// Indicates if this EIP is for use in VPC (`vpc`) or EC2 Classic (`standard`).
+	// Indicates if this EIP is for use in VPC (`vpc`) or EC2-Classic (`standard`).
 	Domain pulumi.StringOutput `pulumi:"domain"`
 	// EC2 instance ID.
 	Instance pulumi.StringOutput `pulumi:"instance"`
@@ -235,6 +235,7 @@ type Eip struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Boolean if the EIP is in a VPC or not.
+	// Defaults to `true` unless the region supports EC2-Classic.
 	Vpc pulumi.BoolOutput `pulumi:"vpc"`
 }
 
@@ -281,7 +282,7 @@ type eipState struct {
 	CustomerOwnedIp *string `pulumi:"customerOwnedIp"`
 	// ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing).
 	CustomerOwnedIpv4Pool *string `pulumi:"customerOwnedIpv4Pool"`
-	// Indicates if this EIP is for use in VPC (`vpc`) or EC2 Classic (`standard`).
+	// Indicates if this EIP is for use in VPC (`vpc`) or EC2-Classic (`standard`).
 	Domain *string `pulumi:"domain"`
 	// EC2 instance ID.
 	Instance *string `pulumi:"instance"`
@@ -304,6 +305,7 @@ type eipState struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Boolean if the EIP is in a VPC or not.
+	// Defaults to `true` unless the region supports EC2-Classic.
 	Vpc *bool `pulumi:"vpc"`
 }
 
@@ -322,7 +324,7 @@ type EipState struct {
 	CustomerOwnedIp pulumi.StringPtrInput
 	// ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing).
 	CustomerOwnedIpv4Pool pulumi.StringPtrInput
-	// Indicates if this EIP is for use in VPC (`vpc`) or EC2 Classic (`standard`).
+	// Indicates if this EIP is for use in VPC (`vpc`) or EC2-Classic (`standard`).
 	Domain pulumi.StringPtrInput
 	// EC2 instance ID.
 	Instance pulumi.StringPtrInput
@@ -345,6 +347,7 @@ type EipState struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Boolean if the EIP is in a VPC or not.
+	// Defaults to `true` unless the region supports EC2-Classic.
 	Vpc pulumi.BoolPtrInput
 }
 
@@ -370,6 +373,7 @@ type eipArgs struct {
 	// Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Boolean if the EIP is in a VPC or not.
+	// Defaults to `true` unless the region supports EC2-Classic.
 	Vpc *bool `pulumi:"vpc"`
 }
 
@@ -392,6 +396,7 @@ type EipArgs struct {
 	// Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Boolean if the EIP is in a VPC or not.
+	// Defaults to `true` unless the region supports EC2-Classic.
 	Vpc pulumi.BoolPtrInput
 }
 
@@ -517,7 +522,7 @@ func (o EipOutput) CustomerOwnedIpv4Pool() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Eip) pulumi.StringPtrOutput { return v.CustomerOwnedIpv4Pool }).(pulumi.StringPtrOutput)
 }
 
-// Indicates if this EIP is for use in VPC (`vpc`) or EC2 Classic (`standard`).
+// Indicates if this EIP is for use in VPC (`vpc`) or EC2-Classic (`standard`).
 func (o EipOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v *Eip) pulumi.StringOutput { return v.Domain }).(pulumi.StringOutput)
 }
@@ -573,6 +578,7 @@ func (o EipOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // Boolean if the EIP is in a VPC or not.
+// Defaults to `true` unless the region supports EC2-Classic.
 func (o EipOutput) Vpc() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Eip) pulumi.BoolOutput { return v.Vpc }).(pulumi.BoolOutput)
 }

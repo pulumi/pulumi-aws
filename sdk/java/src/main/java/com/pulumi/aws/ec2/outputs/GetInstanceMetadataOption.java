@@ -11,12 +11,12 @@ import java.util.Objects;
 @CustomType
 public final class GetInstanceMetadataOption {
     /**
-     * @return The state of the metadata service: `enabled`, `disabled`.
+     * @return State of the metadata service: `enabled`, `disabled`.
      * 
      */
     private String httpEndpoint;
     /**
-     * @return The desired HTTP PUT response hop limit for instance metadata requests.
+     * @return Desired HTTP PUT response hop limit for instance metadata requests.
      * 
      */
     private Integer httpPutResponseHopLimit;
@@ -33,14 +33,14 @@ public final class GetInstanceMetadataOption {
 
     private GetInstanceMetadataOption() {}
     /**
-     * @return The state of the metadata service: `enabled`, `disabled`.
+     * @return State of the metadata service: `enabled`, `disabled`.
      * 
      */
     public String httpEndpoint() {
         return this.httpEndpoint;
     }
     /**
-     * @return The desired HTTP PUT response hop limit for instance metadata requests.
+     * @return Desired HTTP PUT response hop limit for instance metadata requests.
      * 
      */
     public Integer httpPutResponseHopLimit() {

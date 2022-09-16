@@ -13,13 +13,13 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class RouteSpecHttpRouteMatchHeaderMatchRangeGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The end of the range.
+        /// End of the range.
         /// </summary>
         [Input("end", required: true)]
         public Input<int> End { get; set; } = null!;
 
         /// <summary>
-        /// The start of the range.
+        /// Start of the range.
         /// </summary>
         [Input("start", required: true)]
         public Input<int> Start { get; set; } = null!;

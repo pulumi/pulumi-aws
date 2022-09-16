@@ -48,9 +48,9 @@ func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getCluster.
 type LookupClusterArgs struct {
-	// The id of Cloud HSM v2 cluster.
+	// ID of Cloud HSM v2 cluster.
 	ClusterId string `pulumi:"clusterId"`
-	// The state of the cluster to be found.
+	// State of the cluster to be found.
 	ClusterState *string `pulumi:"clusterState"`
 }
 
@@ -68,11 +68,11 @@ type LookupClusterResult struct {
 	ClusterState        string                         `pulumi:"clusterState"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The ID of the security group associated with the CloudHSM cluster.
+	// ID of the security group associated with the CloudHSM cluster.
 	SecurityGroupId string `pulumi:"securityGroupId"`
-	// The IDs of subnets in which cluster operates.
+	// IDs of subnets in which cluster operates.
 	SubnetIds []string `pulumi:"subnetIds"`
-	// The id of the VPC that the CloudHSM cluster resides in.
+	// ID of the VPC that the CloudHSM cluster resides in.
 	VpcId string `pulumi:"vpcId"`
 }
 
@@ -91,9 +91,9 @@ func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts
 
 // A collection of arguments for invoking getCluster.
 type LookupClusterOutputArgs struct {
-	// The id of Cloud HSM v2 cluster.
+	// ID of Cloud HSM v2 cluster.
 	ClusterId pulumi.StringInput `pulumi:"clusterId"`
-	// The state of the cluster to be found.
+	// State of the cluster to be found.
 	ClusterState pulumi.StringPtrInput `pulumi:"clusterState"`
 }
 
@@ -140,17 +140,17 @@ func (o LookupClusterResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The ID of the security group associated with the CloudHSM cluster.
+// ID of the security group associated with the CloudHSM cluster.
 func (o LookupClusterResultOutput) SecurityGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.SecurityGroupId }).(pulumi.StringOutput)
 }
 
-// The IDs of subnets in which cluster operates.
+// IDs of subnets in which cluster operates.
 func (o LookupClusterResultOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-// The id of the VPC that the CloudHSM cluster resides in.
+// ID of the VPC that the CloudHSM cluster resides in.
 func (o LookupClusterResultOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.VpcId }).(pulumi.StringOutput)
 }

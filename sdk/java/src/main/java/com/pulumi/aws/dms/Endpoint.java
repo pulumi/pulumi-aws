@@ -10,6 +10,7 @@ import com.pulumi.aws.dms.outputs.EndpointElasticsearchSettings;
 import com.pulumi.aws.dms.outputs.EndpointKafkaSettings;
 import com.pulumi.aws.dms.outputs.EndpointKinesisSettings;
 import com.pulumi.aws.dms.outputs.EndpointMongodbSettings;
+import com.pulumi.aws.dms.outputs.EndpointRedisSettings;
 import com.pulumi.aws.dms.outputs.EndpointRedshiftSettings;
 import com.pulumi.aws.dms.outputs.EndpointS3Settings;
 import com.pulumi.core.Output;
@@ -261,18 +262,24 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.password);
     }
     /**
-     * Port used by the endpoint database.
+     * Transmission Control Protocol (TCP) port for the endpoint.
      * 
      */
     @Export(name="port", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> port;
 
     /**
-     * @return Port used by the endpoint database.
+     * @return Transmission Control Protocol (TCP) port for the endpoint.
      * 
      */
     public Output<Optional<Integer>> port() {
         return Codegen.optional(this.port);
+    }
+    @Export(name="redisSettings", type=EndpointRedisSettings.class, parameters={})
+    private Output</* @Nullable */ EndpointRedisSettings> redisSettings;
+
+    public Output<Optional<EndpointRedisSettings>> redisSettings() {
+        return Codegen.optional(this.redisSettings);
     }
     /**
      * Configuration block for Redshift settings. See below.
@@ -331,14 +338,14 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.secretsManagerArn);
     }
     /**
-     * Host name of the server.
+     * Fully qualified domain name of the endpoint.
      * 
      */
     @Export(name="serverName", type=String.class, parameters={})
     private Output</* @Nullable */ String> serverName;
 
     /**
-     * @return Host name of the server.
+     * @return Fully qualified domain name of the endpoint.
      * 
      */
     public Output<Optional<String>> serverName() {

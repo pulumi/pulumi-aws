@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppSync.Outputs
     public sealed class DataSourceLambdaConfig
     {
         /// <summary>
-        /// The ARN for the Lambda function.
+        /// ARN for the Lambda function.
         /// </summary>
         public readonly string FunctionArn;
 

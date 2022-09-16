@@ -34,7 +34,8 @@ type ServerlessCluster struct {
 	// The name of the serverless cluster.
 	ClusterName pulumi.StringOutput    `pulumi:"clusterName"`
 	Tags        pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll     pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// VPC configuration information. See below.
 	VpcConfigs ServerlessClusterVpcConfigArrayOutput `pulumi:"vpcConfigs"`
 }
@@ -81,7 +82,8 @@ type serverlessClusterState struct {
 	// The name of the serverless cluster.
 	ClusterName *string           `pulumi:"clusterName"`
 	Tags        map[string]string `pulumi:"tags"`
-	TagsAll     map[string]string `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// VPC configuration information. See below.
 	VpcConfigs []ServerlessClusterVpcConfig `pulumi:"vpcConfigs"`
 }
@@ -94,7 +96,8 @@ type ServerlessClusterState struct {
 	// The name of the serverless cluster.
 	ClusterName pulumi.StringPtrInput
 	Tags        pulumi.StringMapInput
-	TagsAll     pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// VPC configuration information. See below.
 	VpcConfigs ServerlessClusterVpcConfigArrayInput
 }
@@ -109,7 +112,6 @@ type serverlessClusterArgs struct {
 	// The name of the serverless cluster.
 	ClusterName *string           `pulumi:"clusterName"`
 	Tags        map[string]string `pulumi:"tags"`
-	TagsAll     map[string]string `pulumi:"tagsAll"`
 	// VPC configuration information. See below.
 	VpcConfigs []ServerlessClusterVpcConfig `pulumi:"vpcConfigs"`
 }
@@ -121,7 +123,6 @@ type ServerlessClusterArgs struct {
 	// The name of the serverless cluster.
 	ClusterName pulumi.StringPtrInput
 	Tags        pulumi.StringMapInput
-	TagsAll     pulumi.StringMapInput
 	// VPC configuration information. See below.
 	VpcConfigs ServerlessClusterVpcConfigArrayInput
 }
@@ -232,6 +233,7 @@ func (o ServerlessClusterOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServerlessCluster) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ServerlessClusterOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServerlessCluster) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

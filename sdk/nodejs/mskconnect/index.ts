@@ -5,17 +5,36 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./connector";
-export * from "./customPlugin";
-export * from "./getConnector";
-export * from "./getCustomPlugin";
-export * from "./getWorkerConfiguration";
-export * from "./workerConfiguration";
+export { ConnectorArgs, ConnectorState } from "./connector";
+export type Connector = import("./connector").Connector;
+export const Connector: typeof import("./connector").Connector = null as any;
 
-// Import resources to register:
-import { Connector } from "./connector";
-import { CustomPlugin } from "./customPlugin";
-import { WorkerConfiguration } from "./workerConfiguration";
+export { CustomPluginArgs, CustomPluginState } from "./customPlugin";
+export type CustomPlugin = import("./customPlugin").CustomPlugin;
+export const CustomPlugin: typeof import("./customPlugin").CustomPlugin = null as any;
+
+export { GetConnectorArgs, GetConnectorResult, GetConnectorOutputArgs } from "./getConnector";
+export const getConnector: typeof import("./getConnector").getConnector = null as any;
+export const getConnectorOutput: typeof import("./getConnector").getConnectorOutput = null as any;
+
+export { GetCustomPluginArgs, GetCustomPluginResult, GetCustomPluginOutputArgs } from "./getCustomPlugin";
+export const getCustomPlugin: typeof import("./getCustomPlugin").getCustomPlugin = null as any;
+export const getCustomPluginOutput: typeof import("./getCustomPlugin").getCustomPluginOutput = null as any;
+
+export { GetWorkerConfigurationArgs, GetWorkerConfigurationResult, GetWorkerConfigurationOutputArgs } from "./getWorkerConfiguration";
+export const getWorkerConfiguration: typeof import("./getWorkerConfiguration").getWorkerConfiguration = null as any;
+export const getWorkerConfigurationOutput: typeof import("./getWorkerConfiguration").getWorkerConfigurationOutput = null as any;
+
+export { WorkerConfigurationArgs, WorkerConfigurationState } from "./workerConfiguration";
+export type WorkerConfiguration = import("./workerConfiguration").WorkerConfiguration;
+export const WorkerConfiguration: typeof import("./workerConfiguration").WorkerConfiguration = null as any;
+
+utilities.lazyLoad(exports, ["Connector"], () => require("./connector"));
+utilities.lazyLoad(exports, ["CustomPlugin"], () => require("./customPlugin"));
+utilities.lazyLoad(exports, ["getConnector","getConnectorOutput"], () => require("./getConnector"));
+utilities.lazyLoad(exports, ["getCustomPlugin","getCustomPluginOutput"], () => require("./getCustomPlugin"));
+utilities.lazyLoad(exports, ["getWorkerConfiguration","getWorkerConfigurationOutput"], () => require("./getWorkerConfiguration"));
+utilities.lazyLoad(exports, ["WorkerConfiguration"], () => require("./workerConfiguration"));
 
 const _module = {
     version: utilities.getVersion(),

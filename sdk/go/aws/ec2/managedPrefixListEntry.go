@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewManagedPrefixList(ctx, "example", &ec2.ManagedPrefixListArgs{
+//			example, err := ec2.NewManagedPrefixList(ctx, "example", &ec2.ManagedPrefixListArgs{
 //				AddressFamily: pulumi.String("IPv4"),
 //				MaxEntries:    pulumi.Int(5),
 //				Tags: pulumi.StringMap{
@@ -40,7 +40,7 @@ import (
 //			_, err = ec2.NewManagedPrefixListEntry(ctx, "entry1", &ec2.ManagedPrefixListEntryArgs{
 //				Cidr:         pulumi.Any(aws_vpc.Example.Cidr_block),
 //				Description:  pulumi.String("Primary"),
-//				PrefixListId: pulumi.Any(aws_ec2_managed_prefix_list.Entry.Id),
+//				PrefixListId: example.ID(),
 //			})
 //			if err != nil {
 //				return err

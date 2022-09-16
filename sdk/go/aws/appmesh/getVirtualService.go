@@ -80,34 +80,34 @@ func LookupVirtualService(ctx *pulumi.Context, args *LookupVirtualServiceArgs, o
 
 // A collection of arguments for invoking getVirtualService.
 type LookupVirtualServiceArgs struct {
-	// The name of the service mesh in which the virtual service exists.
+	// Name of the service mesh in which the virtual service exists.
 	MeshName string `pulumi:"meshName"`
-	// The AWS account ID of the service mesh's owner.
+	// AWS account ID of the service mesh's owner.
 	MeshOwner *string `pulumi:"meshOwner"`
-	// The name of the virtual service.
+	// Name of the virtual service.
 	Name string `pulumi:"name"`
-	// A map of tags.
+	// Map of tags.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getVirtualService.
 type LookupVirtualServiceResult struct {
-	// The ARN of the virtual service.
+	// ARN of the virtual service.
 	Arn string `pulumi:"arn"`
-	// The creation date of the virtual service.
+	// Creation date of the virtual service.
 	CreatedDate string `pulumi:"createdDate"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The last update date of the virtual service.
+	// Last update date of the virtual service.
 	LastUpdatedDate string `pulumi:"lastUpdatedDate"`
 	MeshName        string `pulumi:"meshName"`
 	MeshOwner       string `pulumi:"meshOwner"`
 	Name            string `pulumi:"name"`
-	// The resource owner's AWS account ID.
+	// Resource owner's AWS account ID.
 	ResourceOwner string `pulumi:"resourceOwner"`
-	// The virtual service specification
+	// Virtual service specification
 	Specs []GetVirtualServiceSpec `pulumi:"specs"`
-	// A map of tags.
+	// Map of tags.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -126,13 +126,13 @@ func LookupVirtualServiceOutput(ctx *pulumi.Context, args LookupVirtualServiceOu
 
 // A collection of arguments for invoking getVirtualService.
 type LookupVirtualServiceOutputArgs struct {
-	// The name of the service mesh in which the virtual service exists.
+	// Name of the service mesh in which the virtual service exists.
 	MeshName pulumi.StringInput `pulumi:"meshName"`
-	// The AWS account ID of the service mesh's owner.
+	// AWS account ID of the service mesh's owner.
 	MeshOwner pulumi.StringPtrInput `pulumi:"meshOwner"`
-	// The name of the virtual service.
+	// Name of the virtual service.
 	Name pulumi.StringInput `pulumi:"name"`
-	// A map of tags.
+	// Map of tags.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -155,12 +155,12 @@ func (o LookupVirtualServiceResultOutput) ToLookupVirtualServiceResultOutputWith
 	return o
 }
 
-// The ARN of the virtual service.
+// ARN of the virtual service.
 func (o LookupVirtualServiceResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVirtualServiceResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The creation date of the virtual service.
+// Creation date of the virtual service.
 func (o LookupVirtualServiceResultOutput) CreatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVirtualServiceResult) string { return v.CreatedDate }).(pulumi.StringOutput)
 }
@@ -170,7 +170,7 @@ func (o LookupVirtualServiceResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVirtualServiceResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The last update date of the virtual service.
+// Last update date of the virtual service.
 func (o LookupVirtualServiceResultOutput) LastUpdatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVirtualServiceResult) string { return v.LastUpdatedDate }).(pulumi.StringOutput)
 }
@@ -187,17 +187,17 @@ func (o LookupVirtualServiceResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVirtualServiceResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The resource owner's AWS account ID.
+// Resource owner's AWS account ID.
 func (o LookupVirtualServiceResultOutput) ResourceOwner() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVirtualServiceResult) string { return v.ResourceOwner }).(pulumi.StringOutput)
 }
 
-// The virtual service specification
+// Virtual service specification
 func (o LookupVirtualServiceResultOutput) Specs() GetVirtualServiceSpecArrayOutput {
 	return o.ApplyT(func(v LookupVirtualServiceResult) []GetVirtualServiceSpec { return v.Specs }).(GetVirtualServiceSpecArrayOutput)
 }
 
-// A map of tags.
+// Map of tags.
 func (o LookupVirtualServiceResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupVirtualServiceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

@@ -66,15 +66,15 @@ import (
 type Model struct {
 	pulumi.CustomResourceState
 
-	// The API identifier.
+	// API identifier.
 	ApiId pulumi.StringOutput `pulumi:"apiId"`
 	// The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
 	ContentType pulumi.StringOutput `pulumi:"contentType"`
-	// The description of the model. Must be between 1 and 128 characters in length.
+	// Description of the model. Must be between 1 and 128 characters in length.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
+	// Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
+	// Schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
 	Schema pulumi.StringOutput `pulumi:"schema"`
 }
 
@@ -116,28 +116,28 @@ func GetModel(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Model resources.
 type modelState struct {
-	// The API identifier.
+	// API identifier.
 	ApiId *string `pulumi:"apiId"`
 	// The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
 	ContentType *string `pulumi:"contentType"`
-	// The description of the model. Must be between 1 and 128 characters in length.
+	// Description of the model. Must be between 1 and 128 characters in length.
 	Description *string `pulumi:"description"`
-	// The name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
+	// Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
 	Name *string `pulumi:"name"`
-	// The schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
+	// Schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
 	Schema *string `pulumi:"schema"`
 }
 
 type ModelState struct {
-	// The API identifier.
+	// API identifier.
 	ApiId pulumi.StringPtrInput
 	// The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
 	ContentType pulumi.StringPtrInput
-	// The description of the model. Must be between 1 and 128 characters in length.
+	// Description of the model. Must be between 1 and 128 characters in length.
 	Description pulumi.StringPtrInput
-	// The name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
+	// Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
 	Name pulumi.StringPtrInput
-	// The schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
+	// Schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
 	Schema pulumi.StringPtrInput
 }
 
@@ -146,29 +146,29 @@ func (ModelState) ElementType() reflect.Type {
 }
 
 type modelArgs struct {
-	// The API identifier.
+	// API identifier.
 	ApiId string `pulumi:"apiId"`
 	// The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
 	ContentType string `pulumi:"contentType"`
-	// The description of the model. Must be between 1 and 128 characters in length.
+	// Description of the model. Must be between 1 and 128 characters in length.
 	Description *string `pulumi:"description"`
-	// The name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
+	// Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
 	Name *string `pulumi:"name"`
-	// The schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
+	// Schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
 	Schema string `pulumi:"schema"`
 }
 
 // The set of arguments for constructing a Model resource.
 type ModelArgs struct {
-	// The API identifier.
+	// API identifier.
 	ApiId pulumi.StringInput
 	// The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
 	ContentType pulumi.StringInput
-	// The description of the model. Must be between 1 and 128 characters in length.
+	// Description of the model. Must be between 1 and 128 characters in length.
 	Description pulumi.StringPtrInput
-	// The name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
+	// Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
 	Name pulumi.StringPtrInput
-	// The schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
+	// Schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
 	Schema pulumi.StringInput
 }
 
@@ -259,7 +259,7 @@ func (o ModelOutput) ToModelOutputWithContext(ctx context.Context) ModelOutput {
 	return o
 }
 
-// The API identifier.
+// API identifier.
 func (o ModelOutput) ApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Model) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
 }
@@ -269,17 +269,17 @@ func (o ModelOutput) ContentType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Model) pulumi.StringOutput { return v.ContentType }).(pulumi.StringOutput)
 }
 
-// The description of the model. Must be between 1 and 128 characters in length.
+// Description of the model. Must be between 1 and 128 characters in length.
 func (o ModelOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Model) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
+// Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
 func (o ModelOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Model) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
+// Schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
 func (o ModelOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v *Model) pulumi.StringOutput { return v.Schema }).(pulumi.StringOutput)
 }

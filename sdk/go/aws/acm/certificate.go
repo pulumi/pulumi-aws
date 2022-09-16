@@ -152,39 +152,38 @@ import (
 type Certificate struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the certificate
+	// ARN of the certificate
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// ARN of an ACM PCA
 	CertificateAuthorityArn pulumi.StringPtrOutput `pulumi:"certificateAuthorityArn"`
-	// The certificate's PEM-formatted public key
+	// Certificate's PEM-formatted public key
 	CertificateBody pulumi.StringPtrOutput `pulumi:"certificateBody"`
-	// The certificate's PEM-formatted chain
+	// Certificate's PEM-formatted chain
 	// * Creating a private CA issued certificate
 	CertificateChain pulumi.StringPtrOutput `pulumi:"certificateChain"`
-	// A fully qualified domain name (FQDN) in the certificate.
+	// Fully qualified domain name (FQDN) in the certificate.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
 	// Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Only set if `DNS`-validation was used.
 	DomainValidationOptions CertificateDomainValidationOptionArrayOutput `pulumi:"domainValidationOptions"`
-	// The expiration date and time of the certificate.
+	// Expiration date and time of the certificate.
 	NotAfter pulumi.StringOutput `pulumi:"notAfter"`
-	// The start of the validity period of the certificate.
+	// Start of the validity period of the certificate.
 	NotBefore pulumi.StringOutput `pulumi:"notBefore"`
 	// Configuration block used to set certificate options. Detailed below.
 	Options CertificateOptionsPtrOutput `pulumi:"options"`
-	// The certificate's PEM-formatted private key
+	// Certificate's PEM-formatted private key
 	PrivateKey pulumi.StringPtrOutput `pulumi:"privateKey"`
 	// Status of the certificate.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
 	SubjectAlternativeNames pulumi.StringArrayOutput `pulumi:"subjectAlternativeNames"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// A list of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
+	// List of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
 	ValidationEmails pulumi.StringArrayOutput `pulumi:"validationEmails"`
-	// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
-	ValidationMethod pulumi.StringOutput `pulumi:"validationMethod"`
+	ValidationMethod pulumi.StringOutput      `pulumi:"validationMethod"`
 	// Configuration block used to specify information about the initial validation of each domain name. Detailed below.
 	// * Importing an existing certificate
 	ValidationOptions CertificateValidationOptionArrayOutput `pulumi:"validationOptions"`
@@ -219,77 +218,75 @@ func GetCertificate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Certificate resources.
 type certificateState struct {
-	// The ARN of the certificate
+	// ARN of the certificate
 	Arn *string `pulumi:"arn"`
 	// ARN of an ACM PCA
 	CertificateAuthorityArn *string `pulumi:"certificateAuthorityArn"`
-	// The certificate's PEM-formatted public key
+	// Certificate's PEM-formatted public key
 	CertificateBody *string `pulumi:"certificateBody"`
-	// The certificate's PEM-formatted chain
+	// Certificate's PEM-formatted chain
 	// * Creating a private CA issued certificate
 	CertificateChain *string `pulumi:"certificateChain"`
-	// A fully qualified domain name (FQDN) in the certificate.
+	// Fully qualified domain name (FQDN) in the certificate.
 	DomainName *string `pulumi:"domainName"`
 	// Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Only set if `DNS`-validation was used.
 	DomainValidationOptions []CertificateDomainValidationOption `pulumi:"domainValidationOptions"`
-	// The expiration date and time of the certificate.
+	// Expiration date and time of the certificate.
 	NotAfter *string `pulumi:"notAfter"`
-	// The start of the validity period of the certificate.
+	// Start of the validity period of the certificate.
 	NotBefore *string `pulumi:"notBefore"`
 	// Configuration block used to set certificate options. Detailed below.
 	Options *CertificateOptions `pulumi:"options"`
-	// The certificate's PEM-formatted private key
+	// Certificate's PEM-formatted private key
 	PrivateKey *string `pulumi:"privateKey"`
 	// Status of the certificate.
 	Status *string `pulumi:"status"`
 	// Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
 	SubjectAlternativeNames []string `pulumi:"subjectAlternativeNames"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// A list of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
+	// List of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
 	ValidationEmails []string `pulumi:"validationEmails"`
-	// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
-	ValidationMethod *string `pulumi:"validationMethod"`
+	ValidationMethod *string  `pulumi:"validationMethod"`
 	// Configuration block used to specify information about the initial validation of each domain name. Detailed below.
 	// * Importing an existing certificate
 	ValidationOptions []CertificateValidationOption `pulumi:"validationOptions"`
 }
 
 type CertificateState struct {
-	// The ARN of the certificate
+	// ARN of the certificate
 	Arn pulumi.StringPtrInput
 	// ARN of an ACM PCA
 	CertificateAuthorityArn pulumi.StringPtrInput
-	// The certificate's PEM-formatted public key
+	// Certificate's PEM-formatted public key
 	CertificateBody pulumi.StringPtrInput
-	// The certificate's PEM-formatted chain
+	// Certificate's PEM-formatted chain
 	// * Creating a private CA issued certificate
 	CertificateChain pulumi.StringPtrInput
-	// A fully qualified domain name (FQDN) in the certificate.
+	// Fully qualified domain name (FQDN) in the certificate.
 	DomainName pulumi.StringPtrInput
 	// Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Only set if `DNS`-validation was used.
 	DomainValidationOptions CertificateDomainValidationOptionArrayInput
-	// The expiration date and time of the certificate.
+	// Expiration date and time of the certificate.
 	NotAfter pulumi.StringPtrInput
-	// The start of the validity period of the certificate.
+	// Start of the validity period of the certificate.
 	NotBefore pulumi.StringPtrInput
 	// Configuration block used to set certificate options. Detailed below.
 	Options CertificateOptionsPtrInput
-	// The certificate's PEM-formatted private key
+	// Certificate's PEM-formatted private key
 	PrivateKey pulumi.StringPtrInput
 	// Status of the certificate.
 	Status pulumi.StringPtrInput
 	// Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
 	SubjectAlternativeNames pulumi.StringArrayInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// A list of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
+	// List of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
 	ValidationEmails pulumi.StringArrayInput
-	// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
 	ValidationMethod pulumi.StringPtrInput
 	// Configuration block used to specify information about the initial validation of each domain name. Detailed below.
 	// * Importing an existing certificate
@@ -303,23 +300,22 @@ func (CertificateState) ElementType() reflect.Type {
 type certificateArgs struct {
 	// ARN of an ACM PCA
 	CertificateAuthorityArn *string `pulumi:"certificateAuthorityArn"`
-	// The certificate's PEM-formatted public key
+	// Certificate's PEM-formatted public key
 	CertificateBody *string `pulumi:"certificateBody"`
-	// The certificate's PEM-formatted chain
+	// Certificate's PEM-formatted chain
 	// * Creating a private CA issued certificate
 	CertificateChain *string `pulumi:"certificateChain"`
-	// A fully qualified domain name (FQDN) in the certificate.
+	// Fully qualified domain name (FQDN) in the certificate.
 	DomainName *string `pulumi:"domainName"`
 	// Configuration block used to set certificate options. Detailed below.
 	Options *CertificateOptions `pulumi:"options"`
-	// The certificate's PEM-formatted private key
+	// Certificate's PEM-formatted private key
 	PrivateKey *string `pulumi:"privateKey"`
 	// Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
 	SubjectAlternativeNames []string `pulumi:"subjectAlternativeNames"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
-	ValidationMethod *string `pulumi:"validationMethod"`
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags             map[string]string `pulumi:"tags"`
+	ValidationMethod *string           `pulumi:"validationMethod"`
 	// Configuration block used to specify information about the initial validation of each domain name. Detailed below.
 	// * Importing an existing certificate
 	ValidationOptions []CertificateValidationOption `pulumi:"validationOptions"`
@@ -329,22 +325,21 @@ type certificateArgs struct {
 type CertificateArgs struct {
 	// ARN of an ACM PCA
 	CertificateAuthorityArn pulumi.StringPtrInput
-	// The certificate's PEM-formatted public key
+	// Certificate's PEM-formatted public key
 	CertificateBody pulumi.StringPtrInput
-	// The certificate's PEM-formatted chain
+	// Certificate's PEM-formatted chain
 	// * Creating a private CA issued certificate
 	CertificateChain pulumi.StringPtrInput
-	// A fully qualified domain name (FQDN) in the certificate.
+	// Fully qualified domain name (FQDN) in the certificate.
 	DomainName pulumi.StringPtrInput
 	// Configuration block used to set certificate options. Detailed below.
 	Options CertificateOptionsPtrInput
-	// The certificate's PEM-formatted private key
+	// Certificate's PEM-formatted private key
 	PrivateKey pulumi.StringPtrInput
 	// Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
 	SubjectAlternativeNames pulumi.StringArrayInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags             pulumi.StringMapInput
 	ValidationMethod pulumi.StringPtrInput
 	// Configuration block used to specify information about the initial validation of each domain name. Detailed below.
 	// * Importing an existing certificate
@@ -438,7 +433,7 @@ func (o CertificateOutput) ToCertificateOutputWithContext(ctx context.Context) C
 	return o
 }
 
-// The ARN of the certificate
+// ARN of the certificate
 func (o CertificateOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -448,18 +443,18 @@ func (o CertificateOutput) CertificateAuthorityArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.CertificateAuthorityArn }).(pulumi.StringPtrOutput)
 }
 
-// The certificate's PEM-formatted public key
+// Certificate's PEM-formatted public key
 func (o CertificateOutput) CertificateBody() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.CertificateBody }).(pulumi.StringPtrOutput)
 }
 
-// The certificate's PEM-formatted chain
+// Certificate's PEM-formatted chain
 // * Creating a private CA issued certificate
 func (o CertificateOutput) CertificateChain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.CertificateChain }).(pulumi.StringPtrOutput)
 }
 
-// A fully qualified domain name (FQDN) in the certificate.
+// Fully qualified domain name (FQDN) in the certificate.
 func (o CertificateOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
@@ -469,12 +464,12 @@ func (o CertificateOutput) DomainValidationOptions() CertificateDomainValidation
 	return o.ApplyT(func(v *Certificate) CertificateDomainValidationOptionArrayOutput { return v.DomainValidationOptions }).(CertificateDomainValidationOptionArrayOutput)
 }
 
-// The expiration date and time of the certificate.
+// Expiration date and time of the certificate.
 func (o CertificateOutput) NotAfter() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.NotAfter }).(pulumi.StringOutput)
 }
 
-// The start of the validity period of the certificate.
+// Start of the validity period of the certificate.
 func (o CertificateOutput) NotBefore() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.NotBefore }).(pulumi.StringOutput)
 }
@@ -484,7 +479,7 @@ func (o CertificateOutput) Options() CertificateOptionsPtrOutput {
 	return o.ApplyT(func(v *Certificate) CertificateOptionsPtrOutput { return v.Options }).(CertificateOptionsPtrOutput)
 }
 
-// The certificate's PEM-formatted private key
+// Certificate's PEM-formatted private key
 func (o CertificateOutput) PrivateKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.PrivateKey }).(pulumi.StringPtrOutput)
 }
@@ -499,22 +494,21 @@ func (o CertificateOutput) SubjectAlternativeNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringArrayOutput { return v.SubjectAlternativeNames }).(pulumi.StringArrayOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o CertificateOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o CertificateOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// A list of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
+// List of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
 func (o CertificateOutput) ValidationEmails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringArrayOutput { return v.ValidationEmails }).(pulumi.StringArrayOutput)
 }
 
-// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
 func (o CertificateOutput) ValidationMethod() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.ValidationMethod }).(pulumi.StringOutput)
 }

@@ -80,7 +80,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
     public sealed class GetApplicationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the application
+        /// Name of the application
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -94,7 +94,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
     public sealed class GetApplicationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the application
+        /// Name of the application
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -111,7 +111,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
     {
         public readonly Outputs.GetApplicationAppversionLifecycleResult AppversionLifecycle;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the application.
+        /// ARN of the application.
         /// </summary>
         public readonly string Arn;
         /// <summary>

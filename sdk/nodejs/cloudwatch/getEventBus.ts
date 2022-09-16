@@ -36,7 +36,7 @@ export function getEventBus(args: GetEventBusArgs, opts?: pulumi.InvokeOptions):
  */
 export interface GetEventBusArgs {
     /**
-     * The friendly EventBridge event bus name.
+     * Friendly EventBridge event bus name.
      */
     name: string;
 }
@@ -46,7 +46,7 @@ export interface GetEventBusArgs {
  */
 export interface GetEventBusResult {
     /**
-     * The Amazon Resource Name (ARN) specifying the role.
+     * ARN.
      */
     readonly arn: string;
     /**
@@ -65,7 +65,7 @@ export function getEventBusOutput(args: GetEventBusOutputArgs, opts?: pulumi.Inv
  */
 export interface GetEventBusOutputArgs {
     /**
-     * The friendly EventBridge event bus name.
+     * Friendly EventBridge event bus name.
      */
     name: pulumi.Input<string>;
 }

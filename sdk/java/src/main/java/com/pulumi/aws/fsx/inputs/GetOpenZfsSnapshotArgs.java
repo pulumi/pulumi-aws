@@ -52,14 +52,14 @@ public final class GetOpenZfsSnapshotArgs extends com.pulumi.resources.InvokeArg
     }
 
     /**
-     * The name of the snapshot.
+     * Name of the snapshot.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the snapshot.
+     * @return Name of the snapshot.
      * 
      */
     public Optional<Output<String>> name() {
@@ -82,14 +82,14 @@ public final class GetOpenZfsSnapshotArgs extends com.pulumi.resources.InvokeArg
     }
 
     /**
-     * A list of Tag values, with a maximum of 50 elements.
+     * List of Tag values, with a maximum of 50 elements.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A list of Tag values, with a maximum of 50 elements.
+     * @return List of Tag values, with a maximum of 50 elements.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -180,7 +180,7 @@ public final class GetOpenZfsSnapshotArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param name The name of the snapshot.
+         * @param name Name of the snapshot.
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class GetOpenZfsSnapshotArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param name The name of the snapshot.
+         * @param name Name of the snapshot.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class GetOpenZfsSnapshotArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param tags A list of Tag values, with a maximum of 50 elements.
+         * @param tags List of Tag values, with a maximum of 50 elements.
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class GetOpenZfsSnapshotArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param tags A list of Tag values, with a maximum of 50 elements.
+         * @param tags List of Tag values, with a maximum of 50 elements.
          * 
          * @return builder
          * 

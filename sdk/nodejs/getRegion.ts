@@ -42,11 +42,11 @@ export function getRegion(args?: GetRegionArgs, opts?: pulumi.InvokeOptions): Pr
  */
 export interface GetRegionArgs {
     /**
-     * The EC2 endpoint of the region to select.
+     * EC2 endpoint of the region to select.
      */
     endpoint?: string;
     /**
-     * The full name of the region to select.
+     * Full name of the region to select.
      */
     name?: string;
 }
@@ -56,11 +56,11 @@ export interface GetRegionArgs {
  */
 export interface GetRegionResult {
     /**
-     * The region's description in this format: "Location (Region name)".
+     * Region's description in this format: "Location (Region name)".
      */
     readonly description: string;
     /**
-     * The EC2 endpoint for the selected region.
+     * EC2 endpoint for the selected region.
      */
     readonly endpoint: string;
     /**
@@ -68,7 +68,7 @@ export interface GetRegionResult {
      */
     readonly id: string;
     /**
-     * The name of the selected region.
+     * Name of the selected region.
      */
     readonly name: string;
 }
@@ -82,11 +82,11 @@ export function getRegionOutput(args?: GetRegionOutputArgs, opts?: pulumi.Invoke
  */
 export interface GetRegionOutputArgs {
     /**
-     * The EC2 endpoint of the region to select.
+     * EC2 endpoint of the region to select.
      */
     endpoint?: pulumi.Input<string>;
     /**
-     * The full name of the region to select.
+     * Full name of the region to select.
      */
     name?: pulumi.Input<string>;
 }

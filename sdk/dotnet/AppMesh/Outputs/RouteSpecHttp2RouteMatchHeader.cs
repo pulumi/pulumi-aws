@@ -18,11 +18,11 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// </summary>
         public readonly bool? Invert;
         /// <summary>
-        /// The method and value to match the header value sent with a request. Specify one match method.
+        /// Method and value to match the header value sent with a request. Specify one match method.
         /// </summary>
         public readonly Outputs.RouteSpecHttp2RouteMatchHeaderMatch? Match;
         /// <summary>
-        /// A name for the HTTP header in the client request that will be matched on.
+        /// Name for the HTTP header in the client request that will be matched on.
         /// </summary>
         public readonly string Name;
 

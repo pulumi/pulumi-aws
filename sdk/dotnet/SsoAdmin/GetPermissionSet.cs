@@ -28,19 +28,19 @@ namespace Pulumi.Aws.SsoAdmin
     public sealed class GetPermissionSetArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the permission set.
+        /// ARN of the permission set.
         /// </summary>
         [Input("arn")]
         public string? Arn { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the SSO Instance associated with the permission set.
+        /// ARN of the SSO Instance associated with the permission set.
         /// </summary>
         [Input("instanceArn", required: true)]
         public string InstanceArn { get; set; } = null!;
 
         /// <summary>
-        /// The name of the SSO Permission Set.
+        /// Name of the SSO Permission Set.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -66,19 +66,19 @@ namespace Pulumi.Aws.SsoAdmin
     public sealed class GetPermissionSetInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the permission set.
+        /// ARN of the permission set.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the SSO Instance associated with the permission set.
+        /// ARN of the SSO Instance associated with the permission set.
         /// </summary>
         [Input("instanceArn", required: true)]
         public Input<string> InstanceArn { get; set; } = null!;
 
         /// <summary>
-        /// The name of the SSO Permission Set.
+        /// Name of the SSO Permission Set.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -108,7 +108,7 @@ namespace Pulumi.Aws.SsoAdmin
         public readonly string Arn;
         public readonly string CreatedDate;
         /// <summary>
-        /// The description of the Permission Set.
+        /// Description of the Permission Set.
         /// </summary>
         public readonly string Description;
         /// <summary>
@@ -118,11 +118,11 @@ namespace Pulumi.Aws.SsoAdmin
         public readonly string InstanceArn;
         public readonly string Name;
         /// <summary>
-        /// The relay state URL used to redirect users within the application during the federation authentication process.
+        /// Relay state URL used to redirect users within the application during the federation authentication process.
         /// </summary>
         public readonly string RelayState;
         /// <summary>
-        /// The length of time that the application user sessions are valid in the ISO-8601 standard.
+        /// Length of time that the application user sessions are valid in the ISO-8601 standard.
         /// </summary>
         public readonly string SessionDuration;
         /// <summary>

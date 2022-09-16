@@ -36,7 +36,7 @@ class GetTopicResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        Amazon Resource Name (ARN) of the found topic, suitable for referencing in other resources that support SNS topics.
+        ARN of the found topic, suitable for referencing in other resources that support SNS topics.
         """
         return pulumi.get(self, "arn")
 
@@ -82,7 +82,7 @@ def get_topic(name: Optional[str] = None,
     ```
 
 
-    :param str name: The friendly name of the topic to match.
+    :param str name: Friendly name of the topic to match.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -113,6 +113,6 @@ def get_topic_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str name: The friendly name of the topic to match.
+    :param str name: Friendly name of the topic to match.
     """
     ...

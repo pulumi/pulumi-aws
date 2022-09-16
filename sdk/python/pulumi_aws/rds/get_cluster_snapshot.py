@@ -90,7 +90,7 @@ class GetClusterSnapshotResult:
     @pulumi.getter(name="allocatedStorage")
     def allocated_storage(self) -> int:
         """
-        Specifies the allocated storage size in gigabytes (GB).
+        Allocated storage size in gigabytes (GB).
         """
         return pulumi.get(self, "allocated_storage")
 
@@ -114,7 +114,7 @@ class GetClusterSnapshotResult:
     @pulumi.getter(name="dbClusterSnapshotArn")
     def db_cluster_snapshot_arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
+        The ARN for the DB Cluster Snapshot.
         """
         return pulumi.get(self, "db_cluster_snapshot_arn")
 
@@ -127,7 +127,7 @@ class GetClusterSnapshotResult:
     @pulumi.getter
     def engine(self) -> str:
         """
-        Specifies the name of the database engine.
+        Name of the database engine.
         """
         return pulumi.get(self, "engine")
 
@@ -208,7 +208,7 @@ class GetClusterSnapshotResult:
     @pulumi.getter
     def status(self) -> str:
         """
-        The status of this DB Cluster Snapshot.
+        Status of this DB Cluster Snapshot.
         """
         return pulumi.get(self, "status")
 
@@ -216,7 +216,7 @@ class GetClusterSnapshotResult:
     @pulumi.getter(name="storageEncrypted")
     def storage_encrypted(self) -> bool:
         """
-        Specifies whether the DB cluster snapshot is encrypted.
+        Whether the DB cluster snapshot is encrypted.
         """
         return pulumi.get(self, "storage_encrypted")
 
@@ -224,7 +224,7 @@ class GetClusterSnapshotResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        A map of tags for the resource.
+        Map of tags for the resource.
         """
         return pulumi.get(self, "tags")
 
@@ -232,7 +232,7 @@ class GetClusterSnapshotResult:
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> str:
         """
-        The VPC ID associated with the DB cluster snapshot.
+        VPC ID associated with the DB cluster snapshot.
         """
         return pulumi.get(self, "vpc_id")
 
@@ -309,10 +309,10 @@ def get_cluster_snapshot(db_cluster_identifier: Optional[str] = None,
            AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false.
            The default is `false`.
     :param bool most_recent: If more than one result is returned, use the most recent Snapshot.
-    :param str snapshot_type: The type of snapshots to be returned. If you don't specify a SnapshotType
+    :param str snapshot_type: Type of snapshots to be returned. If you don't specify a SnapshotType
            value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not
            included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
-    :param Mapping[str, str] tags: A map of tags for the resource.
+    :param Mapping[str, str] tags: Map of tags for the resource.
     """
     __args__ = dict()
     __args__['dbClusterIdentifier'] = db_cluster_identifier
@@ -393,9 +393,9 @@ def get_cluster_snapshot_output(db_cluster_identifier: Optional[pulumi.Input[Opt
            AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false.
            The default is `false`.
     :param bool most_recent: If more than one result is returned, use the most recent Snapshot.
-    :param str snapshot_type: The type of snapshots to be returned. If you don't specify a SnapshotType
+    :param str snapshot_type: Type of snapshots to be returned. If you don't specify a SnapshotType
            value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not
            included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
-    :param Mapping[str, str] tags: A map of tags for the resource.
+    :param Mapping[str, str] tags: Map of tags for the resource.
     """
     ...

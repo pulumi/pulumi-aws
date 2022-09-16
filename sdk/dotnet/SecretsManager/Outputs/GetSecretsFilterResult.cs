@@ -14,7 +14,7 @@ namespace Pulumi.Aws.SecretsManager.Outputs
     public sealed class GetSecretsFilterResult
     {
         /// <summary>
-        /// The name of the filter field. Valid values can be found in the [Secrets Manager ListSecrets API Reference](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_ListSecrets.html).
+        /// Name of the filter field. Valid values can be found in the [Secrets Manager ListSecrets API Reference](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_ListSecrets.html).
         /// </summary>
         public readonly string Name;
         /// <summary>

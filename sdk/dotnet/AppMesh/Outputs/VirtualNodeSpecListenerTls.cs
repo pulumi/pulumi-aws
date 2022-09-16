@@ -14,15 +14,15 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class VirtualNodeSpecListenerTls
     {
         /// <summary>
-        /// The listener's TLS certificate.
+        /// Listener's TLS certificate.
         /// </summary>
         public readonly Outputs.VirtualNodeSpecListenerTlsCertificate Certificate;
         /// <summary>
-        /// The listener's TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
+        /// Listener's TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
         /// </summary>
         public readonly string Mode;
         /// <summary>
-        /// The listener's Transport Layer Security (TLS) validation context.
+        /// Listener's Transport Layer Security (TLS) validation context.
         /// </summary>
         public readonly Outputs.VirtualNodeSpecListenerTlsValidation? Validation;
 

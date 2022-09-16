@@ -54,21 +54,21 @@ func GetRegion(ctx *pulumi.Context, args *GetRegionArgs, opts ...pulumi.InvokeOp
 
 // A collection of arguments for invoking getRegion.
 type GetRegionArgs struct {
-	// The EC2 endpoint of the region to select.
+	// EC2 endpoint of the region to select.
 	Endpoint *string `pulumi:"endpoint"`
-	// The full name of the region to select.
+	// Full name of the region to select.
 	Name *string `pulumi:"name"`
 }
 
 // A collection of values returned by getRegion.
 type GetRegionResult struct {
-	// The region's description in this format: "Location (Region name)".
+	// Region's description in this format: "Location (Region name)".
 	Description string `pulumi:"description"`
-	// The EC2 endpoint for the selected region.
+	// EC2 endpoint for the selected region.
 	Endpoint string `pulumi:"endpoint"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The name of the selected region.
+	// Name of the selected region.
 	Name string `pulumi:"name"`
 }
 
@@ -87,9 +87,9 @@ func GetRegionOutput(ctx *pulumi.Context, args GetRegionOutputArgs, opts ...pulu
 
 // A collection of arguments for invoking getRegion.
 type GetRegionOutputArgs struct {
-	// The EC2 endpoint of the region to select.
+	// EC2 endpoint of the region to select.
 	Endpoint pulumi.StringPtrInput `pulumi:"endpoint"`
-	// The full name of the region to select.
+	// Full name of the region to select.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -112,12 +112,12 @@ func (o GetRegionResultOutput) ToGetRegionResultOutputWithContext(ctx context.Co
 	return o
 }
 
-// The region's description in this format: "Location (Region name)".
+// Region's description in this format: "Location (Region name)".
 func (o GetRegionResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRegionResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// The EC2 endpoint for the selected region.
+// EC2 endpoint for the selected region.
 func (o GetRegionResultOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRegionResult) string { return v.Endpoint }).(pulumi.StringOutput)
 }
@@ -127,7 +127,7 @@ func (o GetRegionResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRegionResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the selected region.
+// Name of the selected region.
 func (o GetRegionResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRegionResult) string { return v.Name }).(pulumi.StringOutput)
 }

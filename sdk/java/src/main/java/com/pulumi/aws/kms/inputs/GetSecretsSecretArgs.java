@@ -48,14 +48,14 @@ public final class GetSecretsSecretArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The name to export this secret under in the attributes.
+     * Name to export this secret under in the attributes.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name to export this secret under in the attributes.
+     * @return Name to export this secret under in the attributes.
      * 
      */
     public Output<String> name() {
@@ -157,7 +157,7 @@ public final class GetSecretsSecretArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name The name to export this secret under in the attributes.
+         * @param name Name to export this secret under in the attributes.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class GetSecretsSecretArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name The name to export this secret under in the attributes.
+         * @param name Name to export this secret under in the attributes.
          * 
          * @return builder
          * 

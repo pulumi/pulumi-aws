@@ -70,7 +70,7 @@ namespace Pulumi.Aws.DirectoryService
     public sealed class GetDirectoryArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID of the directory.
+        /// ID of the directory.
         /// </summary>
         [Input("directoryId", required: true)]
         public string DirectoryId { get; set; } = null!;
@@ -96,7 +96,7 @@ namespace Pulumi.Aws.DirectoryService
     public sealed class GetDirectoryInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID of the directory.
+        /// ID of the directory.
         /// </summary>
         [Input("directoryId", required: true)]
         public Input<string> DirectoryId { get; set; } = null!;
@@ -124,29 +124,29 @@ namespace Pulumi.Aws.DirectoryService
     public sealed class GetDirectoryResult
     {
         /// <summary>
-        /// The access URL for the directory/connector, such as http://alias.awsapps.com.
+        /// Access URL for the directory/connector, such as http://alias.awsapps.com.
         /// </summary>
         public readonly string AccessUrl;
         /// <summary>
-        /// The alias for the directory/connector, such as `d-991708b282.awsapps.com`.
+        /// Alias for the directory/connector, such as `d-991708b282.awsapps.com`.
         /// </summary>
         public readonly string Alias;
         public readonly ImmutableArray<Outputs.GetDirectoryConnectSettingResult> ConnectSettings;
         /// <summary>
-        /// A textual description for the directory/connector.
+        /// Textual description for the directory/connector.
         /// </summary>
         public readonly string Description;
         public readonly string DirectoryId;
         /// <summary>
-        /// A list of IP addresses of the DNS servers for the directory/connector.
+        /// List of IP addresses of the DNS servers for the directory/connector.
         /// </summary>
         public readonly ImmutableArray<string> DnsIpAddresses;
         /// <summary>
-        /// (for `MicrosoftAD`) The Microsoft AD edition (`Standard` or `Enterprise`).
+        /// (for `MicrosoftAD`) Microsoft AD edition (`Standard` or `Enterprise`).
         /// </summary>
         public readonly string Edition;
         /// <summary>
-        /// The directory/connector single-sign on status.
+        /// Directory/connector single-sign on status.
         /// </summary>
         public readonly bool EnableSso;
         /// <summary>
@@ -154,20 +154,20 @@ namespace Pulumi.Aws.DirectoryService
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The fully qualified name for the directory/connector.
+        /// Fully qualified name for the directory/connector.
         /// </summary>
         public readonly string Name;
         public readonly ImmutableArray<Outputs.GetDirectoryRadiusSettingResult> RadiusSettings;
         /// <summary>
-        /// The ID of the security group created by the directory/connector.
+        /// ID of the security group created by the directory/connector.
         /// </summary>
         public readonly string SecurityGroupId;
         /// <summary>
-        /// The short name of the directory/connector, such as `CORP`.
+        /// Short name of the directory/connector, such as `CORP`.
         /// </summary>
         public readonly string ShortName;
         /// <summary>
-        /// (for `SimpleAD` and `ADConnector`) The size of the directory/connector (`Small` or `Large`).
+        /// (for `SimpleAD` and `ADConnector`) Size of the directory/connector (`Small` or `Large`).
         /// </summary>
         public readonly string Size;
         /// <summary>
@@ -175,7 +175,7 @@ namespace Pulumi.Aws.DirectoryService
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD`).
+        /// Directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD`).
         /// </summary>
         public readonly string Type;
         public readonly ImmutableArray<Outputs.GetDirectoryVpcSettingResult> VpcSettings;

@@ -17,14 +17,14 @@ public final class GetMeshArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetMeshArgs Empty = new GetMeshArgs();
 
     /**
-     * The AWS account ID of the service mesh&#39;s owner.
+     * AWS account ID of the service mesh&#39;s owner.
      * 
      */
     @Import(name="meshOwner")
     private @Nullable Output<String> meshOwner;
 
     /**
-     * @return The AWS account ID of the service mesh&#39;s owner.
+     * @return AWS account ID of the service mesh&#39;s owner.
      * 
      */
     public Optional<Output<String>> meshOwner() {
@@ -32,14 +32,14 @@ public final class GetMeshArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The name of the service mesh.
+     * Name of the service mesh.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the service mesh.
+     * @return Name of the service mesh.
      * 
      */
     public Output<String> name() {
@@ -47,14 +47,14 @@ public final class GetMeshArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * A map of tags.
+     * Map of tags.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags.
+     * @return Map of tags.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -88,7 +88,7 @@ public final class GetMeshArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param meshOwner The AWS account ID of the service mesh&#39;s owner.
+         * @param meshOwner AWS account ID of the service mesh&#39;s owner.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class GetMeshArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param meshOwner The AWS account ID of the service mesh&#39;s owner.
+         * @param meshOwner AWS account ID of the service mesh&#39;s owner.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class GetMeshArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the service mesh.
+         * @param name Name of the service mesh.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class GetMeshArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the service mesh.
+         * @param name Name of the service mesh.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class GetMeshArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags A map of tags.
+         * @param tags Map of tags.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class GetMeshArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags A map of tags.
+         * @param tags Map of tags.
          * 
          * @return builder
          * 

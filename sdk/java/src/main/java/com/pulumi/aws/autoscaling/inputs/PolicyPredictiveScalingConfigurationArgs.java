@@ -32,14 +32,14 @@ public final class PolicyPredictiveScalingConfigurationArgs extends com.pulumi.r
     }
 
     /**
-     * The size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. Valid range is `0` to `100`. If set to `0`, Amazon EC2 Auto Scaling may scale capacity higher than the maximum capacity to equal but not exceed forecast capacity.
+     * Size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. Valid range is `0` to `100`. If set to `0`, Amazon EC2 Auto Scaling may scale capacity higher than the maximum capacity to equal but not exceed forecast capacity.
      * 
      */
     @Import(name="maxCapacityBuffer")
     private @Nullable Output<String> maxCapacityBuffer;
 
     /**
-     * @return The size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. Valid range is `0` to `100`. If set to `0`, Amazon EC2 Auto Scaling may scale capacity higher than the maximum capacity to equal but not exceed forecast capacity.
+     * @return Size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. Valid range is `0` to `100`. If set to `0`, Amazon EC2 Auto Scaling may scale capacity higher than the maximum capacity to equal but not exceed forecast capacity.
      * 
      */
     public Optional<Output<String>> maxCapacityBuffer() {
@@ -62,14 +62,14 @@ public final class PolicyPredictiveScalingConfigurationArgs extends com.pulumi.r
     }
 
     /**
-     * The predictive scaling mode. Valid values are `ForecastAndScale` and `ForecastOnly`. Default is `ForecastOnly`.
+     * Predictive scaling mode. Valid values are `ForecastAndScale` and `ForecastOnly`. Default is `ForecastOnly`.
      * 
      */
     @Import(name="mode")
     private @Nullable Output<String> mode;
 
     /**
-     * @return The predictive scaling mode. Valid values are `ForecastAndScale` and `ForecastOnly`. Default is `ForecastOnly`.
+     * @return Predictive scaling mode. Valid values are `ForecastAndScale` and `ForecastOnly`. Default is `ForecastOnly`.
      * 
      */
     public Optional<Output<String>> mode() {
@@ -77,14 +77,14 @@ public final class PolicyPredictiveScalingConfigurationArgs extends com.pulumi.r
     }
 
     /**
-     * The amount of time, in seconds, by which the instance launch time can be advanced. Minimum is `0`.
+     * Amount of time, in seconds, by which the instance launch time can be advanced. Minimum is `0`.
      * 
      */
     @Import(name="schedulingBufferTime")
     private @Nullable Output<String> schedulingBufferTime;
 
     /**
-     * @return The amount of time, in seconds, by which the instance launch time can be advanced. Minimum is `0`.
+     * @return Amount of time, in seconds, by which the instance launch time can be advanced. Minimum is `0`.
      * 
      */
     public Optional<Output<String>> schedulingBufferTime() {
@@ -141,7 +141,7 @@ public final class PolicyPredictiveScalingConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param maxCapacityBuffer The size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. Valid range is `0` to `100`. If set to `0`, Amazon EC2 Auto Scaling may scale capacity higher than the maximum capacity to equal but not exceed forecast capacity.
+         * @param maxCapacityBuffer Size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. Valid range is `0` to `100`. If set to `0`, Amazon EC2 Auto Scaling may scale capacity higher than the maximum capacity to equal but not exceed forecast capacity.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class PolicyPredictiveScalingConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param maxCapacityBuffer The size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. Valid range is `0` to `100`. If set to `0`, Amazon EC2 Auto Scaling may scale capacity higher than the maximum capacity to equal but not exceed forecast capacity.
+         * @param maxCapacityBuffer Size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. Valid range is `0` to `100`. If set to `0`, Amazon EC2 Auto Scaling may scale capacity higher than the maximum capacity to equal but not exceed forecast capacity.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class PolicyPredictiveScalingConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param mode The predictive scaling mode. Valid values are `ForecastAndScale` and `ForecastOnly`. Default is `ForecastOnly`.
+         * @param mode Predictive scaling mode. Valid values are `ForecastAndScale` and `ForecastOnly`. Default is `ForecastOnly`.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class PolicyPredictiveScalingConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param mode The predictive scaling mode. Valid values are `ForecastAndScale` and `ForecastOnly`. Default is `ForecastOnly`.
+         * @param mode Predictive scaling mode. Valid values are `ForecastAndScale` and `ForecastOnly`. Default is `ForecastOnly`.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class PolicyPredictiveScalingConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param schedulingBufferTime The amount of time, in seconds, by which the instance launch time can be advanced. Minimum is `0`.
+         * @param schedulingBufferTime Amount of time, in seconds, by which the instance launch time can be advanced. Minimum is `0`.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class PolicyPredictiveScalingConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param schedulingBufferTime The amount of time, in seconds, by which the instance launch time can be advanced. Minimum is `0`.
+         * @param schedulingBufferTime Amount of time, in seconds, by which the instance launch time can be advanced. Minimum is `0`.
          * 
          * @return builder
          * 

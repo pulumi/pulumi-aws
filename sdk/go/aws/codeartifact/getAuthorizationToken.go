@@ -48,11 +48,11 @@ func GetAuthorizationToken(ctx *pulumi.Context, args *GetAuthorizationTokenArgs,
 
 // A collection of arguments for invoking getAuthorizationToken.
 type GetAuthorizationTokenArgs struct {
-	// The name of the domain that is in scope for the generated authorization token.
+	// Name of the domain that is in scope for the generated authorization token.
 	Domain string `pulumi:"domain"`
-	// The account number of the AWS account that owns the domain.
+	// Account number of the AWS account that owns the domain.
 	DomainOwner *string `pulumi:"domainOwner"`
-	// The time, in seconds, that the generated authorization token is valid. Valid values are `0` and between `900` and `43200`.
+	// Time, in seconds, that the generated authorization token is valid. Valid values are `0` and between `900` and `43200`.
 	DurationSeconds *int `pulumi:"durationSeconds"`
 }
 
@@ -63,7 +63,7 @@ type GetAuthorizationTokenResult struct {
 	Domain             string `pulumi:"domain"`
 	DomainOwner        string `pulumi:"domainOwner"`
 	DurationSeconds    *int   `pulumi:"durationSeconds"`
-	// The time in UTC RFC3339 format when the authorization token expires.
+	// Time in UTC RFC3339 format when the authorization token expires.
 	Expiration string `pulumi:"expiration"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -84,11 +84,11 @@ func GetAuthorizationTokenOutput(ctx *pulumi.Context, args GetAuthorizationToken
 
 // A collection of arguments for invoking getAuthorizationToken.
 type GetAuthorizationTokenOutputArgs struct {
-	// The name of the domain that is in scope for the generated authorization token.
+	// Name of the domain that is in scope for the generated authorization token.
 	Domain pulumi.StringInput `pulumi:"domain"`
-	// The account number of the AWS account that owns the domain.
+	// Account number of the AWS account that owns the domain.
 	DomainOwner pulumi.StringPtrInput `pulumi:"domainOwner"`
-	// The time, in seconds, that the generated authorization token is valid. Valid values are `0` and between `900` and `43200`.
+	// Time, in seconds, that the generated authorization token is valid. Valid values are `0` and between `900` and `43200`.
 	DurationSeconds pulumi.IntPtrInput `pulumi:"durationSeconds"`
 }
 
@@ -128,7 +128,7 @@ func (o GetAuthorizationTokenResultOutput) DurationSeconds() pulumi.IntPtrOutput
 	return o.ApplyT(func(v GetAuthorizationTokenResult) *int { return v.DurationSeconds }).(pulumi.IntPtrOutput)
 }
 
-// The time in UTC RFC3339 format when the authorization token expires.
+// Time in UTC RFC3339 format when the authorization token expires.
 func (o GetAuthorizationTokenResultOutput) Expiration() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAuthorizationTokenResult) string { return v.Expiration }).(pulumi.StringOutput)
 }

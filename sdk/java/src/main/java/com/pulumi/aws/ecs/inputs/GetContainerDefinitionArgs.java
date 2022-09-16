@@ -14,14 +14,14 @@ public final class GetContainerDefinitionArgs extends com.pulumi.resources.Invok
     public static final GetContainerDefinitionArgs Empty = new GetContainerDefinitionArgs();
 
     /**
-     * The name of the container definition
+     * Name of the container definition
      * 
      */
     @Import(name="containerName", required=true)
     private Output<String> containerName;
 
     /**
-     * @return The name of the container definition
+     * @return Name of the container definition
      * 
      */
     public Output<String> containerName() {
@@ -29,14 +29,14 @@ public final class GetContainerDefinitionArgs extends com.pulumi.resources.Invok
     }
 
     /**
-     * The ARN of the task definition which contains the container
+     * ARN of the task definition which contains the container
      * 
      */
     @Import(name="taskDefinition", required=true)
     private Output<String> taskDefinition;
 
     /**
-     * @return The ARN of the task definition which contains the container
+     * @return ARN of the task definition which contains the container
      * 
      */
     public Output<String> taskDefinition() {
@@ -69,7 +69,7 @@ public final class GetContainerDefinitionArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param containerName The name of the container definition
+         * @param containerName Name of the container definition
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class GetContainerDefinitionArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param containerName The name of the container definition
+         * @param containerName Name of the container definition
          * 
          * @return builder
          * 
@@ -90,7 +90,7 @@ public final class GetContainerDefinitionArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param taskDefinition The ARN of the task definition which contains the container
+         * @param taskDefinition ARN of the task definition which contains the container
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class GetContainerDefinitionArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param taskDefinition The ARN of the task definition which contains the container
+         * @param taskDefinition ARN of the task definition which contains the container
          * 
          * @return builder
          * 

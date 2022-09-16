@@ -84,7 +84,7 @@ namespace Pulumi.Aws.AutoScaling
     public partial class LifecycleHook : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of the Auto Scaling group to which you want to assign the lifecycle hook
+        /// Name of the Auto Scaling group to which you want to assign the lifecycle hook
         /// </summary>
         [Output("autoscalingGroupName")]
         public Output<string> AutoscalingGroupName { get; private set; } = null!;
@@ -102,13 +102,13 @@ namespace Pulumi.Aws.AutoScaling
         public Output<int?> HeartbeatTimeout { get; private set; } = null!;
 
         /// <summary>
-        /// The instance state to which you want to attach the lifecycle hook. For a list of lifecycle hook types, see [describe-lifecycle-hook-types](https://docs.aws.amazon.com/cli/latest/reference/autoscaling/describe-lifecycle-hook-types.html#examples)
+        /// Instance state to which you want to attach the lifecycle hook. For a list of lifecycle hook types, see [describe-lifecycle-hook-types](https://docs.aws.amazon.com/cli/latest/reference/autoscaling/describe-lifecycle-hook-types.html#examples)
         /// </summary>
         [Output("lifecycleTransition")]
         public Output<string> LifecycleTransition { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the lifecycle hook.
+        /// Name of the lifecycle hook.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -120,13 +120,13 @@ namespace Pulumi.Aws.AutoScaling
         public Output<string?> NotificationMetadata { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
+        /// ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
         /// </summary>
         [Output("notificationTargetArn")]
         public Output<string?> NotificationTargetArn { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
+        /// ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
         /// </summary>
         [Output("roleArn")]
         public Output<string?> RoleArn { get; private set; } = null!;
@@ -178,7 +178,7 @@ namespace Pulumi.Aws.AutoScaling
     public sealed class LifecycleHookArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the Auto Scaling group to which you want to assign the lifecycle hook
+        /// Name of the Auto Scaling group to which you want to assign the lifecycle hook
         /// </summary>
         [Input("autoscalingGroupName", required: true)]
         public Input<string> AutoscalingGroupName { get; set; } = null!;
@@ -196,13 +196,13 @@ namespace Pulumi.Aws.AutoScaling
         public Input<int>? HeartbeatTimeout { get; set; }
 
         /// <summary>
-        /// The instance state to which you want to attach the lifecycle hook. For a list of lifecycle hook types, see [describe-lifecycle-hook-types](https://docs.aws.amazon.com/cli/latest/reference/autoscaling/describe-lifecycle-hook-types.html#examples)
+        /// Instance state to which you want to attach the lifecycle hook. For a list of lifecycle hook types, see [describe-lifecycle-hook-types](https://docs.aws.amazon.com/cli/latest/reference/autoscaling/describe-lifecycle-hook-types.html#examples)
         /// </summary>
         [Input("lifecycleTransition", required: true)]
         public Input<string> LifecycleTransition { get; set; } = null!;
 
         /// <summary>
-        /// The name of the lifecycle hook.
+        /// Name of the lifecycle hook.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -214,13 +214,13 @@ namespace Pulumi.Aws.AutoScaling
         public Input<string>? NotificationMetadata { get; set; }
 
         /// <summary>
-        /// The ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
+        /// ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
         /// </summary>
         [Input("notificationTargetArn")]
         public Input<string>? NotificationTargetArn { get; set; }
 
         /// <summary>
-        /// The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
+        /// ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
@@ -234,7 +234,7 @@ namespace Pulumi.Aws.AutoScaling
     public sealed class LifecycleHookState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the Auto Scaling group to which you want to assign the lifecycle hook
+        /// Name of the Auto Scaling group to which you want to assign the lifecycle hook
         /// </summary>
         [Input("autoscalingGroupName")]
         public Input<string>? AutoscalingGroupName { get; set; }
@@ -252,13 +252,13 @@ namespace Pulumi.Aws.AutoScaling
         public Input<int>? HeartbeatTimeout { get; set; }
 
         /// <summary>
-        /// The instance state to which you want to attach the lifecycle hook. For a list of lifecycle hook types, see [describe-lifecycle-hook-types](https://docs.aws.amazon.com/cli/latest/reference/autoscaling/describe-lifecycle-hook-types.html#examples)
+        /// Instance state to which you want to attach the lifecycle hook. For a list of lifecycle hook types, see [describe-lifecycle-hook-types](https://docs.aws.amazon.com/cli/latest/reference/autoscaling/describe-lifecycle-hook-types.html#examples)
         /// </summary>
         [Input("lifecycleTransition")]
         public Input<string>? LifecycleTransition { get; set; }
 
         /// <summary>
-        /// The name of the lifecycle hook.
+        /// Name of the lifecycle hook.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -270,13 +270,13 @@ namespace Pulumi.Aws.AutoScaling
         public Input<string>? NotificationMetadata { get; set; }
 
         /// <summary>
-        /// The ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
+        /// ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
         /// </summary>
         [Input("notificationTargetArn")]
         public Input<string>? NotificationTargetArn { get; set; }
 
         /// <summary>
-        /// The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
+        /// ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }

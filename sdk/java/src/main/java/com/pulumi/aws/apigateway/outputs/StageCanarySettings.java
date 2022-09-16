@@ -16,12 +16,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class StageCanarySettings {
     /**
-     * @return The percent `0.0` - `100.0` of traffic to divert to the canary deployment.
+     * @return Percent `0.0` - `100.0` of traffic to divert to the canary deployment.
      * 
      */
     private @Nullable Double percentTraffic;
     /**
-     * @return A map of overridden stage `variables` (including new variables) for the canary deployment.
+     * @return Map of overridden stage `variables` (including new variables) for the canary deployment.
      * 
      */
     private @Nullable Map<String,Object> stageVariableOverrides;
@@ -33,14 +33,14 @@ public final class StageCanarySettings {
 
     private StageCanarySettings() {}
     /**
-     * @return The percent `0.0` - `100.0` of traffic to divert to the canary deployment.
+     * @return Percent `0.0` - `100.0` of traffic to divert to the canary deployment.
      * 
      */
     public Optional<Double> percentTraffic() {
         return Optional.ofNullable(this.percentTraffic);
     }
     /**
-     * @return A map of overridden stage `variables` (including new variables) for the canary deployment.
+     * @return Map of overridden stage `variables` (including new variables) for the canary deployment.
      * 
      */
     public Map<String,Object> stageVariableOverrides() {

@@ -63,7 +63,7 @@ class GetConnectResult:
     @pulumi.getter
     def protocol(self) -> str:
         """
-        The tunnel protocol
+        Tunnel protocol
         """
         return pulumi.get(self, "protocol")
 

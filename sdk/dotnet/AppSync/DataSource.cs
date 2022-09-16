@@ -105,19 +105,19 @@ namespace Pulumi.Aws.AppSync
     public partial class DataSource : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The API ID for the GraphQL API for the data source.
+        /// API ID for the GraphQL API for the data source.
         /// </summary>
         [Output("apiId")]
         public Output<string> ApiId { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN
+        /// ARN
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// A description of the data source.
+        /// Description of the data source.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -147,7 +147,7 @@ namespace Pulumi.Aws.AppSync
         public Output<Outputs.DataSourceLambdaConfig?> LambdaConfig { get; private set; } = null!;
 
         /// <summary>
-        /// A user-supplied name for the data source.
+        /// User-supplied name for the data source.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -159,13 +159,13 @@ namespace Pulumi.Aws.AppSync
         public Output<Outputs.DataSourceRelationalDatabaseConfig?> RelationalDatabaseConfig { get; private set; } = null!;
 
         /// <summary>
-        /// The IAM service role ARN for the data source.
+        /// IAM service role ARN for the data source.
         /// </summary>
         [Output("serviceRoleArn")]
         public Output<string?> ServiceRoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+        /// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -217,13 +217,13 @@ namespace Pulumi.Aws.AppSync
     public sealed class DataSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The API ID for the GraphQL API for the data source.
+        /// API ID for the GraphQL API for the data source.
         /// </summary>
         [Input("apiId", required: true)]
         public Input<string> ApiId { get; set; } = null!;
 
         /// <summary>
-        /// A description of the data source.
+        /// Description of the data source.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -253,7 +253,7 @@ namespace Pulumi.Aws.AppSync
         public Input<Inputs.DataSourceLambdaConfigArgs>? LambdaConfig { get; set; }
 
         /// <summary>
-        /// A user-supplied name for the data source.
+        /// User-supplied name for the data source.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -265,13 +265,13 @@ namespace Pulumi.Aws.AppSync
         public Input<Inputs.DataSourceRelationalDatabaseConfigArgs>? RelationalDatabaseConfig { get; set; }
 
         /// <summary>
-        /// The IAM service role ARN for the data source.
+        /// IAM service role ARN for the data source.
         /// </summary>
         [Input("serviceRoleArn")]
         public Input<string>? ServiceRoleArn { get; set; }
 
         /// <summary>
-        /// The type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+        /// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -285,19 +285,19 @@ namespace Pulumi.Aws.AppSync
     public sealed class DataSourceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The API ID for the GraphQL API for the data source.
+        /// API ID for the GraphQL API for the data source.
         /// </summary>
         [Input("apiId")]
         public Input<string>? ApiId { get; set; }
 
         /// <summary>
-        /// The ARN
+        /// ARN
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// A description of the data source.
+        /// Description of the data source.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -327,7 +327,7 @@ namespace Pulumi.Aws.AppSync
         public Input<Inputs.DataSourceLambdaConfigGetArgs>? LambdaConfig { get; set; }
 
         /// <summary>
-        /// A user-supplied name for the data source.
+        /// User-supplied name for the data source.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -339,13 +339,13 @@ namespace Pulumi.Aws.AppSync
         public Input<Inputs.DataSourceRelationalDatabaseConfigGetArgs>? RelationalDatabaseConfig { get; set; }
 
         /// <summary>
-        /// The IAM service role ARN for the data source.
+        /// IAM service role ARN for the data source.
         /// </summary>
         [Input("serviceRoleArn")]
         public Input<string>? ServiceRoleArn { get; set; }
 
         /// <summary>
-        /// The type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+        /// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

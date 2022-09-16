@@ -14,14 +14,14 @@ public final class GetBotAliasArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetBotAliasArgs Empty = new GetBotAliasArgs();
 
     /**
-     * The name of the bot.
+     * Name of the bot.
      * 
      */
     @Import(name="botName", required=true)
     private Output<String> botName;
 
     /**
-     * @return The name of the bot.
+     * @return Name of the bot.
      * 
      */
     public Output<String> botName() {
@@ -29,14 +29,14 @@ public final class GetBotAliasArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The name of the bot alias. The name is case sensitive.
+     * Name of the bot alias. The name is case sensitive.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the bot alias. The name is case sensitive.
+     * @return Name of the bot alias. The name is case sensitive.
      * 
      */
     public Output<String> name() {
@@ -69,7 +69,7 @@ public final class GetBotAliasArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param botName The name of the bot.
+         * @param botName Name of the bot.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class GetBotAliasArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param botName The name of the bot.
+         * @param botName Name of the bot.
          * 
          * @return builder
          * 
@@ -90,7 +90,7 @@ public final class GetBotAliasArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the bot alias. The name is case sensitive.
+         * @param name Name of the bot alias. The name is case sensitive.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class GetBotAliasArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the bot alias. The name is case sensitive.
+         * @param name Name of the bot alias. The name is case sensitive.
          * 
          * @return builder
          * 

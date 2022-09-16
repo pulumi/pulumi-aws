@@ -77,7 +77,7 @@ func LookupSecretVersion(ctx *pulumi.Context, args *LookupSecretVersionArgs, opt
 
 // A collection of arguments for invoking getSecretVersion.
 type LookupSecretVersionArgs struct {
-	// Specifies the secret containing the version that you want to retrieve. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
+	// Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
 	SecretId string `pulumi:"secretId"`
 	// Specifies the unique identifier of the version of the secret that you want to retrieve. Overrides `versionStage`.
 	VersionId *string `pulumi:"versionId"`
@@ -87,16 +87,16 @@ type LookupSecretVersionArgs struct {
 
 // A collection of values returned by getSecretVersion.
 type LookupSecretVersionResult struct {
-	// The ARN of the secret.
+	// ARN of the secret.
 	Arn string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The decrypted part of the protected secret information that was originally provided as a binary.
+	// Decrypted part of the protected secret information that was originally provided as a binary.
 	SecretBinary string `pulumi:"secretBinary"`
 	SecretId     string `pulumi:"secretId"`
-	// The decrypted part of the protected secret information that was originally provided as a string.
+	// Decrypted part of the protected secret information that was originally provided as a string.
 	SecretString string `pulumi:"secretString"`
-	// The unique identifier of this version of the secret.
+	// Unique identifier of this version of the secret.
 	VersionId     string   `pulumi:"versionId"`
 	VersionStage  *string  `pulumi:"versionStage"`
 	VersionStages []string `pulumi:"versionStages"`
@@ -117,7 +117,7 @@ func LookupSecretVersionOutput(ctx *pulumi.Context, args LookupSecretVersionOutp
 
 // A collection of arguments for invoking getSecretVersion.
 type LookupSecretVersionOutputArgs struct {
-	// Specifies the secret containing the version that you want to retrieve. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
+	// Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
 	SecretId pulumi.StringInput `pulumi:"secretId"`
 	// Specifies the unique identifier of the version of the secret that you want to retrieve. Overrides `versionStage`.
 	VersionId pulumi.StringPtrInput `pulumi:"versionId"`
@@ -144,7 +144,7 @@ func (o LookupSecretVersionResultOutput) ToLookupSecretVersionResultOutputWithCo
 	return o
 }
 
-// The ARN of the secret.
+// ARN of the secret.
 func (o LookupSecretVersionResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretVersionResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -154,7 +154,7 @@ func (o LookupSecretVersionResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretVersionResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The decrypted part of the protected secret information that was originally provided as a binary.
+// Decrypted part of the protected secret information that was originally provided as a binary.
 func (o LookupSecretVersionResultOutput) SecretBinary() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretVersionResult) string { return v.SecretBinary }).(pulumi.StringOutput)
 }
@@ -163,12 +163,12 @@ func (o LookupSecretVersionResultOutput) SecretId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretVersionResult) string { return v.SecretId }).(pulumi.StringOutput)
 }
 
-// The decrypted part of the protected secret information that was originally provided as a string.
+// Decrypted part of the protected secret information that was originally provided as a string.
 func (o LookupSecretVersionResultOutput) SecretString() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretVersionResult) string { return v.SecretString }).(pulumi.StringOutput)
 }
 
-// The unique identifier of this version of the secret.
+// Unique identifier of this version of the secret.
 func (o LookupSecretVersionResultOutput) VersionId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretVersionResult) string { return v.VersionId }).(pulumi.StringOutput)
 }

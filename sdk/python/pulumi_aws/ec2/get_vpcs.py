@@ -54,7 +54,7 @@ class GetVpcsResult:
     @pulumi.getter
     def ids(self) -> Sequence[str]:
         """
-        A list of all the VPC Ids found.
+        List of all the VPC Ids found.
         """
         return pulumi.get(self, "ids")
 
@@ -86,7 +86,7 @@ def get_vpcs(filters: Optional[Sequence[pulumi.InputType['GetVpcsFilterArgs']]] 
 
 
     :param Sequence[pulumi.InputType['GetVpcsFilterArgs']] filters: Custom filter block as described below.
-    :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired vpcs.
     """
     __args__ = dict()
@@ -113,7 +113,7 @@ def get_vpcs_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.Inpu
 
 
     :param Sequence[pulumi.InputType['GetVpcsFilterArgs']] filters: Custom filter block as described below.
-    :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired vpcs.
     """
     ...

@@ -30,7 +30,7 @@ type GetBucketObjectsArgs struct {
 	//
 	// Deprecated: Use the aws_s3_objects data source instead
 	Bucket string `pulumi:"bucket"`
-	// A character used to group keys (Default: none)
+	// Character used to group keys (Default: none)
 	Delimiter *string `pulumi:"delimiter"`
 	// Encodes keys using this method (Default: none; besides none, only "url" can be used)
 	EncodingType *string `pulumi:"encodingType"`
@@ -83,7 +83,7 @@ type GetBucketObjectsOutputArgs struct {
 	//
 	// Deprecated: Use the aws_s3_objects data source instead
 	Bucket pulumi.StringInput `pulumi:"bucket"`
-	// A character used to group keys (Default: none)
+	// Character used to group keys (Default: none)
 	Delimiter pulumi.StringPtrInput `pulumi:"delimiter"`
 	// Encodes keys using this method (Default: none; besides none, only "url" can be used)
 	EncodingType pulumi.StringPtrInput `pulumi:"encodingType"`

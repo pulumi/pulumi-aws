@@ -13,19 +13,19 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class VirtualNodeSpecListenerTlsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The listener's TLS certificate.
+        /// Listener's TLS certificate.
         /// </summary>
         [Input("certificate", required: true)]
         public Input<Inputs.VirtualNodeSpecListenerTlsCertificateGetArgs> Certificate { get; set; } = null!;
 
         /// <summary>
-        /// The listener's TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
+        /// Listener's TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
         /// </summary>
         [Input("mode", required: true)]
         public Input<string> Mode { get; set; } = null!;
 
         /// <summary>
-        /// The listener's Transport Layer Security (TLS) validation context.
+        /// Listener's Transport Layer Security (TLS) validation context.
         /// </summary>
         [Input("validation")]
         public Input<Inputs.VirtualNodeSpecListenerTlsValidationGetArgs>? Validation { get; set; }

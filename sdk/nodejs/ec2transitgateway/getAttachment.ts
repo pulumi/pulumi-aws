@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -55,7 +57,7 @@ export interface GetAttachmentArgs {
      */
     tags?: {[key: string]: string};
     /**
-     * The ID of the attachment.
+     * ID of the attachment.
      */
     transitGatewayAttachmentId?: string;
 }
@@ -65,7 +67,7 @@ export interface GetAttachmentArgs {
  */
 export interface GetAttachmentResult {
     /**
-     * The ARN of the attachment.
+     * ARN of the attachment.
      */
     readonly arn: string;
     readonly filters?: outputs.ec2transitgateway.GetAttachmentFilter[];
@@ -74,19 +76,19 @@ export interface GetAttachmentResult {
      */
     readonly id: string;
     /**
-     * The ID of the resource.
+     * ID of the resource.
      */
     readonly resourceId: string;
     /**
-     * The ID of the AWS account that owns the resource.
+     * ID of the AWS account that owns the resource.
      */
     readonly resourceOwnerId: string;
     /**
-     * The resource type.
+     * Resource type.
      */
     readonly resourceType: string;
     /**
-     * The attachment state.
+     * Attachment state.
      */
     readonly state: string;
     /**
@@ -95,7 +97,7 @@ export interface GetAttachmentResult {
     readonly tags: {[key: string]: string};
     readonly transitGatewayAttachmentId: string;
     /**
-     * The ID of the transit gateway.
+     * ID of the transit gateway.
      */
     readonly transitGatewayId: string;
     /**
@@ -121,7 +123,7 @@ export interface GetAttachmentOutputArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The ID of the attachment.
+     * ID of the attachment.
      */
     transitGatewayAttachmentId?: pulumi.Input<string>;
 }

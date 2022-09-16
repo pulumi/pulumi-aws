@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -46,7 +48,7 @@ export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): P
  */
 export interface GetClusterArgs {
     /**
-     * The name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+     * Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
      */
     name: string;
     /**
@@ -60,7 +62,7 @@ export interface GetClusterArgs {
  */
 export interface GetClusterResult {
     /**
-     * The Amazon Resource Name (ARN) of the cluster.
+     * ARN of the cluster.
      */
     readonly arn: string;
     /**
@@ -68,7 +70,7 @@ export interface GetClusterResult {
      */
     readonly certificateAuthorities: outputs.eks.GetClusterCertificateAuthority[];
     /**
-     * The Unix epoch time stamp in seconds for when the cluster was created.
+     * Unix epoch time stamp in seconds for when the cluster was created.
      */
     readonly createdAt: string;
     /**
@@ -93,15 +95,15 @@ export interface GetClusterResult {
     readonly kubernetesNetworkConfigs: outputs.eks.GetClusterKubernetesNetworkConfig[];
     readonly name: string;
     /**
-     * The platform version for the cluster.
+     * Platform version for the cluster.
      */
     readonly platformVersion: string;
     /**
-     * The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
+     * ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
      */
     readonly roleArn: string;
     /**
-     * The status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
+     * Status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
      */
     readonly status: string;
     /**
@@ -109,7 +111,7 @@ export interface GetClusterResult {
      */
     readonly tags: {[key: string]: string};
     /**
-     * The Kubernetes server version for the cluster.
+     * Kubernetes server version for the cluster.
      */
     readonly version: string;
     /**
@@ -127,7 +129,7 @@ export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.Invok
  */
 export interface GetClusterOutputArgs {
     /**
-     * The name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+     * Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
      */
     name: pulumi.Input<string>;
     /**

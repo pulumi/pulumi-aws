@@ -17,14 +17,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesZendes
     public static final FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigArgs Empty = new FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigArgs();
 
     /**
-     * The Amazon S3 bucket name where the source files are stored.
+     * Amazon S3 bucket name where the source files are stored.
      * 
      */
     @Import(name="bucketName")
     private @Nullable Output<String> bucketName;
 
     /**
-     * @return The Amazon S3 bucket name where the source files are stored.
+     * @return Amazon S3 bucket name where the source files are stored.
      * 
      */
     public Optional<Output<String>> bucketName() {
@@ -32,14 +32,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesZendes
     }
 
     /**
-     * The object key for the Amazon S3 bucket in which the source files are stored.
+     * Object key for the Amazon S3 bucket in which the source files are stored.
      * 
      */
     @Import(name="bucketPrefix")
     private @Nullable Output<String> bucketPrefix;
 
     /**
-     * @return The object key for the Amazon S3 bucket in which the source files are stored.
+     * @return Object key for the Amazon S3 bucket in which the source files are stored.
      * 
      */
     public Optional<Output<String>> bucketPrefix() {
@@ -47,14 +47,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesZendes
     }
 
     /**
-     * Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
+     * If the flow should fail after the first instance of a failure when attempting to place data in the destination.
      * 
      */
     @Import(name="failOnFirstDestinationError")
     private @Nullable Output<Boolean> failOnFirstDestinationError;
 
     /**
-     * @return Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
+     * @return If the flow should fail after the first instance of a failure when attempting to place data in the destination.
      * 
      */
     public Optional<Output<Boolean>> failOnFirstDestinationError() {
@@ -88,7 +88,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesZendes
         }
 
         /**
-         * @param bucketName The Amazon S3 bucket name where the source files are stored.
+         * @param bucketName Amazon S3 bucket name where the source files are stored.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesZendes
         }
 
         /**
-         * @param bucketName The Amazon S3 bucket name where the source files are stored.
+         * @param bucketName Amazon S3 bucket name where the source files are stored.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesZendes
         }
 
         /**
-         * @param bucketPrefix The object key for the Amazon S3 bucket in which the source files are stored.
+         * @param bucketPrefix Object key for the Amazon S3 bucket in which the source files are stored.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesZendes
         }
 
         /**
-         * @param bucketPrefix The object key for the Amazon S3 bucket in which the source files are stored.
+         * @param bucketPrefix Object key for the Amazon S3 bucket in which the source files are stored.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesZendes
         }
 
         /**
-         * @param failOnFirstDestinationError Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
+         * @param failOnFirstDestinationError If the flow should fail after the first instance of a failure when attempting to place data in the destination.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesZendes
         }
 
         /**
-         * @param failOnFirstDestinationError Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
+         * @param failOnFirstDestinationError If the flow should fail after the first instance of a failure when attempting to place data in the destination.
          * 
          * @return builder
          * 

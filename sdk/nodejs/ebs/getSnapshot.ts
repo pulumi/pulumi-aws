@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -74,7 +76,7 @@ export interface GetSnapshotArgs {
      */
     snapshotIds?: string[];
     /**
-     * A map of tags for the resource.
+     * Map of tags for the resource.
      */
     tags?: {[key: string]: string};
 }
@@ -84,7 +86,7 @@ export interface GetSnapshotArgs {
  */
 export interface GetSnapshotResult {
     /**
-     * Amazon Resource Name (ARN) of the EBS Snapshot.
+     * ARN of the EBS Snapshot.
      */
     readonly arn: string;
     /**
@@ -92,7 +94,7 @@ export interface GetSnapshotResult {
      */
     readonly dataEncryptionKeyId: string;
     /**
-     * A description for the snapshot
+     * Description for the snapshot
      */
     readonly description: string;
     /**
@@ -105,12 +107,12 @@ export interface GetSnapshotResult {
      */
     readonly id: string;
     /**
-     * The ARN for the KMS encryption key.
+     * ARN for the KMS encryption key.
      */
     readonly kmsKeyId: string;
     readonly mostRecent?: boolean;
     /**
-     * The ARN of the Outpost on which the snapshot is stored.
+     * ARN of the Outpost on which the snapshot is stored.
      */
     readonly outpostArn: string;
     /**
@@ -118,34 +120,34 @@ export interface GetSnapshotResult {
      */
     readonly ownerAlias: string;
     /**
-     * The AWS account ID of the EBS snapshot owner.
+     * AWS account ID of the EBS snapshot owner.
      */
     readonly ownerId: string;
     readonly owners?: string[];
     readonly restorableByUserIds?: string[];
     /**
-     * The snapshot ID (e.g., snap-59fcb34e).
+     * Snapshot ID (e.g., snap-59fcb34e).
      */
     readonly snapshotId: string;
     readonly snapshotIds?: string[];
     /**
-     * The snapshot state.
+     * Snapshot state.
      */
     readonly state: string;
     /**
-     * The storage tier in which the snapshot is stored.
+     * Storage tier in which the snapshot is stored.
      */
     readonly storageTier: string;
     /**
-     * A map of tags for the resource.
+     * Map of tags for the resource.
      */
     readonly tags: {[key: string]: string};
     /**
-     * The volume ID (e.g., vol-59fcb34e).
+     * Volume ID (e.g., vol-59fcb34e).
      */
     readonly volumeId: string;
     /**
-     * The size of the drive in GiBs.
+     * Size of the drive in GiBs.
      */
     readonly volumeSize: number;
 }
@@ -181,7 +183,7 @@ export interface GetSnapshotOutputArgs {
      */
     snapshotIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A map of tags for the resource.
+     * Map of tags for the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

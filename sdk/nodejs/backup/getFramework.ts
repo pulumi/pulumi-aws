@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -36,11 +38,11 @@ export function getFramework(args: GetFrameworkArgs, opts?: pulumi.InvokeOptions
  */
 export interface GetFrameworkArgs {
     /**
-     * The backup framework name.
+     * Backup framework name.
      */
     name: string;
     /**
-     * The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+     * Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
      */
     tags?: {[key: string]: string};
 }
@@ -50,7 +52,7 @@ export interface GetFrameworkArgs {
  */
 export interface GetFrameworkResult {
     /**
-     * The ARN of the backup framework.
+     * ARN of the backup framework.
      */
     readonly arn: string;
     /**
@@ -58,15 +60,15 @@ export interface GetFrameworkResult {
      */
     readonly controls: outputs.backup.GetFrameworkControl[];
     /**
-     * The date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
+     * Date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
      */
     readonly creationTime: string;
     /**
-     * The deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`| `FAILED`.
+     * Deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`| `FAILED`.
      */
     readonly deploymentStatus: string;
     /**
-     * The description of the framework.
+     * Description of the framework.
      */
     readonly description: string;
     /**
@@ -74,15 +76,15 @@ export interface GetFrameworkResult {
      */
     readonly id: string;
     /**
-     * The name of a parameter, for example, BackupPlanFrequency.
+     * Name of a parameter, for example, BackupPlanFrequency.
      */
     readonly name: string;
     /**
-     * A framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. The statuses are: `ACTIVE`, `PARTIALLY_ACTIVE`, `INACTIVE`, `UNAVAILABLE`. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
+     * Framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. The statuses are: `ACTIVE`, `PARTIALLY_ACTIVE`, `INACTIVE`, `UNAVAILABLE`. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
      */
     readonly status: string;
     /**
-     * The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+     * Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
      */
     readonly tags: {[key: string]: string};
 }
@@ -96,11 +98,11 @@ export function getFrameworkOutput(args: GetFrameworkOutputArgs, opts?: pulumi.I
  */
 export interface GetFrameworkOutputArgs {
     /**
-     * The backup framework name.
+     * Backup framework name.
      */
     name: pulumi.Input<string>;
     /**
-     * The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+     * Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -19,14 +19,14 @@ public final class PolicyTargetTrackingConfigurationArgs extends com.pulumi.reso
     public static final PolicyTargetTrackingConfigurationArgs Empty = new PolicyTargetTrackingConfigurationArgs();
 
     /**
-     * A customized metric. Conflicts with `predefined_metric_specification`.
+     * Customized metric. Conflicts with `predefined_metric_specification`.
      * 
      */
     @Import(name="customizedMetricSpecification")
     private @Nullable Output<PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs> customizedMetricSpecification;
 
     /**
-     * @return A customized metric. Conflicts with `predefined_metric_specification`.
+     * @return Customized metric. Conflicts with `predefined_metric_specification`.
      * 
      */
     public Optional<Output<PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs>> customizedMetricSpecification() {
@@ -34,14 +34,14 @@ public final class PolicyTargetTrackingConfigurationArgs extends com.pulumi.reso
     }
 
     /**
-     * Indicates whether scale in by the target tracking policy is disabled.
+     * Whether scale in by the target tracking policy is disabled.
      * 
      */
     @Import(name="disableScaleIn")
     private @Nullable Output<Boolean> disableScaleIn;
 
     /**
-     * @return Indicates whether scale in by the target tracking policy is disabled.
+     * @return Whether scale in by the target tracking policy is disabled.
      * 
      */
     public Optional<Output<Boolean>> disableScaleIn() {
@@ -49,14 +49,14 @@ public final class PolicyTargetTrackingConfigurationArgs extends com.pulumi.reso
     }
 
     /**
-     * A predefined metric. Conflicts with `customized_metric_specification`.
+     * Predefined metric. Conflicts with `customized_metric_specification`.
      * 
      */
     @Import(name="predefinedMetricSpecification")
     private @Nullable Output<PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs> predefinedMetricSpecification;
 
     /**
-     * @return A predefined metric. Conflicts with `customized_metric_specification`.
+     * @return Predefined metric. Conflicts with `customized_metric_specification`.
      * 
      */
     public Optional<Output<PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs>> predefinedMetricSpecification() {
@@ -64,14 +64,14 @@ public final class PolicyTargetTrackingConfigurationArgs extends com.pulumi.reso
     }
 
     /**
-     * The target value for the metric.
+     * Target value for the metric.
      * 
      */
     @Import(name="targetValue", required=true)
     private Output<Double> targetValue;
 
     /**
-     * @return The target value for the metric.
+     * @return Target value for the metric.
      * 
      */
     public Output<Double> targetValue() {
@@ -106,7 +106,7 @@ public final class PolicyTargetTrackingConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param customizedMetricSpecification A customized metric. Conflicts with `predefined_metric_specification`.
+         * @param customizedMetricSpecification Customized metric. Conflicts with `predefined_metric_specification`.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class PolicyTargetTrackingConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param customizedMetricSpecification A customized metric. Conflicts with `predefined_metric_specification`.
+         * @param customizedMetricSpecification Customized metric. Conflicts with `predefined_metric_specification`.
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class PolicyTargetTrackingConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param disableScaleIn Indicates whether scale in by the target tracking policy is disabled.
+         * @param disableScaleIn Whether scale in by the target tracking policy is disabled.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class PolicyTargetTrackingConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param disableScaleIn Indicates whether scale in by the target tracking policy is disabled.
+         * @param disableScaleIn Whether scale in by the target tracking policy is disabled.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class PolicyTargetTrackingConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param predefinedMetricSpecification A predefined metric. Conflicts with `customized_metric_specification`.
+         * @param predefinedMetricSpecification Predefined metric. Conflicts with `customized_metric_specification`.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class PolicyTargetTrackingConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param predefinedMetricSpecification A predefined metric. Conflicts with `customized_metric_specification`.
+         * @param predefinedMetricSpecification Predefined metric. Conflicts with `customized_metric_specification`.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class PolicyTargetTrackingConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param targetValue The target value for the metric.
+         * @param targetValue Target value for the metric.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class PolicyTargetTrackingConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param targetValue The target value for the metric.
+         * @param targetValue Target value for the metric.
          * 
          * @return builder
          * 

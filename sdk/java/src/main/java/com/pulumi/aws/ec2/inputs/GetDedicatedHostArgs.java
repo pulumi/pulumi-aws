@@ -34,14 +34,14 @@ public final class GetDedicatedHostArgs extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
-     * The ID of the Dedicated Host.
+     * ID of the Dedicated Host.
      * 
      */
     @Import(name="hostId")
     private @Nullable Output<String> hostId;
 
     /**
-     * @return The ID of the Dedicated Host.
+     * @return ID of the Dedicated Host.
      * 
      */
     public Optional<Output<String>> hostId() {
@@ -113,7 +113,7 @@ public final class GetDedicatedHostArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param hostId The ID of the Dedicated Host.
+         * @param hostId ID of the Dedicated Host.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class GetDedicatedHostArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param hostId The ID of the Dedicated Host.
+         * @param hostId ID of the Dedicated Host.
          * 
          * @return builder
          * 

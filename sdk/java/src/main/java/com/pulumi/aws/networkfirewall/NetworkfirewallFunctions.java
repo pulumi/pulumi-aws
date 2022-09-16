@@ -21,7 +21,7 @@ public final class NetworkfirewallFunctions {
      * Retrieve information about a firewall.
      * 
      * ## Example Usage
-     * ### Find firewall policy by Amazon Resource Name (ARN)
+     * ### Find firewall policy by ARN
      * ```java
      * package generated_program;
      * 
@@ -79,7 +79,7 @@ public final class NetworkfirewallFunctions {
      *     }
      * }
      * ```
-     * ### Find firewall policy by Amazon Resource Name (ARN) and Name
+     * ### Find firewall policy by ARN and Name
      * ```java
      * package generated_program;
      * 
@@ -118,7 +118,7 @@ public final class NetworkfirewallFunctions {
      * Retrieve information about a firewall.
      * 
      * ## Example Usage
-     * ### Find firewall policy by Amazon Resource Name (ARN)
+     * ### Find firewall policy by ARN
      * ```java
      * package generated_program;
      * 
@@ -176,7 +176,7 @@ public final class NetworkfirewallFunctions {
      *     }
      * }
      * ```
-     * ### Find firewall policy by Amazon Resource Name (ARN) and Name
+     * ### Find firewall policy by ARN and Name
      * ```java
      * package generated_program;
      * 
@@ -215,7 +215,7 @@ public final class NetworkfirewallFunctions {
      * Retrieve information about a firewall.
      * 
      * ## Example Usage
-     * ### Find firewall policy by Amazon Resource Name (ARN)
+     * ### Find firewall policy by ARN
      * ```java
      * package generated_program;
      * 
@@ -273,7 +273,7 @@ public final class NetworkfirewallFunctions {
      *     }
      * }
      * ```
-     * ### Find firewall policy by Amazon Resource Name (ARN) and Name
+     * ### Find firewall policy by ARN and Name
      * ```java
      * package generated_program;
      * 
@@ -312,7 +312,7 @@ public final class NetworkfirewallFunctions {
      * Retrieve information about a firewall.
      * 
      * ## Example Usage
-     * ### Find firewall policy by Amazon Resource Name (ARN)
+     * ### Find firewall policy by ARN
      * ```java
      * package generated_program;
      * 
@@ -370,7 +370,7 @@ public final class NetworkfirewallFunctions {
      *     }
      * }
      * ```
-     * ### Find firewall policy by Amazon Resource Name (ARN) and Name
+     * ### Find firewall policy by ARN and Name
      * ```java
      * package generated_program;
      * 
@@ -409,7 +409,7 @@ public final class NetworkfirewallFunctions {
      * Retrieve information about a firewall.
      * 
      * ## Example Usage
-     * ### Find firewall policy by Amazon Resource Name (ARN)
+     * ### Find firewall policy by ARN
      * ```java
      * package generated_program;
      * 
@@ -467,7 +467,7 @@ public final class NetworkfirewallFunctions {
      *     }
      * }
      * ```
-     * ### Find firewall policy by Amazon Resource Name (ARN) and Name
+     * ### Find firewall policy by ARN and Name
      * ```java
      * package generated_program;
      * 
@@ -506,7 +506,7 @@ public final class NetworkfirewallFunctions {
      * Retrieve information about a firewall.
      * 
      * ## Example Usage
-     * ### Find firewall policy by Amazon Resource Name (ARN)
+     * ### Find firewall policy by ARN
      * ```java
      * package generated_program;
      * 
@@ -564,7 +564,7 @@ public final class NetworkfirewallFunctions {
      *     }
      * }
      * ```
-     * ### Find firewall policy by Amazon Resource Name (ARN) and Name
+     * ### Find firewall policy by ARN and Name
      * ```java
      * package generated_program;
      * 
@@ -632,7 +632,7 @@ public final class NetworkfirewallFunctions {
      *     }
      * }
      * ```
-     * ### Find firewall policy by Amazon Resource Name (ARN)
+     * ### Find firewall policy by ARN
      * ```java
      * package generated_program;
      * 
@@ -733,7 +733,7 @@ public final class NetworkfirewallFunctions {
      *     }
      * }
      * ```
-     * ### Find firewall policy by Amazon Resource Name (ARN)
+     * ### Find firewall policy by ARN
      * ```java
      * package generated_program;
      * 
@@ -834,7 +834,7 @@ public final class NetworkfirewallFunctions {
      *     }
      * }
      * ```
-     * ### Find firewall policy by Amazon Resource Name (ARN)
+     * ### Find firewall policy by ARN
      * ```java
      * package generated_program;
      * 
@@ -935,7 +935,7 @@ public final class NetworkfirewallFunctions {
      *     }
      * }
      * ```
-     * ### Find firewall policy by Amazon Resource Name (ARN)
+     * ### Find firewall policy by ARN
      * ```java
      * package generated_program;
      * 
@@ -1036,7 +1036,7 @@ public final class NetworkfirewallFunctions {
      *     }
      * }
      * ```
-     * ### Find firewall policy by Amazon Resource Name (ARN)
+     * ### Find firewall policy by ARN
      * ```java
      * package generated_program;
      * 
@@ -1137,7 +1137,7 @@ public final class NetworkfirewallFunctions {
      *     }
      * }
      * ```
-     * ### Find firewall policy by Amazon Resource Name (ARN)
+     * ### Find firewall policy by ARN
      * ```java
      * package generated_program;
      * 

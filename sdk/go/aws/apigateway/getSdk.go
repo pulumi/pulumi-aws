@@ -54,23 +54,23 @@ func GetSdk(ctx *pulumi.Context, args *GetSdkArgs, opts ...pulumi.InvokeOption) 
 
 // A collection of arguments for invoking getSdk.
 type GetSdkArgs struct {
-	// A key-value map of query string parameters `sdkType` properties of the SDK. For SDK Type of `objectivec` or `swift`, a parameter named `classPrefix` is required. For SDK Type of `android`, parameters named `groupId`, `artifactId`, `artifactVersion`, and `invokerPackage` are required. For SDK Type of `java`, parameters named `serviceName` and `javaPackageName` are required.
+	// Key-value map of query string parameters `sdkType` properties of the SDK. For SDK Type of `objectivec` or `swift`, a parameter named `classPrefix` is required. For SDK Type of `android`, parameters named `groupId`, `artifactId`, `artifactVersion`, and `invokerPackage` are required. For SDK Type of `java`, parameters named `serviceName` and `javaPackageName` are required.
 	Parameters map[string]string `pulumi:"parameters"`
-	// The identifier of the associated REST API.
+	// Identifier of the associated REST API.
 	RestApiId string `pulumi:"restApiId"`
-	// The language for the generated SDK. Currently `java`, `javascript`, `android`, `objectivec` (for iOS), `swift` (for iOS), and `ruby` are supported.
+	// Language for the generated SDK. Currently `java`, `javascript`, `android`, `objectivec` (for iOS), `swift` (for iOS), and `ruby` are supported.
 	SdkType string `pulumi:"sdkType"`
-	// The name of the Stage that will be exported.
+	// Name of the Stage that will be exported.
 	StageName string `pulumi:"stageName"`
 }
 
 // A collection of values returned by getSdk.
 type GetSdkResult struct {
-	// The SDK as a string.
+	// SDK as a string.
 	Body string `pulumi:"body"`
-	// The content-disposition header value in the HTTP response.
+	// Content-disposition header value in the HTTP response.
 	ContentDisposition string `pulumi:"contentDisposition"`
-	// The content-type header value in the HTTP response.
+	// Content-type header value in the HTTP response.
 	ContentType string `pulumi:"contentType"`
 	// The provider-assigned unique ID for this managed resource.
 	Id         string            `pulumi:"id"`
@@ -95,13 +95,13 @@ func GetSdkOutput(ctx *pulumi.Context, args GetSdkOutputArgs, opts ...pulumi.Inv
 
 // A collection of arguments for invoking getSdk.
 type GetSdkOutputArgs struct {
-	// A key-value map of query string parameters `sdkType` properties of the SDK. For SDK Type of `objectivec` or `swift`, a parameter named `classPrefix` is required. For SDK Type of `android`, parameters named `groupId`, `artifactId`, `artifactVersion`, and `invokerPackage` are required. For SDK Type of `java`, parameters named `serviceName` and `javaPackageName` are required.
+	// Key-value map of query string parameters `sdkType` properties of the SDK. For SDK Type of `objectivec` or `swift`, a parameter named `classPrefix` is required. For SDK Type of `android`, parameters named `groupId`, `artifactId`, `artifactVersion`, and `invokerPackage` are required. For SDK Type of `java`, parameters named `serviceName` and `javaPackageName` are required.
 	Parameters pulumi.StringMapInput `pulumi:"parameters"`
-	// The identifier of the associated REST API.
+	// Identifier of the associated REST API.
 	RestApiId pulumi.StringInput `pulumi:"restApiId"`
-	// The language for the generated SDK. Currently `java`, `javascript`, `android`, `objectivec` (for iOS), `swift` (for iOS), and `ruby` are supported.
+	// Language for the generated SDK. Currently `java`, `javascript`, `android`, `objectivec` (for iOS), `swift` (for iOS), and `ruby` are supported.
 	SdkType pulumi.StringInput `pulumi:"sdkType"`
-	// The name of the Stage that will be exported.
+	// Name of the Stage that will be exported.
 	StageName pulumi.StringInput `pulumi:"stageName"`
 }
 
@@ -124,17 +124,17 @@ func (o GetSdkResultOutput) ToGetSdkResultOutputWithContext(ctx context.Context)
 	return o
 }
 
-// The SDK as a string.
+// SDK as a string.
 func (o GetSdkResultOutput) Body() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSdkResult) string { return v.Body }).(pulumi.StringOutput)
 }
 
-// The content-disposition header value in the HTTP response.
+// Content-disposition header value in the HTTP response.
 func (o GetSdkResultOutput) ContentDisposition() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSdkResult) string { return v.ContentDisposition }).(pulumi.StringOutput)
 }
 
-// The content-type header value in the HTTP response.
+// Content-type header value in the HTTP response.
 func (o GetSdkResultOutput) ContentType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSdkResult) string { return v.ContentType }).(pulumi.StringOutput)
 }

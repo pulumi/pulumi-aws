@@ -135,10 +135,13 @@ namespace Pulumi.Aws.Dms
         public Output<string?> Password { get; private set; } = null!;
 
         /// <summary>
-        /// Port used by the endpoint database.
+        /// Transmission Control Protocol (TCP) port for the endpoint.
         /// </summary>
         [Output("port")]
         public Output<int?> Port { get; private set; } = null!;
+
+        [Output("redisSettings")]
+        public Output<Outputs.EndpointRedisSettings?> RedisSettings { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block for Redshift settings. See below.
@@ -165,7 +168,7 @@ namespace Pulumi.Aws.Dms
         public Output<string?> SecretsManagerArn { get; private set; } = null!;
 
         /// <summary>
-        /// Host name of the server.
+        /// Fully qualified domain name of the endpoint.
         /// </summary>
         [Output("serverName")]
         public Output<string?> ServerName { get; private set; } = null!;
@@ -319,10 +322,13 @@ namespace Pulumi.Aws.Dms
         public Input<string>? Password { get; set; }
 
         /// <summary>
-        /// Port used by the endpoint database.
+        /// Transmission Control Protocol (TCP) port for the endpoint.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
+
+        [Input("redisSettings")]
+        public Input<Inputs.EndpointRedisSettingsArgs>? RedisSettings { get; set; }
 
         /// <summary>
         /// Configuration block for Redshift settings. See below.
@@ -349,7 +355,7 @@ namespace Pulumi.Aws.Dms
         public Input<string>? SecretsManagerArn { get; set; }
 
         /// <summary>
-        /// Host name of the server.
+        /// Fully qualified domain name of the endpoint.
         /// </summary>
         [Input("serverName")]
         public Input<string>? ServerName { get; set; }
@@ -471,10 +477,13 @@ namespace Pulumi.Aws.Dms
         public Input<string>? Password { get; set; }
 
         /// <summary>
-        /// Port used by the endpoint database.
+        /// Transmission Control Protocol (TCP) port for the endpoint.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
+
+        [Input("redisSettings")]
+        public Input<Inputs.EndpointRedisSettingsGetArgs>? RedisSettings { get; set; }
 
         /// <summary>
         /// Configuration block for Redshift settings. See below.
@@ -501,7 +510,7 @@ namespace Pulumi.Aws.Dms
         public Input<string>? SecretsManagerArn { get; set; }
 
         /// <summary>
-        /// Host name of the server.
+        /// Fully qualified domain name of the endpoint.
         /// </summary>
         [Input("serverName")]
         public Input<string>? ServerName { get; set; }

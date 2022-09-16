@@ -51,7 +51,7 @@ class GetInstanceTypeOfferingsResult:
     @pulumi.getter(name="engineType")
     def engine_type(self) -> Optional[str]:
         """
-        The broker's engine type.
+        Broker's engine type.
         """
         return pulumi.get(self, "engine_type")
 
@@ -59,7 +59,7 @@ class GetInstanceTypeOfferingsResult:
     @pulumi.getter(name="hostInstanceType")
     def host_instance_type(self) -> Optional[str]:
         """
-        The broker's instance type.
+        Broker's instance type.
         """
         return pulumi.get(self, "host_instance_type")
 
@@ -75,7 +75,7 @@ class GetInstanceTypeOfferingsResult:
     @pulumi.getter(name="storageType")
     def storage_type(self) -> Optional[str]:
         """
-        The broker's storage type.
+        Broker's storage type.
         """
         return pulumi.get(self, "storage_type")
 

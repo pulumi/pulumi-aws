@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -36,7 +38,7 @@ export function getOrganizationalUnits(args: GetOrganizationalUnitsArgs, opts?: 
  */
 export interface GetOrganizationalUnitsArgs {
     /**
-     * The parent ID of the organizational unit.
+     * Parent ID of the organizational unit.
      */
     parentId: string;
 }
@@ -65,7 +67,7 @@ export function getOrganizationalUnitsOutput(args: GetOrganizationalUnitsOutputA
  */
 export interface GetOrganizationalUnitsOutputArgs {
     /**
-     * The parent ID of the organizational unit.
+     * Parent ID of the organizational unit.
      */
     parentId: pulumi.Input<string>;
 }

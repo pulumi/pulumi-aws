@@ -17,14 +17,14 @@ public final class IntegrationResponseArgs extends com.pulumi.resources.Resource
     public static final IntegrationResponseArgs Empty = new IntegrationResponseArgs();
 
     /**
-     * The API identifier.
+     * API identifier.
      * 
      */
     @Import(name="apiId", required=true)
     private Output<String> apiId;
 
     /**
-     * @return The API identifier.
+     * @return API identifier.
      * 
      */
     public Output<String> apiId() {
@@ -47,14 +47,14 @@ public final class IntegrationResponseArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The identifier of the `aws.apigatewayv2.Integration`.
+     * Identifier of the `aws.apigatewayv2.Integration`.
      * 
      */
     @Import(name="integrationId", required=true)
     private Output<String> integrationId;
 
     /**
-     * @return The identifier of the `aws.apigatewayv2.Integration`.
+     * @return Identifier of the `aws.apigatewayv2.Integration`.
      * 
      */
     public Output<String> integrationId() {
@@ -62,14 +62,14 @@ public final class IntegrationResponseArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The integration response key.
+     * Integration response key.
      * 
      */
     @Import(name="integrationResponseKey", required=true)
     private Output<String> integrationResponseKey;
 
     /**
-     * @return The integration response key.
+     * @return Integration response key.
      * 
      */
     public Output<String> integrationResponseKey() {
@@ -77,14 +77,14 @@ public final class IntegrationResponseArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * A map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
+     * Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
      * 
      */
     @Import(name="responseTemplates")
     private @Nullable Output<Map<String,String>> responseTemplates;
 
     /**
-     * @return A map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
+     * @return Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
      * 
      */
     public Optional<Output<Map<String,String>>> responseTemplates() {
@@ -136,7 +136,7 @@ public final class IntegrationResponseArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param apiId The API identifier.
+         * @param apiId API identifier.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class IntegrationResponseArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param apiId The API identifier.
+         * @param apiId API identifier.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class IntegrationResponseArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param integrationId The identifier of the `aws.apigatewayv2.Integration`.
+         * @param integrationId Identifier of the `aws.apigatewayv2.Integration`.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class IntegrationResponseArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param integrationId The identifier of the `aws.apigatewayv2.Integration`.
+         * @param integrationId Identifier of the `aws.apigatewayv2.Integration`.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class IntegrationResponseArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param integrationResponseKey The integration response key.
+         * @param integrationResponseKey Integration response key.
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class IntegrationResponseArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param integrationResponseKey The integration response key.
+         * @param integrationResponseKey Integration response key.
          * 
          * @return builder
          * 
@@ -220,7 +220,7 @@ public final class IntegrationResponseArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param responseTemplates A map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
+         * @param responseTemplates Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class IntegrationResponseArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param responseTemplates A map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
+         * @param responseTemplates Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
          * 
          * @return builder
          * 

@@ -19,9 +19,9 @@ class WebhookArgs:
                  description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Webhook resource.
-        :param pulumi.Input[str] app_id: The unique ID for an Amplify app.
-        :param pulumi.Input[str] branch_name: The name for a branch that is part of the Amplify app.
-        :param pulumi.Input[str] description: The description for a webhook.
+        :param pulumi.Input[str] app_id: Unique ID for an Amplify app.
+        :param pulumi.Input[str] branch_name: Name for a branch that is part of the Amplify app.
+        :param pulumi.Input[str] description: Description for a webhook.
         """
         pulumi.set(__self__, "app_id", app_id)
         pulumi.set(__self__, "branch_name", branch_name)
@@ -32,7 +32,7 @@ class WebhookArgs:
     @pulumi.getter(name="appId")
     def app_id(self) -> pulumi.Input[str]:
         """
-        The unique ID for an Amplify app.
+        Unique ID for an Amplify app.
         """
         return pulumi.get(self, "app_id")
 
@@ -44,7 +44,7 @@ class WebhookArgs:
     @pulumi.getter(name="branchName")
     def branch_name(self) -> pulumi.Input[str]:
         """
-        The name for a branch that is part of the Amplify app.
+        Name for a branch that is part of the Amplify app.
         """
         return pulumi.get(self, "branch_name")
 
@@ -56,7 +56,7 @@ class WebhookArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        The description for a webhook.
+        Description for a webhook.
         """
         return pulumi.get(self, "description")
 
@@ -75,11 +75,11 @@ class _WebhookState:
                  url: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Webhook resources.
-        :param pulumi.Input[str] app_id: The unique ID for an Amplify app.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) for the webhook.
-        :param pulumi.Input[str] branch_name: The name for a branch that is part of the Amplify app.
-        :param pulumi.Input[str] description: The description for a webhook.
-        :param pulumi.Input[str] url: The URL of the webhook.
+        :param pulumi.Input[str] app_id: Unique ID for an Amplify app.
+        :param pulumi.Input[str] arn: ARN for the webhook.
+        :param pulumi.Input[str] branch_name: Name for a branch that is part of the Amplify app.
+        :param pulumi.Input[str] description: Description for a webhook.
+        :param pulumi.Input[str] url: URL of the webhook.
         """
         if app_id is not None:
             pulumi.set(__self__, "app_id", app_id)
@@ -96,7 +96,7 @@ class _WebhookState:
     @pulumi.getter(name="appId")
     def app_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The unique ID for an Amplify app.
+        Unique ID for an Amplify app.
         """
         return pulumi.get(self, "app_id")
 
@@ -108,7 +108,7 @@ class _WebhookState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Resource Name (ARN) for the webhook.
+        ARN for the webhook.
         """
         return pulumi.get(self, "arn")
 
@@ -120,7 +120,7 @@ class _WebhookState:
     @pulumi.getter(name="branchName")
     def branch_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name for a branch that is part of the Amplify app.
+        Name for a branch that is part of the Amplify app.
         """
         return pulumi.get(self, "branch_name")
 
@@ -132,7 +132,7 @@ class _WebhookState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        The description for a webhook.
+        Description for a webhook.
         """
         return pulumi.get(self, "description")
 
@@ -144,7 +144,7 @@ class _WebhookState:
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[str]]:
         """
-        The URL of the webhook.
+        URL of the webhook.
         """
         return pulumi.get(self, "url")
 
@@ -191,9 +191,9 @@ class Webhook(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] app_id: The unique ID for an Amplify app.
-        :param pulumi.Input[str] branch_name: The name for a branch that is part of the Amplify app.
-        :param pulumi.Input[str] description: The description for a webhook.
+        :param pulumi.Input[str] app_id: Unique ID for an Amplify app.
+        :param pulumi.Input[str] branch_name: Name for a branch that is part of the Amplify app.
+        :param pulumi.Input[str] description: Description for a webhook.
         """
         ...
     @overload
@@ -286,11 +286,11 @@ class Webhook(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] app_id: The unique ID for an Amplify app.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) for the webhook.
-        :param pulumi.Input[str] branch_name: The name for a branch that is part of the Amplify app.
-        :param pulumi.Input[str] description: The description for a webhook.
-        :param pulumi.Input[str] url: The URL of the webhook.
+        :param pulumi.Input[str] app_id: Unique ID for an Amplify app.
+        :param pulumi.Input[str] arn: ARN for the webhook.
+        :param pulumi.Input[str] branch_name: Name for a branch that is part of the Amplify app.
+        :param pulumi.Input[str] description: Description for a webhook.
+        :param pulumi.Input[str] url: URL of the webhook.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -307,7 +307,7 @@ class Webhook(pulumi.CustomResource):
     @pulumi.getter(name="appId")
     def app_id(self) -> pulumi.Output[str]:
         """
-        The unique ID for an Amplify app.
+        Unique ID for an Amplify app.
         """
         return pulumi.get(self, "app_id")
 
@@ -315,7 +315,7 @@ class Webhook(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        The Amazon Resource Name (ARN) for the webhook.
+        ARN for the webhook.
         """
         return pulumi.get(self, "arn")
 
@@ -323,7 +323,7 @@ class Webhook(pulumi.CustomResource):
     @pulumi.getter(name="branchName")
     def branch_name(self) -> pulumi.Output[str]:
         """
-        The name for a branch that is part of the Amplify app.
+        Name for a branch that is part of the Amplify app.
         """
         return pulumi.get(self, "branch_name")
 
@@ -331,7 +331,7 @@ class Webhook(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        The description for a webhook.
+        Description for a webhook.
         """
         return pulumi.get(self, "description")
 
@@ -339,7 +339,7 @@ class Webhook(pulumi.CustomResource):
     @pulumi.getter
     def url(self) -> pulumi.Output[str]:
         """
-        The URL of the webhook.
+        URL of the webhook.
         """
         return pulumi.get(self, "url")
 

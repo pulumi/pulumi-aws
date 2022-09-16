@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -47,7 +49,7 @@ export interface GetEipsArgs {
      */
     filters?: inputs.ec2.GetEipsFilter[];
     /**
-     * A map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.
+     * Map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.
      */
     tags?: {[key: string]: string};
 }
@@ -57,7 +59,7 @@ export interface GetEipsArgs {
  */
 export interface GetEipsResult {
     /**
-     * A list of all the allocation IDs for address for use with EC2-VPC.
+     * List of all the allocation IDs for address for use with EC2-VPC.
      */
     readonly allocationIds: string[];
     readonly filters?: outputs.ec2.GetEipsFilter[];
@@ -66,7 +68,7 @@ export interface GetEipsResult {
      */
     readonly id: string;
     /**
-     * A list of all the Elastic IP addresses.
+     * List of all the Elastic IP addresses.
      */
     readonly publicIps: string[];
     readonly tags: {[key: string]: string};
@@ -85,7 +87,7 @@ export interface GetEipsOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetEipsFilterArgs>[]>;
     /**
-     * A map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.
+     * Map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

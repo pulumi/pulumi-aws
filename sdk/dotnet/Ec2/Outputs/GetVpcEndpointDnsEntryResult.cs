@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Ec2.Outputs
     public sealed class GetVpcEndpointDnsEntryResult
     {
         /// <summary>
-        /// The DNS name.
+        /// DNS name.
         /// </summary>
         public readonly string DnsName;
         /// <summary>
-        /// The ID of the private hosted zone.
+        /// ID of the private hosted zone.
         /// </summary>
         public readonly string HostedZoneId;
 

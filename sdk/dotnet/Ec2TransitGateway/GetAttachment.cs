@@ -130,7 +130,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         }
 
         /// <summary>
-        /// The ID of the attachment.
+        /// ID of the attachment.
         /// </summary>
         [Input("transitGatewayAttachmentId")]
         public string? TransitGatewayAttachmentId { get; set; }
@@ -168,7 +168,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         }
 
         /// <summary>
-        /// The ID of the attachment.
+        /// ID of the attachment.
         /// </summary>
         [Input("transitGatewayAttachmentId")]
         public Input<string>? TransitGatewayAttachmentId { get; set; }
@@ -184,7 +184,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     public sealed class GetAttachmentResult
     {
         /// <summary>
-        /// The ARN of the attachment.
+        /// ARN of the attachment.
         /// </summary>
         public readonly string Arn;
         public readonly ImmutableArray<Outputs.GetAttachmentFilterResult> Filters;
@@ -193,19 +193,19 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The ID of the resource.
+        /// ID of the resource.
         /// </summary>
         public readonly string ResourceId;
         /// <summary>
-        /// The ID of the AWS account that owns the resource.
+        /// ID of the AWS account that owns the resource.
         /// </summary>
         public readonly string ResourceOwnerId;
         /// <summary>
-        /// The resource type.
+        /// Resource type.
         /// </summary>
         public readonly string ResourceType;
         /// <summary>
-        /// The attachment state.
+        /// Attachment state.
         /// </summary>
         public readonly string State;
         /// <summary>
@@ -214,7 +214,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public readonly ImmutableDictionary<string, string> Tags;
         public readonly string TransitGatewayAttachmentId;
         /// <summary>
-        /// The ID of the transit gateway.
+        /// ID of the transit gateway.
         /// </summary>
         public readonly string TransitGatewayId;
         /// <summary>

@@ -72,7 +72,7 @@ public final class GetInfrastructureConfigurationResult {
      */
     private List<String> securityGroupIds;
     /**
-     * @return Amazon Resource Name (ARN) of the SNS Topic associated with the configuration.
+     * @return ARN of the SNS Topic associated with the configuration.
      * 
      */
     private String snsTopicArn;
@@ -177,7 +177,7 @@ public final class GetInfrastructureConfigurationResult {
         return this.securityGroupIds;
     }
     /**
-     * @return Amazon Resource Name (ARN) of the SNS Topic associated with the configuration.
+     * @return ARN of the SNS Topic associated with the configuration.
      * 
      */
     public String snsTopicArn() {

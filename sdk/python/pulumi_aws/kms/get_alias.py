@@ -42,7 +42,7 @@ class GetAliasResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The Amazon Resource Name(ARN) of the key alias.
+        Amazon Resource Name(ARN) of the key alias.
         """
         return pulumi.get(self, "arn")
 
@@ -106,7 +106,7 @@ def get_alias(name: Optional[str] = None,
     ```
 
 
-    :param str name: The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
+    :param str name: Display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
     """
     __args__ = dict()
     __args__['name'] = name
@@ -139,6 +139,6 @@ def get_alias_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str name: The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
+    :param str name: Display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
     """
     ...

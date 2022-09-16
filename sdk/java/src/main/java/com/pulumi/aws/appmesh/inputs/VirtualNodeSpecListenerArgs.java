@@ -21,14 +21,14 @@ public final class VirtualNodeSpecListenerArgs extends com.pulumi.resources.Reso
     public static final VirtualNodeSpecListenerArgs Empty = new VirtualNodeSpecListenerArgs();
 
     /**
-     * The connection pool information for the listener.
+     * Connection pool information for the listener.
      * 
      */
     @Import(name="connectionPool")
     private @Nullable Output<VirtualNodeSpecListenerConnectionPoolArgs> connectionPool;
 
     /**
-     * @return The connection pool information for the listener.
+     * @return Connection pool information for the listener.
      * 
      */
     public Optional<Output<VirtualNodeSpecListenerConnectionPoolArgs>> connectionPool() {
@@ -36,14 +36,14 @@ public final class VirtualNodeSpecListenerArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The health check information for the listener.
+     * Health check information for the listener.
      * 
      */
     @Import(name="healthCheck")
     private @Nullable Output<VirtualNodeSpecListenerHealthCheckArgs> healthCheck;
 
     /**
-     * @return The health check information for the listener.
+     * @return Health check information for the listener.
      * 
      */
     public Optional<Output<VirtualNodeSpecListenerHealthCheckArgs>> healthCheck() {
@@ -51,14 +51,14 @@ public final class VirtualNodeSpecListenerArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The outlier detection information for the listener.
+     * Outlier detection information for the listener.
      * 
      */
     @Import(name="outlierDetection")
     private @Nullable Output<VirtualNodeSpecListenerOutlierDetectionArgs> outlierDetection;
 
     /**
-     * @return The outlier detection information for the listener.
+     * @return Outlier detection information for the listener.
      * 
      */
     public Optional<Output<VirtualNodeSpecListenerOutlierDetectionArgs>> outlierDetection() {
@@ -66,14 +66,14 @@ public final class VirtualNodeSpecListenerArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The port mapping information for the listener.
+     * Port mapping information for the listener.
      * 
      */
     @Import(name="portMapping", required=true)
     private Output<VirtualNodeSpecListenerPortMappingArgs> portMapping;
 
     /**
-     * @return The port mapping information for the listener.
+     * @return Port mapping information for the listener.
      * 
      */
     public Output<VirtualNodeSpecListenerPortMappingArgs> portMapping() {
@@ -96,14 +96,14 @@ public final class VirtualNodeSpecListenerArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The Transport Layer Security (TLS) properties for the listener
+     * Transport Layer Security (TLS) properties for the listener
      * 
      */
     @Import(name="tls")
     private @Nullable Output<VirtualNodeSpecListenerTlsArgs> tls;
 
     /**
-     * @return The Transport Layer Security (TLS) properties for the listener
+     * @return Transport Layer Security (TLS) properties for the listener
      * 
      */
     public Optional<Output<VirtualNodeSpecListenerTlsArgs>> tls() {
@@ -140,7 +140,7 @@ public final class VirtualNodeSpecListenerArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param connectionPool The connection pool information for the listener.
+         * @param connectionPool Connection pool information for the listener.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class VirtualNodeSpecListenerArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param connectionPool The connection pool information for the listener.
+         * @param connectionPool Connection pool information for the listener.
          * 
          * @return builder
          * 
@@ -161,7 +161,7 @@ public final class VirtualNodeSpecListenerArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param healthCheck The health check information for the listener.
+         * @param healthCheck Health check information for the listener.
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class VirtualNodeSpecListenerArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param healthCheck The health check information for the listener.
+         * @param healthCheck Health check information for the listener.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class VirtualNodeSpecListenerArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param outlierDetection The outlier detection information for the listener.
+         * @param outlierDetection Outlier detection information for the listener.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class VirtualNodeSpecListenerArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param outlierDetection The outlier detection information for the listener.
+         * @param outlierDetection Outlier detection information for the listener.
          * 
          * @return builder
          * 
@@ -203,7 +203,7 @@ public final class VirtualNodeSpecListenerArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param portMapping The port mapping information for the listener.
+         * @param portMapping Port mapping information for the listener.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class VirtualNodeSpecListenerArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param portMapping The port mapping information for the listener.
+         * @param portMapping Port mapping information for the listener.
          * 
          * @return builder
          * 
@@ -245,7 +245,7 @@ public final class VirtualNodeSpecListenerArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param tls The Transport Layer Security (TLS) properties for the listener
+         * @param tls Transport Layer Security (TLS) properties for the listener
          * 
          * @return builder
          * 
@@ -256,7 +256,7 @@ public final class VirtualNodeSpecListenerArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param tls The Transport Layer Security (TLS) properties for the listener
+         * @param tls Transport Layer Security (TLS) properties for the listener
          * 
          * @return builder
          * 

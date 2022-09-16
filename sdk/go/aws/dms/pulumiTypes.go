@@ -231,7 +231,7 @@ type EndpointKafkaSettings struct {
 	SaslUsername *string `pulumi:"saslUsername"`
 	// Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `saslUsername` and `saslPassword`.
 	SecurityProtocol *string `pulumi:"securityProtocol"`
-	// ARN for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
+	// The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
 	SslCaCertificateArn *string `pulumi:"sslCaCertificateArn"`
 	// ARN of the client certificate used to securely connect to a Kafka target endpoint.
 	SslClientCertificateArn *string `pulumi:"sslClientCertificateArn"`
@@ -281,7 +281,7 @@ type EndpointKafkaSettingsArgs struct {
 	SaslUsername pulumi.StringPtrInput `pulumi:"saslUsername"`
 	// Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `saslUsername` and `saslPassword`.
 	SecurityProtocol pulumi.StringPtrInput `pulumi:"securityProtocol"`
-	// ARN for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
+	// The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
 	SslCaCertificateArn pulumi.StringPtrInput `pulumi:"sslCaCertificateArn"`
 	// ARN of the client certificate used to securely connect to a Kafka target endpoint.
 	SslClientCertificateArn pulumi.StringPtrInput `pulumi:"sslClientCertificateArn"`
@@ -435,7 +435,7 @@ func (o EndpointKafkaSettingsOutput) SecurityProtocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointKafkaSettings) *string { return v.SecurityProtocol }).(pulumi.StringPtrOutput)
 }
 
-// ARN for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
+// The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
 func (o EndpointKafkaSettingsOutput) SslCaCertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointKafkaSettings) *string { return v.SslCaCertificateArn }).(pulumi.StringPtrOutput)
 }
@@ -614,7 +614,7 @@ func (o EndpointKafkaSettingsPtrOutput) SecurityProtocol() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// ARN for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
+// The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
 func (o EndpointKafkaSettingsPtrOutput) SslCaCertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointKafkaSettings) *string {
 		if v == nil {
@@ -958,7 +958,7 @@ type EndpointMongodbSettings struct {
 	AuthMechanism *string `pulumi:"authMechanism"`
 	// Authentication database name. Not used when `authType` is `no`. Default is `admin`.
 	AuthSource *string `pulumi:"authSource"`
-	// Authentication type to access the MongoDB source endpoint. Default is `password`.
+	// The type of authentication to perform when connecting to a Redis target. Options include `none`, `auth-token`, and `auth-role`. The `auth-token` option requires an `authPassword` value to be provided. The `auth-role` option requires `authUserName` and `authPassword` values to be provided.
 	AuthType *string `pulumi:"authType"`
 	// Number of documents to preview to determine the document organization. Use this setting when `nestingLevel` is set to `one`. Default is `1000`.
 	DocsToInvestigate *string `pulumi:"docsToInvestigate"`
@@ -984,7 +984,7 @@ type EndpointMongodbSettingsArgs struct {
 	AuthMechanism pulumi.StringPtrInput `pulumi:"authMechanism"`
 	// Authentication database name. Not used when `authType` is `no`. Default is `admin`.
 	AuthSource pulumi.StringPtrInput `pulumi:"authSource"`
-	// Authentication type to access the MongoDB source endpoint. Default is `password`.
+	// The type of authentication to perform when connecting to a Redis target. Options include `none`, `auth-token`, and `auth-role`. The `auth-token` option requires an `authPassword` value to be provided. The `auth-role` option requires `authUserName` and `authPassword` values to be provided.
 	AuthType pulumi.StringPtrInput `pulumi:"authType"`
 	// Number of documents to preview to determine the document organization. Use this setting when `nestingLevel` is set to `one`. Default is `1000`.
 	DocsToInvestigate pulumi.StringPtrInput `pulumi:"docsToInvestigate"`
@@ -1081,7 +1081,7 @@ func (o EndpointMongodbSettingsOutput) AuthSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointMongodbSettings) *string { return v.AuthSource }).(pulumi.StringPtrOutput)
 }
 
-// Authentication type to access the MongoDB source endpoint. Default is `password`.
+// The type of authentication to perform when connecting to a Redis target. Options include `none`, `auth-token`, and `auth-role`. The `auth-token` option requires an `authPassword` value to be provided. The `auth-role` option requires `authUserName` and `authPassword` values to be provided.
 func (o EndpointMongodbSettingsOutput) AuthType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointMongodbSettings) *string { return v.AuthType }).(pulumi.StringPtrOutput)
 }
@@ -1145,7 +1145,7 @@ func (o EndpointMongodbSettingsPtrOutput) AuthSource() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Authentication type to access the MongoDB source endpoint. Default is `password`.
+// The type of authentication to perform when connecting to a Redis target. Options include `none`, `auth-token`, and `auth-role`. The `auth-token` option requires an `authPassword` value to be provided. The `auth-role` option requires `authUserName` and `authPassword` values to be provided.
 func (o EndpointMongodbSettingsPtrOutput) AuthType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointMongodbSettings) *string {
 		if v == nil {
@@ -1182,6 +1182,257 @@ func (o EndpointMongodbSettingsPtrOutput) NestingLevel() pulumi.StringPtrOutput 
 			return nil
 		}
 		return v.NestingLevel
+	}).(pulumi.StringPtrOutput)
+}
+
+type EndpointRedisSettings struct {
+	// The password provided with the auth-role and auth-token options of the AuthType setting for a Redis target endpoint.
+	AuthPassword *string `pulumi:"authPassword"`
+	// The type of authentication to perform when connecting to a Redis target. Options include `none`, `auth-token`, and `auth-role`. The `auth-token` option requires an `authPassword` value to be provided. The `auth-role` option requires `authUserName` and `authPassword` values to be provided.
+	AuthType string `pulumi:"authType"`
+	// The username provided with the `auth-role` option of the AuthType setting for a Redis target endpoint.
+	AuthUserName *string `pulumi:"authUserName"`
+	// Transmission Control Protocol (TCP) port for the endpoint.
+	Port int `pulumi:"port"`
+	// Fully qualified domain name of the endpoint.
+	ServerName string `pulumi:"serverName"`
+	// The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
+	SslCaCertificateArn *string `pulumi:"sslCaCertificateArn"`
+	// The plaintext option doesn't provide Transport Layer Security (TLS) encryption for traffic between endpoint and database. Options include `plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
+	SslSecurityProtocol *string `pulumi:"sslSecurityProtocol"`
+}
+
+// EndpointRedisSettingsInput is an input type that accepts EndpointRedisSettingsArgs and EndpointRedisSettingsOutput values.
+// You can construct a concrete instance of `EndpointRedisSettingsInput` via:
+//
+//	EndpointRedisSettingsArgs{...}
+type EndpointRedisSettingsInput interface {
+	pulumi.Input
+
+	ToEndpointRedisSettingsOutput() EndpointRedisSettingsOutput
+	ToEndpointRedisSettingsOutputWithContext(context.Context) EndpointRedisSettingsOutput
+}
+
+type EndpointRedisSettingsArgs struct {
+	// The password provided with the auth-role and auth-token options of the AuthType setting for a Redis target endpoint.
+	AuthPassword pulumi.StringPtrInput `pulumi:"authPassword"`
+	// The type of authentication to perform when connecting to a Redis target. Options include `none`, `auth-token`, and `auth-role`. The `auth-token` option requires an `authPassword` value to be provided. The `auth-role` option requires `authUserName` and `authPassword` values to be provided.
+	AuthType pulumi.StringInput `pulumi:"authType"`
+	// The username provided with the `auth-role` option of the AuthType setting for a Redis target endpoint.
+	AuthUserName pulumi.StringPtrInput `pulumi:"authUserName"`
+	// Transmission Control Protocol (TCP) port for the endpoint.
+	Port pulumi.IntInput `pulumi:"port"`
+	// Fully qualified domain name of the endpoint.
+	ServerName pulumi.StringInput `pulumi:"serverName"`
+	// The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
+	SslCaCertificateArn pulumi.StringPtrInput `pulumi:"sslCaCertificateArn"`
+	// The plaintext option doesn't provide Transport Layer Security (TLS) encryption for traffic between endpoint and database. Options include `plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
+	SslSecurityProtocol pulumi.StringPtrInput `pulumi:"sslSecurityProtocol"`
+}
+
+func (EndpointRedisSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointRedisSettings)(nil)).Elem()
+}
+
+func (i EndpointRedisSettingsArgs) ToEndpointRedisSettingsOutput() EndpointRedisSettingsOutput {
+	return i.ToEndpointRedisSettingsOutputWithContext(context.Background())
+}
+
+func (i EndpointRedisSettingsArgs) ToEndpointRedisSettingsOutputWithContext(ctx context.Context) EndpointRedisSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointRedisSettingsOutput)
+}
+
+func (i EndpointRedisSettingsArgs) ToEndpointRedisSettingsPtrOutput() EndpointRedisSettingsPtrOutput {
+	return i.ToEndpointRedisSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointRedisSettingsArgs) ToEndpointRedisSettingsPtrOutputWithContext(ctx context.Context) EndpointRedisSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointRedisSettingsOutput).ToEndpointRedisSettingsPtrOutputWithContext(ctx)
+}
+
+// EndpointRedisSettingsPtrInput is an input type that accepts EndpointRedisSettingsArgs, EndpointRedisSettingsPtr and EndpointRedisSettingsPtrOutput values.
+// You can construct a concrete instance of `EndpointRedisSettingsPtrInput` via:
+//
+//	        EndpointRedisSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type EndpointRedisSettingsPtrInput interface {
+	pulumi.Input
+
+	ToEndpointRedisSettingsPtrOutput() EndpointRedisSettingsPtrOutput
+	ToEndpointRedisSettingsPtrOutputWithContext(context.Context) EndpointRedisSettingsPtrOutput
+}
+
+type endpointRedisSettingsPtrType EndpointRedisSettingsArgs
+
+func EndpointRedisSettingsPtr(v *EndpointRedisSettingsArgs) EndpointRedisSettingsPtrInput {
+	return (*endpointRedisSettingsPtrType)(v)
+}
+
+func (*endpointRedisSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointRedisSettings)(nil)).Elem()
+}
+
+func (i *endpointRedisSettingsPtrType) ToEndpointRedisSettingsPtrOutput() EndpointRedisSettingsPtrOutput {
+	return i.ToEndpointRedisSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointRedisSettingsPtrType) ToEndpointRedisSettingsPtrOutputWithContext(ctx context.Context) EndpointRedisSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointRedisSettingsPtrOutput)
+}
+
+type EndpointRedisSettingsOutput struct{ *pulumi.OutputState }
+
+func (EndpointRedisSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointRedisSettings)(nil)).Elem()
+}
+
+func (o EndpointRedisSettingsOutput) ToEndpointRedisSettingsOutput() EndpointRedisSettingsOutput {
+	return o
+}
+
+func (o EndpointRedisSettingsOutput) ToEndpointRedisSettingsOutputWithContext(ctx context.Context) EndpointRedisSettingsOutput {
+	return o
+}
+
+func (o EndpointRedisSettingsOutput) ToEndpointRedisSettingsPtrOutput() EndpointRedisSettingsPtrOutput {
+	return o.ToEndpointRedisSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointRedisSettingsOutput) ToEndpointRedisSettingsPtrOutputWithContext(ctx context.Context) EndpointRedisSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointRedisSettings) *EndpointRedisSettings {
+		return &v
+	}).(EndpointRedisSettingsPtrOutput)
+}
+
+// The password provided with the auth-role and auth-token options of the AuthType setting for a Redis target endpoint.
+func (o EndpointRedisSettingsOutput) AuthPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointRedisSettings) *string { return v.AuthPassword }).(pulumi.StringPtrOutput)
+}
+
+// The type of authentication to perform when connecting to a Redis target. Options include `none`, `auth-token`, and `auth-role`. The `auth-token` option requires an `authPassword` value to be provided. The `auth-role` option requires `authUserName` and `authPassword` values to be provided.
+func (o EndpointRedisSettingsOutput) AuthType() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointRedisSettings) string { return v.AuthType }).(pulumi.StringOutput)
+}
+
+// The username provided with the `auth-role` option of the AuthType setting for a Redis target endpoint.
+func (o EndpointRedisSettingsOutput) AuthUserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointRedisSettings) *string { return v.AuthUserName }).(pulumi.StringPtrOutput)
+}
+
+// Transmission Control Protocol (TCP) port for the endpoint.
+func (o EndpointRedisSettingsOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v EndpointRedisSettings) int { return v.Port }).(pulumi.IntOutput)
+}
+
+// Fully qualified domain name of the endpoint.
+func (o EndpointRedisSettingsOutput) ServerName() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointRedisSettings) string { return v.ServerName }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
+func (o EndpointRedisSettingsOutput) SslCaCertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointRedisSettings) *string { return v.SslCaCertificateArn }).(pulumi.StringPtrOutput)
+}
+
+// The plaintext option doesn't provide Transport Layer Security (TLS) encryption for traffic between endpoint and database. Options include `plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
+func (o EndpointRedisSettingsOutput) SslSecurityProtocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointRedisSettings) *string { return v.SslSecurityProtocol }).(pulumi.StringPtrOutput)
+}
+
+type EndpointRedisSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointRedisSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointRedisSettings)(nil)).Elem()
+}
+
+func (o EndpointRedisSettingsPtrOutput) ToEndpointRedisSettingsPtrOutput() EndpointRedisSettingsPtrOutput {
+	return o
+}
+
+func (o EndpointRedisSettingsPtrOutput) ToEndpointRedisSettingsPtrOutputWithContext(ctx context.Context) EndpointRedisSettingsPtrOutput {
+	return o
+}
+
+func (o EndpointRedisSettingsPtrOutput) Elem() EndpointRedisSettingsOutput {
+	return o.ApplyT(func(v *EndpointRedisSettings) EndpointRedisSettings {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointRedisSettings
+		return ret
+	}).(EndpointRedisSettingsOutput)
+}
+
+// The password provided with the auth-role and auth-token options of the AuthType setting for a Redis target endpoint.
+func (o EndpointRedisSettingsPtrOutput) AuthPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointRedisSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthPassword
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of authentication to perform when connecting to a Redis target. Options include `none`, `auth-token`, and `auth-role`. The `auth-token` option requires an `authPassword` value to be provided. The `auth-role` option requires `authUserName` and `authPassword` values to be provided.
+func (o EndpointRedisSettingsPtrOutput) AuthType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointRedisSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AuthType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The username provided with the `auth-role` option of the AuthType setting for a Redis target endpoint.
+func (o EndpointRedisSettingsPtrOutput) AuthUserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointRedisSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthUserName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Transmission Control Protocol (TCP) port for the endpoint.
+func (o EndpointRedisSettingsPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointRedisSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+// Fully qualified domain name of the endpoint.
+func (o EndpointRedisSettingsPtrOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointRedisSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ServerName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
+func (o EndpointRedisSettingsPtrOutput) SslCaCertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointRedisSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SslCaCertificateArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The plaintext option doesn't provide Transport Layer Security (TLS) encryption for traffic between endpoint and database. Options include `plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
+func (o EndpointRedisSettingsPtrOutput) SslSecurityProtocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointRedisSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SslSecurityProtocol
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2209,6 +2460,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointKinesisSettingsPtrInput)(nil)).Elem(), EndpointKinesisSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointMongodbSettingsInput)(nil)).Elem(), EndpointMongodbSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointMongodbSettingsPtrInput)(nil)).Elem(), EndpointMongodbSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointRedisSettingsInput)(nil)).Elem(), EndpointRedisSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointRedisSettingsPtrInput)(nil)).Elem(), EndpointRedisSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointRedshiftSettingsInput)(nil)).Elem(), EndpointRedshiftSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointRedshiftSettingsPtrInput)(nil)).Elem(), EndpointRedshiftSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointS3SettingsInput)(nil)).Elem(), EndpointS3SettingsArgs{})
@@ -2221,6 +2474,8 @@ func init() {
 	pulumi.RegisterOutputType(EndpointKinesisSettingsPtrOutput{})
 	pulumi.RegisterOutputType(EndpointMongodbSettingsOutput{})
 	pulumi.RegisterOutputType(EndpointMongodbSettingsPtrOutput{})
+	pulumi.RegisterOutputType(EndpointRedisSettingsOutput{})
+	pulumi.RegisterOutputType(EndpointRedisSettingsPtrOutput{})
 	pulumi.RegisterOutputType(EndpointRedshiftSettingsOutput{})
 	pulumi.RegisterOutputType(EndpointRedshiftSettingsPtrOutput{})
 	pulumi.RegisterOutputType(EndpointS3SettingsOutput{})

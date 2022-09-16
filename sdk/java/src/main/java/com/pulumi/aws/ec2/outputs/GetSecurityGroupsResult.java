@@ -31,7 +31,7 @@ public final class GetSecurityGroupsResult {
     private List<String> ids;
     private Map<String,String> tags;
     /**
-     * @return The VPC IDs of the matched security groups. The data source&#39;s tag or filter *will span VPCs* unless the `vpc-id` filter is also used.
+     * @return VPC IDs of the matched security groups. The data source&#39;s tag or filter *will span VPCs* unless the `vpc-id` filter is also used.
      * 
      */
     private List<String> vpcIds;
@@ -65,7 +65,7 @@ public final class GetSecurityGroupsResult {
         return this.tags;
     }
     /**
-     * @return The VPC IDs of the matched security groups. The data source&#39;s tag or filter *will span VPCs* unless the `vpc-id` filter is also used.
+     * @return VPC IDs of the matched security groups. The data source&#39;s tag or filter *will span VPCs* unless the `vpc-id` filter is also used.
      * 
      */
     public List<String> vpcIds() {

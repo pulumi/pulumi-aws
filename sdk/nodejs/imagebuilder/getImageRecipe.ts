@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -36,7 +38,7 @@ export function getImageRecipe(args: GetImageRecipeArgs, opts?: pulumi.InvokeOpt
  */
 export interface GetImageRecipeArgs {
     /**
-     * Amazon Resource Name (ARN) of the image recipe.
+     * ARN of the image recipe.
      */
     arn: string;
     /**
@@ -99,7 +101,7 @@ export interface GetImageRecipeResult {
      */
     readonly version: string;
     /**
-     * The working directory used during build and test workflows.
+     * Working directory used during build and test workflows.
      */
     readonly workingDirectory: string;
 }
@@ -113,7 +115,7 @@ export function getImageRecipeOutput(args: GetImageRecipeOutputArgs, opts?: pulu
  */
 export interface GetImageRecipeOutputArgs {
     /**
-     * Amazon Resource Name (ARN) of the image recipe.
+     * ARN of the image recipe.
      */
     arn: pulumi.Input<string>;
     /**

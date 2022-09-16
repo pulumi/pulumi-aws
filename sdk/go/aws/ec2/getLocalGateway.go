@@ -55,12 +55,12 @@ func GetLocalGateway(ctx *pulumi.Context, args *GetLocalGatewayArgs, opts ...pul
 type GetLocalGatewayArgs struct {
 	// Custom filter block as described below.
 	Filters []GetLocalGatewayFilter `pulumi:"filters"`
-	// The id of the specific Local Gateway to retrieve.
+	// Id of the specific Local Gateway to retrieve.
 	Id *string `pulumi:"id"`
-	// The current state of the desired Local Gateway.
+	// Current state of the desired Local Gateway.
 	// Can be either `"pending"` or `"available"`.
 	State *string `pulumi:"state"`
-	// A mapping of tags, each pair of which must exactly match
+	// Mapping of tags, each pair of which must exactly match
 	// a pair on the desired Local Gateway.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -69,7 +69,7 @@ type GetLocalGatewayArgs struct {
 type GetLocalGatewayResult struct {
 	Filters []GetLocalGatewayFilter `pulumi:"filters"`
 	Id      string                  `pulumi:"id"`
-	// Amazon Resource Name (ARN) of Outpost
+	// ARN of Outpost
 	OutpostArn string `pulumi:"outpostArn"`
 	// AWS account identifier that owns the Local Gateway.
 	OwnerId string `pulumi:"ownerId"`
@@ -95,12 +95,12 @@ func GetLocalGatewayOutput(ctx *pulumi.Context, args GetLocalGatewayOutputArgs, 
 type GetLocalGatewayOutputArgs struct {
 	// Custom filter block as described below.
 	Filters GetLocalGatewayFilterArrayInput `pulumi:"filters"`
-	// The id of the specific Local Gateway to retrieve.
+	// Id of the specific Local Gateway to retrieve.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The current state of the desired Local Gateway.
+	// Current state of the desired Local Gateway.
 	// Can be either `"pending"` or `"available"`.
 	State pulumi.StringPtrInput `pulumi:"state"`
-	// A mapping of tags, each pair of which must exactly match
+	// Mapping of tags, each pair of which must exactly match
 	// a pair on the desired Local Gateway.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -132,7 +132,7 @@ func (o GetLocalGatewayResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLocalGatewayResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of Outpost
+// ARN of Outpost
 func (o GetLocalGatewayResultOutput) OutpostArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLocalGatewayResult) string { return v.OutpostArn }).(pulumi.StringOutput)
 }

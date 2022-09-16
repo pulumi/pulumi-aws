@@ -37,11 +37,11 @@ export function getSamlProvider(args: GetSamlProviderArgs, opts?: pulumi.InvokeO
  */
 export interface GetSamlProviderArgs {
     /**
-     * The ARN assigned by AWS for the provider.
+     * ARN assigned by AWS for the provider.
      */
     arn: string;
     /**
-     * The tags attached to the SAML provider.
+     * Tags attached to the SAML provider.
      */
     tags?: {[key: string]: string};
 }
@@ -60,7 +60,7 @@ export interface GetSamlProviderResult {
      */
     readonly id: string;
     /**
-     * The name of the provider.
+     * Name of the provider.
      */
     readonly name: string;
     /**
@@ -68,11 +68,11 @@ export interface GetSamlProviderResult {
      */
     readonly samlMetadataDocument: string;
     /**
-     * The tags attached to the SAML provider.
+     * Tags attached to the SAML provider.
      */
     readonly tags: {[key: string]: string};
     /**
-     * The expiration date and time for the SAML provider in RFC1123 format, e.g. `Mon, 02 Jan 2007 15:04:05 MST`.
+     * Expiration date and time for the SAML provider in RFC1123 format, e.g. `Mon, 02 Jan 2007 15:04:05 MST`.
      */
     readonly validUntil: string;
 }
@@ -86,11 +86,11 @@ export function getSamlProviderOutput(args: GetSamlProviderOutputArgs, opts?: pu
  */
 export interface GetSamlProviderOutputArgs {
     /**
-     * The ARN assigned by AWS for the provider.
+     * ARN assigned by AWS for the provider.
      */
     arn: pulumi.Input<string>;
     /**
-     * The tags attached to the SAML provider.
+     * Tags attached to the SAML provider.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

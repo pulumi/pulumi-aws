@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Cognito
     public sealed class GetUserPoolSigningCertificateArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Cognito user pool ID.
+        /// Cognito user pool ID.
         /// </summary>
         [Input("userPoolId", required: true)]
         public string UserPoolId { get; set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.Aws.Cognito
     public sealed class GetUserPoolSigningCertificateInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Cognito user pool ID.
+        /// Cognito user pool ID.
         /// </summary>
         [Input("userPoolId", required: true)]
         public Input<string> UserPoolId { get; set; } = null!;
@@ -100,7 +100,7 @@ namespace Pulumi.Aws.Cognito
     public sealed class GetUserPoolSigningCertificateResult
     {
         /// <summary>
-        /// The certificate string
+        /// Certificate string
         /// </summary>
         public readonly string Certificate;
         /// <summary>

@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -57,11 +59,11 @@ export function getAmiIds(args?: GetAmiIdsArgs, opts?: pulumi.InvokeOptions): Pr
  */
 export interface GetAmiIdsArgs {
     /**
-     * A filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
+     * Filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
      */
     filters?: inputs.autoscaling.GetAmiIdsFilter[];
     /**
-     * A list of autoscaling group names
+     * List of autoscaling group names
      */
     names?: string[];
 }
@@ -71,7 +73,7 @@ export interface GetAmiIdsArgs {
  */
 export interface GetAmiIdsResult {
     /**
-     * A list of the Autoscaling Groups Arns in the current region.
+     * List of the Autoscaling Groups Arns in the current region.
      */
     readonly arns: string[];
     readonly filters?: outputs.autoscaling.GetAmiIdsFilter[];
@@ -80,7 +82,7 @@ export interface GetAmiIdsResult {
      */
     readonly id: string;
     /**
-     * A list of the Autoscaling Groups in the current region.
+     * List of the Autoscaling Groups in the current region.
      */
     readonly names: string[];
 }
@@ -94,11 +96,11 @@ export function getAmiIdsOutput(args?: GetAmiIdsOutputArgs, opts?: pulumi.Invoke
  */
 export interface GetAmiIdsOutputArgs {
     /**
-     * A filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
+     * Filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
      */
     filters?: pulumi.Input<pulumi.Input<inputs.autoscaling.GetAmiIdsFilterArgs>[]>;
     /**
-     * A list of autoscaling group names
+     * List of autoscaling group names
      */
     names?: pulumi.Input<pulumi.Input<string>[]>;
 }

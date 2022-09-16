@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Connect.Inputs
         public Input<int>? Priority { get; set; }
 
         /// <summary>
-        /// Specifies the ARN for the queue.
+        /// ARN for the queue.
         /// </summary>
         [Input("queueArn")]
         public Input<string>? QueueArn { get; set; }
@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Connect.Inputs
         public Input<string>? QueueId { get; set; }
 
         /// <summary>
-        /// Specifies the name for the queue.
+        /// Name for the queue.
         /// </summary>
         [Input("queueName")]
         public Input<string>? QueueName { get; set; }

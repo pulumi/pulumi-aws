@@ -70,7 +70,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     public sealed class GetApiArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The API identifier.
+        /// API identifier.
         /// </summary>
         [Input("apiId", required: true)]
         public string ApiId { get; set; } = null!;
@@ -79,7 +79,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A map of resource tags.
+        /// Map of resource tags.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -96,7 +96,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     public sealed class GetApiInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The API identifier.
+        /// API identifier.
         /// </summary>
         [Input("apiId", required: true)]
         public Input<string> ApiId { get; set; } = null!;
@@ -105,7 +105,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of resource tags.
+        /// Map of resource tags.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -124,7 +124,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     public sealed class GetApiResult
     {
         /// <summary>
-        /// The URI of the API, of the form `https://{api-id}.execute-api.{region}.amazonaws.com` for HTTP APIs and `wss://{api-id}.execute-api.{region}.amazonaws.com` for WebSocket APIs.
+        /// URI of the API, of the form `https://{api-id}.execute-api.{region}.amazonaws.com` for HTTP APIs and `wss://{api-id}.execute-api.{region}.amazonaws.com` for WebSocket APIs.
         /// </summary>
         public readonly string ApiEndpoint;
         public readonly string ApiId;
@@ -134,16 +134,16 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// </summary>
         public readonly string ApiKeySelectionExpression;
         /// <summary>
-        /// The ARN of the API.
+        /// ARN of the API.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html).
+        /// Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html).
         /// Applicable for HTTP APIs.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetApiCorsConfigurationResult> CorsConfigurations;
         /// <summary>
-        /// The description of the API.
+        /// Description of the API.
         /// </summary>
         public readonly string Description;
         /// <summary>
@@ -161,11 +161,11 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The name of the API.
+        /// Name of the API.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The API protocol.
+        /// API protocol.
         /// </summary>
         public readonly string ProtocolType;
         /// <summary>
@@ -173,11 +173,11 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// </summary>
         public readonly string RouteSelectionExpression;
         /// <summary>
-        /// A map of resource tags.
+        /// Map of resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// A version identifier for the API.
+        /// Version identifier for the API.
         /// </summary>
         public readonly string Version;
 

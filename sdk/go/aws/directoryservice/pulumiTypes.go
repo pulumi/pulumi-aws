@@ -723,15 +723,15 @@ func (o SharedDirectoryTargetPtrOutput) Type() pulumi.StringPtrOutput {
 
 type GetDirectoryConnectSetting struct {
 	AvailabilityZones []string `pulumi:"availabilityZones"`
-	// The IP addresses of the AD Connector servers.
+	// IP addresses of the AD Connector servers.
 	ConnectIps []string `pulumi:"connectIps"`
-	// The DNS IP addresses of the domain to connect to.
+	// DNS IP addresses of the domain to connect to.
 	CustomerDnsIps []string `pulumi:"customerDnsIps"`
-	// The username corresponding to the password provided.
+	// Username corresponding to the password provided.
 	CustomerUsername string `pulumi:"customerUsername"`
-	// The identifiers of the subnets for the connector servers (2 subnets in 2 different AZs).
+	// Identifiers of the subnets for the connector servers (2 subnets in 2 different AZs).
 	SubnetIds []string `pulumi:"subnetIds"`
-	// The ID of the VPC that the connector is in.
+	// ID of the VPC that the connector is in.
 	VpcId string `pulumi:"vpcId"`
 }
 
@@ -748,15 +748,15 @@ type GetDirectoryConnectSettingInput interface {
 
 type GetDirectoryConnectSettingArgs struct {
 	AvailabilityZones pulumi.StringArrayInput `pulumi:"availabilityZones"`
-	// The IP addresses of the AD Connector servers.
+	// IP addresses of the AD Connector servers.
 	ConnectIps pulumi.StringArrayInput `pulumi:"connectIps"`
-	// The DNS IP addresses of the domain to connect to.
+	// DNS IP addresses of the domain to connect to.
 	CustomerDnsIps pulumi.StringArrayInput `pulumi:"customerDnsIps"`
-	// The username corresponding to the password provided.
+	// Username corresponding to the password provided.
 	CustomerUsername pulumi.StringInput `pulumi:"customerUsername"`
-	// The identifiers of the subnets for the connector servers (2 subnets in 2 different AZs).
+	// Identifiers of the subnets for the connector servers (2 subnets in 2 different AZs).
 	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
-	// The ID of the VPC that the connector is in.
+	// ID of the VPC that the connector is in.
 	VpcId pulumi.StringInput `pulumi:"vpcId"`
 }
 
@@ -815,27 +815,27 @@ func (o GetDirectoryConnectSettingOutput) AvailabilityZones() pulumi.StringArray
 	return o.ApplyT(func(v GetDirectoryConnectSetting) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }
 
-// The IP addresses of the AD Connector servers.
+// IP addresses of the AD Connector servers.
 func (o GetDirectoryConnectSettingOutput) ConnectIps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetDirectoryConnectSetting) []string { return v.ConnectIps }).(pulumi.StringArrayOutput)
 }
 
-// The DNS IP addresses of the domain to connect to.
+// DNS IP addresses of the domain to connect to.
 func (o GetDirectoryConnectSettingOutput) CustomerDnsIps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetDirectoryConnectSetting) []string { return v.CustomerDnsIps }).(pulumi.StringArrayOutput)
 }
 
-// The username corresponding to the password provided.
+// Username corresponding to the password provided.
 func (o GetDirectoryConnectSettingOutput) CustomerUsername() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDirectoryConnectSetting) string { return v.CustomerUsername }).(pulumi.StringOutput)
 }
 
-// The identifiers of the subnets for the connector servers (2 subnets in 2 different AZs).
+// Identifiers of the subnets for the connector servers (2 subnets in 2 different AZs).
 func (o GetDirectoryConnectSettingOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetDirectoryConnectSetting) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-// The ID of the VPC that the connector is in.
+// ID of the VPC that the connector is in.
 func (o GetDirectoryConnectSettingOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDirectoryConnectSetting) string { return v.VpcId }).(pulumi.StringOutput)
 }
@@ -865,13 +865,13 @@ type GetDirectoryRadiusSetting struct {
 	AuthenticationProtocol string `pulumi:"authenticationProtocol"`
 	// Display label.
 	DisplayLabel string `pulumi:"displayLabel"`
-	// The port that your RADIUS server is using for communications.
+	// Port that your RADIUS server is using for communications.
 	RadiusPort int `pulumi:"radiusPort"`
-	// The maximum number of times that communication with the RADIUS server is attempted.
+	// Maximum number of times that communication with the RADIUS server is attempted.
 	RadiusRetries int `pulumi:"radiusRetries"`
-	// A set of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
+	// Set of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
 	RadiusServers []string `pulumi:"radiusServers"`
-	// The amount of time, in seconds, to wait for the RADIUS server to respond.
+	// Amount of time, in seconds, to wait for the RADIUS server to respond.
 	RadiusTimeout int `pulumi:"radiusTimeout"`
 	// Not currently used.
 	UseSameUsername bool `pulumi:"useSameUsername"`
@@ -893,13 +893,13 @@ type GetDirectoryRadiusSettingArgs struct {
 	AuthenticationProtocol pulumi.StringInput `pulumi:"authenticationProtocol"`
 	// Display label.
 	DisplayLabel pulumi.StringInput `pulumi:"displayLabel"`
-	// The port that your RADIUS server is using for communications.
+	// Port that your RADIUS server is using for communications.
 	RadiusPort pulumi.IntInput `pulumi:"radiusPort"`
-	// The maximum number of times that communication with the RADIUS server is attempted.
+	// Maximum number of times that communication with the RADIUS server is attempted.
 	RadiusRetries pulumi.IntInput `pulumi:"radiusRetries"`
-	// A set of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
+	// Set of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
 	RadiusServers pulumi.StringArrayInput `pulumi:"radiusServers"`
-	// The amount of time, in seconds, to wait for the RADIUS server to respond.
+	// Amount of time, in seconds, to wait for the RADIUS server to respond.
 	RadiusTimeout pulumi.IntInput `pulumi:"radiusTimeout"`
 	// Not currently used.
 	UseSameUsername pulumi.BoolInput `pulumi:"useSameUsername"`
@@ -966,22 +966,22 @@ func (o GetDirectoryRadiusSettingOutput) DisplayLabel() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDirectoryRadiusSetting) string { return v.DisplayLabel }).(pulumi.StringOutput)
 }
 
-// The port that your RADIUS server is using for communications.
+// Port that your RADIUS server is using for communications.
 func (o GetDirectoryRadiusSettingOutput) RadiusPort() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDirectoryRadiusSetting) int { return v.RadiusPort }).(pulumi.IntOutput)
 }
 
-// The maximum number of times that communication with the RADIUS server is attempted.
+// Maximum number of times that communication with the RADIUS server is attempted.
 func (o GetDirectoryRadiusSettingOutput) RadiusRetries() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDirectoryRadiusSetting) int { return v.RadiusRetries }).(pulumi.IntOutput)
 }
 
-// A set of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
+// Set of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
 func (o GetDirectoryRadiusSettingOutput) RadiusServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetDirectoryRadiusSetting) []string { return v.RadiusServers }).(pulumi.StringArrayOutput)
 }
 
-// The amount of time, in seconds, to wait for the RADIUS server to respond.
+// Amount of time, in seconds, to wait for the RADIUS server to respond.
 func (o GetDirectoryRadiusSettingOutput) RadiusTimeout() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDirectoryRadiusSetting) int { return v.RadiusTimeout }).(pulumi.IntOutput)
 }
@@ -1013,9 +1013,9 @@ func (o GetDirectoryRadiusSettingArrayOutput) Index(i pulumi.IntInput) GetDirect
 
 type GetDirectoryVpcSetting struct {
 	AvailabilityZones []string `pulumi:"availabilityZones"`
-	// The identifiers of the subnets for the connector servers (2 subnets in 2 different AZs).
+	// Identifiers of the subnets for the connector servers (2 subnets in 2 different AZs).
 	SubnetIds []string `pulumi:"subnetIds"`
-	// The ID of the VPC that the connector is in.
+	// ID of the VPC that the connector is in.
 	VpcId string `pulumi:"vpcId"`
 }
 
@@ -1032,9 +1032,9 @@ type GetDirectoryVpcSettingInput interface {
 
 type GetDirectoryVpcSettingArgs struct {
 	AvailabilityZones pulumi.StringArrayInput `pulumi:"availabilityZones"`
-	// The identifiers of the subnets for the connector servers (2 subnets in 2 different AZs).
+	// Identifiers of the subnets for the connector servers (2 subnets in 2 different AZs).
 	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
-	// The ID of the VPC that the connector is in.
+	// ID of the VPC that the connector is in.
 	VpcId pulumi.StringInput `pulumi:"vpcId"`
 }
 
@@ -1093,12 +1093,12 @@ func (o GetDirectoryVpcSettingOutput) AvailabilityZones() pulumi.StringArrayOutp
 	return o.ApplyT(func(v GetDirectoryVpcSetting) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }
 
-// The identifiers of the subnets for the connector servers (2 subnets in 2 different AZs).
+// Identifiers of the subnets for the connector servers (2 subnets in 2 different AZs).
 func (o GetDirectoryVpcSettingOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetDirectoryVpcSetting) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-// The ID of the VPC that the connector is in.
+// ID of the VPC that the connector is in.
 func (o GetDirectoryVpcSettingOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDirectoryVpcSetting) string { return v.VpcId }).(pulumi.StringOutput)
 }

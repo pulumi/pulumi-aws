@@ -68,7 +68,7 @@ def get_rate_based_rule(name: Optional[str] = None,
     ```
 
 
-    :param str name: The name of the WAF rate based rule.
+    :param str name: Name of the WAF rate based rule.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -96,6 +96,6 @@ def get_rate_based_rule_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str name: The name of the WAF rate based rule.
+    :param str name: Name of the WAF rate based rule.
     """
     ...

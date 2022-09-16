@@ -48,16 +48,16 @@ func LookupActivity(ctx *pulumi.Context, args *LookupActivityArgs, opts ...pulum
 
 // A collection of arguments for invoking getActivity.
 type LookupActivityArgs struct {
-	// The Amazon Resource Name (ARN) that identifies the activity.
+	// ARN that identifies the activity.
 	Arn *string `pulumi:"arn"`
-	// The name that identifies the activity.
+	// Name that identifies the activity.
 	Name *string `pulumi:"name"`
 }
 
 // A collection of values returned by getActivity.
 type LookupActivityResult struct {
 	Arn string `pulumi:"arn"`
-	// The date the activity was created.
+	// Date the activity was created.
 	CreationDate string `pulumi:"creationDate"`
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
@@ -79,9 +79,9 @@ func LookupActivityOutput(ctx *pulumi.Context, args LookupActivityOutputArgs, op
 
 // A collection of arguments for invoking getActivity.
 type LookupActivityOutputArgs struct {
-	// The Amazon Resource Name (ARN) that identifies the activity.
+	// ARN that identifies the activity.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
-	// The name that identifies the activity.
+	// Name that identifies the activity.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -108,7 +108,7 @@ func (o LookupActivityResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupActivityResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The date the activity was created.
+// Date the activity was created.
 func (o LookupActivityResultOutput) CreationDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupActivityResult) string { return v.CreationDate }).(pulumi.StringOutput)
 }

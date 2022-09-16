@@ -50,13 +50,13 @@ func LookupSnapshot(ctx *pulumi.Context, args *LookupSnapshotArgs, opts ...pulum
 type LookupSnapshotArgs struct {
 	// Name of the snapshot.
 	Name string `pulumi:"name"`
-	// A map of tags assigned to the snapshot.
+	// Map of tags assigned to the snapshot.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getSnapshot.
 type LookupSnapshotResult struct {
-	// The ARN of the snapshot.
+	// ARN of the snapshot.
 	Arn string `pulumi:"arn"`
 	// The configuration of the cluster from which the snapshot was taken.
 	ClusterConfigurations []GetSnapshotClusterConfiguration `pulumi:"clusterConfigurations"`
@@ -68,9 +68,9 @@ type LookupSnapshotResult struct {
 	KmsKeyArn string `pulumi:"kmsKeyArn"`
 	// Name of the cluster.
 	Name string `pulumi:"name"`
-	// Indicates whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
+	// Whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
 	Source string `pulumi:"source"`
-	// A map of tags assigned to the snapshot.
+	// Map of tags assigned to the snapshot.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -91,7 +91,7 @@ func LookupSnapshotOutput(ctx *pulumi.Context, args LookupSnapshotOutputArgs, op
 type LookupSnapshotOutputArgs struct {
 	// Name of the snapshot.
 	Name pulumi.StringInput `pulumi:"name"`
-	// A map of tags assigned to the snapshot.
+	// Map of tags assigned to the snapshot.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -114,7 +114,7 @@ func (o LookupSnapshotResultOutput) ToLookupSnapshotResultOutputWithContext(ctx 
 	return o
 }
 
-// The ARN of the snapshot.
+// ARN of the snapshot.
 func (o LookupSnapshotResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -144,12 +144,12 @@ func (o LookupSnapshotResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Indicates whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
+// Whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
 func (o LookupSnapshotResultOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) string { return v.Source }).(pulumi.StringOutput)
 }
 
-// A map of tags assigned to the snapshot.
+// Map of tags assigned to the snapshot.
 func (o LookupSnapshotResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

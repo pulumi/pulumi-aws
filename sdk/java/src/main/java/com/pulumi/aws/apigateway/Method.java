@@ -154,77 +154,77 @@ public class Method extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.apiKeyRequired);
     }
     /**
-     * The type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
+     * Type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
      * 
      */
     @Export(name="authorization", type=String.class, parameters={})
     private Output<String> authorization;
 
     /**
-     * @return The type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
+     * @return Type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
      * 
      */
     public Output<String> authorization() {
         return this.authorization;
     }
     /**
-     * The authorization scopes used when the authorization is `COGNITO_USER_POOLS`
+     * Authorization scopes used when the authorization is `COGNITO_USER_POOLS`
      * 
      */
     @Export(name="authorizationScopes", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> authorizationScopes;
 
     /**
-     * @return The authorization scopes used when the authorization is `COGNITO_USER_POOLS`
+     * @return Authorization scopes used when the authorization is `COGNITO_USER_POOLS`
      * 
      */
     public Output<Optional<List<String>>> authorizationScopes() {
         return Codegen.optional(this.authorizationScopes);
     }
     /**
-     * The authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
+     * Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
      * 
      */
     @Export(name="authorizerId", type=String.class, parameters={})
     private Output</* @Nullable */ String> authorizerId;
 
     /**
-     * @return The authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
+     * @return Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
      * 
      */
     public Output<Optional<String>> authorizerId() {
         return Codegen.optional(this.authorizerId);
     }
     /**
-     * The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+     * HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
      * 
      */
     @Export(name="httpMethod", type=String.class, parameters={})
     private Output<String> httpMethod;
 
     /**
-     * @return The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+     * @return HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
      * 
      */
     public Output<String> httpMethod() {
         return this.httpMethod;
     }
     /**
-     * The function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
+     * Function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
      * 
      */
     @Export(name="operationName", type=String.class, parameters={})
     private Output</* @Nullable */ String> operationName;
 
     /**
-     * @return The function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
+     * @return Function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
      * 
      */
     public Output<Optional<String>> operationName() {
         return Codegen.optional(this.operationName);
     }
     /**
-     * A map of the API models used for the request&#39;s content type
+     * Map of the API models used for the request&#39;s content type
      * where key is the content type (e.g., `application/json`)
      * and value is either `Error`, `Empty` (built-in models) or `aws.apigateway.Model`&#39;s `name`.
      * 
@@ -233,7 +233,7 @@ public class Method extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ Map<String,String>> requestModels;
 
     /**
-     * @return A map of the API models used for the request&#39;s content type
+     * @return Map of the API models used for the request&#39;s content type
      * where key is the content type (e.g., `application/json`)
      * and value is either `Error`, `Empty` (built-in models) or `aws.apigateway.Model`&#39;s `name`.
      * 
@@ -242,7 +242,7 @@ public class Method extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.requestModels);
     }
     /**
-     * A map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
+     * Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
      * For example: `request_parameters = {&#34;method.request.header.X-Some-Header&#34; = true &#34;method.request.querystring.some-query-param&#34; = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
      * 
      */
@@ -250,7 +250,7 @@ public class Method extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ Map<String,Boolean>> requestParameters;
 
     /**
-     * @return A map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
+     * @return Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
      * For example: `request_parameters = {&#34;method.request.header.X-Some-Header&#34; = true &#34;method.request.querystring.some-query-param&#34; = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
      * 
      */
@@ -258,42 +258,42 @@ public class Method extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.requestParameters);
     }
     /**
-     * The ID of a `aws.apigateway.RequestValidator`
+     * ID of a `aws.apigateway.RequestValidator`
      * 
      */
     @Export(name="requestValidatorId", type=String.class, parameters={})
     private Output</* @Nullable */ String> requestValidatorId;
 
     /**
-     * @return The ID of a `aws.apigateway.RequestValidator`
+     * @return ID of a `aws.apigateway.RequestValidator`
      * 
      */
     public Output<Optional<String>> requestValidatorId() {
         return Codegen.optional(this.requestValidatorId);
     }
     /**
-     * The API resource ID
+     * API resource ID
      * 
      */
     @Export(name="resourceId", type=String.class, parameters={})
     private Output<String> resourceId;
 
     /**
-     * @return The API resource ID
+     * @return API resource ID
      * 
      */
     public Output<String> resourceId() {
         return this.resourceId;
     }
     /**
-     * The ID of the associated REST API
+     * ID of the associated REST API
      * 
      */
     @Export(name="restApi", type=String.class, parameters={})
     private Output<String> restApi;
 
     /**
-     * @return The ID of the associated REST API
+     * @return ID of the associated REST API
      * 
      */
     public Output<String> restApi() {

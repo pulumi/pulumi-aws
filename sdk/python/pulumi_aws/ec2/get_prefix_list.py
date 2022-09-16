@@ -44,7 +44,7 @@ class GetPrefixListResult:
     @pulumi.getter(name="cidrBlocks")
     def cidr_blocks(self) -> Sequence[str]:
         """
-        The list of CIDR blocks for the AWS service associated with the prefix list.
+        List of CIDR blocks for the AWS service associated with the prefix list.
         """
         return pulumi.get(self, "cidr_blocks")
 
@@ -65,7 +65,7 @@ class GetPrefixListResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the selected prefix list.
+        Name of the selected prefix list.
         """
         return pulumi.get(self, "name")
 
@@ -128,8 +128,8 @@ def get_prefix_list(filters: Optional[Sequence[pulumi.InputType['GetPrefixListFi
 
 
     :param Sequence[pulumi.InputType['GetPrefixListFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
-    :param str name: The name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
-    :param str prefix_list_id: The ID of the prefix list to select.
+    :param str name: Name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
+    :param str prefix_list_id: ID of the prefix list to select.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -187,7 +187,7 @@ def get_prefix_list_output(filters: Optional[pulumi.Input[Optional[Sequence[pulu
 
 
     :param Sequence[pulumi.InputType['GetPrefixListFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
-    :param str name: The name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
-    :param str prefix_list_id: The ID of the prefix list to select.
+    :param str name: Name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
+    :param str prefix_list_id: ID of the prefix list to select.
     """
     ...

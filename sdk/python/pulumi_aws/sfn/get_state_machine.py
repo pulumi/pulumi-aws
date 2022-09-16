@@ -56,7 +56,7 @@ class GetStateMachineResult:
     @pulumi.getter(name="creationDate")
     def creation_date(self) -> str:
         """
-        The date the state machine was created.
+        Date the state machine was created.
         """
         return pulumi.get(self, "creation_date")
 
@@ -130,7 +130,7 @@ def get_state_machine(name: Optional[str] = None,
     ```
 
 
-    :param str name: The friendly name of the state machine to match.
+    :param str name: Friendly name of the state machine to match.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -165,6 +165,6 @@ def get_state_machine_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str name: The friendly name of the state machine to match.
+    :param str name: Friendly name of the state machine to match.
     """
     ...

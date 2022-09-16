@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -57,7 +59,7 @@ export interface GetResolverEndpointArgs {
      */
     filters?: inputs.route53.GetResolverEndpointFilter[];
     /**
-     * The ID of the Route53 Resolver Endpoint.
+     * ID of the Route53 Resolver Endpoint.
      */
     resolverEndpointId?: string;
 }
@@ -95,7 +97,7 @@ export interface GetResolverEndpointOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.route53.GetResolverEndpointFilterArgs>[]>;
     /**
-     * The ID of the Route53 Resolver Endpoint.
+     * ID of the Route53 Resolver Endpoint.
      */
     resolverEndpointId?: pulumi.Input<string>;
 }

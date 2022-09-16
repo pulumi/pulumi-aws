@@ -28,7 +28,7 @@ class InstanceArgs:
         :param pulumi.Input[str] identity_management_type: Specifies the identity management type attached to the instance. Allowed Values are: `SAML`, `CONNECT_MANAGED`, `EXISTING_DIRECTORY`.
         :param pulumi.Input[bool] inbound_calls_enabled: Specifies whether inbound calls are enabled.
         :param pulumi.Input[bool] outbound_calls_enabled: Specifies whether outbound calls are enabled.
-               <!-- * `use_custom_tts_voices` - (Optional) Specifies Whether use custom tts voices is enabled. Defaults to `false` -->
+               <!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
         :param pulumi.Input[bool] auto_resolve_best_voices_enabled: Specifies whether auto resolve best voices is enabled. Defaults to `true`.
         :param pulumi.Input[bool] contact_flow_logs_enabled: Specifies whether contact flow logs are enabled. Defaults to `false`.
         :param pulumi.Input[bool] contact_lens_enabled: Specifies whether contact lens is enabled. Defaults to `true`.
@@ -81,7 +81,7 @@ class InstanceArgs:
     def outbound_calls_enabled(self) -> pulumi.Input[bool]:
         """
         Specifies whether outbound calls are enabled.
-        <!-- * `use_custom_tts_voices` - (Optional) Specifies Whether use custom tts voices is enabled. Defaults to `false` -->
+        <!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
         """
         return pulumi.get(self, "outbound_calls_enabled")
 
@@ -184,14 +184,14 @@ class _InstanceState:
         :param pulumi.Input[bool] auto_resolve_best_voices_enabled: Specifies whether auto resolve best voices is enabled. Defaults to `true`.
         :param pulumi.Input[bool] contact_flow_logs_enabled: Specifies whether contact flow logs are enabled. Defaults to `false`.
         :param pulumi.Input[bool] contact_lens_enabled: Specifies whether contact lens is enabled. Defaults to `true`.
-        :param pulumi.Input[str] created_time: Specifies when the instance was created.
+        :param pulumi.Input[str] created_time: When the instance was created.
         :param pulumi.Input[str] directory_id: The identifier for the directory if identity_management_type is `EXISTING_DIRECTORY`.
         :param pulumi.Input[bool] early_media_enabled: Specifies whether early media for outbound calls is enabled . Defaults to `true` if outbound calls is enabled.
         :param pulumi.Input[str] identity_management_type: Specifies the identity management type attached to the instance. Allowed Values are: `SAML`, `CONNECT_MANAGED`, `EXISTING_DIRECTORY`.
         :param pulumi.Input[bool] inbound_calls_enabled: Specifies whether inbound calls are enabled.
         :param pulumi.Input[str] instance_alias: Specifies the name of the instance. Required if `directory_id` not specified.
         :param pulumi.Input[bool] outbound_calls_enabled: Specifies whether outbound calls are enabled.
-               <!-- * `use_custom_tts_voices` - (Optional) Specifies Whether use custom tts voices is enabled. Defaults to `false` -->
+               <!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
         :param pulumi.Input[str] service_role: The service role of the instance.
         :param pulumi.Input[str] status: The state of the instance.
         """
@@ -274,7 +274,7 @@ class _InstanceState:
     @pulumi.getter(name="createdTime")
     def created_time(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies when the instance was created.
+        When the instance was created.
         """
         return pulumi.get(self, "created_time")
 
@@ -347,7 +347,7 @@ class _InstanceState:
     def outbound_calls_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Specifies whether outbound calls are enabled.
-        <!-- * `use_custom_tts_voices` - (Optional) Specifies Whether use custom tts voices is enabled. Defaults to `false` -->
+        <!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
         """
         return pulumi.get(self, "outbound_calls_enabled")
 
@@ -458,7 +458,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[bool] inbound_calls_enabled: Specifies whether inbound calls are enabled.
         :param pulumi.Input[str] instance_alias: Specifies the name of the instance. Required if `directory_id` not specified.
         :param pulumi.Input[bool] outbound_calls_enabled: Specifies whether outbound calls are enabled.
-               <!-- * `use_custom_tts_voices` - (Optional) Specifies Whether use custom tts voices is enabled. Defaults to `false` -->
+               <!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
         """
         ...
     @overload
@@ -604,14 +604,14 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_resolve_best_voices_enabled: Specifies whether auto resolve best voices is enabled. Defaults to `true`.
         :param pulumi.Input[bool] contact_flow_logs_enabled: Specifies whether contact flow logs are enabled. Defaults to `false`.
         :param pulumi.Input[bool] contact_lens_enabled: Specifies whether contact lens is enabled. Defaults to `true`.
-        :param pulumi.Input[str] created_time: Specifies when the instance was created.
+        :param pulumi.Input[str] created_time: When the instance was created.
         :param pulumi.Input[str] directory_id: The identifier for the directory if identity_management_type is `EXISTING_DIRECTORY`.
         :param pulumi.Input[bool] early_media_enabled: Specifies whether early media for outbound calls is enabled . Defaults to `true` if outbound calls is enabled.
         :param pulumi.Input[str] identity_management_type: Specifies the identity management type attached to the instance. Allowed Values are: `SAML`, `CONNECT_MANAGED`, `EXISTING_DIRECTORY`.
         :param pulumi.Input[bool] inbound_calls_enabled: Specifies whether inbound calls are enabled.
         :param pulumi.Input[str] instance_alias: Specifies the name of the instance. Required if `directory_id` not specified.
         :param pulumi.Input[bool] outbound_calls_enabled: Specifies whether outbound calls are enabled.
-               <!-- * `use_custom_tts_voices` - (Optional) Specifies Whether use custom tts voices is enabled. Defaults to `false` -->
+               <!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
         :param pulumi.Input[str] service_role: The service role of the instance.
         :param pulumi.Input[str] status: The state of the instance.
         """
@@ -670,7 +670,7 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter(name="createdTime")
     def created_time(self) -> pulumi.Output[str]:
         """
-        Specifies when the instance was created.
+        When the instance was created.
         """
         return pulumi.get(self, "created_time")
 
@@ -719,7 +719,7 @@ class Instance(pulumi.CustomResource):
     def outbound_calls_enabled(self) -> pulumi.Output[bool]:
         """
         Specifies whether outbound calls are enabled.
-        <!-- * `use_custom_tts_voices` - (Optional) Specifies Whether use custom tts voices is enabled. Defaults to `false` -->
+        <!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
         """
         return pulumi.get(self, "outbound_calls_enabled")
 

@@ -60,7 +60,7 @@ type AlertManagerDefinition struct {
 
 	// the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
 	Definition pulumi.StringOutput `pulumi:"definition"`
-	// The id of the prometheus workspace the alert manager definition should be linked to
+	// ID of the prometheus workspace the alert manager definition should be linked to
 	WorkspaceId pulumi.StringOutput `pulumi:"workspaceId"`
 }
 
@@ -101,14 +101,14 @@ func GetAlertManagerDefinition(ctx *pulumi.Context,
 type alertManagerDefinitionState struct {
 	// the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
 	Definition *string `pulumi:"definition"`
-	// The id of the prometheus workspace the alert manager definition should be linked to
+	// ID of the prometheus workspace the alert manager definition should be linked to
 	WorkspaceId *string `pulumi:"workspaceId"`
 }
 
 type AlertManagerDefinitionState struct {
 	// the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
 	Definition pulumi.StringPtrInput
-	// The id of the prometheus workspace the alert manager definition should be linked to
+	// ID of the prometheus workspace the alert manager definition should be linked to
 	WorkspaceId pulumi.StringPtrInput
 }
 
@@ -119,7 +119,7 @@ func (AlertManagerDefinitionState) ElementType() reflect.Type {
 type alertManagerDefinitionArgs struct {
 	// the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
 	Definition string `pulumi:"definition"`
-	// The id of the prometheus workspace the alert manager definition should be linked to
+	// ID of the prometheus workspace the alert manager definition should be linked to
 	WorkspaceId string `pulumi:"workspaceId"`
 }
 
@@ -127,7 +127,7 @@ type alertManagerDefinitionArgs struct {
 type AlertManagerDefinitionArgs struct {
 	// the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
 	Definition pulumi.StringInput
-	// The id of the prometheus workspace the alert manager definition should be linked to
+	// ID of the prometheus workspace the alert manager definition should be linked to
 	WorkspaceId pulumi.StringInput
 }
 
@@ -223,7 +223,7 @@ func (o AlertManagerDefinitionOutput) Definition() pulumi.StringOutput {
 	return o.ApplyT(func(v *AlertManagerDefinition) pulumi.StringOutput { return v.Definition }).(pulumi.StringOutput)
 }
 
-// The id of the prometheus workspace the alert manager definition should be linked to
+// ID of the prometheus workspace the alert manager definition should be linked to
 func (o AlertManagerDefinitionOutput) WorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AlertManagerDefinition) pulumi.StringOutput { return v.WorkspaceId }).(pulumi.StringOutput)
 }

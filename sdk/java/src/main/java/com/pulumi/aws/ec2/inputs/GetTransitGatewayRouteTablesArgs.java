@@ -34,7 +34,7 @@ public final class GetTransitGatewayRouteTablesArgs extends com.pulumi.resources
     }
 
     /**
-     * A mapping of tags, each pair of which must exactly match
+     * Mapping of tags, each pair of which must exactly match
      * a pair on the desired transit gateway route table.
      * 
      */
@@ -42,7 +42,7 @@ public final class GetTransitGatewayRouteTablesArgs extends com.pulumi.resources
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags, each pair of which must exactly match
+     * @return Mapping of tags, each pair of which must exactly match
      * a pair on the desired transit gateway route table.
      * 
      */
@@ -107,7 +107,7 @@ public final class GetTransitGatewayRouteTablesArgs extends com.pulumi.resources
         }
 
         /**
-         * @param tags A mapping of tags, each pair of which must exactly match
+         * @param tags Mapping of tags, each pair of which must exactly match
          * a pair on the desired transit gateway route table.
          * 
          * @return builder
@@ -119,7 +119,7 @@ public final class GetTransitGatewayRouteTablesArgs extends com.pulumi.resources
         }
 
         /**
-         * @param tags A mapping of tags, each pair of which must exactly match
+         * @param tags Mapping of tags, each pair of which must exactly match
          * a pair on the desired transit gateway route table.
          * 
          * @return builder

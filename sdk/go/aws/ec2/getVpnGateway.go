@@ -57,19 +57,19 @@ func LookupVpnGateway(ctx *pulumi.Context, args *LookupVpnGatewayArgs, opts ...p
 
 // A collection of arguments for invoking getVpnGateway.
 type LookupVpnGatewayArgs struct {
-	// The Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
+	// Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
 	AmazonSideAsn *string `pulumi:"amazonSideAsn"`
-	// The ID of a VPC attached to the specific VPN Gateway to retrieve.
+	// ID of a VPC attached to the specific VPN Gateway to retrieve.
 	AttachedVpcId *string `pulumi:"attachedVpcId"`
-	// The Availability Zone of the specific VPN Gateway to retrieve.
+	// Availability Zone of the specific VPN Gateway to retrieve.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// Custom filter block as described below.
 	Filters []GetVpnGatewayFilter `pulumi:"filters"`
-	// The ID of the specific VPN Gateway to retrieve.
+	// ID of the specific VPN Gateway to retrieve.
 	Id *string `pulumi:"id"`
-	// The state of the specific VPN Gateway to retrieve.
+	// State of the specific VPN Gateway to retrieve.
 	State *string `pulumi:"state"`
-	// A map of tags, each pair of which must exactly match
+	// Map of tags, each pair of which must exactly match
 	// a pair on the desired VPN Gateway.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -101,19 +101,19 @@ func LookupVpnGatewayOutput(ctx *pulumi.Context, args LookupVpnGatewayOutputArgs
 
 // A collection of arguments for invoking getVpnGateway.
 type LookupVpnGatewayOutputArgs struct {
-	// The Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
+	// Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
 	AmazonSideAsn pulumi.StringPtrInput `pulumi:"amazonSideAsn"`
-	// The ID of a VPC attached to the specific VPN Gateway to retrieve.
+	// ID of a VPC attached to the specific VPN Gateway to retrieve.
 	AttachedVpcId pulumi.StringPtrInput `pulumi:"attachedVpcId"`
-	// The Availability Zone of the specific VPN Gateway to retrieve.
+	// Availability Zone of the specific VPN Gateway to retrieve.
 	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
 	// Custom filter block as described below.
 	Filters GetVpnGatewayFilterArrayInput `pulumi:"filters"`
-	// The ID of the specific VPN Gateway to retrieve.
+	// ID of the specific VPN Gateway to retrieve.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The state of the specific VPN Gateway to retrieve.
+	// State of the specific VPN Gateway to retrieve.
 	State pulumi.StringPtrInput `pulumi:"state"`
-	// A map of tags, each pair of which must exactly match
+	// Map of tags, each pair of which must exactly match
 	// a pair on the desired VPN Gateway.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }

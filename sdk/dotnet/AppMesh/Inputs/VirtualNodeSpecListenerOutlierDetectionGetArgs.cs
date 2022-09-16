@@ -13,13 +13,13 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class VirtualNodeSpecListenerOutlierDetectionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The base amount of time for which a host is ejected.
+        /// Base amount of time for which a host is ejected.
         /// </summary>
         [Input("baseEjectionDuration", required: true)]
         public Input<Inputs.VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationGetArgs> BaseEjectionDuration { get; set; } = null!;
 
         /// <summary>
-        /// The time interval between ejection sweep analysis.
+        /// Time interval between ejection sweep analysis.
         /// </summary>
         [Input("interval", required: true)]
         public Input<Inputs.VirtualNodeSpecListenerOutlierDetectionIntervalGetArgs> Interval { get; set; } = null!;

@@ -14,11 +14,13 @@ __all__ = [
     'AliasRoutingConfigArgs',
     'CodeSigningConfigAllowedPublishersArgs',
     'CodeSigningConfigPoliciesArgs',
+    'EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs',
     'EventSourceMappingDestinationConfigArgs',
     'EventSourceMappingDestinationConfigOnFailureArgs',
     'EventSourceMappingFilterCriteriaArgs',
     'EventSourceMappingFilterCriteriaFilterArgs',
     'EventSourceMappingSelfManagedEventSourceArgs',
+    'EventSourceMappingSelfManagedKafkaEventSourceConfigArgs',
     'EventSourceMappingSourceAccessConfigurationArgs',
     'FunctionDeadLetterConfigArgs',
     'FunctionEnvironmentArgs',
@@ -98,6 +100,29 @@ class CodeSigningConfigPoliciesArgs:
     @untrusted_artifact_on_deployment.setter
     def untrusted_artifact_on_deployment(self, value: pulumi.Input[str]):
         pulumi.set(self, "untrusted_artifact_on_deployment", value)
+
+
+@pulumi.input_type
+class EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs:
+    def __init__(__self__, *,
+                 consumer_group_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] consumer_group_id: A Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [SelfManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_SelfManagedKafkaEventSourceConfig.html).
+        """
+        if consumer_group_id is not None:
+            pulumi.set(__self__, "consumer_group_id", consumer_group_id)
+
+    @property
+    @pulumi.getter(name="consumerGroupId")
+    def consumer_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        A Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [SelfManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_SelfManagedKafkaEventSourceConfig.html).
+        """
+        return pulumi.get(self, "consumer_group_id")
+
+    @consumer_group_id.setter
+    def consumer_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "consumer_group_id", value)
 
 
 @pulumi.input_type
@@ -211,6 +236,29 @@ class EventSourceMappingSelfManagedEventSourceArgs:
     @endpoints.setter
     def endpoints(self, value: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
         pulumi.set(self, "endpoints", value)
+
+
+@pulumi.input_type
+class EventSourceMappingSelfManagedKafkaEventSourceConfigArgs:
+    def __init__(__self__, *,
+                 consumer_group_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] consumer_group_id: A Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [SelfManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_SelfManagedKafkaEventSourceConfig.html).
+        """
+        if consumer_group_id is not None:
+            pulumi.set(__self__, "consumer_group_id", consumer_group_id)
+
+    @property
+    @pulumi.getter(name="consumerGroupId")
+    def consumer_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        A Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [SelfManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_SelfManagedKafkaEventSourceConfig.html).
+        """
+        return pulumi.get(self, "consumer_group_id")
+
+    @consumer_group_id.setter
+    def consumer_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "consumer_group_id", value)
 
 
 @pulumi.input_type

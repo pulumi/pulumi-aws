@@ -34,7 +34,7 @@ export function getDomainIdentity(args: GetDomainIdentityArgs, opts?: pulumi.Inv
  */
 export interface GetDomainIdentityArgs {
     /**
-     * The name of the domain
+     * Name of the domain
      */
     domain: string;
 }
@@ -44,11 +44,11 @@ export interface GetDomainIdentityArgs {
  */
 export interface GetDomainIdentityResult {
     /**
-     * The ARN of the domain identity.
+     * ARN of the domain identity.
      */
     readonly arn: string;
     /**
-     * The name of the domain
+     * Name of the domain
      */
     readonly domain: string;
     /**
@@ -56,7 +56,7 @@ export interface GetDomainIdentityResult {
      */
     readonly id: string;
     /**
-     * A code which when added to the domain as a TXT record will signal to SES that the owner of the domain has authorized SES to act on their behalf.
+     * Code which when added to the domain as a TXT record will signal to SES that the owner of the domain has authorized SES to act on their behalf.
      */
     readonly verificationToken: string;
 }
@@ -70,7 +70,7 @@ export function getDomainIdentityOutput(args: GetDomainIdentityOutputArgs, opts?
  */
 export interface GetDomainIdentityOutputArgs {
     /**
-     * The name of the domain
+     * Name of the domain
      */
     domain: pulumi.Input<string>;
 }

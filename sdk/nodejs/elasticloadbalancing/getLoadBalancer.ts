@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -46,7 +48,7 @@ export function getLoadBalancer(args: GetLoadBalancerArgs, opts?: pulumi.InvokeO
  */
 export interface GetLoadBalancerArgs {
     /**
-     * The unique name of the load balancer.
+     * Unique name of the load balancer.
      */
     name: string;
     tags?: {[key: string]: string};
@@ -91,7 +93,7 @@ export function getLoadBalancerOutput(args: GetLoadBalancerOutputArgs, opts?: pu
  */
 export interface GetLoadBalancerOutputArgs {
     /**
-     * The unique name of the load balancer.
+     * Unique name of the load balancer.
      */
     name: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

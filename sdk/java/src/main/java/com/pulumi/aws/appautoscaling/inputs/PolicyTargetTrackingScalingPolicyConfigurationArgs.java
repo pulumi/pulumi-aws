@@ -20,14 +20,14 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationArgs extends co
     public static final PolicyTargetTrackingScalingPolicyConfigurationArgs Empty = new PolicyTargetTrackingScalingPolicyConfigurationArgs();
 
     /**
-     * A custom CloudWatch metric. Documentation can be found  at: [AWS Customized Metric Specification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CustomizedMetricSpecification.html). See supported fields below.
+     * Custom CloudWatch metric. Documentation can be found  at: [AWS Customized Metric Specification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CustomizedMetricSpecification.html). See supported fields below.
      * 
      */
     @Import(name="customizedMetricSpecification")
     private @Nullable Output<PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationArgs> customizedMetricSpecification;
 
     /**
-     * @return A custom CloudWatch metric. Documentation can be found  at: [AWS Customized Metric Specification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CustomizedMetricSpecification.html). See supported fields below.
+     * @return Custom CloudWatch metric. Documentation can be found  at: [AWS Customized Metric Specification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CustomizedMetricSpecification.html). See supported fields below.
      * 
      */
     public Optional<Output<PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationArgs>> customizedMetricSpecification() {
@@ -35,14 +35,14 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationArgs extends co
     }
 
     /**
-     * Indicates whether scale in by the target tracking policy is disabled. If the value is true, scale in is disabled and the target tracking policy won&#39;t remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is `false`.
+     * Whether scale in by the target tracking policy is disabled. If the value is true, scale in is disabled and the target tracking policy won&#39;t remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is `false`.
      * 
      */
     @Import(name="disableScaleIn")
     private @Nullable Output<Boolean> disableScaleIn;
 
     /**
-     * @return Indicates whether scale in by the target tracking policy is disabled. If the value is true, scale in is disabled and the target tracking policy won&#39;t remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is `false`.
+     * @return Whether scale in by the target tracking policy is disabled. If the value is true, scale in is disabled and the target tracking policy won&#39;t remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is `false`.
      * 
      */
     public Optional<Output<Boolean>> disableScaleIn() {
@@ -50,14 +50,14 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationArgs extends co
     }
 
     /**
-     * A predefined metric. See supported fields below.
+     * Predefined metric. See supported fields below.
      * 
      */
     @Import(name="predefinedMetricSpecification")
     private @Nullable Output<PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs> predefinedMetricSpecification;
 
     /**
-     * @return A predefined metric. See supported fields below.
+     * @return Predefined metric. See supported fields below.
      * 
      */
     public Optional<Output<PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs>> predefinedMetricSpecification() {
@@ -65,14 +65,14 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationArgs extends co
     }
 
     /**
-     * The amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
+     * Amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
      * 
      */
     @Import(name="scaleInCooldown")
     private @Nullable Output<Integer> scaleInCooldown;
 
     /**
-     * @return The amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
+     * @return Amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
      * 
      */
     public Optional<Output<Integer>> scaleInCooldown() {
@@ -80,14 +80,14 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationArgs extends co
     }
 
     /**
-     * The amount of time, in seconds, after a scale out activity completes before another scale out activity can start.
+     * Amount of time, in seconds, after a scale out activity completes before another scale out activity can start.
      * 
      */
     @Import(name="scaleOutCooldown")
     private @Nullable Output<Integer> scaleOutCooldown;
 
     /**
-     * @return The amount of time, in seconds, after a scale out activity completes before another scale out activity can start.
+     * @return Amount of time, in seconds, after a scale out activity completes before another scale out activity can start.
      * 
      */
     public Optional<Output<Integer>> scaleOutCooldown() {
@@ -95,14 +95,14 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationArgs extends co
     }
 
     /**
-     * The target value for the metric.
+     * Target value for the metric.
      * 
      */
     @Import(name="targetValue", required=true)
     private Output<Double> targetValue;
 
     /**
-     * @return The target value for the metric.
+     * @return Target value for the metric.
      * 
      */
     public Output<Double> targetValue() {
@@ -139,7 +139,7 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationArgs extends co
         }
 
         /**
-         * @param customizedMetricSpecification A custom CloudWatch metric. Documentation can be found  at: [AWS Customized Metric Specification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CustomizedMetricSpecification.html). See supported fields below.
+         * @param customizedMetricSpecification Custom CloudWatch metric. Documentation can be found  at: [AWS Customized Metric Specification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CustomizedMetricSpecification.html). See supported fields below.
          * 
          * @return builder
          * 
@@ -150,7 +150,7 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationArgs extends co
         }
 
         /**
-         * @param customizedMetricSpecification A custom CloudWatch metric. Documentation can be found  at: [AWS Customized Metric Specification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CustomizedMetricSpecification.html). See supported fields below.
+         * @param customizedMetricSpecification Custom CloudWatch metric. Documentation can be found  at: [AWS Customized Metric Specification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CustomizedMetricSpecification.html). See supported fields below.
          * 
          * @return builder
          * 
@@ -160,7 +160,7 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationArgs extends co
         }
 
         /**
-         * @param disableScaleIn Indicates whether scale in by the target tracking policy is disabled. If the value is true, scale in is disabled and the target tracking policy won&#39;t remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is `false`.
+         * @param disableScaleIn Whether scale in by the target tracking policy is disabled. If the value is true, scale in is disabled and the target tracking policy won&#39;t remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is `false`.
          * 
          * @return builder
          * 
@@ -171,7 +171,7 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationArgs extends co
         }
 
         /**
-         * @param disableScaleIn Indicates whether scale in by the target tracking policy is disabled. If the value is true, scale in is disabled and the target tracking policy won&#39;t remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is `false`.
+         * @param disableScaleIn Whether scale in by the target tracking policy is disabled. If the value is true, scale in is disabled and the target tracking policy won&#39;t remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is `false`.
          * 
          * @return builder
          * 
@@ -181,7 +181,7 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationArgs extends co
         }
 
         /**
-         * @param predefinedMetricSpecification A predefined metric. See supported fields below.
+         * @param predefinedMetricSpecification Predefined metric. See supported fields below.
          * 
          * @return builder
          * 
@@ -192,7 +192,7 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationArgs extends co
         }
 
         /**
-         * @param predefinedMetricSpecification A predefined metric. See supported fields below.
+         * @param predefinedMetricSpecification Predefined metric. See supported fields below.
          * 
          * @return builder
          * 
@@ -202,7 +202,7 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationArgs extends co
         }
 
         /**
-         * @param scaleInCooldown The amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
+         * @param scaleInCooldown Amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
          * 
          * @return builder
          * 
@@ -213,7 +213,7 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationArgs extends co
         }
 
         /**
-         * @param scaleInCooldown The amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
+         * @param scaleInCooldown Amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
          * 
          * @return builder
          * 
@@ -223,7 +223,7 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationArgs extends co
         }
 
         /**
-         * @param scaleOutCooldown The amount of time, in seconds, after a scale out activity completes before another scale out activity can start.
+         * @param scaleOutCooldown Amount of time, in seconds, after a scale out activity completes before another scale out activity can start.
          * 
          * @return builder
          * 
@@ -234,7 +234,7 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationArgs extends co
         }
 
         /**
-         * @param scaleOutCooldown The amount of time, in seconds, after a scale out activity completes before another scale out activity can start.
+         * @param scaleOutCooldown Amount of time, in seconds, after a scale out activity completes before another scale out activity can start.
          * 
          * @return builder
          * 
@@ -244,7 +244,7 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationArgs extends co
         }
 
         /**
-         * @param targetValue The target value for the metric.
+         * @param targetValue Target value for the metric.
          * 
          * @return builder
          * 
@@ -255,7 +255,7 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationArgs extends co
         }
 
         /**
-         * @param targetValue The target value for the metric.
+         * @param targetValue Target value for the metric.
          * 
          * @return builder
          * 

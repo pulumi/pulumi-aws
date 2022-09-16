@@ -56,7 +56,7 @@ class GetAuthorizationTokenResult:
     @pulumi.getter(name="expiresAt")
     def expires_at(self) -> str:
         """
-        The time in UTC RFC3339 format when the authorization token expires.
+        Time in UTC RFC3339 format when the authorization token expires.
         """
         return pulumi.get(self, "expires_at")
 
@@ -80,7 +80,7 @@ class GetAuthorizationTokenResult:
     @pulumi.getter(name="proxyEndpoint")
     def proxy_endpoint(self) -> str:
         """
-        The registry URL to use in the docker login command.
+        Registry URL to use in the docker login command.
         """
         return pulumi.get(self, "proxy_endpoint")
 

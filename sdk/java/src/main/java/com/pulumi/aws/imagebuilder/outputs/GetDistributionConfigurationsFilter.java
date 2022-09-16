@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetDistributionConfigurationsFilter {
     /**
-     * @return The name of the filter field. Valid values can be found in the [Image Builder ListDistributionConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListDistributionConfigurations.html).
+     * @return Name of the filter field. Valid values can be found in the [Image Builder ListDistributionConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListDistributionConfigurations.html).
      * 
      */
     private String name;
@@ -23,7 +23,7 @@ public final class GetDistributionConfigurationsFilter {
 
     private GetDistributionConfigurationsFilter() {}
     /**
-     * @return The name of the filter field. Valid values can be found in the [Image Builder ListDistributionConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListDistributionConfigurations.html).
+     * @return Name of the filter field. Valid values can be found in the [Image Builder ListDistributionConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListDistributionConfigurations.html).
      * 
      */
     public String name() {

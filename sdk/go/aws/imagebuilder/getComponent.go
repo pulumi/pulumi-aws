@@ -48,7 +48,7 @@ func LookupComponent(ctx *pulumi.Context, args *LookupComponentArgs, opts ...pul
 
 // A collection of arguments for invoking getComponent.
 type LookupComponentArgs struct {
-	// Amazon Resource Name (ARN) of the component.
+	// ARN of the component.
 	Arn string `pulumi:"arn"`
 	// Key-value map of resource tags for the component.
 	Tags map[string]string `pulumi:"tags"`
@@ -69,7 +69,7 @@ type LookupComponentResult struct {
 	Encrypted bool `pulumi:"encrypted"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
+	// ARN of the Key Management Service (KMS) Key used to encrypt the component.
 	KmsKeyId string `pulumi:"kmsKeyId"`
 	// Name of the component.
 	Name string `pulumi:"name"`
@@ -102,7 +102,7 @@ func LookupComponentOutput(ctx *pulumi.Context, args LookupComponentOutputArgs, 
 
 // A collection of arguments for invoking getComponent.
 type LookupComponentOutputArgs struct {
-	// Amazon Resource Name (ARN) of the component.
+	// ARN of the component.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// Key-value map of resource tags for the component.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -161,7 +161,7 @@ func (o LookupComponentResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupComponentResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
+// ARN of the Key Management Service (KMS) Key used to encrypt the component.
 func (o LookupComponentResultOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupComponentResult) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }

@@ -97,7 +97,7 @@ export class Policy extends pulumi.CustomResource {
      */
     public readonly policy!: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the private CA to associate with the policy.
+     * ARN of the private CA to associate with the policy.
      */
     public readonly resourceArn!: pulumi.Output<string>;
 
@@ -141,7 +141,7 @@ export interface PolicyState {
      */
     policy?: pulumi.Input<string>;
     /**
-     * Amazon Resource Name (ARN) of the private CA to associate with the policy.
+     * ARN of the private CA to associate with the policy.
      */
     resourceArn?: pulumi.Input<string>;
 }
@@ -155,7 +155,7 @@ export interface PolicyArgs {
      */
     policy: pulumi.Input<string>;
     /**
-     * Amazon Resource Name (ARN) of the private CA to associate with the policy.
+     * ARN of the private CA to associate with the policy.
      */
     resourceArn: pulumi.Input<string>;
 }

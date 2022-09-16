@@ -70,7 +70,7 @@ namespace Pulumi.Aws.CloudFront
     public sealed class GetOriginRequestPolicyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The identifier for the origin request policy.
+        /// Identifier for the origin request policy.
         /// </summary>
         [Input("id")]
         public string? Id { get; set; }
@@ -90,7 +90,7 @@ namespace Pulumi.Aws.CloudFront
     public sealed class GetOriginRequestPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The identifier for the origin request policy.
+        /// Identifier for the origin request policy.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
@@ -120,7 +120,7 @@ namespace Pulumi.Aws.CloudFront
         /// </summary>
         public readonly ImmutableArray<Outputs.GetOriginRequestPolicyCookiesConfigResult> CookiesConfigs;
         /// <summary>
-        /// The current version of the origin request policy.
+        /// Current version of the origin request policy.
         /// </summary>
         public readonly string Etag;
         /// <summary>

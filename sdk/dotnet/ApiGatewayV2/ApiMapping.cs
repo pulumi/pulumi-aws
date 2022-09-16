@@ -45,7 +45,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     public partial class ApiMapping : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The API identifier.
+        /// API identifier.
         /// </summary>
         [Output("apiId")]
         public Output<string> ApiId { get; private set; } = null!;
@@ -57,13 +57,13 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<string?> ApiMappingKey { get; private set; } = null!;
 
         /// <summary>
-        /// The domain name. Use the `aws.apigatewayv2.DomainName` resource to configure a domain name.
+        /// Domain name. Use the `aws.apigatewayv2.DomainName` resource to configure a domain name.
         /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
         /// <summary>
-        /// The API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
+        /// API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
         /// </summary>
         [Output("stage")]
         public Output<string> Stage { get; private set; } = null!;
@@ -115,7 +115,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     public sealed class ApiMappingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The API identifier.
+        /// API identifier.
         /// </summary>
         [Input("apiId", required: true)]
         public Input<string> ApiId { get; set; } = null!;
@@ -127,13 +127,13 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? ApiMappingKey { get; set; }
 
         /// <summary>
-        /// The domain name. Use the `aws.apigatewayv2.DomainName` resource to configure a domain name.
+        /// Domain name. Use the `aws.apigatewayv2.DomainName` resource to configure a domain name.
         /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
         /// <summary>
-        /// The API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
+        /// API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
         /// </summary>
         [Input("stage", required: true)]
         public Input<string> Stage { get; set; } = null!;
@@ -147,7 +147,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     public sealed class ApiMappingState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The API identifier.
+        /// API identifier.
         /// </summary>
         [Input("apiId")]
         public Input<string>? ApiId { get; set; }
@@ -159,13 +159,13 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? ApiMappingKey { get; set; }
 
         /// <summary>
-        /// The domain name. Use the `aws.apigatewayv2.DomainName` resource to configure a domain name.
+        /// Domain name. Use the `aws.apigatewayv2.DomainName` resource to configure a domain name.
         /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
 
         /// <summary>
-        /// The API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
+        /// API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
         /// </summary>
         [Input("stage")]
         public Input<string>? Stage { get; set; }

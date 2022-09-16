@@ -84,15 +84,15 @@ type LookupQuickConnectArgs struct {
 	Name *string `pulumi:"name"`
 	// Returns information on a specific Quick Connect by Quick Connect id
 	QuickConnectId *string `pulumi:"quickConnectId"`
-	// A map of tags to assign to the Quick Connect.
+	// Map of tags to assign to the Quick Connect.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getQuickConnect.
 type LookupQuickConnectResult struct {
-	// The Amazon Resource Name (ARN) of the Quick Connect.
+	// ARN of the Quick Connect.
 	Arn string `pulumi:"arn"`
-	// Specifies the description of the Quick Connect.
+	// Description of the Quick Connect.
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
 	Id         string `pulumi:"id"`
@@ -100,9 +100,9 @@ type LookupQuickConnectResult struct {
 	Name       string `pulumi:"name"`
 	// A block that defines the configuration information for the Quick Connect: `quickConnectType` and one of `phoneConfig`, `queueConfig`, `userConfig` . The Quick Connect Config block is documented below.
 	QuickConnectConfigs []GetQuickConnectQuickConnectConfig `pulumi:"quickConnectConfigs"`
-	// The identifier for the Quick Connect.
+	// Identifier for the Quick Connect.
 	QuickConnectId string `pulumi:"quickConnectId"`
-	// A map of tags to assign to the Quick Connect.
+	// Map of tags to assign to the Quick Connect.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -127,7 +127,7 @@ type LookupQuickConnectOutputArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Returns information on a specific Quick Connect by Quick Connect id
 	QuickConnectId pulumi.StringPtrInput `pulumi:"quickConnectId"`
-	// A map of tags to assign to the Quick Connect.
+	// Map of tags to assign to the Quick Connect.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -150,12 +150,12 @@ func (o LookupQuickConnectResultOutput) ToLookupQuickConnectResultOutputWithCont
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the Quick Connect.
+// ARN of the Quick Connect.
 func (o LookupQuickConnectResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupQuickConnectResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Specifies the description of the Quick Connect.
+// Description of the Quick Connect.
 func (o LookupQuickConnectResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupQuickConnectResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -178,12 +178,12 @@ func (o LookupQuickConnectResultOutput) QuickConnectConfigs() GetQuickConnectQui
 	return o.ApplyT(func(v LookupQuickConnectResult) []GetQuickConnectQuickConnectConfig { return v.QuickConnectConfigs }).(GetQuickConnectQuickConnectConfigArrayOutput)
 }
 
-// The identifier for the Quick Connect.
+// Identifier for the Quick Connect.
 func (o LookupQuickConnectResultOutput) QuickConnectId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupQuickConnectResult) string { return v.QuickConnectId }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the Quick Connect.
+// Map of tags to assign to the Quick Connect.
 func (o LookupQuickConnectResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupQuickConnectResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

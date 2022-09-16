@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -48,11 +50,11 @@ export function getSecret(args?: GetSecretArgs, opts?: pulumi.InvokeOptions): Pr
  */
 export interface GetSecretArgs {
     /**
-     * The Amazon Resource Name (ARN) of the secret to retrieve.
+     * ARN of the secret to retrieve.
      */
     arn?: string;
     /**
-     * The name of the secret to retrieve.
+     * Name of the secret to retrieve.
      */
     name?: string;
 }
@@ -62,11 +64,11 @@ export interface GetSecretArgs {
  */
 export interface GetSecretResult {
     /**
-     * The Amazon Resource Name (ARN) of the secret.
+     * ARN of the secret.
      */
     readonly arn: string;
     /**
-     * A description of the secret.
+     * Description of the secret.
      */
     readonly description: string;
     /**
@@ -74,12 +76,12 @@ export interface GetSecretResult {
      */
     readonly id: string;
     /**
-     * The Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
+     * Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
      */
     readonly kmsKeyId: string;
     readonly name: string;
     /**
-     * The resource-based policy document that's attached to the secret.
+     * Resource-based policy document that's attached to the secret.
      */
     readonly policy: string;
     /**
@@ -89,7 +91,7 @@ export interface GetSecretResult {
      */
     readonly rotationEnabled: boolean;
     /**
-     * Rotation Lambda function Amazon Resource Name (ARN) if rotation is enabled.
+     * Rotation Lambda function ARN if rotation is enabled.
      *
      * @deprecated Use the aws_secretsmanager_secret_rotation data source instead
      */
@@ -115,11 +117,11 @@ export function getSecretOutput(args?: GetSecretOutputArgs, opts?: pulumi.Invoke
  */
 export interface GetSecretOutputArgs {
     /**
-     * The Amazon Resource Name (ARN) of the secret to retrieve.
+     * ARN of the secret to retrieve.
      */
     arn?: pulumi.Input<string>;
     /**
-     * The name of the secret to retrieve.
+     * Name of the secret to retrieve.
      */
     name?: pulumi.Input<string>;
 }

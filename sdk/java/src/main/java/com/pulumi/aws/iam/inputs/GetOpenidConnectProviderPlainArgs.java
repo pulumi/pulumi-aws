@@ -16,14 +16,14 @@ public final class GetOpenidConnectProviderPlainArgs extends com.pulumi.resource
     public static final GetOpenidConnectProviderPlainArgs Empty = new GetOpenidConnectProviderPlainArgs();
 
     /**
-     * The Amazon Resource Name (ARN) specifying the OpenID Connect provider.
+     * ARN of the OpenID Connect provider.
      * 
      */
     @Import(name="arn")
     private @Nullable String arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) specifying the OpenID Connect provider.
+     * @return ARN of the OpenID Connect provider.
      * 
      */
     public Optional<String> arn() {
@@ -46,14 +46,14 @@ public final class GetOpenidConnectProviderPlainArgs extends com.pulumi.resource
     }
 
     /**
-     * The URL of the OpenID Connect provider.
+     * URL of the OpenID Connect provider.
      * 
      */
     @Import(name="url")
     private @Nullable String url;
 
     /**
-     * @return The URL of the OpenID Connect provider.
+     * @return URL of the OpenID Connect provider.
      * 
      */
     public Optional<String> url() {
@@ -87,7 +87,7 @@ public final class GetOpenidConnectProviderPlainArgs extends com.pulumi.resource
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) specifying the OpenID Connect provider.
+         * @param arn ARN of the OpenID Connect provider.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class GetOpenidConnectProviderPlainArgs extends com.pulumi.resource
         }
 
         /**
-         * @param url The URL of the OpenID Connect provider.
+         * @param url URL of the OpenID Connect provider.
          * 
          * @return builder
          * 

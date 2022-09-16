@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -58,11 +60,11 @@ export interface GetKeyPairArgs {
      */
     includePublicKey?: boolean;
     /**
-     * The Key Pair name.
+     * Key Pair name.
      */
     keyName?: string;
     /**
-     * The Key Pair ID.
+     * Key Pair ID.
      */
     keyPairId?: string;
     /**
@@ -76,16 +78,16 @@ export interface GetKeyPairArgs {
  */
 export interface GetKeyPairResult {
     /**
-     * The ARN of the Key Pair.
+     * ARN of the Key Pair.
      */
     readonly arn: string;
     /**
-     * The timestamp for when the key pair was created in ISO 8601 format.
+     * Timestamp for when the key pair was created in ISO 8601 format.
      */
     readonly createTime: string;
     readonly filters?: outputs.ec2.GetKeyPairFilter[];
     /**
-     * The SHA-1 digest of the DER encoded private key.
+     * SHA-1 digest of the DER encoded private key.
      */
     readonly fingerprint: string;
     /**
@@ -96,11 +98,11 @@ export interface GetKeyPairResult {
     readonly keyName?: string;
     readonly keyPairId?: string;
     /**
-     * The type of key pair.
+     * Type of key pair.
      */
     readonly keyType: string;
     /**
-     * The public key material.
+     * Public key material.
      */
     readonly publicKey: string;
     /**
@@ -126,11 +128,11 @@ export interface GetKeyPairOutputArgs {
      */
     includePublicKey?: pulumi.Input<boolean>;
     /**
-     * The Key Pair name.
+     * Key Pair name.
      */
     keyName?: pulumi.Input<string>;
     /**
-     * The Key Pair ID.
+     * Key Pair ID.
      */
     keyPairId?: pulumi.Input<string>;
     /**

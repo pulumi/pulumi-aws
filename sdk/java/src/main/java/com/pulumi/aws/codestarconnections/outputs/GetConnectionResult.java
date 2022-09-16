@@ -12,12 +12,12 @@ import java.util.Objects;
 public final class GetConnectionResult {
     private String arn;
     /**
-     * @return The CodeStar Connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
+     * @return CodeStar Connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
      * 
      */
     private String connectionStatus;
     /**
-     * @return The Amazon Resource Name (ARN) of the host associated with the connection.
+     * @return ARN of the host associated with the connection.
      * 
      */
     private String hostArn;
@@ -27,7 +27,7 @@ public final class GetConnectionResult {
      */
     private String id;
     /**
-     * @return The name of the CodeStar Connection. The name is unique in the calling AWS account.
+     * @return Name of the CodeStar Connection. The name is unique in the calling AWS account.
      * 
      */
     private String name;
@@ -43,14 +43,14 @@ public final class GetConnectionResult {
         return this.arn;
     }
     /**
-     * @return The CodeStar Connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
+     * @return CodeStar Connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
      * 
      */
     public String connectionStatus() {
         return this.connectionStatus;
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the host associated with the connection.
+     * @return ARN of the host associated with the connection.
      * 
      */
     public String hostArn() {
@@ -64,7 +64,7 @@ public final class GetConnectionResult {
         return this.id;
     }
     /**
-     * @return The name of the CodeStar Connection. The name is unique in the calling AWS account.
+     * @return Name of the CodeStar Connection. The name is unique in the calling AWS account.
      * 
      */
     public String name() {

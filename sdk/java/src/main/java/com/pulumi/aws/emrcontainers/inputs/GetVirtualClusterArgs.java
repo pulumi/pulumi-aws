@@ -32,14 +32,14 @@ public final class GetVirtualClusterArgs extends com.pulumi.resources.InvokeArgs
     }
 
     /**
-     * The ID of the cluster.
+     * ID of the cluster.
      * 
      */
     @Import(name="virtualClusterId", required=true)
     private Output<String> virtualClusterId;
 
     /**
-     * @return The ID of the cluster.
+     * @return ID of the cluster.
      * 
      */
     public Output<String> virtualClusterId() {
@@ -93,7 +93,7 @@ public final class GetVirtualClusterArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param virtualClusterId The ID of the cluster.
+         * @param virtualClusterId ID of the cluster.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class GetVirtualClusterArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param virtualClusterId The ID of the cluster.
+         * @param virtualClusterId ID of the cluster.
          * 
          * @return builder
          * 

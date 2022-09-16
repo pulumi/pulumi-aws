@@ -31,14 +31,14 @@ public final class ArchiveRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The filter criteria for the archive rule. See Filter for more details.
+     * Filter criteria for the archive rule. See Filter for more details.
      * 
      */
     @Import(name="filters", required=true)
     private Output<List<ArchiveRuleFilterArgs>> filters;
 
     /**
-     * @return The filter criteria for the archive rule. See Filter for more details.
+     * @return Filter criteria for the archive rule. See Filter for more details.
      * 
      */
     public Output<List<ArchiveRuleFilterArgs>> filters() {
@@ -108,7 +108,7 @@ public final class ArchiveRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param filters The filter criteria for the archive rule. See Filter for more details.
+         * @param filters Filter criteria for the archive rule. See Filter for more details.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class ArchiveRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param filters The filter criteria for the archive rule. See Filter for more details.
+         * @param filters Filter criteria for the archive rule. See Filter for more details.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class ArchiveRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param filters The filter criteria for the archive rule. See Filter for more details.
+         * @param filters Filter criteria for the archive rule. See Filter for more details.
          * 
          * @return builder
          * 

@@ -48,7 +48,7 @@ func GetImage(ctx *pulumi.Context, args *GetImageArgs, opts ...pulumi.InvokeOpti
 
 // A collection of arguments for invoking getImage.
 type GetImageArgs struct {
-	// The ID of the image.
+	// ID of the image.
 	ImageId string `pulumi:"imageId"`
 }
 
@@ -83,7 +83,7 @@ func GetImageOutput(ctx *pulumi.Context, args GetImageOutputArgs, opts ...pulumi
 
 // A collection of arguments for invoking getImage.
 type GetImageOutputArgs struct {
-	// The ID of the image.
+	// ID of the image.
 	ImageId pulumi.StringInput `pulumi:"imageId"`
 }
 

@@ -50,22 +50,22 @@ func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.
 type LookupClusterArgs struct {
 	// Group identifier.
 	ClusterId string `pulumi:"clusterId"`
-	// The tags assigned to the resource
+	// Tags assigned to the resource
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getCluster.
 type LookupClusterResult struct {
 	Arn string `pulumi:"arn"`
-	// The Availability Zone for the cache cluster.
+	// Availability Zone for the cache cluster.
 	AvailabilityZone string `pulumi:"availabilityZone"`
 	// List of node objects including `id`, `address`, `port` and `availabilityZone`.
 	// Referenceable e.g., as `${data.aws_elasticache_cluster.bar.cache_nodes.0.address}`
 	CacheNodes []GetClusterCacheNode `pulumi:"cacheNodes"`
-	// (Memcached only) The DNS name of the cache cluster without the port appended.
+	// (Memcached only) DNS name of the cache cluster without the port appended.
 	ClusterAddress string `pulumi:"clusterAddress"`
 	ClusterId      string `pulumi:"clusterId"`
-	// (Memcached only) The configuration endpoint to allow host discovery.
+	// (Memcached only) Configuration endpoint to allow host discovery.
 	ConfigurationEndpoint string `pulumi:"configurationEndpoint"`
 	// Name of the cache engine.
 	Engine string `pulumi:"engine"`
@@ -80,7 +80,7 @@ type LookupClusterResult struct {
 	MaintenanceWindow string `pulumi:"maintenanceWindow"`
 	// The cluster node type.
 	NodeType string `pulumi:"nodeType"`
-	// An Amazon Resource Name (ARN) of an
+	// An ARN of an
 	// SNS topic that ElastiCache notifications get sent to.
 	NotificationTopicArn string `pulumi:"notificationTopicArn"`
 	// The number of cache nodes that the cache cluster has.
@@ -99,12 +99,12 @@ type LookupClusterResult struct {
 	// The number of days for which ElastiCache will
 	// retain automatic cache cluster snapshots before deleting them.
 	SnapshotRetentionLimit int `pulumi:"snapshotRetentionLimit"`
-	// The daily time range (in UTC) during which ElastiCache will
+	// Daily time range (in UTC) during which ElastiCache will
 	// begin taking a daily snapshot of the cache cluster.
 	SnapshotWindow string `pulumi:"snapshotWindow"`
 	// Name of the subnet group associated to the cache cluster.
 	SubnetGroupName string `pulumi:"subnetGroupName"`
-	// The tags assigned to the resource
+	// Tags assigned to the resource
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -125,7 +125,7 @@ func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts
 type LookupClusterOutputArgs struct {
 	// Group identifier.
 	ClusterId pulumi.StringInput `pulumi:"clusterId"`
-	// The tags assigned to the resource
+	// Tags assigned to the resource
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -152,7 +152,7 @@ func (o LookupClusterResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The Availability Zone for the cache cluster.
+// Availability Zone for the cache cluster.
 func (o LookupClusterResultOutput) AvailabilityZone() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.AvailabilityZone }).(pulumi.StringOutput)
 }
@@ -163,7 +163,7 @@ func (o LookupClusterResultOutput) CacheNodes() GetClusterCacheNodeArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []GetClusterCacheNode { return v.CacheNodes }).(GetClusterCacheNodeArrayOutput)
 }
 
-// (Memcached only) The DNS name of the cache cluster without the port appended.
+// (Memcached only) DNS name of the cache cluster without the port appended.
 func (o LookupClusterResultOutput) ClusterAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.ClusterAddress }).(pulumi.StringOutput)
 }
@@ -172,7 +172,7 @@ func (o LookupClusterResultOutput) ClusterId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.ClusterId }).(pulumi.StringOutput)
 }
 
-// (Memcached only) The configuration endpoint to allow host discovery.
+// (Memcached only) Configuration endpoint to allow host discovery.
 func (o LookupClusterResultOutput) ConfigurationEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.ConfigurationEndpoint }).(pulumi.StringOutput)
 }
@@ -208,7 +208,7 @@ func (o LookupClusterResultOutput) NodeType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.NodeType }).(pulumi.StringOutput)
 }
 
-// An Amazon Resource Name (ARN) of an
+// An ARN of an
 // SNS topic that ElastiCache notifications get sent to.
 func (o LookupClusterResultOutput) NotificationTopicArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.NotificationTopicArn }).(pulumi.StringOutput)
@@ -251,7 +251,7 @@ func (o LookupClusterResultOutput) SnapshotRetentionLimit() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupClusterResult) int { return v.SnapshotRetentionLimit }).(pulumi.IntOutput)
 }
 
-// The daily time range (in UTC) during which ElastiCache will
+// Daily time range (in UTC) during which ElastiCache will
 // begin taking a daily snapshot of the cache cluster.
 func (o LookupClusterResultOutput) SnapshotWindow() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.SnapshotWindow }).(pulumi.StringOutput)
@@ -262,7 +262,7 @@ func (o LookupClusterResultOutput) SubnetGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.SubnetGroupName }).(pulumi.StringOutput)
 }
 
-// The tags assigned to the resource
+// Tags assigned to the resource
 func (o LookupClusterResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupClusterResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

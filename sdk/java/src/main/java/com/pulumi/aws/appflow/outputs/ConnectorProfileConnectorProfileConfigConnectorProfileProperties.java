@@ -39,7 +39,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
      */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector customConnector;
     /**
-     * @return The connector-specific properties required when using Datadog. See Generic Connector Profile Properties for more details.
+     * @return Connector-specific properties required when using Datadog. See Generic Connector Profile Properties for more details.
      * 
      */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadog datadog;
@@ -64,12 +64,12 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
      */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexus inforNexus;
     /**
-     * @return The connector-specific properties required when using Marketo. See Generic Connector Profile Properties for more details.
+     * @return Connector-specific properties required when using Marketo. See Generic Connector Profile Properties for more details.
      * 
      */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketo marketo;
     /**
-     * @return The connector-specific properties required when using Amazon Redshift. See Redshift Connector Profile Properties for more details.
+     * @return Connector-specific properties required when using Amazon Redshift. See Redshift Connector Profile Properties for more details.
      * 
      */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift redshift;
@@ -89,12 +89,12 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
      */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNow serviceNow;
     /**
-     * @return The connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
+     * @return Connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
      * 
      */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingular singular;
     /**
-     * @return The connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
+     * @return Connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
      * 
      */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlack slack;
@@ -109,12 +109,12 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
      */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicro trendmicro;
     /**
-     * @return The connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
+     * @return Connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
      * 
      */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeeva veeva;
     /**
-     * @return The connector-specific properties required when using Zendesk. See Generic Connector Profile Properties for more details.
+     * @return Connector-specific properties required when using Zendesk. See Generic Connector Profile Properties for more details.
      * 
      */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendesk zendesk;
@@ -135,7 +135,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         return Optional.ofNullable(this.customConnector);
     }
     /**
-     * @return The connector-specific properties required when using Datadog. See Generic Connector Profile Properties for more details.
+     * @return Connector-specific properties required when using Datadog. See Generic Connector Profile Properties for more details.
      * 
      */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadog> datadog() {
@@ -170,14 +170,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         return Optional.ofNullable(this.inforNexus);
     }
     /**
-     * @return The connector-specific properties required when using Marketo. See Generic Connector Profile Properties for more details.
+     * @return Connector-specific properties required when using Marketo. See Generic Connector Profile Properties for more details.
      * 
      */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketo> marketo() {
         return Optional.ofNullable(this.marketo);
     }
     /**
-     * @return The connector-specific properties required when using Amazon Redshift. See Redshift Connector Profile Properties for more details.
+     * @return Connector-specific properties required when using Amazon Redshift. See Redshift Connector Profile Properties for more details.
      * 
      */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift> redshift() {
@@ -205,14 +205,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         return Optional.ofNullable(this.serviceNow);
     }
     /**
-     * @return The connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
+     * @return Connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
      * 
      */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingular> singular() {
         return Optional.ofNullable(this.singular);
     }
     /**
-     * @return The connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
+     * @return Connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
      * 
      */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlack> slack() {
@@ -233,14 +233,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         return Optional.ofNullable(this.trendmicro);
     }
     /**
-     * @return The connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
+     * @return Connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
      * 
      */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeeva> veeva() {
         return Optional.ofNullable(this.veeva);
     }
     /**
-     * @return The connector-specific properties required when using Zendesk. See Generic Connector Profile Properties for more details.
+     * @return Connector-specific properties required when using Zendesk. See Generic Connector Profile Properties for more details.
      * 
      */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendesk> zendesk() {

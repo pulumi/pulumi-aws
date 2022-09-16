@@ -64,7 +64,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
     public sealed class GetHostedZoneArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The region you'd like the zone for. By default, fetches the current region.
+        /// Region you'd like the zone for. By default, fetches the current region.
         /// </summary>
         [Input("region")]
         public string? Region { get; set; }
@@ -78,7 +78,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
     public sealed class GetHostedZoneInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The region you'd like the zone for. By default, fetches the current region.
+        /// Region you'd like the zone for. By default, fetches the current region.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -98,7 +98,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The region of the hosted zone.
+        /// Region of the hosted zone.
         /// </summary>
         public readonly string? Region;
 

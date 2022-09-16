@@ -10,14 +10,14 @@ import java.util.Objects;
 @CustomType
 public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames {
     /**
-     * @return The criteria for determining a SAN&#39;s match.
+     * @return Criteria for determining a SAN&#39;s match.
      * 
      */
     private VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch match;
 
     private VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames() {}
     /**
-     * @return The criteria for determining a SAN&#39;s match.
+     * @return Criteria for determining a SAN&#39;s match.
      * 
      */
     public VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch match() {

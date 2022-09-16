@@ -14,14 +14,14 @@ public final class ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs
     public static final ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs Empty = new ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs();
 
     /**
-     * The type of version identifier. For a git-based repository, branches represent versions. Valid values: `BRANCH`.
+     * Type of version identifier. For a git-based repository, branches represent versions. Valid values: `BRANCH`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of version identifier. For a git-based repository, branches represent versions. Valid values: `BRANCH`.
+     * @return Type of version identifier. For a git-based repository, branches represent versions. Valid values: `BRANCH`.
      * 
      */
     public Output<String> type() {
@@ -29,14 +29,14 @@ public final class ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs
     }
 
     /**
-     * A source code version. For a git-based repository, a branch name maps to a specific version. App Runner uses the most recent commit to the branch.
+     * Source code version. For a git-based repository, a branch name maps to a specific version. App Runner uses the most recent commit to the branch.
      * 
      */
     @Import(name="value", required=true)
     private Output<String> value;
 
     /**
-     * @return A source code version. For a git-based repository, a branch name maps to a specific version. App Runner uses the most recent commit to the branch.
+     * @return Source code version. For a git-based repository, a branch name maps to a specific version. App Runner uses the most recent commit to the branch.
      * 
      */
     public Output<String> value() {
@@ -69,7 +69,7 @@ public final class ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs
         }
 
         /**
-         * @param type The type of version identifier. For a git-based repository, branches represent versions. Valid values: `BRANCH`.
+         * @param type Type of version identifier. For a git-based repository, branches represent versions. Valid values: `BRANCH`.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs
         }
 
         /**
-         * @param type The type of version identifier. For a git-based repository, branches represent versions. Valid values: `BRANCH`.
+         * @param type Type of version identifier. For a git-based repository, branches represent versions. Valid values: `BRANCH`.
          * 
          * @return builder
          * 
@@ -90,7 +90,7 @@ public final class ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs
         }
 
         /**
-         * @param value A source code version. For a git-based repository, a branch name maps to a specific version. App Runner uses the most recent commit to the branch.
+         * @param value Source code version. For a git-based repository, a branch name maps to a specific version. App Runner uses the most recent commit to the branch.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs
         }
 
         /**
-         * @param value A source code version. For a git-based repository, a branch name maps to a specific version. App Runner uses the most recent commit to the branch.
+         * @param value Source code version. For a git-based repository, a branch name maps to a specific version. App Runner uses the most recent commit to the branch.
          * 
          * @return builder
          * 

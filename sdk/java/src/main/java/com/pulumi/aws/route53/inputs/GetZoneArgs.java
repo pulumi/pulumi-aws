@@ -19,14 +19,14 @@ public final class GetZoneArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetZoneArgs Empty = new GetZoneArgs();
 
     /**
-     * The Hosted Zone name of the desired Hosted Zone.
+     * Hosted Zone name of the desired Hosted Zone.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The Hosted Zone name of the desired Hosted Zone.
+     * @return Hosted Zone name of the desired Hosted Zone.
      * 
      */
     public Optional<Output<String>> name() {
@@ -94,14 +94,14 @@ public final class GetZoneArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The Hosted Zone id of the desired Hosted Zone.
+     * Hosted Zone id of the desired Hosted Zone.
      * 
      */
     @Import(name="zoneId")
     private @Nullable Output<String> zoneId;
 
     /**
-     * @return The Hosted Zone id of the desired Hosted Zone.
+     * @return Hosted Zone id of the desired Hosted Zone.
      * 
      */
     public Optional<Output<String>> zoneId() {
@@ -138,7 +138,7 @@ public final class GetZoneArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The Hosted Zone name of the desired Hosted Zone.
+         * @param name Hosted Zone name of the desired Hosted Zone.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class GetZoneArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The Hosted Zone name of the desired Hosted Zone.
+         * @param name Hosted Zone name of the desired Hosted Zone.
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class GetZoneArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param zoneId The Hosted Zone id of the desired Hosted Zone.
+         * @param zoneId Hosted Zone id of the desired Hosted Zone.
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class GetZoneArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param zoneId The Hosted Zone id of the desired Hosted Zone.
+         * @param zoneId Hosted Zone id of the desired Hosted Zone.
          * 
          * @return builder
          * 

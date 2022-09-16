@@ -40,7 +40,7 @@ class GetLocationsResult:
     @pulumi.getter(name="locationCodes")
     def location_codes(self) -> Sequence[str]:
         """
-        The code for the locations.
+        Code for the locations.
         """
         return pulumi.get(self, "location_codes")
 

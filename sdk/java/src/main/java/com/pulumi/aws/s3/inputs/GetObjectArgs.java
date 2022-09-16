@@ -17,14 +17,14 @@ public final class GetObjectArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetObjectArgs Empty = new GetObjectArgs();
 
     /**
-     * The name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
+     * Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
      * 
      */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
     /**
-     * @return The name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
+     * @return Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
      * 
      */
     public Output<String> bucket() {
@@ -32,14 +32,14 @@ public final class GetObjectArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The full path to the object inside the bucket
+     * Full path to the object inside the bucket
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return The full path to the object inside the bucket
+     * @return Full path to the object inside the bucket
      * 
      */
     public Output<String> key() {
@@ -54,14 +54,14 @@ public final class GetObjectArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * A map of tags assigned to the object.
+     * Map of tags assigned to the object.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags assigned to the object.
+     * @return Map of tags assigned to the object.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -112,7 +112,7 @@ public final class GetObjectArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param bucket The name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
+         * @param bucket Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
          * 
          * @return builder
          * 
@@ -123,7 +123,7 @@ public final class GetObjectArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param bucket The name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
+         * @param bucket Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class GetObjectArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param key The full path to the object inside the bucket
+         * @param key Full path to the object inside the bucket
          * 
          * @return builder
          * 
@@ -144,7 +144,7 @@ public final class GetObjectArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param key The full path to the object inside the bucket
+         * @param key Full path to the object inside the bucket
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class GetObjectArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags A map of tags assigned to the object.
+         * @param tags Map of tags assigned to the object.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class GetObjectArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags A map of tags assigned to the object.
+         * @param tags Map of tags assigned to the object.
          * 
          * @return builder
          * 

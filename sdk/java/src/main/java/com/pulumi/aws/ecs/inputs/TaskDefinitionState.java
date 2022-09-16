@@ -265,9 +265,17 @@ public final class TaskDefinitionState extends com.pulumi.resources.ResourceArgs
         return Optional.ofNullable(this.runtimePlatform);
     }
 
+    /**
+     * Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.
+     * 
+     */
     @Import(name="skipDestroy")
     private @Nullable Output<Boolean> skipDestroy;
 
+    /**
+     * @return Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.
+     * 
+     */
     public Optional<Output<Boolean>> skipDestroy() {
         return Optional.ofNullable(this.skipDestroy);
     }
@@ -742,11 +750,23 @@ public final class TaskDefinitionState extends com.pulumi.resources.ResourceArgs
             return runtimePlatform(Output.of(runtimePlatform));
         }
 
+        /**
+         * @param skipDestroy Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder skipDestroy(@Nullable Output<Boolean> skipDestroy) {
             $.skipDestroy = skipDestroy;
             return this;
         }
 
+        /**
+         * @param skipDestroy Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder skipDestroy(Boolean skipDestroy) {
             return skipDestroy(Output.of(skipDestroy));
         }

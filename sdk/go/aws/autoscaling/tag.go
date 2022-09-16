@@ -23,9 +23,9 @@ import (
 type Tag struct {
 	pulumi.CustomResourceState
 
-	// The name of the Autoscaling Group to apply the tag to.
+	// Name of the Autoscaling Group to apply the tag to.
 	AutoscalingGroupName pulumi.StringOutput `pulumi:"autoscalingGroupName"`
-	// The tag to create. The `tag` block is documented below.
+	// Tag to create. The `tag` block is documented below.
 	Tag TagTagOutput `pulumi:"tag"`
 }
 
@@ -64,16 +64,16 @@ func GetTag(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Tag resources.
 type tagState struct {
-	// The name of the Autoscaling Group to apply the tag to.
+	// Name of the Autoscaling Group to apply the tag to.
 	AutoscalingGroupName *string `pulumi:"autoscalingGroupName"`
-	// The tag to create. The `tag` block is documented below.
+	// Tag to create. The `tag` block is documented below.
 	Tag *TagTag `pulumi:"tag"`
 }
 
 type TagState struct {
-	// The name of the Autoscaling Group to apply the tag to.
+	// Name of the Autoscaling Group to apply the tag to.
 	AutoscalingGroupName pulumi.StringPtrInput
-	// The tag to create. The `tag` block is documented below.
+	// Tag to create. The `tag` block is documented below.
 	Tag TagTagPtrInput
 }
 
@@ -82,17 +82,17 @@ func (TagState) ElementType() reflect.Type {
 }
 
 type tagArgs struct {
-	// The name of the Autoscaling Group to apply the tag to.
+	// Name of the Autoscaling Group to apply the tag to.
 	AutoscalingGroupName string `pulumi:"autoscalingGroupName"`
-	// The tag to create. The `tag` block is documented below.
+	// Tag to create. The `tag` block is documented below.
 	Tag TagTag `pulumi:"tag"`
 }
 
 // The set of arguments for constructing a Tag resource.
 type TagArgs struct {
-	// The name of the Autoscaling Group to apply the tag to.
+	// Name of the Autoscaling Group to apply the tag to.
 	AutoscalingGroupName pulumi.StringInput
-	// The tag to create. The `tag` block is documented below.
+	// Tag to create. The `tag` block is documented below.
 	Tag TagTagInput
 }
 
@@ -183,12 +183,12 @@ func (o TagOutput) ToTagOutputWithContext(ctx context.Context) TagOutput {
 	return o
 }
 
-// The name of the Autoscaling Group to apply the tag to.
+// Name of the Autoscaling Group to apply the tag to.
 func (o TagOutput) AutoscalingGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tag) pulumi.StringOutput { return v.AutoscalingGroupName }).(pulumi.StringOutput)
 }
 
-// The tag to create. The `tag` block is documented below.
+// Tag to create. The `tag` block is documented below.
 func (o TagOutput) Tag() TagTagOutput {
 	return o.ApplyT(func(v *Tag) TagTagOutput { return v.Tag }).(TagTagOutput)
 }

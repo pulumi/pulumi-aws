@@ -72,25 +72,25 @@ namespace Pulumi.Aws.Ecr
     public sealed class GetImageArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The sha256 digest of the image manifest. At least one of `image_digest` or `image_tag` must be specified.
+        /// Sha256 digest of the image manifest. At least one of `image_digest` or `image_tag` must be specified.
         /// </summary>
         [Input("imageDigest")]
         public string? ImageDigest { get; set; }
 
         /// <summary>
-        /// The tag associated with this image. At least one of `image_digest` or `image_tag` must be specified.
+        /// Tag associated with this image. At least one of `image_digest` or `image_tag` must be specified.
         /// </summary>
         [Input("imageTag")]
         public string? ImageTag { get; set; }
 
         /// <summary>
-        /// The ID of the Registry where the repository resides.
+        /// ID of the Registry where the repository resides.
         /// </summary>
         [Input("registryId")]
         public string? RegistryId { get; set; }
 
         /// <summary>
-        /// The name of the ECR Repository.
+        /// Name of the ECR Repository.
         /// </summary>
         [Input("repositoryName", required: true)]
         public string RepositoryName { get; set; } = null!;
@@ -104,25 +104,25 @@ namespace Pulumi.Aws.Ecr
     public sealed class GetImageInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The sha256 digest of the image manifest. At least one of `image_digest` or `image_tag` must be specified.
+        /// Sha256 digest of the image manifest. At least one of `image_digest` or `image_tag` must be specified.
         /// </summary>
         [Input("imageDigest")]
         public Input<string>? ImageDigest { get; set; }
 
         /// <summary>
-        /// The tag associated with this image. At least one of `image_digest` or `image_tag` must be specified.
+        /// Tag associated with this image. At least one of `image_digest` or `image_tag` must be specified.
         /// </summary>
         [Input("imageTag")]
         public Input<string>? ImageTag { get; set; }
 
         /// <summary>
-        /// The ID of the Registry where the repository resides.
+        /// ID of the Registry where the repository resides.
         /// </summary>
         [Input("registryId")]
         public Input<string>? RegistryId { get; set; }
 
         /// <summary>
-        /// The name of the ECR Repository.
+        /// Name of the ECR Repository.
         /// </summary>
         [Input("repositoryName", required: true)]
         public Input<string> RepositoryName { get; set; } = null!;
@@ -143,16 +143,16 @@ namespace Pulumi.Aws.Ecr
         public readonly string Id;
         public readonly string ImageDigest;
         /// <summary>
-        /// The date and time, expressed as a unix timestamp, at which the current image was pushed to the repository.
+        /// Date and time, expressed as a unix timestamp, at which the current image was pushed to the repository.
         /// </summary>
         public readonly int ImagePushedAt;
         /// <summary>
-        /// The size, in bytes, of the image in the repository.
+        /// Size, in bytes, of the image in the repository.
         /// </summary>
         public readonly int ImageSizeInBytes;
         public readonly string? ImageTag;
         /// <summary>
-        /// The list of tags associated with this image.
+        /// List of tags associated with this image.
         /// </summary>
         public readonly ImmutableArray<string> ImageTags;
         public readonly string RegistryId;

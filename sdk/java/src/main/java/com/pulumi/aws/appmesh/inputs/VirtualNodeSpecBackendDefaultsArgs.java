@@ -16,14 +16,14 @@ public final class VirtualNodeSpecBackendDefaultsArgs extends com.pulumi.resourc
     public static final VirtualNodeSpecBackendDefaultsArgs Empty = new VirtualNodeSpecBackendDefaultsArgs();
 
     /**
-     * The default client policy for virtual service backends. See above for details.
+     * Default client policy for virtual service backends. See above for details.
      * 
      */
     @Import(name="clientPolicy")
     private @Nullable Output<VirtualNodeSpecBackendDefaultsClientPolicyArgs> clientPolicy;
 
     /**
-     * @return The default client policy for virtual service backends. See above for details.
+     * @return Default client policy for virtual service backends. See above for details.
      * 
      */
     public Optional<Output<VirtualNodeSpecBackendDefaultsClientPolicyArgs>> clientPolicy() {
@@ -55,7 +55,7 @@ public final class VirtualNodeSpecBackendDefaultsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param clientPolicy The default client policy for virtual service backends. See above for details.
+         * @param clientPolicy Default client policy for virtual service backends. See above for details.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class VirtualNodeSpecBackendDefaultsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param clientPolicy The default client policy for virtual service backends. See above for details.
+         * @param clientPolicy Default client policy for virtual service backends. See above for details.
          * 
          * @return builder
          * 

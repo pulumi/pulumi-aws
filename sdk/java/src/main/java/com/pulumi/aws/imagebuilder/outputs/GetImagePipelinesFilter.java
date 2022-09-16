@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetImagePipelinesFilter {
     /**
-     * @return The name of the filter field. Valid values can be found in the [Image Builder ListImagePipelines API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImagePipelines.html).
+     * @return Name of the filter field. Valid values can be found in the [Image Builder ListImagePipelines API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImagePipelines.html).
      * 
      */
     private String name;
@@ -23,7 +23,7 @@ public final class GetImagePipelinesFilter {
 
     private GetImagePipelinesFilter() {}
     /**
-     * @return The name of the filter field. Valid values can be found in the [Image Builder ListImagePipelines API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImagePipelines.html).
+     * @return Name of the filter field. Valid values can be found in the [Image Builder ListImagePipelines API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImagePipelines.html).
      * 
      */
     public String name() {

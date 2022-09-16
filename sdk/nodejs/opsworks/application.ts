@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -142,7 +144,7 @@ export class Application extends pulumi.CustomResource {
      */
     public readonly sslConfigurations!: pulumi.Output<outputs.opsworks.ApplicationSslConfiguration[] | undefined>;
     /**
-     * The id of the stack the application will belong to.
+     * ID of the stack the application will belong to.
      */
     public readonly stackId!: pulumi.Output<string>;
     /**
@@ -276,7 +278,7 @@ export interface ApplicationState {
      */
     sslConfigurations?: pulumi.Input<pulumi.Input<inputs.opsworks.ApplicationSslConfiguration>[]>;
     /**
-     * The id of the stack the application will belong to.
+     * ID of the stack the application will belong to.
      */
     stackId?: pulumi.Input<string>;
     /**
@@ -350,7 +352,7 @@ export interface ApplicationArgs {
      */
     sslConfigurations?: pulumi.Input<pulumi.Input<inputs.opsworks.ApplicationSslConfiguration>[]>;
     /**
-     * The id of the stack the application will belong to.
+     * ID of the stack the application will belong to.
      */
     stackId: pulumi.Input<string>;
     /**

@@ -56,7 +56,7 @@ class GetCustomerGatewayResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The ARN of the customer gateway.
+        ARN of the customer gateway.
         """
         return pulumi.get(self, "arn")
 
@@ -64,7 +64,7 @@ class GetCustomerGatewayResult:
     @pulumi.getter(name="bgpAsn")
     def bgp_asn(self) -> int:
         """
-        The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
+        Gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
         """
         return pulumi.get(self, "bgp_asn")
 
@@ -72,7 +72,7 @@ class GetCustomerGatewayResult:
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) for the customer gateway certificate.
+        ARN for the customer gateway certificate.
         """
         return pulumi.get(self, "certificate_arn")
 
@@ -80,7 +80,7 @@ class GetCustomerGatewayResult:
     @pulumi.getter(name="deviceName")
     def device_name(self) -> str:
         """
-        A name for the customer gateway device.
+        Name for the customer gateway device.
         """
         return pulumi.get(self, "device_name")
 
@@ -98,7 +98,7 @@ class GetCustomerGatewayResult:
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> str:
         """
-        The IP address of the gateway's Internet-routable external interface.
+        IP address of the gateway's Internet-routable external interface.
         """
         return pulumi.get(self, "ip_address")
 
@@ -114,7 +114,7 @@ class GetCustomerGatewayResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of customer gateway. The only type AWS supports at this time is "ipsec.1".
+        Type of customer gateway. The only type AWS supports at this time is "ipsec.1".
         """
         return pulumi.get(self, "type")
 
@@ -165,7 +165,7 @@ def get_customer_gateway(filters: Optional[Sequence[pulumi.InputType['GetCustome
 
 
     :param Sequence[pulumi.InputType['GetCustomerGatewayFilterArgs']] filters: One or more [name-value pairs][dcg-filters] to filter by.
-    :param str id: The ID of the gateway.
+    :param str id: ID of the gateway.
     :param Mapping[str, str] tags: Map of key-value pairs assigned to the gateway.
     """
     __args__ = dict()
@@ -217,7 +217,7 @@ def get_customer_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence
 
 
     :param Sequence[pulumi.InputType['GetCustomerGatewayFilterArgs']] filters: One or more [name-value pairs][dcg-filters] to filter by.
-    :param str id: The ID of the gateway.
+    :param str id: ID of the gateway.
     :param Mapping[str, str] tags: Map of key-value pairs assigned to the gateway.
     """
     ...

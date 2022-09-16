@@ -49,7 +49,7 @@ class GetClusterAuthResult:
     @pulumi.getter
     def token(self) -> str:
         """
-        The token to use to authenticate with the cluster.
+        Token to use to authenticate with the cluster.
         """
         return pulumi.get(self, "token")
 
@@ -76,7 +76,7 @@ def get_cluster_auth(name: Optional[str] = None,
     server configured.
 
 
-    :param str name: The name of the cluster
+    :param str name: Name of the cluster
     """
     __args__ = dict()
     __args__['name'] = name
@@ -101,6 +101,6 @@ def get_cluster_auth_output(name: Optional[pulumi.Input[str]] = None,
     server configured.
 
 
-    :param str name: The name of the cluster
+    :param str name: Name of the cluster
     """
     ...

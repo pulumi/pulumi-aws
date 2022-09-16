@@ -20,7 +20,7 @@ public final class GetTransitGatewayResult {
      */
     private Integer amazonSideAsn;
     /**
-     * @return EC2 Transit Gateway Amazon Resource Name (ARN)
+     * @return EC2 Transit Gateway ARN
      * 
      */
     private String arn;
@@ -100,7 +100,7 @@ public final class GetTransitGatewayResult {
         return this.amazonSideAsn;
     }
     /**
-     * @return EC2 Transit Gateway Amazon Resource Name (ARN)
+     * @return EC2 Transit Gateway ARN
      * 
      */
     public String arn() {

@@ -16,14 +16,14 @@ public final class GroupWarmPoolInstanceReusePolicyArgs extends com.pulumi.resou
     public static final GroupWarmPoolInstanceReusePolicyArgs Empty = new GroupWarmPoolInstanceReusePolicyArgs();
 
     /**
-     * Specifies whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
+     * Whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
      * 
      */
     @Import(name="reuseOnScaleIn")
     private @Nullable Output<Boolean> reuseOnScaleIn;
 
     /**
-     * @return Specifies whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
+     * @return Whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
      * 
      */
     public Optional<Output<Boolean>> reuseOnScaleIn() {
@@ -55,7 +55,7 @@ public final class GroupWarmPoolInstanceReusePolicyArgs extends com.pulumi.resou
         }
 
         /**
-         * @param reuseOnScaleIn Specifies whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
+         * @param reuseOnScaleIn Whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class GroupWarmPoolInstanceReusePolicyArgs extends com.pulumi.resou
         }
 
         /**
-         * @param reuseOnScaleIn Specifies whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
+         * @param reuseOnScaleIn Whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
          * 
          * @return builder
          * 

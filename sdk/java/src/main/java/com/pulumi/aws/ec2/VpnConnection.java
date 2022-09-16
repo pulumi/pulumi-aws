@@ -7,6 +7,8 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.ec2.VpnConnectionArgs;
 import com.pulumi.aws.ec2.inputs.VpnConnectionState;
 import com.pulumi.aws.ec2.outputs.VpnConnectionRoute;
+import com.pulumi.aws.ec2.outputs.VpnConnectionTunnel1LogOptions;
+import com.pulumi.aws.ec2.outputs.VpnConnectionTunnel2LogOptions;
 import com.pulumi.aws.ec2.outputs.VpnConnectionVgwTelemetry;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -585,6 +587,20 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
         return this.tunnel1InsideIpv6Cidr;
     }
     /**
+     * Options for logging VPN tunnel activity. See Log Options below for more details.
+     * 
+     */
+    @Export(name="tunnel1LogOptions", type=VpnConnectionTunnel1LogOptions.class, parameters={})
+    private Output<VpnConnectionTunnel1LogOptions> tunnel1LogOptions;
+
+    /**
+     * @return Options for logging VPN tunnel activity. See Log Options below for more details.
+     * 
+     */
+    public Output<VpnConnectionTunnel1LogOptions> tunnel1LogOptions() {
+        return this.tunnel1LogOptions;
+    }
+    /**
      * List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
      * 
      */
@@ -905,6 +921,20 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      */
     public Output<String> tunnel2InsideIpv6Cidr() {
         return this.tunnel2InsideIpv6Cidr;
+    }
+    /**
+     * Options for logging VPN tunnel activity. See Log Options below for more details.
+     * 
+     */
+    @Export(name="tunnel2LogOptions", type=VpnConnectionTunnel2LogOptions.class, parameters={})
+    private Output<VpnConnectionTunnel2LogOptions> tunnel2LogOptions;
+
+    /**
+     * @return Options for logging VPN tunnel activity. See Log Options below for more details.
+     * 
+     */
+    public Output<VpnConnectionTunnel2LogOptions> tunnel2LogOptions() {
+        return this.tunnel2LogOptions;
     }
     /**
      * List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.

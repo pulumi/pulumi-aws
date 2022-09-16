@@ -60,18 +60,18 @@ func GetExport(ctx *pulumi.Context, args *GetExportArgs, opts ...pulumi.InvokeOp
 
 // A collection of arguments for invoking getExport.
 type GetExportArgs struct {
-	// The name of the export as it appears in the console or from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
+	// Name of the export as it appears in the console or from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
 	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getExport.
 type GetExportResult struct {
-	// The exportingStackId (AWS ARNs) equivalent `ExportingStackId` from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
+	// ARN of stack that contains the exported output name and value.
 	ExportingStackId string `pulumi:"exportingStackId"`
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
-	// The value from Cloudformation export identified by the export name found from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
+	// Value from Cloudformation export identified by the export name found from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
 	Value string `pulumi:"value"`
 }
 
@@ -90,7 +90,7 @@ func GetExportOutput(ctx *pulumi.Context, args GetExportOutputArgs, opts ...pulu
 
 // A collection of arguments for invoking getExport.
 type GetExportOutputArgs struct {
-	// The name of the export as it appears in the console or from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
+	// Name of the export as it appears in the console or from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -113,7 +113,7 @@ func (o GetExportResultOutput) ToGetExportResultOutputWithContext(ctx context.Co
 	return o
 }
 
-// The exportingStackId (AWS ARNs) equivalent `ExportingStackId` from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
+// ARN of stack that contains the exported output name and value.
 func (o GetExportResultOutput) ExportingStackId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetExportResult) string { return v.ExportingStackId }).(pulumi.StringOutput)
 }
@@ -127,7 +127,7 @@ func (o GetExportResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetExportResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The value from Cloudformation export identified by the export name found from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
+// Value from Cloudformation export identified by the export name found from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
 func (o GetExportResultOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetExportResult) string { return v.Value }).(pulumi.StringOutput)
 }

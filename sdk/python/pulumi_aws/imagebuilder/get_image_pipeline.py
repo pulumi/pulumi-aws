@@ -87,7 +87,7 @@ class GetImagePipelineResult:
     @pulumi.getter(name="containerRecipeArn")
     def container_recipe_arn(self) -> str:
         """
-        Amazon Resource Name (ARN) of the container recipe.
+        ARN of the container recipe.
         """
         return pulumi.get(self, "container_recipe_arn")
 
@@ -135,7 +135,7 @@ class GetImagePipelineResult:
     @pulumi.getter(name="distributionConfigurationArn")
     def distribution_configuration_arn(self) -> str:
         """
-        Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+        ARN of the Image Builder Distribution Configuration.
         """
         return pulumi.get(self, "distribution_configuration_arn")
 
@@ -159,7 +159,7 @@ class GetImagePipelineResult:
     @pulumi.getter(name="imageRecipeArn")
     def image_recipe_arn(self) -> str:
         """
-        Amazon Resource Name (ARN) of the image recipe.
+        ARN of the image recipe.
         """
         return pulumi.get(self, "image_recipe_arn")
 
@@ -175,7 +175,7 @@ class GetImagePipelineResult:
     @pulumi.getter(name="infrastructureConfigurationArn")
     def infrastructure_configuration_arn(self) -> str:
         """
-        Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+        ARN of the Image Builder Infrastructure Configuration.
         """
         return pulumi.get(self, "infrastructure_configuration_arn")
 
@@ -262,7 +262,7 @@ def get_image_pipeline(arn: Optional[str] = None,
     ```
 
 
-    :param str arn: Amazon Resource Name (ARN) of the image pipeline.
+    :param str arn: ARN of the image pipeline.
     :param Mapping[str, str] tags: Key-value map of resource tags for the image pipeline.
     """
     __args__ = dict()
@@ -309,7 +309,7 @@ def get_image_pipeline_output(arn: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str arn: Amazon Resource Name (ARN) of the image pipeline.
+    :param str arn: ARN of the image pipeline.
     :param Mapping[str, str] tags: Key-value map of resource tags for the image pipeline.
     """
     ...

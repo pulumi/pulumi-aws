@@ -63,7 +63,7 @@ class GetStackResult:
     @pulumi.getter
     def capabilities(self) -> Sequence[str]:
         """
-        A list of capabilities
+        List of capabilities
         """
         return pulumi.get(self, "capabilities")
 
@@ -87,7 +87,7 @@ class GetStackResult:
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> str:
         """
-        The ARN of the IAM role used to create the stack.
+        ARN of the IAM role used to create the stack.
         """
         return pulumi.get(self, "iam_role_arn")
 
@@ -108,7 +108,7 @@ class GetStackResult:
     @pulumi.getter(name="notificationArns")
     def notification_arns(self) -> Sequence[str]:
         """
-        A list of SNS topic ARNs to publish stack related events
+        List of SNS topic ARNs to publish stack related events
         """
         return pulumi.get(self, "notification_arns")
 
@@ -116,7 +116,7 @@ class GetStackResult:
     @pulumi.getter
     def outputs(self) -> Mapping[str, str]:
         """
-        A map of outputs from the stack.
+        Map of outputs from the stack.
         """
         return pulumi.get(self, "outputs")
 
@@ -124,7 +124,7 @@ class GetStackResult:
     @pulumi.getter
     def parameters(self) -> Mapping[str, str]:
         """
-        A map of parameters that specify input parameters for the stack.
+        Map of parameters that specify input parameters for the stack.
         """
         return pulumi.get(self, "parameters")
 
@@ -132,7 +132,7 @@ class GetStackResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        A map of tags associated with this stack.
+        Map of tags associated with this stack.
         """
         return pulumi.get(self, "tags")
 
@@ -148,7 +148,7 @@ class GetStackResult:
     @pulumi.getter(name="timeoutInMinutes")
     def timeout_in_minutes(self) -> int:
         """
-        The amount of time that can pass before the stack status becomes `CREATE_FAILED`
+        Amount of time that can pass before the stack status becomes `CREATE_FAILED`
         """
         return pulumi.get(self, "timeout_in_minutes")
 
@@ -181,8 +181,8 @@ def get_stack(name: Optional[str] = None,
     outputs and other useful data including the template body.
 
 
-    :param str name: The name of the stack
-    :param Mapping[str, str] tags: A map of tags associated with this stack.
+    :param str name: Name of the stack
+    :param Mapping[str, str] tags: Map of tags associated with this stack.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -214,7 +214,7 @@ def get_stack_output(name: Optional[pulumi.Input[str]] = None,
     outputs and other useful data including the template body.
 
 
-    :param str name: The name of the stack
-    :param Mapping[str, str] tags: A map of tags associated with this stack.
+    :param str name: Name of the stack
+    :param Mapping[str, str] tags: Map of tags associated with this stack.
     """
     ...

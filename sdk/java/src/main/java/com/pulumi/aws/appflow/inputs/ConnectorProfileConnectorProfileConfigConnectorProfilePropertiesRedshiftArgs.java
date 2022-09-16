@@ -61,14 +61,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the IAM role.
+     * ARN of the IAM role.
      * 
      */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the IAM role.
+     * @return ARN of the IAM role.
      * 
      */
     public Output<String> roleArn() {
@@ -166,7 +166,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param roleArn The Amazon Resource Name (ARN) of the IAM role.
+         * @param roleArn ARN of the IAM role.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param roleArn The Amazon Resource Name (ARN) of the IAM role.
+         * @param roleArn ARN of the IAM role.
          * 
          * @return builder
          * 

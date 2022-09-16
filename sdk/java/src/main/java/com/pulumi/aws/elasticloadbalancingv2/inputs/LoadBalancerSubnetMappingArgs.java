@@ -68,14 +68,14 @@ public final class LoadBalancerSubnetMappingArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The id of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
+     * ID of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
      * 
      */
     @Import(name="subnetId", required=true)
     private Output<String> subnetId;
 
     /**
-     * @return The id of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
+     * @return ID of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
      * 
      */
     public Output<String> subnetId() {
@@ -183,7 +183,7 @@ public final class LoadBalancerSubnetMappingArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param subnetId The id of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
+         * @param subnetId ID of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class LoadBalancerSubnetMappingArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param subnetId The id of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
+         * @param subnetId ID of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
          * 
          * @return builder
          * 

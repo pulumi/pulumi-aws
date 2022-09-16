@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -60,7 +62,7 @@ export interface GetVolumeArgs {
      */
     mostRecent?: boolean;
     /**
-     * A map of tags for the resource.
+     * Map of tags for the resource.
      */
     tags?: {[key: string]: string};
 }
@@ -70,11 +72,11 @@ export interface GetVolumeArgs {
  */
 export interface GetVolumeResult {
     /**
-     * The volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
+     * Volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
      */
     readonly arn: string;
     /**
-     * The AZ where the EBS volume exists.
+     * AZ where the EBS volume exists.
      */
     readonly availabilityZone: string;
     /**
@@ -87,11 +89,11 @@ export interface GetVolumeResult {
      */
     readonly id: string;
     /**
-     * The amount of IOPS for the disk.
+     * Amount of IOPS for the disk.
      */
     readonly iops: number;
     /**
-     * The ARN for the KMS encryption key.
+     * ARN for the KMS encryption key.
      */
     readonly kmsKeyId: string;
     readonly mostRecent?: boolean;
@@ -100,31 +102,31 @@ export interface GetVolumeResult {
      */
     readonly multiAttachEnabled: boolean;
     /**
-     * The Amazon Resource Name (ARN) of the Outpost.
+     * ARN of the Outpost.
      */
     readonly outpostArn: string;
     /**
-     * The size of the drive in GiBs.
+     * Size of the drive in GiBs.
      */
     readonly size: number;
     /**
-     * The snapshotId the EBS volume is based off.
+     * Snapshot_id the EBS volume is based off.
      */
     readonly snapshotId: string;
     /**
-     * A map of tags for the resource.
+     * Map of tags for the resource.
      */
     readonly tags: {[key: string]: string};
     /**
-     * The throughput that the volume supports, in MiB/s.
+     * Throughput that the volume supports, in MiB/s.
      */
     readonly throughput: number;
     /**
-     * The volume ID (e.g., vol-59fcb34e).
+     * Volume ID (e.g., vol-59fcb34e).
      */
     readonly volumeId: string;
     /**
-     * The type of EBS volume.
+     * Type of EBS volume.
      */
     readonly volumeType: string;
 }
@@ -149,7 +151,7 @@ export interface GetVolumeOutputArgs {
      */
     mostRecent?: pulumi.Input<boolean>;
     /**
-     * A map of tags for the resource.
+     * Map of tags for the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

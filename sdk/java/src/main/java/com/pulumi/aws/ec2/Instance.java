@@ -33,7 +33,7 @@ import javax.annotation.Nullable;
  * Provides an EC2 instance resource. This allows instances to be created, updated, and deleted.
  * 
  * ## Example Usage
- * ### Basic Example Using AMI Lookup
+ * ### Basic example using AMI lookup
  * ```java
  * package generated_program;
  * 
@@ -80,7 +80,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### Network and Credit Specification Example
+ * ### Network and credit specification example
  * ```java
  * package generated_program;
  * 
@@ -143,6 +143,42 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### Host resource group or Licence Manager registered AMI example
+ * 
+ * A host resource group is a collection of Dedicated Hosts that you can manage as a single entity. As you launch instances, License Manager allocates the hosts and launches instances on them based on the settings that you configured. You can add existing Dedicated Hosts to a host resource group and take advantage of automated host management through License Manager.
+ * 
+ * &gt; **NOTE:** A dedicated host is automatically associated with a License Manager host resource group if **Allocate hosts automatically** is enabled. Otherwise, use the `host_resource_group_arn` argument to explicitly associate the instance with the host resource group.
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.Instance;
+ * import com.pulumi.aws.ec2.InstanceArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var this_ = new Instance(&#34;this&#34;, InstanceArgs.builder()        
+ *             .ami(&#34;ami-0dcc1e21636832c5d&#34;)
+ *             .hostResourceGroupArn(&#34;arn:aws:resource-groups:us-west-2:012345678901:group/win-testhost&#34;)
+ *             .instanceType(&#34;m5.large&#34;)
+ *             .tenancy(&#34;host&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 
@@ -170,14 +206,14 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return this.ami;
     }
     /**
-     * The ARN of the instance.
+     * ARN of the instance.
      * 
      */
     @Export(name="arn", type=String.class, parameters={})
     private Output<String> arn;
 
     /**
-     * @return The ARN of the instance.
+     * @return ARN of the instance.
      * 
      */
     public Output<String> arn() {
@@ -394,6 +430,20 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return this.hostId;
     }
     /**
+     * ARN of the host resource group in which to launch the instances. If you specify an ARN, omit the `tenancy` parameter or set it to `host`.
+     * 
+     */
+    @Export(name="hostResourceGroupArn", type=String.class, parameters={})
+    private Output<String> hostResourceGroupArn;
+
+    /**
+     * @return ARN of the host resource group in which to launch the instances. If you specify an ARN, omit the `tenancy` parameter or set it to `host`.
+     * 
+     */
+    public Output<String> hostResourceGroupArn() {
+        return this.hostResourceGroupArn;
+    }
+    /**
      * IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
      * 
      */
@@ -422,42 +472,42 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return this.instanceInitiatedShutdownBehavior;
     }
     /**
-     * The state of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
+     * State of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
      * 
      */
     @Export(name="instanceState", type=String.class, parameters={})
     private Output<String> instanceState;
 
     /**
-     * @return The state of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
+     * @return State of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
      * 
      */
     public Output<String> instanceState() {
         return this.instanceState;
     }
     /**
-     * The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
+     * Instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
      * 
      */
     @Export(name="instanceType", type=String.class, parameters={})
     private Output<String> instanceType;
 
     /**
-     * @return The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
+     * @return Instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
      * 
      */
     public Output<String> instanceType() {
         return this.instanceType;
     }
     /**
-     * A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
+     * Number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
      * 
      */
     @Export(name="ipv6AddressCount", type=Integer.class, parameters={})
     private Output<Integer> ipv6AddressCount;
 
     /**
-     * @return A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
+     * @return Number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
      * 
      */
     public Output<Integer> ipv6AddressCount() {
@@ -508,14 +558,14 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.launchTemplate);
     }
     /**
-     * The maintenance and recovery options for the instance. See Maintenance Options below for more details.
+     * Maintenance and recovery options for the instance. See Maintenance Options below for more details.
      * 
      */
     @Export(name="maintenanceOptions", type=InstanceMaintenanceOptions.class, parameters={})
     private Output<InstanceMaintenanceOptions> maintenanceOptions;
 
     /**
-     * @return The maintenance and recovery options for the instance. See Maintenance Options below for more details.
+     * @return Maintenance and recovery options for the instance. See Maintenance Options below for more details.
      * 
      */
     public Output<InstanceMaintenanceOptions> maintenanceOptions() {
@@ -564,14 +614,14 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return this.networkInterfaces;
     }
     /**
-     * The ARN of the Outpost the instance is assigned to.
+     * ARN of the Outpost the instance is assigned to.
      * 
      */
     @Export(name="outpostArn", type=String.class, parameters={})
     private Output<String> outpostArn;
 
     /**
-     * @return The ARN of the Outpost the instance is assigned to.
+     * @return ARN of the Outpost the instance is assigned to.
      * 
      */
     public Output<String> outpostArn() {
@@ -606,56 +656,56 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return this.placementGroup;
     }
     /**
-     * The number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource&#39;s `strategy` argument is set to `&#34;partition&#34;`.
+     * Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource&#39;s `strategy` argument is set to `&#34;partition&#34;`.
      * 
      */
     @Export(name="placementPartitionNumber", type=Integer.class, parameters={})
     private Output<Integer> placementPartitionNumber;
 
     /**
-     * @return The number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource&#39;s `strategy` argument is set to `&#34;partition&#34;`.
+     * @return Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource&#39;s `strategy` argument is set to `&#34;partition&#34;`.
      * 
      */
     public Output<Integer> placementPartitionNumber() {
         return this.placementPartitionNumber;
     }
     /**
-     * The ID of the instance&#39;s primary network interface.
+     * ID of the instance&#39;s primary network interface.
      * 
      */
     @Export(name="primaryNetworkInterfaceId", type=String.class, parameters={})
     private Output<String> primaryNetworkInterfaceId;
 
     /**
-     * @return The ID of the instance&#39;s primary network interface.
+     * @return ID of the instance&#39;s primary network interface.
      * 
      */
     public Output<String> primaryNetworkInterfaceId() {
         return this.primaryNetworkInterfaceId;
     }
     /**
-     * The private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you&#39;ve enabled DNS hostnames for your VPC.
+     * Private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you&#39;ve enabled DNS hostnames for your VPC.
      * 
      */
     @Export(name="privateDns", type=String.class, parameters={})
     private Output<String> privateDns;
 
     /**
-     * @return The private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you&#39;ve enabled DNS hostnames for your VPC.
+     * @return Private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you&#39;ve enabled DNS hostnames for your VPC.
      * 
      */
     public Output<String> privateDns() {
         return this.privateDns;
     }
     /**
-     * The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+     * Options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
      * 
      */
     @Export(name="privateDnsNameOptions", type=InstancePrivateDnsNameOptions.class, parameters={})
     private Output<InstancePrivateDnsNameOptions> privateDnsNameOptions;
 
     /**
-     * @return The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+     * @return Options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
      * 
      */
     public Output<InstancePrivateDnsNameOptions> privateDnsNameOptions() {
@@ -676,28 +726,28 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return this.privateIp;
     }
     /**
-     * The public DNS name assigned to the instance. For EC2-VPC, this is only available if you&#39;ve enabled DNS hostnames for your VPC.
+     * Public DNS name assigned to the instance. For EC2-VPC, this is only available if you&#39;ve enabled DNS hostnames for your VPC.
      * 
      */
     @Export(name="publicDns", type=String.class, parameters={})
     private Output<String> publicDns;
 
     /**
-     * @return The public DNS name assigned to the instance. For EC2-VPC, this is only available if you&#39;ve enabled DNS hostnames for your VPC.
+     * @return Public DNS name assigned to the instance. For EC2-VPC, this is only available if you&#39;ve enabled DNS hostnames for your VPC.
      * 
      */
     public Output<String> publicDns() {
         return this.publicDns;
     }
     /**
-     * The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an `aws.ec2.Eip` with your instance, you should refer to the EIP&#39;s address directly and not use `public_ip` as this field will change after the EIP is attached.
+     * Public IP address assigned to the instance, if applicable. **NOTE**: If you are using an `aws.ec2.Eip` with your instance, you should refer to the EIP&#39;s address directly and not use `public_ip` as this field will change after the EIP is attached.
      * 
      */
     @Export(name="publicIp", type=String.class, parameters={})
     private Output<String> publicIp;
 
     /**
-     * @return The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an `aws.ec2.Eip` with your instance, you should refer to the EIP&#39;s address directly and not use `public_ip` as this field will change after the EIP is attached.
+     * @return Public IP address assigned to the instance, if applicable. **NOTE**: If you are using an `aws.ec2.Eip` with your instance, you should refer to the EIP&#39;s address directly and not use `public_ip` as this field will change after the EIP is attached.
      * 
      */
     public Output<String> publicIp() {
@@ -718,21 +768,21 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return this.rootBlockDevice;
     }
     /**
-     * A list of secondary private IPv4 addresses to assign to the instance&#39;s primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
+     * List of secondary private IPv4 addresses to assign to the instance&#39;s primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
      * 
      */
     @Export(name="secondaryPrivateIps", type=List.class, parameters={String.class})
     private Output<List<String>> secondaryPrivateIps;
 
     /**
-     * @return A list of secondary private IPv4 addresses to assign to the instance&#39;s primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
+     * @return List of secondary private IPv4 addresses to assign to the instance&#39;s primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
      * 
      */
     public Output<List<String>> secondaryPrivateIps() {
         return this.secondaryPrivateIps;
     }
     /**
-     * A list of security group names to associate with.
+     * List of security group names to associate with.
      * 
      * @deprecated
      * Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.
@@ -743,7 +793,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
     private Output<List<String>> securityGroups;
 
     /**
-     * @return A list of security group names to associate with.
+     * @return List of security group names to associate with.
      * 
      */
     public Output<List<String>> securityGroups() {
@@ -778,42 +828,42 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return this.subnetId;
     }
     /**
-     * A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
+     * Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for the import-instance command. Valid values are `default`, `dedicated`, and `host`.
      * 
      */
     @Export(name="tenancy", type=String.class, parameters={})
     private Output<String> tenancy;
 
     /**
-     * @return Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
+     * @return Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for the import-instance command. Valid values are `default`, `dedicated`, and `host`.
      * 
      */
     public Output<String> tenancy() {
@@ -862,28 +912,28 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.userDataReplaceOnChange);
     }
     /**
-     * A map of tags to assign, at instance-creation time, to root and EBS volumes.
+     * Map of tags to assign, at instance-creation time, to root and EBS volumes.
      * 
      */
     @Export(name="volumeTags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> volumeTags;
 
     /**
-     * @return A map of tags to assign, at instance-creation time, to root and EBS volumes.
+     * @return Map of tags to assign, at instance-creation time, to root and EBS volumes.
      * 
      */
     public Output<Optional<Map<String,String>>> volumeTags() {
         return Codegen.optional(this.volumeTags);
     }
     /**
-     * A list of security group IDs to associate with.
+     * List of security group IDs to associate with.
      * 
      */
     @Export(name="vpcSecurityGroupIds", type=List.class, parameters={String.class})
     private Output<List<String>> vpcSecurityGroupIds;
 
     /**
-     * @return A list of security group IDs to associate with.
+     * @return List of security group IDs to associate with.
      * 
      */
     public Output<List<String>> vpcSecurityGroupIds() {

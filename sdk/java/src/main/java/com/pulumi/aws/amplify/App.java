@@ -201,70 +201,70 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:amplify/app:App")
 public class App extends com.pulumi.resources.CustomResource {
     /**
-     * The personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
+     * Personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
      * 
      */
     @Export(name="accessToken", type=String.class, parameters={})
     private Output</* @Nullable */ String> accessToken;
 
     /**
-     * @return The personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
+     * @return Personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
      * 
      */
     public Output<Optional<String>> accessToken() {
         return Codegen.optional(this.accessToken);
     }
     /**
-     * The Amazon Resource Name (ARN) of the Amplify app.
+     * ARN of the Amplify app.
      * 
      */
     @Export(name="arn", type=String.class, parameters={})
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Amplify app.
+     * @return ARN of the Amplify app.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The automated branch creation configuration for an Amplify app. An `auto_branch_creation_config` block is documented below.
+     * Automated branch creation configuration for an Amplify app. An `auto_branch_creation_config` block is documented below.
      * 
      */
     @Export(name="autoBranchCreationConfig", type=AppAutoBranchCreationConfig.class, parameters={})
     private Output<AppAutoBranchCreationConfig> autoBranchCreationConfig;
 
     /**
-     * @return The automated branch creation configuration for an Amplify app. An `auto_branch_creation_config` block is documented below.
+     * @return Automated branch creation configuration for an Amplify app. An `auto_branch_creation_config` block is documented below.
      * 
      */
     public Output<AppAutoBranchCreationConfig> autoBranchCreationConfig() {
         return this.autoBranchCreationConfig;
     }
     /**
-     * The automated branch creation glob patterns for an Amplify app.
+     * Automated branch creation glob patterns for an Amplify app.
      * 
      */
     @Export(name="autoBranchCreationPatterns", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> autoBranchCreationPatterns;
 
     /**
-     * @return The automated branch creation glob patterns for an Amplify app.
+     * @return Automated branch creation glob patterns for an Amplify app.
      * 
      */
     public Output<Optional<List<String>>> autoBranchCreationPatterns() {
         return Codegen.optional(this.autoBranchCreationPatterns);
     }
     /**
-     * The credentials for basic authorization for an Amplify app.
+     * Credentials for basic authorization for an Amplify app.
      * 
      */
     @Export(name="basicAuthCredentials", type=String.class, parameters={})
     private Output</* @Nullable */ String> basicAuthCredentials;
 
     /**
-     * @return The credentials for basic authorization for an Amplify app.
+     * @return Credentials for basic authorization for an Amplify app.
      * 
      */
     public Output<Optional<String>> basicAuthCredentials() {
@@ -285,42 +285,42 @@ public class App extends com.pulumi.resources.CustomResource {
         return this.buildSpec;
     }
     /**
-     * The custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
+     * Custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
      * 
      */
     @Export(name="customRules", type=List.class, parameters={AppCustomRule.class})
     private Output</* @Nullable */ List<AppCustomRule>> customRules;
 
     /**
-     * @return The custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
+     * @return Custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
      * 
      */
     public Output<Optional<List<AppCustomRule>>> customRules() {
         return Codegen.optional(this.customRules);
     }
     /**
-     * The default domain for the Amplify app.
+     * Default domain for the Amplify app.
      * 
      */
     @Export(name="defaultDomain", type=String.class, parameters={})
     private Output<String> defaultDomain;
 
     /**
-     * @return The default domain for the Amplify app.
+     * @return Default domain for the Amplify app.
      * 
      */
     public Output<String> defaultDomain() {
         return this.defaultDomain;
     }
     /**
-     * The description for an Amplify app.
+     * Description for an Amplify app.
      * 
      */
     @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return The description for an Amplify app.
+     * @return Description for an Amplify app.
      * 
      */
     public Output<Optional<String>> description() {
@@ -383,70 +383,70 @@ public class App extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enableBranchAutoDeletion);
     }
     /**
-     * The environment variables map for an Amplify app.
+     * Environment variables map for an Amplify app.
      * 
      */
     @Export(name="environmentVariables", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> environmentVariables;
 
     /**
-     * @return The environment variables map for an Amplify app.
+     * @return Environment variables map for an Amplify app.
      * 
      */
     public Output<Optional<Map<String,String>>> environmentVariables() {
         return Codegen.optional(this.environmentVariables);
     }
     /**
-     * The AWS Identity and Access Management (IAM) service role for an Amplify app.
+     * AWS Identity and Access Management (IAM) service role for an Amplify app.
      * 
      */
     @Export(name="iamServiceRoleArn", type=String.class, parameters={})
     private Output</* @Nullable */ String> iamServiceRoleArn;
 
     /**
-     * @return The AWS Identity and Access Management (IAM) service role for an Amplify app.
+     * @return AWS Identity and Access Management (IAM) service role for an Amplify app.
      * 
      */
     public Output<Optional<String>> iamServiceRoleArn() {
         return Codegen.optional(this.iamServiceRoleArn);
     }
     /**
-     * The name for an Amplify app.
+     * Name for an Amplify app.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name for an Amplify app.
+     * @return Name for an Amplify app.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
+     * OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
      * 
      */
     @Export(name="oauthToken", type=String.class, parameters={})
     private Output</* @Nullable */ String> oauthToken;
 
     /**
-     * @return The OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
+     * @return OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
      * 
      */
     public Output<Optional<String>> oauthToken() {
         return Codegen.optional(this.oauthToken);
     }
     /**
-     * The platform or framework for an Amplify app. Valid values: `WEB`.
+     * Platform or framework for an Amplify app. Valid values: `WEB`.
      * 
      */
     @Export(name="platform", type=String.class, parameters={})
     private Output</* @Nullable */ String> platform;
 
     /**
-     * @return The platform or framework for an Amplify app. Valid values: `WEB`.
+     * @return Platform or framework for an Amplify app. Valid values: `WEB`.
      * 
      */
     public Output<Optional<String>> platform() {
@@ -467,14 +467,14 @@ public class App extends com.pulumi.resources.CustomResource {
         return this.productionBranches;
     }
     /**
-     * The repository for an Amplify app.
+     * Repository for an Amplify app.
      * 
      */
     @Export(name="repository", type=String.class, parameters={})
     private Output</* @Nullable */ String> repository;
 
     /**
-     * @return The repository for an Amplify app.
+     * @return Repository for an Amplify app.
      * 
      */
     public Output<Optional<String>> repository() {
@@ -495,14 +495,16 @@ public class App extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * &gt; &gt; &gt; &gt; &gt; &gt; &gt; v4.29.0
      * 
      */
     @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * &gt; &gt; &gt; &gt; &gt; &gt; &gt; v4.29.0
      * 
      */
     public Output<Map<String,String>> tagsAll() {

@@ -13,14 +13,14 @@ public final class GetUserFilter extends com.pulumi.resources.InvokeArgs {
     public static final GetUserFilter Empty = new GetUserFilter();
 
     /**
-     * The attribute path that is used to specify which attribute name to search. Currently, `UserName` is the only valid attribute path.
+     * Attribute path that is used to specify which attribute name to search. Currently, `UserName` is the only valid attribute path.
      * 
      */
     @Import(name="attributePath", required=true)
     private String attributePath;
 
     /**
-     * @return The attribute path that is used to specify which attribute name to search. Currently, `UserName` is the only valid attribute path.
+     * @return Attribute path that is used to specify which attribute name to search. Currently, `UserName` is the only valid attribute path.
      * 
      */
     public String attributePath() {
@@ -28,14 +28,14 @@ public final class GetUserFilter extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The value for an attribute.
+     * Value for an attribute.
      * 
      */
     @Import(name="attributeValue", required=true)
     private String attributeValue;
 
     /**
-     * @return The value for an attribute.
+     * @return Value for an attribute.
      * 
      */
     public String attributeValue() {
@@ -68,7 +68,7 @@ public final class GetUserFilter extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param attributePath The attribute path that is used to specify which attribute name to search. Currently, `UserName` is the only valid attribute path.
+         * @param attributePath Attribute path that is used to specify which attribute name to search. Currently, `UserName` is the only valid attribute path.
          * 
          * @return builder
          * 
@@ -79,7 +79,7 @@ public final class GetUserFilter extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param attributeValue The value for an attribute.
+         * @param attributeValue Value for an attribute.
          * 
          * @return builder
          * 

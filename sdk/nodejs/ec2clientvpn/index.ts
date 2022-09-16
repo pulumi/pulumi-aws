@@ -5,17 +5,31 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./authorizationRule";
-export * from "./endpoint";
-export * from "./getEndpoint";
-export * from "./networkAssociation";
-export * from "./route";
+export { AuthorizationRuleArgs, AuthorizationRuleState } from "./authorizationRule";
+export type AuthorizationRule = import("./authorizationRule").AuthorizationRule;
+export const AuthorizationRule: typeof import("./authorizationRule").AuthorizationRule = null as any;
 
-// Import resources to register:
-import { AuthorizationRule } from "./authorizationRule";
-import { Endpoint } from "./endpoint";
-import { NetworkAssociation } from "./networkAssociation";
-import { Route } from "./route";
+export { EndpointArgs, EndpointState } from "./endpoint";
+export type Endpoint = import("./endpoint").Endpoint;
+export const Endpoint: typeof import("./endpoint").Endpoint = null as any;
+
+export { GetEndpointArgs, GetEndpointResult, GetEndpointOutputArgs } from "./getEndpoint";
+export const getEndpoint: typeof import("./getEndpoint").getEndpoint = null as any;
+export const getEndpointOutput: typeof import("./getEndpoint").getEndpointOutput = null as any;
+
+export { NetworkAssociationArgs, NetworkAssociationState } from "./networkAssociation";
+export type NetworkAssociation = import("./networkAssociation").NetworkAssociation;
+export const NetworkAssociation: typeof import("./networkAssociation").NetworkAssociation = null as any;
+
+export { RouteArgs, RouteState } from "./route";
+export type Route = import("./route").Route;
+export const Route: typeof import("./route").Route = null as any;
+
+utilities.lazyLoad(exports, ["AuthorizationRule"], () => require("./authorizationRule"));
+utilities.lazyLoad(exports, ["Endpoint"], () => require("./endpoint"));
+utilities.lazyLoad(exports, ["getEndpoint","getEndpointOutput"], () => require("./getEndpoint"));
+utilities.lazyLoad(exports, ["NetworkAssociation"], () => require("./networkAssociation"));
+utilities.lazyLoad(exports, ["Route"], () => require("./route"));
 
 const _module = {
     version: utilities.getVersion(),

@@ -109,37 +109,37 @@ namespace Pulumi.Aws.ApiGateway
         public Output<bool?> ApiKeyRequired { get; private set; } = null!;
 
         /// <summary>
-        /// The type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
+        /// Type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
         /// </summary>
         [Output("authorization")]
         public Output<string> Authorization { get; private set; } = null!;
 
         /// <summary>
-        /// The authorization scopes used when the authorization is `COGNITO_USER_POOLS`
+        /// Authorization scopes used when the authorization is `COGNITO_USER_POOLS`
         /// </summary>
         [Output("authorizationScopes")]
         public Output<ImmutableArray<string>> AuthorizationScopes { get; private set; } = null!;
 
         /// <summary>
-        /// The authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
+        /// Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
         /// </summary>
         [Output("authorizerId")]
         public Output<string?> AuthorizerId { get; private set; } = null!;
 
         /// <summary>
-        /// The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+        /// HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
         /// </summary>
         [Output("httpMethod")]
         public Output<string> HttpMethod { get; private set; } = null!;
 
         /// <summary>
-        /// The function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
+        /// Function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
         /// </summary>
         [Output("operationName")]
         public Output<string?> OperationName { get; private set; } = null!;
 
         /// <summary>
-        /// A map of the API models used for the request's content type
+        /// Map of the API models used for the request's content type
         /// where key is the content type (e.g., `application/json`)
         /// and value is either `Error`, `Empty` (built-in models) or `aws.apigateway.Model`'s `name`.
         /// </summary>
@@ -147,26 +147,26 @@ namespace Pulumi.Aws.ApiGateway
         public Output<ImmutableDictionary<string, string>?> RequestModels { get; private set; } = null!;
 
         /// <summary>
-        /// A map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
+        /// Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
         /// For example: `request_parameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
         /// </summary>
         [Output("requestParameters")]
         public Output<ImmutableDictionary<string, bool>?> RequestParameters { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of a `aws.apigateway.RequestValidator`
+        /// ID of a `aws.apigateway.RequestValidator`
         /// </summary>
         [Output("requestValidatorId")]
         public Output<string?> RequestValidatorId { get; private set; } = null!;
 
         /// <summary>
-        /// The API resource ID
+        /// API resource ID
         /// </summary>
         [Output("resourceId")]
         public Output<string> ResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the associated REST API
+        /// ID of the associated REST API
         /// </summary>
         [Output("restApi")]
         public Output<string> RestApi { get; private set; } = null!;
@@ -224,7 +224,7 @@ namespace Pulumi.Aws.ApiGateway
         public Input<bool>? ApiKeyRequired { get; set; }
 
         /// <summary>
-        /// The type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
+        /// Type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
         /// </summary>
         [Input("authorization", required: true)]
         public Input<string> Authorization { get; set; } = null!;
@@ -233,7 +233,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputList<string>? _authorizationScopes;
 
         /// <summary>
-        /// The authorization scopes used when the authorization is `COGNITO_USER_POOLS`
+        /// Authorization scopes used when the authorization is `COGNITO_USER_POOLS`
         /// </summary>
         public InputList<string> AuthorizationScopes
         {
@@ -242,19 +242,19 @@ namespace Pulumi.Aws.ApiGateway
         }
 
         /// <summary>
-        /// The authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
+        /// Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
         /// </summary>
         [Input("authorizerId")]
         public Input<string>? AuthorizerId { get; set; }
 
         /// <summary>
-        /// The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+        /// HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
         /// </summary>
         [Input("httpMethod", required: true)]
         public Input<string> HttpMethod { get; set; } = null!;
 
         /// <summary>
-        /// The function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
+        /// Function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
         /// </summary>
         [Input("operationName")]
         public Input<string>? OperationName { get; set; }
@@ -263,7 +263,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputMap<string>? _requestModels;
 
         /// <summary>
-        /// A map of the API models used for the request's content type
+        /// Map of the API models used for the request's content type
         /// where key is the content type (e.g., `application/json`)
         /// and value is either `Error`, `Empty` (built-in models) or `aws.apigateway.Model`'s `name`.
         /// </summary>
@@ -277,7 +277,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputMap<bool>? _requestParameters;
 
         /// <summary>
-        /// A map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
+        /// Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
         /// For example: `request_parameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
         /// </summary>
         public InputMap<bool> RequestParameters
@@ -287,19 +287,19 @@ namespace Pulumi.Aws.ApiGateway
         }
 
         /// <summary>
-        /// The ID of a `aws.apigateway.RequestValidator`
+        /// ID of a `aws.apigateway.RequestValidator`
         /// </summary>
         [Input("requestValidatorId")]
         public Input<string>? RequestValidatorId { get; set; }
 
         /// <summary>
-        /// The API resource ID
+        /// API resource ID
         /// </summary>
         [Input("resourceId", required: true)]
         public Input<string> ResourceId { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the associated REST API
+        /// ID of the associated REST API
         /// </summary>
         [Input("restApi", required: true)]
         public Input<string> RestApi { get; set; } = null!;
@@ -319,7 +319,7 @@ namespace Pulumi.Aws.ApiGateway
         public Input<bool>? ApiKeyRequired { get; set; }
 
         /// <summary>
-        /// The type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
+        /// Type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
         /// </summary>
         [Input("authorization")]
         public Input<string>? Authorization { get; set; }
@@ -328,7 +328,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputList<string>? _authorizationScopes;
 
         /// <summary>
-        /// The authorization scopes used when the authorization is `COGNITO_USER_POOLS`
+        /// Authorization scopes used when the authorization is `COGNITO_USER_POOLS`
         /// </summary>
         public InputList<string> AuthorizationScopes
         {
@@ -337,19 +337,19 @@ namespace Pulumi.Aws.ApiGateway
         }
 
         /// <summary>
-        /// The authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
+        /// Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
         /// </summary>
         [Input("authorizerId")]
         public Input<string>? AuthorizerId { get; set; }
 
         /// <summary>
-        /// The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+        /// HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
         /// </summary>
         [Input("httpMethod")]
         public Input<string>? HttpMethod { get; set; }
 
         /// <summary>
-        /// The function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
+        /// Function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
         /// </summary>
         [Input("operationName")]
         public Input<string>? OperationName { get; set; }
@@ -358,7 +358,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputMap<string>? _requestModels;
 
         /// <summary>
-        /// A map of the API models used for the request's content type
+        /// Map of the API models used for the request's content type
         /// where key is the content type (e.g., `application/json`)
         /// and value is either `Error`, `Empty` (built-in models) or `aws.apigateway.Model`'s `name`.
         /// </summary>
@@ -372,7 +372,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputMap<bool>? _requestParameters;
 
         /// <summary>
-        /// A map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
+        /// Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
         /// For example: `request_parameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
         /// </summary>
         public InputMap<bool> RequestParameters
@@ -382,19 +382,19 @@ namespace Pulumi.Aws.ApiGateway
         }
 
         /// <summary>
-        /// The ID of a `aws.apigateway.RequestValidator`
+        /// ID of a `aws.apigateway.RequestValidator`
         /// </summary>
         [Input("requestValidatorId")]
         public Input<string>? RequestValidatorId { get; set; }
 
         /// <summary>
-        /// The API resource ID
+        /// API resource ID
         /// </summary>
         [Input("resourceId")]
         public Input<string>? ResourceId { get; set; }
 
         /// <summary>
-        /// The ID of the associated REST API
+        /// ID of the associated REST API
         /// </summary>
         [Input("restApi")]
         public Input<string>? RestApi { get; set; }

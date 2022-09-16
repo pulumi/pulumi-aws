@@ -205,7 +205,7 @@ import javax.annotation.Nullable;
  *  $ pulumi import aws:ec2/eip:Eip bar eipalloc-00a10e96
  * ```
  * 
- *  EIPs in EC2 Classic can be imported using their Public IP, e.g.,
+ *  EIPs in EC2-Classic can be imported using their Public IP, e.g.,
  * 
  * ```sh
  *  $ pulumi import aws:ec2/eip:Eip bar 52.0.0.0
@@ -315,14 +315,14 @@ public class Eip extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.customerOwnedIpv4Pool);
     }
     /**
-     * Indicates if this EIP is for use in VPC (`vpc`) or EC2 Classic (`standard`).
+     * Indicates if this EIP is for use in VPC (`vpc`) or EC2-Classic (`standard`).
      * 
      */
     @Export(name="domain", type=String.class, parameters={})
     private Output<String> domain;
 
     /**
-     * @return Indicates if this EIP is for use in VPC (`vpc`) or EC2 Classic (`standard`).
+     * @return Indicates if this EIP is for use in VPC (`vpc`) or EC2-Classic (`standard`).
      * 
      */
     public Output<String> domain() {
@@ -470,6 +470,7 @@ public class Eip extends com.pulumi.resources.CustomResource {
     }
     /**
      * Boolean if the EIP is in a VPC or not.
+     * Defaults to `true` unless the region supports EC2-Classic.
      * 
      */
     @Export(name="vpc", type=Boolean.class, parameters={})
@@ -477,6 +478,7 @@ public class Eip extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Boolean if the EIP is in a VPC or not.
+     * Defaults to `true` unless the region supports EC2-Classic.
      * 
      */
     public Output<Boolean> vpc() {

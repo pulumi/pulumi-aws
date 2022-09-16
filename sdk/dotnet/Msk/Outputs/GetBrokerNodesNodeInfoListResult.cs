@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Msk.Outputs
     public sealed class GetBrokerNodesNodeInfoListResult
     {
         /// <summary>
-        /// The attached elastic network interface of the broker
+        /// Attached elastic network interface of the broker
         /// </summary>
         public readonly string AttachedEniId;
         /// <summary>
-        /// The ID of the broker
+        /// ID of the broker
         /// </summary>
         public readonly double BrokerId;
         /// <summary>
-        /// The client subnet to which this broker node belongs
+        /// Client subnet to which this broker node belongs
         /// </summary>
         public readonly string ClientSubnet;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Msk.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Endpoints;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the node
+        /// ARN of the node
         /// </summary>
         public readonly string NodeArn;
 

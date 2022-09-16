@@ -84,13 +84,13 @@ type GetInstanceTypeOfferingsArgs struct {
 type GetInstanceTypeOfferingsResult struct {
 	// Option for host instance type. See Broker Instance Options below.
 	BrokerInstanceOptions []GetInstanceTypeOfferingsBrokerInstanceOption `pulumi:"brokerInstanceOptions"`
-	// The broker's engine type.
+	// Broker's engine type.
 	EngineType *string `pulumi:"engineType"`
-	// The broker's instance type.
+	// Broker's instance type.
 	HostInstanceType *string `pulumi:"hostInstanceType"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The broker's storage type.
+	// Broker's storage type.
 	StorageType *string `pulumi:"storageType"`
 }
 
@@ -143,12 +143,12 @@ func (o GetInstanceTypeOfferingsResultOutput) BrokerInstanceOptions() GetInstanc
 	}).(GetInstanceTypeOfferingsBrokerInstanceOptionArrayOutput)
 }
 
-// The broker's engine type.
+// Broker's engine type.
 func (o GetInstanceTypeOfferingsResultOutput) EngineType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetInstanceTypeOfferingsResult) *string { return v.EngineType }).(pulumi.StringPtrOutput)
 }
 
-// The broker's instance type.
+// Broker's instance type.
 func (o GetInstanceTypeOfferingsResultOutput) HostInstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetInstanceTypeOfferingsResult) *string { return v.HostInstanceType }).(pulumi.StringPtrOutput)
 }
@@ -158,7 +158,7 @@ func (o GetInstanceTypeOfferingsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceTypeOfferingsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The broker's storage type.
+// Broker's storage type.
 func (o GetInstanceTypeOfferingsResultOutput) StorageType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetInstanceTypeOfferingsResult) *string { return v.StorageType }).(pulumi.StringPtrOutput)
 }

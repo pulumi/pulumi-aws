@@ -35,7 +35,7 @@ export function getVault(args: GetVaultArgs, opts?: pulumi.InvokeOptions): Promi
  */
 export interface GetVaultArgs {
     /**
-     * The name of the backup vault.
+     * Name of the backup vault.
      */
     name: string;
     /**
@@ -49,7 +49,7 @@ export interface GetVaultArgs {
  */
 export interface GetVaultResult {
     /**
-     * The ARN of the vault.
+     * ARN of the vault.
      */
     readonly arn: string;
     /**
@@ -57,12 +57,12 @@ export interface GetVaultResult {
      */
     readonly id: string;
     /**
-     * The server-side encryption key that is used to protect your backups.
+     * Server-side encryption key that is used to protect your backups.
      */
     readonly kmsKeyArn: string;
     readonly name: string;
     /**
-     * The number of recovery points that are stored in a backup vault.
+     * Number of recovery points that are stored in a backup vault.
      */
     readonly recoveryPoints: number;
     /**
@@ -80,7 +80,7 @@ export function getVaultOutput(args: GetVaultOutputArgs, opts?: pulumi.InvokeOpt
  */
 export interface GetVaultOutputArgs {
     /**
-     * The name of the backup vault.
+     * Name of the backup vault.
      */
     name: pulumi.Input<string>;
     /**

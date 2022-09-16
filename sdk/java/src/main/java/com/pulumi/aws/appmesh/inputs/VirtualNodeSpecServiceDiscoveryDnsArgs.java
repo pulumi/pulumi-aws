@@ -14,14 +14,14 @@ public final class VirtualNodeSpecServiceDiscoveryDnsArgs extends com.pulumi.res
     public static final VirtualNodeSpecServiceDiscoveryDnsArgs Empty = new VirtualNodeSpecServiceDiscoveryDnsArgs();
 
     /**
-     * The DNS host name for your virtual node.
+     * DNS host name for your virtual node.
      * 
      */
     @Import(name="hostname", required=true)
     private Output<String> hostname;
 
     /**
-     * @return The DNS host name for your virtual node.
+     * @return DNS host name for your virtual node.
      * 
      */
     public Output<String> hostname() {
@@ -53,7 +53,7 @@ public final class VirtualNodeSpecServiceDiscoveryDnsArgs extends com.pulumi.res
         }
 
         /**
-         * @param hostname The DNS host name for your virtual node.
+         * @param hostname DNS host name for your virtual node.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class VirtualNodeSpecServiceDiscoveryDnsArgs extends com.pulumi.res
         }
 
         /**
-         * @param hostname The DNS host name for your virtual node.
+         * @param hostname DNS host name for your virtual node.
          * 
          * @return builder
          * 

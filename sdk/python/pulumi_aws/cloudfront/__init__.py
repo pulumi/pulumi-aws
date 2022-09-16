@@ -21,6 +21,7 @@ from .get_realtime_log_config import *
 from .get_response_headers_policy import *
 from .key_group import *
 from .monitoring_subscription import *
+from .origin_access_control import *
 from .origin_access_identity import *
 from .origin_request_policy import *
 from .public_key import *

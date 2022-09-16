@@ -37,11 +37,11 @@ export function getGeofenceCollection(args: GetGeofenceCollectionArgs, opts?: pu
  */
 export interface GetGeofenceCollectionArgs {
     /**
-     * The name of the geofence collection.
+     * Name of the geofence collection.
      */
     collectionName: string;
     /**
-     * A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
+     * Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
      */
     kmsKeyId?: string;
     /**
@@ -55,16 +55,16 @@ export interface GetGeofenceCollectionArgs {
  */
 export interface GetGeofenceCollectionResult {
     /**
-     * The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS.
+     * ARN for the geofence collection resource. Used when you need to specify a resource across all AWS.
      */
     readonly collectionArn: string;
     readonly collectionName: string;
     /**
-     * The timestamp for when the geofence collection resource was created in ISO 8601 format.
+     * Timestamp for when the geofence collection resource was created in ISO 8601 format.
      */
     readonly createTime: string;
     /**
-     * The optional description of the geofence collection resource.
+     * Optional description of the geofence collection resource.
      */
     readonly description: string;
     /**
@@ -72,7 +72,7 @@ export interface GetGeofenceCollectionResult {
      */
     readonly id: string;
     /**
-     * A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
+     * Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
      */
     readonly kmsKeyId: string;
     /**
@@ -80,7 +80,7 @@ export interface GetGeofenceCollectionResult {
      */
     readonly tags: {[key: string]: string};
     /**
-     * The timestamp for when the geofence collection resource was last updated in ISO 8601 format.
+     * Timestamp for when the geofence collection resource was last updated in ISO 8601 format.
      */
     readonly updateTime: string;
 }
@@ -94,11 +94,11 @@ export function getGeofenceCollectionOutput(args: GetGeofenceCollectionOutputArg
  */
 export interface GetGeofenceCollectionOutputArgs {
     /**
-     * The name of the geofence collection.
+     * Name of the geofence collection.
      */
     collectionName: pulumi.Input<string>;
     /**
-     * A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
+     * Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
      */
     kmsKeyId?: pulumi.Input<string>;
     /**

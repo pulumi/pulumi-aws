@@ -16,7 +16,7 @@ public final class ResponseHeadersPolicySecurityHeadersConfigFrameOptions {
      */
     private String frameOption;
     /**
-     * @return A Boolean value that determines whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+     * @return Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
      * 
      */
     private Boolean override;
@@ -30,7 +30,7 @@ public final class ResponseHeadersPolicySecurityHeadersConfigFrameOptions {
         return this.frameOption;
     }
     /**
-     * @return A Boolean value that determines whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+     * @return Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
      * 
      */
     public Boolean override() {

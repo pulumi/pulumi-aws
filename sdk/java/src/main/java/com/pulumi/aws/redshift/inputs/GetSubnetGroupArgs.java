@@ -17,14 +17,14 @@ public final class GetSubnetGroupArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetSubnetGroupArgs Empty = new GetSubnetGroupArgs();
 
     /**
-     * The name of the cluster subnet group for which information is requested.
+     * Name of the cluster subnet group for which information is requested.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the cluster subnet group for which information is requested.
+     * @return Name of the cluster subnet group for which information is requested.
      * 
      */
     public Output<String> name() {
@@ -32,14 +32,14 @@ public final class GetSubnetGroupArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The tags associated to the Subnet Group
+     * Tags associated to the Subnet Group
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return The tags associated to the Subnet Group
+     * @return Tags associated to the Subnet Group
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -72,7 +72,7 @@ public final class GetSubnetGroupArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the cluster subnet group for which information is requested.
+         * @param name Name of the cluster subnet group for which information is requested.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class GetSubnetGroupArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the cluster subnet group for which information is requested.
+         * @param name Name of the cluster subnet group for which information is requested.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class GetSubnetGroupArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags The tags associated to the Subnet Group
+         * @param tags Tags associated to the Subnet Group
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class GetSubnetGroupArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags The tags associated to the Subnet Group
+         * @param tags Tags associated to the Subnet Group
          * 
          * @return builder
          * 

@@ -10,6 +10,18 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AutoScaling
 {
     /// <summary>
+    /// Provides an Auto Scaling Group resource.
+    /// 
+    /// &gt; **Note:** You must specify either `launch_configuration`, `launch_template`, or `mixed_instances_policy`.
+    /// 
+    /// &gt; **NOTE on Auto Scaling Groups and ASG Attachments:** This provider currently provides
+    /// both a standalone `aws.autoscaling.Attachment` resource
+    /// (describing an ASG attached to an ELB or ALB), and an `aws.autoscaling.Group`
+    /// with `load_balancers` and `target_group_arns` defined in-line. These two methods are not
+    /// mutually-exclusive. If `aws.autoscaling.Attachment` resources are used, either alone or with inline
+    /// `load_balancers` or `target_group_arns`, the `aws.autoscaling.Group` resource must be configured
+    /// to ignore changes to the `load_balancers` and `target_group_arns` arguments.
+    /// 
     /// ## Example Usage
     /// ### With Latest Version Of Launch Template
     /// 
@@ -466,19 +478,19 @@ namespace Pulumi.Aws.AutoScaling
     public partial class Group : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN for this Auto Scaling Group
+        /// ARN for this Auto Scaling Group
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// A list of one or more availability zones for the group. Used for EC2-Classic, attaching a network interface via id from a launch template and default subnets when not specified with `vpc_zone_identifier` argument. Conflicts with `vpc_zone_identifier`.
+        /// List of one or more availability zones for the group. Used for EC2-Classic, attaching a network interface via id from a launch template and default subnets when not specified with `vpc_zone_identifier` argument. Conflicts with `vpc_zone_identifier`.
         /// </summary>
         [Output("availabilityZones")]
         public Output<ImmutableArray<string>> AvailabilityZones { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
+        /// Whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
         /// </summary>
         [Output("capacityRebalance")]
         public Output<bool?> CapacityRebalance { get; private set; } = null!;
@@ -490,19 +502,19 @@ namespace Pulumi.Aws.AutoScaling
         public Output<string?> Context { get; private set; } = null!;
 
         /// <summary>
-        /// The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
+        /// Amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
         /// </summary>
         [Output("defaultCooldown")]
         public Output<int> DefaultCooldown { get; private set; } = null!;
 
         /// <summary>
-        /// The amount of time, in seconds, until a newly launched instance can contribute to the Amazon CloudWatch metrics. This delay lets an instance finish initializing before Amazon EC2 Auto Scaling aggregates instance metrics, resulting in more reliable usage data. Set this value equal to the amount of time that it takes for resource consumption to become stable after an instance reaches the InService state. (See [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html))
+        /// Amount of time, in seconds, until a newly launched instance can contribute to the Amazon CloudWatch metrics. This delay lets an instance finish initializing before Amazon EC2 Auto Scaling aggregates instance metrics, resulting in more reliable usage data. Set this value equal to the amount of time that it takes for resource consumption to become stable after an instance reaches the InService state. (See [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html))
         /// </summary>
         [Output("defaultInstanceWarmup")]
         public Output<int?> DefaultInstanceWarmup { get; private set; } = null!;
 
         /// <summary>
-        /// The number of Amazon EC2 instances that
+        /// Number of Amazon EC2 instances that
         /// should be running in the group. (See also Waiting for
         /// Capacity below.)
         /// </summary>
@@ -510,7 +522,7 @@ namespace Pulumi.Aws.AutoScaling
         public Output<int> DesiredCapacity { get; private set; } = null!;
 
         /// <summary>
-        /// A list of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
+        /// List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
         /// </summary>
         [Output("enabledMetrics")]
         public Output<ImmutableArray<string>> EnabledMetrics { get; private set; } = null!;
@@ -561,7 +573,7 @@ namespace Pulumi.Aws.AutoScaling
         public Output<Outputs.GroupInstanceRefresh?> InstanceRefresh { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the launch configuration to use.
+        /// Name of the launch configuration to use.
         /// </summary>
         [Output("launchConfiguration")]
         public Output<string?> LaunchConfiguration { get; private set; } = null!;
@@ -573,26 +585,26 @@ namespace Pulumi.Aws.AutoScaling
         public Output<Outputs.GroupLaunchTemplate?> LaunchTemplate { get; private set; } = null!;
 
         /// <summary>
-        /// A list of elastic load balancer names to add to the autoscaling
+        /// List of elastic load balancer names to add to the autoscaling
         /// group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead.
         /// </summary>
         [Output("loadBalancers")]
         public Output<ImmutableArray<string>> LoadBalancers { get; private set; } = null!;
 
         /// <summary>
-        /// The maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 86400 and 31536000 seconds.
+        /// Maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 86400 and 31536000 seconds.
         /// </summary>
         [Output("maxInstanceLifetime")]
         public Output<int?> MaxInstanceLifetime { get; private set; } = null!;
 
         /// <summary>
-        /// The maximum size of the Auto Scaling Group.
+        /// Maximum size of the Auto Scaling Group.
         /// </summary>
         [Output("maxSize")]
         public Output<int> MaxSize { get; private set; } = null!;
 
         /// <summary>
-        /// The granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
+        /// Granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
         /// </summary>
         [Output("metricsGranularity")]
         public Output<string?> MetricsGranularity { get; private set; } = null!;
@@ -607,7 +619,7 @@ namespace Pulumi.Aws.AutoScaling
         public Output<int?> MinElbCapacity { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
+        /// Minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
         /// </summary>
         [Output("minSize")]
         public Output<int> MinSize { get; private set; } = null!;
@@ -619,7 +631,7 @@ namespace Pulumi.Aws.AutoScaling
         public Output<Outputs.GroupMixedInstancesPolicy?> MixedInstancesPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Auto Scaling Group. By default generated by this provider. Conflicts with `name_prefix`.
+        /// Name of the Auto Scaling Group. By default generated by this provider. Conflicts with `name_prefix`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -632,13 +644,13 @@ namespace Pulumi.Aws.AutoScaling
         public Output<string> NamePrefix { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the placement group into which you'll launch your instances, if any.
+        /// Name of the placement group into which you'll launch your instances, if any.
         /// </summary>
         [Output("placementGroup")]
         public Output<string?> PlacementGroup { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether newly launched instances
+        /// Whether newly launched instances
         /// are automatically protected from termination by Amazon EC2 Auto Scaling when
         /// scaling in. For more information about preventing instances from terminating
         /// on scale in, see [Using instance scale-in protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html)
@@ -648,13 +660,13 @@ namespace Pulumi.Aws.AutoScaling
         public Output<bool?> ProtectFromScaleIn { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the service-linked role that the ASG will use to call other AWS services
+        /// ARN of the service-linked role that the ASG will use to call other AWS services
         /// </summary>
         [Output("serviceLinkedRoleArn")]
         public Output<string> ServiceLinkedRoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// A list of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`, `InstanceRefresh`.
+        /// List of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`, `InstanceRefresh`.
         /// Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
         /// </summary>
         [Output("suspendedProcesses")]
@@ -673,26 +685,26 @@ namespace Pulumi.Aws.AutoScaling
         public Output<ImmutableArray<ImmutableDictionary<string, string>>> TagsCollection { get; private set; } = null!;
 
         /// <summary>
-        /// A set of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
+        /// Set of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
         /// </summary>
         [Output("targetGroupArns")]
         public Output<ImmutableArray<string>> TargetGroupArns { get; private set; } = null!;
 
         /// <summary>
-        /// A list of policies to decide how the instances in the Auto Scaling Group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`.
+        /// List of policies to decide how the instances in the Auto Scaling Group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`. Additionally, the ARN of a Lambda function can be specified for custom termination policies.
         /// </summary>
         [Output("terminationPolicies")]
         public Output<ImmutableArray<string>> TerminationPolicies { get; private set; } = null!;
 
         /// <summary>
-        /// A list of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availability_zones`.
+        /// List of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availability_zones`.
         /// </summary>
         [Output("vpcZoneIdentifiers")]
         public Output<ImmutableArray<string>> VpcZoneIdentifiers { get; private set; } = null!;
 
         /// <summary>
-        /// A maximum
-        /// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
+        /// Maximum
+        /// [duration](https://golang.org/pkg/time/#ParseDuration) that the provider should
         /// wait for ASG instances to be healthy before timing out.  (See also Waiting
         /// for Capacity below.) Setting this to "0" causes
         /// this provider to skip all Capacity Waiting behavior.
@@ -767,7 +779,7 @@ namespace Pulumi.Aws.AutoScaling
         private InputList<string>? _availabilityZones;
 
         /// <summary>
-        /// A list of one or more availability zones for the group. Used for EC2-Classic, attaching a network interface via id from a launch template and default subnets when not specified with `vpc_zone_identifier` argument. Conflicts with `vpc_zone_identifier`.
+        /// List of one or more availability zones for the group. Used for EC2-Classic, attaching a network interface via id from a launch template and default subnets when not specified with `vpc_zone_identifier` argument. Conflicts with `vpc_zone_identifier`.
         /// </summary>
         public InputList<string> AvailabilityZones
         {
@@ -776,7 +788,7 @@ namespace Pulumi.Aws.AutoScaling
         }
 
         /// <summary>
-        /// Indicates whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
+        /// Whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
         /// </summary>
         [Input("capacityRebalance")]
         public Input<bool>? CapacityRebalance { get; set; }
@@ -788,19 +800,19 @@ namespace Pulumi.Aws.AutoScaling
         public Input<string>? Context { get; set; }
 
         /// <summary>
-        /// The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
+        /// Amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
         /// </summary>
         [Input("defaultCooldown")]
         public Input<int>? DefaultCooldown { get; set; }
 
         /// <summary>
-        /// The amount of time, in seconds, until a newly launched instance can contribute to the Amazon CloudWatch metrics. This delay lets an instance finish initializing before Amazon EC2 Auto Scaling aggregates instance metrics, resulting in more reliable usage data. Set this value equal to the amount of time that it takes for resource consumption to become stable after an instance reaches the InService state. (See [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html))
+        /// Amount of time, in seconds, until a newly launched instance can contribute to the Amazon CloudWatch metrics. This delay lets an instance finish initializing before Amazon EC2 Auto Scaling aggregates instance metrics, resulting in more reliable usage data. Set this value equal to the amount of time that it takes for resource consumption to become stable after an instance reaches the InService state. (See [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html))
         /// </summary>
         [Input("defaultInstanceWarmup")]
         public Input<int>? DefaultInstanceWarmup { get; set; }
 
         /// <summary>
-        /// The number of Amazon EC2 instances that
+        /// Number of Amazon EC2 instances that
         /// should be running in the group. (See also Waiting for
         /// Capacity below.)
         /// </summary>
@@ -811,7 +823,7 @@ namespace Pulumi.Aws.AutoScaling
         private InputList<string>? _enabledMetrics;
 
         /// <summary>
-        /// A list of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
+        /// List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
         /// </summary>
         public InputList<string> EnabledMetrics
         {
@@ -871,7 +883,7 @@ namespace Pulumi.Aws.AutoScaling
         public Input<Inputs.GroupInstanceRefreshArgs>? InstanceRefresh { get; set; }
 
         /// <summary>
-        /// The name of the launch configuration to use.
+        /// Name of the launch configuration to use.
         /// </summary>
         [Input("launchConfiguration")]
         public Input<string>? LaunchConfiguration { get; set; }
@@ -886,7 +898,7 @@ namespace Pulumi.Aws.AutoScaling
         private InputList<string>? _loadBalancers;
 
         /// <summary>
-        /// A list of elastic load balancer names to add to the autoscaling
+        /// List of elastic load balancer names to add to the autoscaling
         /// group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead.
         /// </summary>
         public InputList<string> LoadBalancers
@@ -896,19 +908,19 @@ namespace Pulumi.Aws.AutoScaling
         }
 
         /// <summary>
-        /// The maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 86400 and 31536000 seconds.
+        /// Maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 86400 and 31536000 seconds.
         /// </summary>
         [Input("maxInstanceLifetime")]
         public Input<int>? MaxInstanceLifetime { get; set; }
 
         /// <summary>
-        /// The maximum size of the Auto Scaling Group.
+        /// Maximum size of the Auto Scaling Group.
         /// </summary>
         [Input("maxSize", required: true)]
         public Input<int> MaxSize { get; set; } = null!;
 
         /// <summary>
-        /// The granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
+        /// Granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
         /// </summary>
         [Input("metricsGranularity")]
         public InputUnion<string, Pulumi.Aws.AutoScaling.MetricsGranularity>? MetricsGranularity { get; set; }
@@ -923,7 +935,7 @@ namespace Pulumi.Aws.AutoScaling
         public Input<int>? MinElbCapacity { get; set; }
 
         /// <summary>
-        /// Specifies the minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
+        /// Minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
         /// </summary>
         [Input("minSize", required: true)]
         public Input<int> MinSize { get; set; } = null!;
@@ -935,7 +947,7 @@ namespace Pulumi.Aws.AutoScaling
         public Input<Inputs.GroupMixedInstancesPolicyArgs>? MixedInstancesPolicy { get; set; }
 
         /// <summary>
-        /// The name of the Auto Scaling Group. By default generated by this provider. Conflicts with `name_prefix`.
+        /// Name of the Auto Scaling Group. By default generated by this provider. Conflicts with `name_prefix`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -948,13 +960,13 @@ namespace Pulumi.Aws.AutoScaling
         public Input<string>? NamePrefix { get; set; }
 
         /// <summary>
-        /// The name of the placement group into which you'll launch your instances, if any.
+        /// Name of the placement group into which you'll launch your instances, if any.
         /// </summary>
         [Input("placementGroup")]
         public Input<string>? PlacementGroup { get; set; }
 
         /// <summary>
-        /// Indicates whether newly launched instances
+        /// Whether newly launched instances
         /// are automatically protected from termination by Amazon EC2 Auto Scaling when
         /// scaling in. For more information about preventing instances from terminating
         /// on scale in, see [Using instance scale-in protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html)
@@ -964,7 +976,7 @@ namespace Pulumi.Aws.AutoScaling
         public Input<bool>? ProtectFromScaleIn { get; set; }
 
         /// <summary>
-        /// The ARN of the service-linked role that the ASG will use to call other AWS services
+        /// ARN of the service-linked role that the ASG will use to call other AWS services
         /// </summary>
         [Input("serviceLinkedRoleArn")]
         public Input<string>? ServiceLinkedRoleArn { get; set; }
@@ -973,7 +985,7 @@ namespace Pulumi.Aws.AutoScaling
         private InputList<string>? _suspendedProcesses;
 
         /// <summary>
-        /// A list of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`, `InstanceRefresh`.
+        /// List of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`, `InstanceRefresh`.
         /// Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
         /// </summary>
         public InputList<string> SuspendedProcesses
@@ -1011,7 +1023,7 @@ namespace Pulumi.Aws.AutoScaling
         private InputList<string>? _targetGroupArns;
 
         /// <summary>
-        /// A set of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
+        /// Set of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
         /// </summary>
         public InputList<string> TargetGroupArns
         {
@@ -1023,7 +1035,7 @@ namespace Pulumi.Aws.AutoScaling
         private InputList<string>? _terminationPolicies;
 
         /// <summary>
-        /// A list of policies to decide how the instances in the Auto Scaling Group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`.
+        /// List of policies to decide how the instances in the Auto Scaling Group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`. Additionally, the ARN of a Lambda function can be specified for custom termination policies.
         /// </summary>
         public InputList<string> TerminationPolicies
         {
@@ -1035,7 +1047,7 @@ namespace Pulumi.Aws.AutoScaling
         private InputList<string>? _vpcZoneIdentifiers;
 
         /// <summary>
-        /// A list of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availability_zones`.
+        /// List of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availability_zones`.
         /// </summary>
         public InputList<string> VpcZoneIdentifiers
         {
@@ -1044,8 +1056,8 @@ namespace Pulumi.Aws.AutoScaling
         }
 
         /// <summary>
-        /// A maximum
-        /// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
+        /// Maximum
+        /// [duration](https://golang.org/pkg/time/#ParseDuration) that the provider should
         /// wait for ASG instances to be healthy before timing out.  (See also Waiting
         /// for Capacity below.) Setting this to "0" causes
         /// this provider to skip all Capacity Waiting behavior.
@@ -1079,7 +1091,7 @@ namespace Pulumi.Aws.AutoScaling
     public sealed class GroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN for this Auto Scaling Group
+        /// ARN for this Auto Scaling Group
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -1088,7 +1100,7 @@ namespace Pulumi.Aws.AutoScaling
         private InputList<string>? _availabilityZones;
 
         /// <summary>
-        /// A list of one or more availability zones for the group. Used for EC2-Classic, attaching a network interface via id from a launch template and default subnets when not specified with `vpc_zone_identifier` argument. Conflicts with `vpc_zone_identifier`.
+        /// List of one or more availability zones for the group. Used for EC2-Classic, attaching a network interface via id from a launch template and default subnets when not specified with `vpc_zone_identifier` argument. Conflicts with `vpc_zone_identifier`.
         /// </summary>
         public InputList<string> AvailabilityZones
         {
@@ -1097,7 +1109,7 @@ namespace Pulumi.Aws.AutoScaling
         }
 
         /// <summary>
-        /// Indicates whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
+        /// Whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
         /// </summary>
         [Input("capacityRebalance")]
         public Input<bool>? CapacityRebalance { get; set; }
@@ -1109,19 +1121,19 @@ namespace Pulumi.Aws.AutoScaling
         public Input<string>? Context { get; set; }
 
         /// <summary>
-        /// The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
+        /// Amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
         /// </summary>
         [Input("defaultCooldown")]
         public Input<int>? DefaultCooldown { get; set; }
 
         /// <summary>
-        /// The amount of time, in seconds, until a newly launched instance can contribute to the Amazon CloudWatch metrics. This delay lets an instance finish initializing before Amazon EC2 Auto Scaling aggregates instance metrics, resulting in more reliable usage data. Set this value equal to the amount of time that it takes for resource consumption to become stable after an instance reaches the InService state. (See [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html))
+        /// Amount of time, in seconds, until a newly launched instance can contribute to the Amazon CloudWatch metrics. This delay lets an instance finish initializing before Amazon EC2 Auto Scaling aggregates instance metrics, resulting in more reliable usage data. Set this value equal to the amount of time that it takes for resource consumption to become stable after an instance reaches the InService state. (See [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html))
         /// </summary>
         [Input("defaultInstanceWarmup")]
         public Input<int>? DefaultInstanceWarmup { get; set; }
 
         /// <summary>
-        /// The number of Amazon EC2 instances that
+        /// Number of Amazon EC2 instances that
         /// should be running in the group. (See also Waiting for
         /// Capacity below.)
         /// </summary>
@@ -1132,7 +1144,7 @@ namespace Pulumi.Aws.AutoScaling
         private InputList<string>? _enabledMetrics;
 
         /// <summary>
-        /// A list of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
+        /// List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
         /// </summary>
         public InputList<string> EnabledMetrics
         {
@@ -1192,7 +1204,7 @@ namespace Pulumi.Aws.AutoScaling
         public Input<Inputs.GroupInstanceRefreshGetArgs>? InstanceRefresh { get; set; }
 
         /// <summary>
-        /// The name of the launch configuration to use.
+        /// Name of the launch configuration to use.
         /// </summary>
         [Input("launchConfiguration")]
         public Input<string>? LaunchConfiguration { get; set; }
@@ -1207,7 +1219,7 @@ namespace Pulumi.Aws.AutoScaling
         private InputList<string>? _loadBalancers;
 
         /// <summary>
-        /// A list of elastic load balancer names to add to the autoscaling
+        /// List of elastic load balancer names to add to the autoscaling
         /// group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead.
         /// </summary>
         public InputList<string> LoadBalancers
@@ -1217,19 +1229,19 @@ namespace Pulumi.Aws.AutoScaling
         }
 
         /// <summary>
-        /// The maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 86400 and 31536000 seconds.
+        /// Maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 86400 and 31536000 seconds.
         /// </summary>
         [Input("maxInstanceLifetime")]
         public Input<int>? MaxInstanceLifetime { get; set; }
 
         /// <summary>
-        /// The maximum size of the Auto Scaling Group.
+        /// Maximum size of the Auto Scaling Group.
         /// </summary>
         [Input("maxSize")]
         public Input<int>? MaxSize { get; set; }
 
         /// <summary>
-        /// The granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
+        /// Granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
         /// </summary>
         [Input("metricsGranularity")]
         public InputUnion<string, Pulumi.Aws.AutoScaling.MetricsGranularity>? MetricsGranularity { get; set; }
@@ -1244,7 +1256,7 @@ namespace Pulumi.Aws.AutoScaling
         public Input<int>? MinElbCapacity { get; set; }
 
         /// <summary>
-        /// Specifies the minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
+        /// Minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
         /// </summary>
         [Input("minSize")]
         public Input<int>? MinSize { get; set; }
@@ -1256,7 +1268,7 @@ namespace Pulumi.Aws.AutoScaling
         public Input<Inputs.GroupMixedInstancesPolicyGetArgs>? MixedInstancesPolicy { get; set; }
 
         /// <summary>
-        /// The name of the Auto Scaling Group. By default generated by this provider. Conflicts with `name_prefix`.
+        /// Name of the Auto Scaling Group. By default generated by this provider. Conflicts with `name_prefix`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -1269,13 +1281,13 @@ namespace Pulumi.Aws.AutoScaling
         public Input<string>? NamePrefix { get; set; }
 
         /// <summary>
-        /// The name of the placement group into which you'll launch your instances, if any.
+        /// Name of the placement group into which you'll launch your instances, if any.
         /// </summary>
         [Input("placementGroup")]
         public Input<string>? PlacementGroup { get; set; }
 
         /// <summary>
-        /// Indicates whether newly launched instances
+        /// Whether newly launched instances
         /// are automatically protected from termination by Amazon EC2 Auto Scaling when
         /// scaling in. For more information about preventing instances from terminating
         /// on scale in, see [Using instance scale-in protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html)
@@ -1285,7 +1297,7 @@ namespace Pulumi.Aws.AutoScaling
         public Input<bool>? ProtectFromScaleIn { get; set; }
 
         /// <summary>
-        /// The ARN of the service-linked role that the ASG will use to call other AWS services
+        /// ARN of the service-linked role that the ASG will use to call other AWS services
         /// </summary>
         [Input("serviceLinkedRoleArn")]
         public Input<string>? ServiceLinkedRoleArn { get; set; }
@@ -1294,7 +1306,7 @@ namespace Pulumi.Aws.AutoScaling
         private InputList<string>? _suspendedProcesses;
 
         /// <summary>
-        /// A list of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`, `InstanceRefresh`.
+        /// List of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`, `InstanceRefresh`.
         /// Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
         /// </summary>
         public InputList<string> SuspendedProcesses
@@ -1332,7 +1344,7 @@ namespace Pulumi.Aws.AutoScaling
         private InputList<string>? _targetGroupArns;
 
         /// <summary>
-        /// A set of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
+        /// Set of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
         /// </summary>
         public InputList<string> TargetGroupArns
         {
@@ -1344,7 +1356,7 @@ namespace Pulumi.Aws.AutoScaling
         private InputList<string>? _terminationPolicies;
 
         /// <summary>
-        /// A list of policies to decide how the instances in the Auto Scaling Group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`.
+        /// List of policies to decide how the instances in the Auto Scaling Group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`. Additionally, the ARN of a Lambda function can be specified for custom termination policies.
         /// </summary>
         public InputList<string> TerminationPolicies
         {
@@ -1356,7 +1368,7 @@ namespace Pulumi.Aws.AutoScaling
         private InputList<string>? _vpcZoneIdentifiers;
 
         /// <summary>
-        /// A list of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availability_zones`.
+        /// List of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availability_zones`.
         /// </summary>
         public InputList<string> VpcZoneIdentifiers
         {
@@ -1365,8 +1377,8 @@ namespace Pulumi.Aws.AutoScaling
         }
 
         /// <summary>
-        /// A maximum
-        /// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
+        /// Maximum
+        /// [duration](https://golang.org/pkg/time/#ParseDuration) that the provider should
         /// wait for ASG instances to be healthy before timing out.  (See also Waiting
         /// for Capacity below.) Setting this to "0" causes
         /// this provider to skip all Capacity Waiting behavior.

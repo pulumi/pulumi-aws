@@ -1806,7 +1806,7 @@ class GetComponentsFilterResult(dict):
                  name: str,
                  values: Sequence[str]):
         """
-        :param str name: The name of the filter field. Valid values can be found in the [Image Builder ListComponents API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListComponents.html).
+        :param str name: Name of the filter field. Valid values can be found in the [Image Builder ListComponents API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListComponents.html).
         :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
         """
         pulumi.set(__self__, "name", name)
@@ -1816,7 +1816,7 @@ class GetComponentsFilterResult(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the filter field. Valid values can be found in the [Image Builder ListComponents API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListComponents.html).
+        Name of the filter field. Valid values can be found in the [Image Builder ListComponents API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListComponents.html).
         """
         return pulumi.get(self, "name")
 
@@ -1835,7 +1835,7 @@ class GetContainerRecipeComponentResult(dict):
                  component_arn: str,
                  parameters: Sequence['outputs.GetContainerRecipeComponentParameterResult']):
         """
-        :param str component_arn: Amazon Resource Name (ARN) of the Image Builder Component.
+        :param str component_arn: ARN of the Image Builder Component.
         :param Sequence['GetContainerRecipeComponentParameterArgs'] parameters: Set of parameters that are used to configure the component.
         """
         pulumi.set(__self__, "component_arn", component_arn)
@@ -1845,7 +1845,7 @@ class GetContainerRecipeComponentResult(dict):
     @pulumi.getter(name="componentArn")
     def component_arn(self) -> str:
         """
-        Amazon Resource Name (ARN) of the Image Builder Component.
+        ARN of the Image Builder Component.
         """
         return pulumi.get(self, "component_arn")
 
@@ -2097,7 +2097,7 @@ class GetContainerRecipesFilterResult(dict):
                  name: str,
                  values: Sequence[str]):
         """
-        :param str name: The name of the filter field. Valid values can be found in the [Image Builder ListContainerRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListContainerRecipes.html).
+        :param str name: Name of the filter field. Valid values can be found in the [Image Builder ListContainerRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListContainerRecipes.html).
         :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
         """
         pulumi.set(__self__, "name", name)
@@ -2107,7 +2107,7 @@ class GetContainerRecipesFilterResult(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the filter field. Valid values can be found in the [Image Builder ListContainerRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListContainerRecipes.html).
+        Name of the filter field. Valid values can be found in the [Image Builder ListContainerRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListContainerRecipes.html).
         """
         return pulumi.get(self, "name")
 
@@ -2205,7 +2205,7 @@ class GetDistributionConfigurationDistributionAmiDistributionConfigurationResult
         """
         :param Mapping[str, str] ami_tags: Key-value map of tags to apply to distributed AMI.
         :param str description: Description of the container distribution configuration.
-        :param str kms_key_id: Amazon Resource Name (ARN) of Key Management Service (KMS) Key to encrypt AMI.
+        :param str kms_key_id: ARN of Key Management Service (KMS) Key to encrypt AMI.
         :param Sequence['GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs'] launch_permissions: Nested list of EC2 launch permissions.
         :param str name: Name of the distribution configuration.
         :param Sequence[str] target_account_ids: Set of target AWS Account identifiers.
@@ -2237,7 +2237,7 @@ class GetDistributionConfigurationDistributionAmiDistributionConfigurationResult
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> str:
         """
-        Amazon Resource Name (ARN) of Key Management Service (KMS) Key to encrypt AMI.
+        ARN of Key Management Service (KMS) Key to encrypt AMI.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -2514,7 +2514,7 @@ class GetDistributionConfigurationDistributionLaunchTemplateConfigurationResult(
                  launch_template_id: str):
         """
         :param str account_id: The account ID that this configuration applies to.
-        :param bool default: Indicates whether the specified Amazon EC2 launch template is set as the default launch template.
+        :param bool default: Whether the specified Amazon EC2 launch template is set as the default launch template.
         :param str launch_template_id: ID of the Amazon EC2 launch template.
         """
         pulumi.set(__self__, "account_id", account_id)
@@ -2533,7 +2533,7 @@ class GetDistributionConfigurationDistributionLaunchTemplateConfigurationResult(
     @pulumi.getter
     def default(self) -> bool:
         """
-        Indicates whether the specified Amazon EC2 launch template is set as the default launch template.
+        Whether the specified Amazon EC2 launch template is set as the default launch template.
         """
         return pulumi.get(self, "default")
 
@@ -2552,7 +2552,7 @@ class GetDistributionConfigurationsFilterResult(dict):
                  name: str,
                  values: Sequence[str]):
         """
-        :param str name: The name of the filter field. Valid values can be found in the [Image Builder ListDistributionConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListDistributionConfigurations.html).
+        :param str name: Name of the filter field. Valid values can be found in the [Image Builder ListDistributionConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListDistributionConfigurations.html).
         :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
         """
         pulumi.set(__self__, "name", name)
@@ -2562,7 +2562,7 @@ class GetDistributionConfigurationsFilterResult(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the filter field. Valid values can be found in the [Image Builder ListDistributionConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListDistributionConfigurations.html).
+        Name of the filter field. Valid values can be found in the [Image Builder ListDistributionConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListDistributionConfigurations.html).
         """
         return pulumi.get(self, "name")
 
@@ -2748,7 +2748,7 @@ class GetImagePipelinesFilterResult(dict):
                  name: str,
                  values: Sequence[str]):
         """
-        :param str name: The name of the filter field. Valid values can be found in the [Image Builder ListImagePipelines API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImagePipelines.html).
+        :param str name: Name of the filter field. Valid values can be found in the [Image Builder ListImagePipelines API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImagePipelines.html).
         :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
         """
         pulumi.set(__self__, "name", name)
@@ -2758,7 +2758,7 @@ class GetImagePipelinesFilterResult(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the filter field. Valid values can be found in the [Image Builder ListImagePipelines API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImagePipelines.html).
+        Name of the filter field. Valid values can be found in the [Image Builder ListImagePipelines API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImagePipelines.html).
         """
         return pulumi.get(self, "name")
 
@@ -2837,7 +2837,7 @@ class GetImageRecipeBlockDeviceMappingEbResult(dict):
         :param bool delete_on_termination: Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
         :param bool encrypted: Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
         :param int iops: Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
-        :param str kms_key_id: Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+        :param str kms_key_id: ARN of the Key Management Service (KMS) Key for encryption.
         :param str snapshot_id: Identifier of the EC2 Volume Snapshot.
         :param int throughput: For GP3 volumes only. The throughput in MiB/s that the volume supports.
         :param int volume_size: Size of the volume, in GiB.
@@ -2880,7 +2880,7 @@ class GetImageRecipeBlockDeviceMappingEbResult(dict):
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> str:
         """
-        Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+        ARN of the Key Management Service (KMS) Key for encryption.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -2923,7 +2923,7 @@ class GetImageRecipeComponentResult(dict):
                  component_arn: str,
                  parameters: Sequence['outputs.GetImageRecipeComponentParameterResult']):
         """
-        :param str component_arn: Amazon Resource Name (ARN) of the Image Builder Component.
+        :param str component_arn: ARN of the Image Builder Component.
         :param Sequence['GetImageRecipeComponentParameterArgs'] parameters: Set of parameters that are used to configure the component.
         """
         pulumi.set(__self__, "component_arn", component_arn)
@@ -2933,7 +2933,7 @@ class GetImageRecipeComponentResult(dict):
     @pulumi.getter(name="componentArn")
     def component_arn(self) -> str:
         """
-        Amazon Resource Name (ARN) of the Image Builder Component.
+        ARN of the Image Builder Component.
         """
         return pulumi.get(self, "component_arn")
 
@@ -2981,7 +2981,7 @@ class GetImageRecipesFilterResult(dict):
                  name: str,
                  values: Sequence[str]):
         """
-        :param str name: The name of the filter field. Valid values can be found in the [Image Builder ListImageRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImageRecipes.html).
+        :param str name: Name of the filter field. Valid values can be found in the [Image Builder ListImageRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImageRecipes.html).
         :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
         """
         pulumi.set(__self__, "name", name)
@@ -2991,7 +2991,7 @@ class GetImageRecipesFilterResult(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the filter field. Valid values can be found in the [Image Builder ListImageRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImageRecipes.html).
+        Name of the filter field. Valid values can be found in the [Image Builder ListImageRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImageRecipes.html).
         """
         return pulumi.get(self, "name")
 
@@ -3086,7 +3086,7 @@ class GetInfrastructureConfigurationsFilterResult(dict):
                  name: str,
                  values: Sequence[str]):
         """
-        :param str name: The name of the filter field. Valid values can be found in the [Image Builder ListInfrastructureConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListInfrastructureConfigurations.html).
+        :param str name: Name of the filter field. Valid values can be found in the [Image Builder ListInfrastructureConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListInfrastructureConfigurations.html).
         :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
         """
         pulumi.set(__self__, "name", name)
@@ -3096,7 +3096,7 @@ class GetInfrastructureConfigurationsFilterResult(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the filter field. Valid values can be found in the [Image Builder ListInfrastructureConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListInfrastructureConfigurations.html).
+        Name of the filter field. Valid values can be found in the [Image Builder ListInfrastructureConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListInfrastructureConfigurations.html).
         """
         return pulumi.get(self, "name")
 

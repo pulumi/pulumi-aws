@@ -73,26 +73,26 @@ import (
 type Schedule struct {
 	pulumi.CustomResourceState
 
-	// The ARN assigned by AWS to the autoscaling schedule.
+	// ARN assigned by AWS to the autoscaling schedule.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The name or Amazon Resource Name (ARN) of the Auto Scaling group.
+	// Name or ARN of the Auto Scaling group.
 	AutoscalingGroupName pulumi.StringOutput `pulumi:"autoscalingGroupName"`
-	// The number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don't want to change the desired capacity at the scheduled time.
+	// Number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don't want to change the desired capacity at the scheduled time.
 	DesiredCapacity pulumi.IntOutput `pulumi:"desiredCapacity"`
-	// The time for this action to end, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
+	// Time for this action to end, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
 	// If you try to schedule your action in the past, Auto Scaling returns an error message.
 	EndTime pulumi.StringOutput `pulumi:"endTime"`
-	// The maximum size for the Auto Scaling group. Default 0.
+	// Maximum size for the Auto Scaling group. Default 0.
 	// Set to -1 if you don't want to change the maximum size at the scheduled time.
 	MaxSize pulumi.IntOutput `pulumi:"maxSize"`
-	// The minimum size for the Auto Scaling group. Default 0.
+	// Minimum size for the Auto Scaling group. Default 0.
 	// Set to -1 if you don't want to change the minimum size at the scheduled time.
 	MinSize pulumi.IntOutput `pulumi:"minSize"`
-	// The time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
+	// Time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
 	Recurrence pulumi.StringOutput `pulumi:"recurrence"`
-	// The name of this scaling action.
+	// Name of this scaling action.
 	ScheduledActionName pulumi.StringOutput `pulumi:"scheduledActionName"`
-	// The time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
+	// Time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
 	// If you try to schedule your action in the past, Auto Scaling returns an error message.
 	StartTime pulumi.StringOutput `pulumi:"startTime"`
 	// The timezone for the cron expression. Valid values are the canonical names of the IANA time zones (such as Etc/GMT+9 or Pacific/Tahiti).
@@ -134,26 +134,26 @@ func GetSchedule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Schedule resources.
 type scheduleState struct {
-	// The ARN assigned by AWS to the autoscaling schedule.
+	// ARN assigned by AWS to the autoscaling schedule.
 	Arn *string `pulumi:"arn"`
-	// The name or Amazon Resource Name (ARN) of the Auto Scaling group.
+	// Name or ARN of the Auto Scaling group.
 	AutoscalingGroupName *string `pulumi:"autoscalingGroupName"`
-	// The number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don't want to change the desired capacity at the scheduled time.
+	// Number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don't want to change the desired capacity at the scheduled time.
 	DesiredCapacity *int `pulumi:"desiredCapacity"`
-	// The time for this action to end, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
+	// Time for this action to end, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
 	// If you try to schedule your action in the past, Auto Scaling returns an error message.
 	EndTime *string `pulumi:"endTime"`
-	// The maximum size for the Auto Scaling group. Default 0.
+	// Maximum size for the Auto Scaling group. Default 0.
 	// Set to -1 if you don't want to change the maximum size at the scheduled time.
 	MaxSize *int `pulumi:"maxSize"`
-	// The minimum size for the Auto Scaling group. Default 0.
+	// Minimum size for the Auto Scaling group. Default 0.
 	// Set to -1 if you don't want to change the minimum size at the scheduled time.
 	MinSize *int `pulumi:"minSize"`
-	// The time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
+	// Time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
 	Recurrence *string `pulumi:"recurrence"`
-	// The name of this scaling action.
+	// Name of this scaling action.
 	ScheduledActionName *string `pulumi:"scheduledActionName"`
-	// The time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
+	// Time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
 	// If you try to schedule your action in the past, Auto Scaling returns an error message.
 	StartTime *string `pulumi:"startTime"`
 	// The timezone for the cron expression. Valid values are the canonical names of the IANA time zones (such as Etc/GMT+9 or Pacific/Tahiti).
@@ -161,26 +161,26 @@ type scheduleState struct {
 }
 
 type ScheduleState struct {
-	// The ARN assigned by AWS to the autoscaling schedule.
+	// ARN assigned by AWS to the autoscaling schedule.
 	Arn pulumi.StringPtrInput
-	// The name or Amazon Resource Name (ARN) of the Auto Scaling group.
+	// Name or ARN of the Auto Scaling group.
 	AutoscalingGroupName pulumi.StringPtrInput
-	// The number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don't want to change the desired capacity at the scheduled time.
+	// Number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don't want to change the desired capacity at the scheduled time.
 	DesiredCapacity pulumi.IntPtrInput
-	// The time for this action to end, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
+	// Time for this action to end, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
 	// If you try to schedule your action in the past, Auto Scaling returns an error message.
 	EndTime pulumi.StringPtrInput
-	// The maximum size for the Auto Scaling group. Default 0.
+	// Maximum size for the Auto Scaling group. Default 0.
 	// Set to -1 if you don't want to change the maximum size at the scheduled time.
 	MaxSize pulumi.IntPtrInput
-	// The minimum size for the Auto Scaling group. Default 0.
+	// Minimum size for the Auto Scaling group. Default 0.
 	// Set to -1 if you don't want to change the minimum size at the scheduled time.
 	MinSize pulumi.IntPtrInput
-	// The time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
+	// Time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
 	Recurrence pulumi.StringPtrInput
-	// The name of this scaling action.
+	// Name of this scaling action.
 	ScheduledActionName pulumi.StringPtrInput
-	// The time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
+	// Time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
 	// If you try to schedule your action in the past, Auto Scaling returns an error message.
 	StartTime pulumi.StringPtrInput
 	// The timezone for the cron expression. Valid values are the canonical names of the IANA time zones (such as Etc/GMT+9 or Pacific/Tahiti).
@@ -192,24 +192,24 @@ func (ScheduleState) ElementType() reflect.Type {
 }
 
 type scheduleArgs struct {
-	// The name or Amazon Resource Name (ARN) of the Auto Scaling group.
+	// Name or ARN of the Auto Scaling group.
 	AutoscalingGroupName string `pulumi:"autoscalingGroupName"`
-	// The number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don't want to change the desired capacity at the scheduled time.
+	// Number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don't want to change the desired capacity at the scheduled time.
 	DesiredCapacity *int `pulumi:"desiredCapacity"`
-	// The time for this action to end, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
+	// Time for this action to end, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
 	// If you try to schedule your action in the past, Auto Scaling returns an error message.
 	EndTime *string `pulumi:"endTime"`
-	// The maximum size for the Auto Scaling group. Default 0.
+	// Maximum size for the Auto Scaling group. Default 0.
 	// Set to -1 if you don't want to change the maximum size at the scheduled time.
 	MaxSize *int `pulumi:"maxSize"`
-	// The minimum size for the Auto Scaling group. Default 0.
+	// Minimum size for the Auto Scaling group. Default 0.
 	// Set to -1 if you don't want to change the minimum size at the scheduled time.
 	MinSize *int `pulumi:"minSize"`
-	// The time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
+	// Time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
 	Recurrence *string `pulumi:"recurrence"`
-	// The name of this scaling action.
+	// Name of this scaling action.
 	ScheduledActionName string `pulumi:"scheduledActionName"`
-	// The time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
+	// Time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
 	// If you try to schedule your action in the past, Auto Scaling returns an error message.
 	StartTime *string `pulumi:"startTime"`
 	// The timezone for the cron expression. Valid values are the canonical names of the IANA time zones (such as Etc/GMT+9 or Pacific/Tahiti).
@@ -218,24 +218,24 @@ type scheduleArgs struct {
 
 // The set of arguments for constructing a Schedule resource.
 type ScheduleArgs struct {
-	// The name or Amazon Resource Name (ARN) of the Auto Scaling group.
+	// Name or ARN of the Auto Scaling group.
 	AutoscalingGroupName pulumi.StringInput
-	// The number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don't want to change the desired capacity at the scheduled time.
+	// Number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don't want to change the desired capacity at the scheduled time.
 	DesiredCapacity pulumi.IntPtrInput
-	// The time for this action to end, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
+	// Time for this action to end, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
 	// If you try to schedule your action in the past, Auto Scaling returns an error message.
 	EndTime pulumi.StringPtrInput
-	// The maximum size for the Auto Scaling group. Default 0.
+	// Maximum size for the Auto Scaling group. Default 0.
 	// Set to -1 if you don't want to change the maximum size at the scheduled time.
 	MaxSize pulumi.IntPtrInput
-	// The minimum size for the Auto Scaling group. Default 0.
+	// Minimum size for the Auto Scaling group. Default 0.
 	// Set to -1 if you don't want to change the minimum size at the scheduled time.
 	MinSize pulumi.IntPtrInput
-	// The time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
+	// Time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
 	Recurrence pulumi.StringPtrInput
-	// The name of this scaling action.
+	// Name of this scaling action.
 	ScheduledActionName pulumi.StringInput
-	// The time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
+	// Time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
 	// If you try to schedule your action in the past, Auto Scaling returns an error message.
 	StartTime pulumi.StringPtrInput
 	// The timezone for the cron expression. Valid values are the canonical names of the IANA time zones (such as Etc/GMT+9 or Pacific/Tahiti).
@@ -329,50 +329,50 @@ func (o ScheduleOutput) ToScheduleOutputWithContext(ctx context.Context) Schedul
 	return o
 }
 
-// The ARN assigned by AWS to the autoscaling schedule.
+// ARN assigned by AWS to the autoscaling schedule.
 func (o ScheduleOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schedule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The name or Amazon Resource Name (ARN) of the Auto Scaling group.
+// Name or ARN of the Auto Scaling group.
 func (o ScheduleOutput) AutoscalingGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schedule) pulumi.StringOutput { return v.AutoscalingGroupName }).(pulumi.StringOutput)
 }
 
-// The number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don't want to change the desired capacity at the scheduled time.
+// Number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don't want to change the desired capacity at the scheduled time.
 func (o ScheduleOutput) DesiredCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v *Schedule) pulumi.IntOutput { return v.DesiredCapacity }).(pulumi.IntOutput)
 }
 
-// The time for this action to end, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
+// Time for this action to end, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
 // If you try to schedule your action in the past, Auto Scaling returns an error message.
 func (o ScheduleOutput) EndTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schedule) pulumi.StringOutput { return v.EndTime }).(pulumi.StringOutput)
 }
 
-// The maximum size for the Auto Scaling group. Default 0.
+// Maximum size for the Auto Scaling group. Default 0.
 // Set to -1 if you don't want to change the maximum size at the scheduled time.
 func (o ScheduleOutput) MaxSize() pulumi.IntOutput {
 	return o.ApplyT(func(v *Schedule) pulumi.IntOutput { return v.MaxSize }).(pulumi.IntOutput)
 }
 
-// The minimum size for the Auto Scaling group. Default 0.
+// Minimum size for the Auto Scaling group. Default 0.
 // Set to -1 if you don't want to change the minimum size at the scheduled time.
 func (o ScheduleOutput) MinSize() pulumi.IntOutput {
 	return o.ApplyT(func(v *Schedule) pulumi.IntOutput { return v.MinSize }).(pulumi.IntOutput)
 }
 
-// The time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
+// Time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
 func (o ScheduleOutput) Recurrence() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schedule) pulumi.StringOutput { return v.Recurrence }).(pulumi.StringOutput)
 }
 
-// The name of this scaling action.
+// Name of this scaling action.
 func (o ScheduleOutput) ScheduledActionName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schedule) pulumi.StringOutput { return v.ScheduledActionName }).(pulumi.StringOutput)
 }
 
-// The time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
+// Time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
 // If you try to schedule your action in the past, Auto Scaling returns an error message.
 func (o ScheduleOutput) StartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schedule) pulumi.StringOutput { return v.StartTime }).(pulumi.StringOutput)

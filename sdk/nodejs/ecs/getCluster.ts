@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -36,7 +38,7 @@ export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): P
  */
 export interface GetClusterArgs {
     /**
-     * The name of the ECS Cluster
+     * Name of the ECS Cluster
      */
     clusterName: string;
 }
@@ -46,7 +48,7 @@ export interface GetClusterArgs {
  */
 export interface GetClusterResult {
     /**
-     * The ARN of the ECS Cluster
+     * ARN of the ECS Cluster
      */
     readonly arn: string;
     readonly clusterName: string;
@@ -55,7 +57,7 @@ export interface GetClusterResult {
      */
     readonly id: string;
     /**
-     * The number of pending tasks for the ECS Cluster
+     * Number of pending tasks for the ECS Cluster
      */
     readonly pendingTasksCount: number;
     /**
@@ -63,15 +65,15 @@ export interface GetClusterResult {
      */
     readonly registeredContainerInstancesCount: number;
     /**
-     * The number of running tasks for the ECS Cluster
+     * Number of running tasks for the ECS Cluster
      */
     readonly runningTasksCount: number;
     /**
-     * The settings associated with the ECS Cluster.
+     * Settings associated with the ECS Cluster.
      */
     readonly settings: outputs.ecs.GetClusterSetting[];
     /**
-     * The status of the ECS Cluster
+     * Status of the ECS Cluster
      */
     readonly status: string;
 }
@@ -85,7 +87,7 @@ export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.Invok
  */
 export interface GetClusterOutputArgs {
     /**
-     * The name of the ECS Cluster
+     * Name of the ECS Cluster
      */
     clusterName: pulumi.Input<string>;
 }

@@ -123,19 +123,19 @@ namespace Pulumi.Aws.Acmpca
     public partial class CertificateAuthorityCertificate : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The PEM-encoded certificate for the Certificate Authority.
+        /// PEM-encoded certificate for the Certificate Authority.
         /// </summary>
         [Output("certificate")]
         public Output<string> Certificate { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Certificate Authority.
+        /// ARN of the Certificate Authority.
         /// </summary>
         [Output("certificateAuthorityArn")]
         public Output<string> CertificateAuthorityArn { get; private set; } = null!;
 
         /// <summary>
-        /// The PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
+        /// PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
         /// </summary>
         [Output("certificateChain")]
         public Output<string?> CertificateChain { get; private set; } = null!;
@@ -187,19 +187,19 @@ namespace Pulumi.Aws.Acmpca
     public sealed class CertificateAuthorityCertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The PEM-encoded certificate for the Certificate Authority.
+        /// PEM-encoded certificate for the Certificate Authority.
         /// </summary>
         [Input("certificate", required: true)]
         public Input<string> Certificate { get; set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Certificate Authority.
+        /// ARN of the Certificate Authority.
         /// </summary>
         [Input("certificateAuthorityArn", required: true)]
         public Input<string> CertificateAuthorityArn { get; set; } = null!;
 
         /// <summary>
-        /// The PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
+        /// PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
         /// </summary>
         [Input("certificateChain")]
         public Input<string>? CertificateChain { get; set; }
@@ -213,19 +213,19 @@ namespace Pulumi.Aws.Acmpca
     public sealed class CertificateAuthorityCertificateState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The PEM-encoded certificate for the Certificate Authority.
+        /// PEM-encoded certificate for the Certificate Authority.
         /// </summary>
         [Input("certificate")]
         public Input<string>? Certificate { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Certificate Authority.
+        /// ARN of the Certificate Authority.
         /// </summary>
         [Input("certificateAuthorityArn")]
         public Input<string>? CertificateAuthorityArn { get; set; }
 
         /// <summary>
-        /// The PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
+        /// PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
         /// </summary>
         [Input("certificateChain")]
         public Input<string>? CertificateChain { get; set; }

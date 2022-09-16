@@ -10,12 +10,12 @@ import java.util.Objects;
 @CustomType
 public final class GetRuleGroupResult {
     /**
-     * @return The Amazon Resource Name (ARN) of the entity.
+     * @return ARN of the entity.
      * 
      */
     private String arn;
     /**
-     * @return The description of the rule group that helps with identification.
+     * @return Description of the rule group that helps with identification.
      * 
      */
     private String description;
@@ -29,14 +29,14 @@ public final class GetRuleGroupResult {
 
     private GetRuleGroupResult() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the entity.
+     * @return ARN of the entity.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return The description of the rule group that helps with identification.
+     * @return Description of the rule group that helps with identification.
      * 
      */
     public String description() {

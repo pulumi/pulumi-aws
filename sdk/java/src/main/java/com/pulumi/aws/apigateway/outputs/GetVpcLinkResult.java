@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class GetVpcLinkResult {
     /**
-     * @return The description of the VPC link.
+     * @return Description of the VPC link.
      * 
      */
     private String description;
@@ -23,12 +23,12 @@ public final class GetVpcLinkResult {
     private String id;
     private String name;
     /**
-     * @return The status of the VPC link.
+     * @return Status of the VPC link.
      * 
      */
     private String status;
     /**
-     * @return The status message of the VPC link.
+     * @return Status message of the VPC link.
      * 
      */
     private String statusMessage;
@@ -38,14 +38,14 @@ public final class GetVpcLinkResult {
      */
     private Map<String,String> tags;
     /**
-     * @return The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
+     * @return List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
      * 
      */
     private List<String> targetArns;
 
     private GetVpcLinkResult() {}
     /**
-     * @return The description of the VPC link.
+     * @return Description of the VPC link.
      * 
      */
     public String description() {
@@ -62,14 +62,14 @@ public final class GetVpcLinkResult {
         return this.name;
     }
     /**
-     * @return The status of the VPC link.
+     * @return Status of the VPC link.
      * 
      */
     public String status() {
         return this.status;
     }
     /**
-     * @return The status message of the VPC link.
+     * @return Status message of the VPC link.
      * 
      */
     public String statusMessage() {
@@ -83,7 +83,7 @@ public final class GetVpcLinkResult {
         return this.tags;
     }
     /**
-     * @return The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
+     * @return List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
      * 
      */
     public List<String> targetArns() {

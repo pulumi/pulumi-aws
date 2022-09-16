@@ -40,9 +40,10 @@ type GlobalCluster struct {
 	// Name for an automatically created database on cluster creation.
 	DatabaseName pulumi.StringPtrOutput `pulumi:"databaseName"`
 	// If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
-	DeletionProtection pulumi.BoolPtrOutput `pulumi:"deletionProtection"`
-	Engine             pulumi.StringOutput  `pulumi:"engine"`
-	EngineVersion      pulumi.StringOutput  `pulumi:"engineVersion"`
+	DeletionProtection  pulumi.BoolPtrOutput `pulumi:"deletionProtection"`
+	Engine              pulumi.StringOutput  `pulumi:"engine"`
+	EngineVersion       pulumi.StringOutput  `pulumi:"engineVersion"`
+	EngineVersionActual pulumi.StringOutput  `pulumi:"engineVersionActual"`
 	// Enable to remove DB Cluster members from Global Cluster on destroy. Required with `sourceDbClusterIdentifier`.
 	ForceDestroy pulumi.BoolPtrOutput `pulumi:"forceDestroy"`
 	// Global cluster identifier.
@@ -94,9 +95,10 @@ type globalClusterState struct {
 	// Name for an automatically created database on cluster creation.
 	DatabaseName *string `pulumi:"databaseName"`
 	// If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
-	DeletionProtection *bool   `pulumi:"deletionProtection"`
-	Engine             *string `pulumi:"engine"`
-	EngineVersion      *string `pulumi:"engineVersion"`
+	DeletionProtection  *bool   `pulumi:"deletionProtection"`
+	Engine              *string `pulumi:"engine"`
+	EngineVersion       *string `pulumi:"engineVersion"`
+	EngineVersionActual *string `pulumi:"engineVersionActual"`
 	// Enable to remove DB Cluster members from Global Cluster on destroy. Required with `sourceDbClusterIdentifier`.
 	ForceDestroy *bool `pulumi:"forceDestroy"`
 	// Global cluster identifier.
@@ -117,9 +119,10 @@ type GlobalClusterState struct {
 	// Name for an automatically created database on cluster creation.
 	DatabaseName pulumi.StringPtrInput
 	// If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
-	DeletionProtection pulumi.BoolPtrInput
-	Engine             pulumi.StringPtrInput
-	EngineVersion      pulumi.StringPtrInput
+	DeletionProtection  pulumi.BoolPtrInput
+	Engine              pulumi.StringPtrInput
+	EngineVersion       pulumi.StringPtrInput
+	EngineVersionActual pulumi.StringPtrInput
 	// Enable to remove DB Cluster members from Global Cluster on destroy. Required with `sourceDbClusterIdentifier`.
 	ForceDestroy pulumi.BoolPtrInput
 	// Global cluster identifier.
@@ -281,6 +284,10 @@ func (o GlobalClusterOutput) Engine() pulumi.StringOutput {
 
 func (o GlobalClusterOutput) EngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *GlobalCluster) pulumi.StringOutput { return v.EngineVersion }).(pulumi.StringOutput)
+}
+
+func (o GlobalClusterOutput) EngineVersionActual() pulumi.StringOutput {
+	return o.ApplyT(func(v *GlobalCluster) pulumi.StringOutput { return v.EngineVersionActual }).(pulumi.StringOutput)
 }
 
 // Enable to remove DB Cluster members from Global Cluster on destroy. Required with `sourceDbClusterIdentifier`.

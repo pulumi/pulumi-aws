@@ -74,8 +74,9 @@ type Vocabulary struct {
 	// A unique name of the custom vocabulary. Must not be more than 140 characters.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The current state of the custom vocabulary. Valid values are `CREATION_IN_PROGRESS`, `ACTIVE`, `CREATION_FAILED`, `DELETE_IN_PROGRESS`.
-	State   pulumi.StringOutput    `pulumi:"state"`
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	State pulumi.StringOutput    `pulumi:"state"`
+	Tags  pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The identifier of the custom vocabulary.
 	VocabularyId pulumi.StringOutput `pulumi:"vocabularyId"`
@@ -134,8 +135,9 @@ type vocabularyState struct {
 	// A unique name of the custom vocabulary. Must not be more than 140 characters.
 	Name *string `pulumi:"name"`
 	// The current state of the custom vocabulary. Valid values are `CREATION_IN_PROGRESS`, `ACTIVE`, `CREATION_FAILED`, `DELETE_IN_PROGRESS`.
-	State   *string           `pulumi:"state"`
-	Tags    map[string]string `pulumi:"tags"`
+	State *string           `pulumi:"state"`
+	Tags  map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The identifier of the custom vocabulary.
 	VocabularyId *string `pulumi:"vocabularyId"`
@@ -157,8 +159,9 @@ type VocabularyState struct {
 	// A unique name of the custom vocabulary. Must not be more than 140 characters.
 	Name pulumi.StringPtrInput
 	// The current state of the custom vocabulary. Valid values are `CREATION_IN_PROGRESS`, `ACTIVE`, `CREATION_FAILED`, `DELETE_IN_PROGRESS`.
-	State   pulumi.StringPtrInput
-	Tags    pulumi.StringMapInput
+	State pulumi.StringPtrInput
+	Tags  pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The identifier of the custom vocabulary.
 	VocabularyId pulumi.StringPtrInput
@@ -324,6 +327,7 @@ func (o VocabularyOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Vocabulary) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o VocabularyOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Vocabulary) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

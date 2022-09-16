@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -40,7 +42,7 @@ export function getBotAssociation(args: GetBotAssociationArgs, opts?: pulumi.Inv
  */
 export interface GetBotAssociationArgs {
     /**
-     * The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
+     * Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
      */
     instanceId: string;
     /**
@@ -70,7 +72,7 @@ export function getBotAssociationOutput(args: GetBotAssociationOutputArgs, opts?
  */
 export interface GetBotAssociationOutputArgs {
     /**
-     * The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
+     * Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
      */
     instanceId: pulumi.Input<string>;
     /**

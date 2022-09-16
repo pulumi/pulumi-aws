@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -38,7 +40,7 @@ export function getThesaurus(args: GetThesaurusArgs, opts?: pulumi.InvokeOptions
  */
 export interface GetThesaurusArgs {
     /**
-     * The identifier of the index that contains the Thesaurus.
+     * Identifier of the index that contains the Thesaurus.
      */
     indexId: string;
     /**
@@ -46,7 +48,7 @@ export interface GetThesaurusArgs {
      */
     tags?: {[key: string]: string};
     /**
-     * The identifier of the Thesaurus.
+     * Identifier of the Thesaurus.
      */
     thesaurusId: string;
 }
@@ -56,15 +58,15 @@ export interface GetThesaurusArgs {
  */
 export interface GetThesaurusResult {
     /**
-     * The Amazon Resource Name (ARN) of the Thesaurus.
+     * ARN of the Thesaurus.
      */
     readonly arn: string;
     /**
-     * The Unix datetime that the Thesaurus was created.
+     * Unix datetime that the Thesaurus was created.
      */
     readonly createdAt: string;
     /**
-     * The description of the Thesaurus.
+     * Description of the Thesaurus.
      */
     readonly description: string;
     /**
@@ -72,7 +74,7 @@ export interface GetThesaurusResult {
      */
     readonly errorMessage: string;
     /**
-     * The size of the Thesaurus file in bytes.
+     * Size of the Thesaurus file in bytes.
      */
     readonly fileSizeBytes: number;
     /**
@@ -81,23 +83,23 @@ export interface GetThesaurusResult {
     readonly id: string;
     readonly indexId: string;
     /**
-     * Specifies the name of the Thesaurus.
+     * Name of the Thesaurus.
      */
     readonly name: string;
     /**
-     * The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the Thesaurus. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+     * ARN of a role with permission to access the S3 bucket that contains the Thesaurus. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
      */
     readonly roleArn: string;
     /**
-     * The S3 location of the Thesaurus input data. Detailed below.
+     * S3 location of the Thesaurus input data. Detailed below.
      */
     readonly sourceS3Paths: outputs.kendra.GetThesaurusSourceS3Path[];
     /**
-     * The status of the Thesaurus. It is ready to use when the status is `ACTIVE`.
+     * Status of the Thesaurus. It is ready to use when the status is `ACTIVE`.
      */
     readonly status: string;
     /**
-     * The number of synonym rules in the Thesaurus file.
+     * Number of synonym rules in the Thesaurus file.
      */
     readonly synonymRuleCount: number;
     /**
@@ -105,12 +107,12 @@ export interface GetThesaurusResult {
      */
     readonly tags: {[key: string]: string};
     /**
-     * The number of unique terms in the Thesaurus file. For example, the synonyms `a,b,c` and `a=>d`, the term count would be 4.
+     * Number of unique terms in the Thesaurus file. For example, the synonyms `a,b,c` and `a=>d`, the term count would be 4.
      */
     readonly termCount: number;
     readonly thesaurusId: string;
     /**
-     * The date and time that the Thesaurus was last updated.
+     * Date and time that the Thesaurus was last updated.
      */
     readonly updatedAt: string;
 }
@@ -124,7 +126,7 @@ export function getThesaurusOutput(args: GetThesaurusOutputArgs, opts?: pulumi.I
  */
 export interface GetThesaurusOutputArgs {
     /**
-     * The identifier of the index that contains the Thesaurus.
+     * Identifier of the index that contains the Thesaurus.
      */
     indexId: pulumi.Input<string>;
     /**
@@ -132,7 +134,7 @@ export interface GetThesaurusOutputArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The identifier of the Thesaurus.
+     * Identifier of the Thesaurus.
      */
     thesaurusId: pulumi.Input<string>;
 }

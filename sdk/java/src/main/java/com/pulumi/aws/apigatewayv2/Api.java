@@ -95,14 +95,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:apigatewayv2/api:Api")
 public class Api extends com.pulumi.resources.CustomResource {
     /**
-     * The URI of the API, of the form `https://{api-id}.execute-api.{region}.amazonaws.com` for HTTP APIs and `wss://{api-id}.execute-api.{region}.amazonaws.com` for WebSocket APIs.
+     * URI of the API, of the form `https://{api-id}.execute-api.{region}.amazonaws.com` for HTTP APIs and `wss://{api-id}.execute-api.{region}.amazonaws.com` for WebSocket APIs.
      * 
      */
     @Export(name="apiEndpoint", type=String.class, parameters={})
     private Output<String> apiEndpoint;
 
     /**
-     * @return The URI of the API, of the form `https://{api-id}.execute-api.{region}.amazonaws.com` for HTTP APIs and `wss://{api-id}.execute-api.{region}.amazonaws.com` for WebSocket APIs.
+     * @return URI of the API, of the form `https://{api-id}.execute-api.{region}.amazonaws.com` for HTTP APIs and `wss://{api-id}.execute-api.{region}.amazonaws.com` for WebSocket APIs.
      * 
      */
     public Output<String> apiEndpoint() {
@@ -127,14 +127,14 @@ public class Api extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.apiKeySelectionExpression);
     }
     /**
-     * The ARN of the API.
+     * ARN of the API.
      * 
      */
     @Export(name="arn", type=String.class, parameters={})
     private Output<String> arn;
 
     /**
-     * @return The ARN of the API.
+     * @return ARN of the API.
      * 
      */
     public Output<String> arn() {
@@ -155,14 +155,14 @@ public class Api extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.body);
     }
     /**
-     * The cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
+     * Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
      * 
      */
     @Export(name="corsConfiguration", type=ApiCorsConfiguration.class, parameters={})
     private Output</* @Nullable */ ApiCorsConfiguration> corsConfiguration;
 
     /**
-     * @return The cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
+     * @return Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
      * 
      */
     public Output<Optional<ApiCorsConfiguration>> corsConfiguration() {
@@ -183,14 +183,14 @@ public class Api extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.credentialsArn);
     }
     /**
-     * The description of the API. Must be less than or equal to 1024 characters in length.
+     * Description of the API. Must be less than or equal to 1024 characters in length.
      * 
      */
     @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return The description of the API. Must be less than or equal to 1024 characters in length.
+     * @return Description of the API. Must be less than or equal to 1024 characters in length.
      * 
      */
     public Output<Optional<String>> description() {
@@ -215,7 +215,7 @@ public class Api extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.disableExecuteApiEndpoint);
     }
     /**
-     * The ARN prefix to be used in an `aws.lambda.Permission`&#39;s `source_arn` attribute
+     * ARN prefix to be used in an `aws.lambda.Permission`&#39;s `source_arn` attribute
      * or in an `aws.iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
      * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
      * 
@@ -224,7 +224,7 @@ public class Api extends com.pulumi.resources.CustomResource {
     private Output<String> executionArn;
 
     /**
-     * @return The ARN prefix to be used in an `aws.lambda.Permission`&#39;s `source_arn` attribute
+     * @return ARN prefix to be used in an `aws.lambda.Permission`&#39;s `source_arn` attribute
      * or in an `aws.iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
      * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
      * 
@@ -247,28 +247,28 @@ public class Api extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.failOnWarnings);
     }
     /**
-     * The name of the API. Must be less than or equal to 128 characters in length.
+     * Name of the API. Must be less than or equal to 128 characters in length.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name of the API. Must be less than or equal to 128 characters in length.
+     * @return Name of the API. Must be less than or equal to 128 characters in length.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The API protocol. Valid values: `HTTP`, `WEBSOCKET`.
+     * API protocol. Valid values: `HTTP`, `WEBSOCKET`.
      * 
      */
     @Export(name="protocolType", type=String.class, parameters={})
     private Output<String> protocolType;
 
     /**
-     * @return The API protocol. Valid values: `HTTP`, `WEBSOCKET`.
+     * @return API protocol. Valid values: `HTTP`, `WEBSOCKET`.
      * 
      */
     public Output<String> protocolType() {
@@ -305,28 +305,28 @@ public class Api extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.routeSelectionExpression);
     }
     /**
-     * A map of tags to assign to the API. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the API. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the API. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the API. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
@@ -351,14 +351,14 @@ public class Api extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.target);
     }
     /**
-     * A version identifier for the API. Must be between 1 and 64 characters in length.
+     * Version identifier for the API. Must be between 1 and 64 characters in length.
      * 
      */
     @Export(name="version", type=String.class, parameters={})
     private Output</* @Nullable */ String> version;
 
     /**
-     * @return A version identifier for the API. Must be between 1 and 64 characters in length.
+     * @return Version identifier for the API. Must be between 1 and 64 characters in length.
      * 
      */
     public Output<Optional<String>> version() {

@@ -28,7 +28,7 @@ public final class GetAclResult {
     private String minimumEngineVersion;
     private String name;
     /**
-     * @return A map of tags assigned to the ACL.
+     * @return Map of tags assigned to the ACL.
      * 
      */
     private Map<String,String> tags;
@@ -64,7 +64,7 @@ public final class GetAclResult {
         return this.name;
     }
     /**
-     * @return A map of tags assigned to the ACL.
+     * @return Map of tags assigned to the ACL.
      * 
      */
     public Map<String,String> tags() {

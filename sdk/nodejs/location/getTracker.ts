@@ -39,7 +39,7 @@ export interface GetTrackerArgs {
      */
     tags?: {[key: string]: string};
     /**
-     * The name of the tracker resource.
+     * Name of the tracker resource.
      */
     trackerName: string;
 }
@@ -49,11 +49,11 @@ export interface GetTrackerArgs {
  */
 export interface GetTrackerResult {
     /**
-     * The timestamp for when the tracker resource was created in ISO 8601 format.
+     * Timestamp for when the tracker resource was created in ISO 8601 format.
      */
     readonly createTime: string;
     /**
-     * The optional description for the tracker resource.
+     * Optional description for the tracker resource.
      */
     readonly description: string;
     /**
@@ -61,11 +61,11 @@ export interface GetTrackerResult {
      */
     readonly id: string;
     /**
-     * A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
+     * Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
      */
     readonly kmsKeyId: string;
     /**
-     * The position filtering method of the tracker resource.
+     * Position filtering method of the tracker resource.
      */
     readonly positionFiltering: string;
     /**
@@ -73,12 +73,12 @@ export interface GetTrackerResult {
      */
     readonly tags: {[key: string]: string};
     /**
-     * The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS.
+     * ARN for the tracker resource. Used when you need to specify a resource across all AWS.
      */
     readonly trackerArn: string;
     readonly trackerName: string;
     /**
-     * The timestamp for when the tracker resource was last updated in ISO 8601 format.
+     * Timestamp for when the tracker resource was last updated in ISO 8601 format.
      */
     readonly updateTime: string;
 }
@@ -96,7 +96,7 @@ export interface GetTrackerOutputArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The name of the tracker resource.
+     * Name of the tracker resource.
      */
     trackerName: pulumi.Input<string>;
 }

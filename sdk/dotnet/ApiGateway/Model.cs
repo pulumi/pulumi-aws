@@ -52,31 +52,31 @@ namespace Pulumi.Aws.ApiGateway
     public partial class Model : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The content type of the model
+        /// Content type of the model
         /// </summary>
         [Output("contentType")]
         public Output<string> ContentType { get; private set; } = null!;
 
         /// <summary>
-        /// The description of the model
+        /// Description of the model
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the model
+        /// Name of the model
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the associated REST API
+        /// ID of the associated REST API
         /// </summary>
         [Output("restApi")]
         public Output<string> RestApi { get; private set; } = null!;
 
         /// <summary>
-        /// The schema of the model in a JSON form
+        /// Schema of the model in a JSON form
         /// </summary>
         [Output("schema")]
         public Output<string?> Schema { get; private set; } = null!;
@@ -128,31 +128,31 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class ModelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The content type of the model
+        /// Content type of the model
         /// </summary>
         [Input("contentType", required: true)]
         public Input<string> ContentType { get; set; } = null!;
 
         /// <summary>
-        /// The description of the model
+        /// Description of the model
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The name of the model
+        /// Name of the model
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ID of the associated REST API
+        /// ID of the associated REST API
         /// </summary>
         [Input("restApi", required: true)]
         public Input<string> RestApi { get; set; } = null!;
 
         /// <summary>
-        /// The schema of the model in a JSON form
+        /// Schema of the model in a JSON form
         /// </summary>
         [Input("schema")]
         public Input<string>? Schema { get; set; }
@@ -166,31 +166,31 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class ModelState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The content type of the model
+        /// Content type of the model
         /// </summary>
         [Input("contentType")]
         public Input<string>? ContentType { get; set; }
 
         /// <summary>
-        /// The description of the model
+        /// Description of the model
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The name of the model
+        /// Name of the model
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ID of the associated REST API
+        /// ID of the associated REST API
         /// </summary>
         [Input("restApi")]
         public Input<string>? RestApi { get; set; }
 
         /// <summary>
-        /// The schema of the model in a JSON form
+        /// Schema of the model in a JSON form
         /// </summary>
         [Input("schema")]
         public Input<string>? Schema { get; set; }

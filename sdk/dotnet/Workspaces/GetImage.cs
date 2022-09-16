@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Workspaces
     public sealed class GetImageArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID of the image.
+        /// ID of the image.
         /// </summary>
         [Input("imageId", required: true)]
         public string ImageId { get; set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.Aws.Workspaces
     public sealed class GetImageInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID of the image.
+        /// ID of the image.
         /// </summary>
         [Input("imageId", required: true)]
         public Input<string> ImageId { get; set; } = null!;

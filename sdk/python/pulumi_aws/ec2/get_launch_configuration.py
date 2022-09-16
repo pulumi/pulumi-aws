@@ -88,7 +88,7 @@ class GetLaunchConfigurationResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The Amazon Resource Name of the launch configuration.
+        Amazon Resource Name of the launch configuration.
         """
         return pulumi.get(self, "arn")
 
@@ -104,7 +104,7 @@ class GetLaunchConfigurationResult:
     @pulumi.getter(name="ebsBlockDevices")
     def ebs_block_devices(self) -> Sequence['outputs.GetLaunchConfigurationEbsBlockDeviceResult']:
         """
-        The EBS Block Devices attached to the instance.
+        EBS Block Devices attached to the instance.
         """
         return pulumi.get(self, "ebs_block_devices")
 
@@ -152,7 +152,7 @@ class GetLaunchConfigurationResult:
     @pulumi.getter(name="imageId")
     def image_id(self) -> str:
         """
-        The EC2 Image ID of the instance.
+        EC2 Image ID of the instance.
         """
         return pulumi.get(self, "image_id")
 
@@ -160,7 +160,7 @@ class GetLaunchConfigurationResult:
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> str:
         """
-        The Instance Type of the instance to launch.
+        Instance Type of the instance to launch.
         """
         return pulumi.get(self, "instance_type")
 
@@ -168,7 +168,7 @@ class GetLaunchConfigurationResult:
     @pulumi.getter(name="keyName")
     def key_name(self) -> str:
         """
-        The Key Name that should be used for the instance.
+        Key Name that should be used for the instance.
         """
         return pulumi.get(self, "key_name")
 
@@ -176,7 +176,7 @@ class GetLaunchConfigurationResult:
     @pulumi.getter(name="metadataOptions")
     def metadata_options(self) -> Sequence['outputs.GetLaunchConfigurationMetadataOptionResult']:
         """
-        The metadata options for the instance.
+        Metadata options for the instance.
         """
         return pulumi.get(self, "metadata_options")
 
@@ -184,7 +184,7 @@ class GetLaunchConfigurationResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The Name of the launch configuration.
+        Name of the launch configuration.
         """
         return pulumi.get(self, "name")
 
@@ -192,7 +192,7 @@ class GetLaunchConfigurationResult:
     @pulumi.getter(name="placementTenancy")
     def placement_tenancy(self) -> str:
         """
-        The Tenancy of the instance.
+        Tenancy of the instance.
         """
         return pulumi.get(self, "placement_tenancy")
 
@@ -200,7 +200,7 @@ class GetLaunchConfigurationResult:
     @pulumi.getter(name="rootBlockDevices")
     def root_block_devices(self) -> Sequence['outputs.GetLaunchConfigurationRootBlockDeviceResult']:
         """
-        The Root Block Device of the instance.
+        Root Block Device of the instance.
         """
         return pulumi.get(self, "root_block_devices")
 
@@ -208,7 +208,7 @@ class GetLaunchConfigurationResult:
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Sequence[str]:
         """
-        A list of associated Security Group IDS.
+        List of associated Security Group IDS.
         """
         return pulumi.get(self, "security_groups")
 
@@ -216,7 +216,7 @@ class GetLaunchConfigurationResult:
     @pulumi.getter(name="spotPrice")
     def spot_price(self) -> str:
         """
-        The Price to use for reserving Spot instances.
+        Price to use for reserving Spot instances.
         """
         return pulumi.get(self, "spot_price")
 
@@ -224,7 +224,7 @@ class GetLaunchConfigurationResult:
     @pulumi.getter(name="userData")
     def user_data(self) -> str:
         """
-        The User Data of the instance.
+        User Data of the instance.
         """
         return pulumi.get(self, "user_data")
 
@@ -232,7 +232,7 @@ class GetLaunchConfigurationResult:
     @pulumi.getter(name="vpcClassicLinkId")
     def vpc_classic_link_id(self) -> str:
         """
-        The ID of a ClassicLink-enabled VPC.
+        ID of a ClassicLink-enabled VPC.
         """
         return pulumi.get(self, "vpc_classic_link_id")
 
@@ -288,7 +288,7 @@ def get_launch_configuration(name: Optional[str] = None,
     ```
 
 
-    :param str name: The name of the launch configuration.
+    :param str name: Name of the launch configuration.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -334,6 +334,6 @@ def get_launch_configuration_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str name: The name of the launch configuration.
+    :param str name: Name of the launch configuration.
     """
     ...

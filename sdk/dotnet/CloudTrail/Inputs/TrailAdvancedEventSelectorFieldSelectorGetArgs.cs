@@ -37,7 +37,7 @@ namespace Pulumi.Aws.CloudTrail.Inputs
         }
 
         /// <summary>
-        /// Specifies a field in an event record on which to filter events to be logged. You can specify only the following values: `readOnly`, `eventSource`, `eventName`, `eventCategory`, `resources.type`, `resources.ARN`.
+        /// Field in an event record on which to filter events to be logged. You can specify only the following values: `readOnly`, `eventSource`, `eventName`, `eventCategory`, `resources.type`, `resources.ARN`.
         /// </summary>
         [Input("field", required: true)]
         public Input<string> Field { get; set; } = null!;

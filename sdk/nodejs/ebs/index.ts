@@ -5,26 +5,64 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./defaultKmsKey";
-export * from "./encryptionByDefault";
-export * from "./getDefaultKmsKey";
-export * from "./getEbsVolumes";
-export * from "./getEncryptionByDefault";
-export * from "./getSnapshot";
-export * from "./getSnapshotIds";
-export * from "./getVolume";
-export * from "./snapshot";
-export * from "./snapshotCopy";
-export * from "./snapshotImport";
-export * from "./volume";
+export { DefaultKmsKeyArgs, DefaultKmsKeyState } from "./defaultKmsKey";
+export type DefaultKmsKey = import("./defaultKmsKey").DefaultKmsKey;
+export const DefaultKmsKey: typeof import("./defaultKmsKey").DefaultKmsKey = null as any;
 
-// Import resources to register:
-import { DefaultKmsKey } from "./defaultKmsKey";
-import { EncryptionByDefault } from "./encryptionByDefault";
-import { Snapshot } from "./snapshot";
-import { SnapshotCopy } from "./snapshotCopy";
-import { SnapshotImport } from "./snapshotImport";
-import { Volume } from "./volume";
+export { EncryptionByDefaultArgs, EncryptionByDefaultState } from "./encryptionByDefault";
+export type EncryptionByDefault = import("./encryptionByDefault").EncryptionByDefault;
+export const EncryptionByDefault: typeof import("./encryptionByDefault").EncryptionByDefault = null as any;
+
+export { GetDefaultKmsKeyResult } from "./getDefaultKmsKey";
+export const getDefaultKmsKey: typeof import("./getDefaultKmsKey").getDefaultKmsKey = null as any;
+
+export { GetEbsVolumesArgs, GetEbsVolumesResult, GetEbsVolumesOutputArgs } from "./getEbsVolumes";
+export const getEbsVolumes: typeof import("./getEbsVolumes").getEbsVolumes = null as any;
+export const getEbsVolumesOutput: typeof import("./getEbsVolumes").getEbsVolumesOutput = null as any;
+
+export { GetEncryptionByDefaultResult } from "./getEncryptionByDefault";
+export const getEncryptionByDefault: typeof import("./getEncryptionByDefault").getEncryptionByDefault = null as any;
+
+export { GetSnapshotArgs, GetSnapshotResult, GetSnapshotOutputArgs } from "./getSnapshot";
+export const getSnapshot: typeof import("./getSnapshot").getSnapshot = null as any;
+export const getSnapshotOutput: typeof import("./getSnapshot").getSnapshotOutput = null as any;
+
+export { GetSnapshotIdsArgs, GetSnapshotIdsResult, GetSnapshotIdsOutputArgs } from "./getSnapshotIds";
+export const getSnapshotIds: typeof import("./getSnapshotIds").getSnapshotIds = null as any;
+export const getSnapshotIdsOutput: typeof import("./getSnapshotIds").getSnapshotIdsOutput = null as any;
+
+export { GetVolumeArgs, GetVolumeResult, GetVolumeOutputArgs } from "./getVolume";
+export const getVolume: typeof import("./getVolume").getVolume = null as any;
+export const getVolumeOutput: typeof import("./getVolume").getVolumeOutput = null as any;
+
+export { SnapshotArgs, SnapshotState } from "./snapshot";
+export type Snapshot = import("./snapshot").Snapshot;
+export const Snapshot: typeof import("./snapshot").Snapshot = null as any;
+
+export { SnapshotCopyArgs, SnapshotCopyState } from "./snapshotCopy";
+export type SnapshotCopy = import("./snapshotCopy").SnapshotCopy;
+export const SnapshotCopy: typeof import("./snapshotCopy").SnapshotCopy = null as any;
+
+export { SnapshotImportArgs, SnapshotImportState } from "./snapshotImport";
+export type SnapshotImport = import("./snapshotImport").SnapshotImport;
+export const SnapshotImport: typeof import("./snapshotImport").SnapshotImport = null as any;
+
+export { VolumeArgs, VolumeState } from "./volume";
+export type Volume = import("./volume").Volume;
+export const Volume: typeof import("./volume").Volume = null as any;
+
+utilities.lazyLoad(exports, ["DefaultKmsKey"], () => require("./defaultKmsKey"));
+utilities.lazyLoad(exports, ["EncryptionByDefault"], () => require("./encryptionByDefault"));
+utilities.lazyLoad(exports, ["getDefaultKmsKey"], () => require("./getDefaultKmsKey"));
+utilities.lazyLoad(exports, ["getEbsVolumes","getEbsVolumesOutput"], () => require("./getEbsVolumes"));
+utilities.lazyLoad(exports, ["getEncryptionByDefault"], () => require("./getEncryptionByDefault"));
+utilities.lazyLoad(exports, ["getSnapshot","getSnapshotOutput"], () => require("./getSnapshot"));
+utilities.lazyLoad(exports, ["getSnapshotIds","getSnapshotIdsOutput"], () => require("./getSnapshotIds"));
+utilities.lazyLoad(exports, ["getVolume","getVolumeOutput"], () => require("./getVolume"));
+utilities.lazyLoad(exports, ["Snapshot"], () => require("./snapshot"));
+utilities.lazyLoad(exports, ["SnapshotCopy"], () => require("./snapshotCopy"));
+utilities.lazyLoad(exports, ["SnapshotImport"], () => require("./snapshotImport"));
+utilities.lazyLoad(exports, ["Volume"], () => require("./volume"));
 
 const _module = {
     version: utilities.getVersion(),

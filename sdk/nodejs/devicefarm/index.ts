@@ -5,20 +5,36 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./devicePool";
-export * from "./instanceProfile";
-export * from "./networkProfile";
-export * from "./project";
-export * from "./testGridProject";
-export * from "./upload";
+export { DevicePoolArgs, DevicePoolState } from "./devicePool";
+export type DevicePool = import("./devicePool").DevicePool;
+export const DevicePool: typeof import("./devicePool").DevicePool = null as any;
 
-// Import resources to register:
-import { DevicePool } from "./devicePool";
-import { InstanceProfile } from "./instanceProfile";
-import { NetworkProfile } from "./networkProfile";
-import { Project } from "./project";
-import { TestGridProject } from "./testGridProject";
-import { Upload } from "./upload";
+export { InstanceProfileArgs, InstanceProfileState } from "./instanceProfile";
+export type InstanceProfile = import("./instanceProfile").InstanceProfile;
+export const InstanceProfile: typeof import("./instanceProfile").InstanceProfile = null as any;
+
+export { NetworkProfileArgs, NetworkProfileState } from "./networkProfile";
+export type NetworkProfile = import("./networkProfile").NetworkProfile;
+export const NetworkProfile: typeof import("./networkProfile").NetworkProfile = null as any;
+
+export { ProjectArgs, ProjectState } from "./project";
+export type Project = import("./project").Project;
+export const Project: typeof import("./project").Project = null as any;
+
+export { TestGridProjectArgs, TestGridProjectState } from "./testGridProject";
+export type TestGridProject = import("./testGridProject").TestGridProject;
+export const TestGridProject: typeof import("./testGridProject").TestGridProject = null as any;
+
+export { UploadArgs, UploadState } from "./upload";
+export type Upload = import("./upload").Upload;
+export const Upload: typeof import("./upload").Upload = null as any;
+
+utilities.lazyLoad(exports, ["DevicePool"], () => require("./devicePool"));
+utilities.lazyLoad(exports, ["InstanceProfile"], () => require("./instanceProfile"));
+utilities.lazyLoad(exports, ["NetworkProfile"], () => require("./networkProfile"));
+utilities.lazyLoad(exports, ["Project"], () => require("./project"));
+utilities.lazyLoad(exports, ["TestGridProject"], () => require("./testGridProject"));
+utilities.lazyLoad(exports, ["Upload"], () => require("./upload"));
 
 const _module = {
     version: utilities.getVersion(),

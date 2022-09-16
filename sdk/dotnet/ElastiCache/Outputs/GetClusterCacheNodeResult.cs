@@ -15,7 +15,7 @@ namespace Pulumi.Aws.ElastiCache.Outputs
     {
         public readonly string Address;
         /// <summary>
-        /// The Availability Zone for the cache cluster.
+        /// Availability Zone for the cache cluster.
         /// </summary>
         public readonly string AvailabilityZone;
         public readonly string Id;

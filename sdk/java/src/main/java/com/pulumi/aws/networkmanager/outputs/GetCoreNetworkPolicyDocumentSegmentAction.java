@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetCoreNetworkPolicyDocumentSegmentAction {
     /**
-     * @return The action to take for the chosen segment. Valid values `create-route` or `share`.
+     * @return Action to take for the chosen segment. Valid values `create-route` or `share`.
      * 
      */
     private String action;
@@ -33,12 +33,12 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction {
      */
     private @Nullable List<String> destinations;
     /**
-     * @return A string. This mode places the attachment and return routes in each of the `share_with` segments. Valid values include: `attachment-route`.
+     * @return String. This mode places the attachment and return routes in each of the `share_with` segments. Valid values include: `attachment-route`.
      * 
      */
     private @Nullable String mode;
     /**
-     * @return The name of the segment.
+     * @return Name of the segment.
      * 
      */
     private String segment;
@@ -55,7 +55,7 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction {
 
     private GetCoreNetworkPolicyDocumentSegmentAction() {}
     /**
-     * @return The action to take for the chosen segment. Valid values `create-route` or `share`.
+     * @return Action to take for the chosen segment. Valid values `create-route` or `share`.
      * 
      */
     public String action() {
@@ -83,14 +83,14 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction {
         return this.destinations == null ? List.of() : this.destinations;
     }
     /**
-     * @return A string. This mode places the attachment and return routes in each of the `share_with` segments. Valid values include: `attachment-route`.
+     * @return String. This mode places the attachment and return routes in each of the `share_with` segments. Valid values include: `attachment-route`.
      * 
      */
     public Optional<String> mode() {
         return Optional.ofNullable(this.mode);
     }
     /**
-     * @return The name of the segment.
+     * @return Name of the segment.
      * 
      */
     public String segment() {

@@ -38,13 +38,6 @@ public final class TransitGatewayRouteTableAttachmentArgs extends com.pulumi.res
         return Optional.ofNullable(this.tags);
     }
 
-    @Import(name="tagsAll")
-    private @Nullable Output<Map<String,String>> tagsAll;
-
-    public Optional<Output<Map<String,String>>> tagsAll() {
-        return Optional.ofNullable(this.tagsAll);
-    }
-
     /**
      * The ARN of the transit gateway route table for the attachment.
      * 
@@ -65,7 +58,6 @@ public final class TransitGatewayRouteTableAttachmentArgs extends com.pulumi.res
     private TransitGatewayRouteTableAttachmentArgs(TransitGatewayRouteTableAttachmentArgs $) {
         this.peeringId = $.peeringId;
         this.tags = $.tags;
-        this.tagsAll = $.tagsAll;
         this.transitGatewayRouteTableArn = $.transitGatewayRouteTableArn;
     }
 
@@ -115,15 +107,6 @@ public final class TransitGatewayRouteTableAttachmentArgs extends com.pulumi.res
 
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
-        }
-
-        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
-            $.tagsAll = tagsAll;
-            return this;
-        }
-
-        public Builder tagsAll(Map<String,String> tagsAll) {
-            return tagsAll(Output.of(tagsAll));
         }
 
         /**

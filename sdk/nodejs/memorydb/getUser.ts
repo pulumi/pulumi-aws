@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -36,7 +38,7 @@ export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise
  */
 export interface GetUserArgs {
     /**
-     * A map of tags assigned to the subnet group.
+     * Map of tags assigned to the subnet group.
      */
     tags?: {[key: string]: string};
     /**
@@ -50,7 +52,7 @@ export interface GetUserArgs {
  */
 export interface GetUserResult {
     /**
-     * The access permissions string used for this user.
+     * Access permissions string used for this user.
      */
     readonly accessString: string;
     /**
@@ -70,7 +72,7 @@ export interface GetUserResult {
      */
     readonly minimumEngineVersion: string;
     /**
-     * A map of tags assigned to the subnet group.
+     * Map of tags assigned to the subnet group.
      */
     readonly tags: {[key: string]: string};
     readonly userName: string;
@@ -85,7 +87,7 @@ export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptio
  */
 export interface GetUserOutputArgs {
     /**
-     * A map of tags assigned to the subnet group.
+     * Map of tags assigned to the subnet group.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

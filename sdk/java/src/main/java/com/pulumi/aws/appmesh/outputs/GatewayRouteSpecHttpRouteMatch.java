@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GatewayRouteSpecHttpRouteMatch {
     /**
-     * @return The host name to rewrite.
+     * @return Host name to rewrite.
      * 
      */
     private @Nullable GatewayRouteSpecHttpRouteMatchHostname hostname;
     /**
-     * @return The specified beginning characters to rewrite.
+     * @return Specified beginning characters to rewrite.
      * 
      */
     private @Nullable String prefix;
 
     private GatewayRouteSpecHttpRouteMatch() {}
     /**
-     * @return The host name to rewrite.
+     * @return Host name to rewrite.
      * 
      */
     public Optional<GatewayRouteSpecHttpRouteMatchHostname> hostname() {
         return Optional.ofNullable(this.hostname);
     }
     /**
-     * @return The specified beginning characters to rewrite.
+     * @return Specified beginning characters to rewrite.
      * 
      */
     public Optional<String> prefix() {

@@ -225,13 +225,13 @@ namespace Pulumi.Aws.AppSync
         public Output<ImmutableArray<Outputs.GraphQLApiAdditionalAuthenticationProvider>> AdditionalAuthenticationProviders { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN
+        /// ARN
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
+        /// Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
         /// </summary>
         [Output("authenticationType")]
         public Output<string> AuthenticationType { get; private set; } = null!;
@@ -249,7 +249,7 @@ namespace Pulumi.Aws.AppSync
         public Output<Outputs.GraphQLApiLogConfig?> LogConfig { get; private set; } = null!;
 
         /// <summary>
-        /// A user-supplied name for the GraphqlApi.
+        /// User-supplied name for the GraphqlApi.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -261,19 +261,19 @@ namespace Pulumi.Aws.AppSync
         public Output<Outputs.GraphQLApiOpenidConnectConfig?> OpenidConnectConfig { get; private set; } = null!;
 
         /// <summary>
-        /// The schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
+        /// Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
         /// </summary>
         [Output("schema")]
         public Output<string?> Schema { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -285,7 +285,7 @@ namespace Pulumi.Aws.AppSync
         public Output<ImmutableDictionary<string, string>> Uris { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Cognito User Pool configuration. Defined below.
+        /// Amazon Cognito User Pool configuration. Defined below.
         /// </summary>
         [Output("userPoolConfig")]
         public Output<Outputs.GraphQLApiUserPoolConfig?> UserPoolConfig { get; private set; } = null!;
@@ -355,7 +355,7 @@ namespace Pulumi.Aws.AppSync
         }
 
         /// <summary>
-        /// The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
+        /// Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
         /// </summary>
         [Input("authenticationType", required: true)]
         public Input<string> AuthenticationType { get; set; } = null!;
@@ -373,7 +373,7 @@ namespace Pulumi.Aws.AppSync
         public Input<Inputs.GraphQLApiLogConfigArgs>? LogConfig { get; set; }
 
         /// <summary>
-        /// A user-supplied name for the GraphqlApi.
+        /// User-supplied name for the GraphqlApi.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -385,7 +385,7 @@ namespace Pulumi.Aws.AppSync
         public Input<Inputs.GraphQLApiOpenidConnectConfigArgs>? OpenidConnectConfig { get; set; }
 
         /// <summary>
-        /// The schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
+        /// Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
         /// </summary>
         [Input("schema")]
         public Input<string>? Schema { get; set; }
@@ -394,7 +394,7 @@ namespace Pulumi.Aws.AppSync
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -403,7 +403,7 @@ namespace Pulumi.Aws.AppSync
         }
 
         /// <summary>
-        /// The Amazon Cognito User Pool configuration. Defined below.
+        /// Amazon Cognito User Pool configuration. Defined below.
         /// </summary>
         [Input("userPoolConfig")]
         public Input<Inputs.GraphQLApiUserPoolConfigArgs>? UserPoolConfig { get; set; }
@@ -435,13 +435,13 @@ namespace Pulumi.Aws.AppSync
         }
 
         /// <summary>
-        /// The ARN
+        /// ARN
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
+        /// Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
         /// </summary>
         [Input("authenticationType")]
         public Input<string>? AuthenticationType { get; set; }
@@ -459,7 +459,7 @@ namespace Pulumi.Aws.AppSync
         public Input<Inputs.GraphQLApiLogConfigGetArgs>? LogConfig { get; set; }
 
         /// <summary>
-        /// A user-supplied name for the GraphqlApi.
+        /// User-supplied name for the GraphqlApi.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -471,7 +471,7 @@ namespace Pulumi.Aws.AppSync
         public Input<Inputs.GraphQLApiOpenidConnectConfigGetArgs>? OpenidConnectConfig { get; set; }
 
         /// <summary>
-        /// The schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
+        /// Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
         /// </summary>
         [Input("schema")]
         public Input<string>? Schema { get; set; }
@@ -480,7 +480,7 @@ namespace Pulumi.Aws.AppSync
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -492,7 +492,7 @@ namespace Pulumi.Aws.AppSync
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -513,7 +513,7 @@ namespace Pulumi.Aws.AppSync
         }
 
         /// <summary>
-        /// The Amazon Cognito User Pool configuration. Defined below.
+        /// Amazon Cognito User Pool configuration. Defined below.
         /// </summary>
         [Input("userPoolConfig")]
         public Input<Inputs.GraphQLApiUserPoolConfigGetArgs>? UserPoolConfig { get; set; }

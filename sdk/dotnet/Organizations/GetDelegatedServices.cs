@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Organizations
     public sealed class GetDelegatedServicesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The account ID number of a delegated administrator account in the organization.
+        /// Account ID number of a delegated administrator account in the organization.
         /// </summary>
         [Input("accountId", required: true)]
         public string AccountId { get; set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.Aws.Organizations
     public sealed class GetDelegatedServicesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The account ID number of a delegated administrator account in the organization.
+        /// Account ID number of a delegated administrator account in the organization.
         /// </summary>
         [Input("accountId", required: true)]
         public Input<string> AccountId { get; set; } = null!;
@@ -101,7 +101,7 @@ namespace Pulumi.Aws.Organizations
     {
         public readonly string AccountId;
         /// <summary>
-        /// The services for which the account is a delegated administrator, which have the following attributes:
+        /// Services for which the account is a delegated administrator, which have the following attributes:
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDelegatedServicesDelegatedServiceResult> DelegatedServices;
         /// <summary>

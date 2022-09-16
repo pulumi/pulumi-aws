@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DistributionOrderedCacheBehaviorForwardedValuesCookies {
     /**
-     * @return Specifies whether you want CloudFront to forward
+     * @return Whether you want CloudFront to forward
      * cookies to the origin that is associated with this cache behavior. You can
      * specify `all`, `none` or `whitelist`. If `whitelist`, you must include the
      * subsequent `whitelisted_names`
@@ -29,7 +29,7 @@ public final class DistributionOrderedCacheBehaviorForwardedValuesCookies {
 
     private DistributionOrderedCacheBehaviorForwardedValuesCookies() {}
     /**
-     * @return Specifies whether you want CloudFront to forward
+     * @return Whether you want CloudFront to forward
      * cookies to the origin that is associated with this cache behavior. You can
      * specify `all`, `none` or `whitelist`. If `whitelist`, you must include the
      * subsequent `whitelisted_names`

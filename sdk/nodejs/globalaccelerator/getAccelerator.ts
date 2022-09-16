@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -42,11 +44,11 @@ export function getAccelerator(args?: GetAcceleratorArgs, opts?: pulumi.InvokeOp
  */
 export interface GetAcceleratorArgs {
     /**
-     * The full ARN of the Global Accelerator.
+     * Full ARN of the Global Accelerator.
      */
     arn?: string;
     /**
-     * The unique name of the Global Accelerator.
+     * Unique name of the Global Accelerator.
      */
     name?: string;
     tags?: {[key: string]: string};
@@ -80,11 +82,11 @@ export function getAcceleratorOutput(args?: GetAcceleratorOutputArgs, opts?: pul
  */
 export interface GetAcceleratorOutputArgs {
     /**
-     * The full ARN of the Global Accelerator.
+     * Full ARN of the Global Accelerator.
      */
     arn?: pulumi.Input<string>;
     /**
-     * The unique name of the Global Accelerator.
+     * Unique name of the Global Accelerator.
      */
     name?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

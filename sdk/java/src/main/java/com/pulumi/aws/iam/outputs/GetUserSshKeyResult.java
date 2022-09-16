@@ -11,7 +11,7 @@ import java.util.Objects;
 public final class GetUserSshKeyResult {
     private String encoding;
     /**
-     * @return The MD5 message digest of the SSH public key.
+     * @return MD5 message digest of the SSH public key.
      * 
      */
     private String fingerprint;
@@ -21,13 +21,13 @@ public final class GetUserSshKeyResult {
      */
     private String id;
     /**
-     * @return The SSH public key.
+     * @return SSH public key.
      * 
      */
     private String publicKey;
     private String sshPublicKeyId;
     /**
-     * @return The status of the SSH public key. Active means that the key can be used for authentication with an CodeCommit repository. Inactive means that the key cannot be used.
+     * @return Status of the SSH public key. Active means that the key can be used for authentication with an CodeCommit repository. Inactive means that the key cannot be used.
      * 
      */
     private String status;
@@ -38,7 +38,7 @@ public final class GetUserSshKeyResult {
         return this.encoding;
     }
     /**
-     * @return The MD5 message digest of the SSH public key.
+     * @return MD5 message digest of the SSH public key.
      * 
      */
     public String fingerprint() {
@@ -52,7 +52,7 @@ public final class GetUserSshKeyResult {
         return this.id;
     }
     /**
-     * @return The SSH public key.
+     * @return SSH public key.
      * 
      */
     public String publicKey() {
@@ -62,7 +62,7 @@ public final class GetUserSshKeyResult {
         return this.sshPublicKeyId;
     }
     /**
-     * @return The status of the SSH public key. Active means that the key can be used for authentication with an CodeCommit repository. Inactive means that the key cannot be used.
+     * @return Status of the SSH public key. Active means that the key can be used for authentication with an CodeCommit repository. Inactive means that the key cannot be used.
      * 
      */
     public String status() {

@@ -9,6 +9,26 @@ import (
 
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
+
+		vpc, err := ec2.NewDefaultVpc(ctx, "go-web-default-vpc", &ec2.DefaultVpcArgs{
+			Tags: pulumi.StringMap{
+				"Name": pulumi.String("Default VPC"),
+			},
+		})
+		if err != nil {
+			return err
+		}
+
+		subnet, err := ec2.NewDefaultSubnet(ctx, "go-web-default-subnet", &ec2.DefaultSubnetArgs{
+			AvailabilityZone: pulumi.String("us-west-2a"),
+			Tags: pulumi.StringMap{
+				"Name": pulumi.String("Default subnet for us-west-2a"),
+			},
+		})
+		if err != nil {
+			return err
+		}
+
 		group, err := ec2.NewSecurityGroup(ctx, "go-web-secgrp-2", &ec2.SecurityGroupArgs{
 			Description: pulumi.String("Enable HTTP access"),
 			Ingress: ec2.SecurityGroupIngressArray{
@@ -19,6 +39,7 @@ func main() {
 					CidrBlocks: pulumi.StringArray{pulumi.String("0.0.0.0/0")},
 				},
 			},
+			VpcId: vpc.ID(),
 		})
 		if err != nil {
 			return err
@@ -43,6 +64,7 @@ func main() {
 			InstanceType:        ec2.InstanceType_T2_Micro,
 			VpcSecurityGroupIds: pulumi.StringArray{group.ID()},
 			Ami:                 pulumi.String(ami.Id),
+			SubnetId:            subnet.ID(),
 		})
 		if err != nil {
 			return err

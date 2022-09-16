@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Glue.Outputs
     public sealed class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionResult
     {
         /// <summary>
-        /// A KMS key ARN that is used to encrypt the connection password.
+        /// KMS key ARN that is used to encrypt the connection password.
         /// </summary>
         public readonly string AwsKmsKeyId;
         /// <summary>

@@ -72,13 +72,13 @@ namespace Pulumi.Aws.Lex
     public sealed class GetIntentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the intent. The name is case sensitive.
+        /// Name of the intent. The name is case sensitive.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// The version of the intent.
+        /// Version of the intent.
         /// </summary>
         [Input("version")]
         public string? Version { get; set; }
@@ -92,13 +92,13 @@ namespace Pulumi.Aws.Lex
     public sealed class GetIntentInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the intent. The name is case sensitive.
+        /// Name of the intent. The name is case sensitive.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The version of the intent.
+        /// Version of the intent.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
@@ -114,7 +114,7 @@ namespace Pulumi.Aws.Lex
     public sealed class GetIntentResult
     {
         /// <summary>
-        /// The ARN of the Lex intent.
+        /// ARN of the Lex intent.
         /// </summary>
         public readonly string Arn;
         /// <summary>
@@ -123,11 +123,11 @@ namespace Pulumi.Aws.Lex
         /// </summary>
         public readonly string Checksum;
         /// <summary>
-        /// The date when the intent version was created.
+        /// Date when the intent version was created.
         /// </summary>
         public readonly string CreatedDate;
         /// <summary>
-        /// A description of the intent.
+        /// Description of the intent.
         /// </summary>
         public readonly string Description;
         /// <summary>
@@ -135,11 +135,11 @@ namespace Pulumi.Aws.Lex
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The date when the $LATEST version of this intent was updated.
+        /// Date when the $LATEST version of this intent was updated.
         /// </summary>
         public readonly string LastUpdatedDate;
         /// <summary>
-        /// The name of the intent, not case sensitive.
+        /// Name of the intent, not case sensitive.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -150,7 +150,7 @@ namespace Pulumi.Aws.Lex
         /// </summary>
         public readonly string ParentIntentSignature;
         /// <summary>
-        /// The version of the bot.
+        /// Version of the bot.
         /// </summary>
         public readonly string? Version;
 

@@ -16,14 +16,14 @@ public final class DomainNameArgs extends com.pulumi.resources.ResourceArgs {
     public static final DomainNameArgs Empty = new DomainNameArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
+     * ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
      * 
      */
     @Import(name="certificateArn", required=true)
     private Output<String> certificateArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
+     * @return ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
      * 
      */
     public Output<String> certificateArn() {
@@ -46,14 +46,14 @@ public final class DomainNameArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The domain name.
+     * Domain name.
      * 
      */
     @Import(name="domainName", required=true)
     private Output<String> domainName;
 
     /**
-     * @return The domain name.
+     * @return Domain name.
      * 
      */
     public Output<String> domainName() {
@@ -87,7 +87,7 @@ public final class DomainNameArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificateArn The Amazon Resource Name (ARN) of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
+         * @param certificateArn ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class DomainNameArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificateArn The Amazon Resource Name (ARN) of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
+         * @param certificateArn ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class DomainNameArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domainName The domain name.
+         * @param domainName Domain name.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class DomainNameArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domainName The domain name.
+         * @param domainName Domain name.
          * 
          * @return builder
          * 

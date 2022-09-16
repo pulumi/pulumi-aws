@@ -16,14 +16,14 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction extends com.pulumi.
     public static final GetCoreNetworkPolicyDocumentSegmentAction Empty = new GetCoreNetworkPolicyDocumentSegmentAction();
 
     /**
-     * The action to take for the chosen segment. Valid values `create-route` or `share`.
+     * Action to take for the chosen segment. Valid values `create-route` or `share`.
      * 
      */
     @Import(name="action", required=true)
     private String action;
 
     /**
-     * @return The action to take for the chosen segment. Valid values `create-route` or `share`.
+     * @return Action to take for the chosen segment. Valid values `create-route` or `share`.
      * 
      */
     public String action() {
@@ -76,14 +76,14 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction extends com.pulumi.
     }
 
     /**
-     * A string. This mode places the attachment and return routes in each of the `share_with` segments. Valid values include: `attachment-route`.
+     * String. This mode places the attachment and return routes in each of the `share_with` segments. Valid values include: `attachment-route`.
      * 
      */
     @Import(name="mode")
     private @Nullable String mode;
 
     /**
-     * @return A string. This mode places the attachment and return routes in each of the `share_with` segments. Valid values include: `attachment-route`.
+     * @return String. This mode places the attachment and return routes in each of the `share_with` segments. Valid values include: `attachment-route`.
      * 
      */
     public Optional<String> mode() {
@@ -91,14 +91,14 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction extends com.pulumi.
     }
 
     /**
-     * The name of the segment.
+     * Name of the segment.
      * 
      */
     @Import(name="segment", required=true)
     private String segment;
 
     /**
-     * @return The name of the segment.
+     * @return Name of the segment.
      * 
      */
     public String segment() {
@@ -167,7 +167,7 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction extends com.pulumi.
         }
 
         /**
-         * @param action The action to take for the chosen segment. Valid values `create-route` or `share`.
+         * @param action Action to take for the chosen segment. Valid values `create-route` or `share`.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction extends com.pulumi.
         }
 
         /**
-         * @param mode A string. This mode places the attachment and return routes in each of the `share_with` segments. Valid values include: `attachment-route`.
+         * @param mode String. This mode places the attachment and return routes in each of the `share_with` segments. Valid values include: `attachment-route`.
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction extends com.pulumi.
         }
 
         /**
-         * @param segment The name of the segment.
+         * @param segment Name of the segment.
          * 
          * @return builder
          * 

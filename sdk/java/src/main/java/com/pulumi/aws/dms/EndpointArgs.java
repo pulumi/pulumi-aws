@@ -7,6 +7,7 @@ import com.pulumi.aws.dms.inputs.EndpointElasticsearchSettingsArgs;
 import com.pulumi.aws.dms.inputs.EndpointKafkaSettingsArgs;
 import com.pulumi.aws.dms.inputs.EndpointKinesisSettingsArgs;
 import com.pulumi.aws.dms.inputs.EndpointMongodbSettingsArgs;
+import com.pulumi.aws.dms.inputs.EndpointRedisSettingsArgs;
 import com.pulumi.aws.dms.inputs.EndpointRedshiftSettingsArgs;
 import com.pulumi.aws.dms.inputs.EndpointS3SettingsArgs;
 import com.pulumi.core.Output;
@@ -204,18 +205,25 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Port used by the endpoint database.
+     * Transmission Control Protocol (TCP) port for the endpoint.
      * 
      */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
     /**
-     * @return Port used by the endpoint database.
+     * @return Transmission Control Protocol (TCP) port for the endpoint.
      * 
      */
     public Optional<Output<Integer>> port() {
         return Optional.ofNullable(this.port);
+    }
+
+    @Import(name="redisSettings")
+    private @Nullable Output<EndpointRedisSettingsArgs> redisSettings;
+
+    public Optional<Output<EndpointRedisSettingsArgs>> redisSettings() {
+        return Optional.ofNullable(this.redisSettings);
     }
 
     /**
@@ -279,14 +287,14 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Host name of the server.
+     * Fully qualified domain name of the endpoint.
      * 
      */
     @Import(name="serverName")
     private @Nullable Output<String> serverName;
 
     /**
-     * @return Host name of the server.
+     * @return Fully qualified domain name of the endpoint.
      * 
      */
     public Optional<Output<String>> serverName() {
@@ -369,6 +377,7 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
         this.mongodbSettings = $.mongodbSettings;
         this.password = $.password;
         this.port = $.port;
+        this.redisSettings = $.redisSettings;
         this.redshiftSettings = $.redshiftSettings;
         this.s3Settings = $.s3Settings;
         this.secretsManagerAccessRoleArn = $.secretsManagerAccessRoleArn;
@@ -651,7 +660,7 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param port Port used by the endpoint database.
+         * @param port Transmission Control Protocol (TCP) port for the endpoint.
          * 
          * @return builder
          * 
@@ -662,13 +671,22 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param port Port used by the endpoint database.
+         * @param port Transmission Control Protocol (TCP) port for the endpoint.
          * 
          * @return builder
          * 
          */
         public Builder port(Integer port) {
             return port(Output.of(port));
+        }
+
+        public Builder redisSettings(@Nullable Output<EndpointRedisSettingsArgs> redisSettings) {
+            $.redisSettings = redisSettings;
+            return this;
+        }
+
+        public Builder redisSettings(EndpointRedisSettingsArgs redisSettings) {
+            return redisSettings(Output.of(redisSettings));
         }
 
         /**
@@ -756,7 +774,7 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serverName Host name of the server.
+         * @param serverName Fully qualified domain name of the endpoint.
          * 
          * @return builder
          * 
@@ -767,7 +785,7 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serverName Host name of the server.
+         * @param serverName Fully qualified domain name of the endpoint.
          * 
          * @return builder
          * 

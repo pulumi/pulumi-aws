@@ -74,7 +74,7 @@ namespace Pulumi.Aws.Lambda
     public sealed class GetCodeSigningConfigArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the code signing configuration.
+        /// ARN of the code signing configuration.
         /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
@@ -88,7 +88,7 @@ namespace Pulumi.Aws.Lambda
     public sealed class GetCodeSigningConfigInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the code signing configuration.
+        /// ARN of the code signing configuration.
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
@@ -121,7 +121,7 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The date and time that the code signing configuration was last modified.
+        /// Date and time that the code signing configuration was last modified.
         /// </summary>
         public readonly string LastModified;
         /// <summary>

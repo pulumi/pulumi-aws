@@ -17,14 +17,14 @@ public final class FlowTriggerConfigArgs extends com.pulumi.resources.ResourceAr
     public static final FlowTriggerConfigArgs Empty = new FlowTriggerConfigArgs();
 
     /**
-     * Specifies the configuration details of a schedule-triggered flow as defined by the user. Currently, these settings only apply to the `Scheduled` trigger type. See Scheduled Trigger Properties for details.
+     * Configuration details of a schedule-triggered flow as defined by the user. Currently, these settings only apply to the `Scheduled` trigger type. See Scheduled Trigger Properties for details.
      * 
      */
     @Import(name="triggerProperties")
     private @Nullable Output<FlowTriggerConfigTriggerPropertiesArgs> triggerProperties;
 
     /**
-     * @return Specifies the configuration details of a schedule-triggered flow as defined by the user. Currently, these settings only apply to the `Scheduled` trigger type. See Scheduled Trigger Properties for details.
+     * @return Configuration details of a schedule-triggered flow as defined by the user. Currently, these settings only apply to the `Scheduled` trigger type. See Scheduled Trigger Properties for details.
      * 
      */
     public Optional<Output<FlowTriggerConfigTriggerPropertiesArgs>> triggerProperties() {
@@ -32,14 +32,14 @@ public final class FlowTriggerConfigArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Specifies the type of flow trigger. Valid values are `Scheduled`, `Event`, and `OnDemand`.
+     * Type of flow trigger. Valid values are `Scheduled`, `Event`, and `OnDemand`.
      * 
      */
     @Import(name="triggerType", required=true)
     private Output<String> triggerType;
 
     /**
-     * @return Specifies the type of flow trigger. Valid values are `Scheduled`, `Event`, and `OnDemand`.
+     * @return Type of flow trigger. Valid values are `Scheduled`, `Event`, and `OnDemand`.
      * 
      */
     public Output<String> triggerType() {
@@ -72,7 +72,7 @@ public final class FlowTriggerConfigArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param triggerProperties Specifies the configuration details of a schedule-triggered flow as defined by the user. Currently, these settings only apply to the `Scheduled` trigger type. See Scheduled Trigger Properties for details.
+         * @param triggerProperties Configuration details of a schedule-triggered flow as defined by the user. Currently, these settings only apply to the `Scheduled` trigger type. See Scheduled Trigger Properties for details.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class FlowTriggerConfigArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param triggerProperties Specifies the configuration details of a schedule-triggered flow as defined by the user. Currently, these settings only apply to the `Scheduled` trigger type. See Scheduled Trigger Properties for details.
+         * @param triggerProperties Configuration details of a schedule-triggered flow as defined by the user. Currently, these settings only apply to the `Scheduled` trigger type. See Scheduled Trigger Properties for details.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class FlowTriggerConfigArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param triggerType Specifies the type of flow trigger. Valid values are `Scheduled`, `Event`, and `OnDemand`.
+         * @param triggerType Type of flow trigger. Valid values are `Scheduled`, `Event`, and `OnDemand`.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class FlowTriggerConfigArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param triggerType Specifies the type of flow trigger. Valid values are `Scheduled`, `Event`, and `OnDemand`.
+         * @param triggerType Type of flow trigger. Valid values are `Scheduled`, `Event`, and `OnDemand`.
          * 
          * @return builder
          * 

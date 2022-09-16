@@ -5,48 +5,115 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./bgpPeer";
-export * from "./connection";
-export * from "./connectionAssociation";
-export * from "./connectionConfirmation";
-export * from "./gateway";
-export * from "./gatewayAssociation";
-export * from "./gatewayAssociationProposal";
-export * from "./getConnection";
-export * from "./getGateway";
-export * from "./getLocation";
-export * from "./getLocations";
-export * from "./hostedConnection";
-export * from "./hostedPrivateVirtualInterface";
-export * from "./hostedPrivateVirtualInterfaceAccepter";
-export * from "./hostedPublicVirtualInterface";
-export * from "./hostedPublicVirtualInterfaceAccepter";
-export * from "./hostedTransitVirtualInterface";
-export * from "./hostedTransitVirtualInterfaceAcceptor";
-export * from "./linkAggregationGroup";
-export * from "./privateVirtualInterface";
-export * from "./publicVirtualInterface";
-export * from "./transitVirtualInterface";
+export { BgpPeerArgs, BgpPeerState } from "./bgpPeer";
+export type BgpPeer = import("./bgpPeer").BgpPeer;
+export const BgpPeer: typeof import("./bgpPeer").BgpPeer = null as any;
 
-// Import resources to register:
-import { BgpPeer } from "./bgpPeer";
-import { Connection } from "./connection";
-import { ConnectionAssociation } from "./connectionAssociation";
-import { ConnectionConfirmation } from "./connectionConfirmation";
-import { Gateway } from "./gateway";
-import { GatewayAssociation } from "./gatewayAssociation";
-import { GatewayAssociationProposal } from "./gatewayAssociationProposal";
-import { HostedConnection } from "./hostedConnection";
-import { HostedPrivateVirtualInterface } from "./hostedPrivateVirtualInterface";
-import { HostedPrivateVirtualInterfaceAccepter } from "./hostedPrivateVirtualInterfaceAccepter";
-import { HostedPublicVirtualInterface } from "./hostedPublicVirtualInterface";
-import { HostedPublicVirtualInterfaceAccepter } from "./hostedPublicVirtualInterfaceAccepter";
-import { HostedTransitVirtualInterface } from "./hostedTransitVirtualInterface";
-import { HostedTransitVirtualInterfaceAcceptor } from "./hostedTransitVirtualInterfaceAcceptor";
-import { LinkAggregationGroup } from "./linkAggregationGroup";
-import { PrivateVirtualInterface } from "./privateVirtualInterface";
-import { PublicVirtualInterface } from "./publicVirtualInterface";
-import { TransitVirtualInterface } from "./transitVirtualInterface";
+export { ConnectionArgs, ConnectionState } from "./connection";
+export type Connection = import("./connection").Connection;
+export const Connection: typeof import("./connection").Connection = null as any;
+
+export { ConnectionAssociationArgs, ConnectionAssociationState } from "./connectionAssociation";
+export type ConnectionAssociation = import("./connectionAssociation").ConnectionAssociation;
+export const ConnectionAssociation: typeof import("./connectionAssociation").ConnectionAssociation = null as any;
+
+export { ConnectionConfirmationArgs, ConnectionConfirmationState } from "./connectionConfirmation";
+export type ConnectionConfirmation = import("./connectionConfirmation").ConnectionConfirmation;
+export const ConnectionConfirmation: typeof import("./connectionConfirmation").ConnectionConfirmation = null as any;
+
+export { GatewayArgs, GatewayState } from "./gateway";
+export type Gateway = import("./gateway").Gateway;
+export const Gateway: typeof import("./gateway").Gateway = null as any;
+
+export { GatewayAssociationArgs, GatewayAssociationState } from "./gatewayAssociation";
+export type GatewayAssociation = import("./gatewayAssociation").GatewayAssociation;
+export const GatewayAssociation: typeof import("./gatewayAssociation").GatewayAssociation = null as any;
+
+export { GatewayAssociationProposalArgs, GatewayAssociationProposalState } from "./gatewayAssociationProposal";
+export type GatewayAssociationProposal = import("./gatewayAssociationProposal").GatewayAssociationProposal;
+export const GatewayAssociationProposal: typeof import("./gatewayAssociationProposal").GatewayAssociationProposal = null as any;
+
+export { GetConnectionArgs, GetConnectionResult, GetConnectionOutputArgs } from "./getConnection";
+export const getConnection: typeof import("./getConnection").getConnection = null as any;
+export const getConnectionOutput: typeof import("./getConnection").getConnectionOutput = null as any;
+
+export { GetGatewayArgs, GetGatewayResult, GetGatewayOutputArgs } from "./getGateway";
+export const getGateway: typeof import("./getGateway").getGateway = null as any;
+export const getGatewayOutput: typeof import("./getGateway").getGatewayOutput = null as any;
+
+export { GetLocationArgs, GetLocationResult, GetLocationOutputArgs } from "./getLocation";
+export const getLocation: typeof import("./getLocation").getLocation = null as any;
+export const getLocationOutput: typeof import("./getLocation").getLocationOutput = null as any;
+
+export { GetLocationsResult } from "./getLocations";
+export const getLocations: typeof import("./getLocations").getLocations = null as any;
+
+export { HostedConnectionArgs, HostedConnectionState } from "./hostedConnection";
+export type HostedConnection = import("./hostedConnection").HostedConnection;
+export const HostedConnection: typeof import("./hostedConnection").HostedConnection = null as any;
+
+export { HostedPrivateVirtualInterfaceArgs, HostedPrivateVirtualInterfaceState } from "./hostedPrivateVirtualInterface";
+export type HostedPrivateVirtualInterface = import("./hostedPrivateVirtualInterface").HostedPrivateVirtualInterface;
+export const HostedPrivateVirtualInterface: typeof import("./hostedPrivateVirtualInterface").HostedPrivateVirtualInterface = null as any;
+
+export { HostedPrivateVirtualInterfaceAccepterArgs, HostedPrivateVirtualInterfaceAccepterState } from "./hostedPrivateVirtualInterfaceAccepter";
+export type HostedPrivateVirtualInterfaceAccepter = import("./hostedPrivateVirtualInterfaceAccepter").HostedPrivateVirtualInterfaceAccepter;
+export const HostedPrivateVirtualInterfaceAccepter: typeof import("./hostedPrivateVirtualInterfaceAccepter").HostedPrivateVirtualInterfaceAccepter = null as any;
+
+export { HostedPublicVirtualInterfaceArgs, HostedPublicVirtualInterfaceState } from "./hostedPublicVirtualInterface";
+export type HostedPublicVirtualInterface = import("./hostedPublicVirtualInterface").HostedPublicVirtualInterface;
+export const HostedPublicVirtualInterface: typeof import("./hostedPublicVirtualInterface").HostedPublicVirtualInterface = null as any;
+
+export { HostedPublicVirtualInterfaceAccepterArgs, HostedPublicVirtualInterfaceAccepterState } from "./hostedPublicVirtualInterfaceAccepter";
+export type HostedPublicVirtualInterfaceAccepter = import("./hostedPublicVirtualInterfaceAccepter").HostedPublicVirtualInterfaceAccepter;
+export const HostedPublicVirtualInterfaceAccepter: typeof import("./hostedPublicVirtualInterfaceAccepter").HostedPublicVirtualInterfaceAccepter = null as any;
+
+export { HostedTransitVirtualInterfaceArgs, HostedTransitVirtualInterfaceState } from "./hostedTransitVirtualInterface";
+export type HostedTransitVirtualInterface = import("./hostedTransitVirtualInterface").HostedTransitVirtualInterface;
+export const HostedTransitVirtualInterface: typeof import("./hostedTransitVirtualInterface").HostedTransitVirtualInterface = null as any;
+
+export { HostedTransitVirtualInterfaceAcceptorArgs, HostedTransitVirtualInterfaceAcceptorState } from "./hostedTransitVirtualInterfaceAcceptor";
+export type HostedTransitVirtualInterfaceAcceptor = import("./hostedTransitVirtualInterfaceAcceptor").HostedTransitVirtualInterfaceAcceptor;
+export const HostedTransitVirtualInterfaceAcceptor: typeof import("./hostedTransitVirtualInterfaceAcceptor").HostedTransitVirtualInterfaceAcceptor = null as any;
+
+export { LinkAggregationGroupArgs, LinkAggregationGroupState } from "./linkAggregationGroup";
+export type LinkAggregationGroup = import("./linkAggregationGroup").LinkAggregationGroup;
+export const LinkAggregationGroup: typeof import("./linkAggregationGroup").LinkAggregationGroup = null as any;
+
+export { PrivateVirtualInterfaceArgs, PrivateVirtualInterfaceState } from "./privateVirtualInterface";
+export type PrivateVirtualInterface = import("./privateVirtualInterface").PrivateVirtualInterface;
+export const PrivateVirtualInterface: typeof import("./privateVirtualInterface").PrivateVirtualInterface = null as any;
+
+export { PublicVirtualInterfaceArgs, PublicVirtualInterfaceState } from "./publicVirtualInterface";
+export type PublicVirtualInterface = import("./publicVirtualInterface").PublicVirtualInterface;
+export const PublicVirtualInterface: typeof import("./publicVirtualInterface").PublicVirtualInterface = null as any;
+
+export { TransitVirtualInterfaceArgs, TransitVirtualInterfaceState } from "./transitVirtualInterface";
+export type TransitVirtualInterface = import("./transitVirtualInterface").TransitVirtualInterface;
+export const TransitVirtualInterface: typeof import("./transitVirtualInterface").TransitVirtualInterface = null as any;
+
+utilities.lazyLoad(exports, ["BgpPeer"], () => require("./bgpPeer"));
+utilities.lazyLoad(exports, ["Connection"], () => require("./connection"));
+utilities.lazyLoad(exports, ["ConnectionAssociation"], () => require("./connectionAssociation"));
+utilities.lazyLoad(exports, ["ConnectionConfirmation"], () => require("./connectionConfirmation"));
+utilities.lazyLoad(exports, ["Gateway"], () => require("./gateway"));
+utilities.lazyLoad(exports, ["GatewayAssociation"], () => require("./gatewayAssociation"));
+utilities.lazyLoad(exports, ["GatewayAssociationProposal"], () => require("./gatewayAssociationProposal"));
+utilities.lazyLoad(exports, ["getConnection","getConnectionOutput"], () => require("./getConnection"));
+utilities.lazyLoad(exports, ["getGateway","getGatewayOutput"], () => require("./getGateway"));
+utilities.lazyLoad(exports, ["getLocation","getLocationOutput"], () => require("./getLocation"));
+utilities.lazyLoad(exports, ["getLocations"], () => require("./getLocations"));
+utilities.lazyLoad(exports, ["HostedConnection"], () => require("./hostedConnection"));
+utilities.lazyLoad(exports, ["HostedPrivateVirtualInterface"], () => require("./hostedPrivateVirtualInterface"));
+utilities.lazyLoad(exports, ["HostedPrivateVirtualInterfaceAccepter"], () => require("./hostedPrivateVirtualInterfaceAccepter"));
+utilities.lazyLoad(exports, ["HostedPublicVirtualInterface"], () => require("./hostedPublicVirtualInterface"));
+utilities.lazyLoad(exports, ["HostedPublicVirtualInterfaceAccepter"], () => require("./hostedPublicVirtualInterfaceAccepter"));
+utilities.lazyLoad(exports, ["HostedTransitVirtualInterface"], () => require("./hostedTransitVirtualInterface"));
+utilities.lazyLoad(exports, ["HostedTransitVirtualInterfaceAcceptor"], () => require("./hostedTransitVirtualInterfaceAcceptor"));
+utilities.lazyLoad(exports, ["LinkAggregationGroup"], () => require("./linkAggregationGroup"));
+utilities.lazyLoad(exports, ["PrivateVirtualInterface"], () => require("./privateVirtualInterface"));
+utilities.lazyLoad(exports, ["PublicVirtualInterface"], () => require("./publicVirtualInterface"));
+utilities.lazyLoad(exports, ["TransitVirtualInterface"], () => require("./transitVirtualInterface"));
 
 const _module = {
     version: utilities.getVersion(),

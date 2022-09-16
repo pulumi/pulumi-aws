@@ -11,7 +11,21 @@ const providerOpts = { provider: new aws.Provider("prov", { region }) };
 
 const size = aws.ec2.InstanceType.T2_Micro;
 
+let vpc = new aws.ec2.DefaultVpc("ts-web-default-vpc", {
+    tags: {
+        Name: "Default VPC",
+    },
+}, providerOpts);
+
+let subnet = new aws.ec2.DefaultSubnet("ts-web-default-subnet", {
+    availabilityZone: "us-west-2a",
+    tags: {
+        Name: "Default subnet for us-west-2a",
+    },
+}, providerOpts);
+
 let group = new aws.ec2.SecurityGroup("ts-web-secgrp-2", {
+    vpcId: vpc.id,
     description: "Enable HTTP access",
     ingress: [
         { protocol: aws.ec2.TCPProtocol, fromPort: 80, toPort: 80, cidrBlocks: ["0.0.0.0/0"] },
@@ -20,8 +34,9 @@ let group = new aws.ec2.SecurityGroup("ts-web-secgrp-2", {
 
 let server = new aws.ec2.Instance("web-server-www", {
     instanceType: size,
-    securityGroups: [ group.name ],
+    vpcSecurityGroupIds: [ group.id ],
     ami: getLinuxAMI(size, region),
+    subnetId: subnet.id,
 }, providerOpts);
 
 export let publicIp = server.publicIp;

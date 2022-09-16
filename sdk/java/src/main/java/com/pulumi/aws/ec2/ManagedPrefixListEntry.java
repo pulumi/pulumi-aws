@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *         var entry1 = new ManagedPrefixListEntry(&#34;entry1&#34;, ManagedPrefixListEntryArgs.builder()        
  *             .cidr(aws_vpc.example().cidr_block())
  *             .description(&#34;Primary&#34;)
- *             .prefixListId(aws_ec2_managed_prefix_list.entry().id())
+ *             .prefixListId(example.id())
  *             .build());
  * 
  *     }

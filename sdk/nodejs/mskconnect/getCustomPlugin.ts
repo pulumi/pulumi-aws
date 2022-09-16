@@ -44,7 +44,7 @@ export interface GetCustomPluginArgs {
  */
 export interface GetCustomPluginResult {
     /**
-     * the Amazon Resource Name (ARN) of the custom plugin.
+     * the ARN of the custom plugin.
      */
     readonly arn: string;
     /**

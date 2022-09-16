@@ -18,13 +18,13 @@ public final class ServiceSourceConfigurationImageRepository {
      */
     private @Nullable ServiceSourceConfigurationImageRepositoryImageConfiguration imageConfiguration;
     /**
-     * @return The identifier of an image. For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the
+     * @return Identifier of an image. For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the
      * image name format, see Pulling an image in the Amazon ECR User Guide.
      * 
      */
     private String imageIdentifier;
     /**
-     * @return The type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR` , `ECR_PUBLIC`.
+     * @return Type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR` , `ECR_PUBLIC`.
      * 
      */
     private String imageRepositoryType;
@@ -38,7 +38,7 @@ public final class ServiceSourceConfigurationImageRepository {
         return Optional.ofNullable(this.imageConfiguration);
     }
     /**
-     * @return The identifier of an image. For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the
+     * @return Identifier of an image. For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the
      * image name format, see Pulling an image in the Amazon ECR User Guide.
      * 
      */
@@ -46,7 +46,7 @@ public final class ServiceSourceConfigurationImageRepository {
         return this.imageIdentifier;
     }
     /**
-     * @return The type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR` , `ECR_PUBLIC`.
+     * @return Type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR` , `ECR_PUBLIC`.
      * 
      */
     public String imageRepositoryType() {

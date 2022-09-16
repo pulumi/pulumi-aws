@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -49,7 +51,7 @@ export function getLocalGatewayRouteTable(args?: GetLocalGatewayRouteTableArgs, 
 export interface GetLocalGatewayRouteTableArgs {
     filters?: inputs.ec2.GetLocalGatewayRouteTableFilter[];
     /**
-     * The id of the specific local gateway route table to retrieve.
+     * ID of the specific local gateway route table to retrieve.
      */
     localGatewayId?: string;
     /**
@@ -57,15 +59,15 @@ export interface GetLocalGatewayRouteTableArgs {
      */
     localGatewayRouteTableId?: string;
     /**
-     * The arn of the Outpost the local gateway route table is associated with.
+     * ARN of the Outpost the local gateway route table is associated with.
      */
     outpostArn?: string;
     /**
-     * The state of the local gateway route table.
+     * State of the local gateway route table.
      */
     state?: string;
     /**
-     * A mapping of tags, each pair of which must exactly match
+     * Mapping of tags, each pair of which must exactly match
      * a pair on the desired local gateway route table.
      */
     tags?: {[key: string]: string};
@@ -97,7 +99,7 @@ export function getLocalGatewayRouteTableOutput(args?: GetLocalGatewayRouteTable
 export interface GetLocalGatewayRouteTableOutputArgs {
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetLocalGatewayRouteTableFilterArgs>[]>;
     /**
-     * The id of the specific local gateway route table to retrieve.
+     * ID of the specific local gateway route table to retrieve.
      */
     localGatewayId?: pulumi.Input<string>;
     /**
@@ -105,15 +107,15 @@ export interface GetLocalGatewayRouteTableOutputArgs {
      */
     localGatewayRouteTableId?: pulumi.Input<string>;
     /**
-     * The arn of the Outpost the local gateway route table is associated with.
+     * ARN of the Outpost the local gateway route table is associated with.
      */
     outpostArn?: pulumi.Input<string>;
     /**
-     * The state of the local gateway route table.
+     * State of the local gateway route table.
      */
     state?: pulumi.Input<string>;
     /**
-     * A mapping of tags, each pair of which must exactly match
+     * Mapping of tags, each pair of which must exactly match
      * a pair on the desired local gateway route table.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

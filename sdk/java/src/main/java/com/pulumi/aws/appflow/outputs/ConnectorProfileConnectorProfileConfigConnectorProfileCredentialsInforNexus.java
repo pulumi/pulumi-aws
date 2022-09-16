@@ -15,7 +15,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
      */
     private String accessKeyId;
     /**
-     * @return The encryption keys used to encrypt data.
+     * @return Encryption keys used to encrypt data.
      * 
      */
     private String datakey;
@@ -25,7 +25,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
      */
     private String secretAccessKey;
     /**
-     * @return The identifier for the user.
+     * @return Identifier for the user.
      * 
      */
     private String userId;
@@ -39,7 +39,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         return this.accessKeyId;
     }
     /**
-     * @return The encryption keys used to encrypt data.
+     * @return Encryption keys used to encrypt data.
      * 
      */
     public String datakey() {
@@ -53,7 +53,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         return this.secretAccessKey;
     }
     /**
-     * @return The identifier for the user.
+     * @return Identifier for the user.
      * 
      */
     public String userId() {

@@ -16,14 +16,14 @@ public final class GetSlotTypeArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetSlotTypeArgs Empty = new GetSlotTypeArgs();
 
     /**
-     * The name of the slot type. The name is case sensitive.
+     * Name of the slot type. The name is case sensitive.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the slot type. The name is case sensitive.
+     * @return Name of the slot type. The name is case sensitive.
      * 
      */
     public Output<String> name() {
@@ -31,14 +31,14 @@ public final class GetSlotTypeArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The version of the slot type.
+     * Version of the slot type.
      * 
      */
     @Import(name="version")
     private @Nullable Output<String> version;
 
     /**
-     * @return The version of the slot type.
+     * @return Version of the slot type.
      * 
      */
     public Optional<Output<String>> version() {
@@ -71,7 +71,7 @@ public final class GetSlotTypeArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the slot type. The name is case sensitive.
+         * @param name Name of the slot type. The name is case sensitive.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class GetSlotTypeArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the slot type. The name is case sensitive.
+         * @param name Name of the slot type. The name is case sensitive.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class GetSlotTypeArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param version The version of the slot type.
+         * @param version Version of the slot type.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class GetSlotTypeArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param version The version of the slot type.
+         * @param version Version of the slot type.
          * 
          * @return builder
          * 

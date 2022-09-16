@@ -68,7 +68,7 @@ def get_ipset(name: Optional[str] = None,
     ```
 
 
-    :param str name: The name of the WAF Regional IP set.
+    :param str name: Name of the WAF Regional IP set.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -96,6 +96,6 @@ def get_ipset_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str name: The name of the WAF Regional IP set.
+    :param str name: Name of the WAF Regional IP set.
     """
     ...

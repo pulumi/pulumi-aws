@@ -53,13 +53,13 @@ func LookupFunction(ctx *pulumi.Context, args *LookupFunctionArgs, opts ...pulum
 type LookupFunctionArgs struct {
 	// Name of the CloudFront function.
 	Name string `pulumi:"name"`
-	// The function’s stage, either `DEVELOPMENT` or `LIVE`.
+	// Function’s stage, either `DEVELOPMENT` or `LIVE`.
 	Stage string `pulumi:"stage"`
 }
 
 // A collection of values returned by getFunction.
 type LookupFunctionResult struct {
-	// Amazon Resource Name (ARN) identifying your CloudFront Function.
+	// ARN identifying your CloudFront Function.
 	Arn string `pulumi:"arn"`
 	// Source code of the function
 	Code string `pulumi:"code"`
@@ -96,7 +96,7 @@ func LookupFunctionOutput(ctx *pulumi.Context, args LookupFunctionOutputArgs, op
 type LookupFunctionOutputArgs struct {
 	// Name of the CloudFront function.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The function’s stage, either `DEVELOPMENT` or `LIVE`.
+	// Function’s stage, either `DEVELOPMENT` or `LIVE`.
 	Stage pulumi.StringInput `pulumi:"stage"`
 }
 
@@ -119,7 +119,7 @@ func (o LookupFunctionResultOutput) ToLookupFunctionResultOutputWithContext(ctx 
 	return o
 }
 
-// Amazon Resource Name (ARN) identifying your CloudFront Function.
+// ARN identifying your CloudFront Function.
 func (o LookupFunctionResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFunctionResult) string { return v.Arn }).(pulumi.StringOutput)
 }

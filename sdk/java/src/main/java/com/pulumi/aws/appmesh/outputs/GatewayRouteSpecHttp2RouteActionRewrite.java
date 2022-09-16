@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GatewayRouteSpecHttp2RouteActionRewrite {
     /**
-     * @return The host name to rewrite.
+     * @return Host name to rewrite.
      * 
      */
     private @Nullable GatewayRouteSpecHttp2RouteActionRewriteHostname hostname;
     /**
-     * @return The specified beginning characters to rewrite.
+     * @return Specified beginning characters to rewrite.
      * 
      */
     private @Nullable GatewayRouteSpecHttp2RouteActionRewritePrefix prefix;
 
     private GatewayRouteSpecHttp2RouteActionRewrite() {}
     /**
-     * @return The host name to rewrite.
+     * @return Host name to rewrite.
      * 
      */
     public Optional<GatewayRouteSpecHttp2RouteActionRewriteHostname> hostname() {
         return Optional.ofNullable(this.hostname);
     }
     /**
-     * @return The specified beginning characters to rewrite.
+     * @return Specified beginning characters to rewrite.
      * 
      */
     public Optional<GatewayRouteSpecHttp2RouteActionRewritePrefix> prefix() {

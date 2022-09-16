@@ -13,14 +13,14 @@ public final class GetTaskDefinitionPlainArgs extends com.pulumi.resources.Invok
     public static final GetTaskDefinitionPlainArgs Empty = new GetTaskDefinitionPlainArgs();
 
     /**
-     * The family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
+     * Family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
      * 
      */
     @Import(name="taskDefinition", required=true)
     private String taskDefinition;
 
     /**
-     * @return The family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
+     * @return Family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
      * 
      */
     public String taskDefinition() {
@@ -52,7 +52,7 @@ public final class GetTaskDefinitionPlainArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param taskDefinition The family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
+         * @param taskDefinition Family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
          * 
          * @return builder
          * 

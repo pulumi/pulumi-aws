@@ -24,7 +24,7 @@ public final class GetNetworkInsightsAnalysisResult {
      */
     private List<GetNetworkInsightsAnalysisAlternatePathHint> alternatePathHints;
     /**
-     * @return The ARN of the selected Network Insights Analysis.
+     * @return ARN of the selected Network Insights Analysis.
      * 
      */
     private String arn;
@@ -34,7 +34,7 @@ public final class GetNetworkInsightsAnalysisResult {
      */
     private List<GetNetworkInsightsAnalysisExplanation> explanations;
     /**
-     * @return The Amazon Resource Names (ARN) of the AWS resources that the path must traverse.
+     * @return ARNs of the AWS resources that the path must traverse.
      * 
      */
     private List<String> filterInArns;
@@ -66,23 +66,23 @@ public final class GetNetworkInsightsAnalysisResult {
      */
     private List<GetNetworkInsightsAnalysisReturnPathComponent> returnPathComponents;
     /**
-     * @return The date/time the analysis was started.
+     * @return Date/time the analysis was started.
      * 
      */
     private String startDate;
     /**
-     * @return The status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `path_found`.
+     * @return Status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `path_found`.
      * 
      */
     private String status;
     /**
-     * @return A message to provide more context when the `status` is `failed`.
+     * @return Message to provide more context when the `status` is `failed`.
      * 
      */
     private String statusMessage;
     private Map<String,String> tags;
     /**
-     * @return The warning message.
+     * @return Warning message.
      * 
      */
     private String warningMessage;
@@ -96,7 +96,7 @@ public final class GetNetworkInsightsAnalysisResult {
         return this.alternatePathHints;
     }
     /**
-     * @return The ARN of the selected Network Insights Analysis.
+     * @return ARN of the selected Network Insights Analysis.
      * 
      */
     public String arn() {
@@ -110,7 +110,7 @@ public final class GetNetworkInsightsAnalysisResult {
         return this.explanations;
     }
     /**
-     * @return The Amazon Resource Names (ARN) of the AWS resources that the path must traverse.
+     * @return ARNs of the AWS resources that the path must traverse.
      * 
      */
     public List<String> filterInArns() {
@@ -158,21 +158,21 @@ public final class GetNetworkInsightsAnalysisResult {
         return this.returnPathComponents;
     }
     /**
-     * @return The date/time the analysis was started.
+     * @return Date/time the analysis was started.
      * 
      */
     public String startDate() {
         return this.startDate;
     }
     /**
-     * @return The status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `path_found`.
+     * @return Status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `path_found`.
      * 
      */
     public String status() {
         return this.status;
     }
     /**
-     * @return A message to provide more context when the `status` is `failed`.
+     * @return Message to provide more context when the `status` is `failed`.
      * 
      */
     public String statusMessage() {
@@ -182,7 +182,7 @@ public final class GetNetworkInsightsAnalysisResult {
         return this.tags;
     }
     /**
-     * @return The warning message.
+     * @return Warning message.
      * 
      */
     public String warningMessage() {

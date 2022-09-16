@@ -171,7 +171,7 @@ class GetImageRecipeResult:
     @pulumi.getter(name="workingDirectory")
     def working_directory(self) -> str:
         """
-        The working directory used during build and test workflows.
+        Working directory used during build and test workflows.
         """
         return pulumi.get(self, "working_directory")
 
@@ -214,7 +214,7 @@ def get_image_recipe(arn: Optional[str] = None,
     ```
 
 
-    :param str arn: Amazon Resource Name (ARN) of the image recipe.
+    :param str arn: ARN of the image recipe.
     :param Mapping[str, str] tags: Key-value map of resource tags for the image recipe.
     """
     __args__ = dict()
@@ -257,7 +257,7 @@ def get_image_recipe_output(arn: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str arn: Amazon Resource Name (ARN) of the image recipe.
+    :param str arn: ARN of the image recipe.
     :param Mapping[str, str] tags: Key-value map of resource tags for the image recipe.
     """
     ...

@@ -120,7 +120,7 @@ namespace Pulumi.Aws.Acm
     public sealed class GetCertificateArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The domain of the certificate to look up. If no certificate is found with this name, an error will be returned.
+        /// Domain of the certificate to look up. If no certificate is found with this name, an error will be returned.
         /// </summary>
         [Input("domain", required: true)]
         public string Domain { get; set; } = null!;
@@ -129,7 +129,7 @@ namespace Pulumi.Aws.Acm
         private List<string>? _keyTypes;
 
         /// <summary>
-        /// A list of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. See the [ACM API Reference](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateDetail.html#ACM-Type-CertificateDetail-KeyAlgorithm) for supported key algorithms.
+        /// List of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. See the [ACM API Reference](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateDetail.html#ACM-Type-CertificateDetail-KeyAlgorithm) for supported key algorithms.
         /// </summary>
         public List<string> KeyTypes
         {
@@ -147,7 +147,7 @@ namespace Pulumi.Aws.Acm
         private List<string>? _statuses;
 
         /// <summary>
-        /// A list of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
+        /// List of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
         /// `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
         /// are returned.
         /// </summary>
@@ -161,7 +161,7 @@ namespace Pulumi.Aws.Acm
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A mapping of tags for the resource.
+        /// Mapping of tags for the resource.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -173,7 +173,7 @@ namespace Pulumi.Aws.Acm
         private List<string>? _types;
 
         /// <summary>
-        /// A list of types on which to filter the returned list. Valid values are `AMAZON_ISSUED` and `IMPORTED`.
+        /// List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED` and `IMPORTED`.
         /// </summary>
         public List<string> Types
         {
@@ -190,7 +190,7 @@ namespace Pulumi.Aws.Acm
     public sealed class GetCertificateInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The domain of the certificate to look up. If no certificate is found with this name, an error will be returned.
+        /// Domain of the certificate to look up. If no certificate is found with this name, an error will be returned.
         /// </summary>
         [Input("domain", required: true)]
         public Input<string> Domain { get; set; } = null!;
@@ -199,7 +199,7 @@ namespace Pulumi.Aws.Acm
         private InputList<string>? _keyTypes;
 
         /// <summary>
-        /// A list of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. See the [ACM API Reference](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateDetail.html#ACM-Type-CertificateDetail-KeyAlgorithm) for supported key algorithms.
+        /// List of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. See the [ACM API Reference](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateDetail.html#ACM-Type-CertificateDetail-KeyAlgorithm) for supported key algorithms.
         /// </summary>
         public InputList<string> KeyTypes
         {
@@ -217,7 +217,7 @@ namespace Pulumi.Aws.Acm
         private InputList<string>? _statuses;
 
         /// <summary>
-        /// A list of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
+        /// List of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
         /// `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
         /// are returned.
         /// </summary>
@@ -231,7 +231,7 @@ namespace Pulumi.Aws.Acm
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags for the resource.
+        /// Mapping of tags for the resource.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -243,7 +243,7 @@ namespace Pulumi.Aws.Acm
         private InputList<string>? _types;
 
         /// <summary>
-        /// A list of types on which to filter the returned list. Valid values are `AMAZON_ISSUED` and `IMPORTED`.
+        /// List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED` and `IMPORTED`.
         /// </summary>
         public InputList<string> Types
         {
@@ -262,11 +262,11 @@ namespace Pulumi.Aws.Acm
     public sealed class GetCertificateResult
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the found certificate, suitable for referencing in other resources that support ACM certificates.
+        /// ARN of the found certificate, suitable for referencing in other resources that support ACM certificates.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The ACM-issued certificate.
+        /// ACM-issued certificate.
         /// </summary>
         public readonly string Certificate;
         /// <summary>
@@ -286,7 +286,7 @@ namespace Pulumi.Aws.Acm
         public readonly string Status;
         public readonly ImmutableArray<string> Statuses;
         /// <summary>
-        /// A mapping of tags for the resource.
+        /// Mapping of tags for the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         public readonly ImmutableArray<string> Types;

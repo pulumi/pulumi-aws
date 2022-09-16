@@ -45,7 +45,7 @@ class GetEventSourceResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The ARN of the partner event source
+        ARN of the partner event source
         """
         return pulumi.get(self, "arn")
 
@@ -53,7 +53,7 @@ class GetEventSourceResult:
     @pulumi.getter(name="createdBy")
     def created_by(self) -> str:
         """
-        The name of the SaaS partner that created the event source
+        Name of the SaaS partner that created the event source
         """
         return pulumi.get(self, "created_by")
 
@@ -69,7 +69,7 @@ class GetEventSourceResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the event source
+        Name of the event source
         """
         return pulumi.get(self, "name")
 
@@ -82,7 +82,7 @@ class GetEventSourceResult:
     @pulumi.getter
     def state(self) -> str:
         """
-        The state of the event source (`ACTIVE` or `PENDING`)
+        State of the event source (`ACTIVE` or `PENDING`)
         """
         return pulumi.get(self, "state")
 

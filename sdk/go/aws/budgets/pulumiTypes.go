@@ -1084,7 +1084,7 @@ func (o BudgetCostFilterArrayOutput) Index(i pulumi.IntInput) BudgetCostFilterOu
 type BudgetCostTypes struct {
 	// A boolean value whether to include credits in the cost budget. Defaults to `true`
 	IncludeCredit *bool `pulumi:"includeCredit"`
-	// Specifies whether a budget includes discounts. Defaults to `true`
+	// Whether a budget includes discounts. Defaults to `true`
 	IncludeDiscount *bool `pulumi:"includeDiscount"`
 	// A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`
 	IncludeOtherSubscription *bool `pulumi:"includeOtherSubscription"`
@@ -1100,7 +1100,7 @@ type BudgetCostTypes struct {
 	IncludeTax *bool `pulumi:"includeTax"`
 	// A boolean value whether to include upfront costs in the cost budget. Defaults to `true`
 	IncludeUpfront *bool `pulumi:"includeUpfront"`
-	// Specifies whether a budget uses the amortized rate. Defaults to `false`
+	// Whether a budget uses the amortized rate. Defaults to `false`
 	UseAmortized *bool `pulumi:"useAmortized"`
 	// A boolean value whether to use blended costs in the cost budget. Defaults to `false`
 	UseBlended *bool `pulumi:"useBlended"`
@@ -1120,7 +1120,7 @@ type BudgetCostTypesInput interface {
 type BudgetCostTypesArgs struct {
 	// A boolean value whether to include credits in the cost budget. Defaults to `true`
 	IncludeCredit pulumi.BoolPtrInput `pulumi:"includeCredit"`
-	// Specifies whether a budget includes discounts. Defaults to `true`
+	// Whether a budget includes discounts. Defaults to `true`
 	IncludeDiscount pulumi.BoolPtrInput `pulumi:"includeDiscount"`
 	// A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`
 	IncludeOtherSubscription pulumi.BoolPtrInput `pulumi:"includeOtherSubscription"`
@@ -1136,7 +1136,7 @@ type BudgetCostTypesArgs struct {
 	IncludeTax pulumi.BoolPtrInput `pulumi:"includeTax"`
 	// A boolean value whether to include upfront costs in the cost budget. Defaults to `true`
 	IncludeUpfront pulumi.BoolPtrInput `pulumi:"includeUpfront"`
-	// Specifies whether a budget uses the amortized rate. Defaults to `false`
+	// Whether a budget uses the amortized rate. Defaults to `false`
 	UseAmortized pulumi.BoolPtrInput `pulumi:"useAmortized"`
 	// A boolean value whether to use blended costs in the cost budget. Defaults to `false`
 	UseBlended pulumi.BoolPtrInput `pulumi:"useBlended"`
@@ -1224,7 +1224,7 @@ func (o BudgetCostTypesOutput) IncludeCredit() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.IncludeCredit }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies whether a budget includes discounts. Defaults to `true`
+// Whether a budget includes discounts. Defaults to `true`
 func (o BudgetCostTypesOutput) IncludeDiscount() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.IncludeDiscount }).(pulumi.BoolPtrOutput)
 }
@@ -1264,7 +1264,7 @@ func (o BudgetCostTypesOutput) IncludeUpfront() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.IncludeUpfront }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies whether a budget uses the amortized rate. Defaults to `false`
+// Whether a budget uses the amortized rate. Defaults to `false`
 func (o BudgetCostTypesOutput) UseAmortized() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.UseAmortized }).(pulumi.BoolPtrOutput)
 }
@@ -1308,7 +1308,7 @@ func (o BudgetCostTypesPtrOutput) IncludeCredit() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies whether a budget includes discounts. Defaults to `true`
+// Whether a budget includes discounts. Defaults to `true`
 func (o BudgetCostTypesPtrOutput) IncludeDiscount() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BudgetCostTypes) *bool {
 		if v == nil {
@@ -1388,7 +1388,7 @@ func (o BudgetCostTypesPtrOutput) IncludeUpfront() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies whether a budget uses the amortized rate. Defaults to `false`
+// Whether a budget uses the amortized rate. Defaults to `false`
 func (o BudgetCostTypesPtrOutput) UseAmortized() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BudgetCostTypes) *bool {
 		if v == nil {

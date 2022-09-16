@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Fsx.Inputs
     public sealed class GetOpenZfsSnapshotFilterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the snapshot.
+        /// Name of the snapshot.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;

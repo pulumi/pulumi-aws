@@ -2365,11 +2365,11 @@ type RoutingProfileQueueConfig struct {
 	Delay int `pulumi:"delay"`
 	// Specifies the order in which contacts are to be handled for the queue.
 	Priority int `pulumi:"priority"`
-	// Specifies the ARN for the queue.
+	// ARN for the queue.
 	QueueArn *string `pulumi:"queueArn"`
 	// Specifies the identifier for the queue.
 	QueueId string `pulumi:"queueId"`
-	// Specifies the name for the queue.
+	// Name for the queue.
 	QueueName *string `pulumi:"queueName"`
 }
 
@@ -2391,11 +2391,11 @@ type RoutingProfileQueueConfigArgs struct {
 	Delay pulumi.IntInput `pulumi:"delay"`
 	// Specifies the order in which contacts are to be handled for the queue.
 	Priority pulumi.IntInput `pulumi:"priority"`
-	// Specifies the ARN for the queue.
+	// ARN for the queue.
 	QueueArn pulumi.StringPtrInput `pulumi:"queueArn"`
 	// Specifies the identifier for the queue.
 	QueueId pulumi.StringInput `pulumi:"queueId"`
-	// Specifies the name for the queue.
+	// Name for the queue.
 	QueueName pulumi.StringPtrInput `pulumi:"queueName"`
 }
 
@@ -2465,7 +2465,7 @@ func (o RoutingProfileQueueConfigOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v RoutingProfileQueueConfig) int { return v.Priority }).(pulumi.IntOutput)
 }
 
-// Specifies the ARN for the queue.
+// ARN for the queue.
 func (o RoutingProfileQueueConfigOutput) QueueArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingProfileQueueConfig) *string { return v.QueueArn }).(pulumi.StringPtrOutput)
 }
@@ -2475,7 +2475,7 @@ func (o RoutingProfileQueueConfigOutput) QueueId() pulumi.StringOutput {
 	return o.ApplyT(func(v RoutingProfileQueueConfig) string { return v.QueueId }).(pulumi.StringOutput)
 }
 
-// Specifies the name for the queue.
+// Name for the queue.
 func (o RoutingProfileQueueConfigOutput) QueueName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingProfileQueueConfig) *string { return v.QueueName }).(pulumi.StringPtrOutput)
 }
@@ -2507,11 +2507,11 @@ type RoutingProfileQueueConfigsAssociated struct {
 	Delay *int `pulumi:"delay"`
 	// Specifies the order in which contacts are to be handled for the queue.
 	Priority *int `pulumi:"priority"`
-	// Specifies the ARN for the queue.
+	// ARN for the queue.
 	QueueArn *string `pulumi:"queueArn"`
 	// Specifies the identifier for the queue.
 	QueueId *string `pulumi:"queueId"`
-	// Specifies the name for the queue.
+	// Name for the queue.
 	QueueName *string `pulumi:"queueName"`
 }
 
@@ -2533,11 +2533,11 @@ type RoutingProfileQueueConfigsAssociatedArgs struct {
 	Delay pulumi.IntPtrInput `pulumi:"delay"`
 	// Specifies the order in which contacts are to be handled for the queue.
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
-	// Specifies the ARN for the queue.
+	// ARN for the queue.
 	QueueArn pulumi.StringPtrInput `pulumi:"queueArn"`
 	// Specifies the identifier for the queue.
 	QueueId pulumi.StringPtrInput `pulumi:"queueId"`
-	// Specifies the name for the queue.
+	// Name for the queue.
 	QueueName pulumi.StringPtrInput `pulumi:"queueName"`
 }
 
@@ -2607,7 +2607,7 @@ func (o RoutingProfileQueueConfigsAssociatedOutput) Priority() pulumi.IntPtrOutp
 	return o.ApplyT(func(v RoutingProfileQueueConfigsAssociated) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the ARN for the queue.
+// ARN for the queue.
 func (o RoutingProfileQueueConfigsAssociatedOutput) QueueArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingProfileQueueConfigsAssociated) *string { return v.QueueArn }).(pulumi.StringPtrOutput)
 }
@@ -2617,7 +2617,7 @@ func (o RoutingProfileQueueConfigsAssociatedOutput) QueueId() pulumi.StringPtrOu
 	return o.ApplyT(func(v RoutingProfileQueueConfigsAssociated) *string { return v.QueueId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the name for the queue.
+// Name for the queue.
 func (o RoutingProfileQueueConfigsAssociatedOutput) QueueName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingProfileQueueConfigsAssociated) *string { return v.QueueName }).(pulumi.StringPtrOutput)
 }
@@ -4824,9 +4824,9 @@ func (o UserPhoneConfigPtrOutput) PhoneType() pulumi.StringPtrOutput {
 }
 
 type GetBotAssociationLexBot struct {
-	// The Region that the Amazon Lex (V1) bot was created in.
+	// Region that the Amazon Lex (V1) bot was created in.
 	LexRegion string `pulumi:"lexRegion"`
-	// The name of the Amazon Lex (V1) bot.
+	// Name of the Amazon Lex (V1) bot.
 	Name string `pulumi:"name"`
 }
 
@@ -4842,9 +4842,9 @@ type GetBotAssociationLexBotInput interface {
 }
 
 type GetBotAssociationLexBotArgs struct {
-	// The Region that the Amazon Lex (V1) bot was created in.
+	// Region that the Amazon Lex (V1) bot was created in.
 	LexRegion pulumi.StringInput `pulumi:"lexRegion"`
-	// The name of the Amazon Lex (V1) bot.
+	// Name of the Amazon Lex (V1) bot.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -4874,22 +4874,22 @@ func (o GetBotAssociationLexBotOutput) ToGetBotAssociationLexBotOutputWithContex
 	return o
 }
 
-// The Region that the Amazon Lex (V1) bot was created in.
+// Region that the Amazon Lex (V1) bot was created in.
 func (o GetBotAssociationLexBotOutput) LexRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBotAssociationLexBot) string { return v.LexRegion }).(pulumi.StringOutput)
 }
 
-// The name of the Amazon Lex (V1) bot.
+// Name of the Amazon Lex (V1) bot.
 func (o GetBotAssociationLexBotOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBotAssociationLexBot) string { return v.Name }).(pulumi.StringOutput)
 }
 
 type GetHoursOfOperationConfig struct {
-	// Specifies the day that the hours of operation applies to.
+	// Day that the hours of operation applies to.
 	Day string `pulumi:"day"`
-	// A end time block specifies the time that your contact center closes. The `endTime` is documented below.
+	// End time block specifies the time that your contact center closes. The `endTime` is documented below.
 	EndTimes []GetHoursOfOperationConfigEndTime `pulumi:"endTimes"`
-	// A start time block specifies the time that your contact center opens. The `startTime` is documented below.
+	// Start time block specifies the time that your contact center opens. The `startTime` is documented below.
 	StartTimes []GetHoursOfOperationConfigStartTime `pulumi:"startTimes"`
 }
 
@@ -4905,11 +4905,11 @@ type GetHoursOfOperationConfigInput interface {
 }
 
 type GetHoursOfOperationConfigArgs struct {
-	// Specifies the day that the hours of operation applies to.
+	// Day that the hours of operation applies to.
 	Day pulumi.StringInput `pulumi:"day"`
-	// A end time block specifies the time that your contact center closes. The `endTime` is documented below.
+	// End time block specifies the time that your contact center closes. The `endTime` is documented below.
 	EndTimes GetHoursOfOperationConfigEndTimeArrayInput `pulumi:"endTimes"`
-	// A start time block specifies the time that your contact center opens. The `startTime` is documented below.
+	// Start time block specifies the time that your contact center opens. The `startTime` is documented below.
 	StartTimes GetHoursOfOperationConfigStartTimeArrayInput `pulumi:"startTimes"`
 }
 
@@ -4964,17 +4964,17 @@ func (o GetHoursOfOperationConfigOutput) ToGetHoursOfOperationConfigOutputWithCo
 	return o
 }
 
-// Specifies the day that the hours of operation applies to.
+// Day that the hours of operation applies to.
 func (o GetHoursOfOperationConfigOutput) Day() pulumi.StringOutput {
 	return o.ApplyT(func(v GetHoursOfOperationConfig) string { return v.Day }).(pulumi.StringOutput)
 }
 
-// A end time block specifies the time that your contact center closes. The `endTime` is documented below.
+// End time block specifies the time that your contact center closes. The `endTime` is documented below.
 func (o GetHoursOfOperationConfigOutput) EndTimes() GetHoursOfOperationConfigEndTimeArrayOutput {
 	return o.ApplyT(func(v GetHoursOfOperationConfig) []GetHoursOfOperationConfigEndTime { return v.EndTimes }).(GetHoursOfOperationConfigEndTimeArrayOutput)
 }
 
-// A start time block specifies the time that your contact center opens. The `startTime` is documented below.
+// Start time block specifies the time that your contact center opens. The `startTime` is documented below.
 func (o GetHoursOfOperationConfigOutput) StartTimes() GetHoursOfOperationConfigStartTimeArrayOutput {
 	return o.ApplyT(func(v GetHoursOfOperationConfig) []GetHoursOfOperationConfigStartTime { return v.StartTimes }).(GetHoursOfOperationConfigStartTimeArrayOutput)
 }
@@ -5000,9 +5000,9 @@ func (o GetHoursOfOperationConfigArrayOutput) Index(i pulumi.IntInput) GetHoursO
 }
 
 type GetHoursOfOperationConfigEndTime struct {
-	// Specifies the hour of opening.
+	// Hour of opening.
 	Hours int `pulumi:"hours"`
-	// Specifies the minute of opening.
+	// Minute of opening.
 	Minutes int `pulumi:"minutes"`
 }
 
@@ -5018,9 +5018,9 @@ type GetHoursOfOperationConfigEndTimeInput interface {
 }
 
 type GetHoursOfOperationConfigEndTimeArgs struct {
-	// Specifies the hour of opening.
+	// Hour of opening.
 	Hours pulumi.IntInput `pulumi:"hours"`
-	// Specifies the minute of opening.
+	// Minute of opening.
 	Minutes pulumi.IntInput `pulumi:"minutes"`
 }
 
@@ -5075,12 +5075,12 @@ func (o GetHoursOfOperationConfigEndTimeOutput) ToGetHoursOfOperationConfigEndTi
 	return o
 }
 
-// Specifies the hour of opening.
+// Hour of opening.
 func (o GetHoursOfOperationConfigEndTimeOutput) Hours() pulumi.IntOutput {
 	return o.ApplyT(func(v GetHoursOfOperationConfigEndTime) int { return v.Hours }).(pulumi.IntOutput)
 }
 
-// Specifies the minute of opening.
+// Minute of opening.
 func (o GetHoursOfOperationConfigEndTimeOutput) Minutes() pulumi.IntOutput {
 	return o.ApplyT(func(v GetHoursOfOperationConfigEndTime) int { return v.Minutes }).(pulumi.IntOutput)
 }
@@ -5106,9 +5106,9 @@ func (o GetHoursOfOperationConfigEndTimeArrayOutput) Index(i pulumi.IntInput) Ge
 }
 
 type GetHoursOfOperationConfigStartTime struct {
-	// Specifies the hour of opening.
+	// Hour of opening.
 	Hours int `pulumi:"hours"`
-	// Specifies the minute of opening.
+	// Minute of opening.
 	Minutes int `pulumi:"minutes"`
 }
 
@@ -5124,9 +5124,9 @@ type GetHoursOfOperationConfigStartTimeInput interface {
 }
 
 type GetHoursOfOperationConfigStartTimeArgs struct {
-	// Specifies the hour of opening.
+	// Hour of opening.
 	Hours pulumi.IntInput `pulumi:"hours"`
-	// Specifies the minute of opening.
+	// Minute of opening.
 	Minutes pulumi.IntInput `pulumi:"minutes"`
 }
 
@@ -5181,12 +5181,12 @@ func (o GetHoursOfOperationConfigStartTimeOutput) ToGetHoursOfOperationConfigSta
 	return o
 }
 
-// Specifies the hour of opening.
+// Hour of opening.
 func (o GetHoursOfOperationConfigStartTimeOutput) Hours() pulumi.IntOutput {
 	return o.ApplyT(func(v GetHoursOfOperationConfigStartTime) int { return v.Hours }).(pulumi.IntOutput)
 }
 
-// Specifies the minute of opening.
+// Minute of opening.
 func (o GetHoursOfOperationConfigStartTimeOutput) Minutes() pulumi.IntOutput {
 	return o.ApplyT(func(v GetHoursOfOperationConfigStartTime) int { return v.Minutes }).(pulumi.IntOutput)
 }
@@ -5216,7 +5216,7 @@ type GetQueueOutboundCallerConfig struct {
 	OutboundCallerIdName string `pulumi:"outboundCallerIdName"`
 	// Specifies the caller ID number.
 	OutboundCallerIdNumberId string `pulumi:"outboundCallerIdNumberId"`
-	// Specifies the outbound whisper flow to be used during an outbound call.
+	// Outbound whisper flow to be used during an outbound call.
 	OutboundFlowId string `pulumi:"outboundFlowId"`
 }
 
@@ -5236,7 +5236,7 @@ type GetQueueOutboundCallerConfigArgs struct {
 	OutboundCallerIdName pulumi.StringInput `pulumi:"outboundCallerIdName"`
 	// Specifies the caller ID number.
 	OutboundCallerIdNumberId pulumi.StringInput `pulumi:"outboundCallerIdNumberId"`
-	// Specifies the outbound whisper flow to be used during an outbound call.
+	// Outbound whisper flow to be used during an outbound call.
 	OutboundFlowId pulumi.StringInput `pulumi:"outboundFlowId"`
 }
 
@@ -5301,7 +5301,7 @@ func (o GetQueueOutboundCallerConfigOutput) OutboundCallerIdNumberId() pulumi.St
 	return o.ApplyT(func(v GetQueueOutboundCallerConfig) string { return v.OutboundCallerIdNumberId }).(pulumi.StringOutput)
 }
 
-// Specifies the outbound whisper flow to be used during an outbound call.
+// Outbound whisper flow to be used during an outbound call.
 func (o GetQueueOutboundCallerConfigOutput) OutboundFlowId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetQueueOutboundCallerConfig) string { return v.OutboundFlowId }).(pulumi.StringOutput)
 }
@@ -5327,13 +5327,13 @@ func (o GetQueueOutboundCallerConfigArrayOutput) Index(i pulumi.IntInput) GetQue
 }
 
 type GetQuickConnectQuickConnectConfig struct {
-	// Specifies the phone configuration of the Quick Connect. This is returned only if `quickConnectType` is `PHONE_NUMBER`. The `phoneConfig` block is documented below.
+	// Phone configuration of the Quick Connect. This is returned only if `quickConnectType` is `PHONE_NUMBER`. The `phoneConfig` block is documented below.
 	PhoneConfigs []GetQuickConnectQuickConnectConfigPhoneConfig `pulumi:"phoneConfigs"`
-	// Specifies the queue configuration of the Quick Connect. This is returned only if `quickConnectType` is `QUEUE`. The `queueConfig` block is documented below.
+	// Queue configuration of the Quick Connect. This is returned only if `quickConnectType` is `QUEUE`. The `queueConfig` block is documented below.
 	QueueConfigs []GetQuickConnectQuickConnectConfigQueueConfig `pulumi:"queueConfigs"`
-	// Specifies the configuration type of the Quick Connect. Valid values are `PHONE_NUMBER`, `QUEUE`, `USER`.
+	// Configuration type of the Quick Connect. Valid values are `PHONE_NUMBER`, `QUEUE`, `USER`.
 	QuickConnectType string `pulumi:"quickConnectType"`
-	// Specifies the user configuration of the Quick Connect. This is returned only if `quickConnectType` is `USER`. The `userConfig` block is documented below.
+	// User configuration of the Quick Connect. This is returned only if `quickConnectType` is `USER`. The `userConfig` block is documented below.
 	UserConfigs []GetQuickConnectQuickConnectConfigUserConfig `pulumi:"userConfigs"`
 }
 
@@ -5349,13 +5349,13 @@ type GetQuickConnectQuickConnectConfigInput interface {
 }
 
 type GetQuickConnectQuickConnectConfigArgs struct {
-	// Specifies the phone configuration of the Quick Connect. This is returned only if `quickConnectType` is `PHONE_NUMBER`. The `phoneConfig` block is documented below.
+	// Phone configuration of the Quick Connect. This is returned only if `quickConnectType` is `PHONE_NUMBER`. The `phoneConfig` block is documented below.
 	PhoneConfigs GetQuickConnectQuickConnectConfigPhoneConfigArrayInput `pulumi:"phoneConfigs"`
-	// Specifies the queue configuration of the Quick Connect. This is returned only if `quickConnectType` is `QUEUE`. The `queueConfig` block is documented below.
+	// Queue configuration of the Quick Connect. This is returned only if `quickConnectType` is `QUEUE`. The `queueConfig` block is documented below.
 	QueueConfigs GetQuickConnectQuickConnectConfigQueueConfigArrayInput `pulumi:"queueConfigs"`
-	// Specifies the configuration type of the Quick Connect. Valid values are `PHONE_NUMBER`, `QUEUE`, `USER`.
+	// Configuration type of the Quick Connect. Valid values are `PHONE_NUMBER`, `QUEUE`, `USER`.
 	QuickConnectType pulumi.StringInput `pulumi:"quickConnectType"`
-	// Specifies the user configuration of the Quick Connect. This is returned only if `quickConnectType` is `USER`. The `userConfig` block is documented below.
+	// User configuration of the Quick Connect. This is returned only if `quickConnectType` is `USER`. The `userConfig` block is documented below.
 	UserConfigs GetQuickConnectQuickConnectConfigUserConfigArrayInput `pulumi:"userConfigs"`
 }
 
@@ -5410,26 +5410,26 @@ func (o GetQuickConnectQuickConnectConfigOutput) ToGetQuickConnectQuickConnectCo
 	return o
 }
 
-// Specifies the phone configuration of the Quick Connect. This is returned only if `quickConnectType` is `PHONE_NUMBER`. The `phoneConfig` block is documented below.
+// Phone configuration of the Quick Connect. This is returned only if `quickConnectType` is `PHONE_NUMBER`. The `phoneConfig` block is documented below.
 func (o GetQuickConnectQuickConnectConfigOutput) PhoneConfigs() GetQuickConnectQuickConnectConfigPhoneConfigArrayOutput {
 	return o.ApplyT(func(v GetQuickConnectQuickConnectConfig) []GetQuickConnectQuickConnectConfigPhoneConfig {
 		return v.PhoneConfigs
 	}).(GetQuickConnectQuickConnectConfigPhoneConfigArrayOutput)
 }
 
-// Specifies the queue configuration of the Quick Connect. This is returned only if `quickConnectType` is `QUEUE`. The `queueConfig` block is documented below.
+// Queue configuration of the Quick Connect. This is returned only if `quickConnectType` is `QUEUE`. The `queueConfig` block is documented below.
 func (o GetQuickConnectQuickConnectConfigOutput) QueueConfigs() GetQuickConnectQuickConnectConfigQueueConfigArrayOutput {
 	return o.ApplyT(func(v GetQuickConnectQuickConnectConfig) []GetQuickConnectQuickConnectConfigQueueConfig {
 		return v.QueueConfigs
 	}).(GetQuickConnectQuickConnectConfigQueueConfigArrayOutput)
 }
 
-// Specifies the configuration type of the Quick Connect. Valid values are `PHONE_NUMBER`, `QUEUE`, `USER`.
+// Configuration type of the Quick Connect. Valid values are `PHONE_NUMBER`, `QUEUE`, `USER`.
 func (o GetQuickConnectQuickConnectConfigOutput) QuickConnectType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetQuickConnectQuickConnectConfig) string { return v.QuickConnectType }).(pulumi.StringOutput)
 }
 
-// Specifies the user configuration of the Quick Connect. This is returned only if `quickConnectType` is `USER`. The `userConfig` block is documented below.
+// User configuration of the Quick Connect. This is returned only if `quickConnectType` is `USER`. The `userConfig` block is documented below.
 func (o GetQuickConnectQuickConnectConfigOutput) UserConfigs() GetQuickConnectQuickConnectConfigUserConfigArrayOutput {
 	return o.ApplyT(func(v GetQuickConnectQuickConnectConfig) []GetQuickConnectQuickConnectConfigUserConfig {
 		return v.UserConfigs
@@ -5457,7 +5457,7 @@ func (o GetQuickConnectQuickConnectConfigArrayOutput) Index(i pulumi.IntInput) G
 }
 
 type GetQuickConnectQuickConnectConfigPhoneConfig struct {
-	// Specifies the phone number in in E.164 format.
+	// Phone number in in E.164 format.
 	PhoneNumber string `pulumi:"phoneNumber"`
 }
 
@@ -5473,7 +5473,7 @@ type GetQuickConnectQuickConnectConfigPhoneConfigInput interface {
 }
 
 type GetQuickConnectQuickConnectConfigPhoneConfigArgs struct {
-	// Specifies the phone number in in E.164 format.
+	// Phone number in in E.164 format.
 	PhoneNumber pulumi.StringInput `pulumi:"phoneNumber"`
 }
 
@@ -5528,7 +5528,7 @@ func (o GetQuickConnectQuickConnectConfigPhoneConfigOutput) ToGetQuickConnectQui
 	return o
 }
 
-// Specifies the phone number in in E.164 format.
+// Phone number in in E.164 format.
 func (o GetQuickConnectQuickConnectConfigPhoneConfigOutput) PhoneNumber() pulumi.StringOutput {
 	return o.ApplyT(func(v GetQuickConnectQuickConnectConfigPhoneConfig) string { return v.PhoneNumber }).(pulumi.StringOutput)
 }
@@ -5554,9 +5554,9 @@ func (o GetQuickConnectQuickConnectConfigPhoneConfigArrayOutput) Index(i pulumi.
 }
 
 type GetQuickConnectQuickConnectConfigQueueConfig struct {
-	// Specifies the identifier of the contact flow.
+	// Identifier of the contact flow.
 	ContactFlowId string `pulumi:"contactFlowId"`
-	// Specifies the identifier for the queue.
+	// Identifier for the queue.
 	QueueId string `pulumi:"queueId"`
 }
 
@@ -5572,9 +5572,9 @@ type GetQuickConnectQuickConnectConfigQueueConfigInput interface {
 }
 
 type GetQuickConnectQuickConnectConfigQueueConfigArgs struct {
-	// Specifies the identifier of the contact flow.
+	// Identifier of the contact flow.
 	ContactFlowId pulumi.StringInput `pulumi:"contactFlowId"`
-	// Specifies the identifier for the queue.
+	// Identifier for the queue.
 	QueueId pulumi.StringInput `pulumi:"queueId"`
 }
 
@@ -5629,12 +5629,12 @@ func (o GetQuickConnectQuickConnectConfigQueueConfigOutput) ToGetQuickConnectQui
 	return o
 }
 
-// Specifies the identifier of the contact flow.
+// Identifier of the contact flow.
 func (o GetQuickConnectQuickConnectConfigQueueConfigOutput) ContactFlowId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetQuickConnectQuickConnectConfigQueueConfig) string { return v.ContactFlowId }).(pulumi.StringOutput)
 }
 
-// Specifies the identifier for the queue.
+// Identifier for the queue.
 func (o GetQuickConnectQuickConnectConfigQueueConfigOutput) QueueId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetQuickConnectQuickConnectConfigQueueConfig) string { return v.QueueId }).(pulumi.StringOutput)
 }
@@ -5660,9 +5660,9 @@ func (o GetQuickConnectQuickConnectConfigQueueConfigArrayOutput) Index(i pulumi.
 }
 
 type GetQuickConnectQuickConnectConfigUserConfig struct {
-	// Specifies the identifier of the contact flow.
+	// Identifier of the contact flow.
 	ContactFlowId string `pulumi:"contactFlowId"`
-	// Specifies the identifier for the user.
+	// Identifier for the user.
 	UserId string `pulumi:"userId"`
 }
 
@@ -5678,9 +5678,9 @@ type GetQuickConnectQuickConnectConfigUserConfigInput interface {
 }
 
 type GetQuickConnectQuickConnectConfigUserConfigArgs struct {
-	// Specifies the identifier of the contact flow.
+	// Identifier of the contact flow.
 	ContactFlowId pulumi.StringInput `pulumi:"contactFlowId"`
-	// Specifies the identifier for the user.
+	// Identifier for the user.
 	UserId pulumi.StringInput `pulumi:"userId"`
 }
 
@@ -5735,12 +5735,12 @@ func (o GetQuickConnectQuickConnectConfigUserConfigOutput) ToGetQuickConnectQuic
 	return o
 }
 
-// Specifies the identifier of the contact flow.
+// Identifier of the contact flow.
 func (o GetQuickConnectQuickConnectConfigUserConfigOutput) ContactFlowId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetQuickConnectQuickConnectConfigUserConfig) string { return v.ContactFlowId }).(pulumi.StringOutput)
 }
 
-// Specifies the identifier for the user.
+// Identifier for the user.
 func (o GetQuickConnectQuickConnectConfigUserConfigOutput) UserId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetQuickConnectQuickConnectConfigUserConfig) string { return v.UserId }).(pulumi.StringOutput)
 }
@@ -5766,9 +5766,9 @@ func (o GetQuickConnectQuickConnectConfigUserConfigArrayOutput) Index(i pulumi.I
 }
 
 type GetRoutingProfileMediaConcurrency struct {
-	// Specifies the channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
+	// Channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
 	Channel string `pulumi:"channel"`
-	// Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of 1. Maximum value of 1. Valid Range for `CHAT`: Minimum value of 1. Maximum value of 10. Valid Range for `TASK`: Minimum value of 1. Maximum value of 10.
+	// Number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of 1. Maximum value of 1. Valid Range for `CHAT`: Minimum value of 1. Maximum value of 10. Valid Range for `TASK`: Minimum value of 1. Maximum value of 10.
 	Concurrency int `pulumi:"concurrency"`
 }
 
@@ -5784,9 +5784,9 @@ type GetRoutingProfileMediaConcurrencyInput interface {
 }
 
 type GetRoutingProfileMediaConcurrencyArgs struct {
-	// Specifies the channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
+	// Channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
 	Channel pulumi.StringInput `pulumi:"channel"`
-	// Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of 1. Maximum value of 1. Valid Range for `CHAT`: Minimum value of 1. Maximum value of 10. Valid Range for `TASK`: Minimum value of 1. Maximum value of 10.
+	// Number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of 1. Maximum value of 1. Valid Range for `CHAT`: Minimum value of 1. Maximum value of 10. Valid Range for `TASK`: Minimum value of 1. Maximum value of 10.
 	Concurrency pulumi.IntInput `pulumi:"concurrency"`
 }
 
@@ -5841,12 +5841,12 @@ func (o GetRoutingProfileMediaConcurrencyOutput) ToGetRoutingProfileMediaConcurr
 	return o
 }
 
-// Specifies the channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
+// Channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
 func (o GetRoutingProfileMediaConcurrencyOutput) Channel() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRoutingProfileMediaConcurrency) string { return v.Channel }).(pulumi.StringOutput)
 }
 
-// Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of 1. Maximum value of 1. Valid Range for `CHAT`: Minimum value of 1. Maximum value of 10. Valid Range for `TASK`: Minimum value of 1. Maximum value of 10.
+// Number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of 1. Maximum value of 1. Valid Range for `CHAT`: Minimum value of 1. Maximum value of 10. Valid Range for `TASK`: Minimum value of 1. Maximum value of 10.
 func (o GetRoutingProfileMediaConcurrencyOutput) Concurrency() pulumi.IntOutput {
 	return o.ApplyT(func(v GetRoutingProfileMediaConcurrency) int { return v.Concurrency }).(pulumi.IntOutput)
 }
@@ -5872,17 +5872,17 @@ func (o GetRoutingProfileMediaConcurrencyArrayOutput) Index(i pulumi.IntInput) G
 }
 
 type GetRoutingProfileQueueConfig struct {
-	// Specifies the channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
+	// Channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
 	Channel string `pulumi:"channel"`
-	// Specifies the delay, in seconds, that a contact should be in the queue before they are routed to an available agent
+	// Delay, in seconds, that a contact should be in the queue before they are routed to an available agent
 	Delay int `pulumi:"delay"`
-	// Specifies the order in which contacts are to be handled for the queue.
+	// Order in which contacts are to be handled for the queue.
 	Priority int `pulumi:"priority"`
-	// Specifies the ARN for the queue.
+	// ARN for the queue.
 	QueueArn string `pulumi:"queueArn"`
-	// Specifies the identifier for the queue.
+	// Identifier for the queue.
 	QueueId string `pulumi:"queueId"`
-	// Specifies the name for the queue.
+	// Name for the queue.
 	QueueName string `pulumi:"queueName"`
 }
 
@@ -5898,17 +5898,17 @@ type GetRoutingProfileQueueConfigInput interface {
 }
 
 type GetRoutingProfileQueueConfigArgs struct {
-	// Specifies the channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
+	// Channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
 	Channel pulumi.StringInput `pulumi:"channel"`
-	// Specifies the delay, in seconds, that a contact should be in the queue before they are routed to an available agent
+	// Delay, in seconds, that a contact should be in the queue before they are routed to an available agent
 	Delay pulumi.IntInput `pulumi:"delay"`
-	// Specifies the order in which contacts are to be handled for the queue.
+	// Order in which contacts are to be handled for the queue.
 	Priority pulumi.IntInput `pulumi:"priority"`
-	// Specifies the ARN for the queue.
+	// ARN for the queue.
 	QueueArn pulumi.StringInput `pulumi:"queueArn"`
-	// Specifies the identifier for the queue.
+	// Identifier for the queue.
 	QueueId pulumi.StringInput `pulumi:"queueId"`
-	// Specifies the name for the queue.
+	// Name for the queue.
 	QueueName pulumi.StringInput `pulumi:"queueName"`
 }
 
@@ -5963,32 +5963,32 @@ func (o GetRoutingProfileQueueConfigOutput) ToGetRoutingProfileQueueConfigOutput
 	return o
 }
 
-// Specifies the channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
+// Channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
 func (o GetRoutingProfileQueueConfigOutput) Channel() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRoutingProfileQueueConfig) string { return v.Channel }).(pulumi.StringOutput)
 }
 
-// Specifies the delay, in seconds, that a contact should be in the queue before they are routed to an available agent
+// Delay, in seconds, that a contact should be in the queue before they are routed to an available agent
 func (o GetRoutingProfileQueueConfigOutput) Delay() pulumi.IntOutput {
 	return o.ApplyT(func(v GetRoutingProfileQueueConfig) int { return v.Delay }).(pulumi.IntOutput)
 }
 
-// Specifies the order in which contacts are to be handled for the queue.
+// Order in which contacts are to be handled for the queue.
 func (o GetRoutingProfileQueueConfigOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v GetRoutingProfileQueueConfig) int { return v.Priority }).(pulumi.IntOutput)
 }
 
-// Specifies the ARN for the queue.
+// ARN for the queue.
 func (o GetRoutingProfileQueueConfigOutput) QueueArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRoutingProfileQueueConfig) string { return v.QueueArn }).(pulumi.StringOutput)
 }
 
-// Specifies the identifier for the queue.
+// Identifier for the queue.
 func (o GetRoutingProfileQueueConfigOutput) QueueId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRoutingProfileQueueConfig) string { return v.QueueId }).(pulumi.StringOutput)
 }
 
-// Specifies the name for the queue.
+// Name for the queue.
 func (o GetRoutingProfileQueueConfigOutput) QueueName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRoutingProfileQueueConfig) string { return v.QueueName }).(pulumi.StringOutput)
 }
@@ -6014,15 +6014,15 @@ func (o GetRoutingProfileQueueConfigArrayOutput) Index(i pulumi.IntInput) GetRou
 }
 
 type GetUserHierarchyGroupHierarchyPath struct {
-	// A block that defines the details of level five. The level block is documented below.
+	// Details of level five. See below.
 	LevelFives []GetUserHierarchyGroupHierarchyPathLevelFife `pulumi:"levelFives"`
-	// A block that defines the details of level four. The level block is documented below.
+	// Details of level four. See below.
 	LevelFours []GetUserHierarchyGroupHierarchyPathLevelFour `pulumi:"levelFours"`
-	// A block that defines the details of level one. The level block is documented below.
+	// Details of level one. See below.
 	LevelOnes []GetUserHierarchyGroupHierarchyPathLevelOne `pulumi:"levelOnes"`
-	// A block that defines the details of level three. The level block is documented below.
+	// Details of level three. See below.
 	LevelThrees []GetUserHierarchyGroupHierarchyPathLevelThree `pulumi:"levelThrees"`
-	// A block that defines the details of level two. The level block is documented below.
+	// Details of level two. See below.
 	LevelTwos []GetUserHierarchyGroupHierarchyPathLevelTwo `pulumi:"levelTwos"`
 }
 
@@ -6038,15 +6038,15 @@ type GetUserHierarchyGroupHierarchyPathInput interface {
 }
 
 type GetUserHierarchyGroupHierarchyPathArgs struct {
-	// A block that defines the details of level five. The level block is documented below.
+	// Details of level five. See below.
 	LevelFives GetUserHierarchyGroupHierarchyPathLevelFifeArrayInput `pulumi:"levelFives"`
-	// A block that defines the details of level four. The level block is documented below.
+	// Details of level four. See below.
 	LevelFours GetUserHierarchyGroupHierarchyPathLevelFourArrayInput `pulumi:"levelFours"`
-	// A block that defines the details of level one. The level block is documented below.
+	// Details of level one. See below.
 	LevelOnes GetUserHierarchyGroupHierarchyPathLevelOneArrayInput `pulumi:"levelOnes"`
-	// A block that defines the details of level three. The level block is documented below.
+	// Details of level three. See below.
 	LevelThrees GetUserHierarchyGroupHierarchyPathLevelThreeArrayInput `pulumi:"levelThrees"`
-	// A block that defines the details of level two. The level block is documented below.
+	// Details of level two. See below.
 	LevelTwos GetUserHierarchyGroupHierarchyPathLevelTwoArrayInput `pulumi:"levelTwos"`
 }
 
@@ -6101,35 +6101,35 @@ func (o GetUserHierarchyGroupHierarchyPathOutput) ToGetUserHierarchyGroupHierarc
 	return o
 }
 
-// A block that defines the details of level five. The level block is documented below.
+// Details of level five. See below.
 func (o GetUserHierarchyGroupHierarchyPathOutput) LevelFives() GetUserHierarchyGroupHierarchyPathLevelFifeArrayOutput {
 	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPath) []GetUserHierarchyGroupHierarchyPathLevelFife {
 		return v.LevelFives
 	}).(GetUserHierarchyGroupHierarchyPathLevelFifeArrayOutput)
 }
 
-// A block that defines the details of level four. The level block is documented below.
+// Details of level four. See below.
 func (o GetUserHierarchyGroupHierarchyPathOutput) LevelFours() GetUserHierarchyGroupHierarchyPathLevelFourArrayOutput {
 	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPath) []GetUserHierarchyGroupHierarchyPathLevelFour {
 		return v.LevelFours
 	}).(GetUserHierarchyGroupHierarchyPathLevelFourArrayOutput)
 }
 
-// A block that defines the details of level one. The level block is documented below.
+// Details of level one. See below.
 func (o GetUserHierarchyGroupHierarchyPathOutput) LevelOnes() GetUserHierarchyGroupHierarchyPathLevelOneArrayOutput {
 	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPath) []GetUserHierarchyGroupHierarchyPathLevelOne {
 		return v.LevelOnes
 	}).(GetUserHierarchyGroupHierarchyPathLevelOneArrayOutput)
 }
 
-// A block that defines the details of level three. The level block is documented below.
+// Details of level three. See below.
 func (o GetUserHierarchyGroupHierarchyPathOutput) LevelThrees() GetUserHierarchyGroupHierarchyPathLevelThreeArrayOutput {
 	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPath) []GetUserHierarchyGroupHierarchyPathLevelThree {
 		return v.LevelThrees
 	}).(GetUserHierarchyGroupHierarchyPathLevelThreeArrayOutput)
 }
 
-// A block that defines the details of level two. The level block is documented below.
+// Details of level two. See below.
 func (o GetUserHierarchyGroupHierarchyPathOutput) LevelTwos() GetUserHierarchyGroupHierarchyPathLevelTwoArrayOutput {
 	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPath) []GetUserHierarchyGroupHierarchyPathLevelTwo {
 		return v.LevelTwos
@@ -6157,7 +6157,7 @@ func (o GetUserHierarchyGroupHierarchyPathArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetUserHierarchyGroupHierarchyPathLevelFife struct {
-	// The Amazon Resource Name (ARN) of the hierarchy group.
+	// ARN of the hierarchy group.
 	Arn string `pulumi:"arn"`
 	// The identifier of the hierarchy group.
 	Id string `pulumi:"id"`
@@ -6177,7 +6177,7 @@ type GetUserHierarchyGroupHierarchyPathLevelFifeInput interface {
 }
 
 type GetUserHierarchyGroupHierarchyPathLevelFifeArgs struct {
-	// The Amazon Resource Name (ARN) of the hierarchy group.
+	// ARN of the hierarchy group.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// The identifier of the hierarchy group.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -6236,7 +6236,7 @@ func (o GetUserHierarchyGroupHierarchyPathLevelFifeOutput) ToGetUserHierarchyGro
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the hierarchy group.
+// ARN of the hierarchy group.
 func (o GetUserHierarchyGroupHierarchyPathLevelFifeOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPathLevelFife) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -6272,7 +6272,7 @@ func (o GetUserHierarchyGroupHierarchyPathLevelFifeArrayOutput) Index(i pulumi.I
 }
 
 type GetUserHierarchyGroupHierarchyPathLevelFour struct {
-	// The Amazon Resource Name (ARN) of the hierarchy group.
+	// ARN of the hierarchy group.
 	Arn string `pulumi:"arn"`
 	// The identifier of the hierarchy group.
 	Id string `pulumi:"id"`
@@ -6292,7 +6292,7 @@ type GetUserHierarchyGroupHierarchyPathLevelFourInput interface {
 }
 
 type GetUserHierarchyGroupHierarchyPathLevelFourArgs struct {
-	// The Amazon Resource Name (ARN) of the hierarchy group.
+	// ARN of the hierarchy group.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// The identifier of the hierarchy group.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -6351,7 +6351,7 @@ func (o GetUserHierarchyGroupHierarchyPathLevelFourOutput) ToGetUserHierarchyGro
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the hierarchy group.
+// ARN of the hierarchy group.
 func (o GetUserHierarchyGroupHierarchyPathLevelFourOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPathLevelFour) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -6387,7 +6387,7 @@ func (o GetUserHierarchyGroupHierarchyPathLevelFourArrayOutput) Index(i pulumi.I
 }
 
 type GetUserHierarchyGroupHierarchyPathLevelOne struct {
-	// The Amazon Resource Name (ARN) of the hierarchy group.
+	// ARN of the hierarchy group.
 	Arn string `pulumi:"arn"`
 	// The identifier of the hierarchy group.
 	Id string `pulumi:"id"`
@@ -6407,7 +6407,7 @@ type GetUserHierarchyGroupHierarchyPathLevelOneInput interface {
 }
 
 type GetUserHierarchyGroupHierarchyPathLevelOneArgs struct {
-	// The Amazon Resource Name (ARN) of the hierarchy group.
+	// ARN of the hierarchy group.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// The identifier of the hierarchy group.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -6466,7 +6466,7 @@ func (o GetUserHierarchyGroupHierarchyPathLevelOneOutput) ToGetUserHierarchyGrou
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the hierarchy group.
+// ARN of the hierarchy group.
 func (o GetUserHierarchyGroupHierarchyPathLevelOneOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPathLevelOne) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -6502,7 +6502,7 @@ func (o GetUserHierarchyGroupHierarchyPathLevelOneArrayOutput) Index(i pulumi.In
 }
 
 type GetUserHierarchyGroupHierarchyPathLevelThree struct {
-	// The Amazon Resource Name (ARN) of the hierarchy group.
+	// ARN of the hierarchy group.
 	Arn string `pulumi:"arn"`
 	// The identifier of the hierarchy group.
 	Id string `pulumi:"id"`
@@ -6522,7 +6522,7 @@ type GetUserHierarchyGroupHierarchyPathLevelThreeInput interface {
 }
 
 type GetUserHierarchyGroupHierarchyPathLevelThreeArgs struct {
-	// The Amazon Resource Name (ARN) of the hierarchy group.
+	// ARN of the hierarchy group.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// The identifier of the hierarchy group.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -6581,7 +6581,7 @@ func (o GetUserHierarchyGroupHierarchyPathLevelThreeOutput) ToGetUserHierarchyGr
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the hierarchy group.
+// ARN of the hierarchy group.
 func (o GetUserHierarchyGroupHierarchyPathLevelThreeOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPathLevelThree) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -6617,7 +6617,7 @@ func (o GetUserHierarchyGroupHierarchyPathLevelThreeArrayOutput) Index(i pulumi.
 }
 
 type GetUserHierarchyGroupHierarchyPathLevelTwo struct {
-	// The Amazon Resource Name (ARN) of the hierarchy group.
+	// ARN of the hierarchy group.
 	Arn string `pulumi:"arn"`
 	// The identifier of the hierarchy group.
 	Id string `pulumi:"id"`
@@ -6637,7 +6637,7 @@ type GetUserHierarchyGroupHierarchyPathLevelTwoInput interface {
 }
 
 type GetUserHierarchyGroupHierarchyPathLevelTwoArgs struct {
-	// The Amazon Resource Name (ARN) of the hierarchy group.
+	// ARN of the hierarchy group.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// The identifier of the hierarchy group.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -6696,7 +6696,7 @@ func (o GetUserHierarchyGroupHierarchyPathLevelTwoOutput) ToGetUserHierarchyGrou
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the hierarchy group.
+// ARN of the hierarchy group.
 func (o GetUserHierarchyGroupHierarchyPathLevelTwoOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPathLevelTwo) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -6732,15 +6732,15 @@ func (o GetUserHierarchyGroupHierarchyPathLevelTwoArrayOutput) Index(i pulumi.In
 }
 
 type GetUserHierarchyStructureHierarchyStructure struct {
-	// A block that defines the details of level five. The level block is documented below.
+	// Details of level five. See below.
 	LevelFives []GetUserHierarchyStructureHierarchyStructureLevelFife `pulumi:"levelFives"`
-	// A block that defines the details of level four. The level block is documented below.
+	// Details of level four. See below.
 	LevelFours []GetUserHierarchyStructureHierarchyStructureLevelFour `pulumi:"levelFours"`
-	// A block that defines the details of level one. The level block is documented below.
+	// Details of level one. See below.
 	LevelOnes []GetUserHierarchyStructureHierarchyStructureLevelOne `pulumi:"levelOnes"`
-	// A block that defines the details of level three. The level block is documented below.
+	// Details of level three. See below.
 	LevelThrees []GetUserHierarchyStructureHierarchyStructureLevelThree `pulumi:"levelThrees"`
-	// A block that defines the details of level two. The level block is documented below.
+	// Details of level two. See below.
 	LevelTwos []GetUserHierarchyStructureHierarchyStructureLevelTwo `pulumi:"levelTwos"`
 }
 
@@ -6756,15 +6756,15 @@ type GetUserHierarchyStructureHierarchyStructureInput interface {
 }
 
 type GetUserHierarchyStructureHierarchyStructureArgs struct {
-	// A block that defines the details of level five. The level block is documented below.
+	// Details of level five. See below.
 	LevelFives GetUserHierarchyStructureHierarchyStructureLevelFifeArrayInput `pulumi:"levelFives"`
-	// A block that defines the details of level four. The level block is documented below.
+	// Details of level four. See below.
 	LevelFours GetUserHierarchyStructureHierarchyStructureLevelFourArrayInput `pulumi:"levelFours"`
-	// A block that defines the details of level one. The level block is documented below.
+	// Details of level one. See below.
 	LevelOnes GetUserHierarchyStructureHierarchyStructureLevelOneArrayInput `pulumi:"levelOnes"`
-	// A block that defines the details of level three. The level block is documented below.
+	// Details of level three. See below.
 	LevelThrees GetUserHierarchyStructureHierarchyStructureLevelThreeArrayInput `pulumi:"levelThrees"`
-	// A block that defines the details of level two. The level block is documented below.
+	// Details of level two. See below.
 	LevelTwos GetUserHierarchyStructureHierarchyStructureLevelTwoArrayInput `pulumi:"levelTwos"`
 }
 
@@ -6819,35 +6819,35 @@ func (o GetUserHierarchyStructureHierarchyStructureOutput) ToGetUserHierarchyStr
 	return o
 }
 
-// A block that defines the details of level five. The level block is documented below.
+// Details of level five. See below.
 func (o GetUserHierarchyStructureHierarchyStructureOutput) LevelFives() GetUserHierarchyStructureHierarchyStructureLevelFifeArrayOutput {
 	return o.ApplyT(func(v GetUserHierarchyStructureHierarchyStructure) []GetUserHierarchyStructureHierarchyStructureLevelFife {
 		return v.LevelFives
 	}).(GetUserHierarchyStructureHierarchyStructureLevelFifeArrayOutput)
 }
 
-// A block that defines the details of level four. The level block is documented below.
+// Details of level four. See below.
 func (o GetUserHierarchyStructureHierarchyStructureOutput) LevelFours() GetUserHierarchyStructureHierarchyStructureLevelFourArrayOutput {
 	return o.ApplyT(func(v GetUserHierarchyStructureHierarchyStructure) []GetUserHierarchyStructureHierarchyStructureLevelFour {
 		return v.LevelFours
 	}).(GetUserHierarchyStructureHierarchyStructureLevelFourArrayOutput)
 }
 
-// A block that defines the details of level one. The level block is documented below.
+// Details of level one. See below.
 func (o GetUserHierarchyStructureHierarchyStructureOutput) LevelOnes() GetUserHierarchyStructureHierarchyStructureLevelOneArrayOutput {
 	return o.ApplyT(func(v GetUserHierarchyStructureHierarchyStructure) []GetUserHierarchyStructureHierarchyStructureLevelOne {
 		return v.LevelOnes
 	}).(GetUserHierarchyStructureHierarchyStructureLevelOneArrayOutput)
 }
 
-// A block that defines the details of level three. The level block is documented below.
+// Details of level three. See below.
 func (o GetUserHierarchyStructureHierarchyStructureOutput) LevelThrees() GetUserHierarchyStructureHierarchyStructureLevelThreeArrayOutput {
 	return o.ApplyT(func(v GetUserHierarchyStructureHierarchyStructure) []GetUserHierarchyStructureHierarchyStructureLevelThree {
 		return v.LevelThrees
 	}).(GetUserHierarchyStructureHierarchyStructureLevelThreeArrayOutput)
 }
 
-// A block that defines the details of level two. The level block is documented below.
+// Details of level two. See below.
 func (o GetUserHierarchyStructureHierarchyStructureOutput) LevelTwos() GetUserHierarchyStructureHierarchyStructureLevelTwoArrayOutput {
 	return o.ApplyT(func(v GetUserHierarchyStructureHierarchyStructure) []GetUserHierarchyStructureHierarchyStructureLevelTwo {
 		return v.LevelTwos
@@ -6875,11 +6875,11 @@ func (o GetUserHierarchyStructureHierarchyStructureArrayOutput) Index(i pulumi.I
 }
 
 type GetUserHierarchyStructureHierarchyStructureLevelFife struct {
-	// The Amazon Resource Name (ARN) of the hierarchy level.
+	// ARN of the hierarchy level.
 	Arn string `pulumi:"arn"`
 	// The identifier of the hierarchy level.
 	Id string `pulumi:"id"`
-	// The name of the user hierarchy level. Must not be more than 50 characters.
+	// Name of the user hierarchy level. Must not be more than 50 characters.
 	Name string `pulumi:"name"`
 }
 
@@ -6895,11 +6895,11 @@ type GetUserHierarchyStructureHierarchyStructureLevelFifeInput interface {
 }
 
 type GetUserHierarchyStructureHierarchyStructureLevelFifeArgs struct {
-	// The Amazon Resource Name (ARN) of the hierarchy level.
+	// ARN of the hierarchy level.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// The identifier of the hierarchy level.
 	Id pulumi.StringInput `pulumi:"id"`
-	// The name of the user hierarchy level. Must not be more than 50 characters.
+	// Name of the user hierarchy level. Must not be more than 50 characters.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -6954,7 +6954,7 @@ func (o GetUserHierarchyStructureHierarchyStructureLevelFifeOutput) ToGetUserHie
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the hierarchy level.
+// ARN of the hierarchy level.
 func (o GetUserHierarchyStructureHierarchyStructureLevelFifeOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserHierarchyStructureHierarchyStructureLevelFife) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -6964,7 +6964,7 @@ func (o GetUserHierarchyStructureHierarchyStructureLevelFifeOutput) Id() pulumi.
 	return o.ApplyT(func(v GetUserHierarchyStructureHierarchyStructureLevelFife) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the user hierarchy level. Must not be more than 50 characters.
+// Name of the user hierarchy level. Must not be more than 50 characters.
 func (o GetUserHierarchyStructureHierarchyStructureLevelFifeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserHierarchyStructureHierarchyStructureLevelFife) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -6990,11 +6990,11 @@ func (o GetUserHierarchyStructureHierarchyStructureLevelFifeArrayOutput) Index(i
 }
 
 type GetUserHierarchyStructureHierarchyStructureLevelFour struct {
-	// The Amazon Resource Name (ARN) of the hierarchy level.
+	// ARN of the hierarchy level.
 	Arn string `pulumi:"arn"`
 	// The identifier of the hierarchy level.
 	Id string `pulumi:"id"`
-	// The name of the user hierarchy level. Must not be more than 50 characters.
+	// Name of the user hierarchy level. Must not be more than 50 characters.
 	Name string `pulumi:"name"`
 }
 
@@ -7010,11 +7010,11 @@ type GetUserHierarchyStructureHierarchyStructureLevelFourInput interface {
 }
 
 type GetUserHierarchyStructureHierarchyStructureLevelFourArgs struct {
-	// The Amazon Resource Name (ARN) of the hierarchy level.
+	// ARN of the hierarchy level.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// The identifier of the hierarchy level.
 	Id pulumi.StringInput `pulumi:"id"`
-	// The name of the user hierarchy level. Must not be more than 50 characters.
+	// Name of the user hierarchy level. Must not be more than 50 characters.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -7069,7 +7069,7 @@ func (o GetUserHierarchyStructureHierarchyStructureLevelFourOutput) ToGetUserHie
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the hierarchy level.
+// ARN of the hierarchy level.
 func (o GetUserHierarchyStructureHierarchyStructureLevelFourOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserHierarchyStructureHierarchyStructureLevelFour) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -7079,7 +7079,7 @@ func (o GetUserHierarchyStructureHierarchyStructureLevelFourOutput) Id() pulumi.
 	return o.ApplyT(func(v GetUserHierarchyStructureHierarchyStructureLevelFour) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the user hierarchy level. Must not be more than 50 characters.
+// Name of the user hierarchy level. Must not be more than 50 characters.
 func (o GetUserHierarchyStructureHierarchyStructureLevelFourOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserHierarchyStructureHierarchyStructureLevelFour) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -7105,11 +7105,11 @@ func (o GetUserHierarchyStructureHierarchyStructureLevelFourArrayOutput) Index(i
 }
 
 type GetUserHierarchyStructureHierarchyStructureLevelOne struct {
-	// The Amazon Resource Name (ARN) of the hierarchy level.
+	// ARN of the hierarchy level.
 	Arn string `pulumi:"arn"`
 	// The identifier of the hierarchy level.
 	Id string `pulumi:"id"`
-	// The name of the user hierarchy level. Must not be more than 50 characters.
+	// Name of the user hierarchy level. Must not be more than 50 characters.
 	Name string `pulumi:"name"`
 }
 
@@ -7125,11 +7125,11 @@ type GetUserHierarchyStructureHierarchyStructureLevelOneInput interface {
 }
 
 type GetUserHierarchyStructureHierarchyStructureLevelOneArgs struct {
-	// The Amazon Resource Name (ARN) of the hierarchy level.
+	// ARN of the hierarchy level.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// The identifier of the hierarchy level.
 	Id pulumi.StringInput `pulumi:"id"`
-	// The name of the user hierarchy level. Must not be more than 50 characters.
+	// Name of the user hierarchy level. Must not be more than 50 characters.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -7184,7 +7184,7 @@ func (o GetUserHierarchyStructureHierarchyStructureLevelOneOutput) ToGetUserHier
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the hierarchy level.
+// ARN of the hierarchy level.
 func (o GetUserHierarchyStructureHierarchyStructureLevelOneOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserHierarchyStructureHierarchyStructureLevelOne) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -7194,7 +7194,7 @@ func (o GetUserHierarchyStructureHierarchyStructureLevelOneOutput) Id() pulumi.S
 	return o.ApplyT(func(v GetUserHierarchyStructureHierarchyStructureLevelOne) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the user hierarchy level. Must not be more than 50 characters.
+// Name of the user hierarchy level. Must not be more than 50 characters.
 func (o GetUserHierarchyStructureHierarchyStructureLevelOneOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserHierarchyStructureHierarchyStructureLevelOne) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -7220,11 +7220,11 @@ func (o GetUserHierarchyStructureHierarchyStructureLevelOneArrayOutput) Index(i 
 }
 
 type GetUserHierarchyStructureHierarchyStructureLevelThree struct {
-	// The Amazon Resource Name (ARN) of the hierarchy level.
+	// ARN of the hierarchy level.
 	Arn string `pulumi:"arn"`
 	// The identifier of the hierarchy level.
 	Id string `pulumi:"id"`
-	// The name of the user hierarchy level. Must not be more than 50 characters.
+	// Name of the user hierarchy level. Must not be more than 50 characters.
 	Name string `pulumi:"name"`
 }
 
@@ -7240,11 +7240,11 @@ type GetUserHierarchyStructureHierarchyStructureLevelThreeInput interface {
 }
 
 type GetUserHierarchyStructureHierarchyStructureLevelThreeArgs struct {
-	// The Amazon Resource Name (ARN) of the hierarchy level.
+	// ARN of the hierarchy level.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// The identifier of the hierarchy level.
 	Id pulumi.StringInput `pulumi:"id"`
-	// The name of the user hierarchy level. Must not be more than 50 characters.
+	// Name of the user hierarchy level. Must not be more than 50 characters.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -7299,7 +7299,7 @@ func (o GetUserHierarchyStructureHierarchyStructureLevelThreeOutput) ToGetUserHi
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the hierarchy level.
+// ARN of the hierarchy level.
 func (o GetUserHierarchyStructureHierarchyStructureLevelThreeOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserHierarchyStructureHierarchyStructureLevelThree) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -7309,7 +7309,7 @@ func (o GetUserHierarchyStructureHierarchyStructureLevelThreeOutput) Id() pulumi
 	return o.ApplyT(func(v GetUserHierarchyStructureHierarchyStructureLevelThree) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the user hierarchy level. Must not be more than 50 characters.
+// Name of the user hierarchy level. Must not be more than 50 characters.
 func (o GetUserHierarchyStructureHierarchyStructureLevelThreeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserHierarchyStructureHierarchyStructureLevelThree) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -7335,11 +7335,11 @@ func (o GetUserHierarchyStructureHierarchyStructureLevelThreeArrayOutput) Index(
 }
 
 type GetUserHierarchyStructureHierarchyStructureLevelTwo struct {
-	// The Amazon Resource Name (ARN) of the hierarchy level.
+	// ARN of the hierarchy level.
 	Arn string `pulumi:"arn"`
 	// The identifier of the hierarchy level.
 	Id string `pulumi:"id"`
-	// The name of the user hierarchy level. Must not be more than 50 characters.
+	// Name of the user hierarchy level. Must not be more than 50 characters.
 	Name string `pulumi:"name"`
 }
 
@@ -7355,11 +7355,11 @@ type GetUserHierarchyStructureHierarchyStructureLevelTwoInput interface {
 }
 
 type GetUserHierarchyStructureHierarchyStructureLevelTwoArgs struct {
-	// The Amazon Resource Name (ARN) of the hierarchy level.
+	// ARN of the hierarchy level.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// The identifier of the hierarchy level.
 	Id pulumi.StringInput `pulumi:"id"`
-	// The name of the user hierarchy level. Must not be more than 50 characters.
+	// Name of the user hierarchy level. Must not be more than 50 characters.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -7414,7 +7414,7 @@ func (o GetUserHierarchyStructureHierarchyStructureLevelTwoOutput) ToGetUserHier
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the hierarchy level.
+// ARN of the hierarchy level.
 func (o GetUserHierarchyStructureHierarchyStructureLevelTwoOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserHierarchyStructureHierarchyStructureLevelTwo) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -7424,7 +7424,7 @@ func (o GetUserHierarchyStructureHierarchyStructureLevelTwoOutput) Id() pulumi.S
 	return o.ApplyT(func(v GetUserHierarchyStructureHierarchyStructureLevelTwo) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the user hierarchy level. Must not be more than 50 characters.
+// Name of the user hierarchy level. Must not be more than 50 characters.
 func (o GetUserHierarchyStructureHierarchyStructureLevelTwoOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserHierarchyStructureHierarchyStructureLevelTwo) string { return v.Name }).(pulumi.StringOutput)
 }

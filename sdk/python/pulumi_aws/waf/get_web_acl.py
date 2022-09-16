@@ -68,7 +68,7 @@ def get_web_acl(name: Optional[str] = None,
     ```
 
 
-    :param str name: The name of the WAF Web ACL.
+    :param str name: Name of the WAF Web ACL.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -96,6 +96,6 @@ def get_web_acl_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str name: The name of the WAF Web ACL.
+    :param str name: Name of the WAF Web ACL.
     """
     ...

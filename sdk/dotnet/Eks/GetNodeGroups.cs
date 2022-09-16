@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Eks
     public sealed class GetNodeGroupsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the cluster.
+        /// Name of the cluster.
         /// </summary>
         [Input("clusterName", required: true)]
         public string ClusterName { get; set; } = null!;
@@ -42,7 +42,7 @@ namespace Pulumi.Aws.Eks
     public sealed class GetNodeGroupsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the cluster.
+        /// Name of the cluster.
         /// </summary>
         [Input("clusterName", required: true)]
         public Input<string> ClusterName { get; set; } = null!;
@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// A set of all node group names in an EKS Cluster.
+        /// Set of all node group names in an EKS Cluster.
         /// </summary>
         public readonly ImmutableArray<string> Names;
 

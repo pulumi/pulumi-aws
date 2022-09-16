@@ -16,14 +16,14 @@ public final class ServiceInstanceConfigurationArgs extends com.pulumi.resources
     public static final ServiceInstanceConfigurationArgs Empty = new ServiceInstanceConfigurationArgs();
 
     /**
-     * The number of CPU units reserved for each instance of your App Runner service represented as a String. Defaults to `1024`. Valid values: `1024|2048|(1|2) vCPU`.
+     * Number of CPU units reserved for each instance of your App Runner service represented as a String. Defaults to `1024`. Valid values: `1024|2048|(1|2) vCPU`.
      * 
      */
     @Import(name="cpu")
     private @Nullable Output<String> cpu;
 
     /**
-     * @return The number of CPU units reserved for each instance of your App Runner service represented as a String. Defaults to `1024`. Valid values: `1024|2048|(1|2) vCPU`.
+     * @return Number of CPU units reserved for each instance of your App Runner service represented as a String. Defaults to `1024`. Valid values: `1024|2048|(1|2) vCPU`.
      * 
      */
     public Optional<Output<String>> cpu() {
@@ -31,14 +31,14 @@ public final class ServiceInstanceConfigurationArgs extends com.pulumi.resources
     }
 
     /**
-     * The Amazon Resource Name (ARN) of an IAM role that provides permissions to your App Runner service. These are permissions that your code needs when it calls any AWS APIs.
+     * ARN of an IAM role that provides permissions to your App Runner service. These are permissions that your code needs when it calls any AWS APIs.
      * 
      */
     @Import(name="instanceRoleArn")
     private @Nullable Output<String> instanceRoleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of an IAM role that provides permissions to your App Runner service. These are permissions that your code needs when it calls any AWS APIs.
+     * @return ARN of an IAM role that provides permissions to your App Runner service. These are permissions that your code needs when it calls any AWS APIs.
      * 
      */
     public Optional<Output<String>> instanceRoleArn() {
@@ -46,14 +46,14 @@ public final class ServiceInstanceConfigurationArgs extends com.pulumi.resources
     }
 
     /**
-     * The amount of memory, in MB or GB, reserved for each instance of your App Runner service. Defaults to `2048`. Valid values: `2048|3072|4096|(2|3|4) GB`.
+     * Amount of memory, in MB or GB, reserved for each instance of your App Runner service. Defaults to `2048`. Valid values: `2048|3072|4096|(2|3|4) GB`.
      * 
      */
     @Import(name="memory")
     private @Nullable Output<String> memory;
 
     /**
-     * @return The amount of memory, in MB or GB, reserved for each instance of your App Runner service. Defaults to `2048`. Valid values: `2048|3072|4096|(2|3|4) GB`.
+     * @return Amount of memory, in MB or GB, reserved for each instance of your App Runner service. Defaults to `2048`. Valid values: `2048|3072|4096|(2|3|4) GB`.
      * 
      */
     public Optional<Output<String>> memory() {
@@ -87,7 +87,7 @@ public final class ServiceInstanceConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param cpu The number of CPU units reserved for each instance of your App Runner service represented as a String. Defaults to `1024`. Valid values: `1024|2048|(1|2) vCPU`.
+         * @param cpu Number of CPU units reserved for each instance of your App Runner service represented as a String. Defaults to `1024`. Valid values: `1024|2048|(1|2) vCPU`.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class ServiceInstanceConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param cpu The number of CPU units reserved for each instance of your App Runner service represented as a String. Defaults to `1024`. Valid values: `1024|2048|(1|2) vCPU`.
+         * @param cpu Number of CPU units reserved for each instance of your App Runner service represented as a String. Defaults to `1024`. Valid values: `1024|2048|(1|2) vCPU`.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class ServiceInstanceConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param instanceRoleArn The Amazon Resource Name (ARN) of an IAM role that provides permissions to your App Runner service. These are permissions that your code needs when it calls any AWS APIs.
+         * @param instanceRoleArn ARN of an IAM role that provides permissions to your App Runner service. These are permissions that your code needs when it calls any AWS APIs.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class ServiceInstanceConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param instanceRoleArn The Amazon Resource Name (ARN) of an IAM role that provides permissions to your App Runner service. These are permissions that your code needs when it calls any AWS APIs.
+         * @param instanceRoleArn ARN of an IAM role that provides permissions to your App Runner service. These are permissions that your code needs when it calls any AWS APIs.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class ServiceInstanceConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param memory The amount of memory, in MB or GB, reserved for each instance of your App Runner service. Defaults to `2048`. Valid values: `2048|3072|4096|(2|3|4) GB`.
+         * @param memory Amount of memory, in MB or GB, reserved for each instance of your App Runner service. Defaults to `2048`. Valid values: `2048|3072|4096|(2|3|4) GB`.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class ServiceInstanceConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param memory The amount of memory, in MB or GB, reserved for each instance of your App Runner service. Defaults to `2048`. Valid values: `2048|3072|4096|(2|3|4) GB`.
+         * @param memory Amount of memory, in MB or GB, reserved for each instance of your App Runner service. Defaults to `2048`. Valid values: `2048|3072|4096|(2|3|4) GB`.
          * 
          * @return builder
          * 

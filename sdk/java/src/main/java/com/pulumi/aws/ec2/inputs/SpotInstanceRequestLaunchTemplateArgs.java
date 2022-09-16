@@ -16,14 +16,14 @@ public final class SpotInstanceRequestLaunchTemplateArgs extends com.pulumi.reso
     public static final SpotInstanceRequestLaunchTemplateArgs Empty = new SpotInstanceRequestLaunchTemplateArgs();
 
     /**
-     * The ID of the launch template. Conflicts with `name`.
+     * ID of the launch template. Conflicts with `name`.
      * 
      */
     @Import(name="id")
     private @Nullable Output<String> id;
 
     /**
-     * @return The ID of the launch template. Conflicts with `name`.
+     * @return ID of the launch template. Conflicts with `name`.
      * 
      */
     public Optional<Output<String>> id() {
@@ -31,14 +31,14 @@ public final class SpotInstanceRequestLaunchTemplateArgs extends com.pulumi.reso
     }
 
     /**
-     * The name of the launch template. Conflicts with `id`.
+     * Name of the launch template. Conflicts with `id`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the launch template. Conflicts with `id`.
+     * @return Name of the launch template. Conflicts with `id`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -87,7 +87,7 @@ public final class SpotInstanceRequestLaunchTemplateArgs extends com.pulumi.reso
         }
 
         /**
-         * @param id The ID of the launch template. Conflicts with `name`.
+         * @param id ID of the launch template. Conflicts with `name`.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class SpotInstanceRequestLaunchTemplateArgs extends com.pulumi.reso
         }
 
         /**
-         * @param id The ID of the launch template. Conflicts with `name`.
+         * @param id ID of the launch template. Conflicts with `name`.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class SpotInstanceRequestLaunchTemplateArgs extends com.pulumi.reso
         }
 
         /**
-         * @param name The name of the launch template. Conflicts with `id`.
+         * @param name Name of the launch template. Conflicts with `id`.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class SpotInstanceRequestLaunchTemplateArgs extends com.pulumi.reso
         }
 
         /**
-         * @param name The name of the launch template. Conflicts with `id`.
+         * @param name Name of the launch template. Conflicts with `id`.
          * 
          * @return builder
          * 

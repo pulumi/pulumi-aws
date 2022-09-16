@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -58,7 +60,7 @@ export function getVpcDhcpOptions(args?: GetVpcDhcpOptionsArgs, opts?: pulumi.In
  */
 export interface GetVpcDhcpOptionsArgs {
     /**
-     * The EC2 DHCP Options ID.
+     * EC2 DHCP Options ID.
      */
     dhcpOptionsId?: string;
     /**
@@ -66,7 +68,7 @@ export interface GetVpcDhcpOptionsArgs {
      */
     filters?: inputs.ec2.GetVpcDhcpOptionsFilter[];
     /**
-     * A map of tags assigned to the resource.
+     * Map of tags assigned to the resource.
      */
     tags?: {[key: string]: string};
 }
@@ -76,7 +78,7 @@ export interface GetVpcDhcpOptionsArgs {
  */
 export interface GetVpcDhcpOptionsResult {
     /**
-     * The ARN of the DHCP Options Set.
+     * ARN of the DHCP Options Set.
      */
     readonly arn: string;
     /**
@@ -84,7 +86,7 @@ export interface GetVpcDhcpOptionsResult {
      */
     readonly dhcpOptionsId: string;
     /**
-     * The suffix domain name to used when resolving non Fully Qualified Domain NamesE.g., the `search` value in the `/etc/resolv.conf` file.
+     * Suffix domain name to used when resolving non Fully Qualified Domain NamesE.g., the `search` value in the `/etc/resolv.conf` file.
      */
     readonly domainName: string;
     /**
@@ -101,7 +103,7 @@ export interface GetVpcDhcpOptionsResult {
      */
     readonly netbiosNameServers: string[];
     /**
-     * The NetBIOS node type (1, 2, 4, or 8). For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
+     * NetBIOS node type (1, 2, 4, or 8). For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
      */
     readonly netbiosNodeType: string;
     /**
@@ -109,11 +111,11 @@ export interface GetVpcDhcpOptionsResult {
      */
     readonly ntpServers: string[];
     /**
-     * The ID of the AWS account that owns the DHCP options set.
+     * ID of the AWS account that owns the DHCP options set.
      */
     readonly ownerId: string;
     /**
-     * A map of tags assigned to the resource.
+     * Map of tags assigned to the resource.
      */
     readonly tags: {[key: string]: string};
 }
@@ -127,7 +129,7 @@ export function getVpcDhcpOptionsOutput(args?: GetVpcDhcpOptionsOutputArgs, opts
  */
 export interface GetVpcDhcpOptionsOutputArgs {
     /**
-     * The EC2 DHCP Options ID.
+     * EC2 DHCP Options ID.
      */
     dhcpOptionsId?: pulumi.Input<string>;
     /**
@@ -135,7 +137,7 @@ export interface GetVpcDhcpOptionsOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetVpcDhcpOptionsFilterArgs>[]>;
     /**
-     * A map of tags assigned to the resource.
+     * Map of tags assigned to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

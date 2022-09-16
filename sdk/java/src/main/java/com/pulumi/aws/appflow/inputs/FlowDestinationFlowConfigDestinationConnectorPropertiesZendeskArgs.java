@@ -18,14 +18,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesZendes
     public static final FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskArgs Empty = new FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskArgs();
 
     /**
-     * The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+     * Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
      * 
      */
     @Import(name="errorHandlingConfig")
     private @Nullable Output<FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigArgs> errorHandlingConfig;
 
     /**
-     * @return The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+     * @return Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
      * 
      */
     public Optional<Output<FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigArgs>> errorHandlingConfig() {
@@ -33,14 +33,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesZendes
     }
 
     /**
-     * The name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+     * Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
      * 
      */
     @Import(name="idFieldNames")
     private @Nullable Output<List<String>> idFieldNames;
 
     /**
-     * @return The name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+     * @return Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
      * 
      */
     public Optional<Output<List<String>>> idFieldNames() {
@@ -48,14 +48,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesZendes
     }
 
     /**
-     * The object specified in the Veeva flow source.
+     * Object specified in the Veeva flow source.
      * 
      */
     @Import(name="object", required=true)
     private Output<String> object;
 
     /**
-     * @return The object specified in the Veeva flow source.
+     * @return Object specified in the Veeva flow source.
      * 
      */
     public Output<String> object() {
@@ -105,7 +105,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesZendes
         }
 
         /**
-         * @param errorHandlingConfig The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+         * @param errorHandlingConfig Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesZendes
         }
 
         /**
-         * @param errorHandlingConfig The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+         * @param errorHandlingConfig Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
          * 
          * @return builder
          * 
@@ -126,7 +126,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesZendes
         }
 
         /**
-         * @param idFieldNames The name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+         * @param idFieldNames Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesZendes
         }
 
         /**
-         * @param idFieldNames The name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+         * @param idFieldNames Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesZendes
         }
 
         /**
-         * @param idFieldNames The name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+         * @param idFieldNames Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesZendes
         }
 
         /**
-         * @param object The object specified in the Veeva flow source.
+         * @param object Object specified in the Veeva flow source.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesZendes
         }
 
         /**
-         * @param object The object specified in the Veeva flow source.
+         * @param object Object specified in the Veeva flow source.
          * 
          * @return builder
          * 

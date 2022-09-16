@@ -40,8 +40,7 @@ class StackArgs:
                  vpc_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Stack resource.
-        :param pulumi.Input[str] default_instance_profile_arn: The ARN of an IAM Instance Profile that created instances
-               will have by default.
+        :param pulumi.Input[str] default_instance_profile_arn: The ARN of an IAM Instance Profile that created instances will have by default.
         :param pulumi.Input[str] region: The name of the region where the stack will exist.
         :param pulumi.Input[str] service_role_arn: The ARN of an IAM role that the OpsWorks service will act as.
         :param pulumi.Input[str] agent_version: If set to `"LATEST"`, OpsWorks will automatically install the latest version.
@@ -49,18 +48,16 @@ class StackArgs:
         :param pulumi.Input[str] color: Color to paint next to the stack's resources in the OpsWorks console.
         :param pulumi.Input[str] configuration_manager_name: Name of the configuration manager to use. Defaults to "Chef".
         :param pulumi.Input[str] configuration_manager_version: Version of the configuration manager to use. Defaults to "11.4".
-        :param pulumi.Input[Sequence[pulumi.Input['StackCustomCookbooksSourceArgs']]] custom_cookbooks_sources: When `use_custom_cookbooks` is set, provide this sub-object as
-               described below.
+        :param pulumi.Input[Sequence[pulumi.Input['StackCustomCookbooksSourceArgs']]] custom_cookbooks_sources: When `use_custom_cookbooks` is set, provide this sub-object as described below.
         :param pulumi.Input[str] custom_json: Custom JSON attributes to apply to the entire stack.
-        :param pulumi.Input[str] default_availability_zone: Name of the availability zone where instances will be created
-               by default. This is required unless you set `vpc_id`.
+        :param pulumi.Input[str] default_availability_zone: Name of the availability zone where instances will be created by default.
+               Cannot be set when `vpc_id` is set.
         :param pulumi.Input[str] default_os: Name of OS that will be installed on instances by default.
         :param pulumi.Input[str] default_root_device_type: Name of the type of root device instances will have by default.
         :param pulumi.Input[str] default_ssh_key_name: Name of the SSH keypair that instances will have by default.
-        :param pulumi.Input[str] default_subnet_id: Id of the subnet in which instances will be created by default. Mandatory
-               if `vpc_id` is set, and forbidden if it isn't.
-        :param pulumi.Input[str] hostname_theme: Keyword representing the naming scheme that will be used for instance hostnames
-               within this stack.
+        :param pulumi.Input[str] default_subnet_id: ID of the subnet in which instances will be created by default.
+               Required if `vpc_id` is set to a VPC other than the default VPC, and forbidden if it isn't.
+        :param pulumi.Input[str] hostname_theme: Keyword representing the naming scheme that will be used for instance hostnames within this stack.
         :param pulumi.Input[bool] manage_berkshelf: Boolean value controlling whether Opsworks will run Berkshelf for this stack.
         :param pulumi.Input[str] name: The name of the stack.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -68,7 +65,8 @@ class StackArgs:
                enabled.
         :param pulumi.Input[bool] use_opsworks_security_groups: Boolean value controlling whether the standard OpsWorks
                security groups apply to created instances.
-        :param pulumi.Input[str] vpc_id: The id of the VPC that this stack belongs to.
+        :param pulumi.Input[str] vpc_id: ID of the VPC that this stack belongs to.
+               Defaults to the region's default VPC.
         """
         pulumi.set(__self__, "default_instance_profile_arn", default_instance_profile_arn)
         pulumi.set(__self__, "region", region)
@@ -116,8 +114,7 @@ class StackArgs:
     @pulumi.getter(name="defaultInstanceProfileArn")
     def default_instance_profile_arn(self) -> pulumi.Input[str]:
         """
-        The ARN of an IAM Instance Profile that created instances
-        will have by default.
+        The ARN of an IAM Instance Profile that created instances will have by default.
         """
         return pulumi.get(self, "default_instance_profile_arn")
 
@@ -213,8 +210,7 @@ class StackArgs:
     @pulumi.getter(name="customCookbooksSources")
     def custom_cookbooks_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StackCustomCookbooksSourceArgs']]]]:
         """
-        When `use_custom_cookbooks` is set, provide this sub-object as
-        described below.
+        When `use_custom_cookbooks` is set, provide this sub-object as described below.
         """
         return pulumi.get(self, "custom_cookbooks_sources")
 
@@ -238,8 +234,8 @@ class StackArgs:
     @pulumi.getter(name="defaultAvailabilityZone")
     def default_availability_zone(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the availability zone where instances will be created
-        by default. This is required unless you set `vpc_id`.
+        Name of the availability zone where instances will be created by default.
+        Cannot be set when `vpc_id` is set.
         """
         return pulumi.get(self, "default_availability_zone")
 
@@ -287,8 +283,8 @@ class StackArgs:
     @pulumi.getter(name="defaultSubnetId")
     def default_subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Id of the subnet in which instances will be created by default. Mandatory
-        if `vpc_id` is set, and forbidden if it isn't.
+        ID of the subnet in which instances will be created by default.
+        Required if `vpc_id` is set to a VPC other than the default VPC, and forbidden if it isn't.
         """
         return pulumi.get(self, "default_subnet_id")
 
@@ -300,8 +296,7 @@ class StackArgs:
     @pulumi.getter(name="hostnameTheme")
     def hostname_theme(self) -> Optional[pulumi.Input[str]]:
         """
-        Keyword representing the naming scheme that will be used for instance hostnames
-        within this stack.
+        Keyword representing the naming scheme that will be used for instance hostnames within this stack.
         """
         return pulumi.get(self, "hostname_theme")
 
@@ -375,7 +370,8 @@ class StackArgs:
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The id of the VPC that this stack belongs to.
+        ID of the VPC that this stack belongs to.
+        Defaults to the region's default VPC.
         """
         return pulumi.get(self, "vpc_id")
 
@@ -419,20 +415,17 @@ class _StackState:
         :param pulumi.Input[str] color: Color to paint next to the stack's resources in the OpsWorks console.
         :param pulumi.Input[str] configuration_manager_name: Name of the configuration manager to use. Defaults to "Chef".
         :param pulumi.Input[str] configuration_manager_version: Version of the configuration manager to use. Defaults to "11.4".
-        :param pulumi.Input[Sequence[pulumi.Input['StackCustomCookbooksSourceArgs']]] custom_cookbooks_sources: When `use_custom_cookbooks` is set, provide this sub-object as
-               described below.
+        :param pulumi.Input[Sequence[pulumi.Input['StackCustomCookbooksSourceArgs']]] custom_cookbooks_sources: When `use_custom_cookbooks` is set, provide this sub-object as described below.
         :param pulumi.Input[str] custom_json: Custom JSON attributes to apply to the entire stack.
-        :param pulumi.Input[str] default_availability_zone: Name of the availability zone where instances will be created
-               by default. This is required unless you set `vpc_id`.
-        :param pulumi.Input[str] default_instance_profile_arn: The ARN of an IAM Instance Profile that created instances
-               will have by default.
+        :param pulumi.Input[str] default_availability_zone: Name of the availability zone where instances will be created by default.
+               Cannot be set when `vpc_id` is set.
+        :param pulumi.Input[str] default_instance_profile_arn: The ARN of an IAM Instance Profile that created instances will have by default.
         :param pulumi.Input[str] default_os: Name of OS that will be installed on instances by default.
         :param pulumi.Input[str] default_root_device_type: Name of the type of root device instances will have by default.
         :param pulumi.Input[str] default_ssh_key_name: Name of the SSH keypair that instances will have by default.
-        :param pulumi.Input[str] default_subnet_id: Id of the subnet in which instances will be created by default. Mandatory
-               if `vpc_id` is set, and forbidden if it isn't.
-        :param pulumi.Input[str] hostname_theme: Keyword representing the naming scheme that will be used for instance hostnames
-               within this stack.
+        :param pulumi.Input[str] default_subnet_id: ID of the subnet in which instances will be created by default.
+               Required if `vpc_id` is set to a VPC other than the default VPC, and forbidden if it isn't.
+        :param pulumi.Input[str] hostname_theme: Keyword representing the naming scheme that will be used for instance hostnames within this stack.
         :param pulumi.Input[bool] manage_berkshelf: Boolean value controlling whether Opsworks will run Berkshelf for this stack.
         :param pulumi.Input[str] name: The name of the stack.
         :param pulumi.Input[str] region: The name of the region where the stack will exist.
@@ -443,7 +436,8 @@ class _StackState:
                enabled.
         :param pulumi.Input[bool] use_opsworks_security_groups: Boolean value controlling whether the standard OpsWorks
                security groups apply to created instances.
-        :param pulumi.Input[str] vpc_id: The id of the VPC that this stack belongs to.
+        :param pulumi.Input[str] vpc_id: ID of the VPC that this stack belongs to.
+               Defaults to the region's default VPC.
         """
         if agent_version is not None:
             pulumi.set(__self__, "agent_version", agent_version)
@@ -569,8 +563,7 @@ class _StackState:
     @pulumi.getter(name="customCookbooksSources")
     def custom_cookbooks_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StackCustomCookbooksSourceArgs']]]]:
         """
-        When `use_custom_cookbooks` is set, provide this sub-object as
-        described below.
+        When `use_custom_cookbooks` is set, provide this sub-object as described below.
         """
         return pulumi.get(self, "custom_cookbooks_sources")
 
@@ -594,8 +587,8 @@ class _StackState:
     @pulumi.getter(name="defaultAvailabilityZone")
     def default_availability_zone(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the availability zone where instances will be created
-        by default. This is required unless you set `vpc_id`.
+        Name of the availability zone where instances will be created by default.
+        Cannot be set when `vpc_id` is set.
         """
         return pulumi.get(self, "default_availability_zone")
 
@@ -607,8 +600,7 @@ class _StackState:
     @pulumi.getter(name="defaultInstanceProfileArn")
     def default_instance_profile_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of an IAM Instance Profile that created instances
-        will have by default.
+        The ARN of an IAM Instance Profile that created instances will have by default.
         """
         return pulumi.get(self, "default_instance_profile_arn")
 
@@ -656,8 +648,8 @@ class _StackState:
     @pulumi.getter(name="defaultSubnetId")
     def default_subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Id of the subnet in which instances will be created by default. Mandatory
-        if `vpc_id` is set, and forbidden if it isn't.
+        ID of the subnet in which instances will be created by default.
+        Required if `vpc_id` is set to a VPC other than the default VPC, and forbidden if it isn't.
         """
         return pulumi.get(self, "default_subnet_id")
 
@@ -669,8 +661,7 @@ class _StackState:
     @pulumi.getter(name="hostnameTheme")
     def hostname_theme(self) -> Optional[pulumi.Input[str]]:
         """
-        Keyword representing the naming scheme that will be used for instance hostnames
-        within this stack.
+        Keyword representing the naming scheme that will be used for instance hostnames within this stack.
         """
         return pulumi.get(self, "hostname_theme")
 
@@ -789,7 +780,8 @@ class _StackState:
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The id of the VPC that this stack belongs to.
+        ID of the VPC that this stack belongs to.
+        Defaults to the region's default VPC.
         """
         return pulumi.get(self, "vpc_id")
 
@@ -865,20 +857,17 @@ class Stack(pulumi.CustomResource):
         :param pulumi.Input[str] color: Color to paint next to the stack's resources in the OpsWorks console.
         :param pulumi.Input[str] configuration_manager_name: Name of the configuration manager to use. Defaults to "Chef".
         :param pulumi.Input[str] configuration_manager_version: Version of the configuration manager to use. Defaults to "11.4".
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackCustomCookbooksSourceArgs']]]] custom_cookbooks_sources: When `use_custom_cookbooks` is set, provide this sub-object as
-               described below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackCustomCookbooksSourceArgs']]]] custom_cookbooks_sources: When `use_custom_cookbooks` is set, provide this sub-object as described below.
         :param pulumi.Input[str] custom_json: Custom JSON attributes to apply to the entire stack.
-        :param pulumi.Input[str] default_availability_zone: Name of the availability zone where instances will be created
-               by default. This is required unless you set `vpc_id`.
-        :param pulumi.Input[str] default_instance_profile_arn: The ARN of an IAM Instance Profile that created instances
-               will have by default.
+        :param pulumi.Input[str] default_availability_zone: Name of the availability zone where instances will be created by default.
+               Cannot be set when `vpc_id` is set.
+        :param pulumi.Input[str] default_instance_profile_arn: The ARN of an IAM Instance Profile that created instances will have by default.
         :param pulumi.Input[str] default_os: Name of OS that will be installed on instances by default.
         :param pulumi.Input[str] default_root_device_type: Name of the type of root device instances will have by default.
         :param pulumi.Input[str] default_ssh_key_name: Name of the SSH keypair that instances will have by default.
-        :param pulumi.Input[str] default_subnet_id: Id of the subnet in which instances will be created by default. Mandatory
-               if `vpc_id` is set, and forbidden if it isn't.
-        :param pulumi.Input[str] hostname_theme: Keyword representing the naming scheme that will be used for instance hostnames
-               within this stack.
+        :param pulumi.Input[str] default_subnet_id: ID of the subnet in which instances will be created by default.
+               Required if `vpc_id` is set to a VPC other than the default VPC, and forbidden if it isn't.
+        :param pulumi.Input[str] hostname_theme: Keyword representing the naming scheme that will be used for instance hostnames within this stack.
         :param pulumi.Input[bool] manage_berkshelf: Boolean value controlling whether Opsworks will run Berkshelf for this stack.
         :param pulumi.Input[str] name: The name of the stack.
         :param pulumi.Input[str] region: The name of the region where the stack will exist.
@@ -888,7 +877,8 @@ class Stack(pulumi.CustomResource):
                enabled.
         :param pulumi.Input[bool] use_opsworks_security_groups: Boolean value controlling whether the standard OpsWorks
                security groups apply to created instances.
-        :param pulumi.Input[str] vpc_id: The id of the VPC that this stack belongs to.
+        :param pulumi.Input[str] vpc_id: ID of the VPC that this stack belongs to.
+               Defaults to the region's default VPC.
         """
         ...
     @overload
@@ -1052,20 +1042,17 @@ class Stack(pulumi.CustomResource):
         :param pulumi.Input[str] color: Color to paint next to the stack's resources in the OpsWorks console.
         :param pulumi.Input[str] configuration_manager_name: Name of the configuration manager to use. Defaults to "Chef".
         :param pulumi.Input[str] configuration_manager_version: Version of the configuration manager to use. Defaults to "11.4".
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackCustomCookbooksSourceArgs']]]] custom_cookbooks_sources: When `use_custom_cookbooks` is set, provide this sub-object as
-               described below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackCustomCookbooksSourceArgs']]]] custom_cookbooks_sources: When `use_custom_cookbooks` is set, provide this sub-object as described below.
         :param pulumi.Input[str] custom_json: Custom JSON attributes to apply to the entire stack.
-        :param pulumi.Input[str] default_availability_zone: Name of the availability zone where instances will be created
-               by default. This is required unless you set `vpc_id`.
-        :param pulumi.Input[str] default_instance_profile_arn: The ARN of an IAM Instance Profile that created instances
-               will have by default.
+        :param pulumi.Input[str] default_availability_zone: Name of the availability zone where instances will be created by default.
+               Cannot be set when `vpc_id` is set.
+        :param pulumi.Input[str] default_instance_profile_arn: The ARN of an IAM Instance Profile that created instances will have by default.
         :param pulumi.Input[str] default_os: Name of OS that will be installed on instances by default.
         :param pulumi.Input[str] default_root_device_type: Name of the type of root device instances will have by default.
         :param pulumi.Input[str] default_ssh_key_name: Name of the SSH keypair that instances will have by default.
-        :param pulumi.Input[str] default_subnet_id: Id of the subnet in which instances will be created by default. Mandatory
-               if `vpc_id` is set, and forbidden if it isn't.
-        :param pulumi.Input[str] hostname_theme: Keyword representing the naming scheme that will be used for instance hostnames
-               within this stack.
+        :param pulumi.Input[str] default_subnet_id: ID of the subnet in which instances will be created by default.
+               Required if `vpc_id` is set to a VPC other than the default VPC, and forbidden if it isn't.
+        :param pulumi.Input[str] hostname_theme: Keyword representing the naming scheme that will be used for instance hostnames within this stack.
         :param pulumi.Input[bool] manage_berkshelf: Boolean value controlling whether Opsworks will run Berkshelf for this stack.
         :param pulumi.Input[str] name: The name of the stack.
         :param pulumi.Input[str] region: The name of the region where the stack will exist.
@@ -1076,7 +1063,8 @@ class Stack(pulumi.CustomResource):
                enabled.
         :param pulumi.Input[bool] use_opsworks_security_groups: Boolean value controlling whether the standard OpsWorks
                security groups apply to created instances.
-        :param pulumi.Input[str] vpc_id: The id of the VPC that this stack belongs to.
+        :param pulumi.Input[str] vpc_id: ID of the VPC that this stack belongs to.
+               Defaults to the region's default VPC.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1158,8 +1146,7 @@ class Stack(pulumi.CustomResource):
     @pulumi.getter(name="customCookbooksSources")
     def custom_cookbooks_sources(self) -> pulumi.Output[Sequence['outputs.StackCustomCookbooksSource']]:
         """
-        When `use_custom_cookbooks` is set, provide this sub-object as
-        described below.
+        When `use_custom_cookbooks` is set, provide this sub-object as described below.
         """
         return pulumi.get(self, "custom_cookbooks_sources")
 
@@ -1175,8 +1162,8 @@ class Stack(pulumi.CustomResource):
     @pulumi.getter(name="defaultAvailabilityZone")
     def default_availability_zone(self) -> pulumi.Output[str]:
         """
-        Name of the availability zone where instances will be created
-        by default. This is required unless you set `vpc_id`.
+        Name of the availability zone where instances will be created by default.
+        Cannot be set when `vpc_id` is set.
         """
         return pulumi.get(self, "default_availability_zone")
 
@@ -1184,8 +1171,7 @@ class Stack(pulumi.CustomResource):
     @pulumi.getter(name="defaultInstanceProfileArn")
     def default_instance_profile_arn(self) -> pulumi.Output[str]:
         """
-        The ARN of an IAM Instance Profile that created instances
-        will have by default.
+        The ARN of an IAM Instance Profile that created instances will have by default.
         """
         return pulumi.get(self, "default_instance_profile_arn")
 
@@ -1217,8 +1203,8 @@ class Stack(pulumi.CustomResource):
     @pulumi.getter(name="defaultSubnetId")
     def default_subnet_id(self) -> pulumi.Output[str]:
         """
-        Id of the subnet in which instances will be created by default. Mandatory
-        if `vpc_id` is set, and forbidden if it isn't.
+        ID of the subnet in which instances will be created by default.
+        Required if `vpc_id` is set to a VPC other than the default VPC, and forbidden if it isn't.
         """
         return pulumi.get(self, "default_subnet_id")
 
@@ -1226,8 +1212,7 @@ class Stack(pulumi.CustomResource):
     @pulumi.getter(name="hostnameTheme")
     def hostname_theme(self) -> pulumi.Output[Optional[str]]:
         """
-        Keyword representing the naming scheme that will be used for instance hostnames
-        within this stack.
+        Keyword representing the naming scheme that will be used for instance hostnames within this stack.
         """
         return pulumi.get(self, "hostname_theme")
 
@@ -1306,7 +1291,8 @@ class Stack(pulumi.CustomResource):
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[str]:
         """
-        The id of the VPC that this stack belongs to.
+        ID of the VPC that this stack belongs to.
+        Defaults to the region's default VPC.
         """
         return pulumi.get(self, "vpc_id")
 

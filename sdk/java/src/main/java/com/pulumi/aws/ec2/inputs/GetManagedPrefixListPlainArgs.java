@@ -33,14 +33,14 @@ public final class GetManagedPrefixListPlainArgs extends com.pulumi.resources.In
     }
 
     /**
-     * The ID of the prefix list to select.
+     * ID of the prefix list to select.
      * 
      */
     @Import(name="id")
     private @Nullable String id;
 
     /**
-     * @return The ID of the prefix list to select.
+     * @return ID of the prefix list to select.
      * 
      */
     public Optional<String> id() {
@@ -48,14 +48,14 @@ public final class GetManagedPrefixListPlainArgs extends com.pulumi.resources.In
     }
 
     /**
-     * The name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
+     * Name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
      * 
      */
     @Import(name="name")
     private @Nullable String name;
 
     /**
-     * @return The name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
+     * @return Name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
      * 
      */
     public Optional<String> name() {
@@ -63,14 +63,14 @@ public final class GetManagedPrefixListPlainArgs extends com.pulumi.resources.In
     }
 
     /**
-     * A map of tags assigned to the resource.
+     * Map of tags assigned to the resource.
      * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return A map of tags assigned to the resource.
+     * @return Map of tags assigned to the resource.
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -126,7 +126,7 @@ public final class GetManagedPrefixListPlainArgs extends com.pulumi.resources.In
         }
 
         /**
-         * @param id The ID of the prefix list to select.
+         * @param id ID of the prefix list to select.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class GetManagedPrefixListPlainArgs extends com.pulumi.resources.In
         }
 
         /**
-         * @param name The name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
+         * @param name Name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class GetManagedPrefixListPlainArgs extends com.pulumi.resources.In
         }
 
         /**
-         * @param tags A map of tags assigned to the resource.
+         * @param tags Map of tags assigned to the resource.
          * 
          * @return builder
          * 

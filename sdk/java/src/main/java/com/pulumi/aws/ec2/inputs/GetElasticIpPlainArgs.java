@@ -33,14 +33,14 @@ public final class GetElasticIpPlainArgs extends com.pulumi.resources.InvokeArgs
     }
 
     /**
-     * The allocation id of the specific VPC EIP to retrieve. If a classic EIP is required, do NOT set `id`, only set `public_ip`
+     * Allocation ID of the specific VPC EIP to retrieve. If a classic EIP is required, do NOT set `id`, only set `public_ip`
      * 
      */
     @Import(name="id")
     private @Nullable String id;
 
     /**
-     * @return The allocation id of the specific VPC EIP to retrieve. If a classic EIP is required, do NOT set `id`, only set `public_ip`
+     * @return Allocation ID of the specific VPC EIP to retrieve. If a classic EIP is required, do NOT set `id`, only set `public_ip`
      * 
      */
     public Optional<String> id() {
@@ -48,14 +48,14 @@ public final class GetElasticIpPlainArgs extends com.pulumi.resources.InvokeArgs
     }
 
     /**
-     * The public IP of the specific EIP to retrieve.
+     * Public IP of the specific EIP to retrieve.
      * 
      */
     @Import(name="publicIp")
     private @Nullable String publicIp;
 
     /**
-     * @return The public IP of the specific EIP to retrieve.
+     * @return Public IP of the specific EIP to retrieve.
      * 
      */
     public Optional<String> publicIp() {
@@ -63,14 +63,14 @@ public final class GetElasticIpPlainArgs extends com.pulumi.resources.InvokeArgs
     }
 
     /**
-     * A map of tags, each pair of which must exactly match a pair on the desired Elastic IP
+     * Map of tags, each pair of which must exactly match a pair on the desired Elastic IP
      * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return A map of tags, each pair of which must exactly match a pair on the desired Elastic IP
+     * @return Map of tags, each pair of which must exactly match a pair on the desired Elastic IP
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -126,7 +126,7 @@ public final class GetElasticIpPlainArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param id The allocation id of the specific VPC EIP to retrieve. If a classic EIP is required, do NOT set `id`, only set `public_ip`
+         * @param id Allocation ID of the specific VPC EIP to retrieve. If a classic EIP is required, do NOT set `id`, only set `public_ip`
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class GetElasticIpPlainArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param publicIp The public IP of the specific EIP to retrieve.
+         * @param publicIp Public IP of the specific EIP to retrieve.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class GetElasticIpPlainArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param tags A map of tags, each pair of which must exactly match a pair on the desired Elastic IP
+         * @param tags Map of tags, each pair of which must exactly match a pair on the desired Elastic IP
          * 
          * @return builder
          * 

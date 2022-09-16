@@ -34,14 +34,14 @@ public final class GetScriptDagNodeArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A node identifier that is unique within the node&#39;s graph.
+     * Node identifier that is unique within the node&#39;s graph.
      * 
      */
     @Import(name="id", required=true)
     private Output<String> id;
 
     /**
-     * @return A node identifier that is unique within the node&#39;s graph.
+     * @return Node identifier that is unique within the node&#39;s graph.
      * 
      */
     public Output<String> id() {
@@ -49,14 +49,14 @@ public final class GetScriptDagNodeArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The line number of the node.
+     * Line number of the node.
      * 
      */
     @Import(name="lineNumber")
     private @Nullable Output<Integer> lineNumber;
 
     /**
-     * @return The line number of the node.
+     * @return Line number of the node.
      * 
      */
     public Optional<Output<Integer>> lineNumber() {
@@ -64,14 +64,14 @@ public final class GetScriptDagNodeArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The type of node this is.
+     * Type of node this is.
      * 
      */
     @Import(name="nodeType", required=true)
     private Output<String> nodeType;
 
     /**
-     * @return The type of node this is.
+     * @return Type of node this is.
      * 
      */
     public Output<String> nodeType() {
@@ -137,7 +137,7 @@ public final class GetScriptDagNodeArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param id A node identifier that is unique within the node&#39;s graph.
+         * @param id Node identifier that is unique within the node&#39;s graph.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class GetScriptDagNodeArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param id A node identifier that is unique within the node&#39;s graph.
+         * @param id Node identifier that is unique within the node&#39;s graph.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class GetScriptDagNodeArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param lineNumber The line number of the node.
+         * @param lineNumber Line number of the node.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class GetScriptDagNodeArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param lineNumber The line number of the node.
+         * @param lineNumber Line number of the node.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class GetScriptDagNodeArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param nodeType The type of node this is.
+         * @param nodeType Type of node this is.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class GetScriptDagNodeArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param nodeType The type of node this is.
+         * @param nodeType Type of node this is.
          * 
          * @return builder
          * 

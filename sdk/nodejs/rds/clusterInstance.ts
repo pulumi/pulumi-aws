@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 import {EngineType} from "./index";
@@ -176,6 +178,10 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     public readonly monitoringRoleArn!: pulumi.Output<string>;
     /**
+     * The network type of the DB instance.
+     */
+    public /*out*/ readonly networkType!: pulumi.Output<string>;
+    /**
      * Specifies whether Performance Insights is enabled or not.
      */
     public readonly performanceInsightsEnabled!: pulumi.Output<boolean>;
@@ -184,7 +190,7 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     public readonly performanceInsightsKmsKeyId!: pulumi.Output<string>;
     /**
-     * Amount of time in days to retain Performance Insights data. Valida values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.
+     * Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.
      */
     public readonly performanceInsightsRetentionPeriod!: pulumi.Output<number>;
     /**
@@ -261,6 +267,7 @@ export class ClusterInstance extends pulumi.CustomResource {
             resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
             resourceInputs["monitoringInterval"] = state ? state.monitoringInterval : undefined;
             resourceInputs["monitoringRoleArn"] = state ? state.monitoringRoleArn : undefined;
+            resourceInputs["networkType"] = state ? state.networkType : undefined;
             resourceInputs["performanceInsightsEnabled"] = state ? state.performanceInsightsEnabled : undefined;
             resourceInputs["performanceInsightsKmsKeyId"] = state ? state.performanceInsightsKmsKeyId : undefined;
             resourceInputs["performanceInsightsRetentionPeriod"] = state ? state.performanceInsightsRetentionPeriod : undefined;
@@ -309,6 +316,7 @@ export class ClusterInstance extends pulumi.CustomResource {
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["engineVersionActual"] = undefined /*out*/;
             resourceInputs["kmsKeyId"] = undefined /*out*/;
+            resourceInputs["networkType"] = undefined /*out*/;
             resourceInputs["port"] = undefined /*out*/;
             resourceInputs["storageEncrypted"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
@@ -411,6 +419,10 @@ export interface ClusterInstanceState {
      */
     monitoringRoleArn?: pulumi.Input<string>;
     /**
+     * The network type of the DB instance.
+     */
+    networkType?: pulumi.Input<string>;
+    /**
      * Specifies whether Performance Insights is enabled or not.
      */
     performanceInsightsEnabled?: pulumi.Input<boolean>;
@@ -419,7 +431,7 @@ export interface ClusterInstanceState {
      */
     performanceInsightsKmsKeyId?: pulumi.Input<string>;
     /**
-     * Amount of time in days to retain Performance Insights data. Valida values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.
+     * Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.
      */
     performanceInsightsRetentionPeriod?: pulumi.Input<number>;
     /**
@@ -544,7 +556,7 @@ export interface ClusterInstanceArgs {
      */
     performanceInsightsKmsKeyId?: pulumi.Input<string>;
     /**
-     * Amount of time in days to retain Performance Insights data. Valida values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.
+     * Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.
      */
     performanceInsightsRetentionPeriod?: pulumi.Input<number>;
     /**

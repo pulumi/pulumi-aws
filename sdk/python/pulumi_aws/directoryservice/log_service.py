@@ -18,7 +18,7 @@ class LogServiceArgs:
                  log_group_name: pulumi.Input[str]):
         """
         The set of arguments for constructing a LogService resource.
-        :param pulumi.Input[str] directory_id: The id of directory.
+        :param pulumi.Input[str] directory_id: ID of directory.
         :param pulumi.Input[str] log_group_name: Name of the cloudwatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
         """
         pulumi.set(__self__, "directory_id", directory_id)
@@ -28,7 +28,7 @@ class LogServiceArgs:
     @pulumi.getter(name="directoryId")
     def directory_id(self) -> pulumi.Input[str]:
         """
-        The id of directory.
+        ID of directory.
         """
         return pulumi.get(self, "directory_id")
 
@@ -56,7 +56,7 @@ class _LogServiceState:
                  log_group_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering LogService resources.
-        :param pulumi.Input[str] directory_id: The id of directory.
+        :param pulumi.Input[str] directory_id: ID of directory.
         :param pulumi.Input[str] log_group_name: Name of the cloudwatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
         """
         if directory_id is not None:
@@ -68,7 +68,7 @@ class _LogServiceState:
     @pulumi.getter(name="directoryId")
     def directory_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The id of directory.
+        ID of directory.
         """
         return pulumi.get(self, "directory_id")
 
@@ -137,7 +137,7 @@ class LogService(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] directory_id: The id of directory.
+        :param pulumi.Input[str] directory_id: ID of directory.
         :param pulumi.Input[str] log_group_name: Name of the cloudwatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
         """
         ...
@@ -235,7 +235,7 @@ class LogService(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] directory_id: The id of directory.
+        :param pulumi.Input[str] directory_id: ID of directory.
         :param pulumi.Input[str] log_group_name: Name of the cloudwatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -250,7 +250,7 @@ class LogService(pulumi.CustomResource):
     @pulumi.getter(name="directoryId")
     def directory_id(self) -> pulumi.Output[str]:
         """
-        The id of directory.
+        ID of directory.
         """
         return pulumi.get(self, "directory_id")
 

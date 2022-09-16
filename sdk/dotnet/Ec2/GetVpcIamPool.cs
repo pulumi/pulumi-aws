@@ -158,13 +158,13 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The ID of the IPAM pool.
+        /// ID of the IPAM pool.
         /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// The ID of the IPAM pool you would like information on.
+        /// ID of the IPAM pool you would like information on.
         /// </summary>
         [Input("ipamPoolId")]
         public string? IpamPoolId { get; set; }
@@ -173,7 +173,7 @@ namespace Pulumi.Aws.Ec2
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A map of tags to assigned to the resource.
+        /// Map of tags to assigned to the resource.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -214,13 +214,13 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The ID of the IPAM pool.
+        /// ID of the IPAM pool.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The ID of the IPAM pool you would like information on.
+        /// ID of the IPAM pool you would like information on.
         /// </summary>
         [Input("ipamPoolId")]
         public Input<string>? IpamPoolId { get; set; }
@@ -229,7 +229,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assigned to the resource.
+        /// Map of tags to assigned to the resource.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -248,7 +248,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class GetVpcIamPoolResult
     {
         /// <summary>
-        /// The IP protocol assigned to this pool.
+        /// IP protocol assigned to this pool.
         /// </summary>
         public readonly string AddressFamily;
         /// <summary>
@@ -268,7 +268,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly ImmutableDictionary<string, string> AllocationResourceTags;
         /// <summary>
-        /// Amazon Resource Name (ARN) of the pool
+        /// ARN of the pool
         /// </summary>
         public readonly string Arn;
         /// <summary>
@@ -280,17 +280,17 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string AwsService;
         /// <summary>
-        /// A description for the IPAM pool.
+        /// Description for the IPAM pool.
         /// </summary>
         public readonly string Description;
         public readonly ImmutableArray<Outputs.GetVpcIamPoolFilterResult> Filters;
         /// <summary>
-        /// The ID of the IPAM pool.
+        /// ID of the IPAM pool.
         /// </summary>
         public readonly string? Id;
         public readonly string? IpamPoolId;
         /// <summary>
-        /// The ID of the scope the pool belongs to.
+        /// ID of the scope the pool belongs to.
         /// </summary>
         public readonly string IpamScopeId;
         public readonly string IpamScopeType;
@@ -304,12 +304,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly bool PubliclyAdvertisable;
         /// <summary>
-        /// The ID of the source IPAM pool.
+        /// ID of the source IPAM pool.
         /// </summary>
         public readonly string SourceIpamPoolId;
         public readonly string State;
         /// <summary>
-        /// A map of tags to assigned to the resource.
+        /// Map of tags to assigned to the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 

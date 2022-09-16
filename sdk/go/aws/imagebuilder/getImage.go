@@ -49,7 +49,7 @@ func LookupImage(ctx *pulumi.Context, args *LookupImageArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getImage.
 type LookupImageArgs struct {
-	// Amazon Resource Name (ARN) of the image. The suffix can either be specified with wildcards (`x.x.x`) to fetch the latest build version or a full build version (e.g., `2020.11.26/1`) to fetch an exact version.
+	// ARN of the image. The suffix can either be specified with wildcards (`x.x.x`) to fetch the latest build version or a full build version (e.g., `2020.11.26/1`) to fetch an exact version.
 	Arn string `pulumi:"arn"`
 	// Key-value map of resource tags for the image.
 	Tags map[string]string `pulumi:"tags"`
@@ -58,23 +58,23 @@ type LookupImageArgs struct {
 // A collection of values returned by getImage.
 type LookupImageResult struct {
 	Arn string `pulumi:"arn"`
-	// Build version Amazon Resource Name (ARN) of the image. This will always have the `#.#.#/#` suffix.
+	// Build version ARN of the image. This will always have the `#.#.#/#` suffix.
 	BuildVersionArn string `pulumi:"buildVersionArn"`
-	// Amazon Resource Name (ARN) of the container recipe.
+	// ARN of the container recipe.
 	ContainerRecipeArn string `pulumi:"containerRecipeArn"`
 	// Date the image was created.
 	DateCreated string `pulumi:"dateCreated"`
-	// Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+	// ARN of the Image Builder Distribution Configuration.
 	DistributionConfigurationArn string `pulumi:"distributionConfigurationArn"`
 	// Whether additional information about the image being created is collected.
 	EnhancedImageMetadataEnabled bool `pulumi:"enhancedImageMetadataEnabled"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// Amazon Resource Name (ARN) of the image recipe.
+	// ARN of the image recipe.
 	ImageRecipeArn string `pulumi:"imageRecipeArn"`
 	// List of an object with image tests configuration.
 	ImageTestsConfigurations []GetImageImageTestsConfiguration `pulumi:"imageTestsConfigurations"`
-	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+	// ARN of the Image Builder Infrastructure Configuration.
 	InfrastructureConfigurationArn string `pulumi:"infrastructureConfigurationArn"`
 	// Name of the AMI.
 	Name string `pulumi:"name"`
@@ -105,7 +105,7 @@ func LookupImageOutput(ctx *pulumi.Context, args LookupImageOutputArgs, opts ...
 
 // A collection of arguments for invoking getImage.
 type LookupImageOutputArgs struct {
-	// Amazon Resource Name (ARN) of the image. The suffix can either be specified with wildcards (`x.x.x`) to fetch the latest build version or a full build version (e.g., `2020.11.26/1`) to fetch an exact version.
+	// ARN of the image. The suffix can either be specified with wildcards (`x.x.x`) to fetch the latest build version or a full build version (e.g., `2020.11.26/1`) to fetch an exact version.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// Key-value map of resource tags for the image.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -134,12 +134,12 @@ func (o LookupImageResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupImageResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Build version Amazon Resource Name (ARN) of the image. This will always have the `#.#.#/#` suffix.
+// Build version ARN of the image. This will always have the `#.#.#/#` suffix.
 func (o LookupImageResultOutput) BuildVersionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupImageResult) string { return v.BuildVersionArn }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the container recipe.
+// ARN of the container recipe.
 func (o LookupImageResultOutput) ContainerRecipeArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupImageResult) string { return v.ContainerRecipeArn }).(pulumi.StringOutput)
 }
@@ -149,7 +149,7 @@ func (o LookupImageResultOutput) DateCreated() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupImageResult) string { return v.DateCreated }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+// ARN of the Image Builder Distribution Configuration.
 func (o LookupImageResultOutput) DistributionConfigurationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupImageResult) string { return v.DistributionConfigurationArn }).(pulumi.StringOutput)
 }
@@ -164,7 +164,7 @@ func (o LookupImageResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupImageResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the image recipe.
+// ARN of the image recipe.
 func (o LookupImageResultOutput) ImageRecipeArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupImageResult) string { return v.ImageRecipeArn }).(pulumi.StringOutput)
 }
@@ -174,7 +174,7 @@ func (o LookupImageResultOutput) ImageTestsConfigurations() GetImageImageTestsCo
 	return o.ApplyT(func(v LookupImageResult) []GetImageImageTestsConfiguration { return v.ImageTestsConfigurations }).(GetImageImageTestsConfigurationArrayOutput)
 }
 
-// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+// ARN of the Image Builder Infrastructure Configuration.
 func (o LookupImageResultOutput) InfrastructureConfigurationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupImageResult) string { return v.InfrastructureConfigurationArn }).(pulumi.StringOutput)
 }

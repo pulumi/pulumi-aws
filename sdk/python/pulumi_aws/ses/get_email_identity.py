@@ -44,7 +44,7 @@ class GetEmailIdentityResult:
     @pulumi.getter
     def email(self) -> str:
         """
-        The email identity.
+        Email identity.
         """
         return pulumi.get(self, "email")
 
@@ -83,7 +83,7 @@ def get_email_identity(email: Optional[str] = None,
     ```
 
 
-    :param str email: The email identity.
+    :param str email: Email identity.
     """
     __args__ = dict()
     __args__['email'] = email
@@ -112,6 +112,6 @@ def get_email_identity_output(email: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str email: The email identity.
+    :param str email: Email identity.
     """
     ...

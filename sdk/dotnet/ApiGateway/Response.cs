@@ -53,31 +53,31 @@ namespace Pulumi.Aws.ApiGateway
     public partial class Response : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A map specifying the parameters (paths, query strings and headers) of the Gateway Response.
+        /// Map of parameters (paths, query strings and headers) of the Gateway Response.
         /// </summary>
         [Output("responseParameters")]
         public Output<ImmutableDictionary<string, string>?> ResponseParameters { get; private set; } = null!;
 
         /// <summary>
-        /// A map specifying the templates used to transform the response body.
+        /// Map of templates used to transform the response body.
         /// </summary>
         [Output("responseTemplates")]
         public Output<ImmutableDictionary<string, string>?> ResponseTemplates { get; private set; } = null!;
 
         /// <summary>
-        /// The response type of the associated GatewayResponse.
+        /// Response type of the associated GatewayResponse.
         /// </summary>
         [Output("responseType")]
         public Output<string> ResponseType { get; private set; } = null!;
 
         /// <summary>
-        /// The string identifier of the associated REST API.
+        /// String identifier of the associated REST API.
         /// </summary>
         [Output("restApiId")]
         public Output<string> RestApiId { get; private set; } = null!;
 
         /// <summary>
-        /// The HTTP status code of the Gateway Response.
+        /// HTTP status code of the Gateway Response.
         /// </summary>
         [Output("statusCode")]
         public Output<string?> StatusCode { get; private set; } = null!;
@@ -132,7 +132,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputMap<string>? _responseParameters;
 
         /// <summary>
-        /// A map specifying the parameters (paths, query strings and headers) of the Gateway Response.
+        /// Map of parameters (paths, query strings and headers) of the Gateway Response.
         /// </summary>
         public InputMap<string> ResponseParameters
         {
@@ -144,7 +144,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputMap<string>? _responseTemplates;
 
         /// <summary>
-        /// A map specifying the templates used to transform the response body.
+        /// Map of templates used to transform the response body.
         /// </summary>
         public InputMap<string> ResponseTemplates
         {
@@ -153,19 +153,19 @@ namespace Pulumi.Aws.ApiGateway
         }
 
         /// <summary>
-        /// The response type of the associated GatewayResponse.
+        /// Response type of the associated GatewayResponse.
         /// </summary>
         [Input("responseType", required: true)]
         public Input<string> ResponseType { get; set; } = null!;
 
         /// <summary>
-        /// The string identifier of the associated REST API.
+        /// String identifier of the associated REST API.
         /// </summary>
         [Input("restApiId", required: true)]
         public Input<string> RestApiId { get; set; } = null!;
 
         /// <summary>
-        /// The HTTP status code of the Gateway Response.
+        /// HTTP status code of the Gateway Response.
         /// </summary>
         [Input("statusCode")]
         public Input<string>? StatusCode { get; set; }
@@ -182,7 +182,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputMap<string>? _responseParameters;
 
         /// <summary>
-        /// A map specifying the parameters (paths, query strings and headers) of the Gateway Response.
+        /// Map of parameters (paths, query strings and headers) of the Gateway Response.
         /// </summary>
         public InputMap<string> ResponseParameters
         {
@@ -194,7 +194,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputMap<string>? _responseTemplates;
 
         /// <summary>
-        /// A map specifying the templates used to transform the response body.
+        /// Map of templates used to transform the response body.
         /// </summary>
         public InputMap<string> ResponseTemplates
         {
@@ -203,19 +203,19 @@ namespace Pulumi.Aws.ApiGateway
         }
 
         /// <summary>
-        /// The response type of the associated GatewayResponse.
+        /// Response type of the associated GatewayResponse.
         /// </summary>
         [Input("responseType")]
         public Input<string>? ResponseType { get; set; }
 
         /// <summary>
-        /// The string identifier of the associated REST API.
+        /// String identifier of the associated REST API.
         /// </summary>
         [Input("restApiId")]
         public Input<string>? RestApiId { get; set; }
 
         /// <summary>
-        /// The HTTP status code of the Gateway Response.
+        /// HTTP status code of the Gateway Response.
         /// </summary>
         [Input("statusCode")]
         public Input<string>? StatusCode { get; set; }

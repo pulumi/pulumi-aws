@@ -89,7 +89,7 @@ class GetVpcIamPoolResult:
     @pulumi.getter(name="addressFamily")
     def address_family(self) -> str:
         """
-        The IP protocol assigned to this pool.
+        IP protocol assigned to this pool.
         """
         return pulumi.get(self, "address_family")
 
@@ -129,7 +129,7 @@ class GetVpcIamPoolResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        Amazon Resource Name (ARN) of the pool
+        ARN of the pool
         """
         return pulumi.get(self, "arn")
 
@@ -153,7 +153,7 @@ class GetVpcIamPoolResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        A description for the IPAM pool.
+        Description for the IPAM pool.
         """
         return pulumi.get(self, "description")
 
@@ -166,7 +166,7 @@ class GetVpcIamPoolResult:
     @pulumi.getter
     def id(self) -> Optional[str]:
         """
-        The ID of the IPAM pool.
+        ID of the IPAM pool.
         """
         return pulumi.get(self, "id")
 
@@ -179,7 +179,7 @@ class GetVpcIamPoolResult:
     @pulumi.getter(name="ipamScopeId")
     def ipam_scope_id(self) -> str:
         """
-        The ID of the scope the pool belongs to.
+        ID of the scope the pool belongs to.
         """
         return pulumi.get(self, "ipam_scope_id")
 
@@ -213,7 +213,7 @@ class GetVpcIamPoolResult:
     @pulumi.getter(name="sourceIpamPoolId")
     def source_ipam_pool_id(self) -> str:
         """
-        The ID of the source IPAM pool.
+        ID of the source IPAM pool.
         """
         return pulumi.get(self, "source_ipam_pool_id")
 
@@ -226,7 +226,7 @@ class GetVpcIamPoolResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        A map of tags to assigned to the resource.
+        Map of tags to assigned to the resource.
         """
         return pulumi.get(self, "tags")
 
@@ -300,9 +300,9 @@ def get_vpc_iam_pool(allocation_resource_tags: Optional[Mapping[str, str]] = Non
 
     :param Mapping[str, str] allocation_resource_tags: Tags that are required to create resources in using this pool.
     :param Sequence[pulumi.InputType['GetVpcIamPoolFilterArgs']] filters: Custom filter block as described below.
-    :param str id: The ID of the IPAM pool.
-    :param str ipam_pool_id: The ID of the IPAM pool you would like information on.
-    :param Mapping[str, str] tags: A map of tags to assigned to the resource.
+    :param str id: ID of the IPAM pool.
+    :param str ipam_pool_id: ID of the IPAM pool you would like information on.
+    :param Mapping[str, str] tags: Map of tags to assigned to the resource.
     """
     __args__ = dict()
     __args__['allocationResourceTags'] = allocation_resource_tags
@@ -378,8 +378,8 @@ def get_vpc_iam_pool_output(allocation_resource_tags: Optional[pulumi.Input[Opti
 
     :param Mapping[str, str] allocation_resource_tags: Tags that are required to create resources in using this pool.
     :param Sequence[pulumi.InputType['GetVpcIamPoolFilterArgs']] filters: Custom filter block as described below.
-    :param str id: The ID of the IPAM pool.
-    :param str ipam_pool_id: The ID of the IPAM pool you would like information on.
-    :param Mapping[str, str] tags: A map of tags to assigned to the resource.
+    :param str id: ID of the IPAM pool.
+    :param str ipam_pool_id: ID of the IPAM pool you would like information on.
+    :param Mapping[str, str] tags: Map of tags to assigned to the resource.
     """
     ...

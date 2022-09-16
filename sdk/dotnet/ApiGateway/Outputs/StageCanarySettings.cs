@@ -14,11 +14,11 @@ namespace Pulumi.Aws.ApiGateway.Outputs
     public sealed class StageCanarySettings
     {
         /// <summary>
-        /// The percent `0.0` - `100.0` of traffic to divert to the canary deployment.
+        /// Percent `0.0` - `100.0` of traffic to divert to the canary deployment.
         /// </summary>
         public readonly double? PercentTraffic;
         /// <summary>
-        /// A map of overridden stage `variables` (including new variables) for the canary deployment.
+        /// Map of overridden stage `variables` (including new variables) for the canary deployment.
         /// </summary>
         public readonly ImmutableDictionary<string, object>? StageVariableOverrides;
         /// <summary>

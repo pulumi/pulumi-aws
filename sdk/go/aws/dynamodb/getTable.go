@@ -48,7 +48,7 @@ func LookupTable(ctx *pulumi.Context, args *LookupTableArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getTable.
 type LookupTableArgs struct {
-	// The name of the DynamoDB table.
+	// Name of the DynamoDB table.
 	Name                 string                        `pulumi:"name"`
 	ServerSideEncryption *GetTableServerSideEncryption `pulumi:"serverSideEncryption"`
 	Tags                 map[string]string             `pulumi:"tags"`
@@ -95,7 +95,7 @@ func LookupTableOutput(ctx *pulumi.Context, args LookupTableOutputArgs, opts ...
 
 // A collection of arguments for invoking getTable.
 type LookupTableOutputArgs struct {
-	// The name of the DynamoDB table.
+	// Name of the DynamoDB table.
 	Name                 pulumi.StringInput                   `pulumi:"name"`
 	ServerSideEncryption GetTableServerSideEncryptionPtrInput `pulumi:"serverSideEncryption"`
 	Tags                 pulumi.StringMapInput                `pulumi:"tags"`

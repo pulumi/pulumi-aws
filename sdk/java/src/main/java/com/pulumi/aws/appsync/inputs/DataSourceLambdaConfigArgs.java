@@ -14,14 +14,14 @@ public final class DataSourceLambdaConfigArgs extends com.pulumi.resources.Resou
     public static final DataSourceLambdaConfigArgs Empty = new DataSourceLambdaConfigArgs();
 
     /**
-     * The ARN for the Lambda function.
+     * ARN for the Lambda function.
      * 
      */
     @Import(name="functionArn", required=true)
     private Output<String> functionArn;
 
     /**
-     * @return The ARN for the Lambda function.
+     * @return ARN for the Lambda function.
      * 
      */
     public Output<String> functionArn() {
@@ -53,7 +53,7 @@ public final class DataSourceLambdaConfigArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param functionArn The ARN for the Lambda function.
+         * @param functionArn ARN for the Lambda function.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class DataSourceLambdaConfigArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param functionArn The ARN for the Lambda function.
+         * @param functionArn ARN for the Lambda function.
          * 
          * @return builder
          * 

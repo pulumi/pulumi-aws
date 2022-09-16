@@ -15,14 +15,14 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTru
     public static final VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgs Empty = new VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgs();
 
     /**
-     * One or more ACM Amazon Resource Name (ARN)s.
+     * One or more ACM ARNs.
      * 
      */
     @Import(name="certificateAuthorityArns", required=true)
     private Output<List<String>> certificateAuthorityArns;
 
     /**
-     * @return One or more ACM Amazon Resource Name (ARN)s.
+     * @return One or more ACM ARNs.
      * 
      */
     public Output<List<String>> certificateAuthorityArns() {
@@ -54,7 +54,7 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTru
         }
 
         /**
-         * @param certificateAuthorityArns One or more ACM Amazon Resource Name (ARN)s.
+         * @param certificateAuthorityArns One or more ACM ARNs.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTru
         }
 
         /**
-         * @param certificateAuthorityArns One or more ACM Amazon Resource Name (ARN)s.
+         * @param certificateAuthorityArns One or more ACM ARNs.
          * 
          * @return builder
          * 
@@ -75,7 +75,7 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTru
         }
 
         /**
-         * @param certificateAuthorityArns One or more ACM Amazon Resource Name (ARN)s.
+         * @param certificateAuthorityArns One or more ACM ARNs.
          * 
          * @return builder
          * 

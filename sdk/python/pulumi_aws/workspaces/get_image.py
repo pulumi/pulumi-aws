@@ -125,7 +125,7 @@ def get_image(image_id: Optional[str] = None,
     ```
 
 
-    :param str image_id: The ID of the image.
+    :param str image_id: ID of the image.
     """
     __args__ = dict()
     __args__['imageId'] = image_id
@@ -158,6 +158,6 @@ def get_image_output(image_id: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str image_id: The ID of the image.
+    :param str image_id: ID of the image.
     """
     ...

@@ -535,7 +535,7 @@ func (o DataSourceElasticsearchConfigPtrOutput) Region() pulumi.StringPtrOutput 
 }
 
 type DataSourceHttpConfig struct {
-	// The authorization configuration in case the HTTP endpoint requires authorization. See Authorization Config.
+	// Authorization configuration in case the HTTP endpoint requires authorization. See Authorization Config.
 	AuthorizationConfig *DataSourceHttpConfigAuthorizationConfig `pulumi:"authorizationConfig"`
 	// HTTP URL.
 	Endpoint string `pulumi:"endpoint"`
@@ -553,7 +553,7 @@ type DataSourceHttpConfigInput interface {
 }
 
 type DataSourceHttpConfigArgs struct {
-	// The authorization configuration in case the HTTP endpoint requires authorization. See Authorization Config.
+	// Authorization configuration in case the HTTP endpoint requires authorization. See Authorization Config.
 	AuthorizationConfig DataSourceHttpConfigAuthorizationConfigPtrInput `pulumi:"authorizationConfig"`
 	// HTTP URL.
 	Endpoint pulumi.StringInput `pulumi:"endpoint"`
@@ -636,7 +636,7 @@ func (o DataSourceHttpConfigOutput) ToDataSourceHttpConfigPtrOutputWithContext(c
 	}).(DataSourceHttpConfigPtrOutput)
 }
 
-// The authorization configuration in case the HTTP endpoint requires authorization. See Authorization Config.
+// Authorization configuration in case the HTTP endpoint requires authorization. See Authorization Config.
 func (o DataSourceHttpConfigOutput) AuthorizationConfig() DataSourceHttpConfigAuthorizationConfigPtrOutput {
 	return o.ApplyT(func(v DataSourceHttpConfig) *DataSourceHttpConfigAuthorizationConfig { return v.AuthorizationConfig }).(DataSourceHttpConfigAuthorizationConfigPtrOutput)
 }
@@ -670,7 +670,7 @@ func (o DataSourceHttpConfigPtrOutput) Elem() DataSourceHttpConfigOutput {
 	}).(DataSourceHttpConfigOutput)
 }
 
-// The authorization configuration in case the HTTP endpoint requires authorization. See Authorization Config.
+// Authorization configuration in case the HTTP endpoint requires authorization. See Authorization Config.
 func (o DataSourceHttpConfigPtrOutput) AuthorizationConfig() DataSourceHttpConfigAuthorizationConfigPtrOutput {
 	return o.ApplyT(func(v *DataSourceHttpConfig) *DataSourceHttpConfigAuthorizationConfig {
 		if v == nil {
@@ -691,9 +691,9 @@ func (o DataSourceHttpConfigPtrOutput) Endpoint() pulumi.StringPtrOutput {
 }
 
 type DataSourceHttpConfigAuthorizationConfig struct {
-	// The authorization type that the HTTP endpoint requires. Default values is `AWS_IAM`.
+	// Authorization type that the HTTP endpoint requires. Default values is `AWS_IAM`.
 	AuthorizationType *string `pulumi:"authorizationType"`
-	// The Identity and Access Management (IAM) settings. See AWS IAM Config.
+	// Identity and Access Management (IAM) settings. See AWS IAM Config.
 	AwsIamConfig *DataSourceHttpConfigAuthorizationConfigAwsIamConfig `pulumi:"awsIamConfig"`
 }
 
@@ -709,9 +709,9 @@ type DataSourceHttpConfigAuthorizationConfigInput interface {
 }
 
 type DataSourceHttpConfigAuthorizationConfigArgs struct {
-	// The authorization type that the HTTP endpoint requires. Default values is `AWS_IAM`.
+	// Authorization type that the HTTP endpoint requires. Default values is `AWS_IAM`.
 	AuthorizationType pulumi.StringPtrInput `pulumi:"authorizationType"`
-	// The Identity and Access Management (IAM) settings. See AWS IAM Config.
+	// Identity and Access Management (IAM) settings. See AWS IAM Config.
 	AwsIamConfig DataSourceHttpConfigAuthorizationConfigAwsIamConfigPtrInput `pulumi:"awsIamConfig"`
 }
 
@@ -792,12 +792,12 @@ func (o DataSourceHttpConfigAuthorizationConfigOutput) ToDataSourceHttpConfigAut
 	}).(DataSourceHttpConfigAuthorizationConfigPtrOutput)
 }
 
-// The authorization type that the HTTP endpoint requires. Default values is `AWS_IAM`.
+// Authorization type that the HTTP endpoint requires. Default values is `AWS_IAM`.
 func (o DataSourceHttpConfigAuthorizationConfigOutput) AuthorizationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceHttpConfigAuthorizationConfig) *string { return v.AuthorizationType }).(pulumi.StringPtrOutput)
 }
 
-// The Identity and Access Management (IAM) settings. See AWS IAM Config.
+// Identity and Access Management (IAM) settings. See AWS IAM Config.
 func (o DataSourceHttpConfigAuthorizationConfigOutput) AwsIamConfig() DataSourceHttpConfigAuthorizationConfigAwsIamConfigPtrOutput {
 	return o.ApplyT(func(v DataSourceHttpConfigAuthorizationConfig) *DataSourceHttpConfigAuthorizationConfigAwsIamConfig {
 		return v.AwsIamConfig
@@ -828,7 +828,7 @@ func (o DataSourceHttpConfigAuthorizationConfigPtrOutput) Elem() DataSourceHttpC
 	}).(DataSourceHttpConfigAuthorizationConfigOutput)
 }
 
-// The authorization type that the HTTP endpoint requires. Default values is `AWS_IAM`.
+// Authorization type that the HTTP endpoint requires. Default values is `AWS_IAM`.
 func (o DataSourceHttpConfigAuthorizationConfigPtrOutput) AuthorizationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceHttpConfigAuthorizationConfig) *string {
 		if v == nil {
@@ -838,7 +838,7 @@ func (o DataSourceHttpConfigAuthorizationConfigPtrOutput) AuthorizationType() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Identity and Access Management (IAM) settings. See AWS IAM Config.
+// Identity and Access Management (IAM) settings. See AWS IAM Config.
 func (o DataSourceHttpConfigAuthorizationConfigPtrOutput) AwsIamConfig() DataSourceHttpConfigAuthorizationConfigAwsIamConfigPtrOutput {
 	return o.ApplyT(func(v *DataSourceHttpConfigAuthorizationConfig) *DataSourceHttpConfigAuthorizationConfigAwsIamConfig {
 		if v == nil {
@@ -849,9 +849,9 @@ func (o DataSourceHttpConfigAuthorizationConfigPtrOutput) AwsIamConfig() DataSou
 }
 
 type DataSourceHttpConfigAuthorizationConfigAwsIamConfig struct {
-	// The signing Amazon Web Services Region for IAM authorization.
+	// Signing Amazon Web Services Region for IAM authorization.
 	SigningRegion *string `pulumi:"signingRegion"`
-	// The signing service name for IAM authorization.
+	// Signing service name for IAM authorization.
 	SigningServiceName *string `pulumi:"signingServiceName"`
 }
 
@@ -867,9 +867,9 @@ type DataSourceHttpConfigAuthorizationConfigAwsIamConfigInput interface {
 }
 
 type DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs struct {
-	// The signing Amazon Web Services Region for IAM authorization.
+	// Signing Amazon Web Services Region for IAM authorization.
 	SigningRegion pulumi.StringPtrInput `pulumi:"signingRegion"`
-	// The signing service name for IAM authorization.
+	// Signing service name for IAM authorization.
 	SigningServiceName pulumi.StringPtrInput `pulumi:"signingServiceName"`
 }
 
@@ -950,12 +950,12 @@ func (o DataSourceHttpConfigAuthorizationConfigAwsIamConfigOutput) ToDataSourceH
 	}).(DataSourceHttpConfigAuthorizationConfigAwsIamConfigPtrOutput)
 }
 
-// The signing Amazon Web Services Region for IAM authorization.
+// Signing Amazon Web Services Region for IAM authorization.
 func (o DataSourceHttpConfigAuthorizationConfigAwsIamConfigOutput) SigningRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceHttpConfigAuthorizationConfigAwsIamConfig) *string { return v.SigningRegion }).(pulumi.StringPtrOutput)
 }
 
-// The signing service name for IAM authorization.
+// Signing service name for IAM authorization.
 func (o DataSourceHttpConfigAuthorizationConfigAwsIamConfigOutput) SigningServiceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceHttpConfigAuthorizationConfigAwsIamConfig) *string { return v.SigningServiceName }).(pulumi.StringPtrOutput)
 }
@@ -984,7 +984,7 @@ func (o DataSourceHttpConfigAuthorizationConfigAwsIamConfigPtrOutput) Elem() Dat
 	}).(DataSourceHttpConfigAuthorizationConfigAwsIamConfigOutput)
 }
 
-// The signing Amazon Web Services Region for IAM authorization.
+// Signing Amazon Web Services Region for IAM authorization.
 func (o DataSourceHttpConfigAuthorizationConfigAwsIamConfigPtrOutput) SigningRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceHttpConfigAuthorizationConfigAwsIamConfig) *string {
 		if v == nil {
@@ -994,7 +994,7 @@ func (o DataSourceHttpConfigAuthorizationConfigAwsIamConfigPtrOutput) SigningReg
 	}).(pulumi.StringPtrOutput)
 }
 
-// The signing service name for IAM authorization.
+// Signing service name for IAM authorization.
 func (o DataSourceHttpConfigAuthorizationConfigAwsIamConfigPtrOutput) SigningServiceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceHttpConfigAuthorizationConfigAwsIamConfig) *string {
 		if v == nil {
@@ -1005,7 +1005,7 @@ func (o DataSourceHttpConfigAuthorizationConfigAwsIamConfigPtrOutput) SigningSer
 }
 
 type DataSourceLambdaConfig struct {
-	// The ARN for the Lambda function.
+	// ARN for the Lambda function.
 	FunctionArn string `pulumi:"functionArn"`
 }
 
@@ -1021,7 +1021,7 @@ type DataSourceLambdaConfigInput interface {
 }
 
 type DataSourceLambdaConfigArgs struct {
-	// The ARN for the Lambda function.
+	// ARN for the Lambda function.
 	FunctionArn pulumi.StringInput `pulumi:"functionArn"`
 }
 
@@ -1102,7 +1102,7 @@ func (o DataSourceLambdaConfigOutput) ToDataSourceLambdaConfigPtrOutputWithConte
 	}).(DataSourceLambdaConfigPtrOutput)
 }
 
-// The ARN for the Lambda function.
+// ARN for the Lambda function.
 func (o DataSourceLambdaConfigOutput) FunctionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceLambdaConfig) string { return v.FunctionArn }).(pulumi.StringOutput)
 }
@@ -1131,7 +1131,7 @@ func (o DataSourceLambdaConfigPtrOutput) Elem() DataSourceLambdaConfigOutput {
 	}).(DataSourceLambdaConfigOutput)
 }
 
-// The ARN for the Lambda function.
+// ARN for the Lambda function.
 func (o DataSourceLambdaConfigPtrOutput) FunctionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceLambdaConfig) *string {
 		if v == nil {
@@ -1142,7 +1142,7 @@ func (o DataSourceLambdaConfigPtrOutput) FunctionArn() pulumi.StringPtrOutput {
 }
 
 type DataSourceRelationalDatabaseConfig struct {
-	// The Amazon RDS HTTP endpoint configuration. See HTTP Endpoint Config.
+	// Amazon RDS HTTP endpoint configuration. See HTTP Endpoint Config.
 	HttpEndpointConfig *DataSourceRelationalDatabaseConfigHttpEndpointConfig `pulumi:"httpEndpointConfig"`
 	// Source type for the relational database. Valid values: `RDS_HTTP_ENDPOINT`.
 	SourceType *string `pulumi:"sourceType"`
@@ -1160,7 +1160,7 @@ type DataSourceRelationalDatabaseConfigInput interface {
 }
 
 type DataSourceRelationalDatabaseConfigArgs struct {
-	// The Amazon RDS HTTP endpoint configuration. See HTTP Endpoint Config.
+	// Amazon RDS HTTP endpoint configuration. See HTTP Endpoint Config.
 	HttpEndpointConfig DataSourceRelationalDatabaseConfigHttpEndpointConfigPtrInput `pulumi:"httpEndpointConfig"`
 	// Source type for the relational database. Valid values: `RDS_HTTP_ENDPOINT`.
 	SourceType pulumi.StringPtrInput `pulumi:"sourceType"`
@@ -1243,7 +1243,7 @@ func (o DataSourceRelationalDatabaseConfigOutput) ToDataSourceRelationalDatabase
 	}).(DataSourceRelationalDatabaseConfigPtrOutput)
 }
 
-// The Amazon RDS HTTP endpoint configuration. See HTTP Endpoint Config.
+// Amazon RDS HTTP endpoint configuration. See HTTP Endpoint Config.
 func (o DataSourceRelationalDatabaseConfigOutput) HttpEndpointConfig() DataSourceRelationalDatabaseConfigHttpEndpointConfigPtrOutput {
 	return o.ApplyT(func(v DataSourceRelationalDatabaseConfig) *DataSourceRelationalDatabaseConfigHttpEndpointConfig {
 		return v.HttpEndpointConfig
@@ -1279,7 +1279,7 @@ func (o DataSourceRelationalDatabaseConfigPtrOutput) Elem() DataSourceRelational
 	}).(DataSourceRelationalDatabaseConfigOutput)
 }
 
-// The Amazon RDS HTTP endpoint configuration. See HTTP Endpoint Config.
+// Amazon RDS HTTP endpoint configuration. See HTTP Endpoint Config.
 func (o DataSourceRelationalDatabaseConfigPtrOutput) HttpEndpointConfig() DataSourceRelationalDatabaseConfigHttpEndpointConfigPtrOutput {
 	return o.ApplyT(func(v *DataSourceRelationalDatabaseConfig) *DataSourceRelationalDatabaseConfigHttpEndpointConfig {
 		if v == nil {
@@ -1513,11 +1513,11 @@ func (o DataSourceRelationalDatabaseConfigHttpEndpointConfigPtrOutput) Schema() 
 }
 
 type FunctionSyncConfig struct {
-	// The Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
+	// Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
 	ConflictDetection *string `pulumi:"conflictDetection"`
-	// The Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
+	// Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
 	ConflictHandler *string `pulumi:"conflictHandler"`
-	// The Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
+	// Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
 	LambdaConflictHandlerConfig *FunctionSyncConfigLambdaConflictHandlerConfig `pulumi:"lambdaConflictHandlerConfig"`
 }
 
@@ -1533,11 +1533,11 @@ type FunctionSyncConfigInput interface {
 }
 
 type FunctionSyncConfigArgs struct {
-	// The Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
+	// Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
 	ConflictDetection pulumi.StringPtrInput `pulumi:"conflictDetection"`
-	// The Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
+	// Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
 	ConflictHandler pulumi.StringPtrInput `pulumi:"conflictHandler"`
-	// The Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
+	// Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
 	LambdaConflictHandlerConfig FunctionSyncConfigLambdaConflictHandlerConfigPtrInput `pulumi:"lambdaConflictHandlerConfig"`
 }
 
@@ -1618,17 +1618,17 @@ func (o FunctionSyncConfigOutput) ToFunctionSyncConfigPtrOutputWithContext(ctx c
 	}).(FunctionSyncConfigPtrOutput)
 }
 
-// The Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
+// Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
 func (o FunctionSyncConfigOutput) ConflictDetection() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionSyncConfig) *string { return v.ConflictDetection }).(pulumi.StringPtrOutput)
 }
 
-// The Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
+// Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
 func (o FunctionSyncConfigOutput) ConflictHandler() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionSyncConfig) *string { return v.ConflictHandler }).(pulumi.StringPtrOutput)
 }
 
-// The Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
+// Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
 func (o FunctionSyncConfigOutput) LambdaConflictHandlerConfig() FunctionSyncConfigLambdaConflictHandlerConfigPtrOutput {
 	return o.ApplyT(func(v FunctionSyncConfig) *FunctionSyncConfigLambdaConflictHandlerConfig {
 		return v.LambdaConflictHandlerConfig
@@ -1659,7 +1659,7 @@ func (o FunctionSyncConfigPtrOutput) Elem() FunctionSyncConfigOutput {
 	}).(FunctionSyncConfigOutput)
 }
 
-// The Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
+// Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
 func (o FunctionSyncConfigPtrOutput) ConflictDetection() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionSyncConfig) *string {
 		if v == nil {
@@ -1669,7 +1669,7 @@ func (o FunctionSyncConfigPtrOutput) ConflictDetection() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
+// Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
 func (o FunctionSyncConfigPtrOutput) ConflictHandler() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionSyncConfig) *string {
 		if v == nil {
@@ -1679,7 +1679,7 @@ func (o FunctionSyncConfigPtrOutput) ConflictHandler() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
+// Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
 func (o FunctionSyncConfigPtrOutput) LambdaConflictHandlerConfig() FunctionSyncConfigLambdaConflictHandlerConfigPtrOutput {
 	return o.ApplyT(func(v *FunctionSyncConfig) *FunctionSyncConfigLambdaConflictHandlerConfig {
 		if v == nil {
@@ -1690,7 +1690,7 @@ func (o FunctionSyncConfigPtrOutput) LambdaConflictHandlerConfig() FunctionSyncC
 }
 
 type FunctionSyncConfigLambdaConflictHandlerConfig struct {
-	// The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.
+	// ARN for the Lambda function to use as the Conflict Handler.
 	LambdaConflictHandlerArn *string `pulumi:"lambdaConflictHandlerArn"`
 }
 
@@ -1706,7 +1706,7 @@ type FunctionSyncConfigLambdaConflictHandlerConfigInput interface {
 }
 
 type FunctionSyncConfigLambdaConflictHandlerConfigArgs struct {
-	// The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.
+	// ARN for the Lambda function to use as the Conflict Handler.
 	LambdaConflictHandlerArn pulumi.StringPtrInput `pulumi:"lambdaConflictHandlerArn"`
 }
 
@@ -1787,7 +1787,7 @@ func (o FunctionSyncConfigLambdaConflictHandlerConfigOutput) ToFunctionSyncConfi
 	}).(FunctionSyncConfigLambdaConflictHandlerConfigPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.
+// ARN for the Lambda function to use as the Conflict Handler.
 func (o FunctionSyncConfigLambdaConflictHandlerConfigOutput) LambdaConflictHandlerArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionSyncConfigLambdaConflictHandlerConfig) *string { return v.LambdaConflictHandlerArn }).(pulumi.StringPtrOutput)
 }
@@ -1816,7 +1816,7 @@ func (o FunctionSyncConfigLambdaConflictHandlerConfigPtrOutput) Elem() FunctionS
 	}).(FunctionSyncConfigLambdaConflictHandlerConfigOutput)
 }
 
-// The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.
+// ARN for the Lambda function to use as the Conflict Handler.
 func (o FunctionSyncConfigLambdaConflictHandlerConfigPtrOutput) LambdaConflictHandlerArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionSyncConfigLambdaConflictHandlerConfig) *string {
 		if v == nil {
@@ -1827,13 +1827,13 @@ func (o FunctionSyncConfigLambdaConflictHandlerConfigPtrOutput) LambdaConflictHa
 }
 
 type GraphQLApiAdditionalAuthenticationProvider struct {
-	// The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
+	// Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
 	AuthenticationType string `pulumi:"authenticationType"`
 	// Nested argument containing Lambda authorizer configuration. Defined below.
 	LambdaAuthorizerConfig *GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig `pulumi:"lambdaAuthorizerConfig"`
 	// Nested argument containing OpenID Connect configuration. Defined below.
 	OpenidConnectConfig *GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig `pulumi:"openidConnectConfig"`
-	// The Amazon Cognito User Pool configuration. Defined below.
+	// Amazon Cognito User Pool configuration. Defined below.
 	UserPoolConfig *GraphQLApiAdditionalAuthenticationProviderUserPoolConfig `pulumi:"userPoolConfig"`
 }
 
@@ -1849,13 +1849,13 @@ type GraphQLApiAdditionalAuthenticationProviderInput interface {
 }
 
 type GraphQLApiAdditionalAuthenticationProviderArgs struct {
-	// The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
+	// Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
 	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
 	// Nested argument containing Lambda authorizer configuration. Defined below.
 	LambdaAuthorizerConfig GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrInput `pulumi:"lambdaAuthorizerConfig"`
 	// Nested argument containing OpenID Connect configuration. Defined below.
 	OpenidConnectConfig GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigPtrInput `pulumi:"openidConnectConfig"`
-	// The Amazon Cognito User Pool configuration. Defined below.
+	// Amazon Cognito User Pool configuration. Defined below.
 	UserPoolConfig GraphQLApiAdditionalAuthenticationProviderUserPoolConfigPtrInput `pulumi:"userPoolConfig"`
 }
 
@@ -1910,7 +1910,7 @@ func (o GraphQLApiAdditionalAuthenticationProviderOutput) ToGraphQLApiAdditional
 	return o
 }
 
-// The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
+// Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
 func (o GraphQLApiAdditionalAuthenticationProviderOutput) AuthenticationType() pulumi.StringOutput {
 	return o.ApplyT(func(v GraphQLApiAdditionalAuthenticationProvider) string { return v.AuthenticationType }).(pulumi.StringOutput)
 }
@@ -1929,7 +1929,7 @@ func (o GraphQLApiAdditionalAuthenticationProviderOutput) OpenidConnectConfig() 
 	}).(GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigPtrOutput)
 }
 
-// The Amazon Cognito User Pool configuration. Defined below.
+// Amazon Cognito User Pool configuration. Defined below.
 func (o GraphQLApiAdditionalAuthenticationProviderOutput) UserPoolConfig() GraphQLApiAdditionalAuthenticationProviderUserPoolConfigPtrOutput {
 	return o.ApplyT(func(v GraphQLApiAdditionalAuthenticationProvider) *GraphQLApiAdditionalAuthenticationProviderUserPoolConfig {
 		return v.UserPoolConfig
@@ -1957,11 +1957,11 @@ func (o GraphQLApiAdditionalAuthenticationProviderArrayOutput) Index(i pulumi.In
 }
 
 type GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig struct {
-	// The number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
+	// Number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
 	AuthorizerResultTtlInSeconds *int `pulumi:"authorizerResultTtlInSeconds"`
-	// The ARN of the Lambda function to be called for authorization. Note: This Lambda function must have a resource-based policy assigned to it, to allow `lambda:InvokeFunction` from service principal `appsync.amazonaws.com`.
+	// ARN of the Lambda function to be called for authorization. Note: This Lambda function must have a resource-based policy assigned to it, to allow `lambda:InvokeFunction` from service principal `appsync.amazonaws.com`.
 	AuthorizerUri string `pulumi:"authorizerUri"`
-	// A regular expression for validation of tokens before the Lambda function is called.
+	// Regular expression for validation of tokens before the Lambda function is called.
 	IdentityValidationExpression *string `pulumi:"identityValidationExpression"`
 }
 
@@ -1977,11 +1977,11 @@ type GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigInput inter
 }
 
 type GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArgs struct {
-	// The number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
+	// Number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
 	AuthorizerResultTtlInSeconds pulumi.IntPtrInput `pulumi:"authorizerResultTtlInSeconds"`
-	// The ARN of the Lambda function to be called for authorization. Note: This Lambda function must have a resource-based policy assigned to it, to allow `lambda:InvokeFunction` from service principal `appsync.amazonaws.com`.
+	// ARN of the Lambda function to be called for authorization. Note: This Lambda function must have a resource-based policy assigned to it, to allow `lambda:InvokeFunction` from service principal `appsync.amazonaws.com`.
 	AuthorizerUri pulumi.StringInput `pulumi:"authorizerUri"`
-	// A regular expression for validation of tokens before the Lambda function is called.
+	// Regular expression for validation of tokens before the Lambda function is called.
 	IdentityValidationExpression pulumi.StringPtrInput `pulumi:"identityValidationExpression"`
 }
 
@@ -2062,21 +2062,21 @@ func (o GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigOutput) 
 	}).(GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutput)
 }
 
-// The number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
+// Number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
 func (o GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigOutput) AuthorizerResultTtlInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig) *int {
 		return v.AuthorizerResultTtlInSeconds
 	}).(pulumi.IntPtrOutput)
 }
 
-// The ARN of the Lambda function to be called for authorization. Note: This Lambda function must have a resource-based policy assigned to it, to allow `lambda:InvokeFunction` from service principal `appsync.amazonaws.com`.
+// ARN of the Lambda function to be called for authorization. Note: This Lambda function must have a resource-based policy assigned to it, to allow `lambda:InvokeFunction` from service principal `appsync.amazonaws.com`.
 func (o GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigOutput) AuthorizerUri() pulumi.StringOutput {
 	return o.ApplyT(func(v GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig) string {
 		return v.AuthorizerUri
 	}).(pulumi.StringOutput)
 }
 
-// A regular expression for validation of tokens before the Lambda function is called.
+// Regular expression for validation of tokens before the Lambda function is called.
 func (o GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigOutput) IdentityValidationExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig) *string {
 		return v.IdentityValidationExpression
@@ -2107,7 +2107,7 @@ func (o GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutpu
 	}).(GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigOutput)
 }
 
-// The number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
+// Number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
 func (o GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutput) AuthorizerResultTtlInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig) *int {
 		if v == nil {
@@ -2117,7 +2117,7 @@ func (o GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-// The ARN of the Lambda function to be called for authorization. Note: This Lambda function must have a resource-based policy assigned to it, to allow `lambda:InvokeFunction` from service principal `appsync.amazonaws.com`.
+// ARN of the Lambda function to be called for authorization. Note: This Lambda function must have a resource-based policy assigned to it, to allow `lambda:InvokeFunction` from service principal `appsync.amazonaws.com`.
 func (o GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutput) AuthorizerUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig) *string {
 		if v == nil {
@@ -2127,7 +2127,7 @@ func (o GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// A regular expression for validation of tokens before the Lambda function is called.
+// Regular expression for validation of tokens before the Lambda function is called.
 func (o GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutput) IdentityValidationExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig) *string {
 		if v == nil {
@@ -2332,11 +2332,11 @@ func (o GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigPtrOutput) 
 }
 
 type GraphQLApiAdditionalAuthenticationProviderUserPoolConfig struct {
-	// A regular expression for validating the incoming Amazon Cognito User Pool app client ID.
+	// Regular expression for validating the incoming Amazon Cognito User Pool app client ID.
 	AppIdClientRegex *string `pulumi:"appIdClientRegex"`
-	// The AWS region in which the user pool was created.
+	// AWS region in which the user pool was created.
 	AwsRegion *string `pulumi:"awsRegion"`
-	// The user pool ID.
+	// User pool ID.
 	UserPoolId string `pulumi:"userPoolId"`
 }
 
@@ -2352,11 +2352,11 @@ type GraphQLApiAdditionalAuthenticationProviderUserPoolConfigInput interface {
 }
 
 type GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs struct {
-	// A regular expression for validating the incoming Amazon Cognito User Pool app client ID.
+	// Regular expression for validating the incoming Amazon Cognito User Pool app client ID.
 	AppIdClientRegex pulumi.StringPtrInput `pulumi:"appIdClientRegex"`
-	// The AWS region in which the user pool was created.
+	// AWS region in which the user pool was created.
 	AwsRegion pulumi.StringPtrInput `pulumi:"awsRegion"`
-	// The user pool ID.
+	// User pool ID.
 	UserPoolId pulumi.StringInput `pulumi:"userPoolId"`
 }
 
@@ -2437,17 +2437,17 @@ func (o GraphQLApiAdditionalAuthenticationProviderUserPoolConfigOutput) ToGraphQ
 	}).(GraphQLApiAdditionalAuthenticationProviderUserPoolConfigPtrOutput)
 }
 
-// A regular expression for validating the incoming Amazon Cognito User Pool app client ID.
+// Regular expression for validating the incoming Amazon Cognito User Pool app client ID.
 func (o GraphQLApiAdditionalAuthenticationProviderUserPoolConfigOutput) AppIdClientRegex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GraphQLApiAdditionalAuthenticationProviderUserPoolConfig) *string { return v.AppIdClientRegex }).(pulumi.StringPtrOutput)
 }
 
-// The AWS region in which the user pool was created.
+// AWS region in which the user pool was created.
 func (o GraphQLApiAdditionalAuthenticationProviderUserPoolConfigOutput) AwsRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GraphQLApiAdditionalAuthenticationProviderUserPoolConfig) *string { return v.AwsRegion }).(pulumi.StringPtrOutput)
 }
 
-// The user pool ID.
+// User pool ID.
 func (o GraphQLApiAdditionalAuthenticationProviderUserPoolConfigOutput) UserPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v GraphQLApiAdditionalAuthenticationProviderUserPoolConfig) string { return v.UserPoolId }).(pulumi.StringOutput)
 }
@@ -2476,7 +2476,7 @@ func (o GraphQLApiAdditionalAuthenticationProviderUserPoolConfigPtrOutput) Elem(
 	}).(GraphQLApiAdditionalAuthenticationProviderUserPoolConfigOutput)
 }
 
-// A regular expression for validating the incoming Amazon Cognito User Pool app client ID.
+// Regular expression for validating the incoming Amazon Cognito User Pool app client ID.
 func (o GraphQLApiAdditionalAuthenticationProviderUserPoolConfigPtrOutput) AppIdClientRegex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GraphQLApiAdditionalAuthenticationProviderUserPoolConfig) *string {
 		if v == nil {
@@ -2486,7 +2486,7 @@ func (o GraphQLApiAdditionalAuthenticationProviderUserPoolConfigPtrOutput) AppId
 	}).(pulumi.StringPtrOutput)
 }
 
-// The AWS region in which the user pool was created.
+// AWS region in which the user pool was created.
 func (o GraphQLApiAdditionalAuthenticationProviderUserPoolConfigPtrOutput) AwsRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GraphQLApiAdditionalAuthenticationProviderUserPoolConfig) *string {
 		if v == nil {
@@ -2496,7 +2496,7 @@ func (o GraphQLApiAdditionalAuthenticationProviderUserPoolConfigPtrOutput) AwsRe
 	}).(pulumi.StringPtrOutput)
 }
 
-// The user pool ID.
+// User pool ID.
 func (o GraphQLApiAdditionalAuthenticationProviderUserPoolConfigPtrOutput) UserPoolId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GraphQLApiAdditionalAuthenticationProviderUserPoolConfig) *string {
 		if v == nil {
@@ -2507,11 +2507,11 @@ func (o GraphQLApiAdditionalAuthenticationProviderUserPoolConfigPtrOutput) UserP
 }
 
 type GraphQLApiLambdaAuthorizerConfig struct {
-	// The number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
+	// Number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
 	AuthorizerResultTtlInSeconds *int `pulumi:"authorizerResultTtlInSeconds"`
-	// The ARN of the Lambda function to be called for authorization. Note: This Lambda function must have a resource-based policy assigned to it, to allow `lambda:InvokeFunction` from service principal `appsync.amazonaws.com`.
+	// ARN of the Lambda function to be called for authorization. Note: This Lambda function must have a resource-based policy assigned to it, to allow `lambda:InvokeFunction` from service principal `appsync.amazonaws.com`.
 	AuthorizerUri string `pulumi:"authorizerUri"`
-	// A regular expression for validation of tokens before the Lambda function is called.
+	// Regular expression for validation of tokens before the Lambda function is called.
 	IdentityValidationExpression *string `pulumi:"identityValidationExpression"`
 }
 
@@ -2527,11 +2527,11 @@ type GraphQLApiLambdaAuthorizerConfigInput interface {
 }
 
 type GraphQLApiLambdaAuthorizerConfigArgs struct {
-	// The number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
+	// Number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
 	AuthorizerResultTtlInSeconds pulumi.IntPtrInput `pulumi:"authorizerResultTtlInSeconds"`
-	// The ARN of the Lambda function to be called for authorization. Note: This Lambda function must have a resource-based policy assigned to it, to allow `lambda:InvokeFunction` from service principal `appsync.amazonaws.com`.
+	// ARN of the Lambda function to be called for authorization. Note: This Lambda function must have a resource-based policy assigned to it, to allow `lambda:InvokeFunction` from service principal `appsync.amazonaws.com`.
 	AuthorizerUri pulumi.StringInput `pulumi:"authorizerUri"`
-	// A regular expression for validation of tokens before the Lambda function is called.
+	// Regular expression for validation of tokens before the Lambda function is called.
 	IdentityValidationExpression pulumi.StringPtrInput `pulumi:"identityValidationExpression"`
 }
 
@@ -2612,17 +2612,17 @@ func (o GraphQLApiLambdaAuthorizerConfigOutput) ToGraphQLApiLambdaAuthorizerConf
 	}).(GraphQLApiLambdaAuthorizerConfigPtrOutput)
 }
 
-// The number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
+// Number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
 func (o GraphQLApiLambdaAuthorizerConfigOutput) AuthorizerResultTtlInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GraphQLApiLambdaAuthorizerConfig) *int { return v.AuthorizerResultTtlInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// The ARN of the Lambda function to be called for authorization. Note: This Lambda function must have a resource-based policy assigned to it, to allow `lambda:InvokeFunction` from service principal `appsync.amazonaws.com`.
+// ARN of the Lambda function to be called for authorization. Note: This Lambda function must have a resource-based policy assigned to it, to allow `lambda:InvokeFunction` from service principal `appsync.amazonaws.com`.
 func (o GraphQLApiLambdaAuthorizerConfigOutput) AuthorizerUri() pulumi.StringOutput {
 	return o.ApplyT(func(v GraphQLApiLambdaAuthorizerConfig) string { return v.AuthorizerUri }).(pulumi.StringOutput)
 }
 
-// A regular expression for validation of tokens before the Lambda function is called.
+// Regular expression for validation of tokens before the Lambda function is called.
 func (o GraphQLApiLambdaAuthorizerConfigOutput) IdentityValidationExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GraphQLApiLambdaAuthorizerConfig) *string { return v.IdentityValidationExpression }).(pulumi.StringPtrOutput)
 }
@@ -2651,7 +2651,7 @@ func (o GraphQLApiLambdaAuthorizerConfigPtrOutput) Elem() GraphQLApiLambdaAuthor
 	}).(GraphQLApiLambdaAuthorizerConfigOutput)
 }
 
-// The number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
+// Number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
 func (o GraphQLApiLambdaAuthorizerConfigPtrOutput) AuthorizerResultTtlInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GraphQLApiLambdaAuthorizerConfig) *int {
 		if v == nil {
@@ -2661,7 +2661,7 @@ func (o GraphQLApiLambdaAuthorizerConfigPtrOutput) AuthorizerResultTtlInSeconds(
 	}).(pulumi.IntPtrOutput)
 }
 
-// The ARN of the Lambda function to be called for authorization. Note: This Lambda function must have a resource-based policy assigned to it, to allow `lambda:InvokeFunction` from service principal `appsync.amazonaws.com`.
+// ARN of the Lambda function to be called for authorization. Note: This Lambda function must have a resource-based policy assigned to it, to allow `lambda:InvokeFunction` from service principal `appsync.amazonaws.com`.
 func (o GraphQLApiLambdaAuthorizerConfigPtrOutput) AuthorizerUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GraphQLApiLambdaAuthorizerConfig) *string {
 		if v == nil {
@@ -2671,7 +2671,7 @@ func (o GraphQLApiLambdaAuthorizerConfigPtrOutput) AuthorizerUri() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// A regular expression for validation of tokens before the Lambda function is called.
+// Regular expression for validation of tokens before the Lambda function is called.
 func (o GraphQLApiLambdaAuthorizerConfigPtrOutput) IdentityValidationExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GraphQLApiLambdaAuthorizerConfig) *string {
 		if v == nil {
@@ -3051,13 +3051,13 @@ func (o GraphQLApiOpenidConnectConfigPtrOutput) Issuer() pulumi.StringPtrOutput 
 }
 
 type GraphQLApiUserPoolConfig struct {
-	// A regular expression for validating the incoming Amazon Cognito User Pool app client ID.
+	// Regular expression for validating the incoming Amazon Cognito User Pool app client ID.
 	AppIdClientRegex *string `pulumi:"appIdClientRegex"`
-	// The AWS region in which the user pool was created.
+	// AWS region in which the user pool was created.
 	AwsRegion *string `pulumi:"awsRegion"`
-	// The action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn't match the Amazon Cognito User Pool configuration. Valid: `ALLOW` and `DENY`
+	// Action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn't match the Amazon Cognito User Pool configuration. Valid: `ALLOW` and `DENY`
 	DefaultAction string `pulumi:"defaultAction"`
-	// The user pool ID.
+	// User pool ID.
 	UserPoolId string `pulumi:"userPoolId"`
 }
 
@@ -3073,13 +3073,13 @@ type GraphQLApiUserPoolConfigInput interface {
 }
 
 type GraphQLApiUserPoolConfigArgs struct {
-	// A regular expression for validating the incoming Amazon Cognito User Pool app client ID.
+	// Regular expression for validating the incoming Amazon Cognito User Pool app client ID.
 	AppIdClientRegex pulumi.StringPtrInput `pulumi:"appIdClientRegex"`
-	// The AWS region in which the user pool was created.
+	// AWS region in which the user pool was created.
 	AwsRegion pulumi.StringPtrInput `pulumi:"awsRegion"`
-	// The action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn't match the Amazon Cognito User Pool configuration. Valid: `ALLOW` and `DENY`
+	// Action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn't match the Amazon Cognito User Pool configuration. Valid: `ALLOW` and `DENY`
 	DefaultAction pulumi.StringInput `pulumi:"defaultAction"`
-	// The user pool ID.
+	// User pool ID.
 	UserPoolId pulumi.StringInput `pulumi:"userPoolId"`
 }
 
@@ -3160,22 +3160,22 @@ func (o GraphQLApiUserPoolConfigOutput) ToGraphQLApiUserPoolConfigPtrOutputWithC
 	}).(GraphQLApiUserPoolConfigPtrOutput)
 }
 
-// A regular expression for validating the incoming Amazon Cognito User Pool app client ID.
+// Regular expression for validating the incoming Amazon Cognito User Pool app client ID.
 func (o GraphQLApiUserPoolConfigOutput) AppIdClientRegex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GraphQLApiUserPoolConfig) *string { return v.AppIdClientRegex }).(pulumi.StringPtrOutput)
 }
 
-// The AWS region in which the user pool was created.
+// AWS region in which the user pool was created.
 func (o GraphQLApiUserPoolConfigOutput) AwsRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GraphQLApiUserPoolConfig) *string { return v.AwsRegion }).(pulumi.StringPtrOutput)
 }
 
-// The action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn't match the Amazon Cognito User Pool configuration. Valid: `ALLOW` and `DENY`
+// Action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn't match the Amazon Cognito User Pool configuration. Valid: `ALLOW` and `DENY`
 func (o GraphQLApiUserPoolConfigOutput) DefaultAction() pulumi.StringOutput {
 	return o.ApplyT(func(v GraphQLApiUserPoolConfig) string { return v.DefaultAction }).(pulumi.StringOutput)
 }
 
-// The user pool ID.
+// User pool ID.
 func (o GraphQLApiUserPoolConfigOutput) UserPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v GraphQLApiUserPoolConfig) string { return v.UserPoolId }).(pulumi.StringOutput)
 }
@@ -3204,7 +3204,7 @@ func (o GraphQLApiUserPoolConfigPtrOutput) Elem() GraphQLApiUserPoolConfigOutput
 	}).(GraphQLApiUserPoolConfigOutput)
 }
 
-// A regular expression for validating the incoming Amazon Cognito User Pool app client ID.
+// Regular expression for validating the incoming Amazon Cognito User Pool app client ID.
 func (o GraphQLApiUserPoolConfigPtrOutput) AppIdClientRegex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GraphQLApiUserPoolConfig) *string {
 		if v == nil {
@@ -3214,7 +3214,7 @@ func (o GraphQLApiUserPoolConfigPtrOutput) AppIdClientRegex() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The AWS region in which the user pool was created.
+// AWS region in which the user pool was created.
 func (o GraphQLApiUserPoolConfigPtrOutput) AwsRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GraphQLApiUserPoolConfig) *string {
 		if v == nil {
@@ -3224,7 +3224,7 @@ func (o GraphQLApiUserPoolConfigPtrOutput) AwsRegion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn't match the Amazon Cognito User Pool configuration. Valid: `ALLOW` and `DENY`
+// Action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn't match the Amazon Cognito User Pool configuration. Valid: `ALLOW` and `DENY`
 func (o GraphQLApiUserPoolConfigPtrOutput) DefaultAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GraphQLApiUserPoolConfig) *string {
 		if v == nil {
@@ -3234,7 +3234,7 @@ func (o GraphQLApiUserPoolConfigPtrOutput) DefaultAction() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The user pool ID.
+// User pool ID.
 func (o GraphQLApiUserPoolConfigPtrOutput) UserPoolId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GraphQLApiUserPoolConfig) *string {
 		if v == nil {
@@ -3245,9 +3245,9 @@ func (o GraphQLApiUserPoolConfigPtrOutput) UserPoolId() pulumi.StringPtrOutput {
 }
 
 type ResolverCachingConfig struct {
-	// The list of caching key.
+	// List of caching key.
 	CachingKeys []string `pulumi:"cachingKeys"`
-	// The TTL in seconds.
+	// TTL in seconds.
 	Ttl *int `pulumi:"ttl"`
 }
 
@@ -3263,9 +3263,9 @@ type ResolverCachingConfigInput interface {
 }
 
 type ResolverCachingConfigArgs struct {
-	// The list of caching key.
+	// List of caching key.
 	CachingKeys pulumi.StringArrayInput `pulumi:"cachingKeys"`
-	// The TTL in seconds.
+	// TTL in seconds.
 	Ttl pulumi.IntPtrInput `pulumi:"ttl"`
 }
 
@@ -3346,12 +3346,12 @@ func (o ResolverCachingConfigOutput) ToResolverCachingConfigPtrOutputWithContext
 	}).(ResolverCachingConfigPtrOutput)
 }
 
-// The list of caching key.
+// List of caching key.
 func (o ResolverCachingConfigOutput) CachingKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResolverCachingConfig) []string { return v.CachingKeys }).(pulumi.StringArrayOutput)
 }
 
-// The TTL in seconds.
+// TTL in seconds.
 func (o ResolverCachingConfigOutput) Ttl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ResolverCachingConfig) *int { return v.Ttl }).(pulumi.IntPtrOutput)
 }
@@ -3380,7 +3380,7 @@ func (o ResolverCachingConfigPtrOutput) Elem() ResolverCachingConfigOutput {
 	}).(ResolverCachingConfigOutput)
 }
 
-// The list of caching key.
+// List of caching key.
 func (o ResolverCachingConfigPtrOutput) CachingKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResolverCachingConfig) []string {
 		if v == nil {
@@ -3390,7 +3390,7 @@ func (o ResolverCachingConfigPtrOutput) CachingKeys() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The TTL in seconds.
+// TTL in seconds.
 func (o ResolverCachingConfigPtrOutput) Ttl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ResolverCachingConfig) *int {
 		if v == nil {
@@ -3401,7 +3401,7 @@ func (o ResolverCachingConfigPtrOutput) Ttl() pulumi.IntPtrOutput {
 }
 
 type ResolverPipelineConfig struct {
-	// The list of Function ID.
+	// List of Function ID.
 	Functions []string `pulumi:"functions"`
 }
 
@@ -3417,7 +3417,7 @@ type ResolverPipelineConfigInput interface {
 }
 
 type ResolverPipelineConfigArgs struct {
-	// The list of Function ID.
+	// List of Function ID.
 	Functions pulumi.StringArrayInput `pulumi:"functions"`
 }
 
@@ -3498,7 +3498,7 @@ func (o ResolverPipelineConfigOutput) ToResolverPipelineConfigPtrOutputWithConte
 	}).(ResolverPipelineConfigPtrOutput)
 }
 
-// The list of Function ID.
+// List of Function ID.
 func (o ResolverPipelineConfigOutput) Functions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResolverPipelineConfig) []string { return v.Functions }).(pulumi.StringArrayOutput)
 }
@@ -3527,7 +3527,7 @@ func (o ResolverPipelineConfigPtrOutput) Elem() ResolverPipelineConfigOutput {
 	}).(ResolverPipelineConfigOutput)
 }
 
-// The list of Function ID.
+// List of Function ID.
 func (o ResolverPipelineConfigPtrOutput) Functions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResolverPipelineConfig) []string {
 		if v == nil {
@@ -3538,11 +3538,11 @@ func (o ResolverPipelineConfigPtrOutput) Functions() pulumi.StringArrayOutput {
 }
 
 type ResolverSyncConfig struct {
-	// The Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
+	// Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
 	ConflictDetection *string `pulumi:"conflictDetection"`
-	// The Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
+	// Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
 	ConflictHandler *string `pulumi:"conflictHandler"`
-	// The Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
+	// Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
 	LambdaConflictHandlerConfig *ResolverSyncConfigLambdaConflictHandlerConfig `pulumi:"lambdaConflictHandlerConfig"`
 }
 
@@ -3558,11 +3558,11 @@ type ResolverSyncConfigInput interface {
 }
 
 type ResolverSyncConfigArgs struct {
-	// The Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
+	// Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
 	ConflictDetection pulumi.StringPtrInput `pulumi:"conflictDetection"`
-	// The Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
+	// Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
 	ConflictHandler pulumi.StringPtrInput `pulumi:"conflictHandler"`
-	// The Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
+	// Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
 	LambdaConflictHandlerConfig ResolverSyncConfigLambdaConflictHandlerConfigPtrInput `pulumi:"lambdaConflictHandlerConfig"`
 }
 
@@ -3643,17 +3643,17 @@ func (o ResolverSyncConfigOutput) ToResolverSyncConfigPtrOutputWithContext(ctx c
 	}).(ResolverSyncConfigPtrOutput)
 }
 
-// The Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
+// Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
 func (o ResolverSyncConfigOutput) ConflictDetection() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResolverSyncConfig) *string { return v.ConflictDetection }).(pulumi.StringPtrOutput)
 }
 
-// The Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
+// Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
 func (o ResolverSyncConfigOutput) ConflictHandler() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResolverSyncConfig) *string { return v.ConflictHandler }).(pulumi.StringPtrOutput)
 }
 
-// The Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
+// Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
 func (o ResolverSyncConfigOutput) LambdaConflictHandlerConfig() ResolverSyncConfigLambdaConflictHandlerConfigPtrOutput {
 	return o.ApplyT(func(v ResolverSyncConfig) *ResolverSyncConfigLambdaConflictHandlerConfig {
 		return v.LambdaConflictHandlerConfig
@@ -3684,7 +3684,7 @@ func (o ResolverSyncConfigPtrOutput) Elem() ResolverSyncConfigOutput {
 	}).(ResolverSyncConfigOutput)
 }
 
-// The Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
+// Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
 func (o ResolverSyncConfigPtrOutput) ConflictDetection() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResolverSyncConfig) *string {
 		if v == nil {
@@ -3694,7 +3694,7 @@ func (o ResolverSyncConfigPtrOutput) ConflictDetection() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
+// Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
 func (o ResolverSyncConfigPtrOutput) ConflictHandler() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResolverSyncConfig) *string {
 		if v == nil {
@@ -3704,7 +3704,7 @@ func (o ResolverSyncConfigPtrOutput) ConflictHandler() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
+// Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
 func (o ResolverSyncConfigPtrOutput) LambdaConflictHandlerConfig() ResolverSyncConfigLambdaConflictHandlerConfigPtrOutput {
 	return o.ApplyT(func(v *ResolverSyncConfig) *ResolverSyncConfigLambdaConflictHandlerConfig {
 		if v == nil {
@@ -3715,7 +3715,7 @@ func (o ResolverSyncConfigPtrOutput) LambdaConflictHandlerConfig() ResolverSyncC
 }
 
 type ResolverSyncConfigLambdaConflictHandlerConfig struct {
-	// The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.
+	// ARN for the Lambda function to use as the Conflict Handler.
 	LambdaConflictHandlerArn *string `pulumi:"lambdaConflictHandlerArn"`
 }
 
@@ -3731,7 +3731,7 @@ type ResolverSyncConfigLambdaConflictHandlerConfigInput interface {
 }
 
 type ResolverSyncConfigLambdaConflictHandlerConfigArgs struct {
-	// The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.
+	// ARN for the Lambda function to use as the Conflict Handler.
 	LambdaConflictHandlerArn pulumi.StringPtrInput `pulumi:"lambdaConflictHandlerArn"`
 }
 
@@ -3812,7 +3812,7 @@ func (o ResolverSyncConfigLambdaConflictHandlerConfigOutput) ToResolverSyncConfi
 	}).(ResolverSyncConfigLambdaConflictHandlerConfigPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.
+// ARN for the Lambda function to use as the Conflict Handler.
 func (o ResolverSyncConfigLambdaConflictHandlerConfigOutput) LambdaConflictHandlerArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResolverSyncConfigLambdaConflictHandlerConfig) *string { return v.LambdaConflictHandlerArn }).(pulumi.StringPtrOutput)
 }
@@ -3841,7 +3841,7 @@ func (o ResolverSyncConfigLambdaConflictHandlerConfigPtrOutput) Elem() ResolverS
 	}).(ResolverSyncConfigLambdaConflictHandlerConfigOutput)
 }
 
-// The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.
+// ARN for the Lambda function to use as the Conflict Handler.
 func (o ResolverSyncConfigLambdaConflictHandlerConfigPtrOutput) LambdaConflictHandlerArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResolverSyncConfigLambdaConflictHandlerConfig) *string {
 		if v == nil {

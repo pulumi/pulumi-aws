@@ -5,35 +5,81 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./api";
-export * from "./apiMapping";
-export * from "./authorizer";
-export * from "./deployment";
-export * from "./domainName";
-export * from "./getApi";
-export * from "./getApis";
-export * from "./getExport";
-export * from "./integration";
-export * from "./integrationResponse";
-export * from "./model";
-export * from "./route";
-export * from "./routeResponse";
-export * from "./stage";
-export * from "./vpcLink";
+export { ApiArgs, ApiState } from "./api";
+export type Api = import("./api").Api;
+export const Api: typeof import("./api").Api = null as any;
 
-// Import resources to register:
-import { Api } from "./api";
-import { ApiMapping } from "./apiMapping";
-import { Authorizer } from "./authorizer";
-import { Deployment } from "./deployment";
-import { DomainName } from "./domainName";
-import { Integration } from "./integration";
-import { IntegrationResponse } from "./integrationResponse";
-import { Model } from "./model";
-import { Route } from "./route";
-import { RouteResponse } from "./routeResponse";
-import { Stage } from "./stage";
-import { VpcLink } from "./vpcLink";
+export { ApiMappingArgs, ApiMappingState } from "./apiMapping";
+export type ApiMapping = import("./apiMapping").ApiMapping;
+export const ApiMapping: typeof import("./apiMapping").ApiMapping = null as any;
+
+export { AuthorizerArgs, AuthorizerState } from "./authorizer";
+export type Authorizer = import("./authorizer").Authorizer;
+export const Authorizer: typeof import("./authorizer").Authorizer = null as any;
+
+export { DeploymentArgs, DeploymentState } from "./deployment";
+export type Deployment = import("./deployment").Deployment;
+export const Deployment: typeof import("./deployment").Deployment = null as any;
+
+export { DomainNameArgs, DomainNameState } from "./domainName";
+export type DomainName = import("./domainName").DomainName;
+export const DomainName: typeof import("./domainName").DomainName = null as any;
+
+export { GetApiArgs, GetApiResult, GetApiOutputArgs } from "./getApi";
+export const getApi: typeof import("./getApi").getApi = null as any;
+export const getApiOutput: typeof import("./getApi").getApiOutput = null as any;
+
+export { GetApisArgs, GetApisResult, GetApisOutputArgs } from "./getApis";
+export const getApis: typeof import("./getApis").getApis = null as any;
+export const getApisOutput: typeof import("./getApis").getApisOutput = null as any;
+
+export { GetExportArgs, GetExportResult, GetExportOutputArgs } from "./getExport";
+export const getExport: typeof import("./getExport").getExport = null as any;
+export const getExportOutput: typeof import("./getExport").getExportOutput = null as any;
+
+export { IntegrationArgs, IntegrationState } from "./integration";
+export type Integration = import("./integration").Integration;
+export const Integration: typeof import("./integration").Integration = null as any;
+
+export { IntegrationResponseArgs, IntegrationResponseState } from "./integrationResponse";
+export type IntegrationResponse = import("./integrationResponse").IntegrationResponse;
+export const IntegrationResponse: typeof import("./integrationResponse").IntegrationResponse = null as any;
+
+export { ModelArgs, ModelState } from "./model";
+export type Model = import("./model").Model;
+export const Model: typeof import("./model").Model = null as any;
+
+export { RouteArgs, RouteState } from "./route";
+export type Route = import("./route").Route;
+export const Route: typeof import("./route").Route = null as any;
+
+export { RouteResponseArgs, RouteResponseState } from "./routeResponse";
+export type RouteResponse = import("./routeResponse").RouteResponse;
+export const RouteResponse: typeof import("./routeResponse").RouteResponse = null as any;
+
+export { StageArgs, StageState } from "./stage";
+export type Stage = import("./stage").Stage;
+export const Stage: typeof import("./stage").Stage = null as any;
+
+export { VpcLinkArgs, VpcLinkState } from "./vpcLink";
+export type VpcLink = import("./vpcLink").VpcLink;
+export const VpcLink: typeof import("./vpcLink").VpcLink = null as any;
+
+utilities.lazyLoad(exports, ["Api"], () => require("./api"));
+utilities.lazyLoad(exports, ["ApiMapping"], () => require("./apiMapping"));
+utilities.lazyLoad(exports, ["Authorizer"], () => require("./authorizer"));
+utilities.lazyLoad(exports, ["Deployment"], () => require("./deployment"));
+utilities.lazyLoad(exports, ["DomainName"], () => require("./domainName"));
+utilities.lazyLoad(exports, ["getApi","getApiOutput"], () => require("./getApi"));
+utilities.lazyLoad(exports, ["getApis","getApisOutput"], () => require("./getApis"));
+utilities.lazyLoad(exports, ["getExport","getExportOutput"], () => require("./getExport"));
+utilities.lazyLoad(exports, ["Integration"], () => require("./integration"));
+utilities.lazyLoad(exports, ["IntegrationResponse"], () => require("./integrationResponse"));
+utilities.lazyLoad(exports, ["Model"], () => require("./model"));
+utilities.lazyLoad(exports, ["Route"], () => require("./route"));
+utilities.lazyLoad(exports, ["RouteResponse"], () => require("./routeResponse"));
+utilities.lazyLoad(exports, ["Stage"], () => require("./stage"));
+utilities.lazyLoad(exports, ["VpcLink"], () => require("./vpcLink"));
 
 const _module = {
     version: utilities.getVersion(),

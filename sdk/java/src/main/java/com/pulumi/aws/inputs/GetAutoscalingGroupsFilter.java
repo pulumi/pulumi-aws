@@ -14,14 +14,14 @@ public final class GetAutoscalingGroupsFilter extends com.pulumi.resources.Invok
     public static final GetAutoscalingGroupsFilter Empty = new GetAutoscalingGroupsFilter();
 
     /**
-     * The name of the DescribeAutoScalingGroup filter. The recommended values are: `tag-key`, `tag-value`, and `tag:&lt;tag name&gt;`
+     * Name of the DescribeAutoScalingGroup filter. The recommended values are: `tag-key`, `tag-value`, and `tag:&lt;tag name&gt;`
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return The name of the DescribeAutoScalingGroup filter. The recommended values are: `tag-key`, `tag-value`, and `tag:&lt;tag name&gt;`
+     * @return Name of the DescribeAutoScalingGroup filter. The recommended values are: `tag-key`, `tag-value`, and `tag:&lt;tag name&gt;`
      * 
      */
     public String name() {
@@ -29,14 +29,14 @@ public final class GetAutoscalingGroupsFilter extends com.pulumi.resources.Invok
     }
 
     /**
-     * The value of the filter.
+     * Value of the filter.
      * 
      */
     @Import(name="values", required=true)
     private List<String> values;
 
     /**
-     * @return The value of the filter.
+     * @return Value of the filter.
      * 
      */
     public List<String> values() {
@@ -69,7 +69,7 @@ public final class GetAutoscalingGroupsFilter extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param name The name of the DescribeAutoScalingGroup filter. The recommended values are: `tag-key`, `tag-value`, and `tag:&lt;tag name&gt;`
+         * @param name Name of the DescribeAutoScalingGroup filter. The recommended values are: `tag-key`, `tag-value`, and `tag:&lt;tag name&gt;`
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class GetAutoscalingGroupsFilter extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param values The value of the filter.
+         * @param values Value of the filter.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class GetAutoscalingGroupsFilter extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param values The value of the filter.
+         * @param values Value of the filter.
          * 
          * @return builder
          * 

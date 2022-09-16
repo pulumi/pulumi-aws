@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -36,7 +38,7 @@ export function getMap(args: GetMapArgs, opts?: pulumi.InvokeOptions): Promise<G
  */
 export interface GetMapArgs {
     /**
-     * The name of the map resource.
+     * Name of the map resource.
      */
     mapName: string;
     /**
@@ -54,11 +56,11 @@ export interface GetMapResult {
      */
     readonly configurations: outputs.location.GetMapConfiguration[];
     /**
-     * The timestamp for when the map resource was created in ISO 8601 format.
+     * Timestamp for when the map resource was created in ISO 8601 format.
      */
     readonly createTime: string;
     /**
-     * The optional description for the map resource.
+     * Optional description for the map resource.
      */
     readonly description: string;
     /**
@@ -66,7 +68,7 @@ export interface GetMapResult {
      */
     readonly id: string;
     /**
-     * The Amazon Resource Name (ARN) for the map resource.
+     * ARN for the map resource.
      */
     readonly mapArn: string;
     readonly mapName: string;
@@ -75,7 +77,7 @@ export interface GetMapResult {
      */
     readonly tags: {[key: string]: string};
     /**
-     * The timestamp for when the map resource was last updated in ISO 8601 format.
+     * Timestamp for when the map resource was last updated in ISO 8601 format.
      */
     readonly updateTime: string;
 }
@@ -89,7 +91,7 @@ export function getMapOutput(args: GetMapOutputArgs, opts?: pulumi.InvokeOptions
  */
 export interface GetMapOutputArgs {
     /**
-     * The name of the map resource.
+     * Name of the map resource.
      */
     mapName: pulumi.Input<string>;
     /**

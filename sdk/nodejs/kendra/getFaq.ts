@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -38,11 +40,11 @@ export function getFaq(args: GetFaqArgs, opts?: pulumi.InvokeOptions): Promise<G
  */
 export interface GetFaqArgs {
     /**
-     * The identifier of the FAQ.
+     * Identifier of the FAQ.
      */
     faqId: string;
     /**
-     * The identifier of the index that contains the FAQ.
+     * Identifier of the index that contains the FAQ.
      */
     indexId: string;
     /**
@@ -56,15 +58,15 @@ export interface GetFaqArgs {
  */
 export interface GetFaqResult {
     /**
-     * The Amazon Resource Name (ARN) of the FAQ.
+     * ARN of the FAQ.
      */
     readonly arn: string;
     /**
-     * The Unix datetime that the faq was created.
+     * Unix datetime that the faq was created.
      */
     readonly createdAt: string;
     /**
-     * The description of the FAQ.
+     * Description of the FAQ.
      */
     readonly description: string;
     /**
@@ -73,7 +75,7 @@ export interface GetFaqResult {
     readonly errorMessage: string;
     readonly faqId: string;
     /**
-     * The file format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
+     * File format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
      */
     readonly fileFormat: string;
     /**
@@ -82,23 +84,23 @@ export interface GetFaqResult {
     readonly id: string;
     readonly indexId: string;
     /**
-     * The code for a language. This shows a supported language for the FAQ document. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
+     * Code for a language. This shows a supported language for the FAQ document. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
      */
     readonly languageCode: string;
     /**
-     * Specifies the name of the FAQ.
+     * Name of the FAQ.
      */
     readonly name: string;
     /**
-     * The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+     * ARN of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
      */
     readonly roleArn: string;
     /**
-     * The S3 location of the FAQ input data. Detailed below.
+     * S3 location of the FAQ input data. Detailed below.
      */
     readonly s3Paths: outputs.kendra.GetFaqS3Path[];
     /**
-     * The status of the FAQ. It is ready to use when the status is ACTIVE.
+     * Status of the FAQ. It is ready to use when the status is ACTIVE.
      */
     readonly status: string;
     /**
@@ -106,7 +108,7 @@ export interface GetFaqResult {
      */
     readonly tags: {[key: string]: string};
     /**
-     * The date and time that the FAQ was last updated.
+     * Date and time that the FAQ was last updated.
      */
     readonly updatedAt: string;
 }
@@ -120,11 +122,11 @@ export function getFaqOutput(args: GetFaqOutputArgs, opts?: pulumi.InvokeOptions
  */
 export interface GetFaqOutputArgs {
     /**
-     * The identifier of the FAQ.
+     * Identifier of the FAQ.
      */
     faqId: pulumi.Input<string>;
     /**
-     * The identifier of the index that contains the FAQ.
+     * Identifier of the index that contains the FAQ.
      */
     indexId: pulumi.Input<string>;
     /**

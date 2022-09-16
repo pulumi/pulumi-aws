@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetServiceAccountResult {
     /**
-     * @return The ARN of the AWS ELB service account in the selected region.
+     * @return ARN of the AWS ELB service account in the selected region.
      * 
      */
     private String arn;
@@ -25,7 +25,7 @@ public final class GetServiceAccountResult {
 
     private GetServiceAccountResult() {}
     /**
-     * @return The ARN of the AWS ELB service account in the selected region.
+     * @return ARN of the AWS ELB service account in the selected region.
      * 
      */
     public String arn() {

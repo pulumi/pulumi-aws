@@ -14,6 +14,7 @@ __all__ = [
     'EndpointKafkaSettingsArgs',
     'EndpointKinesisSettingsArgs',
     'EndpointMongodbSettingsArgs',
+    'EndpointRedisSettingsArgs',
     'EndpointRedshiftSettingsArgs',
     'EndpointS3SettingsArgs',
 ]
@@ -122,7 +123,7 @@ class EndpointKafkaSettingsArgs:
         :param pulumi.Input[str] sasl_password: Secure password you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
         :param pulumi.Input[str] sasl_username: Secure user name you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
         :param pulumi.Input[str] security_protocol: Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `sasl_username` and `sasl_password`.
-        :param pulumi.Input[str] ssl_ca_certificate_arn: ARN for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
+        :param pulumi.Input[str] ssl_ca_certificate_arn: The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
         :param pulumi.Input[str] ssl_client_certificate_arn: ARN of the client certificate used to securely connect to a Kafka target endpoint.
         :param pulumi.Input[str] ssl_client_key_arn: ARN for the client private key used to securely connect to a Kafka target endpoint.
         :param pulumi.Input[str] ssl_client_key_password: Password for the client private key used to securely connect to a Kafka target endpoint.
@@ -324,7 +325,7 @@ class EndpointKafkaSettingsArgs:
     @pulumi.getter(name="sslCaCertificateArn")
     def ssl_ca_certificate_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        ARN for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
+        The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
         """
         return pulumi.get(self, "ssl_ca_certificate_arn")
 
@@ -544,7 +545,7 @@ class EndpointMongodbSettingsArgs:
         """
         :param pulumi.Input[str] auth_mechanism: Authentication mechanism to access the MongoDB source endpoint. Default is `default`.
         :param pulumi.Input[str] auth_source: Authentication database name. Not used when `auth_type` is `no`. Default is `admin`.
-        :param pulumi.Input[str] auth_type: Authentication type to access the MongoDB source endpoint. Default is `password`.
+        :param pulumi.Input[str] auth_type: The type of authentication to perform when connecting to a Redis target. Options include `none`, `auth-token`, and `auth-role`. The `auth-token` option requires an `auth_password` value to be provided. The `auth-role` option requires `auth_user_name` and `auth_password` values to be provided.
         :param pulumi.Input[str] docs_to_investigate: Number of documents to preview to determine the document organization. Use this setting when `nesting_level` is set to `one`. Default is `1000`.
         :param pulumi.Input[str] extract_doc_id: Document ID. Use this setting when `nesting_level` is set to `none`. Default is `false`.
         :param pulumi.Input[str] nesting_level: Specifies either document or table mode. Default is `none`. Valid values are `one` (table mode) and `none` (document mode).
@@ -590,7 +591,7 @@ class EndpointMongodbSettingsArgs:
     @pulumi.getter(name="authType")
     def auth_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Authentication type to access the MongoDB source endpoint. Default is `password`.
+        The type of authentication to perform when connecting to a Redis target. Options include `none`, `auth-token`, and `auth-role`. The `auth-token` option requires an `auth_password` value to be provided. The `auth-role` option requires `auth_user_name` and `auth_password` values to be provided.
         """
         return pulumi.get(self, "auth_type")
 
@@ -633,6 +634,122 @@ class EndpointMongodbSettingsArgs:
     @nesting_level.setter
     def nesting_level(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "nesting_level", value)
+
+
+@pulumi.input_type
+class EndpointRedisSettingsArgs:
+    def __init__(__self__, *,
+                 auth_type: pulumi.Input[str],
+                 port: pulumi.Input[int],
+                 server_name: pulumi.Input[str],
+                 auth_password: Optional[pulumi.Input[str]] = None,
+                 auth_user_name: Optional[pulumi.Input[str]] = None,
+                 ssl_ca_certificate_arn: Optional[pulumi.Input[str]] = None,
+                 ssl_security_protocol: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] auth_type: The type of authentication to perform when connecting to a Redis target. Options include `none`, `auth-token`, and `auth-role`. The `auth-token` option requires an `auth_password` value to be provided. The `auth-role` option requires `auth_user_name` and `auth_password` values to be provided.
+        :param pulumi.Input[int] port: Transmission Control Protocol (TCP) port for the endpoint.
+        :param pulumi.Input[str] server_name: Fully qualified domain name of the endpoint.
+        :param pulumi.Input[str] auth_password: The password provided with the auth-role and auth-token options of the AuthType setting for a Redis target endpoint.
+        :param pulumi.Input[str] auth_user_name: The username provided with the `auth-role` option of the AuthType setting for a Redis target endpoint.
+        :param pulumi.Input[str] ssl_ca_certificate_arn: The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
+        :param pulumi.Input[str] ssl_security_protocol: The plaintext option doesn't provide Transport Layer Security (TLS) encryption for traffic between endpoint and database. Options include `plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
+        """
+        pulumi.set(__self__, "auth_type", auth_type)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "server_name", server_name)
+        if auth_password is not None:
+            pulumi.set(__self__, "auth_password", auth_password)
+        if auth_user_name is not None:
+            pulumi.set(__self__, "auth_user_name", auth_user_name)
+        if ssl_ca_certificate_arn is not None:
+            pulumi.set(__self__, "ssl_ca_certificate_arn", ssl_ca_certificate_arn)
+        if ssl_security_protocol is not None:
+            pulumi.set(__self__, "ssl_security_protocol", ssl_security_protocol)
+
+    @property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> pulumi.Input[str]:
+        """
+        The type of authentication to perform when connecting to a Redis target. Options include `none`, `auth-token`, and `auth-role`. The `auth-token` option requires an `auth_password` value to be provided. The `auth-role` option requires `auth_user_name` and `auth_password` values to be provided.
+        """
+        return pulumi.get(self, "auth_type")
+
+    @auth_type.setter
+    def auth_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "auth_type", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[int]:
+        """
+        Transmission Control Protocol (TCP) port for the endpoint.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> pulumi.Input[str]:
+        """
+        Fully qualified domain name of the endpoint.
+        """
+        return pulumi.get(self, "server_name")
+
+    @server_name.setter
+    def server_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "server_name", value)
+
+    @property
+    @pulumi.getter(name="authPassword")
+    def auth_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The password provided with the auth-role and auth-token options of the AuthType setting for a Redis target endpoint.
+        """
+        return pulumi.get(self, "auth_password")
+
+    @auth_password.setter
+    def auth_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "auth_password", value)
+
+    @property
+    @pulumi.getter(name="authUserName")
+    def auth_user_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The username provided with the `auth-role` option of the AuthType setting for a Redis target endpoint.
+        """
+        return pulumi.get(self, "auth_user_name")
+
+    @auth_user_name.setter
+    def auth_user_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "auth_user_name", value)
+
+    @property
+    @pulumi.getter(name="sslCaCertificateArn")
+    def ssl_ca_certificate_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
+        """
+        return pulumi.get(self, "ssl_ca_certificate_arn")
+
+    @ssl_ca_certificate_arn.setter
+    def ssl_ca_certificate_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ssl_ca_certificate_arn", value)
+
+    @property
+    @pulumi.getter(name="sslSecurityProtocol")
+    def ssl_security_protocol(self) -> Optional[pulumi.Input[str]]:
+        """
+        The plaintext option doesn't provide Transport Layer Security (TLS) encryption for traffic between endpoint and database. Options include `plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
+        """
+        return pulumi.get(self, "ssl_security_protocol")
+
+    @ssl_security_protocol.setter
+    def ssl_security_protocol(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ssl_security_protocol", value)
 
 
 @pulumi.input_type

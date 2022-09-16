@@ -10,26 +10,26 @@ import java.util.Objects;
 @CustomType
 public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimension {
     /**
-     * @return The name of the dimension.
+     * @return Name of the dimension.
      * 
      */
     private String name;
     /**
-     * @return The value of the dimension.
+     * @return Value of the dimension.
      * 
      */
     private String value;
 
     private PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimension() {}
     /**
-     * @return The name of the dimension.
+     * @return Name of the dimension.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return The value of the dimension.
+     * @return Value of the dimension.
      * 
      */
     public String value() {

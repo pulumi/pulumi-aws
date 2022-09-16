@@ -13,6 +13,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DomainAdvancedSecurityOptions {
     /**
+     * @return Whether Anonymous auth is enabled. Enables fine-grained access control on an existing domain. Ignored unless `advanced_security_options` are enabled. _Can only be enabled on an existing domain._
+     * 
+     */
+    private @Nullable Boolean anonymousAuthEnabled;
+    /**
      * @return Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engine_version` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
      * 
      */
@@ -29,6 +34,13 @@ public final class DomainAdvancedSecurityOptions {
     private @Nullable DomainAdvancedSecurityOptionsMasterUserOptions masterUserOptions;
 
     private DomainAdvancedSecurityOptions() {}
+    /**
+     * @return Whether Anonymous auth is enabled. Enables fine-grained access control on an existing domain. Ignored unless `advanced_security_options` are enabled. _Can only be enabled on an existing domain._
+     * 
+     */
+    public Optional<Boolean> anonymousAuthEnabled() {
+        return Optional.ofNullable(this.anonymousAuthEnabled);
+    }
     /**
      * @return Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engine_version` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
      * 
@@ -60,17 +72,24 @@ public final class DomainAdvancedSecurityOptions {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Boolean anonymousAuthEnabled;
         private Boolean enabled;
         private @Nullable Boolean internalUserDatabaseEnabled;
         private @Nullable DomainAdvancedSecurityOptionsMasterUserOptions masterUserOptions;
         public Builder() {}
         public Builder(DomainAdvancedSecurityOptions defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.anonymousAuthEnabled = defaults.anonymousAuthEnabled;
     	      this.enabled = defaults.enabled;
     	      this.internalUserDatabaseEnabled = defaults.internalUserDatabaseEnabled;
     	      this.masterUserOptions = defaults.masterUserOptions;
         }
 
+        @CustomType.Setter
+        public Builder anonymousAuthEnabled(@Nullable Boolean anonymousAuthEnabled) {
+            this.anonymousAuthEnabled = anonymousAuthEnabled;
+            return this;
+        }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
@@ -88,6 +107,7 @@ public final class DomainAdvancedSecurityOptions {
         }
         public DomainAdvancedSecurityOptions build() {
             final var o = new DomainAdvancedSecurityOptions();
+            o.anonymousAuthEnabled = anonymousAuthEnabled;
             o.enabled = enabled;
             o.internalUserDatabaseEnabled = internalUserDatabaseEnabled;
             o.masterUserOptions = masterUserOptions;

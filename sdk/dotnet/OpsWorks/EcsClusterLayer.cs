@@ -136,7 +136,7 @@ namespace Pulumi.Aws.OpsWorks
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The id of the stack the layer will belong to.
+        /// ID of the stack the layer will belong to.
         /// </summary>
         [Output("stackId")]
         public Output<string> StackId { get; private set; } = null!;
@@ -342,7 +342,7 @@ namespace Pulumi.Aws.OpsWorks
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The id of the stack the layer will belong to.
+        /// ID of the stack the layer will belong to.
         /// </summary>
         [Input("stackId", required: true)]
         public Input<string> StackId { get; set; } = null!;
@@ -525,7 +525,7 @@ namespace Pulumi.Aws.OpsWorks
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The id of the stack the layer will belong to.
+        /// ID of the stack the layer will belong to.
         /// </summary>
         [Input("stackId")]
         public Input<string>? StackId { get; set; }

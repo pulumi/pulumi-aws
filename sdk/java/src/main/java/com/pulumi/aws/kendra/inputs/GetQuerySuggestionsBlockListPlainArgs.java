@@ -16,14 +16,14 @@ public final class GetQuerySuggestionsBlockListPlainArgs extends com.pulumi.reso
     public static final GetQuerySuggestionsBlockListPlainArgs Empty = new GetQuerySuggestionsBlockListPlainArgs();
 
     /**
-     * The identifier of the index that contains the block list.
+     * Identifier of the index that contains the block list.
      * 
      */
     @Import(name="indexId", required=true)
     private String indexId;
 
     /**
-     * @return The identifier of the index that contains the block list.
+     * @return Identifier of the index that contains the block list.
      * 
      */
     public String indexId() {
@@ -31,14 +31,14 @@ public final class GetQuerySuggestionsBlockListPlainArgs extends com.pulumi.reso
     }
 
     /**
-     * The identifier of the block list.
+     * Identifier of the block list.
      * 
      */
     @Import(name="querySuggestionsBlockListId", required=true)
     private String querySuggestionsBlockListId;
 
     /**
-     * @return The identifier of the block list.
+     * @return Identifier of the block list.
      * 
      */
     public String querySuggestionsBlockListId() {
@@ -87,7 +87,7 @@ public final class GetQuerySuggestionsBlockListPlainArgs extends com.pulumi.reso
         }
 
         /**
-         * @param indexId The identifier of the index that contains the block list.
+         * @param indexId Identifier of the index that contains the block list.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class GetQuerySuggestionsBlockListPlainArgs extends com.pulumi.reso
         }
 
         /**
-         * @param querySuggestionsBlockListId The identifier of the block list.
+         * @param querySuggestionsBlockListId Identifier of the block list.
          * 
          * @return builder
          * 

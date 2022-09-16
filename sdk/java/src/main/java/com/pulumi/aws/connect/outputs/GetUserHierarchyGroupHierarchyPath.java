@@ -15,62 +15,62 @@ import java.util.Objects;
 @CustomType
 public final class GetUserHierarchyGroupHierarchyPath {
     /**
-     * @return A block that defines the details of level five. The level block is documented below.
+     * @return Details of level five. See below.
      * 
      */
     private List<GetUserHierarchyGroupHierarchyPathLevelFife> levelFives;
     /**
-     * @return A block that defines the details of level four. The level block is documented below.
+     * @return Details of level four. See below.
      * 
      */
     private List<GetUserHierarchyGroupHierarchyPathLevelFour> levelFours;
     /**
-     * @return A block that defines the details of level one. The level block is documented below.
+     * @return Details of level one. See below.
      * 
      */
     private List<GetUserHierarchyGroupHierarchyPathLevelOne> levelOnes;
     /**
-     * @return A block that defines the details of level three. The level block is documented below.
+     * @return Details of level three. See below.
      * 
      */
     private List<GetUserHierarchyGroupHierarchyPathLevelThree> levelThrees;
     /**
-     * @return A block that defines the details of level two. The level block is documented below.
+     * @return Details of level two. See below.
      * 
      */
     private List<GetUserHierarchyGroupHierarchyPathLevelTwo> levelTwos;
 
     private GetUserHierarchyGroupHierarchyPath() {}
     /**
-     * @return A block that defines the details of level five. The level block is documented below.
+     * @return Details of level five. See below.
      * 
      */
     public List<GetUserHierarchyGroupHierarchyPathLevelFife> levelFives() {
         return this.levelFives;
     }
     /**
-     * @return A block that defines the details of level four. The level block is documented below.
+     * @return Details of level four. See below.
      * 
      */
     public List<GetUserHierarchyGroupHierarchyPathLevelFour> levelFours() {
         return this.levelFours;
     }
     /**
-     * @return A block that defines the details of level one. The level block is documented below.
+     * @return Details of level one. See below.
      * 
      */
     public List<GetUserHierarchyGroupHierarchyPathLevelOne> levelOnes() {
         return this.levelOnes;
     }
     /**
-     * @return A block that defines the details of level three. The level block is documented below.
+     * @return Details of level three. See below.
      * 
      */
     public List<GetUserHierarchyGroupHierarchyPathLevelThree> levelThrees() {
         return this.levelThrees;
     }
     /**
-     * @return A block that defines the details of level two. The level block is documented below.
+     * @return Details of level two. See below.
      * 
      */
     public List<GetUserHierarchyGroupHierarchyPathLevelTwo> levelTwos() {

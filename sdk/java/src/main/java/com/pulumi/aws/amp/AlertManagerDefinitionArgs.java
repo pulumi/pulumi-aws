@@ -29,14 +29,14 @@ public final class AlertManagerDefinitionArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The id of the prometheus workspace the alert manager definition should be linked to
+     * ID of the prometheus workspace the alert manager definition should be linked to
      * 
      */
     @Import(name="workspaceId", required=true)
     private Output<String> workspaceId;
 
     /**
-     * @return The id of the prometheus workspace the alert manager definition should be linked to
+     * @return ID of the prometheus workspace the alert manager definition should be linked to
      * 
      */
     public Output<String> workspaceId() {
@@ -90,7 +90,7 @@ public final class AlertManagerDefinitionArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param workspaceId The id of the prometheus workspace the alert manager definition should be linked to
+         * @param workspaceId ID of the prometheus workspace the alert manager definition should be linked to
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class AlertManagerDefinitionArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param workspaceId The id of the prometheus workspace the alert manager definition should be linked to
+         * @param workspaceId ID of the prometheus workspace the alert manager definition should be linked to
          * 
          * @return builder
          * 

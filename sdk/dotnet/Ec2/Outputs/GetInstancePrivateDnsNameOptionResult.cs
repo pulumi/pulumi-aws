@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly bool EnableResourceNameDnsAaaaRecord;
         /// <summary>
-        /// The type of hostname for EC2 instances.
+        /// Type of hostname for EC2 instances.
         /// </summary>
         public readonly string HostnameType;
 

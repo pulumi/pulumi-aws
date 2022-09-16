@@ -70,7 +70,7 @@ namespace Pulumi.Aws.DirectConnect
     public sealed class GetGatewayArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the gateway to retrieve.
+        /// Name of the gateway to retrieve.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.Aws.DirectConnect
     public sealed class GetGatewayInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the gateway to retrieve.
+        /// Name of the gateway to retrieve.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -100,7 +100,7 @@ namespace Pulumi.Aws.DirectConnect
     public sealed class GetGatewayResult
     {
         /// <summary>
-        /// The ASN on the Amazon side of the connection.
+        /// ASN on the Amazon side of the connection.
         /// </summary>
         public readonly string AmazonSideAsn;
         /// <summary>

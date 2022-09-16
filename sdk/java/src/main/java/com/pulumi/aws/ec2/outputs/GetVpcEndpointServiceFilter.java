@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetVpcEndpointServiceFilter {
     /**
-     * @return The name of the filter field. Valid values can be found in the [EC2 DescribeVpcEndpointServices API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpointServices.html).
+     * @return Name of the filter field. Valid values can be found in the [EC2 DescribeVpcEndpointServices API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpointServices.html).
      * 
      */
     private String name;
@@ -23,7 +23,7 @@ public final class GetVpcEndpointServiceFilter {
 
     private GetVpcEndpointServiceFilter() {}
     /**
-     * @return The name of the filter field. Valid values can be found in the [EC2 DescribeVpcEndpointServices API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpointServices.html).
+     * @return Name of the filter field. Valid values can be found in the [EC2 DescribeVpcEndpointServices API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpointServices.html).
      * 
      */
     public String name() {

@@ -18,27 +18,27 @@ public final class GetApiCorsConfiguration {
      */
     private Boolean allowCredentials;
     /**
-     * @return The set of allowed HTTP headers.
+     * @return Set of allowed HTTP headers.
      * 
      */
     private List<String> allowHeaders;
     /**
-     * @return The set of allowed HTTP methods.
+     * @return Set of allowed HTTP methods.
      * 
      */
     private List<String> allowMethods;
     /**
-     * @return The set of allowed origins.
+     * @return Set of allowed origins.
      * 
      */
     private List<String> allowOrigins;
     /**
-     * @return The set of exposed HTTP headers.
+     * @return Set of exposed HTTP headers.
      * 
      */
     private List<String> exposeHeaders;
     /**
-     * @return The number of seconds that the browser should cache preflight request results.
+     * @return Number of seconds that the browser should cache preflight request results.
      * 
      */
     private Integer maxAge;
@@ -52,35 +52,35 @@ public final class GetApiCorsConfiguration {
         return this.allowCredentials;
     }
     /**
-     * @return The set of allowed HTTP headers.
+     * @return Set of allowed HTTP headers.
      * 
      */
     public List<String> allowHeaders() {
         return this.allowHeaders;
     }
     /**
-     * @return The set of allowed HTTP methods.
+     * @return Set of allowed HTTP methods.
      * 
      */
     public List<String> allowMethods() {
         return this.allowMethods;
     }
     /**
-     * @return The set of allowed origins.
+     * @return Set of allowed origins.
      * 
      */
     public List<String> allowOrigins() {
         return this.allowOrigins;
     }
     /**
-     * @return The set of exposed HTTP headers.
+     * @return Set of exposed HTTP headers.
      * 
      */
     public List<String> exposeHeaders() {
         return this.exposeHeaders;
     }
     /**
-     * @return The number of seconds that the browser should cache preflight request results.
+     * @return Number of seconds that the browser should cache preflight request results.
      * 
      */
     public Integer maxAge() {

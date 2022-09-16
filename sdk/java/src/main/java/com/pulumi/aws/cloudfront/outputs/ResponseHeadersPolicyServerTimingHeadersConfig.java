@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class ResponseHeadersPolicyServerTimingHeadersConfig {
     /**
-     * @return A Boolean that determines whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that&#39;s associated with this response headers policy.
+     * @return A Whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that&#39;s associated with this response headers policy.
      * 
      */
     private Boolean enabled;
@@ -23,7 +23,7 @@ public final class ResponseHeadersPolicyServerTimingHeadersConfig {
 
     private ResponseHeadersPolicyServerTimingHeadersConfig() {}
     /**
-     * @return A Boolean that determines whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that&#39;s associated with this response headers policy.
+     * @return A Whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that&#39;s associated with this response headers policy.
      * 
      */
     public Boolean enabled() {

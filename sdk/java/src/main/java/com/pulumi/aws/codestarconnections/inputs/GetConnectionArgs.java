@@ -17,14 +17,14 @@ public final class GetConnectionArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetConnectionArgs Empty = new GetConnectionArgs();
 
     /**
-     * The CodeStar Connection ARN.
+     * CodeStar Connection ARN.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The CodeStar Connection ARN.
+     * @return CodeStar Connection ARN.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -32,14 +32,14 @@ public final class GetConnectionArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The CodeStar Connection name.
+     * CodeStar Connection name.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The CodeStar Connection name.
+     * @return CodeStar Connection name.
      * 
      */
     public Optional<Output<String>> name() {
@@ -88,7 +88,7 @@ public final class GetConnectionArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param arn The CodeStar Connection ARN.
+         * @param arn CodeStar Connection ARN.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class GetConnectionArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param arn The CodeStar Connection ARN.
+         * @param arn CodeStar Connection ARN.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class GetConnectionArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The CodeStar Connection name.
+         * @param name CodeStar Connection name.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class GetConnectionArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The CodeStar Connection name.
+         * @param name CodeStar Connection name.
          * 
          * @return builder
          * 

@@ -17,22 +17,22 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VirtualNodeSpecListener {
     /**
-     * @return The connection pool information for the listener.
+     * @return Connection pool information for the listener.
      * 
      */
     private @Nullable VirtualNodeSpecListenerConnectionPool connectionPool;
     /**
-     * @return The health check information for the listener.
+     * @return Health check information for the listener.
      * 
      */
     private @Nullable VirtualNodeSpecListenerHealthCheck healthCheck;
     /**
-     * @return The outlier detection information for the listener.
+     * @return Outlier detection information for the listener.
      * 
      */
     private @Nullable VirtualNodeSpecListenerOutlierDetection outlierDetection;
     /**
-     * @return The port mapping information for the listener.
+     * @return Port mapping information for the listener.
      * 
      */
     private VirtualNodeSpecListenerPortMapping portMapping;
@@ -42,35 +42,35 @@ public final class VirtualNodeSpecListener {
      */
     private @Nullable VirtualNodeSpecListenerTimeout timeout;
     /**
-     * @return The Transport Layer Security (TLS) properties for the listener
+     * @return Transport Layer Security (TLS) properties for the listener
      * 
      */
     private @Nullable VirtualNodeSpecListenerTls tls;
 
     private VirtualNodeSpecListener() {}
     /**
-     * @return The connection pool information for the listener.
+     * @return Connection pool information for the listener.
      * 
      */
     public Optional<VirtualNodeSpecListenerConnectionPool> connectionPool() {
         return Optional.ofNullable(this.connectionPool);
     }
     /**
-     * @return The health check information for the listener.
+     * @return Health check information for the listener.
      * 
      */
     public Optional<VirtualNodeSpecListenerHealthCheck> healthCheck() {
         return Optional.ofNullable(this.healthCheck);
     }
     /**
-     * @return The outlier detection information for the listener.
+     * @return Outlier detection information for the listener.
      * 
      */
     public Optional<VirtualNodeSpecListenerOutlierDetection> outlierDetection() {
         return Optional.ofNullable(this.outlierDetection);
     }
     /**
-     * @return The port mapping information for the listener.
+     * @return Port mapping information for the listener.
      * 
      */
     public VirtualNodeSpecListenerPortMapping portMapping() {
@@ -84,7 +84,7 @@ public final class VirtualNodeSpecListener {
         return Optional.ofNullable(this.timeout);
     }
     /**
-     * @return The Transport Layer Security (TLS) properties for the listener
+     * @return Transport Layer Security (TLS) properties for the listener
      * 
      */
     public Optional<VirtualNodeSpecListenerTls> tls() {

@@ -54,7 +54,7 @@ class GetContactFlowResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the Contact Flow.
+        ARN of the Contact Flow.
         """
         return pulumi.get(self, "arn")
 
@@ -67,7 +67,7 @@ class GetContactFlowResult:
     @pulumi.getter
     def content(self) -> str:
         """
-        Specifies the logic of the Contact Flow.
+        Logic of the Contact Flow.
         """
         return pulumi.get(self, "content")
 
@@ -75,7 +75,7 @@ class GetContactFlowResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        Specifies the description of the Contact Flow.
+        Description of the Contact Flow.
         """
         return pulumi.get(self, "description")
 
@@ -101,7 +101,7 @@ class GetContactFlowResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        A the map of tags to assign to the Contact Flow.
+        Tags to assign to the Contact Flow.
         """
         return pulumi.get(self, "tags")
 
@@ -109,7 +109,7 @@ class GetContactFlowResult:
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        Specifies the type of Contact Flow.
+        Type of Contact Flow.
         """
         return pulumi.get(self, "type")
 
@@ -166,8 +166,8 @@ def get_contact_flow(contact_flow_id: Optional[str] = None,
     :param str contact_flow_id: Returns information on a specific Contact Flow by contact flow id
     :param str instance_id: Reference to the hosting Amazon Connect Instance
     :param str name: Returns information on a specific Contact Flow by name
-    :param Mapping[str, str] tags: A the map of tags to assign to the Contact Flow.
-    :param str type: Specifies the type of Contact Flow.
+    :param Mapping[str, str] tags: Tags to assign to the Contact Flow.
+    :param str type: Type of Contact Flow.
     """
     __args__ = dict()
     __args__['contactFlowId'] = contact_flow_id
@@ -226,7 +226,7 @@ def get_contact_flow_output(contact_flow_id: Optional[pulumi.Input[Optional[str]
     :param str contact_flow_id: Returns information on a specific Contact Flow by contact flow id
     :param str instance_id: Reference to the hosting Amazon Connect Instance
     :param str name: Returns information on a specific Contact Flow by name
-    :param Mapping[str, str] tags: A the map of tags to assign to the Contact Flow.
-    :param str type: Specifies the type of Contact Flow.
+    :param Mapping[str, str] tags: Tags to assign to the Contact Flow.
+    :param str type: Type of Contact Flow.
     """
     ...

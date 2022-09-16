@@ -142,7 +142,7 @@ def get_distribution_configuration(arn: Optional[str] = None,
     ```
 
 
-    :param str arn: Amazon Resource Name (ARN) of the distribution configuration.
+    :param str arn: ARN of the distribution configuration.
     :param Mapping[str, str] tags: Key-value map of resource tags for the distribution configuration.
     """
     __args__ = dict()
@@ -179,7 +179,7 @@ def get_distribution_configuration_output(arn: Optional[pulumi.Input[str]] = Non
     ```
 
 
-    :param str arn: Amazon Resource Name (ARN) of the distribution configuration.
+    :param str arn: ARN of the distribution configuration.
     :param Mapping[str, str] tags: Key-value map of resource tags for the distribution configuration.
     """
     ...

@@ -34,7 +34,7 @@ public final class GetCodeSigningConfigResult {
      */
     private String id;
     /**
-     * @return The date and time that the code signing configuration was last modified.
+     * @return Date and time that the code signing configuration was last modified.
      * 
      */
     private String lastModified;
@@ -77,7 +77,7 @@ public final class GetCodeSigningConfigResult {
         return this.id;
     }
     /**
-     * @return The date and time that the code signing configuration was last modified.
+     * @return Date and time that the code signing configuration was last modified.
      * 
      */
     public String lastModified() {

@@ -18,14 +18,14 @@ public final class ManagedScalingPolicyState extends com.pulumi.resources.Resour
     public static final ManagedScalingPolicyState Empty = new ManagedScalingPolicyState();
 
     /**
-     * The id of the EMR cluster
+     * ID of the EMR cluster
      * 
      */
     @Import(name="clusterId")
     private @Nullable Output<String> clusterId;
 
     /**
-     * @return The id of the EMR cluster
+     * @return ID of the EMR cluster
      * 
      */
     public Optional<Output<String>> clusterId() {
@@ -73,7 +73,7 @@ public final class ManagedScalingPolicyState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param clusterId The id of the EMR cluster
+         * @param clusterId ID of the EMR cluster
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class ManagedScalingPolicyState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param clusterId The id of the EMR cluster
+         * @param clusterId ID of the EMR cluster
          * 
          * @return builder
          * 

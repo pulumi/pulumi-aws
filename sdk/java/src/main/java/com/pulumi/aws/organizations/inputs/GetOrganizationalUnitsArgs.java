@@ -14,14 +14,14 @@ public final class GetOrganizationalUnitsArgs extends com.pulumi.resources.Invok
     public static final GetOrganizationalUnitsArgs Empty = new GetOrganizationalUnitsArgs();
 
     /**
-     * The parent ID of the organizational unit.
+     * Parent ID of the organizational unit.
      * 
      */
     @Import(name="parentId", required=true)
     private Output<String> parentId;
 
     /**
-     * @return The parent ID of the organizational unit.
+     * @return Parent ID of the organizational unit.
      * 
      */
     public Output<String> parentId() {
@@ -53,7 +53,7 @@ public final class GetOrganizationalUnitsArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param parentId The parent ID of the organizational unit.
+         * @param parentId Parent ID of the organizational unit.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class GetOrganizationalUnitsArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param parentId The parent ID of the organizational unit.
+         * @param parentId Parent ID of the organizational unit.
          * 
          * @return builder
          * 

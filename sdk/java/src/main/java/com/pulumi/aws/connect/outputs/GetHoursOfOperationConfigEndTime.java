@@ -10,26 +10,26 @@ import java.util.Objects;
 @CustomType
 public final class GetHoursOfOperationConfigEndTime {
     /**
-     * @return Specifies the hour of opening.
+     * @return Hour of opening.
      * 
      */
     private Integer hours;
     /**
-     * @return Specifies the minute of opening.
+     * @return Minute of opening.
      * 
      */
     private Integer minutes;
 
     private GetHoursOfOperationConfigEndTime() {}
     /**
-     * @return Specifies the hour of opening.
+     * @return Hour of opening.
      * 
      */
     public Integer hours() {
         return this.hours;
     }
     /**
-     * @return Specifies the minute of opening.
+     * @return Minute of opening.
      * 
      */
     public Integer minutes() {

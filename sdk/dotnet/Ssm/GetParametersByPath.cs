@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Ssm
     public sealed class GetParametersByPathArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The prefix path of the parameter.
+        /// Prefix path of the parameter.
         /// </summary>
         [Input("path", required: true)]
         public string Path { get; set; } = null!;
@@ -48,7 +48,7 @@ namespace Pulumi.Aws.Ssm
     public sealed class GetParametersByPathInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The prefix path of the parameter.
+        /// Prefix path of the parameter.
         /// </summary>
         [Input("path", required: true)]
         public Input<string> Path { get; set; } = null!;

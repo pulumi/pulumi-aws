@@ -69,11 +69,11 @@ import (
 type DocumentationVersion struct {
 	pulumi.CustomResourceState
 
-	// The description of the API documentation version.
+	// Description of the API documentation version.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The ID of the associated Rest API
+	// ID of the associated Rest API
 	RestApiId pulumi.StringOutput `pulumi:"restApiId"`
-	// The version identifier of the API documentation snapshot.
+	// Version identifier of the API documentation snapshot.
 	Version pulumi.StringOutput `pulumi:"version"`
 }
 
@@ -112,20 +112,20 @@ func GetDocumentationVersion(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DocumentationVersion resources.
 type documentationVersionState struct {
-	// The description of the API documentation version.
+	// Description of the API documentation version.
 	Description *string `pulumi:"description"`
-	// The ID of the associated Rest API
+	// ID of the associated Rest API
 	RestApiId *string `pulumi:"restApiId"`
-	// The version identifier of the API documentation snapshot.
+	// Version identifier of the API documentation snapshot.
 	Version *string `pulumi:"version"`
 }
 
 type DocumentationVersionState struct {
-	// The description of the API documentation version.
+	// Description of the API documentation version.
 	Description pulumi.StringPtrInput
-	// The ID of the associated Rest API
+	// ID of the associated Rest API
 	RestApiId pulumi.StringPtrInput
-	// The version identifier of the API documentation snapshot.
+	// Version identifier of the API documentation snapshot.
 	Version pulumi.StringPtrInput
 }
 
@@ -134,21 +134,21 @@ func (DocumentationVersionState) ElementType() reflect.Type {
 }
 
 type documentationVersionArgs struct {
-	// The description of the API documentation version.
+	// Description of the API documentation version.
 	Description *string `pulumi:"description"`
-	// The ID of the associated Rest API
+	// ID of the associated Rest API
 	RestApiId string `pulumi:"restApiId"`
-	// The version identifier of the API documentation snapshot.
+	// Version identifier of the API documentation snapshot.
 	Version string `pulumi:"version"`
 }
 
 // The set of arguments for constructing a DocumentationVersion resource.
 type DocumentationVersionArgs struct {
-	// The description of the API documentation version.
+	// Description of the API documentation version.
 	Description pulumi.StringPtrInput
-	// The ID of the associated Rest API
+	// ID of the associated Rest API
 	RestApiId pulumi.StringInput
-	// The version identifier of the API documentation snapshot.
+	// Version identifier of the API documentation snapshot.
 	Version pulumi.StringInput
 }
 
@@ -239,17 +239,17 @@ func (o DocumentationVersionOutput) ToDocumentationVersionOutputWithContext(ctx 
 	return o
 }
 
-// The description of the API documentation version.
+// Description of the API documentation version.
 func (o DocumentationVersionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DocumentationVersion) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the associated Rest API
+// ID of the associated Rest API
 func (o DocumentationVersionOutput) RestApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DocumentationVersion) pulumi.StringOutput { return v.RestApiId }).(pulumi.StringOutput)
 }
 
-// The version identifier of the API documentation snapshot.
+// Version identifier of the API documentation snapshot.
 func (o DocumentationVersionOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v *DocumentationVersion) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
 }

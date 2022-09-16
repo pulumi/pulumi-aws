@@ -62,14 +62,14 @@ public final class GetUserHierarchyGroupArgs extends com.pulumi.resources.Invoke
     }
 
     /**
-     * A map of tags to assign to the hierarchy group.
+     * Map of tags to assign to the hierarchy group.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the hierarchy group.
+     * @return Map of tags to assign to the hierarchy group.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -167,7 +167,7 @@ public final class GetUserHierarchyGroupArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param tags A map of tags to assign to the hierarchy group.
+         * @param tags Map of tags to assign to the hierarchy group.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class GetUserHierarchyGroupArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param tags A map of tags to assign to the hierarchy group.
+         * @param tags Map of tags to assign to the hierarchy group.
          * 
          * @return builder
          * 

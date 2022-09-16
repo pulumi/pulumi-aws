@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Connect.Outputs
     public sealed class GetUserHierarchyGroupHierarchyPathLevelFifeResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the hierarchy group.
+        /// ARN of the hierarchy group.
         /// </summary>
         public readonly string Arn;
         /// <summary>

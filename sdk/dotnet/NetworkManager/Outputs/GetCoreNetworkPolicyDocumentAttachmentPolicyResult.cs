@@ -14,7 +14,7 @@ namespace Pulumi.Aws.NetworkManager.Outputs
     public sealed class GetCoreNetworkPolicyDocumentAttachmentPolicyResult
     {
         /// <summary>
-        /// The action to take for the chosen segment. Valid values `create-route` or `share`.
+        /// Action to take for the chosen segment. Valid values `create-route` or `share`.
         /// </summary>
         public readonly Outputs.GetCoreNetworkPolicyDocumentAttachmentPolicyActionResult Action;
         /// <summary>

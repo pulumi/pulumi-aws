@@ -22,7 +22,7 @@ namespace Pulumi.Aws.ApiGatewayV2.Inputs
         private InputList<string>? _allowHeaders;
 
         /// <summary>
-        /// The set of allowed HTTP headers.
+        /// Set of allowed HTTP headers.
         /// </summary>
         public InputList<string> AllowHeaders
         {
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.ApiGatewayV2.Inputs
         private InputList<string>? _allowMethods;
 
         /// <summary>
-        /// The set of allowed HTTP methods.
+        /// Set of allowed HTTP methods.
         /// </summary>
         public InputList<string> AllowMethods
         {
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.ApiGatewayV2.Inputs
         private InputList<string>? _allowOrigins;
 
         /// <summary>
-        /// The set of allowed origins.
+        /// Set of allowed origins.
         /// </summary>
         public InputList<string> AllowOrigins
         {
@@ -58,7 +58,7 @@ namespace Pulumi.Aws.ApiGatewayV2.Inputs
         private InputList<string>? _exposeHeaders;
 
         /// <summary>
-        /// The set of exposed HTTP headers.
+        /// Set of exposed HTTP headers.
         /// </summary>
         public InputList<string> ExposeHeaders
         {
@@ -67,7 +67,7 @@ namespace Pulumi.Aws.ApiGatewayV2.Inputs
         }
 
         /// <summary>
-        /// The number of seconds that the browser should cache preflight request results.
+        /// Number of seconds that the browser should cache preflight request results.
         /// </summary>
         [Input("maxAge")]
         public Input<int>? MaxAge { get; set; }

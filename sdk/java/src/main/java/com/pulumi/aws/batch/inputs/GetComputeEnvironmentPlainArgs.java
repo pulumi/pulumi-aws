@@ -16,14 +16,14 @@ public final class GetComputeEnvironmentPlainArgs extends com.pulumi.resources.I
     public static final GetComputeEnvironmentPlainArgs Empty = new GetComputeEnvironmentPlainArgs();
 
     /**
-     * The name of the Batch Compute Environment
+     * Name of the Batch Compute Environment
      * 
      */
     @Import(name="computeEnvironmentName", required=true)
     private String computeEnvironmentName;
 
     /**
-     * @return The name of the Batch Compute Environment
+     * @return Name of the Batch Compute Environment
      * 
      */
     public String computeEnvironmentName() {
@@ -71,7 +71,7 @@ public final class GetComputeEnvironmentPlainArgs extends com.pulumi.resources.I
         }
 
         /**
-         * @param computeEnvironmentName The name of the Batch Compute Environment
+         * @param computeEnvironmentName Name of the Batch Compute Environment
          * 
          * @return builder
          * 

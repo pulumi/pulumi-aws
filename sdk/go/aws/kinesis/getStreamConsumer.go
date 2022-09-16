@@ -51,11 +51,11 @@ func LookupStreamConsumer(ctx *pulumi.Context, args *LookupStreamConsumerArgs, o
 
 // A collection of arguments for invoking getStreamConsumer.
 type LookupStreamConsumerArgs struct {
-	// Amazon Resource Name (ARN) of the stream consumer.
+	// ARN of the stream consumer.
 	Arn *string `pulumi:"arn"`
 	// Name of the stream consumer.
 	Name *string `pulumi:"name"`
-	// Amazon Resource Name (ARN) of the data stream the consumer is registered with.
+	// ARN of the data stream the consumer is registered with.
 	StreamArn string `pulumi:"streamArn"`
 }
 
@@ -67,7 +67,7 @@ type LookupStreamConsumerResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
-	// The current status of the stream consumer.
+	// Current status of the stream consumer.
 	Status    string `pulumi:"status"`
 	StreamArn string `pulumi:"streamArn"`
 }
@@ -87,11 +87,11 @@ func LookupStreamConsumerOutput(ctx *pulumi.Context, args LookupStreamConsumerOu
 
 // A collection of arguments for invoking getStreamConsumer.
 type LookupStreamConsumerOutputArgs struct {
-	// Amazon Resource Name (ARN) of the stream consumer.
+	// ARN of the stream consumer.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// Name of the stream consumer.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Amazon Resource Name (ARN) of the data stream the consumer is registered with.
+	// ARN of the data stream the consumer is registered with.
 	StreamArn pulumi.StringInput `pulumi:"streamArn"`
 }
 
@@ -132,7 +132,7 @@ func (o LookupStreamConsumerResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStreamConsumerResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The current status of the stream consumer.
+// Current status of the stream consumer.
 func (o LookupStreamConsumerResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStreamConsumerResult) string { return v.Status }).(pulumi.StringOutput)
 }

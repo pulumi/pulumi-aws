@@ -121,7 +121,7 @@ class GetFunctionResult:
     @pulumi.getter
     def architectures(self) -> Sequence[str]:
         """
-        The instruction set architecture for the Lambda function.
+        Instruction set architecture for the Lambda function.
         """
         return pulumi.get(self, "architectures")
 
@@ -129,7 +129,7 @@ class GetFunctionResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        Unqualified (no `:QUALIFIER` or `:VERSION` suffix) Amazon Resource Name (ARN) identifying your Lambda Function. See also `qualified_arn`.
+        Unqualified (no `:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `qualified_arn`.
         """
         return pulumi.get(self, "arn")
 
@@ -137,7 +137,7 @@ class GetFunctionResult:
     @pulumi.getter(name="codeSigningConfigArn")
     def code_signing_config_arn(self) -> str:
         """
-        Amazon Resource Name (ARN) for a Code Signing Configuration.
+        ARN for a Code Signing Configuration.
         """
         return pulumi.get(self, "code_signing_config_arn")
 
@@ -161,7 +161,7 @@ class GetFunctionResult:
     @pulumi.getter
     def environment(self) -> 'outputs.GetFunctionEnvironmentResult':
         """
-        The Lambda environment's configuration settings.
+        Lambda environment's configuration settings.
         """
         return pulumi.get(self, "environment")
 
@@ -169,7 +169,7 @@ class GetFunctionResult:
     @pulumi.getter(name="ephemeralStorages")
     def ephemeral_storages(self) -> Sequence['outputs.GetFunctionEphemeralStorageResult']:
         """
-        The amount of Ephemeral storage(`/tmp`) allocated for the Lambda Function.
+        Amount of Ephemeral storage(`/tmp`) allocated for the Lambda Function.
         """
         return pulumi.get(self, "ephemeral_storages")
 
@@ -177,7 +177,7 @@ class GetFunctionResult:
     @pulumi.getter(name="fileSystemConfigs")
     def file_system_configs(self) -> Sequence['outputs.GetFunctionFileSystemConfigResult']:
         """
-        The connection settings for an Amazon EFS file system.
+        Connection settings for an Amazon EFS file system.
         """
         return pulumi.get(self, "file_system_configs")
 
@@ -190,7 +190,7 @@ class GetFunctionResult:
     @pulumi.getter
     def handler(self) -> str:
         """
-        The function entrypoint in your code.
+        Function entrypoint in your code.
         """
         return pulumi.get(self, "handler")
 
@@ -206,7 +206,7 @@ class GetFunctionResult:
     @pulumi.getter(name="imageUri")
     def image_uri(self) -> str:
         """
-        The URI of the container image.
+        URI of the container image.
         """
         return pulumi.get(self, "image_uri")
 
@@ -214,7 +214,7 @@ class GetFunctionResult:
     @pulumi.getter(name="invokeArn")
     def invoke_arn(self) -> str:
         """
-        The ARN to be used for invoking Lambda Function from API Gateway.
+        ARN to be used for invoking Lambda Function from API Gateway.
         """
         return pulumi.get(self, "invoke_arn")
 
@@ -222,7 +222,7 @@ class GetFunctionResult:
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> str:
         """
-        The ARN for the KMS encryption key.
+        ARN for the KMS encryption key.
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -230,7 +230,7 @@ class GetFunctionResult:
     @pulumi.getter(name="lastModified")
     def last_modified(self) -> str:
         """
-        The date this resource was last modified.
+        Date this resource was last modified.
         """
         return pulumi.get(self, "last_modified")
 
@@ -238,7 +238,7 @@ class GetFunctionResult:
     @pulumi.getter
     def layers(self) -> Sequence[str]:
         """
-        A list of Lambda Layer ARNs attached to your Lambda Function.
+        List of Lambda Layer ARNs attached to your Lambda Function.
         """
         return pulumi.get(self, "layers")
 
@@ -254,7 +254,7 @@ class GetFunctionResult:
     @pulumi.getter(name="qualifiedArn")
     def qualified_arn(self) -> str:
         """
-        Qualified (`:QUALIFIER` or `:VERSION` suffix) Amazon Resource Name (ARN) identifying your Lambda Function. See also `arn`.
+        Qualified (`:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `arn`.
         """
         return pulumi.get(self, "qualified_arn")
 
@@ -283,7 +283,7 @@ class GetFunctionResult:
     @pulumi.getter
     def runtime(self) -> str:
         """
-        The runtime environment for the Lambda function.
+        Runtime environment for the Lambda function.
         """
         return pulumi.get(self, "runtime")
 
@@ -291,7 +291,7 @@ class GetFunctionResult:
     @pulumi.getter(name="signingJobArn")
     def signing_job_arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of a signing job.
+        ARN of a signing job.
         """
         return pulumi.get(self, "signing_job_arn")
 
@@ -299,7 +299,7 @@ class GetFunctionResult:
     @pulumi.getter(name="signingProfileVersionArn")
     def signing_profile_version_arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) for a signing profile version.
+        The ARN for a signing profile version.
         """
         return pulumi.get(self, "signing_profile_version_arn")
 
@@ -315,7 +315,7 @@ class GetFunctionResult:
     @pulumi.getter(name="sourceCodeSize")
     def source_code_size(self) -> int:
         """
-        The size in bytes of the function .zip file.
+        Size in bytes of the function .zip file.
         """
         return pulumi.get(self, "source_code_size")
 
@@ -328,7 +328,7 @@ class GetFunctionResult:
     @pulumi.getter
     def timeout(self) -> int:
         """
-        The function execution time at which Lambda should terminate the function.
+        Function execution time at which Lambda should terminate the function.
         """
         return pulumi.get(self, "timeout")
 
@@ -344,7 +344,7 @@ class GetFunctionResult:
     @pulumi.getter
     def version(self) -> str:
         """
-        The version of the Lambda function.
+        The version of the Lambda function returned. If `qualifier` is not set, this will resolve to the most recent published version. If no published version of the function exists, `version` will resolve to `$LATEST`.
         """
         return pulumi.get(self, "version")
 
@@ -416,7 +416,7 @@ def get_function(function_name: Optional[str] = None,
 
 
     :param str function_name: Name of the lambda function.
-    :param str qualifier: Alias name or version number of the lambda functionE.g., `$LATEST`, `my-alias`, or `1`
+    :param str qualifier: Alias name or version number of the lambda functionE.g., `$LATEST`, `my-alias`, or `1`. When not included: the data source resolves to the most recent published version; if no published version exists: it resolves to the most recent unpublished version.
     """
     __args__ = dict()
     __args__['functionName'] = function_name
@@ -480,6 +480,6 @@ def get_function_output(function_name: Optional[pulumi.Input[str]] = None,
 
 
     :param str function_name: Name of the lambda function.
-    :param str qualifier: Alias name or version number of the lambda functionE.g., `$LATEST`, `my-alias`, or `1`
+    :param str qualifier: Alias name or version number of the lambda functionE.g., `$LATEST`, `my-alias`, or `1`. When not included: the data source resolves to the most recent published version; if no published version exists: it resolves to the most recent unpublished version.
     """
     ...

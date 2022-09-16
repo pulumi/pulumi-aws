@@ -54,7 +54,7 @@ class GetIntentResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The ARN of the Lex intent.
+        ARN of the Lex intent.
         """
         return pulumi.get(self, "arn")
 
@@ -71,7 +71,7 @@ class GetIntentResult:
     @pulumi.getter(name="createdDate")
     def created_date(self) -> str:
         """
-        The date when the intent version was created.
+        Date when the intent version was created.
         """
         return pulumi.get(self, "created_date")
 
@@ -79,7 +79,7 @@ class GetIntentResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        A description of the intent.
+        Description of the intent.
         """
         return pulumi.get(self, "description")
 
@@ -95,7 +95,7 @@ class GetIntentResult:
     @pulumi.getter(name="lastUpdatedDate")
     def last_updated_date(self) -> str:
         """
-        The date when the $LATEST version of this intent was updated.
+        Date when the $LATEST version of this intent was updated.
         """
         return pulumi.get(self, "last_updated_date")
 
@@ -103,7 +103,7 @@ class GetIntentResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the intent, not case sensitive.
+        Name of the intent, not case sensitive.
         """
         return pulumi.get(self, "name")
 
@@ -122,7 +122,7 @@ class GetIntentResult:
     @pulumi.getter
     def version(self) -> Optional[str]:
         """
-        The version of the bot.
+        Version of the bot.
         """
         return pulumi.get(self, "version")
 
@@ -161,8 +161,8 @@ def get_intent(name: Optional[str] = None,
     ```
 
 
-    :param str name: The name of the intent. The name is case sensitive.
-    :param str version: The version of the intent.
+    :param str name: Name of the intent. The name is case sensitive.
+    :param str version: Version of the intent.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -200,7 +200,7 @@ def get_intent_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str name: The name of the intent. The name is case sensitive.
-    :param str version: The version of the intent.
+    :param str name: Name of the intent. The name is case sensitive.
+    :param str version: Version of the intent.
     """
     ...

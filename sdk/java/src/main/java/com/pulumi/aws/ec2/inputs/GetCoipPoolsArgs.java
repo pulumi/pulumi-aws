@@ -34,7 +34,7 @@ public final class GetCoipPoolsArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * A mapping of tags, each pair of which must exactly match
+     * Mapping of tags, each pair of which must exactly match
      * a pair on the desired aws_ec2_coip_pools.
      * 
      */
@@ -42,7 +42,7 @@ public final class GetCoipPoolsArgs extends com.pulumi.resources.InvokeArgs {
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags, each pair of which must exactly match
+     * @return Mapping of tags, each pair of which must exactly match
      * a pair on the desired aws_ec2_coip_pools.
      * 
      */
@@ -107,7 +107,7 @@ public final class GetCoipPoolsArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags A mapping of tags, each pair of which must exactly match
+         * @param tags Mapping of tags, each pair of which must exactly match
          * a pair on the desired aws_ec2_coip_pools.
          * 
          * @return builder
@@ -119,7 +119,7 @@ public final class GetCoipPoolsArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags A mapping of tags, each pair of which must exactly match
+         * @param tags Mapping of tags, each pair of which must exactly match
          * a pair on the desired aws_ec2_coip_pools.
          * 
          * @return builder

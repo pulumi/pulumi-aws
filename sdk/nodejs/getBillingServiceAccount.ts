@@ -70,7 +70,7 @@ export function getBillingServiceAccount(opts?: pulumi.InvokeOptions): Promise<G
  */
 export interface GetBillingServiceAccountResult {
     /**
-     * The ARN of the AWS billing service account.
+     * ARN of the AWS billing service account.
      */
     readonly arn: string;
     /**

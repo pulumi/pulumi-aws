@@ -5,10 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./entityRecognizer";
+export { EntityRecognizerArgs, EntityRecognizerState } from "./entityRecognizer";
+export type EntityRecognizer = import("./entityRecognizer").EntityRecognizer;
+export const EntityRecognizer: typeof import("./entityRecognizer").EntityRecognizer = null as any;
 
-// Import resources to register:
-import { EntityRecognizer } from "./entityRecognizer";
+utilities.lazyLoad(exports, ["EntityRecognizer"], () => require("./entityRecognizer"));
 
 const _module = {
     version: utilities.getVersion(),

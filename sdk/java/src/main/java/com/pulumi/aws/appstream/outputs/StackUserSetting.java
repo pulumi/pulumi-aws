@@ -15,7 +15,7 @@ public final class StackUserSetting {
      */
     private String action;
     /**
-     * @return Indicates whether the action is enabled or disabled. Valid values are: `ENABLED`, `DISABLED`.
+     * @return Whether the action is enabled or disabled. Valid values are: `ENABLED`, `DISABLED`.
      * 
      */
     private String permission;
@@ -29,7 +29,7 @@ public final class StackUserSetting {
         return this.action;
     }
     /**
-     * @return Indicates whether the action is enabled or disabled. Valid values are: `ENABLED`, `DISABLED`.
+     * @return Whether the action is enabled or disabled. Valid values are: `ENABLED`, `DISABLED`.
      * 
      */
     public String permission() {

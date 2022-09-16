@@ -15,14 +15,14 @@ public final class GetResponseHeadersPolicyPlainArgs extends com.pulumi.resource
     public static final GetResponseHeadersPolicyPlainArgs Empty = new GetResponseHeadersPolicyPlainArgs();
 
     /**
-     * The identifier for the response headers policy.
+     * Identifier for the response headers policy.
      * 
      */
     @Import(name="id")
     private @Nullable String id;
 
     /**
-     * @return The identifier for the response headers policy.
+     * @return Identifier for the response headers policy.
      * 
      */
     public Optional<String> id() {
@@ -30,14 +30,14 @@ public final class GetResponseHeadersPolicyPlainArgs extends com.pulumi.resource
     }
 
     /**
-     * A unique name to identify the response headers policy.
+     * Unique name to identify the response headers policy.
      * 
      */
     @Import(name="name")
     private @Nullable String name;
 
     /**
-     * @return A unique name to identify the response headers policy.
+     * @return Unique name to identify the response headers policy.
      * 
      */
     public Optional<String> name() {
@@ -70,7 +70,7 @@ public final class GetResponseHeadersPolicyPlainArgs extends com.pulumi.resource
         }
 
         /**
-         * @param id The identifier for the response headers policy.
+         * @param id Identifier for the response headers policy.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class GetResponseHeadersPolicyPlainArgs extends com.pulumi.resource
         }
 
         /**
-         * @param name A unique name to identify the response headers policy.
+         * @param name Unique name to identify the response headers policy.
          * 
          * @return builder
          * 

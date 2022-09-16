@@ -26,7 +26,7 @@ public final class GetOriginRequestPolicyResult {
      */
     private List<GetOriginRequestPolicyCookiesConfig> cookiesConfigs;
     /**
-     * @return The current version of the origin request policy.
+     * @return Current version of the origin request policy.
      * 
      */
     private String etag;
@@ -59,7 +59,7 @@ public final class GetOriginRequestPolicyResult {
         return this.cookiesConfigs;
     }
     /**
-     * @return The current version of the origin request policy.
+     * @return Current version of the origin request policy.
      * 
      */
     public String etag() {

@@ -11,13 +11,13 @@ import java.util.Objects;
 @CustomType
 public final class GetComputeEnvironmentResult {
     /**
-     * @return The ARN of the compute environment.
+     * @return ARN of the compute environment.
      * 
      */
     private String arn;
     private String computeEnvironmentName;
     /**
-     * @return The ARN of the underlying Amazon ECS cluster used by the compute environment.
+     * @return ARN of the underlying Amazon ECS cluster used by the compute environment.
      * 
      */
     private String ecsClusterArn;
@@ -27,22 +27,22 @@ public final class GetComputeEnvironmentResult {
      */
     private String id;
     /**
-     * @return The ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
+     * @return ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
      * 
      */
     private String serviceRole;
     /**
-     * @return The state of the compute environment (for example, `ENABLED` or `DISABLED`). If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues.
+     * @return State of the compute environment (for example, `ENABLED` or `DISABLED`). If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues.
      * 
      */
     private String state;
     /**
-     * @return The current status of the compute environment (for example, `CREATING` or `VALID`).
+     * @return Current status of the compute environment (for example, `CREATING` or `VALID`).
      * 
      */
     private String status;
     /**
-     * @return A short, human-readable string to provide additional details about the current status of the compute environment.
+     * @return Short, human-readable string to provide additional details about the current status of the compute environment.
      * 
      */
     private String statusReason;
@@ -52,14 +52,14 @@ public final class GetComputeEnvironmentResult {
      */
     private Map<String,String> tags;
     /**
-     * @return The type of the compute environment (for example, `MANAGED` or `UNMANAGED`).
+     * @return Type of the compute environment (for example, `MANAGED` or `UNMANAGED`).
      * 
      */
     private String type;
 
     private GetComputeEnvironmentResult() {}
     /**
-     * @return The ARN of the compute environment.
+     * @return ARN of the compute environment.
      * 
      */
     public String arn() {
@@ -69,7 +69,7 @@ public final class GetComputeEnvironmentResult {
         return this.computeEnvironmentName;
     }
     /**
-     * @return The ARN of the underlying Amazon ECS cluster used by the compute environment.
+     * @return ARN of the underlying Amazon ECS cluster used by the compute environment.
      * 
      */
     public String ecsClusterArn() {
@@ -83,28 +83,28 @@ public final class GetComputeEnvironmentResult {
         return this.id;
     }
     /**
-     * @return The ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
+     * @return ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
      * 
      */
     public String serviceRole() {
         return this.serviceRole;
     }
     /**
-     * @return The state of the compute environment (for example, `ENABLED` or `DISABLED`). If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues.
+     * @return State of the compute environment (for example, `ENABLED` or `DISABLED`). If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues.
      * 
      */
     public String state() {
         return this.state;
     }
     /**
-     * @return The current status of the compute environment (for example, `CREATING` or `VALID`).
+     * @return Current status of the compute environment (for example, `CREATING` or `VALID`).
      * 
      */
     public String status() {
         return this.status;
     }
     /**
-     * @return A short, human-readable string to provide additional details about the current status of the compute environment.
+     * @return Short, human-readable string to provide additional details about the current status of the compute environment.
      * 
      */
     public String statusReason() {
@@ -118,7 +118,7 @@ public final class GetComputeEnvironmentResult {
         return this.tags;
     }
     /**
-     * @return The type of the compute environment (for example, `MANAGED` or `UNMANAGED`).
+     * @return Type of the compute environment (for example, `MANAGED` or `UNMANAGED`).
      * 
      */
     public String type() {

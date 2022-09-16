@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 public final class GetExportResult {
     private String apiId;
     /**
-     * @return The id of the API.
+     * @return ID of the API.
      * 
      */
     private String body;
@@ -34,7 +34,7 @@ public final class GetExportResult {
         return this.apiId;
     }
     /**
-     * @return The id of the API.
+     * @return ID of the API.
      * 
      */
     public String body() {

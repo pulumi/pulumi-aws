@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Ses
     public sealed class GetDomainIdentityArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the domain
+        /// Name of the domain
         /// </summary>
         [Input("domain", required: true)]
         public string Domain { get; set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.Aws.Ses
     public sealed class GetDomainIdentityInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the domain
+        /// Name of the domain
         /// </summary>
         [Input("domain", required: true)]
         public Input<string> Domain { get; set; } = null!;
@@ -100,11 +100,11 @@ namespace Pulumi.Aws.Ses
     public sealed class GetDomainIdentityResult
     {
         /// <summary>
-        /// The ARN of the domain identity.
+        /// ARN of the domain identity.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The name of the domain
+        /// Name of the domain
         /// </summary>
         public readonly string Domain;
         /// <summary>
@@ -112,7 +112,7 @@ namespace Pulumi.Aws.Ses
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// A code which when added to the domain as a TXT record will signal to SES that the owner of the domain has authorized SES to act on their behalf.
+        /// Code which when added to the domain as a TXT record will signal to SES that the owner of the domain has authorized SES to act on their behalf.
         /// </summary>
         public readonly string VerificationToken;
 

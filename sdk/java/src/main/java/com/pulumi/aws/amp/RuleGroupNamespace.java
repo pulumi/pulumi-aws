@@ -96,14 +96,14 @@ public class RuleGroupNamespace extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The id of the prometheus workspace the rule group namespace should be linked to
+     * ID of the prometheus workspace the rule group namespace should be linked to
      * 
      */
     @Export(name="workspaceId", type=String.class, parameters={})
     private Output<String> workspaceId;
 
     /**
-     * @return The id of the prometheus workspace the rule group namespace should be linked to
+     * @return ID of the prometheus workspace the rule group namespace should be linked to
      * 
      */
     public Output<String> workspaceId() {

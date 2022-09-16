@@ -84,28 +84,28 @@ type LookupContactFlowArgs struct {
 	InstanceId string `pulumi:"instanceId"`
 	// Returns information on a specific Contact Flow by name
 	Name *string `pulumi:"name"`
-	// A the map of tags to assign to the Contact Flow.
+	// Tags to assign to the Contact Flow.
 	Tags map[string]string `pulumi:"tags"`
-	// Specifies the type of Contact Flow.
+	// Type of Contact Flow.
 	Type *string `pulumi:"type"`
 }
 
 // A collection of values returned by getContactFlow.
 type LookupContactFlowResult struct {
-	// The Amazon Resource Name (ARN) of the Contact Flow.
+	// ARN of the Contact Flow.
 	Arn           string `pulumi:"arn"`
 	ContactFlowId string `pulumi:"contactFlowId"`
-	// Specifies the logic of the Contact Flow.
+	// Logic of the Contact Flow.
 	Content string `pulumi:"content"`
-	// Specifies the description of the Contact Flow.
+	// Description of the Contact Flow.
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
 	Id         string `pulumi:"id"`
 	InstanceId string `pulumi:"instanceId"`
 	Name       string `pulumi:"name"`
-	// A the map of tags to assign to the Contact Flow.
+	// Tags to assign to the Contact Flow.
 	Tags map[string]string `pulumi:"tags"`
-	// Specifies the type of Contact Flow.
+	// Type of Contact Flow.
 	Type *string `pulumi:"type"`
 }
 
@@ -130,9 +130,9 @@ type LookupContactFlowOutputArgs struct {
 	InstanceId pulumi.StringInput `pulumi:"instanceId"`
 	// Returns information on a specific Contact Flow by name
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// A the map of tags to assign to the Contact Flow.
+	// Tags to assign to the Contact Flow.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Specifies the type of Contact Flow.
+	// Type of Contact Flow.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -155,7 +155,7 @@ func (o LookupContactFlowResultOutput) ToLookupContactFlowResultOutputWithContex
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the Contact Flow.
+// ARN of the Contact Flow.
 func (o LookupContactFlowResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContactFlowResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -164,12 +164,12 @@ func (o LookupContactFlowResultOutput) ContactFlowId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContactFlowResult) string { return v.ContactFlowId }).(pulumi.StringOutput)
 }
 
-// Specifies the logic of the Contact Flow.
+// Logic of the Contact Flow.
 func (o LookupContactFlowResultOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContactFlowResult) string { return v.Content }).(pulumi.StringOutput)
 }
 
-// Specifies the description of the Contact Flow.
+// Description of the Contact Flow.
 func (o LookupContactFlowResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContactFlowResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -187,12 +187,12 @@ func (o LookupContactFlowResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContactFlowResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// A the map of tags to assign to the Contact Flow.
+// Tags to assign to the Contact Flow.
 func (o LookupContactFlowResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupContactFlowResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Specifies the type of Contact Flow.
+// Type of Contact Flow.
 func (o LookupContactFlowResultOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupContactFlowResult) *string { return v.Type }).(pulumi.StringPtrOutput)
 }

@@ -32,14 +32,14 @@ public final class GetObjectsPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * A character used to group keys (Default: none)
+     * Character used to group keys (Default: none)
      * 
      */
     @Import(name="delimiter")
     private @Nullable String delimiter;
 
     /**
-     * @return A character used to group keys (Default: none)
+     * @return Character used to group keys (Default: none)
      * 
      */
     public Optional<String> delimiter() {
@@ -163,7 +163,7 @@ public final class GetObjectsPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param delimiter A character used to group keys (Default: none)
+         * @param delimiter Character used to group keys (Default: none)
          * 
          * @return builder
          * 

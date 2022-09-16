@@ -14,7 +14,7 @@ import java.util.Objects;
 @CustomType
 public final class GetStackResult {
     /**
-     * @return A list of capabilities
+     * @return List of capabilities
      * 
      */
     private List<String> capabilities;
@@ -29,7 +29,7 @@ public final class GetStackResult {
      */
     private Boolean disableRollback;
     /**
-     * @return The ARN of the IAM role used to create the stack.
+     * @return ARN of the IAM role used to create the stack.
      * 
      */
     private String iamRoleArn;
@@ -40,22 +40,22 @@ public final class GetStackResult {
     private String id;
     private String name;
     /**
-     * @return A list of SNS topic ARNs to publish stack related events
+     * @return List of SNS topic ARNs to publish stack related events
      * 
      */
     private List<String> notificationArns;
     /**
-     * @return A map of outputs from the stack.
+     * @return Map of outputs from the stack.
      * 
      */
     private Map<String,String> outputs;
     /**
-     * @return A map of parameters that specify input parameters for the stack.
+     * @return Map of parameters that specify input parameters for the stack.
      * 
      */
     private Map<String,String> parameters;
     /**
-     * @return A map of tags associated with this stack.
+     * @return Map of tags associated with this stack.
      * 
      */
     private Map<String,String> tags;
@@ -65,14 +65,14 @@ public final class GetStackResult {
      */
     private String templateBody;
     /**
-     * @return The amount of time that can pass before the stack status becomes `CREATE_FAILED`
+     * @return Amount of time that can pass before the stack status becomes `CREATE_FAILED`
      * 
      */
     private Integer timeoutInMinutes;
 
     private GetStackResult() {}
     /**
-     * @return A list of capabilities
+     * @return List of capabilities
      * 
      */
     public List<String> capabilities() {
@@ -93,7 +93,7 @@ public final class GetStackResult {
         return this.disableRollback;
     }
     /**
-     * @return The ARN of the IAM role used to create the stack.
+     * @return ARN of the IAM role used to create the stack.
      * 
      */
     public String iamRoleArn() {
@@ -110,28 +110,28 @@ public final class GetStackResult {
         return this.name;
     }
     /**
-     * @return A list of SNS topic ARNs to publish stack related events
+     * @return List of SNS topic ARNs to publish stack related events
      * 
      */
     public List<String> notificationArns() {
         return this.notificationArns;
     }
     /**
-     * @return A map of outputs from the stack.
+     * @return Map of outputs from the stack.
      * 
      */
     public Map<String,String> outputs() {
         return this.outputs;
     }
     /**
-     * @return A map of parameters that specify input parameters for the stack.
+     * @return Map of parameters that specify input parameters for the stack.
      * 
      */
     public Map<String,String> parameters() {
         return this.parameters;
     }
     /**
-     * @return A map of tags associated with this stack.
+     * @return Map of tags associated with this stack.
      * 
      */
     public Map<String,String> tags() {
@@ -145,7 +145,7 @@ public final class GetStackResult {
         return this.templateBody;
     }
     /**
-     * @return The amount of time that can pass before the stack status becomes `CREATE_FAILED`
+     * @return Amount of time that can pass before the stack status becomes `CREATE_FAILED`
      * 
      */
     public Integer timeoutInMinutes() {

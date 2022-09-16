@@ -16,14 +16,14 @@ public final class GetApplicationArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetApplicationArgs Empty = new GetApplicationArgs();
 
     /**
-     * The ARN of the application.
+     * ARN of the application.
      * 
      */
     @Import(name="applicationId", required=true)
     private Output<String> applicationId;
 
     /**
-     * @return The ARN of the application.
+     * @return ARN of the application.
      * 
      */
     public Output<String> applicationId() {
@@ -31,14 +31,14 @@ public final class GetApplicationArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The requested version of the application. By default, retrieves the latest version.
+     * Requested version of the application. By default, retrieves the latest version.
      * 
      */
     @Import(name="semanticVersion")
     private @Nullable Output<String> semanticVersion;
 
     /**
-     * @return The requested version of the application. By default, retrieves the latest version.
+     * @return Requested version of the application. By default, retrieves the latest version.
      * 
      */
     public Optional<Output<String>> semanticVersion() {
@@ -71,7 +71,7 @@ public final class GetApplicationArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param applicationId The ARN of the application.
+         * @param applicationId ARN of the application.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class GetApplicationArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param applicationId The ARN of the application.
+         * @param applicationId ARN of the application.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class GetApplicationArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param semanticVersion The requested version of the application. By default, retrieves the latest version.
+         * @param semanticVersion Requested version of the application. By default, retrieves the latest version.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class GetApplicationArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param semanticVersion The requested version of the application. By default, retrieves the latest version.
+         * @param semanticVersion Requested version of the application. By default, retrieves the latest version.
          * 
          * @return builder
          * 

@@ -45,11 +45,11 @@ export interface GetIpamPreviewNextCidrArgs {
      */
     disallowedCidrs?: string[];
     /**
-     * The ID of the pool to which you want to assign a CIDR.
+     * ID of the pool to which you want to assign a CIDR.
      */
     ipamPoolId: string;
     /**
-     * The netmask length of the CIDR you would like to preview from the IPAM pool.
+     * Netmask length of the CIDR you would like to preview from the IPAM pool.
      */
     netmaskLength?: number;
 }
@@ -59,7 +59,7 @@ export interface GetIpamPreviewNextCidrArgs {
  */
 export interface GetIpamPreviewNextCidrResult {
     /**
-     * The previewed CIDR from the pool.
+     * Previewed CIDR from the pool.
      */
     readonly cidr: string;
     readonly disallowedCidrs?: string[];
@@ -84,11 +84,11 @@ export interface GetIpamPreviewNextCidrOutputArgs {
      */
     disallowedCidrs?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The ID of the pool to which you want to assign a CIDR.
+     * ID of the pool to which you want to assign a CIDR.
      */
     ipamPoolId: pulumi.Input<string>;
     /**
-     * The netmask length of the CIDR you would like to preview from the IPAM pool.
+     * Netmask length of the CIDR you would like to preview from the IPAM pool.
      */
     netmaskLength?: pulumi.Input<number>;
 }

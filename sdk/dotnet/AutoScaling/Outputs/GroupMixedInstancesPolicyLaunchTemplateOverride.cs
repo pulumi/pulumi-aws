@@ -26,7 +26,7 @@ namespace Pulumi.Aws.AutoScaling.Outputs
         /// </summary>
         public readonly Outputs.GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification? LaunchTemplateSpecification;
         /// <summary>
-        /// The number of capacity units, which gives the instance type a proportional weight to other instance types.
+        /// Number of capacity units, which gives the instance type a proportional weight to other instance types.
         /// </summary>
         public readonly string? WeightedCapacity;
 

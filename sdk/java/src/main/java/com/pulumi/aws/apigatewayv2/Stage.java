@@ -83,49 +83,49 @@ public class Stage extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.accessLogSettings);
     }
     /**
-     * The API identifier.
+     * API identifier.
      * 
      */
     @Export(name="apiId", type=String.class, parameters={})
     private Output<String> apiId;
 
     /**
-     * @return The API identifier.
+     * @return API identifier.
      * 
      */
     public Output<String> apiId() {
         return this.apiId;
     }
     /**
-     * The ARN of the stage.
+     * ARN of the stage.
      * 
      */
     @Export(name="arn", type=String.class, parameters={})
     private Output<String> arn;
 
     /**
-     * @return The ARN of the stage.
+     * @return ARN of the stage.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * Whether updates to an API automatically trigger a new deployment. Defaults to `false`.
+     * Whether updates to an API automatically trigger a new deployment. Defaults to `false`. Applicable for HTTP APIs.
      * 
      */
     @Export(name="autoDeploy", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> autoDeploy;
 
     /**
-     * @return Whether updates to an API automatically trigger a new deployment. Defaults to `false`.
+     * @return Whether updates to an API automatically trigger a new deployment. Defaults to `false`. Applicable for HTTP APIs.
      * 
      */
     public Output<Optional<Boolean>> autoDeploy() {
         return Codegen.optional(this.autoDeploy);
     }
     /**
-     * The identifier of a client certificate for the stage. Use the `aws.apigateway.ClientCertificate` resource to configure a client certificate.
+     * Identifier of a client certificate for the stage. Use the `aws.apigateway.ClientCertificate` resource to configure a client certificate.
      * Supported only for WebSocket APIs.
      * 
      */
@@ -133,7 +133,7 @@ public class Stage extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> clientCertificateId;
 
     /**
-     * @return The identifier of a client certificate for the stage. Use the `aws.apigateway.ClientCertificate` resource to configure a client certificate.
+     * @return Identifier of a client certificate for the stage. Use the `aws.apigateway.ClientCertificate` resource to configure a client certificate.
      * Supported only for WebSocket APIs.
      * 
      */
@@ -141,49 +141,49 @@ public class Stage extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.clientCertificateId);
     }
     /**
-     * The default route settings for the stage.
+     * Default route settings for the stage.
      * 
      */
     @Export(name="defaultRouteSettings", type=StageDefaultRouteSettings.class, parameters={})
     private Output</* @Nullable */ StageDefaultRouteSettings> defaultRouteSettings;
 
     /**
-     * @return The default route settings for the stage.
+     * @return Default route settings for the stage.
      * 
      */
     public Output<Optional<StageDefaultRouteSettings>> defaultRouteSettings() {
         return Codegen.optional(this.defaultRouteSettings);
     }
     /**
-     * The deployment identifier of the stage. Use the `aws.apigatewayv2.Deployment` resource to configure a deployment.
+     * Deployment identifier of the stage. Use the `aws.apigatewayv2.Deployment` resource to configure a deployment.
      * 
      */
     @Export(name="deploymentId", type=String.class, parameters={})
     private Output<String> deploymentId;
 
     /**
-     * @return The deployment identifier of the stage. Use the `aws.apigatewayv2.Deployment` resource to configure a deployment.
+     * @return Deployment identifier of the stage. Use the `aws.apigatewayv2.Deployment` resource to configure a deployment.
      * 
      */
     public Output<String> deploymentId() {
         return this.deploymentId;
     }
     /**
-     * The description for the stage. Must be less than or equal to 1024 characters in length.
+     * Description for the stage. Must be less than or equal to 1024 characters in length.
      * 
      */
     @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return The description for the stage. Must be less than or equal to 1024 characters in length.
+     * @return Description for the stage. Must be less than or equal to 1024 characters in length.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * The ARN prefix to be used in an `aws.lambda.Permission` `source_arn` attribute.
+     * ARN prefix to be used in an `aws.lambda.Permission`&#39;s `source_arn` attribute.
      * For WebSocket APIs this attribute can additionally be used in an `aws.iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
      * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
      * 
@@ -192,7 +192,7 @@ public class Stage extends com.pulumi.resources.CustomResource {
     private Output<String> executionArn;
 
     /**
-     * @return The ARN prefix to be used in an `aws.lambda.Permission` `source_arn` attribute.
+     * @return ARN prefix to be used in an `aws.lambda.Permission`&#39;s `source_arn` attribute.
      * For WebSocket APIs this attribute can additionally be used in an `aws.iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
      * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
      * 
@@ -201,7 +201,7 @@ public class Stage extends com.pulumi.resources.CustomResource {
         return this.executionArn;
     }
     /**
-     * The URL to invoke the API pointing to the stage,
+     * URL to invoke the API pointing to the stage,
      * e.g., `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
      * 
      */
@@ -209,7 +209,7 @@ public class Stage extends com.pulumi.resources.CustomResource {
     private Output<String> invokeUrl;
 
     /**
-     * @return The URL to invoke the API pointing to the stage,
+     * @return URL to invoke the API pointing to the stage,
      * e.g., `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
      * 
      */
@@ -217,14 +217,14 @@ public class Stage extends com.pulumi.resources.CustomResource {
         return this.invokeUrl;
     }
     /**
-     * The name of the stage. Must be between 1 and 128 characters in length.
+     * Name of the stage. Must be between 1 and 128 characters in length.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name of the stage. Must be between 1 and 128 characters in length.
+     * @return Name of the stage. Must be between 1 and 128 characters in length.
      * 
      */
     public Output<String> name() {
@@ -245,42 +245,42 @@ public class Stage extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.routeSettings);
     }
     /**
-     * A map that defines the stage variables for the stage.
+     * Map that defines the stage variables for the stage.
      * 
      */
     @Export(name="stageVariables", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> stageVariables;
 
     /**
-     * @return A map that defines the stage variables for the stage.
+     * @return Map that defines the stage variables for the stage.
      * 
      */
     public Output<Optional<Map<String,String>>> stageVariables() {
         return Codegen.optional(this.stageVariables);
     }
     /**
-     * A map of tags to assign to the stage. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the stage. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the stage. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the stage. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

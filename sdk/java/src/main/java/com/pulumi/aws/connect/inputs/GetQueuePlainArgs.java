@@ -61,14 +61,14 @@ public final class GetQueuePlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * A map of tags assigned to the Queue.
+     * Map of tags assigned to the Queue.
      * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return A map of tags assigned to the Queue.
+     * @return Map of tags assigned to the Queue.
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -136,7 +136,7 @@ public final class GetQueuePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags A map of tags assigned to the Queue.
+         * @param tags Map of tags assigned to the Queue.
          * 
          * @return builder
          * 

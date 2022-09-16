@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -40,7 +42,7 @@ export function getCloudFormationType(args?: GetCloudFormationTypeArgs, opts?: p
  */
 export interface GetCloudFormationTypeArgs {
     /**
-     * Amazon Resource Name (ARN) of the CloudFormation Type. For example, `arn:aws:cloudformation:us-west-2::type/resource/AWS-EC2-VPC`.
+     * ARN of the CloudFormation Type. For example, `arn:aws:cloudformation:us-west-2::type/resource/AWS-EC2-VPC`.
      */
     arn?: string;
     /**
@@ -79,7 +81,7 @@ export interface GetCloudFormationTypeResult {
      */
     readonly documentationUrl: string;
     /**
-     * Amazon Resource Name (ARN) of the IAM Role used to register the CloudFormation Type.
+     * ARN of the IAM Role used to register the CloudFormation Type.
      */
     readonly executionRoleArn: string;
     /**
@@ -125,7 +127,7 @@ export function getCloudFormationTypeOutput(args?: GetCloudFormationTypeOutputAr
  */
 export interface GetCloudFormationTypeOutputArgs {
     /**
-     * Amazon Resource Name (ARN) of the CloudFormation Type. For example, `arn:aws:cloudformation:us-west-2::type/resource/AWS-EC2-VPC`.
+     * ARN of the CloudFormation Type. For example, `arn:aws:cloudformation:us-west-2::type/resource/AWS-EC2-VPC`.
      */
     arn?: pulumi.Input<string>;
     /**

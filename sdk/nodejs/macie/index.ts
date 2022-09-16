@@ -5,16 +5,26 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./customDataIdentifier";
-export * from "./findingsFilter";
-export * from "./memberAccountAssociation";
-export * from "./s3bucketAssociation";
+export { CustomDataIdentifierArgs, CustomDataIdentifierState } from "./customDataIdentifier";
+export type CustomDataIdentifier = import("./customDataIdentifier").CustomDataIdentifier;
+export const CustomDataIdentifier: typeof import("./customDataIdentifier").CustomDataIdentifier = null as any;
 
-// Import resources to register:
-import { CustomDataIdentifier } from "./customDataIdentifier";
-import { FindingsFilter } from "./findingsFilter";
-import { MemberAccountAssociation } from "./memberAccountAssociation";
-import { S3BucketAssociation } from "./s3bucketAssociation";
+export { FindingsFilterArgs, FindingsFilterState } from "./findingsFilter";
+export type FindingsFilter = import("./findingsFilter").FindingsFilter;
+export const FindingsFilter: typeof import("./findingsFilter").FindingsFilter = null as any;
+
+export { MemberAccountAssociationArgs, MemberAccountAssociationState } from "./memberAccountAssociation";
+export type MemberAccountAssociation = import("./memberAccountAssociation").MemberAccountAssociation;
+export const MemberAccountAssociation: typeof import("./memberAccountAssociation").MemberAccountAssociation = null as any;
+
+export { S3BucketAssociationArgs, S3BucketAssociationState } from "./s3bucketAssociation";
+export type S3BucketAssociation = import("./s3bucketAssociation").S3BucketAssociation;
+export const S3BucketAssociation: typeof import("./s3bucketAssociation").S3BucketAssociation = null as any;
+
+utilities.lazyLoad(exports, ["CustomDataIdentifier"], () => require("./customDataIdentifier"));
+utilities.lazyLoad(exports, ["FindingsFilter"], () => require("./findingsFilter"));
+utilities.lazyLoad(exports, ["MemberAccountAssociation"], () => require("./memberAccountAssociation"));
+utilities.lazyLoad(exports, ["S3BucketAssociation"], () => require("./s3bucketAssociation"));
 
 const _module = {
     version: utilities.getVersion(),

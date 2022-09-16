@@ -76,7 +76,7 @@ type EcsClusterLayer struct {
 	InstanceShutdownTimeout pulumi.IntPtrOutput `pulumi:"instanceShutdownTimeout"`
 	// A human-readable name for the layer.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The id of the stack the layer will belong to.
+	// ID of the stack the layer will belong to.
 	StackId pulumi.StringOutput `pulumi:"stackId"`
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages pulumi.StringArrayOutput `pulumi:"systemPackages"`
@@ -156,7 +156,7 @@ type ecsClusterLayerState struct {
 	InstanceShutdownTimeout *int `pulumi:"instanceShutdownTimeout"`
 	// A human-readable name for the layer.
 	Name *string `pulumi:"name"`
-	// The id of the stack the layer will belong to.
+	// ID of the stack the layer will belong to.
 	StackId *string `pulumi:"stackId"`
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages []string `pulumi:"systemPackages"`
@@ -202,7 +202,7 @@ type EcsClusterLayerState struct {
 	InstanceShutdownTimeout pulumi.IntPtrInput
 	// A human-readable name for the layer.
 	Name pulumi.StringPtrInput
-	// The id of the stack the layer will belong to.
+	// ID of the stack the layer will belong to.
 	StackId pulumi.StringPtrInput
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages pulumi.StringArrayInput
@@ -250,7 +250,7 @@ type ecsClusterLayerArgs struct {
 	InstanceShutdownTimeout *int `pulumi:"instanceShutdownTimeout"`
 	// A human-readable name for the layer.
 	Name *string `pulumi:"name"`
-	// The id of the stack the layer will belong to.
+	// ID of the stack the layer will belong to.
 	StackId string `pulumi:"stackId"`
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages []string `pulumi:"systemPackages"`
@@ -294,7 +294,7 @@ type EcsClusterLayerArgs struct {
 	InstanceShutdownTimeout pulumi.IntPtrInput
 	// A human-readable name for the layer.
 	Name pulumi.StringPtrInput
-	// The id of the stack the layer will belong to.
+	// ID of the stack the layer will belong to.
 	StackId pulumi.StringInput
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages pulumi.StringArrayInput
@@ -487,7 +487,7 @@ func (o EcsClusterLayerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *EcsClusterLayer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The id of the stack the layer will belong to.
+// ID of the stack the layer will belong to.
 func (o EcsClusterLayerOutput) StackId() pulumi.StringOutput {
 	return o.ApplyT(func(v *EcsClusterLayer) pulumi.StringOutput { return v.StackId }).(pulumi.StringOutput)
 }

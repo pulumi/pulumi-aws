@@ -5,18 +5,36 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./domain";
-export * from "./domainPermissions";
-export * from "./getAuthorizationToken";
-export * from "./getRepositoryEndpoint";
-export * from "./repository";
-export * from "./repositoryPermissionsPolicy";
+export { DomainArgs, DomainState } from "./domain";
+export type Domain = import("./domain").Domain;
+export const Domain: typeof import("./domain").Domain = null as any;
 
-// Import resources to register:
-import { Domain } from "./domain";
-import { DomainPermissions } from "./domainPermissions";
-import { Repository } from "./repository";
-import { RepositoryPermissionsPolicy } from "./repositoryPermissionsPolicy";
+export { DomainPermissionsArgs, DomainPermissionsState } from "./domainPermissions";
+export type DomainPermissions = import("./domainPermissions").DomainPermissions;
+export const DomainPermissions: typeof import("./domainPermissions").DomainPermissions = null as any;
+
+export { GetAuthorizationTokenArgs, GetAuthorizationTokenResult, GetAuthorizationTokenOutputArgs } from "./getAuthorizationToken";
+export const getAuthorizationToken: typeof import("./getAuthorizationToken").getAuthorizationToken = null as any;
+export const getAuthorizationTokenOutput: typeof import("./getAuthorizationToken").getAuthorizationTokenOutput = null as any;
+
+export { GetRepositoryEndpointArgs, GetRepositoryEndpointResult, GetRepositoryEndpointOutputArgs } from "./getRepositoryEndpoint";
+export const getRepositoryEndpoint: typeof import("./getRepositoryEndpoint").getRepositoryEndpoint = null as any;
+export const getRepositoryEndpointOutput: typeof import("./getRepositoryEndpoint").getRepositoryEndpointOutput = null as any;
+
+export { RepositoryArgs, RepositoryState } from "./repository";
+export type Repository = import("./repository").Repository;
+export const Repository: typeof import("./repository").Repository = null as any;
+
+export { RepositoryPermissionsPolicyArgs, RepositoryPermissionsPolicyState } from "./repositoryPermissionsPolicy";
+export type RepositoryPermissionsPolicy = import("./repositoryPermissionsPolicy").RepositoryPermissionsPolicy;
+export const RepositoryPermissionsPolicy: typeof import("./repositoryPermissionsPolicy").RepositoryPermissionsPolicy = null as any;
+
+utilities.lazyLoad(exports, ["Domain"], () => require("./domain"));
+utilities.lazyLoad(exports, ["DomainPermissions"], () => require("./domainPermissions"));
+utilities.lazyLoad(exports, ["getAuthorizationToken","getAuthorizationTokenOutput"], () => require("./getAuthorizationToken"));
+utilities.lazyLoad(exports, ["getRepositoryEndpoint","getRepositoryEndpointOutput"], () => require("./getRepositoryEndpoint"));
+utilities.lazyLoad(exports, ["Repository"], () => require("./repository"));
+utilities.lazyLoad(exports, ["RepositoryPermissionsPolicy"], () => require("./repositoryPermissionsPolicy"));
 
 const _module = {
     version: utilities.getVersion(),

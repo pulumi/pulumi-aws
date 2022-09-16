@@ -19,14 +19,14 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
     public static final ApiKeyState Empty = new ApiKeyState();
 
     /**
-     * Amazon Resource Name (ARN)
+     * ARN
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN)
+     * @return ARN
      * 
      */
     public Optional<Output<String>> arn() {
@@ -34,14 +34,14 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The creation date of the API key
+     * Creation date of the API key
      * 
      */
     @Import(name="createdDate")
     private @Nullable Output<String> createdDate;
 
     /**
-     * @return The creation date of the API key
+     * @return Creation date of the API key
      * 
      */
     public Optional<Output<String>> createdDate() {
@@ -49,14 +49,14 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The API key description. Defaults to &#34;Managed by Pulumi&#34;.
+     * API key description. Defaults to &#34;Managed by Pulumi&#34;.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The API key description. Defaults to &#34;Managed by Pulumi&#34;.
+     * @return API key description. Defaults to &#34;Managed by Pulumi&#34;.
      * 
      */
     public Optional<Output<String>> description() {
@@ -64,14 +64,14 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether the API key can be used by callers. Defaults to `true`.
+     * Whether the API key can be used by callers. Defaults to `true`.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Specifies whether the API key can be used by callers. Defaults to `true`.
+     * @return Whether the API key can be used by callers. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -79,14 +79,14 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The last update date of the API key
+     * Last update date of the API key
      * 
      */
     @Import(name="lastUpdatedDate")
     private @Nullable Output<String> lastUpdatedDate;
 
     /**
-     * @return The last update date of the API key
+     * @return Last update date of the API key
      * 
      */
     public Optional<Output<String>> lastUpdatedDate() {
@@ -94,14 +94,14 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the API key
+     * Name of the API key
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the API key
+     * @return Name of the API key
      * 
      */
     public Optional<Output<String>> name() {
@@ -109,14 +109,14 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -124,14 +124,14 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -139,14 +139,14 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The value of the API key. If not specified, it will be automatically generated by AWS on creation.
+     * Value of the API key. If not specified, it will be automatically generated by AWS on creation.
      * 
      */
     @Import(name="value")
     private @Nullable Output<String> value;
 
     /**
-     * @return The value of the API key. If not specified, it will be automatically generated by AWS on creation.
+     * @return Value of the API key. If not specified, it will be automatically generated by AWS on creation.
      * 
      */
     public Optional<Output<String>> value() {
@@ -186,7 +186,7 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN)
+         * @param arn ARN
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN)
+         * @param arn ARN
          * 
          * @return builder
          * 
@@ -207,7 +207,7 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createdDate The creation date of the API key
+         * @param createdDate Creation date of the API key
          * 
          * @return builder
          * 
@@ -218,7 +218,7 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createdDate The creation date of the API key
+         * @param createdDate Creation date of the API key
          * 
          * @return builder
          * 
@@ -228,7 +228,7 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The API key description. Defaults to &#34;Managed by Pulumi&#34;.
+         * @param description API key description. Defaults to &#34;Managed by Pulumi&#34;.
          * 
          * @return builder
          * 
@@ -239,7 +239,7 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The API key description. Defaults to &#34;Managed by Pulumi&#34;.
+         * @param description API key description. Defaults to &#34;Managed by Pulumi&#34;.
          * 
          * @return builder
          * 
@@ -249,7 +249,7 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled Specifies whether the API key can be used by callers. Defaults to `true`.
+         * @param enabled Whether the API key can be used by callers. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -260,7 +260,7 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled Specifies whether the API key can be used by callers. Defaults to `true`.
+         * @param enabled Whether the API key can be used by callers. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -270,7 +270,7 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lastUpdatedDate The last update date of the API key
+         * @param lastUpdatedDate Last update date of the API key
          * 
          * @return builder
          * 
@@ -281,7 +281,7 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lastUpdatedDate The last update date of the API key
+         * @param lastUpdatedDate Last update date of the API key
          * 
          * @return builder
          * 
@@ -291,7 +291,7 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the API key
+         * @param name Name of the API key
          * 
          * @return builder
          * 
@@ -302,7 +302,7 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the API key
+         * @param name Name of the API key
          * 
          * @return builder
          * 
@@ -312,7 +312,7 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -323,7 +323,7 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -333,7 +333,7 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
@@ -344,7 +344,7 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
@@ -354,7 +354,7 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param value The value of the API key. If not specified, it will be automatically generated by AWS on creation.
+         * @param value Value of the API key. If not specified, it will be automatically generated by AWS on creation.
          * 
          * @return builder
          * 
@@ -365,7 +365,7 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param value The value of the API key. If not specified, it will be automatically generated by AWS on creation.
+         * @param value Value of the API key. If not specified, it will be automatically generated by AWS on creation.
          * 
          * @return builder
          * 

@@ -68,14 +68,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:appconfig/deploymentStrategy:DeploymentStrategy")
 public class DeploymentStrategy extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the AppConfig Deployment Strategy.
+     * ARN of the AppConfig Deployment Strategy.
      * 
      */
     @Export(name="arn", type=String.class, parameters={})
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the AppConfig Deployment Strategy.
+     * @return ARN of the AppConfig Deployment Strategy.
      * 
      */
     public Output<String> arn() {
@@ -96,70 +96,70 @@ public class DeploymentStrategy extends com.pulumi.resources.CustomResource {
         return this.deploymentDurationInMinutes;
     }
     /**
-     * A description of the deployment strategy. Can be at most 1024 characters.
+     * Description of the deployment strategy. Can be at most 1024 characters.
      * 
      */
     @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return A description of the deployment strategy. Can be at most 1024 characters.
+     * @return Description of the deployment strategy. Can be at most 1024 characters.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * The amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.
+     * Amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.
      * 
      */
     @Export(name="finalBakeTimeInMinutes", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> finalBakeTimeInMinutes;
 
     /**
-     * @return The amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.
+     * @return Amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.
      * 
      */
     public Output<Optional<Integer>> finalBakeTimeInMinutes() {
         return Codegen.optional(this.finalBakeTimeInMinutes);
     }
     /**
-     * The percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.
+     * Percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.
      * 
      */
     @Export(name="growthFactor", type=Double.class, parameters={})
     private Output<Double> growthFactor;
 
     /**
-     * @return The percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.
+     * @return Percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.
      * 
      */
     public Output<Double> growthFactor() {
         return this.growthFactor;
     }
     /**
-     * The algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
+     * Algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
      * 
      */
     @Export(name="growthType", type=String.class, parameters={})
     private Output</* @Nullable */ String> growthType;
 
     /**
-     * @return The algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
+     * @return Algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
      * 
      */
     public Output<Optional<String>> growthType() {
         return Codegen.optional(this.growthType);
     }
     /**
-     * A name for the deployment strategy. Must be between 1 and 64 characters in length.
+     * Name for the deployment strategy. Must be between 1 and 64 characters in length.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return A name for the deployment strategy. Must be between 1 and 64 characters in length.
+     * @return Name for the deployment strategy. Must be between 1 and 64 characters in length.
      * 
      */
     public Output<String> name() {
@@ -180,28 +180,28 @@ public class DeploymentStrategy extends com.pulumi.resources.CustomResource {
         return this.replicateTo;
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

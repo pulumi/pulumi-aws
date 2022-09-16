@@ -14,14 +14,14 @@ public final class GetEventConnectionArgs extends com.pulumi.resources.InvokeArg
     public static final GetEventConnectionArgs Empty = new GetEventConnectionArgs();
 
     /**
-     * The name of the connection.
+     * Name of the connection.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the connection.
+     * @return Name of the connection.
      * 
      */
     public Output<String> name() {
@@ -53,7 +53,7 @@ public final class GetEventConnectionArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param name The name of the connection.
+         * @param name Name of the connection.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class GetEventConnectionArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param name The name of the connection.
+         * @param name Name of the connection.
          * 
          * @return builder
          * 

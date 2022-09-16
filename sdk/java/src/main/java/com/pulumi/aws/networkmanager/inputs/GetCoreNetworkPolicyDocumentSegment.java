@@ -92,14 +92,14 @@ public final class GetCoreNetworkPolicyDocumentSegment extends com.pulumi.resour
     }
 
     /**
-     * A unique name for a segment. The name is a string used in other parts of the policy document, as well as in the console for metrics and other reference points. Valid characters are a–z, and 0–9.
+     * Unique name for a segment. The name is a string used in other parts of the policy document, as well as in the console for metrics and other reference points. Valid characters are a–z, and 0–9.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return A unique name for a segment. The name is a string used in other parts of the policy document, as well as in the console for metrics and other reference points. Valid characters are a–z, and 0–9.
+     * @return Unique name for a segment. The name is a string used in other parts of the policy document, as well as in the console for metrics and other reference points. Valid characters are a–z, and 0–9.
      * 
      */
     public String name() {
@@ -237,7 +237,7 @@ public final class GetCoreNetworkPolicyDocumentSegment extends com.pulumi.resour
         }
 
         /**
-         * @param name A unique name for a segment. The name is a string used in other parts of the policy document, as well as in the console for metrics and other reference points. Valid characters are a–z, and 0–9.
+         * @param name Unique name for a segment. The name is a string used in other parts of the policy document, as well as in the console for metrics and other reference points. Valid characters are a–z, and 0–9.
          * 
          * @return builder
          * 

@@ -70,13 +70,13 @@ namespace Pulumi.Aws.Sfn
     public sealed class GetActivityArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) that identifies the activity.
+        /// ARN that identifies the activity.
         /// </summary>
         [Input("arn")]
         public string? Arn { get; set; }
 
         /// <summary>
-        /// The name that identifies the activity.
+        /// Name that identifies the activity.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -90,13 +90,13 @@ namespace Pulumi.Aws.Sfn
     public sealed class GetActivityInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) that identifies the activity.
+        /// ARN that identifies the activity.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The name that identifies the activity.
+        /// Name that identifies the activity.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -113,7 +113,7 @@ namespace Pulumi.Aws.Sfn
     {
         public readonly string Arn;
         /// <summary>
-        /// The date the activity was created.
+        /// Date the activity was created.
         /// </summary>
         public readonly string CreationDate;
         /// <summary>

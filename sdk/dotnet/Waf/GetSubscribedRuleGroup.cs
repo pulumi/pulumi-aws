@@ -118,13 +118,13 @@ namespace Pulumi.Aws.Waf
     public sealed class GetSubscribedRuleGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the WAF rule group.
+        /// Name of the WAF rule group.
         /// </summary>
         [Input("metricName")]
         public string? MetricName { get; set; }
 
         /// <summary>
-        /// The name of the WAF rule group.
+        /// Name of the WAF rule group.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -138,13 +138,13 @@ namespace Pulumi.Aws.Waf
     public sealed class GetSubscribedRuleGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the WAF rule group.
+        /// Name of the WAF rule group.
         /// </summary>
         [Input("metricName")]
         public Input<string>? MetricName { get; set; }
 
         /// <summary>
-        /// The name of the WAF rule group.
+        /// Name of the WAF rule group.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

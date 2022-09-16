@@ -187,31 +187,31 @@ import (
 type Integration struct {
 	pulumi.CustomResourceState
 
-	// The API identifier.
+	// API identifier.
 	ApiId pulumi.StringOutput `pulumi:"apiId"`
-	// The ID of the VPC link for a private integration. Supported only for HTTP APIs. Must be between 1 and 1024 characters in length.
+	// ID of the VPC link for a private integration. Supported only for HTTP APIs. Must be between 1 and 1024 characters in length.
 	ConnectionId pulumi.StringPtrOutput `pulumi:"connectionId"`
-	// The type of the network connection to the integration endpoint. Valid values: `INTERNET`, `VPC_LINK`. Default is `INTERNET`.
+	// Type of the network connection to the integration endpoint. Valid values: `INTERNET`, `VPC_LINK`. Default is `INTERNET`.
 	ConnectionType pulumi.StringPtrOutput `pulumi:"connectionType"`
 	// How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`. Supported only for WebSocket APIs.
 	ContentHandlingStrategy pulumi.StringPtrOutput `pulumi:"contentHandlingStrategy"`
-	// The credentials required for the integration, if any.
+	// Credentials required for the integration, if any.
 	CredentialsArn pulumi.StringPtrOutput `pulumi:"credentialsArn"`
-	// The description of the integration.
+	// Description of the integration.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The integration's HTTP method. Must be specified if `integrationType` is not `MOCK`.
+	// Integration's HTTP method. Must be specified if `integrationType` is not `MOCK`.
 	IntegrationMethod pulumi.StringPtrOutput `pulumi:"integrationMethod"`
 	// The [integration response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-integration-response-selection-expressions) for the integration.
 	IntegrationResponseSelectionExpression pulumi.StringOutput `pulumi:"integrationResponseSelectionExpression"`
-	// Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integrationType` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
+	// AWS service action to invoke. Supported only for HTTP APIs when `integrationType` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
 	IntegrationSubtype pulumi.StringPtrOutput `pulumi:"integrationSubtype"`
-	// The integration type of an integration.
+	// Integration type of an integration.
 	// Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs). For an HTTP API private integration, use `HTTP_PROXY`.
 	IntegrationType pulumi.StringOutput `pulumi:"integrationType"`
-	// The URI of the Lambda function for a Lambda proxy integration, when `integrationType` is `AWS_PROXY`.
+	// URI of the Lambda function for a Lambda proxy integration, when `integrationType` is `AWS_PROXY`.
 	// For an `HTTP` integration, specify a fully-qualified URL. For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service.
 	IntegrationUri pulumi.StringPtrOutput `pulumi:"integrationUri"`
-	// The pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `requestTemplates` attribute.
+	// Pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `requestTemplates` attribute.
 	// Valid values: `WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`. Default is `WHEN_NO_MATCH`. Supported only for WebSocket APIs.
 	PassthroughBehavior pulumi.StringPtrOutput `pulumi:"passthroughBehavior"`
 	// The [format of the payload](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html#http-api-develop-integrations-lambda.proxy-format) sent to an integration. Valid values: `1.0`, `2.0`. Default is `1.0`.
@@ -221,7 +221,7 @@ type Integration struct {
 	// For HTTP APIs without a specified `integrationSubtype`, a key-value map specifying how to transform HTTP requests before sending them to the backend.
 	// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
 	RequestParameters pulumi.StringMapOutput `pulumi:"requestParameters"`
-	// A map of [Velocity](https://velocity.apache.org/) templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
+	// Map of [Velocity](https://velocity.apache.org/) templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
 	RequestTemplates pulumi.StringMapOutput `pulumi:"requestTemplates"`
 	// Mappings to transform the HTTP response from a backend integration before returning the response to clients. Supported only for HTTP APIs.
 	ResponseParameters IntegrationResponseParameterArrayOutput `pulumi:"responseParameters"`
@@ -231,7 +231,7 @@ type Integration struct {
 	// The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.
 	// this provider will only perform drift detection of its value when present in a configuration.
 	TimeoutMilliseconds pulumi.IntOutput `pulumi:"timeoutMilliseconds"`
-	// The TLS configuration for a private integration. Supported only for HTTP APIs.
+	// TLS configuration for a private integration. Supported only for HTTP APIs.
 	TlsConfig IntegrationTlsConfigPtrOutput `pulumi:"tlsConfig"`
 }
 
@@ -270,31 +270,31 @@ func GetIntegration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Integration resources.
 type integrationState struct {
-	// The API identifier.
+	// API identifier.
 	ApiId *string `pulumi:"apiId"`
-	// The ID of the VPC link for a private integration. Supported only for HTTP APIs. Must be between 1 and 1024 characters in length.
+	// ID of the VPC link for a private integration. Supported only for HTTP APIs. Must be between 1 and 1024 characters in length.
 	ConnectionId *string `pulumi:"connectionId"`
-	// The type of the network connection to the integration endpoint. Valid values: `INTERNET`, `VPC_LINK`. Default is `INTERNET`.
+	// Type of the network connection to the integration endpoint. Valid values: `INTERNET`, `VPC_LINK`. Default is `INTERNET`.
 	ConnectionType *string `pulumi:"connectionType"`
 	// How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`. Supported only for WebSocket APIs.
 	ContentHandlingStrategy *string `pulumi:"contentHandlingStrategy"`
-	// The credentials required for the integration, if any.
+	// Credentials required for the integration, if any.
 	CredentialsArn *string `pulumi:"credentialsArn"`
-	// The description of the integration.
+	// Description of the integration.
 	Description *string `pulumi:"description"`
-	// The integration's HTTP method. Must be specified if `integrationType` is not `MOCK`.
+	// Integration's HTTP method. Must be specified if `integrationType` is not `MOCK`.
 	IntegrationMethod *string `pulumi:"integrationMethod"`
 	// The [integration response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-integration-response-selection-expressions) for the integration.
 	IntegrationResponseSelectionExpression *string `pulumi:"integrationResponseSelectionExpression"`
-	// Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integrationType` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
+	// AWS service action to invoke. Supported only for HTTP APIs when `integrationType` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
 	IntegrationSubtype *string `pulumi:"integrationSubtype"`
-	// The integration type of an integration.
+	// Integration type of an integration.
 	// Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs). For an HTTP API private integration, use `HTTP_PROXY`.
 	IntegrationType *string `pulumi:"integrationType"`
-	// The URI of the Lambda function for a Lambda proxy integration, when `integrationType` is `AWS_PROXY`.
+	// URI of the Lambda function for a Lambda proxy integration, when `integrationType` is `AWS_PROXY`.
 	// For an `HTTP` integration, specify a fully-qualified URL. For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service.
 	IntegrationUri *string `pulumi:"integrationUri"`
-	// The pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `requestTemplates` attribute.
+	// Pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `requestTemplates` attribute.
 	// Valid values: `WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`. Default is `WHEN_NO_MATCH`. Supported only for WebSocket APIs.
 	PassthroughBehavior *string `pulumi:"passthroughBehavior"`
 	// The [format of the payload](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html#http-api-develop-integrations-lambda.proxy-format) sent to an integration. Valid values: `1.0`, `2.0`. Default is `1.0`.
@@ -304,7 +304,7 @@ type integrationState struct {
 	// For HTTP APIs without a specified `integrationSubtype`, a key-value map specifying how to transform HTTP requests before sending them to the backend.
 	// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
 	RequestParameters map[string]string `pulumi:"requestParameters"`
-	// A map of [Velocity](https://velocity.apache.org/) templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
+	// Map of [Velocity](https://velocity.apache.org/) templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
 	RequestTemplates map[string]string `pulumi:"requestTemplates"`
 	// Mappings to transform the HTTP response from a backend integration before returning the response to clients. Supported only for HTTP APIs.
 	ResponseParameters []IntegrationResponseParameter `pulumi:"responseParameters"`
@@ -314,36 +314,36 @@ type integrationState struct {
 	// The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.
 	// this provider will only perform drift detection of its value when present in a configuration.
 	TimeoutMilliseconds *int `pulumi:"timeoutMilliseconds"`
-	// The TLS configuration for a private integration. Supported only for HTTP APIs.
+	// TLS configuration for a private integration. Supported only for HTTP APIs.
 	TlsConfig *IntegrationTlsConfig `pulumi:"tlsConfig"`
 }
 
 type IntegrationState struct {
-	// The API identifier.
+	// API identifier.
 	ApiId pulumi.StringPtrInput
-	// The ID of the VPC link for a private integration. Supported only for HTTP APIs. Must be between 1 and 1024 characters in length.
+	// ID of the VPC link for a private integration. Supported only for HTTP APIs. Must be between 1 and 1024 characters in length.
 	ConnectionId pulumi.StringPtrInput
-	// The type of the network connection to the integration endpoint. Valid values: `INTERNET`, `VPC_LINK`. Default is `INTERNET`.
+	// Type of the network connection to the integration endpoint. Valid values: `INTERNET`, `VPC_LINK`. Default is `INTERNET`.
 	ConnectionType pulumi.StringPtrInput
 	// How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`. Supported only for WebSocket APIs.
 	ContentHandlingStrategy pulumi.StringPtrInput
-	// The credentials required for the integration, if any.
+	// Credentials required for the integration, if any.
 	CredentialsArn pulumi.StringPtrInput
-	// The description of the integration.
+	// Description of the integration.
 	Description pulumi.StringPtrInput
-	// The integration's HTTP method. Must be specified if `integrationType` is not `MOCK`.
+	// Integration's HTTP method. Must be specified if `integrationType` is not `MOCK`.
 	IntegrationMethod pulumi.StringPtrInput
 	// The [integration response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-integration-response-selection-expressions) for the integration.
 	IntegrationResponseSelectionExpression pulumi.StringPtrInput
-	// Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integrationType` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
+	// AWS service action to invoke. Supported only for HTTP APIs when `integrationType` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
 	IntegrationSubtype pulumi.StringPtrInput
-	// The integration type of an integration.
+	// Integration type of an integration.
 	// Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs). For an HTTP API private integration, use `HTTP_PROXY`.
 	IntegrationType pulumi.StringPtrInput
-	// The URI of the Lambda function for a Lambda proxy integration, when `integrationType` is `AWS_PROXY`.
+	// URI of the Lambda function for a Lambda proxy integration, when `integrationType` is `AWS_PROXY`.
 	// For an `HTTP` integration, specify a fully-qualified URL. For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service.
 	IntegrationUri pulumi.StringPtrInput
-	// The pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `requestTemplates` attribute.
+	// Pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `requestTemplates` attribute.
 	// Valid values: `WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`. Default is `WHEN_NO_MATCH`. Supported only for WebSocket APIs.
 	PassthroughBehavior pulumi.StringPtrInput
 	// The [format of the payload](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html#http-api-develop-integrations-lambda.proxy-format) sent to an integration. Valid values: `1.0`, `2.0`. Default is `1.0`.
@@ -353,7 +353,7 @@ type IntegrationState struct {
 	// For HTTP APIs without a specified `integrationSubtype`, a key-value map specifying how to transform HTTP requests before sending them to the backend.
 	// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
 	RequestParameters pulumi.StringMapInput
-	// A map of [Velocity](https://velocity.apache.org/) templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
+	// Map of [Velocity](https://velocity.apache.org/) templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
 	RequestTemplates pulumi.StringMapInput
 	// Mappings to transform the HTTP response from a backend integration before returning the response to clients. Supported only for HTTP APIs.
 	ResponseParameters IntegrationResponseParameterArrayInput
@@ -363,7 +363,7 @@ type IntegrationState struct {
 	// The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.
 	// this provider will only perform drift detection of its value when present in a configuration.
 	TimeoutMilliseconds pulumi.IntPtrInput
-	// The TLS configuration for a private integration. Supported only for HTTP APIs.
+	// TLS configuration for a private integration. Supported only for HTTP APIs.
 	TlsConfig IntegrationTlsConfigPtrInput
 }
 
@@ -372,29 +372,29 @@ func (IntegrationState) ElementType() reflect.Type {
 }
 
 type integrationArgs struct {
-	// The API identifier.
+	// API identifier.
 	ApiId string `pulumi:"apiId"`
-	// The ID of the VPC link for a private integration. Supported only for HTTP APIs. Must be between 1 and 1024 characters in length.
+	// ID of the VPC link for a private integration. Supported only for HTTP APIs. Must be between 1 and 1024 characters in length.
 	ConnectionId *string `pulumi:"connectionId"`
-	// The type of the network connection to the integration endpoint. Valid values: `INTERNET`, `VPC_LINK`. Default is `INTERNET`.
+	// Type of the network connection to the integration endpoint. Valid values: `INTERNET`, `VPC_LINK`. Default is `INTERNET`.
 	ConnectionType *string `pulumi:"connectionType"`
 	// How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`. Supported only for WebSocket APIs.
 	ContentHandlingStrategy *string `pulumi:"contentHandlingStrategy"`
-	// The credentials required for the integration, if any.
+	// Credentials required for the integration, if any.
 	CredentialsArn *string `pulumi:"credentialsArn"`
-	// The description of the integration.
+	// Description of the integration.
 	Description *string `pulumi:"description"`
-	// The integration's HTTP method. Must be specified if `integrationType` is not `MOCK`.
+	// Integration's HTTP method. Must be specified if `integrationType` is not `MOCK`.
 	IntegrationMethod *string `pulumi:"integrationMethod"`
-	// Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integrationType` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
+	// AWS service action to invoke. Supported only for HTTP APIs when `integrationType` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
 	IntegrationSubtype *string `pulumi:"integrationSubtype"`
-	// The integration type of an integration.
+	// Integration type of an integration.
 	// Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs). For an HTTP API private integration, use `HTTP_PROXY`.
 	IntegrationType string `pulumi:"integrationType"`
-	// The URI of the Lambda function for a Lambda proxy integration, when `integrationType` is `AWS_PROXY`.
+	// URI of the Lambda function for a Lambda proxy integration, when `integrationType` is `AWS_PROXY`.
 	// For an `HTTP` integration, specify a fully-qualified URL. For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service.
 	IntegrationUri *string `pulumi:"integrationUri"`
-	// The pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `requestTemplates` attribute.
+	// Pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `requestTemplates` attribute.
 	// Valid values: `WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`. Default is `WHEN_NO_MATCH`. Supported only for WebSocket APIs.
 	PassthroughBehavior *string `pulumi:"passthroughBehavior"`
 	// The [format of the payload](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html#http-api-develop-integrations-lambda.proxy-format) sent to an integration. Valid values: `1.0`, `2.0`. Default is `1.0`.
@@ -404,7 +404,7 @@ type integrationArgs struct {
 	// For HTTP APIs without a specified `integrationSubtype`, a key-value map specifying how to transform HTTP requests before sending them to the backend.
 	// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
 	RequestParameters map[string]string `pulumi:"requestParameters"`
-	// A map of [Velocity](https://velocity.apache.org/) templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
+	// Map of [Velocity](https://velocity.apache.org/) templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
 	RequestTemplates map[string]string `pulumi:"requestTemplates"`
 	// Mappings to transform the HTTP response from a backend integration before returning the response to clients. Supported only for HTTP APIs.
 	ResponseParameters []IntegrationResponseParameter `pulumi:"responseParameters"`
@@ -414,35 +414,35 @@ type integrationArgs struct {
 	// The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.
 	// this provider will only perform drift detection of its value when present in a configuration.
 	TimeoutMilliseconds *int `pulumi:"timeoutMilliseconds"`
-	// The TLS configuration for a private integration. Supported only for HTTP APIs.
+	// TLS configuration for a private integration. Supported only for HTTP APIs.
 	TlsConfig *IntegrationTlsConfig `pulumi:"tlsConfig"`
 }
 
 // The set of arguments for constructing a Integration resource.
 type IntegrationArgs struct {
-	// The API identifier.
+	// API identifier.
 	ApiId pulumi.StringInput
-	// The ID of the VPC link for a private integration. Supported only for HTTP APIs. Must be between 1 and 1024 characters in length.
+	// ID of the VPC link for a private integration. Supported only for HTTP APIs. Must be between 1 and 1024 characters in length.
 	ConnectionId pulumi.StringPtrInput
-	// The type of the network connection to the integration endpoint. Valid values: `INTERNET`, `VPC_LINK`. Default is `INTERNET`.
+	// Type of the network connection to the integration endpoint. Valid values: `INTERNET`, `VPC_LINK`. Default is `INTERNET`.
 	ConnectionType pulumi.StringPtrInput
 	// How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`. Supported only for WebSocket APIs.
 	ContentHandlingStrategy pulumi.StringPtrInput
-	// The credentials required for the integration, if any.
+	// Credentials required for the integration, if any.
 	CredentialsArn pulumi.StringPtrInput
-	// The description of the integration.
+	// Description of the integration.
 	Description pulumi.StringPtrInput
-	// The integration's HTTP method. Must be specified if `integrationType` is not `MOCK`.
+	// Integration's HTTP method. Must be specified if `integrationType` is not `MOCK`.
 	IntegrationMethod pulumi.StringPtrInput
-	// Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integrationType` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
+	// AWS service action to invoke. Supported only for HTTP APIs when `integrationType` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
 	IntegrationSubtype pulumi.StringPtrInput
-	// The integration type of an integration.
+	// Integration type of an integration.
 	// Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs). For an HTTP API private integration, use `HTTP_PROXY`.
 	IntegrationType pulumi.StringInput
-	// The URI of the Lambda function for a Lambda proxy integration, when `integrationType` is `AWS_PROXY`.
+	// URI of the Lambda function for a Lambda proxy integration, when `integrationType` is `AWS_PROXY`.
 	// For an `HTTP` integration, specify a fully-qualified URL. For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service.
 	IntegrationUri pulumi.StringPtrInput
-	// The pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `requestTemplates` attribute.
+	// Pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `requestTemplates` attribute.
 	// Valid values: `WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`. Default is `WHEN_NO_MATCH`. Supported only for WebSocket APIs.
 	PassthroughBehavior pulumi.StringPtrInput
 	// The [format of the payload](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html#http-api-develop-integrations-lambda.proxy-format) sent to an integration. Valid values: `1.0`, `2.0`. Default is `1.0`.
@@ -452,7 +452,7 @@ type IntegrationArgs struct {
 	// For HTTP APIs without a specified `integrationSubtype`, a key-value map specifying how to transform HTTP requests before sending them to the backend.
 	// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
 	RequestParameters pulumi.StringMapInput
-	// A map of [Velocity](https://velocity.apache.org/) templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
+	// Map of [Velocity](https://velocity.apache.org/) templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
 	RequestTemplates pulumi.StringMapInput
 	// Mappings to transform the HTTP response from a backend integration before returning the response to clients. Supported only for HTTP APIs.
 	ResponseParameters IntegrationResponseParameterArrayInput
@@ -462,7 +462,7 @@ type IntegrationArgs struct {
 	// The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.
 	// this provider will only perform drift detection of its value when present in a configuration.
 	TimeoutMilliseconds pulumi.IntPtrInput
-	// The TLS configuration for a private integration. Supported only for HTTP APIs.
+	// TLS configuration for a private integration. Supported only for HTTP APIs.
 	TlsConfig IntegrationTlsConfigPtrInput
 }
 
@@ -553,17 +553,17 @@ func (o IntegrationOutput) ToIntegrationOutputWithContext(ctx context.Context) I
 	return o
 }
 
-// The API identifier.
+// API identifier.
 func (o IntegrationOutput) ApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Integration) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
 }
 
-// The ID of the VPC link for a private integration. Supported only for HTTP APIs. Must be between 1 and 1024 characters in length.
+// ID of the VPC link for a private integration. Supported only for HTTP APIs. Must be between 1 and 1024 characters in length.
 func (o IntegrationOutput) ConnectionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Integration) pulumi.StringPtrOutput { return v.ConnectionId }).(pulumi.StringPtrOutput)
 }
 
-// The type of the network connection to the integration endpoint. Valid values: `INTERNET`, `VPC_LINK`. Default is `INTERNET`.
+// Type of the network connection to the integration endpoint. Valid values: `INTERNET`, `VPC_LINK`. Default is `INTERNET`.
 func (o IntegrationOutput) ConnectionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Integration) pulumi.StringPtrOutput { return v.ConnectionType }).(pulumi.StringPtrOutput)
 }
@@ -573,17 +573,17 @@ func (o IntegrationOutput) ContentHandlingStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Integration) pulumi.StringPtrOutput { return v.ContentHandlingStrategy }).(pulumi.StringPtrOutput)
 }
 
-// The credentials required for the integration, if any.
+// Credentials required for the integration, if any.
 func (o IntegrationOutput) CredentialsArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Integration) pulumi.StringPtrOutput { return v.CredentialsArn }).(pulumi.StringPtrOutput)
 }
 
-// The description of the integration.
+// Description of the integration.
 func (o IntegrationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Integration) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The integration's HTTP method. Must be specified if `integrationType` is not `MOCK`.
+// Integration's HTTP method. Must be specified if `integrationType` is not `MOCK`.
 func (o IntegrationOutput) IntegrationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Integration) pulumi.StringPtrOutput { return v.IntegrationMethod }).(pulumi.StringPtrOutput)
 }
@@ -593,24 +593,24 @@ func (o IntegrationOutput) IntegrationResponseSelectionExpression() pulumi.Strin
 	return o.ApplyT(func(v *Integration) pulumi.StringOutput { return v.IntegrationResponseSelectionExpression }).(pulumi.StringOutput)
 }
 
-// Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integrationType` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
+// AWS service action to invoke. Supported only for HTTP APIs when `integrationType` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
 func (o IntegrationOutput) IntegrationSubtype() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Integration) pulumi.StringPtrOutput { return v.IntegrationSubtype }).(pulumi.StringPtrOutput)
 }
 
-// The integration type of an integration.
+// Integration type of an integration.
 // Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs). For an HTTP API private integration, use `HTTP_PROXY`.
 func (o IntegrationOutput) IntegrationType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Integration) pulumi.StringOutput { return v.IntegrationType }).(pulumi.StringOutput)
 }
 
-// The URI of the Lambda function for a Lambda proxy integration, when `integrationType` is `AWS_PROXY`.
+// URI of the Lambda function for a Lambda proxy integration, when `integrationType` is `AWS_PROXY`.
 // For an `HTTP` integration, specify a fully-qualified URL. For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service.
 func (o IntegrationOutput) IntegrationUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Integration) pulumi.StringPtrOutput { return v.IntegrationUri }).(pulumi.StringPtrOutput)
 }
 
-// The pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `requestTemplates` attribute.
+// Pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `requestTemplates` attribute.
 // Valid values: `WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`. Default is `WHEN_NO_MATCH`. Supported only for WebSocket APIs.
 func (o IntegrationOutput) PassthroughBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Integration) pulumi.StringPtrOutput { return v.PassthroughBehavior }).(pulumi.StringPtrOutput)
@@ -629,7 +629,7 @@ func (o IntegrationOutput) RequestParameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Integration) pulumi.StringMapOutput { return v.RequestParameters }).(pulumi.StringMapOutput)
 }
 
-// A map of [Velocity](https://velocity.apache.org/) templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
+// Map of [Velocity](https://velocity.apache.org/) templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
 func (o IntegrationOutput) RequestTemplates() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Integration) pulumi.StringMapOutput { return v.RequestTemplates }).(pulumi.StringMapOutput)
 }
@@ -651,7 +651,7 @@ func (o IntegrationOutput) TimeoutMilliseconds() pulumi.IntOutput {
 	return o.ApplyT(func(v *Integration) pulumi.IntOutput { return v.TimeoutMilliseconds }).(pulumi.IntOutput)
 }
 
-// The TLS configuration for a private integration. Supported only for HTTP APIs.
+// TLS configuration for a private integration. Supported only for HTTP APIs.
 func (o IntegrationOutput) TlsConfig() IntegrationTlsConfigPtrOutput {
 	return o.ApplyT(func(v *Integration) IntegrationTlsConfigPtrOutput { return v.TlsConfig }).(IntegrationTlsConfigPtrOutput)
 }

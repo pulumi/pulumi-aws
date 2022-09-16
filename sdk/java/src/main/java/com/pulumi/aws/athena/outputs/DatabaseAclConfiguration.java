@@ -10,14 +10,14 @@ import java.util.Objects;
 @CustomType
 public final class DatabaseAclConfiguration {
     /**
-     * @return The Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
+     * @return Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
      * 
      */
     private String s3AclOption;
 
     private DatabaseAclConfiguration() {}
     /**
-     * @return The Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
+     * @return Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
      * 
      */
     public String s3AclOption() {

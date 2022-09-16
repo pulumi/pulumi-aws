@@ -17,14 +17,14 @@ public final class ResolverSyncConfigArgs extends com.pulumi.resources.ResourceA
     public static final ResolverSyncConfigArgs Empty = new ResolverSyncConfigArgs();
 
     /**
-     * The Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
+     * Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
      * 
      */
     @Import(name="conflictDetection")
     private @Nullable Output<String> conflictDetection;
 
     /**
-     * @return The Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
+     * @return Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
      * 
      */
     public Optional<Output<String>> conflictDetection() {
@@ -32,14 +32,14 @@ public final class ResolverSyncConfigArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
+     * Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
      * 
      */
     @Import(name="conflictHandler")
     private @Nullable Output<String> conflictHandler;
 
     /**
-     * @return The Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
+     * @return Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
      * 
      */
     public Optional<Output<String>> conflictHandler() {
@@ -47,14 +47,14 @@ public final class ResolverSyncConfigArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
+     * Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
      * 
      */
     @Import(name="lambdaConflictHandlerConfig")
     private @Nullable Output<ResolverSyncConfigLambdaConflictHandlerConfigArgs> lambdaConflictHandlerConfig;
 
     /**
-     * @return The Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
+     * @return Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
      * 
      */
     public Optional<Output<ResolverSyncConfigLambdaConflictHandlerConfigArgs>> lambdaConflictHandlerConfig() {
@@ -88,7 +88,7 @@ public final class ResolverSyncConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param conflictDetection The Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
+         * @param conflictDetection Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class ResolverSyncConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param conflictDetection The Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
+         * @param conflictDetection Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class ResolverSyncConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param conflictHandler The Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
+         * @param conflictHandler Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class ResolverSyncConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param conflictHandler The Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
+         * @param conflictHandler Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class ResolverSyncConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param lambdaConflictHandlerConfig The Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
+         * @param lambdaConflictHandlerConfig Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class ResolverSyncConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param lambdaConflictHandlerConfig The Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
+         * @param lambdaConflictHandlerConfig Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
          * 
          * @return builder
          * 

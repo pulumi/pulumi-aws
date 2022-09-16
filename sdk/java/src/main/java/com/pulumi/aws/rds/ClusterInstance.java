@@ -390,6 +390,20 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
         return this.monitoringRoleArn;
     }
     /**
+     * The network type of the DB instance.
+     * 
+     */
+    @Export(name="networkType", type=String.class, parameters={})
+    private Output<String> networkType;
+
+    /**
+     * @return The network type of the DB instance.
+     * 
+     */
+    public Output<String> networkType() {
+        return this.networkType;
+    }
+    /**
      * Specifies whether Performance Insights is enabled or not.
      * 
      */
@@ -418,14 +432,14 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
         return this.performanceInsightsKmsKeyId;
     }
     /**
-     * Amount of time in days to retain Performance Insights data. Valida values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to &#39;7&#39;.
+     * Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to &#39;7&#39;.
      * 
      */
     @Export(name="performanceInsightsRetentionPeriod", type=Integer.class, parameters={})
     private Output<Integer> performanceInsightsRetentionPeriod;
 
     /**
-     * @return Amount of time in days to retain Performance Insights data. Valida values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to &#39;7&#39;.
+     * @return Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to &#39;7&#39;.
      * 
      */
     public Output<Integer> performanceInsightsRetentionPeriod() {

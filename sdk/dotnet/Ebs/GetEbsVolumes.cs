@@ -47,7 +47,7 @@ namespace Pulumi.Aws.Ebs
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A map of tags, each pair of which must exactly match
+        /// Map of tags, each pair of which must exactly match
         /// a pair on the desired volumes.
         /// </summary>
         public Dictionary<string, string> Tags
@@ -80,7 +80,7 @@ namespace Pulumi.Aws.Ebs
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags, each pair of which must exactly match
+        /// Map of tags, each pair of which must exactly match
         /// a pair on the desired volumes.
         /// </summary>
         public InputMap<string> Tags
@@ -105,7 +105,7 @@ namespace Pulumi.Aws.Ebs
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// A set of all the EBS Volume IDs found. This data source will fail if
+        /// Set of all the EBS Volume IDs found. This data source will fail if
         /// no volumes match the provided criteria.
         /// </summary>
         public readonly ImmutableArray<string> Ids;

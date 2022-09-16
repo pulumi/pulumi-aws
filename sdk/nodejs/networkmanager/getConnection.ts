@@ -37,11 +37,11 @@ export function getConnection(args: GetConnectionArgs, opts?: pulumi.InvokeOptio
  */
 export interface GetConnectionArgs {
     /**
-     * The id of the specific connection to retrieve.
+     * ID of the specific connection to retrieve.
      */
     connectionId: string;
     /**
-     * The ID of the Global Network of the connection to retrieve.
+     * ID of the Global Network of the connection to retrieve.
      */
     globalNetworkId: string;
     /**
@@ -55,24 +55,24 @@ export interface GetConnectionArgs {
  */
 export interface GetConnectionResult {
     /**
-     * The ARN of the connection.
+     * ARN of the connection.
      */
     readonly arn: string;
     /**
-     * The ID of the second device in the connection.
+     * ID of the second device in the connection.
      */
     readonly connectedDeviceId: string;
     /**
-     * The ID of the link for the second device.
+     * ID of the link for the second device.
      */
     readonly connectedLinkId: string;
     readonly connectionId: string;
     /**
-     * A description of the connection.
+     * Description of the connection.
      */
     readonly description: string;
     /**
-     * The ID of the first device in the connection.
+     * ID of the first device in the connection.
      */
     readonly deviceId: string;
     readonly globalNetworkId: string;
@@ -81,7 +81,7 @@ export interface GetConnectionResult {
      */
     readonly id: string;
     /**
-     * The ID of the link for the first device.
+     * ID of the link for the first device.
      */
     readonly linkId: string;
     /**
@@ -99,11 +99,11 @@ export function getConnectionOutput(args: GetConnectionOutputArgs, opts?: pulumi
  */
 export interface GetConnectionOutputArgs {
     /**
-     * The id of the specific connection to retrieve.
+     * ID of the specific connection to retrieve.
      */
     connectionId: pulumi.Input<string>;
     /**
-     * The ID of the Global Network of the connection to retrieve.
+     * ID of the Global Network of the connection to retrieve.
      */
     globalNetworkId: pulumi.Input<string>;
     /**

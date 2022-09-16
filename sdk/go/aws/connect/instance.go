@@ -122,7 +122,7 @@ type Instance struct {
 	ContactFlowLogsEnabled pulumi.BoolPtrOutput `pulumi:"contactFlowLogsEnabled"`
 	// Specifies whether contact lens is enabled. Defaults to `true`.
 	ContactLensEnabled pulumi.BoolPtrOutput `pulumi:"contactLensEnabled"`
-	// Specifies when the instance was created.
+	// When the instance was created.
 	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
 	// The identifier for the directory if identityManagementType is `EXISTING_DIRECTORY`.
 	DirectoryId pulumi.StringPtrOutput `pulumi:"directoryId"`
@@ -135,7 +135,7 @@ type Instance struct {
 	// Specifies the name of the instance. Required if `directoryId` not specified.
 	InstanceAlias pulumi.StringPtrOutput `pulumi:"instanceAlias"`
 	// Specifies whether outbound calls are enabled.
-	// <!-- * `useCustomTtsVoices` - (Optional) Specifies Whether use custom tts voices is enabled. Defaults to `false` -->
+	// <!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
 	OutboundCallsEnabled pulumi.BoolOutput `pulumi:"outboundCallsEnabled"`
 	// The service role of the instance.
 	ServiceRole pulumi.StringOutput `pulumi:"serviceRole"`
@@ -189,7 +189,7 @@ type instanceState struct {
 	ContactFlowLogsEnabled *bool `pulumi:"contactFlowLogsEnabled"`
 	// Specifies whether contact lens is enabled. Defaults to `true`.
 	ContactLensEnabled *bool `pulumi:"contactLensEnabled"`
-	// Specifies when the instance was created.
+	// When the instance was created.
 	CreatedTime *string `pulumi:"createdTime"`
 	// The identifier for the directory if identityManagementType is `EXISTING_DIRECTORY`.
 	DirectoryId *string `pulumi:"directoryId"`
@@ -202,7 +202,7 @@ type instanceState struct {
 	// Specifies the name of the instance. Required if `directoryId` not specified.
 	InstanceAlias *string `pulumi:"instanceAlias"`
 	// Specifies whether outbound calls are enabled.
-	// <!-- * `useCustomTtsVoices` - (Optional) Specifies Whether use custom tts voices is enabled. Defaults to `false` -->
+	// <!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
 	OutboundCallsEnabled *bool `pulumi:"outboundCallsEnabled"`
 	// The service role of the instance.
 	ServiceRole *string `pulumi:"serviceRole"`
@@ -219,7 +219,7 @@ type InstanceState struct {
 	ContactFlowLogsEnabled pulumi.BoolPtrInput
 	// Specifies whether contact lens is enabled. Defaults to `true`.
 	ContactLensEnabled pulumi.BoolPtrInput
-	// Specifies when the instance was created.
+	// When the instance was created.
 	CreatedTime pulumi.StringPtrInput
 	// The identifier for the directory if identityManagementType is `EXISTING_DIRECTORY`.
 	DirectoryId pulumi.StringPtrInput
@@ -232,7 +232,7 @@ type InstanceState struct {
 	// Specifies the name of the instance. Required if `directoryId` not specified.
 	InstanceAlias pulumi.StringPtrInput
 	// Specifies whether outbound calls are enabled.
-	// <!-- * `useCustomTtsVoices` - (Optional) Specifies Whether use custom tts voices is enabled. Defaults to `false` -->
+	// <!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
 	OutboundCallsEnabled pulumi.BoolPtrInput
 	// The service role of the instance.
 	ServiceRole pulumi.StringPtrInput
@@ -262,7 +262,7 @@ type instanceArgs struct {
 	// Specifies the name of the instance. Required if `directoryId` not specified.
 	InstanceAlias *string `pulumi:"instanceAlias"`
 	// Specifies whether outbound calls are enabled.
-	// <!-- * `useCustomTtsVoices` - (Optional) Specifies Whether use custom tts voices is enabled. Defaults to `false` -->
+	// <!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
 	OutboundCallsEnabled bool `pulumi:"outboundCallsEnabled"`
 }
 
@@ -285,7 +285,7 @@ type InstanceArgs struct {
 	// Specifies the name of the instance. Required if `directoryId` not specified.
 	InstanceAlias pulumi.StringPtrInput
 	// Specifies whether outbound calls are enabled.
-	// <!-- * `useCustomTtsVoices` - (Optional) Specifies Whether use custom tts voices is enabled. Defaults to `false` -->
+	// <!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
 	OutboundCallsEnabled pulumi.BoolInput
 }
 
@@ -396,7 +396,7 @@ func (o InstanceOutput) ContactLensEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Instance) pulumi.BoolPtrOutput { return v.ContactLensEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies when the instance was created.
+// When the instance was created.
 func (o InstanceOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
 }
@@ -427,7 +427,7 @@ func (o InstanceOutput) InstanceAlias() pulumi.StringPtrOutput {
 }
 
 // Specifies whether outbound calls are enabled.
-// <!-- * `useCustomTtsVoices` - (Optional) Specifies Whether use custom tts voices is enabled. Defaults to `false` -->
+// <!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
 func (o InstanceOutput) OutboundCallsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Instance) pulumi.BoolOutput { return v.OutboundCallsEnabled }).(pulumi.BoolOutput)
 }

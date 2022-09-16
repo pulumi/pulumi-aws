@@ -141,11 +141,11 @@ namespace Pulumi.Aws.Eks
     {
         public readonly string AddonName;
         /// <summary>
-        /// The version of EKS add-on.
+        /// Version of EKS add-on.
         /// </summary>
         public readonly string AddonVersion;
         /// <summary>
-        /// Amazon Resource Name (ARN) of the EKS add-on.
+        /// ARN of the EKS add-on.
         /// </summary>
         public readonly string Arn;
         public readonly string ClusterName;

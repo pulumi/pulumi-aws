@@ -76,7 +76,7 @@ class GetDirectoryResult:
     @pulumi.getter
     def alias(self) -> str:
         """
-        The directory alias.
+        Directory alias.
         """
         return pulumi.get(self, "alias")
 
@@ -84,7 +84,7 @@ class GetDirectoryResult:
     @pulumi.getter(name="customerUserName")
     def customer_user_name(self) -> str:
         """
-        The user name for the service account.
+        User name for the service account.
         """
         return pulumi.get(self, "customer_user_name")
 
@@ -97,7 +97,7 @@ class GetDirectoryResult:
     @pulumi.getter(name="directoryName")
     def directory_name(self) -> str:
         """
-        The name of the directory.
+        Name of the directory.
         """
         return pulumi.get(self, "directory_name")
 
@@ -105,7 +105,7 @@ class GetDirectoryResult:
     @pulumi.getter(name="directoryType")
     def directory_type(self) -> str:
         """
-        The directory type.
+        Directory type.
         """
         return pulumi.get(self, "directory_type")
 
@@ -113,7 +113,7 @@ class GetDirectoryResult:
     @pulumi.getter(name="dnsIpAddresses")
     def dns_ip_addresses(self) -> Sequence[str]:
         """
-        The IP addresses of the DNS servers for the directory.
+        IP addresses of the DNS servers for the directory.
         """
         return pulumi.get(self, "dns_ip_addresses")
 
@@ -121,7 +121,7 @@ class GetDirectoryResult:
     @pulumi.getter(name="iamRoleId")
     def iam_role_id(self) -> str:
         """
-        The identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
+        Identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
         """
         return pulumi.get(self, "iam_role_id")
 
@@ -137,7 +137,7 @@ class GetDirectoryResult:
     @pulumi.getter(name="ipGroupIds")
     def ip_group_ids(self) -> Sequence[str]:
         """
-        The identifiers of the IP access control groups associated with the directory.
+        Identifiers of the IP access control groups associated with the directory.
         """
         return pulumi.get(self, "ip_group_ids")
 
@@ -145,7 +145,7 @@ class GetDirectoryResult:
     @pulumi.getter(name="registrationCode")
     def registration_code(self) -> str:
         """
-        The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
+        Registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
         """
         return pulumi.get(self, "registration_code")
 
@@ -161,7 +161,7 @@ class GetDirectoryResult:
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Sequence[str]:
         """
-        The identifiers of the subnets where the directory resides.
+        Identifiers of the subnets where the directory resides.
         """
         return pulumi.get(self, "subnet_ids")
 
@@ -238,7 +238,7 @@ def get_directory(directory_id: Optional[str] = None,
     ```
 
 
-    :param str directory_id: The directory identifier for registration in WorkSpaces service.
+    :param str directory_id: Directory identifier for registration in WorkSpaces service.
     :param Mapping[str, str] tags: A map of tags assigned to the WorkSpaces directory.
     """
     __args__ = dict()
@@ -283,7 +283,7 @@ def get_directory_output(directory_id: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str directory_id: The directory identifier for registration in WorkSpaces service.
+    :param str directory_id: Directory identifier for registration in WorkSpaces service.
     :param Mapping[str, str] tags: A map of tags assigned to the WorkSpaces directory.
     """
     ...

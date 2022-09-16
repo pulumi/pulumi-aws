@@ -67,7 +67,7 @@ class GetOpenZfsSnapshotResult:
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> str:
         """
-        The time that the resource was created.
+        Time that the resource was created.
         """
         return pulumi.get(self, "creation_time")
 
@@ -93,7 +93,7 @@ class GetOpenZfsSnapshotResult:
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        The name of the snapshot.
+        Name of the snapshot.
         """
         return pulumi.get(self, "name")
 
@@ -101,7 +101,7 @@ class GetOpenZfsSnapshotResult:
     @pulumi.getter(name="snapshotId")
     def snapshot_id(self) -> str:
         """
-        The ID of the snapshot.
+        ID of the snapshot.
         """
         return pulumi.get(self, "snapshot_id")
 
@@ -114,7 +114,7 @@ class GetOpenZfsSnapshotResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        A list of Tag values, with a maximum of 50 elements.
+        List of Tag values, with a maximum of 50 elements.
         """
         return pulumi.get(self, "tags")
 
@@ -122,7 +122,7 @@ class GetOpenZfsSnapshotResult:
     @pulumi.getter(name="volumeId")
     def volume_id(self) -> str:
         """
-        The ID of the volume that the snapshot is of.
+        ID of the volume that the snapshot is of.
         """
         return pulumi.get(self, "volume_id")
 
@@ -172,9 +172,9 @@ def get_open_zfs_snapshot(filters: Optional[Sequence[pulumi.InputType['GetOpenZf
     :param Sequence[pulumi.InputType['GetOpenZfsSnapshotFilterArgs']] filters: One or more name/value pairs to filter off of. The
            supported names are file-system-id or volume-id.
     :param bool most_recent: If more than one result is returned, use the most recent snapshot.
-    :param str name: The name of the snapshot.
+    :param str name: Name of the snapshot.
     :param Sequence[str] snapshot_ids: Returns information on a specific snapshot_id.
-    :param Mapping[str, str] tags: A list of Tag values, with a maximum of 50 elements.
+    :param Mapping[str, str] tags: List of Tag values, with a maximum of 50 elements.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -226,8 +226,8 @@ def get_open_zfs_snapshot_output(filters: Optional[pulumi.Input[Optional[Sequenc
     :param Sequence[pulumi.InputType['GetOpenZfsSnapshotFilterArgs']] filters: One or more name/value pairs to filter off of. The
            supported names are file-system-id or volume-id.
     :param bool most_recent: If more than one result is returned, use the most recent snapshot.
-    :param str name: The name of the snapshot.
+    :param str name: Name of the snapshot.
     :param Sequence[str] snapshot_ids: Returns information on a specific snapshot_id.
-    :param Mapping[str, str] tags: A list of Tag values, with a maximum of 50 elements.
+    :param Mapping[str, str] tags: List of Tag values, with a maximum of 50 elements.
     """
     ...

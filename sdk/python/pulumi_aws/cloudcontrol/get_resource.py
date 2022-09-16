@@ -112,7 +112,7 @@ def get_resource(identifier: Optional[str] = None,
 
 
     :param str identifier: Identifier of the CloudFormation resource type. For example, `vpc-12345678`.
-    :param str role_arn: Amazon Resource Name (ARN) of the IAM Role to assume for operations.
+    :param str role_arn: ARN of the IAM Role to assume for operations.
     :param str type_name: CloudFormation resource type name. For example, `AWS::EC2::VPC`.
     :param str type_version_id: Identifier of the CloudFormation resource type version.
     """
@@ -154,7 +154,7 @@ def get_resource_output(identifier: Optional[pulumi.Input[str]] = None,
 
 
     :param str identifier: Identifier of the CloudFormation resource type. For example, `vpc-12345678`.
-    :param str role_arn: Amazon Resource Name (ARN) of the IAM Role to assume for operations.
+    :param str role_arn: ARN of the IAM Role to assume for operations.
     :param str type_name: CloudFormation resource type name. For example, `AWS::EC2::VPC`.
     :param str type_version_id: Identifier of the CloudFormation resource type version.
     """

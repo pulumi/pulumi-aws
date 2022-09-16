@@ -18,14 +18,14 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
     public static final PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArgs Empty = new PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArgs();
 
     /**
-     * The math expression used on the returned metric. You must specify either `expression` or `metric_stat`, but not both.
+     * Math expression used on the returned metric. You must specify either `expression` or `metric_stat`, but not both.
      * 
      */
     @Import(name="expression")
     private @Nullable Output<String> expression;
 
     /**
-     * @return The math expression used on the returned metric. You must specify either `expression` or `metric_stat`, but not both.
+     * @return Math expression used on the returned metric. You must specify either `expression` or `metric_stat`, but not both.
      * 
      */
     public Optional<Output<String>> expression() {
@@ -33,14 +33,14 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
     }
 
     /**
-     * A short name for the metric used in predictive scaling policy.
+     * Short name for the metric used in predictive scaling policy.
      * 
      */
     @Import(name="id", required=true)
     private Output<String> id;
 
     /**
-     * @return A short name for the metric used in predictive scaling policy.
+     * @return Short name for the metric used in predictive scaling policy.
      * 
      */
     public Output<String> id() {
@@ -48,14 +48,14 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
     }
 
     /**
-     * A human-readable label for this metric or expression.
+     * Human-readable label for this metric or expression.
      * 
      */
     @Import(name="label")
     private @Nullable Output<String> label;
 
     /**
-     * @return A human-readable label for this metric or expression.
+     * @return Human-readable label for this metric or expression.
      * 
      */
     public Optional<Output<String>> label() {
@@ -63,14 +63,14 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
     }
 
     /**
-     * A structure that defines CloudWatch metric to be used in predictive scaling policy. You must specify either `expression` or `metric_stat`, but not both.
+     * Structure that defines CloudWatch metric to be used in predictive scaling policy. You must specify either `expression` or `metric_stat`, but not both.
      * 
      */
     @Import(name="metricStat")
     private @Nullable Output<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatArgs> metricStat;
 
     /**
-     * @return A structure that defines CloudWatch metric to be used in predictive scaling policy. You must specify either `expression` or `metric_stat`, but not both.
+     * @return Structure that defines CloudWatch metric to be used in predictive scaling policy. You must specify either `expression` or `metric_stat`, but not both.
      * 
      */
     public Optional<Output<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatArgs>> metricStat() {
@@ -78,14 +78,14 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
     }
 
     /**
-     * A boolean that indicates whether to return the timestamps and raw data values of this metric, the default it true
+     * Boolean that indicates whether to return the timestamps and raw data values of this metric, the default it true
      * 
      */
     @Import(name="returnData")
     private @Nullable Output<Boolean> returnData;
 
     /**
-     * @return A boolean that indicates whether to return the timestamps and raw data values of this metric, the default it true
+     * @return Boolean that indicates whether to return the timestamps and raw data values of this metric, the default it true
      * 
      */
     public Optional<Output<Boolean>> returnData() {
@@ -121,7 +121,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
         }
 
         /**
-         * @param expression The math expression used on the returned metric. You must specify either `expression` or `metric_stat`, but not both.
+         * @param expression Math expression used on the returned metric. You must specify either `expression` or `metric_stat`, but not both.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
         }
 
         /**
-         * @param expression The math expression used on the returned metric. You must specify either `expression` or `metric_stat`, but not both.
+         * @param expression Math expression used on the returned metric. You must specify either `expression` or `metric_stat`, but not both.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
         }
 
         /**
-         * @param id A short name for the metric used in predictive scaling policy.
+         * @param id Short name for the metric used in predictive scaling policy.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
         }
 
         /**
-         * @param id A short name for the metric used in predictive scaling policy.
+         * @param id Short name for the metric used in predictive scaling policy.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
         }
 
         /**
-         * @param label A human-readable label for this metric or expression.
+         * @param label Human-readable label for this metric or expression.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
         }
 
         /**
-         * @param label A human-readable label for this metric or expression.
+         * @param label Human-readable label for this metric or expression.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
         }
 
         /**
-         * @param metricStat A structure that defines CloudWatch metric to be used in predictive scaling policy. You must specify either `expression` or `metric_stat`, but not both.
+         * @param metricStat Structure that defines CloudWatch metric to be used in predictive scaling policy. You must specify either `expression` or `metric_stat`, but not both.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
         }
 
         /**
-         * @param metricStat A structure that defines CloudWatch metric to be used in predictive scaling policy. You must specify either `expression` or `metric_stat`, but not both.
+         * @param metricStat Structure that defines CloudWatch metric to be used in predictive scaling policy. You must specify either `expression` or `metric_stat`, but not both.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
         }
 
         /**
-         * @param returnData A boolean that indicates whether to return the timestamps and raw data values of this metric, the default it true
+         * @param returnData Boolean that indicates whether to return the timestamps and raw data values of this metric, the default it true
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
         }
 
         /**
-         * @param returnData A boolean that indicates whether to return the timestamps and raw data values of this metric, the default it true
+         * @param returnData Boolean that indicates whether to return the timestamps and raw data values of this metric, the default it true
          * 
          * @return builder
          * 

@@ -16,14 +16,14 @@ public final class GetAuthorizationTokenPlainArgs extends com.pulumi.resources.I
     public static final GetAuthorizationTokenPlainArgs Empty = new GetAuthorizationTokenPlainArgs();
 
     /**
-     * The name of the domain that is in scope for the generated authorization token.
+     * Name of the domain that is in scope for the generated authorization token.
      * 
      */
     @Import(name="domain", required=true)
     private String domain;
 
     /**
-     * @return The name of the domain that is in scope for the generated authorization token.
+     * @return Name of the domain that is in scope for the generated authorization token.
      * 
      */
     public String domain() {
@@ -31,14 +31,14 @@ public final class GetAuthorizationTokenPlainArgs extends com.pulumi.resources.I
     }
 
     /**
-     * The account number of the AWS account that owns the domain.
+     * Account number of the AWS account that owns the domain.
      * 
      */
     @Import(name="domainOwner")
     private @Nullable String domainOwner;
 
     /**
-     * @return The account number of the AWS account that owns the domain.
+     * @return Account number of the AWS account that owns the domain.
      * 
      */
     public Optional<String> domainOwner() {
@@ -46,14 +46,14 @@ public final class GetAuthorizationTokenPlainArgs extends com.pulumi.resources.I
     }
 
     /**
-     * The time, in seconds, that the generated authorization token is valid. Valid values are `0` and between `900` and `43200`.
+     * Time, in seconds, that the generated authorization token is valid. Valid values are `0` and between `900` and `43200`.
      * 
      */
     @Import(name="durationSeconds")
     private @Nullable Integer durationSeconds;
 
     /**
-     * @return The time, in seconds, that the generated authorization token is valid. Valid values are `0` and between `900` and `43200`.
+     * @return Time, in seconds, that the generated authorization token is valid. Valid values are `0` and between `900` and `43200`.
      * 
      */
     public Optional<Integer> durationSeconds() {
@@ -87,7 +87,7 @@ public final class GetAuthorizationTokenPlainArgs extends com.pulumi.resources.I
         }
 
         /**
-         * @param domain The name of the domain that is in scope for the generated authorization token.
+         * @param domain Name of the domain that is in scope for the generated authorization token.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class GetAuthorizationTokenPlainArgs extends com.pulumi.resources.I
         }
 
         /**
-         * @param domainOwner The account number of the AWS account that owns the domain.
+         * @param domainOwner Account number of the AWS account that owns the domain.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class GetAuthorizationTokenPlainArgs extends com.pulumi.resources.I
         }
 
         /**
-         * @param durationSeconds The time, in seconds, that the generated authorization token is valid. Valid values are `0` and between `900` and `43200`.
+         * @param durationSeconds Time, in seconds, that the generated authorization token is valid. Valid values are `0` and between `900` and `43200`.
          * 
          * @return builder
          * 

@@ -25,7 +25,7 @@ func GetSecurityGroups(ctx *pulumi.Context, args *GetSecurityGroupsArgs, opts ..
 type GetSecurityGroupsArgs struct {
 	// One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out [describe-security-groups in the AWS CLI reference][1].
 	Filters []GetSecurityGroupsFilter `pulumi:"filters"`
-	// A map of tags, each pair of which must exactly match for desired security groups.
+	// Map of tags, each pair of which must exactly match for desired security groups.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -39,7 +39,7 @@ type GetSecurityGroupsResult struct {
 	// IDs of the matches security groups.
 	Ids  []string          `pulumi:"ids"`
 	Tags map[string]string `pulumi:"tags"`
-	// The VPC IDs of the matched security groups. The data source's tag or filter *will span VPCs* unless the `vpc-id` filter is also used.
+	// VPC IDs of the matched security groups. The data source's tag or filter *will span VPCs* unless the `vpc-id` filter is also used.
 	VpcIds []string `pulumi:"vpcIds"`
 }
 
@@ -60,7 +60,7 @@ func GetSecurityGroupsOutput(ctx *pulumi.Context, args GetSecurityGroupsOutputAr
 type GetSecurityGroupsOutputArgs struct {
 	// One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out [describe-security-groups in the AWS CLI reference][1].
 	Filters GetSecurityGroupsFilterArrayInput `pulumi:"filters"`
-	// A map of tags, each pair of which must exactly match for desired security groups.
+	// Map of tags, each pair of which must exactly match for desired security groups.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -106,7 +106,7 @@ func (o GetSecurityGroupsResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetSecurityGroupsResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The VPC IDs of the matched security groups. The data source's tag or filter *will span VPCs* unless the `vpc-id` filter is also used.
+// VPC IDs of the matched security groups. The data source's tag or filter *will span VPCs* unless the `vpc-id` filter is also used.
 func (o GetSecurityGroupsResultOutput) VpcIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetSecurityGroupsResult) []string { return v.VpcIds }).(pulumi.StringArrayOutput)
 }

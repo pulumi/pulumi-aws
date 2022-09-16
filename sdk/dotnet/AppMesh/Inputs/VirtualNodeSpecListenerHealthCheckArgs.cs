@@ -13,43 +13,43 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class VirtualNodeSpecListenerHealthCheckArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The number of consecutive successful health checks that must occur before declaring listener healthy.
+        /// Number of consecutive successful health checks that must occur before declaring listener healthy.
         /// </summary>
         [Input("healthyThreshold", required: true)]
         public Input<int> HealthyThreshold { get; set; } = null!;
 
         /// <summary>
-        /// The time period in milliseconds between each health check execution.
+        /// Time period in milliseconds between each health check execution.
         /// </summary>
         [Input("intervalMillis", required: true)]
         public Input<int> IntervalMillis { get; set; } = null!;
 
         /// <summary>
-        /// The destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
+        /// Destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
         /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
 
         /// <summary>
-        /// The destination port for the health check request. This port must match the port defined in the `port_mapping` for the listener.
+        /// Destination port for the health check request. This port must match the port defined in the `port_mapping` for the listener.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// The protocol for the health check request. Valid values are `http`, `http2`, `tcp` and `grpc`.
+        /// Protocol for the health check request. Valid values are `http`, `http2`, `tcp` and `grpc`.
         /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
 
         /// <summary>
-        /// The amount of time to wait when receiving a response from the health check, in milliseconds.
+        /// Amount of time to wait when receiving a response from the health check, in milliseconds.
         /// </summary>
         [Input("timeoutMillis", required: true)]
         public Input<int> TimeoutMillis { get; set; } = null!;
 
         /// <summary>
-        /// The number of consecutive failed health checks that must occur before declaring a virtual node unhealthy.
+        /// Number of consecutive failed health checks that must occur before declaring a virtual node unhealthy.
         /// </summary>
         [Input("unhealthyThreshold", required: true)]
         public Input<int> UnhealthyThreshold { get; set; } = null!;

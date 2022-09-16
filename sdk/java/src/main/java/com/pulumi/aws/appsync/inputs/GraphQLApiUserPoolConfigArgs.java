@@ -16,14 +16,14 @@ public final class GraphQLApiUserPoolConfigArgs extends com.pulumi.resources.Res
     public static final GraphQLApiUserPoolConfigArgs Empty = new GraphQLApiUserPoolConfigArgs();
 
     /**
-     * A regular expression for validating the incoming Amazon Cognito User Pool app client ID.
+     * Regular expression for validating the incoming Amazon Cognito User Pool app client ID.
      * 
      */
     @Import(name="appIdClientRegex")
     private @Nullable Output<String> appIdClientRegex;
 
     /**
-     * @return A regular expression for validating the incoming Amazon Cognito User Pool app client ID.
+     * @return Regular expression for validating the incoming Amazon Cognito User Pool app client ID.
      * 
      */
     public Optional<Output<String>> appIdClientRegex() {
@@ -31,14 +31,14 @@ public final class GraphQLApiUserPoolConfigArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The AWS region in which the user pool was created.
+     * AWS region in which the user pool was created.
      * 
      */
     @Import(name="awsRegion")
     private @Nullable Output<String> awsRegion;
 
     /**
-     * @return The AWS region in which the user pool was created.
+     * @return AWS region in which the user pool was created.
      * 
      */
     public Optional<Output<String>> awsRegion() {
@@ -46,14 +46,14 @@ public final class GraphQLApiUserPoolConfigArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn&#39;t match the Amazon Cognito User Pool configuration. Valid: `ALLOW` and `DENY`
+     * Action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn&#39;t match the Amazon Cognito User Pool configuration. Valid: `ALLOW` and `DENY`
      * 
      */
     @Import(name="defaultAction", required=true)
     private Output<String> defaultAction;
 
     /**
-     * @return The action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn&#39;t match the Amazon Cognito User Pool configuration. Valid: `ALLOW` and `DENY`
+     * @return Action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn&#39;t match the Amazon Cognito User Pool configuration. Valid: `ALLOW` and `DENY`
      * 
      */
     public Output<String> defaultAction() {
@@ -61,14 +61,14 @@ public final class GraphQLApiUserPoolConfigArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The user pool ID.
+     * User pool ID.
      * 
      */
     @Import(name="userPoolId", required=true)
     private Output<String> userPoolId;
 
     /**
-     * @return The user pool ID.
+     * @return User pool ID.
      * 
      */
     public Output<String> userPoolId() {
@@ -103,7 +103,7 @@ public final class GraphQLApiUserPoolConfigArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param appIdClientRegex A regular expression for validating the incoming Amazon Cognito User Pool app client ID.
+         * @param appIdClientRegex Regular expression for validating the incoming Amazon Cognito User Pool app client ID.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class GraphQLApiUserPoolConfigArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param appIdClientRegex A regular expression for validating the incoming Amazon Cognito User Pool app client ID.
+         * @param appIdClientRegex Regular expression for validating the incoming Amazon Cognito User Pool app client ID.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class GraphQLApiUserPoolConfigArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param awsRegion The AWS region in which the user pool was created.
+         * @param awsRegion AWS region in which the user pool was created.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class GraphQLApiUserPoolConfigArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param awsRegion The AWS region in which the user pool was created.
+         * @param awsRegion AWS region in which the user pool was created.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class GraphQLApiUserPoolConfigArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param defaultAction The action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn&#39;t match the Amazon Cognito User Pool configuration. Valid: `ALLOW` and `DENY`
+         * @param defaultAction Action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn&#39;t match the Amazon Cognito User Pool configuration. Valid: `ALLOW` and `DENY`
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class GraphQLApiUserPoolConfigArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param defaultAction The action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn&#39;t match the Amazon Cognito User Pool configuration. Valid: `ALLOW` and `DENY`
+         * @param defaultAction Action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn&#39;t match the Amazon Cognito User Pool configuration. Valid: `ALLOW` and `DENY`
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class GraphQLApiUserPoolConfigArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param userPoolId The user pool ID.
+         * @param userPoolId User pool ID.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class GraphQLApiUserPoolConfigArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param userPoolId The user pool ID.
+         * @param userPoolId User pool ID.
          * 
          * @return builder
          * 

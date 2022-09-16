@@ -19,7 +19,7 @@ class RestApiPolicyArgs:
         """
         The set of arguments for constructing a RestApiPolicy resource.
         :param pulumi.Input[str] policy: JSON formatted policy document that controls access to the API Gateway.
-        :param pulumi.Input[str] rest_api_id: The ID of the REST API.
+        :param pulumi.Input[str] rest_api_id: ID of the REST API.
         """
         pulumi.set(__self__, "policy", policy)
         pulumi.set(__self__, "rest_api_id", rest_api_id)
@@ -40,7 +40,7 @@ class RestApiPolicyArgs:
     @pulumi.getter(name="restApiId")
     def rest_api_id(self) -> pulumi.Input[str]:
         """
-        The ID of the REST API.
+        ID of the REST API.
         """
         return pulumi.get(self, "rest_api_id")
 
@@ -57,7 +57,7 @@ class _RestApiPolicyState:
         """
         Input properties used for looking up and filtering RestApiPolicy resources.
         :param pulumi.Input[str] policy: JSON formatted policy document that controls access to the API Gateway.
-        :param pulumi.Input[str] rest_api_id: The ID of the REST API.
+        :param pulumi.Input[str] rest_api_id: ID of the REST API.
         """
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
@@ -80,7 +80,7 @@ class _RestApiPolicyState:
     @pulumi.getter(name="restApiId")
     def rest_api_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the REST API.
+        ID of the REST API.
         """
         return pulumi.get(self, "rest_api_id")
 
@@ -144,7 +144,7 @@ class RestApiPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] policy: JSON formatted policy document that controls access to the API Gateway.
-        :param pulumi.Input[str] rest_api_id: The ID of the REST API.
+        :param pulumi.Input[str] rest_api_id: ID of the REST API.
         """
         ...
     @overload
@@ -248,7 +248,7 @@ class RestApiPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] policy: JSON formatted policy document that controls access to the API Gateway.
-        :param pulumi.Input[str] rest_api_id: The ID of the REST API.
+        :param pulumi.Input[str] rest_api_id: ID of the REST API.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -270,7 +270,7 @@ class RestApiPolicy(pulumi.CustomResource):
     @pulumi.getter(name="restApiId")
     def rest_api_id(self) -> pulumi.Output[str]:
         """
-        The ID of the REST API.
+        ID of the REST API.
         """
         return pulumi.get(self, "rest_api_id")
 

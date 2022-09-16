@@ -21,14 +21,14 @@ public final class UsagePlanArgs extends com.pulumi.resources.ResourceArgs {
     public static final UsagePlanArgs Empty = new UsagePlanArgs();
 
     /**
-     * The associated API stages of the usage plan.
+     * Associated API stages of the usage plan.
      * 
      */
     @Import(name="apiStages")
     private @Nullable Output<List<UsagePlanApiStageArgs>> apiStages;
 
     /**
-     * @return The associated API stages of the usage plan.
+     * @return Associated API stages of the usage plan.
      * 
      */
     public Optional<Output<List<UsagePlanApiStageArgs>>> apiStages() {
@@ -36,14 +36,14 @@ public final class UsagePlanArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The description of a usage plan.
+     * Description of a usage plan.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description of a usage plan.
+     * @return Description of a usage plan.
      * 
      */
     public Optional<Output<String>> description() {
@@ -51,14 +51,14 @@ public final class UsagePlanArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the usage plan.
+     * Name of the usage plan.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the usage plan.
+     * @return Name of the usage plan.
      * 
      */
     public Optional<Output<String>> name() {
@@ -66,14 +66,14 @@ public final class UsagePlanArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
+     * AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
      * 
      */
     @Import(name="productCode")
     private @Nullable Output<String> productCode;
 
     /**
-     * @return The AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
+     * @return AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
      * 
      */
     public Optional<Output<String>> productCode() {
@@ -156,7 +156,7 @@ public final class UsagePlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param apiStages The associated API stages of the usage plan.
+         * @param apiStages Associated API stages of the usage plan.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class UsagePlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param apiStages The associated API stages of the usage plan.
+         * @param apiStages Associated API stages of the usage plan.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class UsagePlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param apiStages The associated API stages of the usage plan.
+         * @param apiStages Associated API stages of the usage plan.
          * 
          * @return builder
          * 
@@ -187,7 +187,7 @@ public final class UsagePlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The description of a usage plan.
+         * @param description Description of a usage plan.
          * 
          * @return builder
          * 
@@ -198,7 +198,7 @@ public final class UsagePlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The description of a usage plan.
+         * @param description Description of a usage plan.
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class UsagePlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the usage plan.
+         * @param name Name of the usage plan.
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class UsagePlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the usage plan.
+         * @param name Name of the usage plan.
          * 
          * @return builder
          * 
@@ -229,7 +229,7 @@ public final class UsagePlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param productCode The AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
+         * @param productCode AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
          * 
          * @return builder
          * 
@@ -240,7 +240,7 @@ public final class UsagePlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param productCode The AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
+         * @param productCode AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
          * 
          * @return builder
          * 

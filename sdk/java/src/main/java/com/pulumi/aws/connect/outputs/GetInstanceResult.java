@@ -11,28 +11,28 @@ import java.util.Objects;
 @CustomType
 public final class GetInstanceResult {
     /**
-     * @return The Amazon Resource Name (ARN) of the instance.
+     * @return ARN of the instance.
      * 
      */
     private String arn;
     private Boolean autoResolveBestVoicesEnabled;
     /**
-     * @return Specifies Whether contact flow logs are enabled.
+     * @return Whether contact flow logs are enabled.
      * 
      */
     private Boolean contactFlowLogsEnabled;
     /**
-     * @return Specifies Whether contact lens is enabled.
+     * @return Whether contact lens is enabled.
      * 
      */
     private Boolean contactLensEnabled;
     /**
-     * @return Specifies When the instance was created.
+     * @return When the instance was created.
      * 
      */
     private String createdTime;
     /**
-     * @return Specifies Whether early media for outbound calls is enabled .
+     * @return Whether early media for outbound calls is enabled .
      * 
      */
     private Boolean earlyMediaEnabled;
@@ -47,31 +47,31 @@ public final class GetInstanceResult {
      */
     private String identityManagementType;
     /**
-     * @return Specifies Whether inbound calls are enabled.
+     * @return Whether inbound calls are enabled.
      * 
      */
     private Boolean inboundCallsEnabled;
     private String instanceAlias;
     private String instanceId;
     /**
-     * @return Specifies Whether outbound calls are enabled.
+     * @return Whether outbound calls are enabled.
      * 
      */
     private Boolean outboundCallsEnabled;
     /**
-     * @return The service role of the instance.
+     * @return Service role of the instance.
      * 
      */
     private String serviceRole;
     /**
-     * @return Specifies The state of the instance.
+     * @return State of the instance.
      * 
      */
     private String status;
 
     private GetInstanceResult() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the instance.
+     * @return ARN of the instance.
      * 
      */
     public String arn() {
@@ -81,28 +81,28 @@ public final class GetInstanceResult {
         return this.autoResolveBestVoicesEnabled;
     }
     /**
-     * @return Specifies Whether contact flow logs are enabled.
+     * @return Whether contact flow logs are enabled.
      * 
      */
     public Boolean contactFlowLogsEnabled() {
         return this.contactFlowLogsEnabled;
     }
     /**
-     * @return Specifies Whether contact lens is enabled.
+     * @return Whether contact lens is enabled.
      * 
      */
     public Boolean contactLensEnabled() {
         return this.contactLensEnabled;
     }
     /**
-     * @return Specifies When the instance was created.
+     * @return When the instance was created.
      * 
      */
     public String createdTime() {
         return this.createdTime;
     }
     /**
-     * @return Specifies Whether early media for outbound calls is enabled .
+     * @return Whether early media for outbound calls is enabled .
      * 
      */
     public Boolean earlyMediaEnabled() {
@@ -123,7 +123,7 @@ public final class GetInstanceResult {
         return this.identityManagementType;
     }
     /**
-     * @return Specifies Whether inbound calls are enabled.
+     * @return Whether inbound calls are enabled.
      * 
      */
     public Boolean inboundCallsEnabled() {
@@ -136,21 +136,21 @@ public final class GetInstanceResult {
         return this.instanceId;
     }
     /**
-     * @return Specifies Whether outbound calls are enabled.
+     * @return Whether outbound calls are enabled.
      * 
      */
     public Boolean outboundCallsEnabled() {
         return this.outboundCallsEnabled;
     }
     /**
-     * @return The service role of the instance.
+     * @return Service role of the instance.
      * 
      */
     public String serviceRole() {
         return this.serviceRole;
     }
     /**
-     * @return Specifies The state of the instance.
+     * @return State of the instance.
      * 
      */
     public String status() {

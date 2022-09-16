@@ -17,14 +17,14 @@ public final class ServiceSourceConfigurationCodeRepositoryCodeConfigurationCode
     public static final ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgs Empty = new ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgs();
 
     /**
-     * The command App Runner runs to build your application.
+     * Command App Runner runs to build your application.
      * 
      */
     @Import(name="buildCommand")
     private @Nullable Output<String> buildCommand;
 
     /**
-     * @return The command App Runner runs to build your application.
+     * @return Command App Runner runs to build your application.
      * 
      */
     public Optional<Output<String>> buildCommand() {
@@ -32,14 +32,14 @@ public final class ServiceSourceConfigurationCodeRepositoryCodeConfigurationCode
     }
 
     /**
-     * The port that your application listens to in the container. Defaults to `&#34;8080&#34;`.
+     * Port that your application listens to in the container. Defaults to `&#34;8080&#34;`.
      * 
      */
     @Import(name="port")
     private @Nullable Output<String> port;
 
     /**
-     * @return The port that your application listens to in the container. Defaults to `&#34;8080&#34;`.
+     * @return Port that your application listens to in the container. Defaults to `&#34;8080&#34;`.
      * 
      */
     public Optional<Output<String>> port() {
@@ -47,14 +47,14 @@ public final class ServiceSourceConfigurationCodeRepositoryCodeConfigurationCode
     }
 
     /**
-     * A runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`.
+     * Runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`.
      * 
      */
     @Import(name="runtime", required=true)
     private Output<String> runtime;
 
     /**
-     * @return A runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`.
+     * @return Runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`.
      * 
      */
     public Output<String> runtime() {
@@ -77,14 +77,14 @@ public final class ServiceSourceConfigurationCodeRepositoryCodeConfigurationCode
     }
 
     /**
-     * The command App Runner runs to start your application.
+     * Command App Runner runs to start your application.
      * 
      */
     @Import(name="startCommand")
     private @Nullable Output<String> startCommand;
 
     /**
-     * @return The command App Runner runs to start your application.
+     * @return Command App Runner runs to start your application.
      * 
      */
     public Optional<Output<String>> startCommand() {
@@ -120,7 +120,7 @@ public final class ServiceSourceConfigurationCodeRepositoryCodeConfigurationCode
         }
 
         /**
-         * @param buildCommand The command App Runner runs to build your application.
+         * @param buildCommand Command App Runner runs to build your application.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class ServiceSourceConfigurationCodeRepositoryCodeConfigurationCode
         }
 
         /**
-         * @param buildCommand The command App Runner runs to build your application.
+         * @param buildCommand Command App Runner runs to build your application.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class ServiceSourceConfigurationCodeRepositoryCodeConfigurationCode
         }
 
         /**
-         * @param port The port that your application listens to in the container. Defaults to `&#34;8080&#34;`.
+         * @param port Port that your application listens to in the container. Defaults to `&#34;8080&#34;`.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class ServiceSourceConfigurationCodeRepositoryCodeConfigurationCode
         }
 
         /**
-         * @param port The port that your application listens to in the container. Defaults to `&#34;8080&#34;`.
+         * @param port Port that your application listens to in the container. Defaults to `&#34;8080&#34;`.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class ServiceSourceConfigurationCodeRepositoryCodeConfigurationCode
         }
 
         /**
-         * @param runtime A runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`.
+         * @param runtime Runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class ServiceSourceConfigurationCodeRepositoryCodeConfigurationCode
         }
 
         /**
-         * @param runtime A runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`.
+         * @param runtime Runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class ServiceSourceConfigurationCodeRepositoryCodeConfigurationCode
         }
 
         /**
-         * @param startCommand The command App Runner runs to start your application.
+         * @param startCommand Command App Runner runs to start your application.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class ServiceSourceConfigurationCodeRepositoryCodeConfigurationCode
         }
 
         /**
-         * @param startCommand The command App Runner runs to start your application.
+         * @param startCommand Command App Runner runs to start your application.
          * 
          * @return builder
          * 

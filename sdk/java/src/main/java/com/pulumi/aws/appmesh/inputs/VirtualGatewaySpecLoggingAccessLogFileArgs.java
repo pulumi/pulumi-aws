@@ -14,14 +14,14 @@ public final class VirtualGatewaySpecLoggingAccessLogFileArgs extends com.pulumi
     public static final VirtualGatewaySpecLoggingAccessLogFileArgs Empty = new VirtualGatewaySpecLoggingAccessLogFileArgs();
 
     /**
-     * The file path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
+     * File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
      * 
      */
     @Import(name="path", required=true)
     private Output<String> path;
 
     /**
-     * @return The file path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
+     * @return File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
      * 
      */
     public Output<String> path() {
@@ -53,7 +53,7 @@ public final class VirtualGatewaySpecLoggingAccessLogFileArgs extends com.pulumi
         }
 
         /**
-         * @param path The file path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
+         * @param path File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class VirtualGatewaySpecLoggingAccessLogFileArgs extends com.pulumi
         }
 
         /**
-         * @param path The file path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
+         * @param path File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
          * 
          * @return builder
          * 

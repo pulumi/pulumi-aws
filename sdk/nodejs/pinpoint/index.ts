@@ -5,30 +5,61 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./admChannel";
-export * from "./apnsChannel";
-export * from "./apnsSandboxChannel";
-export * from "./apnsVoipChannel";
-export * from "./apnsVoipSandboxChannel";
-export * from "./app";
-export * from "./baiduChannel";
-export * from "./emailChannel";
-export * from "./eventStream";
-export * from "./gcmChannel";
-export * from "./smsChannel";
+export { AdmChannelArgs, AdmChannelState } from "./admChannel";
+export type AdmChannel = import("./admChannel").AdmChannel;
+export const AdmChannel: typeof import("./admChannel").AdmChannel = null as any;
 
-// Import resources to register:
-import { AdmChannel } from "./admChannel";
-import { ApnsChannel } from "./apnsChannel";
-import { ApnsSandboxChannel } from "./apnsSandboxChannel";
-import { ApnsVoipChannel } from "./apnsVoipChannel";
-import { ApnsVoipSandboxChannel } from "./apnsVoipSandboxChannel";
-import { App } from "./app";
-import { BaiduChannel } from "./baiduChannel";
-import { EmailChannel } from "./emailChannel";
-import { EventStream } from "./eventStream";
-import { GcmChannel } from "./gcmChannel";
-import { SmsChannel } from "./smsChannel";
+export { ApnsChannelArgs, ApnsChannelState } from "./apnsChannel";
+export type ApnsChannel = import("./apnsChannel").ApnsChannel;
+export const ApnsChannel: typeof import("./apnsChannel").ApnsChannel = null as any;
+
+export { ApnsSandboxChannelArgs, ApnsSandboxChannelState } from "./apnsSandboxChannel";
+export type ApnsSandboxChannel = import("./apnsSandboxChannel").ApnsSandboxChannel;
+export const ApnsSandboxChannel: typeof import("./apnsSandboxChannel").ApnsSandboxChannel = null as any;
+
+export { ApnsVoipChannelArgs, ApnsVoipChannelState } from "./apnsVoipChannel";
+export type ApnsVoipChannel = import("./apnsVoipChannel").ApnsVoipChannel;
+export const ApnsVoipChannel: typeof import("./apnsVoipChannel").ApnsVoipChannel = null as any;
+
+export { ApnsVoipSandboxChannelArgs, ApnsVoipSandboxChannelState } from "./apnsVoipSandboxChannel";
+export type ApnsVoipSandboxChannel = import("./apnsVoipSandboxChannel").ApnsVoipSandboxChannel;
+export const ApnsVoipSandboxChannel: typeof import("./apnsVoipSandboxChannel").ApnsVoipSandboxChannel = null as any;
+
+export { AppArgs, AppState } from "./app";
+export type App = import("./app").App;
+export const App: typeof import("./app").App = null as any;
+
+export { BaiduChannelArgs, BaiduChannelState } from "./baiduChannel";
+export type BaiduChannel = import("./baiduChannel").BaiduChannel;
+export const BaiduChannel: typeof import("./baiduChannel").BaiduChannel = null as any;
+
+export { EmailChannelArgs, EmailChannelState } from "./emailChannel";
+export type EmailChannel = import("./emailChannel").EmailChannel;
+export const EmailChannel: typeof import("./emailChannel").EmailChannel = null as any;
+
+export { EventStreamArgs, EventStreamState } from "./eventStream";
+export type EventStream = import("./eventStream").EventStream;
+export const EventStream: typeof import("./eventStream").EventStream = null as any;
+
+export { GcmChannelArgs, GcmChannelState } from "./gcmChannel";
+export type GcmChannel = import("./gcmChannel").GcmChannel;
+export const GcmChannel: typeof import("./gcmChannel").GcmChannel = null as any;
+
+export { SmsChannelArgs, SmsChannelState } from "./smsChannel";
+export type SmsChannel = import("./smsChannel").SmsChannel;
+export const SmsChannel: typeof import("./smsChannel").SmsChannel = null as any;
+
+utilities.lazyLoad(exports, ["AdmChannel"], () => require("./admChannel"));
+utilities.lazyLoad(exports, ["ApnsChannel"], () => require("./apnsChannel"));
+utilities.lazyLoad(exports, ["ApnsSandboxChannel"], () => require("./apnsSandboxChannel"));
+utilities.lazyLoad(exports, ["ApnsVoipChannel"], () => require("./apnsVoipChannel"));
+utilities.lazyLoad(exports, ["ApnsVoipSandboxChannel"], () => require("./apnsVoipSandboxChannel"));
+utilities.lazyLoad(exports, ["App"], () => require("./app"));
+utilities.lazyLoad(exports, ["BaiduChannel"], () => require("./baiduChannel"));
+utilities.lazyLoad(exports, ["EmailChannel"], () => require("./emailChannel"));
+utilities.lazyLoad(exports, ["EventStream"], () => require("./eventStream"));
+utilities.lazyLoad(exports, ["GcmChannel"], () => require("./gcmChannel"));
+utilities.lazyLoad(exports, ["SmsChannel"], () => require("./smsChannel"));
 
 const _module = {
     version: utilities.getVersion(),

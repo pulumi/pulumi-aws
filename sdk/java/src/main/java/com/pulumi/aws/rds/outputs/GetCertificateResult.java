@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetCertificateResult {
     /**
-     * @return Amazon Resource Name (ARN) of the certificate.
+     * @return ARN of the certificate.
      * 
      */
     private String arn;
@@ -52,7 +52,7 @@ public final class GetCertificateResult {
 
     private GetCertificateResult() {}
     /**
-     * @return Amazon Resource Name (ARN) of the certificate.
+     * @return ARN of the certificate.
      * 
      */
     public String arn() {

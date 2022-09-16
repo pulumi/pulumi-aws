@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -60,7 +62,7 @@ export interface GetVpnAttachmentArgs {
      */
     filters?: inputs.ec2transitgateway.GetVpnAttachmentFilter[];
     /**
-     * A map of tags, each pair of which must exactly match a pair on the desired Transit Gateway VPN Attachment.
+     * Map of tags, each pair of which must exactly match a pair on the desired Transit Gateway VPN Attachment.
      */
     tags?: {[key: string]: string};
     /**
@@ -103,7 +105,7 @@ export interface GetVpnAttachmentOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2transitgateway.GetVpnAttachmentFilterArgs>[]>;
     /**
-     * A map of tags, each pair of which must exactly match a pair on the desired Transit Gateway VPN Attachment.
+     * Map of tags, each pair of which must exactly match a pair on the desired Transit Gateway VPN Attachment.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

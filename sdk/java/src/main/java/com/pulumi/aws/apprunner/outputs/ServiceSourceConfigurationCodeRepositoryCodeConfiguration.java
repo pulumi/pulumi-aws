@@ -18,7 +18,7 @@ public final class ServiceSourceConfigurationCodeRepositoryCodeConfiguration {
      */
     private @Nullable ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues codeConfigurationValues;
     /**
-     * @return The source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Values are interpreted as follows:
+     * @return Source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Values are interpreted as follows:
      * 
      */
     private String configurationSource;
@@ -32,7 +32,7 @@ public final class ServiceSourceConfigurationCodeRepositoryCodeConfiguration {
         return Optional.ofNullable(this.codeConfigurationValues);
     }
     /**
-     * @return The source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Values are interpreted as follows:
+     * @return Source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Values are interpreted as follows:
      * 
      */
     public String configurationSource() {

@@ -862,7 +862,7 @@ class GetUserAuthenticationModeResult(dict):
                  type: str):
         """
         :param int password_count: The number of passwords belonging to the user.
-        :param str type: Indicates whether the user requires a password to authenticate.
+        :param str type: Whether the user requires a password to authenticate.
         """
         pulumi.set(__self__, "password_count", password_count)
         pulumi.set(__self__, "type", type)
@@ -879,7 +879,7 @@ class GetUserAuthenticationModeResult(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Indicates whether the user requires a password to authenticate.
+        Whether the user requires a password to authenticate.
         """
         return pulumi.get(self, "type")
 

@@ -64,15 +64,15 @@ import (
 type Webhook struct {
 	pulumi.CustomResourceState
 
-	// The unique ID for an Amplify app.
+	// Unique ID for an Amplify app.
 	AppId pulumi.StringOutput `pulumi:"appId"`
-	// The Amazon Resource Name (ARN) for the webhook.
+	// ARN for the webhook.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The name for a branch that is part of the Amplify app.
+	// Name for a branch that is part of the Amplify app.
 	BranchName pulumi.StringOutput `pulumi:"branchName"`
-	// The description for a webhook.
+	// Description for a webhook.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The URL of the webhook.
+	// URL of the webhook.
 	Url pulumi.StringOutput `pulumi:"url"`
 }
 
@@ -111,28 +111,28 @@ func GetWebhook(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Webhook resources.
 type webhookState struct {
-	// The unique ID for an Amplify app.
+	// Unique ID for an Amplify app.
 	AppId *string `pulumi:"appId"`
-	// The Amazon Resource Name (ARN) for the webhook.
+	// ARN for the webhook.
 	Arn *string `pulumi:"arn"`
-	// The name for a branch that is part of the Amplify app.
+	// Name for a branch that is part of the Amplify app.
 	BranchName *string `pulumi:"branchName"`
-	// The description for a webhook.
+	// Description for a webhook.
 	Description *string `pulumi:"description"`
-	// The URL of the webhook.
+	// URL of the webhook.
 	Url *string `pulumi:"url"`
 }
 
 type WebhookState struct {
-	// The unique ID for an Amplify app.
+	// Unique ID for an Amplify app.
 	AppId pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) for the webhook.
+	// ARN for the webhook.
 	Arn pulumi.StringPtrInput
-	// The name for a branch that is part of the Amplify app.
+	// Name for a branch that is part of the Amplify app.
 	BranchName pulumi.StringPtrInput
-	// The description for a webhook.
+	// Description for a webhook.
 	Description pulumi.StringPtrInput
-	// The URL of the webhook.
+	// URL of the webhook.
 	Url pulumi.StringPtrInput
 }
 
@@ -141,21 +141,21 @@ func (WebhookState) ElementType() reflect.Type {
 }
 
 type webhookArgs struct {
-	// The unique ID for an Amplify app.
+	// Unique ID for an Amplify app.
 	AppId string `pulumi:"appId"`
-	// The name for a branch that is part of the Amplify app.
+	// Name for a branch that is part of the Amplify app.
 	BranchName string `pulumi:"branchName"`
-	// The description for a webhook.
+	// Description for a webhook.
 	Description *string `pulumi:"description"`
 }
 
 // The set of arguments for constructing a Webhook resource.
 type WebhookArgs struct {
-	// The unique ID for an Amplify app.
+	// Unique ID for an Amplify app.
 	AppId pulumi.StringInput
-	// The name for a branch that is part of the Amplify app.
+	// Name for a branch that is part of the Amplify app.
 	BranchName pulumi.StringInput
-	// The description for a webhook.
+	// Description for a webhook.
 	Description pulumi.StringPtrInput
 }
 
@@ -246,27 +246,27 @@ func (o WebhookOutput) ToWebhookOutputWithContext(ctx context.Context) WebhookOu
 	return o
 }
 
-// The unique ID for an Amplify app.
+// Unique ID for an Amplify app.
 func (o WebhookOutput) AppId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Webhook) pulumi.StringOutput { return v.AppId }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) for the webhook.
+// ARN for the webhook.
 func (o WebhookOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Webhook) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The name for a branch that is part of the Amplify app.
+// Name for a branch that is part of the Amplify app.
 func (o WebhookOutput) BranchName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Webhook) pulumi.StringOutput { return v.BranchName }).(pulumi.StringOutput)
 }
 
-// The description for a webhook.
+// Description for a webhook.
 func (o WebhookOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Webhook) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The URL of the webhook.
+// URL of the webhook.
 func (o WebhookOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v *Webhook) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
 }

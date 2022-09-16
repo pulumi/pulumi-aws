@@ -16,14 +16,14 @@ public final class GetVirtualServicePlainArgs extends com.pulumi.resources.Invok
     public static final GetVirtualServicePlainArgs Empty = new GetVirtualServicePlainArgs();
 
     /**
-     * The name of the service mesh in which the virtual service exists.
+     * Name of the service mesh in which the virtual service exists.
      * 
      */
     @Import(name="meshName", required=true)
     private String meshName;
 
     /**
-     * @return The name of the service mesh in which the virtual service exists.
+     * @return Name of the service mesh in which the virtual service exists.
      * 
      */
     public String meshName() {
@@ -31,14 +31,14 @@ public final class GetVirtualServicePlainArgs extends com.pulumi.resources.Invok
     }
 
     /**
-     * The AWS account ID of the service mesh&#39;s owner.
+     * AWS account ID of the service mesh&#39;s owner.
      * 
      */
     @Import(name="meshOwner")
     private @Nullable String meshOwner;
 
     /**
-     * @return The AWS account ID of the service mesh&#39;s owner.
+     * @return AWS account ID of the service mesh&#39;s owner.
      * 
      */
     public Optional<String> meshOwner() {
@@ -46,14 +46,14 @@ public final class GetVirtualServicePlainArgs extends com.pulumi.resources.Invok
     }
 
     /**
-     * The name of the virtual service.
+     * Name of the virtual service.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return The name of the virtual service.
+     * @return Name of the virtual service.
      * 
      */
     public String name() {
@@ -61,14 +61,14 @@ public final class GetVirtualServicePlainArgs extends com.pulumi.resources.Invok
     }
 
     /**
-     * A map of tags.
+     * Map of tags.
      * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return A map of tags.
+     * @return Map of tags.
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -103,7 +103,7 @@ public final class GetVirtualServicePlainArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param meshName The name of the service mesh in which the virtual service exists.
+         * @param meshName Name of the service mesh in which the virtual service exists.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class GetVirtualServicePlainArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param meshOwner The AWS account ID of the service mesh&#39;s owner.
+         * @param meshOwner AWS account ID of the service mesh&#39;s owner.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class GetVirtualServicePlainArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param name The name of the virtual service.
+         * @param name Name of the virtual service.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class GetVirtualServicePlainArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param tags A map of tags.
+         * @param tags Map of tags.
          * 
          * @return builder
          * 

@@ -35,6 +35,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &KeyGroup{}
 	case "aws:cloudfront/monitoringSubscription:MonitoringSubscription":
 		r = &MonitoringSubscription{}
+	case "aws:cloudfront/originAccessControl:OriginAccessControl":
+		r = &OriginAccessControl{}
 	case "aws:cloudfront/originAccessIdentity:OriginAccessIdentity":
 		r = &OriginAccessIdentity{}
 	case "aws:cloudfront/originRequestPolicy:OriginRequestPolicy":
@@ -91,6 +93,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"cloudfront/monitoringSubscription",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"cloudfront/originAccessControl",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

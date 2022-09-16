@@ -57,7 +57,7 @@ class GetLocalGatewayResult:
     @pulumi.getter(name="outpostArn")
     def outpost_arn(self) -> str:
         """
-        Amazon Resource Name (ARN) of Outpost
+        ARN of Outpost
         """
         return pulumi.get(self, "outpost_arn")
 
@@ -120,10 +120,10 @@ def get_local_gateway(filters: Optional[Sequence[pulumi.InputType['GetLocalGatew
 
 
     :param Sequence[pulumi.InputType['GetLocalGatewayFilterArgs']] filters: Custom filter block as described below.
-    :param str id: The id of the specific Local Gateway to retrieve.
-    :param str state: The current state of the desired Local Gateway.
+    :param str id: Id of the specific Local Gateway to retrieve.
+    :param str state: Current state of the desired Local Gateway.
            Can be either `"pending"` or `"available"`.
-    :param Mapping[str, str] tags: A mapping of tags, each pair of which must exactly match
+    :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the desired Local Gateway.
     """
     __args__ = dict()
@@ -167,10 +167,10 @@ def get_local_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[pu
 
 
     :param Sequence[pulumi.InputType['GetLocalGatewayFilterArgs']] filters: Custom filter block as described below.
-    :param str id: The id of the specific Local Gateway to retrieve.
-    :param str state: The current state of the desired Local Gateway.
+    :param str id: Id of the specific Local Gateway to retrieve.
+    :param str state: Current state of the desired Local Gateway.
            Can be either `"pending"` or `"available"`.
-    :param Mapping[str, str] tags: A mapping of tags, each pair of which must exactly match
+    :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the desired Local Gateway.
     """
     ...

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class VirtualRouterSpec
     {
         /// <summary>
-        /// The listeners that the virtual router is expected to receive inbound traffic from.
+        /// Listeners that the virtual router is expected to receive inbound traffic from.
         /// Currently only one listener is supported per virtual router.
         /// </summary>
         public readonly Outputs.VirtualRouterSpecListener Listener;

@@ -19,14 +19,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDa
     public static final FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataArgs Empty = new FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataArgs();
 
     /**
-     * The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+     * Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
      * 
      */
     @Import(name="errorHandlingConfig")
     private @Nullable Output<FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigArgs> errorHandlingConfig;
 
     /**
-     * @return The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+     * @return Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
      * 
      */
     public Optional<Output<FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigArgs>> errorHandlingConfig() {
@@ -34,14 +34,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDa
     }
 
     /**
-     * The name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+     * Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
      * 
      */
     @Import(name="idFieldNames")
     private @Nullable Output<List<String>> idFieldNames;
 
     /**
-     * @return The name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+     * @return Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
      * 
      */
     public Optional<Output<List<String>>> idFieldNames() {
@@ -49,14 +49,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDa
     }
 
     /**
-     * The object path specified in the SAPOData flow source.
+     * Object path specified in the SAPOData flow source.
      * 
      */
     @Import(name="objectPath", required=true)
     private Output<String> objectPath;
 
     /**
-     * @return The object path specified in the SAPOData flow source.
+     * @return Object path specified in the SAPOData flow source.
      * 
      */
     public Output<String> objectPath() {
@@ -122,7 +122,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDa
         }
 
         /**
-         * @param errorHandlingConfig The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+         * @param errorHandlingConfig Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDa
         }
 
         /**
-         * @param errorHandlingConfig The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+         * @param errorHandlingConfig Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDa
         }
 
         /**
-         * @param idFieldNames The name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+         * @param idFieldNames Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
          * 
          * @return builder
          * 
@@ -154,7 +154,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDa
         }
 
         /**
-         * @param idFieldNames The name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+         * @param idFieldNames Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDa
         }
 
         /**
-         * @param idFieldNames The name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+         * @param idFieldNames Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDa
         }
 
         /**
-         * @param objectPath The object path specified in the SAPOData flow source.
+         * @param objectPath Object path specified in the SAPOData flow source.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDa
         }
 
         /**
-         * @param objectPath The object path specified in the SAPOData flow source.
+         * @param objectPath Object path specified in the SAPOData flow source.
          * 
          * @return builder
          * 

@@ -96,14 +96,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:autoscaling/lifecycleHook:LifecycleHook")
 public class LifecycleHook extends com.pulumi.resources.CustomResource {
     /**
-     * The name of the Auto Scaling group to which you want to assign the lifecycle hook
+     * Name of the Auto Scaling group to which you want to assign the lifecycle hook
      * 
      */
     @Export(name="autoscalingGroupName", type=String.class, parameters={})
     private Output<String> autoscalingGroupName;
 
     /**
-     * @return The name of the Auto Scaling group to which you want to assign the lifecycle hook
+     * @return Name of the Auto Scaling group to which you want to assign the lifecycle hook
      * 
      */
     public Output<String> autoscalingGroupName() {
@@ -138,28 +138,28 @@ public class LifecycleHook extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.heartbeatTimeout);
     }
     /**
-     * The instance state to which you want to attach the lifecycle hook. For a list of lifecycle hook types, see [describe-lifecycle-hook-types](https://docs.aws.amazon.com/cli/latest/reference/autoscaling/describe-lifecycle-hook-types.html#examples)
+     * Instance state to which you want to attach the lifecycle hook. For a list of lifecycle hook types, see [describe-lifecycle-hook-types](https://docs.aws.amazon.com/cli/latest/reference/autoscaling/describe-lifecycle-hook-types.html#examples)
      * 
      */
     @Export(name="lifecycleTransition", type=String.class, parameters={})
     private Output<String> lifecycleTransition;
 
     /**
-     * @return The instance state to which you want to attach the lifecycle hook. For a list of lifecycle hook types, see [describe-lifecycle-hook-types](https://docs.aws.amazon.com/cli/latest/reference/autoscaling/describe-lifecycle-hook-types.html#examples)
+     * @return Instance state to which you want to attach the lifecycle hook. For a list of lifecycle hook types, see [describe-lifecycle-hook-types](https://docs.aws.amazon.com/cli/latest/reference/autoscaling/describe-lifecycle-hook-types.html#examples)
      * 
      */
     public Output<String> lifecycleTransition() {
         return this.lifecycleTransition;
     }
     /**
-     * The name of the lifecycle hook.
+     * Name of the lifecycle hook.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name of the lifecycle hook.
+     * @return Name of the lifecycle hook.
      * 
      */
     public Output<String> name() {
@@ -180,28 +180,28 @@ public class LifecycleHook extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.notificationMetadata);
     }
     /**
-     * The ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
+     * ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
      * 
      */
     @Export(name="notificationTargetArn", type=String.class, parameters={})
     private Output</* @Nullable */ String> notificationTargetArn;
 
     /**
-     * @return The ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
+     * @return ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
      * 
      */
     public Output<Optional<String>> notificationTargetArn() {
         return Codegen.optional(this.notificationTargetArn);
     }
     /**
-     * The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
+     * ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
      * 
      */
     @Export(name="roleArn", type=String.class, parameters={})
     private Output</* @Nullable */ String> roleArn;
 
     /**
-     * @return The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
+     * @return ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
      * 
      */
     public Output<Optional<String>> roleArn() {

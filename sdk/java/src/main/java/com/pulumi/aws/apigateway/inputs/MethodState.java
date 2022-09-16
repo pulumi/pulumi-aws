@@ -34,14 +34,14 @@ public final class MethodState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
+     * Type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
      * 
      */
     @Import(name="authorization")
     private @Nullable Output<String> authorization;
 
     /**
-     * @return The type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
+     * @return Type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
      * 
      */
     public Optional<Output<String>> authorization() {
@@ -49,14 +49,14 @@ public final class MethodState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The authorization scopes used when the authorization is `COGNITO_USER_POOLS`
+     * Authorization scopes used when the authorization is `COGNITO_USER_POOLS`
      * 
      */
     @Import(name="authorizationScopes")
     private @Nullable Output<List<String>> authorizationScopes;
 
     /**
-     * @return The authorization scopes used when the authorization is `COGNITO_USER_POOLS`
+     * @return Authorization scopes used when the authorization is `COGNITO_USER_POOLS`
      * 
      */
     public Optional<Output<List<String>>> authorizationScopes() {
@@ -64,14 +64,14 @@ public final class MethodState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
+     * Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
      * 
      */
     @Import(name="authorizerId")
     private @Nullable Output<String> authorizerId;
 
     /**
-     * @return The authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
+     * @return Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
      * 
      */
     public Optional<Output<String>> authorizerId() {
@@ -79,14 +79,14 @@ public final class MethodState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+     * HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
      * 
      */
     @Import(name="httpMethod")
     private @Nullable Output<String> httpMethod;
 
     /**
-     * @return The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+     * @return HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
      * 
      */
     public Optional<Output<String>> httpMethod() {
@@ -94,14 +94,14 @@ public final class MethodState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
+     * Function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
      * 
      */
     @Import(name="operationName")
     private @Nullable Output<String> operationName;
 
     /**
-     * @return The function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
+     * @return Function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
      * 
      */
     public Optional<Output<String>> operationName() {
@@ -109,7 +109,7 @@ public final class MethodState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of the API models used for the request&#39;s content type
+     * Map of the API models used for the request&#39;s content type
      * where key is the content type (e.g., `application/json`)
      * and value is either `Error`, `Empty` (built-in models) or `aws.apigateway.Model`&#39;s `name`.
      * 
@@ -118,7 +118,7 @@ public final class MethodState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<Map<String,String>> requestModels;
 
     /**
-     * @return A map of the API models used for the request&#39;s content type
+     * @return Map of the API models used for the request&#39;s content type
      * where key is the content type (e.g., `application/json`)
      * and value is either `Error`, `Empty` (built-in models) or `aws.apigateway.Model`&#39;s `name`.
      * 
@@ -128,7 +128,7 @@ public final class MethodState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
+     * Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
      * For example: `request_parameters = {&#34;method.request.header.X-Some-Header&#34; = true &#34;method.request.querystring.some-query-param&#34; = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
      * 
      */
@@ -136,7 +136,7 @@ public final class MethodState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<Map<String,Boolean>> requestParameters;
 
     /**
-     * @return A map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
+     * @return Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
      * For example: `request_parameters = {&#34;method.request.header.X-Some-Header&#34; = true &#34;method.request.querystring.some-query-param&#34; = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
      * 
      */
@@ -145,14 +145,14 @@ public final class MethodState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of a `aws.apigateway.RequestValidator`
+     * ID of a `aws.apigateway.RequestValidator`
      * 
      */
     @Import(name="requestValidatorId")
     private @Nullable Output<String> requestValidatorId;
 
     /**
-     * @return The ID of a `aws.apigateway.RequestValidator`
+     * @return ID of a `aws.apigateway.RequestValidator`
      * 
      */
     public Optional<Output<String>> requestValidatorId() {
@@ -160,14 +160,14 @@ public final class MethodState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The API resource ID
+     * API resource ID
      * 
      */
     @Import(name="resourceId")
     private @Nullable Output<String> resourceId;
 
     /**
-     * @return The API resource ID
+     * @return API resource ID
      * 
      */
     public Optional<Output<String>> resourceId() {
@@ -175,14 +175,14 @@ public final class MethodState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the associated REST API
+     * ID of the associated REST API
      * 
      */
     @Import(name="restApi")
     private @Nullable Output<String> restApi;
 
     /**
-     * @return The ID of the associated REST API
+     * @return ID of the associated REST API
      * 
      */
     public Optional<Output<String>> restApi() {
@@ -245,7 +245,7 @@ public final class MethodState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authorization The type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
+         * @param authorization Type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
          * 
          * @return builder
          * 
@@ -256,7 +256,7 @@ public final class MethodState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authorization The type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
+         * @param authorization Type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
          * 
          * @return builder
          * 
@@ -266,7 +266,7 @@ public final class MethodState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authorizationScopes The authorization scopes used when the authorization is `COGNITO_USER_POOLS`
+         * @param authorizationScopes Authorization scopes used when the authorization is `COGNITO_USER_POOLS`
          * 
          * @return builder
          * 
@@ -277,7 +277,7 @@ public final class MethodState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authorizationScopes The authorization scopes used when the authorization is `COGNITO_USER_POOLS`
+         * @param authorizationScopes Authorization scopes used when the authorization is `COGNITO_USER_POOLS`
          * 
          * @return builder
          * 
@@ -287,7 +287,7 @@ public final class MethodState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authorizationScopes The authorization scopes used when the authorization is `COGNITO_USER_POOLS`
+         * @param authorizationScopes Authorization scopes used when the authorization is `COGNITO_USER_POOLS`
          * 
          * @return builder
          * 
@@ -297,7 +297,7 @@ public final class MethodState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authorizerId The authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
+         * @param authorizerId Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
          * 
          * @return builder
          * 
@@ -308,7 +308,7 @@ public final class MethodState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authorizerId The authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
+         * @param authorizerId Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
          * 
          * @return builder
          * 
@@ -318,7 +318,7 @@ public final class MethodState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param httpMethod The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+         * @param httpMethod HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
          * 
          * @return builder
          * 
@@ -329,7 +329,7 @@ public final class MethodState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param httpMethod The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+         * @param httpMethod HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
          * 
          * @return builder
          * 
@@ -339,7 +339,7 @@ public final class MethodState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param operationName The function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
+         * @param operationName Function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
          * 
          * @return builder
          * 
@@ -350,7 +350,7 @@ public final class MethodState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param operationName The function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
+         * @param operationName Function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
          * 
          * @return builder
          * 
@@ -360,7 +360,7 @@ public final class MethodState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requestModels A map of the API models used for the request&#39;s content type
+         * @param requestModels Map of the API models used for the request&#39;s content type
          * where key is the content type (e.g., `application/json`)
          * and value is either `Error`, `Empty` (built-in models) or `aws.apigateway.Model`&#39;s `name`.
          * 
@@ -373,7 +373,7 @@ public final class MethodState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requestModels A map of the API models used for the request&#39;s content type
+         * @param requestModels Map of the API models used for the request&#39;s content type
          * where key is the content type (e.g., `application/json`)
          * and value is either `Error`, `Empty` (built-in models) or `aws.apigateway.Model`&#39;s `name`.
          * 
@@ -385,7 +385,7 @@ public final class MethodState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requestParameters A map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
+         * @param requestParameters Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
          * For example: `request_parameters = {&#34;method.request.header.X-Some-Header&#34; = true &#34;method.request.querystring.some-query-param&#34; = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
          * 
          * @return builder
@@ -397,7 +397,7 @@ public final class MethodState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requestParameters A map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
+         * @param requestParameters Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
          * For example: `request_parameters = {&#34;method.request.header.X-Some-Header&#34; = true &#34;method.request.querystring.some-query-param&#34; = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
          * 
          * @return builder
@@ -408,7 +408,7 @@ public final class MethodState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requestValidatorId The ID of a `aws.apigateway.RequestValidator`
+         * @param requestValidatorId ID of a `aws.apigateway.RequestValidator`
          * 
          * @return builder
          * 
@@ -419,7 +419,7 @@ public final class MethodState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requestValidatorId The ID of a `aws.apigateway.RequestValidator`
+         * @param requestValidatorId ID of a `aws.apigateway.RequestValidator`
          * 
          * @return builder
          * 
@@ -429,7 +429,7 @@ public final class MethodState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceId The API resource ID
+         * @param resourceId API resource ID
          * 
          * @return builder
          * 
@@ -440,7 +440,7 @@ public final class MethodState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceId The API resource ID
+         * @param resourceId API resource ID
          * 
          * @return builder
          * 
@@ -450,7 +450,7 @@ public final class MethodState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param restApi The ID of the associated REST API
+         * @param restApi ID of the associated REST API
          * 
          * @return builder
          * 
@@ -461,7 +461,7 @@ public final class MethodState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param restApi The ID of the associated REST API
+         * @param restApi ID of the associated REST API
          * 
          * @return builder
          * 

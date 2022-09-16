@@ -45,7 +45,7 @@ public final class SpotInstanceRequestEbsBlockDevice {
      */
     private @Nullable String snapshotId;
     /**
-     * @return A map of tags to assign to the device.
+     * @return Map of tags to assign to the device.
      * 
      */
     private @Nullable Map<String,String> tags;
@@ -110,7 +110,7 @@ public final class SpotInstanceRequestEbsBlockDevice {
         return Optional.ofNullable(this.snapshotId);
     }
     /**
-     * @return A map of tags to assign to the device.
+     * @return Map of tags to assign to the device.
      * 
      */
     public Map<String,String> tags() {

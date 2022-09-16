@@ -29,14 +29,14 @@ public final class GetFunctionArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The function’s stage, either `DEVELOPMENT` or `LIVE`.
+     * Function’s stage, either `DEVELOPMENT` or `LIVE`.
      * 
      */
     @Import(name="stage", required=true)
     private Output<String> stage;
 
     /**
-     * @return The function’s stage, either `DEVELOPMENT` or `LIVE`.
+     * @return Function’s stage, either `DEVELOPMENT` or `LIVE`.
      * 
      */
     public Output<String> stage() {
@@ -90,7 +90,7 @@ public final class GetFunctionArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param stage The function’s stage, either `DEVELOPMENT` or `LIVE`.
+         * @param stage Function’s stage, either `DEVELOPMENT` or `LIVE`.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class GetFunctionArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param stage The function’s stage, either `DEVELOPMENT` or `LIVE`.
+         * @param stage Function’s stage, either `DEVELOPMENT` or `LIVE`.
          * 
          * @return builder
          * 

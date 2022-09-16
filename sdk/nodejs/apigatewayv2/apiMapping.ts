@@ -59,7 +59,7 @@ export class ApiMapping extends pulumi.CustomResource {
     }
 
     /**
-     * The API identifier.
+     * API identifier.
      */
     public readonly apiId!: pulumi.Output<string>;
     /**
@@ -67,11 +67,11 @@ export class ApiMapping extends pulumi.CustomResource {
      */
     public readonly apiMappingKey!: pulumi.Output<string | undefined>;
     /**
-     * The domain name. Use the `aws.apigatewayv2.DomainName` resource to configure a domain name.
+     * Domain name. Use the `aws.apigatewayv2.DomainName` resource to configure a domain name.
      */
     public readonly domainName!: pulumi.Output<string>;
     /**
-     * The API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
+     * API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
      */
     public readonly stage!: pulumi.Output<string>;
 
@@ -118,7 +118,7 @@ export class ApiMapping extends pulumi.CustomResource {
  */
 export interface ApiMappingState {
     /**
-     * The API identifier.
+     * API identifier.
      */
     apiId?: pulumi.Input<string>;
     /**
@@ -126,11 +126,11 @@ export interface ApiMappingState {
      */
     apiMappingKey?: pulumi.Input<string>;
     /**
-     * The domain name. Use the `aws.apigatewayv2.DomainName` resource to configure a domain name.
+     * Domain name. Use the `aws.apigatewayv2.DomainName` resource to configure a domain name.
      */
     domainName?: pulumi.Input<string>;
     /**
-     * The API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
+     * API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
      */
     stage?: pulumi.Input<string>;
 }
@@ -140,7 +140,7 @@ export interface ApiMappingState {
  */
 export interface ApiMappingArgs {
     /**
-     * The API identifier.
+     * API identifier.
      */
     apiId: pulumi.Input<string>;
     /**
@@ -148,11 +148,11 @@ export interface ApiMappingArgs {
      */
     apiMappingKey?: pulumi.Input<string>;
     /**
-     * The domain name. Use the `aws.apigatewayv2.DomainName` resource to configure a domain name.
+     * Domain name. Use the `aws.apigatewayv2.DomainName` resource to configure a domain name.
      */
     domainName: pulumi.Input<string>;
     /**
-     * The API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
+     * API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
      */
     stage: pulumi.Input<string>;
 }

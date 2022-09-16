@@ -11,18 +11,18 @@ import java.util.Objects;
 @CustomType
 public final class GetContactFlowModuleResult {
     /**
-     * @return The Amazon Resource Name (ARN) of the Contact Flow Module.
+     * @return ARN of the Contact Flow Module.
      * 
      */
     private String arn;
     private String contactFlowModuleId;
     /**
-     * @return Specifies the logic of the Contact Flow Module.
+     * @return Logic of the Contact Flow Module.
      * 
      */
     private String content;
     /**
-     * @return Specifies the description of the Contact Flow Module.
+     * @return Description of the Contact Flow Module.
      * 
      */
     private String description;
@@ -34,24 +34,24 @@ public final class GetContactFlowModuleResult {
     private String instanceId;
     private String name;
     /**
-     * @return Specifies the type of Contact Flow Module Module. Values are either `ACTIVE` or `ARCHIVED`.
+     * @return Type of Contact Flow Module Module. Values are either `ACTIVE` or `ARCHIVED`.
      * 
      */
     private String state;
     /**
-     * @return The status of the Contact Flow Module Module. Values are either `PUBLISHED` or `SAVED`.
+     * @return Status of the Contact Flow Module Module. Values are either `PUBLISHED` or `SAVED`.
      * 
      */
     private String status;
     /**
-     * @return A map of tags to assign to the Contact Flow Module.
+     * @return Map of tags to assign to the Contact Flow Module.
      * 
      */
     private Map<String,String> tags;
 
     private GetContactFlowModuleResult() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the Contact Flow Module.
+     * @return ARN of the Contact Flow Module.
      * 
      */
     public String arn() {
@@ -61,14 +61,14 @@ public final class GetContactFlowModuleResult {
         return this.contactFlowModuleId;
     }
     /**
-     * @return Specifies the logic of the Contact Flow Module.
+     * @return Logic of the Contact Flow Module.
      * 
      */
     public String content() {
         return this.content;
     }
     /**
-     * @return Specifies the description of the Contact Flow Module.
+     * @return Description of the Contact Flow Module.
      * 
      */
     public String description() {
@@ -88,21 +88,21 @@ public final class GetContactFlowModuleResult {
         return this.name;
     }
     /**
-     * @return Specifies the type of Contact Flow Module Module. Values are either `ACTIVE` or `ARCHIVED`.
+     * @return Type of Contact Flow Module Module. Values are either `ACTIVE` or `ARCHIVED`.
      * 
      */
     public String state() {
         return this.state;
     }
     /**
-     * @return The status of the Contact Flow Module Module. Values are either `PUBLISHED` or `SAVED`.
+     * @return Status of the Contact Flow Module Module. Values are either `PUBLISHED` or `SAVED`.
      * 
      */
     public String status() {
         return this.status;
     }
     /**
-     * @return A map of tags to assign to the Contact Flow Module.
+     * @return Map of tags to assign to the Contact Flow Module.
      * 
      */
     public Map<String,String> tags() {

@@ -32,19 +32,19 @@ namespace Pulumi.Aws.Lambda
     public sealed class GetInvocationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the lambda function.
+        /// Name of the lambda function.
         /// </summary>
         [Input("functionName", required: true)]
         public string FunctionName { get; set; } = null!;
 
         /// <summary>
-        /// A string in JSON format that is passed as payload to the lambda function.
+        /// String in JSON format that is passed as payload to the lambda function.
         /// </summary>
         [Input("input", required: true)]
         public string Input { get; set; } = null!;
 
         /// <summary>
-        /// The qualifier (a.k.a version) of the lambda function. Defaults
+        /// Qualifier (a.k.a version) of the lambda function. Defaults
         /// to `$LATEST`.
         /// </summary>
         [Input("qualifier")]
@@ -59,19 +59,19 @@ namespace Pulumi.Aws.Lambda
     public sealed class GetInvocationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the lambda function.
+        /// Name of the lambda function.
         /// </summary>
         [Input("functionName", required: true)]
         public Input<string> FunctionName { get; set; } = null!;
 
         /// <summary>
-        /// A string in JSON format that is passed as payload to the lambda function.
+        /// String in JSON format that is passed as payload to the lambda function.
         /// </summary>
         [Input("input", required: true)]
         public Input<string> Input { get; set; } = null!;
 
         /// <summary>
-        /// The qualifier (a.k.a version) of the lambda function. Defaults
+        /// Qualifier (a.k.a version) of the lambda function. Defaults
         /// to `$LATEST`.
         /// </summary>
         [Input("qualifier")]

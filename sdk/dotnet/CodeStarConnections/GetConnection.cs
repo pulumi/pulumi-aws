@@ -108,13 +108,13 @@ namespace Pulumi.Aws.CodeStarConnections
     public sealed class GetConnectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The CodeStar Connection ARN.
+        /// CodeStar Connection ARN.
         /// </summary>
         [Input("arn")]
         public string? Arn { get; set; }
 
         /// <summary>
-        /// The CodeStar Connection name.
+        /// CodeStar Connection name.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -140,13 +140,13 @@ namespace Pulumi.Aws.CodeStarConnections
     public sealed class GetConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The CodeStar Connection ARN.
+        /// CodeStar Connection ARN.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The CodeStar Connection name.
+        /// CodeStar Connection name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -175,11 +175,11 @@ namespace Pulumi.Aws.CodeStarConnections
     {
         public readonly string Arn;
         /// <summary>
-        /// The CodeStar Connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
+        /// CodeStar Connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
         /// </summary>
         public readonly string ConnectionStatus;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the host associated with the connection.
+        /// ARN of the host associated with the connection.
         /// </summary>
         public readonly string HostArn;
         /// <summary>
@@ -187,7 +187,7 @@ namespace Pulumi.Aws.CodeStarConnections
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The name of the CodeStar Connection. The name is unique in the calling AWS account.
+        /// Name of the CodeStar Connection. The name is unique in the calling AWS account.
         /// </summary>
         public readonly string Name;
         public readonly string ProviderType;

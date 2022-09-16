@@ -110,19 +110,19 @@ namespace Pulumi.Aws.Workspaces
     public sealed class GetBundleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID of the bundle.
+        /// ID of the bundle.
         /// </summary>
         [Input("bundleId")]
         public string? BundleId { get; set; }
 
         /// <summary>
-        /// The name of the bundle. You cannot combine this parameter with `bundle_id`.
+        /// Name of the bundle. You cannot combine this parameter with `bundle_id`.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
         /// <summary>
-        /// The owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundle_id`.
+        /// Owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundle_id`.
         /// </summary>
         [Input("owner")]
         public string? Owner { get; set; }
@@ -136,19 +136,19 @@ namespace Pulumi.Aws.Workspaces
     public sealed class GetBundleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID of the bundle.
+        /// ID of the bundle.
         /// </summary>
         [Input("bundleId")]
         public Input<string>? BundleId { get; set; }
 
         /// <summary>
-        /// The name of the bundle. You cannot combine this parameter with `bundle_id`.
+        /// Name of the bundle. You cannot combine this parameter with `bundle_id`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundle_id`.
+        /// Owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundle_id`.
         /// </summary>
         [Input("owner")]
         public Input<string>? Owner { get; set; }
@@ -180,7 +180,7 @@ namespace Pulumi.Aws.Workspaces
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The name of the compute type.
+        /// Name of the compute type.
         /// </summary>
         public readonly string? Name;
         /// <summary>

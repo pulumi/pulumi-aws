@@ -123,61 +123,61 @@ namespace Pulumi.Aws.AppSync
     public partial class Resolver : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The API ID for the GraphQL API.
+        /// API ID for the GraphQL API.
         /// </summary>
         [Output("apiId")]
         public Output<string> ApiId { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN
+        /// ARN
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The CachingConfig.
+        /// CachingConfig.
         /// </summary>
         [Output("cachingConfig")]
         public Output<Outputs.ResolverCachingConfig?> CachingConfig { get; private set; } = null!;
 
         /// <summary>
-        /// The data source name.
+        /// Data source name.
         /// </summary>
         [Output("dataSource")]
         public Output<string?> DataSource { get; private set; } = null!;
 
         /// <summary>
-        /// The field name from the schema defined in the GraphQL API.
+        /// Field name from the schema defined in the GraphQL API.
         /// </summary>
         [Output("field")]
         public Output<string> Field { get; private set; } = null!;
 
         /// <summary>
-        /// The resolver type. Valid values are `UNIT` and `PIPELINE`.
+        /// Resolver type. Valid values are `UNIT` and `PIPELINE`.
         /// </summary>
         [Output("kind")]
         public Output<string?> Kind { get; private set; } = null!;
 
         /// <summary>
-        /// The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+        /// Maximum batching size for a resolver. Valid values are between `0` and `2000`.
         /// </summary>
         [Output("maxBatchSize")]
         public Output<int?> MaxBatchSize { get; private set; } = null!;
 
         /// <summary>
-        /// The PipelineConfig.
+        /// PipelineConfig.
         /// </summary>
         [Output("pipelineConfig")]
         public Output<Outputs.ResolverPipelineConfig?> PipelineConfig { get; private set; } = null!;
 
         /// <summary>
-        /// The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+        /// Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         /// </summary>
         [Output("requestTemplate")]
         public Output<string?> RequestTemplate { get; private set; } = null!;
 
         /// <summary>
-        /// The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+        /// Response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         /// </summary>
         [Output("responseTemplate")]
         public Output<string?> ResponseTemplate { get; private set; } = null!;
@@ -189,7 +189,7 @@ namespace Pulumi.Aws.AppSync
         public Output<Outputs.ResolverSyncConfig?> SyncConfig { get; private set; } = null!;
 
         /// <summary>
-        /// The type name from the schema defined in the GraphQL API.
+        /// Type name from the schema defined in the GraphQL API.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -241,55 +241,55 @@ namespace Pulumi.Aws.AppSync
     public sealed class ResolverArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The API ID for the GraphQL API.
+        /// API ID for the GraphQL API.
         /// </summary>
         [Input("apiId", required: true)]
         public Input<string> ApiId { get; set; } = null!;
 
         /// <summary>
-        /// The CachingConfig.
+        /// CachingConfig.
         /// </summary>
         [Input("cachingConfig")]
         public Input<Inputs.ResolverCachingConfigArgs>? CachingConfig { get; set; }
 
         /// <summary>
-        /// The data source name.
+        /// Data source name.
         /// </summary>
         [Input("dataSource")]
         public Input<string>? DataSource { get; set; }
 
         /// <summary>
-        /// The field name from the schema defined in the GraphQL API.
+        /// Field name from the schema defined in the GraphQL API.
         /// </summary>
         [Input("field", required: true)]
         public Input<string> Field { get; set; } = null!;
 
         /// <summary>
-        /// The resolver type. Valid values are `UNIT` and `PIPELINE`.
+        /// Resolver type. Valid values are `UNIT` and `PIPELINE`.
         /// </summary>
         [Input("kind")]
         public Input<string>? Kind { get; set; }
 
         /// <summary>
-        /// The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+        /// Maximum batching size for a resolver. Valid values are between `0` and `2000`.
         /// </summary>
         [Input("maxBatchSize")]
         public Input<int>? MaxBatchSize { get; set; }
 
         /// <summary>
-        /// The PipelineConfig.
+        /// PipelineConfig.
         /// </summary>
         [Input("pipelineConfig")]
         public Input<Inputs.ResolverPipelineConfigArgs>? PipelineConfig { get; set; }
 
         /// <summary>
-        /// The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+        /// Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         /// </summary>
         [Input("requestTemplate")]
         public Input<string>? RequestTemplate { get; set; }
 
         /// <summary>
-        /// The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+        /// Response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         /// </summary>
         [Input("responseTemplate")]
         public Input<string>? ResponseTemplate { get; set; }
@@ -301,7 +301,7 @@ namespace Pulumi.Aws.AppSync
         public Input<Inputs.ResolverSyncConfigArgs>? SyncConfig { get; set; }
 
         /// <summary>
-        /// The type name from the schema defined in the GraphQL API.
+        /// Type name from the schema defined in the GraphQL API.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -315,61 +315,61 @@ namespace Pulumi.Aws.AppSync
     public sealed class ResolverState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The API ID for the GraphQL API.
+        /// API ID for the GraphQL API.
         /// </summary>
         [Input("apiId")]
         public Input<string>? ApiId { get; set; }
 
         /// <summary>
-        /// The ARN
+        /// ARN
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The CachingConfig.
+        /// CachingConfig.
         /// </summary>
         [Input("cachingConfig")]
         public Input<Inputs.ResolverCachingConfigGetArgs>? CachingConfig { get; set; }
 
         /// <summary>
-        /// The data source name.
+        /// Data source name.
         /// </summary>
         [Input("dataSource")]
         public Input<string>? DataSource { get; set; }
 
         /// <summary>
-        /// The field name from the schema defined in the GraphQL API.
+        /// Field name from the schema defined in the GraphQL API.
         /// </summary>
         [Input("field")]
         public Input<string>? Field { get; set; }
 
         /// <summary>
-        /// The resolver type. Valid values are `UNIT` and `PIPELINE`.
+        /// Resolver type. Valid values are `UNIT` and `PIPELINE`.
         /// </summary>
         [Input("kind")]
         public Input<string>? Kind { get; set; }
 
         /// <summary>
-        /// The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+        /// Maximum batching size for a resolver. Valid values are between `0` and `2000`.
         /// </summary>
         [Input("maxBatchSize")]
         public Input<int>? MaxBatchSize { get; set; }
 
         /// <summary>
-        /// The PipelineConfig.
+        /// PipelineConfig.
         /// </summary>
         [Input("pipelineConfig")]
         public Input<Inputs.ResolverPipelineConfigGetArgs>? PipelineConfig { get; set; }
 
         /// <summary>
-        /// The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+        /// Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         /// </summary>
         [Input("requestTemplate")]
         public Input<string>? RequestTemplate { get; set; }
 
         /// <summary>
-        /// The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+        /// Response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         /// </summary>
         [Input("responseTemplate")]
         public Input<string>? ResponseTemplate { get; set; }
@@ -381,7 +381,7 @@ namespace Pulumi.Aws.AppSync
         public Input<Inputs.ResolverSyncConfigGetArgs>? SyncConfig { get; set; }
 
         /// <summary>
-        /// The type name from the schema defined in the GraphQL API.
+        /// Type name from the schema defined in the GraphQL API.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

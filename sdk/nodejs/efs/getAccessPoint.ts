@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -36,7 +38,7 @@ export function getAccessPoint(args: GetAccessPointArgs, opts?: pulumi.InvokeOpt
  */
 export interface GetAccessPointArgs {
     /**
-     * The ID that identifies the file system.
+     * ID that identifies the file system.
      */
     accessPointId: string;
     /**
@@ -59,7 +61,7 @@ export interface GetAccessPointResult {
      */
     readonly fileSystemArn: string;
     /**
-     * The ID of the file system for which the access point is intended.
+     * ID of the file system for which the access point is intended.
      */
     readonly fileSystemId: string;
     /**
@@ -87,7 +89,7 @@ export function getAccessPointOutput(args: GetAccessPointOutputArgs, opts?: pulu
  */
 export interface GetAccessPointOutputArgs {
     /**
-     * The ID that identifies the file system.
+     * ID that identifies the file system.
      */
     accessPointId: pulumi.Input<string>;
     /**

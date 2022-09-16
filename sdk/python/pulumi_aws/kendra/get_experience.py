@@ -67,7 +67,7 @@ class GetExperienceResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the Experience.
+        ARN of the Experience.
         """
         return pulumi.get(self, "arn")
 
@@ -75,7 +75,7 @@ class GetExperienceResult:
     @pulumi.getter
     def configurations(self) -> Sequence['outputs.GetExperienceConfigurationResult']:
         """
-        A block that specifies the configuration information for your Amazon Kendra Experience. This includes `content_source_configuration`, which specifies the data source IDs and/or FAQ IDs, and `user_identity_configuration`, which specifies the user or group information to grant access to your Amazon Kendra Experience. Documented below.
+        Block that specifies the configuration information for your Amazon Kendra Experience. This includes `content_source_configuration`, which specifies the data source IDs and/or FAQ IDs, and `user_identity_configuration`, which specifies the user or group information to grant access to your Amazon Kendra Experience. Documented below.
         """
         return pulumi.get(self, "configurations")
 
@@ -83,7 +83,7 @@ class GetExperienceResult:
     @pulumi.getter(name="createdAt")
     def created_at(self) -> str:
         """
-        The Unix datetime that the Experience was created.
+        Unix datetime that the Experience was created.
         """
         return pulumi.get(self, "created_at")
 
@@ -91,7 +91,7 @@ class GetExperienceResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        The description of the Experience.
+        Description of the Experience.
         """
         return pulumi.get(self, "description")
 
@@ -107,7 +107,7 @@ class GetExperienceResult:
     @pulumi.getter(name="errorMessage")
     def error_message(self) -> str:
         """
-        The reason your Amazon Kendra Experience could not properly process.
+        Reason your Amazon Kendra Experience could not properly process.
         """
         return pulumi.get(self, "error_message")
 
@@ -133,7 +133,7 @@ class GetExperienceResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the Experience.
+        Name of the Experience.
         """
         return pulumi.get(self, "name")
 
@@ -141,7 +141,7 @@ class GetExperienceResult:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
         """
-        Shows the Amazon Resource Name (ARN) of a role with permission to access `Query` API, `QuerySuggestions` API, `SubmitFeedback` API, and AWS SSO that stores your user and group information.
+        Shows the ARN of a role with permission to access `Query` API, `QuerySuggestions` API, `SubmitFeedback` API, and AWS SSO that stores your user and group information.
         """
         return pulumi.get(self, "role_arn")
 
@@ -149,7 +149,7 @@ class GetExperienceResult:
     @pulumi.getter
     def status(self) -> str:
         """
-        The current processing status of your Amazon Kendra Experience. When the status is `ACTIVE`, your Amazon Kendra Experience is ready to use. When the status is `FAILED`, the `error_message` field contains the reason that this failed.
+        Current processing status of your Amazon Kendra Experience. When the status is `ACTIVE`, your Amazon Kendra Experience is ready to use. When the status is `FAILED`, the `error_message` field contains the reason that this failed.
         """
         return pulumi.get(self, "status")
 
@@ -157,7 +157,7 @@ class GetExperienceResult:
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> str:
         """
-        The date and time that the Experience was last updated.
+        Date and time that the Experience was last updated.
         """
         return pulumi.get(self, "updated_at")
 
@@ -200,8 +200,8 @@ def get_experience(experience_id: Optional[str] = None,
     ```
 
 
-    :param str experience_id: The identifier of the Experience.
-    :param str index_id: The identifier of the index that contains the Experience.
+    :param str experience_id: Identifier of the Experience.
+    :param str index_id: Identifier of the index that contains the Experience.
     """
     __args__ = dict()
     __args__['experienceId'] = experience_id
@@ -243,7 +243,7 @@ def get_experience_output(experience_id: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str experience_id: The identifier of the Experience.
-    :param str index_id: The identifier of the index that contains the Experience.
+    :param str experience_id: Identifier of the Experience.
+    :param str index_id: Identifier of the index that contains the Experience.
     """
     ...

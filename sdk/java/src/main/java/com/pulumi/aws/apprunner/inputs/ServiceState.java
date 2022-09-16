@@ -158,14 +158,14 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
+     * Subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
      * 
      */
     @Import(name="serviceUrl")
     private @Nullable Output<String> serviceUrl;
 
     /**
-     * @return A subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
+     * @return Subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
      * 
      */
     public Optional<Output<String>> serviceUrl() {
@@ -188,14 +188,14 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The current state of the App Runner service.
+     * Current state of the App Runner service.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return The current state of the App Runner service.
+     * @return Current state of the App Runner service.
      * 
      */
     public Optional<Output<String>> status() {
@@ -218,14 +218,14 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -459,7 +459,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceUrl A subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
+         * @param serviceUrl Subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
          * 
          * @return builder
          * 
@@ -470,7 +470,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceUrl A subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
+         * @param serviceUrl Subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
          * 
          * @return builder
          * 
@@ -501,7 +501,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status The current state of the App Runner service.
+         * @param status Current state of the App Runner service.
          * 
          * @return builder
          * 
@@ -512,7 +512,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status The current state of the App Runner service.
+         * @param status Current state of the App Runner service.
          * 
          * @return builder
          * 
@@ -543,7 +543,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
@@ -554,7 +554,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 

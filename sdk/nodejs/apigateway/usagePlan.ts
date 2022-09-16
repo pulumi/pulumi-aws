@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -112,23 +114,23 @@ export class UsagePlan extends pulumi.CustomResource {
     }
 
     /**
-     * The associated API stages of the usage plan.
+     * Associated API stages of the usage plan.
      */
     public readonly apiStages!: pulumi.Output<outputs.apigateway.UsagePlanApiStage[] | undefined>;
     /**
-     * Amazon Resource Name (ARN)
+     * ARN
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The description of a usage plan.
+     * Description of a usage plan.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The name of the usage plan.
+     * Name of the usage plan.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
+     * AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
      */
     public readonly productCode!: pulumi.Output<string | undefined>;
     /**
@@ -140,7 +142,7 @@ export class UsagePlan extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -192,23 +194,23 @@ export class UsagePlan extends pulumi.CustomResource {
  */
 export interface UsagePlanState {
     /**
-     * The associated API stages of the usage plan.
+     * Associated API stages of the usage plan.
      */
     apiStages?: pulumi.Input<pulumi.Input<inputs.apigateway.UsagePlanApiStage>[]>;
     /**
-     * Amazon Resource Name (ARN)
+     * ARN
      */
     arn?: pulumi.Input<string>;
     /**
-     * The description of a usage plan.
+     * Description of a usage plan.
      */
     description?: pulumi.Input<string>;
     /**
-     * The name of the usage plan.
+     * Name of the usage plan.
      */
     name?: pulumi.Input<string>;
     /**
-     * The AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
+     * AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
      */
     productCode?: pulumi.Input<string>;
     /**
@@ -220,7 +222,7 @@ export interface UsagePlanState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -234,19 +236,19 @@ export interface UsagePlanState {
  */
 export interface UsagePlanArgs {
     /**
-     * The associated API stages of the usage plan.
+     * Associated API stages of the usage plan.
      */
     apiStages?: pulumi.Input<pulumi.Input<inputs.apigateway.UsagePlanApiStage>[]>;
     /**
-     * The description of a usage plan.
+     * Description of a usage plan.
      */
     description?: pulumi.Input<string>;
     /**
-     * The name of the usage plan.
+     * Name of the usage plan.
      */
     name?: pulumi.Input<string>;
     /**
-     * The AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
+     * AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
      */
     productCode?: pulumi.Input<string>;
     /**

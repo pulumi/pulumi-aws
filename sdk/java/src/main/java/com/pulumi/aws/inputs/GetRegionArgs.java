@@ -16,14 +16,14 @@ public final class GetRegionArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetRegionArgs Empty = new GetRegionArgs();
 
     /**
-     * The EC2 endpoint of the region to select.
+     * EC2 endpoint of the region to select.
      * 
      */
     @Import(name="endpoint")
     private @Nullable Output<String> endpoint;
 
     /**
-     * @return The EC2 endpoint of the region to select.
+     * @return EC2 endpoint of the region to select.
      * 
      */
     public Optional<Output<String>> endpoint() {
@@ -31,14 +31,14 @@ public final class GetRegionArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The full name of the region to select.
+     * Full name of the region to select.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The full name of the region to select.
+     * @return Full name of the region to select.
      * 
      */
     public Optional<Output<String>> name() {
@@ -71,7 +71,7 @@ public final class GetRegionArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param endpoint The EC2 endpoint of the region to select.
+         * @param endpoint EC2 endpoint of the region to select.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class GetRegionArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param endpoint The EC2 endpoint of the region to select.
+         * @param endpoint EC2 endpoint of the region to select.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class GetRegionArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The full name of the region to select.
+         * @param name Full name of the region to select.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class GetRegionArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The full name of the region to select.
+         * @param name Full name of the region to select.
          * 
          * @return builder
          * 

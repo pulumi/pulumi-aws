@@ -13,12 +13,12 @@ import java.util.Objects;
 @CustomType
 public final class GetPlaceIndexResult {
     /**
-     * @return The timestamp for when the place index resource was created in ISO 8601 format.
+     * @return Timestamp for when the place index resource was created in ISO 8601 format.
      * 
      */
     private String createTime;
     /**
-     * @return The data provider of geospatial data.
+     * @return Data provider of geospatial data.
      * 
      */
     private String dataSource;
@@ -28,7 +28,7 @@ public final class GetPlaceIndexResult {
      */
     private List<GetPlaceIndexDataSourceConfiguration> dataSourceConfigurations;
     /**
-     * @return The optional description for the place index resource.
+     * @return Optional description for the place index resource.
      * 
      */
     private String description;
@@ -38,7 +38,7 @@ public final class GetPlaceIndexResult {
      */
     private String id;
     /**
-     * @return The Amazon Resource Name (ARN) for the place index resource.
+     * @return ARN for the place index resource.
      * 
      */
     private String indexArn;
@@ -49,21 +49,21 @@ public final class GetPlaceIndexResult {
      */
     private Map<String,String> tags;
     /**
-     * @return The timestamp for when the place index resource was last updated in ISO 8601 format.
+     * @return Timestamp for when the place index resource was last updated in ISO 8601 format.
      * 
      */
     private String updateTime;
 
     private GetPlaceIndexResult() {}
     /**
-     * @return The timestamp for when the place index resource was created in ISO 8601 format.
+     * @return Timestamp for when the place index resource was created in ISO 8601 format.
      * 
      */
     public String createTime() {
         return this.createTime;
     }
     /**
-     * @return The data provider of geospatial data.
+     * @return Data provider of geospatial data.
      * 
      */
     public String dataSource() {
@@ -77,7 +77,7 @@ public final class GetPlaceIndexResult {
         return this.dataSourceConfigurations;
     }
     /**
-     * @return The optional description for the place index resource.
+     * @return Optional description for the place index resource.
      * 
      */
     public String description() {
@@ -91,7 +91,7 @@ public final class GetPlaceIndexResult {
         return this.id;
     }
     /**
-     * @return The Amazon Resource Name (ARN) for the place index resource.
+     * @return ARN for the place index resource.
      * 
      */
     public String indexArn() {
@@ -108,7 +108,7 @@ public final class GetPlaceIndexResult {
         return this.tags;
     }
     /**
-     * @return The timestamp for when the place index resource was last updated in ISO 8601 format.
+     * @return Timestamp for when the place index resource was last updated in ISO 8601 format.
      * 
      */
     public String updateTime() {

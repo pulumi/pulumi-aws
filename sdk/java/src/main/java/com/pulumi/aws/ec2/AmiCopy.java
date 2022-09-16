@@ -83,63 +83,63 @@ public class AmiCopy extends com.pulumi.resources.CustomResource {
         return this.architecture;
     }
     /**
-     * The ARN of the AMI.
+     * ARN of the AMI.
      * 
      */
     @Export(name="arn", type=String.class, parameters={})
     private Output<String> arn;
 
     /**
-     * @return The ARN of the AMI.
+     * @return ARN of the AMI.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+     * Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
      * 
      */
     @Export(name="bootMode", type=String.class, parameters={})
     private Output<String> bootMode;
 
     /**
-     * @return The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+     * @return Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
      * 
      */
     public Output<String> bootMode() {
         return this.bootMode;
     }
     /**
-     * The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+     * Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
      * 
      */
     @Export(name="deprecationTime", type=String.class, parameters={})
     private Output</* @Nullable */ String> deprecationTime;
 
     /**
-     * @return The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+     * @return Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
      * 
      */
     public Output<Optional<String>> deprecationTime() {
         return Codegen.optional(this.deprecationTime);
     }
     /**
-     * A longer, human-readable description for the AMI.
+     * Longer, human-readable description for the AMI.
      * 
      */
     @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return A longer, human-readable description for the AMI.
+     * @return Longer, human-readable description for the AMI.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * The ARN of the Outpost to which to copy the AMI.
+     * ARN of the Outpost to which to copy the AMI.
      * Only specify this parameter when copying an AMI from an AWS Region to an Outpost. The AMI must be in the Region of the destination Outpost.
      * 
      */
@@ -147,7 +147,7 @@ public class AmiCopy extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> destinationOutpostArn;
 
     /**
-     * @return The ARN of the Outpost to which to copy the AMI.
+     * @return ARN of the Outpost to which to copy the AMI.
      * Only specify this parameter when copying an AMI from an AWS Region to an Outpost. The AMI must be in the Region of the destination Outpost.
      * 
      */
@@ -171,14 +171,14 @@ public class AmiCopy extends com.pulumi.resources.CustomResource {
         return this.ebsBlockDevices;
     }
     /**
-     * Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
+     * Whether enhanced networking with ENA is enabled. Defaults to `false`.
      * 
      */
     @Export(name="enaSupport", type=Boolean.class, parameters={})
     private Output<Boolean> enaSupport;
 
     /**
-     * @return Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
+     * @return Whether enhanced networking with ENA is enabled. Defaults to `false`.
      * 
      */
     public Output<Boolean> enaSupport() {
@@ -249,7 +249,7 @@ public class AmiCopy extends com.pulumi.resources.CustomResource {
         return this.imageType;
     }
     /**
-     * The id of the kernel image (AKI) that will be used as the paravirtual
+     * ID of the kernel image (AKI) that will be used as the paravirtual
      * kernel in created instances.
      * 
      */
@@ -257,7 +257,7 @@ public class AmiCopy extends com.pulumi.resources.CustomResource {
     private Output<String> kernelId;
 
     /**
-     * @return The id of the kernel image (AKI) that will be used as the paravirtual
+     * @return ID of the kernel image (AKI) that will be used as the paravirtual
      * kernel in created instances.
      * 
      */
@@ -265,7 +265,7 @@ public class AmiCopy extends com.pulumi.resources.CustomResource {
         return this.kernelId;
     }
     /**
-     * The full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
+     * Full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
      * an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
      * if this parameter is not specified, the default CMK for EBS is used
      * 
@@ -274,7 +274,7 @@ public class AmiCopy extends com.pulumi.resources.CustomResource {
     private Output<String> kmsKeyId;
 
     /**
-     * @return The full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
+     * @return Full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
      * an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
      * if this parameter is not specified, the default CMK for EBS is used
      * 
@@ -289,14 +289,14 @@ public class AmiCopy extends com.pulumi.resources.CustomResource {
         return this.manageEbsSnapshots;
     }
     /**
-     * A region-unique name for the AMI.
+     * Region-unique name for the AMI.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return A region-unique name for the AMI.
+     * @return Region-unique name for the AMI.
      * 
      */
     public Output<String> name() {
@@ -327,7 +327,7 @@ public class AmiCopy extends com.pulumi.resources.CustomResource {
         return this.public_;
     }
     /**
-     * The id of an initrd image (ARI) that will be used when booting the
+     * ID of an initrd image (ARI) that will be used when booting the
      * created instances.
      * 
      */
@@ -335,7 +335,7 @@ public class AmiCopy extends com.pulumi.resources.CustomResource {
     private Output<String> ramdiskId;
 
     /**
-     * @return The id of an initrd image (ARI) that will be used when booting the
+     * @return ID of an initrd image (ARI) that will be used when booting the
      * created instances.
      * 
      */
@@ -343,14 +343,14 @@ public class AmiCopy extends com.pulumi.resources.CustomResource {
         return this.ramdiskId;
     }
     /**
-     * The name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
+     * Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
      * 
      */
     @Export(name="rootDeviceName", type=String.class, parameters={})
     private Output<String> rootDeviceName;
 
     /**
-     * @return The name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
+     * @return Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
      * 
      */
     public Output<String> rootDeviceName() {
@@ -363,7 +363,7 @@ public class AmiCopy extends com.pulumi.resources.CustomResource {
         return this.rootSnapshotId;
     }
     /**
-     * The id of the AMI to copy. This id must be valid in the region
+     * Id of the AMI to copy. This id must be valid in the region
      * given by `source_ami_region`.
      * 
      */
@@ -371,7 +371,7 @@ public class AmiCopy extends com.pulumi.resources.CustomResource {
     private Output<String> sourceAmiId;
 
     /**
-     * @return The id of the AMI to copy. This id must be valid in the region
+     * @return Id of the AMI to copy. This id must be valid in the region
      * given by `source_ami_region`.
      * 
      */
@@ -379,7 +379,7 @@ public class AmiCopy extends com.pulumi.resources.CustomResource {
         return this.sourceAmiId;
     }
     /**
-     * The region from which the AMI will be copied. This may be the
+     * Region from which the AMI will be copied. This may be the
      * same as the AWS provider region in order to create a copy within the same region.
      * 
      */
@@ -387,7 +387,7 @@ public class AmiCopy extends com.pulumi.resources.CustomResource {
     private Output<String> sourceAmiRegion;
 
     /**
-     * @return The region from which the AMI will be copied. This may be the
+     * @return Region from which the AMI will be copied. This may be the
      * same as the AWS provider region in order to create a copy within the same region.
      * 
      */
@@ -411,14 +411,14 @@ public class AmiCopy extends com.pulumi.resources.CustomResource {
         return this.sriovNetSupport;
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

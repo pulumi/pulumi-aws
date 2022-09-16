@@ -47,7 +47,7 @@ export function getLogDeliveryCanonicalUserId(args?: GetLogDeliveryCanonicalUser
  */
 export interface GetLogDeliveryCanonicalUserIdArgs {
     /**
-     * The region you'd like the zone for. By default, fetches the current region.
+     * Region you'd like the zone for. By default, fetches the current region.
      */
     region?: string;
 }
@@ -72,7 +72,7 @@ export function getLogDeliveryCanonicalUserIdOutput(args?: GetLogDeliveryCanonic
  */
 export interface GetLogDeliveryCanonicalUserIdOutputArgs {
     /**
-     * The region you'd like the zone for. By default, fetches the current region.
+     * Region you'd like the zone for. By default, fetches the current region.
      */
     region?: pulumi.Input<string>;
 }

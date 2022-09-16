@@ -19,14 +19,14 @@ public final class GraphQLApiAdditionalAuthenticationProviderArgs extends com.pu
     public static final GraphQLApiAdditionalAuthenticationProviderArgs Empty = new GraphQLApiAdditionalAuthenticationProviderArgs();
 
     /**
-     * The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
+     * Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
      * 
      */
     @Import(name="authenticationType", required=true)
     private Output<String> authenticationType;
 
     /**
-     * @return The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
+     * @return Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
      * 
      */
     public Output<String> authenticationType() {
@@ -64,14 +64,14 @@ public final class GraphQLApiAdditionalAuthenticationProviderArgs extends com.pu
     }
 
     /**
-     * The Amazon Cognito User Pool configuration. Defined below.
+     * Amazon Cognito User Pool configuration. Defined below.
      * 
      */
     @Import(name="userPoolConfig")
     private @Nullable Output<GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs> userPoolConfig;
 
     /**
-     * @return The Amazon Cognito User Pool configuration. Defined below.
+     * @return Amazon Cognito User Pool configuration. Defined below.
      * 
      */
     public Optional<Output<GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs>> userPoolConfig() {
@@ -106,7 +106,7 @@ public final class GraphQLApiAdditionalAuthenticationProviderArgs extends com.pu
         }
 
         /**
-         * @param authenticationType The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
+         * @param authenticationType Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class GraphQLApiAdditionalAuthenticationProviderArgs extends com.pu
         }
 
         /**
-         * @param authenticationType The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
+         * @param authenticationType Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class GraphQLApiAdditionalAuthenticationProviderArgs extends com.pu
         }
 
         /**
-         * @param userPoolConfig The Amazon Cognito User Pool configuration. Defined below.
+         * @param userPoolConfig Amazon Cognito User Pool configuration. Defined below.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class GraphQLApiAdditionalAuthenticationProviderArgs extends com.pu
         }
 
         /**
-         * @param userPoolConfig The Amazon Cognito User Pool configuration. Defined below.
+         * @param userPoolConfig Amazon Cognito User Pool configuration. Defined below.
          * 
          * @return builder
          * 

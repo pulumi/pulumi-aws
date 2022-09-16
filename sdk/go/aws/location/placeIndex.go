@@ -65,7 +65,8 @@ type PlaceIndex struct {
 	// The name of the place index resource.
 	IndexName pulumi.StringOutput    `pulumi:"indexName"`
 	Tags      pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll   pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The timestamp for when the place index resource was last update in ISO 8601.
 	UpdateTime pulumi.StringOutput `pulumi:"updateTime"`
 }
@@ -118,7 +119,8 @@ type placeIndexState struct {
 	// The name of the place index resource.
 	IndexName *string           `pulumi:"indexName"`
 	Tags      map[string]string `pulumi:"tags"`
-	TagsAll   map[string]string `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The timestamp for when the place index resource was last update in ISO 8601.
 	UpdateTime *string `pulumi:"updateTime"`
 }
@@ -137,7 +139,8 @@ type PlaceIndexState struct {
 	// The name of the place index resource.
 	IndexName pulumi.StringPtrInput
 	Tags      pulumi.StringMapInput
-	TagsAll   pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// The timestamp for when the place index resource was last update in ISO 8601.
 	UpdateTime pulumi.StringPtrInput
 }
@@ -292,6 +295,7 @@ func (o PlaceIndexOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PlaceIndex) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o PlaceIndexOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PlaceIndex) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

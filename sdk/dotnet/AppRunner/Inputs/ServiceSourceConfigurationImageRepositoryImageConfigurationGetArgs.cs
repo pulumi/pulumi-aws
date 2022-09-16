@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AppRunner.Inputs
     public sealed class ServiceSourceConfigurationImageRepositoryImageConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The port that your application listens to in the container. Defaults to `"8080"`.
+        /// Port that your application listens to in the container. Defaults to `"8080"`.
         /// </summary>
         [Input("port")]
         public Input<string>? Port { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.AppRunner.Inputs
         }
 
         /// <summary>
-        /// A command App Runner runs to start the application in the source image. If specified, this command overrides the Docker image’s default start command.
+        /// Command App Runner runs to start the application in the source image. If specified, this command overrides the Docker image’s default start command.
         /// </summary>
         [Input("startCommand")]
         public Input<string>? StartCommand { get; set; }

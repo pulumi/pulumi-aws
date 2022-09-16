@@ -17,14 +17,14 @@ public final class GetStackArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetStackArgs Empty = new GetStackArgs();
 
     /**
-     * The name of the stack
+     * Name of the stack
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the stack
+     * @return Name of the stack
      * 
      */
     public Output<String> name() {
@@ -32,14 +32,14 @@ public final class GetStackArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * A map of tags associated with this stack.
+     * Map of tags associated with this stack.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags associated with this stack.
+     * @return Map of tags associated with this stack.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -72,7 +72,7 @@ public final class GetStackArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the stack
+         * @param name Name of the stack
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class GetStackArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the stack
+         * @param name Name of the stack
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class GetStackArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags A map of tags associated with this stack.
+         * @param tags Map of tags associated with this stack.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class GetStackArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags A map of tags associated with this stack.
+         * @param tags Map of tags associated with this stack.
          * 
          * @return builder
          * 

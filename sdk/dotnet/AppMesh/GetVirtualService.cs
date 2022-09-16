@@ -110,19 +110,19 @@ namespace Pulumi.Aws.AppMesh
     public sealed class GetVirtualServiceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the service mesh in which the virtual service exists.
+        /// Name of the service mesh in which the virtual service exists.
         /// </summary>
         [Input("meshName", required: true)]
         public string MeshName { get; set; } = null!;
 
         /// <summary>
-        /// The AWS account ID of the service mesh's owner.
+        /// AWS account ID of the service mesh's owner.
         /// </summary>
         [Input("meshOwner")]
         public string? MeshOwner { get; set; }
 
         /// <summary>
-        /// The name of the virtual service.
+        /// Name of the virtual service.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -131,7 +131,7 @@ namespace Pulumi.Aws.AppMesh
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A map of tags.
+        /// Map of tags.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -148,19 +148,19 @@ namespace Pulumi.Aws.AppMesh
     public sealed class GetVirtualServiceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the service mesh in which the virtual service exists.
+        /// Name of the service mesh in which the virtual service exists.
         /// </summary>
         [Input("meshName", required: true)]
         public Input<string> MeshName { get; set; } = null!;
 
         /// <summary>
-        /// The AWS account ID of the service mesh's owner.
+        /// AWS account ID of the service mesh's owner.
         /// </summary>
         [Input("meshOwner")]
         public Input<string>? MeshOwner { get; set; }
 
         /// <summary>
-        /// The name of the virtual service.
+        /// Name of the virtual service.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -169,7 +169,7 @@ namespace Pulumi.Aws.AppMesh
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags.
+        /// Map of tags.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -188,11 +188,11 @@ namespace Pulumi.Aws.AppMesh
     public sealed class GetVirtualServiceResult
     {
         /// <summary>
-        /// The ARN of the virtual service.
+        /// ARN of the virtual service.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The creation date of the virtual service.
+        /// Creation date of the virtual service.
         /// </summary>
         public readonly string CreatedDate;
         /// <summary>
@@ -200,22 +200,22 @@ namespace Pulumi.Aws.AppMesh
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The last update date of the virtual service.
+        /// Last update date of the virtual service.
         /// </summary>
         public readonly string LastUpdatedDate;
         public readonly string MeshName;
         public readonly string MeshOwner;
         public readonly string Name;
         /// <summary>
-        /// The resource owner's AWS account ID.
+        /// Resource owner's AWS account ID.
         /// </summary>
         public readonly string ResourceOwner;
         /// <summary>
-        /// The virtual service specification
+        /// Virtual service specification
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualServiceSpecResult> Specs;
         /// <summary>
-        /// A map of tags.
+        /// Map of tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
 

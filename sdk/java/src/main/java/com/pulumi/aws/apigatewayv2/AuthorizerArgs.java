@@ -20,14 +20,14 @@ public final class AuthorizerArgs extends com.pulumi.resources.ResourceArgs {
     public static final AuthorizerArgs Empty = new AuthorizerArgs();
 
     /**
-     * The API identifier.
+     * API identifier.
      * 
      */
     @Import(name="apiId", required=true)
     private Output<String> apiId;
 
     /**
-     * @return The API identifier.
+     * @return API identifier.
      * 
      */
     public Output<String> apiId() {
@@ -35,7 +35,7 @@ public final class AuthorizerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The required credentials as an IAM role for API Gateway to invoke the authorizer.
+     * Required credentials as an IAM role for API Gateway to invoke the authorizer.
      * Supported only for `REQUEST` authorizers.
      * 
      */
@@ -43,7 +43,7 @@ public final class AuthorizerArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> authorizerCredentialsArn;
 
     /**
-     * @return The required credentials as an IAM role for API Gateway to invoke the authorizer.
+     * @return Required credentials as an IAM role for API Gateway to invoke the authorizer.
      * Supported only for `REQUEST` authorizers.
      * 
      */
@@ -52,7 +52,7 @@ public final class AuthorizerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers.
+     * Format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers.
      * Valid values: `1.0`, `2.0`.
      * 
      */
@@ -60,7 +60,7 @@ public final class AuthorizerArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> authorizerPayloadFormatVersion;
 
     /**
-     * @return The format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers.
+     * @return Format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers.
      * Valid values: `1.0`, `2.0`.
      * 
      */
@@ -69,7 +69,7 @@ public final class AuthorizerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled.
+     * Time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled.
      * If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Defaults to `300`.
      * Supported only for HTTP API Lambda authorizers.
      * 
@@ -78,7 +78,7 @@ public final class AuthorizerArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<Integer> authorizerResultTtlInSeconds;
 
     /**
-     * @return The time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled.
+     * @return Time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled.
      * If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Defaults to `300`.
      * Supported only for HTTP API Lambda authorizers.
      * 
@@ -88,7 +88,7 @@ public final class AuthorizerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The authorizer type. Valid values: `JWT`, `REQUEST`.
+     * Authorizer type. Valid values: `JWT`, `REQUEST`.
      * Specify `REQUEST` for a Lambda function using incoming request parameters.
      * For HTTP APIs, specify `JWT` to use JSON Web Tokens.
      * 
@@ -97,7 +97,7 @@ public final class AuthorizerArgs extends com.pulumi.resources.ResourceArgs {
     private Output<String> authorizerType;
 
     /**
-     * @return The authorizer type. Valid values: `JWT`, `REQUEST`.
+     * @return Authorizer type. Valid values: `JWT`, `REQUEST`.
      * Specify `REQUEST` for a Lambda function using incoming request parameters.
      * For HTTP APIs, specify `JWT` to use JSON Web Tokens.
      * 
@@ -107,7 +107,7 @@ public final class AuthorizerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The authorizer&#39;s Uniform Resource Identifier (URI).
+     * Authorizer&#39;s Uniform Resource Identifier (URI).
      * For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invoke_arn` attribute of the `aws.lambda.Function` resource.
      * Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
      * 
@@ -116,7 +116,7 @@ public final class AuthorizerArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> authorizerUri;
 
     /**
-     * @return The authorizer&#39;s Uniform Resource Identifier (URI).
+     * @return Authorizer&#39;s Uniform Resource Identifier (URI).
      * For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invoke_arn` attribute of the `aws.lambda.Function` resource.
      * Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
      * 
@@ -143,7 +143,7 @@ public final class AuthorizerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The identity sources for which authorization is requested.
+     * Identity sources for which authorization is requested.
      * For `REQUEST` authorizers the value is a list of one or more mapping expressions of the specified request parameters.
      * For `JWT` authorizers the single entry specifies where to extract the JSON Web Token (JWT) from inbound requests.
      * 
@@ -152,7 +152,7 @@ public final class AuthorizerArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<List<String>> identitySources;
 
     /**
-     * @return The identity sources for which authorization is requested.
+     * @return Identity sources for which authorization is requested.
      * For `REQUEST` authorizers the value is a list of one or more mapping expressions of the specified request parameters.
      * For `JWT` authorizers the single entry specifies where to extract the JSON Web Token (JWT) from inbound requests.
      * 
@@ -162,7 +162,7 @@ public final class AuthorizerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The configuration of a JWT authorizer. Required for the `JWT` authorizer type.
+     * Configuration of a JWT authorizer. Required for the `JWT` authorizer type.
      * Supported only for HTTP APIs.
      * 
      */
@@ -170,7 +170,7 @@ public final class AuthorizerArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<AuthorizerJwtConfigurationArgs> jwtConfiguration;
 
     /**
-     * @return The configuration of a JWT authorizer. Required for the `JWT` authorizer type.
+     * @return Configuration of a JWT authorizer. Required for the `JWT` authorizer type.
      * Supported only for HTTP APIs.
      * 
      */
@@ -179,14 +179,14 @@ public final class AuthorizerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the authorizer. Must be between 1 and 128 characters in length.
+     * Name of the authorizer. Must be between 1 and 128 characters in length.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the authorizer. Must be between 1 and 128 characters in length.
+     * @return Name of the authorizer. Must be between 1 and 128 characters in length.
      * 
      */
     public Optional<Output<String>> name() {
@@ -227,7 +227,7 @@ public final class AuthorizerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param apiId The API identifier.
+         * @param apiId API identifier.
          * 
          * @return builder
          * 
@@ -238,7 +238,7 @@ public final class AuthorizerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param apiId The API identifier.
+         * @param apiId API identifier.
          * 
          * @return builder
          * 
@@ -248,7 +248,7 @@ public final class AuthorizerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authorizerCredentialsArn The required credentials as an IAM role for API Gateway to invoke the authorizer.
+         * @param authorizerCredentialsArn Required credentials as an IAM role for API Gateway to invoke the authorizer.
          * Supported only for `REQUEST` authorizers.
          * 
          * @return builder
@@ -260,7 +260,7 @@ public final class AuthorizerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authorizerCredentialsArn The required credentials as an IAM role for API Gateway to invoke the authorizer.
+         * @param authorizerCredentialsArn Required credentials as an IAM role for API Gateway to invoke the authorizer.
          * Supported only for `REQUEST` authorizers.
          * 
          * @return builder
@@ -271,7 +271,7 @@ public final class AuthorizerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authorizerPayloadFormatVersion The format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers.
+         * @param authorizerPayloadFormatVersion Format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers.
          * Valid values: `1.0`, `2.0`.
          * 
          * @return builder
@@ -283,7 +283,7 @@ public final class AuthorizerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authorizerPayloadFormatVersion The format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers.
+         * @param authorizerPayloadFormatVersion Format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers.
          * Valid values: `1.0`, `2.0`.
          * 
          * @return builder
@@ -294,7 +294,7 @@ public final class AuthorizerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authorizerResultTtlInSeconds The time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled.
+         * @param authorizerResultTtlInSeconds Time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled.
          * If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Defaults to `300`.
          * Supported only for HTTP API Lambda authorizers.
          * 
@@ -307,7 +307,7 @@ public final class AuthorizerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authorizerResultTtlInSeconds The time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled.
+         * @param authorizerResultTtlInSeconds Time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled.
          * If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Defaults to `300`.
          * Supported only for HTTP API Lambda authorizers.
          * 
@@ -319,7 +319,7 @@ public final class AuthorizerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authorizerType The authorizer type. Valid values: `JWT`, `REQUEST`.
+         * @param authorizerType Authorizer type. Valid values: `JWT`, `REQUEST`.
          * Specify `REQUEST` for a Lambda function using incoming request parameters.
          * For HTTP APIs, specify `JWT` to use JSON Web Tokens.
          * 
@@ -332,7 +332,7 @@ public final class AuthorizerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authorizerType The authorizer type. Valid values: `JWT`, `REQUEST`.
+         * @param authorizerType Authorizer type. Valid values: `JWT`, `REQUEST`.
          * Specify `REQUEST` for a Lambda function using incoming request parameters.
          * For HTTP APIs, specify `JWT` to use JSON Web Tokens.
          * 
@@ -344,7 +344,7 @@ public final class AuthorizerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authorizerUri The authorizer&#39;s Uniform Resource Identifier (URI).
+         * @param authorizerUri Authorizer&#39;s Uniform Resource Identifier (URI).
          * For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invoke_arn` attribute of the `aws.lambda.Function` resource.
          * Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
          * 
@@ -357,7 +357,7 @@ public final class AuthorizerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authorizerUri The authorizer&#39;s Uniform Resource Identifier (URI).
+         * @param authorizerUri Authorizer&#39;s Uniform Resource Identifier (URI).
          * For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invoke_arn` attribute of the `aws.lambda.Function` resource.
          * Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
          * 
@@ -392,7 +392,7 @@ public final class AuthorizerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param identitySources The identity sources for which authorization is requested.
+         * @param identitySources Identity sources for which authorization is requested.
          * For `REQUEST` authorizers the value is a list of one or more mapping expressions of the specified request parameters.
          * For `JWT` authorizers the single entry specifies where to extract the JSON Web Token (JWT) from inbound requests.
          * 
@@ -405,7 +405,7 @@ public final class AuthorizerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param identitySources The identity sources for which authorization is requested.
+         * @param identitySources Identity sources for which authorization is requested.
          * For `REQUEST` authorizers the value is a list of one or more mapping expressions of the specified request parameters.
          * For `JWT` authorizers the single entry specifies where to extract the JSON Web Token (JWT) from inbound requests.
          * 
@@ -417,7 +417,7 @@ public final class AuthorizerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param identitySources The identity sources for which authorization is requested.
+         * @param identitySources Identity sources for which authorization is requested.
          * For `REQUEST` authorizers the value is a list of one or more mapping expressions of the specified request parameters.
          * For `JWT` authorizers the single entry specifies where to extract the JSON Web Token (JWT) from inbound requests.
          * 
@@ -429,7 +429,7 @@ public final class AuthorizerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param jwtConfiguration The configuration of a JWT authorizer. Required for the `JWT` authorizer type.
+         * @param jwtConfiguration Configuration of a JWT authorizer. Required for the `JWT` authorizer type.
          * Supported only for HTTP APIs.
          * 
          * @return builder
@@ -441,7 +441,7 @@ public final class AuthorizerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param jwtConfiguration The configuration of a JWT authorizer. Required for the `JWT` authorizer type.
+         * @param jwtConfiguration Configuration of a JWT authorizer. Required for the `JWT` authorizer type.
          * Supported only for HTTP APIs.
          * 
          * @return builder
@@ -452,7 +452,7 @@ public final class AuthorizerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the authorizer. Must be between 1 and 128 characters in length.
+         * @param name Name of the authorizer. Must be between 1 and 128 characters in length.
          * 
          * @return builder
          * 
@@ -463,7 +463,7 @@ public final class AuthorizerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the authorizer. Must be between 1 and 128 characters in length.
+         * @param name Name of the authorizer. Must be between 1 and 128 characters in length.
          * 
          * @return builder
          * 

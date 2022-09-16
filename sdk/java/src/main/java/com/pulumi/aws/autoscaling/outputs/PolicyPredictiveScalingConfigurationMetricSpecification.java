@@ -18,86 +18,86 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PolicyPredictiveScalingConfigurationMetricSpecification {
     /**
-     * @return The customized capacity metric specification. The field is only valid when you use `customized_load_metric_specification`
+     * @return Customized capacity metric specification. The field is only valid when you use `customized_load_metric_specification`
      * 
      */
     private @Nullable PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecification customizedCapacityMetricSpecification;
     /**
-     * @return The customized load metric specification.
+     * @return Customized load metric specification.
      * 
      */
     private @Nullable PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecification customizedLoadMetricSpecification;
     /**
-     * @return The customized scaling metric specification.
+     * @return Customized scaling metric specification.
      * 
      */
     private @Nullable PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecification customizedScalingMetricSpecification;
     /**
-     * @return The predefined load metric specification.
+     * @return Predefined load metric specification.
      * 
      */
     private @Nullable PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification predefinedLoadMetricSpecification;
     /**
-     * @return The metric pair specification from which Amazon EC2 Auto Scaling determines the appropriate scaling metric and load metric to use.
+     * @return Metric pair specification from which Amazon EC2 Auto Scaling determines the appropriate scaling metric and load metric to use.
      * 
      */
     private @Nullable PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification predefinedMetricPairSpecification;
     /**
-     * @return The predefined scaling metric specification.
+     * @return Predefined scaling metric specification.
      * 
      */
     private @Nullable PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification predefinedScalingMetricSpecification;
     /**
-     * @return The target value for the metric.
+     * @return Target value for the metric.
      * 
      */
     private Integer targetValue;
 
     private PolicyPredictiveScalingConfigurationMetricSpecification() {}
     /**
-     * @return The customized capacity metric specification. The field is only valid when you use `customized_load_metric_specification`
+     * @return Customized capacity metric specification. The field is only valid when you use `customized_load_metric_specification`
      * 
      */
     public Optional<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecification> customizedCapacityMetricSpecification() {
         return Optional.ofNullable(this.customizedCapacityMetricSpecification);
     }
     /**
-     * @return The customized load metric specification.
+     * @return Customized load metric specification.
      * 
      */
     public Optional<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecification> customizedLoadMetricSpecification() {
         return Optional.ofNullable(this.customizedLoadMetricSpecification);
     }
     /**
-     * @return The customized scaling metric specification.
+     * @return Customized scaling metric specification.
      * 
      */
     public Optional<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecification> customizedScalingMetricSpecification() {
         return Optional.ofNullable(this.customizedScalingMetricSpecification);
     }
     /**
-     * @return The predefined load metric specification.
+     * @return Predefined load metric specification.
      * 
      */
     public Optional<PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification> predefinedLoadMetricSpecification() {
         return Optional.ofNullable(this.predefinedLoadMetricSpecification);
     }
     /**
-     * @return The metric pair specification from which Amazon EC2 Auto Scaling determines the appropriate scaling metric and load metric to use.
+     * @return Metric pair specification from which Amazon EC2 Auto Scaling determines the appropriate scaling metric and load metric to use.
      * 
      */
     public Optional<PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification> predefinedMetricPairSpecification() {
         return Optional.ofNullable(this.predefinedMetricPairSpecification);
     }
     /**
-     * @return The predefined scaling metric specification.
+     * @return Predefined scaling metric specification.
      * 
      */
     public Optional<PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification> predefinedScalingMetricSpecification() {
         return Optional.ofNullable(this.predefinedScalingMetricSpecification);
     }
     /**
-     * @return The target value for the metric.
+     * @return Target value for the metric.
      * 
      */
     public Integer targetValue() {

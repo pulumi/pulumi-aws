@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AutoScalingPlans.Inputs
     public sealed class ScalingPlanApplicationSourceTagFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The tag key.
+        /// Tag key.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.AutoScalingPlans.Inputs
         private InputList<string>? _values;
 
         /// <summary>
-        /// The tag values.
+        /// Tag values.
         /// </summary>
         public InputList<string> Values
         {

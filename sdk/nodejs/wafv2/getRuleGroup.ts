@@ -36,7 +36,7 @@ export function getRuleGroup(args: GetRuleGroupArgs, opts?: pulumi.InvokeOptions
  */
 export interface GetRuleGroupArgs {
     /**
-     * The name of the WAFv2 Rule Group.
+     * Name of the WAFv2 Rule Group.
      */
     name: string;
     /**
@@ -50,11 +50,11 @@ export interface GetRuleGroupArgs {
  */
 export interface GetRuleGroupResult {
     /**
-     * The Amazon Resource Name (ARN) of the entity.
+     * ARN of the entity.
      */
     readonly arn: string;
     /**
-     * The description of the rule group that helps with identification.
+     * Description of the rule group that helps with identification.
      */
     readonly description: string;
     /**
@@ -74,7 +74,7 @@ export function getRuleGroupOutput(args: GetRuleGroupOutputArgs, opts?: pulumi.I
  */
 export interface GetRuleGroupOutputArgs {
     /**
-     * The name of the WAFv2 Rule Group.
+     * Name of the WAFv2 Rule Group.
      */
     name: pulumi.Input<string>;
     /**

@@ -17,14 +17,14 @@ public final class GetReportPlanArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetReportPlanArgs Empty = new GetReportPlanArgs();
 
     /**
-     * The backup report plan name.
+     * Backup report plan name.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The backup report plan name.
+     * @return Backup report plan name.
      * 
      */
     public Output<String> name() {
@@ -72,7 +72,7 @@ public final class GetReportPlanArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The backup report plan name.
+         * @param name Backup report plan name.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class GetReportPlanArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The backup report plan name.
+         * @param name Backup report plan name.
          * 
          * @return builder
          * 

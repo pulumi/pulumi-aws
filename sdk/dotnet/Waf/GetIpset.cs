@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Waf
     public sealed class GetIpsetArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the WAF IP set.
+        /// Name of the WAF IP set.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.Aws.Waf
     public sealed class GetIpsetInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the WAF IP set.
+        /// Name of the WAF IP set.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

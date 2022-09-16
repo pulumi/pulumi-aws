@@ -64,15 +64,15 @@ type GetInstanceTypeResult struct {
 	CurrentGeneration bool `pulumi:"currentGeneration"`
 	// `true` if Dedicated Hosts are supported on the instance type.
 	DedicatedHostsSupported bool `pulumi:"dedicatedHostsSupported"`
-	// The default number of cores for the instance type.
+	// Default number of cores for the instance type.
 	DefaultCores int `pulumi:"defaultCores"`
 	// The  default  number of threads per core for the instance type.
 	DefaultThreadsPerCore int `pulumi:"defaultThreadsPerCore"`
-	// The default number of vCPUs for the instance type.
+	// Default number of vCPUs for the instance type.
 	DefaultVcpus int `pulumi:"defaultVcpus"`
 	// Indicates whether Amazon EBS encryption is supported.
 	EbsEncryptionSupport string `pulumi:"ebsEncryptionSupport"`
-	// Indicates whether non-volatile memory express (NVMe) is supported.
+	// Whether non-volatile memory express (NVMe) is supported.
 	EbsNvmeSupport string `pulumi:"ebsNvmeSupport"`
 	// Indicates that the instance type is Amazon EBS-optimized.
 	EbsOptimizedSupport string `pulumi:"ebsOptimizedSupport"`
@@ -88,9 +88,9 @@ type GetInstanceTypeResult struct {
 	EbsPerformanceMaximumIops int `pulumi:"ebsPerformanceMaximumIops"`
 	// The maximum throughput performance for an EBS-optimized instance type, in MBps.
 	EbsPerformanceMaximumThroughput float64 `pulumi:"ebsPerformanceMaximumThroughput"`
-	// Indicates whether Elastic Fabric Adapter (EFA) is supported.
+	// Whether Elastic Fabric Adapter (EFA) is supported.
 	EfaSupported bool `pulumi:"efaSupported"`
-	// Indicates whether Elastic Network Adapter (ENA) is supported.
+	// Whether Elastic Network Adapter (ENA) is supported.
 	EnaSupport string `pulumi:"enaSupport"`
 	// Indicates whether encryption in-transit between instances is supported.
 	EncryptionInTransitSupported bool `pulumi:"encryptionInTransitSupported"`
@@ -110,7 +110,7 @@ type GetInstanceTypeResult struct {
 	Gpuses []GetInstanceTypeGpus `pulumi:"gpuses"`
 	// `true` if On-Demand hibernation is supported.
 	HibernationSupported bool `pulumi:"hibernationSupported"`
-	// Indicates the hypervisor used for the instance type.
+	// Hypervisor used for the instance type.
 	// * `inferenceAccelerators` Describes the Inference accelerators for the instance type.
 	// * `inference_accelerators.#.count` - The number of Inference accelerators for the instance type.
 	// * `inference_accelerators.#.manufacturer` - The manufacturer of the Inference accelerator.
@@ -151,9 +151,9 @@ type GetInstanceTypeResult struct {
 	SupportedVirtualizationTypes []string `pulumi:"supportedVirtualizationTypes"`
 	// The speed of the processor, in GHz.
 	SustainedClockSpeed float64 `pulumi:"sustainedClockSpeed"`
-	// The total memory of all FPGA accelerators for the instance type (in MiB).
+	// Total memory of all FPGA accelerators for the instance type (in MiB).
 	TotalFpgaMemory int `pulumi:"totalFpgaMemory"`
-	// The total size of the memory for the GPU accelerators for the instance type (in MiB).
+	// Total size of the memory for the GPU accelerators for the instance type (in MiB).
 	TotalGpuMemory int `pulumi:"totalGpuMemory"`
 	// The total size of the instance disks, in GB.
 	TotalInstanceStorage int `pulumi:"totalInstanceStorage"`
@@ -226,7 +226,7 @@ func (o GetInstanceTypeResultOutput) DedicatedHostsSupported() pulumi.BoolOutput
 	return o.ApplyT(func(v GetInstanceTypeResult) bool { return v.DedicatedHostsSupported }).(pulumi.BoolOutput)
 }
 
-// The default number of cores for the instance type.
+// Default number of cores for the instance type.
 func (o GetInstanceTypeResultOutput) DefaultCores() pulumi.IntOutput {
 	return o.ApplyT(func(v GetInstanceTypeResult) int { return v.DefaultCores }).(pulumi.IntOutput)
 }
@@ -236,7 +236,7 @@ func (o GetInstanceTypeResultOutput) DefaultThreadsPerCore() pulumi.IntOutput {
 	return o.ApplyT(func(v GetInstanceTypeResult) int { return v.DefaultThreadsPerCore }).(pulumi.IntOutput)
 }
 
-// The default number of vCPUs for the instance type.
+// Default number of vCPUs for the instance type.
 func (o GetInstanceTypeResultOutput) DefaultVcpus() pulumi.IntOutput {
 	return o.ApplyT(func(v GetInstanceTypeResult) int { return v.DefaultVcpus }).(pulumi.IntOutput)
 }
@@ -246,7 +246,7 @@ func (o GetInstanceTypeResultOutput) EbsEncryptionSupport() pulumi.StringOutput 
 	return o.ApplyT(func(v GetInstanceTypeResult) string { return v.EbsEncryptionSupport }).(pulumi.StringOutput)
 }
 
-// Indicates whether non-volatile memory express (NVMe) is supported.
+// Whether non-volatile memory express (NVMe) is supported.
 func (o GetInstanceTypeResultOutput) EbsNvmeSupport() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceTypeResult) string { return v.EbsNvmeSupport }).(pulumi.StringOutput)
 }
@@ -286,12 +286,12 @@ func (o GetInstanceTypeResultOutput) EbsPerformanceMaximumThroughput() pulumi.Fl
 	return o.ApplyT(func(v GetInstanceTypeResult) float64 { return v.EbsPerformanceMaximumThroughput }).(pulumi.Float64Output)
 }
 
-// Indicates whether Elastic Fabric Adapter (EFA) is supported.
+// Whether Elastic Fabric Adapter (EFA) is supported.
 func (o GetInstanceTypeResultOutput) EfaSupported() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetInstanceTypeResult) bool { return v.EfaSupported }).(pulumi.BoolOutput)
 }
 
-// Indicates whether Elastic Network Adapter (ENA) is supported.
+// Whether Elastic Network Adapter (ENA) is supported.
 func (o GetInstanceTypeResultOutput) EnaSupport() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceTypeResult) string { return v.EnaSupport }).(pulumi.StringOutput)
 }
@@ -329,7 +329,7 @@ func (o GetInstanceTypeResultOutput) HibernationSupported() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetInstanceTypeResult) bool { return v.HibernationSupported }).(pulumi.BoolOutput)
 }
 
-// Indicates the hypervisor used for the instance type.
+// Hypervisor used for the instance type.
 // * `inferenceAccelerators` Describes the Inference accelerators for the instance type.
 // * `inference_accelerators.#.count` - The number of Inference accelerators for the instance type.
 // * `inference_accelerators.#.manufacturer` - The manufacturer of the Inference accelerator.
@@ -424,12 +424,12 @@ func (o GetInstanceTypeResultOutput) SustainedClockSpeed() pulumi.Float64Output 
 	return o.ApplyT(func(v GetInstanceTypeResult) float64 { return v.SustainedClockSpeed }).(pulumi.Float64Output)
 }
 
-// The total memory of all FPGA accelerators for the instance type (in MiB).
+// Total memory of all FPGA accelerators for the instance type (in MiB).
 func (o GetInstanceTypeResultOutput) TotalFpgaMemory() pulumi.IntOutput {
 	return o.ApplyT(func(v GetInstanceTypeResult) int { return v.TotalFpgaMemory }).(pulumi.IntOutput)
 }
 
-// The total size of the memory for the GPU accelerators for the instance type (in MiB).
+// Total size of the memory for the GPU accelerators for the instance type (in MiB).
 func (o GetInstanceTypeResultOutput) TotalGpuMemory() pulumi.IntOutput {
 	return o.ApplyT(func(v GetInstanceTypeResult) int { return v.TotalGpuMemory }).(pulumi.IntOutput)
 }

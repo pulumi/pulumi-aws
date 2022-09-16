@@ -301,14 +301,14 @@ public class Application extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.sslConfigurations);
     }
     /**
-     * The id of the stack the application will belong to.
+     * ID of the stack the application will belong to.
      * 
      */
     @Export(name="stackId", type=String.class, parameters={})
     private Output<String> stackId;
 
     /**
-     * @return The id of the stack the application will belong to.
+     * @return ID of the stack the application will belong to.
      * 
      */
     public Output<String> stackId() {

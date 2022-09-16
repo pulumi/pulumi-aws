@@ -114,7 +114,7 @@ def get_parameters_by_path(path: Optional[str] = None,
     """
     Use this data source to access information about an existing resource.
 
-    :param str path: The prefix path of the parameter.
+    :param str path: Prefix path of the parameter.
     :param bool recursive: Whether to recursively return parameters under `path`. Defaults to `false`.
     :param bool with_decryption: Whether to return decrypted `SecureString` value. Defaults to `true`.
     """
@@ -144,7 +144,7 @@ def get_parameters_by_path_output(path: Optional[pulumi.Input[str]] = None,
     """
     Use this data source to access information about an existing resource.
 
-    :param str path: The prefix path of the parameter.
+    :param str path: Prefix path of the parameter.
     :param bool recursive: Whether to recursively return parameters under `path`. Defaults to `false`.
     :param bool with_decryption: Whether to return decrypted `SecureString` value. Defaults to `true`.
     """

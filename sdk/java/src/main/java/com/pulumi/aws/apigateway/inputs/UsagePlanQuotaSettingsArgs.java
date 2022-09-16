@@ -17,14 +17,14 @@ public final class UsagePlanQuotaSettingsArgs extends com.pulumi.resources.Resou
     public static final UsagePlanQuotaSettingsArgs Empty = new UsagePlanQuotaSettingsArgs();
 
     /**
-     * The maximum number of requests that can be made in a given time period.
+     * Maximum number of requests that can be made in a given time period.
      * 
      */
     @Import(name="limit", required=true)
     private Output<Integer> limit;
 
     /**
-     * @return The maximum number of requests that can be made in a given time period.
+     * @return Maximum number of requests that can be made in a given time period.
      * 
      */
     public Output<Integer> limit() {
@@ -32,14 +32,14 @@ public final class UsagePlanQuotaSettingsArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The number of requests subtracted from the given limit in the initial time period.
+     * Number of requests subtracted from the given limit in the initial time period.
      * 
      */
     @Import(name="offset")
     private @Nullable Output<Integer> offset;
 
     /**
-     * @return The number of requests subtracted from the given limit in the initial time period.
+     * @return Number of requests subtracted from the given limit in the initial time period.
      * 
      */
     public Optional<Output<Integer>> offset() {
@@ -47,14 +47,14 @@ public final class UsagePlanQuotaSettingsArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The time period in which the limit applies. Valid values are &#34;DAY&#34;, &#34;WEEK&#34; or &#34;MONTH&#34;.
+     * Time period in which the limit applies. Valid values are &#34;DAY&#34;, &#34;WEEK&#34; or &#34;MONTH&#34;.
      * 
      */
     @Import(name="period", required=true)
     private Output<String> period;
 
     /**
-     * @return The time period in which the limit applies. Valid values are &#34;DAY&#34;, &#34;WEEK&#34; or &#34;MONTH&#34;.
+     * @return Time period in which the limit applies. Valid values are &#34;DAY&#34;, &#34;WEEK&#34; or &#34;MONTH&#34;.
      * 
      */
     public Output<String> period() {
@@ -88,7 +88,7 @@ public final class UsagePlanQuotaSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param limit The maximum number of requests that can be made in a given time period.
+         * @param limit Maximum number of requests that can be made in a given time period.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class UsagePlanQuotaSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param limit The maximum number of requests that can be made in a given time period.
+         * @param limit Maximum number of requests that can be made in a given time period.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class UsagePlanQuotaSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param offset The number of requests subtracted from the given limit in the initial time period.
+         * @param offset Number of requests subtracted from the given limit in the initial time period.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class UsagePlanQuotaSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param offset The number of requests subtracted from the given limit in the initial time period.
+         * @param offset Number of requests subtracted from the given limit in the initial time period.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class UsagePlanQuotaSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param period The time period in which the limit applies. Valid values are &#34;DAY&#34;, &#34;WEEK&#34; or &#34;MONTH&#34;.
+         * @param period Time period in which the limit applies. Valid values are &#34;DAY&#34;, &#34;WEEK&#34; or &#34;MONTH&#34;.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class UsagePlanQuotaSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param period The time period in which the limit applies. Valid values are &#34;DAY&#34;, &#34;WEEK&#34; or &#34;MONTH&#34;.
+         * @param period Time period in which the limit applies. Valid values are &#34;DAY&#34;, &#34;WEEK&#34; or &#34;MONTH&#34;.
          * 
          * @return builder
          * 

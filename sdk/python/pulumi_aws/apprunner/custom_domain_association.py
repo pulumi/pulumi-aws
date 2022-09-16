@@ -21,8 +21,8 @@ class CustomDomainAssociationArgs:
                  enable_www_subdomain: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a CustomDomainAssociation resource.
-        :param pulumi.Input[str] domain_name: The custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
-        :param pulumi.Input[str] service_arn: The ARN of the App Runner service.
+        :param pulumi.Input[str] domain_name: Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
+        :param pulumi.Input[str] service_arn: ARN of the App Runner service.
         :param pulumi.Input[bool] enable_www_subdomain: Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
         """
         pulumi.set(__self__, "domain_name", domain_name)
@@ -34,7 +34,7 @@ class CustomDomainAssociationArgs:
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Input[str]:
         """
-        The custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
+        Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
         """
         return pulumi.get(self, "domain_name")
 
@@ -46,7 +46,7 @@ class CustomDomainAssociationArgs:
     @pulumi.getter(name="serviceArn")
     def service_arn(self) -> pulumi.Input[str]:
         """
-        The ARN of the App Runner service.
+        ARN of the App Runner service.
         """
         return pulumi.get(self, "service_arn")
 
@@ -79,11 +79,11 @@ class _CustomDomainAssociationState:
         """
         Input properties used for looking up and filtering CustomDomainAssociation resources.
         :param pulumi.Input[Sequence[pulumi.Input['CustomDomainAssociationCertificateValidationRecordArgs']]] certificate_validation_records: A set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.
-        :param pulumi.Input[str] dns_target: The App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
-        :param pulumi.Input[str] domain_name: The custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
+        :param pulumi.Input[str] dns_target: App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
+        :param pulumi.Input[str] domain_name: Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
         :param pulumi.Input[bool] enable_www_subdomain: Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
-        :param pulumi.Input[str] service_arn: The ARN of the App Runner service.
-        :param pulumi.Input[str] status: The current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
+        :param pulumi.Input[str] service_arn: ARN of the App Runner service.
+        :param pulumi.Input[str] status: Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
         """
         if certificate_validation_records is not None:
             pulumi.set(__self__, "certificate_validation_records", certificate_validation_records)
@@ -114,7 +114,7 @@ class _CustomDomainAssociationState:
     @pulumi.getter(name="dnsTarget")
     def dns_target(self) -> Optional[pulumi.Input[str]]:
         """
-        The App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
+        App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
         """
         return pulumi.get(self, "dns_target")
 
@@ -126,7 +126,7 @@ class _CustomDomainAssociationState:
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
+        Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
         """
         return pulumi.get(self, "domain_name")
 
@@ -150,7 +150,7 @@ class _CustomDomainAssociationState:
     @pulumi.getter(name="serviceArn")
     def service_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of the App Runner service.
+        ARN of the App Runner service.
         """
         return pulumi.get(self, "service_arn")
 
@@ -162,7 +162,7 @@ class _CustomDomainAssociationState:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        The current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
+        Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
         """
         return pulumi.get(self, "status")
 
@@ -208,9 +208,9 @@ class CustomDomainAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] domain_name: The custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
+        :param pulumi.Input[str] domain_name: Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
         :param pulumi.Input[bool] enable_www_subdomain: Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
-        :param pulumi.Input[str] service_arn: The ARN of the App Runner service.
+        :param pulumi.Input[str] service_arn: ARN of the App Runner service.
         """
         ...
     @overload
@@ -305,11 +305,11 @@ class CustomDomainAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainAssociationCertificateValidationRecordArgs']]]] certificate_validation_records: A set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.
-        :param pulumi.Input[str] dns_target: The App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
-        :param pulumi.Input[str] domain_name: The custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
+        :param pulumi.Input[str] dns_target: App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
+        :param pulumi.Input[str] domain_name: Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
         :param pulumi.Input[bool] enable_www_subdomain: Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
-        :param pulumi.Input[str] service_arn: The ARN of the App Runner service.
-        :param pulumi.Input[str] status: The current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
+        :param pulumi.Input[str] service_arn: ARN of the App Runner service.
+        :param pulumi.Input[str] status: Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -335,7 +335,7 @@ class CustomDomainAssociation(pulumi.CustomResource):
     @pulumi.getter(name="dnsTarget")
     def dns_target(self) -> pulumi.Output[str]:
         """
-        The App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
+        App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
         """
         return pulumi.get(self, "dns_target")
 
@@ -343,7 +343,7 @@ class CustomDomainAssociation(pulumi.CustomResource):
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[str]:
         """
-        The custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
+        Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
         """
         return pulumi.get(self, "domain_name")
 
@@ -359,7 +359,7 @@ class CustomDomainAssociation(pulumi.CustomResource):
     @pulumi.getter(name="serviceArn")
     def service_arn(self) -> pulumi.Output[str]:
         """
-        The ARN of the App Runner service.
+        ARN of the App Runner service.
         """
         return pulumi.get(self, "service_arn")
 
@@ -367,7 +367,7 @@ class CustomDomainAssociation(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
         """
-        The current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
+        Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
         """
         return pulumi.get(self, "status")
 

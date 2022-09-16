@@ -13,19 +13,19 @@ namespace Pulumi.Aws.AppSync.Inputs
     public sealed class GraphQLApiAdditionalAuthenticationProviderUserPoolConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A regular expression for validating the incoming Amazon Cognito User Pool app client ID.
+        /// Regular expression for validating the incoming Amazon Cognito User Pool app client ID.
         /// </summary>
         [Input("appIdClientRegex")]
         public Input<string>? AppIdClientRegex { get; set; }
 
         /// <summary>
-        /// The AWS region in which the user pool was created.
+        /// AWS region in which the user pool was created.
         /// </summary>
         [Input("awsRegion")]
         public Input<string>? AwsRegion { get; set; }
 
         /// <summary>
-        /// The user pool ID.
+        /// User pool ID.
         /// </summary>
         [Input("userPoolId", required: true)]
         public Input<string> UserPoolId { get; set; } = null!;

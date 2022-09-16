@@ -13,13 +13,13 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class RouteSpecHttp2RouteActionWeightedTargetGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
+        /// Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
         /// </summary>
         [Input("virtualNode", required: true)]
         public Input<string> VirtualNode { get; set; } = null!;
 
         /// <summary>
-        /// The relative weight of the weighted target. An integer between 0 and 100.
+        /// Relative weight of the weighted target. An integer between 0 and 100.
         /// </summary>
         [Input("weight", required: true)]
         public Input<int> Weight { get; set; } = null!;

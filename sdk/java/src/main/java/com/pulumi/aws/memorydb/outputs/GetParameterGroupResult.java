@@ -23,7 +23,7 @@ public final class GetParameterGroupResult {
      */
     private String description;
     /**
-     * @return The engine version that the parameter group can be used with.
+     * @return Engine version that the parameter group can be used with.
      * 
      */
     private String family;
@@ -43,7 +43,7 @@ public final class GetParameterGroupResult {
      */
     private List<GetParameterGroupParameter> parameters;
     /**
-     * @return A map of tags assigned to the parameter group.
+     * @return Map of tags assigned to the parameter group.
      * 
      */
     private Map<String,String> tags;
@@ -64,7 +64,7 @@ public final class GetParameterGroupResult {
         return this.description;
     }
     /**
-     * @return The engine version that the parameter group can be used with.
+     * @return Engine version that the parameter group can be used with.
      * 
      */
     public String family() {
@@ -92,7 +92,7 @@ public final class GetParameterGroupResult {
         return this.parameters;
     }
     /**
-     * @return A map of tags assigned to the parameter group.
+     * @return Map of tags assigned to the parameter group.
      * 
      */
     public Map<String,String> tags() {

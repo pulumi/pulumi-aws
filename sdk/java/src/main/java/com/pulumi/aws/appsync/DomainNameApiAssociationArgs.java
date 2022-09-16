@@ -14,14 +14,14 @@ public final class DomainNameApiAssociationArgs extends com.pulumi.resources.Res
     public static final DomainNameApiAssociationArgs Empty = new DomainNameApiAssociationArgs();
 
     /**
-     * The API ID.
+     * API ID.
      * 
      */
     @Import(name="apiId", required=true)
     private Output<String> apiId;
 
     /**
-     * @return The API ID.
+     * @return API ID.
      * 
      */
     public Output<String> apiId() {
@@ -29,14 +29,14 @@ public final class DomainNameApiAssociationArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The Appsync domain name.
+     * Appsync domain name.
      * 
      */
     @Import(name="domainName", required=true)
     private Output<String> domainName;
 
     /**
-     * @return The Appsync domain name.
+     * @return Appsync domain name.
      * 
      */
     public Output<String> domainName() {
@@ -69,7 +69,7 @@ public final class DomainNameApiAssociationArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param apiId The API ID.
+         * @param apiId API ID.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class DomainNameApiAssociationArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param apiId The API ID.
+         * @param apiId API ID.
          * 
          * @return builder
          * 
@@ -90,7 +90,7 @@ public final class DomainNameApiAssociationArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param domainName The Appsync domain name.
+         * @param domainName Appsync domain name.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class DomainNameApiAssociationArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param domainName The Appsync domain name.
+         * @param domainName Appsync domain name.
          * 
          * @return builder
          * 

@@ -259,8 +259,8 @@ def get_broker(broker_id: Optional[str] = None,
     ```
 
 
-    :param str broker_id: The unique id of the mq broker.
-    :param str broker_name: The unique name of the mq broker.
+    :param str broker_id: Unique id of the mq broker.
+    :param str broker_name: Unique name of the mq broker.
     """
     __args__ = dict()
     __args__['brokerId'] = broker_id
@@ -320,7 +320,7 @@ def get_broker_output(broker_id: Optional[pulumi.Input[Optional[str]]] = None,
     ```
 
 
-    :param str broker_id: The unique id of the mq broker.
-    :param str broker_name: The unique name of the mq broker.
+    :param str broker_id: Unique id of the mq broker.
+    :param str broker_name: Unique name of the mq broker.
     """
     ...

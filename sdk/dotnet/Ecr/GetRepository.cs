@@ -70,13 +70,13 @@ namespace Pulumi.Aws.Ecr
     public sealed class GetRepositoryArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the ECR Repository.
+        /// Name of the ECR Repository.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// The registry ID where the repository was created.
+        /// Registry ID where the repository was created.
         /// </summary>
         [Input("registryId")]
         public string? RegistryId { get; set; }
@@ -85,7 +85,7 @@ namespace Pulumi.Aws.Ecr
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A map of tags assigned to the resource.
+        /// Map of tags assigned to the resource.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -102,13 +102,13 @@ namespace Pulumi.Aws.Ecr
     public sealed class GetRepositoryInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the ECR Repository.
+        /// Name of the ECR Repository.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The registry ID where the repository was created.
+        /// Registry ID where the repository was created.
         /// </summary>
         [Input("registryId")]
         public Input<string>? RegistryId { get; set; }
@@ -117,7 +117,7 @@ namespace Pulumi.Aws.Ecr
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags assigned to the resource.
+        /// Map of tags assigned to the resource.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -158,11 +158,11 @@ namespace Pulumi.Aws.Ecr
         public readonly string Name;
         public readonly string RegistryId;
         /// <summary>
-        /// The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
+        /// URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
         /// </summary>
         public readonly string RepositoryUrl;
         /// <summary>
-        /// A map of tags assigned to the resource.
+        /// Map of tags assigned to the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 

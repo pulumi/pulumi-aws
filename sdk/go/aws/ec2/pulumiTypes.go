@@ -14,26 +14,26 @@ type AmiCopyEbsBlockDevice struct {
 	// Boolean controlling whether the EBS volumes created to
 	// support each created instance will be deleted once that instance is terminated.
 	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
-	// The path at which the device is exposed to created instances.
+	// Path at which the device is exposed to created instances.
 	DeviceName *string `pulumi:"deviceName"`
 	// Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshotId`.
 	Encrypted *bool `pulumi:"encrypted"`
 	// Number of I/O operations per second the
 	// created volumes will support.
 	Iops *int `pulumi:"iops"`
-	// The ARN of the Outpost on which the snapshot is stored.
+	// ARN of the Outpost on which the snapshot is stored.
 	OutpostArn *string `pulumi:"outpostArn"`
-	// The id of an EBS snapshot that will be used to initialize the created
+	// ID of an EBS snapshot that will be used to initialize the created
 	// EBS volumes. If set, the `volumeSize` attribute must be at least as large as the referenced
 	// snapshot.
 	SnapshotId *string `pulumi:"snapshotId"`
-	// The throughput that the EBS volume supports, in MiB/s. Only valid for `volumeType` of `gp3`.
+	// Throughput that the EBS volume supports, in MiB/s. Only valid for `volumeType` of `gp3`.
 	Throughput *int `pulumi:"throughput"`
-	// The size of created volumes in GiB.
+	// Size of created volumes in GiB.
 	// If `snapshotId` is set and `volumeSize` is omitted then the volume will have the same size
 	// as the selected snapshot.
 	VolumeSize *int `pulumi:"volumeSize"`
-	// The type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
+	// Type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
 	VolumeType *string `pulumi:"volumeType"`
 }
 
@@ -52,26 +52,26 @@ type AmiCopyEbsBlockDeviceArgs struct {
 	// Boolean controlling whether the EBS volumes created to
 	// support each created instance will be deleted once that instance is terminated.
 	DeleteOnTermination pulumi.BoolPtrInput `pulumi:"deleteOnTermination"`
-	// The path at which the device is exposed to created instances.
+	// Path at which the device is exposed to created instances.
 	DeviceName pulumi.StringPtrInput `pulumi:"deviceName"`
 	// Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshotId`.
 	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
 	// Number of I/O operations per second the
 	// created volumes will support.
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
-	// The ARN of the Outpost on which the snapshot is stored.
+	// ARN of the Outpost on which the snapshot is stored.
 	OutpostArn pulumi.StringPtrInput `pulumi:"outpostArn"`
-	// The id of an EBS snapshot that will be used to initialize the created
+	// ID of an EBS snapshot that will be used to initialize the created
 	// EBS volumes. If set, the `volumeSize` attribute must be at least as large as the referenced
 	// snapshot.
 	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
-	// The throughput that the EBS volume supports, in MiB/s. Only valid for `volumeType` of `gp3`.
+	// Throughput that the EBS volume supports, in MiB/s. Only valid for `volumeType` of `gp3`.
 	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
-	// The size of created volumes in GiB.
+	// Size of created volumes in GiB.
 	// If `snapshotId` is set and `volumeSize` is omitted then the volume will have the same size
 	// as the selected snapshot.
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
-	// The type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
+	// Type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
 	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
@@ -132,7 +132,7 @@ func (o AmiCopyEbsBlockDeviceOutput) DeleteOnTermination() pulumi.BoolPtrOutput 
 	return o.ApplyT(func(v AmiCopyEbsBlockDevice) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
 }
 
-// The path at which the device is exposed to created instances.
+// Path at which the device is exposed to created instances.
 func (o AmiCopyEbsBlockDeviceOutput) DeviceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AmiCopyEbsBlockDevice) *string { return v.DeviceName }).(pulumi.StringPtrOutput)
 }
@@ -148,31 +148,31 @@ func (o AmiCopyEbsBlockDeviceOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AmiCopyEbsBlockDevice) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
-// The ARN of the Outpost on which the snapshot is stored.
+// ARN of the Outpost on which the snapshot is stored.
 func (o AmiCopyEbsBlockDeviceOutput) OutpostArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AmiCopyEbsBlockDevice) *string { return v.OutpostArn }).(pulumi.StringPtrOutput)
 }
 
-// The id of an EBS snapshot that will be used to initialize the created
+// ID of an EBS snapshot that will be used to initialize the created
 // EBS volumes. If set, the `volumeSize` attribute must be at least as large as the referenced
 // snapshot.
 func (o AmiCopyEbsBlockDeviceOutput) SnapshotId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AmiCopyEbsBlockDevice) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
 }
 
-// The throughput that the EBS volume supports, in MiB/s. Only valid for `volumeType` of `gp3`.
+// Throughput that the EBS volume supports, in MiB/s. Only valid for `volumeType` of `gp3`.
 func (o AmiCopyEbsBlockDeviceOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AmiCopyEbsBlockDevice) *int { return v.Throughput }).(pulumi.IntPtrOutput)
 }
 
-// The size of created volumes in GiB.
+// Size of created volumes in GiB.
 // If `snapshotId` is set and `volumeSize` is omitted then the volume will have the same size
 // as the selected snapshot.
 func (o AmiCopyEbsBlockDeviceOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AmiCopyEbsBlockDevice) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
-// The type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
+// Type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
 func (o AmiCopyEbsBlockDeviceOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AmiCopyEbsBlockDevice) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
@@ -198,9 +198,9 @@ func (o AmiCopyEbsBlockDeviceArrayOutput) Index(i pulumi.IntInput) AmiCopyEbsBlo
 }
 
 type AmiCopyEphemeralBlockDevice struct {
-	// The path at which the device is exposed to created instances.
+	// Path at which the device is exposed to created instances.
 	DeviceName *string `pulumi:"deviceName"`
-	// A name for the ephemeral device, of the form "ephemeralN" where
+	// Name for the ephemeral device, of the form "ephemeralN" where
 	// *N* is a volume number starting from zero.
 	VirtualName *string `pulumi:"virtualName"`
 }
@@ -217,9 +217,9 @@ type AmiCopyEphemeralBlockDeviceInput interface {
 }
 
 type AmiCopyEphemeralBlockDeviceArgs struct {
-	// The path at which the device is exposed to created instances.
+	// Path at which the device is exposed to created instances.
 	DeviceName pulumi.StringPtrInput `pulumi:"deviceName"`
-	// A name for the ephemeral device, of the form "ephemeralN" where
+	// Name for the ephemeral device, of the form "ephemeralN" where
 	// *N* is a volume number starting from zero.
 	VirtualName pulumi.StringPtrInput `pulumi:"virtualName"`
 }
@@ -275,12 +275,12 @@ func (o AmiCopyEphemeralBlockDeviceOutput) ToAmiCopyEphemeralBlockDeviceOutputWi
 	return o
 }
 
-// The path at which the device is exposed to created instances.
+// Path at which the device is exposed to created instances.
 func (o AmiCopyEphemeralBlockDeviceOutput) DeviceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AmiCopyEphemeralBlockDevice) *string { return v.DeviceName }).(pulumi.StringPtrOutput)
 }
 
-// A name for the ephemeral device, of the form "ephemeralN" where
+// Name for the ephemeral device, of the form "ephemeralN" where
 // *N* is a volume number starting from zero.
 func (o AmiCopyEphemeralBlockDeviceOutput) VirtualName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AmiCopyEphemeralBlockDevice) *string { return v.VirtualName }).(pulumi.StringPtrOutput)
@@ -310,26 +310,26 @@ type AmiEbsBlockDevice struct {
 	// Boolean controlling whether the EBS volumes created to
 	// support each created instance will be deleted once that instance is terminated.
 	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
-	// The path at which the device is exposed to created instances.
+	// Path at which the device is exposed to created instances.
 	DeviceName string `pulumi:"deviceName"`
 	// Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshotId`.
 	Encrypted *bool `pulumi:"encrypted"`
 	// Number of I/O operations per second the
 	// created volumes will support.
 	Iops *int `pulumi:"iops"`
-	// The ARN of the Outpost on which the snapshot is stored.
+	// ARN of the Outpost on which the snapshot is stored.
 	OutpostArn *string `pulumi:"outpostArn"`
-	// The id of an EBS snapshot that will be used to initialize the created
+	// ID of an EBS snapshot that will be used to initialize the created
 	// EBS volumes. If set, the `volumeSize` attribute must be at least as large as the referenced
 	// snapshot.
 	SnapshotId *string `pulumi:"snapshotId"`
-	// The throughput that the EBS volume supports, in MiB/s. Only valid for `volumeType` of `gp3`.
+	// Throughput that the EBS volume supports, in MiB/s. Only valid for `volumeType` of `gp3`.
 	Throughput *int `pulumi:"throughput"`
-	// The size of created volumes in GiB.
+	// Size of created volumes in GiB.
 	// If `snapshotId` is set and `volumeSize` is omitted then the volume will have the same size
 	// as the selected snapshot.
 	VolumeSize *int `pulumi:"volumeSize"`
-	// The type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
+	// Type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
 	VolumeType *string `pulumi:"volumeType"`
 }
 
@@ -348,26 +348,26 @@ type AmiEbsBlockDeviceArgs struct {
 	// Boolean controlling whether the EBS volumes created to
 	// support each created instance will be deleted once that instance is terminated.
 	DeleteOnTermination pulumi.BoolPtrInput `pulumi:"deleteOnTermination"`
-	// The path at which the device is exposed to created instances.
+	// Path at which the device is exposed to created instances.
 	DeviceName pulumi.StringInput `pulumi:"deviceName"`
 	// Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshotId`.
 	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
 	// Number of I/O operations per second the
 	// created volumes will support.
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
-	// The ARN of the Outpost on which the snapshot is stored.
+	// ARN of the Outpost on which the snapshot is stored.
 	OutpostArn pulumi.StringPtrInput `pulumi:"outpostArn"`
-	// The id of an EBS snapshot that will be used to initialize the created
+	// ID of an EBS snapshot that will be used to initialize the created
 	// EBS volumes. If set, the `volumeSize` attribute must be at least as large as the referenced
 	// snapshot.
 	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
-	// The throughput that the EBS volume supports, in MiB/s. Only valid for `volumeType` of `gp3`.
+	// Throughput that the EBS volume supports, in MiB/s. Only valid for `volumeType` of `gp3`.
 	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
-	// The size of created volumes in GiB.
+	// Size of created volumes in GiB.
 	// If `snapshotId` is set and `volumeSize` is omitted then the volume will have the same size
 	// as the selected snapshot.
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
-	// The type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
+	// Type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
 	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
@@ -428,7 +428,7 @@ func (o AmiEbsBlockDeviceOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AmiEbsBlockDevice) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
 }
 
-// The path at which the device is exposed to created instances.
+// Path at which the device is exposed to created instances.
 func (o AmiEbsBlockDeviceOutput) DeviceName() pulumi.StringOutput {
 	return o.ApplyT(func(v AmiEbsBlockDevice) string { return v.DeviceName }).(pulumi.StringOutput)
 }
@@ -444,31 +444,31 @@ func (o AmiEbsBlockDeviceOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AmiEbsBlockDevice) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
-// The ARN of the Outpost on which the snapshot is stored.
+// ARN of the Outpost on which the snapshot is stored.
 func (o AmiEbsBlockDeviceOutput) OutpostArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AmiEbsBlockDevice) *string { return v.OutpostArn }).(pulumi.StringPtrOutput)
 }
 
-// The id of an EBS snapshot that will be used to initialize the created
+// ID of an EBS snapshot that will be used to initialize the created
 // EBS volumes. If set, the `volumeSize` attribute must be at least as large as the referenced
 // snapshot.
 func (o AmiEbsBlockDeviceOutput) SnapshotId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AmiEbsBlockDevice) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
 }
 
-// The throughput that the EBS volume supports, in MiB/s. Only valid for `volumeType` of `gp3`.
+// Throughput that the EBS volume supports, in MiB/s. Only valid for `volumeType` of `gp3`.
 func (o AmiEbsBlockDeviceOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AmiEbsBlockDevice) *int { return v.Throughput }).(pulumi.IntPtrOutput)
 }
 
-// The size of created volumes in GiB.
+// Size of created volumes in GiB.
 // If `snapshotId` is set and `volumeSize` is omitted then the volume will have the same size
 // as the selected snapshot.
 func (o AmiEbsBlockDeviceOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AmiEbsBlockDevice) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
-// The type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
+// Type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
 func (o AmiEbsBlockDeviceOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AmiEbsBlockDevice) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
@@ -494,9 +494,9 @@ func (o AmiEbsBlockDeviceArrayOutput) Index(i pulumi.IntInput) AmiEbsBlockDevice
 }
 
 type AmiEphemeralBlockDevice struct {
-	// The path at which the device is exposed to created instances.
+	// Path at which the device is exposed to created instances.
 	DeviceName string `pulumi:"deviceName"`
-	// A name for the ephemeral device, of the form "ephemeralN" where
+	// Name for the ephemeral device, of the form "ephemeralN" where
 	// *N* is a volume number starting from zero.
 	VirtualName string `pulumi:"virtualName"`
 }
@@ -513,9 +513,9 @@ type AmiEphemeralBlockDeviceInput interface {
 }
 
 type AmiEphemeralBlockDeviceArgs struct {
-	// The path at which the device is exposed to created instances.
+	// Path at which the device is exposed to created instances.
 	DeviceName pulumi.StringInput `pulumi:"deviceName"`
-	// A name for the ephemeral device, of the form "ephemeralN" where
+	// Name for the ephemeral device, of the form "ephemeralN" where
 	// *N* is a volume number starting from zero.
 	VirtualName pulumi.StringInput `pulumi:"virtualName"`
 }
@@ -571,12 +571,12 @@ func (o AmiEphemeralBlockDeviceOutput) ToAmiEphemeralBlockDeviceOutputWithContex
 	return o
 }
 
-// The path at which the device is exposed to created instances.
+// Path at which the device is exposed to created instances.
 func (o AmiEphemeralBlockDeviceOutput) DeviceName() pulumi.StringOutput {
 	return o.ApplyT(func(v AmiEphemeralBlockDevice) string { return v.DeviceName }).(pulumi.StringOutput)
 }
 
-// A name for the ephemeral device, of the form "ephemeralN" where
+// Name for the ephemeral device, of the form "ephemeralN" where
 // *N* is a volume number starting from zero.
 func (o AmiEphemeralBlockDeviceOutput) VirtualName() pulumi.StringOutput {
 	return o.ApplyT(func(v AmiEphemeralBlockDevice) string { return v.VirtualName }).(pulumi.StringOutput)
@@ -606,26 +606,26 @@ type AmiFromInstanceEbsBlockDevice struct {
 	// Boolean controlling whether the EBS volumes created to
 	// support each created instance will be deleted once that instance is terminated.
 	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
-	// The path at which the device is exposed to created instances.
+	// Path at which the device is exposed to created instances.
 	DeviceName *string `pulumi:"deviceName"`
 	// Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshotId`.
 	Encrypted *bool `pulumi:"encrypted"`
 	// Number of I/O operations per second the
 	// created volumes will support.
 	Iops *int `pulumi:"iops"`
-	// The ARN of the Outpost on which the snapshot is stored.
+	// ARN of the Outpost on which the snapshot is stored.
 	OutpostArn *string `pulumi:"outpostArn"`
-	// The id of an EBS snapshot that will be used to initialize the created
+	// ID of an EBS snapshot that will be used to initialize the created
 	// EBS volumes. If set, the `volumeSize` attribute must be at least as large as the referenced
 	// snapshot.
 	SnapshotId *string `pulumi:"snapshotId"`
-	// The throughput that the EBS volume supports, in MiB/s. Only valid for `volumeType` of `gp3`.
+	// Throughput that the EBS volume supports, in MiB/s. Only valid for `volumeType` of `gp3`.
 	Throughput *int `pulumi:"throughput"`
-	// The size of created volumes in GiB.
+	// Size of created volumes in GiB.
 	// If `snapshotId` is set and `volumeSize` is omitted then the volume will have the same size
 	// as the selected snapshot.
 	VolumeSize *int `pulumi:"volumeSize"`
-	// The type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
+	// Type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
 	VolumeType *string `pulumi:"volumeType"`
 }
 
@@ -644,26 +644,26 @@ type AmiFromInstanceEbsBlockDeviceArgs struct {
 	// Boolean controlling whether the EBS volumes created to
 	// support each created instance will be deleted once that instance is terminated.
 	DeleteOnTermination pulumi.BoolPtrInput `pulumi:"deleteOnTermination"`
-	// The path at which the device is exposed to created instances.
+	// Path at which the device is exposed to created instances.
 	DeviceName pulumi.StringPtrInput `pulumi:"deviceName"`
 	// Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshotId`.
 	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
 	// Number of I/O operations per second the
 	// created volumes will support.
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
-	// The ARN of the Outpost on which the snapshot is stored.
+	// ARN of the Outpost on which the snapshot is stored.
 	OutpostArn pulumi.StringPtrInput `pulumi:"outpostArn"`
-	// The id of an EBS snapshot that will be used to initialize the created
+	// ID of an EBS snapshot that will be used to initialize the created
 	// EBS volumes. If set, the `volumeSize` attribute must be at least as large as the referenced
 	// snapshot.
 	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
-	// The throughput that the EBS volume supports, in MiB/s. Only valid for `volumeType` of `gp3`.
+	// Throughput that the EBS volume supports, in MiB/s. Only valid for `volumeType` of `gp3`.
 	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
-	// The size of created volumes in GiB.
+	// Size of created volumes in GiB.
 	// If `snapshotId` is set and `volumeSize` is omitted then the volume will have the same size
 	// as the selected snapshot.
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
-	// The type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
+	// Type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
 	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
@@ -724,7 +724,7 @@ func (o AmiFromInstanceEbsBlockDeviceOutput) DeleteOnTermination() pulumi.BoolPt
 	return o.ApplyT(func(v AmiFromInstanceEbsBlockDevice) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
 }
 
-// The path at which the device is exposed to created instances.
+// Path at which the device is exposed to created instances.
 func (o AmiFromInstanceEbsBlockDeviceOutput) DeviceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AmiFromInstanceEbsBlockDevice) *string { return v.DeviceName }).(pulumi.StringPtrOutput)
 }
@@ -740,31 +740,31 @@ func (o AmiFromInstanceEbsBlockDeviceOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AmiFromInstanceEbsBlockDevice) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
-// The ARN of the Outpost on which the snapshot is stored.
+// ARN of the Outpost on which the snapshot is stored.
 func (o AmiFromInstanceEbsBlockDeviceOutput) OutpostArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AmiFromInstanceEbsBlockDevice) *string { return v.OutpostArn }).(pulumi.StringPtrOutput)
 }
 
-// The id of an EBS snapshot that will be used to initialize the created
+// ID of an EBS snapshot that will be used to initialize the created
 // EBS volumes. If set, the `volumeSize` attribute must be at least as large as the referenced
 // snapshot.
 func (o AmiFromInstanceEbsBlockDeviceOutput) SnapshotId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AmiFromInstanceEbsBlockDevice) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
 }
 
-// The throughput that the EBS volume supports, in MiB/s. Only valid for `volumeType` of `gp3`.
+// Throughput that the EBS volume supports, in MiB/s. Only valid for `volumeType` of `gp3`.
 func (o AmiFromInstanceEbsBlockDeviceOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AmiFromInstanceEbsBlockDevice) *int { return v.Throughput }).(pulumi.IntPtrOutput)
 }
 
-// The size of created volumes in GiB.
+// Size of created volumes in GiB.
 // If `snapshotId` is set and `volumeSize` is omitted then the volume will have the same size
 // as the selected snapshot.
 func (o AmiFromInstanceEbsBlockDeviceOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AmiFromInstanceEbsBlockDevice) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
-// The type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
+// Type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
 func (o AmiFromInstanceEbsBlockDeviceOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AmiFromInstanceEbsBlockDevice) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
@@ -790,9 +790,9 @@ func (o AmiFromInstanceEbsBlockDeviceArrayOutput) Index(i pulumi.IntInput) AmiFr
 }
 
 type AmiFromInstanceEphemeralBlockDevice struct {
-	// The path at which the device is exposed to created instances.
+	// Path at which the device is exposed to created instances.
 	DeviceName *string `pulumi:"deviceName"`
-	// A name for the ephemeral device, of the form "ephemeralN" where
+	// Name for the ephemeral device, of the form "ephemeralN" where
 	// *N* is a volume number starting from zero.
 	VirtualName *string `pulumi:"virtualName"`
 }
@@ -809,9 +809,9 @@ type AmiFromInstanceEphemeralBlockDeviceInput interface {
 }
 
 type AmiFromInstanceEphemeralBlockDeviceArgs struct {
-	// The path at which the device is exposed to created instances.
+	// Path at which the device is exposed to created instances.
 	DeviceName pulumi.StringPtrInput `pulumi:"deviceName"`
-	// A name for the ephemeral device, of the form "ephemeralN" where
+	// Name for the ephemeral device, of the form "ephemeralN" where
 	// *N* is a volume number starting from zero.
 	VirtualName pulumi.StringPtrInput `pulumi:"virtualName"`
 }
@@ -867,12 +867,12 @@ func (o AmiFromInstanceEphemeralBlockDeviceOutput) ToAmiFromInstanceEphemeralBlo
 	return o
 }
 
-// The path at which the device is exposed to created instances.
+// Path at which the device is exposed to created instances.
 func (o AmiFromInstanceEphemeralBlockDeviceOutput) DeviceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AmiFromInstanceEphemeralBlockDevice) *string { return v.DeviceName }).(pulumi.StringPtrOutput)
 }
 
-// A name for the ephemeral device, of the form "ephemeralN" where
+// Name for the ephemeral device, of the form "ephemeralN" where
 // *N* is a volume number starting from zero.
 func (o AmiFromInstanceEphemeralBlockDeviceOutput) VirtualName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AmiFromInstanceEphemeralBlockDevice) *string { return v.VirtualName }).(pulumi.StringPtrOutput)
@@ -1445,7 +1445,7 @@ type DefaultSecurityGroupEgress struct {
 	PrefixListIds []string `pulumi:"prefixListIds"`
 	// Protocol. If you select a protocol of "-1" (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to `0`. If not `icmp`, `tcp`, `udp`, or `-1` use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
 	Protocol string `pulumi:"protocol"`
-	// List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
+	// List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// Whether the security group itself will be added as a source to this egress rule.
 	Self *bool `pulumi:"self"`
@@ -1477,7 +1477,7 @@ type DefaultSecurityGroupEgressArgs struct {
 	PrefixListIds pulumi.StringArrayInput `pulumi:"prefixListIds"`
 	// Protocol. If you select a protocol of "-1" (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to `0`. If not `icmp`, `tcp`, `udp`, or `-1` use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
 	Protocol pulumi.StringInput `pulumi:"protocol"`
-	// List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
+	// List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
 	// Whether the security group itself will be added as a source to this egress rule.
 	Self pulumi.BoolPtrInput `pulumi:"self"`
@@ -1566,7 +1566,7 @@ func (o DefaultSecurityGroupEgressOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v DefaultSecurityGroupEgress) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
-// List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
+// List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
 func (o DefaultSecurityGroupEgressOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DefaultSecurityGroupEgress) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
@@ -1614,7 +1614,7 @@ type DefaultSecurityGroupIngress struct {
 	PrefixListIds []string `pulumi:"prefixListIds"`
 	// Protocol. If you select a protocol of "-1" (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to `0`. If not `icmp`, `tcp`, `udp`, or `-1` use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
 	Protocol string `pulumi:"protocol"`
-	// List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
+	// List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// Whether the security group itself will be added as a source to this egress rule.
 	Self *bool `pulumi:"self"`
@@ -1646,7 +1646,7 @@ type DefaultSecurityGroupIngressArgs struct {
 	PrefixListIds pulumi.StringArrayInput `pulumi:"prefixListIds"`
 	// Protocol. If you select a protocol of "-1" (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to `0`. If not `icmp`, `tcp`, `udp`, or `-1` use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
 	Protocol pulumi.StringInput `pulumi:"protocol"`
-	// List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
+	// List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
 	// Whether the security group itself will be added as a source to this egress rule.
 	Self pulumi.BoolPtrInput `pulumi:"self"`
@@ -1735,7 +1735,7 @@ func (o DefaultSecurityGroupIngressOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v DefaultSecurityGroupIngress) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
-// List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
+// List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
 func (o DefaultSecurityGroupIngressOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DefaultSecurityGroupIngress) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
@@ -4669,6 +4669,8 @@ type FleetTargetCapacitySpecification struct {
 	OnDemandTargetCapacity *int `pulumi:"onDemandTargetCapacity"`
 	// The number of Spot units to request.
 	SpotTargetCapacity *int `pulumi:"spotTargetCapacity"`
+	// The unit for the target capacity. This can only be done with `instanceRequirements` defined
+	TargetCapacityUnitType *string `pulumi:"targetCapacityUnitType"`
 	// The number of units to request, filled using `defaultTargetCapacityType`.
 	TotalTargetCapacity int `pulumi:"totalTargetCapacity"`
 }
@@ -4691,6 +4693,8 @@ type FleetTargetCapacitySpecificationArgs struct {
 	OnDemandTargetCapacity pulumi.IntPtrInput `pulumi:"onDemandTargetCapacity"`
 	// The number of Spot units to request.
 	SpotTargetCapacity pulumi.IntPtrInput `pulumi:"spotTargetCapacity"`
+	// The unit for the target capacity. This can only be done with `instanceRequirements` defined
+	TargetCapacityUnitType pulumi.StringPtrInput `pulumi:"targetCapacityUnitType"`
 	// The number of units to request, filled using `defaultTargetCapacityType`.
 	TotalTargetCapacity pulumi.IntInput `pulumi:"totalTargetCapacity"`
 }
@@ -4787,6 +4791,11 @@ func (o FleetTargetCapacitySpecificationOutput) SpotTargetCapacity() pulumi.IntP
 	return o.ApplyT(func(v FleetTargetCapacitySpecification) *int { return v.SpotTargetCapacity }).(pulumi.IntPtrOutput)
 }
 
+// The unit for the target capacity. This can only be done with `instanceRequirements` defined
+func (o FleetTargetCapacitySpecificationOutput) TargetCapacityUnitType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FleetTargetCapacitySpecification) *string { return v.TargetCapacityUnitType }).(pulumi.StringPtrOutput)
+}
+
 // The number of units to request, filled using `defaultTargetCapacityType`.
 func (o FleetTargetCapacitySpecificationOutput) TotalTargetCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v FleetTargetCapacitySpecification) int { return v.TotalTargetCapacity }).(pulumi.IntOutput)
@@ -4844,6 +4853,16 @@ func (o FleetTargetCapacitySpecificationPtrOutput) SpotTargetCapacity() pulumi.I
 		}
 		return v.SpotTargetCapacity
 	}).(pulumi.IntPtrOutput)
+}
+
+// The unit for the target capacity. This can only be done with `instanceRequirements` defined
+func (o FleetTargetCapacitySpecificationPtrOutput) TargetCapacityUnitType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FleetTargetCapacitySpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TargetCapacityUnitType
+	}).(pulumi.StringPtrOutput)
 }
 
 // The number of units to request, filled using `defaultTargetCapacityType`.
@@ -5190,9 +5209,9 @@ func (o InstanceCapacityReservationSpecificationPtrOutput) CapacityReservationTa
 }
 
 type InstanceCapacityReservationSpecificationCapacityReservationTarget struct {
-	// The ID of the Capacity Reservation in which to run the instance.
+	// ID of the Capacity Reservation in which to run the instance.
 	CapacityReservationId *string `pulumi:"capacityReservationId"`
-	// The ARN of the Capacity Reservation resource group in which to run the instance.
+	// ARN of the Capacity Reservation resource group in which to run the instance.
 	CapacityReservationResourceGroupArn *string `pulumi:"capacityReservationResourceGroupArn"`
 }
 
@@ -5208,9 +5227,9 @@ type InstanceCapacityReservationSpecificationCapacityReservationTargetInput inte
 }
 
 type InstanceCapacityReservationSpecificationCapacityReservationTargetArgs struct {
-	// The ID of the Capacity Reservation in which to run the instance.
+	// ID of the Capacity Reservation in which to run the instance.
 	CapacityReservationId pulumi.StringPtrInput `pulumi:"capacityReservationId"`
-	// The ARN of the Capacity Reservation resource group in which to run the instance.
+	// ARN of the Capacity Reservation resource group in which to run the instance.
 	CapacityReservationResourceGroupArn pulumi.StringPtrInput `pulumi:"capacityReservationResourceGroupArn"`
 }
 
@@ -5291,14 +5310,14 @@ func (o InstanceCapacityReservationSpecificationCapacityReservationTargetOutput)
 	}).(InstanceCapacityReservationSpecificationCapacityReservationTargetPtrOutput)
 }
 
-// The ID of the Capacity Reservation in which to run the instance.
+// ID of the Capacity Reservation in which to run the instance.
 func (o InstanceCapacityReservationSpecificationCapacityReservationTargetOutput) CapacityReservationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceCapacityReservationSpecificationCapacityReservationTarget) *string {
 		return v.CapacityReservationId
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the Capacity Reservation resource group in which to run the instance.
+// ARN of the Capacity Reservation resource group in which to run the instance.
 func (o InstanceCapacityReservationSpecificationCapacityReservationTargetOutput) CapacityReservationResourceGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceCapacityReservationSpecificationCapacityReservationTarget) *string {
 		return v.CapacityReservationResourceGroupArn
@@ -5329,7 +5348,7 @@ func (o InstanceCapacityReservationSpecificationCapacityReservationTargetPtrOutp
 	}).(InstanceCapacityReservationSpecificationCapacityReservationTargetOutput)
 }
 
-// The ID of the Capacity Reservation in which to run the instance.
+// ID of the Capacity Reservation in which to run the instance.
 func (o InstanceCapacityReservationSpecificationCapacityReservationTargetPtrOutput) CapacityReservationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceCapacityReservationSpecificationCapacityReservationTarget) *string {
 		if v == nil {
@@ -5339,7 +5358,7 @@ func (o InstanceCapacityReservationSpecificationCapacityReservationTargetPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the Capacity Reservation resource group in which to run the instance.
+// ARN of the Capacity Reservation resource group in which to run the instance.
 func (o InstanceCapacityReservationSpecificationCapacityReservationTargetPtrOutput) CapacityReservationResourceGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceCapacityReservationSpecificationCapacityReservationTarget) *string {
 		if v == nil {
@@ -5499,7 +5518,7 @@ type InstanceEbsBlockDevice struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Snapshot ID to mount.
 	SnapshotId *string `pulumi:"snapshotId"`
-	// A map of tags to assign to the device.
+	// Map of tags to assign to the device.
 	Tags map[string]string `pulumi:"tags"`
 	// Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
 	Throughput *int `pulumi:"throughput"`
@@ -5535,7 +5554,7 @@ type InstanceEbsBlockDeviceArgs struct {
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	// Snapshot ID to mount.
 	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
-	// A map of tags to assign to the device.
+	// Map of tags to assign to the device.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
 	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
@@ -5628,7 +5647,7 @@ func (o InstanceEbsBlockDeviceOutput) SnapshotId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceEbsBlockDevice) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
 }
 
-// A map of tags to assign to the device.
+// Map of tags to assign to the device.
 func (o InstanceEbsBlockDeviceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v InstanceEbsBlockDevice) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -5811,7 +5830,7 @@ func (o InstanceEnclaveOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 type InstanceEphemeralBlockDevice struct {
-	// The name of the block device to mount on the instance.
+	// Name of the block device to mount on the instance.
 	DeviceName string `pulumi:"deviceName"`
 	// Suppresses the specified device included in the AMI's block device mapping.
 	NoDevice *bool `pulumi:"noDevice"`
@@ -5831,7 +5850,7 @@ type InstanceEphemeralBlockDeviceInput interface {
 }
 
 type InstanceEphemeralBlockDeviceArgs struct {
-	// The name of the block device to mount on the instance.
+	// Name of the block device to mount on the instance.
 	DeviceName pulumi.StringInput `pulumi:"deviceName"`
 	// Suppresses the specified device included in the AMI's block device mapping.
 	NoDevice pulumi.BoolPtrInput `pulumi:"noDevice"`
@@ -5890,7 +5909,7 @@ func (o InstanceEphemeralBlockDeviceOutput) ToInstanceEphemeralBlockDeviceOutput
 	return o
 }
 
-// The name of the block device to mount on the instance.
+// Name of the block device to mount on the instance.
 func (o InstanceEphemeralBlockDeviceOutput) DeviceName() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceEphemeralBlockDevice) string { return v.DeviceName }).(pulumi.StringOutput)
 }
@@ -5926,9 +5945,9 @@ func (o InstanceEphemeralBlockDeviceArrayOutput) Index(i pulumi.IntInput) Instan
 }
 
 type InstanceLaunchTemplate struct {
-	// The ID of the launch template. Conflicts with `name`.
+	// ID of the launch template. Conflicts with `name`.
 	Id *string `pulumi:"id"`
-	// The name of the launch template. Conflicts with `id`.
+	// Name of the launch template. Conflicts with `id`.
 	Name *string `pulumi:"name"`
 	// Template version. Can be a specific version number, `$Latest` or `$Default`. The default value is `$Default`.
 	Version *string `pulumi:"version"`
@@ -5946,9 +5965,9 @@ type InstanceLaunchTemplateInput interface {
 }
 
 type InstanceLaunchTemplateArgs struct {
-	// The ID of the launch template. Conflicts with `name`.
+	// ID of the launch template. Conflicts with `name`.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The name of the launch template. Conflicts with `id`.
+	// Name of the launch template. Conflicts with `id`.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Template version. Can be a specific version number, `$Latest` or `$Default`. The default value is `$Default`.
 	Version pulumi.StringPtrInput `pulumi:"version"`
@@ -6031,12 +6050,12 @@ func (o InstanceLaunchTemplateOutput) ToInstanceLaunchTemplatePtrOutputWithConte
 	}).(InstanceLaunchTemplatePtrOutput)
 }
 
-// The ID of the launch template. Conflicts with `name`.
+// ID of the launch template. Conflicts with `name`.
 func (o InstanceLaunchTemplateOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceLaunchTemplate) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The name of the launch template. Conflicts with `id`.
+// Name of the launch template. Conflicts with `id`.
 func (o InstanceLaunchTemplateOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceLaunchTemplate) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -6070,7 +6089,7 @@ func (o InstanceLaunchTemplatePtrOutput) Elem() InstanceLaunchTemplateOutput {
 	}).(InstanceLaunchTemplateOutput)
 }
 
-// The ID of the launch template. Conflicts with `name`.
+// ID of the launch template. Conflicts with `name`.
 func (o InstanceLaunchTemplatePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceLaunchTemplate) *string {
 		if v == nil {
@@ -6080,7 +6099,7 @@ func (o InstanceLaunchTemplatePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the launch template. Conflicts with `id`.
+// Name of the launch template. Conflicts with `id`.
 func (o InstanceLaunchTemplatePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceLaunchTemplate) *string {
 		if v == nil {
@@ -6101,7 +6120,7 @@ func (o InstanceLaunchTemplatePtrOutput) Version() pulumi.StringPtrOutput {
 }
 
 type InstanceMaintenanceOptions struct {
-	// The automatic recovery behavior of the Instance. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+	// Automatic recovery behavior of the Instance. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
 	AutoRecovery *string `pulumi:"autoRecovery"`
 }
 
@@ -6117,7 +6136,7 @@ type InstanceMaintenanceOptionsInput interface {
 }
 
 type InstanceMaintenanceOptionsArgs struct {
-	// The automatic recovery behavior of the Instance. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+	// Automatic recovery behavior of the Instance. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
 	AutoRecovery pulumi.StringPtrInput `pulumi:"autoRecovery"`
 }
 
@@ -6198,7 +6217,7 @@ func (o InstanceMaintenanceOptionsOutput) ToInstanceMaintenanceOptionsPtrOutputW
 	}).(InstanceMaintenanceOptionsPtrOutput)
 }
 
-// The automatic recovery behavior of the Instance. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+// Automatic recovery behavior of the Instance. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
 func (o InstanceMaintenanceOptionsOutput) AutoRecovery() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceMaintenanceOptions) *string { return v.AutoRecovery }).(pulumi.StringPtrOutput)
 }
@@ -6227,7 +6246,7 @@ func (o InstanceMaintenanceOptionsPtrOutput) Elem() InstanceMaintenanceOptionsOu
 	}).(InstanceMaintenanceOptionsOutput)
 }
 
-// The automatic recovery behavior of the Instance. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+// Automatic recovery behavior of the Instance. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
 func (o InstanceMaintenanceOptionsPtrOutput) AutoRecovery() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceMaintenanceOptions) *string {
 		if v == nil {
@@ -6560,7 +6579,7 @@ type InstancePrivateDnsNameOptions struct {
 	EnableResourceNameDnsARecord *bool `pulumi:"enableResourceNameDnsARecord"`
 	// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
 	EnableResourceNameDnsAaaaRecord *bool `pulumi:"enableResourceNameDnsAaaaRecord"`
-	// The type of hostname for Amazon EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name` and `resource-name`.
+	// Type of hostname for Amazon EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name` and `resource-name`.
 	HostnameType *string `pulumi:"hostnameType"`
 }
 
@@ -6580,7 +6599,7 @@ type InstancePrivateDnsNameOptionsArgs struct {
 	EnableResourceNameDnsARecord pulumi.BoolPtrInput `pulumi:"enableResourceNameDnsARecord"`
 	// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
 	EnableResourceNameDnsAaaaRecord pulumi.BoolPtrInput `pulumi:"enableResourceNameDnsAaaaRecord"`
-	// The type of hostname for Amazon EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name` and `resource-name`.
+	// Type of hostname for Amazon EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name` and `resource-name`.
 	HostnameType pulumi.StringPtrInput `pulumi:"hostnameType"`
 }
 
@@ -6671,7 +6690,7 @@ func (o InstancePrivateDnsNameOptionsOutput) EnableResourceNameDnsAaaaRecord() p
 	return o.ApplyT(func(v InstancePrivateDnsNameOptions) *bool { return v.EnableResourceNameDnsAaaaRecord }).(pulumi.BoolPtrOutput)
 }
 
-// The type of hostname for Amazon EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name` and `resource-name`.
+// Type of hostname for Amazon EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name` and `resource-name`.
 func (o InstancePrivateDnsNameOptionsOutput) HostnameType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstancePrivateDnsNameOptions) *string { return v.HostnameType }).(pulumi.StringPtrOutput)
 }
@@ -6720,7 +6739,7 @@ func (o InstancePrivateDnsNameOptionsPtrOutput) EnableResourceNameDnsAaaaRecord(
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The type of hostname for Amazon EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name` and `resource-name`.
+// Type of hostname for Amazon EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name` and `resource-name`.
 func (o InstancePrivateDnsNameOptionsPtrOutput) HostnameType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstancePrivateDnsNameOptions) *string {
 		if v == nil {
@@ -6741,7 +6760,7 @@ type InstanceRootBlockDevice struct {
 	Iops *int `pulumi:"iops"`
 	// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// A map of tags to assign to the device.
+	// Map of tags to assign to the device.
 	Tags map[string]string `pulumi:"tags"`
 	// Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
 	Throughput *int `pulumi:"throughput"`
@@ -6775,7 +6794,7 @@ type InstanceRootBlockDeviceArgs struct {
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
 	// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
-	// A map of tags to assign to the device.
+	// Map of tags to assign to the device.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
 	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
@@ -6889,7 +6908,7 @@ func (o InstanceRootBlockDeviceOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceRootBlockDevice) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// A map of tags to assign to the device.
+// Map of tags to assign to the device.
 func (o InstanceRootBlockDeviceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v InstanceRootBlockDevice) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -6988,7 +7007,7 @@ func (o InstanceRootBlockDevicePtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A map of tags to assign to the device.
+// Map of tags to assign to the device.
 func (o InstanceRootBlockDevicePtrOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *InstanceRootBlockDevice) map[string]string {
 		if v == nil {
@@ -23731,9 +23750,9 @@ type SecurityGroupEgress struct {
 	Ipv6CidrBlocks []string `pulumi:"ipv6CidrBlocks"`
 	// List of Prefix List IDs.
 	PrefixListIds []string `pulumi:"prefixListIds"`
-	// Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value.
+	// Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
 	Protocol string `pulumi:"protocol"`
-	// List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
+	// List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// Whether the security group itself will be added as a source to this egress rule.
 	Self *bool `pulumi:"self"`
@@ -23763,9 +23782,9 @@ type SecurityGroupEgressArgs struct {
 	Ipv6CidrBlocks pulumi.StringArrayInput `pulumi:"ipv6CidrBlocks"`
 	// List of Prefix List IDs.
 	PrefixListIds pulumi.StringArrayInput `pulumi:"prefixListIds"`
-	// Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value.
+	// Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
 	Protocol pulumi.StringInput `pulumi:"protocol"`
-	// List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
+	// List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
 	// Whether the security group itself will be added as a source to this egress rule.
 	Self pulumi.BoolPtrInput `pulumi:"self"`
@@ -23849,12 +23868,12 @@ func (o SecurityGroupEgressOutput) PrefixListIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SecurityGroupEgress) []string { return v.PrefixListIds }).(pulumi.StringArrayOutput)
 }
 
-// Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value.
+// Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
 func (o SecurityGroupEgressOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v SecurityGroupEgress) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
-// List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
+// List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
 func (o SecurityGroupEgressOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SecurityGroupEgress) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
@@ -23900,9 +23919,9 @@ type SecurityGroupIngress struct {
 	Ipv6CidrBlocks []string `pulumi:"ipv6CidrBlocks"`
 	// List of Prefix List IDs.
 	PrefixListIds []string `pulumi:"prefixListIds"`
-	// Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value.
+	// Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
 	Protocol string `pulumi:"protocol"`
-	// List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
+	// List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// Whether the security group itself will be added as a source to this egress rule.
 	Self *bool `pulumi:"self"`
@@ -23932,9 +23951,9 @@ type SecurityGroupIngressArgs struct {
 	Ipv6CidrBlocks pulumi.StringArrayInput `pulumi:"ipv6CidrBlocks"`
 	// List of Prefix List IDs.
 	PrefixListIds pulumi.StringArrayInput `pulumi:"prefixListIds"`
-	// Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value.
+	// Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
 	Protocol pulumi.StringInput `pulumi:"protocol"`
-	// List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
+	// List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
 	// Whether the security group itself will be added as a source to this egress rule.
 	Self pulumi.BoolPtrInput `pulumi:"self"`
@@ -24018,12 +24037,12 @@ func (o SecurityGroupIngressOutput) PrefixListIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SecurityGroupIngress) []string { return v.PrefixListIds }).(pulumi.StringArrayOutput)
 }
 
-// Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value.
+// Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
 func (o SecurityGroupIngressOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v SecurityGroupIngress) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
-// List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
+// List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
 func (o SecurityGroupIngressOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SecurityGroupIngress) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
@@ -27263,9 +27282,9 @@ func (o SpotInstanceRequestCapacityReservationSpecificationPtrOutput) CapacityRe
 }
 
 type SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget struct {
-	// The ID of the Capacity Reservation in which to run the instance.
+	// ID of the Capacity Reservation in which to run the instance.
 	CapacityReservationId *string `pulumi:"capacityReservationId"`
-	// The ARN of the Capacity Reservation resource group in which to run the instance.
+	// ARN of the Capacity Reservation resource group in which to run the instance.
 	CapacityReservationResourceGroupArn *string `pulumi:"capacityReservationResourceGroupArn"`
 }
 
@@ -27281,9 +27300,9 @@ type SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarge
 }
 
 type SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArgs struct {
-	// The ID of the Capacity Reservation in which to run the instance.
+	// ID of the Capacity Reservation in which to run the instance.
 	CapacityReservationId pulumi.StringPtrInput `pulumi:"capacityReservationId"`
-	// The ARN of the Capacity Reservation resource group in which to run the instance.
+	// ARN of the Capacity Reservation resource group in which to run the instance.
 	CapacityReservationResourceGroupArn pulumi.StringPtrInput `pulumi:"capacityReservationResourceGroupArn"`
 }
 
@@ -27364,14 +27383,14 @@ func (o SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTa
 	}).(SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrOutput)
 }
 
-// The ID of the Capacity Reservation in which to run the instance.
+// ID of the Capacity Reservation in which to run the instance.
 func (o SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetOutput) CapacityReservationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget) *string {
 		return v.CapacityReservationId
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the Capacity Reservation resource group in which to run the instance.
+// ARN of the Capacity Reservation resource group in which to run the instance.
 func (o SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetOutput) CapacityReservationResourceGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget) *string {
 		return v.CapacityReservationResourceGroupArn
@@ -27402,7 +27421,7 @@ func (o SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTa
 	}).(SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetOutput)
 }
 
-// The ID of the Capacity Reservation in which to run the instance.
+// ID of the Capacity Reservation in which to run the instance.
 func (o SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrOutput) CapacityReservationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget) *string {
 		if v == nil {
@@ -27412,7 +27431,7 @@ func (o SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTa
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the Capacity Reservation resource group in which to run the instance.
+// ARN of the Capacity Reservation resource group in which to run the instance.
 func (o SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrOutput) CapacityReservationResourceGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget) *string {
 		if v == nil {
@@ -27572,7 +27591,7 @@ type SpotInstanceRequestEbsBlockDevice struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Snapshot ID to mount.
 	SnapshotId *string `pulumi:"snapshotId"`
-	// A map of tags to assign to the device.
+	// Map of tags to assign to the device.
 	Tags map[string]string `pulumi:"tags"`
 	// Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
 	Throughput *int    `pulumi:"throughput"`
@@ -27607,7 +27626,7 @@ type SpotInstanceRequestEbsBlockDeviceArgs struct {
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	// Snapshot ID to mount.
 	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
-	// A map of tags to assign to the device.
+	// Map of tags to assign to the device.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
 	Throughput pulumi.IntPtrInput    `pulumi:"throughput"`
@@ -27699,7 +27718,7 @@ func (o SpotInstanceRequestEbsBlockDeviceOutput) SnapshotId() pulumi.StringPtrOu
 	return o.ApplyT(func(v SpotInstanceRequestEbsBlockDevice) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
 }
 
-// A map of tags to assign to the device.
+// Map of tags to assign to the device.
 func (o SpotInstanceRequestEbsBlockDeviceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v SpotInstanceRequestEbsBlockDevice) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -27881,7 +27900,7 @@ func (o SpotInstanceRequestEnclaveOptionsPtrOutput) Enabled() pulumi.BoolPtrOutp
 }
 
 type SpotInstanceRequestEphemeralBlockDevice struct {
-	// The name of the block device to mount on the instance.
+	// Name of the block device to mount on the instance.
 	DeviceName string `pulumi:"deviceName"`
 	// Suppresses the specified device included in the AMI's block device mapping.
 	NoDevice *bool `pulumi:"noDevice"`
@@ -27901,7 +27920,7 @@ type SpotInstanceRequestEphemeralBlockDeviceInput interface {
 }
 
 type SpotInstanceRequestEphemeralBlockDeviceArgs struct {
-	// The name of the block device to mount on the instance.
+	// Name of the block device to mount on the instance.
 	DeviceName pulumi.StringInput `pulumi:"deviceName"`
 	// Suppresses the specified device included in the AMI's block device mapping.
 	NoDevice pulumi.BoolPtrInput `pulumi:"noDevice"`
@@ -27960,7 +27979,7 @@ func (o SpotInstanceRequestEphemeralBlockDeviceOutput) ToSpotInstanceRequestEphe
 	return o
 }
 
-// The name of the block device to mount on the instance.
+// Name of the block device to mount on the instance.
 func (o SpotInstanceRequestEphemeralBlockDeviceOutput) DeviceName() pulumi.StringOutput {
 	return o.ApplyT(func(v SpotInstanceRequestEphemeralBlockDevice) string { return v.DeviceName }).(pulumi.StringOutput)
 }
@@ -27996,9 +28015,9 @@ func (o SpotInstanceRequestEphemeralBlockDeviceArrayOutput) Index(i pulumi.IntIn
 }
 
 type SpotInstanceRequestLaunchTemplate struct {
-	// The ID of the launch template. Conflicts with `name`.
+	// ID of the launch template. Conflicts with `name`.
 	Id *string `pulumi:"id"`
-	// The name of the launch template. Conflicts with `id`.
+	// Name of the launch template. Conflicts with `id`.
 	Name *string `pulumi:"name"`
 	// Template version. Can be a specific version number, `$Latest` or `$Default`. The default value is `$Default`.
 	Version *string `pulumi:"version"`
@@ -28016,9 +28035,9 @@ type SpotInstanceRequestLaunchTemplateInput interface {
 }
 
 type SpotInstanceRequestLaunchTemplateArgs struct {
-	// The ID of the launch template. Conflicts with `name`.
+	// ID of the launch template. Conflicts with `name`.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The name of the launch template. Conflicts with `id`.
+	// Name of the launch template. Conflicts with `id`.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Template version. Can be a specific version number, `$Latest` or `$Default`. The default value is `$Default`.
 	Version pulumi.StringPtrInput `pulumi:"version"`
@@ -28101,12 +28120,12 @@ func (o SpotInstanceRequestLaunchTemplateOutput) ToSpotInstanceRequestLaunchTemp
 	}).(SpotInstanceRequestLaunchTemplatePtrOutput)
 }
 
-// The ID of the launch template. Conflicts with `name`.
+// ID of the launch template. Conflicts with `name`.
 func (o SpotInstanceRequestLaunchTemplateOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestLaunchTemplate) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The name of the launch template. Conflicts with `id`.
+// Name of the launch template. Conflicts with `id`.
 func (o SpotInstanceRequestLaunchTemplateOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestLaunchTemplate) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -28140,7 +28159,7 @@ func (o SpotInstanceRequestLaunchTemplatePtrOutput) Elem() SpotInstanceRequestLa
 	}).(SpotInstanceRequestLaunchTemplateOutput)
 }
 
-// The ID of the launch template. Conflicts with `name`.
+// ID of the launch template. Conflicts with `name`.
 func (o SpotInstanceRequestLaunchTemplatePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpotInstanceRequestLaunchTemplate) *string {
 		if v == nil {
@@ -28150,7 +28169,7 @@ func (o SpotInstanceRequestLaunchTemplatePtrOutput) Id() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the launch template. Conflicts with `id`.
+// Name of the launch template. Conflicts with `id`.
 func (o SpotInstanceRequestLaunchTemplatePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpotInstanceRequestLaunchTemplate) *string {
 		if v == nil {
@@ -28171,7 +28190,7 @@ func (o SpotInstanceRequestLaunchTemplatePtrOutput) Version() pulumi.StringPtrOu
 }
 
 type SpotInstanceRequestMaintenanceOptions struct {
-	// The automatic recovery behavior of the Instance. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+	// Automatic recovery behavior of the Instance. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
 	AutoRecovery *string `pulumi:"autoRecovery"`
 }
 
@@ -28187,7 +28206,7 @@ type SpotInstanceRequestMaintenanceOptionsInput interface {
 }
 
 type SpotInstanceRequestMaintenanceOptionsArgs struct {
-	// The automatic recovery behavior of the Instance. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+	// Automatic recovery behavior of the Instance. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
 	AutoRecovery pulumi.StringPtrInput `pulumi:"autoRecovery"`
 }
 
@@ -28268,7 +28287,7 @@ func (o SpotInstanceRequestMaintenanceOptionsOutput) ToSpotInstanceRequestMainte
 	}).(SpotInstanceRequestMaintenanceOptionsPtrOutput)
 }
 
-// The automatic recovery behavior of the Instance. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+// Automatic recovery behavior of the Instance. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
 func (o SpotInstanceRequestMaintenanceOptionsOutput) AutoRecovery() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestMaintenanceOptions) *string { return v.AutoRecovery }).(pulumi.StringPtrOutput)
 }
@@ -28297,7 +28316,7 @@ func (o SpotInstanceRequestMaintenanceOptionsPtrOutput) Elem() SpotInstanceReque
 	}).(SpotInstanceRequestMaintenanceOptionsOutput)
 }
 
-// The automatic recovery behavior of the Instance. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+// Automatic recovery behavior of the Instance. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
 func (o SpotInstanceRequestMaintenanceOptionsPtrOutput) AutoRecovery() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpotInstanceRequestMaintenanceOptions) *string {
 		if v == nil {
@@ -28630,7 +28649,7 @@ type SpotInstanceRequestPrivateDnsNameOptions struct {
 	EnableResourceNameDnsARecord *bool `pulumi:"enableResourceNameDnsARecord"`
 	// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
 	EnableResourceNameDnsAaaaRecord *bool `pulumi:"enableResourceNameDnsAaaaRecord"`
-	// The type of hostname for Amazon EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name` and `resource-name`.
+	// Type of hostname for Amazon EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name` and `resource-name`.
 	HostnameType *string `pulumi:"hostnameType"`
 }
 
@@ -28650,7 +28669,7 @@ type SpotInstanceRequestPrivateDnsNameOptionsArgs struct {
 	EnableResourceNameDnsARecord pulumi.BoolPtrInput `pulumi:"enableResourceNameDnsARecord"`
 	// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
 	EnableResourceNameDnsAaaaRecord pulumi.BoolPtrInput `pulumi:"enableResourceNameDnsAaaaRecord"`
-	// The type of hostname for Amazon EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name` and `resource-name`.
+	// Type of hostname for Amazon EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name` and `resource-name`.
 	HostnameType pulumi.StringPtrInput `pulumi:"hostnameType"`
 }
 
@@ -28741,7 +28760,7 @@ func (o SpotInstanceRequestPrivateDnsNameOptionsOutput) EnableResourceNameDnsAaa
 	return o.ApplyT(func(v SpotInstanceRequestPrivateDnsNameOptions) *bool { return v.EnableResourceNameDnsAaaaRecord }).(pulumi.BoolPtrOutput)
 }
 
-// The type of hostname for Amazon EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name` and `resource-name`.
+// Type of hostname for Amazon EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name` and `resource-name`.
 func (o SpotInstanceRequestPrivateDnsNameOptionsOutput) HostnameType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestPrivateDnsNameOptions) *string { return v.HostnameType }).(pulumi.StringPtrOutput)
 }
@@ -28790,7 +28809,7 @@ func (o SpotInstanceRequestPrivateDnsNameOptionsPtrOutput) EnableResourceNameDns
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The type of hostname for Amazon EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name` and `resource-name`.
+// Type of hostname for Amazon EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name` and `resource-name`.
 func (o SpotInstanceRequestPrivateDnsNameOptionsPtrOutput) HostnameType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpotInstanceRequestPrivateDnsNameOptions) *string {
 		if v == nil {
@@ -28811,7 +28830,7 @@ type SpotInstanceRequestRootBlockDevice struct {
 	Iops *int `pulumi:"iops"`
 	// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// A map of tags to assign to the device.
+	// Map of tags to assign to the device.
 	Tags map[string]string `pulumi:"tags"`
 	// Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
 	Throughput *int    `pulumi:"throughput"`
@@ -28844,7 +28863,7 @@ type SpotInstanceRequestRootBlockDeviceArgs struct {
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
 	// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
-	// A map of tags to assign to the device.
+	// Map of tags to assign to the device.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
 	Throughput pulumi.IntPtrInput    `pulumi:"throughput"`
@@ -28957,7 +28976,7 @@ func (o SpotInstanceRequestRootBlockDeviceOutput) KmsKeyId() pulumi.StringPtrOut
 	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// A map of tags to assign to the device.
+// Map of tags to assign to the device.
 func (o SpotInstanceRequestRootBlockDeviceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -29055,7 +29074,7 @@ func (o SpotInstanceRequestRootBlockDevicePtrOutput) KmsKeyId() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// A map of tags to assign to the device.
+// Map of tags to assign to the device.
 func (o SpotInstanceRequestRootBlockDevicePtrOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SpotInstanceRequestRootBlockDevice) map[string]string {
 		if v == nil {
@@ -30979,6 +30998,634 @@ func (o VpnConnectionRouteTypeArrayOutput) Index(i pulumi.IntInput) VpnConnectio
 	}).(VpnConnectionRouteTypeOutput)
 }
 
+type VpnConnectionTunnel1LogOptions struct {
+	// Options for sending VPN tunnel logs to CloudWatch. See CloudWatch Log Options below for more details.
+	CloudwatchLogOptions *VpnConnectionTunnel1LogOptionsCloudwatchLogOptions `pulumi:"cloudwatchLogOptions"`
+}
+
+// VpnConnectionTunnel1LogOptionsInput is an input type that accepts VpnConnectionTunnel1LogOptionsArgs and VpnConnectionTunnel1LogOptionsOutput values.
+// You can construct a concrete instance of `VpnConnectionTunnel1LogOptionsInput` via:
+//
+//	VpnConnectionTunnel1LogOptionsArgs{...}
+type VpnConnectionTunnel1LogOptionsInput interface {
+	pulumi.Input
+
+	ToVpnConnectionTunnel1LogOptionsOutput() VpnConnectionTunnel1LogOptionsOutput
+	ToVpnConnectionTunnel1LogOptionsOutputWithContext(context.Context) VpnConnectionTunnel1LogOptionsOutput
+}
+
+type VpnConnectionTunnel1LogOptionsArgs struct {
+	// Options for sending VPN tunnel logs to CloudWatch. See CloudWatch Log Options below for more details.
+	CloudwatchLogOptions VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrInput `pulumi:"cloudwatchLogOptions"`
+}
+
+func (VpnConnectionTunnel1LogOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnConnectionTunnel1LogOptions)(nil)).Elem()
+}
+
+func (i VpnConnectionTunnel1LogOptionsArgs) ToVpnConnectionTunnel1LogOptionsOutput() VpnConnectionTunnel1LogOptionsOutput {
+	return i.ToVpnConnectionTunnel1LogOptionsOutputWithContext(context.Background())
+}
+
+func (i VpnConnectionTunnel1LogOptionsArgs) ToVpnConnectionTunnel1LogOptionsOutputWithContext(ctx context.Context) VpnConnectionTunnel1LogOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnConnectionTunnel1LogOptionsOutput)
+}
+
+func (i VpnConnectionTunnel1LogOptionsArgs) ToVpnConnectionTunnel1LogOptionsPtrOutput() VpnConnectionTunnel1LogOptionsPtrOutput {
+	return i.ToVpnConnectionTunnel1LogOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i VpnConnectionTunnel1LogOptionsArgs) ToVpnConnectionTunnel1LogOptionsPtrOutputWithContext(ctx context.Context) VpnConnectionTunnel1LogOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnConnectionTunnel1LogOptionsOutput).ToVpnConnectionTunnel1LogOptionsPtrOutputWithContext(ctx)
+}
+
+// VpnConnectionTunnel1LogOptionsPtrInput is an input type that accepts VpnConnectionTunnel1LogOptionsArgs, VpnConnectionTunnel1LogOptionsPtr and VpnConnectionTunnel1LogOptionsPtrOutput values.
+// You can construct a concrete instance of `VpnConnectionTunnel1LogOptionsPtrInput` via:
+//
+//	        VpnConnectionTunnel1LogOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type VpnConnectionTunnel1LogOptionsPtrInput interface {
+	pulumi.Input
+
+	ToVpnConnectionTunnel1LogOptionsPtrOutput() VpnConnectionTunnel1LogOptionsPtrOutput
+	ToVpnConnectionTunnel1LogOptionsPtrOutputWithContext(context.Context) VpnConnectionTunnel1LogOptionsPtrOutput
+}
+
+type vpnConnectionTunnel1LogOptionsPtrType VpnConnectionTunnel1LogOptionsArgs
+
+func VpnConnectionTunnel1LogOptionsPtr(v *VpnConnectionTunnel1LogOptionsArgs) VpnConnectionTunnel1LogOptionsPtrInput {
+	return (*vpnConnectionTunnel1LogOptionsPtrType)(v)
+}
+
+func (*vpnConnectionTunnel1LogOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpnConnectionTunnel1LogOptions)(nil)).Elem()
+}
+
+func (i *vpnConnectionTunnel1LogOptionsPtrType) ToVpnConnectionTunnel1LogOptionsPtrOutput() VpnConnectionTunnel1LogOptionsPtrOutput {
+	return i.ToVpnConnectionTunnel1LogOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *vpnConnectionTunnel1LogOptionsPtrType) ToVpnConnectionTunnel1LogOptionsPtrOutputWithContext(ctx context.Context) VpnConnectionTunnel1LogOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnConnectionTunnel1LogOptionsPtrOutput)
+}
+
+type VpnConnectionTunnel1LogOptionsOutput struct{ *pulumi.OutputState }
+
+func (VpnConnectionTunnel1LogOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnConnectionTunnel1LogOptions)(nil)).Elem()
+}
+
+func (o VpnConnectionTunnel1LogOptionsOutput) ToVpnConnectionTunnel1LogOptionsOutput() VpnConnectionTunnel1LogOptionsOutput {
+	return o
+}
+
+func (o VpnConnectionTunnel1LogOptionsOutput) ToVpnConnectionTunnel1LogOptionsOutputWithContext(ctx context.Context) VpnConnectionTunnel1LogOptionsOutput {
+	return o
+}
+
+func (o VpnConnectionTunnel1LogOptionsOutput) ToVpnConnectionTunnel1LogOptionsPtrOutput() VpnConnectionTunnel1LogOptionsPtrOutput {
+	return o.ToVpnConnectionTunnel1LogOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o VpnConnectionTunnel1LogOptionsOutput) ToVpnConnectionTunnel1LogOptionsPtrOutputWithContext(ctx context.Context) VpnConnectionTunnel1LogOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpnConnectionTunnel1LogOptions) *VpnConnectionTunnel1LogOptions {
+		return &v
+	}).(VpnConnectionTunnel1LogOptionsPtrOutput)
+}
+
+// Options for sending VPN tunnel logs to CloudWatch. See CloudWatch Log Options below for more details.
+func (o VpnConnectionTunnel1LogOptionsOutput) CloudwatchLogOptions() VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput {
+	return o.ApplyT(func(v VpnConnectionTunnel1LogOptions) *VpnConnectionTunnel1LogOptionsCloudwatchLogOptions {
+		return v.CloudwatchLogOptions
+	}).(VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput)
+}
+
+type VpnConnectionTunnel1LogOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (VpnConnectionTunnel1LogOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpnConnectionTunnel1LogOptions)(nil)).Elem()
+}
+
+func (o VpnConnectionTunnel1LogOptionsPtrOutput) ToVpnConnectionTunnel1LogOptionsPtrOutput() VpnConnectionTunnel1LogOptionsPtrOutput {
+	return o
+}
+
+func (o VpnConnectionTunnel1LogOptionsPtrOutput) ToVpnConnectionTunnel1LogOptionsPtrOutputWithContext(ctx context.Context) VpnConnectionTunnel1LogOptionsPtrOutput {
+	return o
+}
+
+func (o VpnConnectionTunnel1LogOptionsPtrOutput) Elem() VpnConnectionTunnel1LogOptionsOutput {
+	return o.ApplyT(func(v *VpnConnectionTunnel1LogOptions) VpnConnectionTunnel1LogOptions {
+		if v != nil {
+			return *v
+		}
+		var ret VpnConnectionTunnel1LogOptions
+		return ret
+	}).(VpnConnectionTunnel1LogOptionsOutput)
+}
+
+// Options for sending VPN tunnel logs to CloudWatch. See CloudWatch Log Options below for more details.
+func (o VpnConnectionTunnel1LogOptionsPtrOutput) CloudwatchLogOptions() VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput {
+	return o.ApplyT(func(v *VpnConnectionTunnel1LogOptions) *VpnConnectionTunnel1LogOptionsCloudwatchLogOptions {
+		if v == nil {
+			return nil
+		}
+		return v.CloudwatchLogOptions
+	}).(VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput)
+}
+
+type VpnConnectionTunnel1LogOptionsCloudwatchLogOptions struct {
+	// Enable or disable VPN tunnel logging feature. The default is `false`.
+	LogEnabled *bool `pulumi:"logEnabled"`
+	// The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
+	LogGroupArn *string `pulumi:"logGroupArn"`
+	// Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+	LogOutputFormat *string `pulumi:"logOutputFormat"`
+}
+
+// VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsInput is an input type that accepts VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs and VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput values.
+// You can construct a concrete instance of `VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsInput` via:
+//
+//	VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs{...}
+type VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsInput interface {
+	pulumi.Input
+
+	ToVpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput() VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput
+	ToVpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutputWithContext(context.Context) VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput
+}
+
+type VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs struct {
+	// Enable or disable VPN tunnel logging feature. The default is `false`.
+	LogEnabled pulumi.BoolPtrInput `pulumi:"logEnabled"`
+	// The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
+	LogGroupArn pulumi.StringPtrInput `pulumi:"logGroupArn"`
+	// Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+	LogOutputFormat pulumi.StringPtrInput `pulumi:"logOutputFormat"`
+}
+
+func (VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnConnectionTunnel1LogOptionsCloudwatchLogOptions)(nil)).Elem()
+}
+
+func (i VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs) ToVpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput() VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput {
+	return i.ToVpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutputWithContext(context.Background())
+}
+
+func (i VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs) ToVpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutputWithContext(ctx context.Context) VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput)
+}
+
+func (i VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs) ToVpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput() VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput {
+	return i.ToVpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs) ToVpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutputWithContext(ctx context.Context) VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput).ToVpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutputWithContext(ctx)
+}
+
+// VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrInput is an input type that accepts VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs, VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtr and VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput values.
+// You can construct a concrete instance of `VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrInput` via:
+//
+//	        VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrInput interface {
+	pulumi.Input
+
+	ToVpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput() VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput
+	ToVpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutputWithContext(context.Context) VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput
+}
+
+type vpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrType VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs
+
+func VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtr(v *VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs) VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrInput {
+	return (*vpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrType)(v)
+}
+
+func (*vpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpnConnectionTunnel1LogOptionsCloudwatchLogOptions)(nil)).Elem()
+}
+
+func (i *vpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrType) ToVpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput() VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput {
+	return i.ToVpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *vpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrType) ToVpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutputWithContext(ctx context.Context) VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput)
+}
+
+type VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput struct{ *pulumi.OutputState }
+
+func (VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnConnectionTunnel1LogOptionsCloudwatchLogOptions)(nil)).Elem()
+}
+
+func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput) ToVpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput() VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput {
+	return o
+}
+
+func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput) ToVpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutputWithContext(ctx context.Context) VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput {
+	return o
+}
+
+func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput) ToVpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput() VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput {
+	return o.ToVpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput) ToVpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutputWithContext(ctx context.Context) VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpnConnectionTunnel1LogOptionsCloudwatchLogOptions) *VpnConnectionTunnel1LogOptionsCloudwatchLogOptions {
+		return &v
+	}).(VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput)
+}
+
+// Enable or disable VPN tunnel logging feature. The default is `false`.
+func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput) LogEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VpnConnectionTunnel1LogOptionsCloudwatchLogOptions) *bool { return v.LogEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
+func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput) LogGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpnConnectionTunnel1LogOptionsCloudwatchLogOptions) *string { return v.LogGroupArn }).(pulumi.StringPtrOutput)
+}
+
+// Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput) LogOutputFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpnConnectionTunnel1LogOptionsCloudwatchLogOptions) *string { return v.LogOutputFormat }).(pulumi.StringPtrOutput)
+}
+
+type VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpnConnectionTunnel1LogOptionsCloudwatchLogOptions)(nil)).Elem()
+}
+
+func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput) ToVpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput() VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput {
+	return o
+}
+
+func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput) ToVpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutputWithContext(ctx context.Context) VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput {
+	return o
+}
+
+func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput) Elem() VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput {
+	return o.ApplyT(func(v *VpnConnectionTunnel1LogOptionsCloudwatchLogOptions) VpnConnectionTunnel1LogOptionsCloudwatchLogOptions {
+		if v != nil {
+			return *v
+		}
+		var ret VpnConnectionTunnel1LogOptionsCloudwatchLogOptions
+		return ret
+	}).(VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput)
+}
+
+// Enable or disable VPN tunnel logging feature. The default is `false`.
+func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput) LogEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VpnConnectionTunnel1LogOptionsCloudwatchLogOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.LogEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
+func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput) LogGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpnConnectionTunnel1LogOptionsCloudwatchLogOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogGroupArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput) LogOutputFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpnConnectionTunnel1LogOptionsCloudwatchLogOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogOutputFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+type VpnConnectionTunnel2LogOptions struct {
+	// Options for sending VPN tunnel logs to CloudWatch. See CloudWatch Log Options below for more details.
+	CloudwatchLogOptions *VpnConnectionTunnel2LogOptionsCloudwatchLogOptions `pulumi:"cloudwatchLogOptions"`
+}
+
+// VpnConnectionTunnel2LogOptionsInput is an input type that accepts VpnConnectionTunnel2LogOptionsArgs and VpnConnectionTunnel2LogOptionsOutput values.
+// You can construct a concrete instance of `VpnConnectionTunnel2LogOptionsInput` via:
+//
+//	VpnConnectionTunnel2LogOptionsArgs{...}
+type VpnConnectionTunnel2LogOptionsInput interface {
+	pulumi.Input
+
+	ToVpnConnectionTunnel2LogOptionsOutput() VpnConnectionTunnel2LogOptionsOutput
+	ToVpnConnectionTunnel2LogOptionsOutputWithContext(context.Context) VpnConnectionTunnel2LogOptionsOutput
+}
+
+type VpnConnectionTunnel2LogOptionsArgs struct {
+	// Options for sending VPN tunnel logs to CloudWatch. See CloudWatch Log Options below for more details.
+	CloudwatchLogOptions VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrInput `pulumi:"cloudwatchLogOptions"`
+}
+
+func (VpnConnectionTunnel2LogOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnConnectionTunnel2LogOptions)(nil)).Elem()
+}
+
+func (i VpnConnectionTunnel2LogOptionsArgs) ToVpnConnectionTunnel2LogOptionsOutput() VpnConnectionTunnel2LogOptionsOutput {
+	return i.ToVpnConnectionTunnel2LogOptionsOutputWithContext(context.Background())
+}
+
+func (i VpnConnectionTunnel2LogOptionsArgs) ToVpnConnectionTunnel2LogOptionsOutputWithContext(ctx context.Context) VpnConnectionTunnel2LogOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnConnectionTunnel2LogOptionsOutput)
+}
+
+func (i VpnConnectionTunnel2LogOptionsArgs) ToVpnConnectionTunnel2LogOptionsPtrOutput() VpnConnectionTunnel2LogOptionsPtrOutput {
+	return i.ToVpnConnectionTunnel2LogOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i VpnConnectionTunnel2LogOptionsArgs) ToVpnConnectionTunnel2LogOptionsPtrOutputWithContext(ctx context.Context) VpnConnectionTunnel2LogOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnConnectionTunnel2LogOptionsOutput).ToVpnConnectionTunnel2LogOptionsPtrOutputWithContext(ctx)
+}
+
+// VpnConnectionTunnel2LogOptionsPtrInput is an input type that accepts VpnConnectionTunnel2LogOptionsArgs, VpnConnectionTunnel2LogOptionsPtr and VpnConnectionTunnel2LogOptionsPtrOutput values.
+// You can construct a concrete instance of `VpnConnectionTunnel2LogOptionsPtrInput` via:
+//
+//	        VpnConnectionTunnel2LogOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type VpnConnectionTunnel2LogOptionsPtrInput interface {
+	pulumi.Input
+
+	ToVpnConnectionTunnel2LogOptionsPtrOutput() VpnConnectionTunnel2LogOptionsPtrOutput
+	ToVpnConnectionTunnel2LogOptionsPtrOutputWithContext(context.Context) VpnConnectionTunnel2LogOptionsPtrOutput
+}
+
+type vpnConnectionTunnel2LogOptionsPtrType VpnConnectionTunnel2LogOptionsArgs
+
+func VpnConnectionTunnel2LogOptionsPtr(v *VpnConnectionTunnel2LogOptionsArgs) VpnConnectionTunnel2LogOptionsPtrInput {
+	return (*vpnConnectionTunnel2LogOptionsPtrType)(v)
+}
+
+func (*vpnConnectionTunnel2LogOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpnConnectionTunnel2LogOptions)(nil)).Elem()
+}
+
+func (i *vpnConnectionTunnel2LogOptionsPtrType) ToVpnConnectionTunnel2LogOptionsPtrOutput() VpnConnectionTunnel2LogOptionsPtrOutput {
+	return i.ToVpnConnectionTunnel2LogOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *vpnConnectionTunnel2LogOptionsPtrType) ToVpnConnectionTunnel2LogOptionsPtrOutputWithContext(ctx context.Context) VpnConnectionTunnel2LogOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnConnectionTunnel2LogOptionsPtrOutput)
+}
+
+type VpnConnectionTunnel2LogOptionsOutput struct{ *pulumi.OutputState }
+
+func (VpnConnectionTunnel2LogOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnConnectionTunnel2LogOptions)(nil)).Elem()
+}
+
+func (o VpnConnectionTunnel2LogOptionsOutput) ToVpnConnectionTunnel2LogOptionsOutput() VpnConnectionTunnel2LogOptionsOutput {
+	return o
+}
+
+func (o VpnConnectionTunnel2LogOptionsOutput) ToVpnConnectionTunnel2LogOptionsOutputWithContext(ctx context.Context) VpnConnectionTunnel2LogOptionsOutput {
+	return o
+}
+
+func (o VpnConnectionTunnel2LogOptionsOutput) ToVpnConnectionTunnel2LogOptionsPtrOutput() VpnConnectionTunnel2LogOptionsPtrOutput {
+	return o.ToVpnConnectionTunnel2LogOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o VpnConnectionTunnel2LogOptionsOutput) ToVpnConnectionTunnel2LogOptionsPtrOutputWithContext(ctx context.Context) VpnConnectionTunnel2LogOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpnConnectionTunnel2LogOptions) *VpnConnectionTunnel2LogOptions {
+		return &v
+	}).(VpnConnectionTunnel2LogOptionsPtrOutput)
+}
+
+// Options for sending VPN tunnel logs to CloudWatch. See CloudWatch Log Options below for more details.
+func (o VpnConnectionTunnel2LogOptionsOutput) CloudwatchLogOptions() VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput {
+	return o.ApplyT(func(v VpnConnectionTunnel2LogOptions) *VpnConnectionTunnel2LogOptionsCloudwatchLogOptions {
+		return v.CloudwatchLogOptions
+	}).(VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput)
+}
+
+type VpnConnectionTunnel2LogOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (VpnConnectionTunnel2LogOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpnConnectionTunnel2LogOptions)(nil)).Elem()
+}
+
+func (o VpnConnectionTunnel2LogOptionsPtrOutput) ToVpnConnectionTunnel2LogOptionsPtrOutput() VpnConnectionTunnel2LogOptionsPtrOutput {
+	return o
+}
+
+func (o VpnConnectionTunnel2LogOptionsPtrOutput) ToVpnConnectionTunnel2LogOptionsPtrOutputWithContext(ctx context.Context) VpnConnectionTunnel2LogOptionsPtrOutput {
+	return o
+}
+
+func (o VpnConnectionTunnel2LogOptionsPtrOutput) Elem() VpnConnectionTunnel2LogOptionsOutput {
+	return o.ApplyT(func(v *VpnConnectionTunnel2LogOptions) VpnConnectionTunnel2LogOptions {
+		if v != nil {
+			return *v
+		}
+		var ret VpnConnectionTunnel2LogOptions
+		return ret
+	}).(VpnConnectionTunnel2LogOptionsOutput)
+}
+
+// Options for sending VPN tunnel logs to CloudWatch. See CloudWatch Log Options below for more details.
+func (o VpnConnectionTunnel2LogOptionsPtrOutput) CloudwatchLogOptions() VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput {
+	return o.ApplyT(func(v *VpnConnectionTunnel2LogOptions) *VpnConnectionTunnel2LogOptionsCloudwatchLogOptions {
+		if v == nil {
+			return nil
+		}
+		return v.CloudwatchLogOptions
+	}).(VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput)
+}
+
+type VpnConnectionTunnel2LogOptionsCloudwatchLogOptions struct {
+	// Enable or disable VPN tunnel logging feature. The default is `false`.
+	LogEnabled *bool `pulumi:"logEnabled"`
+	// The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
+	LogGroupArn *string `pulumi:"logGroupArn"`
+	// Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+	LogOutputFormat *string `pulumi:"logOutputFormat"`
+}
+
+// VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsInput is an input type that accepts VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs and VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput values.
+// You can construct a concrete instance of `VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsInput` via:
+//
+//	VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs{...}
+type VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsInput interface {
+	pulumi.Input
+
+	ToVpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput() VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput
+	ToVpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutputWithContext(context.Context) VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput
+}
+
+type VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs struct {
+	// Enable or disable VPN tunnel logging feature. The default is `false`.
+	LogEnabled pulumi.BoolPtrInput `pulumi:"logEnabled"`
+	// The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
+	LogGroupArn pulumi.StringPtrInput `pulumi:"logGroupArn"`
+	// Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+	LogOutputFormat pulumi.StringPtrInput `pulumi:"logOutputFormat"`
+}
+
+func (VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnConnectionTunnel2LogOptionsCloudwatchLogOptions)(nil)).Elem()
+}
+
+func (i VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs) ToVpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput() VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput {
+	return i.ToVpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutputWithContext(context.Background())
+}
+
+func (i VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs) ToVpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutputWithContext(ctx context.Context) VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput)
+}
+
+func (i VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs) ToVpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput() VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput {
+	return i.ToVpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs) ToVpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutputWithContext(ctx context.Context) VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput).ToVpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutputWithContext(ctx)
+}
+
+// VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrInput is an input type that accepts VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs, VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtr and VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput values.
+// You can construct a concrete instance of `VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrInput` via:
+//
+//	        VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrInput interface {
+	pulumi.Input
+
+	ToVpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput() VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput
+	ToVpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutputWithContext(context.Context) VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput
+}
+
+type vpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrType VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs
+
+func VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtr(v *VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs) VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrInput {
+	return (*vpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrType)(v)
+}
+
+func (*vpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpnConnectionTunnel2LogOptionsCloudwatchLogOptions)(nil)).Elem()
+}
+
+func (i *vpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrType) ToVpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput() VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput {
+	return i.ToVpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *vpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrType) ToVpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutputWithContext(ctx context.Context) VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput)
+}
+
+type VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput struct{ *pulumi.OutputState }
+
+func (VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnConnectionTunnel2LogOptionsCloudwatchLogOptions)(nil)).Elem()
+}
+
+func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput) ToVpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput() VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput {
+	return o
+}
+
+func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput) ToVpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutputWithContext(ctx context.Context) VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput {
+	return o
+}
+
+func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput) ToVpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput() VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput {
+	return o.ToVpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput) ToVpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutputWithContext(ctx context.Context) VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpnConnectionTunnel2LogOptionsCloudwatchLogOptions) *VpnConnectionTunnel2LogOptionsCloudwatchLogOptions {
+		return &v
+	}).(VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput)
+}
+
+// Enable or disable VPN tunnel logging feature. The default is `false`.
+func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput) LogEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VpnConnectionTunnel2LogOptionsCloudwatchLogOptions) *bool { return v.LogEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
+func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput) LogGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpnConnectionTunnel2LogOptionsCloudwatchLogOptions) *string { return v.LogGroupArn }).(pulumi.StringPtrOutput)
+}
+
+// Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput) LogOutputFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpnConnectionTunnel2LogOptionsCloudwatchLogOptions) *string { return v.LogOutputFormat }).(pulumi.StringPtrOutput)
+}
+
+type VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpnConnectionTunnel2LogOptionsCloudwatchLogOptions)(nil)).Elem()
+}
+
+func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput) ToVpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput() VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput {
+	return o
+}
+
+func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput) ToVpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutputWithContext(ctx context.Context) VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput {
+	return o
+}
+
+func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput) Elem() VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput {
+	return o.ApplyT(func(v *VpnConnectionTunnel2LogOptionsCloudwatchLogOptions) VpnConnectionTunnel2LogOptionsCloudwatchLogOptions {
+		if v != nil {
+			return *v
+		}
+		var ret VpnConnectionTunnel2LogOptionsCloudwatchLogOptions
+		return ret
+	}).(VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput)
+}
+
+// Enable or disable VPN tunnel logging feature. The default is `false`.
+func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput) LogEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VpnConnectionTunnel2LogOptionsCloudwatchLogOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.LogEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
+func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput) LogGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpnConnectionTunnel2LogOptionsCloudwatchLogOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogGroupArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput) LogOutputFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpnConnectionTunnel2LogOptionsCloudwatchLogOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogOutputFormat
+	}).(pulumi.StringPtrOutput)
+}
+
 type VpnConnectionVgwTelemetry struct {
 	// The number of accepted routes.
 	AcceptedRouteCount *int `pulumi:"acceptedRouteCount"`
@@ -31122,13 +31769,13 @@ func (o VpnConnectionVgwTelemetryArrayOutput) Index(i pulumi.IntInput) VpnConnec
 }
 
 type GetAmiBlockDeviceMapping struct {
-	// The physical name of the device.
+	// Physical name of the device.
 	DeviceName string `pulumi:"deviceName"`
 	// Map containing EBS information, if the device is EBS based. Unlike most object attributes, these are accessed directly (e.g., `ebs.volume_size` or `ebs["volumeSize"]`) rather than accessed through the first element of a list (e.g., `ebs[0].volume_size`).
 	Ebs map[string]string `pulumi:"ebs"`
 	// Suppresses the specified device included in the block device mapping of the AMI.
 	NoDevice string `pulumi:"noDevice"`
-	// The virtual device name (for instance stores).
+	// Virtual device name (for instance stores).
 	VirtualName string `pulumi:"virtualName"`
 }
 
@@ -31144,13 +31791,13 @@ type GetAmiBlockDeviceMappingInput interface {
 }
 
 type GetAmiBlockDeviceMappingArgs struct {
-	// The physical name of the device.
+	// Physical name of the device.
 	DeviceName pulumi.StringInput `pulumi:"deviceName"`
 	// Map containing EBS information, if the device is EBS based. Unlike most object attributes, these are accessed directly (e.g., `ebs.volume_size` or `ebs["volumeSize"]`) rather than accessed through the first element of a list (e.g., `ebs[0].volume_size`).
 	Ebs pulumi.StringMapInput `pulumi:"ebs"`
 	// Suppresses the specified device included in the block device mapping of the AMI.
 	NoDevice pulumi.StringInput `pulumi:"noDevice"`
-	// The virtual device name (for instance stores).
+	// Virtual device name (for instance stores).
 	VirtualName pulumi.StringInput `pulumi:"virtualName"`
 }
 
@@ -31205,7 +31852,7 @@ func (o GetAmiBlockDeviceMappingOutput) ToGetAmiBlockDeviceMappingOutputWithCont
 	return o
 }
 
-// The physical name of the device.
+// Physical name of the device.
 func (o GetAmiBlockDeviceMappingOutput) DeviceName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAmiBlockDeviceMapping) string { return v.DeviceName }).(pulumi.StringOutput)
 }
@@ -31220,7 +31867,7 @@ func (o GetAmiBlockDeviceMappingOutput) NoDevice() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAmiBlockDeviceMapping) string { return v.NoDevice }).(pulumi.StringOutput)
 }
 
-// The virtual device name (for instance stores).
+// Virtual device name (for instance stores).
 func (o GetAmiBlockDeviceMappingOutput) VirtualName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAmiBlockDeviceMapping) string { return v.VirtualName }).(pulumi.StringOutput)
 }
@@ -31246,7 +31893,7 @@ func (o GetAmiBlockDeviceMappingArrayOutput) Index(i pulumi.IntInput) GetAmiBloc
 }
 
 type GetAmiFilter struct {
-	// The name of the AMI that was provided during image creation.
+	// Name of the AMI that was provided during image creation.
 	Name   string   `pulumi:"name"`
 	Values []string `pulumi:"values"`
 }
@@ -31263,7 +31910,7 @@ type GetAmiFilterInput interface {
 }
 
 type GetAmiFilterArgs struct {
-	// The name of the AMI that was provided during image creation.
+	// Name of the AMI that was provided during image creation.
 	Name   pulumi.StringInput      `pulumi:"name"`
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
@@ -31319,7 +31966,7 @@ func (o GetAmiFilterOutput) ToGetAmiFilterOutputWithContext(ctx context.Context)
 	return o
 }
 
-// The name of the AMI that was provided during image creation.
+// Name of the AMI that was provided during image creation.
 func (o GetAmiFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAmiFilter) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -31549,7 +32196,7 @@ func (o GetAmiProductCodeArrayOutput) Index(i pulumi.IntInput) GetAmiProductCode
 }
 
 type GetCoipPoolFilter struct {
-	// The name of the field to filter by, as defined by
+	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCoipPools.html).
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given field.
@@ -31569,7 +32216,7 @@ type GetCoipPoolFilterInput interface {
 }
 
 type GetCoipPoolFilterArgs struct {
-	// The name of the field to filter by, as defined by
+	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCoipPools.html).
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given field.
@@ -31628,7 +32275,7 @@ func (o GetCoipPoolFilterOutput) ToGetCoipPoolFilterOutputWithContext(ctx contex
 	return o
 }
 
-// The name of the field to filter by, as defined by
+// Name of the field to filter by, as defined by
 // [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCoipPools.html).
 func (o GetCoipPoolFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCoipPoolFilter) string { return v.Name }).(pulumi.StringOutput)
@@ -31661,7 +32308,7 @@ func (o GetCoipPoolFilterArrayOutput) Index(i pulumi.IntInput) GetCoipPoolFilter
 }
 
 type GetCoipPoolsFilter struct {
-	// The name of the field to filter by, as defined by
+	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCoipPools.html).
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given field.
@@ -31681,7 +32328,7 @@ type GetCoipPoolsFilterInput interface {
 }
 
 type GetCoipPoolsFilterArgs struct {
-	// The name of the field to filter by, as defined by
+	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCoipPools.html).
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given field.
@@ -31740,7 +32387,7 @@ func (o GetCoipPoolsFilterOutput) ToGetCoipPoolsFilterOutputWithContext(ctx cont
 	return o
 }
 
-// The name of the field to filter by, as defined by
+// Name of the field to filter by, as defined by
 // [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCoipPools.html).
 func (o GetCoipPoolsFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCoipPoolsFilter) string { return v.Name }).(pulumi.StringOutput)
@@ -31873,7 +32520,7 @@ func (o GetCustomerGatewayFilterArrayOutput) Index(i pulumi.IntInput) GetCustome
 }
 
 type GetDedicatedHostFilter struct {
-	// The name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeHosts.html).
+	// Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeHosts.html).
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given field. A host will be selected if any one of the given values matches.
 	Values []string `pulumi:"values"`
@@ -31891,7 +32538,7 @@ type GetDedicatedHostFilterInput interface {
 }
 
 type GetDedicatedHostFilterArgs struct {
-	// The name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeHosts.html).
+	// Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeHosts.html).
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given field. A host will be selected if any one of the given values matches.
 	Values pulumi.StringArrayInput `pulumi:"values"`
@@ -31948,7 +32595,7 @@ func (o GetDedicatedHostFilterOutput) ToGetDedicatedHostFilterOutputWithContext(
 	return o
 }
 
-// The name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeHosts.html).
+// Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeHosts.html).
 func (o GetDedicatedHostFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDedicatedHostFilter) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -31979,7 +32626,7 @@ func (o GetDedicatedHostFilterArrayOutput) Index(i pulumi.IntInput) GetDedicated
 }
 
 type GetEipsFilter struct {
-	// The name of the field to filter by, as defined by
+	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html).
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given field. An Elastic IP will be selected if any one of the given values matches.
@@ -31998,7 +32645,7 @@ type GetEipsFilterInput interface {
 }
 
 type GetEipsFilterArgs struct {
-	// The name of the field to filter by, as defined by
+	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html).
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given field. An Elastic IP will be selected if any one of the given values matches.
@@ -32056,7 +32703,7 @@ func (o GetEipsFilterOutput) ToGetEipsFilterOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The name of the field to filter by, as defined by
+// Name of the field to filter by, as defined by
 // [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html).
 func (o GetEipsFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEipsFilter) string { return v.Name }).(pulumi.StringOutput)
@@ -32284,23 +32931,23 @@ func (o GetInstanceCreditSpecificationArrayOutput) Index(i pulumi.IntInput) GetI
 type GetInstanceEbsBlockDevice struct {
 	// If the root block device will be deleted on termination.
 	DeleteOnTermination bool `pulumi:"deleteOnTermination"`
-	// The physical name of the device.
+	// Physical name of the device.
 	DeviceName string `pulumi:"deviceName"`
 	// If the EBS volume is encrypted.
 	Encrypted bool `pulumi:"encrypted"`
 	// `0` If the volume is not a provisioned IOPS image, otherwise the supported IOPS count.
 	Iops     int    `pulumi:"iops"`
 	KmsKeyId string `pulumi:"kmsKeyId"`
-	// The ID of the snapshot.
+	// ID of the snapshot.
 	SnapshotId string `pulumi:"snapshotId"`
-	// A map of tags assigned to the Instance.
+	// Map of tags assigned to the Instance.
 	Tags map[string]string `pulumi:"tags"`
-	// The throughput of the volume, in MiB/s.
+	// Throughput of the volume, in MiB/s.
 	Throughput int    `pulumi:"throughput"`
 	VolumeId   string `pulumi:"volumeId"`
-	// The size of the volume, in GiB.
+	// Size of the volume, in GiB.
 	VolumeSize int `pulumi:"volumeSize"`
-	// The type of the volume.
+	// Type of the volume.
 	VolumeType string `pulumi:"volumeType"`
 }
 
@@ -32318,23 +32965,23 @@ type GetInstanceEbsBlockDeviceInput interface {
 type GetInstanceEbsBlockDeviceArgs struct {
 	// If the root block device will be deleted on termination.
 	DeleteOnTermination pulumi.BoolInput `pulumi:"deleteOnTermination"`
-	// The physical name of the device.
+	// Physical name of the device.
 	DeviceName pulumi.StringInput `pulumi:"deviceName"`
 	// If the EBS volume is encrypted.
 	Encrypted pulumi.BoolInput `pulumi:"encrypted"`
 	// `0` If the volume is not a provisioned IOPS image, otherwise the supported IOPS count.
 	Iops     pulumi.IntInput    `pulumi:"iops"`
 	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
-	// The ID of the snapshot.
+	// ID of the snapshot.
 	SnapshotId pulumi.StringInput `pulumi:"snapshotId"`
-	// A map of tags assigned to the Instance.
+	// Map of tags assigned to the Instance.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The throughput of the volume, in MiB/s.
+	// Throughput of the volume, in MiB/s.
 	Throughput pulumi.IntInput    `pulumi:"throughput"`
 	VolumeId   pulumi.StringInput `pulumi:"volumeId"`
-	// The size of the volume, in GiB.
+	// Size of the volume, in GiB.
 	VolumeSize pulumi.IntInput `pulumi:"volumeSize"`
-	// The type of the volume.
+	// Type of the volume.
 	VolumeType pulumi.StringInput `pulumi:"volumeType"`
 }
 
@@ -32394,7 +33041,7 @@ func (o GetInstanceEbsBlockDeviceOutput) DeleteOnTermination() pulumi.BoolOutput
 	return o.ApplyT(func(v GetInstanceEbsBlockDevice) bool { return v.DeleteOnTermination }).(pulumi.BoolOutput)
 }
 
-// The physical name of the device.
+// Physical name of the device.
 func (o GetInstanceEbsBlockDeviceOutput) DeviceName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceEbsBlockDevice) string { return v.DeviceName }).(pulumi.StringOutput)
 }
@@ -32413,17 +33060,17 @@ func (o GetInstanceEbsBlockDeviceOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceEbsBlockDevice) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }
 
-// The ID of the snapshot.
+// ID of the snapshot.
 func (o GetInstanceEbsBlockDeviceOutput) SnapshotId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceEbsBlockDevice) string { return v.SnapshotId }).(pulumi.StringOutput)
 }
 
-// A map of tags assigned to the Instance.
+// Map of tags assigned to the Instance.
 func (o GetInstanceEbsBlockDeviceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetInstanceEbsBlockDevice) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The throughput of the volume, in MiB/s.
+// Throughput of the volume, in MiB/s.
 func (o GetInstanceEbsBlockDeviceOutput) Throughput() pulumi.IntOutput {
 	return o.ApplyT(func(v GetInstanceEbsBlockDevice) int { return v.Throughput }).(pulumi.IntOutput)
 }
@@ -32432,12 +33079,12 @@ func (o GetInstanceEbsBlockDeviceOutput) VolumeId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceEbsBlockDevice) string { return v.VolumeId }).(pulumi.StringOutput)
 }
 
-// The size of the volume, in GiB.
+// Size of the volume, in GiB.
 func (o GetInstanceEbsBlockDeviceOutput) VolumeSize() pulumi.IntOutput {
 	return o.ApplyT(func(v GetInstanceEbsBlockDevice) int { return v.VolumeSize }).(pulumi.IntOutput)
 }
 
-// The type of the volume.
+// Type of the volume.
 func (o GetInstanceEbsBlockDeviceOutput) VolumeType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceEbsBlockDevice) string { return v.VolumeType }).(pulumi.StringOutput)
 }
@@ -32560,11 +33207,11 @@ func (o GetInstanceEnclaveOptionArrayOutput) Index(i pulumi.IntInput) GetInstanc
 }
 
 type GetInstanceEphemeralBlockDevice struct {
-	// The physical name of the device.
+	// Physical name of the device.
 	DeviceName string `pulumi:"deviceName"`
 	// Whether the specified device included in the device mapping was suppressed or not (Boolean).
 	NoDevice *bool `pulumi:"noDevice"`
-	// The virtual device name.
+	// Virtual device name.
 	VirtualName *string `pulumi:"virtualName"`
 }
 
@@ -32580,11 +33227,11 @@ type GetInstanceEphemeralBlockDeviceInput interface {
 }
 
 type GetInstanceEphemeralBlockDeviceArgs struct {
-	// The physical name of the device.
+	// Physical name of the device.
 	DeviceName pulumi.StringInput `pulumi:"deviceName"`
 	// Whether the specified device included in the device mapping was suppressed or not (Boolean).
 	NoDevice pulumi.BoolPtrInput `pulumi:"noDevice"`
-	// The virtual device name.
+	// Virtual device name.
 	VirtualName pulumi.StringPtrInput `pulumi:"virtualName"`
 }
 
@@ -32639,7 +33286,7 @@ func (o GetInstanceEphemeralBlockDeviceOutput) ToGetInstanceEphemeralBlockDevice
 	return o
 }
 
-// The physical name of the device.
+// Physical name of the device.
 func (o GetInstanceEphemeralBlockDeviceOutput) DeviceName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceEphemeralBlockDevice) string { return v.DeviceName }).(pulumi.StringOutput)
 }
@@ -32649,7 +33296,7 @@ func (o GetInstanceEphemeralBlockDeviceOutput) NoDevice() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetInstanceEphemeralBlockDevice) *bool { return v.NoDevice }).(pulumi.BoolPtrOutput)
 }
 
-// The virtual device name.
+// Virtual device name.
 func (o GetInstanceEphemeralBlockDeviceOutput) VirtualName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetInstanceEphemeralBlockDevice) *string { return v.VirtualName }).(pulumi.StringPtrOutput)
 }
@@ -32775,7 +33422,7 @@ func (o GetInstanceFilterArrayOutput) Index(i pulumi.IntInput) GetInstanceFilter
 }
 
 type GetInstanceMaintenanceOption struct {
-	// The automatic recovery behavior of the instance.
+	// Automatic recovery behavior of the instance.
 	AutoRecovery string `pulumi:"autoRecovery"`
 }
 
@@ -32791,7 +33438,7 @@ type GetInstanceMaintenanceOptionInput interface {
 }
 
 type GetInstanceMaintenanceOptionArgs struct {
-	// The automatic recovery behavior of the instance.
+	// Automatic recovery behavior of the instance.
 	AutoRecovery pulumi.StringInput `pulumi:"autoRecovery"`
 }
 
@@ -32846,7 +33493,7 @@ func (o GetInstanceMaintenanceOptionOutput) ToGetInstanceMaintenanceOptionOutput
 	return o
 }
 
-// The automatic recovery behavior of the instance.
+// Automatic recovery behavior of the instance.
 func (o GetInstanceMaintenanceOptionOutput) AutoRecovery() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceMaintenanceOption) string { return v.AutoRecovery }).(pulumi.StringOutput)
 }
@@ -32872,9 +33519,9 @@ func (o GetInstanceMaintenanceOptionArrayOutput) Index(i pulumi.IntInput) GetIns
 }
 
 type GetInstanceMetadataOption struct {
-	// The state of the metadata service: `enabled`, `disabled`.
+	// State of the metadata service: `enabled`, `disabled`.
 	HttpEndpoint string `pulumi:"httpEndpoint"`
-	// The desired HTTP PUT response hop limit for instance metadata requests.
+	// Desired HTTP PUT response hop limit for instance metadata requests.
 	HttpPutResponseHopLimit int `pulumi:"httpPutResponseHopLimit"`
 	// If session tokens are required: `optional`, `required`.
 	HttpTokens string `pulumi:"httpTokens"`
@@ -32894,9 +33541,9 @@ type GetInstanceMetadataOptionInput interface {
 }
 
 type GetInstanceMetadataOptionArgs struct {
-	// The state of the metadata service: `enabled`, `disabled`.
+	// State of the metadata service: `enabled`, `disabled`.
 	HttpEndpoint pulumi.StringInput `pulumi:"httpEndpoint"`
-	// The desired HTTP PUT response hop limit for instance metadata requests.
+	// Desired HTTP PUT response hop limit for instance metadata requests.
 	HttpPutResponseHopLimit pulumi.IntInput `pulumi:"httpPutResponseHopLimit"`
 	// If session tokens are required: `optional`, `required`.
 	HttpTokens pulumi.StringInput `pulumi:"httpTokens"`
@@ -32955,12 +33602,12 @@ func (o GetInstanceMetadataOptionOutput) ToGetInstanceMetadataOptionOutputWithCo
 	return o
 }
 
-// The state of the metadata service: `enabled`, `disabled`.
+// State of the metadata service: `enabled`, `disabled`.
 func (o GetInstanceMetadataOptionOutput) HttpEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceMetadataOption) string { return v.HttpEndpoint }).(pulumi.StringOutput)
 }
 
-// The desired HTTP PUT response hop limit for instance metadata requests.
+// Desired HTTP PUT response hop limit for instance metadata requests.
 func (o GetInstanceMetadataOptionOutput) HttpPutResponseHopLimit() pulumi.IntOutput {
 	return o.ApplyT(func(v GetInstanceMetadataOption) int { return v.HttpPutResponseHopLimit }).(pulumi.IntOutput)
 }
@@ -33000,7 +33647,7 @@ type GetInstancePrivateDnsNameOption struct {
 	EnableResourceNameDnsARecord bool `pulumi:"enableResourceNameDnsARecord"`
 	// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
 	EnableResourceNameDnsAaaaRecord bool `pulumi:"enableResourceNameDnsAaaaRecord"`
-	// The type of hostname for EC2 instances.
+	// Type of hostname for EC2 instances.
 	HostnameType string `pulumi:"hostnameType"`
 }
 
@@ -33020,7 +33667,7 @@ type GetInstancePrivateDnsNameOptionArgs struct {
 	EnableResourceNameDnsARecord pulumi.BoolInput `pulumi:"enableResourceNameDnsARecord"`
 	// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
 	EnableResourceNameDnsAaaaRecord pulumi.BoolInput `pulumi:"enableResourceNameDnsAaaaRecord"`
-	// The type of hostname for EC2 instances.
+	// Type of hostname for EC2 instances.
 	HostnameType pulumi.StringInput `pulumi:"hostnameType"`
 }
 
@@ -33085,7 +33732,7 @@ func (o GetInstancePrivateDnsNameOptionOutput) EnableResourceNameDnsAaaaRecord()
 	return o.ApplyT(func(v GetInstancePrivateDnsNameOption) bool { return v.EnableResourceNameDnsAaaaRecord }).(pulumi.BoolOutput)
 }
 
-// The type of hostname for EC2 instances.
+// Type of hostname for EC2 instances.
 func (o GetInstancePrivateDnsNameOptionOutput) HostnameType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstancePrivateDnsNameOption) string { return v.HostnameType }).(pulumi.StringOutput)
 }
@@ -33113,21 +33760,21 @@ func (o GetInstancePrivateDnsNameOptionArrayOutput) Index(i pulumi.IntInput) Get
 type GetInstanceRootBlockDevice struct {
 	// If the root block device will be deleted on termination.
 	DeleteOnTermination bool `pulumi:"deleteOnTermination"`
-	// The physical name of the device.
+	// Physical name of the device.
 	DeviceName string `pulumi:"deviceName"`
 	// If the EBS volume is encrypted.
 	Encrypted bool `pulumi:"encrypted"`
 	// `0` If the volume is not a provisioned IOPS image, otherwise the supported IOPS count.
 	Iops     int    `pulumi:"iops"`
 	KmsKeyId string `pulumi:"kmsKeyId"`
-	// A map of tags assigned to the Instance.
+	// Map of tags assigned to the Instance.
 	Tags map[string]string `pulumi:"tags"`
-	// The throughput of the volume, in MiB/s.
+	// Throughput of the volume, in MiB/s.
 	Throughput int    `pulumi:"throughput"`
 	VolumeId   string `pulumi:"volumeId"`
-	// The size of the volume, in GiB.
+	// Size of the volume, in GiB.
 	VolumeSize int `pulumi:"volumeSize"`
-	// The type of the volume.
+	// Type of the volume.
 	VolumeType string `pulumi:"volumeType"`
 }
 
@@ -33145,21 +33792,21 @@ type GetInstanceRootBlockDeviceInput interface {
 type GetInstanceRootBlockDeviceArgs struct {
 	// If the root block device will be deleted on termination.
 	DeleteOnTermination pulumi.BoolInput `pulumi:"deleteOnTermination"`
-	// The physical name of the device.
+	// Physical name of the device.
 	DeviceName pulumi.StringInput `pulumi:"deviceName"`
 	// If the EBS volume is encrypted.
 	Encrypted pulumi.BoolInput `pulumi:"encrypted"`
 	// `0` If the volume is not a provisioned IOPS image, otherwise the supported IOPS count.
 	Iops     pulumi.IntInput    `pulumi:"iops"`
 	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
-	// A map of tags assigned to the Instance.
+	// Map of tags assigned to the Instance.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The throughput of the volume, in MiB/s.
+	// Throughput of the volume, in MiB/s.
 	Throughput pulumi.IntInput    `pulumi:"throughput"`
 	VolumeId   pulumi.StringInput `pulumi:"volumeId"`
-	// The size of the volume, in GiB.
+	// Size of the volume, in GiB.
 	VolumeSize pulumi.IntInput `pulumi:"volumeSize"`
-	// The type of the volume.
+	// Type of the volume.
 	VolumeType pulumi.StringInput `pulumi:"volumeType"`
 }
 
@@ -33219,7 +33866,7 @@ func (o GetInstanceRootBlockDeviceOutput) DeleteOnTermination() pulumi.BoolOutpu
 	return o.ApplyT(func(v GetInstanceRootBlockDevice) bool { return v.DeleteOnTermination }).(pulumi.BoolOutput)
 }
 
-// The physical name of the device.
+// Physical name of the device.
 func (o GetInstanceRootBlockDeviceOutput) DeviceName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceRootBlockDevice) string { return v.DeviceName }).(pulumi.StringOutput)
 }
@@ -33238,12 +33885,12 @@ func (o GetInstanceRootBlockDeviceOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceRootBlockDevice) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }
 
-// A map of tags assigned to the Instance.
+// Map of tags assigned to the Instance.
 func (o GetInstanceRootBlockDeviceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetInstanceRootBlockDevice) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The throughput of the volume, in MiB/s.
+// Throughput of the volume, in MiB/s.
 func (o GetInstanceRootBlockDeviceOutput) Throughput() pulumi.IntOutput {
 	return o.ApplyT(func(v GetInstanceRootBlockDevice) int { return v.Throughput }).(pulumi.IntOutput)
 }
@@ -33252,12 +33899,12 @@ func (o GetInstanceRootBlockDeviceOutput) VolumeId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceRootBlockDevice) string { return v.VolumeId }).(pulumi.StringOutput)
 }
 
-// The size of the volume, in GiB.
+// Size of the volume, in GiB.
 func (o GetInstanceRootBlockDeviceOutput) VolumeSize() pulumi.IntOutput {
 	return o.ApplyT(func(v GetInstanceRootBlockDevice) int { return v.VolumeSize }).(pulumi.IntOutput)
 }
 
-// The type of the volume.
+// Type of the volume.
 func (o GetInstanceRootBlockDeviceOutput) VolumeType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceRootBlockDevice) string { return v.VolumeType }).(pulumi.StringOutput)
 }
@@ -34143,9 +34790,9 @@ func (o GetInstancesFilterArrayOutput) Index(i pulumi.IntInput) GetInstancesFilt
 }
 
 type GetInternetGatewayAttachmentType struct {
-	// The current state of the attachment between the gateway and the VPC. Present only if a VPC is attached
+	// Current state of the attachment between the gateway and the VPC. Present only if a VPC is attached
 	State string `pulumi:"state"`
-	// The ID of an attached VPC.
+	// ID of an attached VPC.
 	VpcId string `pulumi:"vpcId"`
 }
 
@@ -34161,9 +34808,9 @@ type GetInternetGatewayAttachmentTypeInput interface {
 }
 
 type GetInternetGatewayAttachmentTypeArgs struct {
-	// The current state of the attachment between the gateway and the VPC. Present only if a VPC is attached
+	// Current state of the attachment between the gateway and the VPC. Present only if a VPC is attached
 	State pulumi.StringInput `pulumi:"state"`
-	// The ID of an attached VPC.
+	// ID of an attached VPC.
 	VpcId pulumi.StringInput `pulumi:"vpcId"`
 }
 
@@ -34218,12 +34865,12 @@ func (o GetInternetGatewayAttachmentTypeOutput) ToGetInternetGatewayAttachmentTy
 	return o
 }
 
-// The current state of the attachment between the gateway and the VPC. Present only if a VPC is attached
+// Current state of the attachment between the gateway and the VPC. Present only if a VPC is attached
 func (o GetInternetGatewayAttachmentTypeOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInternetGatewayAttachmentType) string { return v.State }).(pulumi.StringOutput)
 }
 
-// The ID of an attached VPC.
+// ID of an attached VPC.
 func (o GetInternetGatewayAttachmentTypeOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInternetGatewayAttachmentType) string { return v.VpcId }).(pulumi.StringOutput)
 }
@@ -34249,7 +34896,7 @@ func (o GetInternetGatewayAttachmentTypeArrayOutput) Index(i pulumi.IntInput) Ge
 }
 
 type GetInternetGatewayFilter struct {
-	// The name of the field to filter by, as defined by
+	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInternetGateways.html).
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given field.
@@ -34269,7 +34916,7 @@ type GetInternetGatewayFilterInput interface {
 }
 
 type GetInternetGatewayFilterArgs struct {
-	// The name of the field to filter by, as defined by
+	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInternetGateways.html).
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given field.
@@ -34328,7 +34975,7 @@ func (o GetInternetGatewayFilterOutput) ToGetInternetGatewayFilterOutputWithCont
 	return o
 }
 
-// The name of the field to filter by, as defined by
+// Name of the field to filter by, as defined by
 // [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInternetGateways.html).
 func (o GetInternetGatewayFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInternetGatewayFilter) string { return v.Name }).(pulumi.StringOutput)
@@ -34361,7 +35008,7 @@ func (o GetInternetGatewayFilterArrayOutput) Index(i pulumi.IntInput) GetInterne
 }
 
 type GetKeyPairFilter struct {
-	// The name of the filter field. Valid values can be found in the [EC2 DescribeKeyPairs API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeKeyPairs.html).
+	// Name of the filter field. Valid values can be found in the [EC2 DescribeKeyPairs API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeKeyPairs.html).
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
 	Values []string `pulumi:"values"`
@@ -34379,7 +35026,7 @@ type GetKeyPairFilterInput interface {
 }
 
 type GetKeyPairFilterArgs struct {
-	// The name of the filter field. Valid values can be found in the [EC2 DescribeKeyPairs API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeKeyPairs.html).
+	// Name of the filter field. Valid values can be found in the [EC2 DescribeKeyPairs API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeKeyPairs.html).
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
 	Values pulumi.StringArrayInput `pulumi:"values"`
@@ -34436,7 +35083,7 @@ func (o GetKeyPairFilterOutput) ToGetKeyPairFilterOutputWithContext(ctx context.
 	return o
 }
 
-// The name of the filter field. Valid values can be found in the [EC2 DescribeKeyPairs API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeKeyPairs.html).
+// Name of the filter field. Valid values can be found in the [EC2 DescribeKeyPairs API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeKeyPairs.html).
 func (o GetKeyPairFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKeyPairFilter) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -34469,21 +35116,21 @@ func (o GetKeyPairFilterArrayOutput) Index(i pulumi.IntInput) GetKeyPairFilterOu
 type GetLaunchConfigurationEbsBlockDevice struct {
 	// Whether the EBS Volume will be deleted on instance termination.
 	DeleteOnTermination bool `pulumi:"deleteOnTermination"`
-	// The Name of the device.
+	// Name of the device.
 	DeviceName string `pulumi:"deviceName"`
 	// Whether the volume is Encrypted.
 	Encrypted bool `pulumi:"encrypted"`
-	// The provisioned IOPs of the volume.
+	// Provisioned IOPs of the volume.
 	Iops int `pulumi:"iops"`
 	// Whether the device in the block device mapping of the AMI is suppressed.
 	NoDevice bool `pulumi:"noDevice"`
-	// The Snapshot ID of the mount.
+	// Snapshot ID of the mount.
 	SnapshotId string `pulumi:"snapshotId"`
-	// The Throughput of the volume.
+	// Throughput of the volume.
 	Throughput int `pulumi:"throughput"`
-	// The Size of the volume.
+	// Size of the volume.
 	VolumeSize int `pulumi:"volumeSize"`
-	// The Type of the volume.
+	// Type of the volume.
 	VolumeType string `pulumi:"volumeType"`
 }
 
@@ -34501,21 +35148,21 @@ type GetLaunchConfigurationEbsBlockDeviceInput interface {
 type GetLaunchConfigurationEbsBlockDeviceArgs struct {
 	// Whether the EBS Volume will be deleted on instance termination.
 	DeleteOnTermination pulumi.BoolInput `pulumi:"deleteOnTermination"`
-	// The Name of the device.
+	// Name of the device.
 	DeviceName pulumi.StringInput `pulumi:"deviceName"`
 	// Whether the volume is Encrypted.
 	Encrypted pulumi.BoolInput `pulumi:"encrypted"`
-	// The provisioned IOPs of the volume.
+	// Provisioned IOPs of the volume.
 	Iops pulumi.IntInput `pulumi:"iops"`
 	// Whether the device in the block device mapping of the AMI is suppressed.
 	NoDevice pulumi.BoolInput `pulumi:"noDevice"`
-	// The Snapshot ID of the mount.
+	// Snapshot ID of the mount.
 	SnapshotId pulumi.StringInput `pulumi:"snapshotId"`
-	// The Throughput of the volume.
+	// Throughput of the volume.
 	Throughput pulumi.IntInput `pulumi:"throughput"`
-	// The Size of the volume.
+	// Size of the volume.
 	VolumeSize pulumi.IntInput `pulumi:"volumeSize"`
-	// The Type of the volume.
+	// Type of the volume.
 	VolumeType pulumi.StringInput `pulumi:"volumeType"`
 }
 
@@ -34575,7 +35222,7 @@ func (o GetLaunchConfigurationEbsBlockDeviceOutput) DeleteOnTermination() pulumi
 	return o.ApplyT(func(v GetLaunchConfigurationEbsBlockDevice) bool { return v.DeleteOnTermination }).(pulumi.BoolOutput)
 }
 
-// The Name of the device.
+// Name of the device.
 func (o GetLaunchConfigurationEbsBlockDeviceOutput) DeviceName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLaunchConfigurationEbsBlockDevice) string { return v.DeviceName }).(pulumi.StringOutput)
 }
@@ -34585,7 +35232,7 @@ func (o GetLaunchConfigurationEbsBlockDeviceOutput) Encrypted() pulumi.BoolOutpu
 	return o.ApplyT(func(v GetLaunchConfigurationEbsBlockDevice) bool { return v.Encrypted }).(pulumi.BoolOutput)
 }
 
-// The provisioned IOPs of the volume.
+// Provisioned IOPs of the volume.
 func (o GetLaunchConfigurationEbsBlockDeviceOutput) Iops() pulumi.IntOutput {
 	return o.ApplyT(func(v GetLaunchConfigurationEbsBlockDevice) int { return v.Iops }).(pulumi.IntOutput)
 }
@@ -34595,22 +35242,22 @@ func (o GetLaunchConfigurationEbsBlockDeviceOutput) NoDevice() pulumi.BoolOutput
 	return o.ApplyT(func(v GetLaunchConfigurationEbsBlockDevice) bool { return v.NoDevice }).(pulumi.BoolOutput)
 }
 
-// The Snapshot ID of the mount.
+// Snapshot ID of the mount.
 func (o GetLaunchConfigurationEbsBlockDeviceOutput) SnapshotId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLaunchConfigurationEbsBlockDevice) string { return v.SnapshotId }).(pulumi.StringOutput)
 }
 
-// The Throughput of the volume.
+// Throughput of the volume.
 func (o GetLaunchConfigurationEbsBlockDeviceOutput) Throughput() pulumi.IntOutput {
 	return o.ApplyT(func(v GetLaunchConfigurationEbsBlockDevice) int { return v.Throughput }).(pulumi.IntOutput)
 }
 
-// The Size of the volume.
+// Size of the volume.
 func (o GetLaunchConfigurationEbsBlockDeviceOutput) VolumeSize() pulumi.IntOutput {
 	return o.ApplyT(func(v GetLaunchConfigurationEbsBlockDevice) int { return v.VolumeSize }).(pulumi.IntOutput)
 }
 
-// The Type of the volume.
+// Type of the volume.
 func (o GetLaunchConfigurationEbsBlockDeviceOutput) VolumeType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLaunchConfigurationEbsBlockDevice) string { return v.VolumeType }).(pulumi.StringOutput)
 }
@@ -34636,9 +35283,9 @@ func (o GetLaunchConfigurationEbsBlockDeviceArrayOutput) Index(i pulumi.IntInput
 }
 
 type GetLaunchConfigurationEphemeralBlockDevice struct {
-	// The Name of the device.
+	// Name of the device.
 	DeviceName string `pulumi:"deviceName"`
-	// The Virtual Name of the device.
+	// Virtual Name of the device.
 	VirtualName string `pulumi:"virtualName"`
 }
 
@@ -34654,9 +35301,9 @@ type GetLaunchConfigurationEphemeralBlockDeviceInput interface {
 }
 
 type GetLaunchConfigurationEphemeralBlockDeviceArgs struct {
-	// The Name of the device.
+	// Name of the device.
 	DeviceName pulumi.StringInput `pulumi:"deviceName"`
-	// The Virtual Name of the device.
+	// Virtual Name of the device.
 	VirtualName pulumi.StringInput `pulumi:"virtualName"`
 }
 
@@ -34711,12 +35358,12 @@ func (o GetLaunchConfigurationEphemeralBlockDeviceOutput) ToGetLaunchConfigurati
 	return o
 }
 
-// The Name of the device.
+// Name of the device.
 func (o GetLaunchConfigurationEphemeralBlockDeviceOutput) DeviceName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLaunchConfigurationEphemeralBlockDevice) string { return v.DeviceName }).(pulumi.StringOutput)
 }
 
-// The Virtual Name of the device.
+// Virtual Name of the device.
 func (o GetLaunchConfigurationEphemeralBlockDeviceOutput) VirtualName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLaunchConfigurationEphemeralBlockDevice) string { return v.VirtualName }).(pulumi.StringOutput)
 }
@@ -34742,7 +35389,7 @@ func (o GetLaunchConfigurationEphemeralBlockDeviceArrayOutput) Index(i pulumi.In
 }
 
 type GetLaunchConfigurationMetadataOption struct {
-	// The state of the metadata service: `enabled`, `disabled`.
+	// State of the metadata service: `enabled`, `disabled`.
 	HttpEndpoint string `pulumi:"httpEndpoint"`
 	// The desired HTTP PUT response hop limit for instance metadata requests.
 	HttpPutResponseHopLimit int `pulumi:"httpPutResponseHopLimit"`
@@ -34762,7 +35409,7 @@ type GetLaunchConfigurationMetadataOptionInput interface {
 }
 
 type GetLaunchConfigurationMetadataOptionArgs struct {
-	// The state of the metadata service: `enabled`, `disabled`.
+	// State of the metadata service: `enabled`, `disabled`.
 	HttpEndpoint pulumi.StringInput `pulumi:"httpEndpoint"`
 	// The desired HTTP PUT response hop limit for instance metadata requests.
 	HttpPutResponseHopLimit pulumi.IntInput `pulumi:"httpPutResponseHopLimit"`
@@ -34821,7 +35468,7 @@ func (o GetLaunchConfigurationMetadataOptionOutput) ToGetLaunchConfigurationMeta
 	return o
 }
 
-// The state of the metadata service: `enabled`, `disabled`.
+// State of the metadata service: `enabled`, `disabled`.
 func (o GetLaunchConfigurationMetadataOptionOutput) HttpEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLaunchConfigurationMetadataOption) string { return v.HttpEndpoint }).(pulumi.StringOutput)
 }
@@ -34861,13 +35508,13 @@ type GetLaunchConfigurationRootBlockDevice struct {
 	DeleteOnTermination bool `pulumi:"deleteOnTermination"`
 	// Whether the volume is Encrypted.
 	Encrypted bool `pulumi:"encrypted"`
-	// The provisioned IOPs of the volume.
+	// Provisioned IOPs of the volume.
 	Iops int `pulumi:"iops"`
-	// The Throughput of the volume.
+	// Throughput of the volume.
 	Throughput int `pulumi:"throughput"`
-	// The Size of the volume.
+	// Size of the volume.
 	VolumeSize int `pulumi:"volumeSize"`
-	// The Type of the volume.
+	// Type of the volume.
 	VolumeType string `pulumi:"volumeType"`
 }
 
@@ -34887,13 +35534,13 @@ type GetLaunchConfigurationRootBlockDeviceArgs struct {
 	DeleteOnTermination pulumi.BoolInput `pulumi:"deleteOnTermination"`
 	// Whether the volume is Encrypted.
 	Encrypted pulumi.BoolInput `pulumi:"encrypted"`
-	// The provisioned IOPs of the volume.
+	// Provisioned IOPs of the volume.
 	Iops pulumi.IntInput `pulumi:"iops"`
-	// The Throughput of the volume.
+	// Throughput of the volume.
 	Throughput pulumi.IntInput `pulumi:"throughput"`
-	// The Size of the volume.
+	// Size of the volume.
 	VolumeSize pulumi.IntInput `pulumi:"volumeSize"`
-	// The Type of the volume.
+	// Type of the volume.
 	VolumeType pulumi.StringInput `pulumi:"volumeType"`
 }
 
@@ -34958,22 +35605,22 @@ func (o GetLaunchConfigurationRootBlockDeviceOutput) Encrypted() pulumi.BoolOutp
 	return o.ApplyT(func(v GetLaunchConfigurationRootBlockDevice) bool { return v.Encrypted }).(pulumi.BoolOutput)
 }
 
-// The provisioned IOPs of the volume.
+// Provisioned IOPs of the volume.
 func (o GetLaunchConfigurationRootBlockDeviceOutput) Iops() pulumi.IntOutput {
 	return o.ApplyT(func(v GetLaunchConfigurationRootBlockDevice) int { return v.Iops }).(pulumi.IntOutput)
 }
 
-// The Throughput of the volume.
+// Throughput of the volume.
 func (o GetLaunchConfigurationRootBlockDeviceOutput) Throughput() pulumi.IntOutput {
 	return o.ApplyT(func(v GetLaunchConfigurationRootBlockDevice) int { return v.Throughput }).(pulumi.IntOutput)
 }
 
-// The Size of the volume.
+// Size of the volume.
 func (o GetLaunchConfigurationRootBlockDeviceOutput) VolumeSize() pulumi.IntOutput {
 	return o.ApplyT(func(v GetLaunchConfigurationRootBlockDevice) int { return v.VolumeSize }).(pulumi.IntOutput)
 }
 
-// The Type of the volume.
+// Type of the volume.
 func (o GetLaunchConfigurationRootBlockDeviceOutput) VolumeType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLaunchConfigurationRootBlockDevice) string { return v.VolumeType }).(pulumi.StringOutput)
 }
@@ -35931,7 +36578,7 @@ func (o GetLaunchTemplateEnclaveOptionArrayOutput) Index(i pulumi.IntInput) GetL
 }
 
 type GetLaunchTemplateFilter struct {
-	// The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
+	// Name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
 	Values []string `pulumi:"values"`
@@ -35949,7 +36596,7 @@ type GetLaunchTemplateFilterInput interface {
 }
 
 type GetLaunchTemplateFilterArgs struct {
-	// The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
+	// Name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
 	Values pulumi.StringArrayInput `pulumi:"values"`
@@ -36006,7 +36653,7 @@ func (o GetLaunchTemplateFilterOutput) ToGetLaunchTemplateFilterOutputWithContex
 	return o
 }
 
-// The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
+// Name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
 func (o GetLaunchTemplateFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLaunchTemplateFilter) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -36132,7 +36779,7 @@ func (o GetLaunchTemplateHibernationOptionArrayOutput) Index(i pulumi.IntInput) 
 
 type GetLaunchTemplateIamInstanceProfile struct {
 	Arn string `pulumi:"arn"`
-	// The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
+	// Name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
 	Name string `pulumi:"name"`
 }
 
@@ -36149,7 +36796,7 @@ type GetLaunchTemplateIamInstanceProfileInput interface {
 
 type GetLaunchTemplateIamInstanceProfileArgs struct {
 	Arn pulumi.StringInput `pulumi:"arn"`
-	// The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
+	// Name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -36208,7 +36855,7 @@ func (o GetLaunchTemplateIamInstanceProfileOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLaunchTemplateIamInstanceProfile) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
+// Name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
 func (o GetLaunchTemplateIamInstanceProfileOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLaunchTemplateIamInstanceProfile) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -38329,7 +38976,7 @@ func (o GetLaunchTemplatePrivateDnsNameOptionArrayOutput) Index(i pulumi.IntInpu
 
 type GetLaunchTemplateTagSpecification struct {
 	ResourceType string `pulumi:"resourceType"`
-	// A map of tags, each pair of which must exactly match a pair on the desired Launch Template.
+	// Map of tags, each pair of which must exactly match a pair on the desired Launch Template.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -38346,7 +38993,7 @@ type GetLaunchTemplateTagSpecificationInput interface {
 
 type GetLaunchTemplateTagSpecificationArgs struct {
 	ResourceType pulumi.StringInput `pulumi:"resourceType"`
-	// A map of tags, each pair of which must exactly match a pair on the desired Launch Template.
+	// Map of tags, each pair of which must exactly match a pair on the desired Launch Template.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -38405,7 +39052,7 @@ func (o GetLaunchTemplateTagSpecificationOutput) ResourceType() pulumi.StringOut
 	return o.ApplyT(func(v GetLaunchTemplateTagSpecification) string { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-// A map of tags, each pair of which must exactly match a pair on the desired Launch Template.
+// Map of tags, each pair of which must exactly match a pair on the desired Launch Template.
 func (o GetLaunchTemplateTagSpecificationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetLaunchTemplateTagSpecification) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -38431,7 +39078,7 @@ func (o GetLaunchTemplateTagSpecificationArrayOutput) Index(i pulumi.IntInput) G
 }
 
 type GetLocalGatewayFilter struct {
-	// The name of the field to filter by, as defined by
+	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGateways.html).
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given field.
@@ -38451,7 +39098,7 @@ type GetLocalGatewayFilterInput interface {
 }
 
 type GetLocalGatewayFilterArgs struct {
-	// The name of the field to filter by, as defined by
+	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGateways.html).
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given field.
@@ -38510,7 +39157,7 @@ func (o GetLocalGatewayFilterOutput) ToGetLocalGatewayFilterOutputWithContext(ct
 	return o
 }
 
-// The name of the field to filter by, as defined by
+// Name of the field to filter by, as defined by
 // [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGateways.html).
 func (o GetLocalGatewayFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLocalGatewayFilter) string { return v.Name }).(pulumi.StringOutput)
@@ -38543,7 +39190,7 @@ func (o GetLocalGatewayFilterArrayOutput) Index(i pulumi.IntInput) GetLocalGatew
 }
 
 type GetLocalGatewayRouteTableFilter struct {
-	// The name of the field to filter by, as defined by
+	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayRouteTables.html).
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given field.
@@ -38563,7 +39210,7 @@ type GetLocalGatewayRouteTableFilterInput interface {
 }
 
 type GetLocalGatewayRouteTableFilterArgs struct {
-	// The name of the field to filter by, as defined by
+	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayRouteTables.html).
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given field.
@@ -38622,7 +39269,7 @@ func (o GetLocalGatewayRouteTableFilterOutput) ToGetLocalGatewayRouteTableFilter
 	return o
 }
 
-// The name of the field to filter by, as defined by
+// Name of the field to filter by, as defined by
 // [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayRouteTables.html).
 func (o GetLocalGatewayRouteTableFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLocalGatewayRouteTableFilter) string { return v.Name }).(pulumi.StringOutput)
@@ -38655,7 +39302,7 @@ func (o GetLocalGatewayRouteTableFilterArrayOutput) Index(i pulumi.IntInput) Get
 }
 
 type GetLocalGatewayRouteTablesFilter struct {
-	// The name of the field to filter by, as defined by
+	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayRouteTables.html).
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given field.
@@ -38675,7 +39322,7 @@ type GetLocalGatewayRouteTablesFilterInput interface {
 }
 
 type GetLocalGatewayRouteTablesFilterArgs struct {
-	// The name of the field to filter by, as defined by
+	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayRouteTables.html).
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given field.
@@ -38734,7 +39381,7 @@ func (o GetLocalGatewayRouteTablesFilterOutput) ToGetLocalGatewayRouteTablesFilt
 	return o
 }
 
-// The name of the field to filter by, as defined by
+// Name of the field to filter by, as defined by
 // [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayRouteTables.html).
 func (o GetLocalGatewayRouteTablesFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLocalGatewayRouteTablesFilter) string { return v.Name }).(pulumi.StringOutput)
@@ -39085,7 +39732,7 @@ func (o GetLocalGatewayVirtualInterfaceGroupsFilterArrayOutput) Index(i pulumi.I
 }
 
 type GetLocalGatewaysFilter struct {
-	// The name of the field to filter by, as defined by
+	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGateways.html).
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given field.
@@ -39105,7 +39752,7 @@ type GetLocalGatewaysFilterInput interface {
 }
 
 type GetLocalGatewaysFilterArgs struct {
-	// The name of the field to filter by, as defined by
+	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGateways.html).
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given field.
@@ -39164,7 +39811,7 @@ func (o GetLocalGatewaysFilterOutput) ToGetLocalGatewaysFilterOutputWithContext(
 	return o
 }
 
-// The name of the field to filter by, as defined by
+// Name of the field to filter by, as defined by
 // [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGateways.html).
 func (o GetLocalGatewaysFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLocalGatewaysFilter) string { return v.Name }).(pulumi.StringOutput)
@@ -39297,7 +39944,7 @@ func (o GetManagedPrefixListEntryTypeArrayOutput) Index(i pulumi.IntInput) GetMa
 }
 
 type GetManagedPrefixListFilter struct {
-	// The name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
 	Values []string `pulumi:"values"`
@@ -39315,7 +39962,7 @@ type GetManagedPrefixListFilterInput interface {
 }
 
 type GetManagedPrefixListFilterArgs struct {
-	// The name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
 	Values pulumi.StringArrayInput `pulumi:"values"`
@@ -39372,7 +40019,7 @@ func (o GetManagedPrefixListFilterOutput) ToGetManagedPrefixListFilterOutputWith
 	return o
 }
 
-// The name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
+// Name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
 func (o GetManagedPrefixListFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetManagedPrefixListFilter) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -39403,7 +40050,7 @@ func (o GetManagedPrefixListFilterArrayOutput) Index(i pulumi.IntInput) GetManag
 }
 
 type GetNatGatewayFilter struct {
-	// The name of the field to filter by, as defined by
+	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNatGateways.html).
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given field.
@@ -39423,7 +40070,7 @@ type GetNatGatewayFilterInput interface {
 }
 
 type GetNatGatewayFilterArgs struct {
-	// The name of the field to filter by, as defined by
+	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNatGateways.html).
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given field.
@@ -39482,7 +40129,7 @@ func (o GetNatGatewayFilterOutput) ToGetNatGatewayFilterOutputWithContext(ctx co
 	return o
 }
 
-// The name of the field to filter by, as defined by
+// Name of the field to filter by, as defined by
 // [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNatGateways.html).
 func (o GetNatGatewayFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNatGatewayFilter) string { return v.Name }).(pulumi.StringOutput)
@@ -39515,7 +40162,7 @@ func (o GetNatGatewayFilterArrayOutput) Index(i pulumi.IntInput) GetNatGatewayFi
 }
 
 type GetNatGatewaysFilter struct {
-	// The name of the field to filter by, as defined by
+	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNatGateways.html).
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given field.
@@ -39535,7 +40182,7 @@ type GetNatGatewaysFilterInput interface {
 }
 
 type GetNatGatewaysFilterArgs struct {
-	// The name of the field to filter by, as defined by
+	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNatGateways.html).
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given field.
@@ -39594,7 +40241,7 @@ func (o GetNatGatewaysFilterOutput) ToGetNatGatewaysFilterOutputWithContext(ctx 
 	return o
 }
 
-// The name of the field to filter by, as defined by
+// Name of the field to filter by, as defined by
 // [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNatGateways.html).
 func (o GetNatGatewaysFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNatGatewaysFilter) string { return v.Name }).(pulumi.StringOutput)
@@ -39627,7 +40274,7 @@ func (o GetNatGatewaysFilterArrayOutput) Index(i pulumi.IntInput) GetNatGateways
 }
 
 type GetNetworkAclsFilter struct {
-	// The name of the field to filter by, as defined by
+	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkAcls.html).
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given field.
@@ -39647,7 +40294,7 @@ type GetNetworkAclsFilterInput interface {
 }
 
 type GetNetworkAclsFilterArgs struct {
-	// The name of the field to filter by, as defined by
+	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkAcls.html).
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given field.
@@ -39706,7 +40353,7 @@ func (o GetNetworkAclsFilterOutput) ToGetNetworkAclsFilterOutputWithContext(ctx 
 	return o
 }
 
-// The name of the field to filter by, as defined by
+// Name of the field to filter by, as defined by
 // [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkAcls.html).
 func (o GetNetworkAclsFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkAclsFilter) string { return v.Name }).(pulumi.StringOutput)
@@ -40267,10 +40914,10 @@ func (o GetNetworkInsightsAnalysisExplanationArrayOutput) Index(i pulumi.IntInpu
 }
 
 type GetNetworkInsightsAnalysisExplanationAcl struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn string `pulumi:"arn"`
 	Id  string `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name string `pulumi:"name"`
 }
 
@@ -40286,10 +40933,10 @@ type GetNetworkInsightsAnalysisExplanationAclInput interface {
 }
 
 type GetNetworkInsightsAnalysisExplanationAclArgs struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	Id  pulumi.StringInput `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -40344,7 +40991,7 @@ func (o GetNetworkInsightsAnalysisExplanationAclOutput) ToGetNetworkInsightsAnal
 	return o
 }
 
-// The ARN of the selected Network Insights Analysis.
+// ARN of the selected Network Insights Analysis.
 func (o GetNetworkInsightsAnalysisExplanationAclOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationAcl) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -40353,7 +41000,7 @@ func (o GetNetworkInsightsAnalysisExplanationAclOutput) Id() pulumi.StringOutput
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationAcl) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 func (o GetNetworkInsightsAnalysisExplanationAclOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationAcl) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -40605,10 +41252,10 @@ func (o GetNetworkInsightsAnalysisExplanationAclRulePortRangeArrayOutput) Index(
 }
 
 type GetNetworkInsightsAnalysisExplanationAttachedTo struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn string `pulumi:"arn"`
 	Id  string `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name string `pulumi:"name"`
 }
 
@@ -40624,10 +41271,10 @@ type GetNetworkInsightsAnalysisExplanationAttachedToInput interface {
 }
 
 type GetNetworkInsightsAnalysisExplanationAttachedToArgs struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	Id  pulumi.StringInput `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -40682,7 +41329,7 @@ func (o GetNetworkInsightsAnalysisExplanationAttachedToOutput) ToGetNetworkInsig
 	return o
 }
 
-// The ARN of the selected Network Insights Analysis.
+// ARN of the selected Network Insights Analysis.
 func (o GetNetworkInsightsAnalysisExplanationAttachedToOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationAttachedTo) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -40691,7 +41338,7 @@ func (o GetNetworkInsightsAnalysisExplanationAttachedToOutput) Id() pulumi.Strin
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationAttachedTo) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 func (o GetNetworkInsightsAnalysisExplanationAttachedToOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationAttachedTo) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -40819,10 +41466,10 @@ func (o GetNetworkInsightsAnalysisExplanationClassicLoadBalancerListenerArrayOut
 }
 
 type GetNetworkInsightsAnalysisExplanationComponent struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn string `pulumi:"arn"`
 	Id  string `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name string `pulumi:"name"`
 }
 
@@ -40838,10 +41485,10 @@ type GetNetworkInsightsAnalysisExplanationComponentInput interface {
 }
 
 type GetNetworkInsightsAnalysisExplanationComponentArgs struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	Id  pulumi.StringInput `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -40896,7 +41543,7 @@ func (o GetNetworkInsightsAnalysisExplanationComponentOutput) ToGetNetworkInsigh
 	return o
 }
 
-// The ARN of the selected Network Insights Analysis.
+// ARN of the selected Network Insights Analysis.
 func (o GetNetworkInsightsAnalysisExplanationComponentOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationComponent) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -40905,7 +41552,7 @@ func (o GetNetworkInsightsAnalysisExplanationComponentOutput) Id() pulumi.String
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationComponent) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 func (o GetNetworkInsightsAnalysisExplanationComponentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationComponent) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -40931,10 +41578,10 @@ func (o GetNetworkInsightsAnalysisExplanationComponentArrayOutput) Index(i pulum
 }
 
 type GetNetworkInsightsAnalysisExplanationCustomerGateway struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn string `pulumi:"arn"`
 	Id  string `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name string `pulumi:"name"`
 }
 
@@ -40950,10 +41597,10 @@ type GetNetworkInsightsAnalysisExplanationCustomerGatewayInput interface {
 }
 
 type GetNetworkInsightsAnalysisExplanationCustomerGatewayArgs struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	Id  pulumi.StringInput `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -41008,7 +41655,7 @@ func (o GetNetworkInsightsAnalysisExplanationCustomerGatewayOutput) ToGetNetwork
 	return o
 }
 
-// The ARN of the selected Network Insights Analysis.
+// ARN of the selected Network Insights Analysis.
 func (o GetNetworkInsightsAnalysisExplanationCustomerGatewayOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationCustomerGateway) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -41017,7 +41664,7 @@ func (o GetNetworkInsightsAnalysisExplanationCustomerGatewayOutput) Id() pulumi.
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationCustomerGateway) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 func (o GetNetworkInsightsAnalysisExplanationCustomerGatewayOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationCustomerGateway) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -41043,10 +41690,10 @@ func (o GetNetworkInsightsAnalysisExplanationCustomerGatewayArrayOutput) Index(i
 }
 
 type GetNetworkInsightsAnalysisExplanationDestination struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn string `pulumi:"arn"`
 	Id  string `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name string `pulumi:"name"`
 }
 
@@ -41062,10 +41709,10 @@ type GetNetworkInsightsAnalysisExplanationDestinationInput interface {
 }
 
 type GetNetworkInsightsAnalysisExplanationDestinationArgs struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	Id  pulumi.StringInput `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -41120,7 +41767,7 @@ func (o GetNetworkInsightsAnalysisExplanationDestinationOutput) ToGetNetworkInsi
 	return o
 }
 
-// The ARN of the selected Network Insights Analysis.
+// ARN of the selected Network Insights Analysis.
 func (o GetNetworkInsightsAnalysisExplanationDestinationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationDestination) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -41129,7 +41776,7 @@ func (o GetNetworkInsightsAnalysisExplanationDestinationOutput) Id() pulumi.Stri
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationDestination) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 func (o GetNetworkInsightsAnalysisExplanationDestinationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationDestination) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -41155,10 +41802,10 @@ func (o GetNetworkInsightsAnalysisExplanationDestinationArrayOutput) Index(i pul
 }
 
 type GetNetworkInsightsAnalysisExplanationDestinationVpc struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn string `pulumi:"arn"`
 	Id  string `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name string `pulumi:"name"`
 }
 
@@ -41174,10 +41821,10 @@ type GetNetworkInsightsAnalysisExplanationDestinationVpcInput interface {
 }
 
 type GetNetworkInsightsAnalysisExplanationDestinationVpcArgs struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	Id  pulumi.StringInput `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -41232,7 +41879,7 @@ func (o GetNetworkInsightsAnalysisExplanationDestinationVpcOutput) ToGetNetworkI
 	return o
 }
 
-// The ARN of the selected Network Insights Analysis.
+// ARN of the selected Network Insights Analysis.
 func (o GetNetworkInsightsAnalysisExplanationDestinationVpcOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationDestinationVpc) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -41241,7 +41888,7 @@ func (o GetNetworkInsightsAnalysisExplanationDestinationVpcOutput) Id() pulumi.S
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationDestinationVpc) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 func (o GetNetworkInsightsAnalysisExplanationDestinationVpcOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationDestinationVpc) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -41267,10 +41914,10 @@ func (o GetNetworkInsightsAnalysisExplanationDestinationVpcArrayOutput) Index(i 
 }
 
 type GetNetworkInsightsAnalysisExplanationElasticLoadBalancerListener struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn string `pulumi:"arn"`
 	Id  string `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name string `pulumi:"name"`
 }
 
@@ -41286,10 +41933,10 @@ type GetNetworkInsightsAnalysisExplanationElasticLoadBalancerListenerInput inter
 }
 
 type GetNetworkInsightsAnalysisExplanationElasticLoadBalancerListenerArgs struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	Id  pulumi.StringInput `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -41344,7 +41991,7 @@ func (o GetNetworkInsightsAnalysisExplanationElasticLoadBalancerListenerOutput) 
 	return o
 }
 
-// The ARN of the selected Network Insights Analysis.
+// ARN of the selected Network Insights Analysis.
 func (o GetNetworkInsightsAnalysisExplanationElasticLoadBalancerListenerOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationElasticLoadBalancerListener) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -41353,7 +42000,7 @@ func (o GetNetworkInsightsAnalysisExplanationElasticLoadBalancerListenerOutput) 
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationElasticLoadBalancerListener) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 func (o GetNetworkInsightsAnalysisExplanationElasticLoadBalancerListenerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationElasticLoadBalancerListener) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -41379,10 +42026,10 @@ func (o GetNetworkInsightsAnalysisExplanationElasticLoadBalancerListenerArrayOut
 }
 
 type GetNetworkInsightsAnalysisExplanationIngressRouteTable struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn string `pulumi:"arn"`
 	Id  string `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name string `pulumi:"name"`
 }
 
@@ -41398,10 +42045,10 @@ type GetNetworkInsightsAnalysisExplanationIngressRouteTableInput interface {
 }
 
 type GetNetworkInsightsAnalysisExplanationIngressRouteTableArgs struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	Id  pulumi.StringInput `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -41456,7 +42103,7 @@ func (o GetNetworkInsightsAnalysisExplanationIngressRouteTableOutput) ToGetNetwo
 	return o
 }
 
-// The ARN of the selected Network Insights Analysis.
+// ARN of the selected Network Insights Analysis.
 func (o GetNetworkInsightsAnalysisExplanationIngressRouteTableOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationIngressRouteTable) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -41465,7 +42112,7 @@ func (o GetNetworkInsightsAnalysisExplanationIngressRouteTableOutput) Id() pulum
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationIngressRouteTable) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 func (o GetNetworkInsightsAnalysisExplanationIngressRouteTableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationIngressRouteTable) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -41491,10 +42138,10 @@ func (o GetNetworkInsightsAnalysisExplanationIngressRouteTableArrayOutput) Index
 }
 
 type GetNetworkInsightsAnalysisExplanationInternetGateway struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn string `pulumi:"arn"`
 	Id  string `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name string `pulumi:"name"`
 }
 
@@ -41510,10 +42157,10 @@ type GetNetworkInsightsAnalysisExplanationInternetGatewayInput interface {
 }
 
 type GetNetworkInsightsAnalysisExplanationInternetGatewayArgs struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	Id  pulumi.StringInput `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -41568,7 +42215,7 @@ func (o GetNetworkInsightsAnalysisExplanationInternetGatewayOutput) ToGetNetwork
 	return o
 }
 
-// The ARN of the selected Network Insights Analysis.
+// ARN of the selected Network Insights Analysis.
 func (o GetNetworkInsightsAnalysisExplanationInternetGatewayOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationInternetGateway) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -41577,7 +42224,7 @@ func (o GetNetworkInsightsAnalysisExplanationInternetGatewayOutput) Id() pulumi.
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationInternetGateway) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 func (o GetNetworkInsightsAnalysisExplanationInternetGatewayOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationInternetGateway) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -41603,10 +42250,10 @@ func (o GetNetworkInsightsAnalysisExplanationInternetGatewayArrayOutput) Index(i
 }
 
 type GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroup struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn string `pulumi:"arn"`
 	Id  string `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name string `pulumi:"name"`
 }
 
@@ -41622,10 +42269,10 @@ type GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroupInput interface
 }
 
 type GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroupArgs struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	Id  pulumi.StringInput `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -41680,7 +42327,7 @@ func (o GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroupOutput) ToGe
 	return o
 }
 
-// The ARN of the selected Network Insights Analysis.
+// ARN of the selected Network Insights Analysis.
 func (o GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroup) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -41689,7 +42336,7 @@ func (o GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroupOutput) Id()
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroup) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 func (o GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroup) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -41715,10 +42362,10 @@ func (o GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroupArrayOutput)
 }
 
 type GetNetworkInsightsAnalysisExplanationNatGateway struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn string `pulumi:"arn"`
 	Id  string `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name string `pulumi:"name"`
 }
 
@@ -41734,10 +42381,10 @@ type GetNetworkInsightsAnalysisExplanationNatGatewayInput interface {
 }
 
 type GetNetworkInsightsAnalysisExplanationNatGatewayArgs struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	Id  pulumi.StringInput `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -41792,7 +42439,7 @@ func (o GetNetworkInsightsAnalysisExplanationNatGatewayOutput) ToGetNetworkInsig
 	return o
 }
 
-// The ARN of the selected Network Insights Analysis.
+// ARN of the selected Network Insights Analysis.
 func (o GetNetworkInsightsAnalysisExplanationNatGatewayOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationNatGateway) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -41801,7 +42448,7 @@ func (o GetNetworkInsightsAnalysisExplanationNatGatewayOutput) Id() pulumi.Strin
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationNatGateway) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 func (o GetNetworkInsightsAnalysisExplanationNatGatewayOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationNatGateway) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -41827,10 +42474,10 @@ func (o GetNetworkInsightsAnalysisExplanationNatGatewayArrayOutput) Index(i pulu
 }
 
 type GetNetworkInsightsAnalysisExplanationNetworkInterface struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn string `pulumi:"arn"`
 	Id  string `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name string `pulumi:"name"`
 }
 
@@ -41846,10 +42493,10 @@ type GetNetworkInsightsAnalysisExplanationNetworkInterfaceInput interface {
 }
 
 type GetNetworkInsightsAnalysisExplanationNetworkInterfaceArgs struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	Id  pulumi.StringInput `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -41904,7 +42551,7 @@ func (o GetNetworkInsightsAnalysisExplanationNetworkInterfaceOutput) ToGetNetwor
 	return o
 }
 
-// The ARN of the selected Network Insights Analysis.
+// ARN of the selected Network Insights Analysis.
 func (o GetNetworkInsightsAnalysisExplanationNetworkInterfaceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationNetworkInterface) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -41913,7 +42560,7 @@ func (o GetNetworkInsightsAnalysisExplanationNetworkInterfaceOutput) Id() pulumi
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationNetworkInterface) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 func (o GetNetworkInsightsAnalysisExplanationNetworkInterfaceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationNetworkInterface) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -42039,10 +42686,10 @@ func (o GetNetworkInsightsAnalysisExplanationPortRangeArrayOutput) Index(i pulum
 }
 
 type GetNetworkInsightsAnalysisExplanationPrefixList struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn string `pulumi:"arn"`
 	Id  string `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name string `pulumi:"name"`
 }
 
@@ -42058,10 +42705,10 @@ type GetNetworkInsightsAnalysisExplanationPrefixListInput interface {
 }
 
 type GetNetworkInsightsAnalysisExplanationPrefixListArgs struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	Id  pulumi.StringInput `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -42116,7 +42763,7 @@ func (o GetNetworkInsightsAnalysisExplanationPrefixListOutput) ToGetNetworkInsig
 	return o
 }
 
-// The ARN of the selected Network Insights Analysis.
+// ARN of the selected Network Insights Analysis.
 func (o GetNetworkInsightsAnalysisExplanationPrefixListOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationPrefixList) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -42125,7 +42772,7 @@ func (o GetNetworkInsightsAnalysisExplanationPrefixListOutput) Id() pulumi.Strin
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationPrefixList) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 func (o GetNetworkInsightsAnalysisExplanationPrefixListOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationPrefixList) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -42151,10 +42798,10 @@ func (o GetNetworkInsightsAnalysisExplanationPrefixListArrayOutput) Index(i pulu
 }
 
 type GetNetworkInsightsAnalysisExplanationRouteTable struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn string `pulumi:"arn"`
 	Id  string `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name string `pulumi:"name"`
 }
 
@@ -42170,10 +42817,10 @@ type GetNetworkInsightsAnalysisExplanationRouteTableInput interface {
 }
 
 type GetNetworkInsightsAnalysisExplanationRouteTableArgs struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	Id  pulumi.StringInput `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -42228,7 +42875,7 @@ func (o GetNetworkInsightsAnalysisExplanationRouteTableOutput) ToGetNetworkInsig
 	return o
 }
 
-// The ARN of the selected Network Insights Analysis.
+// ARN of the selected Network Insights Analysis.
 func (o GetNetworkInsightsAnalysisExplanationRouteTableOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationRouteTable) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -42237,7 +42884,7 @@ func (o GetNetworkInsightsAnalysisExplanationRouteTableOutput) Id() pulumi.Strin
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationRouteTable) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 func (o GetNetworkInsightsAnalysisExplanationRouteTableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationRouteTable) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -42413,10 +43060,10 @@ func (o GetNetworkInsightsAnalysisExplanationRouteTableRouteArrayOutput) Index(i
 }
 
 type GetNetworkInsightsAnalysisExplanationSecurityGroup struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn string `pulumi:"arn"`
 	Id  string `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name string `pulumi:"name"`
 }
 
@@ -42432,10 +43079,10 @@ type GetNetworkInsightsAnalysisExplanationSecurityGroupInput interface {
 }
 
 type GetNetworkInsightsAnalysisExplanationSecurityGroupArgs struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	Id  pulumi.StringInput `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -42490,7 +43137,7 @@ func (o GetNetworkInsightsAnalysisExplanationSecurityGroupOutput) ToGetNetworkIn
 	return o
 }
 
-// The ARN of the selected Network Insights Analysis.
+// ARN of the selected Network Insights Analysis.
 func (o GetNetworkInsightsAnalysisExplanationSecurityGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationSecurityGroup) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -42499,7 +43146,7 @@ func (o GetNetworkInsightsAnalysisExplanationSecurityGroupOutput) Id() pulumi.St
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationSecurityGroup) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 func (o GetNetworkInsightsAnalysisExplanationSecurityGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationSecurityGroup) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -42751,10 +43398,10 @@ func (o GetNetworkInsightsAnalysisExplanationSecurityGroupRulePortRangeArrayOutp
 }
 
 type GetNetworkInsightsAnalysisExplanationSourceVpc struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn string `pulumi:"arn"`
 	Id  string `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name string `pulumi:"name"`
 }
 
@@ -42770,10 +43417,10 @@ type GetNetworkInsightsAnalysisExplanationSourceVpcInput interface {
 }
 
 type GetNetworkInsightsAnalysisExplanationSourceVpcArgs struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	Id  pulumi.StringInput `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -42828,7 +43475,7 @@ func (o GetNetworkInsightsAnalysisExplanationSourceVpcOutput) ToGetNetworkInsigh
 	return o
 }
 
-// The ARN of the selected Network Insights Analysis.
+// ARN of the selected Network Insights Analysis.
 func (o GetNetworkInsightsAnalysisExplanationSourceVpcOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationSourceVpc) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -42837,7 +43484,7 @@ func (o GetNetworkInsightsAnalysisExplanationSourceVpcOutput) Id() pulumi.String
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationSourceVpc) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 func (o GetNetworkInsightsAnalysisExplanationSourceVpcOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationSourceVpc) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -42863,10 +43510,10 @@ func (o GetNetworkInsightsAnalysisExplanationSourceVpcArrayOutput) Index(i pulum
 }
 
 type GetNetworkInsightsAnalysisExplanationSubnet struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn string `pulumi:"arn"`
 	Id  string `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name string `pulumi:"name"`
 }
 
@@ -42882,10 +43529,10 @@ type GetNetworkInsightsAnalysisExplanationSubnetInput interface {
 }
 
 type GetNetworkInsightsAnalysisExplanationSubnetArgs struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	Id  pulumi.StringInput `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -42940,7 +43587,7 @@ func (o GetNetworkInsightsAnalysisExplanationSubnetOutput) ToGetNetworkInsightsA
 	return o
 }
 
-// The ARN of the selected Network Insights Analysis.
+// ARN of the selected Network Insights Analysis.
 func (o GetNetworkInsightsAnalysisExplanationSubnetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationSubnet) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -42949,7 +43596,7 @@ func (o GetNetworkInsightsAnalysisExplanationSubnetOutput) Id() pulumi.StringOut
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationSubnet) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 func (o GetNetworkInsightsAnalysisExplanationSubnetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationSubnet) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -42975,10 +43622,10 @@ func (o GetNetworkInsightsAnalysisExplanationSubnetArrayOutput) Index(i pulumi.I
 }
 
 type GetNetworkInsightsAnalysisExplanationSubnetRouteTable struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn string `pulumi:"arn"`
 	Id  string `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name string `pulumi:"name"`
 }
 
@@ -42994,10 +43641,10 @@ type GetNetworkInsightsAnalysisExplanationSubnetRouteTableInput interface {
 }
 
 type GetNetworkInsightsAnalysisExplanationSubnetRouteTableArgs struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	Id  pulumi.StringInput `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -43052,7 +43699,7 @@ func (o GetNetworkInsightsAnalysisExplanationSubnetRouteTableOutput) ToGetNetwor
 	return o
 }
 
-// The ARN of the selected Network Insights Analysis.
+// ARN of the selected Network Insights Analysis.
 func (o GetNetworkInsightsAnalysisExplanationSubnetRouteTableOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationSubnetRouteTable) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -43061,7 +43708,7 @@ func (o GetNetworkInsightsAnalysisExplanationSubnetRouteTableOutput) Id() pulumi
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationSubnetRouteTable) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 func (o GetNetworkInsightsAnalysisExplanationSubnetRouteTableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationSubnetRouteTable) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -43087,10 +43734,10 @@ func (o GetNetworkInsightsAnalysisExplanationSubnetRouteTableArrayOutput) Index(
 }
 
 type GetNetworkInsightsAnalysisExplanationTransitGateway struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn string `pulumi:"arn"`
 	Id  string `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name string `pulumi:"name"`
 }
 
@@ -43106,10 +43753,10 @@ type GetNetworkInsightsAnalysisExplanationTransitGatewayInput interface {
 }
 
 type GetNetworkInsightsAnalysisExplanationTransitGatewayArgs struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	Id  pulumi.StringInput `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -43164,7 +43811,7 @@ func (o GetNetworkInsightsAnalysisExplanationTransitGatewayOutput) ToGetNetworkI
 	return o
 }
 
-// The ARN of the selected Network Insights Analysis.
+// ARN of the selected Network Insights Analysis.
 func (o GetNetworkInsightsAnalysisExplanationTransitGatewayOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationTransitGateway) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -43173,7 +43820,7 @@ func (o GetNetworkInsightsAnalysisExplanationTransitGatewayOutput) Id() pulumi.S
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationTransitGateway) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 func (o GetNetworkInsightsAnalysisExplanationTransitGatewayOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationTransitGateway) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -43199,10 +43846,10 @@ func (o GetNetworkInsightsAnalysisExplanationTransitGatewayArrayOutput) Index(i 
 }
 
 type GetNetworkInsightsAnalysisExplanationTransitGatewayAttachment struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn string `pulumi:"arn"`
 	Id  string `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name string `pulumi:"name"`
 }
 
@@ -43218,10 +43865,10 @@ type GetNetworkInsightsAnalysisExplanationTransitGatewayAttachmentInput interfac
 }
 
 type GetNetworkInsightsAnalysisExplanationTransitGatewayAttachmentArgs struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	Id  pulumi.StringInput `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -43276,7 +43923,7 @@ func (o GetNetworkInsightsAnalysisExplanationTransitGatewayAttachmentOutput) ToG
 	return o
 }
 
-// The ARN of the selected Network Insights Analysis.
+// ARN of the selected Network Insights Analysis.
 func (o GetNetworkInsightsAnalysisExplanationTransitGatewayAttachmentOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationTransitGatewayAttachment) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -43285,7 +43932,7 @@ func (o GetNetworkInsightsAnalysisExplanationTransitGatewayAttachmentOutput) Id(
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationTransitGatewayAttachment) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 func (o GetNetworkInsightsAnalysisExplanationTransitGatewayAttachmentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationTransitGatewayAttachment) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -43311,10 +43958,10 @@ func (o GetNetworkInsightsAnalysisExplanationTransitGatewayAttachmentArrayOutput
 }
 
 type GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTable struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn string `pulumi:"arn"`
 	Id  string `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name string `pulumi:"name"`
 }
 
@@ -43330,10 +43977,10 @@ type GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTableInput interfac
 }
 
 type GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTableArgs struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	Id  pulumi.StringInput `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -43388,7 +44035,7 @@ func (o GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTableOutput) ToG
 	return o
 }
 
-// The ARN of the selected Network Insights Analysis.
+// ARN of the selected Network Insights Analysis.
 func (o GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTableOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTable) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -43397,7 +44044,7 @@ func (o GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTableOutput) Id(
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTable) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 func (o GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTable) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -43563,10 +44210,10 @@ func (o GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTableRouteArrayO
 }
 
 type GetNetworkInsightsAnalysisExplanationVpc struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn string `pulumi:"arn"`
 	Id  string `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name string `pulumi:"name"`
 }
 
@@ -43582,10 +44229,10 @@ type GetNetworkInsightsAnalysisExplanationVpcInput interface {
 }
 
 type GetNetworkInsightsAnalysisExplanationVpcArgs struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	Id  pulumi.StringInput `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -43640,7 +44287,7 @@ func (o GetNetworkInsightsAnalysisExplanationVpcOutput) ToGetNetworkInsightsAnal
 	return o
 }
 
-// The ARN of the selected Network Insights Analysis.
+// ARN of the selected Network Insights Analysis.
 func (o GetNetworkInsightsAnalysisExplanationVpcOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationVpc) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -43649,7 +44296,7 @@ func (o GetNetworkInsightsAnalysisExplanationVpcOutput) Id() pulumi.StringOutput
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationVpc) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 func (o GetNetworkInsightsAnalysisExplanationVpcOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationVpc) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -43675,10 +44322,10 @@ func (o GetNetworkInsightsAnalysisExplanationVpcArrayOutput) Index(i pulumi.IntI
 }
 
 type GetNetworkInsightsAnalysisExplanationVpcEndpoint struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn string `pulumi:"arn"`
 	Id  string `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name string `pulumi:"name"`
 }
 
@@ -43694,10 +44341,10 @@ type GetNetworkInsightsAnalysisExplanationVpcEndpointInput interface {
 }
 
 type GetNetworkInsightsAnalysisExplanationVpcEndpointArgs struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	Id  pulumi.StringInput `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -43752,7 +44399,7 @@ func (o GetNetworkInsightsAnalysisExplanationVpcEndpointOutput) ToGetNetworkInsi
 	return o
 }
 
-// The ARN of the selected Network Insights Analysis.
+// ARN of the selected Network Insights Analysis.
 func (o GetNetworkInsightsAnalysisExplanationVpcEndpointOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationVpcEndpoint) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -43761,7 +44408,7 @@ func (o GetNetworkInsightsAnalysisExplanationVpcEndpointOutput) Id() pulumi.Stri
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationVpcEndpoint) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 func (o GetNetworkInsightsAnalysisExplanationVpcEndpointOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationVpcEndpoint) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -43787,10 +44434,10 @@ func (o GetNetworkInsightsAnalysisExplanationVpcEndpointArrayOutput) Index(i pul
 }
 
 type GetNetworkInsightsAnalysisExplanationVpcPeeringConnection struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn string `pulumi:"arn"`
 	Id  string `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name string `pulumi:"name"`
 }
 
@@ -43806,10 +44453,10 @@ type GetNetworkInsightsAnalysisExplanationVpcPeeringConnectionInput interface {
 }
 
 type GetNetworkInsightsAnalysisExplanationVpcPeeringConnectionArgs struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	Id  pulumi.StringInput `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -43864,7 +44511,7 @@ func (o GetNetworkInsightsAnalysisExplanationVpcPeeringConnectionOutput) ToGetNe
 	return o
 }
 
-// The ARN of the selected Network Insights Analysis.
+// ARN of the selected Network Insights Analysis.
 func (o GetNetworkInsightsAnalysisExplanationVpcPeeringConnectionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationVpcPeeringConnection) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -43873,7 +44520,7 @@ func (o GetNetworkInsightsAnalysisExplanationVpcPeeringConnectionOutput) Id() pu
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationVpcPeeringConnection) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 func (o GetNetworkInsightsAnalysisExplanationVpcPeeringConnectionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationVpcPeeringConnection) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -43899,10 +44546,10 @@ func (o GetNetworkInsightsAnalysisExplanationVpcPeeringConnectionArrayOutput) In
 }
 
 type GetNetworkInsightsAnalysisExplanationVpnConnection struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn string `pulumi:"arn"`
 	Id  string `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name string `pulumi:"name"`
 }
 
@@ -43918,10 +44565,10 @@ type GetNetworkInsightsAnalysisExplanationVpnConnectionInput interface {
 }
 
 type GetNetworkInsightsAnalysisExplanationVpnConnectionArgs struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	Id  pulumi.StringInput `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -43976,7 +44623,7 @@ func (o GetNetworkInsightsAnalysisExplanationVpnConnectionOutput) ToGetNetworkIn
 	return o
 }
 
-// The ARN of the selected Network Insights Analysis.
+// ARN of the selected Network Insights Analysis.
 func (o GetNetworkInsightsAnalysisExplanationVpnConnectionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationVpnConnection) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -43985,7 +44632,7 @@ func (o GetNetworkInsightsAnalysisExplanationVpnConnectionOutput) Id() pulumi.St
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationVpnConnection) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 func (o GetNetworkInsightsAnalysisExplanationVpnConnectionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationVpnConnection) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -44011,10 +44658,10 @@ func (o GetNetworkInsightsAnalysisExplanationVpnConnectionArrayOutput) Index(i p
 }
 
 type GetNetworkInsightsAnalysisExplanationVpnGateway struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn string `pulumi:"arn"`
 	Id  string `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name string `pulumi:"name"`
 }
 
@@ -44030,10 +44677,10 @@ type GetNetworkInsightsAnalysisExplanationVpnGatewayInput interface {
 }
 
 type GetNetworkInsightsAnalysisExplanationVpnGatewayArgs struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	Id  pulumi.StringInput `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -44088,7 +44735,7 @@ func (o GetNetworkInsightsAnalysisExplanationVpnGatewayOutput) ToGetNetworkInsig
 	return o
 }
 
-// The ARN of the selected Network Insights Analysis.
+// ARN of the selected Network Insights Analysis.
 func (o GetNetworkInsightsAnalysisExplanationVpnGatewayOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationVpnGateway) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -44097,7 +44744,7 @@ func (o GetNetworkInsightsAnalysisExplanationVpnGatewayOutput) Id() pulumi.Strin
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationVpnGateway) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 func (o GetNetworkInsightsAnalysisExplanationVpnGatewayOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanationVpnGateway) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -44123,7 +44770,7 @@ func (o GetNetworkInsightsAnalysisExplanationVpnGatewayArrayOutput) Index(i pulu
 }
 
 type GetNetworkInsightsAnalysisFilter struct {
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
 	Values []string `pulumi:"values"`
@@ -44141,7 +44788,7 @@ type GetNetworkInsightsAnalysisFilterInput interface {
 }
 
 type GetNetworkInsightsAnalysisFilterArgs struct {
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
 	Values pulumi.StringArrayInput `pulumi:"values"`
@@ -44198,7 +44845,7 @@ func (o GetNetworkInsightsAnalysisFilterOutput) ToGetNetworkInsightsAnalysisFilt
 	return o
 }
 
-// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 func (o GetNetworkInsightsAnalysisFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisFilter) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -44765,10 +45412,10 @@ func (o GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetailArrayOutpu
 }
 
 type GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponent struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn string `pulumi:"arn"`
 	Id  string `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name string `pulumi:"name"`
 }
 
@@ -44784,10 +45431,10 @@ type GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponentInpu
 }
 
 type GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponentArgs struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	Id  pulumi.StringInput `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -44842,7 +45489,7 @@ func (o GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponentO
 	return o
 }
 
-// The ARN of the selected Network Insights Analysis.
+// ARN of the selected Network Insights Analysis.
 func (o GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponentOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponent) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -44851,7 +45498,7 @@ func (o GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponentO
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponent) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 func (o GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponent) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -44877,10 +45524,10 @@ func (o GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponentA
 }
 
 type GetNetworkInsightsAnalysisForwardPathComponentAttachedTo struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn string `pulumi:"arn"`
 	Id  string `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name string `pulumi:"name"`
 }
 
@@ -44896,10 +45543,10 @@ type GetNetworkInsightsAnalysisForwardPathComponentAttachedToInput interface {
 }
 
 type GetNetworkInsightsAnalysisForwardPathComponentAttachedToArgs struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	Id  pulumi.StringInput `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -44954,7 +45601,7 @@ func (o GetNetworkInsightsAnalysisForwardPathComponentAttachedToOutput) ToGetNet
 	return o
 }
 
-// The ARN of the selected Network Insights Analysis.
+// ARN of the selected Network Insights Analysis.
 func (o GetNetworkInsightsAnalysisForwardPathComponentAttachedToOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisForwardPathComponentAttachedTo) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -44963,7 +45610,7 @@ func (o GetNetworkInsightsAnalysisForwardPathComponentAttachedToOutput) Id() pul
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisForwardPathComponentAttachedTo) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 func (o GetNetworkInsightsAnalysisForwardPathComponentAttachedToOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisForwardPathComponentAttachedTo) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -44989,10 +45636,10 @@ func (o GetNetworkInsightsAnalysisForwardPathComponentAttachedToArrayOutput) Ind
 }
 
 type GetNetworkInsightsAnalysisForwardPathComponentComponent struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn string `pulumi:"arn"`
 	Id  string `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name string `pulumi:"name"`
 }
 
@@ -45008,10 +45655,10 @@ type GetNetworkInsightsAnalysisForwardPathComponentComponentInput interface {
 }
 
 type GetNetworkInsightsAnalysisForwardPathComponentComponentArgs struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	Id  pulumi.StringInput `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -45066,7 +45713,7 @@ func (o GetNetworkInsightsAnalysisForwardPathComponentComponentOutput) ToGetNetw
 	return o
 }
 
-// The ARN of the selected Network Insights Analysis.
+// ARN of the selected Network Insights Analysis.
 func (o GetNetworkInsightsAnalysisForwardPathComponentComponentOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisForwardPathComponentComponent) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -45075,7 +45722,7 @@ func (o GetNetworkInsightsAnalysisForwardPathComponentComponentOutput) Id() pulu
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisForwardPathComponentComponent) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 func (o GetNetworkInsightsAnalysisForwardPathComponentComponentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisForwardPathComponentComponent) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -45101,10 +45748,10 @@ func (o GetNetworkInsightsAnalysisForwardPathComponentComponentArrayOutput) Inde
 }
 
 type GetNetworkInsightsAnalysisForwardPathComponentDestinationVpc struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn string `pulumi:"arn"`
 	Id  string `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name string `pulumi:"name"`
 }
 
@@ -45120,10 +45767,10 @@ type GetNetworkInsightsAnalysisForwardPathComponentDestinationVpcInput interface
 }
 
 type GetNetworkInsightsAnalysisForwardPathComponentDestinationVpcArgs struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	Id  pulumi.StringInput `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -45178,7 +45825,7 @@ func (o GetNetworkInsightsAnalysisForwardPathComponentDestinationVpcOutput) ToGe
 	return o
 }
 
-// The ARN of the selected Network Insights Analysis.
+// ARN of the selected Network Insights Analysis.
 func (o GetNetworkInsightsAnalysisForwardPathComponentDestinationVpcOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisForwardPathComponentDestinationVpc) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -45187,7 +45834,7 @@ func (o GetNetworkInsightsAnalysisForwardPathComponentDestinationVpcOutput) Id()
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisForwardPathComponentDestinationVpc) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 func (o GetNetworkInsightsAnalysisForwardPathComponentDestinationVpcOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisForwardPathComponentDestinationVpc) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -46257,10 +46904,10 @@ func (o GetNetworkInsightsAnalysisForwardPathComponentSecurityGroupRulePortRange
 }
 
 type GetNetworkInsightsAnalysisForwardPathComponentSourceVpc struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn string `pulumi:"arn"`
 	Id  string `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name string `pulumi:"name"`
 }
 
@@ -46276,10 +46923,10 @@ type GetNetworkInsightsAnalysisForwardPathComponentSourceVpcInput interface {
 }
 
 type GetNetworkInsightsAnalysisForwardPathComponentSourceVpcArgs struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	Id  pulumi.StringInput `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -46334,7 +46981,7 @@ func (o GetNetworkInsightsAnalysisForwardPathComponentSourceVpcOutput) ToGetNetw
 	return o
 }
 
-// The ARN of the selected Network Insights Analysis.
+// ARN of the selected Network Insights Analysis.
 func (o GetNetworkInsightsAnalysisForwardPathComponentSourceVpcOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisForwardPathComponentSourceVpc) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -46343,7 +46990,7 @@ func (o GetNetworkInsightsAnalysisForwardPathComponentSourceVpcOutput) Id() pulu
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisForwardPathComponentSourceVpc) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 func (o GetNetworkInsightsAnalysisForwardPathComponentSourceVpcOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisForwardPathComponentSourceVpc) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -46369,10 +47016,10 @@ func (o GetNetworkInsightsAnalysisForwardPathComponentSourceVpcArrayOutput) Inde
 }
 
 type GetNetworkInsightsAnalysisForwardPathComponentSubnet struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn string `pulumi:"arn"`
 	Id  string `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name string `pulumi:"name"`
 }
 
@@ -46388,10 +47035,10 @@ type GetNetworkInsightsAnalysisForwardPathComponentSubnetInput interface {
 }
 
 type GetNetworkInsightsAnalysisForwardPathComponentSubnetArgs struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	Id  pulumi.StringInput `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -46446,7 +47093,7 @@ func (o GetNetworkInsightsAnalysisForwardPathComponentSubnetOutput) ToGetNetwork
 	return o
 }
 
-// The ARN of the selected Network Insights Analysis.
+// ARN of the selected Network Insights Analysis.
 func (o GetNetworkInsightsAnalysisForwardPathComponentSubnetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisForwardPathComponentSubnet) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -46455,7 +47102,7 @@ func (o GetNetworkInsightsAnalysisForwardPathComponentSubnetOutput) Id() pulumi.
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisForwardPathComponentSubnet) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 func (o GetNetworkInsightsAnalysisForwardPathComponentSubnetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisForwardPathComponentSubnet) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -46481,10 +47128,10 @@ func (o GetNetworkInsightsAnalysisForwardPathComponentSubnetArrayOutput) Index(i
 }
 
 type GetNetworkInsightsAnalysisForwardPathComponentTransitGateway struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn string `pulumi:"arn"`
 	Id  string `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name string `pulumi:"name"`
 }
 
@@ -46500,10 +47147,10 @@ type GetNetworkInsightsAnalysisForwardPathComponentTransitGatewayInput interface
 }
 
 type GetNetworkInsightsAnalysisForwardPathComponentTransitGatewayArgs struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	Id  pulumi.StringInput `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -46558,7 +47205,7 @@ func (o GetNetworkInsightsAnalysisForwardPathComponentTransitGatewayOutput) ToGe
 	return o
 }
 
-// The ARN of the selected Network Insights Analysis.
+// ARN of the selected Network Insights Analysis.
 func (o GetNetworkInsightsAnalysisForwardPathComponentTransitGatewayOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisForwardPathComponentTransitGateway) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -46567,7 +47214,7 @@ func (o GetNetworkInsightsAnalysisForwardPathComponentTransitGatewayOutput) Id()
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisForwardPathComponentTransitGateway) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 func (o GetNetworkInsightsAnalysisForwardPathComponentTransitGatewayOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisForwardPathComponentTransitGateway) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -46737,10 +47384,10 @@ func (o GetNetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRo
 }
 
 type GetNetworkInsightsAnalysisForwardPathComponentVpc struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn string `pulumi:"arn"`
 	Id  string `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name string `pulumi:"name"`
 }
 
@@ -46756,10 +47403,10 @@ type GetNetworkInsightsAnalysisForwardPathComponentVpcInput interface {
 }
 
 type GetNetworkInsightsAnalysisForwardPathComponentVpcArgs struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	Id  pulumi.StringInput `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -46814,7 +47461,7 @@ func (o GetNetworkInsightsAnalysisForwardPathComponentVpcOutput) ToGetNetworkIns
 	return o
 }
 
-// The ARN of the selected Network Insights Analysis.
+// ARN of the selected Network Insights Analysis.
 func (o GetNetworkInsightsAnalysisForwardPathComponentVpcOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisForwardPathComponentVpc) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -46823,7 +47470,7 @@ func (o GetNetworkInsightsAnalysisForwardPathComponentVpcOutput) Id() pulumi.Str
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisForwardPathComponentVpc) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 func (o GetNetworkInsightsAnalysisForwardPathComponentVpcOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisForwardPathComponentVpc) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -47385,10 +48032,10 @@ func (o GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetailArrayOutput
 }
 
 type GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponent struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn string `pulumi:"arn"`
 	Id  string `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name string `pulumi:"name"`
 }
 
@@ -47404,10 +48051,10 @@ type GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponentInput
 }
 
 type GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponentArgs struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	Id  pulumi.StringInput `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -47462,7 +48109,7 @@ func (o GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponentOu
 	return o
 }
 
-// The ARN of the selected Network Insights Analysis.
+// ARN of the selected Network Insights Analysis.
 func (o GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponentOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponent) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -47471,7 +48118,7 @@ func (o GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponentOu
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponent) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 func (o GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponent) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -47497,10 +48144,10 @@ func (o GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponentAr
 }
 
 type GetNetworkInsightsAnalysisReturnPathComponentAttachedTo struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn string `pulumi:"arn"`
 	Id  string `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name string `pulumi:"name"`
 }
 
@@ -47516,10 +48163,10 @@ type GetNetworkInsightsAnalysisReturnPathComponentAttachedToInput interface {
 }
 
 type GetNetworkInsightsAnalysisReturnPathComponentAttachedToArgs struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	Id  pulumi.StringInput `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -47574,7 +48221,7 @@ func (o GetNetworkInsightsAnalysisReturnPathComponentAttachedToOutput) ToGetNetw
 	return o
 }
 
-// The ARN of the selected Network Insights Analysis.
+// ARN of the selected Network Insights Analysis.
 func (o GetNetworkInsightsAnalysisReturnPathComponentAttachedToOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisReturnPathComponentAttachedTo) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -47583,7 +48230,7 @@ func (o GetNetworkInsightsAnalysisReturnPathComponentAttachedToOutput) Id() pulu
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisReturnPathComponentAttachedTo) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 func (o GetNetworkInsightsAnalysisReturnPathComponentAttachedToOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisReturnPathComponentAttachedTo) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -47609,10 +48256,10 @@ func (o GetNetworkInsightsAnalysisReturnPathComponentAttachedToArrayOutput) Inde
 }
 
 type GetNetworkInsightsAnalysisReturnPathComponentComponent struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn string `pulumi:"arn"`
 	Id  string `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name string `pulumi:"name"`
 }
 
@@ -47628,10 +48275,10 @@ type GetNetworkInsightsAnalysisReturnPathComponentComponentInput interface {
 }
 
 type GetNetworkInsightsAnalysisReturnPathComponentComponentArgs struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	Id  pulumi.StringInput `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -47686,7 +48333,7 @@ func (o GetNetworkInsightsAnalysisReturnPathComponentComponentOutput) ToGetNetwo
 	return o
 }
 
-// The ARN of the selected Network Insights Analysis.
+// ARN of the selected Network Insights Analysis.
 func (o GetNetworkInsightsAnalysisReturnPathComponentComponentOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisReturnPathComponentComponent) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -47695,7 +48342,7 @@ func (o GetNetworkInsightsAnalysisReturnPathComponentComponentOutput) Id() pulum
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisReturnPathComponentComponent) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 func (o GetNetworkInsightsAnalysisReturnPathComponentComponentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisReturnPathComponentComponent) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -47721,10 +48368,10 @@ func (o GetNetworkInsightsAnalysisReturnPathComponentComponentArrayOutput) Index
 }
 
 type GetNetworkInsightsAnalysisReturnPathComponentDestinationVpc struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn string `pulumi:"arn"`
 	Id  string `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name string `pulumi:"name"`
 }
 
@@ -47740,10 +48387,10 @@ type GetNetworkInsightsAnalysisReturnPathComponentDestinationVpcInput interface 
 }
 
 type GetNetworkInsightsAnalysisReturnPathComponentDestinationVpcArgs struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	Id  pulumi.StringInput `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -47798,7 +48445,7 @@ func (o GetNetworkInsightsAnalysisReturnPathComponentDestinationVpcOutput) ToGet
 	return o
 }
 
-// The ARN of the selected Network Insights Analysis.
+// ARN of the selected Network Insights Analysis.
 func (o GetNetworkInsightsAnalysisReturnPathComponentDestinationVpcOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisReturnPathComponentDestinationVpc) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -47807,7 +48454,7 @@ func (o GetNetworkInsightsAnalysisReturnPathComponentDestinationVpcOutput) Id() 
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisReturnPathComponentDestinationVpc) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 func (o GetNetworkInsightsAnalysisReturnPathComponentDestinationVpcOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisReturnPathComponentDestinationVpc) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -48873,10 +49520,10 @@ func (o GetNetworkInsightsAnalysisReturnPathComponentSecurityGroupRulePortRangeA
 }
 
 type GetNetworkInsightsAnalysisReturnPathComponentSourceVpc struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn string `pulumi:"arn"`
 	Id  string `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name string `pulumi:"name"`
 }
 
@@ -48892,10 +49539,10 @@ type GetNetworkInsightsAnalysisReturnPathComponentSourceVpcInput interface {
 }
 
 type GetNetworkInsightsAnalysisReturnPathComponentSourceVpcArgs struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	Id  pulumi.StringInput `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -48950,7 +49597,7 @@ func (o GetNetworkInsightsAnalysisReturnPathComponentSourceVpcOutput) ToGetNetwo
 	return o
 }
 
-// The ARN of the selected Network Insights Analysis.
+// ARN of the selected Network Insights Analysis.
 func (o GetNetworkInsightsAnalysisReturnPathComponentSourceVpcOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisReturnPathComponentSourceVpc) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -48959,7 +49606,7 @@ func (o GetNetworkInsightsAnalysisReturnPathComponentSourceVpcOutput) Id() pulum
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisReturnPathComponentSourceVpc) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 func (o GetNetworkInsightsAnalysisReturnPathComponentSourceVpcOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisReturnPathComponentSourceVpc) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -48985,10 +49632,10 @@ func (o GetNetworkInsightsAnalysisReturnPathComponentSourceVpcArrayOutput) Index
 }
 
 type GetNetworkInsightsAnalysisReturnPathComponentSubnet struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn string `pulumi:"arn"`
 	Id  string `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name string `pulumi:"name"`
 }
 
@@ -49004,10 +49651,10 @@ type GetNetworkInsightsAnalysisReturnPathComponentSubnetInput interface {
 }
 
 type GetNetworkInsightsAnalysisReturnPathComponentSubnetArgs struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	Id  pulumi.StringInput `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -49062,7 +49709,7 @@ func (o GetNetworkInsightsAnalysisReturnPathComponentSubnetOutput) ToGetNetworkI
 	return o
 }
 
-// The ARN of the selected Network Insights Analysis.
+// ARN of the selected Network Insights Analysis.
 func (o GetNetworkInsightsAnalysisReturnPathComponentSubnetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisReturnPathComponentSubnet) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -49071,7 +49718,7 @@ func (o GetNetworkInsightsAnalysisReturnPathComponentSubnetOutput) Id() pulumi.S
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisReturnPathComponentSubnet) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 func (o GetNetworkInsightsAnalysisReturnPathComponentSubnetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisReturnPathComponentSubnet) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -49097,10 +49744,10 @@ func (o GetNetworkInsightsAnalysisReturnPathComponentSubnetArrayOutput) Index(i 
 }
 
 type GetNetworkInsightsAnalysisReturnPathComponentTransitGateway struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn string `pulumi:"arn"`
 	Id  string `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name string `pulumi:"name"`
 }
 
@@ -49116,10 +49763,10 @@ type GetNetworkInsightsAnalysisReturnPathComponentTransitGatewayInput interface 
 }
 
 type GetNetworkInsightsAnalysisReturnPathComponentTransitGatewayArgs struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	Id  pulumi.StringInput `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -49174,7 +49821,7 @@ func (o GetNetworkInsightsAnalysisReturnPathComponentTransitGatewayOutput) ToGet
 	return o
 }
 
-// The ARN of the selected Network Insights Analysis.
+// ARN of the selected Network Insights Analysis.
 func (o GetNetworkInsightsAnalysisReturnPathComponentTransitGatewayOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisReturnPathComponentTransitGateway) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -49183,7 +49830,7 @@ func (o GetNetworkInsightsAnalysisReturnPathComponentTransitGatewayOutput) Id() 
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisReturnPathComponentTransitGateway) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 func (o GetNetworkInsightsAnalysisReturnPathComponentTransitGatewayOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisReturnPathComponentTransitGateway) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -49353,10 +50000,10 @@ func (o GetNetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRou
 }
 
 type GetNetworkInsightsAnalysisReturnPathComponentVpc struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn string `pulumi:"arn"`
 	Id  string `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name string `pulumi:"name"`
 }
 
@@ -49372,10 +50019,10 @@ type GetNetworkInsightsAnalysisReturnPathComponentVpcInput interface {
 }
 
 type GetNetworkInsightsAnalysisReturnPathComponentVpcArgs struct {
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	Id  pulumi.StringInput `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -49430,7 +50077,7 @@ func (o GetNetworkInsightsAnalysisReturnPathComponentVpcOutput) ToGetNetworkInsi
 	return o
 }
 
-// The ARN of the selected Network Insights Analysis.
+// ARN of the selected Network Insights Analysis.
 func (o GetNetworkInsightsAnalysisReturnPathComponentVpcOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisReturnPathComponentVpc) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -49439,7 +50086,7 @@ func (o GetNetworkInsightsAnalysisReturnPathComponentVpcOutput) Id() pulumi.Stri
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisReturnPathComponentVpc) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
 func (o GetNetworkInsightsAnalysisReturnPathComponentVpcOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisReturnPathComponentVpc) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -49465,7 +50112,7 @@ func (o GetNetworkInsightsAnalysisReturnPathComponentVpcArrayOutput) Index(i pul
 }
 
 type GetNetworkInsightsPathFilter struct {
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsPaths`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsPaths.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsPaths`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsPaths.html) API Reference.
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
 	Values []string `pulumi:"values"`
@@ -49483,7 +50130,7 @@ type GetNetworkInsightsPathFilterInput interface {
 }
 
 type GetNetworkInsightsPathFilterArgs struct {
-	// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsPaths`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsPaths.html) API Reference.
+	// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsPaths`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsPaths.html) API Reference.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
 	Values pulumi.StringArrayInput `pulumi:"values"`
@@ -49540,7 +50187,7 @@ func (o GetNetworkInsightsPathFilterOutput) ToGetNetworkInsightsPathFilterOutput
 	return o
 }
 
-// The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsPaths`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsPaths.html) API Reference.
+// Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsPaths`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsPaths.html) API Reference.
 func (o GetNetworkInsightsPathFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInsightsPathFilter) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -49571,19 +50218,19 @@ func (o GetNetworkInsightsPathFilterArrayOutput) Index(i pulumi.IntInput) GetNet
 }
 
 type GetNetworkInterfaceAssociation struct {
-	// The allocation ID.
+	// Allocation ID.
 	AllocationId string `pulumi:"allocationId"`
-	// The association ID.
+	// Association ID.
 	AssociationId string `pulumi:"associationId"`
-	// The carrier IP address associated with the network interface. This attribute is only set when the network interface is in a subnet which is associated with a Wavelength Zone.
+	// Carrier IP address associated with the network interface. This attribute is only set when the network interface is in a subnet which is associated with a Wavelength Zone.
 	CarrierIp string `pulumi:"carrierIp"`
-	// The customer-owned IP address.
+	// Customer-owned IP address.
 	CustomerOwnedIp string `pulumi:"customerOwnedIp"`
-	// The ID of the Elastic IP address owner.
+	// ID of the Elastic IP address owner.
 	IpOwnerId string `pulumi:"ipOwnerId"`
-	// The public DNS name.
+	// Public DNS name.
 	PublicDnsName string `pulumi:"publicDnsName"`
-	// The address of the Elastic IP address bound to the network interface.
+	// Address of the Elastic IP address bound to the network interface.
 	PublicIp string `pulumi:"publicIp"`
 }
 
@@ -49599,19 +50246,19 @@ type GetNetworkInterfaceAssociationInput interface {
 }
 
 type GetNetworkInterfaceAssociationArgs struct {
-	// The allocation ID.
+	// Allocation ID.
 	AllocationId pulumi.StringInput `pulumi:"allocationId"`
-	// The association ID.
+	// Association ID.
 	AssociationId pulumi.StringInput `pulumi:"associationId"`
-	// The carrier IP address associated with the network interface. This attribute is only set when the network interface is in a subnet which is associated with a Wavelength Zone.
+	// Carrier IP address associated with the network interface. This attribute is only set when the network interface is in a subnet which is associated with a Wavelength Zone.
 	CarrierIp pulumi.StringInput `pulumi:"carrierIp"`
-	// The customer-owned IP address.
+	// Customer-owned IP address.
 	CustomerOwnedIp pulumi.StringInput `pulumi:"customerOwnedIp"`
-	// The ID of the Elastic IP address owner.
+	// ID of the Elastic IP address owner.
 	IpOwnerId pulumi.StringInput `pulumi:"ipOwnerId"`
-	// The public DNS name.
+	// Public DNS name.
 	PublicDnsName pulumi.StringInput `pulumi:"publicDnsName"`
-	// The address of the Elastic IP address bound to the network interface.
+	// Address of the Elastic IP address bound to the network interface.
 	PublicIp pulumi.StringInput `pulumi:"publicIp"`
 }
 
@@ -49666,37 +50313,37 @@ func (o GetNetworkInterfaceAssociationOutput) ToGetNetworkInterfaceAssociationOu
 	return o
 }
 
-// The allocation ID.
+// Allocation ID.
 func (o GetNetworkInterfaceAssociationOutput) AllocationId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInterfaceAssociation) string { return v.AllocationId }).(pulumi.StringOutput)
 }
 
-// The association ID.
+// Association ID.
 func (o GetNetworkInterfaceAssociationOutput) AssociationId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInterfaceAssociation) string { return v.AssociationId }).(pulumi.StringOutput)
 }
 
-// The carrier IP address associated with the network interface. This attribute is only set when the network interface is in a subnet which is associated with a Wavelength Zone.
+// Carrier IP address associated with the network interface. This attribute is only set when the network interface is in a subnet which is associated with a Wavelength Zone.
 func (o GetNetworkInterfaceAssociationOutput) CarrierIp() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInterfaceAssociation) string { return v.CarrierIp }).(pulumi.StringOutput)
 }
 
-// The customer-owned IP address.
+// Customer-owned IP address.
 func (o GetNetworkInterfaceAssociationOutput) CustomerOwnedIp() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInterfaceAssociation) string { return v.CustomerOwnedIp }).(pulumi.StringOutput)
 }
 
-// The ID of the Elastic IP address owner.
+// ID of the Elastic IP address owner.
 func (o GetNetworkInterfaceAssociationOutput) IpOwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInterfaceAssociation) string { return v.IpOwnerId }).(pulumi.StringOutput)
 }
 
-// The public DNS name.
+// Public DNS name.
 func (o GetNetworkInterfaceAssociationOutput) PublicDnsName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInterfaceAssociation) string { return v.PublicDnsName }).(pulumi.StringOutput)
 }
 
-// The address of the Elastic IP address bound to the network interface.
+// Address of the Elastic IP address bound to the network interface.
 func (o GetNetworkInterfaceAssociationOutput) PublicIp() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInterfaceAssociation) string { return v.PublicIp }).(pulumi.StringOutput)
 }
@@ -49934,7 +50581,7 @@ func (o GetNetworkInterfaceFilterArrayOutput) Index(i pulumi.IntInput) GetNetwor
 }
 
 type GetNetworkInterfacesFilter struct {
-	// The name of the field to filter by, as defined by
+	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInterfaces.html).
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given field.
@@ -49953,7 +50600,7 @@ type GetNetworkInterfacesFilterInput interface {
 }
 
 type GetNetworkInterfacesFilterArgs struct {
-	// The name of the field to filter by, as defined by
+	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInterfaces.html).
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given field.
@@ -50011,7 +50658,7 @@ func (o GetNetworkInterfacesFilterOutput) ToGetNetworkInterfacesFilterOutputWith
 	return o
 }
 
-// The name of the field to filter by, as defined by
+// Name of the field to filter by, as defined by
 // [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInterfaces.html).
 func (o GetNetworkInterfacesFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInterfacesFilter) string { return v.Name }).(pulumi.StringOutput)
@@ -50043,7 +50690,7 @@ func (o GetNetworkInterfacesFilterArrayOutput) Index(i pulumi.IntInput) GetNetwo
 }
 
 type GetPrefixListFilter struct {
-	// The name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
+	// Name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
 	Values []string `pulumi:"values"`
@@ -50061,7 +50708,7 @@ type GetPrefixListFilterInput interface {
 }
 
 type GetPrefixListFilterArgs struct {
-	// The name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
+	// Name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
 	Values pulumi.StringArrayInput `pulumi:"values"`
@@ -50118,7 +50765,7 @@ func (o GetPrefixListFilterOutput) ToGetPrefixListFilterOutputWithContext(ctx co
 	return o
 }
 
-// The name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
+// Name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
 func (o GetPrefixListFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrefixListFilter) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -50602,7 +51249,7 @@ func (o GetRouteTableRouteArrayOutput) Index(i pulumi.IntInput) GetRouteTableRou
 }
 
 type GetRouteTablesFilter struct {
-	// The name of the field to filter by, as defined by
+	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html).
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given field.
@@ -50622,7 +51269,7 @@ type GetRouteTablesFilterInput interface {
 }
 
 type GetRouteTablesFilterArgs struct {
-	// The name of the field to filter by, as defined by
+	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html).
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given field.
@@ -50681,7 +51328,7 @@ func (o GetRouteTablesFilterOutput) ToGetRouteTablesFilterOutputWithContext(ctx 
 	return o
 }
 
-// The name of the field to filter by, as defined by
+// Name of the field to filter by, as defined by
 // [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html).
 func (o GetRouteTablesFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRouteTablesFilter) string { return v.Name }).(pulumi.StringOutput)
@@ -50714,7 +51361,7 @@ func (o GetRouteTablesFilterArrayOutput) Index(i pulumi.IntInput) GetRouteTables
 }
 
 type GetSecurityGroupFilter struct {
-	// The name of the field to filter by, as defined by
+	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given field.
@@ -50734,7 +51381,7 @@ type GetSecurityGroupFilterInput interface {
 }
 
 type GetSecurityGroupFilterArgs struct {
-	// The name of the field to filter by, as defined by
+	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given field.
@@ -50793,7 +51440,7 @@ func (o GetSecurityGroupFilterOutput) ToGetSecurityGroupFilterOutputWithContext(
 	return o
 }
 
-// The name of the field to filter by, as defined by
+// Name of the field to filter by, as defined by
 // [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
 func (o GetSecurityGroupFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecurityGroupFilter) string { return v.Name }).(pulumi.StringOutput)
@@ -51032,7 +51679,7 @@ func (o GetSpotPriceFilterArrayOutput) Index(i pulumi.IntInput) GetSpotPriceFilt
 }
 
 type GetSubnetFilter struct {
-	// The name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
+	// Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given field. A subnet will be selected if any one of the given values matches.
 	Values []string `pulumi:"values"`
@@ -51050,7 +51697,7 @@ type GetSubnetFilterInput interface {
 }
 
 type GetSubnetFilterArgs struct {
-	// The name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
+	// Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given field. A subnet will be selected if any one of the given values matches.
 	Values pulumi.StringArrayInput `pulumi:"values"`
@@ -51107,7 +51754,7 @@ func (o GetSubnetFilterOutput) ToGetSubnetFilterOutputWithContext(ctx context.Co
 	return o
 }
 
-// The name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
+// Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
 func (o GetSubnetFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSubnetFilter) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -51138,7 +51785,7 @@ func (o GetSubnetFilterArrayOutput) Index(i pulumi.IntInput) GetSubnetFilterOutp
 }
 
 type GetSubnetIdsFilter struct {
-	// The name of the field to filter by, as defined by
+	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
 	// For example, if matching against tag `Name`, use:
 	Name string `pulumi:"name"`
@@ -51159,7 +51806,7 @@ type GetSubnetIdsFilterInput interface {
 }
 
 type GetSubnetIdsFilterArgs struct {
-	// The name of the field to filter by, as defined by
+	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
 	// For example, if matching against tag `Name`, use:
 	Name pulumi.StringInput `pulumi:"name"`
@@ -51219,7 +51866,7 @@ func (o GetSubnetIdsFilterOutput) ToGetSubnetIdsFilterOutputWithContext(ctx cont
 	return o
 }
 
-// The name of the field to filter by, as defined by
+// Name of the field to filter by, as defined by
 // [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
 // For example, if matching against tag `Name`, use:
 func (o GetSubnetIdsFilterOutput) Name() pulumi.StringOutput {
@@ -51253,7 +51900,7 @@ func (o GetSubnetIdsFilterArrayOutput) Index(i pulumi.IntInput) GetSubnetIdsFilt
 }
 
 type GetSubnetsFilter struct {
-	// The name of the field to filter by, as defined by
+	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
 	// For example, if matching against tag `Name`, use:
 	Name string `pulumi:"name"`
@@ -51274,7 +51921,7 @@ type GetSubnetsFilterInput interface {
 }
 
 type GetSubnetsFilterArgs struct {
-	// The name of the field to filter by, as defined by
+	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
 	// For example, if matching against tag `Name`, use:
 	Name pulumi.StringInput `pulumi:"name"`
@@ -51334,7 +51981,7 @@ func (o GetSubnetsFilterOutput) ToGetSubnetsFilterOutputWithContext(ctx context.
 	return o
 }
 
-// The name of the field to filter by, as defined by
+// Name of the field to filter by, as defined by
 // [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
 // For example, if matching against tag `Name`, use:
 func (o GetSubnetsFilterOutput) Name() pulumi.StringOutput {
@@ -51368,7 +52015,7 @@ func (o GetSubnetsFilterArrayOutput) Index(i pulumi.IntInput) GetSubnetsFilterOu
 }
 
 type GetTransitGatewayRouteTablesFilter struct {
-	// The name of the field to filter by, as defined by
+	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayRouteTables.html).
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given field.
@@ -51388,7 +52035,7 @@ type GetTransitGatewayRouteTablesFilterInput interface {
 }
 
 type GetTransitGatewayRouteTablesFilterArgs struct {
-	// The name of the field to filter by, as defined by
+	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayRouteTables.html).
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given field.
@@ -51447,7 +52094,7 @@ func (o GetTransitGatewayRouteTablesFilterOutput) ToGetTransitGatewayRouteTables
 	return o
 }
 
-// The name of the field to filter by, as defined by
+// Name of the field to filter by, as defined by
 // [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayRouteTables.html).
 func (o GetTransitGatewayRouteTablesFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTransitGatewayRouteTablesFilter) string { return v.Name }).(pulumi.StringOutput)
@@ -51480,11 +52127,11 @@ func (o GetTransitGatewayRouteTablesFilterArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetVpcCidrBlockAssociation struct {
-	// The association ID for the the IPv4 CIDR block.
+	// Association ID for the the IPv4 CIDR block.
 	AssociationId string `pulumi:"associationId"`
-	// The cidr block of the desired VPC.
+	// Cidr block of the desired VPC.
 	CidrBlock string `pulumi:"cidrBlock"`
-	// The current state of the desired VPC.
+	// Current state of the desired VPC.
 	// Can be either `"pending"` or `"available"`.
 	State string `pulumi:"state"`
 }
@@ -51501,11 +52148,11 @@ type GetVpcCidrBlockAssociationInput interface {
 }
 
 type GetVpcCidrBlockAssociationArgs struct {
-	// The association ID for the the IPv4 CIDR block.
+	// Association ID for the the IPv4 CIDR block.
 	AssociationId pulumi.StringInput `pulumi:"associationId"`
-	// The cidr block of the desired VPC.
+	// Cidr block of the desired VPC.
 	CidrBlock pulumi.StringInput `pulumi:"cidrBlock"`
-	// The current state of the desired VPC.
+	// Current state of the desired VPC.
 	// Can be either `"pending"` or `"available"`.
 	State pulumi.StringInput `pulumi:"state"`
 }
@@ -51561,17 +52208,17 @@ func (o GetVpcCidrBlockAssociationOutput) ToGetVpcCidrBlockAssociationOutputWith
 	return o
 }
 
-// The association ID for the the IPv4 CIDR block.
+// Association ID for the the IPv4 CIDR block.
 func (o GetVpcCidrBlockAssociationOutput) AssociationId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcCidrBlockAssociation) string { return v.AssociationId }).(pulumi.StringOutput)
 }
 
-// The cidr block of the desired VPC.
+// Cidr block of the desired VPC.
 func (o GetVpcCidrBlockAssociationOutput) CidrBlock() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcCidrBlockAssociation) string { return v.CidrBlock }).(pulumi.StringOutput)
 }
 
-// The current state of the desired VPC.
+// Current state of the desired VPC.
 // Can be either `"pending"` or `"available"`.
 func (o GetVpcCidrBlockAssociationOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcCidrBlockAssociation) string { return v.State }).(pulumi.StringOutput)
@@ -51598,7 +52245,7 @@ func (o GetVpcCidrBlockAssociationArrayOutput) Index(i pulumi.IntInput) GetVpcCi
 }
 
 type GetVpcDhcpOptionsFilter struct {
-	// The name of the field to filter.
+	// Name of the field to filter.
 	Name string `pulumi:"name"`
 	// Set of values for filtering.
 	Values []string `pulumi:"values"`
@@ -51616,7 +52263,7 @@ type GetVpcDhcpOptionsFilterInput interface {
 }
 
 type GetVpcDhcpOptionsFilterArgs struct {
-	// The name of the field to filter.
+	// Name of the field to filter.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values for filtering.
 	Values pulumi.StringArrayInput `pulumi:"values"`
@@ -51673,7 +52320,7 @@ func (o GetVpcDhcpOptionsFilterOutput) ToGetVpcDhcpOptionsFilterOutputWithContex
 	return o
 }
 
-// The name of the field to filter.
+// Name of the field to filter.
 func (o GetVpcDhcpOptionsFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcDhcpOptionsFilter) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -51704,9 +52351,9 @@ func (o GetVpcDhcpOptionsFilterArrayOutput) Index(i pulumi.IntInput) GetVpcDhcpO
 }
 
 type GetVpcEndpointDnsEntry struct {
-	// The DNS name.
+	// DNS name.
 	DnsName string `pulumi:"dnsName"`
-	// The ID of the private hosted zone.
+	// ID of the private hosted zone.
 	HostedZoneId string `pulumi:"hostedZoneId"`
 }
 
@@ -51722,9 +52369,9 @@ type GetVpcEndpointDnsEntryInput interface {
 }
 
 type GetVpcEndpointDnsEntryArgs struct {
-	// The DNS name.
+	// DNS name.
 	DnsName pulumi.StringInput `pulumi:"dnsName"`
-	// The ID of the private hosted zone.
+	// ID of the private hosted zone.
 	HostedZoneId pulumi.StringInput `pulumi:"hostedZoneId"`
 }
 
@@ -51779,12 +52426,12 @@ func (o GetVpcEndpointDnsEntryOutput) ToGetVpcEndpointDnsEntryOutputWithContext(
 	return o
 }
 
-// The DNS name.
+// DNS name.
 func (o GetVpcEndpointDnsEntryOutput) DnsName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcEndpointDnsEntry) string { return v.DnsName }).(pulumi.StringOutput)
 }
 
-// The ID of the private hosted zone.
+// ID of the private hosted zone.
 func (o GetVpcEndpointDnsEntryOutput) HostedZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcEndpointDnsEntry) string { return v.HostedZoneId }).(pulumi.StringOutput)
 }
@@ -51904,7 +52551,7 @@ func (o GetVpcEndpointDnsOptionArrayOutput) Index(i pulumi.IntInput) GetVpcEndpo
 }
 
 type GetVpcEndpointFilter struct {
-	// The name of the field to filter by, as defined by
+	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpoints.html).
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given field.
@@ -51924,7 +52571,7 @@ type GetVpcEndpointFilterInput interface {
 }
 
 type GetVpcEndpointFilterArgs struct {
-	// The name of the field to filter by, as defined by
+	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpoints.html).
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given field.
@@ -51983,7 +52630,7 @@ func (o GetVpcEndpointFilterOutput) ToGetVpcEndpointFilterOutputWithContext(ctx 
 	return o
 }
 
-// The name of the field to filter by, as defined by
+// Name of the field to filter by, as defined by
 // [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpoints.html).
 func (o GetVpcEndpointFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcEndpointFilter) string { return v.Name }).(pulumi.StringOutput)
@@ -52016,7 +52663,7 @@ func (o GetVpcEndpointFilterArrayOutput) Index(i pulumi.IntInput) GetVpcEndpoint
 }
 
 type GetVpcEndpointServiceFilter struct {
-	// The name of the filter field. Valid values can be found in the [EC2 DescribeVpcEndpointServices API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpointServices.html).
+	// Name of the filter field. Valid values can be found in the [EC2 DescribeVpcEndpointServices API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpointServices.html).
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
 	Values []string `pulumi:"values"`
@@ -52034,7 +52681,7 @@ type GetVpcEndpointServiceFilterInput interface {
 }
 
 type GetVpcEndpointServiceFilterArgs struct {
-	// The name of the filter field. Valid values can be found in the [EC2 DescribeVpcEndpointServices API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpointServices.html).
+	// Name of the filter field. Valid values can be found in the [EC2 DescribeVpcEndpointServices API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpointServices.html).
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
 	Values pulumi.StringArrayInput `pulumi:"values"`
@@ -52091,7 +52738,7 @@ func (o GetVpcEndpointServiceFilterOutput) ToGetVpcEndpointServiceFilterOutputWi
 	return o
 }
 
-// The name of the filter field. Valid values can be found in the [EC2 DescribeVpcEndpointServices API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpointServices.html).
+// Name of the filter field. Valid values can be found in the [EC2 DescribeVpcEndpointServices API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpointServices.html).
 func (o GetVpcEndpointServiceFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcEndpointServiceFilter) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -52122,7 +52769,7 @@ func (o GetVpcEndpointServiceFilterArrayOutput) Index(i pulumi.IntInput) GetVpcE
 }
 
 type GetVpcFilter struct {
-	// The name of the field to filter by, as defined by
+	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given field.
@@ -52142,7 +52789,7 @@ type GetVpcFilterInput interface {
 }
 
 type GetVpcFilterArgs struct {
-	// The name of the field to filter by, as defined by
+	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given field.
@@ -52201,7 +52848,7 @@ func (o GetVpcFilterOutput) ToGetVpcFilterOutputWithContext(ctx context.Context)
 	return o
 }
 
-// The name of the field to filter by, as defined by
+// Name of the field to filter by, as defined by
 // [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
 func (o GetVpcFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcFilter) string { return v.Name }).(pulumi.StringOutput)
@@ -52334,7 +52981,7 @@ func (o GetVpcIamPoolFilterArrayOutput) Index(i pulumi.IntInput) GetVpcIamPoolFi
 }
 
 type GetVpcPeeringConnectionCidrBlockSet struct {
-	// The primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
+	// Primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
 	CidrBlock string `pulumi:"cidrBlock"`
 }
 
@@ -52350,7 +52997,7 @@ type GetVpcPeeringConnectionCidrBlockSetInput interface {
 }
 
 type GetVpcPeeringConnectionCidrBlockSetArgs struct {
-	// The primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
+	// Primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
 	CidrBlock pulumi.StringInput `pulumi:"cidrBlock"`
 }
 
@@ -52405,7 +53052,7 @@ func (o GetVpcPeeringConnectionCidrBlockSetOutput) ToGetVpcPeeringConnectionCidr
 	return o
 }
 
-// The primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
+// Primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
 func (o GetVpcPeeringConnectionCidrBlockSetOutput) CidrBlock() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcPeeringConnectionCidrBlockSet) string { return v.CidrBlock }).(pulumi.StringOutput)
 }
@@ -52431,7 +53078,7 @@ func (o GetVpcPeeringConnectionCidrBlockSetArrayOutput) Index(i pulumi.IntInput)
 }
 
 type GetVpcPeeringConnectionFilter struct {
-	// The name of the field to filter by, as defined by
+	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given field.
@@ -52451,7 +53098,7 @@ type GetVpcPeeringConnectionFilterInput interface {
 }
 
 type GetVpcPeeringConnectionFilterArgs struct {
-	// The name of the field to filter by, as defined by
+	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given field.
@@ -52510,7 +53157,7 @@ func (o GetVpcPeeringConnectionFilterOutput) ToGetVpcPeeringConnectionFilterOutp
 	return o
 }
 
-// The name of the field to filter by, as defined by
+// Name of the field to filter by, as defined by
 // [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
 func (o GetVpcPeeringConnectionFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcPeeringConnectionFilter) string { return v.Name }).(pulumi.StringOutput)
@@ -52543,7 +53190,7 @@ func (o GetVpcPeeringConnectionFilterArrayOutput) Index(i pulumi.IntInput) GetVp
 }
 
 type GetVpcPeeringConnectionPeerCidrBlockSet struct {
-	// The primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
+	// Primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
 	CidrBlock string `pulumi:"cidrBlock"`
 }
 
@@ -52559,7 +53206,7 @@ type GetVpcPeeringConnectionPeerCidrBlockSetInput interface {
 }
 
 type GetVpcPeeringConnectionPeerCidrBlockSetArgs struct {
-	// The primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
+	// Primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
 	CidrBlock pulumi.StringInput `pulumi:"cidrBlock"`
 }
 
@@ -52614,7 +53261,7 @@ func (o GetVpcPeeringConnectionPeerCidrBlockSetOutput) ToGetVpcPeeringConnection
 	return o
 }
 
-// The primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
+// Primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
 func (o GetVpcPeeringConnectionPeerCidrBlockSetOutput) CidrBlock() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcPeeringConnectionPeerCidrBlockSet) string { return v.CidrBlock }).(pulumi.StringOutput)
 }
@@ -52640,7 +53287,7 @@ func (o GetVpcPeeringConnectionPeerCidrBlockSetArrayOutput) Index(i pulumi.IntIn
 }
 
 type GetVpcPeeringConnectionsFilter struct {
-	// The name of the field to filter by, as defined by
+	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given field.
@@ -52660,7 +53307,7 @@ type GetVpcPeeringConnectionsFilterInput interface {
 }
 
 type GetVpcPeeringConnectionsFilterArgs struct {
-	// The name of the field to filter by, as defined by
+	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given field.
@@ -52719,7 +53366,7 @@ func (o GetVpcPeeringConnectionsFilterOutput) ToGetVpcPeeringConnectionsFilterOu
 	return o
 }
 
-// The name of the field to filter by, as defined by
+// Name of the field to filter by, as defined by
 // [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
 func (o GetVpcPeeringConnectionsFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcPeeringConnectionsFilter) string { return v.Name }).(pulumi.StringOutput)
@@ -52752,7 +53399,7 @@ func (o GetVpcPeeringConnectionsFilterArrayOutput) Index(i pulumi.IntInput) GetV
 }
 
 type GetVpcsFilter struct {
-	// The name of the field to filter by, as defined by
+	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given field.
@@ -52772,7 +53419,7 @@ type GetVpcsFilterInput interface {
 }
 
 type GetVpcsFilterArgs struct {
-	// The name of the field to filter by, as defined by
+	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given field.
@@ -52831,7 +53478,7 @@ func (o GetVpcsFilterOutput) ToGetVpcsFilterOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The name of the field to filter by, as defined by
+// Name of the field to filter by, as defined by
 // [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
 func (o GetVpcsFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcsFilter) string { return v.Name }).(pulumi.StringOutput)
@@ -52864,7 +53511,7 @@ func (o GetVpcsFilterArrayOutput) Index(i pulumi.IntInput) GetVpcsFilterOutput {
 }
 
 type GetVpnGatewayFilter struct {
-	// The name of the field to filter by, as defined by
+	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnGateways.html).
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given field.
@@ -52884,7 +53531,7 @@ type GetVpnGatewayFilterInput interface {
 }
 
 type GetVpnGatewayFilterArgs struct {
-	// The name of the field to filter by, as defined by
+	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnGateways.html).
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given field.
@@ -52943,7 +53590,7 @@ func (o GetVpnGatewayFilterOutput) ToGetVpnGatewayFilterOutputWithContext(ctx co
 	return o
 }
 
-// The name of the field to filter by, as defined by
+// Name of the field to filter by, as defined by
 // [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnGateways.html).
 func (o GetVpnGatewayFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpnGatewayFilter) string { return v.Name }).(pulumi.StringOutput)
@@ -53387,6 +54034,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcPeeringConnectionRequesterPtrInput)(nil)).Elem(), VpcPeeringConnectionRequesterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionRouteTypeInput)(nil)).Elem(), VpnConnectionRouteTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionRouteTypeArrayInput)(nil)).Elem(), VpnConnectionRouteTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionTunnel1LogOptionsInput)(nil)).Elem(), VpnConnectionTunnel1LogOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionTunnel1LogOptionsPtrInput)(nil)).Elem(), VpnConnectionTunnel1LogOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsInput)(nil)).Elem(), VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrInput)(nil)).Elem(), VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionTunnel2LogOptionsInput)(nil)).Elem(), VpnConnectionTunnel2LogOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionTunnel2LogOptionsPtrInput)(nil)).Elem(), VpnConnectionTunnel2LogOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsInput)(nil)).Elem(), VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrInput)(nil)).Elem(), VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionVgwTelemetryInput)(nil)).Elem(), VpnConnectionVgwTelemetryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionVgwTelemetryArrayInput)(nil)).Elem(), VpnConnectionVgwTelemetryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAmiBlockDeviceMappingInput)(nil)).Elem(), GetAmiBlockDeviceMappingArgs{})
@@ -54178,6 +54833,14 @@ func init() {
 	pulumi.RegisterOutputType(VpcPeeringConnectionRequesterPtrOutput{})
 	pulumi.RegisterOutputType(VpnConnectionRouteTypeOutput{})
 	pulumi.RegisterOutputType(VpnConnectionRouteTypeArrayOutput{})
+	pulumi.RegisterOutputType(VpnConnectionTunnel1LogOptionsOutput{})
+	pulumi.RegisterOutputType(VpnConnectionTunnel1LogOptionsPtrOutput{})
+	pulumi.RegisterOutputType(VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput{})
+	pulumi.RegisterOutputType(VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput{})
+	pulumi.RegisterOutputType(VpnConnectionTunnel2LogOptionsOutput{})
+	pulumi.RegisterOutputType(VpnConnectionTunnel2LogOptionsPtrOutput{})
+	pulumi.RegisterOutputType(VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput{})
+	pulumi.RegisterOutputType(VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput{})
 	pulumi.RegisterOutputType(VpnConnectionVgwTelemetryOutput{})
 	pulumi.RegisterOutputType(VpnConnectionVgwTelemetryArrayOutput{})
 	pulumi.RegisterOutputType(GetAmiBlockDeviceMappingOutput{})

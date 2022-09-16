@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetAutoscalingGroupsResult {
     /**
-     * @return A list of the Autoscaling Groups Arns in the current region.
+     * @return List of the Autoscaling Groups Arns in the current region.
      * 
      */
     private List<String> arns;
@@ -24,14 +24,14 @@ public final class GetAutoscalingGroupsResult {
      */
     private String id;
     /**
-     * @return A list of the Autoscaling Groups in the current region.
+     * @return List of the Autoscaling Groups in the current region.
      * 
      */
     private List<String> names;
 
     private GetAutoscalingGroupsResult() {}
     /**
-     * @return A list of the Autoscaling Groups Arns in the current region.
+     * @return List of the Autoscaling Groups Arns in the current region.
      * 
      */
     public List<String> arns() {
@@ -48,7 +48,7 @@ public final class GetAutoscalingGroupsResult {
         return this.id;
     }
     /**
-     * @return A list of the Autoscaling Groups in the current region.
+     * @return List of the Autoscaling Groups in the current region.
      * 
      */
     public List<String> names() {

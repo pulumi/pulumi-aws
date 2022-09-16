@@ -20,8 +20,7 @@ class VpcAttachmentArgs:
                  subnet_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
                  vpc_arn: pulumi.Input[str],
                  options: Optional[pulumi.Input['VpcAttachmentOptionsArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a VpcAttachment resource.
         :param pulumi.Input[str] core_network_id: The ID of a core network for the VPC attachment.
@@ -36,8 +35,6 @@ class VpcAttachmentArgs:
             pulumi.set(__self__, "options", options)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="coreNetworkId")
@@ -96,15 +93,6 @@ class VpcAttachmentArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
-
 
 @pulumi.input_type
 class _VpcAttachmentState:
@@ -138,6 +126,7 @@ class _VpcAttachmentState:
         :param pulumi.Input[str] segment_name: The name of the segment attachment.
         :param pulumi.Input[str] state: The state of the attachment.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_arns: The subnet ARN of the VPC attachment.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] vpc_arn: The ARN of the VPC.
         """
         if arn is not None:
@@ -327,6 +316,9 @@ class _VpcAttachmentState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -355,7 +347,6 @@ class VpcAttachment(pulumi.CustomResource):
                  options: Optional[pulumi.Input[pulumi.InputType['VpcAttachmentOptionsArgs']]] = None,
                  subnet_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -434,7 +425,6 @@ class VpcAttachment(pulumi.CustomResource):
                  options: Optional[pulumi.Input[pulumi.InputType['VpcAttachmentOptionsArgs']]] = None,
                  subnet_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -453,7 +443,6 @@ class VpcAttachment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'subnet_arns'")
             __props__.__dict__["subnet_arns"] = subnet_arns
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             if vpc_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_arn'")
             __props__.__dict__["vpc_arn"] = vpc_arn
@@ -466,6 +455,7 @@ class VpcAttachment(pulumi.CustomResource):
             __props__.__dict__["resource_arn"] = None
             __props__.__dict__["segment_name"] = None
             __props__.__dict__["state"] = None
+            __props__.__dict__["tags_all"] = None
         super(VpcAttachment, __self__).__init__(
             'aws:networkmanager/vpcAttachment:VpcAttachment',
             resource_name,
@@ -510,6 +500,7 @@ class VpcAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] segment_name: The name of the segment attachment.
         :param pulumi.Input[str] state: The state of the attachment.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_arns: The subnet ARN of the VPC attachment.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] vpc_arn: The ARN of the VPC.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -637,6 +628,9 @@ class VpcAttachment(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property

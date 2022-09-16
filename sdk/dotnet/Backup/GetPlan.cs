@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Backup
     public sealed class GetPlanArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The backup plan ID.
+        /// Backup plan ID.
         /// </summary>
         [Input("planId", required: true)]
         public string PlanId { get; set; } = null!;
@@ -96,7 +96,7 @@ namespace Pulumi.Aws.Backup
     public sealed class GetPlanInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The backup plan ID.
+        /// Backup plan ID.
         /// </summary>
         [Input("planId", required: true)]
         public Input<string> PlanId { get; set; } = null!;
@@ -124,7 +124,7 @@ namespace Pulumi.Aws.Backup
     public sealed class GetPlanResult
     {
         /// <summary>
-        /// The ARN of the backup plan.
+        /// ARN of the backup plan.
         /// </summary>
         public readonly string Arn;
         /// <summary>
@@ -132,7 +132,7 @@ namespace Pulumi.Aws.Backup
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The display name of a backup plan.
+        /// Display name of a backup plan.
         /// </summary>
         public readonly string Name;
         public readonly string PlanId;

@@ -115,7 +115,7 @@ type GetServiceAccountArgs struct {
 
 // A collection of values returned by getServiceAccount.
 type GetServiceAccountResult struct {
-	// The ARN of the AWS ELB service account in the selected region.
+	// ARN of the AWS ELB service account in the selected region.
 	Arn string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
 	Id     string  `pulumi:"id"`
@@ -161,7 +161,7 @@ func (o GetServiceAccountResultOutput) ToGetServiceAccountResultOutputWithContex
 	return o
 }
 
-// The ARN of the AWS ELB service account in the selected region.
+// ARN of the AWS ELB service account in the selected region.
 func (o GetServiceAccountResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceAccountResult) string { return v.Arn }).(pulumi.StringOutput)
 }

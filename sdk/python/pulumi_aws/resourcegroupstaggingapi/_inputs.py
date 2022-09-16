@@ -20,7 +20,7 @@ class GetResourcesTagFilterArgs:
                  values: Optional[Sequence[str]] = None):
         """
         :param str key: One part of a key-value pair that makes up a tag.
-        :param Sequence[str] values: The optional part of a key-value pair that make up a tag.
+        :param Sequence[str] values: Optional part of a key-value pair that make up a tag.
         """
         pulumi.set(__self__, "key", key)
         if values is not None:
@@ -42,7 +42,7 @@ class GetResourcesTagFilterArgs:
     @pulumi.getter
     def values(self) -> Optional[Sequence[str]]:
         """
-        The optional part of a key-value pair that make up a tag.
+        Optional part of a key-value pair that make up a tag.
         """
         return pulumi.get(self, "values")
 

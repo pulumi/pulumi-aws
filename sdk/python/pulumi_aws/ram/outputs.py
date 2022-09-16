@@ -19,8 +19,8 @@ class GetResourceShareFilterResult(dict):
                  name: str,
                  values: Sequence[str]):
         """
-        :param str name: The name of the tag key to filter on.
-        :param Sequence[str] values: The value of the tag key.
+        :param str name: Name of the tag key to filter on.
+        :param Sequence[str] values: Value of the tag key.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -29,7 +29,7 @@ class GetResourceShareFilterResult(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the tag key to filter on.
+        Name of the tag key to filter on.
         """
         return pulumi.get(self, "name")
 
@@ -37,7 +37,7 @@ class GetResourceShareFilterResult(dict):
     @pulumi.getter
     def values(self) -> Sequence[str]:
         """
-        The value of the tag key.
+        Value of the tag key.
         """
         return pulumi.get(self, "values")
 

@@ -17,14 +17,14 @@ public final class GetPlaceIndexArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetPlaceIndexArgs Empty = new GetPlaceIndexArgs();
 
     /**
-     * The name of the place index resource.
+     * Name of the place index resource.
      * 
      */
     @Import(name="indexName", required=true)
     private Output<String> indexName;
 
     /**
-     * @return The name of the place index resource.
+     * @return Name of the place index resource.
      * 
      */
     public Output<String> indexName() {
@@ -72,7 +72,7 @@ public final class GetPlaceIndexArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param indexName The name of the place index resource.
+         * @param indexName Name of the place index resource.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class GetPlaceIndexArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param indexName The name of the place index resource.
+         * @param indexName Name of the place index resource.
          * 
          * @return builder
          * 

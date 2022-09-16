@@ -16,7 +16,7 @@ public final class GetBucketObjectPlainArgs extends com.pulumi.resources.InvokeA
     public static final GetBucketObjectPlainArgs Empty = new GetBucketObjectPlainArgs();
 
     /**
-     * The name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
+     * Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
      * 
      * @deprecated
      * Use the aws_s3_object data source instead
@@ -27,7 +27,7 @@ public final class GetBucketObjectPlainArgs extends com.pulumi.resources.InvokeA
     private String bucket;
 
     /**
-     * @return The name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
+     * @return Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
      * 
      * @deprecated
      * Use the aws_s3_object data source instead
@@ -39,14 +39,14 @@ public final class GetBucketObjectPlainArgs extends com.pulumi.resources.InvokeA
     }
 
     /**
-     * The full path to the object inside the bucket
+     * Full path to the object inside the bucket
      * 
      */
     @Import(name="key", required=true)
     private String key;
 
     /**
-     * @return The full path to the object inside the bucket
+     * @return Full path to the object inside the bucket
      * 
      */
     public String key() {
@@ -61,14 +61,14 @@ public final class GetBucketObjectPlainArgs extends com.pulumi.resources.InvokeA
     }
 
     /**
-     * A map of tags assigned to the object.
+     * Map of tags assigned to the object.
      * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return A map of tags assigned to the object.
+     * @return Map of tags assigned to the object.
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -119,7 +119,7 @@ public final class GetBucketObjectPlainArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param bucket The name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
+         * @param bucket Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
          * 
          * @return builder
          * 
@@ -134,7 +134,7 @@ public final class GetBucketObjectPlainArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param key The full path to the object inside the bucket
+         * @param key Full path to the object inside the bucket
          * 
          * @return builder
          * 
@@ -150,7 +150,7 @@ public final class GetBucketObjectPlainArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param tags A map of tags assigned to the object.
+         * @param tags Map of tags assigned to the object.
          * 
          * @return builder
          * 

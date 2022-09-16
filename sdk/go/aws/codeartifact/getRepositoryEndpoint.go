@@ -50,13 +50,13 @@ func GetRepositoryEndpoint(ctx *pulumi.Context, args *GetRepositoryEndpointArgs,
 
 // A collection of arguments for invoking getRepositoryEndpoint.
 type GetRepositoryEndpointArgs struct {
-	// The name of the domain that contains the repository.
+	// Name of the domain that contains the repository.
 	Domain string `pulumi:"domain"`
-	// The account number of the AWS account that owns the domain.
+	// Account number of the AWS account that owns the domain.
 	DomainOwner *string `pulumi:"domainOwner"`
 	// Which endpoint of a repository to return. A repository has one endpoint for each package format: `npm`, `pypi`, `maven`, and `nuget`.
 	Format string `pulumi:"format"`
-	// The name of the repository.
+	// Name of the repository.
 	Repository string `pulumi:"repository"`
 }
 
@@ -68,7 +68,7 @@ type GetRepositoryEndpointResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id         string `pulumi:"id"`
 	Repository string `pulumi:"repository"`
-	// The URL of the returned endpoint.
+	// URL of the returned endpoint.
 	RepositoryEndpoint string `pulumi:"repositoryEndpoint"`
 }
 
@@ -87,13 +87,13 @@ func GetRepositoryEndpointOutput(ctx *pulumi.Context, args GetRepositoryEndpoint
 
 // A collection of arguments for invoking getRepositoryEndpoint.
 type GetRepositoryEndpointOutputArgs struct {
-	// The name of the domain that contains the repository.
+	// Name of the domain that contains the repository.
 	Domain pulumi.StringInput `pulumi:"domain"`
-	// The account number of the AWS account that owns the domain.
+	// Account number of the AWS account that owns the domain.
 	DomainOwner pulumi.StringPtrInput `pulumi:"domainOwner"`
 	// Which endpoint of a repository to return. A repository has one endpoint for each package format: `npm`, `pypi`, `maven`, and `nuget`.
 	Format pulumi.StringInput `pulumi:"format"`
-	// The name of the repository.
+	// Name of the repository.
 	Repository pulumi.StringInput `pulumi:"repository"`
 }
 
@@ -137,7 +137,7 @@ func (o GetRepositoryEndpointResultOutput) Repository() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRepositoryEndpointResult) string { return v.Repository }).(pulumi.StringOutput)
 }
 
-// The URL of the returned endpoint.
+// URL of the returned endpoint.
 func (o GetRepositoryEndpointResultOutput) RepositoryEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRepositoryEndpointResult) string { return v.RepositoryEndpoint }).(pulumi.StringOutput)
 }

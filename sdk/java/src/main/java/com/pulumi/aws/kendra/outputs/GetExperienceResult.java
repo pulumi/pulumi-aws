@@ -13,22 +13,22 @@ import java.util.Objects;
 @CustomType
 public final class GetExperienceResult {
     /**
-     * @return The Amazon Resource Name (ARN) of the Experience.
+     * @return ARN of the Experience.
      * 
      */
     private String arn;
     /**
-     * @return A block that specifies the configuration information for your Amazon Kendra Experience. This includes `content_source_configuration`, which specifies the data source IDs and/or FAQ IDs, and `user_identity_configuration`, which specifies the user or group information to grant access to your Amazon Kendra Experience. Documented below.
+     * @return Block that specifies the configuration information for your Amazon Kendra Experience. This includes `content_source_configuration`, which specifies the data source IDs and/or FAQ IDs, and `user_identity_configuration`, which specifies the user or group information to grant access to your Amazon Kendra Experience. Documented below.
      * 
      */
     private List<GetExperienceConfiguration> configurations;
     /**
-     * @return The Unix datetime that the Experience was created.
+     * @return Unix datetime that the Experience was created.
      * 
      */
     private String createdAt;
     /**
-     * @return The description of the Experience.
+     * @return Description of the Experience.
      * 
      */
     private String description;
@@ -38,7 +38,7 @@ public final class GetExperienceResult {
      */
     private List<GetExperienceEndpoint> endpoints;
     /**
-     * @return The reason your Amazon Kendra Experience could not properly process.
+     * @return Reason your Amazon Kendra Experience could not properly process.
      * 
      */
     private String errorMessage;
@@ -50,50 +50,50 @@ public final class GetExperienceResult {
     private String id;
     private String indexId;
     /**
-     * @return The name of the Experience.
+     * @return Name of the Experience.
      * 
      */
     private String name;
     /**
-     * @return Shows the Amazon Resource Name (ARN) of a role with permission to access `Query` API, `QuerySuggestions` API, `SubmitFeedback` API, and AWS SSO that stores your user and group information.
+     * @return Shows the ARN of a role with permission to access `Query` API, `QuerySuggestions` API, `SubmitFeedback` API, and AWS SSO that stores your user and group information.
      * 
      */
     private String roleArn;
     /**
-     * @return The current processing status of your Amazon Kendra Experience. When the status is `ACTIVE`, your Amazon Kendra Experience is ready to use. When the status is `FAILED`, the `error_message` field contains the reason that this failed.
+     * @return Current processing status of your Amazon Kendra Experience. When the status is `ACTIVE`, your Amazon Kendra Experience is ready to use. When the status is `FAILED`, the `error_message` field contains the reason that this failed.
      * 
      */
     private String status;
     /**
-     * @return The date and time that the Experience was last updated.
+     * @return Date and time that the Experience was last updated.
      * 
      */
     private String updatedAt;
 
     private GetExperienceResult() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the Experience.
+     * @return ARN of the Experience.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return A block that specifies the configuration information for your Amazon Kendra Experience. This includes `content_source_configuration`, which specifies the data source IDs and/or FAQ IDs, and `user_identity_configuration`, which specifies the user or group information to grant access to your Amazon Kendra Experience. Documented below.
+     * @return Block that specifies the configuration information for your Amazon Kendra Experience. This includes `content_source_configuration`, which specifies the data source IDs and/or FAQ IDs, and `user_identity_configuration`, which specifies the user or group information to grant access to your Amazon Kendra Experience. Documented below.
      * 
      */
     public List<GetExperienceConfiguration> configurations() {
         return this.configurations;
     }
     /**
-     * @return The Unix datetime that the Experience was created.
+     * @return Unix datetime that the Experience was created.
      * 
      */
     public String createdAt() {
         return this.createdAt;
     }
     /**
-     * @return The description of the Experience.
+     * @return Description of the Experience.
      * 
      */
     public String description() {
@@ -107,7 +107,7 @@ public final class GetExperienceResult {
         return this.endpoints;
     }
     /**
-     * @return The reason your Amazon Kendra Experience could not properly process.
+     * @return Reason your Amazon Kendra Experience could not properly process.
      * 
      */
     public String errorMessage() {
@@ -127,28 +127,28 @@ public final class GetExperienceResult {
         return this.indexId;
     }
     /**
-     * @return The name of the Experience.
+     * @return Name of the Experience.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return Shows the Amazon Resource Name (ARN) of a role with permission to access `Query` API, `QuerySuggestions` API, `SubmitFeedback` API, and AWS SSO that stores your user and group information.
+     * @return Shows the ARN of a role with permission to access `Query` API, `QuerySuggestions` API, `SubmitFeedback` API, and AWS SSO that stores your user and group information.
      * 
      */
     public String roleArn() {
         return this.roleArn;
     }
     /**
-     * @return The current processing status of your Amazon Kendra Experience. When the status is `ACTIVE`, your Amazon Kendra Experience is ready to use. When the status is `FAILED`, the `error_message` field contains the reason that this failed.
+     * @return Current processing status of your Amazon Kendra Experience. When the status is `ACTIVE`, your Amazon Kendra Experience is ready to use. When the status is `FAILED`, the `error_message` field contains the reason that this failed.
      * 
      */
     public String status() {
         return this.status;
     }
     /**
-     * @return The date and time that the Experience was last updated.
+     * @return Date and time that the Experience was last updated.
      * 
      */
     public String updatedAt() {

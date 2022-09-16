@@ -122,84 +122,84 @@ public class AutoScalingConfigurationVersion extends com.pulumi.resources.Custom
         return this.latest;
     }
     /**
-     * The maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
+     * Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
      * 
      */
     @Export(name="maxConcurrency", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> maxConcurrency;
 
     /**
-     * @return The maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
+     * @return Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
      * 
      */
     public Output<Optional<Integer>> maxConcurrency() {
         return Codegen.optional(this.maxConcurrency);
     }
     /**
-     * The maximal number of instances that App Runner provisions for your service.
+     * Maximal number of instances that App Runner provisions for your service.
      * 
      */
     @Export(name="maxSize", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> maxSize;
 
     /**
-     * @return The maximal number of instances that App Runner provisions for your service.
+     * @return Maximal number of instances that App Runner provisions for your service.
      * 
      */
     public Output<Optional<Integer>> maxSize() {
         return Codegen.optional(this.maxSize);
     }
     /**
-     * The minimal number of instances that App Runner provisions for your service.
+     * Minimal number of instances that App Runner provisions for your service.
      * 
      */
     @Export(name="minSize", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> minSize;
 
     /**
-     * @return The minimal number of instances that App Runner provisions for your service.
+     * @return Minimal number of instances that App Runner provisions for your service.
      * 
      */
     public Output<Optional<Integer>> minSize() {
         return Codegen.optional(this.minSize);
     }
     /**
-     * The current state of the auto scaling configuration. An INACTIVE configuration revision has been deleted and can&#39;t be used. It is permanently removed some time after deletion.
+     * Current state of the auto scaling configuration. An INACTIVE configuration revision has been deleted and can&#39;t be used. It is permanently removed some time after deletion.
      * 
      */
     @Export(name="status", type=String.class, parameters={})
     private Output<String> status;
 
     /**
-     * @return The current state of the auto scaling configuration. An INACTIVE configuration revision has been deleted and can&#39;t be used. It is permanently removed some time after deletion.
+     * @return Current state of the auto scaling configuration. An INACTIVE configuration revision has been deleted and can&#39;t be used. It is permanently removed some time after deletion.
      * 
      */
     public Output<String> status() {
         return this.status;
     }
     /**
-     * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

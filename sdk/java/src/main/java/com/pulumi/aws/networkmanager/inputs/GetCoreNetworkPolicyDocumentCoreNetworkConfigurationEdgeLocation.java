@@ -17,14 +17,14 @@ public final class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocat
     public static final GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation Empty = new GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation();
 
     /**
-     * The ASN of the Core Network Edge in an AWS Region. By default, the ASN will be a single integer automatically assigned from `asn_ranges`
+     * ASN of the Core Network Edge in an AWS Region. By default, the ASN will be a single integer automatically assigned from `asn_ranges`
      * 
      */
     @Import(name="asn")
     private @Nullable Integer asn;
 
     /**
-     * @return The ASN of the Core Network Edge in an AWS Region. By default, the ASN will be a single integer automatically assigned from `asn_ranges`
+     * @return ASN of the Core Network Edge in an AWS Region. By default, the ASN will be a single integer automatically assigned from `asn_ranges`
      * 
      */
     public Optional<Integer> asn() {
@@ -80,7 +80,7 @@ public final class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocat
         }
 
         /**
-         * @param asn The ASN of the Core Network Edge in an AWS Region. By default, the ASN will be a single integer automatically assigned from `asn_ranges`
+         * @param asn ASN of the Core Network Edge in an AWS Region. By default, the ASN will be a single integer automatically assigned from `asn_ranges`
          * 
          * @return builder
          * 

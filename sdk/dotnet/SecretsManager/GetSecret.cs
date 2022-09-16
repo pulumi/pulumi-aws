@@ -108,13 +108,13 @@ namespace Pulumi.Aws.SecretsManager
     public sealed class GetSecretArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the secret to retrieve.
+        /// ARN of the secret to retrieve.
         /// </summary>
         [Input("arn")]
         public string? Arn { get; set; }
 
         /// <summary>
-        /// The name of the secret to retrieve.
+        /// Name of the secret to retrieve.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -128,13 +128,13 @@ namespace Pulumi.Aws.SecretsManager
     public sealed class GetSecretInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the secret to retrieve.
+        /// ARN of the secret to retrieve.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The name of the secret to retrieve.
+        /// Name of the secret to retrieve.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -150,11 +150,11 @@ namespace Pulumi.Aws.SecretsManager
     public sealed class GetSecretResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the secret.
+        /// ARN of the secret.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// A description of the secret.
+        /// Description of the secret.
         /// </summary>
         public readonly string Description;
         /// <summary>
@@ -162,12 +162,12 @@ namespace Pulumi.Aws.SecretsManager
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
+        /// Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
         /// </summary>
         public readonly string KmsKeyId;
         public readonly string Name;
         /// <summary>
-        /// The resource-based policy document that's attached to the secret.
+        /// Resource-based policy document that's attached to the secret.
         /// </summary>
         public readonly string Policy;
         /// <summary>
@@ -175,7 +175,7 @@ namespace Pulumi.Aws.SecretsManager
         /// </summary>
         public readonly bool RotationEnabled;
         /// <summary>
-        /// Rotation Lambda function Amazon Resource Name (ARN) if rotation is enabled.
+        /// Rotation Lambda function ARN if rotation is enabled.
         /// </summary>
         public readonly string RotationLambdaArn;
         /// <summary>

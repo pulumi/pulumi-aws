@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -324,6 +326,9 @@ export class TaskDefinition extends pulumi.CustomResource {
      * Configuration block for runtimePlatform that containers in your task may use.
      */
     public readonly runtimePlatform!: pulumi.Output<outputs.ecs.TaskDefinitionRuntimePlatform | undefined>;
+    /**
+     * Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.
+     */
     public readonly skipDestroy!: pulumi.Output<boolean | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -479,6 +484,9 @@ export interface TaskDefinitionState {
      * Configuration block for runtimePlatform that containers in your task may use.
      */
     runtimePlatform?: pulumi.Input<inputs.ecs.TaskDefinitionRuntimePlatform>;
+    /**
+     * Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.
+     */
     skipDestroy?: pulumi.Input<boolean>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -558,6 +566,9 @@ export interface TaskDefinitionArgs {
      * Configuration block for runtimePlatform that containers in your task may use.
      */
     runtimePlatform?: pulumi.Input<inputs.ecs.TaskDefinitionRuntimePlatform>;
+    /**
+     * Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.
+     */
     skipDestroy?: pulumi.Input<boolean>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

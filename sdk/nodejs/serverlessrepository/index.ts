@@ -5,11 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./cloudFormationStack";
-export * from "./getApplication";
+export { CloudFormationStackArgs, CloudFormationStackState } from "./cloudFormationStack";
+export type CloudFormationStack = import("./cloudFormationStack").CloudFormationStack;
+export const CloudFormationStack: typeof import("./cloudFormationStack").CloudFormationStack = null as any;
 
-// Import resources to register:
-import { CloudFormationStack } from "./cloudFormationStack";
+export { GetApplicationArgs, GetApplicationResult, GetApplicationOutputArgs } from "./getApplication";
+export const getApplication: typeof import("./getApplication").getApplication = null as any;
+export const getApplicationOutput: typeof import("./getApplication").getApplicationOutput = null as any;
+
+utilities.lazyLoad(exports, ["CloudFormationStack"], () => require("./cloudFormationStack"));
+utilities.lazyLoad(exports, ["getApplication","getApplicationOutput"], () => require("./getApplication"));
 
 const _module = {
     version: utilities.getVersion(),

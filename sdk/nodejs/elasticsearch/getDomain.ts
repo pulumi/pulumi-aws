@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -40,7 +42,7 @@ export interface GetDomainArgs {
      */
     domainName: string;
     /**
-     * The tags assigned to the domain.
+     * Tags assigned to the domain.
      */
     tags?: {[key: string]: string};
 }
@@ -62,7 +64,7 @@ export interface GetDomainResult {
      */
     readonly advancedSecurityOptions: outputs.elasticsearch.GetDomainAdvancedSecurityOption[];
     /**
-     * The Amazon Resource Name (ARN) of the domain.
+     * The ARN of the domain.
      */
     readonly arn: string;
     /**
@@ -129,7 +131,7 @@ export interface GetDomainResult {
     readonly processing: boolean;
     readonly snapshotOptions: outputs.elasticsearch.GetDomainSnapshotOption[];
     /**
-     * The tags assigned to the domain.
+     * Tags assigned to the domain.
      */
     readonly tags: {[key: string]: string};
     /**
@@ -151,7 +153,7 @@ export interface GetDomainOutputArgs {
      */
     domainName: pulumi.Input<string>;
     /**
-     * The tags assigned to the domain.
+     * Tags assigned to the domain.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

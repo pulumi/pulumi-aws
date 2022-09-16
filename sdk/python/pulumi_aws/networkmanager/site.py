@@ -95,6 +95,7 @@ class _SiteState:
         :param pulumi.Input[str] description: Description of the Site.
         :param pulumi.Input[str] global_network_id: The ID of the Global Network to create the site in.
         :param pulumi.Input['SiteLocationArgs'] location: The site location as documented below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -169,6 +170,9 @@ class _SiteState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -303,6 +307,7 @@ class Site(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the Site.
         :param pulumi.Input[str] global_network_id: The ID of the Global Network to create the site in.
         :param pulumi.Input[pulumi.InputType['SiteLocationArgs']] location: The site location as documented below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -356,5 +361,8 @@ class Site(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 

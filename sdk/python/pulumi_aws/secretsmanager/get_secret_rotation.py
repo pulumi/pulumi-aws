@@ -51,7 +51,7 @@ class GetSecretRotationResult:
     @pulumi.getter(name="rotationEnabled")
     def rotation_enabled(self) -> bool:
         """
-        The ARN of the secret.
+        ARN of the secret.
         """
         return pulumi.get(self, "rotation_enabled")
 
@@ -59,7 +59,7 @@ class GetSecretRotationResult:
     @pulumi.getter(name="rotationLambdaArn")
     def rotation_lambda_arn(self) -> str:
         """
-        The decrypted part of the protected secret information that was originally provided as a string.
+        Decrypted part of the protected secret information that was originally provided as a string.
         """
         return pulumi.get(self, "rotation_lambda_arn")
 
@@ -67,7 +67,7 @@ class GetSecretRotationResult:
     @pulumi.getter(name="rotationRules")
     def rotation_rules(self) -> Sequence['outputs.GetSecretRotationRotationRuleResult']:
         """
-        The decrypted part of the protected secret information that was originally provided as a binary. Base64 encoded.
+        Decrypted part of the protected secret information that was originally provided as a binary. Base64 encoded.
         """
         return pulumi.get(self, "rotation_rules")
 
@@ -106,7 +106,7 @@ def get_secret_rotation(secret_id: Optional[str] = None,
     ```
 
 
-    :param str secret_id: Specifies the secret containing the version that you want to retrieve. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
+    :param str secret_id: Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
     """
     __args__ = dict()
     __args__['secretId'] = secret_id
@@ -138,6 +138,6 @@ def get_secret_rotation_output(secret_id: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str secret_id: Specifies the secret containing the version that you want to retrieve. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
+    :param str secret_id: Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
     """
     ...

@@ -56,9 +56,9 @@ func LookupResource(ctx *pulumi.Context, args *LookupResourceArgs, opts ...pulum
 
 // A collection of arguments for invoking getResource.
 type LookupResourceArgs struct {
-	// The full path of the resource.  If no path is found, an error will be returned.
+	// Full path of the resource.  If no path is found, an error will be returned.
 	Path string `pulumi:"path"`
-	// The REST API id that owns the resource. If no REST API is found, an error will be returned.
+	// REST API id that owns the resource. If no REST API is found, an error will be returned.
 	RestApiId string `pulumi:"restApiId"`
 }
 
@@ -89,9 +89,9 @@ func LookupResourceOutput(ctx *pulumi.Context, args LookupResourceOutputArgs, op
 
 // A collection of arguments for invoking getResource.
 type LookupResourceOutputArgs struct {
-	// The full path of the resource.  If no path is found, an error will be returned.
+	// Full path of the resource.  If no path is found, an error will be returned.
 	Path pulumi.StringInput `pulumi:"path"`
-	// The REST API id that owns the resource. If no REST API is found, an error will be returned.
+	// REST API id that owns the resource. If no REST API is found, an error will be returned.
 	RestApiId pulumi.StringInput `pulumi:"restApiId"`
 }
 

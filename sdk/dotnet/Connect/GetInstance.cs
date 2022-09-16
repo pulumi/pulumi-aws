@@ -150,24 +150,24 @@ namespace Pulumi.Aws.Connect
     public sealed class GetInstanceResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the instance.
+        /// ARN of the instance.
         /// </summary>
         public readonly string Arn;
         public readonly bool AutoResolveBestVoicesEnabled;
         /// <summary>
-        /// Specifies Whether contact flow logs are enabled.
+        /// Whether contact flow logs are enabled.
         /// </summary>
         public readonly bool ContactFlowLogsEnabled;
         /// <summary>
-        /// Specifies Whether contact lens is enabled.
+        /// Whether contact lens is enabled.
         /// </summary>
         public readonly bool ContactLensEnabled;
         /// <summary>
-        /// Specifies When the instance was created.
+        /// When the instance was created.
         /// </summary>
         public readonly string CreatedTime;
         /// <summary>
-        /// Specifies Whether early media for outbound calls is enabled .
+        /// Whether early media for outbound calls is enabled .
         /// </summary>
         public readonly bool EarlyMediaEnabled;
         /// <summary>
@@ -179,21 +179,21 @@ namespace Pulumi.Aws.Connect
         /// </summary>
         public readonly string IdentityManagementType;
         /// <summary>
-        /// Specifies Whether inbound calls are enabled.
+        /// Whether inbound calls are enabled.
         /// </summary>
         public readonly bool InboundCallsEnabled;
         public readonly string InstanceAlias;
         public readonly string InstanceId;
         /// <summary>
-        /// Specifies Whether outbound calls are enabled.
+        /// Whether outbound calls are enabled.
         /// </summary>
         public readonly bool OutboundCallsEnabled;
         /// <summary>
-        /// The service role of the instance.
+        /// Service role of the instance.
         /// </summary>
         public readonly string ServiceRole;
         /// <summary>
-        /// Specifies The state of the instance.
+        /// State of the instance.
         /// </summary>
         public readonly string Status;
 

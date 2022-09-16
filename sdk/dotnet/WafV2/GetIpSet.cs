@@ -72,7 +72,7 @@ namespace Pulumi.Aws.WafV2
     public sealed class GetIpSetArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the WAFv2 IP Set.
+        /// Name of the WAFv2 IP Set.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -92,7 +92,7 @@ namespace Pulumi.Aws.WafV2
     public sealed class GetIpSetInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the WAFv2 IP Set.
+        /// Name of the WAFv2 IP Set.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -118,11 +118,11 @@ namespace Pulumi.Aws.WafV2
         /// </summary>
         public readonly ImmutableArray<string> Addresses;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the entity.
+        /// ARN of the entity.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The description of the set that helps with identification.
+        /// Description of the set that helps with identification.
         /// </summary>
         public readonly string Description;
         /// <summary>
@@ -130,7 +130,7 @@ namespace Pulumi.Aws.WafV2
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The IP address version of the set.
+        /// IP address version of the set.
         /// </summary>
         public readonly string IpAddressVersion;
         public readonly string Name;

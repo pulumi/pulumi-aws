@@ -80,7 +80,7 @@ namespace Pulumi.Aws.Lambda
         public string FunctionName { get; set; } = null!;
 
         /// <summary>
-        /// The alias name or `"$LATEST"`.
+        /// Alias name or `"$LATEST"`.
         /// </summary>
         [Input("qualifier")]
         public string? Qualifier { get; set; }
@@ -100,7 +100,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string> FunctionName { get; set; } = null!;
 
         /// <summary>
-        /// The alias name or `"$LATEST"`.
+        /// Alias name or `"$LATEST"`.
         /// </summary>
         [Input("qualifier")]
         public Input<string>? Qualifier { get; set; }
@@ -116,7 +116,7 @@ namespace Pulumi.Aws.Lambda
     public sealed class GetFunctionUrlResult
     {
         /// <summary>
-        /// The type of authentication that the function URL uses.
+        /// Type of authentication that the function URL uses.
         /// </summary>
         public readonly string AuthorizationType;
         /// <summary>
@@ -128,12 +128,12 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly string CreationTime;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the function.
+        /// ARN of the function.
         /// </summary>
         public readonly string FunctionArn;
         public readonly string FunctionName;
         /// <summary>
-        /// The HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws`.
+        /// HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws`.
         /// </summary>
         public readonly string FunctionUrl;
         /// <summary>
@@ -146,7 +146,7 @@ namespace Pulumi.Aws.Lambda
         public readonly string LastModifiedTime;
         public readonly string? Qualifier;
         /// <summary>
-        /// A generated ID for the endpoint.
+        /// Generated ID for the endpoint.
         /// </summary>
         public readonly string UrlId;
 

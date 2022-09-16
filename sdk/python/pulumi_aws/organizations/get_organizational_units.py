@@ -82,7 +82,7 @@ def get_organizational_units(parent_id: Optional[str] = None,
     ```
 
 
-    :param str parent_id: The parent ID of the organizational unit.
+    :param str parent_id: Parent ID of the organizational unit.
     """
     __args__ = dict()
     __args__['parentId'] = parent_id
@@ -112,6 +112,6 @@ def get_organizational_units_output(parent_id: Optional[pulumi.Input[str]] = Non
     ```
 
 
-    :param str parent_id: The parent ID of the organizational unit.
+    :param str parent_id: Parent ID of the organizational unit.
     """
     ...

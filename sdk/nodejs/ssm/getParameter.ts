@@ -37,7 +37,7 @@ export function getParameter(args: GetParameterArgs, opts?: pulumi.InvokeOptions
  */
 export interface GetParameterArgs {
     /**
-     * The name of the parameter.
+     * Name of the parameter.
      */
     name: string;
     /**
@@ -71,7 +71,7 @@ export function getParameterOutput(args: GetParameterOutputArgs, opts?: pulumi.I
  */
 export interface GetParameterOutputArgs {
     /**
-     * The name of the parameter.
+     * Name of the parameter.
      */
     name: pulumi.Input<string>;
     /**

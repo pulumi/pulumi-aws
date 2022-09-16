@@ -18,14 +18,14 @@ public final class VpcConnectorArgs extends com.pulumi.resources.ResourceArgs {
     public static final VpcConnectorArgs Empty = new VpcConnectorArgs();
 
     /**
-     * A list of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
+     * List of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
      * 
      */
     @Import(name="securityGroups", required=true)
     private Output<List<String>> securityGroups;
 
     /**
-     * @return A list of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
+     * @return List of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
      * 
      */
     public Output<List<String>> securityGroups() {
@@ -33,14 +33,14 @@ public final class VpcConnectorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
+     * List of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
      * 
      */
     @Import(name="subnets", required=true)
     private Output<List<String>> subnets;
 
     /**
-     * @return A list of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
+     * @return List of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
      * 
      */
     public Output<List<String>> subnets() {
@@ -63,14 +63,14 @@ public final class VpcConnectorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A name for the VPC connector.
+     * Name for the VPC connector.
      * 
      */
     @Import(name="vpcConnectorName", required=true)
     private Output<String> vpcConnectorName;
 
     /**
-     * @return A name for the VPC connector.
+     * @return Name for the VPC connector.
      * 
      */
     public Output<String> vpcConnectorName() {
@@ -105,7 +105,7 @@ public final class VpcConnectorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityGroups A list of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
+         * @param securityGroups List of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class VpcConnectorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityGroups A list of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
+         * @param securityGroups List of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
          * 
          * @return builder
          * 
@@ -126,7 +126,7 @@ public final class VpcConnectorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityGroups A list of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
+         * @param securityGroups List of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class VpcConnectorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnets A list of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
+         * @param subnets List of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class VpcConnectorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnets A list of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
+         * @param subnets List of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class VpcConnectorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnets A list of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
+         * @param subnets List of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class VpcConnectorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcConnectorName A name for the VPC connector.
+         * @param vpcConnectorName Name for the VPC connector.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class VpcConnectorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcConnectorName A name for the VPC connector.
+         * @param vpcConnectorName Name for the VPC connector.
          * 
          * @return builder
          * 

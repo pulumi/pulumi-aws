@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -214,15 +216,15 @@ export function getScript(args: GetScriptArgs, opts?: pulumi.InvokeOptions): Pro
  */
 export interface GetScriptArgs {
     /**
-     * A list of the edges in the DAG. Defined below.
+     * List of the edges in the DAG. Defined below.
      */
     dagEdges: inputs.glue.GetScriptDagEdge[];
     /**
-     * A list of the nodes in the DAG. Defined below.
+     * List of the nodes in the DAG. Defined below.
      */
     dagNodes: inputs.glue.GetScriptDagNode[];
     /**
-     * The programming language of the resulting code from the DAG. Defaults to `PYTHON`. Valid values are `PYTHON` and `SCALA`.
+     * Programming language of the resulting code from the DAG. Defaults to `PYTHON`. Valid values are `PYTHON` and `SCALA`.
      */
     language?: string;
 }
@@ -239,11 +241,11 @@ export interface GetScriptResult {
     readonly id: string;
     readonly language?: string;
     /**
-     * The Python script generated from the DAG when the `language` argument is set to `PYTHON`.
+     * Python script generated from the DAG when the `language` argument is set to `PYTHON`.
      */
     readonly pythonScript: string;
     /**
-     * The Scala code generated from the DAG when the `language` argument is set to `SCALA`.
+     * Scala code generated from the DAG when the `language` argument is set to `SCALA`.
      */
     readonly scalaCode: string;
 }
@@ -257,15 +259,15 @@ export function getScriptOutput(args: GetScriptOutputArgs, opts?: pulumi.InvokeO
  */
 export interface GetScriptOutputArgs {
     /**
-     * A list of the edges in the DAG. Defined below.
+     * List of the edges in the DAG. Defined below.
      */
     dagEdges: pulumi.Input<pulumi.Input<inputs.glue.GetScriptDagEdgeArgs>[]>;
     /**
-     * A list of the nodes in the DAG. Defined below.
+     * List of the nodes in the DAG. Defined below.
      */
     dagNodes: pulumi.Input<pulumi.Input<inputs.glue.GetScriptDagNodeArgs>[]>;
     /**
-     * The programming language of the resulting code from the DAG. Defaults to `PYTHON`. Valid values are `PYTHON` and `SCALA`.
+     * Programming language of the resulting code from the DAG. Defaults to `PYTHON`. Valid values are `PYTHON` and `SCALA`.
      */
     language?: pulumi.Input<string>;
 }

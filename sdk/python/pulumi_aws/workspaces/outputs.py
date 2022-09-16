@@ -469,7 +469,7 @@ class GetBundleComputeTypeResult(dict):
     def __init__(__self__, *,
                  name: str):
         """
-        :param str name: The name of the bundle. You cannot combine this parameter with `bundle_id`.
+        :param str name: Name of the bundle. You cannot combine this parameter with `bundle_id`.
         """
         pulumi.set(__self__, "name", name)
 
@@ -477,7 +477,7 @@ class GetBundleComputeTypeResult(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the bundle. You cannot combine this parameter with `bundle_id`.
+        Name of the bundle. You cannot combine this parameter with `bundle_id`.
         """
         return pulumi.get(self, "name")
 
@@ -487,7 +487,7 @@ class GetBundleRootStorageResult(dict):
     def __init__(__self__, *,
                  capacity: str):
         """
-        :param str capacity: The size of the user storage.
+        :param str capacity: Size of the user storage.
         """
         pulumi.set(__self__, "capacity", capacity)
 
@@ -495,7 +495,7 @@ class GetBundleRootStorageResult(dict):
     @pulumi.getter
     def capacity(self) -> str:
         """
-        The size of the user storage.
+        Size of the user storage.
         """
         return pulumi.get(self, "capacity")
 
@@ -505,7 +505,7 @@ class GetBundleUserStorageResult(dict):
     def __init__(__self__, *,
                  capacity: str):
         """
-        :param str capacity: The size of the user storage.
+        :param str capacity: Size of the user storage.
         """
         pulumi.set(__self__, "capacity", capacity)
 
@@ -513,7 +513,7 @@ class GetBundleUserStorageResult(dict):
     @pulumi.getter
     def capacity(self) -> str:
         """
-        The size of the user storage.
+        Size of the user storage.
         """
         return pulumi.get(self, "capacity")
 
@@ -746,11 +746,11 @@ class GetWorkspaceWorkspacePropertyResult(dict):
                  running_mode_auto_stop_timeout_in_minutes: int,
                  user_volume_size_gib: int):
         """
-        :param str compute_type_name: The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO` and `GRAPHICSPRO`.
-        :param int root_volume_size_gib: The size of the root volume.
-        :param str running_mode: The running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
-        :param int running_mode_auto_stop_timeout_in_minutes: The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
-        :param int user_volume_size_gib: The size of the user storage.
+        :param str compute_type_name: Compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO` and `GRAPHICSPRO`.
+        :param int root_volume_size_gib: Size of the root volume.
+        :param str running_mode: Running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
+        :param int running_mode_auto_stop_timeout_in_minutes: Time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
+        :param int user_volume_size_gib: Size of the user storage.
         """
         pulumi.set(__self__, "compute_type_name", compute_type_name)
         pulumi.set(__self__, "root_volume_size_gib", root_volume_size_gib)
@@ -762,7 +762,7 @@ class GetWorkspaceWorkspacePropertyResult(dict):
     @pulumi.getter(name="computeTypeName")
     def compute_type_name(self) -> str:
         """
-        The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO` and `GRAPHICSPRO`.
+        Compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO` and `GRAPHICSPRO`.
         """
         return pulumi.get(self, "compute_type_name")
 
@@ -770,7 +770,7 @@ class GetWorkspaceWorkspacePropertyResult(dict):
     @pulumi.getter(name="rootVolumeSizeGib")
     def root_volume_size_gib(self) -> int:
         """
-        The size of the root volume.
+        Size of the root volume.
         """
         return pulumi.get(self, "root_volume_size_gib")
 
@@ -778,7 +778,7 @@ class GetWorkspaceWorkspacePropertyResult(dict):
     @pulumi.getter(name="runningMode")
     def running_mode(self) -> str:
         """
-        The running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
+        Running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
         """
         return pulumi.get(self, "running_mode")
 
@@ -786,7 +786,7 @@ class GetWorkspaceWorkspacePropertyResult(dict):
     @pulumi.getter(name="runningModeAutoStopTimeoutInMinutes")
     def running_mode_auto_stop_timeout_in_minutes(self) -> int:
         """
-        The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
+        Time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
         """
         return pulumi.get(self, "running_mode_auto_stop_timeout_in_minutes")
 
@@ -794,7 +794,7 @@ class GetWorkspaceWorkspacePropertyResult(dict):
     @pulumi.getter(name="userVolumeSizeGib")
     def user_volume_size_gib(self) -> int:
         """
-        The size of the user storage.
+        Size of the user storage.
         """
         return pulumi.get(self, "user_volume_size_gib")
 

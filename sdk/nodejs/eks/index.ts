@@ -5,25 +5,65 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./addon";
-export * from "./cluster";
-export * from "./fargateProfile";
-export * from "./getAddon";
-export * from "./getAddonVersion";
-export * from "./getCluster";
-export * from "./getClusterAuth";
-export * from "./getClusters";
-export * from "./getNodeGroup";
-export * from "./getNodeGroups";
-export * from "./identityProviderConfig";
-export * from "./nodeGroup";
+export { AddonArgs, AddonState } from "./addon";
+export type Addon = import("./addon").Addon;
+export const Addon: typeof import("./addon").Addon = null as any;
 
-// Import resources to register:
-import { Addon } from "./addon";
-import { Cluster } from "./cluster";
-import { FargateProfile } from "./fargateProfile";
-import { IdentityProviderConfig } from "./identityProviderConfig";
-import { NodeGroup } from "./nodeGroup";
+export { ClusterArgs, ClusterState } from "./cluster";
+export type Cluster = import("./cluster").Cluster;
+export const Cluster: typeof import("./cluster").Cluster = null as any;
+
+export { FargateProfileArgs, FargateProfileState } from "./fargateProfile";
+export type FargateProfile = import("./fargateProfile").FargateProfile;
+export const FargateProfile: typeof import("./fargateProfile").FargateProfile = null as any;
+
+export { GetAddonArgs, GetAddonResult, GetAddonOutputArgs } from "./getAddon";
+export const getAddon: typeof import("./getAddon").getAddon = null as any;
+export const getAddonOutput: typeof import("./getAddon").getAddonOutput = null as any;
+
+export { GetAddonVersionArgs, GetAddonVersionResult, GetAddonVersionOutputArgs } from "./getAddonVersion";
+export const getAddonVersion: typeof import("./getAddonVersion").getAddonVersion = null as any;
+export const getAddonVersionOutput: typeof import("./getAddonVersion").getAddonVersionOutput = null as any;
+
+export { GetClusterArgs, GetClusterResult, GetClusterOutputArgs } from "./getCluster";
+export const getCluster: typeof import("./getCluster").getCluster = null as any;
+export const getClusterOutput: typeof import("./getCluster").getClusterOutput = null as any;
+
+export { GetClusterAuthArgs, GetClusterAuthResult, GetClusterAuthOutputArgs } from "./getClusterAuth";
+export const getClusterAuth: typeof import("./getClusterAuth").getClusterAuth = null as any;
+export const getClusterAuthOutput: typeof import("./getClusterAuth").getClusterAuthOutput = null as any;
+
+export { GetClustersResult } from "./getClusters";
+export const getClusters: typeof import("./getClusters").getClusters = null as any;
+
+export { GetNodeGroupArgs, GetNodeGroupResult, GetNodeGroupOutputArgs } from "./getNodeGroup";
+export const getNodeGroup: typeof import("./getNodeGroup").getNodeGroup = null as any;
+export const getNodeGroupOutput: typeof import("./getNodeGroup").getNodeGroupOutput = null as any;
+
+export { GetNodeGroupsArgs, GetNodeGroupsResult, GetNodeGroupsOutputArgs } from "./getNodeGroups";
+export const getNodeGroups: typeof import("./getNodeGroups").getNodeGroups = null as any;
+export const getNodeGroupsOutput: typeof import("./getNodeGroups").getNodeGroupsOutput = null as any;
+
+export { IdentityProviderConfigArgs, IdentityProviderConfigState } from "./identityProviderConfig";
+export type IdentityProviderConfig = import("./identityProviderConfig").IdentityProviderConfig;
+export const IdentityProviderConfig: typeof import("./identityProviderConfig").IdentityProviderConfig = null as any;
+
+export { NodeGroupArgs, NodeGroupState } from "./nodeGroup";
+export type NodeGroup = import("./nodeGroup").NodeGroup;
+export const NodeGroup: typeof import("./nodeGroup").NodeGroup = null as any;
+
+utilities.lazyLoad(exports, ["Addon"], () => require("./addon"));
+utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
+utilities.lazyLoad(exports, ["FargateProfile"], () => require("./fargateProfile"));
+utilities.lazyLoad(exports, ["getAddon","getAddonOutput"], () => require("./getAddon"));
+utilities.lazyLoad(exports, ["getAddonVersion","getAddonVersionOutput"], () => require("./getAddonVersion"));
+utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
+utilities.lazyLoad(exports, ["getClusterAuth","getClusterAuthOutput"], () => require("./getClusterAuth"));
+utilities.lazyLoad(exports, ["getClusters"], () => require("./getClusters"));
+utilities.lazyLoad(exports, ["getNodeGroup","getNodeGroupOutput"], () => require("./getNodeGroup"));
+utilities.lazyLoad(exports, ["getNodeGroups","getNodeGroupsOutput"], () => require("./getNodeGroups"));
+utilities.lazyLoad(exports, ["IdentityProviderConfig"], () => require("./identityProviderConfig"));
+utilities.lazyLoad(exports, ["NodeGroup"], () => require("./nodeGroup"));
 
 const _module = {
     version: utilities.getVersion(),

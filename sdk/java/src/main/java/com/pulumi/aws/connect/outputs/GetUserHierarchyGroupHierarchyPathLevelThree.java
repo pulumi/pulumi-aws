@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class GetUserHierarchyGroupHierarchyPathLevelThree {
     /**
-     * @return The Amazon Resource Name (ARN) of the hierarchy group.
+     * @return ARN of the hierarchy group.
      * 
      */
     private String arn;
@@ -27,7 +27,7 @@ public final class GetUserHierarchyGroupHierarchyPathLevelThree {
 
     private GetUserHierarchyGroupHierarchyPathLevelThree() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the hierarchy group.
+     * @return ARN of the hierarchy group.
      * 
      */
     public String arn() {

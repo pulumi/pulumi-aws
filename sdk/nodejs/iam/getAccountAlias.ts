@@ -33,7 +33,7 @@ export function getAccountAlias(opts?: pulumi.InvokeOptions): Promise<GetAccount
  */
 export interface GetAccountAliasResult {
     /**
-     * The alias associated with the AWS account.
+     * Alias associated with the AWS account.
      */
     readonly accountAlias: string;
     /**

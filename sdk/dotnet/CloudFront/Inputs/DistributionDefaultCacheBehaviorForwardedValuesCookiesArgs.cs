@@ -13,7 +13,7 @@ namespace Pulumi.Aws.CloudFront.Inputs
     public sealed class DistributionDefaultCacheBehaviorForwardedValuesCookiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether you want CloudFront to forward
+        /// Whether you want CloudFront to forward
         /// cookies to the origin that is associated with this cache behavior. You can
         /// specify `all`, `none` or `whitelist`. If `whitelist`, you must include the
         /// subsequent `whitelisted_names`

@@ -14,38 +14,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VirtualGatewaySpec {
     /**
-     * @return The defaults for backends.
+     * @return Defaults for backends.
      * 
      */
     private @Nullable VirtualGatewaySpecBackendDefaults backendDefaults;
     /**
-     * @return The listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
+     * @return Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
      * 
      */
     private VirtualGatewaySpecListener listener;
     /**
-     * @return The inbound and outbound access logging information for the virtual gateway.
+     * @return Inbound and outbound access logging information for the virtual gateway.
      * 
      */
     private @Nullable VirtualGatewaySpecLogging logging;
 
     private VirtualGatewaySpec() {}
     /**
-     * @return The defaults for backends.
+     * @return Defaults for backends.
      * 
      */
     public Optional<VirtualGatewaySpecBackendDefaults> backendDefaults() {
         return Optional.ofNullable(this.backendDefaults);
     }
     /**
-     * @return The listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
+     * @return Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
      * 
      */
     public VirtualGatewaySpecListener listener() {
         return this.listener;
     }
     /**
-     * @return The inbound and outbound access logging information for the virtual gateway.
+     * @return Inbound and outbound access logging information for the virtual gateway.
      * 
      */
     public Optional<VirtualGatewaySpecLogging> logging() {

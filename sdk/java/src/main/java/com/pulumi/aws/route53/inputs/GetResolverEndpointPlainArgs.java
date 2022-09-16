@@ -36,14 +36,14 @@ public final class GetResolverEndpointPlainArgs extends com.pulumi.resources.Inv
     }
 
     /**
-     * The ID of the Route53 Resolver Endpoint.
+     * ID of the Route53 Resolver Endpoint.
      * 
      */
     @Import(name="resolverEndpointId")
     private @Nullable String resolverEndpointId;
 
     /**
-     * @return The ID of the Route53 Resolver Endpoint.
+     * @return ID of the Route53 Resolver Endpoint.
      * 
      */
     public Optional<String> resolverEndpointId() {
@@ -101,7 +101,7 @@ public final class GetResolverEndpointPlainArgs extends com.pulumi.resources.Inv
         }
 
         /**
-         * @param resolverEndpointId The ID of the Route53 Resolver Endpoint.
+         * @param resolverEndpointId ID of the Route53 Resolver Endpoint.
          * 
          * @return builder
          * 

@@ -15,14 +15,14 @@ public final class GetImagePlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetImagePlainArgs Empty = new GetImagePlainArgs();
 
     /**
-     * The sha256 digest of the image manifest. At least one of `image_digest` or `image_tag` must be specified.
+     * Sha256 digest of the image manifest. At least one of `image_digest` or `image_tag` must be specified.
      * 
      */
     @Import(name="imageDigest")
     private @Nullable String imageDigest;
 
     /**
-     * @return The sha256 digest of the image manifest. At least one of `image_digest` or `image_tag` must be specified.
+     * @return Sha256 digest of the image manifest. At least one of `image_digest` or `image_tag` must be specified.
      * 
      */
     public Optional<String> imageDigest() {
@@ -30,14 +30,14 @@ public final class GetImagePlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The tag associated with this image. At least one of `image_digest` or `image_tag` must be specified.
+     * Tag associated with this image. At least one of `image_digest` or `image_tag` must be specified.
      * 
      */
     @Import(name="imageTag")
     private @Nullable String imageTag;
 
     /**
-     * @return The tag associated with this image. At least one of `image_digest` or `image_tag` must be specified.
+     * @return Tag associated with this image. At least one of `image_digest` or `image_tag` must be specified.
      * 
      */
     public Optional<String> imageTag() {
@@ -45,14 +45,14 @@ public final class GetImagePlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The ID of the Registry where the repository resides.
+     * ID of the Registry where the repository resides.
      * 
      */
     @Import(name="registryId")
     private @Nullable String registryId;
 
     /**
-     * @return The ID of the Registry where the repository resides.
+     * @return ID of the Registry where the repository resides.
      * 
      */
     public Optional<String> registryId() {
@@ -60,14 +60,14 @@ public final class GetImagePlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The name of the ECR Repository.
+     * Name of the ECR Repository.
      * 
      */
     @Import(name="repositoryName", required=true)
     private String repositoryName;
 
     /**
-     * @return The name of the ECR Repository.
+     * @return Name of the ECR Repository.
      * 
      */
     public String repositoryName() {
@@ -102,7 +102,7 @@ public final class GetImagePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param imageDigest The sha256 digest of the image manifest. At least one of `image_digest` or `image_tag` must be specified.
+         * @param imageDigest Sha256 digest of the image manifest. At least one of `image_digest` or `image_tag` must be specified.
          * 
          * @return builder
          * 
@@ -113,7 +113,7 @@ public final class GetImagePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param imageTag The tag associated with this image. At least one of `image_digest` or `image_tag` must be specified.
+         * @param imageTag Tag associated with this image. At least one of `image_digest` or `image_tag` must be specified.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class GetImagePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param registryId The ID of the Registry where the repository resides.
+         * @param registryId ID of the Registry where the repository resides.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class GetImagePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param repositoryName The name of the ECR Repository.
+         * @param repositoryName Name of the ECR Repository.
          * 
          * @return builder
          * 

@@ -50,7 +50,7 @@ export interface GetCertificateArgs {
  */
 export interface GetCertificateResult {
     /**
-     * Amazon Resource Name (ARN) of the certificate.
+     * ARN of the certificate.
      */
     readonly arn: string;
     /**

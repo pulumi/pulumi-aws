@@ -8262,7 +8262,7 @@ func (o GetConnectionPhysicalConnectionRequirementArrayOutput) Index(i pulumi.In
 type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting struct {
 	// When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of CreateConnection or UpdateConnection and store it in the ENCRYPTED_PASSWORD field in the connection properties. You can enable catalog encryption or only password encryption. see Connection Password Encryption.
 	ConnectionPasswordEncryptions []GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryption `pulumi:"connectionPasswordEncryptions"`
-	// Specifies the encryption-at-rest configuration for the Data Catalog. see Encryption At Rest.
+	// Encryption-at-rest configuration for the Data Catalog. see Encryption At Rest.
 	EncryptionAtRests []GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest `pulumi:"encryptionAtRests"`
 }
 
@@ -8280,7 +8280,7 @@ type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingInput interface
 type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArgs struct {
 	// When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of CreateConnection or UpdateConnection and store it in the ENCRYPTED_PASSWORD field in the connection properties. You can enable catalog encryption or only password encryption. see Connection Password Encryption.
 	ConnectionPasswordEncryptions GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArrayInput `pulumi:"connectionPasswordEncryptions"`
-	// Specifies the encryption-at-rest configuration for the Data Catalog. see Encryption At Rest.
+	// Encryption-at-rest configuration for the Data Catalog. see Encryption At Rest.
 	EncryptionAtRests GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArrayInput `pulumi:"encryptionAtRests"`
 }
 
@@ -8342,7 +8342,7 @@ func (o GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingOutput) Conn
 	}).(GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArrayOutput)
 }
 
-// Specifies the encryption-at-rest configuration for the Data Catalog. see Encryption At Rest.
+// Encryption-at-rest configuration for the Data Catalog. see Encryption At Rest.
 func (o GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingOutput) EncryptionAtRests() GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArrayOutput {
 	return o.ApplyT(func(v GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting) []GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest {
 		return v.EncryptionAtRests
@@ -8370,7 +8370,7 @@ func (o GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArrayOutput)
 }
 
 type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryption struct {
-	// A KMS key ARN that is used to encrypt the connection password.
+	// KMS key ARN that is used to encrypt the connection password.
 	AwsKmsKeyId string `pulumi:"awsKmsKeyId"`
 	// When set to `true`, passwords remain encrypted in the responses of GetConnection and GetConnections. This encryption takes effect independently of the catalog encryption.
 	ReturnConnectionPasswordEncrypted bool `pulumi:"returnConnectionPasswordEncrypted"`
@@ -8388,7 +8388,7 @@ type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPassw
 }
 
 type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArgs struct {
-	// A KMS key ARN that is used to encrypt the connection password.
+	// KMS key ARN that is used to encrypt the connection password.
 	AwsKmsKeyId pulumi.StringInput `pulumi:"awsKmsKeyId"`
 	// When set to `true`, passwords remain encrypted in the responses of GetConnection and GetConnections. This encryption takes effect independently of the catalog encryption.
 	ReturnConnectionPasswordEncrypted pulumi.BoolInput `pulumi:"returnConnectionPasswordEncrypted"`
@@ -8445,7 +8445,7 @@ func (o GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPa
 	return o
 }
 
-// A KMS key ARN that is used to encrypt the connection password.
+// KMS key ARN that is used to encrypt the connection password.
 func (o GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionOutput) AwsKmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryption) string {
 		return v.AwsKmsKeyId
@@ -8482,7 +8482,7 @@ func (o GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPa
 type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest struct {
 	// The encryption-at-rest mode for encrypting Data Catalog data.
 	CatalogEncryptionMode string `pulumi:"catalogEncryptionMode"`
-	// The ARN of the AWS KMS key to use for encryption at rest.
+	// ARN of the AWS KMS key to use for encryption at rest.
 	SseAwsKmsKeyId string `pulumi:"sseAwsKmsKeyId"`
 }
 
@@ -8500,7 +8500,7 @@ type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRes
 type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArgs struct {
 	// The encryption-at-rest mode for encrypting Data Catalog data.
 	CatalogEncryptionMode pulumi.StringInput `pulumi:"catalogEncryptionMode"`
-	// The ARN of the AWS KMS key to use for encryption at rest.
+	// ARN of the AWS KMS key to use for encryption at rest.
 	SseAwsKmsKeyId pulumi.StringInput `pulumi:"sseAwsKmsKeyId"`
 }
 
@@ -8562,7 +8562,7 @@ func (o GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAt
 	}).(pulumi.StringOutput)
 }
 
-// The ARN of the AWS KMS key to use for encryption at rest.
+// ARN of the AWS KMS key to use for encryption at rest.
 func (o GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestOutput) SseAwsKmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest) string {
 		return v.SseAwsKmsKeyId
@@ -8590,11 +8590,11 @@ func (o GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAt
 }
 
 type GetScriptDagEdge struct {
-	// The ID of the node at which the edge starts.
+	// ID of the node at which the edge starts.
 	Source string `pulumi:"source"`
-	// The ID of the node at which the edge ends.
+	// ID of the node at which the edge ends.
 	Target string `pulumi:"target"`
-	// The target of the edge.
+	// Target of the edge.
 	TargetParameter *string `pulumi:"targetParameter"`
 }
 
@@ -8610,11 +8610,11 @@ type GetScriptDagEdgeInput interface {
 }
 
 type GetScriptDagEdgeArgs struct {
-	// The ID of the node at which the edge starts.
+	// ID of the node at which the edge starts.
 	Source pulumi.StringInput `pulumi:"source"`
-	// The ID of the node at which the edge ends.
+	// ID of the node at which the edge ends.
 	Target pulumi.StringInput `pulumi:"target"`
-	// The target of the edge.
+	// Target of the edge.
 	TargetParameter pulumi.StringPtrInput `pulumi:"targetParameter"`
 }
 
@@ -8669,17 +8669,17 @@ func (o GetScriptDagEdgeOutput) ToGetScriptDagEdgeOutputWithContext(ctx context.
 	return o
 }
 
-// The ID of the node at which the edge starts.
+// ID of the node at which the edge starts.
 func (o GetScriptDagEdgeOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v GetScriptDagEdge) string { return v.Source }).(pulumi.StringOutput)
 }
 
-// The ID of the node at which the edge ends.
+// ID of the node at which the edge ends.
 func (o GetScriptDagEdgeOutput) Target() pulumi.StringOutput {
 	return o.ApplyT(func(v GetScriptDagEdge) string { return v.Target }).(pulumi.StringOutput)
 }
 
-// The target of the edge.
+// Target of the edge.
 func (o GetScriptDagEdgeOutput) TargetParameter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetScriptDagEdge) *string { return v.TargetParameter }).(pulumi.StringPtrOutput)
 }
@@ -8707,11 +8707,11 @@ func (o GetScriptDagEdgeArrayOutput) Index(i pulumi.IntInput) GetScriptDagEdgeOu
 type GetScriptDagNode struct {
 	// Nested configuration an argument or property of a node. Defined below.
 	Args []GetScriptDagNodeArg `pulumi:"args"`
-	// A node identifier that is unique within the node's graph.
+	// Node identifier that is unique within the node's graph.
 	Id string `pulumi:"id"`
-	// The line number of the node.
+	// Line number of the node.
 	LineNumber *int `pulumi:"lineNumber"`
-	// The type of node this is.
+	// Type of node this is.
 	NodeType string `pulumi:"nodeType"`
 }
 
@@ -8729,11 +8729,11 @@ type GetScriptDagNodeInput interface {
 type GetScriptDagNodeArgs struct {
 	// Nested configuration an argument or property of a node. Defined below.
 	Args GetScriptDagNodeArgArrayInput `pulumi:"args"`
-	// A node identifier that is unique within the node's graph.
+	// Node identifier that is unique within the node's graph.
 	Id pulumi.StringInput `pulumi:"id"`
-	// The line number of the node.
+	// Line number of the node.
 	LineNumber pulumi.IntPtrInput `pulumi:"lineNumber"`
-	// The type of node this is.
+	// Type of node this is.
 	NodeType pulumi.StringInput `pulumi:"nodeType"`
 }
 
@@ -8793,17 +8793,17 @@ func (o GetScriptDagNodeOutput) Args() GetScriptDagNodeArgArrayOutput {
 	return o.ApplyT(func(v GetScriptDagNode) []GetScriptDagNodeArg { return v.Args }).(GetScriptDagNodeArgArrayOutput)
 }
 
-// A node identifier that is unique within the node's graph.
+// Node identifier that is unique within the node's graph.
 func (o GetScriptDagNodeOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetScriptDagNode) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The line number of the node.
+// Line number of the node.
 func (o GetScriptDagNodeOutput) LineNumber() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GetScriptDagNode) *int { return v.LineNumber }).(pulumi.IntPtrOutput)
 }
 
-// The type of node this is.
+// Type of node this is.
 func (o GetScriptDagNodeOutput) NodeType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetScriptDagNode) string { return v.NodeType }).(pulumi.StringOutput)
 }
@@ -8829,11 +8829,11 @@ func (o GetScriptDagNodeArrayOutput) Index(i pulumi.IntInput) GetScriptDagNodeOu
 }
 
 type GetScriptDagNodeArg struct {
-	// The name of the argument or property.
+	// Name of the argument or property.
 	Name string `pulumi:"name"`
 	// Boolean if the value is used as a parameter. Defaults to `false`.
 	Param *bool `pulumi:"param"`
-	// The value of the argument or property.
+	// Value of the argument or property.
 	Value string `pulumi:"value"`
 }
 
@@ -8849,11 +8849,11 @@ type GetScriptDagNodeArgInput interface {
 }
 
 type GetScriptDagNodeArgArgs struct {
-	// The name of the argument or property.
+	// Name of the argument or property.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Boolean if the value is used as a parameter. Defaults to `false`.
 	Param pulumi.BoolPtrInput `pulumi:"param"`
-	// The value of the argument or property.
+	// Value of the argument or property.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -8908,7 +8908,7 @@ func (o GetScriptDagNodeArgOutput) ToGetScriptDagNodeArgOutputWithContext(ctx co
 	return o
 }
 
-// The name of the argument or property.
+// Name of the argument or property.
 func (o GetScriptDagNodeArgOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetScriptDagNodeArg) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -8918,7 +8918,7 @@ func (o GetScriptDagNodeArgOutput) Param() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetScriptDagNodeArg) *bool { return v.Param }).(pulumi.BoolPtrOutput)
 }
 
-// The value of the argument or property.
+// Value of the argument or property.
 func (o GetScriptDagNodeArgOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetScriptDagNodeArg) string { return v.Value }).(pulumi.StringOutput)
 }

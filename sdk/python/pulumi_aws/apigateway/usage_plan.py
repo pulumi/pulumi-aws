@@ -25,10 +25,10 @@ class UsagePlanArgs:
                  throttle_settings: Optional[pulumi.Input['UsagePlanThrottleSettingsArgs']] = None):
         """
         The set of arguments for constructing a UsagePlan resource.
-        :param pulumi.Input[Sequence[pulumi.Input['UsagePlanApiStageArgs']]] api_stages: The associated API stages of the usage plan.
-        :param pulumi.Input[str] description: The description of a usage plan.
-        :param pulumi.Input[str] name: The name of the usage plan.
-        :param pulumi.Input[str] product_code: The AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
+        :param pulumi.Input[Sequence[pulumi.Input['UsagePlanApiStageArgs']]] api_stages: Associated API stages of the usage plan.
+        :param pulumi.Input[str] description: Description of a usage plan.
+        :param pulumi.Input[str] name: Name of the usage plan.
+        :param pulumi.Input[str] product_code: AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
         :param pulumi.Input['UsagePlanQuotaSettingsArgs'] quota_settings: The quota settings of the usage plan.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['UsagePlanThrottleSettingsArgs'] throttle_settings: The throttling limits of the usage plan.
@@ -52,7 +52,7 @@ class UsagePlanArgs:
     @pulumi.getter(name="apiStages")
     def api_stages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UsagePlanApiStageArgs']]]]:
         """
-        The associated API stages of the usage plan.
+        Associated API stages of the usage plan.
         """
         return pulumi.get(self, "api_stages")
 
@@ -64,7 +64,7 @@ class UsagePlanArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        The description of a usage plan.
+        Description of a usage plan.
         """
         return pulumi.get(self, "description")
 
@@ -76,7 +76,7 @@ class UsagePlanArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the usage plan.
+        Name of the usage plan.
         """
         return pulumi.get(self, "name")
 
@@ -88,7 +88,7 @@ class UsagePlanArgs:
     @pulumi.getter(name="productCode")
     def product_code(self) -> Optional[pulumi.Input[str]]:
         """
-        The AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
+        AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
         """
         return pulumi.get(self, "product_code")
 
@@ -147,14 +147,14 @@ class _UsagePlanState:
                  throttle_settings: Optional[pulumi.Input['UsagePlanThrottleSettingsArgs']] = None):
         """
         Input properties used for looking up and filtering UsagePlan resources.
-        :param pulumi.Input[Sequence[pulumi.Input['UsagePlanApiStageArgs']]] api_stages: The associated API stages of the usage plan.
-        :param pulumi.Input[str] arn: Amazon Resource Name (ARN)
-        :param pulumi.Input[str] description: The description of a usage plan.
-        :param pulumi.Input[str] name: The name of the usage plan.
-        :param pulumi.Input[str] product_code: The AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
+        :param pulumi.Input[Sequence[pulumi.Input['UsagePlanApiStageArgs']]] api_stages: Associated API stages of the usage plan.
+        :param pulumi.Input[str] arn: ARN
+        :param pulumi.Input[str] description: Description of a usage plan.
+        :param pulumi.Input[str] name: Name of the usage plan.
+        :param pulumi.Input[str] product_code: AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
         :param pulumi.Input['UsagePlanQuotaSettingsArgs'] quota_settings: The quota settings of the usage plan.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['UsagePlanThrottleSettingsArgs'] throttle_settings: The throttling limits of the usage plan.
         """
         if api_stages is not None:
@@ -180,7 +180,7 @@ class _UsagePlanState:
     @pulumi.getter(name="apiStages")
     def api_stages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UsagePlanApiStageArgs']]]]:
         """
-        The associated API stages of the usage plan.
+        Associated API stages of the usage plan.
         """
         return pulumi.get(self, "api_stages")
 
@@ -192,7 +192,7 @@ class _UsagePlanState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
-        Amazon Resource Name (ARN)
+        ARN
         """
         return pulumi.get(self, "arn")
 
@@ -204,7 +204,7 @@ class _UsagePlanState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        The description of a usage plan.
+        Description of a usage plan.
         """
         return pulumi.get(self, "description")
 
@@ -216,7 +216,7 @@ class _UsagePlanState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the usage plan.
+        Name of the usage plan.
         """
         return pulumi.get(self, "name")
 
@@ -228,7 +228,7 @@ class _UsagePlanState:
     @pulumi.getter(name="productCode")
     def product_code(self) -> Optional[pulumi.Input[str]]:
         """
-        The AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
+        AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
         """
         return pulumi.get(self, "product_code")
 
@@ -264,7 +264,7 @@ class _UsagePlanState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -375,10 +375,10 @@ class UsagePlan(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UsagePlanApiStageArgs']]]] api_stages: The associated API stages of the usage plan.
-        :param pulumi.Input[str] description: The description of a usage plan.
-        :param pulumi.Input[str] name: The name of the usage plan.
-        :param pulumi.Input[str] product_code: The AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UsagePlanApiStageArgs']]]] api_stages: Associated API stages of the usage plan.
+        :param pulumi.Input[str] description: Description of a usage plan.
+        :param pulumi.Input[str] name: Name of the usage plan.
+        :param pulumi.Input[str] product_code: AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
         :param pulumi.Input[pulumi.InputType['UsagePlanQuotaSettingsArgs']] quota_settings: The quota settings of the usage plan.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[pulumi.InputType['UsagePlanThrottleSettingsArgs']] throttle_settings: The throttling limits of the usage plan.
@@ -530,14 +530,14 @@ class UsagePlan(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UsagePlanApiStageArgs']]]] api_stages: The associated API stages of the usage plan.
-        :param pulumi.Input[str] arn: Amazon Resource Name (ARN)
-        :param pulumi.Input[str] description: The description of a usage plan.
-        :param pulumi.Input[str] name: The name of the usage plan.
-        :param pulumi.Input[str] product_code: The AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UsagePlanApiStageArgs']]]] api_stages: Associated API stages of the usage plan.
+        :param pulumi.Input[str] arn: ARN
+        :param pulumi.Input[str] description: Description of a usage plan.
+        :param pulumi.Input[str] name: Name of the usage plan.
+        :param pulumi.Input[str] product_code: AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
         :param pulumi.Input[pulumi.InputType['UsagePlanQuotaSettingsArgs']] quota_settings: The quota settings of the usage plan.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[pulumi.InputType['UsagePlanThrottleSettingsArgs']] throttle_settings: The throttling limits of the usage plan.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -559,7 +559,7 @@ class UsagePlan(pulumi.CustomResource):
     @pulumi.getter(name="apiStages")
     def api_stages(self) -> pulumi.Output[Optional[Sequence['outputs.UsagePlanApiStage']]]:
         """
-        The associated API stages of the usage plan.
+        Associated API stages of the usage plan.
         """
         return pulumi.get(self, "api_stages")
 
@@ -567,7 +567,7 @@ class UsagePlan(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        Amazon Resource Name (ARN)
+        ARN
         """
         return pulumi.get(self, "arn")
 
@@ -575,7 +575,7 @@ class UsagePlan(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        The description of a usage plan.
+        Description of a usage plan.
         """
         return pulumi.get(self, "description")
 
@@ -583,7 +583,7 @@ class UsagePlan(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the usage plan.
+        Name of the usage plan.
         """
         return pulumi.get(self, "name")
 
@@ -591,7 +591,7 @@ class UsagePlan(pulumi.CustomResource):
     @pulumi.getter(name="productCode")
     def product_code(self) -> pulumi.Output[Optional[str]]:
         """
-        The AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
+        AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
         """
         return pulumi.get(self, "product_code")
 
@@ -615,7 +615,7 @@ class UsagePlan(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

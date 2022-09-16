@@ -50,67 +50,67 @@ namespace Pulumi.Aws.AppConfig
     public partial class Deployment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The application ID. Must be between 4 and 7 characters in length.
+        /// Application ID. Must be between 4 and 7 characters in length.
         /// </summary>
         [Output("applicationId")]
         public Output<string> ApplicationId { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the AppConfig Deployment.
+        /// ARN of the AppConfig Deployment.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The configuration profile ID. Must be between 4 and 7 characters in length.
+        /// Configuration profile ID. Must be between 4 and 7 characters in length.
         /// </summary>
         [Output("configurationProfileId")]
         public Output<string> ConfigurationProfileId { get; private set; } = null!;
 
         /// <summary>
-        /// The configuration version to deploy. Can be at most 1024 characters.
+        /// Configuration version to deploy. Can be at most 1024 characters.
         /// </summary>
         [Output("configurationVersion")]
         public Output<string> ConfigurationVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The deployment number.
+        /// Deployment number.
         /// </summary>
         [Output("deploymentNumber")]
         public Output<int> DeploymentNumber { get; private set; } = null!;
 
         /// <summary>
-        /// The deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
+        /// Deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
         /// </summary>
         [Output("deploymentStrategyId")]
         public Output<string> DeploymentStrategyId { get; private set; } = null!;
 
         /// <summary>
-        /// The description of the deployment. Can be at most 1024 characters.
+        /// Description of the deployment. Can be at most 1024 characters.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The environment ID. Must be between 4 and 7 characters in length.
+        /// Environment ID. Must be between 4 and 7 characters in length.
         /// </summary>
         [Output("environmentId")]
         public Output<string> EnvironmentId { get; private set; } = null!;
 
         /// <summary>
-        /// The state of the deployment.
+        /// State of the deployment.
         /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -162,37 +162,37 @@ namespace Pulumi.Aws.AppConfig
     public sealed class DeploymentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The application ID. Must be between 4 and 7 characters in length.
+        /// Application ID. Must be between 4 and 7 characters in length.
         /// </summary>
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
 
         /// <summary>
-        /// The configuration profile ID. Must be between 4 and 7 characters in length.
+        /// Configuration profile ID. Must be between 4 and 7 characters in length.
         /// </summary>
         [Input("configurationProfileId", required: true)]
         public Input<string> ConfigurationProfileId { get; set; } = null!;
 
         /// <summary>
-        /// The configuration version to deploy. Can be at most 1024 characters.
+        /// Configuration version to deploy. Can be at most 1024 characters.
         /// </summary>
         [Input("configurationVersion", required: true)]
         public Input<string> ConfigurationVersion { get; set; } = null!;
 
         /// <summary>
-        /// The deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
+        /// Deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
         /// </summary>
         [Input("deploymentStrategyId", required: true)]
         public Input<string> DeploymentStrategyId { get; set; } = null!;
 
         /// <summary>
-        /// The description of the deployment. Can be at most 1024 characters.
+        /// Description of the deployment. Can be at most 1024 characters.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The environment ID. Must be between 4 and 7 characters in length.
+        /// Environment ID. Must be between 4 and 7 characters in length.
         /// </summary>
         [Input("environmentId", required: true)]
         public Input<string> EnvironmentId { get; set; } = null!;
@@ -201,7 +201,7 @@ namespace Pulumi.Aws.AppConfig
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -218,55 +218,55 @@ namespace Pulumi.Aws.AppConfig
     public sealed class DeploymentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The application ID. Must be between 4 and 7 characters in length.
+        /// Application ID. Must be between 4 and 7 characters in length.
         /// </summary>
         [Input("applicationId")]
         public Input<string>? ApplicationId { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the AppConfig Deployment.
+        /// ARN of the AppConfig Deployment.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The configuration profile ID. Must be between 4 and 7 characters in length.
+        /// Configuration profile ID. Must be between 4 and 7 characters in length.
         /// </summary>
         [Input("configurationProfileId")]
         public Input<string>? ConfigurationProfileId { get; set; }
 
         /// <summary>
-        /// The configuration version to deploy. Can be at most 1024 characters.
+        /// Configuration version to deploy. Can be at most 1024 characters.
         /// </summary>
         [Input("configurationVersion")]
         public Input<string>? ConfigurationVersion { get; set; }
 
         /// <summary>
-        /// The deployment number.
+        /// Deployment number.
         /// </summary>
         [Input("deploymentNumber")]
         public Input<int>? DeploymentNumber { get; set; }
 
         /// <summary>
-        /// The deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
+        /// Deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
         /// </summary>
         [Input("deploymentStrategyId")]
         public Input<string>? DeploymentStrategyId { get; set; }
 
         /// <summary>
-        /// The description of the deployment. Can be at most 1024 characters.
+        /// Description of the deployment. Can be at most 1024 characters.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The environment ID. Must be between 4 and 7 characters in length.
+        /// Environment ID. Must be between 4 and 7 characters in length.
         /// </summary>
         [Input("environmentId")]
         public Input<string>? EnvironmentId { get; set; }
 
         /// <summary>
-        /// The state of the deployment.
+        /// State of the deployment.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
@@ -275,7 +275,7 @@ namespace Pulumi.Aws.AppConfig
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -287,7 +287,7 @@ namespace Pulumi.Aws.AppConfig
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

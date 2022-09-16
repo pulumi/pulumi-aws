@@ -16,14 +16,14 @@ public final class GetScriptDagNodeArg extends com.pulumi.resources.InvokeArgs {
     public static final GetScriptDagNodeArg Empty = new GetScriptDagNodeArg();
 
     /**
-     * The name of the argument or property.
+     * Name of the argument or property.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return The name of the argument or property.
+     * @return Name of the argument or property.
      * 
      */
     public String name() {
@@ -46,14 +46,14 @@ public final class GetScriptDagNodeArg extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The value of the argument or property.
+     * Value of the argument or property.
      * 
      */
     @Import(name="value", required=true)
     private String value;
 
     /**
-     * @return The value of the argument or property.
+     * @return Value of the argument or property.
      * 
      */
     public String value() {
@@ -87,7 +87,7 @@ public final class GetScriptDagNodeArg extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the argument or property.
+         * @param name Name of the argument or property.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class GetScriptDagNodeArg extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param value The value of the argument or property.
+         * @param value Value of the argument or property.
          * 
          * @return builder
          * 

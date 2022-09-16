@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -65,7 +67,7 @@ export interface GetUserHierarchyGroupArgs {
      */
     name?: string;
     /**
-     * A map of tags to assign to the hierarchy group.
+     * Map of tags to assign to the hierarchy group.
      */
     tags?: {[key: string]: string};
 }
@@ -75,12 +77,12 @@ export interface GetUserHierarchyGroupArgs {
  */
 export interface GetUserHierarchyGroupResult {
     /**
-     * The Amazon Resource Name (ARN) of the hierarchy group.
+     * ARN of the hierarchy group.
      */
     readonly arn: string;
     readonly hierarchyGroupId: string;
     /**
-     * A block that contains information about the levels in the hierarchy group. The `hierarchyPath` block is documented below.
+     * Block that contains information about the levels in the hierarchy group. The `hierarchyPath` block is documented below.
      */
     readonly hierarchyPaths: outputs.connect.GetUserHierarchyGroupHierarchyPath[];
     /**
@@ -89,15 +91,15 @@ export interface GetUserHierarchyGroupResult {
     readonly id: string;
     readonly instanceId: string;
     /**
-     * The identifier of the level in the hierarchy group.
+     * Identifier of the level in the hierarchy group.
      */
     readonly levelId: string;
     /**
-     * The name of the hierarchy group.
+     * Name of the hierarchy group.
      */
     readonly name: string;
     /**
-     * A map of tags to assign to the hierarchy group.
+     * Map of tags to assign to the hierarchy group.
      */
     readonly tags: {[key: string]: string};
 }
@@ -123,7 +125,7 @@ export interface GetUserHierarchyGroupOutputArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the hierarchy group.
+     * Map of tags to assign to the hierarchy group.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

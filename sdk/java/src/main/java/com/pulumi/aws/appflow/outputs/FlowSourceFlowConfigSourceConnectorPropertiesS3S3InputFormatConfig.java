@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig {
     /**
-     * @return The file type that Amazon AppFlow gets from your Amazon S3 bucket. Valid values are `CSV` and `JSON`.
+     * @return File type that Amazon AppFlow gets from your Amazon S3 bucket. Valid values are `CSV` and `JSON`.
      * 
      */
     private @Nullable String s3InputFileType;
 
     private FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig() {}
     /**
-     * @return The file type that Amazon AppFlow gets from your Amazon S3 bucket. Valid values are `CSV` and `JSON`.
+     * @return File type that Amazon AppFlow gets from your Amazon S3 bucket. Valid values are `CSV` and `JSON`.
      * 
      */
     public Optional<String> s3InputFileType() {

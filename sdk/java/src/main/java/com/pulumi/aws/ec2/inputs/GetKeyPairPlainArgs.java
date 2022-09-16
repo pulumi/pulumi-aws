@@ -49,14 +49,14 @@ public final class GetKeyPairPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The Key Pair name.
+     * Key Pair name.
      * 
      */
     @Import(name="keyName")
     private @Nullable String keyName;
 
     /**
-     * @return The Key Pair name.
+     * @return Key Pair name.
      * 
      */
     public Optional<String> keyName() {
@@ -64,14 +64,14 @@ public final class GetKeyPairPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The Key Pair ID.
+     * Key Pair ID.
      * 
      */
     @Import(name="keyPairId")
     private @Nullable String keyPairId;
 
     /**
-     * @return The Key Pair ID.
+     * @return Key Pair ID.
      * 
      */
     public Optional<String> keyPairId() {
@@ -154,7 +154,7 @@ public final class GetKeyPairPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param keyName The Key Pair name.
+         * @param keyName Key Pair name.
          * 
          * @return builder
          * 
@@ -165,7 +165,7 @@ public final class GetKeyPairPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param keyPairId The Key Pair ID.
+         * @param keyPairId Key Pair ID.
          * 
          * @return builder
          * 

@@ -18,7 +18,7 @@ namespace Pulumi.Aws.AppRunner.Outputs
         /// </summary>
         public readonly Outputs.ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues? CodeConfigurationValues;
         /// <summary>
-        /// The source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Values are interpreted as follows:
+        /// Source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Values are interpreted as follows:
         /// </summary>
         public readonly string ConfigurationSource;
 

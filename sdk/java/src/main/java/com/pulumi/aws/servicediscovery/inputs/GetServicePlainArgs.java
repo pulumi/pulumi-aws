@@ -16,14 +16,14 @@ public final class GetServicePlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetServicePlainArgs Empty = new GetServicePlainArgs();
 
     /**
-     * The name of the service.
+     * Name of the service.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return The name of the service.
+     * @return Name of the service.
      * 
      */
     public String name() {
@@ -31,14 +31,14 @@ public final class GetServicePlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The ID of the namespace that the service belongs to.
+     * ID of the namespace that the service belongs to.
      * 
      */
     @Import(name="namespaceId", required=true)
     private String namespaceId;
 
     /**
-     * @return The ID of the namespace that the service belongs to.
+     * @return ID of the namespace that the service belongs to.
      * 
      */
     public String namespaceId() {
@@ -46,14 +46,14 @@ public final class GetServicePlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -87,7 +87,7 @@ public final class GetServicePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the service.
+         * @param name Name of the service.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class GetServicePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param namespaceId The ID of the namespace that the service belongs to.
+         * @param namespaceId ID of the namespace that the service belongs to.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class GetServicePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

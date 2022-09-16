@@ -64,9 +64,9 @@ func LookupBroker(ctx *pulumi.Context, args *LookupBrokerArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getBroker.
 type LookupBrokerArgs struct {
-	// The unique id of the mq broker.
+	// Unique id of the mq broker.
 	BrokerId *string `pulumi:"brokerId"`
-	// The unique name of the mq broker.
+	// Unique name of the mq broker.
 	BrokerName *string           `pulumi:"brokerName"`
 	Tags       map[string]string `pulumi:"tags"`
 }
@@ -113,9 +113,9 @@ func LookupBrokerOutput(ctx *pulumi.Context, args LookupBrokerOutputArgs, opts .
 
 // A collection of arguments for invoking getBroker.
 type LookupBrokerOutputArgs struct {
-	// The unique id of the mq broker.
+	// Unique id of the mq broker.
 	BrokerId pulumi.StringPtrInput `pulumi:"brokerId"`
-	// The unique name of the mq broker.
+	// Unique name of the mq broker.
 	BrokerName pulumi.StringPtrInput `pulumi:"brokerName"`
 	Tags       pulumi.StringMapInput `pulumi:"tags"`
 }

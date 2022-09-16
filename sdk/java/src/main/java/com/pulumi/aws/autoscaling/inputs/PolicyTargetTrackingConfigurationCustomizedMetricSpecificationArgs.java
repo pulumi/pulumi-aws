@@ -18,14 +18,14 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
     public static final PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs Empty = new PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs();
 
     /**
-     * The dimensions of the metric.
+     * Dimensions of the metric.
      * 
      */
     @Import(name="metricDimensions")
     private @Nullable Output<List<PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArgs>> metricDimensions;
 
     /**
-     * @return The dimensions of the metric.
+     * @return Dimensions of the metric.
      * 
      */
     public Optional<Output<List<PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArgs>>> metricDimensions() {
@@ -33,14 +33,14 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
     }
 
     /**
-     * The name of the metric.
+     * Name of the metric.
      * 
      */
     @Import(name="metricName", required=true)
     private Output<String> metricName;
 
     /**
-     * @return The name of the metric.
+     * @return Name of the metric.
      * 
      */
     public Output<String> metricName() {
@@ -48,14 +48,14 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
     }
 
     /**
-     * The namespace of the metric.
+     * Namespace of the metric.
      * 
      */
     @Import(name="namespace", required=true)
     private Output<String> namespace;
 
     /**
-     * @return The namespace of the metric.
+     * @return Namespace of the metric.
      * 
      */
     public Output<String> namespace() {
@@ -63,14 +63,14 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
     }
 
     /**
-     * The statistic of the metric.
+     * Statistic of the metric.
      * 
      */
     @Import(name="statistic", required=true)
     private Output<String> statistic;
 
     /**
-     * @return The statistic of the metric.
+     * @return Statistic of the metric.
      * 
      */
     public Output<String> statistic() {
@@ -78,14 +78,14 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
     }
 
     /**
-     * The unit of the metrics to return.
+     * Unit of the metrics to return.
      * 
      */
     @Import(name="unit")
     private @Nullable Output<String> unit;
 
     /**
-     * @return The unit of the metrics to return.
+     * @return Unit of the metrics to return.
      * 
      */
     public Optional<Output<String>> unit() {
@@ -121,7 +121,7 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
         }
 
         /**
-         * @param metricDimensions The dimensions of the metric.
+         * @param metricDimensions Dimensions of the metric.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
         }
 
         /**
-         * @param metricDimensions The dimensions of the metric.
+         * @param metricDimensions Dimensions of the metric.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
         }
 
         /**
-         * @param metricDimensions The dimensions of the metric.
+         * @param metricDimensions Dimensions of the metric.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
         }
 
         /**
-         * @param metricName The name of the metric.
+         * @param metricName Name of the metric.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
         }
 
         /**
-         * @param metricName The name of the metric.
+         * @param metricName Name of the metric.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
         }
 
         /**
-         * @param namespace The namespace of the metric.
+         * @param namespace Namespace of the metric.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
         }
 
         /**
-         * @param namespace The namespace of the metric.
+         * @param namespace Namespace of the metric.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
         }
 
         /**
-         * @param statistic The statistic of the metric.
+         * @param statistic Statistic of the metric.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
         }
 
         /**
-         * @param statistic The statistic of the metric.
+         * @param statistic Statistic of the metric.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
         }
 
         /**
-         * @param unit The unit of the metrics to return.
+         * @param unit Unit of the metrics to return.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
         }
 
         /**
-         * @param unit The unit of the metrics to return.
+         * @param unit Unit of the metrics to return.
          * 
          * @return builder
          * 

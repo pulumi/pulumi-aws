@@ -29,14 +29,14 @@ public final class GetPermissionsLfTag extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The key-name of an LF-Tag.
+     * Key-name of an LF-Tag.
      * 
      */
     @Import(name="key", required=true)
     private String key;
 
     /**
-     * @return The key-name of an LF-Tag.
+     * @return Key-name of an LF-Tag.
      * 
      */
     public String key() {
@@ -44,14 +44,14 @@ public final class GetPermissionsLfTag extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * A list of possible values of an LF-Tag.
+     * List of possible values of an LF-Tag.
      * 
      */
     @Import(name="values", required=true)
     private List<String> values;
 
     /**
-     * @return A list of possible values of an LF-Tag.
+     * @return List of possible values of an LF-Tag.
      * 
      */
     public List<String> values() {
@@ -96,7 +96,7 @@ public final class GetPermissionsLfTag extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param key The key-name of an LF-Tag.
+         * @param key Key-name of an LF-Tag.
          * 
          * @return builder
          * 
@@ -107,7 +107,7 @@ public final class GetPermissionsLfTag extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param values A list of possible values of an LF-Tag.
+         * @param values List of possible values of an LF-Tag.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class GetPermissionsLfTag extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param values A list of possible values of an LF-Tag.
+         * @param values List of possible values of an LF-Tag.
          * 
          * @return builder
          * 

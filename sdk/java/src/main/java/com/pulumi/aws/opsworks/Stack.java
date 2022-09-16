@@ -149,16 +149,14 @@ public class Stack extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.configurationManagerVersion);
     }
     /**
-     * When `use_custom_cookbooks` is set, provide this sub-object as
-     * described below.
+     * When `use_custom_cookbooks` is set, provide this sub-object as described below.
      * 
      */
     @Export(name="customCookbooksSources", type=List.class, parameters={StackCustomCookbooksSource.class})
     private Output<List<StackCustomCookbooksSource>> customCookbooksSources;
 
     /**
-     * @return When `use_custom_cookbooks` is set, provide this sub-object as
-     * described below.
+     * @return When `use_custom_cookbooks` is set, provide this sub-object as described below.
      * 
      */
     public Output<List<StackCustomCookbooksSource>> customCookbooksSources() {
@@ -179,32 +177,30 @@ public class Stack extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.customJson);
     }
     /**
-     * Name of the availability zone where instances will be created
-     * by default. This is required unless you set `vpc_id`.
+     * Name of the availability zone where instances will be created by default.
+     * Cannot be set when `vpc_id` is set.
      * 
      */
     @Export(name="defaultAvailabilityZone", type=String.class, parameters={})
     private Output<String> defaultAvailabilityZone;
 
     /**
-     * @return Name of the availability zone where instances will be created
-     * by default. This is required unless you set `vpc_id`.
+     * @return Name of the availability zone where instances will be created by default.
+     * Cannot be set when `vpc_id` is set.
      * 
      */
     public Output<String> defaultAvailabilityZone() {
         return this.defaultAvailabilityZone;
     }
     /**
-     * The ARN of an IAM Instance Profile that created instances
-     * will have by default.
+     * The ARN of an IAM Instance Profile that created instances will have by default.
      * 
      */
     @Export(name="defaultInstanceProfileArn", type=String.class, parameters={})
     private Output<String> defaultInstanceProfileArn;
 
     /**
-     * @return The ARN of an IAM Instance Profile that created instances
-     * will have by default.
+     * @return The ARN of an IAM Instance Profile that created instances will have by default.
      * 
      */
     public Output<String> defaultInstanceProfileArn() {
@@ -253,32 +249,30 @@ public class Stack extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.defaultSshKeyName);
     }
     /**
-     * Id of the subnet in which instances will be created by default. Mandatory
-     * if `vpc_id` is set, and forbidden if it isn&#39;t.
+     * ID of the subnet in which instances will be created by default.
+     * Required if `vpc_id` is set to a VPC other than the default VPC, and forbidden if it isn&#39;t.
      * 
      */
     @Export(name="defaultSubnetId", type=String.class, parameters={})
     private Output<String> defaultSubnetId;
 
     /**
-     * @return Id of the subnet in which instances will be created by default. Mandatory
-     * if `vpc_id` is set, and forbidden if it isn&#39;t.
+     * @return ID of the subnet in which instances will be created by default.
+     * Required if `vpc_id` is set to a VPC other than the default VPC, and forbidden if it isn&#39;t.
      * 
      */
     public Output<String> defaultSubnetId() {
         return this.defaultSubnetId;
     }
     /**
-     * Keyword representing the naming scheme that will be used for instance hostnames
-     * within this stack.
+     * Keyword representing the naming scheme that will be used for instance hostnames within this stack.
      * 
      */
     @Export(name="hostnameTheme", type=String.class, parameters={})
     private Output</* @Nullable */ String> hostnameTheme;
 
     /**
-     * @return Keyword representing the naming scheme that will be used for instance hostnames
-     * within this stack.
+     * @return Keyword representing the naming scheme that will be used for instance hostnames within this stack.
      * 
      */
     public Output<Optional<String>> hostnameTheme() {
@@ -407,14 +401,16 @@ public class Stack extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.useOpsworksSecurityGroups);
     }
     /**
-     * The id of the VPC that this stack belongs to.
+     * ID of the VPC that this stack belongs to.
+     * Defaults to the region&#39;s default VPC.
      * 
      */
     @Export(name="vpcId", type=String.class, parameters={})
     private Output<String> vpcId;
 
     /**
-     * @return The id of the VPC that this stack belongs to.
+     * @return ID of the VPC that this stack belongs to.
+     * Defaults to the region&#39;s default VPC.
      * 
      */
     public Output<String> vpcId() {

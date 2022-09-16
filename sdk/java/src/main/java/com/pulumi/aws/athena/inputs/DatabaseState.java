@@ -20,14 +20,14 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
     public static final DatabaseState Empty = new DatabaseState();
 
     /**
-     * Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
+     * That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
      * 
      */
     @Import(name="aclConfiguration")
     private @Nullable Output<DatabaseAclConfigurationArgs> aclConfiguration;
 
     /**
-     * @return Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
+     * @return That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
      * 
      */
     public Optional<Output<DatabaseAclConfigurationArgs>> aclConfiguration() {
@@ -65,14 +65,14 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
+     * Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
      * 
      */
     @Import(name="encryptionConfiguration")
     private @Nullable Output<DatabaseEncryptionConfigurationArgs> encryptionConfiguration;
 
     /**
-     * @return The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
+     * @return Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
      * 
      */
     public Optional<Output<DatabaseEncryptionConfigurationArgs>> encryptionConfiguration() {
@@ -80,14 +80,14 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The AWS account ID that you expect to be the owner of the Amazon S3 bucket.
+     * AWS account ID that you expect to be the owner of the Amazon S3 bucket.
      * 
      */
     @Import(name="expectedBucketOwner")
     private @Nullable Output<String> expectedBucketOwner;
 
     /**
-     * @return The AWS account ID that you expect to be the owner of the Amazon S3 bucket.
+     * @return AWS account ID that you expect to be the owner of the Amazon S3 bucket.
      * 
      */
     public Optional<Output<String>> expectedBucketOwner() {
@@ -95,14 +95,14 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
+     * Boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
      * 
      */
     @Import(name="forceDestroy")
     private @Nullable Output<Boolean> forceDestroy;
 
     /**
-     * @return A boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
+     * @return Boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
      * 
      */
     public Optional<Output<Boolean>> forceDestroy() {
@@ -125,14 +125,14 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A key-value map of custom metadata properties for the database definition.
+     * Key-value map of custom metadata properties for the database definition.
      * 
      */
     @Import(name="properties")
     private @Nullable Output<Map<String,String>> properties;
 
     /**
-     * @return A key-value map of custom metadata properties for the database definition.
+     * @return Key-value map of custom metadata properties for the database definition.
      * 
      */
     public Optional<Output<Map<String,String>>> properties() {
@@ -171,7 +171,7 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param aclConfiguration Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
+         * @param aclConfiguration That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param aclConfiguration Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
+         * @param aclConfiguration That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
          * 
          * @return builder
          * 
@@ -234,7 +234,7 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encryptionConfiguration The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
+         * @param encryptionConfiguration Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
          * 
          * @return builder
          * 
@@ -245,7 +245,7 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encryptionConfiguration The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
+         * @param encryptionConfiguration Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
          * 
          * @return builder
          * 
@@ -255,7 +255,7 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param expectedBucketOwner The AWS account ID that you expect to be the owner of the Amazon S3 bucket.
+         * @param expectedBucketOwner AWS account ID that you expect to be the owner of the Amazon S3 bucket.
          * 
          * @return builder
          * 
@@ -266,7 +266,7 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param expectedBucketOwner The AWS account ID that you expect to be the owner of the Amazon S3 bucket.
+         * @param expectedBucketOwner AWS account ID that you expect to be the owner of the Amazon S3 bucket.
          * 
          * @return builder
          * 
@@ -276,7 +276,7 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param forceDestroy A boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
+         * @param forceDestroy Boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
          * 
          * @return builder
          * 
@@ -287,7 +287,7 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param forceDestroy A boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
+         * @param forceDestroy Boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
          * 
          * @return builder
          * 
@@ -318,7 +318,7 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param properties A key-value map of custom metadata properties for the database definition.
+         * @param properties Key-value map of custom metadata properties for the database definition.
          * 
          * @return builder
          * 
@@ -329,7 +329,7 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param properties A key-value map of custom metadata properties for the database definition.
+         * @param properties Key-value map of custom metadata properties for the database definition.
          * 
          * @return builder
          * 

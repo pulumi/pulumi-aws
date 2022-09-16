@@ -22,7 +22,7 @@ namespace Pulumi.Aws.NetworkManager.Outputs
         /// </summary>
         public readonly bool? RequireAcceptance;
         /// <summary>
-        /// The name of the segment.
+        /// Name of the segment.
         /// </summary>
         public readonly string? Segment;
         /// <summary>

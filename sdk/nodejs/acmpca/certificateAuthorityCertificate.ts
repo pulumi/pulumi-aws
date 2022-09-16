@@ -112,15 +112,15 @@ export class CertificateAuthorityCertificate extends pulumi.CustomResource {
     }
 
     /**
-     * The PEM-encoded certificate for the Certificate Authority.
+     * PEM-encoded certificate for the Certificate Authority.
      */
     public readonly certificate!: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the Certificate Authority.
+     * ARN of the Certificate Authority.
      */
     public readonly certificateAuthorityArn!: pulumi.Output<string>;
     /**
-     * The PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
+     * PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
      */
     public readonly certificateChain!: pulumi.Output<string | undefined>;
 
@@ -162,15 +162,15 @@ export class CertificateAuthorityCertificate extends pulumi.CustomResource {
  */
 export interface CertificateAuthorityCertificateState {
     /**
-     * The PEM-encoded certificate for the Certificate Authority.
+     * PEM-encoded certificate for the Certificate Authority.
      */
     certificate?: pulumi.Input<string>;
     /**
-     * Amazon Resource Name (ARN) of the Certificate Authority.
+     * ARN of the Certificate Authority.
      */
     certificateAuthorityArn?: pulumi.Input<string>;
     /**
-     * The PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
+     * PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
      */
     certificateChain?: pulumi.Input<string>;
 }
@@ -180,15 +180,15 @@ export interface CertificateAuthorityCertificateState {
  */
 export interface CertificateAuthorityCertificateArgs {
     /**
-     * The PEM-encoded certificate for the Certificate Authority.
+     * PEM-encoded certificate for the Certificate Authority.
      */
     certificate: pulumi.Input<string>;
     /**
-     * Amazon Resource Name (ARN) of the Certificate Authority.
+     * ARN of the Certificate Authority.
      */
     certificateAuthorityArn: pulumi.Input<string>;
     /**
-     * The PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
+     * PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
      */
     certificateChain?: pulumi.Input<string>;
 }

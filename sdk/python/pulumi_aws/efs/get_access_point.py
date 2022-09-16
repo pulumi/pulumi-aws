@@ -76,7 +76,7 @@ class GetAccessPointResult:
     @pulumi.getter(name="fileSystemId")
     def file_system_id(self) -> str:
         """
-        The ID of the file system for which the access point is intended.
+        ID of the file system for which the access point is intended.
         """
         return pulumi.get(self, "file_system_id")
 
@@ -148,7 +148,7 @@ def get_access_point(access_point_id: Optional[str] = None,
     ```
 
 
-    :param str access_point_id: The ID that identifies the file system.
+    :param str access_point_id: ID that identifies the file system.
     :param Mapping[str, str] tags: Key-value mapping of resource tags.
     """
     __args__ = dict()
@@ -186,7 +186,7 @@ def get_access_point_output(access_point_id: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str access_point_id: The ID that identifies the file system.
+    :param str access_point_id: ID that identifies the file system.
     :param Mapping[str, str] tags: Key-value mapping of resource tags.
     """
     ...

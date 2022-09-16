@@ -29,14 +29,14 @@ public final class WorkforceCognitoConfigArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The id for your Amazon Cognito user pool.
+     * ID for your Amazon Cognito user pool.
      * 
      */
     @Import(name="userPool", required=true)
     private Output<String> userPool;
 
     /**
-     * @return The id for your Amazon Cognito user pool.
+     * @return ID for your Amazon Cognito user pool.
      * 
      */
     public Output<String> userPool() {
@@ -90,7 +90,7 @@ public final class WorkforceCognitoConfigArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param userPool The id for your Amazon Cognito user pool.
+         * @param userPool ID for your Amazon Cognito user pool.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class WorkforceCognitoConfigArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param userPool The id for your Amazon Cognito user pool.
+         * @param userPool ID for your Amazon Cognito user pool.
          * 
          * @return builder
          * 

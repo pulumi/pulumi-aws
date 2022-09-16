@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -30,7 +32,7 @@ export interface GetLocalGatewayRouteTablesArgs {
      */
     filters?: inputs.ec2.GetLocalGatewayRouteTablesFilter[];
     /**
-     * A mapping of tags, each pair of which must exactly match
+     * Mapping of tags, each pair of which must exactly match
      * a pair on the desired local gateway route table.
      */
     tags?: {[key: string]: string};
@@ -65,7 +67,7 @@ export interface GetLocalGatewayRouteTablesOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetLocalGatewayRouteTablesFilterArgs>[]>;
     /**
-     * A mapping of tags, each pair of which must exactly match
+     * Mapping of tags, each pair of which must exactly match
      * a pair on the desired local gateway route table.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

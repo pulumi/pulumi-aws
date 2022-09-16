@@ -27,7 +27,7 @@ public final class GetImageRecipeBlockDeviceMappingEb {
      */
     private Integer iops;
     /**
-     * @return Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+     * @return ARN of the Key Management Service (KMS) Key for encryption.
      * 
      */
     private String kmsKeyId;
@@ -75,7 +75,7 @@ public final class GetImageRecipeBlockDeviceMappingEb {
         return this.iops;
     }
     /**
-     * @return Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+     * @return ARN of the Key Management Service (KMS) Key for encryption.
      * 
      */
     public String kmsKeyId() {

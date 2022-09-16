@@ -18,11 +18,11 @@ namespace Pulumi.Aws.RedShift.Outputs
         /// </summary>
         public readonly string NodeRole;
         /// <summary>
-        /// The private IP address of a node within a cluster
+        /// Private IP address of a node within a cluster
         /// </summary>
         public readonly string PrivateIpAddress;
         /// <summary>
-        /// The public IP address of a node within a cluster
+        /// Public IP address of a node within a cluster
         /// </summary>
         public readonly string PublicIpAddress;
 

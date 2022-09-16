@@ -16,14 +16,14 @@ public final class VirtualGatewaySpecBackendDefaultsArgs extends com.pulumi.reso
     public static final VirtualGatewaySpecBackendDefaultsArgs Empty = new VirtualGatewaySpecBackendDefaultsArgs();
 
     /**
-     * The default client policy for virtual gateway backends.
+     * Default client policy for virtual gateway backends.
      * 
      */
     @Import(name="clientPolicy")
     private @Nullable Output<VirtualGatewaySpecBackendDefaultsClientPolicyArgs> clientPolicy;
 
     /**
-     * @return The default client policy for virtual gateway backends.
+     * @return Default client policy for virtual gateway backends.
      * 
      */
     public Optional<Output<VirtualGatewaySpecBackendDefaultsClientPolicyArgs>> clientPolicy() {
@@ -55,7 +55,7 @@ public final class VirtualGatewaySpecBackendDefaultsArgs extends com.pulumi.reso
         }
 
         /**
-         * @param clientPolicy The default client policy for virtual gateway backends.
+         * @param clientPolicy Default client policy for virtual gateway backends.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class VirtualGatewaySpecBackendDefaultsArgs extends com.pulumi.reso
         }
 
         /**
-         * @param clientPolicy The default client policy for virtual gateway backends.
+         * @param clientPolicy Default client policy for virtual gateway backends.
          * 
          * @return builder
          * 

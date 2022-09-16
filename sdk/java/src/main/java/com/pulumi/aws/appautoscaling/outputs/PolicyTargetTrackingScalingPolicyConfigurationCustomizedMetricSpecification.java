@@ -19,22 +19,22 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
      */
     private @Nullable List<PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension> dimensions;
     /**
-     * @return The name of the metric.
+     * @return Name of the metric.
      * 
      */
     private String metricName;
     /**
-     * @return The namespace of the metric.
+     * @return Namespace of the metric.
      * 
      */
     private String namespace;
     /**
-     * @return The statistic of the metric. Valid values: `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
+     * @return Statistic of the metric. Valid values: `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
      * 
      */
     private String statistic;
     /**
-     * @return The unit of the metric.
+     * @return Unit of the metric.
      * 
      */
     private @Nullable String unit;
@@ -48,28 +48,28 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
         return this.dimensions == null ? List.of() : this.dimensions;
     }
     /**
-     * @return The name of the metric.
+     * @return Name of the metric.
      * 
      */
     public String metricName() {
         return this.metricName;
     }
     /**
-     * @return The namespace of the metric.
+     * @return Namespace of the metric.
      * 
      */
     public String namespace() {
         return this.namespace;
     }
     /**
-     * @return The statistic of the metric. Valid values: `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
+     * @return Statistic of the metric. Valid values: `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
      * 
      */
     public String statistic() {
         return this.statistic;
     }
     /**
-     * @return The unit of the metric.
+     * @return Unit of the metric.
      * 
      */
     public Optional<String> unit() {

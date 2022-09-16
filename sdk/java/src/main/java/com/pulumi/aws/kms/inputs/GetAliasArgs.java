@@ -14,14 +14,14 @@ public final class GetAliasArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetAliasArgs Empty = new GetAliasArgs();
 
     /**
-     * The display name of the alias. The name must start with the word &#34;alias&#34; followed by a forward slash (alias/)
+     * Display name of the alias. The name must start with the word &#34;alias&#34; followed by a forward slash (alias/)
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The display name of the alias. The name must start with the word &#34;alias&#34; followed by a forward slash (alias/)
+     * @return Display name of the alias. The name must start with the word &#34;alias&#34; followed by a forward slash (alias/)
      * 
      */
     public Output<String> name() {
@@ -53,7 +53,7 @@ public final class GetAliasArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The display name of the alias. The name must start with the word &#34;alias&#34; followed by a forward slash (alias/)
+         * @param name Display name of the alias. The name must start with the word &#34;alias&#34; followed by a forward slash (alias/)
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class GetAliasArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The display name of the alias. The name must start with the word &#34;alias&#34; followed by a forward slash (alias/)
+         * @param name Display name of the alias. The name must start with the word &#34;alias&#34; followed by a forward slash (alias/)
          * 
          * @return builder
          * 

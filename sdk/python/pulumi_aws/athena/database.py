@@ -26,14 +26,14 @@ class DatabaseArgs:
                  properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Database resource.
-        :param pulumi.Input['DatabaseAclConfigurationArgs'] acl_configuration: Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
+        :param pulumi.Input['DatabaseAclConfigurationArgs'] acl_configuration: That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
         :param pulumi.Input[str] bucket: Name of S3 bucket to save the results of the query execution.
         :param pulumi.Input[str] comment: Description of the database.
-        :param pulumi.Input['DatabaseEncryptionConfigurationArgs'] encryption_configuration: The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
-        :param pulumi.Input[str] expected_bucket_owner: The AWS account ID that you expect to be the owner of the Amazon S3 bucket.
-        :param pulumi.Input[bool] force_destroy: A boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
+        :param pulumi.Input['DatabaseEncryptionConfigurationArgs'] encryption_configuration: Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
+        :param pulumi.Input[str] expected_bucket_owner: AWS account ID that you expect to be the owner of the Amazon S3 bucket.
+        :param pulumi.Input[bool] force_destroy: Boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
         :param pulumi.Input[str] name: Name of the database to create.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: A key-value map of custom metadata properties for the database definition.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: Key-value map of custom metadata properties for the database definition.
         """
         if acl_configuration is not None:
             pulumi.set(__self__, "acl_configuration", acl_configuration)
@@ -56,7 +56,7 @@ class DatabaseArgs:
     @pulumi.getter(name="aclConfiguration")
     def acl_configuration(self) -> Optional[pulumi.Input['DatabaseAclConfigurationArgs']]:
         """
-        Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
+        That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
         """
         return pulumi.get(self, "acl_configuration")
 
@@ -92,7 +92,7 @@ class DatabaseArgs:
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> Optional[pulumi.Input['DatabaseEncryptionConfigurationArgs']]:
         """
-        The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
+        Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
         """
         return pulumi.get(self, "encryption_configuration")
 
@@ -104,7 +104,7 @@ class DatabaseArgs:
     @pulumi.getter(name="expectedBucketOwner")
     def expected_bucket_owner(self) -> Optional[pulumi.Input[str]]:
         """
-        The AWS account ID that you expect to be the owner of the Amazon S3 bucket.
+        AWS account ID that you expect to be the owner of the Amazon S3 bucket.
         """
         return pulumi.get(self, "expected_bucket_owner")
 
@@ -116,7 +116,7 @@ class DatabaseArgs:
     @pulumi.getter(name="forceDestroy")
     def force_destroy(self) -> Optional[pulumi.Input[bool]]:
         """
-        A boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
+        Boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
         """
         return pulumi.get(self, "force_destroy")
 
@@ -140,7 +140,7 @@ class DatabaseArgs:
     @pulumi.getter
     def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A key-value map of custom metadata properties for the database definition.
+        Key-value map of custom metadata properties for the database definition.
         """
         return pulumi.get(self, "properties")
 
@@ -162,14 +162,14 @@ class _DatabaseState:
                  properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Database resources.
-        :param pulumi.Input['DatabaseAclConfigurationArgs'] acl_configuration: Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
+        :param pulumi.Input['DatabaseAclConfigurationArgs'] acl_configuration: That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
         :param pulumi.Input[str] bucket: Name of S3 bucket to save the results of the query execution.
         :param pulumi.Input[str] comment: Description of the database.
-        :param pulumi.Input['DatabaseEncryptionConfigurationArgs'] encryption_configuration: The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
-        :param pulumi.Input[str] expected_bucket_owner: The AWS account ID that you expect to be the owner of the Amazon S3 bucket.
-        :param pulumi.Input[bool] force_destroy: A boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
+        :param pulumi.Input['DatabaseEncryptionConfigurationArgs'] encryption_configuration: Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
+        :param pulumi.Input[str] expected_bucket_owner: AWS account ID that you expect to be the owner of the Amazon S3 bucket.
+        :param pulumi.Input[bool] force_destroy: Boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
         :param pulumi.Input[str] name: Name of the database to create.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: A key-value map of custom metadata properties for the database definition.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: Key-value map of custom metadata properties for the database definition.
         """
         if acl_configuration is not None:
             pulumi.set(__self__, "acl_configuration", acl_configuration)
@@ -192,7 +192,7 @@ class _DatabaseState:
     @pulumi.getter(name="aclConfiguration")
     def acl_configuration(self) -> Optional[pulumi.Input['DatabaseAclConfigurationArgs']]:
         """
-        Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
+        That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
         """
         return pulumi.get(self, "acl_configuration")
 
@@ -228,7 +228,7 @@ class _DatabaseState:
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> Optional[pulumi.Input['DatabaseEncryptionConfigurationArgs']]:
         """
-        The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
+        Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
         """
         return pulumi.get(self, "encryption_configuration")
 
@@ -240,7 +240,7 @@ class _DatabaseState:
     @pulumi.getter(name="expectedBucketOwner")
     def expected_bucket_owner(self) -> Optional[pulumi.Input[str]]:
         """
-        The AWS account ID that you expect to be the owner of the Amazon S3 bucket.
+        AWS account ID that you expect to be the owner of the Amazon S3 bucket.
         """
         return pulumi.get(self, "expected_bucket_owner")
 
@@ -252,7 +252,7 @@ class _DatabaseState:
     @pulumi.getter(name="forceDestroy")
     def force_destroy(self) -> Optional[pulumi.Input[bool]]:
         """
-        A boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
+        Boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
         """
         return pulumi.get(self, "force_destroy")
 
@@ -276,7 +276,7 @@ class _DatabaseState:
     @pulumi.getter
     def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A key-value map of custom metadata properties for the database definition.
+        Key-value map of custom metadata properties for the database definition.
         """
         return pulumi.get(self, "properties")
 
@@ -340,14 +340,14 @@ class Database(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['DatabaseAclConfigurationArgs']] acl_configuration: Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
+        :param pulumi.Input[pulumi.InputType['DatabaseAclConfigurationArgs']] acl_configuration: That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
         :param pulumi.Input[str] bucket: Name of S3 bucket to save the results of the query execution.
         :param pulumi.Input[str] comment: Description of the database.
-        :param pulumi.Input[pulumi.InputType['DatabaseEncryptionConfigurationArgs']] encryption_configuration: The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
-        :param pulumi.Input[str] expected_bucket_owner: The AWS account ID that you expect to be the owner of the Amazon S3 bucket.
-        :param pulumi.Input[bool] force_destroy: A boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
+        :param pulumi.Input[pulumi.InputType['DatabaseEncryptionConfigurationArgs']] encryption_configuration: Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
+        :param pulumi.Input[str] expected_bucket_owner: AWS account ID that you expect to be the owner of the Amazon S3 bucket.
+        :param pulumi.Input[bool] force_destroy: Boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
         :param pulumi.Input[str] name: Name of the database to create.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: A key-value map of custom metadata properties for the database definition.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: Key-value map of custom metadata properties for the database definition.
         """
         ...
     @overload
@@ -459,14 +459,14 @@ class Database(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['DatabaseAclConfigurationArgs']] acl_configuration: Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
+        :param pulumi.Input[pulumi.InputType['DatabaseAclConfigurationArgs']] acl_configuration: That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
         :param pulumi.Input[str] bucket: Name of S3 bucket to save the results of the query execution.
         :param pulumi.Input[str] comment: Description of the database.
-        :param pulumi.Input[pulumi.InputType['DatabaseEncryptionConfigurationArgs']] encryption_configuration: The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
-        :param pulumi.Input[str] expected_bucket_owner: The AWS account ID that you expect to be the owner of the Amazon S3 bucket.
-        :param pulumi.Input[bool] force_destroy: A boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
+        :param pulumi.Input[pulumi.InputType['DatabaseEncryptionConfigurationArgs']] encryption_configuration: Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
+        :param pulumi.Input[str] expected_bucket_owner: AWS account ID that you expect to be the owner of the Amazon S3 bucket.
+        :param pulumi.Input[bool] force_destroy: Boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
         :param pulumi.Input[str] name: Name of the database to create.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: A key-value map of custom metadata properties for the database definition.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: Key-value map of custom metadata properties for the database definition.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -486,7 +486,7 @@ class Database(pulumi.CustomResource):
     @pulumi.getter(name="aclConfiguration")
     def acl_configuration(self) -> pulumi.Output[Optional['outputs.DatabaseAclConfiguration']]:
         """
-        Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
+        That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
         """
         return pulumi.get(self, "acl_configuration")
 
@@ -510,7 +510,7 @@ class Database(pulumi.CustomResource):
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> pulumi.Output[Optional['outputs.DatabaseEncryptionConfiguration']]:
         """
-        The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
+        Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
         """
         return pulumi.get(self, "encryption_configuration")
 
@@ -518,7 +518,7 @@ class Database(pulumi.CustomResource):
     @pulumi.getter(name="expectedBucketOwner")
     def expected_bucket_owner(self) -> pulumi.Output[Optional[str]]:
         """
-        The AWS account ID that you expect to be the owner of the Amazon S3 bucket.
+        AWS account ID that you expect to be the owner of the Amazon S3 bucket.
         """
         return pulumi.get(self, "expected_bucket_owner")
 
@@ -526,7 +526,7 @@ class Database(pulumi.CustomResource):
     @pulumi.getter(name="forceDestroy")
     def force_destroy(self) -> pulumi.Output[Optional[bool]]:
         """
-        A boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
+        Boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
         """
         return pulumi.get(self, "force_destroy")
 
@@ -542,7 +542,7 @@ class Database(pulumi.CustomResource):
     @pulumi.getter
     def properties(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A key-value map of custom metadata properties for the database definition.
+        Key-value map of custom metadata properties for the database definition.
         """
         return pulumi.get(self, "properties")
 

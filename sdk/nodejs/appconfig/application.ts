@@ -58,23 +58,23 @@ export class Application extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the AppConfig Application.
+     * ARN of the AppConfig Application.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The description of the application. Can be at most 1024 characters.
+     * Description of the application. Can be at most 1024 characters.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The name for the application. Must be between 1 and 64 characters in length.
+     * Name for the application. Must be between 1 and 64 characters in length.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -114,23 +114,23 @@ export class Application extends pulumi.CustomResource {
  */
 export interface ApplicationState {
     /**
-     * The Amazon Resource Name (ARN) of the AppConfig Application.
+     * ARN of the AppConfig Application.
      */
     arn?: pulumi.Input<string>;
     /**
-     * The description of the application. Can be at most 1024 characters.
+     * Description of the application. Can be at most 1024 characters.
      */
     description?: pulumi.Input<string>;
     /**
-     * The name for the application. Must be between 1 and 64 characters in length.
+     * Name for the application. Must be between 1 and 64 characters in length.
      */
     name?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -140,15 +140,15 @@ export interface ApplicationState {
  */
 export interface ApplicationArgs {
     /**
-     * The description of the application. Can be at most 1024 characters.
+     * Description of the application. Can be at most 1024 characters.
      */
     description?: pulumi.Input<string>;
     /**
-     * The name for the application. Must be between 1 and 64 characters in length.
+     * Name for the application. Must be between 1 and 64 characters in length.
      */
     name?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

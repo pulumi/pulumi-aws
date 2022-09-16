@@ -16,14 +16,14 @@ public final class GetContainerRecipePlainArgs extends com.pulumi.resources.Invo
     public static final GetContainerRecipePlainArgs Empty = new GetContainerRecipePlainArgs();
 
     /**
-     * Amazon Resource Name (ARN) of the container recipe.
+     * ARN of the container recipe.
      * 
      */
     @Import(name="arn", required=true)
     private String arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the container recipe.
+     * @return ARN of the container recipe.
      * 
      */
     public String arn() {
@@ -71,7 +71,7 @@ public final class GetContainerRecipePlainArgs extends com.pulumi.resources.Invo
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the container recipe.
+         * @param arn ARN of the container recipe.
          * 
          * @return builder
          * 

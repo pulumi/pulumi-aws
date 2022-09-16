@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Iam
     public sealed class GetAccountAliasResult
     {
         /// <summary>
-        /// The alias associated with the AWS account.
+        /// Alias associated with the AWS account.
         /// </summary>
         public readonly string AccountAlias;
         /// <summary>

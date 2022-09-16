@@ -5,14 +5,26 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./eventDataStore";
-export * from "./getFunction";
-export * from "./getServiceAccount";
-export * from "./trail";
+export { EventDataStoreArgs, EventDataStoreState } from "./eventDataStore";
+export type EventDataStore = import("./eventDataStore").EventDataStore;
+export const EventDataStore: typeof import("./eventDataStore").EventDataStore = null as any;
 
-// Import resources to register:
-import { EventDataStore } from "./eventDataStore";
-import { Trail } from "./trail";
+export { GetFunctionArgs, GetFunctionResult, GetFunctionOutputArgs } from "./getFunction";
+export const getFunction: typeof import("./getFunction").getFunction = null as any;
+export const getFunctionOutput: typeof import("./getFunction").getFunctionOutput = null as any;
+
+export { GetServiceAccountArgs, GetServiceAccountResult, GetServiceAccountOutputArgs } from "./getServiceAccount";
+export const getServiceAccount: typeof import("./getServiceAccount").getServiceAccount = null as any;
+export const getServiceAccountOutput: typeof import("./getServiceAccount").getServiceAccountOutput = null as any;
+
+export { TrailArgs, TrailState } from "./trail";
+export type Trail = import("./trail").Trail;
+export const Trail: typeof import("./trail").Trail = null as any;
+
+utilities.lazyLoad(exports, ["EventDataStore"], () => require("./eventDataStore"));
+utilities.lazyLoad(exports, ["getFunction","getFunctionOutput"], () => require("./getFunction"));
+utilities.lazyLoad(exports, ["getServiceAccount","getServiceAccountOutput"], () => require("./getServiceAccount"));
+utilities.lazyLoad(exports, ["Trail"], () => require("./trail"));
 
 const _module = {
     version: utilities.getVersion(),

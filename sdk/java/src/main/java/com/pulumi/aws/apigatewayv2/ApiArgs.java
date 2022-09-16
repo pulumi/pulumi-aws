@@ -53,14 +53,14 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
+     * Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
      * 
      */
     @Import(name="corsConfiguration")
     private @Nullable Output<ApiCorsConfigurationArgs> corsConfiguration;
 
     /**
-     * @return The cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
+     * @return Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
      * 
      */
     public Optional<Output<ApiCorsConfigurationArgs>> corsConfiguration() {
@@ -83,14 +83,14 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The description of the API. Must be less than or equal to 1024 characters in length.
+     * Description of the API. Must be less than or equal to 1024 characters in length.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description of the API. Must be less than or equal to 1024 characters in length.
+     * @return Description of the API. Must be less than or equal to 1024 characters in length.
      * 
      */
     public Optional<Output<String>> description() {
@@ -132,14 +132,14 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the API. Must be less than or equal to 128 characters in length.
+     * Name of the API. Must be less than or equal to 128 characters in length.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the API. Must be less than or equal to 128 characters in length.
+     * @return Name of the API. Must be less than or equal to 128 characters in length.
      * 
      */
     public Optional<Output<String>> name() {
@@ -147,14 +147,14 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The API protocol. Valid values: `HTTP`, `WEBSOCKET`.
+     * API protocol. Valid values: `HTTP`, `WEBSOCKET`.
      * 
      */
     @Import(name="protocolType", required=true)
     private Output<String> protocolType;
 
     /**
-     * @return The API protocol. Valid values: `HTTP`, `WEBSOCKET`.
+     * @return API protocol. Valid values: `HTTP`, `WEBSOCKET`.
      * 
      */
     public Output<String> protocolType() {
@@ -194,14 +194,14 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the API. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the API. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the API. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the API. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -228,14 +228,14 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A version identifier for the API. Must be between 1 and 64 characters in length.
+     * Version identifier for the API. Must be between 1 and 64 characters in length.
      * 
      */
     @Import(name="version")
     private @Nullable Output<String> version;
 
     /**
-     * @return A version identifier for the API. Must be between 1 and 64 characters in length.
+     * @return Version identifier for the API. Must be between 1 and 64 characters in length.
      * 
      */
     public Optional<Output<String>> version() {
@@ -326,7 +326,7 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param corsConfiguration The cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
+         * @param corsConfiguration Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
          * 
          * @return builder
          * 
@@ -337,7 +337,7 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param corsConfiguration The cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
+         * @param corsConfiguration Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
          * 
          * @return builder
          * 
@@ -368,7 +368,7 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The description of the API. Must be less than or equal to 1024 characters in length.
+         * @param description Description of the API. Must be less than or equal to 1024 characters in length.
          * 
          * @return builder
          * 
@@ -379,7 +379,7 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The description of the API. Must be less than or equal to 1024 characters in length.
+         * @param description Description of the API. Must be less than or equal to 1024 characters in length.
          * 
          * @return builder
          * 
@@ -435,7 +435,7 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the API. Must be less than or equal to 128 characters in length.
+         * @param name Name of the API. Must be less than or equal to 128 characters in length.
          * 
          * @return builder
          * 
@@ -446,7 +446,7 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the API. Must be less than or equal to 128 characters in length.
+         * @param name Name of the API. Must be less than or equal to 128 characters in length.
          * 
          * @return builder
          * 
@@ -456,7 +456,7 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protocolType The API protocol. Valid values: `HTTP`, `WEBSOCKET`.
+         * @param protocolType API protocol. Valid values: `HTTP`, `WEBSOCKET`.
          * 
          * @return builder
          * 
@@ -467,7 +467,7 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protocolType The API protocol. Valid values: `HTTP`, `WEBSOCKET`.
+         * @param protocolType API protocol. Valid values: `HTTP`, `WEBSOCKET`.
          * 
          * @return builder
          * 
@@ -521,7 +521,7 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the API. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the API. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -532,7 +532,7 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the API. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the API. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -567,7 +567,7 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param version A version identifier for the API. Must be between 1 and 64 characters in length.
+         * @param version Version identifier for the API. Must be between 1 and 64 characters in length.
          * 
          * @return builder
          * 
@@ -578,7 +578,7 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param version A version identifier for the API. Must be between 1 and 64 characters in length.
+         * @param version Version identifier for the API. Must be between 1 and 64 characters in length.
          * 
          * @return builder
          * 

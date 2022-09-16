@@ -5,13 +5,20 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getAuthorizationToken";
-export * from "./repository";
-export * from "./repositoryPolicy";
+export { GetAuthorizationTokenResult } from "./getAuthorizationToken";
+export const getAuthorizationToken: typeof import("./getAuthorizationToken").getAuthorizationToken = null as any;
 
-// Import resources to register:
-import { Repository } from "./repository";
-import { RepositoryPolicy } from "./repositoryPolicy";
+export { RepositoryArgs, RepositoryState } from "./repository";
+export type Repository = import("./repository").Repository;
+export const Repository: typeof import("./repository").Repository = null as any;
+
+export { RepositoryPolicyArgs, RepositoryPolicyState } from "./repositoryPolicy";
+export type RepositoryPolicy = import("./repositoryPolicy").RepositoryPolicy;
+export const RepositoryPolicy: typeof import("./repositoryPolicy").RepositoryPolicy = null as any;
+
+utilities.lazyLoad(exports, ["getAuthorizationToken"], () => require("./getAuthorizationToken"));
+utilities.lazyLoad(exports, ["Repository"], () => require("./repository"));
+utilities.lazyLoad(exports, ["RepositoryPolicy"], () => require("./repositoryPolicy"));
 
 const _module = {
     version: utilities.getVersion(),

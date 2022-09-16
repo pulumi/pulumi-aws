@@ -78,7 +78,7 @@ namespace Pulumi.Aws.Cur
     public sealed class GetReportDefinitionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the report definition to match.
+        /// Name of the report definition to match.
         /// </summary>
         [Input("reportName", required: true)]
         public string ReportName { get; set; } = null!;
@@ -92,7 +92,7 @@ namespace Pulumi.Aws.Cur
     public sealed class GetReportDefinitionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the report definition to match.
+        /// Name of the report definition to match.
         /// </summary>
         [Input("reportName", required: true)]
         public Input<string> ReportName { get; set; } = null!;
@@ -149,7 +149,7 @@ namespace Pulumi.Aws.Cur
         /// </summary>
         public readonly string S3Region;
         /// <summary>
-        /// The frequency on which report data are measured and displayed.
+        /// Frequency on which report data are measured and displayed.
         /// </summary>
         public readonly string TimeUnit;
 

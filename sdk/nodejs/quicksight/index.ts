@@ -5,16 +5,26 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./dataSource";
-export * from "./group";
-export * from "./groupMembership";
-export * from "./user";
+export { DataSourceArgs, DataSourceState } from "./dataSource";
+export type DataSource = import("./dataSource").DataSource;
+export const DataSource: typeof import("./dataSource").DataSource = null as any;
 
-// Import resources to register:
-import { DataSource } from "./dataSource";
-import { Group } from "./group";
-import { GroupMembership } from "./groupMembership";
-import { User } from "./user";
+export { GroupArgs, GroupState } from "./group";
+export type Group = import("./group").Group;
+export const Group: typeof import("./group").Group = null as any;
+
+export { GroupMembershipArgs, GroupMembershipState } from "./groupMembership";
+export type GroupMembership = import("./groupMembership").GroupMembership;
+export const GroupMembership: typeof import("./groupMembership").GroupMembership = null as any;
+
+export { UserArgs, UserState } from "./user";
+export type User = import("./user").User;
+export const User: typeof import("./user").User = null as any;
+
+utilities.lazyLoad(exports, ["DataSource"], () => require("./dataSource"));
+utilities.lazyLoad(exports, ["Group"], () => require("./group"));
+utilities.lazyLoad(exports, ["GroupMembership"], () => require("./groupMembership"));
+utilities.lazyLoad(exports, ["User"], () => require("./user"));
 
 const _module = {
     version: utilities.getVersion(),

@@ -12,12 +12,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetEventSourceResult {
     /**
-     * @return The ARN of the partner event source
+     * @return ARN of the partner event source
      * 
      */
     private String arn;
     /**
-     * @return The name of the SaaS partner that created the event source
+     * @return Name of the SaaS partner that created the event source
      * 
      */
     private String createdBy;
@@ -27,27 +27,27 @@ public final class GetEventSourceResult {
      */
     private String id;
     /**
-     * @return The name of the event source
+     * @return Name of the event source
      * 
      */
     private String name;
     private @Nullable String namePrefix;
     /**
-     * @return The state of the event source (`ACTIVE` or `PENDING`)
+     * @return State of the event source (`ACTIVE` or `PENDING`)
      * 
      */
     private String state;
 
     private GetEventSourceResult() {}
     /**
-     * @return The ARN of the partner event source
+     * @return ARN of the partner event source
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return The name of the SaaS partner that created the event source
+     * @return Name of the SaaS partner that created the event source
      * 
      */
     public String createdBy() {
@@ -61,7 +61,7 @@ public final class GetEventSourceResult {
         return this.id;
     }
     /**
-     * @return The name of the event source
+     * @return Name of the event source
      * 
      */
     public String name() {
@@ -71,7 +71,7 @@ public final class GetEventSourceResult {
         return Optional.ofNullable(this.namePrefix);
     }
     /**
-     * @return The state of the event source (`ACTIVE` or `PENDING`)
+     * @return State of the event source (`ACTIVE` or `PENDING`)
      * 
      */
     public String state() {

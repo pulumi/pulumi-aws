@@ -18,14 +18,14 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
     public static final PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricArgs Empty = new PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricArgs();
 
     /**
-     * The dimensions of the metric.
+     * Dimensions of the metric.
      * 
      */
     @Import(name="dimensions")
     private @Nullable Output<List<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs>> dimensions;
 
     /**
-     * @return The dimensions of the metric.
+     * @return Dimensions of the metric.
      * 
      */
     public Optional<Output<List<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs>>> dimensions() {
@@ -33,14 +33,14 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
     }
 
     /**
-     * The name of the metric.
+     * Name of the metric.
      * 
      */
     @Import(name="metricName", required=true)
     private Output<String> metricName;
 
     /**
-     * @return The name of the metric.
+     * @return Name of the metric.
      * 
      */
     public Output<String> metricName() {
@@ -48,14 +48,14 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
     }
 
     /**
-     * The namespace of the metric.
+     * Namespace of the metric.
      * 
      */
     @Import(name="namespace", required=true)
     private Output<String> namespace;
 
     /**
-     * @return The namespace of the metric.
+     * @return Namespace of the metric.
      * 
      */
     public Output<String> namespace() {
@@ -89,7 +89,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
         }
 
         /**
-         * @param dimensions The dimensions of the metric.
+         * @param dimensions Dimensions of the metric.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
         }
 
         /**
-         * @param dimensions The dimensions of the metric.
+         * @param dimensions Dimensions of the metric.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
         }
 
         /**
-         * @param dimensions The dimensions of the metric.
+         * @param dimensions Dimensions of the metric.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
         }
 
         /**
-         * @param metricName The name of the metric.
+         * @param metricName Name of the metric.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
         }
 
         /**
-         * @param metricName The name of the metric.
+         * @param metricName Name of the metric.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
         }
 
         /**
-         * @param namespace The namespace of the metric.
+         * @param namespace Namespace of the metric.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
         }
 
         /**
-         * @param namespace The namespace of the metric.
+         * @param namespace Namespace of the metric.
          * 
          * @return builder
          * 

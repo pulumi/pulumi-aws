@@ -17,25 +17,26 @@ __all__ = ['BucketObjectLockConfigurationV2Args', 'BucketObjectLockConfiguration
 class BucketObjectLockConfigurationV2Args:
     def __init__(__self__, *,
                  bucket: pulumi.Input[str],
-                 rule: pulumi.Input['BucketObjectLockConfigurationV2RuleArgs'],
                  expected_bucket_owner: Optional[pulumi.Input[str]] = None,
                  object_lock_enabled: Optional[pulumi.Input[str]] = None,
+                 rule: Optional[pulumi.Input['BucketObjectLockConfigurationV2RuleArgs']] = None,
                  token: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a BucketObjectLockConfigurationV2 resource.
         :param pulumi.Input[str] bucket: The name of the bucket.
-        :param pulumi.Input['BucketObjectLockConfigurationV2RuleArgs'] rule: Configuration block for specifying the Object Lock rule for the specified object detailed below.
         :param pulumi.Input[str] expected_bucket_owner: The account ID of the expected bucket owner.
         :param pulumi.Input[str] object_lock_enabled: Indicates whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
+        :param pulumi.Input['BucketObjectLockConfigurationV2RuleArgs'] rule: Configuration block for specifying the Object Lock rule for the specified object detailed below.
         :param pulumi.Input[str] token: A token to allow Object Lock to be enabled for an existing bucket. You must contact AWS support for the bucket's "Object Lock token".
                The token is generated in the back-end when [versioning](https://docs.aws.amazon.com/AmazonS3/latest/userguide/manage-versioning-examples.html) is enabled on a bucket. For more details on versioning, see the `s3.BucketVersioningV2` resource.
         """
         pulumi.set(__self__, "bucket", bucket)
-        pulumi.set(__self__, "rule", rule)
         if expected_bucket_owner is not None:
             pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
         if object_lock_enabled is not None:
             pulumi.set(__self__, "object_lock_enabled", object_lock_enabled)
+        if rule is not None:
+            pulumi.set(__self__, "rule", rule)
         if token is not None:
             pulumi.set(__self__, "token", token)
 
@@ -50,18 +51,6 @@ class BucketObjectLockConfigurationV2Args:
     @bucket.setter
     def bucket(self, value: pulumi.Input[str]):
         pulumi.set(self, "bucket", value)
-
-    @property
-    @pulumi.getter
-    def rule(self) -> pulumi.Input['BucketObjectLockConfigurationV2RuleArgs']:
-        """
-        Configuration block for specifying the Object Lock rule for the specified object detailed below.
-        """
-        return pulumi.get(self, "rule")
-
-    @rule.setter
-    def rule(self, value: pulumi.Input['BucketObjectLockConfigurationV2RuleArgs']):
-        pulumi.set(self, "rule", value)
 
     @property
     @pulumi.getter(name="expectedBucketOwner")
@@ -86,6 +75,18 @@ class BucketObjectLockConfigurationV2Args:
     @object_lock_enabled.setter
     def object_lock_enabled(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "object_lock_enabled", value)
+
+    @property
+    @pulumi.getter
+    def rule(self) -> Optional[pulumi.Input['BucketObjectLockConfigurationV2RuleArgs']]:
+        """
+        Configuration block for specifying the Object Lock rule for the specified object detailed below.
+        """
+        return pulumi.get(self, "rule")
+
+    @rule.setter
+    def rule(self, value: Optional[pulumi.Input['BucketObjectLockConfigurationV2RuleArgs']]):
+        pulumi.set(self, "rule", value)
 
     @property
     @pulumi.getter
@@ -409,8 +410,6 @@ class BucketObjectLockConfigurationV2(pulumi.CustomResource):
             __props__.__dict__["bucket"] = bucket
             __props__.__dict__["expected_bucket_owner"] = expected_bucket_owner
             __props__.__dict__["object_lock_enabled"] = object_lock_enabled
-            if rule is None and not opts.urn:
-                raise TypeError("Missing required property 'rule'")
             __props__.__dict__["rule"] = rule
             __props__.__dict__["token"] = token
         super(BucketObjectLockConfigurationV2, __self__).__init__(
@@ -479,7 +478,7 @@ class BucketObjectLockConfigurationV2(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def rule(self) -> pulumi.Output['outputs.BucketObjectLockConfigurationV2Rule']:
+    def rule(self) -> pulumi.Output[Optional['outputs.BucketObjectLockConfigurationV2Rule']]:
         """
         Configuration block for specifying the Object Lock rule for the specified object detailed below.
         """

@@ -50,15 +50,15 @@ func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.
 type LookupClusterArgs struct {
 	// Name of the cluster.
 	Name string `pulumi:"name"`
-	// A map of tags assigned to the cluster.
+	// Map of tags assigned to the cluster.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getCluster.
 type LookupClusterResult struct {
-	// The name of the Access Control List associated with the cluster.
+	// Name of the Access Control List associated with the cluster.
 	AclName string `pulumi:"aclName"`
-	// The ARN of the cluster.
+	// ARN of the cluster.
 	Arn string `pulumi:"arn"`
 	// True when the cluster allows automatic minor version upgrades.
 	// * `clusterEndpoint`
@@ -76,16 +76,16 @@ type LookupClusterResult struct {
 	Id string `pulumi:"id"`
 	// ARN of the KMS key used to encrypt the cluster at rest.
 	KmsKeyArn string `pulumi:"kmsKeyArn"`
-	// The weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). Example: `sun:23:00-mon:01:30`.
+	// Weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). Example: `sun:23:00-mon:01:30`.
 	MaintenanceWindow string `pulumi:"maintenanceWindow"`
 	// Name of this node.
 	// * `endpoint`
 	Name string `pulumi:"name"`
-	// The compute and memory capacity of the nodes in the cluster.
+	// Compute and memory capacity of the nodes in the cluster.
 	NodeType string `pulumi:"nodeType"`
 	// The number of replicas to apply to each shard.
 	NumReplicasPerShard int `pulumi:"numReplicasPerShard"`
-	// The number of shards in the cluster.
+	// Number of shards in the cluster.
 	NumShards int `pulumi:"numShards"`
 	// The name of the parameter group associated with the cluster.
 	ParameterGroupName string `pulumi:"parameterGroupName"`
@@ -97,13 +97,13 @@ type LookupClusterResult struct {
 	Shards []GetClusterShard `pulumi:"shards"`
 	// The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled.
 	SnapshotRetentionLimit int `pulumi:"snapshotRetentionLimit"`
-	// The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
+	// Daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
 	SnapshotWindow string `pulumi:"snapshotWindow"`
 	// ARN of the SNS topic to which cluster notifications are sent.
 	// * `subnetGroupName` -The name of the subnet group used for the cluster.
 	SnsTopicArn     string `pulumi:"snsTopicArn"`
 	SubnetGroupName string `pulumi:"subnetGroupName"`
-	// A map of tags assigned to the cluster.
+	// Map of tags assigned to the cluster.
 	Tags map[string]string `pulumi:"tags"`
 	// When true, in-transit encryption is enabled for the cluster.
 	TlsEnabled bool `pulumi:"tlsEnabled"`
@@ -126,7 +126,7 @@ func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts
 type LookupClusterOutputArgs struct {
 	// Name of the cluster.
 	Name pulumi.StringInput `pulumi:"name"`
-	// A map of tags assigned to the cluster.
+	// Map of tags assigned to the cluster.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -149,12 +149,12 @@ func (o LookupClusterResultOutput) ToLookupClusterResultOutputWithContext(ctx co
 	return o
 }
 
-// The name of the Access Control List associated with the cluster.
+// Name of the Access Control List associated with the cluster.
 func (o LookupClusterResultOutput) AclName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.AclName }).(pulumi.StringOutput)
 }
 
-// The ARN of the cluster.
+// ARN of the cluster.
 func (o LookupClusterResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -199,7 +199,7 @@ func (o LookupClusterResultOutput) KmsKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.KmsKeyArn }).(pulumi.StringOutput)
 }
 
-// The weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). Example: `sun:23:00-mon:01:30`.
+// Weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). Example: `sun:23:00-mon:01:30`.
 func (o LookupClusterResultOutput) MaintenanceWindow() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.MaintenanceWindow }).(pulumi.StringOutput)
 }
@@ -210,7 +210,7 @@ func (o LookupClusterResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The compute and memory capacity of the nodes in the cluster.
+// Compute and memory capacity of the nodes in the cluster.
 func (o LookupClusterResultOutput) NodeType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.NodeType }).(pulumi.StringOutput)
 }
@@ -220,7 +220,7 @@ func (o LookupClusterResultOutput) NumReplicasPerShard() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupClusterResult) int { return v.NumReplicasPerShard }).(pulumi.IntOutput)
 }
 
-// The number of shards in the cluster.
+// Number of shards in the cluster.
 func (o LookupClusterResultOutput) NumShards() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupClusterResult) int { return v.NumShards }).(pulumi.IntOutput)
 }
@@ -250,7 +250,7 @@ func (o LookupClusterResultOutput) SnapshotRetentionLimit() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupClusterResult) int { return v.SnapshotRetentionLimit }).(pulumi.IntOutput)
 }
 
-// The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
+// Daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
 func (o LookupClusterResultOutput) SnapshotWindow() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.SnapshotWindow }).(pulumi.StringOutput)
 }
@@ -265,7 +265,7 @@ func (o LookupClusterResultOutput) SubnetGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.SubnetGroupName }).(pulumi.StringOutput)
 }
 
-// A map of tags assigned to the cluster.
+// Map of tags assigned to the cluster.
 func (o LookupClusterResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupClusterResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

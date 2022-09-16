@@ -63,7 +63,7 @@ export class DeploymentStrategy extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the AppConfig Deployment Strategy.
+     * ARN of the AppConfig Deployment Strategy.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -71,23 +71,23 @@ export class DeploymentStrategy extends pulumi.CustomResource {
      */
     public readonly deploymentDurationInMinutes!: pulumi.Output<number>;
     /**
-     * A description of the deployment strategy. Can be at most 1024 characters.
+     * Description of the deployment strategy. Can be at most 1024 characters.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.
+     * Amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.
      */
     public readonly finalBakeTimeInMinutes!: pulumi.Output<number | undefined>;
     /**
-     * The percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.
+     * Percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.
      */
     public readonly growthFactor!: pulumi.Output<number>;
     /**
-     * The algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
+     * Algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
      */
     public readonly growthType!: pulumi.Output<string | undefined>;
     /**
-     * A name for the deployment strategy. Must be between 1 and 64 characters in length.
+     * Name for the deployment strategy. Must be between 1 and 64 characters in length.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -95,11 +95,11 @@ export class DeploymentStrategy extends pulumi.CustomResource {
      */
     public readonly replicateTo!: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -158,7 +158,7 @@ export class DeploymentStrategy extends pulumi.CustomResource {
  */
 export interface DeploymentStrategyState {
     /**
-     * The Amazon Resource Name (ARN) of the AppConfig Deployment Strategy.
+     * ARN of the AppConfig Deployment Strategy.
      */
     arn?: pulumi.Input<string>;
     /**
@@ -166,23 +166,23 @@ export interface DeploymentStrategyState {
      */
     deploymentDurationInMinutes?: pulumi.Input<number>;
     /**
-     * A description of the deployment strategy. Can be at most 1024 characters.
+     * Description of the deployment strategy. Can be at most 1024 characters.
      */
     description?: pulumi.Input<string>;
     /**
-     * The amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.
+     * Amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.
      */
     finalBakeTimeInMinutes?: pulumi.Input<number>;
     /**
-     * The percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.
+     * Percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.
      */
     growthFactor?: pulumi.Input<number>;
     /**
-     * The algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
+     * Algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
      */
     growthType?: pulumi.Input<string>;
     /**
-     * A name for the deployment strategy. Must be between 1 and 64 characters in length.
+     * Name for the deployment strategy. Must be between 1 and 64 characters in length.
      */
     name?: pulumi.Input<string>;
     /**
@@ -190,11 +190,11 @@ export interface DeploymentStrategyState {
      */
     replicateTo?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -208,23 +208,23 @@ export interface DeploymentStrategyArgs {
      */
     deploymentDurationInMinutes: pulumi.Input<number>;
     /**
-     * A description of the deployment strategy. Can be at most 1024 characters.
+     * Description of the deployment strategy. Can be at most 1024 characters.
      */
     description?: pulumi.Input<string>;
     /**
-     * The amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.
+     * Amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.
      */
     finalBakeTimeInMinutes?: pulumi.Input<number>;
     /**
-     * The percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.
+     * Percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.
      */
     growthFactor: pulumi.Input<number>;
     /**
-     * The algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
+     * Algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
      */
     growthType?: pulumi.Input<string>;
     /**
-     * A name for the deployment strategy. Must be between 1 and 64 characters in length.
+     * Name for the deployment strategy. Must be between 1 and 64 characters in length.
      */
     name?: pulumi.Input<string>;
     /**
@@ -232,7 +232,7 @@ export interface DeploymentStrategyArgs {
      */
     replicateTo: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

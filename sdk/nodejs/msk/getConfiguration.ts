@@ -44,7 +44,7 @@ export interface GetConfigurationArgs {
  */
 export interface GetConfigurationResult {
     /**
-     * Amazon Resource Name (ARN) of the configuration.
+     * ARN of the configuration.
      */
     readonly arn: string;
     /**

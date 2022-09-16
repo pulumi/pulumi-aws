@@ -17,14 +17,14 @@ public final class GetParametersByPathArgs extends com.pulumi.resources.InvokeAr
     public static final GetParametersByPathArgs Empty = new GetParametersByPathArgs();
 
     /**
-     * The prefix path of the parameter.
+     * Prefix path of the parameter.
      * 
      */
     @Import(name="path", required=true)
     private Output<String> path;
 
     /**
-     * @return The prefix path of the parameter.
+     * @return Prefix path of the parameter.
      * 
      */
     public Output<String> path() {
@@ -88,7 +88,7 @@ public final class GetParametersByPathArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param path The prefix path of the parameter.
+         * @param path Prefix path of the parameter.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class GetParametersByPathArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param path The prefix path of the parameter.
+         * @param path Prefix path of the parameter.
          * 
          * @return builder
          * 

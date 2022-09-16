@@ -58,11 +58,11 @@ import javax.annotation.Nullable;
  *             .subnetIds(aws_subnet.example().stream().map(element -&gt; element.id()).collect(toList()))
  *             .scalingConfig(NodeGroupScalingConfigArgs.builder()
  *                 .desiredSize(1)
- *                 .maxSize(1)
+ *                 .maxSize(2)
  *                 .minSize(1)
  *                 .build())
  *             .updateConfig(NodeGroupUpdateConfigArgs.builder()
- *                 .maxUnavailable(2)
+ *                 .maxUnavailable(1)
  *                 .build())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(                

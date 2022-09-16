@@ -95,7 +95,7 @@ namespace Pulumi.Aws.Acm
     public partial class CertificateValidation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the certificate that is being validated.
+        /// ARN of the certificate that is being validated.
         /// </summary>
         [Output("certificateArn")]
         public Output<string> CertificateArn { get; private set; } = null!;
@@ -153,7 +153,7 @@ namespace Pulumi.Aws.Acm
     public sealed class CertificateValidationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the certificate that is being validated.
+        /// ARN of the certificate that is being validated.
         /// </summary>
         [Input("certificateArn", required: true)]
         public Input<string> CertificateArn { get; set; } = null!;
@@ -179,7 +179,7 @@ namespace Pulumi.Aws.Acm
     public sealed class CertificateValidationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the certificate that is being validated.
+        /// ARN of the certificate that is being validated.
         /// </summary>
         [Input("certificateArn")]
         public Input<string>? CertificateArn { get; set; }

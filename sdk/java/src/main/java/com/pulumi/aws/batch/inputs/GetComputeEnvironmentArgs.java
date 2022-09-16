@@ -17,14 +17,14 @@ public final class GetComputeEnvironmentArgs extends com.pulumi.resources.Invoke
     public static final GetComputeEnvironmentArgs Empty = new GetComputeEnvironmentArgs();
 
     /**
-     * The name of the Batch Compute Environment
+     * Name of the Batch Compute Environment
      * 
      */
     @Import(name="computeEnvironmentName", required=true)
     private Output<String> computeEnvironmentName;
 
     /**
-     * @return The name of the Batch Compute Environment
+     * @return Name of the Batch Compute Environment
      * 
      */
     public Output<String> computeEnvironmentName() {
@@ -72,7 +72,7 @@ public final class GetComputeEnvironmentArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param computeEnvironmentName The name of the Batch Compute Environment
+         * @param computeEnvironmentName Name of the Batch Compute Environment
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class GetComputeEnvironmentArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param computeEnvironmentName The name of the Batch Compute Environment
+         * @param computeEnvironmentName Name of the Batch Compute Environment
          * 
          * @return builder
          * 

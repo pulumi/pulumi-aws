@@ -51,7 +51,7 @@ class GetSecretVersionResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The ARN of the secret.
+        ARN of the secret.
         """
         return pulumi.get(self, "arn")
 
@@ -67,7 +67,7 @@ class GetSecretVersionResult:
     @pulumi.getter(name="secretBinary")
     def secret_binary(self) -> str:
         """
-        The decrypted part of the protected secret information that was originally provided as a binary.
+        Decrypted part of the protected secret information that was originally provided as a binary.
         """
         return pulumi.get(self, "secret_binary")
 
@@ -80,7 +80,7 @@ class GetSecretVersionResult:
     @pulumi.getter(name="secretString")
     def secret_string(self) -> str:
         """
-        The decrypted part of the protected secret information that was originally provided as a string.
+        Decrypted part of the protected secret information that was originally provided as a string.
         """
         return pulumi.get(self, "secret_string")
 
@@ -88,7 +88,7 @@ class GetSecretVersionResult:
     @pulumi.getter(name="versionId")
     def version_id(self) -> str:
         """
-        The unique identifier of this version of the secret.
+        Unique identifier of this version of the secret.
         """
         return pulumi.get(self, "version_id")
 
@@ -148,7 +148,7 @@ def get_secret_version(secret_id: Optional[str] = None,
     ```
 
 
-    :param str secret_id: Specifies the secret containing the version that you want to retrieve. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
+    :param str secret_id: Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
     :param str version_id: Specifies the unique identifier of the version of the secret that you want to retrieve. Overrides `version_stage`.
     :param str version_stage: Specifies the secret version that you want to retrieve by the staging label attached to the version. Defaults to `AWSCURRENT`.
     """
@@ -200,7 +200,7 @@ def get_secret_version_output(secret_id: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str secret_id: Specifies the secret containing the version that you want to retrieve. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
+    :param str secret_id: Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
     :param str version_id: Specifies the unique identifier of the version of the secret that you want to retrieve. Overrides `version_stage`.
     :param str version_stage: Specifies the secret version that you want to retrieve by the staging label attached to the version. Defaults to `AWSCURRENT`.
     """

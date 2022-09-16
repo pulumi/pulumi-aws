@@ -105,8 +105,8 @@ def get_resource(path: Optional[str] = None,
     ```
 
 
-    :param str path: The full path of the resource.  If no path is found, an error will be returned.
-    :param str rest_api_id: The REST API id that owns the resource. If no REST API is found, an error will be returned.
+    :param str path: Full path of the resource.  If no path is found, an error will be returned.
+    :param str rest_api_id: REST API id that owns the resource. If no REST API is found, an error will be returned.
     """
     __args__ = dict()
     __args__['path'] = path
@@ -142,7 +142,7 @@ def get_resource_output(path: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str path: The full path of the resource.  If no path is found, an error will be returned.
-    :param str rest_api_id: The REST API id that owns the resource. If no REST API is found, an error will be returned.
+    :param str path: Full path of the resource.  If no path is found, an error will be returned.
+    :param str rest_api_id: REST API id that owns the resource. If no REST API is found, an error will be returned.
     """
     ...

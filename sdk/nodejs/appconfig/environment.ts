@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -70,19 +72,19 @@ export class Environment extends pulumi.CustomResource {
     }
 
     /**
-     * The AppConfig application ID. Must be between 4 and 7 characters in length.
+     * AppConfig application ID. Must be between 4 and 7 characters in length.
      */
     public readonly applicationId!: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the AppConfig Environment.
+     * ARN of the AppConfig Environment.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The description of the environment. Can be at most 1024 characters.
+     * Description of the environment. Can be at most 1024 characters.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The AppConfig environment ID.
+     * AppConfig environment ID.
      */
     public /*out*/ readonly environmentId!: pulumi.Output<string>;
     /**
@@ -90,16 +92,16 @@ export class Environment extends pulumi.CustomResource {
      */
     public readonly monitors!: pulumi.Output<outputs.appconfig.EnvironmentMonitor[] | undefined>;
     /**
-     * The name for the environment. Must be between 1 and 64 characters in length.
+     * Name for the environment. Must be between 1 and 64 characters in length.
      */
     public readonly name!: pulumi.Output<string>;
     public /*out*/ readonly state!: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -150,19 +152,19 @@ export class Environment extends pulumi.CustomResource {
  */
 export interface EnvironmentState {
     /**
-     * The AppConfig application ID. Must be between 4 and 7 characters in length.
+     * AppConfig application ID. Must be between 4 and 7 characters in length.
      */
     applicationId?: pulumi.Input<string>;
     /**
-     * The Amazon Resource Name (ARN) of the AppConfig Environment.
+     * ARN of the AppConfig Environment.
      */
     arn?: pulumi.Input<string>;
     /**
-     * The description of the environment. Can be at most 1024 characters.
+     * Description of the environment. Can be at most 1024 characters.
      */
     description?: pulumi.Input<string>;
     /**
-     * The AppConfig environment ID.
+     * AppConfig environment ID.
      */
     environmentId?: pulumi.Input<string>;
     /**
@@ -170,16 +172,16 @@ export interface EnvironmentState {
      */
     monitors?: pulumi.Input<pulumi.Input<inputs.appconfig.EnvironmentMonitor>[]>;
     /**
-     * The name for the environment. Must be between 1 and 64 characters in length.
+     * Name for the environment. Must be between 1 and 64 characters in length.
      */
     name?: pulumi.Input<string>;
     state?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -189,11 +191,11 @@ export interface EnvironmentState {
  */
 export interface EnvironmentArgs {
     /**
-     * The AppConfig application ID. Must be between 4 and 7 characters in length.
+     * AppConfig application ID. Must be between 4 and 7 characters in length.
      */
     applicationId: pulumi.Input<string>;
     /**
-     * The description of the environment. Can be at most 1024 characters.
+     * Description of the environment. Can be at most 1024 characters.
      */
     description?: pulumi.Input<string>;
     /**
@@ -201,11 +203,11 @@ export interface EnvironmentArgs {
      */
     monitors?: pulumi.Input<pulumi.Input<inputs.appconfig.EnvironmentMonitor>[]>;
     /**
-     * The name for the environment. Must be between 1 and 64 characters in length.
+     * Name for the environment. Must be between 1 and 64 characters in length.
      */
     name?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

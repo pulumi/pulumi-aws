@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AppRunner.Inputs
     public sealed class ServiceObservabilityConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the observability configuration that is associated with the service.
+        /// ARN of the observability configuration that is associated with the service.
         /// </summary>
         [Input("observabilityConfigurationArn", required: true)]
         public Input<string> ObservabilityConfigurationArn { get; set; } = null!;

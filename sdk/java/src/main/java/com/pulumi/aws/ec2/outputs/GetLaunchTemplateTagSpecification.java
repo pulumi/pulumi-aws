@@ -12,7 +12,7 @@ import java.util.Objects;
 public final class GetLaunchTemplateTagSpecification {
     private String resourceType;
     /**
-     * @return A map of tags, each pair of which must exactly match a pair on the desired Launch Template.
+     * @return Map of tags, each pair of which must exactly match a pair on the desired Launch Template.
      * 
      */
     private Map<String,String> tags;
@@ -22,7 +22,7 @@ public final class GetLaunchTemplateTagSpecification {
         return this.resourceType;
     }
     /**
-     * @return A map of tags, each pair of which must exactly match a pair on the desired Launch Template.
+     * @return Map of tags, each pair of which must exactly match a pair on the desired Launch Template.
      * 
      */
     public Map<String,String> tags() {

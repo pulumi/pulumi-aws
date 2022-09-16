@@ -13,14 +13,14 @@ public final class GetProductFilter extends com.pulumi.resources.InvokeArgs {
     public static final GetProductFilter Empty = new GetProductFilter();
 
     /**
-     * The product attribute name that you want to filter on.
+     * Product attribute name that you want to filter on.
      * 
      */
     @Import(name="field", required=true)
     private String field;
 
     /**
-     * @return The product attribute name that you want to filter on.
+     * @return Product attribute name that you want to filter on.
      * 
      */
     public String field() {
@@ -28,14 +28,14 @@ public final class GetProductFilter extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The product attribute value that you want to filter on.
+     * Product attribute value that you want to filter on.
      * 
      */
     @Import(name="value", required=true)
     private String value;
 
     /**
-     * @return The product attribute value that you want to filter on.
+     * @return Product attribute value that you want to filter on.
      * 
      */
     public String value() {
@@ -68,7 +68,7 @@ public final class GetProductFilter extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param field The product attribute name that you want to filter on.
+         * @param field Product attribute name that you want to filter on.
          * 
          * @return builder
          * 
@@ -79,7 +79,7 @@ public final class GetProductFilter extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param value The product attribute value that you want to filter on.
+         * @param value Product attribute value that you want to filter on.
          * 
          * @return builder
          * 

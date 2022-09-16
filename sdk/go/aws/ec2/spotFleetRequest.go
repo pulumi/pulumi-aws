@@ -79,6 +79,8 @@ type SpotFleetRequest struct {
 	// target capacity in terms of instances or a performance characteristic that is
 	// important to your application workload, such as vCPUs, memory, or I/O.
 	TargetCapacity pulumi.IntOutput `pulumi:"targetCapacity"`
+	// The unit for the target capacity. This can only be done with `instanceRequirements` defined
+	TargetCapacityUnitType pulumi.StringPtrOutput `pulumi:"targetCapacityUnitType"`
 	// A list of `alb.TargetGroup` ARNs, for use with Application Load Balancing.
 	TargetGroupArns pulumi.StringArrayOutput `pulumi:"targetGroupArns"`
 	// Indicates whether running Spot
@@ -189,6 +191,8 @@ type spotFleetRequestState struct {
 	// target capacity in terms of instances or a performance characteristic that is
 	// important to your application workload, such as vCPUs, memory, or I/O.
 	TargetCapacity *int `pulumi:"targetCapacity"`
+	// The unit for the target capacity. This can only be done with `instanceRequirements` defined
+	TargetCapacityUnitType *string `pulumi:"targetCapacityUnitType"`
 	// A list of `alb.TargetGroup` ARNs, for use with Application Load Balancing.
 	TargetGroupArns []string `pulumi:"targetGroupArns"`
 	// Indicates whether running Spot
@@ -265,6 +269,8 @@ type SpotFleetRequestState struct {
 	// target capacity in terms of instances or a performance characteristic that is
 	// important to your application workload, such as vCPUs, memory, or I/O.
 	TargetCapacity pulumi.IntPtrInput
+	// The unit for the target capacity. This can only be done with `instanceRequirements` defined
+	TargetCapacityUnitType pulumi.StringPtrInput
 	// A list of `alb.TargetGroup` ARNs, for use with Application Load Balancing.
 	TargetGroupArns pulumi.StringArrayInput
 	// Indicates whether running Spot
@@ -340,6 +346,8 @@ type spotFleetRequestArgs struct {
 	// target capacity in terms of instances or a performance characteristic that is
 	// important to your application workload, such as vCPUs, memory, or I/O.
 	TargetCapacity int `pulumi:"targetCapacity"`
+	// The unit for the target capacity. This can only be done with `instanceRequirements` defined
+	TargetCapacityUnitType *string `pulumi:"targetCapacityUnitType"`
 	// A list of `alb.TargetGroup` ARNs, for use with Application Load Balancing.
 	TargetGroupArns []string `pulumi:"targetGroupArns"`
 	// Indicates whether running Spot
@@ -412,6 +420,8 @@ type SpotFleetRequestArgs struct {
 	// target capacity in terms of instances or a performance characteristic that is
 	// important to your application workload, such as vCPUs, memory, or I/O.
 	TargetCapacity pulumi.IntInput
+	// The unit for the target capacity. This can only be done with `instanceRequirements` defined
+	TargetCapacityUnitType pulumi.StringPtrInput
 	// A list of `alb.TargetGroup` ARNs, for use with Application Load Balancing.
 	TargetGroupArns pulumi.StringArrayInput
 	// Indicates whether running Spot
@@ -638,6 +648,11 @@ func (o SpotFleetRequestOutput) TagsAll() pulumi.StringMapOutput {
 // important to your application workload, such as vCPUs, memory, or I/O.
 func (o SpotFleetRequestOutput) TargetCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v *SpotFleetRequest) pulumi.IntOutput { return v.TargetCapacity }).(pulumi.IntOutput)
+}
+
+// The unit for the target capacity. This can only be done with `instanceRequirements` defined
+func (o SpotFleetRequestOutput) TargetCapacityUnitType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequest) pulumi.StringPtrOutput { return v.TargetCapacityUnitType }).(pulumi.StringPtrOutput)
 }
 
 // A list of `alb.TargetGroup` ARNs, for use with Application Load Balancing.

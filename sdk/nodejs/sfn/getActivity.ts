@@ -36,11 +36,11 @@ export function getActivity(args?: GetActivityArgs, opts?: pulumi.InvokeOptions)
  */
 export interface GetActivityArgs {
     /**
-     * The Amazon Resource Name (ARN) that identifies the activity.
+     * ARN that identifies the activity.
      */
     arn?: string;
     /**
-     * The name that identifies the activity.
+     * Name that identifies the activity.
      */
     name?: string;
 }
@@ -51,7 +51,7 @@ export interface GetActivityArgs {
 export interface GetActivityResult {
     readonly arn: string;
     /**
-     * The date the activity was created.
+     * Date the activity was created.
      */
     readonly creationDate: string;
     /**
@@ -70,11 +70,11 @@ export function getActivityOutput(args?: GetActivityOutputArgs, opts?: pulumi.In
  */
 export interface GetActivityOutputArgs {
     /**
-     * The Amazon Resource Name (ARN) that identifies the activity.
+     * ARN that identifies the activity.
      */
     arn?: pulumi.Input<string>;
     /**
-     * The name that identifies the activity.
+     * Name that identifies the activity.
      */
     name?: pulumi.Input<string>;
 }

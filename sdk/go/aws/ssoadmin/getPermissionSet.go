@@ -22,11 +22,11 @@ func LookupPermissionSet(ctx *pulumi.Context, args *LookupPermissionSetArgs, opt
 
 // A collection of arguments for invoking getPermissionSet.
 type LookupPermissionSetArgs struct {
-	// The Amazon Resource Name (ARN) of the permission set.
+	// ARN of the permission set.
 	Arn *string `pulumi:"arn"`
-	// The Amazon Resource Name (ARN) of the SSO Instance associated with the permission set.
+	// ARN of the SSO Instance associated with the permission set.
 	InstanceArn string `pulumi:"instanceArn"`
-	// The name of the SSO Permission Set.
+	// Name of the SSO Permission Set.
 	Name *string `pulumi:"name"`
 	// Key-value map of resource tags.
 	Tags map[string]string `pulumi:"tags"`
@@ -36,15 +36,15 @@ type LookupPermissionSetArgs struct {
 type LookupPermissionSetResult struct {
 	Arn         string `pulumi:"arn"`
 	CreatedDate string `pulumi:"createdDate"`
-	// The description of the Permission Set.
+	// Description of the Permission Set.
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
 	Id          string `pulumi:"id"`
 	InstanceArn string `pulumi:"instanceArn"`
 	Name        string `pulumi:"name"`
-	// The relay state URL used to redirect users within the application during the federation authentication process.
+	// Relay state URL used to redirect users within the application during the federation authentication process.
 	RelayState string `pulumi:"relayState"`
-	// The length of time that the application user sessions are valid in the ISO-8601 standard.
+	// Length of time that the application user sessions are valid in the ISO-8601 standard.
 	SessionDuration string `pulumi:"sessionDuration"`
 	// Key-value map of resource tags.
 	Tags map[string]string `pulumi:"tags"`
@@ -65,11 +65,11 @@ func LookupPermissionSetOutput(ctx *pulumi.Context, args LookupPermissionSetOutp
 
 // A collection of arguments for invoking getPermissionSet.
 type LookupPermissionSetOutputArgs struct {
-	// The Amazon Resource Name (ARN) of the permission set.
+	// ARN of the permission set.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
-	// The Amazon Resource Name (ARN) of the SSO Instance associated with the permission set.
+	// ARN of the SSO Instance associated with the permission set.
 	InstanceArn pulumi.StringInput `pulumi:"instanceArn"`
-	// The name of the SSO Permission Set.
+	// Name of the SSO Permission Set.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Key-value map of resource tags.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -102,7 +102,7 @@ func (o LookupPermissionSetResultOutput) CreatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPermissionSetResult) string { return v.CreatedDate }).(pulumi.StringOutput)
 }
 
-// The description of the Permission Set.
+// Description of the Permission Set.
 func (o LookupPermissionSetResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPermissionSetResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -120,12 +120,12 @@ func (o LookupPermissionSetResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPermissionSetResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The relay state URL used to redirect users within the application during the federation authentication process.
+// Relay state URL used to redirect users within the application during the federation authentication process.
 func (o LookupPermissionSetResultOutput) RelayState() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPermissionSetResult) string { return v.RelayState }).(pulumi.StringOutput)
 }
 
-// The length of time that the application user sessions are valid in the ISO-8601 standard.
+// Length of time that the application user sessions are valid in the ISO-8601 standard.
 func (o LookupPermissionSetResultOutput) SessionDuration() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPermissionSetResult) string { return v.SessionDuration }).(pulumi.StringOutput)
 }

@@ -137,7 +137,7 @@ namespace Pulumi.Aws.Efs
         /// </summary>
         public readonly string AvailabilityZoneName;
         /// <summary>
-        /// The DNS name for the EFS file system.
+        /// DNS name for the EFS file system.
         /// </summary>
         public readonly string DnsName;
         /// <summary>

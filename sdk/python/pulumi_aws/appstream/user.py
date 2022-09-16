@@ -24,7 +24,7 @@ class UserArgs:
         The set of arguments for constructing a User resource.
         :param pulumi.Input[str] authentication_type: Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
         :param pulumi.Input[str] user_name: Email address of the user.
-        :param pulumi.Input[bool] enabled: Specifies whether the user in the user pool is enabled.
+        :param pulumi.Input[bool] enabled: Whether the user in the user pool is enabled.
         :param pulumi.Input[str] first_name: First name, or given name, of the user.
         :param pulumi.Input[str] last_name: Last name, or surname, of the user.
         :param pulumi.Input[bool] send_email_notification: Send an email notification.
@@ -68,7 +68,7 @@ class UserArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies whether the user in the user pool is enabled.
+        Whether the user in the user pool is enabled.
         """
         return pulumi.get(self, "enabled")
 
@@ -129,7 +129,7 @@ class _UserState:
         :param pulumi.Input[str] arn: ARN of the appstream user.
         :param pulumi.Input[str] authentication_type: Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
         :param pulumi.Input[str] created_time: Date and time, in UTC and extended RFC 3339 format, when the user was created.
-        :param pulumi.Input[bool] enabled: Specifies whether the user in the user pool is enabled.
+        :param pulumi.Input[bool] enabled: Whether the user in the user pool is enabled.
         :param pulumi.Input[str] first_name: First name, or given name, of the user.
         :param pulumi.Input[str] last_name: Last name, or surname, of the user.
         :param pulumi.Input[bool] send_email_notification: Send an email notification.
@@ -192,7 +192,7 @@ class _UserState:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies whether the user in the user pool is enabled.
+        Whether the user in the user pool is enabled.
         """
         return pulumi.get(self, "enabled")
 
@@ -288,7 +288,7 @@ class User(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authentication_type: Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
-        :param pulumi.Input[bool] enabled: Specifies whether the user in the user pool is enabled.
+        :param pulumi.Input[bool] enabled: Whether the user in the user pool is enabled.
         :param pulumi.Input[str] first_name: First name, or given name, of the user.
         :param pulumi.Input[str] last_name: Last name, or surname, of the user.
         :param pulumi.Input[bool] send_email_notification: Send an email notification.
@@ -394,7 +394,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] arn: ARN of the appstream user.
         :param pulumi.Input[str] authentication_type: Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
         :param pulumi.Input[str] created_time: Date and time, in UTC and extended RFC 3339 format, when the user was created.
-        :param pulumi.Input[bool] enabled: Specifies whether the user in the user pool is enabled.
+        :param pulumi.Input[bool] enabled: Whether the user in the user pool is enabled.
         :param pulumi.Input[str] first_name: First name, or given name, of the user.
         :param pulumi.Input[str] last_name: Last name, or surname, of the user.
         :param pulumi.Input[bool] send_email_notification: Send an email notification.
@@ -442,7 +442,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Specifies whether the user in the user pool is enabled.
+        Whether the user in the user pool is enabled.
         """
         return pulumi.get(self, "enabled")
 

@@ -5,39 +5,96 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./byteMatchSet";
-export * from "./geoMatchSet";
-export * from "./getIpset";
-export * from "./getRateBasedMod";
-export * from "./getRule";
-export * from "./getSubscribedRuleGroup";
-export * from "./getWebAcl";
-export * from "./ipSet";
-export * from "./rateBasedRule";
-export * from "./regexMatchSet";
-export * from "./regexPatternSet";
-export * from "./rule";
-export * from "./ruleGroup";
-export * from "./sizeConstraintSet";
-export * from "./sqlInjectionMatchSet";
-export * from "./webAcl";
-export * from "./webAclAssociation";
-export * from "./xssMatchSet";
+export { ByteMatchSetArgs, ByteMatchSetState } from "./byteMatchSet";
+export type ByteMatchSet = import("./byteMatchSet").ByteMatchSet;
+export const ByteMatchSet: typeof import("./byteMatchSet").ByteMatchSet = null as any;
 
-// Import resources to register:
-import { ByteMatchSet } from "./byteMatchSet";
-import { GeoMatchSet } from "./geoMatchSet";
-import { IpSet } from "./ipSet";
-import { RateBasedRule } from "./rateBasedRule";
-import { RegexMatchSet } from "./regexMatchSet";
-import { RegexPatternSet } from "./regexPatternSet";
-import { Rule } from "./rule";
-import { RuleGroup } from "./ruleGroup";
-import { SizeConstraintSet } from "./sizeConstraintSet";
-import { SqlInjectionMatchSet } from "./sqlInjectionMatchSet";
-import { WebAcl } from "./webAcl";
-import { WebAclAssociation } from "./webAclAssociation";
-import { XssMatchSet } from "./xssMatchSet";
+export { GeoMatchSetArgs, GeoMatchSetState } from "./geoMatchSet";
+export type GeoMatchSet = import("./geoMatchSet").GeoMatchSet;
+export const GeoMatchSet: typeof import("./geoMatchSet").GeoMatchSet = null as any;
+
+export { GetIpsetArgs, GetIpsetResult, GetIpsetOutputArgs } from "./getIpset";
+export const getIpset: typeof import("./getIpset").getIpset = null as any;
+export const getIpsetOutput: typeof import("./getIpset").getIpsetOutput = null as any;
+
+export { GetRateBasedModArgs, GetRateBasedModResult, GetRateBasedModOutputArgs } from "./getRateBasedMod";
+export const getRateBasedMod: typeof import("./getRateBasedMod").getRateBasedMod = null as any;
+export const getRateBasedModOutput: typeof import("./getRateBasedMod").getRateBasedModOutput = null as any;
+
+export { GetRuleArgs, GetRuleResult, GetRuleOutputArgs } from "./getRule";
+export const getRule: typeof import("./getRule").getRule = null as any;
+export const getRuleOutput: typeof import("./getRule").getRuleOutput = null as any;
+
+export { GetSubscribedRuleGroupArgs, GetSubscribedRuleGroupResult, GetSubscribedRuleGroupOutputArgs } from "./getSubscribedRuleGroup";
+export const getSubscribedRuleGroup: typeof import("./getSubscribedRuleGroup").getSubscribedRuleGroup = null as any;
+export const getSubscribedRuleGroupOutput: typeof import("./getSubscribedRuleGroup").getSubscribedRuleGroupOutput = null as any;
+
+export { GetWebAclArgs, GetWebAclResult, GetWebAclOutputArgs } from "./getWebAcl";
+export const getWebAcl: typeof import("./getWebAcl").getWebAcl = null as any;
+export const getWebAclOutput: typeof import("./getWebAcl").getWebAclOutput = null as any;
+
+export { IpSetArgs, IpSetState } from "./ipSet";
+export type IpSet = import("./ipSet").IpSet;
+export const IpSet: typeof import("./ipSet").IpSet = null as any;
+
+export { RateBasedRuleArgs, RateBasedRuleState } from "./rateBasedRule";
+export type RateBasedRule = import("./rateBasedRule").RateBasedRule;
+export const RateBasedRule: typeof import("./rateBasedRule").RateBasedRule = null as any;
+
+export { RegexMatchSetArgs, RegexMatchSetState } from "./regexMatchSet";
+export type RegexMatchSet = import("./regexMatchSet").RegexMatchSet;
+export const RegexMatchSet: typeof import("./regexMatchSet").RegexMatchSet = null as any;
+
+export { RegexPatternSetArgs, RegexPatternSetState } from "./regexPatternSet";
+export type RegexPatternSet = import("./regexPatternSet").RegexPatternSet;
+export const RegexPatternSet: typeof import("./regexPatternSet").RegexPatternSet = null as any;
+
+export { RuleArgs, RuleState } from "./rule";
+export type Rule = import("./rule").Rule;
+export const Rule: typeof import("./rule").Rule = null as any;
+
+export { RuleGroupArgs, RuleGroupState } from "./ruleGroup";
+export type RuleGroup = import("./ruleGroup").RuleGroup;
+export const RuleGroup: typeof import("./ruleGroup").RuleGroup = null as any;
+
+export { SizeConstraintSetArgs, SizeConstraintSetState } from "./sizeConstraintSet";
+export type SizeConstraintSet = import("./sizeConstraintSet").SizeConstraintSet;
+export const SizeConstraintSet: typeof import("./sizeConstraintSet").SizeConstraintSet = null as any;
+
+export { SqlInjectionMatchSetArgs, SqlInjectionMatchSetState } from "./sqlInjectionMatchSet";
+export type SqlInjectionMatchSet = import("./sqlInjectionMatchSet").SqlInjectionMatchSet;
+export const SqlInjectionMatchSet: typeof import("./sqlInjectionMatchSet").SqlInjectionMatchSet = null as any;
+
+export { WebAclArgs, WebAclState } from "./webAcl";
+export type WebAcl = import("./webAcl").WebAcl;
+export const WebAcl: typeof import("./webAcl").WebAcl = null as any;
+
+export { WebAclAssociationArgs, WebAclAssociationState } from "./webAclAssociation";
+export type WebAclAssociation = import("./webAclAssociation").WebAclAssociation;
+export const WebAclAssociation: typeof import("./webAclAssociation").WebAclAssociation = null as any;
+
+export { XssMatchSetArgs, XssMatchSetState } from "./xssMatchSet";
+export type XssMatchSet = import("./xssMatchSet").XssMatchSet;
+export const XssMatchSet: typeof import("./xssMatchSet").XssMatchSet = null as any;
+
+utilities.lazyLoad(exports, ["ByteMatchSet"], () => require("./byteMatchSet"));
+utilities.lazyLoad(exports, ["GeoMatchSet"], () => require("./geoMatchSet"));
+utilities.lazyLoad(exports, ["getIpset","getIpsetOutput"], () => require("./getIpset"));
+utilities.lazyLoad(exports, ["getRateBasedMod","getRateBasedModOutput"], () => require("./getRateBasedMod"));
+utilities.lazyLoad(exports, ["getRule","getRuleOutput"], () => require("./getRule"));
+utilities.lazyLoad(exports, ["getSubscribedRuleGroup","getSubscribedRuleGroupOutput"], () => require("./getSubscribedRuleGroup"));
+utilities.lazyLoad(exports, ["getWebAcl","getWebAclOutput"], () => require("./getWebAcl"));
+utilities.lazyLoad(exports, ["IpSet"], () => require("./ipSet"));
+utilities.lazyLoad(exports, ["RateBasedRule"], () => require("./rateBasedRule"));
+utilities.lazyLoad(exports, ["RegexMatchSet"], () => require("./regexMatchSet"));
+utilities.lazyLoad(exports, ["RegexPatternSet"], () => require("./regexPatternSet"));
+utilities.lazyLoad(exports, ["Rule"], () => require("./rule"));
+utilities.lazyLoad(exports, ["RuleGroup"], () => require("./ruleGroup"));
+utilities.lazyLoad(exports, ["SizeConstraintSet"], () => require("./sizeConstraintSet"));
+utilities.lazyLoad(exports, ["SqlInjectionMatchSet"], () => require("./sqlInjectionMatchSet"));
+utilities.lazyLoad(exports, ["WebAcl"], () => require("./webAcl"));
+utilities.lazyLoad(exports, ["WebAclAssociation"], () => require("./webAclAssociation"));
+utilities.lazyLoad(exports, ["XssMatchSet"], () => require("./xssMatchSet"));
 
 const _module = {
     version: utilities.getVersion(),

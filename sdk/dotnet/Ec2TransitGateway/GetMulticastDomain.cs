@@ -206,7 +206,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     public sealed class GetMulticastDomainResult
     {
         /// <summary>
-        /// EC2 Transit Gateway Multicast Domain Amazon Resource Name (ARN).
+        /// EC2 Transit Gateway Multicast Domain ARN.
         /// </summary>
         public readonly string Arn;
         /// <summary>

@@ -122,7 +122,7 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:autoscaling/attachment:Attachment")
 public class Attachment extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of an ALB Target Group.
+     * ARN of an ALB Target Group.
      * 
      * @deprecated
      * Use lb_target_group_arn instead
@@ -133,7 +133,7 @@ public class Attachment extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> albTargetGroupArn;
 
     /**
-     * @return The ARN of an ALB Target Group.
+     * @return ARN of an ALB Target Group.
      * 
      */
     public Output<Optional<String>> albTargetGroupArn() {
@@ -154,28 +154,28 @@ public class Attachment extends com.pulumi.resources.CustomResource {
         return this.autoscalingGroupName;
     }
     /**
-     * The name of the ELB.
+     * Name of the ELB.
      * 
      */
     @Export(name="elb", type=String.class, parameters={})
     private Output</* @Nullable */ String> elb;
 
     /**
-     * @return The name of the ELB.
+     * @return Name of the ELB.
      * 
      */
     public Output<Optional<String>> elb() {
         return Codegen.optional(this.elb);
     }
     /**
-     * The ARN of a load balancer target group.
+     * ARN of a load balancer target group.
      * 
      */
     @Export(name="lbTargetGroupArn", type=String.class, parameters={})
     private Output</* @Nullable */ String> lbTargetGroupArn;
 
     /**
-     * @return The ARN of a load balancer target group.
+     * @return ARN of a load balancer target group.
      * 
      */
     public Output<Optional<String>> lbTargetGroupArn() {

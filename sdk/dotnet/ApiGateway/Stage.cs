@@ -146,19 +146,19 @@ namespace Pulumi.Aws.ApiGateway
         public Output<Outputs.StageAccessLogSettings?> AccessLogSettings { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN)
+        /// ARN
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether a cache cluster is enabled for the stage
+        /// Whether a cache cluster is enabled for the stage
         /// </summary>
         [Output("cacheClusterEnabled")]
         public Output<bool?> CacheClusterEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
+        /// Size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
         /// </summary>
         [Output("cacheClusterSize")]
         public Output<string?> CacheClusterSize { get; private set; } = null!;
@@ -170,31 +170,31 @@ namespace Pulumi.Aws.ApiGateway
         public Output<Outputs.StageCanarySettings?> CanarySettings { get; private set; } = null!;
 
         /// <summary>
-        /// The identifier of a client certificate for the stage.
+        /// Identifier of a client certificate for the stage.
         /// </summary>
         [Output("clientCertificateId")]
         public Output<string?> ClientCertificateId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the deployment that the stage points to
+        /// ID of the deployment that the stage points to
         /// </summary>
         [Output("deployment")]
         public Output<string> Deployment { get; private set; } = null!;
 
         /// <summary>
-        /// The description of the stage.
+        /// Description of the stage.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The version of the associated API documentation
+        /// Version of the associated API documentation
         /// </summary>
         [Output("documentationVersion")]
         public Output<string?> DocumentationVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The execution ARN to be used in `lambda_permission`'s `source_arn`
+        /// Execution ARN to be used in `lambda_permission`'s `source_arn`
         /// when allowing API Gateway to invoke a Lambda function,
         /// e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
         /// </summary>
@@ -202,41 +202,44 @@ namespace Pulumi.Aws.ApiGateway
         public Output<string> ExecutionArn { get; private set; } = null!;
 
         /// <summary>
-        /// The URL to invoke the API pointing to the stage,
+        /// URL to invoke the API pointing to the stage,
         /// e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
         /// </summary>
         [Output("invokeUrl")]
         public Output<string> InvokeUrl { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the associated REST API
+        /// ID of the associated REST API
         /// </summary>
         [Output("restApi")]
         public Output<string> RestApi { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the stage
+        /// Name of the stage
         /// </summary>
         [Output("stageName")]
         public Output<string> StageName { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// A map that defines the stage variables
+        /// Map that defines the stage variables
         /// </summary>
         [Output("variables")]
         public Output<ImmutableDictionary<string, string>?> Variables { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the WebAcl associated with the Stage.
+        /// ARN of the WebAcl associated with the Stage.
         /// </summary>
         [Output("webAclArn")]
         public Output<string> WebAclArn { get; private set; } = null!;
@@ -300,13 +303,13 @@ namespace Pulumi.Aws.ApiGateway
         public Input<Inputs.StageAccessLogSettingsArgs>? AccessLogSettings { get; set; }
 
         /// <summary>
-        /// Specifies whether a cache cluster is enabled for the stage
+        /// Whether a cache cluster is enabled for the stage
         /// </summary>
         [Input("cacheClusterEnabled")]
         public Input<bool>? CacheClusterEnabled { get; set; }
 
         /// <summary>
-        /// The size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
+        /// Size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
         /// </summary>
         [Input("cacheClusterSize")]
         public Input<string>? CacheClusterSize { get; set; }
@@ -318,37 +321,37 @@ namespace Pulumi.Aws.ApiGateway
         public Input<Inputs.StageCanarySettingsArgs>? CanarySettings { get; set; }
 
         /// <summary>
-        /// The identifier of a client certificate for the stage.
+        /// Identifier of a client certificate for the stage.
         /// </summary>
         [Input("clientCertificateId")]
         public Input<string>? ClientCertificateId { get; set; }
 
         /// <summary>
-        /// The ID of the deployment that the stage points to
+        /// ID of the deployment that the stage points to
         /// </summary>
         [Input("deployment", required: true)]
         public Input<string> Deployment { get; set; } = null!;
 
         /// <summary>
-        /// The description of the stage.
+        /// Description of the stage.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The version of the associated API documentation
+        /// Version of the associated API documentation
         /// </summary>
         [Input("documentationVersion")]
         public Input<string>? DocumentationVersion { get; set; }
 
         /// <summary>
-        /// The ID of the associated REST API
+        /// ID of the associated REST API
         /// </summary>
         [Input("restApi", required: true)]
         public Input<string> RestApi { get; set; } = null!;
 
         /// <summary>
-        /// The name of the stage
+        /// Name of the stage
         /// </summary>
         [Input("stageName", required: true)]
         public Input<string> StageName { get; set; } = null!;
@@ -357,7 +360,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -369,7 +372,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputMap<string>? _variables;
 
         /// <summary>
-        /// A map that defines the stage variables
+        /// Map that defines the stage variables
         /// </summary>
         public InputMap<string> Variables
         {
@@ -398,19 +401,19 @@ namespace Pulumi.Aws.ApiGateway
         public Input<Inputs.StageAccessLogSettingsGetArgs>? AccessLogSettings { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN)
+        /// ARN
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Specifies whether a cache cluster is enabled for the stage
+        /// Whether a cache cluster is enabled for the stage
         /// </summary>
         [Input("cacheClusterEnabled")]
         public Input<bool>? CacheClusterEnabled { get; set; }
 
         /// <summary>
-        /// The size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
+        /// Size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
         /// </summary>
         [Input("cacheClusterSize")]
         public Input<string>? CacheClusterSize { get; set; }
@@ -422,31 +425,31 @@ namespace Pulumi.Aws.ApiGateway
         public Input<Inputs.StageCanarySettingsGetArgs>? CanarySettings { get; set; }
 
         /// <summary>
-        /// The identifier of a client certificate for the stage.
+        /// Identifier of a client certificate for the stage.
         /// </summary>
         [Input("clientCertificateId")]
         public Input<string>? ClientCertificateId { get; set; }
 
         /// <summary>
-        /// The ID of the deployment that the stage points to
+        /// ID of the deployment that the stage points to
         /// </summary>
         [Input("deployment")]
         public Input<string>? Deployment { get; set; }
 
         /// <summary>
-        /// The description of the stage.
+        /// Description of the stage.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The version of the associated API documentation
+        /// Version of the associated API documentation
         /// </summary>
         [Input("documentationVersion")]
         public Input<string>? DocumentationVersion { get; set; }
 
         /// <summary>
-        /// The execution ARN to be used in `lambda_permission`'s `source_arn`
+        /// Execution ARN to be used in `lambda_permission`'s `source_arn`
         /// when allowing API Gateway to invoke a Lambda function,
         /// e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
         /// </summary>
@@ -454,20 +457,20 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? ExecutionArn { get; set; }
 
         /// <summary>
-        /// The URL to invoke the API pointing to the stage,
+        /// URL to invoke the API pointing to the stage,
         /// e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
         /// </summary>
         [Input("invokeUrl")]
         public Input<string>? InvokeUrl { get; set; }
 
         /// <summary>
-        /// The ID of the associated REST API
+        /// ID of the associated REST API
         /// </summary>
         [Input("restApi")]
         public Input<string>? RestApi { get; set; }
 
         /// <summary>
-        /// The name of the stage
+        /// Name of the stage
         /// </summary>
         [Input("stageName")]
         public Input<string>? StageName { get; set; }
@@ -476,7 +479,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -486,6 +489,10 @@ namespace Pulumi.Aws.ApiGateway
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -496,7 +503,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputMap<string>? _variables;
 
         /// <summary>
-        /// A map that defines the stage variables
+        /// Map that defines the stage variables
         /// </summary>
         public InputMap<string> Variables
         {
@@ -505,7 +512,7 @@ namespace Pulumi.Aws.ApiGateway
         }
 
         /// <summary>
-        /// The ARN of the WebAcl associated with the Stage.
+        /// ARN of the WebAcl associated with the Stage.
         /// </summary>
         [Input("webAclArn")]
         public Input<string>? WebAclArn { get; set; }

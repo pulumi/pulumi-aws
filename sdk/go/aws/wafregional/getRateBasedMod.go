@@ -48,7 +48,7 @@ func GetRateBasedMod(ctx *pulumi.Context, args *GetRateBasedModArgs, opts ...pul
 
 // A collection of arguments for invoking getRateBasedMod.
 type GetRateBasedModArgs struct {
-	// The name of the WAF Regional rate based rule.
+	// Name of the WAF Regional rate based rule.
 	Name string `pulumi:"name"`
 }
 
@@ -74,7 +74,7 @@ func GetRateBasedModOutput(ctx *pulumi.Context, args GetRateBasedModOutputArgs, 
 
 // A collection of arguments for invoking getRateBasedMod.
 type GetRateBasedModOutputArgs struct {
-	// The name of the WAF Regional rate based rule.
+	// Name of the WAF Regional rate based rule.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 

@@ -36,11 +36,11 @@ export function getSelection(args: GetSelectionArgs, opts?: pulumi.InvokeOptions
  */
 export interface GetSelectionArgs {
     /**
-     * The backup plan ID associated with the selection of resources.
+     * Backup plan ID associated with the selection of resources.
      */
     planId: string;
     /**
-     * The backup selection ID.
+     * Backup selection ID.
      */
     selectionId: string;
 }
@@ -50,7 +50,7 @@ export interface GetSelectionArgs {
  */
 export interface GetSelectionResult {
     /**
-     * The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
+     * ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
      */
     readonly iamRoleArn: string;
     /**
@@ -58,7 +58,7 @@ export interface GetSelectionResult {
      */
     readonly id: string;
     /**
-     * The display name of a resource selection document.
+     * Display name of a resource selection document.
      */
     readonly name: string;
     readonly planId: string;
@@ -78,11 +78,11 @@ export function getSelectionOutput(args: GetSelectionOutputArgs, opts?: pulumi.I
  */
 export interface GetSelectionOutputArgs {
     /**
-     * The backup plan ID associated with the selection of resources.
+     * Backup plan ID associated with the selection of resources.
      */
     planId: pulumi.Input<string>;
     /**
-     * The backup selection ID.
+     * Backup selection ID.
      */
     selectionId: pulumi.Input<string>;
 }

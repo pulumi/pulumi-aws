@@ -40,11 +40,11 @@ export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOpt
  */
 export interface GetApplicationArgs {
     /**
-     * The ARN of the application.
+     * ARN of the application.
      */
     applicationId: string;
     /**
-     * The requested version of the application. By default, retrieves the latest version.
+     * Requested version of the application. By default, retrieves the latest version.
      */
     semanticVersion?: string;
 }
@@ -54,7 +54,7 @@ export interface GetApplicationArgs {
  */
 export interface GetApplicationResult {
     /**
-     * The ARN of the application.
+     * ARN of the application.
      */
     readonly applicationId: string;
     /**
@@ -62,7 +62,7 @@ export interface GetApplicationResult {
      */
     readonly id: string;
     /**
-     * The name of the application.
+     * Name of the application.
      */
     readonly name: string;
     /**
@@ -71,11 +71,11 @@ export interface GetApplicationResult {
     readonly requiredCapabilities: string[];
     readonly semanticVersion: string;
     /**
-     * A URL pointing to the source code of the application version.
+     * URL pointing to the source code of the application version.
      */
     readonly sourceCodeUrl: string;
     /**
-     * A URL pointing to the Cloud Formation template for the application version.
+     * URL pointing to the Cloud Formation template for the application version.
      */
     readonly templateUrl: string;
 }
@@ -89,11 +89,11 @@ export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulu
  */
 export interface GetApplicationOutputArgs {
     /**
-     * The ARN of the application.
+     * ARN of the application.
      */
     applicationId: pulumi.Input<string>;
     /**
-     * The requested version of the application. By default, retrieves the latest version.
+     * Requested version of the application. By default, retrieves the latest version.
      */
     semanticVersion?: pulumi.Input<string>;
 }

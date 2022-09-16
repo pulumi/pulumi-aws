@@ -39,18 +39,18 @@ export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise
  */
 export interface GetUserArgs {
     /**
-     * A string for what access a user possesses within the associated ElastiCache replication groups or clusters.
+     * String for what access a user possesses within the associated ElastiCache replication groups or clusters.
      */
     accessString?: string;
     engine?: string;
     noPasswordRequired?: boolean;
     passwords?: string[];
     /**
-     * The identifier for the user.
+     * Identifier for the user.
      */
     userId: string;
     /**
-     * The user name of the user.
+     * User name of the user.
      */
     userName?: string;
 }
@@ -60,7 +60,7 @@ export interface GetUserArgs {
  */
 export interface GetUserResult {
     /**
-     * A string for what access a user possesses within the associated ElastiCache replication groups or clusters.
+     * String for what access a user possesses within the associated ElastiCache replication groups or clusters.
      */
     readonly accessString?: string;
     readonly engine?: string;
@@ -71,11 +71,11 @@ export interface GetUserResult {
     readonly noPasswordRequired?: boolean;
     readonly passwords?: string[];
     /**
-     * The identifier for the user.
+     * Identifier for the user.
      */
     readonly userId: string;
     /**
-     * The user name of the user.
+     * User name of the user.
      */
     readonly userName?: string;
 }
@@ -89,18 +89,18 @@ export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptio
  */
 export interface GetUserOutputArgs {
     /**
-     * A string for what access a user possesses within the associated ElastiCache replication groups or clusters.
+     * String for what access a user possesses within the associated ElastiCache replication groups or clusters.
      */
     accessString?: pulumi.Input<string>;
     engine?: pulumi.Input<string>;
     noPasswordRequired?: pulumi.Input<boolean>;
     passwords?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The identifier for the user.
+     * Identifier for the user.
      */
     userId: pulumi.Input<string>;
     /**
-     * The user name of the user.
+     * User name of the user.
      */
     userName?: pulumi.Input<string>;
 }

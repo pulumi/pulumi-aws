@@ -110,7 +110,7 @@ namespace Pulumi.Aws.Connect
         public Output<bool?> ContactLensEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies when the instance was created.
+        /// When the instance was created.
         /// </summary>
         [Output("createdTime")]
         public Output<string> CreatedTime { get; private set; } = null!;
@@ -147,7 +147,7 @@ namespace Pulumi.Aws.Connect
 
         /// <summary>
         /// Specifies whether outbound calls are enabled.
-        /// &lt;!-- * `use_custom_tts_voices` - (Optional) Specifies Whether use custom tts voices is enabled. Defaults to `false` --&gt;
+        /// &lt;!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --&gt;
         /// </summary>
         [Output("outboundCallsEnabled")]
         public Output<bool> OutboundCallsEnabled { get; private set; } = null!;
@@ -260,7 +260,7 @@ namespace Pulumi.Aws.Connect
 
         /// <summary>
         /// Specifies whether outbound calls are enabled.
-        /// &lt;!-- * `use_custom_tts_voices` - (Optional) Specifies Whether use custom tts voices is enabled. Defaults to `false` --&gt;
+        /// &lt;!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --&gt;
         /// </summary>
         [Input("outboundCallsEnabled", required: true)]
         public Input<bool> OutboundCallsEnabled { get; set; } = null!;
@@ -298,7 +298,7 @@ namespace Pulumi.Aws.Connect
         public Input<bool>? ContactLensEnabled { get; set; }
 
         /// <summary>
-        /// Specifies when the instance was created.
+        /// When the instance was created.
         /// </summary>
         [Input("createdTime")]
         public Input<string>? CreatedTime { get; set; }
@@ -335,7 +335,7 @@ namespace Pulumi.Aws.Connect
 
         /// <summary>
         /// Specifies whether outbound calls are enabled.
-        /// &lt;!-- * `use_custom_tts_voices` - (Optional) Specifies Whether use custom tts voices is enabled. Defaults to `false` --&gt;
+        /// &lt;!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --&gt;
         /// </summary>
         [Input("outboundCallsEnabled")]
         public Input<bool>? OutboundCallsEnabled { get; set; }

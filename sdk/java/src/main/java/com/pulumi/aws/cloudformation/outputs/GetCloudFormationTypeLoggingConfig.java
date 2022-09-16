@@ -15,7 +15,7 @@ public final class GetCloudFormationTypeLoggingConfig {
      */
     private String logGroupName;
     /**
-     * @return Amazon Resource Name (ARN) of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
+     * @return ARN of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
      * 
      */
     private String logRoleArn;
@@ -29,7 +29,7 @@ public final class GetCloudFormationTypeLoggingConfig {
         return this.logGroupName;
     }
     /**
-     * @return Amazon Resource Name (ARN) of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
+     * @return ARN of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
      * 
      */
     public String logRoleArn() {

@@ -19,14 +19,14 @@ public final class GetVpcDhcpOptionsArgs extends com.pulumi.resources.InvokeArgs
     public static final GetVpcDhcpOptionsArgs Empty = new GetVpcDhcpOptionsArgs();
 
     /**
-     * The EC2 DHCP Options ID.
+     * EC2 DHCP Options ID.
      * 
      */
     @Import(name="dhcpOptionsId")
     private @Nullable Output<String> dhcpOptionsId;
 
     /**
-     * @return The EC2 DHCP Options ID.
+     * @return EC2 DHCP Options ID.
      * 
      */
     public Optional<Output<String>> dhcpOptionsId() {
@@ -49,14 +49,14 @@ public final class GetVpcDhcpOptionsArgs extends com.pulumi.resources.InvokeArgs
     }
 
     /**
-     * A map of tags assigned to the resource.
+     * Map of tags assigned to the resource.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags assigned to the resource.
+     * @return Map of tags assigned to the resource.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -90,7 +90,7 @@ public final class GetVpcDhcpOptionsArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param dhcpOptionsId The EC2 DHCP Options ID.
+         * @param dhcpOptionsId EC2 DHCP Options ID.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class GetVpcDhcpOptionsArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param dhcpOptionsId The EC2 DHCP Options ID.
+         * @param dhcpOptionsId EC2 DHCP Options ID.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class GetVpcDhcpOptionsArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param tags A map of tags assigned to the resource.
+         * @param tags Map of tags assigned to the resource.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class GetVpcDhcpOptionsArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param tags A map of tags assigned to the resource.
+         * @param tags Map of tags assigned to the resource.
          * 
          * @return builder
          * 

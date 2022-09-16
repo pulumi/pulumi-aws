@@ -15,12 +15,12 @@ public final class GetClusterClusterNode {
      */
     private String nodeRole;
     /**
-     * @return The private IP address of a node within a cluster
+     * @return Private IP address of a node within a cluster
      * 
      */
     private String privateIpAddress;
     /**
-     * @return The public IP address of a node within a cluster
+     * @return Public IP address of a node within a cluster
      * 
      */
     private String publicIpAddress;
@@ -34,14 +34,14 @@ public final class GetClusterClusterNode {
         return this.nodeRole;
     }
     /**
-     * @return The private IP address of a node within a cluster
+     * @return Private IP address of a node within a cluster
      * 
      */
     public String privateIpAddress() {
         return this.privateIpAddress;
     }
     /**
-     * @return The public IP address of a node within a cluster
+     * @return Public IP address of a node within a cluster
      * 
      */
     public String publicIpAddress() {

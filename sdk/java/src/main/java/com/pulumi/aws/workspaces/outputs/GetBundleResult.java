@@ -36,7 +36,7 @@ public final class GetBundleResult {
      */
     private String id;
     /**
-     * @return The name of the compute type.
+     * @return Name of the compute type.
      * 
      */
     private @Nullable String name;
@@ -86,7 +86,7 @@ public final class GetBundleResult {
         return this.id;
     }
     /**
-     * @return The name of the compute type.
+     * @return Name of the compute type.
      * 
      */
     public Optional<String> name() {

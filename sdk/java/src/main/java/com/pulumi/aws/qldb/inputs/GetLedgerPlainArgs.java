@@ -16,14 +16,14 @@ public final class GetLedgerPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetLedgerPlainArgs Empty = new GetLedgerPlainArgs();
 
     /**
-     * The friendly name of the ledger to match.
+     * Friendly name of the ledger to match.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return The friendly name of the ledger to match.
+     * @return Friendly name of the ledger to match.
      * 
      */
     public String name() {
@@ -63,7 +63,7 @@ public final class GetLedgerPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The friendly name of the ledger to match.
+         * @param name Friendly name of the ledger to match.
          * 
          * @return builder
          * 

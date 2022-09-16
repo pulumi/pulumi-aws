@@ -59,9 +59,9 @@ func LookupAccelerator(ctx *pulumi.Context, args *LookupAcceleratorArgs, opts ..
 
 // A collection of arguments for invoking getAccelerator.
 type LookupAcceleratorArgs struct {
-	// The full ARN of the Global Accelerator.
+	// Full ARN of the Global Accelerator.
 	Arn *string `pulumi:"arn"`
-	// The unique name of the Global Accelerator.
+	// Unique name of the Global Accelerator.
 	Name *string           `pulumi:"name"`
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -96,9 +96,9 @@ func LookupAcceleratorOutput(ctx *pulumi.Context, args LookupAcceleratorOutputAr
 
 // A collection of arguments for invoking getAccelerator.
 type LookupAcceleratorOutputArgs struct {
-	// The full ARN of the Global Accelerator.
+	// Full ARN of the Global Accelerator.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
-	// The unique name of the Global Accelerator.
+	// Unique name of the Global Accelerator.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }

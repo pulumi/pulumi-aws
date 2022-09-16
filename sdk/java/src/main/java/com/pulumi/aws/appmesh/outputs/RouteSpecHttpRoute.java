@@ -15,50 +15,50 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RouteSpecHttpRoute {
     /**
-     * @return The action to take if a match is determined.
+     * @return Action to take if a match is determined.
      * 
      */
     private RouteSpecHttpRouteAction action;
     /**
-     * @return The criteria for determining an HTTP request match.
+     * @return Criteria for determining an HTTP request match.
      * 
      */
     private RouteSpecHttpRouteMatch match;
     /**
-     * @return The retry policy.
+     * @return Retry policy.
      * 
      */
     private @Nullable RouteSpecHttpRouteRetryPolicy retryPolicy;
     /**
-     * @return The types of timeouts.
+     * @return Types of timeouts.
      * 
      */
     private @Nullable RouteSpecHttpRouteTimeout timeout;
 
     private RouteSpecHttpRoute() {}
     /**
-     * @return The action to take if a match is determined.
+     * @return Action to take if a match is determined.
      * 
      */
     public RouteSpecHttpRouteAction action() {
         return this.action;
     }
     /**
-     * @return The criteria for determining an HTTP request match.
+     * @return Criteria for determining an HTTP request match.
      * 
      */
     public RouteSpecHttpRouteMatch match() {
         return this.match;
     }
     /**
-     * @return The retry policy.
+     * @return Retry policy.
      * 
      */
     public Optional<RouteSpecHttpRouteRetryPolicy> retryPolicy() {
         return Optional.ofNullable(this.retryPolicy);
     }
     /**
-     * @return The types of timeouts.
+     * @return Types of timeouts.
      * 
      */
     public Optional<RouteSpecHttpRouteTimeout> timeout() {

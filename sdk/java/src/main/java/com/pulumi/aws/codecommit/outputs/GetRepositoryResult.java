@@ -10,17 +10,17 @@ import java.util.Objects;
 @CustomType
 public final class GetRepositoryResult {
     /**
-     * @return The ARN of the repository
+     * @return ARN of the repository
      * 
      */
     private String arn;
     /**
-     * @return The URL to use for cloning the repository over HTTPS.
+     * @return URL to use for cloning the repository over HTTPS.
      * 
      */
     private String cloneUrlHttp;
     /**
-     * @return The URL to use for cloning the repository over SSH.
+     * @return URL to use for cloning the repository over SSH.
      * 
      */
     private String cloneUrlSsh;
@@ -30,7 +30,7 @@ public final class GetRepositoryResult {
      */
     private String id;
     /**
-     * @return The ID of the repository
+     * @return ID of the repository
      * 
      */
     private String repositoryId;
@@ -38,21 +38,21 @@ public final class GetRepositoryResult {
 
     private GetRepositoryResult() {}
     /**
-     * @return The ARN of the repository
+     * @return ARN of the repository
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return The URL to use for cloning the repository over HTTPS.
+     * @return URL to use for cloning the repository over HTTPS.
      * 
      */
     public String cloneUrlHttp() {
         return this.cloneUrlHttp;
     }
     /**
-     * @return The URL to use for cloning the repository over SSH.
+     * @return URL to use for cloning the repository over SSH.
      * 
      */
     public String cloneUrlSsh() {
@@ -66,7 +66,7 @@ public final class GetRepositoryResult {
         return this.id;
     }
     /**
-     * @return The ID of the repository
+     * @return ID of the repository
      * 
      */
     public String repositoryId() {

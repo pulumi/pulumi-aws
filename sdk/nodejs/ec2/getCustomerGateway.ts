@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -55,7 +57,7 @@ export interface GetCustomerGatewayArgs {
      */
     filters?: inputs.ec2.GetCustomerGatewayFilter[];
     /**
-     * The ID of the gateway.
+     * ID of the gateway.
      */
     id?: string;
     /**
@@ -69,25 +71,25 @@ export interface GetCustomerGatewayArgs {
  */
 export interface GetCustomerGatewayResult {
     /**
-     * The ARN of the customer gateway.
+     * ARN of the customer gateway.
      */
     readonly arn: string;
     /**
-     * The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
+     * Gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
      */
     readonly bgpAsn: number;
     /**
-     * The Amazon Resource Name (ARN) for the customer gateway certificate.
+     * ARN for the customer gateway certificate.
      */
     readonly certificateArn: string;
     /**
-     * A name for the customer gateway device.
+     * Name for the customer gateway device.
      */
     readonly deviceName: string;
     readonly filters?: outputs.ec2.GetCustomerGatewayFilter[];
     readonly id: string;
     /**
-     * The IP address of the gateway's Internet-routable external interface.
+     * IP address of the gateway's Internet-routable external interface.
      */
     readonly ipAddress: string;
     /**
@@ -95,7 +97,7 @@ export interface GetCustomerGatewayResult {
      */
     readonly tags: {[key: string]: string};
     /**
-     * The type of customer gateway. The only type AWS supports at this time is "ipsec.1".
+     * Type of customer gateway. The only type AWS supports at this time is "ipsec.1".
      */
     readonly type: string;
 }
@@ -113,7 +115,7 @@ export interface GetCustomerGatewayOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetCustomerGatewayFilterArgs>[]>;
     /**
-     * The ID of the gateway.
+     * ID of the gateway.
      */
     id?: pulumi.Input<string>;
     /**

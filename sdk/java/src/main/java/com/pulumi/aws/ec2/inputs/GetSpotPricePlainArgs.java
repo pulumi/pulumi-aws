@@ -17,14 +17,14 @@ public final class GetSpotPricePlainArgs extends com.pulumi.resources.InvokeArgs
     public static final GetSpotPricePlainArgs Empty = new GetSpotPricePlainArgs();
 
     /**
-     * The availability zone in which to query Spot price information.
+     * Availability zone in which to query Spot price information.
      * 
      */
     @Import(name="availabilityZone")
     private @Nullable String availabilityZone;
 
     /**
-     * @return The availability zone in which to query Spot price information.
+     * @return Availability zone in which to query Spot price information.
      * 
      */
     public Optional<String> availabilityZone() {
@@ -47,14 +47,14 @@ public final class GetSpotPricePlainArgs extends com.pulumi.resources.InvokeArgs
     }
 
     /**
-     * The type of instance for which to query Spot Price information.
+     * Type of instance for which to query Spot Price information.
      * 
      */
     @Import(name="instanceType")
     private @Nullable String instanceType;
 
     /**
-     * @return The type of instance for which to query Spot Price information.
+     * @return Type of instance for which to query Spot Price information.
      * 
      */
     public Optional<String> instanceType() {
@@ -88,7 +88,7 @@ public final class GetSpotPricePlainArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param availabilityZone The availability zone in which to query Spot price information.
+         * @param availabilityZone Availability zone in which to query Spot price information.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class GetSpotPricePlainArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param instanceType The type of instance for which to query Spot Price information.
+         * @param instanceType Type of instance for which to query Spot Price information.
          * 
          * @return builder
          * 

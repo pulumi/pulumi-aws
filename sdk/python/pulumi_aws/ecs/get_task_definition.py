@@ -51,7 +51,7 @@ class GetTaskDefinitionResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The ARN of the task definition
+        ARN of the task definition
         """
         return pulumi.get(self, "arn")
 
@@ -59,7 +59,7 @@ class GetTaskDefinitionResult:
     @pulumi.getter
     def family(self) -> str:
         """
-        The family of this task definition
+        Family of this task definition
         """
         return pulumi.get(self, "family")
 
@@ -75,7 +75,7 @@ class GetTaskDefinitionResult:
     @pulumi.getter(name="networkMode")
     def network_mode(self) -> str:
         """
-        The Docker networking mode to use for the containers in this task.
+        Docker networking mode to use for the containers in this task.
         """
         return pulumi.get(self, "network_mode")
 
@@ -83,7 +83,7 @@ class GetTaskDefinitionResult:
     @pulumi.getter
     def revision(self) -> int:
         """
-        The revision of this task definition
+        Revision of this task definition
         """
         return pulumi.get(self, "revision")
 
@@ -91,7 +91,7 @@ class GetTaskDefinitionResult:
     @pulumi.getter
     def status(self) -> str:
         """
-        The status of this task definition
+        Status of this task definition
         """
         return pulumi.get(self, "status")
 
@@ -104,7 +104,7 @@ class GetTaskDefinitionResult:
     @pulumi.getter(name="taskRoleArn")
     def task_role_arn(self) -> str:
         """
-        The ARN of the IAM role that containers in this task can assume
+        ARN of the IAM role that containers in this task can assume
         """
         return pulumi.get(self, "task_role_arn")
 
@@ -159,11 +159,11 @@ def get_task_definition(task_definition: Optional[str] = None,
     mongo_service = aws.ecs.Service("mongoService",
         cluster=foo.id,
         desired_count=2,
-        task_definition=mongo_ecs / task_definition_task_definition["arn"])
+        task_definition=mongo_task_definition.arn)
     ```
 
 
-    :param str task_definition: The family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
+    :param str task_definition: Family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
     """
     __args__ = dict()
     __args__['taskDefinition'] = task_definition
@@ -216,10 +216,10 @@ def get_task_definition_output(task_definition: Optional[pulumi.Input[str]] = No
     mongo_service = aws.ecs.Service("mongoService",
         cluster=foo.id,
         desired_count=2,
-        task_definition=mongo_ecs / task_definition_task_definition["arn"])
+        task_definition=mongo_task_definition.arn)
     ```
 
 
-    :param str task_definition: The family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
+    :param str task_definition: Family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
     """
     ...

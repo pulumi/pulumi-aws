@@ -15,14 +15,14 @@ public final class GetScriptDagEdge extends com.pulumi.resources.InvokeArgs {
     public static final GetScriptDagEdge Empty = new GetScriptDagEdge();
 
     /**
-     * The ID of the node at which the edge starts.
+     * ID of the node at which the edge starts.
      * 
      */
     @Import(name="source", required=true)
     private String source;
 
     /**
-     * @return The ID of the node at which the edge starts.
+     * @return ID of the node at which the edge starts.
      * 
      */
     public String source() {
@@ -30,14 +30,14 @@ public final class GetScriptDagEdge extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The ID of the node at which the edge ends.
+     * ID of the node at which the edge ends.
      * 
      */
     @Import(name="target", required=true)
     private String target;
 
     /**
-     * @return The ID of the node at which the edge ends.
+     * @return ID of the node at which the edge ends.
      * 
      */
     public String target() {
@@ -45,14 +45,14 @@ public final class GetScriptDagEdge extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The target of the edge.
+     * Target of the edge.
      * 
      */
     @Import(name="targetParameter")
     private @Nullable String targetParameter;
 
     /**
-     * @return The target of the edge.
+     * @return Target of the edge.
      * 
      */
     public Optional<String> targetParameter() {
@@ -86,7 +86,7 @@ public final class GetScriptDagEdge extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param source The ID of the node at which the edge starts.
+         * @param source ID of the node at which the edge starts.
          * 
          * @return builder
          * 
@@ -97,7 +97,7 @@ public final class GetScriptDagEdge extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param target The ID of the node at which the edge ends.
+         * @param target ID of the node at which the edge ends.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class GetScriptDagEdge extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param targetParameter The target of the edge.
+         * @param targetParameter Target of the edge.
          * 
          * @return builder
          * 

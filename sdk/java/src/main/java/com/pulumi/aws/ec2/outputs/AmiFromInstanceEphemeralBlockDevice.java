@@ -12,12 +12,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AmiFromInstanceEphemeralBlockDevice {
     /**
-     * @return The path at which the device is exposed to created instances.
+     * @return Path at which the device is exposed to created instances.
      * 
      */
     private @Nullable String deviceName;
     /**
-     * @return A name for the ephemeral device, of the form &#34;ephemeralN&#34; where
+     * @return Name for the ephemeral device, of the form &#34;ephemeralN&#34; where
      * *N* is a volume number starting from zero.
      * 
      */
@@ -25,14 +25,14 @@ public final class AmiFromInstanceEphemeralBlockDevice {
 
     private AmiFromInstanceEphemeralBlockDevice() {}
     /**
-     * @return The path at which the device is exposed to created instances.
+     * @return Path at which the device is exposed to created instances.
      * 
      */
     public Optional<String> deviceName() {
         return Optional.ofNullable(this.deviceName);
     }
     /**
-     * @return A name for the ephemeral device, of the form &#34;ephemeralN&#34; where
+     * @return Name for the ephemeral device, of the form &#34;ephemeralN&#34; where
      * *N* is a volume number starting from zero.
      * 
      */

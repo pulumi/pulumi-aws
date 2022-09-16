@@ -39,11 +39,11 @@ export function getConnections(args: GetConnectionsArgs, opts?: pulumi.InvokeOpt
  */
 export interface GetConnectionsArgs {
     /**
-     * The ID of the device of the connections to retrieve.
+     * ID of the device of the connections to retrieve.
      */
     deviceId?: string;
     /**
-     * The ID of the Global Network of the connections to retrieve.
+     * ID of the Global Network of the connections to retrieve.
      */
     globalNetworkId: string;
     /**
@@ -63,7 +63,7 @@ export interface GetConnectionsResult {
      */
     readonly id: string;
     /**
-     * The IDs of the connections.
+     * IDs of the connections.
      */
     readonly ids: string[];
     readonly tags?: {[key: string]: string};
@@ -78,11 +78,11 @@ export function getConnectionsOutput(args: GetConnectionsOutputArgs, opts?: pulu
  */
 export interface GetConnectionsOutputArgs {
     /**
-     * The ID of the device of the connections to retrieve.
+     * ID of the device of the connections to retrieve.
      */
     deviceId?: pulumi.Input<string>;
     /**
-     * The ID of the Global Network of the connections to retrieve.
+     * ID of the Global Network of the connections to retrieve.
      */
     globalNetworkId: pulumi.Input<string>;
     /**

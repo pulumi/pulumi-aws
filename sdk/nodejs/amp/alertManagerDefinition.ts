@@ -66,7 +66,7 @@ export class AlertManagerDefinition extends pulumi.CustomResource {
      */
     public readonly definition!: pulumi.Output<string>;
     /**
-     * The id of the prometheus workspace the alert manager definition should be linked to
+     * ID of the prometheus workspace the alert manager definition should be linked to
      */
     public readonly workspaceId!: pulumi.Output<string>;
 
@@ -110,7 +110,7 @@ export interface AlertManagerDefinitionState {
      */
     definition?: pulumi.Input<string>;
     /**
-     * The id of the prometheus workspace the alert manager definition should be linked to
+     * ID of the prometheus workspace the alert manager definition should be linked to
      */
     workspaceId?: pulumi.Input<string>;
 }
@@ -124,7 +124,7 @@ export interface AlertManagerDefinitionArgs {
      */
     definition: pulumi.Input<string>;
     /**
-     * The id of the prometheus workspace the alert manager definition should be linked to
+     * ID of the prometheus workspace the alert manager definition should be linked to
      */
     workspaceId: pulumi.Input<string>;
 }

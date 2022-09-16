@@ -17,14 +17,14 @@ public final class RequestValidatorArgs extends com.pulumi.resources.ResourceArg
     public static final RequestValidatorArgs Empty = new RequestValidatorArgs();
 
     /**
-     * The name of the request validator
+     * Name of the request validator
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the request validator
+     * @return Name of the request validator
      * 
      */
     public Optional<Output<String>> name() {
@@ -32,14 +32,14 @@ public final class RequestValidatorArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The ID of the associated Rest API
+     * ID of the associated Rest API
      * 
      */
     @Import(name="restApi", required=true)
     private Output<String> restApi;
 
     /**
-     * @return The ID of the associated Rest API
+     * @return ID of the associated Rest API
      * 
      */
     public Output<String> restApi() {
@@ -104,7 +104,7 @@ public final class RequestValidatorArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name The name of the request validator
+         * @param name Name of the request validator
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class RequestValidatorArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name The name of the request validator
+         * @param name Name of the request validator
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class RequestValidatorArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param restApi The ID of the associated Rest API
+         * @param restApi ID of the associated Rest API
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class RequestValidatorArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param restApi The ID of the associated Rest API
+         * @param restApi ID of the associated Rest API
          * 
          * @return builder
          * 

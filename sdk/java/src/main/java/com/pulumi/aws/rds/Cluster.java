@@ -794,6 +794,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.masterUsername;
     }
     /**
+     * The network type of the cluster. Valid values: `IPV4`, `DUAL`.
+     * 
+     */
+    @Export(name="networkType", type=String.class, parameters={})
+    private Output<String> networkType;
+
+    /**
+     * @return The network type of the cluster. Valid values: `IPV4`, `DUAL`.
+     * 
+     */
+    public Output<String> networkType() {
+        return this.networkType;
+    }
+    /**
      * The port on which the DB accepts connections
      * 
      */

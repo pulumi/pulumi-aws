@@ -14,14 +14,14 @@ public final class VirtualNodeSpecBackendArgs extends com.pulumi.resources.Resou
     public static final VirtualNodeSpecBackendArgs Empty = new VirtualNodeSpecBackendArgs();
 
     /**
-     * Specifies a virtual service to use as a backend for a virtual node.
+     * Virtual service to use as a backend for a virtual node.
      * 
      */
     @Import(name="virtualService", required=true)
     private Output<VirtualNodeSpecBackendVirtualServiceArgs> virtualService;
 
     /**
-     * @return Specifies a virtual service to use as a backend for a virtual node.
+     * @return Virtual service to use as a backend for a virtual node.
      * 
      */
     public Output<VirtualNodeSpecBackendVirtualServiceArgs> virtualService() {
@@ -53,7 +53,7 @@ public final class VirtualNodeSpecBackendArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param virtualService Specifies a virtual service to use as a backend for a virtual node.
+         * @param virtualService Virtual service to use as a backend for a virtual node.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class VirtualNodeSpecBackendArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param virtualService Specifies a virtual service to use as a backend for a virtual node.
+         * @param virtualService Virtual service to use as a backend for a virtual node.
          * 
          * @return builder
          * 

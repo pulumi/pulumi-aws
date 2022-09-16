@@ -14,62 +14,62 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQuery {
     /**
-     * @return The math expression used on the returned metric. You must specify either `expression` or `metric_stat`, but not both.
+     * @return Math expression used on the returned metric. You must specify either `expression` or `metric_stat`, but not both.
      * 
      */
     private @Nullable String expression;
     /**
-     * @return A short name for the metric used in predictive scaling policy.
+     * @return Short name for the metric used in predictive scaling policy.
      * 
      */
     private String id;
     /**
-     * @return A human-readable label for this metric or expression.
+     * @return Human-readable label for this metric or expression.
      * 
      */
     private @Nullable String label;
     /**
-     * @return A structure that defines CloudWatch metric to be used in predictive scaling policy. You must specify either `expression` or `metric_stat`, but not both.
+     * @return Structure that defines CloudWatch metric to be used in predictive scaling policy. You must specify either `expression` or `metric_stat`, but not both.
      * 
      */
     private @Nullable PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStat metricStat;
     /**
-     * @return A boolean that indicates whether to return the timestamps and raw data values of this metric, the default it true
+     * @return Boolean that indicates whether to return the timestamps and raw data values of this metric, the default it true
      * 
      */
     private @Nullable Boolean returnData;
 
     private PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQuery() {}
     /**
-     * @return The math expression used on the returned metric. You must specify either `expression` or `metric_stat`, but not both.
+     * @return Math expression used on the returned metric. You must specify either `expression` or `metric_stat`, but not both.
      * 
      */
     public Optional<String> expression() {
         return Optional.ofNullable(this.expression);
     }
     /**
-     * @return A short name for the metric used in predictive scaling policy.
+     * @return Short name for the metric used in predictive scaling policy.
      * 
      */
     public String id() {
         return this.id;
     }
     /**
-     * @return A human-readable label for this metric or expression.
+     * @return Human-readable label for this metric or expression.
      * 
      */
     public Optional<String> label() {
         return Optional.ofNullable(this.label);
     }
     /**
-     * @return A structure that defines CloudWatch metric to be used in predictive scaling policy. You must specify either `expression` or `metric_stat`, but not both.
+     * @return Structure that defines CloudWatch metric to be used in predictive scaling policy. You must specify either `expression` or `metric_stat`, but not both.
      * 
      */
     public Optional<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStat> metricStat() {
         return Optional.ofNullable(this.metricStat);
     }
     /**
-     * @return A boolean that indicates whether to return the timestamps and raw data values of this metric, the default it true
+     * @return Boolean that indicates whether to return the timestamps and raw data values of this metric, the default it true
      * 
      */
     public Optional<Boolean> returnData() {

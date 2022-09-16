@@ -44,11 +44,11 @@ export function getStack(args: GetStackArgs, opts?: pulumi.InvokeOptions): Promi
  */
 export interface GetStackArgs {
     /**
-     * The name of the stack
+     * Name of the stack
      */
     name: string;
     /**
-     * A map of tags associated with this stack.
+     * Map of tags associated with this stack.
      */
     tags?: {[key: string]: string};
 }
@@ -58,7 +58,7 @@ export interface GetStackArgs {
  */
 export interface GetStackResult {
     /**
-     * A list of capabilities
+     * List of capabilities
      */
     readonly capabilities: string[];
     /**
@@ -70,7 +70,7 @@ export interface GetStackResult {
      */
     readonly disableRollback: boolean;
     /**
-     * The ARN of the IAM role used to create the stack.
+     * ARN of the IAM role used to create the stack.
      */
     readonly iamRoleArn: string;
     /**
@@ -79,19 +79,19 @@ export interface GetStackResult {
     readonly id: string;
     readonly name: string;
     /**
-     * A list of SNS topic ARNs to publish stack related events
+     * List of SNS topic ARNs to publish stack related events
      */
     readonly notificationArns: string[];
     /**
-     * A map of outputs from the stack.
+     * Map of outputs from the stack.
      */
     readonly outputs: {[key: string]: string};
     /**
-     * A map of parameters that specify input parameters for the stack.
+     * Map of parameters that specify input parameters for the stack.
      */
     readonly parameters: {[key: string]: string};
     /**
-     * A map of tags associated with this stack.
+     * Map of tags associated with this stack.
      */
     readonly tags: {[key: string]: string};
     /**
@@ -99,7 +99,7 @@ export interface GetStackResult {
      */
     readonly templateBody: string;
     /**
-     * The amount of time that can pass before the stack status becomes `CREATE_FAILED`
+     * Amount of time that can pass before the stack status becomes `CREATE_FAILED`
      */
     readonly timeoutInMinutes: number;
 }
@@ -113,11 +113,11 @@ export function getStackOutput(args: GetStackOutputArgs, opts?: pulumi.InvokeOpt
  */
 export interface GetStackOutputArgs {
     /**
-     * The name of the stack
+     * Name of the stack
      */
     name: pulumi.Input<string>;
     /**
-     * A map of tags associated with this stack.
+     * Map of tags associated with this stack.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

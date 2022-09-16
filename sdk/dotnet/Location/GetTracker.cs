@@ -82,7 +82,7 @@ namespace Pulumi.Aws.Location
         }
 
         /// <summary>
-        /// The name of the tracker resource.
+        /// Name of the tracker resource.
         /// </summary>
         [Input("trackerName", required: true)]
         public string TrackerName { get; set; } = null!;
@@ -108,7 +108,7 @@ namespace Pulumi.Aws.Location
         }
 
         /// <summary>
-        /// The name of the tracker resource.
+        /// Name of the tracker resource.
         /// </summary>
         [Input("trackerName", required: true)]
         public Input<string> TrackerName { get; set; } = null!;
@@ -124,11 +124,11 @@ namespace Pulumi.Aws.Location
     public sealed class GetTrackerResult
     {
         /// <summary>
-        /// The timestamp for when the tracker resource was created in ISO 8601 format.
+        /// Timestamp for when the tracker resource was created in ISO 8601 format.
         /// </summary>
         public readonly string CreateTime;
         /// <summary>
-        /// The optional description for the tracker resource.
+        /// Optional description for the tracker resource.
         /// </summary>
         public readonly string Description;
         /// <summary>
@@ -136,11 +136,11 @@ namespace Pulumi.Aws.Location
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
+        /// Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
         /// </summary>
         public readonly string KmsKeyId;
         /// <summary>
-        /// The position filtering method of the tracker resource.
+        /// Position filtering method of the tracker resource.
         /// </summary>
         public readonly string PositionFiltering;
         /// <summary>
@@ -148,12 +148,12 @@ namespace Pulumi.Aws.Location
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS.
+        /// ARN for the tracker resource. Used when you need to specify a resource across all AWS.
         /// </summary>
         public readonly string TrackerArn;
         public readonly string TrackerName;
         /// <summary>
-        /// The timestamp for when the tracker resource was last updated in ISO 8601 format.
+        /// Timestamp for when the tracker resource was last updated in ISO 8601 format.
         /// </summary>
         public readonly string UpdateTime;
 

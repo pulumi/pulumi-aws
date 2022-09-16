@@ -14,19 +14,19 @@ namespace Pulumi.Aws.Connect.Outputs
     public sealed class GetQuickConnectQuickConnectConfigResult
     {
         /// <summary>
-        /// Specifies the phone configuration of the Quick Connect. This is returned only if `quick_connect_type` is `PHONE_NUMBER`. The `phone_config` block is documented below.
+        /// Phone configuration of the Quick Connect. This is returned only if `quick_connect_type` is `PHONE_NUMBER`. The `phone_config` block is documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetQuickConnectQuickConnectConfigPhoneConfigResult> PhoneConfigs;
         /// <summary>
-        /// Specifies the queue configuration of the Quick Connect. This is returned only if `quick_connect_type` is `QUEUE`. The `queue_config` block is documented below.
+        /// Queue configuration of the Quick Connect. This is returned only if `quick_connect_type` is `QUEUE`. The `queue_config` block is documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetQuickConnectQuickConnectConfigQueueConfigResult> QueueConfigs;
         /// <summary>
-        /// Specifies the configuration type of the Quick Connect. Valid values are `PHONE_NUMBER`, `QUEUE`, `USER`.
+        /// Configuration type of the Quick Connect. Valid values are `PHONE_NUMBER`, `QUEUE`, `USER`.
         /// </summary>
         public readonly string QuickConnectType;
         /// <summary>
-        /// Specifies the user configuration of the Quick Connect. This is returned only if `quick_connect_type` is `USER`. The `user_config` block is documented below.
+        /// User configuration of the Quick Connect. This is returned only if `quick_connect_type` is `USER`. The `user_config` block is documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetQuickConnectQuickConnectConfigUserConfigResult> UserConfigs;
 

@@ -34,7 +34,7 @@ export function getImage(args: GetImageArgs, opts?: pulumi.InvokeOptions): Promi
  */
 export interface GetImageArgs {
     /**
-     * The ID of the image.
+     * ID of the image.
      */
     imageId: string;
 }
@@ -76,7 +76,7 @@ export function getImageOutput(args: GetImageOutputArgs, opts?: pulumi.InvokeOpt
  */
 export interface GetImageOutputArgs {
     /**
-     * The ID of the image.
+     * ID of the image.
      */
     imageId: pulumi.Input<string>;
 }

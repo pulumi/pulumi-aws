@@ -70,7 +70,7 @@ namespace Pulumi.Aws.CloudFront
     public sealed class GetRealtimeLogConfigArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The unique name to identify this real-time log configuration.
+        /// Unique name to identify this real-time log configuration.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.Aws.CloudFront
     public sealed class GetRealtimeLogConfigInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The unique name to identify this real-time log configuration.
+        /// Unique name to identify this real-time log configuration.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -100,15 +100,15 @@ namespace Pulumi.Aws.CloudFront
     public sealed class GetRealtimeLogConfigResult
     {
         /// <summary>
-        /// The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
+        /// ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// (Required) The Amazon Kinesis data streams where real-time log data is sent.
+        /// (Required) Amazon Kinesis data streams where real-time log data is sent.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetRealtimeLogConfigEndpointResult> Endpoints;
         /// <summary>
-        /// (Required) The fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
+        /// (Required) Fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
         /// </summary>
         public readonly ImmutableArray<string> Fields;
         /// <summary>
@@ -117,7 +117,7 @@ namespace Pulumi.Aws.CloudFront
         public readonly string Id;
         public readonly string Name;
         /// <summary>
-        /// (Required) The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. An integer between `1` and `100`, inclusive.
+        /// (Required) Sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. An integer between `1` and `100`, inclusive.
         /// </summary>
         public readonly int SamplingRate;
 

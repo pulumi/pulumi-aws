@@ -14,14 +14,14 @@ public final class VirtualNodeSpecListenerTlsCertificateAcmArgs extends com.pulu
     public static final VirtualNodeSpecListenerTlsCertificateAcmArgs Empty = new VirtualNodeSpecListenerTlsCertificateAcmArgs();
 
     /**
-     * The Amazon Resource Name (ARN) for the certificate.
+     * ARN for the certificate.
      * 
      */
     @Import(name="certificateArn", required=true)
     private Output<String> certificateArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the certificate.
+     * @return ARN for the certificate.
      * 
      */
     public Output<String> certificateArn() {
@@ -53,7 +53,7 @@ public final class VirtualNodeSpecListenerTlsCertificateAcmArgs extends com.pulu
         }
 
         /**
-         * @param certificateArn The Amazon Resource Name (ARN) for the certificate.
+         * @param certificateArn ARN for the certificate.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class VirtualNodeSpecListenerTlsCertificateAcmArgs extends com.pulu
         }
 
         /**
-         * @param certificateArn The Amazon Resource Name (ARN) for the certificate.
+         * @param certificateArn ARN for the certificate.
          * 
          * @return builder
          * 

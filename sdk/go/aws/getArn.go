@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Parses an Amazon Resource Name (ARN) into its constituent parts.
+// Parses an ARN into its constituent parts.
 //
 // ## Example Usage
 //
@@ -48,7 +48,7 @@ func GetArn(ctx *pulumi.Context, args *GetArnArgs, opts ...pulumi.InvokeOption) 
 
 // A collection of arguments for invoking getArn.
 type GetArnArgs struct {
-	// The ARN to parse.
+	// ARN to parse.
 	Arn string `pulumi:"arn"`
 }
 
@@ -59,12 +59,12 @@ type GetArnResult struct {
 	Arn     string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The partition that the resource is in.
+	// Partition that the resource is in.
 	Partition string `pulumi:"partition"`
-	// The region the resource resides in.
+	// Region the resource resides in.
 	// Note that the ARNs for some resources do not require a region, so this component might be omitted.
 	Region string `pulumi:"region"`
-	// The content of this part of the ARN varies by service.
+	// Content of this part of the ARN varies by service.
 	// It often includes an indicator of the type of resource—for example, an IAM user or Amazon RDS database —followed by a slash (/) or a colon (:), followed by the resource name itself.
 	Resource string `pulumi:"resource"`
 	// The [service namespace](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces) that identifies the AWS product.
@@ -86,7 +86,7 @@ func GetArnOutput(ctx *pulumi.Context, args GetArnOutputArgs, opts ...pulumi.Inv
 
 // A collection of arguments for invoking getArn.
 type GetArnOutputArgs struct {
-	// The ARN to parse.
+	// ARN to parse.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -123,18 +123,18 @@ func (o GetArnResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetArnResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The partition that the resource is in.
+// Partition that the resource is in.
 func (o GetArnResultOutput) Partition() pulumi.StringOutput {
 	return o.ApplyT(func(v GetArnResult) string { return v.Partition }).(pulumi.StringOutput)
 }
 
-// The region the resource resides in.
+// Region the resource resides in.
 // Note that the ARNs for some resources do not require a region, so this component might be omitted.
 func (o GetArnResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetArnResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// The content of this part of the ARN varies by service.
+// Content of this part of the ARN varies by service.
 // It often includes an indicator of the type of resource—for example, an IAM user or Amazon RDS database —followed by a slash (/) or a colon (:), followed by the resource name itself.
 func (o GetArnResultOutput) Resource() pulumi.StringOutput {
 	return o.ApplyT(func(v GetArnResult) string { return v.Resource }).(pulumi.StringOutput)

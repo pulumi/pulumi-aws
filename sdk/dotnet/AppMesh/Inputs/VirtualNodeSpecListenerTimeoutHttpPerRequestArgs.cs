@@ -13,13 +13,13 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class VirtualNodeSpecListenerTimeoutHttpPerRequestArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The unit of time. Valid values: `ms`, `s`.
+        /// Unit of time. Valid values: `ms`, `s`.
         /// </summary>
         [Input("unit", required: true)]
         public Input<string> Unit { get; set; } = null!;
 
         /// <summary>
-        /// The number of time units. Minimum value of `0`.
+        /// Number of time units. Minimum value of `0`.
         /// </summary>
         [Input("value", required: true)]
         public Input<int> Value { get; set; } = null!;

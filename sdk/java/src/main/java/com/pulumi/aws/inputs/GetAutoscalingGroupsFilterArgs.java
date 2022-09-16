@@ -15,14 +15,14 @@ public final class GetAutoscalingGroupsFilterArgs extends com.pulumi.resources.R
     public static final GetAutoscalingGroupsFilterArgs Empty = new GetAutoscalingGroupsFilterArgs();
 
     /**
-     * The name of the DescribeAutoScalingGroup filter. The recommended values are: `tag-key`, `tag-value`, and `tag:&lt;tag name&gt;`
+     * Name of the DescribeAutoScalingGroup filter. The recommended values are: `tag-key`, `tag-value`, and `tag:&lt;tag name&gt;`
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the DescribeAutoScalingGroup filter. The recommended values are: `tag-key`, `tag-value`, and `tag:&lt;tag name&gt;`
+     * @return Name of the DescribeAutoScalingGroup filter. The recommended values are: `tag-key`, `tag-value`, and `tag:&lt;tag name&gt;`
      * 
      */
     public Output<String> name() {
@@ -30,14 +30,14 @@ public final class GetAutoscalingGroupsFilterArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The value of the filter.
+     * Value of the filter.
      * 
      */
     @Import(name="values", required=true)
     private Output<List<String>> values;
 
     /**
-     * @return The value of the filter.
+     * @return Value of the filter.
      * 
      */
     public Output<List<String>> values() {
@@ -70,7 +70,7 @@ public final class GetAutoscalingGroupsFilterArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param name The name of the DescribeAutoScalingGroup filter. The recommended values are: `tag-key`, `tag-value`, and `tag:&lt;tag name&gt;`
+         * @param name Name of the DescribeAutoScalingGroup filter. The recommended values are: `tag-key`, `tag-value`, and `tag:&lt;tag name&gt;`
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class GetAutoscalingGroupsFilterArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param name The name of the DescribeAutoScalingGroup filter. The recommended values are: `tag-key`, `tag-value`, and `tag:&lt;tag name&gt;`
+         * @param name Name of the DescribeAutoScalingGroup filter. The recommended values are: `tag-key`, `tag-value`, and `tag:&lt;tag name&gt;`
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class GetAutoscalingGroupsFilterArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param values The value of the filter.
+         * @param values Value of the filter.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class GetAutoscalingGroupsFilterArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param values The value of the filter.
+         * @param values Value of the filter.
          * 
          * @return builder
          * 
@@ -112,7 +112,7 @@ public final class GetAutoscalingGroupsFilterArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param values The value of the filter.
+         * @param values Value of the filter.
          * 
          * @return builder
          * 

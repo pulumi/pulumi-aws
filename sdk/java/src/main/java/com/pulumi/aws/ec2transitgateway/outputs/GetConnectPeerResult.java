@@ -19,7 +19,7 @@ public final class GetConnectPeerResult {
      */
     private String arn;
     /**
-     * @return The BGP ASN number assigned customer device
+     * @return BGP ASN number assigned customer device
      * 
      */
     private String bgpAsn;
@@ -30,12 +30,12 @@ public final class GetConnectPeerResult {
      */
     private String id;
     /**
-     * @return The CIDR blocks that will be used for addressing within the tunnel.
+     * @return CIDR blocks that will be used for addressing within the tunnel.
      * 
      */
     private List<String> insideCidrBlocks;
     /**
-     * @return The IP addressed assigned to customer device, which is used as tunnel endpoint
+     * @return IP addressed assigned to customer device, which is used as tunnel endpoint
      * 
      */
     private String peerAddress;
@@ -65,7 +65,7 @@ public final class GetConnectPeerResult {
         return this.arn;
     }
     /**
-     * @return The BGP ASN number assigned customer device
+     * @return BGP ASN number assigned customer device
      * 
      */
     public String bgpAsn() {
@@ -82,14 +82,14 @@ public final class GetConnectPeerResult {
         return this.id;
     }
     /**
-     * @return The CIDR blocks that will be used for addressing within the tunnel.
+     * @return CIDR blocks that will be used for addressing within the tunnel.
      * 
      */
     public List<String> insideCidrBlocks() {
         return this.insideCidrBlocks;
     }
     /**
-     * @return The IP addressed assigned to customer device, which is used as tunnel endpoint
+     * @return IP addressed assigned to customer device, which is used as tunnel endpoint
      * 
      */
     public String peerAddress() {

@@ -12,42 +12,42 @@ import java.util.Objects;
 @CustomType
 public final class GetWorkspaceResult {
     /**
-     * @return (Required) The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizational_units` must also be present.
+     * @return (Required) Type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizational_units` must also be present.
      * 
      */
     private String accountAccessType;
     /**
-     * @return The Amazon Resource Name (ARN) of the Grafana workspace.
+     * @return ARN of the Grafana workspace.
      * 
      */
     private String arn;
     /**
-     * @return (Required) The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
+     * @return (Required) Authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
      * 
      */
     private List<String> authenticationProviders;
     /**
-     * @return The creation date of the Grafana workspace.
+     * @return Creation date of the Grafana workspace.
      * 
      */
     private String createdDate;
     /**
-     * @return The data sources for the workspace.
+     * @return Data sources for the workspace.
      * 
      */
     private List<String> dataSources;
     /**
-     * @return The workspace description.
+     * @return Workspace description.
      * 
      */
     private String description;
     /**
-     * @return The endpoint of the Grafana workspace.
+     * @return Endpoint of the Grafana workspace.
      * 
      */
     private String endpoint;
     /**
-     * @return The version of Grafana running on the workspace.
+     * @return Version of Grafana running on the workspace.
      * 
      */
     private String grafanaVersion;
@@ -57,12 +57,12 @@ public final class GetWorkspaceResult {
      */
     private String id;
     /**
-     * @return The last updated date of the Grafana workspace.
+     * @return Last updated date of the Grafana workspace.
      * 
      */
     private String lastUpdatedDate;
     /**
-     * @return The Grafana workspace name.
+     * @return Grafana workspace name.
      * 
      */
     private String name;
@@ -82,28 +82,28 @@ public final class GetWorkspaceResult {
      */
     private List<String> organizationalUnits;
     /**
-     * @return The permission type of the workspace.
+     * @return Permission type of the workspace.
      * 
      */
     private String permissionType;
     /**
-     * @return The IAM role ARN that the workspace assumes.
+     * @return IAM role ARN that the workspace assumes.
      * 
      */
     private String roleArn;
     private String samlConfigurationStatus;
     /**
-     * @return The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
+     * @return AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
      * 
      */
     private String stackSetName;
     /**
-     * @return The status of the Grafana workspace.
+     * @return Status of the Grafana workspace.
      * 
      */
     private String status;
     /**
-     * @return The tags assigned to the resource
+     * @return Tags assigned to the resource
      * 
      */
     private Map<String,String> tags;
@@ -111,56 +111,56 @@ public final class GetWorkspaceResult {
 
     private GetWorkspaceResult() {}
     /**
-     * @return (Required) The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizational_units` must also be present.
+     * @return (Required) Type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizational_units` must also be present.
      * 
      */
     public String accountAccessType() {
         return this.accountAccessType;
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the Grafana workspace.
+     * @return ARN of the Grafana workspace.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return (Required) The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
+     * @return (Required) Authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
      * 
      */
     public List<String> authenticationProviders() {
         return this.authenticationProviders;
     }
     /**
-     * @return The creation date of the Grafana workspace.
+     * @return Creation date of the Grafana workspace.
      * 
      */
     public String createdDate() {
         return this.createdDate;
     }
     /**
-     * @return The data sources for the workspace.
+     * @return Data sources for the workspace.
      * 
      */
     public List<String> dataSources() {
         return this.dataSources;
     }
     /**
-     * @return The workspace description.
+     * @return Workspace description.
      * 
      */
     public String description() {
         return this.description;
     }
     /**
-     * @return The endpoint of the Grafana workspace.
+     * @return Endpoint of the Grafana workspace.
      * 
      */
     public String endpoint() {
         return this.endpoint;
     }
     /**
-     * @return The version of Grafana running on the workspace.
+     * @return Version of Grafana running on the workspace.
      * 
      */
     public String grafanaVersion() {
@@ -174,14 +174,14 @@ public final class GetWorkspaceResult {
         return this.id;
     }
     /**
-     * @return The last updated date of the Grafana workspace.
+     * @return Last updated date of the Grafana workspace.
      * 
      */
     public String lastUpdatedDate() {
         return this.lastUpdatedDate;
     }
     /**
-     * @return The Grafana workspace name.
+     * @return Grafana workspace name.
      * 
      */
     public String name() {
@@ -209,14 +209,14 @@ public final class GetWorkspaceResult {
         return this.organizationalUnits;
     }
     /**
-     * @return The permission type of the workspace.
+     * @return Permission type of the workspace.
      * 
      */
     public String permissionType() {
         return this.permissionType;
     }
     /**
-     * @return The IAM role ARN that the workspace assumes.
+     * @return IAM role ARN that the workspace assumes.
      * 
      */
     public String roleArn() {
@@ -226,21 +226,21 @@ public final class GetWorkspaceResult {
         return this.samlConfigurationStatus;
     }
     /**
-     * @return The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
+     * @return AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
      * 
      */
     public String stackSetName() {
         return this.stackSetName;
     }
     /**
-     * @return The status of the Grafana workspace.
+     * @return Status of the Grafana workspace.
      * 
      */
     public String status() {
         return this.status;
     }
     /**
-     * @return The tags assigned to the resource
+     * @return Tags assigned to the resource
      * 
      */
     public Map<String,String> tags() {

@@ -18,8 +18,8 @@ class DomainNameApiAssociationArgs:
                  domain_name: pulumi.Input[str]):
         """
         The set of arguments for constructing a DomainNameApiAssociation resource.
-        :param pulumi.Input[str] api_id: The API ID.
-        :param pulumi.Input[str] domain_name: The Appsync domain name.
+        :param pulumi.Input[str] api_id: API ID.
+        :param pulumi.Input[str] domain_name: Appsync domain name.
         """
         pulumi.set(__self__, "api_id", api_id)
         pulumi.set(__self__, "domain_name", domain_name)
@@ -28,7 +28,7 @@ class DomainNameApiAssociationArgs:
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Input[str]:
         """
-        The API ID.
+        API ID.
         """
         return pulumi.get(self, "api_id")
 
@@ -40,7 +40,7 @@ class DomainNameApiAssociationArgs:
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Input[str]:
         """
-        The Appsync domain name.
+        Appsync domain name.
         """
         return pulumi.get(self, "domain_name")
 
@@ -56,8 +56,8 @@ class _DomainNameApiAssociationState:
                  domain_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering DomainNameApiAssociation resources.
-        :param pulumi.Input[str] api_id: The API ID.
-        :param pulumi.Input[str] domain_name: The Appsync domain name.
+        :param pulumi.Input[str] api_id: API ID.
+        :param pulumi.Input[str] domain_name: Appsync domain name.
         """
         if api_id is not None:
             pulumi.set(__self__, "api_id", api_id)
@@ -68,7 +68,7 @@ class _DomainNameApiAssociationState:
     @pulumi.getter(name="apiId")
     def api_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The API ID.
+        API ID.
         """
         return pulumi.get(self, "api_id")
 
@@ -80,7 +80,7 @@ class _DomainNameApiAssociationState:
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The Appsync domain name.
+        Appsync domain name.
         """
         return pulumi.get(self, "domain_name")
 
@@ -121,8 +121,8 @@ class DomainNameApiAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] api_id: The API ID.
-        :param pulumi.Input[str] domain_name: The Appsync domain name.
+        :param pulumi.Input[str] api_id: API ID.
+        :param pulumi.Input[str] domain_name: Appsync domain name.
         """
         ...
     @overload
@@ -203,8 +203,8 @@ class DomainNameApiAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] api_id: The API ID.
-        :param pulumi.Input[str] domain_name: The Appsync domain name.
+        :param pulumi.Input[str] api_id: API ID.
+        :param pulumi.Input[str] domain_name: Appsync domain name.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -218,7 +218,7 @@ class DomainNameApiAssociation(pulumi.CustomResource):
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Output[str]:
         """
-        The API ID.
+        API ID.
         """
         return pulumi.get(self, "api_id")
 
@@ -226,7 +226,7 @@ class DomainNameApiAssociation(pulumi.CustomResource):
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[str]:
         """
-        The Appsync domain name.
+        Appsync domain name.
         """
         return pulumi.get(self, "domain_name")
 

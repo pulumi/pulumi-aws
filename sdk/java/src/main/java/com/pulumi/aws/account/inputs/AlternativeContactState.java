@@ -16,14 +16,14 @@ public final class AlternativeContactState extends com.pulumi.resources.Resource
     public static final AlternativeContactState Empty = new AlternativeContactState();
 
     /**
-     * The ID of the target account when managing member accounts. Will manage current user&#39;s account by default if omitted.
+     * ID of the target account when managing member accounts. Will manage current user&#39;s account by default if omitted.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
     /**
-     * @return The ID of the target account when managing member accounts. Will manage current user&#39;s account by default if omitted.
+     * @return ID of the target account when managing member accounts. Will manage current user&#39;s account by default if omitted.
      * 
      */
     public Optional<Output<String>> accountId() {
@@ -31,14 +31,14 @@ public final class AlternativeContactState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
+     * Type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
      * 
      */
     @Import(name="alternateContactType")
     private @Nullable Output<String> alternateContactType;
 
     /**
-     * @return The type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
+     * @return Type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
      * 
      */
     public Optional<Output<String>> alternateContactType() {
@@ -61,14 +61,14 @@ public final class AlternativeContactState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The name of the alternate contact.
+     * Name of the alternate contact.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the alternate contact.
+     * @return Name of the alternate contact.
      * 
      */
     public Optional<Output<String>> name() {
@@ -76,14 +76,14 @@ public final class AlternativeContactState extends com.pulumi.resources.Resource
     }
 
     /**
-     * A phone number for the alternate contact.
+     * Phone number for the alternate contact.
      * 
      */
     @Import(name="phoneNumber")
     private @Nullable Output<String> phoneNumber;
 
     /**
-     * @return A phone number for the alternate contact.
+     * @return Phone number for the alternate contact.
      * 
      */
     public Optional<Output<String>> phoneNumber() {
@@ -91,14 +91,14 @@ public final class AlternativeContactState extends com.pulumi.resources.Resource
     }
 
     /**
-     * A title for the alternate contact.
+     * Title for the alternate contact.
      * 
      */
     @Import(name="title")
     private @Nullable Output<String> title;
 
     /**
-     * @return A title for the alternate contact.
+     * @return Title for the alternate contact.
      * 
      */
     public Optional<Output<String>> title() {
@@ -135,7 +135,7 @@ public final class AlternativeContactState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param accountId The ID of the target account when managing member accounts. Will manage current user&#39;s account by default if omitted.
+         * @param accountId ID of the target account when managing member accounts. Will manage current user&#39;s account by default if omitted.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class AlternativeContactState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param accountId The ID of the target account when managing member accounts. Will manage current user&#39;s account by default if omitted.
+         * @param accountId ID of the target account when managing member accounts. Will manage current user&#39;s account by default if omitted.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class AlternativeContactState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param alternateContactType The type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
+         * @param alternateContactType Type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class AlternativeContactState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param alternateContactType The type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
+         * @param alternateContactType Type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
          * 
          * @return builder
          * 
@@ -198,7 +198,7 @@ public final class AlternativeContactState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param name The name of the alternate contact.
+         * @param name Name of the alternate contact.
          * 
          * @return builder
          * 
@@ -209,7 +209,7 @@ public final class AlternativeContactState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param name The name of the alternate contact.
+         * @param name Name of the alternate contact.
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class AlternativeContactState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param phoneNumber A phone number for the alternate contact.
+         * @param phoneNumber Phone number for the alternate contact.
          * 
          * @return builder
          * 
@@ -230,7 +230,7 @@ public final class AlternativeContactState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param phoneNumber A phone number for the alternate contact.
+         * @param phoneNumber Phone number for the alternate contact.
          * 
          * @return builder
          * 
@@ -240,7 +240,7 @@ public final class AlternativeContactState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param title A title for the alternate contact.
+         * @param title Title for the alternate contact.
          * 
          * @return builder
          * 
@@ -251,7 +251,7 @@ public final class AlternativeContactState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param title A title for the alternate contact.
+         * @param title Title for the alternate contact.
          * 
          * @return builder
          * 

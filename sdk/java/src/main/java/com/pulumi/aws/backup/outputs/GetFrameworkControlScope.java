@@ -22,7 +22,7 @@ public final class GetFrameworkControlScope {
      */
     private List<String> complianceResourceTypes;
     /**
-     * @return The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+     * @return Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
      * 
      */
     private Map<String,String> tags;
@@ -43,7 +43,7 @@ public final class GetFrameworkControlScope {
         return this.complianceResourceTypes;
     }
     /**
-     * @return The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+     * @return Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
      * 
      */
     public Map<String,String> tags() {

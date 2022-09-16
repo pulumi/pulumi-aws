@@ -88,14 +88,14 @@ public class ImageBuilder extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.accessEndpoints);
     }
     /**
-     * The version of the AppStream 2.0 agent to use for this image builder.
+     * Version of the AppStream 2.0 agent to use for this image builder.
      * 
      */
     @Export(name="appstreamAgentVersion", type=String.class, parameters={})
     private Output<String> appstreamAgentVersion;
 
     /**
-     * @return The version of the AppStream 2.0 agent to use for this image builder.
+     * @return Version of the AppStream 2.0 agent to use for this image builder.
      * 
      */
     public Output<String> appstreamAgentVersion() {
@@ -228,14 +228,14 @@ public class ImageBuilder extends com.pulumi.resources.CustomResource {
         return this.imageName;
     }
     /**
-     * The instance type to use when launching the image builder.
+     * Instance type to use when launching the image builder.
      * 
      */
     @Export(name="instanceType", type=String.class, parameters={})
     private Output<String> instanceType;
 
     /**
-     * @return The instance type to use when launching the image builder.
+     * @return Instance type to use when launching the image builder.
      * 
      */
     public Output<String> instanceType() {
@@ -270,28 +270,28 @@ public class ImageBuilder extends com.pulumi.resources.CustomResource {
         return this.state;
     }
     /**
-     * A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

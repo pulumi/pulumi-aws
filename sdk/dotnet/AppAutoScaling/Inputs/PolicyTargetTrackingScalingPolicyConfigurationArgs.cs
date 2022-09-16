@@ -13,37 +13,37 @@ namespace Pulumi.Aws.AppAutoScaling.Inputs
     public sealed class PolicyTargetTrackingScalingPolicyConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A custom CloudWatch metric. Documentation can be found  at: [AWS Customized Metric Specification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CustomizedMetricSpecification.html). See supported fields below.
+        /// Custom CloudWatch metric. Documentation can be found  at: [AWS Customized Metric Specification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CustomizedMetricSpecification.html). See supported fields below.
         /// </summary>
         [Input("customizedMetricSpecification")]
         public Input<Inputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationArgs>? CustomizedMetricSpecification { get; set; }
 
         /// <summary>
-        /// Indicates whether scale in by the target tracking policy is disabled. If the value is true, scale in is disabled and the target tracking policy won't remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is `false`.
+        /// Whether scale in by the target tracking policy is disabled. If the value is true, scale in is disabled and the target tracking policy won't remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is `false`.
         /// </summary>
         [Input("disableScaleIn")]
         public Input<bool>? DisableScaleIn { get; set; }
 
         /// <summary>
-        /// A predefined metric. See supported fields below.
+        /// Predefined metric. See supported fields below.
         /// </summary>
         [Input("predefinedMetricSpecification")]
         public Input<Inputs.PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs>? PredefinedMetricSpecification { get; set; }
 
         /// <summary>
-        /// The amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
+        /// Amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
         /// </summary>
         [Input("scaleInCooldown")]
         public Input<int>? ScaleInCooldown { get; set; }
 
         /// <summary>
-        /// The amount of time, in seconds, after a scale out activity completes before another scale out activity can start.
+        /// Amount of time, in seconds, after a scale out activity completes before another scale out activity can start.
         /// </summary>
         [Input("scaleOutCooldown")]
         public Input<int>? ScaleOutCooldown { get; set; }
 
         /// <summary>
-        /// The target value for the metric.
+        /// Target value for the metric.
         /// </summary>
         [Input("targetValue", required: true)]
         public Input<double> TargetValue { get; set; } = null!;

@@ -31,19 +31,19 @@ namespace Pulumi.Aws.AutoScalingPlans
     public partial class ScalingPlan : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A CloudFormation stack or set of tags. You can create one scaling plan per application source.
+        /// CloudFormation stack or set of tags. You can create one scaling plan per application source.
         /// </summary>
         [Output("applicationSource")]
         public Output<Outputs.ScalingPlanApplicationSource> ApplicationSource { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
+        /// Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
+        /// Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
         /// </summary>
         [Output("scalingInstructions")]
         public Output<ImmutableArray<Outputs.ScalingPlanScalingInstruction>> ScalingInstructions { get; private set; } = null!;
@@ -101,13 +101,13 @@ namespace Pulumi.Aws.AutoScalingPlans
     public sealed class ScalingPlanArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A CloudFormation stack or set of tags. You can create one scaling plan per application source.
+        /// CloudFormation stack or set of tags. You can create one scaling plan per application source.
         /// </summary>
         [Input("applicationSource", required: true)]
         public Input<Inputs.ScalingPlanApplicationSourceArgs> ApplicationSource { get; set; } = null!;
 
         /// <summary>
-        /// The name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
+        /// Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -116,7 +116,7 @@ namespace Pulumi.Aws.AutoScalingPlans
         private InputList<Inputs.ScalingPlanScalingInstructionArgs>? _scalingInstructions;
 
         /// <summary>
-        /// The scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
+        /// Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
         /// </summary>
         public InputList<Inputs.ScalingPlanScalingInstructionArgs> ScalingInstructions
         {
@@ -133,13 +133,13 @@ namespace Pulumi.Aws.AutoScalingPlans
     public sealed class ScalingPlanState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A CloudFormation stack or set of tags. You can create one scaling plan per application source.
+        /// CloudFormation stack or set of tags. You can create one scaling plan per application source.
         /// </summary>
         [Input("applicationSource")]
         public Input<Inputs.ScalingPlanApplicationSourceGetArgs>? ApplicationSource { get; set; }
 
         /// <summary>
-        /// The name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
+        /// Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -148,7 +148,7 @@ namespace Pulumi.Aws.AutoScalingPlans
         private InputList<Inputs.ScalingPlanScalingInstructionGetArgs>? _scalingInstructions;
 
         /// <summary>
-        /// The scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
+        /// Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
         /// </summary>
         public InputList<Inputs.ScalingPlanScalingInstructionGetArgs> ScalingInstructions
         {

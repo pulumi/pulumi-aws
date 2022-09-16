@@ -92,7 +92,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The id of the specific local gateway route table to retrieve.
+        /// ID of the specific local gateway route table to retrieve.
         /// </summary>
         [Input("localGatewayId")]
         public string? LocalGatewayId { get; set; }
@@ -104,13 +104,13 @@ namespace Pulumi.Aws.Ec2
         public string? LocalGatewayRouteTableId { get; set; }
 
         /// <summary>
-        /// The arn of the Outpost the local gateway route table is associated with.
+        /// ARN of the Outpost the local gateway route table is associated with.
         /// </summary>
         [Input("outpostArn")]
         public string? OutpostArn { get; set; }
 
         /// <summary>
-        /// The state of the local gateway route table.
+        /// State of the local gateway route table.
         /// </summary>
         [Input("state")]
         public string? State { get; set; }
@@ -119,7 +119,7 @@ namespace Pulumi.Aws.Ec2
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A mapping of tags, each pair of which must exactly match
+        /// Mapping of tags, each pair of which must exactly match
         /// a pair on the desired local gateway route table.
         /// </summary>
         public Dictionary<string, string> Tags
@@ -145,7 +145,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The id of the specific local gateway route table to retrieve.
+        /// ID of the specific local gateway route table to retrieve.
         /// </summary>
         [Input("localGatewayId")]
         public Input<string>? LocalGatewayId { get; set; }
@@ -157,13 +157,13 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? LocalGatewayRouteTableId { get; set; }
 
         /// <summary>
-        /// The arn of the Outpost the local gateway route table is associated with.
+        /// ARN of the Outpost the local gateway route table is associated with.
         /// </summary>
         [Input("outpostArn")]
         public Input<string>? OutpostArn { get; set; }
 
         /// <summary>
-        /// The state of the local gateway route table.
+        /// State of the local gateway route table.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
@@ -172,7 +172,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags, each pair of which must exactly match
+        /// Mapping of tags, each pair of which must exactly match
         /// a pair on the desired local gateway route table.
         /// </summary>
         public InputMap<string> Tags

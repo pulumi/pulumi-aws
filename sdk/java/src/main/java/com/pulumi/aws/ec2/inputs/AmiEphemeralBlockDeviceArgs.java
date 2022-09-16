@@ -14,14 +14,14 @@ public final class AmiEphemeralBlockDeviceArgs extends com.pulumi.resources.Reso
     public static final AmiEphemeralBlockDeviceArgs Empty = new AmiEphemeralBlockDeviceArgs();
 
     /**
-     * The path at which the device is exposed to created instances.
+     * Path at which the device is exposed to created instances.
      * 
      */
     @Import(name="deviceName", required=true)
     private Output<String> deviceName;
 
     /**
-     * @return The path at which the device is exposed to created instances.
+     * @return Path at which the device is exposed to created instances.
      * 
      */
     public Output<String> deviceName() {
@@ -29,7 +29,7 @@ public final class AmiEphemeralBlockDeviceArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A name for the ephemeral device, of the form &#34;ephemeralN&#34; where
+     * Name for the ephemeral device, of the form &#34;ephemeralN&#34; where
      * *N* is a volume number starting from zero.
      * 
      */
@@ -37,7 +37,7 @@ public final class AmiEphemeralBlockDeviceArgs extends com.pulumi.resources.Reso
     private Output<String> virtualName;
 
     /**
-     * @return A name for the ephemeral device, of the form &#34;ephemeralN&#34; where
+     * @return Name for the ephemeral device, of the form &#34;ephemeralN&#34; where
      * *N* is a volume number starting from zero.
      * 
      */
@@ -71,7 +71,7 @@ public final class AmiEphemeralBlockDeviceArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param deviceName The path at which the device is exposed to created instances.
+         * @param deviceName Path at which the device is exposed to created instances.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class AmiEphemeralBlockDeviceArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param deviceName The path at which the device is exposed to created instances.
+         * @param deviceName Path at which the device is exposed to created instances.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class AmiEphemeralBlockDeviceArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param virtualName A name for the ephemeral device, of the form &#34;ephemeralN&#34; where
+         * @param virtualName Name for the ephemeral device, of the form &#34;ephemeralN&#34; where
          * *N* is a volume number starting from zero.
          * 
          * @return builder
@@ -104,7 +104,7 @@ public final class AmiEphemeralBlockDeviceArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param virtualName A name for the ephemeral device, of the form &#34;ephemeralN&#34; where
+         * @param virtualName Name for the ephemeral device, of the form &#34;ephemeralN&#34; where
          * *N* is a volume number starting from zero.
          * 
          * @return builder

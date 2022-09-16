@@ -547,7 +547,7 @@ public final class EcsFunctions {
      *         var mongoService = new Service(&#34;mongoService&#34;, ServiceArgs.builder()        
      *             .cluster(foo.id())
      *             .desiredCount(2)
-     *             .taskDefinition(mongoEcs / taskDefinitionTaskDefinition.arn())
+     *             .taskDefinition(mongoTaskDefinition.applyValue(getTaskDefinitionResult -&gt; getTaskDefinitionResult.arn()))
      *             .build());
      * 
      *     }
@@ -618,7 +618,7 @@ public final class EcsFunctions {
      *         var mongoService = new Service(&#34;mongoService&#34;, ServiceArgs.builder()        
      *             .cluster(foo.id())
      *             .desiredCount(2)
-     *             .taskDefinition(mongoEcs / taskDefinitionTaskDefinition.arn())
+     *             .taskDefinition(mongoTaskDefinition.applyValue(getTaskDefinitionResult -&gt; getTaskDefinitionResult.arn()))
      *             .build());
      * 
      *     }
@@ -689,7 +689,7 @@ public final class EcsFunctions {
      *         var mongoService = new Service(&#34;mongoService&#34;, ServiceArgs.builder()        
      *             .cluster(foo.id())
      *             .desiredCount(2)
-     *             .taskDefinition(mongoEcs / taskDefinitionTaskDefinition.arn())
+     *             .taskDefinition(mongoTaskDefinition.applyValue(getTaskDefinitionResult -&gt; getTaskDefinitionResult.arn()))
      *             .build());
      * 
      *     }
@@ -760,7 +760,7 @@ public final class EcsFunctions {
      *         var mongoService = new Service(&#34;mongoService&#34;, ServiceArgs.builder()        
      *             .cluster(foo.id())
      *             .desiredCount(2)
-     *             .taskDefinition(mongoEcs / taskDefinitionTaskDefinition.arn())
+     *             .taskDefinition(mongoTaskDefinition.applyValue(getTaskDefinitionResult -&gt; getTaskDefinitionResult.arn()))
      *             .build());
      * 
      *     }

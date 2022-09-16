@@ -37,11 +37,11 @@ export function getContainerDefinition(args: GetContainerDefinitionArgs, opts?: 
  */
 export interface GetContainerDefinitionArgs {
     /**
-     * The name of the container definition
+     * Name of the container definition
      */
     containerName: string;
     /**
-     * The ARN of the task definition which contains the container
+     * ARN of the task definition which contains the container
      */
     taskDefinition: string;
 }
@@ -52,7 +52,7 @@ export interface GetContainerDefinitionArgs {
 export interface GetContainerDefinitionResult {
     readonly containerName: string;
     /**
-     * The CPU limit for this container definition
+     * CPU limit for this container definition
      */
     readonly cpu: number;
     /**
@@ -64,7 +64,7 @@ export interface GetContainerDefinitionResult {
      */
     readonly dockerLabels: {[key: string]: string};
     /**
-     * The environment in use
+     * Environment in use
      */
     readonly environment: {[key: string]: string};
     /**
@@ -72,19 +72,19 @@ export interface GetContainerDefinitionResult {
      */
     readonly id: string;
     /**
-     * The docker image in use, including the digest
+     * Docker image in use, including the digest
      */
     readonly image: string;
     /**
-     * The digest of the docker image in use
+     * Digest of the docker image in use
      */
     readonly imageDigest: string;
     /**
-     * The memory limit for this container definition
+     * Memory limit for this container definition
      */
     readonly memory: number;
     /**
-     * The soft limit (in MiB) of memory to reserve for the container. When system memory is under contention, Docker attempts to keep the container memory to this soft limit
+     * Soft limit (in MiB) of memory to reserve for the container. When system memory is under contention, Docker attempts to keep the container memory to this soft limit
      */
     readonly memoryReservation: number;
     readonly taskDefinition: string;
@@ -99,11 +99,11 @@ export function getContainerDefinitionOutput(args: GetContainerDefinitionOutputA
  */
 export interface GetContainerDefinitionOutputArgs {
     /**
-     * The name of the container definition
+     * Name of the container definition
      */
     containerName: pulumi.Input<string>;
     /**
-     * The ARN of the task definition which contains the container
+     * ARN of the task definition which contains the container
      */
     taskDefinition: pulumi.Input<string>;
 }

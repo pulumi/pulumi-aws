@@ -11,9 +11,9 @@ import (
 )
 
 type AppAutoBranchCreationConfig struct {
-	// The basic authorization credentials for the autocreated branch.
+	// Basic authorization credentials for the autocreated branch.
 	BasicAuthCredentials *string `pulumi:"basicAuthCredentials"`
-	// The build specification (build spec) for the autocreated branch.
+	// Build specification (build spec) for the autocreated branch.
 	BuildSpec *string `pulumi:"buildSpec"`
 	// Enables auto building for the autocreated branch.
 	EnableAutoBuild *bool `pulumi:"enableAutoBuild"`
@@ -23,11 +23,11 @@ type AppAutoBranchCreationConfig struct {
 	EnablePerformanceMode *bool `pulumi:"enablePerformanceMode"`
 	// Enables pull request previews for the autocreated branch.
 	EnablePullRequestPreview *bool `pulumi:"enablePullRequestPreview"`
-	// The environment variables for the autocreated branch.
+	// Environment variables for the autocreated branch.
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
-	// The framework for the autocreated branch.
+	// Framework for the autocreated branch.
 	Framework *string `pulumi:"framework"`
-	// The Amplify environment name for the pull request.
+	// Amplify environment name for the pull request.
 	PullRequestEnvironmentName *string `pulumi:"pullRequestEnvironmentName"`
 	// Describes the current stage for the autocreated branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
 	Stage *string `pulumi:"stage"`
@@ -45,9 +45,9 @@ type AppAutoBranchCreationConfigInput interface {
 }
 
 type AppAutoBranchCreationConfigArgs struct {
-	// The basic authorization credentials for the autocreated branch.
+	// Basic authorization credentials for the autocreated branch.
 	BasicAuthCredentials pulumi.StringPtrInput `pulumi:"basicAuthCredentials"`
-	// The build specification (build spec) for the autocreated branch.
+	// Build specification (build spec) for the autocreated branch.
 	BuildSpec pulumi.StringPtrInput `pulumi:"buildSpec"`
 	// Enables auto building for the autocreated branch.
 	EnableAutoBuild pulumi.BoolPtrInput `pulumi:"enableAutoBuild"`
@@ -57,11 +57,11 @@ type AppAutoBranchCreationConfigArgs struct {
 	EnablePerformanceMode pulumi.BoolPtrInput `pulumi:"enablePerformanceMode"`
 	// Enables pull request previews for the autocreated branch.
 	EnablePullRequestPreview pulumi.BoolPtrInput `pulumi:"enablePullRequestPreview"`
-	// The environment variables for the autocreated branch.
+	// Environment variables for the autocreated branch.
 	EnvironmentVariables pulumi.StringMapInput `pulumi:"environmentVariables"`
-	// The framework for the autocreated branch.
+	// Framework for the autocreated branch.
 	Framework pulumi.StringPtrInput `pulumi:"framework"`
-	// The Amplify environment name for the pull request.
+	// Amplify environment name for the pull request.
 	PullRequestEnvironmentName pulumi.StringPtrInput `pulumi:"pullRequestEnvironmentName"`
 	// Describes the current stage for the autocreated branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
 	Stage pulumi.StringPtrInput `pulumi:"stage"`
@@ -144,12 +144,12 @@ func (o AppAutoBranchCreationConfigOutput) ToAppAutoBranchCreationConfigPtrOutpu
 	}).(AppAutoBranchCreationConfigPtrOutput)
 }
 
-// The basic authorization credentials for the autocreated branch.
+// Basic authorization credentials for the autocreated branch.
 func (o AppAutoBranchCreationConfigOutput) BasicAuthCredentials() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppAutoBranchCreationConfig) *string { return v.BasicAuthCredentials }).(pulumi.StringPtrOutput)
 }
 
-// The build specification (build spec) for the autocreated branch.
+// Build specification (build spec) for the autocreated branch.
 func (o AppAutoBranchCreationConfigOutput) BuildSpec() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppAutoBranchCreationConfig) *string { return v.BuildSpec }).(pulumi.StringPtrOutput)
 }
@@ -174,17 +174,17 @@ func (o AppAutoBranchCreationConfigOutput) EnablePullRequestPreview() pulumi.Boo
 	return o.ApplyT(func(v AppAutoBranchCreationConfig) *bool { return v.EnablePullRequestPreview }).(pulumi.BoolPtrOutput)
 }
 
-// The environment variables for the autocreated branch.
+// Environment variables for the autocreated branch.
 func (o AppAutoBranchCreationConfigOutput) EnvironmentVariables() pulumi.StringMapOutput {
 	return o.ApplyT(func(v AppAutoBranchCreationConfig) map[string]string { return v.EnvironmentVariables }).(pulumi.StringMapOutput)
 }
 
-// The framework for the autocreated branch.
+// Framework for the autocreated branch.
 func (o AppAutoBranchCreationConfigOutput) Framework() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppAutoBranchCreationConfig) *string { return v.Framework }).(pulumi.StringPtrOutput)
 }
 
-// The Amplify environment name for the pull request.
+// Amplify environment name for the pull request.
 func (o AppAutoBranchCreationConfigOutput) PullRequestEnvironmentName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppAutoBranchCreationConfig) *string { return v.PullRequestEnvironmentName }).(pulumi.StringPtrOutput)
 }
@@ -218,7 +218,7 @@ func (o AppAutoBranchCreationConfigPtrOutput) Elem() AppAutoBranchCreationConfig
 	}).(AppAutoBranchCreationConfigOutput)
 }
 
-// The basic authorization credentials for the autocreated branch.
+// Basic authorization credentials for the autocreated branch.
 func (o AppAutoBranchCreationConfigPtrOutput) BasicAuthCredentials() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppAutoBranchCreationConfig) *string {
 		if v == nil {
@@ -228,7 +228,7 @@ func (o AppAutoBranchCreationConfigPtrOutput) BasicAuthCredentials() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The build specification (build spec) for the autocreated branch.
+// Build specification (build spec) for the autocreated branch.
 func (o AppAutoBranchCreationConfigPtrOutput) BuildSpec() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppAutoBranchCreationConfig) *string {
 		if v == nil {
@@ -278,7 +278,7 @@ func (o AppAutoBranchCreationConfigPtrOutput) EnablePullRequestPreview() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The environment variables for the autocreated branch.
+// Environment variables for the autocreated branch.
 func (o AppAutoBranchCreationConfigPtrOutput) EnvironmentVariables() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AppAutoBranchCreationConfig) map[string]string {
 		if v == nil {
@@ -288,7 +288,7 @@ func (o AppAutoBranchCreationConfigPtrOutput) EnvironmentVariables() pulumi.Stri
 	}).(pulumi.StringMapOutput)
 }
 
-// The framework for the autocreated branch.
+// Framework for the autocreated branch.
 func (o AppAutoBranchCreationConfigPtrOutput) Framework() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppAutoBranchCreationConfig) *string {
 		if v == nil {
@@ -298,7 +298,7 @@ func (o AppAutoBranchCreationConfigPtrOutput) Framework() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amplify environment name for the pull request.
+// Amplify environment name for the pull request.
 func (o AppAutoBranchCreationConfigPtrOutput) PullRequestEnvironmentName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppAutoBranchCreationConfig) *string {
 		if v == nil {
@@ -319,13 +319,13 @@ func (o AppAutoBranchCreationConfigPtrOutput) Stage() pulumi.StringPtrOutput {
 }
 
 type AppCustomRule struct {
-	// The condition for a URL rewrite or redirect rule, such as a country code.
+	// Condition for a URL rewrite or redirect rule, such as a country code.
 	Condition *string `pulumi:"condition"`
-	// The source pattern for a URL rewrite or redirect rule.
+	// Source pattern for a URL rewrite or redirect rule.
 	Source string `pulumi:"source"`
-	// The status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
+	// Status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
 	Status *string `pulumi:"status"`
-	// The target pattern for a URL rewrite or redirect rule.
+	// Target pattern for a URL rewrite or redirect rule.
 	Target string `pulumi:"target"`
 }
 
@@ -341,13 +341,13 @@ type AppCustomRuleInput interface {
 }
 
 type AppCustomRuleArgs struct {
-	// The condition for a URL rewrite or redirect rule, such as a country code.
+	// Condition for a URL rewrite or redirect rule, such as a country code.
 	Condition pulumi.StringPtrInput `pulumi:"condition"`
-	// The source pattern for a URL rewrite or redirect rule.
+	// Source pattern for a URL rewrite or redirect rule.
 	Source pulumi.StringInput `pulumi:"source"`
-	// The status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
+	// Status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
 	Status pulumi.StringPtrInput `pulumi:"status"`
-	// The target pattern for a URL rewrite or redirect rule.
+	// Target pattern for a URL rewrite or redirect rule.
 	Target pulumi.StringInput `pulumi:"target"`
 }
 
@@ -402,22 +402,22 @@ func (o AppCustomRuleOutput) ToAppCustomRuleOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The condition for a URL rewrite or redirect rule, such as a country code.
+// Condition for a URL rewrite or redirect rule, such as a country code.
 func (o AppCustomRuleOutput) Condition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppCustomRule) *string { return v.Condition }).(pulumi.StringPtrOutput)
 }
 
-// The source pattern for a URL rewrite or redirect rule.
+// Source pattern for a URL rewrite or redirect rule.
 func (o AppCustomRuleOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v AppCustomRule) string { return v.Source }).(pulumi.StringOutput)
 }
 
-// The status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
+// Status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
 func (o AppCustomRuleOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppCustomRule) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// The target pattern for a URL rewrite or redirect rule.
+// Target pattern for a URL rewrite or redirect rule.
 func (o AppCustomRuleOutput) Target() pulumi.StringOutput {
 	return o.ApplyT(func(v AppCustomRule) string { return v.Target }).(pulumi.StringOutput)
 }
@@ -443,13 +443,13 @@ func (o AppCustomRuleArrayOutput) Index(i pulumi.IntInput) AppCustomRuleOutput {
 }
 
 type AppProductionBranch struct {
-	// The branch name for the production branch.
+	// Branch name for the production branch.
 	BranchName *string `pulumi:"branchName"`
-	// The last deploy time of the production branch.
+	// Last deploy time of the production branch.
 	LastDeployTime *string `pulumi:"lastDeployTime"`
-	// The status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
+	// Status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
 	Status *string `pulumi:"status"`
-	// The thumbnail URL for the production branch.
+	// Thumbnail URL for the production branch.
 	ThumbnailUrl *string `pulumi:"thumbnailUrl"`
 }
 
@@ -465,13 +465,13 @@ type AppProductionBranchInput interface {
 }
 
 type AppProductionBranchArgs struct {
-	// The branch name for the production branch.
+	// Branch name for the production branch.
 	BranchName pulumi.StringPtrInput `pulumi:"branchName"`
-	// The last deploy time of the production branch.
+	// Last deploy time of the production branch.
 	LastDeployTime pulumi.StringPtrInput `pulumi:"lastDeployTime"`
-	// The status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
+	// Status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
 	Status pulumi.StringPtrInput `pulumi:"status"`
-	// The thumbnail URL for the production branch.
+	// Thumbnail URL for the production branch.
 	ThumbnailUrl pulumi.StringPtrInput `pulumi:"thumbnailUrl"`
 }
 
@@ -526,22 +526,22 @@ func (o AppProductionBranchOutput) ToAppProductionBranchOutputWithContext(ctx co
 	return o
 }
 
-// The branch name for the production branch.
+// Branch name for the production branch.
 func (o AppProductionBranchOutput) BranchName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppProductionBranch) *string { return v.BranchName }).(pulumi.StringPtrOutput)
 }
 
-// The last deploy time of the production branch.
+// Last deploy time of the production branch.
 func (o AppProductionBranchOutput) LastDeployTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppProductionBranch) *string { return v.LastDeployTime }).(pulumi.StringPtrOutput)
 }
 
-// The status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
+// Status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
 func (o AppProductionBranchOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppProductionBranch) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// The thumbnail URL for the production branch.
+// Thumbnail URL for the production branch.
 func (o AppProductionBranchOutput) ThumbnailUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppProductionBranch) *string { return v.ThumbnailUrl }).(pulumi.StringPtrOutput)
 }
@@ -567,13 +567,13 @@ func (o AppProductionBranchArrayOutput) Index(i pulumi.IntInput) AppProductionBr
 }
 
 type DomainAssociationSubDomain struct {
-	// The branch name setting for the subdomain.
+	// Branch name setting for the subdomain.
 	BranchName string `pulumi:"branchName"`
-	// The DNS record for the subdomain.
+	// DNS record for the subdomain.
 	DnsRecord *string `pulumi:"dnsRecord"`
-	// The prefix setting for the subdomain.
+	// Prefix setting for the subdomain.
 	Prefix string `pulumi:"prefix"`
-	// The verified status of the subdomain.
+	// Verified status of the subdomain.
 	Verified *bool `pulumi:"verified"`
 }
 
@@ -589,13 +589,13 @@ type DomainAssociationSubDomainInput interface {
 }
 
 type DomainAssociationSubDomainArgs struct {
-	// The branch name setting for the subdomain.
+	// Branch name setting for the subdomain.
 	BranchName pulumi.StringInput `pulumi:"branchName"`
-	// The DNS record for the subdomain.
+	// DNS record for the subdomain.
 	DnsRecord pulumi.StringPtrInput `pulumi:"dnsRecord"`
-	// The prefix setting for the subdomain.
+	// Prefix setting for the subdomain.
 	Prefix pulumi.StringInput `pulumi:"prefix"`
-	// The verified status of the subdomain.
+	// Verified status of the subdomain.
 	Verified pulumi.BoolPtrInput `pulumi:"verified"`
 }
 
@@ -650,22 +650,22 @@ func (o DomainAssociationSubDomainOutput) ToDomainAssociationSubDomainOutputWith
 	return o
 }
 
-// The branch name setting for the subdomain.
+// Branch name setting for the subdomain.
 func (o DomainAssociationSubDomainOutput) BranchName() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainAssociationSubDomain) string { return v.BranchName }).(pulumi.StringOutput)
 }
 
-// The DNS record for the subdomain.
+// DNS record for the subdomain.
 func (o DomainAssociationSubDomainOutput) DnsRecord() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainAssociationSubDomain) *string { return v.DnsRecord }).(pulumi.StringPtrOutput)
 }
 
-// The prefix setting for the subdomain.
+// Prefix setting for the subdomain.
 func (o DomainAssociationSubDomainOutput) Prefix() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainAssociationSubDomain) string { return v.Prefix }).(pulumi.StringOutput)
 }
 
-// The verified status of the subdomain.
+// Verified status of the subdomain.
 func (o DomainAssociationSubDomainOutput) Verified() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainAssociationSubDomain) *bool { return v.Verified }).(pulumi.BoolPtrOutput)
 }

@@ -34,14 +34,18 @@ __all__ = [
 class DomainAdvancedSecurityOptionsArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
+                 anonymous_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  internal_user_database_enabled: Optional[pulumi.Input[bool]] = None,
                  master_user_options: Optional[pulumi.Input['DomainAdvancedSecurityOptionsMasterUserOptionsArgs']] = None):
         """
         :param pulumi.Input[bool] enabled: Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engine_version` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
+        :param pulumi.Input[bool] anonymous_auth_enabled: Whether Anonymous auth is enabled. Enables fine-grained access control on an existing domain. Ignored unless `advanced_security_options` are enabled. _Can only be enabled on an existing domain._
         :param pulumi.Input[bool] internal_user_database_enabled: Whether the internal user database is enabled. Default is `false`.
         :param pulumi.Input['DomainAdvancedSecurityOptionsMasterUserOptionsArgs'] master_user_options: Configuration block for the main user. Detailed below.
         """
         pulumi.set(__self__, "enabled", enabled)
+        if anonymous_auth_enabled is not None:
+            pulumi.set(__self__, "anonymous_auth_enabled", anonymous_auth_enabled)
         if internal_user_database_enabled is not None:
             pulumi.set(__self__, "internal_user_database_enabled", internal_user_database_enabled)
         if master_user_options is not None:
@@ -58,6 +62,18 @@ class DomainAdvancedSecurityOptionsArgs:
     @enabled.setter
     def enabled(self, value: pulumi.Input[bool]):
         pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="anonymousAuthEnabled")
+    def anonymous_auth_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether Anonymous auth is enabled. Enables fine-grained access control on an existing domain. Ignored unless `advanced_security_options` are enabled. _Can only be enabled on an existing domain._
+        """
+        return pulumi.get(self, "anonymous_auth_enabled")
+
+    @anonymous_auth_enabled.setter
+    def anonymous_auth_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "anonymous_auth_enabled", value)
 
     @property
     @pulumi.getter(name="internalUserDatabaseEnabled")

@@ -33,7 +33,7 @@ public final class GetSubnetIdsPlainArgs extends com.pulumi.resources.InvokeArgs
     }
 
     /**
-     * A map of tags, each pair of which must exactly match
+     * Map of tags, each pair of which must exactly match
      * a pair on the desired subnets.
      * 
      */
@@ -41,7 +41,7 @@ public final class GetSubnetIdsPlainArgs extends com.pulumi.resources.InvokeArgs
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return A map of tags, each pair of which must exactly match
+     * @return Map of tags, each pair of which must exactly match
      * a pair on the desired subnets.
      * 
      */
@@ -50,14 +50,14 @@ public final class GetSubnetIdsPlainArgs extends com.pulumi.resources.InvokeArgs
     }
 
     /**
-     * The VPC ID that you want to filter from.
+     * VPC ID that you want to filter from.
      * 
      */
     @Import(name="vpcId", required=true)
     private String vpcId;
 
     /**
-     * @return The VPC ID that you want to filter from.
+     * @return VPC ID that you want to filter from.
      * 
      */
     public String vpcId() {
@@ -112,7 +112,7 @@ public final class GetSubnetIdsPlainArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param tags A map of tags, each pair of which must exactly match
+         * @param tags Map of tags, each pair of which must exactly match
          * a pair on the desired subnets.
          * 
          * @return builder
@@ -124,7 +124,7 @@ public final class GetSubnetIdsPlainArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param vpcId The VPC ID that you want to filter from.
+         * @param vpcId VPC ID that you want to filter from.
          * 
          * @return builder
          * 

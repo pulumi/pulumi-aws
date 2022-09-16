@@ -73,7 +73,7 @@ class GetPatchBaselineResult:
     @pulumi.getter(name="approvalRules")
     def approval_rules(self) -> Sequence['outputs.GetPatchBaselineApprovalRuleResult']:
         """
-        A list of rules used to include patches in the baseline.
+        List of rules used to include patches in the baseline.
         """
         return pulumi.get(self, "approval_rules")
 
@@ -81,7 +81,7 @@ class GetPatchBaselineResult:
     @pulumi.getter(name="approvedPatches")
     def approved_patches(self) -> Sequence[str]:
         """
-        A list of explicitly approved patches for the baseline.
+        List of explicitly approved patches for the baseline.
         """
         return pulumi.get(self, "approved_patches")
 
@@ -110,7 +110,7 @@ class GetPatchBaselineResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        The description of the baseline.
+        Description of the baseline.
         """
         return pulumi.get(self, "description")
 
@@ -118,7 +118,7 @@ class GetPatchBaselineResult:
     @pulumi.getter(name="globalFilters")
     def global_filters(self) -> Sequence['outputs.GetPatchBaselineGlobalFilterResult']:
         """
-        A set of global filters used to exclude patches from the baseline.
+        Set of global filters used to exclude patches from the baseline.
         """
         return pulumi.get(self, "global_filters")
 
@@ -157,7 +157,7 @@ class GetPatchBaselineResult:
     @pulumi.getter(name="rejectedPatches")
     def rejected_patches(self) -> Sequence[str]:
         """
-        A list of rejected patches.
+        List of rejected patches.
         """
         return pulumi.get(self, "rejected_patches")
 
@@ -237,8 +237,8 @@ def get_patch_baseline(default_baseline: Optional[bool] = None,
 
     :param bool default_baseline: Filters the results against the baselines default_baseline field.
     :param str name_prefix: Filter results by the baseline name prefix.
-    :param str operating_system: The specified OS for the baseline.
-    :param str owner: The owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
+    :param str operating_system: Specified OS for the baseline.
+    :param str owner: Owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
     """
     __args__ = dict()
     __args__['defaultBaseline'] = default_baseline
@@ -303,7 +303,7 @@ def get_patch_baseline_output(default_baseline: Optional[pulumi.Input[Optional[b
 
     :param bool default_baseline: Filters the results against the baselines default_baseline field.
     :param str name_prefix: Filter results by the baseline name prefix.
-    :param str operating_system: The specified OS for the baseline.
-    :param str owner: The owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
+    :param str operating_system: Specified OS for the baseline.
+    :param str owner: Owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
     """
     ...

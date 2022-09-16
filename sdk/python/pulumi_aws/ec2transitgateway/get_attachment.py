@@ -62,7 +62,7 @@ class GetAttachmentResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The ARN of the attachment.
+        ARN of the attachment.
         """
         return pulumi.get(self, "arn")
 
@@ -83,7 +83,7 @@ class GetAttachmentResult:
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> str:
         """
-        The ID of the resource.
+        ID of the resource.
         """
         return pulumi.get(self, "resource_id")
 
@@ -91,7 +91,7 @@ class GetAttachmentResult:
     @pulumi.getter(name="resourceOwnerId")
     def resource_owner_id(self) -> str:
         """
-        The ID of the AWS account that owns the resource.
+        ID of the AWS account that owns the resource.
         """
         return pulumi.get(self, "resource_owner_id")
 
@@ -99,7 +99,7 @@ class GetAttachmentResult:
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> str:
         """
-        The resource type.
+        Resource type.
         """
         return pulumi.get(self, "resource_type")
 
@@ -107,7 +107,7 @@ class GetAttachmentResult:
     @pulumi.getter
     def state(self) -> str:
         """
-        The attachment state.
+        Attachment state.
         """
         return pulumi.get(self, "state")
 
@@ -128,7 +128,7 @@ class GetAttachmentResult:
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> str:
         """
-        The ID of the transit gateway.
+        ID of the transit gateway.
         """
         return pulumi.get(self, "transit_gateway_id")
 
@@ -188,7 +188,7 @@ def get_attachment(filters: Optional[Sequence[pulumi.InputType['GetAttachmentFil
 
     :param Sequence[pulumi.InputType['GetAttachmentFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param Mapping[str, str] tags: Key-value tags for the attachment.
-    :param str transit_gateway_attachment_id: The ID of the attachment.
+    :param str transit_gateway_attachment_id: ID of the attachment.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -240,6 +240,6 @@ def get_attachment_output(filters: Optional[pulumi.Input[Optional[Sequence[pulum
 
     :param Sequence[pulumi.InputType['GetAttachmentFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param Mapping[str, str] tags: Key-value tags for the attachment.
-    :param str transit_gateway_attachment_id: The ID of the attachment.
+    :param str transit_gateway_attachment_id: ID of the attachment.
     """
     ...

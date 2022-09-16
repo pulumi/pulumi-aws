@@ -124,70 +124,70 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ec2/amiLaunchPermission:AmiLaunchPermission")
 public class AmiLaunchPermission extends com.pulumi.resources.CustomResource {
     /**
-     * The AWS account ID for the launch permission.
+     * AWS account ID for the launch permission.
      * 
      */
     @Export(name="accountId", type=String.class, parameters={})
     private Output</* @Nullable */ String> accountId;
 
     /**
-     * @return The AWS account ID for the launch permission.
+     * @return AWS account ID for the launch permission.
      * 
      */
     public Output<Optional<String>> accountId() {
         return Codegen.optional(this.accountId);
     }
     /**
-     * The name of the group for the launch permission. Valid values: `&#34;all&#34;`.
+     * Name of the group for the launch permission. Valid values: `&#34;all&#34;`.
      * 
      */
     @Export(name="group", type=String.class, parameters={})
     private Output</* @Nullable */ String> group;
 
     /**
-     * @return The name of the group for the launch permission. Valid values: `&#34;all&#34;`.
+     * @return Name of the group for the launch permission. Valid values: `&#34;all&#34;`.
      * 
      */
     public Output<Optional<String>> group() {
         return Codegen.optional(this.group);
     }
     /**
-     * The ID of the AMI.
+     * ID of the AMI.
      * 
      */
     @Export(name="imageId", type=String.class, parameters={})
     private Output<String> imageId;
 
     /**
-     * @return The ID of the AMI.
+     * @return ID of the AMI.
      * 
      */
     public Output<String> imageId() {
         return this.imageId;
     }
     /**
-     * The ARN of an organization for the launch permission.
+     * ARN of an organization for the launch permission.
      * 
      */
     @Export(name="organizationArn", type=String.class, parameters={})
     private Output</* @Nullable */ String> organizationArn;
 
     /**
-     * @return The ARN of an organization for the launch permission.
+     * @return ARN of an organization for the launch permission.
      * 
      */
     public Output<Optional<String>> organizationArn() {
         return Codegen.optional(this.organizationArn);
     }
     /**
-     * The ARN of an organizational unit for the launch permission.
+     * ARN of an organizational unit for the launch permission.
      * 
      */
     @Export(name="organizationalUnitArn", type=String.class, parameters={})
     private Output</* @Nullable */ String> organizationalUnitArn;
 
     /**
-     * @return The ARN of an organizational unit for the launch permission.
+     * @return ARN of an organizational unit for the launch permission.
      * 
      */
     public Output<Optional<String>> organizationalUnitArn() {

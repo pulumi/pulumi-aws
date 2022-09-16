@@ -133,7 +133,7 @@ namespace Pulumi.Aws.Connect
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the Quick Connect.
+        /// Map of tags to assign to the Quick Connect.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -171,7 +171,7 @@ namespace Pulumi.Aws.Connect
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the Quick Connect.
+        /// Map of tags to assign to the Quick Connect.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -190,11 +190,11 @@ namespace Pulumi.Aws.Connect
     public sealed class GetQuickConnectResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Quick Connect.
+        /// ARN of the Quick Connect.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// Specifies the description of the Quick Connect.
+        /// Description of the Quick Connect.
         /// </summary>
         public readonly string Description;
         /// <summary>
@@ -208,11 +208,11 @@ namespace Pulumi.Aws.Connect
         /// </summary>
         public readonly ImmutableArray<Outputs.GetQuickConnectQuickConnectConfigResult> QuickConnectConfigs;
         /// <summary>
-        /// The identifier for the Quick Connect.
+        /// Identifier for the Quick Connect.
         /// </summary>
         public readonly string QuickConnectId;
         /// <summary>
-        /// A map of tags to assign to the Quick Connect.
+        /// Map of tags to assign to the Quick Connect.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 

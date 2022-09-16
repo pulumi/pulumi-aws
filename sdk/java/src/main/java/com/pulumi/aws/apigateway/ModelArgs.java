@@ -16,14 +16,14 @@ public final class ModelArgs extends com.pulumi.resources.ResourceArgs {
     public static final ModelArgs Empty = new ModelArgs();
 
     /**
-     * The content type of the model
+     * Content type of the model
      * 
      */
     @Import(name="contentType", required=true)
     private Output<String> contentType;
 
     /**
-     * @return The content type of the model
+     * @return Content type of the model
      * 
      */
     public Output<String> contentType() {
@@ -31,14 +31,14 @@ public final class ModelArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The description of the model
+     * Description of the model
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description of the model
+     * @return Description of the model
      * 
      */
     public Optional<Output<String>> description() {
@@ -46,14 +46,14 @@ public final class ModelArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the model
+     * Name of the model
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the model
+     * @return Name of the model
      * 
      */
     public Optional<Output<String>> name() {
@@ -61,14 +61,14 @@ public final class ModelArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the associated REST API
+     * ID of the associated REST API
      * 
      */
     @Import(name="restApi", required=true)
     private Output<String> restApi;
 
     /**
-     * @return The ID of the associated REST API
+     * @return ID of the associated REST API
      * 
      */
     public Output<String> restApi() {
@@ -76,14 +76,14 @@ public final class ModelArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The schema of the model in a JSON form
+     * Schema of the model in a JSON form
      * 
      */
     @Import(name="schema")
     private @Nullable Output<String> schema;
 
     /**
-     * @return The schema of the model in a JSON form
+     * @return Schema of the model in a JSON form
      * 
      */
     public Optional<Output<String>> schema() {
@@ -119,7 +119,7 @@ public final class ModelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param contentType The content type of the model
+         * @param contentType Content type of the model
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class ModelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param contentType The content type of the model
+         * @param contentType Content type of the model
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class ModelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The description of the model
+         * @param description Description of the model
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class ModelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The description of the model
+         * @param description Description of the model
          * 
          * @return builder
          * 
@@ -161,7 +161,7 @@ public final class ModelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the model
+         * @param name Name of the model
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class ModelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the model
+         * @param name Name of the model
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class ModelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param restApi The ID of the associated REST API
+         * @param restApi ID of the associated REST API
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class ModelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param restApi The ID of the associated REST API
+         * @param restApi ID of the associated REST API
          * 
          * @return builder
          * 
@@ -203,7 +203,7 @@ public final class ModelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schema The schema of the model in a JSON form
+         * @param schema Schema of the model in a JSON form
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class ModelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schema The schema of the model in a JSON form
+         * @param schema Schema of the model in a JSON form
          * 
          * @return builder
          * 

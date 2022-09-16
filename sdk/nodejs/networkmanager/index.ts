@@ -5,45 +5,126 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./attachmentAccepter";
-export * from "./connection";
-export * from "./customerGatewayAssociation";
-export * from "./device";
-export * from "./getConnection";
-export * from "./getConnections";
-export * from "./getCoreNetworkPolicyDocument";
-export * from "./getDevice";
-export * from "./getDevices";
-export * from "./getGlobalNetwork";
-export * from "./getGlobalNetworks";
-export * from "./getLink";
-export * from "./getLinks";
-export * from "./getSite";
-export * from "./getSites";
-export * from "./globalNetwork";
-export * from "./link";
-export * from "./linkAssociation";
-export * from "./site";
-export * from "./transitGatewayConnectPeerAssociation";
-export * from "./transitGatewayPeering";
-export * from "./transitGatewayRegistration";
-export * from "./transitGatewayRouteTableAttachment";
-export * from "./vpcAttachment";
+export { AttachmentAccepterArgs, AttachmentAccepterState } from "./attachmentAccepter";
+export type AttachmentAccepter = import("./attachmentAccepter").AttachmentAccepter;
+export const AttachmentAccepter: typeof import("./attachmentAccepter").AttachmentAccepter = null as any;
 
-// Import resources to register:
-import { AttachmentAccepter } from "./attachmentAccepter";
-import { Connection } from "./connection";
-import { CustomerGatewayAssociation } from "./customerGatewayAssociation";
-import { Device } from "./device";
-import { GlobalNetwork } from "./globalNetwork";
-import { Link } from "./link";
-import { LinkAssociation } from "./linkAssociation";
-import { Site } from "./site";
-import { TransitGatewayConnectPeerAssociation } from "./transitGatewayConnectPeerAssociation";
-import { TransitGatewayPeering } from "./transitGatewayPeering";
-import { TransitGatewayRegistration } from "./transitGatewayRegistration";
-import { TransitGatewayRouteTableAttachment } from "./transitGatewayRouteTableAttachment";
-import { VpcAttachment } from "./vpcAttachment";
+export { ConnectionArgs, ConnectionState } from "./connection";
+export type Connection = import("./connection").Connection;
+export const Connection: typeof import("./connection").Connection = null as any;
+
+export { CustomerGatewayAssociationArgs, CustomerGatewayAssociationState } from "./customerGatewayAssociation";
+export type CustomerGatewayAssociation = import("./customerGatewayAssociation").CustomerGatewayAssociation;
+export const CustomerGatewayAssociation: typeof import("./customerGatewayAssociation").CustomerGatewayAssociation = null as any;
+
+export { DeviceArgs, DeviceState } from "./device";
+export type Device = import("./device").Device;
+export const Device: typeof import("./device").Device = null as any;
+
+export { GetConnectionArgs, GetConnectionResult, GetConnectionOutputArgs } from "./getConnection";
+export const getConnection: typeof import("./getConnection").getConnection = null as any;
+export const getConnectionOutput: typeof import("./getConnection").getConnectionOutput = null as any;
+
+export { GetConnectionsArgs, GetConnectionsResult, GetConnectionsOutputArgs } from "./getConnections";
+export const getConnections: typeof import("./getConnections").getConnections = null as any;
+export const getConnectionsOutput: typeof import("./getConnections").getConnectionsOutput = null as any;
+
+export { GetCoreNetworkPolicyDocumentArgs, GetCoreNetworkPolicyDocumentResult, GetCoreNetworkPolicyDocumentOutputArgs } from "./getCoreNetworkPolicyDocument";
+export const getCoreNetworkPolicyDocument: typeof import("./getCoreNetworkPolicyDocument").getCoreNetworkPolicyDocument = null as any;
+export const getCoreNetworkPolicyDocumentOutput: typeof import("./getCoreNetworkPolicyDocument").getCoreNetworkPolicyDocumentOutput = null as any;
+
+export { GetDeviceArgs, GetDeviceResult, GetDeviceOutputArgs } from "./getDevice";
+export const getDevice: typeof import("./getDevice").getDevice = null as any;
+export const getDeviceOutput: typeof import("./getDevice").getDeviceOutput = null as any;
+
+export { GetDevicesArgs, GetDevicesResult, GetDevicesOutputArgs } from "./getDevices";
+export const getDevices: typeof import("./getDevices").getDevices = null as any;
+export const getDevicesOutput: typeof import("./getDevices").getDevicesOutput = null as any;
+
+export { GetGlobalNetworkArgs, GetGlobalNetworkResult, GetGlobalNetworkOutputArgs } from "./getGlobalNetwork";
+export const getGlobalNetwork: typeof import("./getGlobalNetwork").getGlobalNetwork = null as any;
+export const getGlobalNetworkOutput: typeof import("./getGlobalNetwork").getGlobalNetworkOutput = null as any;
+
+export { GetGlobalNetworksArgs, GetGlobalNetworksResult, GetGlobalNetworksOutputArgs } from "./getGlobalNetworks";
+export const getGlobalNetworks: typeof import("./getGlobalNetworks").getGlobalNetworks = null as any;
+export const getGlobalNetworksOutput: typeof import("./getGlobalNetworks").getGlobalNetworksOutput = null as any;
+
+export { GetLinkArgs, GetLinkResult, GetLinkOutputArgs } from "./getLink";
+export const getLink: typeof import("./getLink").getLink = null as any;
+export const getLinkOutput: typeof import("./getLink").getLinkOutput = null as any;
+
+export { GetLinksArgs, GetLinksResult, GetLinksOutputArgs } from "./getLinks";
+export const getLinks: typeof import("./getLinks").getLinks = null as any;
+export const getLinksOutput: typeof import("./getLinks").getLinksOutput = null as any;
+
+export { GetSiteArgs, GetSiteResult, GetSiteOutputArgs } from "./getSite";
+export const getSite: typeof import("./getSite").getSite = null as any;
+export const getSiteOutput: typeof import("./getSite").getSiteOutput = null as any;
+
+export { GetSitesArgs, GetSitesResult, GetSitesOutputArgs } from "./getSites";
+export const getSites: typeof import("./getSites").getSites = null as any;
+export const getSitesOutput: typeof import("./getSites").getSitesOutput = null as any;
+
+export { GlobalNetworkArgs, GlobalNetworkState } from "./globalNetwork";
+export type GlobalNetwork = import("./globalNetwork").GlobalNetwork;
+export const GlobalNetwork: typeof import("./globalNetwork").GlobalNetwork = null as any;
+
+export { LinkArgs, LinkState } from "./link";
+export type Link = import("./link").Link;
+export const Link: typeof import("./link").Link = null as any;
+
+export { LinkAssociationArgs, LinkAssociationState } from "./linkAssociation";
+export type LinkAssociation = import("./linkAssociation").LinkAssociation;
+export const LinkAssociation: typeof import("./linkAssociation").LinkAssociation = null as any;
+
+export { SiteArgs, SiteState } from "./site";
+export type Site = import("./site").Site;
+export const Site: typeof import("./site").Site = null as any;
+
+export { TransitGatewayConnectPeerAssociationArgs, TransitGatewayConnectPeerAssociationState } from "./transitGatewayConnectPeerAssociation";
+export type TransitGatewayConnectPeerAssociation = import("./transitGatewayConnectPeerAssociation").TransitGatewayConnectPeerAssociation;
+export const TransitGatewayConnectPeerAssociation: typeof import("./transitGatewayConnectPeerAssociation").TransitGatewayConnectPeerAssociation = null as any;
+
+export { TransitGatewayPeeringArgs, TransitGatewayPeeringState } from "./transitGatewayPeering";
+export type TransitGatewayPeering = import("./transitGatewayPeering").TransitGatewayPeering;
+export const TransitGatewayPeering: typeof import("./transitGatewayPeering").TransitGatewayPeering = null as any;
+
+export { TransitGatewayRegistrationArgs, TransitGatewayRegistrationState } from "./transitGatewayRegistration";
+export type TransitGatewayRegistration = import("./transitGatewayRegistration").TransitGatewayRegistration;
+export const TransitGatewayRegistration: typeof import("./transitGatewayRegistration").TransitGatewayRegistration = null as any;
+
+export { TransitGatewayRouteTableAttachmentArgs, TransitGatewayRouteTableAttachmentState } from "./transitGatewayRouteTableAttachment";
+export type TransitGatewayRouteTableAttachment = import("./transitGatewayRouteTableAttachment").TransitGatewayRouteTableAttachment;
+export const TransitGatewayRouteTableAttachment: typeof import("./transitGatewayRouteTableAttachment").TransitGatewayRouteTableAttachment = null as any;
+
+export { VpcAttachmentArgs, VpcAttachmentState } from "./vpcAttachment";
+export type VpcAttachment = import("./vpcAttachment").VpcAttachment;
+export const VpcAttachment: typeof import("./vpcAttachment").VpcAttachment = null as any;
+
+utilities.lazyLoad(exports, ["AttachmentAccepter"], () => require("./attachmentAccepter"));
+utilities.lazyLoad(exports, ["Connection"], () => require("./connection"));
+utilities.lazyLoad(exports, ["CustomerGatewayAssociation"], () => require("./customerGatewayAssociation"));
+utilities.lazyLoad(exports, ["Device"], () => require("./device"));
+utilities.lazyLoad(exports, ["getConnection","getConnectionOutput"], () => require("./getConnection"));
+utilities.lazyLoad(exports, ["getConnections","getConnectionsOutput"], () => require("./getConnections"));
+utilities.lazyLoad(exports, ["getCoreNetworkPolicyDocument","getCoreNetworkPolicyDocumentOutput"], () => require("./getCoreNetworkPolicyDocument"));
+utilities.lazyLoad(exports, ["getDevice","getDeviceOutput"], () => require("./getDevice"));
+utilities.lazyLoad(exports, ["getDevices","getDevicesOutput"], () => require("./getDevices"));
+utilities.lazyLoad(exports, ["getGlobalNetwork","getGlobalNetworkOutput"], () => require("./getGlobalNetwork"));
+utilities.lazyLoad(exports, ["getGlobalNetworks","getGlobalNetworksOutput"], () => require("./getGlobalNetworks"));
+utilities.lazyLoad(exports, ["getLink","getLinkOutput"], () => require("./getLink"));
+utilities.lazyLoad(exports, ["getLinks","getLinksOutput"], () => require("./getLinks"));
+utilities.lazyLoad(exports, ["getSite","getSiteOutput"], () => require("./getSite"));
+utilities.lazyLoad(exports, ["getSites","getSitesOutput"], () => require("./getSites"));
+utilities.lazyLoad(exports, ["GlobalNetwork"], () => require("./globalNetwork"));
+utilities.lazyLoad(exports, ["Link"], () => require("./link"));
+utilities.lazyLoad(exports, ["LinkAssociation"], () => require("./linkAssociation"));
+utilities.lazyLoad(exports, ["Site"], () => require("./site"));
+utilities.lazyLoad(exports, ["TransitGatewayConnectPeerAssociation"], () => require("./transitGatewayConnectPeerAssociation"));
+utilities.lazyLoad(exports, ["TransitGatewayPeering"], () => require("./transitGatewayPeering"));
+utilities.lazyLoad(exports, ["TransitGatewayRegistration"], () => require("./transitGatewayRegistration"));
+utilities.lazyLoad(exports, ["TransitGatewayRouteTableAttachment"], () => require("./transitGatewayRouteTableAttachment"));
+utilities.lazyLoad(exports, ["VpcAttachment"], () => require("./vpcAttachment"));
 
 const _module = {
     version: utilities.getVersion(),

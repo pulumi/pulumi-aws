@@ -27,7 +27,7 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2.Outputs
         /// </summary>
         public readonly string? PrivateIpv4Address;
         /// <summary>
-        /// The id of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
+        /// ID of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
         /// </summary>
         public readonly string SubnetId;
 

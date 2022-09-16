@@ -36,7 +36,7 @@ export function getTopic(args: GetTopicArgs, opts?: pulumi.InvokeOptions): Promi
  */
 export interface GetTopicArgs {
     /**
-     * The friendly name of the topic to match.
+     * Friendly name of the topic to match.
      */
     name: string;
 }
@@ -46,7 +46,7 @@ export interface GetTopicArgs {
  */
 export interface GetTopicResult {
     /**
-     * Amazon Resource Name (ARN) of the found topic, suitable for referencing in other resources that support SNS topics.
+     * ARN of the found topic, suitable for referencing in other resources that support SNS topics.
      */
     readonly arn: string;
     /**
@@ -65,7 +65,7 @@ export function getTopicOutput(args: GetTopicOutputArgs, opts?: pulumi.InvokeOpt
  */
 export interface GetTopicOutputArgs {
     /**
-     * The friendly name of the topic to match.
+     * Friendly name of the topic to match.
      */
     name: pulumi.Input<string>;
 }

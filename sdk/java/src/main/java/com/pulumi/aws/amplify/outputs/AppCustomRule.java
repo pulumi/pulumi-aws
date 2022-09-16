@@ -12,50 +12,50 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AppCustomRule {
     /**
-     * @return The condition for a URL rewrite or redirect rule, such as a country code.
+     * @return Condition for a URL rewrite or redirect rule, such as a country code.
      * 
      */
     private @Nullable String condition;
     /**
-     * @return The source pattern for a URL rewrite or redirect rule.
+     * @return Source pattern for a URL rewrite or redirect rule.
      * 
      */
     private String source;
     /**
-     * @return The status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
+     * @return Status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
      * 
      */
     private @Nullable String status;
     /**
-     * @return The target pattern for a URL rewrite or redirect rule.
+     * @return Target pattern for a URL rewrite or redirect rule.
      * 
      */
     private String target;
 
     private AppCustomRule() {}
     /**
-     * @return The condition for a URL rewrite or redirect rule, such as a country code.
+     * @return Condition for a URL rewrite or redirect rule, such as a country code.
      * 
      */
     public Optional<String> condition() {
         return Optional.ofNullable(this.condition);
     }
     /**
-     * @return The source pattern for a URL rewrite or redirect rule.
+     * @return Source pattern for a URL rewrite or redirect rule.
      * 
      */
     public String source() {
         return this.source;
     }
     /**
-     * @return The status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
+     * @return Status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
      * 
      */
     public Optional<String> status() {
         return Optional.ofNullable(this.status);
     }
     /**
-     * @return The target pattern for a URL rewrite or redirect rule.
+     * @return Target pattern for a URL rewrite or redirect rule.
      * 
      */
     public String target() {

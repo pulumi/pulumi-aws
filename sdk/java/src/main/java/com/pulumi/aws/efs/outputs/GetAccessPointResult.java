@@ -26,7 +26,7 @@ public final class GetAccessPointResult {
      */
     private String fileSystemArn;
     /**
-     * @return The ID of the file system for which the access point is intended.
+     * @return ID of the file system for which the access point is intended.
      * 
      */
     private String fileSystemId;
@@ -67,7 +67,7 @@ public final class GetAccessPointResult {
         return this.fileSystemArn;
     }
     /**
-     * @return The ID of the file system for which the access point is intended.
+     * @return ID of the file system for which the access point is intended.
      * 
      */
     public String fileSystemId() {

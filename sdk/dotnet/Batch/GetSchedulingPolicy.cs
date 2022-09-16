@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Batch
     public sealed class GetSchedulingPolicyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the scheduling policy.
+        /// ARN of the scheduling policy.
         /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
@@ -96,7 +96,7 @@ namespace Pulumi.Aws.Batch
     public sealed class GetSchedulingPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the scheduling policy.
+        /// ARN of the scheduling policy.
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
@@ -130,7 +130,7 @@ namespace Pulumi.Aws.Batch
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Specifies the name of the scheduling policy.
+        /// Name of the scheduling policy.
         /// </summary>
         public readonly string Name;
         /// <summary>

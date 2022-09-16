@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -56,15 +58,15 @@ export interface GetLaunchTemplateArgs {
      */
     filters?: inputs.ec2.GetLaunchTemplateFilter[];
     /**
-     * The ID of the specific launch template to retrieve.
+     * ID of the specific launch template to retrieve.
      */
     id?: string;
     /**
-     * The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
+     * Name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
      */
     name?: string;
     /**
-     * A map of tags, each pair of which must exactly match a pair on the desired Launch Template.
+     * Map of tags, each pair of which must exactly match a pair on the desired Launch Template.
      */
     tags?: {[key: string]: string};
 }
@@ -90,7 +92,7 @@ export interface GetLaunchTemplateResult {
     readonly hibernationOptions: outputs.ec2.GetLaunchTemplateHibernationOption[];
     readonly iamInstanceProfiles: outputs.ec2.GetLaunchTemplateIamInstanceProfile[];
     /**
-     * The ID of the launch template.
+     * ID of the launch template.
      */
     readonly id: string;
     readonly imageId: string;
@@ -130,15 +132,15 @@ export interface GetLaunchTemplateOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetLaunchTemplateFilterArgs>[]>;
     /**
-     * The ID of the specific launch template to retrieve.
+     * ID of the specific launch template to retrieve.
      */
     id?: pulumi.Input<string>;
     /**
-     * The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
+     * Name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
      */
     name?: pulumi.Input<string>;
     /**
-     * A map of tags, each pair of which must exactly match a pair on the desired Launch Template.
+     * Map of tags, each pair of which must exactly match a pair on the desired Launch Template.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

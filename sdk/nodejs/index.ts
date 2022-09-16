@@ -7,27 +7,95 @@ import * as utilities from "./utilities";
 // Export members:
 export * from "./arn";
 export * from "./awsMixins";
-export * from "./getAmi";
-export * from "./getAmiIds";
-export * from "./getArn";
-export * from "./getAutoscalingGroups";
-export * from "./getAvailabilityZone";
-export * from "./getAvailabilityZones";
-export * from "./getBillingServiceAccount";
-export * from "./getCallerIdentity";
-export * from "./getCanonicalUserId";
-export * from "./getDefaultTags";
-export * from "./getElasticIp";
-export * from "./getIpRanges";
-export * from "./getPartition";
-export * from "./getPrefixList";
-export * from "./getRegion";
-export * from "./getRegions";
-export * from "./getService";
-export * from "./provider";
+export { GetAmiArgs, GetAmiResult, GetAmiOutputArgs } from "./getAmi";
+export const getAmi: typeof import("./getAmi").getAmi = null as any;
+export const getAmiOutput: typeof import("./getAmi").getAmiOutput = null as any;
+
+export { GetAmiIdsArgs, GetAmiIdsResult, GetAmiIdsOutputArgs } from "./getAmiIds";
+export const getAmiIds: typeof import("./getAmiIds").getAmiIds = null as any;
+export const getAmiIdsOutput: typeof import("./getAmiIds").getAmiIdsOutput = null as any;
+
+export { GetArnArgs, GetArnResult, GetArnOutputArgs } from "./getArn";
+export const getArn: typeof import("./getArn").getArn = null as any;
+export const getArnOutput: typeof import("./getArn").getArnOutput = null as any;
+
+export { GetAutoscalingGroupsArgs, GetAutoscalingGroupsResult, GetAutoscalingGroupsOutputArgs } from "./getAutoscalingGroups";
+export const getAutoscalingGroups: typeof import("./getAutoscalingGroups").getAutoscalingGroups = null as any;
+export const getAutoscalingGroupsOutput: typeof import("./getAutoscalingGroups").getAutoscalingGroupsOutput = null as any;
+
+export { GetAvailabilityZoneArgs, GetAvailabilityZoneResult, GetAvailabilityZoneOutputArgs } from "./getAvailabilityZone";
+export const getAvailabilityZone: typeof import("./getAvailabilityZone").getAvailabilityZone = null as any;
+export const getAvailabilityZoneOutput: typeof import("./getAvailabilityZone").getAvailabilityZoneOutput = null as any;
+
+export { GetAvailabilityZonesArgs, GetAvailabilityZonesResult, GetAvailabilityZonesOutputArgs } from "./getAvailabilityZones";
+export const getAvailabilityZones: typeof import("./getAvailabilityZones").getAvailabilityZones = null as any;
+export const getAvailabilityZonesOutput: typeof import("./getAvailabilityZones").getAvailabilityZonesOutput = null as any;
+
+export { GetBillingServiceAccountResult } from "./getBillingServiceAccount";
+export const getBillingServiceAccount: typeof import("./getBillingServiceAccount").getBillingServiceAccount = null as any;
+
+export { GetCallerIdentityResult } from "./getCallerIdentity";
+export const getCallerIdentity: typeof import("./getCallerIdentity").getCallerIdentity = null as any;
+
+export { GetCanonicalUserIdResult } from "./getCanonicalUserId";
+export const getCanonicalUserId: typeof import("./getCanonicalUserId").getCanonicalUserId = null as any;
+
+export { GetDefaultTagsArgs, GetDefaultTagsResult, GetDefaultTagsOutputArgs } from "./getDefaultTags";
+export const getDefaultTags: typeof import("./getDefaultTags").getDefaultTags = null as any;
+export const getDefaultTagsOutput: typeof import("./getDefaultTags").getDefaultTagsOutput = null as any;
+
+export { GetElasticIpArgs, GetElasticIpResult, GetElasticIpOutputArgs } from "./getElasticIp";
+export const getElasticIp: typeof import("./getElasticIp").getElasticIp = null as any;
+export const getElasticIpOutput: typeof import("./getElasticIp").getElasticIpOutput = null as any;
+
+export { GetIpRangesArgs, GetIpRangesResult, GetIpRangesOutputArgs } from "./getIpRanges";
+export const getIpRanges: typeof import("./getIpRanges").getIpRanges = null as any;
+export const getIpRangesOutput: typeof import("./getIpRanges").getIpRangesOutput = null as any;
+
+export { GetPartitionResult } from "./getPartition";
+export const getPartition: typeof import("./getPartition").getPartition = null as any;
+
+export { GetPrefixListArgs, GetPrefixListResult, GetPrefixListOutputArgs } from "./getPrefixList";
+export const getPrefixList: typeof import("./getPrefixList").getPrefixList = null as any;
+export const getPrefixListOutput: typeof import("./getPrefixList").getPrefixListOutput = null as any;
+
+export { GetRegionArgs, GetRegionResult, GetRegionOutputArgs } from "./getRegion";
+export const getRegion: typeof import("./getRegion").getRegion = null as any;
+export const getRegionOutput: typeof import("./getRegion").getRegionOutput = null as any;
+
+export { GetRegionsArgs, GetRegionsResult, GetRegionsOutputArgs } from "./getRegions";
+export const getRegions: typeof import("./getRegions").getRegions = null as any;
+export const getRegionsOutput: typeof import("./getRegions").getRegionsOutput = null as any;
+
+export { GetServiceArgs, GetServiceResult, GetServiceOutputArgs } from "./getService";
+export const getService: typeof import("./getService").getService = null as any;
+export const getServiceOutput: typeof import("./getService").getServiceOutput = null as any;
+
+export { ProviderArgs } from "./provider";
+export type Provider = import("./provider").Provider;
+export const Provider: typeof import("./provider").Provider = null as any;
+
 export * from "./region";
 export * from "./tags";
 export * from "./utils";
+utilities.lazyLoad(exports, ["getAmi","getAmiOutput"], () => require("./getAmi"));
+utilities.lazyLoad(exports, ["getAmiIds","getAmiIdsOutput"], () => require("./getAmiIds"));
+utilities.lazyLoad(exports, ["getArn","getArnOutput"], () => require("./getArn"));
+utilities.lazyLoad(exports, ["getAutoscalingGroups","getAutoscalingGroupsOutput"], () => require("./getAutoscalingGroups"));
+utilities.lazyLoad(exports, ["getAvailabilityZone","getAvailabilityZoneOutput"], () => require("./getAvailabilityZone"));
+utilities.lazyLoad(exports, ["getAvailabilityZones","getAvailabilityZonesOutput"], () => require("./getAvailabilityZones"));
+utilities.lazyLoad(exports, ["getBillingServiceAccount"], () => require("./getBillingServiceAccount"));
+utilities.lazyLoad(exports, ["getCallerIdentity"], () => require("./getCallerIdentity"));
+utilities.lazyLoad(exports, ["getCanonicalUserId"], () => require("./getCanonicalUserId"));
+utilities.lazyLoad(exports, ["getDefaultTags","getDefaultTagsOutput"], () => require("./getDefaultTags"));
+utilities.lazyLoad(exports, ["getElasticIp","getElasticIpOutput"], () => require("./getElasticIp"));
+utilities.lazyLoad(exports, ["getIpRanges","getIpRangesOutput"], () => require("./getIpRanges"));
+utilities.lazyLoad(exports, ["getPartition"], () => require("./getPartition"));
+utilities.lazyLoad(exports, ["getPrefixList","getPrefixListOutput"], () => require("./getPrefixList"));
+utilities.lazyLoad(exports, ["getRegion","getRegionOutput"], () => require("./getRegion"));
+utilities.lazyLoad(exports, ["getRegions","getRegionsOutput"], () => require("./getRegions"));
+utilities.lazyLoad(exports, ["getService","getServiceOutput"], () => require("./getService"));
+utilities.lazyLoad(exports, ["Provider"], () => require("./provider"));
 
 // Export enums:
 export * from "./types/enums";
@@ -140,6 +208,7 @@ import * as location from "./location";
 import * as macie from "./macie";
 import * as macie2 from "./macie2";
 import * as mediaconvert from "./mediaconvert";
+import * as medialive from "./medialive";
 import * as mediapackage from "./mediapackage";
 import * as mediastore from "./mediastore";
 import * as memorydb from "./memorydb";
@@ -314,6 +383,7 @@ export {
     macie,
     macie2,
     mediaconvert,
+    medialive,
     mediapackage,
     mediastore,
     memorydb,
@@ -380,9 +450,6 @@ export {
     workspaces,
     xray,
 };
-
-import { Provider } from "./provider";
-
 pulumi.runtime.registerResourcePackage("aws", {
     version: utilities.getVersion(),
     constructProvider: (name: string, type: string, urn: string): pulumi.ProviderResource => {

@@ -80,8 +80,8 @@ def get_tracker_association(consumer_arn: Optional[str] = None,
     ```
 
 
-    :param str consumer_arn: The Amazon Resource Name (ARN) of the geofence collection associated to tracker resource.
-    :param str tracker_name: The name of the tracker resource associated with a geofence collection.
+    :param str consumer_arn: ARN of the geofence collection associated to tracker resource.
+    :param str tracker_name: Name of the tracker resource associated with a geofence collection.
     """
     __args__ = dict()
     __args__['consumerArn'] = consumer_arn
@@ -114,7 +114,7 @@ def get_tracker_association_output(consumer_arn: Optional[pulumi.Input[str]] = N
     ```
 
 
-    :param str consumer_arn: The Amazon Resource Name (ARN) of the geofence collection associated to tracker resource.
-    :param str tracker_name: The name of the tracker resource associated with a geofence collection.
+    :param str consumer_arn: ARN of the geofence collection associated to tracker resource.
+    :param str tracker_name: Name of the tracker resource associated with a geofence collection.
     """
     ...

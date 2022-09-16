@@ -46,7 +46,7 @@ export function getEventCategories(args?: GetEventCategoriesArgs, opts?: pulumi.
  */
 export interface GetEventCategoriesArgs {
     /**
-     * The type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot.
+     * Type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot.
      */
     sourceType?: string;
 }
@@ -56,7 +56,7 @@ export interface GetEventCategoriesArgs {
  */
 export interface GetEventCategoriesResult {
     /**
-     * A list of the event categories.
+     * List of the event categories.
      */
     readonly eventCategories: string[];
     /**
@@ -75,7 +75,7 @@ export function getEventCategoriesOutput(args?: GetEventCategoriesOutputArgs, op
  */
 export interface GetEventCategoriesOutputArgs {
     /**
-     * The type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot.
+     * Type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot.
      */
     sourceType?: pulumi.Input<string>;
 }

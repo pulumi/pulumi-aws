@@ -17,14 +17,14 @@ public final class GetResolverRuleArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetResolverRuleArgs Empty = new GetResolverRuleArgs();
 
     /**
-     * The domain name the desired resolver rule forwards DNS queries for. Conflicts with `resolver_rule_id`.
+     * Domain name the desired resolver rule forwards DNS queries for. Conflicts with `resolver_rule_id`.
      * 
      */
     @Import(name="domainName")
     private @Nullable Output<String> domainName;
 
     /**
-     * @return The domain name the desired resolver rule forwards DNS queries for. Conflicts with `resolver_rule_id`.
+     * @return Domain name the desired resolver rule forwards DNS queries for. Conflicts with `resolver_rule_id`.
      * 
      */
     public Optional<Output<String>> domainName() {
@@ -32,14 +32,14 @@ public final class GetResolverRuleArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The friendly name of the desired resolver rule. Conflicts with `resolver_rule_id`.
+     * Friendly name of the desired resolver rule. Conflicts with `resolver_rule_id`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The friendly name of the desired resolver rule. Conflicts with `resolver_rule_id`.
+     * @return Friendly name of the desired resolver rule. Conflicts with `resolver_rule_id`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -47,14 +47,14 @@ public final class GetResolverRuleArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The ID of the outbound resolver endpoint of the desired resolver rule. Conflicts with `resolver_rule_id`.
+     * ID of the outbound resolver endpoint of the desired resolver rule. Conflicts with `resolver_rule_id`.
      * 
      */
     @Import(name="resolverEndpointId")
     private @Nullable Output<String> resolverEndpointId;
 
     /**
-     * @return The ID of the outbound resolver endpoint of the desired resolver rule. Conflicts with `resolver_rule_id`.
+     * @return ID of the outbound resolver endpoint of the desired resolver rule. Conflicts with `resolver_rule_id`.
      * 
      */
     public Optional<Output<String>> resolverEndpointId() {
@@ -62,14 +62,14 @@ public final class GetResolverRuleArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The ID of the desired resolver rule. Conflicts with `domain_name`, `name`, `resolver_endpoint_id` and `rule_type`.
+     * ID of the desired resolver rule. Conflicts with `domain_name`, `name`, `resolver_endpoint_id` and `rule_type`.
      * 
      */
     @Import(name="resolverRuleId")
     private @Nullable Output<String> resolverRuleId;
 
     /**
-     * @return The ID of the desired resolver rule. Conflicts with `domain_name`, `name`, `resolver_endpoint_id` and `rule_type`.
+     * @return ID of the desired resolver rule. Conflicts with `domain_name`, `name`, `resolver_endpoint_id` and `rule_type`.
      * 
      */
     public Optional<Output<String>> resolverRuleId() {
@@ -77,14 +77,14 @@ public final class GetResolverRuleArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The rule type of the desired resolver rule. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`. Conflicts with `resolver_rule_id`.
+     * Rule type of the desired resolver rule. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`. Conflicts with `resolver_rule_id`.
      * 
      */
     @Import(name="ruleType")
     private @Nullable Output<String> ruleType;
 
     /**
-     * @return The rule type of the desired resolver rule. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`. Conflicts with `resolver_rule_id`.
+     * @return Rule type of the desired resolver rule. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`. Conflicts with `resolver_rule_id`.
      * 
      */
     public Optional<Output<String>> ruleType() {
@@ -92,14 +92,14 @@ public final class GetResolverRuleArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * A map of tags assigned to the resolver rule.
+     * Map of tags assigned to the resolver rule.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags assigned to the resolver rule.
+     * @return Map of tags assigned to the resolver rule.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -136,7 +136,7 @@ public final class GetResolverRuleArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param domainName The domain name the desired resolver rule forwards DNS queries for. Conflicts with `resolver_rule_id`.
+         * @param domainName Domain name the desired resolver rule forwards DNS queries for. Conflicts with `resolver_rule_id`.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class GetResolverRuleArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param domainName The domain name the desired resolver rule forwards DNS queries for. Conflicts with `resolver_rule_id`.
+         * @param domainName Domain name the desired resolver rule forwards DNS queries for. Conflicts with `resolver_rule_id`.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class GetResolverRuleArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The friendly name of the desired resolver rule. Conflicts with `resolver_rule_id`.
+         * @param name Friendly name of the desired resolver rule. Conflicts with `resolver_rule_id`.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class GetResolverRuleArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The friendly name of the desired resolver rule. Conflicts with `resolver_rule_id`.
+         * @param name Friendly name of the desired resolver rule. Conflicts with `resolver_rule_id`.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class GetResolverRuleArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param resolverEndpointId The ID of the outbound resolver endpoint of the desired resolver rule. Conflicts with `resolver_rule_id`.
+         * @param resolverEndpointId ID of the outbound resolver endpoint of the desired resolver rule. Conflicts with `resolver_rule_id`.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class GetResolverRuleArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param resolverEndpointId The ID of the outbound resolver endpoint of the desired resolver rule. Conflicts with `resolver_rule_id`.
+         * @param resolverEndpointId ID of the outbound resolver endpoint of the desired resolver rule. Conflicts with `resolver_rule_id`.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class GetResolverRuleArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param resolverRuleId The ID of the desired resolver rule. Conflicts with `domain_name`, `name`, `resolver_endpoint_id` and `rule_type`.
+         * @param resolverRuleId ID of the desired resolver rule. Conflicts with `domain_name`, `name`, `resolver_endpoint_id` and `rule_type`.
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class GetResolverRuleArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param resolverRuleId The ID of the desired resolver rule. Conflicts with `domain_name`, `name`, `resolver_endpoint_id` and `rule_type`.
+         * @param resolverRuleId ID of the desired resolver rule. Conflicts with `domain_name`, `name`, `resolver_endpoint_id` and `rule_type`.
          * 
          * @return builder
          * 
@@ -220,7 +220,7 @@ public final class GetResolverRuleArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param ruleType The rule type of the desired resolver rule. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`. Conflicts with `resolver_rule_id`.
+         * @param ruleType Rule type of the desired resolver rule. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`. Conflicts with `resolver_rule_id`.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class GetResolverRuleArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param ruleType The rule type of the desired resolver rule. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`. Conflicts with `resolver_rule_id`.
+         * @param ruleType Rule type of the desired resolver rule. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`. Conflicts with `resolver_rule_id`.
          * 
          * @return builder
          * 
@@ -241,7 +241,7 @@ public final class GetResolverRuleArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags A map of tags assigned to the resolver rule.
+         * @param tags Map of tags assigned to the resolver rule.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class GetResolverRuleArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags A map of tags assigned to the resolver rule.
+         * @param tags Map of tags assigned to the resolver rule.
          * 
          * @return builder
          * 

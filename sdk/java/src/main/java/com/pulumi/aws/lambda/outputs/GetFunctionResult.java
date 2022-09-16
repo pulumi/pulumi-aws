@@ -21,17 +21,17 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetFunctionResult {
     /**
-     * @return The instruction set architecture for the Lambda function.
+     * @return Instruction set architecture for the Lambda function.
      * 
      */
     private List<String> architectures;
     /**
-     * @return Unqualified (no `:QUALIFIER` or `:VERSION` suffix) Amazon Resource Name (ARN) identifying your Lambda Function. See also `qualified_arn`.
+     * @return Unqualified (no `:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `qualified_arn`.
      * 
      */
     private String arn;
     /**
-     * @return Amazon Resource Name (ARN) for a Code Signing Configuration.
+     * @return ARN for a Code Signing Configuration.
      * 
      */
     private String codeSigningConfigArn;
@@ -46,23 +46,23 @@ public final class GetFunctionResult {
      */
     private String description;
     /**
-     * @return The Lambda environment&#39;s configuration settings.
+     * @return Lambda environment&#39;s configuration settings.
      * 
      */
     private GetFunctionEnvironment environment;
     /**
-     * @return The amount of Ephemeral storage(`/tmp`) allocated for the Lambda Function.
+     * @return Amount of Ephemeral storage(`/tmp`) allocated for the Lambda Function.
      * 
      */
     private List<GetFunctionEphemeralStorage> ephemeralStorages;
     /**
-     * @return The connection settings for an Amazon EFS file system.
+     * @return Connection settings for an Amazon EFS file system.
      * 
      */
     private List<GetFunctionFileSystemConfig> fileSystemConfigs;
     private String functionName;
     /**
-     * @return The function entrypoint in your code.
+     * @return Function entrypoint in your code.
      * 
      */
     private String handler;
@@ -72,27 +72,27 @@ public final class GetFunctionResult {
      */
     private String id;
     /**
-     * @return The URI of the container image.
+     * @return URI of the container image.
      * 
      */
     private String imageUri;
     /**
-     * @return The ARN to be used for invoking Lambda Function from API Gateway.
+     * @return ARN to be used for invoking Lambda Function from API Gateway.
      * 
      */
     private String invokeArn;
     /**
-     * @return The ARN for the KMS encryption key.
+     * @return ARN for the KMS encryption key.
      * 
      */
     private String kmsKeyArn;
     /**
-     * @return The date this resource was last modified.
+     * @return Date this resource was last modified.
      * 
      */
     private String lastModified;
     /**
-     * @return A list of Lambda Layer ARNs attached to your Lambda Function.
+     * @return List of Lambda Layer ARNs attached to your Lambda Function.
      * 
      */
     private List<String> layers;
@@ -102,7 +102,7 @@ public final class GetFunctionResult {
      */
     private Integer memorySize;
     /**
-     * @return Qualified (`:QUALIFIER` or `:VERSION` suffix) Amazon Resource Name (ARN) identifying your Lambda Function. See also `arn`.
+     * @return Qualified (`:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `arn`.
      * 
      */
     private String qualifiedArn;
@@ -118,17 +118,17 @@ public final class GetFunctionResult {
      */
     private String role;
     /**
-     * @return The runtime environment for the Lambda function.
+     * @return Runtime environment for the Lambda function.
      * 
      */
     private String runtime;
     /**
-     * @return The Amazon Resource Name (ARN) of a signing job.
+     * @return ARN of a signing job.
      * 
      */
     private String signingJobArn;
     /**
-     * @return The Amazon Resource Name (ARN) for a signing profile version.
+     * @return The ARN for a signing profile version.
      * 
      */
     private String signingProfileVersionArn;
@@ -138,13 +138,13 @@ public final class GetFunctionResult {
      */
     private String sourceCodeHash;
     /**
-     * @return The size in bytes of the function .zip file.
+     * @return Size in bytes of the function .zip file.
      * 
      */
     private Integer sourceCodeSize;
     private Map<String,String> tags;
     /**
-     * @return The function execution time at which Lambda should terminate the function.
+     * @return Function execution time at which Lambda should terminate the function.
      * 
      */
     private Integer timeout;
@@ -154,7 +154,7 @@ public final class GetFunctionResult {
      */
     private GetFunctionTracingConfig tracingConfig;
     /**
-     * @return The version of the Lambda function.
+     * @return The version of the Lambda function returned. If `qualifier` is not set, this will resolve to the most recent published version. If no published version of the function exists, `version` will resolve to `$LATEST`.
      * 
      */
     private String version;
@@ -166,21 +166,21 @@ public final class GetFunctionResult {
 
     private GetFunctionResult() {}
     /**
-     * @return The instruction set architecture for the Lambda function.
+     * @return Instruction set architecture for the Lambda function.
      * 
      */
     public List<String> architectures() {
         return this.architectures;
     }
     /**
-     * @return Unqualified (no `:QUALIFIER` or `:VERSION` suffix) Amazon Resource Name (ARN) identifying your Lambda Function. See also `qualified_arn`.
+     * @return Unqualified (no `:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `qualified_arn`.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return Amazon Resource Name (ARN) for a Code Signing Configuration.
+     * @return ARN for a Code Signing Configuration.
      * 
      */
     public String codeSigningConfigArn() {
@@ -201,21 +201,21 @@ public final class GetFunctionResult {
         return this.description;
     }
     /**
-     * @return The Lambda environment&#39;s configuration settings.
+     * @return Lambda environment&#39;s configuration settings.
      * 
      */
     public GetFunctionEnvironment environment() {
         return this.environment;
     }
     /**
-     * @return The amount of Ephemeral storage(`/tmp`) allocated for the Lambda Function.
+     * @return Amount of Ephemeral storage(`/tmp`) allocated for the Lambda Function.
      * 
      */
     public List<GetFunctionEphemeralStorage> ephemeralStorages() {
         return this.ephemeralStorages;
     }
     /**
-     * @return The connection settings for an Amazon EFS file system.
+     * @return Connection settings for an Amazon EFS file system.
      * 
      */
     public List<GetFunctionFileSystemConfig> fileSystemConfigs() {
@@ -225,7 +225,7 @@ public final class GetFunctionResult {
         return this.functionName;
     }
     /**
-     * @return The function entrypoint in your code.
+     * @return Function entrypoint in your code.
      * 
      */
     public String handler() {
@@ -239,35 +239,35 @@ public final class GetFunctionResult {
         return this.id;
     }
     /**
-     * @return The URI of the container image.
+     * @return URI of the container image.
      * 
      */
     public String imageUri() {
         return this.imageUri;
     }
     /**
-     * @return The ARN to be used for invoking Lambda Function from API Gateway.
+     * @return ARN to be used for invoking Lambda Function from API Gateway.
      * 
      */
     public String invokeArn() {
         return this.invokeArn;
     }
     /**
-     * @return The ARN for the KMS encryption key.
+     * @return ARN for the KMS encryption key.
      * 
      */
     public String kmsKeyArn() {
         return this.kmsKeyArn;
     }
     /**
-     * @return The date this resource was last modified.
+     * @return Date this resource was last modified.
      * 
      */
     public String lastModified() {
         return this.lastModified;
     }
     /**
-     * @return A list of Lambda Layer ARNs attached to your Lambda Function.
+     * @return List of Lambda Layer ARNs attached to your Lambda Function.
      * 
      */
     public List<String> layers() {
@@ -281,7 +281,7 @@ public final class GetFunctionResult {
         return this.memorySize;
     }
     /**
-     * @return Qualified (`:QUALIFIER` or `:VERSION` suffix) Amazon Resource Name (ARN) identifying your Lambda Function. See also `arn`.
+     * @return Qualified (`:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `arn`.
      * 
      */
     public String qualifiedArn() {
@@ -305,21 +305,21 @@ public final class GetFunctionResult {
         return this.role;
     }
     /**
-     * @return The runtime environment for the Lambda function.
+     * @return Runtime environment for the Lambda function.
      * 
      */
     public String runtime() {
         return this.runtime;
     }
     /**
-     * @return The Amazon Resource Name (ARN) of a signing job.
+     * @return ARN of a signing job.
      * 
      */
     public String signingJobArn() {
         return this.signingJobArn;
     }
     /**
-     * @return The Amazon Resource Name (ARN) for a signing profile version.
+     * @return The ARN for a signing profile version.
      * 
      */
     public String signingProfileVersionArn() {
@@ -333,7 +333,7 @@ public final class GetFunctionResult {
         return this.sourceCodeHash;
     }
     /**
-     * @return The size in bytes of the function .zip file.
+     * @return Size in bytes of the function .zip file.
      * 
      */
     public Integer sourceCodeSize() {
@@ -343,7 +343,7 @@ public final class GetFunctionResult {
         return this.tags;
     }
     /**
-     * @return The function execution time at which Lambda should terminate the function.
+     * @return Function execution time at which Lambda should terminate the function.
      * 
      */
     public Integer timeout() {
@@ -357,7 +357,7 @@ public final class GetFunctionResult {
         return this.tracingConfig;
     }
     /**
-     * @return The version of the Lambda function.
+     * @return The version of the Lambda function returned. If `qualifier` is not set, this will resolve to the most recent published version. If no published version of the function exists, `version` will resolve to `$LATEST`.
      * 
      */
     public String version() {

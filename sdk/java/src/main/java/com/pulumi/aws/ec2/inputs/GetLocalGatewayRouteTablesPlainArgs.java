@@ -33,7 +33,7 @@ public final class GetLocalGatewayRouteTablesPlainArgs extends com.pulumi.resour
     }
 
     /**
-     * A mapping of tags, each pair of which must exactly match
+     * Mapping of tags, each pair of which must exactly match
      * a pair on the desired local gateway route table.
      * 
      */
@@ -41,7 +41,7 @@ public final class GetLocalGatewayRouteTablesPlainArgs extends com.pulumi.resour
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return A mapping of tags, each pair of which must exactly match
+     * @return Mapping of tags, each pair of which must exactly match
      * a pair on the desired local gateway route table.
      * 
      */
@@ -96,7 +96,7 @@ public final class GetLocalGatewayRouteTablesPlainArgs extends com.pulumi.resour
         }
 
         /**
-         * @param tags A mapping of tags, each pair of which must exactly match
+         * @param tags Mapping of tags, each pair of which must exactly match
          * a pair on the desired local gateway route table.
          * 
          * @return builder

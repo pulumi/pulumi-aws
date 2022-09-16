@@ -19,7 +19,7 @@ class PolicyArgs:
         """
         The set of arguments for constructing a Policy resource.
         :param pulumi.Input[str] policy: JSON-formatted IAM policy to attach to the specified private CA resource.
-        :param pulumi.Input[str] resource_arn: Amazon Resource Name (ARN) of the private CA to associate with the policy.
+        :param pulumi.Input[str] resource_arn: ARN of the private CA to associate with the policy.
         """
         pulumi.set(__self__, "policy", policy)
         pulumi.set(__self__, "resource_arn", resource_arn)
@@ -40,7 +40,7 @@ class PolicyArgs:
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[str]:
         """
-        Amazon Resource Name (ARN) of the private CA to associate with the policy.
+        ARN of the private CA to associate with the policy.
         """
         return pulumi.get(self, "resource_arn")
 
@@ -57,7 +57,7 @@ class _PolicyState:
         """
         Input properties used for looking up and filtering Policy resources.
         :param pulumi.Input[str] policy: JSON-formatted IAM policy to attach to the specified private CA resource.
-        :param pulumi.Input[str] resource_arn: Amazon Resource Name (ARN) of the private CA to associate with the policy.
+        :param pulumi.Input[str] resource_arn: ARN of the private CA to associate with the policy.
         """
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
@@ -80,7 +80,7 @@ class _PolicyState:
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        Amazon Resource Name (ARN) of the private CA to associate with the policy.
+        ARN of the private CA to associate with the policy.
         """
         return pulumi.get(self, "resource_arn")
 
@@ -159,7 +159,7 @@ class Policy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] policy: JSON-formatted IAM policy to attach to the specified private CA resource.
-        :param pulumi.Input[str] resource_arn: Amazon Resource Name (ARN) of the private CA to associate with the policy.
+        :param pulumi.Input[str] resource_arn: ARN of the private CA to associate with the policy.
         """
         ...
     @overload
@@ -278,7 +278,7 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] policy: JSON-formatted IAM policy to attach to the specified private CA resource.
-        :param pulumi.Input[str] resource_arn: Amazon Resource Name (ARN) of the private CA to associate with the policy.
+        :param pulumi.Input[str] resource_arn: ARN of the private CA to associate with the policy.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -300,7 +300,7 @@ class Policy(pulumi.CustomResource):
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Output[str]:
         """
-        Amazon Resource Name (ARN) of the private CA to associate with the policy.
+        ARN of the private CA to associate with the policy.
         """
         return pulumi.get(self, "resource_arn")
 

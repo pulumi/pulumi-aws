@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -79,7 +81,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly securityGroupId!: pulumi.Output<string>;
     /**
-     * The id of Cloud HSM v2 cluster backup to be restored.
+     * ID of Cloud HSM v2 cluster backup to be restored.
      */
     public readonly sourceBackupIdentifier!: pulumi.Output<string | undefined>;
     /**
@@ -176,7 +178,7 @@ export interface ClusterState {
      */
     securityGroupId?: pulumi.Input<string>;
     /**
-     * The id of Cloud HSM v2 cluster backup to be restored.
+     * ID of Cloud HSM v2 cluster backup to be restored.
      */
     sourceBackupIdentifier?: pulumi.Input<string>;
     /**
@@ -206,7 +208,7 @@ export interface ClusterArgs {
      */
     hsmType: pulumi.Input<string>;
     /**
-     * The id of Cloud HSM v2 cluster backup to be restored.
+     * ID of Cloud HSM v2 cluster backup to be restored.
      */
     sourceBackupIdentifier?: pulumi.Input<string>;
     /**

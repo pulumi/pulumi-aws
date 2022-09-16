@@ -37,15 +37,15 @@ export function getLocalDisk(args: GetLocalDiskArgs, opts?: pulumi.InvokeOptions
  */
 export interface GetLocalDiskArgs {
     /**
-     * The device node of the local disk to retrieve. For example, `/dev/sdb`.
+     * Device node of the local disk to retrieve. For example, `/dev/sdb`.
      */
     diskNode?: string;
     /**
-     * The device path of the local disk to retrieve. For example, `/dev/xvdb` or `/dev/nvme1n1`.
+     * Device path of the local disk to retrieve. For example, `/dev/xvdb` or `/dev/nvme1n1`.
      */
     diskPath?: string;
     /**
-     * The Amazon Resource Name (ARN) of the gateway.
+     * ARN of the gateway.
      */
     gatewayArn: string;
 }
@@ -55,7 +55,7 @@ export interface GetLocalDiskArgs {
  */
 export interface GetLocalDiskResult {
     /**
-     * The disk identifierE.g., `pci-0000:03:00.0-scsi-0:0:0:0`
+     * Disk identifierE.g., `pci-0000:03:00.0-scsi-0:0:0:0`
      */
     readonly diskId: string;
     readonly diskNode: string;
@@ -76,15 +76,15 @@ export function getLocalDiskOutput(args: GetLocalDiskOutputArgs, opts?: pulumi.I
  */
 export interface GetLocalDiskOutputArgs {
     /**
-     * The device node of the local disk to retrieve. For example, `/dev/sdb`.
+     * Device node of the local disk to retrieve. For example, `/dev/sdb`.
      */
     diskNode?: pulumi.Input<string>;
     /**
-     * The device path of the local disk to retrieve. For example, `/dev/xvdb` or `/dev/nvme1n1`.
+     * Device path of the local disk to retrieve. For example, `/dev/xvdb` or `/dev/nvme1n1`.
      */
     diskPath?: pulumi.Input<string>;
     /**
-     * The Amazon Resource Name (ARN) of the gateway.
+     * ARN of the gateway.
      */
     gatewayArn: pulumi.Input<string>;
 }

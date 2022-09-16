@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Backup
     public sealed class GetReportPlanArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The backup report plan name.
+        /// Backup report plan name.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -96,7 +96,7 @@ namespace Pulumi.Aws.Backup
     public sealed class GetReportPlanInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The backup report plan name.
+        /// Backup report plan name.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -124,19 +124,19 @@ namespace Pulumi.Aws.Backup
     public sealed class GetReportPlanResult
     {
         /// <summary>
-        /// The ARN of the backup report plan.
+        /// ARN of the backup report plan.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
+        /// Date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
         /// </summary>
         public readonly string CreationTime;
         /// <summary>
-        /// The deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
+        /// Deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
         /// </summary>
         public readonly string DeploymentStatus;
         /// <summary>
-        /// The description of the report plan.
+        /// Description of the report plan.
         /// </summary>
         public readonly string Description;
         /// <summary>

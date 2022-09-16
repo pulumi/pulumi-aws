@@ -26,29 +26,29 @@ type GetAttachmentArgs struct {
 	Filters []GetAttachmentFilter `pulumi:"filters"`
 	// Key-value tags for the attachment.
 	Tags map[string]string `pulumi:"tags"`
-	// The ID of the attachment.
+	// ID of the attachment.
 	TransitGatewayAttachmentId *string `pulumi:"transitGatewayAttachmentId"`
 }
 
 // A collection of values returned by getAttachment.
 type GetAttachmentResult struct {
-	// The ARN of the attachment.
+	// ARN of the attachment.
 	Arn     string                `pulumi:"arn"`
 	Filters []GetAttachmentFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The ID of the resource.
+	// ID of the resource.
 	ResourceId string `pulumi:"resourceId"`
-	// The ID of the AWS account that owns the resource.
+	// ID of the AWS account that owns the resource.
 	ResourceOwnerId string `pulumi:"resourceOwnerId"`
-	// The resource type.
+	// Resource type.
 	ResourceType string `pulumi:"resourceType"`
-	// The attachment state.
+	// Attachment state.
 	State string `pulumi:"state"`
 	// Key-value tags for the attachment.
 	Tags                       map[string]string `pulumi:"tags"`
 	TransitGatewayAttachmentId string            `pulumi:"transitGatewayAttachmentId"`
-	// The ID of the transit gateway.
+	// ID of the transit gateway.
 	TransitGatewayId string `pulumi:"transitGatewayId"`
 	// The ID of the AWS account that owns the transit gateway.
 	TransitGatewayOwnerId string `pulumi:"transitGatewayOwnerId"`
@@ -73,7 +73,7 @@ type GetAttachmentOutputArgs struct {
 	Filters GetAttachmentFilterArrayInput `pulumi:"filters"`
 	// Key-value tags for the attachment.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The ID of the attachment.
+	// ID of the attachment.
 	TransitGatewayAttachmentId pulumi.StringPtrInput `pulumi:"transitGatewayAttachmentId"`
 }
 
@@ -96,7 +96,7 @@ func (o GetAttachmentResultOutput) ToGetAttachmentResultOutputWithContext(ctx co
 	return o
 }
 
-// The ARN of the attachment.
+// ARN of the attachment.
 func (o GetAttachmentResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAttachmentResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -110,22 +110,22 @@ func (o GetAttachmentResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAttachmentResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The ID of the resource.
+// ID of the resource.
 func (o GetAttachmentResultOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAttachmentResult) string { return v.ResourceId }).(pulumi.StringOutput)
 }
 
-// The ID of the AWS account that owns the resource.
+// ID of the AWS account that owns the resource.
 func (o GetAttachmentResultOutput) ResourceOwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAttachmentResult) string { return v.ResourceOwnerId }).(pulumi.StringOutput)
 }
 
-// The resource type.
+// Resource type.
 func (o GetAttachmentResultOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAttachmentResult) string { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-// The attachment state.
+// Attachment state.
 func (o GetAttachmentResultOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAttachmentResult) string { return v.State }).(pulumi.StringOutput)
 }
@@ -139,7 +139,7 @@ func (o GetAttachmentResultOutput) TransitGatewayAttachmentId() pulumi.StringOut
 	return o.ApplyT(func(v GetAttachmentResult) string { return v.TransitGatewayAttachmentId }).(pulumi.StringOutput)
 }
 
-// The ID of the transit gateway.
+// ID of the transit gateway.
 func (o GetAttachmentResultOutput) TransitGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAttachmentResult) string { return v.TransitGatewayId }).(pulumi.StringOutput)
 }

@@ -19,7 +19,7 @@ public final class VirtualGatewaySpecListenerTlsCertificate {
      */
     private @Nullable VirtualGatewaySpecListenerTlsCertificateAcm acm;
     /**
-     * @return A local file certificate.
+     * @return Local file certificate.
      * 
      */
     private @Nullable VirtualGatewaySpecListenerTlsCertificateFile file;
@@ -38,7 +38,7 @@ public final class VirtualGatewaySpecListenerTlsCertificate {
         return Optional.ofNullable(this.acm);
     }
     /**
-     * @return A local file certificate.
+     * @return Local file certificate.
      * 
      */
     public Optional<VirtualGatewaySpecListenerTlsCertificateFile> file() {

@@ -42,7 +42,7 @@ namespace Pulumi.Aws.S3
         public string Bucket { get; set; } = null!;
 
         /// <summary>
-        /// A character used to group keys (Default: none)
+        /// Character used to group keys (Default: none)
         /// </summary>
         [Input("delimiter")]
         public string? Delimiter { get; set; }
@@ -92,7 +92,7 @@ namespace Pulumi.Aws.S3
         public Input<string> Bucket { get; set; } = null!;
 
         /// <summary>
-        /// A character used to group keys (Default: none)
+        /// Character used to group keys (Default: none)
         /// </summary>
         [Input("delimiter")]
         public Input<string>? Delimiter { get; set; }

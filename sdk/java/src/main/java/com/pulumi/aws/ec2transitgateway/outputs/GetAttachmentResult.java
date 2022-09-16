@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetAttachmentResult {
     /**
-     * @return The ARN of the attachment.
+     * @return ARN of the attachment.
      * 
      */
     private String arn;
@@ -25,22 +25,22 @@ public final class GetAttachmentResult {
      */
     private String id;
     /**
-     * @return The ID of the resource.
+     * @return ID of the resource.
      * 
      */
     private String resourceId;
     /**
-     * @return The ID of the AWS account that owns the resource.
+     * @return ID of the AWS account that owns the resource.
      * 
      */
     private String resourceOwnerId;
     /**
-     * @return The resource type.
+     * @return Resource type.
      * 
      */
     private String resourceType;
     /**
-     * @return The attachment state.
+     * @return Attachment state.
      * 
      */
     private String state;
@@ -51,7 +51,7 @@ public final class GetAttachmentResult {
     private Map<String,String> tags;
     private String transitGatewayAttachmentId;
     /**
-     * @return The ID of the transit gateway.
+     * @return ID of the transit gateway.
      * 
      */
     private String transitGatewayId;
@@ -63,7 +63,7 @@ public final class GetAttachmentResult {
 
     private GetAttachmentResult() {}
     /**
-     * @return The ARN of the attachment.
+     * @return ARN of the attachment.
      * 
      */
     public String arn() {
@@ -80,28 +80,28 @@ public final class GetAttachmentResult {
         return this.id;
     }
     /**
-     * @return The ID of the resource.
+     * @return ID of the resource.
      * 
      */
     public String resourceId() {
         return this.resourceId;
     }
     /**
-     * @return The ID of the AWS account that owns the resource.
+     * @return ID of the AWS account that owns the resource.
      * 
      */
     public String resourceOwnerId() {
         return this.resourceOwnerId;
     }
     /**
-     * @return The resource type.
+     * @return Resource type.
      * 
      */
     public String resourceType() {
         return this.resourceType;
     }
     /**
-     * @return The attachment state.
+     * @return Attachment state.
      * 
      */
     public String state() {
@@ -118,7 +118,7 @@ public final class GetAttachmentResult {
         return this.transitGatewayAttachmentId;
     }
     /**
-     * @return The ID of the transit gateway.
+     * @return ID of the transit gateway.
      * 
      */
     public String transitGatewayId() {

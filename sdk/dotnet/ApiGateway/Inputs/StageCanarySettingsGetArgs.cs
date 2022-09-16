@@ -13,7 +13,7 @@ namespace Pulumi.Aws.ApiGateway.Inputs
     public sealed class StageCanarySettingsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The percent `0.0` - `100.0` of traffic to divert to the canary deployment.
+        /// Percent `0.0` - `100.0` of traffic to divert to the canary deployment.
         /// </summary>
         [Input("percentTraffic")]
         public Input<double>? PercentTraffic { get; set; }
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.ApiGateway.Inputs
         private InputMap<object>? _stageVariableOverrides;
 
         /// <summary>
-        /// A map of overridden stage `variables` (including new variables) for the canary deployment.
+        /// Map of overridden stage `variables` (including new variables) for the canary deployment.
         /// </summary>
         public InputMap<object> StageVariableOverrides
         {

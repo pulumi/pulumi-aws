@@ -17,14 +17,14 @@ public final class GetRoleArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetRoleArgs Empty = new GetRoleArgs();
 
     /**
-     * The friendly IAM role name to match.
+     * Friendly IAM role name to match.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The friendly IAM role name to match.
+     * @return Friendly IAM role name to match.
      * 
      */
     public Output<String> name() {
@@ -32,14 +32,14 @@ public final class GetRoleArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The tags attached to the role.
+     * Tags attached to the role.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return The tags attached to the role.
+     * @return Tags attached to the role.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -72,7 +72,7 @@ public final class GetRoleArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The friendly IAM role name to match.
+         * @param name Friendly IAM role name to match.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class GetRoleArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The friendly IAM role name to match.
+         * @param name Friendly IAM role name to match.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class GetRoleArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags The tags attached to the role.
+         * @param tags Tags attached to the role.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class GetRoleArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags The tags attached to the role.
+         * @param tags Tags attached to the role.
          * 
          * @return builder
          * 

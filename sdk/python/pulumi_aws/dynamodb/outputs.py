@@ -474,7 +474,7 @@ class GetTableAttributeResult(dict):
                  name: str,
                  type: str):
         """
-        :param str name: The name of the DynamoDB table.
+        :param str name: Name of the DynamoDB table.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
@@ -483,7 +483,7 @@ class GetTableAttributeResult(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the DynamoDB table.
+        Name of the DynamoDB table.
         """
         return pulumi.get(self, "name")
 
@@ -504,7 +504,7 @@ class GetTableGlobalSecondaryIndexResult(dict):
                  read_capacity: int,
                  write_capacity: int):
         """
-        :param str name: The name of the DynamoDB table.
+        :param str name: Name of the DynamoDB table.
         """
         pulumi.set(__self__, "hash_key", hash_key)
         pulumi.set(__self__, "name", name)
@@ -523,7 +523,7 @@ class GetTableGlobalSecondaryIndexResult(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the DynamoDB table.
+        Name of the DynamoDB table.
         """
         return pulumi.get(self, "name")
 
@@ -561,7 +561,7 @@ class GetTableLocalSecondaryIndexResult(dict):
                  projection_type: str,
                  range_key: str):
         """
-        :param str name: The name of the DynamoDB table.
+        :param str name: Name of the DynamoDB table.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "non_key_attributes", non_key_attributes)
@@ -572,7 +572,7 @@ class GetTableLocalSecondaryIndexResult(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the DynamoDB table.
+        Name of the DynamoDB table.
         """
         return pulumi.get(self, "name")
 

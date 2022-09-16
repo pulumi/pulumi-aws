@@ -12,50 +12,50 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AppProductionBranch {
     /**
-     * @return The branch name for the production branch.
+     * @return Branch name for the production branch.
      * 
      */
     private @Nullable String branchName;
     /**
-     * @return The last deploy time of the production branch.
+     * @return Last deploy time of the production branch.
      * 
      */
     private @Nullable String lastDeployTime;
     /**
-     * @return The status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
+     * @return Status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
      * 
      */
     private @Nullable String status;
     /**
-     * @return The thumbnail URL for the production branch.
+     * @return Thumbnail URL for the production branch.
      * 
      */
     private @Nullable String thumbnailUrl;
 
     private AppProductionBranch() {}
     /**
-     * @return The branch name for the production branch.
+     * @return Branch name for the production branch.
      * 
      */
     public Optional<String> branchName() {
         return Optional.ofNullable(this.branchName);
     }
     /**
-     * @return The last deploy time of the production branch.
+     * @return Last deploy time of the production branch.
      * 
      */
     public Optional<String> lastDeployTime() {
         return Optional.ofNullable(this.lastDeployTime);
     }
     /**
-     * @return The status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
+     * @return Status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
      * 
      */
     public Optional<String> status() {
         return Optional.ofNullable(this.status);
     }
     /**
-     * @return The thumbnail URL for the production branch.
+     * @return Thumbnail URL for the production branch.
      * 
      */
     public Optional<String> thumbnailUrl() {

@@ -138,7 +138,7 @@ namespace Pulumi.Aws
         private List<Inputs.GetAutoscalingGroupsFilterArgs>? _filters;
 
         /// <summary>
-        /// A filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
+        /// Filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
         /// </summary>
         public List<Inputs.GetAutoscalingGroupsFilterArgs> Filters
         {
@@ -150,7 +150,7 @@ namespace Pulumi.Aws
         private List<string>? _names;
 
         /// <summary>
-        /// A list of autoscaling group names
+        /// List of autoscaling group names
         /// </summary>
         public List<string> Names
         {
@@ -170,7 +170,7 @@ namespace Pulumi.Aws
         private InputList<Inputs.GetAutoscalingGroupsFilterInputArgs>? _filters;
 
         /// <summary>
-        /// A filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
+        /// Filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
         /// </summary>
         public InputList<Inputs.GetAutoscalingGroupsFilterInputArgs> Filters
         {
@@ -182,7 +182,7 @@ namespace Pulumi.Aws
         private InputList<string>? _names;
 
         /// <summary>
-        /// A list of autoscaling group names
+        /// List of autoscaling group names
         /// </summary>
         public InputList<string> Names
         {
@@ -201,7 +201,7 @@ namespace Pulumi.Aws
     public sealed class GetAutoscalingGroupsResult
     {
         /// <summary>
-        /// A list of the Autoscaling Groups Arns in the current region.
+        /// List of the Autoscaling Groups Arns in the current region.
         /// </summary>
         public readonly ImmutableArray<string> Arns;
         public readonly ImmutableArray<Outputs.GetAutoscalingGroupsFilterResult> Filters;
@@ -210,7 +210,7 @@ namespace Pulumi.Aws
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// A list of the Autoscaling Groups in the current region.
+        /// List of the Autoscaling Groups in the current region.
         /// </summary>
         public readonly ImmutableArray<string> Names;
 

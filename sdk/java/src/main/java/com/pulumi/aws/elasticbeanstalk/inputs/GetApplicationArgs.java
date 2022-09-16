@@ -14,14 +14,14 @@ public final class GetApplicationArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetApplicationArgs Empty = new GetApplicationArgs();
 
     /**
-     * The name of the application
+     * Name of the application
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the application
+     * @return Name of the application
      * 
      */
     public Output<String> name() {
@@ -53,7 +53,7 @@ public final class GetApplicationArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the application
+         * @param name Name of the application
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class GetApplicationArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the application
+         * @param name Name of the application
          * 
          * @return builder
          * 

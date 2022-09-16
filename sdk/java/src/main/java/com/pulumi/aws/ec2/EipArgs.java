@@ -139,6 +139,7 @@ public final class EipArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Boolean if the EIP is in a VPC or not.
+     * Defaults to `true` unless the region supports EC2-Classic.
      * 
      */
     @Import(name="vpc")
@@ -146,6 +147,7 @@ public final class EipArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Boolean if the EIP is in a VPC or not.
+     * Defaults to `true` unless the region supports EC2-Classic.
      * 
      */
     public Optional<Output<Boolean>> vpc() {
@@ -354,6 +356,7 @@ public final class EipArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param vpc Boolean if the EIP is in a VPC or not.
+         * Defaults to `true` unless the region supports EC2-Classic.
          * 
          * @return builder
          * 
@@ -365,6 +368,7 @@ public final class EipArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param vpc Boolean if the EIP is in a VPC or not.
+         * Defaults to `true` unless the region supports EC2-Classic.
          * 
          * @return builder
          * 

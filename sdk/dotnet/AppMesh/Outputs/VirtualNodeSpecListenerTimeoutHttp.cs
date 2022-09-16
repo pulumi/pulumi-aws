@@ -14,11 +14,11 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class VirtualNodeSpecListenerTimeoutHttp
     {
         /// <summary>
-        /// The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+        /// Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
         /// </summary>
         public readonly Outputs.VirtualNodeSpecListenerTimeoutHttpIdle? Idle;
         /// <summary>
-        /// The per request timeout.
+        /// Per request timeout.
         /// </summary>
         public readonly Outputs.VirtualNodeSpecListenerTimeoutHttpPerRequest? PerRequest;
 

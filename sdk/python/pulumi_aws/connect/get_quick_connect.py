@@ -52,7 +52,7 @@ class GetQuickConnectResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the Quick Connect.
+        ARN of the Quick Connect.
         """
         return pulumi.get(self, "arn")
 
@@ -60,7 +60,7 @@ class GetQuickConnectResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        Specifies the description of the Quick Connect.
+        Description of the Quick Connect.
         """
         return pulumi.get(self, "description")
 
@@ -94,7 +94,7 @@ class GetQuickConnectResult:
     @pulumi.getter(name="quickConnectId")
     def quick_connect_id(self) -> str:
         """
-        The identifier for the Quick Connect.
+        Identifier for the Quick Connect.
         """
         return pulumi.get(self, "quick_connect_id")
 
@@ -102,7 +102,7 @@ class GetQuickConnectResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        A map of tags to assign to the Quick Connect.
+        Map of tags to assign to the Quick Connect.
         """
         return pulumi.get(self, "tags")
 
@@ -157,7 +157,7 @@ def get_quick_connect(instance_id: Optional[str] = None,
     :param str instance_id: Reference to the hosting Amazon Connect Instance
     :param str name: Returns information on a specific Quick Connect by name
     :param str quick_connect_id: Returns information on a specific Quick Connect by Quick Connect id
-    :param Mapping[str, str] tags: A map of tags to assign to the Quick Connect.
+    :param Mapping[str, str] tags: Map of tags to assign to the Quick Connect.
     """
     __args__ = dict()
     __args__['instanceId'] = instance_id
@@ -213,6 +213,6 @@ def get_quick_connect_output(instance_id: Optional[pulumi.Input[str]] = None,
     :param str instance_id: Reference to the hosting Amazon Connect Instance
     :param str name: Returns information on a specific Quick Connect by name
     :param str quick_connect_id: Returns information on a specific Quick Connect by Quick Connect id
-    :param Mapping[str, str] tags: A map of tags to assign to the Quick Connect.
+    :param Mapping[str, str] tags: Map of tags to assign to the Quick Connect.
     """
     ...

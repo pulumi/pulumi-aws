@@ -55,13 +55,13 @@ func GetFunction(ctx *pulumi.Context, args *GetFunctionArgs, opts ...pulumi.Invo
 type GetFunctionArgs struct {
 	// Name of the CloudFront function.
 	Name string `pulumi:"name"`
-	// The function’s stage, either `DEVELOPMENT` or `LIVE`.
+	// Function’s stage, either `DEVELOPMENT` or `LIVE`.
 	Stage string `pulumi:"stage"`
 }
 
 // A collection of values returned by getFunction.
 type GetFunctionResult struct {
-	// Amazon Resource Name (ARN) identifying your CloudFront Function.
+	// ARN identifying your CloudFront Function.
 	Arn string `pulumi:"arn"`
 	// Source code of the function
 	Code string `pulumi:"code"`
@@ -98,7 +98,7 @@ func GetFunctionOutput(ctx *pulumi.Context, args GetFunctionOutputArgs, opts ...
 type GetFunctionOutputArgs struct {
 	// Name of the CloudFront function.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The function’s stage, either `DEVELOPMENT` or `LIVE`.
+	// Function’s stage, either `DEVELOPMENT` or `LIVE`.
 	Stage pulumi.StringInput `pulumi:"stage"`
 }
 
@@ -121,7 +121,7 @@ func (o GetFunctionResultOutput) ToGetFunctionResultOutputWithContext(ctx contex
 	return o
 }
 
-// Amazon Resource Name (ARN) identifying your CloudFront Function.
+// ARN identifying your CloudFront Function.
 func (o GetFunctionResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFunctionResult) string { return v.Arn }).(pulumi.StringOutput)
 }

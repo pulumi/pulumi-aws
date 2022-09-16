@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -36,7 +38,7 @@ export function getContainerRecipe(args: GetContainerRecipeArgs, opts?: pulumi.I
  */
 export interface GetContainerRecipeArgs {
     /**
-     * Amazon Resource Name (ARN) of the container recipe.
+     * ARN of the container recipe.
      */
     arn: string;
     /**
@@ -115,7 +117,7 @@ export interface GetContainerRecipeResult {
      */
     readonly version: string;
     /**
-     * The working directory used during build and test workflows.
+     * Working directory used during build and test workflows.
      */
     readonly workingDirectory: string;
 }
@@ -129,7 +131,7 @@ export function getContainerRecipeOutput(args: GetContainerRecipeOutputArgs, opt
  */
 export interface GetContainerRecipeOutputArgs {
     /**
-     * Amazon Resource Name (ARN) of the container recipe.
+     * ARN of the container recipe.
      */
     arn: pulumi.Input<string>;
     /**

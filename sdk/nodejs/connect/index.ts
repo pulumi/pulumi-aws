@@ -5,51 +5,146 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./botAssociation";
-export * from "./contactFlow";
-export * from "./contactFlowModule";
-export * from "./getBotAssociation";
-export * from "./getContactFlow";
-export * from "./getContactFlowModule";
-export * from "./getHoursOfOperation";
-export * from "./getInstance";
-export * from "./getLambdaFunctionAssociation";
-export * from "./getPrompt";
-export * from "./getQueue";
-export * from "./getQuickConnect";
-export * from "./getRoutingProfile";
-export * from "./getSecurityProfile";
-export * from "./getUserHierarchyGroup";
-export * from "./getUserHierarchyStructure";
-export * from "./hoursOfOperation";
-export * from "./instance";
-export * from "./instanceStorageConfig";
-export * from "./lambdaFunctionAssociation";
-export * from "./queue";
-export * from "./quickConnect";
-export * from "./routingProfile";
-export * from "./securityProfile";
-export * from "./user";
-export * from "./userHierarchyGroup";
-export * from "./userHierarchyStructure";
-export * from "./vocabulary";
+export { BotAssociationArgs, BotAssociationState } from "./botAssociation";
+export type BotAssociation = import("./botAssociation").BotAssociation;
+export const BotAssociation: typeof import("./botAssociation").BotAssociation = null as any;
 
-// Import resources to register:
-import { BotAssociation } from "./botAssociation";
-import { ContactFlow } from "./contactFlow";
-import { ContactFlowModule } from "./contactFlowModule";
-import { HoursOfOperation } from "./hoursOfOperation";
-import { Instance } from "./instance";
-import { InstanceStorageConfig } from "./instanceStorageConfig";
-import { LambdaFunctionAssociation } from "./lambdaFunctionAssociation";
-import { Queue } from "./queue";
-import { QuickConnect } from "./quickConnect";
-import { RoutingProfile } from "./routingProfile";
-import { SecurityProfile } from "./securityProfile";
-import { User } from "./user";
-import { UserHierarchyGroup } from "./userHierarchyGroup";
-import { UserHierarchyStructure } from "./userHierarchyStructure";
-import { Vocabulary } from "./vocabulary";
+export { ContactFlowArgs, ContactFlowState } from "./contactFlow";
+export type ContactFlow = import("./contactFlow").ContactFlow;
+export const ContactFlow: typeof import("./contactFlow").ContactFlow = null as any;
+
+export { ContactFlowModuleArgs, ContactFlowModuleState } from "./contactFlowModule";
+export type ContactFlowModule = import("./contactFlowModule").ContactFlowModule;
+export const ContactFlowModule: typeof import("./contactFlowModule").ContactFlowModule = null as any;
+
+export { GetBotAssociationArgs, GetBotAssociationResult, GetBotAssociationOutputArgs } from "./getBotAssociation";
+export const getBotAssociation: typeof import("./getBotAssociation").getBotAssociation = null as any;
+export const getBotAssociationOutput: typeof import("./getBotAssociation").getBotAssociationOutput = null as any;
+
+export { GetContactFlowArgs, GetContactFlowResult, GetContactFlowOutputArgs } from "./getContactFlow";
+export const getContactFlow: typeof import("./getContactFlow").getContactFlow = null as any;
+export const getContactFlowOutput: typeof import("./getContactFlow").getContactFlowOutput = null as any;
+
+export { GetContactFlowModuleArgs, GetContactFlowModuleResult, GetContactFlowModuleOutputArgs } from "./getContactFlowModule";
+export const getContactFlowModule: typeof import("./getContactFlowModule").getContactFlowModule = null as any;
+export const getContactFlowModuleOutput: typeof import("./getContactFlowModule").getContactFlowModuleOutput = null as any;
+
+export { GetHoursOfOperationArgs, GetHoursOfOperationResult, GetHoursOfOperationOutputArgs } from "./getHoursOfOperation";
+export const getHoursOfOperation: typeof import("./getHoursOfOperation").getHoursOfOperation = null as any;
+export const getHoursOfOperationOutput: typeof import("./getHoursOfOperation").getHoursOfOperationOutput = null as any;
+
+export { GetInstanceArgs, GetInstanceResult, GetInstanceOutputArgs } from "./getInstance";
+export const getInstance: typeof import("./getInstance").getInstance = null as any;
+export const getInstanceOutput: typeof import("./getInstance").getInstanceOutput = null as any;
+
+export { GetLambdaFunctionAssociationArgs, GetLambdaFunctionAssociationResult, GetLambdaFunctionAssociationOutputArgs } from "./getLambdaFunctionAssociation";
+export const getLambdaFunctionAssociation: typeof import("./getLambdaFunctionAssociation").getLambdaFunctionAssociation = null as any;
+export const getLambdaFunctionAssociationOutput: typeof import("./getLambdaFunctionAssociation").getLambdaFunctionAssociationOutput = null as any;
+
+export { GetPromptArgs, GetPromptResult, GetPromptOutputArgs } from "./getPrompt";
+export const getPrompt: typeof import("./getPrompt").getPrompt = null as any;
+export const getPromptOutput: typeof import("./getPrompt").getPromptOutput = null as any;
+
+export { GetQueueArgs, GetQueueResult, GetQueueOutputArgs } from "./getQueue";
+export const getQueue: typeof import("./getQueue").getQueue = null as any;
+export const getQueueOutput: typeof import("./getQueue").getQueueOutput = null as any;
+
+export { GetQuickConnectArgs, GetQuickConnectResult, GetQuickConnectOutputArgs } from "./getQuickConnect";
+export const getQuickConnect: typeof import("./getQuickConnect").getQuickConnect = null as any;
+export const getQuickConnectOutput: typeof import("./getQuickConnect").getQuickConnectOutput = null as any;
+
+export { GetRoutingProfileArgs, GetRoutingProfileResult, GetRoutingProfileOutputArgs } from "./getRoutingProfile";
+export const getRoutingProfile: typeof import("./getRoutingProfile").getRoutingProfile = null as any;
+export const getRoutingProfileOutput: typeof import("./getRoutingProfile").getRoutingProfileOutput = null as any;
+
+export { GetSecurityProfileArgs, GetSecurityProfileResult, GetSecurityProfileOutputArgs } from "./getSecurityProfile";
+export const getSecurityProfile: typeof import("./getSecurityProfile").getSecurityProfile = null as any;
+export const getSecurityProfileOutput: typeof import("./getSecurityProfile").getSecurityProfileOutput = null as any;
+
+export { GetUserHierarchyGroupArgs, GetUserHierarchyGroupResult, GetUserHierarchyGroupOutputArgs } from "./getUserHierarchyGroup";
+export const getUserHierarchyGroup: typeof import("./getUserHierarchyGroup").getUserHierarchyGroup = null as any;
+export const getUserHierarchyGroupOutput: typeof import("./getUserHierarchyGroup").getUserHierarchyGroupOutput = null as any;
+
+export { GetUserHierarchyStructureArgs, GetUserHierarchyStructureResult, GetUserHierarchyStructureOutputArgs } from "./getUserHierarchyStructure";
+export const getUserHierarchyStructure: typeof import("./getUserHierarchyStructure").getUserHierarchyStructure = null as any;
+export const getUserHierarchyStructureOutput: typeof import("./getUserHierarchyStructure").getUserHierarchyStructureOutput = null as any;
+
+export { HoursOfOperationArgs, HoursOfOperationState } from "./hoursOfOperation";
+export type HoursOfOperation = import("./hoursOfOperation").HoursOfOperation;
+export const HoursOfOperation: typeof import("./hoursOfOperation").HoursOfOperation = null as any;
+
+export { InstanceArgs, InstanceState } from "./instance";
+export type Instance = import("./instance").Instance;
+export const Instance: typeof import("./instance").Instance = null as any;
+
+export { InstanceStorageConfigArgs, InstanceStorageConfigState } from "./instanceStorageConfig";
+export type InstanceStorageConfig = import("./instanceStorageConfig").InstanceStorageConfig;
+export const InstanceStorageConfig: typeof import("./instanceStorageConfig").InstanceStorageConfig = null as any;
+
+export { LambdaFunctionAssociationArgs, LambdaFunctionAssociationState } from "./lambdaFunctionAssociation";
+export type LambdaFunctionAssociation = import("./lambdaFunctionAssociation").LambdaFunctionAssociation;
+export const LambdaFunctionAssociation: typeof import("./lambdaFunctionAssociation").LambdaFunctionAssociation = null as any;
+
+export { QueueArgs, QueueState } from "./queue";
+export type Queue = import("./queue").Queue;
+export const Queue: typeof import("./queue").Queue = null as any;
+
+export { QuickConnectArgs, QuickConnectState } from "./quickConnect";
+export type QuickConnect = import("./quickConnect").QuickConnect;
+export const QuickConnect: typeof import("./quickConnect").QuickConnect = null as any;
+
+export { RoutingProfileArgs, RoutingProfileState } from "./routingProfile";
+export type RoutingProfile = import("./routingProfile").RoutingProfile;
+export const RoutingProfile: typeof import("./routingProfile").RoutingProfile = null as any;
+
+export { SecurityProfileArgs, SecurityProfileState } from "./securityProfile";
+export type SecurityProfile = import("./securityProfile").SecurityProfile;
+export const SecurityProfile: typeof import("./securityProfile").SecurityProfile = null as any;
+
+export { UserArgs, UserState } from "./user";
+export type User = import("./user").User;
+export const User: typeof import("./user").User = null as any;
+
+export { UserHierarchyGroupArgs, UserHierarchyGroupState } from "./userHierarchyGroup";
+export type UserHierarchyGroup = import("./userHierarchyGroup").UserHierarchyGroup;
+export const UserHierarchyGroup: typeof import("./userHierarchyGroup").UserHierarchyGroup = null as any;
+
+export { UserHierarchyStructureArgs, UserHierarchyStructureState } from "./userHierarchyStructure";
+export type UserHierarchyStructure = import("./userHierarchyStructure").UserHierarchyStructure;
+export const UserHierarchyStructure: typeof import("./userHierarchyStructure").UserHierarchyStructure = null as any;
+
+export { VocabularyArgs, VocabularyState } from "./vocabulary";
+export type Vocabulary = import("./vocabulary").Vocabulary;
+export const Vocabulary: typeof import("./vocabulary").Vocabulary = null as any;
+
+utilities.lazyLoad(exports, ["BotAssociation"], () => require("./botAssociation"));
+utilities.lazyLoad(exports, ["ContactFlow"], () => require("./contactFlow"));
+utilities.lazyLoad(exports, ["ContactFlowModule"], () => require("./contactFlowModule"));
+utilities.lazyLoad(exports, ["getBotAssociation","getBotAssociationOutput"], () => require("./getBotAssociation"));
+utilities.lazyLoad(exports, ["getContactFlow","getContactFlowOutput"], () => require("./getContactFlow"));
+utilities.lazyLoad(exports, ["getContactFlowModule","getContactFlowModuleOutput"], () => require("./getContactFlowModule"));
+utilities.lazyLoad(exports, ["getHoursOfOperation","getHoursOfOperationOutput"], () => require("./getHoursOfOperation"));
+utilities.lazyLoad(exports, ["getInstance","getInstanceOutput"], () => require("./getInstance"));
+utilities.lazyLoad(exports, ["getLambdaFunctionAssociation","getLambdaFunctionAssociationOutput"], () => require("./getLambdaFunctionAssociation"));
+utilities.lazyLoad(exports, ["getPrompt","getPromptOutput"], () => require("./getPrompt"));
+utilities.lazyLoad(exports, ["getQueue","getQueueOutput"], () => require("./getQueue"));
+utilities.lazyLoad(exports, ["getQuickConnect","getQuickConnectOutput"], () => require("./getQuickConnect"));
+utilities.lazyLoad(exports, ["getRoutingProfile","getRoutingProfileOutput"], () => require("./getRoutingProfile"));
+utilities.lazyLoad(exports, ["getSecurityProfile","getSecurityProfileOutput"], () => require("./getSecurityProfile"));
+utilities.lazyLoad(exports, ["getUserHierarchyGroup","getUserHierarchyGroupOutput"], () => require("./getUserHierarchyGroup"));
+utilities.lazyLoad(exports, ["getUserHierarchyStructure","getUserHierarchyStructureOutput"], () => require("./getUserHierarchyStructure"));
+utilities.lazyLoad(exports, ["HoursOfOperation"], () => require("./hoursOfOperation"));
+utilities.lazyLoad(exports, ["Instance"], () => require("./instance"));
+utilities.lazyLoad(exports, ["InstanceStorageConfig"], () => require("./instanceStorageConfig"));
+utilities.lazyLoad(exports, ["LambdaFunctionAssociation"], () => require("./lambdaFunctionAssociation"));
+utilities.lazyLoad(exports, ["Queue"], () => require("./queue"));
+utilities.lazyLoad(exports, ["QuickConnect"], () => require("./quickConnect"));
+utilities.lazyLoad(exports, ["RoutingProfile"], () => require("./routingProfile"));
+utilities.lazyLoad(exports, ["SecurityProfile"], () => require("./securityProfile"));
+utilities.lazyLoad(exports, ["User"], () => require("./user"));
+utilities.lazyLoad(exports, ["UserHierarchyGroup"], () => require("./userHierarchyGroup"));
+utilities.lazyLoad(exports, ["UserHierarchyStructure"], () => require("./userHierarchyStructure"));
+utilities.lazyLoad(exports, ["Vocabulary"], () => require("./vocabulary"));
 
 const _module = {
     version: utilities.getVersion(),

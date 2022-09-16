@@ -17,14 +17,14 @@ public final class DataSourceHttpConfigAuthorizationConfigArgs extends com.pulum
     public static final DataSourceHttpConfigAuthorizationConfigArgs Empty = new DataSourceHttpConfigAuthorizationConfigArgs();
 
     /**
-     * The authorization type that the HTTP endpoint requires. Default values is `AWS_IAM`.
+     * Authorization type that the HTTP endpoint requires. Default values is `AWS_IAM`.
      * 
      */
     @Import(name="authorizationType")
     private @Nullable Output<String> authorizationType;
 
     /**
-     * @return The authorization type that the HTTP endpoint requires. Default values is `AWS_IAM`.
+     * @return Authorization type that the HTTP endpoint requires. Default values is `AWS_IAM`.
      * 
      */
     public Optional<Output<String>> authorizationType() {
@@ -32,14 +32,14 @@ public final class DataSourceHttpConfigAuthorizationConfigArgs extends com.pulum
     }
 
     /**
-     * The Identity and Access Management (IAM) settings. See AWS IAM Config.
+     * Identity and Access Management (IAM) settings. See AWS IAM Config.
      * 
      */
     @Import(name="awsIamConfig")
     private @Nullable Output<DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs> awsIamConfig;
 
     /**
-     * @return The Identity and Access Management (IAM) settings. See AWS IAM Config.
+     * @return Identity and Access Management (IAM) settings. See AWS IAM Config.
      * 
      */
     public Optional<Output<DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs>> awsIamConfig() {
@@ -72,7 +72,7 @@ public final class DataSourceHttpConfigAuthorizationConfigArgs extends com.pulum
         }
 
         /**
-         * @param authorizationType The authorization type that the HTTP endpoint requires. Default values is `AWS_IAM`.
+         * @param authorizationType Authorization type that the HTTP endpoint requires. Default values is `AWS_IAM`.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class DataSourceHttpConfigAuthorizationConfigArgs extends com.pulum
         }
 
         /**
-         * @param authorizationType The authorization type that the HTTP endpoint requires. Default values is `AWS_IAM`.
+         * @param authorizationType Authorization type that the HTTP endpoint requires. Default values is `AWS_IAM`.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class DataSourceHttpConfigAuthorizationConfigArgs extends com.pulum
         }
 
         /**
-         * @param awsIamConfig The Identity and Access Management (IAM) settings. See AWS IAM Config.
+         * @param awsIamConfig Identity and Access Management (IAM) settings. See AWS IAM Config.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class DataSourceHttpConfigAuthorizationConfigArgs extends com.pulum
         }
 
         /**
-         * @param awsIamConfig The Identity and Access Management (IAM) settings. See AWS IAM Config.
+         * @param awsIamConfig Identity and Access Management (IAM) settings. See AWS IAM Config.
          * 
          * @return builder
          * 

@@ -17,14 +17,14 @@ public final class ClientCertificateArgs extends com.pulumi.resources.ResourceAr
     public static final ClientCertificateArgs Empty = new ClientCertificateArgs();
 
     /**
-     * The description of the client certificate.
+     * Description of the client certificate.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description of the client certificate.
+     * @return Description of the client certificate.
      * 
      */
     public Optional<Output<String>> description() {
@@ -72,7 +72,7 @@ public final class ClientCertificateArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param description The description of the client certificate.
+         * @param description Description of the client certificate.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ClientCertificateArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param description The description of the client certificate.
+         * @param description Description of the client certificate.
          * 
          * @return builder
          * 

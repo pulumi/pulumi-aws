@@ -15,14 +15,14 @@ public final class ServiceObservabilityConfigurationArgs extends com.pulumi.reso
     public static final ServiceObservabilityConfigurationArgs Empty = new ServiceObservabilityConfigurationArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the observability configuration that is associated with the service.
+     * ARN of the observability configuration that is associated with the service.
      * 
      */
     @Import(name="observabilityConfigurationArn", required=true)
     private Output<String> observabilityConfigurationArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the observability configuration that is associated with the service.
+     * @return ARN of the observability configuration that is associated with the service.
      * 
      */
     public Output<String> observabilityConfigurationArn() {
@@ -70,7 +70,7 @@ public final class ServiceObservabilityConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param observabilityConfigurationArn The Amazon Resource Name (ARN) of the observability configuration that is associated with the service.
+         * @param observabilityConfigurationArn ARN of the observability configuration that is associated with the service.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class ServiceObservabilityConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param observabilityConfigurationArn The Amazon Resource Name (ARN) of the observability configuration that is associated with the service.
+         * @param observabilityConfigurationArn ARN of the observability configuration that is associated with the service.
          * 
          * @return builder
          * 

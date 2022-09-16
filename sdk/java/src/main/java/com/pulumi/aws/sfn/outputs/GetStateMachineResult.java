@@ -15,7 +15,7 @@ public final class GetStateMachineResult {
      */
     private String arn;
     /**
-     * @return The date the state machine was created.
+     * @return Date the state machine was created.
      * 
      */
     private String creationDate;
@@ -50,7 +50,7 @@ public final class GetStateMachineResult {
         return this.arn;
     }
     /**
-     * @return The date the state machine was created.
+     * @return Date the state machine was created.
      * 
      */
     public String creationDate() {

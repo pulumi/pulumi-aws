@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -20,11 +22,11 @@ import * as utilities from "../utilities";
  *     subnetIds: aws_subnet.example.map(__item => __item.id),
  *     scalingConfig: {
  *         desiredSize: 1,
- *         maxSize: 1,
+ *         maxSize: 2,
  *         minSize: 1,
  *     },
  *     updateConfig: {
- *         maxUnavailable: 2,
+ *         maxUnavailable: 1,
  *     },
  * }, {
  *     dependsOn: [

@@ -61,7 +61,7 @@ export interface GetLayerVersionArgs {
  */
 export interface GetLayerVersionResult {
     /**
-     * The Amazon Resource Name (ARN) of the Lambda Layer with version.
+     * ARN of the Lambda Layer with version.
      */
     readonly arn: string;
     readonly compatibleArchitecture?: string;
@@ -71,11 +71,11 @@ export interface GetLayerVersionResult {
     readonly compatibleArchitectures: string[];
     readonly compatibleRuntime?: string;
     /**
-     * A list of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleRuntimes) the specific Lambda Layer version is compatible with.
+     * List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleRuntimes) the specific Lambda Layer version is compatible with.
      */
     readonly compatibleRuntimes: string[];
     /**
-     * The date this resource was created.
+     * Date this resource was created.
      */
     readonly createdDate: string;
     /**
@@ -87,7 +87,7 @@ export interface GetLayerVersionResult {
      */
     readonly id: string;
     /**
-     * The Amazon Resource Name (ARN) of the Lambda Layer without version.
+     * ARN of the Lambda Layer without version.
      */
     readonly layerArn: string;
     readonly layerName: string;
@@ -96,11 +96,11 @@ export interface GetLayerVersionResult {
      */
     readonly licenseInfo: string;
     /**
-     * The Amazon Resource Name (ARN) of a signing job.
+     * ARN of a signing job.
      */
     readonly signingJobArn: string;
     /**
-     * The Amazon Resource Name (ARN) for a signing profile version.
+     * The ARN for a signing profile version.
      */
     readonly signingProfileVersionArn: string;
     /**
@@ -108,7 +108,7 @@ export interface GetLayerVersionResult {
      */
     readonly sourceCodeHash: string;
     /**
-     * The size in bytes of the function .zip file.
+     * Size in bytes of the function .zip file.
      */
     readonly sourceCodeSize: number;
     /**

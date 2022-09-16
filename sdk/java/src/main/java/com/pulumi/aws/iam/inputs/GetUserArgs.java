@@ -32,14 +32,14 @@ public final class GetUserArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The friendly IAM user name to match.
+     * Friendly IAM user name to match.
      * 
      */
     @Import(name="userName", required=true)
     private Output<String> userName;
 
     /**
-     * @return The friendly IAM user name to match.
+     * @return Friendly IAM user name to match.
      * 
      */
     public Output<String> userName() {
@@ -93,7 +93,7 @@ public final class GetUserArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param userName The friendly IAM user name to match.
+         * @param userName Friendly IAM user name to match.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class GetUserArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param userName The friendly IAM user name to match.
+         * @param userName Friendly IAM user name to match.
          * 
          * @return builder
          * 

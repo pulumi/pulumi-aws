@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Workspaces
     public sealed class GetDirectoryArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The directory identifier for registration in WorkSpaces service.
+        /// Directory identifier for registration in WorkSpaces service.
         /// </summary>
         [Input("directoryId", required: true)]
         public string DirectoryId { get; set; } = null!;
@@ -96,7 +96,7 @@ namespace Pulumi.Aws.Workspaces
     public sealed class GetDirectoryInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The directory identifier for registration in WorkSpaces service.
+        /// Directory identifier for registration in WorkSpaces service.
         /// </summary>
         [Input("directoryId", required: true)]
         public Input<string> DirectoryId { get; set; } = null!;
@@ -124,28 +124,28 @@ namespace Pulumi.Aws.Workspaces
     public sealed class GetDirectoryResult
     {
         /// <summary>
-        /// The directory alias.
+        /// Directory alias.
         /// </summary>
         public readonly string Alias;
         /// <summary>
-        /// The user name for the service account.
+        /// User name for the service account.
         /// </summary>
         public readonly string CustomerUserName;
         public readonly string DirectoryId;
         /// <summary>
-        /// The name of the directory.
+        /// Name of the directory.
         /// </summary>
         public readonly string DirectoryName;
         /// <summary>
-        /// The directory type.
+        /// Directory type.
         /// </summary>
         public readonly string DirectoryType;
         /// <summary>
-        /// The IP addresses of the DNS servers for the directory.
+        /// IP addresses of the DNS servers for the directory.
         /// </summary>
         public readonly ImmutableArray<string> DnsIpAddresses;
         /// <summary>
-        /// The identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
+        /// Identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
         /// </summary>
         public readonly string IamRoleId;
         /// <summary>
@@ -153,11 +153,11 @@ namespace Pulumi.Aws.Workspaces
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The identifiers of the IP access control groups associated with the directory.
+        /// Identifiers of the IP access control groups associated with the directory.
         /// </summary>
         public readonly ImmutableArray<string> IpGroupIds;
         /// <summary>
-        /// The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
+        /// Registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
         /// </summary>
         public readonly string RegistrationCode;
         /// <summary>
@@ -165,7 +165,7 @@ namespace Pulumi.Aws.Workspaces
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDirectorySelfServicePermissionResult> SelfServicePermissions;
         /// <summary>
-        /// The identifiers of the subnets where the directory resides.
+        /// Identifiers of the subnets where the directory resides.
         /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
         /// <summary>

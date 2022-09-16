@@ -62,7 +62,7 @@ export class Deployment extends pulumi.CustomResource {
     }
 
     /**
-     * The API identifier.
+     * API identifier.
      */
     public readonly apiId!: pulumi.Output<string>;
     /**
@@ -70,11 +70,11 @@ export class Deployment extends pulumi.CustomResource {
      */
     public /*out*/ readonly autoDeployed!: pulumi.Output<boolean>;
     /**
-     * The description for the deployment resource. Must be less than or equal to 1024 characters in length.
+     * Description for the deployment resource. Must be less than or equal to 1024 characters in length.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * A map of arbitrary keys and values that, when changed, will trigger a redeployment.
+     * Map of arbitrary keys and values that, when changed, will trigger a redeployment.
      */
     public readonly triggers!: pulumi.Output<{[key: string]: string} | undefined>;
 
@@ -115,7 +115,7 @@ export class Deployment extends pulumi.CustomResource {
  */
 export interface DeploymentState {
     /**
-     * The API identifier.
+     * API identifier.
      */
     apiId?: pulumi.Input<string>;
     /**
@@ -123,11 +123,11 @@ export interface DeploymentState {
      */
     autoDeployed?: pulumi.Input<boolean>;
     /**
-     * The description for the deployment resource. Must be less than or equal to 1024 characters in length.
+     * Description for the deployment resource. Must be less than or equal to 1024 characters in length.
      */
     description?: pulumi.Input<string>;
     /**
-     * A map of arbitrary keys and values that, when changed, will trigger a redeployment.
+     * Map of arbitrary keys and values that, when changed, will trigger a redeployment.
      */
     triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -137,15 +137,15 @@ export interface DeploymentState {
  */
 export interface DeploymentArgs {
     /**
-     * The API identifier.
+     * API identifier.
      */
     apiId: pulumi.Input<string>;
     /**
-     * The description for the deployment resource. Must be less than or equal to 1024 characters in length.
+     * Description for the deployment resource. Must be less than or equal to 1024 characters in length.
      */
     description?: pulumi.Input<string>;
     /**
-     * A map of arbitrary keys and values that, when changed, will trigger a redeployment.
+     * Map of arbitrary keys and values that, when changed, will trigger a redeployment.
      */
     triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

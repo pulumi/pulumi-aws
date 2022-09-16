@@ -130,7 +130,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The ID of the gateway.
+        /// ID of the gateway.
         /// </summary>
         [Input("id")]
         public string? Id { get; set; }
@@ -168,7 +168,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The ID of the gateway.
+        /// ID of the gateway.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
@@ -196,25 +196,25 @@ namespace Pulumi.Aws.Ec2
     public sealed class GetCustomerGatewayResult
     {
         /// <summary>
-        /// The ARN of the customer gateway.
+        /// ARN of the customer gateway.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
+        /// Gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
         /// </summary>
         public readonly int BgpAsn;
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the customer gateway certificate.
+        /// ARN for the customer gateway certificate.
         /// </summary>
         public readonly string CertificateArn;
         /// <summary>
-        /// A name for the customer gateway device.
+        /// Name for the customer gateway device.
         /// </summary>
         public readonly string DeviceName;
         public readonly ImmutableArray<Outputs.GetCustomerGatewayFilterResult> Filters;
         public readonly string Id;
         /// <summary>
-        /// The IP address of the gateway's Internet-routable external interface.
+        /// IP address of the gateway's Internet-routable external interface.
         /// </summary>
         public readonly string IpAddress;
         /// <summary>
@@ -222,7 +222,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The type of customer gateway. The only type AWS supports at this time is "ipsec.1".
+        /// Type of customer gateway. The only type AWS supports at this time is "ipsec.1".
         /// </summary>
         public readonly string Type;
 

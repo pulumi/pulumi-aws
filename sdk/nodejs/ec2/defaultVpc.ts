@@ -66,7 +66,13 @@ export class DefaultVpc extends pulumi.CustomResource {
     public /*out*/ readonly defaultRouteTableId!: pulumi.Output<string>;
     public /*out*/ readonly defaultSecurityGroupId!: pulumi.Output<string>;
     public /*out*/ readonly dhcpOptionsId!: pulumi.Output<string>;
+    /**
+     * @deprecated With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version.
+     */
     public readonly enableClassiclink!: pulumi.Output<boolean>;
+    /**
+     * @deprecated With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version.
+     */
     public readonly enableClassiclinkDnsSupport!: pulumi.Output<boolean>;
     public readonly enableDnsHostnames!: pulumi.Output<boolean | undefined>;
     public readonly enableDnsSupport!: pulumi.Output<boolean | undefined>;
@@ -170,7 +176,13 @@ export interface DefaultVpcState {
     defaultRouteTableId?: pulumi.Input<string>;
     defaultSecurityGroupId?: pulumi.Input<string>;
     dhcpOptionsId?: pulumi.Input<string>;
+    /**
+     * @deprecated With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version.
+     */
     enableClassiclink?: pulumi.Input<boolean>;
+    /**
+     * @deprecated With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version.
+     */
     enableClassiclinkDnsSupport?: pulumi.Input<boolean>;
     enableDnsHostnames?: pulumi.Input<boolean>;
     enableDnsSupport?: pulumi.Input<boolean>;
@@ -199,7 +211,13 @@ export interface DefaultVpcState {
  */
 export interface DefaultVpcArgs {
     assignGeneratedIpv6CidrBlock?: pulumi.Input<boolean>;
+    /**
+     * @deprecated With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version.
+     */
     enableClassiclink?: pulumi.Input<boolean>;
+    /**
+     * @deprecated With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version.
+     */
     enableClassiclinkDnsSupport?: pulumi.Input<boolean>;
     enableDnsHostnames?: pulumi.Input<boolean>;
     enableDnsSupport?: pulumi.Input<boolean>;

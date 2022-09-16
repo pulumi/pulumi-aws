@@ -16,7 +16,7 @@ public final class GetResolverRulesArgs extends com.pulumi.resources.InvokeArgs 
     public static final GetResolverRulesArgs Empty = new GetResolverRulesArgs();
 
     /**
-     * A regex string to filter resolver rule names.
+     * Regex string to filter resolver rule names.
      * The filtering is done locally, so could have a performance impact if the result is large.
      * This argument should be used along with other arguments to limit the number of results returned.
      * 
@@ -25,7 +25,7 @@ public final class GetResolverRulesArgs extends com.pulumi.resources.InvokeArgs 
     private @Nullable Output<String> nameRegex;
 
     /**
-     * @return A regex string to filter resolver rule names.
+     * @return Regex string to filter resolver rule names.
      * The filtering is done locally, so could have a performance impact if the result is large.
      * This argument should be used along with other arguments to limit the number of results returned.
      * 
@@ -50,14 +50,14 @@ public final class GetResolverRulesArgs extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
-     * The ID of the outbound resolver endpoint for the desired resolver rules.
+     * ID of the outbound resolver endpoint for the desired resolver rules.
      * 
      */
     @Import(name="resolverEndpointId")
     private @Nullable Output<String> resolverEndpointId;
 
     /**
-     * @return The ID of the outbound resolver endpoint for the desired resolver rules.
+     * @return ID of the outbound resolver endpoint for the desired resolver rules.
      * 
      */
     public Optional<Output<String>> resolverEndpointId() {
@@ -65,14 +65,14 @@ public final class GetResolverRulesArgs extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
-     * The rule type of the desired resolver rules. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
+     * Rule type of the desired resolver rules. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
      * 
      */
     @Import(name="ruleType")
     private @Nullable Output<String> ruleType;
 
     /**
-     * @return The rule type of the desired resolver rules. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
+     * @return Rule type of the desired resolver rules. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
      * 
      */
     public Optional<Output<String>> ruleType() {
@@ -123,7 +123,7 @@ public final class GetResolverRulesArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param nameRegex A regex string to filter resolver rule names.
+         * @param nameRegex Regex string to filter resolver rule names.
          * The filtering is done locally, so could have a performance impact if the result is large.
          * This argument should be used along with other arguments to limit the number of results returned.
          * 
@@ -136,7 +136,7 @@ public final class GetResolverRulesArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param nameRegex A regex string to filter resolver rule names.
+         * @param nameRegex Regex string to filter resolver rule names.
          * The filtering is done locally, so could have a performance impact if the result is large.
          * This argument should be used along with other arguments to limit the number of results returned.
          * 
@@ -169,7 +169,7 @@ public final class GetResolverRulesArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param resolverEndpointId The ID of the outbound resolver endpoint for the desired resolver rules.
+         * @param resolverEndpointId ID of the outbound resolver endpoint for the desired resolver rules.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class GetResolverRulesArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param resolverEndpointId The ID of the outbound resolver endpoint for the desired resolver rules.
+         * @param resolverEndpointId ID of the outbound resolver endpoint for the desired resolver rules.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class GetResolverRulesArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param ruleType The rule type of the desired resolver rules. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
+         * @param ruleType Rule type of the desired resolver rules. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class GetResolverRulesArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param ruleType The rule type of the desired resolver rules. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
+         * @param ruleType Rule type of the desired resolver rules. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
          * 
          * @return builder
          * 

@@ -66,7 +66,7 @@ namespace Pulumi.Aws.Emr
     public partial class ManagedScalingPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The id of the EMR cluster
+        /// ID of the EMR cluster
         /// </summary>
         [Output("clusterId")]
         public Output<string> ClusterId { get; private set; } = null!;
@@ -124,7 +124,7 @@ namespace Pulumi.Aws.Emr
     public sealed class ManagedScalingPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The id of the EMR cluster
+        /// ID of the EMR cluster
         /// </summary>
         [Input("clusterId", required: true)]
         public Input<string> ClusterId { get; set; } = null!;
@@ -150,7 +150,7 @@ namespace Pulumi.Aws.Emr
     public sealed class ManagedScalingPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The id of the EMR cluster
+        /// ID of the EMR cluster
         /// </summary>
         [Input("clusterId")]
         public Input<string>? ClusterId { get; set; }

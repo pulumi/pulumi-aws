@@ -16,14 +16,14 @@ public final class AppProductionBranchArgs extends com.pulumi.resources.Resource
     public static final AppProductionBranchArgs Empty = new AppProductionBranchArgs();
 
     /**
-     * The branch name for the production branch.
+     * Branch name for the production branch.
      * 
      */
     @Import(name="branchName")
     private @Nullable Output<String> branchName;
 
     /**
-     * @return The branch name for the production branch.
+     * @return Branch name for the production branch.
      * 
      */
     public Optional<Output<String>> branchName() {
@@ -31,14 +31,14 @@ public final class AppProductionBranchArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The last deploy time of the production branch.
+     * Last deploy time of the production branch.
      * 
      */
     @Import(name="lastDeployTime")
     private @Nullable Output<String> lastDeployTime;
 
     /**
-     * @return The last deploy time of the production branch.
+     * @return Last deploy time of the production branch.
      * 
      */
     public Optional<Output<String>> lastDeployTime() {
@@ -46,14 +46,14 @@ public final class AppProductionBranchArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
+     * Status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return The status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
+     * @return Status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
      * 
      */
     public Optional<Output<String>> status() {
@@ -61,14 +61,14 @@ public final class AppProductionBranchArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The thumbnail URL for the production branch.
+     * Thumbnail URL for the production branch.
      * 
      */
     @Import(name="thumbnailUrl")
     private @Nullable Output<String> thumbnailUrl;
 
     /**
-     * @return The thumbnail URL for the production branch.
+     * @return Thumbnail URL for the production branch.
      * 
      */
     public Optional<Output<String>> thumbnailUrl() {
@@ -103,7 +103,7 @@ public final class AppProductionBranchArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param branchName The branch name for the production branch.
+         * @param branchName Branch name for the production branch.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class AppProductionBranchArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param branchName The branch name for the production branch.
+         * @param branchName Branch name for the production branch.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class AppProductionBranchArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param lastDeployTime The last deploy time of the production branch.
+         * @param lastDeployTime Last deploy time of the production branch.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class AppProductionBranchArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param lastDeployTime The last deploy time of the production branch.
+         * @param lastDeployTime Last deploy time of the production branch.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class AppProductionBranchArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param status The status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
+         * @param status Status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class AppProductionBranchArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param status The status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
+         * @param status Status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class AppProductionBranchArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param thumbnailUrl The thumbnail URL for the production branch.
+         * @param thumbnailUrl Thumbnail URL for the production branch.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class AppProductionBranchArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param thumbnailUrl The thumbnail URL for the production branch.
+         * @param thumbnailUrl Thumbnail URL for the production branch.
          * 
          * @return builder
          * 

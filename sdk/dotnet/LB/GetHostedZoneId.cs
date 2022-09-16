@@ -96,7 +96,7 @@ namespace Pulumi.Aws.LB
     public sealed class GetHostedZoneIdArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
+        /// Type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
         /// </summary>
         [Input("loadBalancerType")]
         public string? LoadBalancerType { get; set; }
@@ -117,7 +117,7 @@ namespace Pulumi.Aws.LB
     public sealed class GetHostedZoneIdInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
+        /// Type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
         /// </summary>
         [Input("loadBalancerType")]
         public Input<string>? LoadBalancerType { get; set; }

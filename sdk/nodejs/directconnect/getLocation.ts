@@ -37,7 +37,7 @@ export function getLocation(args: GetLocationArgs, opts?: pulumi.InvokeOptions):
  */
 export interface GetLocationArgs {
     /**
-     * The code for the location to retrieve.
+     * Code for the location to retrieve.
      */
     locationCode: string;
 }
@@ -55,7 +55,7 @@ export interface GetLocationResult {
      */
     readonly availablePortSpeeds: string[];
     /**
-     * The names of the service providers for the location.
+     * Names of the service providers for the location.
      */
     readonly availableProviders: string[];
     /**
@@ -64,7 +64,7 @@ export interface GetLocationResult {
     readonly id: string;
     readonly locationCode: string;
     /**
-     * The name of the location. This includes the name of the colocation partner and the physical site of the building.
+     * Name of the location. This includes the name of the colocation partner and the physical site of the building.
      */
     readonly locationName: string;
 }
@@ -78,7 +78,7 @@ export function getLocationOutput(args: GetLocationOutputArgs, opts?: pulumi.Inv
  */
 export interface GetLocationOutputArgs {
     /**
-     * The code for the location to retrieve.
+     * Code for the location to retrieve.
      */
     locationCode: pulumi.Input<string>;
 }

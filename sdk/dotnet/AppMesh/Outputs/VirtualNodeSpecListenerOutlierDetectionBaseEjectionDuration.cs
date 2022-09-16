@@ -14,11 +14,11 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration
     {
         /// <summary>
-        /// The unit of time. Valid values: `ms`, `s`.
+        /// Unit of time. Valid values: `ms`, `s`.
         /// </summary>
         public readonly string Unit;
         /// <summary>
-        /// The number of time units. Minimum value of `0`.
+        /// Number of time units. Minimum value of `0`.
         /// </summary>
         public readonly int Value;
 

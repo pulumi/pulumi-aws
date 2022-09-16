@@ -829,7 +829,7 @@ class GetPermissionsDataLocationResult(dict):
                  arn: str,
                  catalog_id: str):
         """
-        :param str arn: Amazon Resource Name (ARN) that uniquely identifies the data location resource.
+        :param str arn: ARN that uniquely identifies the data location resource.
         :param str catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
         """
         pulumi.set(__self__, "arn", arn)
@@ -839,7 +839,7 @@ class GetPermissionsDataLocationResult(dict):
     @pulumi.getter
     def arn(self) -> str:
         """
-        Amazon Resource Name (ARN) that uniquely identifies the data location resource.
+        ARN that uniquely identifies the data location resource.
         """
         return pulumi.get(self, "arn")
 
@@ -889,8 +889,8 @@ class GetPermissionsLfTagResult(dict):
                  values: Sequence[str]):
         """
         :param str catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        :param str key: The key-name of an LF-Tag.
-        :param Sequence[str] values: A list of possible values of an LF-Tag.
+        :param str key: Key-name of an LF-Tag.
+        :param Sequence[str] values: List of possible values of an LF-Tag.
         """
         pulumi.set(__self__, "catalog_id", catalog_id)
         pulumi.set(__self__, "key", key)
@@ -908,7 +908,7 @@ class GetPermissionsLfTagResult(dict):
     @pulumi.getter
     def key(self) -> str:
         """
-        The key-name of an LF-Tag.
+        Key-name of an LF-Tag.
         """
         return pulumi.get(self, "key")
 
@@ -916,7 +916,7 @@ class GetPermissionsLfTagResult(dict):
     @pulumi.getter
     def values(self) -> Sequence[str]:
         """
-        A list of possible values of an LF-Tag.
+        List of possible values of an LF-Tag.
         """
         return pulumi.get(self, "values")
 
@@ -929,8 +929,8 @@ class GetPermissionsLfTagPolicyResult(dict):
                  resource_type: str):
         """
         :param str catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        :param Sequence['GetPermissionsLfTagPolicyExpressionArgs'] expressions: A list of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
-        :param str resource_type: The resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
+        :param Sequence['GetPermissionsLfTagPolicyExpressionArgs'] expressions: List of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
+        :param str resource_type: Resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
         """
         pulumi.set(__self__, "catalog_id", catalog_id)
         pulumi.set(__self__, "expressions", expressions)
@@ -948,7 +948,7 @@ class GetPermissionsLfTagPolicyResult(dict):
     @pulumi.getter
     def expressions(self) -> Sequence['outputs.GetPermissionsLfTagPolicyExpressionResult']:
         """
-        A list of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
+        List of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
         """
         return pulumi.get(self, "expressions")
 
@@ -956,7 +956,7 @@ class GetPermissionsLfTagPolicyResult(dict):
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> str:
         """
-        The resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
+        Resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
         """
         return pulumi.get(self, "resource_type")
 
@@ -967,8 +967,8 @@ class GetPermissionsLfTagPolicyExpressionResult(dict):
                  key: str,
                  values: Sequence[str]):
         """
-        :param str key: The key-name of an LF-Tag.
-        :param Sequence[str] values: A list of possible values of an LF-Tag.
+        :param str key: Key-name of an LF-Tag.
+        :param Sequence[str] values: List of possible values of an LF-Tag.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -977,7 +977,7 @@ class GetPermissionsLfTagPolicyExpressionResult(dict):
     @pulumi.getter
     def key(self) -> str:
         """
-        The key-name of an LF-Tag.
+        Key-name of an LF-Tag.
         """
         return pulumi.get(self, "key")
 
@@ -985,7 +985,7 @@ class GetPermissionsLfTagPolicyExpressionResult(dict):
     @pulumi.getter
     def values(self) -> Sequence[str]:
         """
-        A list of possible values of an LF-Tag.
+        List of possible values of an LF-Tag.
         """
         return pulumi.get(self, "values")
 

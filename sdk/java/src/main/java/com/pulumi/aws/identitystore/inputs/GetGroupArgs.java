@@ -48,14 +48,14 @@ public final class GetGroupArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The Identity Store ID associated with the Single Sign-On Instance.
+     * Identity Store ID associated with the Single Sign-On Instance.
      * 
      */
     @Import(name="identityStoreId", required=true)
     private Output<String> identityStoreId;
 
     /**
-     * @return The Identity Store ID associated with the Single Sign-On Instance.
+     * @return Identity Store ID associated with the Single Sign-On Instance.
      * 
      */
     public Output<String> identityStoreId() {
@@ -141,7 +141,7 @@ public final class GetGroupArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param identityStoreId The Identity Store ID associated with the Single Sign-On Instance.
+         * @param identityStoreId Identity Store ID associated with the Single Sign-On Instance.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class GetGroupArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param identityStoreId The Identity Store ID associated with the Single Sign-On Instance.
+         * @param identityStoreId Identity Store ID associated with the Single Sign-On Instance.
          * 
          * @return builder
          * 

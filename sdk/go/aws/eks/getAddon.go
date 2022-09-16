@@ -61,9 +61,9 @@ type LookupAddonArgs struct {
 // A collection of values returned by getAddon.
 type LookupAddonResult struct {
 	AddonName string `pulumi:"addonName"`
-	// The version of EKS add-on.
+	// Version of EKS add-on.
 	AddonVersion string `pulumi:"addonVersion"`
-	// Amazon Resource Name (ARN) of the EKS add-on.
+	// ARN of the EKS add-on.
 	Arn         string `pulumi:"arn"`
 	ClusterName string `pulumi:"clusterName"`
 	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
@@ -124,12 +124,12 @@ func (o LookupAddonResultOutput) AddonName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAddonResult) string { return v.AddonName }).(pulumi.StringOutput)
 }
 
-// The version of EKS add-on.
+// Version of EKS add-on.
 func (o LookupAddonResultOutput) AddonVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAddonResult) string { return v.AddonVersion }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the EKS add-on.
+// ARN of the EKS add-on.
 func (o LookupAddonResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAddonResult) string { return v.Arn }).(pulumi.StringOutput)
 }

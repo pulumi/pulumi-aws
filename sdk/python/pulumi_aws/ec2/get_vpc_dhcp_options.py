@@ -62,7 +62,7 @@ class GetVpcDhcpOptionsResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The ARN of the DHCP Options Set.
+        ARN of the DHCP Options Set.
         """
         return pulumi.get(self, "arn")
 
@@ -78,7 +78,7 @@ class GetVpcDhcpOptionsResult:
     @pulumi.getter(name="domainName")
     def domain_name(self) -> str:
         """
-        The suffix domain name to used when resolving non Fully Qualified Domain NamesE.g., the `search` value in the `/etc/resolv.conf` file.
+        Suffix domain name to used when resolving non Fully Qualified Domain NamesE.g., the `search` value in the `/etc/resolv.conf` file.
         """
         return pulumi.get(self, "domain_name")
 
@@ -115,7 +115,7 @@ class GetVpcDhcpOptionsResult:
     @pulumi.getter(name="netbiosNodeType")
     def netbios_node_type(self) -> str:
         """
-        The NetBIOS node type (1, 2, 4, or 8). For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
+        NetBIOS node type (1, 2, 4, or 8). For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
         """
         return pulumi.get(self, "netbios_node_type")
 
@@ -131,7 +131,7 @@ class GetVpcDhcpOptionsResult:
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> str:
         """
-        The ID of the AWS account that owns the DHCP options set.
+        ID of the AWS account that owns the DHCP options set.
         """
         return pulumi.get(self, "owner_id")
 
@@ -139,7 +139,7 @@ class GetVpcDhcpOptionsResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        A map of tags assigned to the resource.
+        Map of tags assigned to the resource.
         """
         return pulumi.get(self, "tags")
 
@@ -198,9 +198,9 @@ def get_vpc_dhcp_options(dhcp_options_id: Optional[str] = None,
     ```
 
 
-    :param str dhcp_options_id: The EC2 DHCP Options ID.
+    :param str dhcp_options_id: EC2 DHCP Options ID.
     :param Sequence[pulumi.InputType['GetVpcDhcpOptionsFilterArgs']] filters: List of custom filters as described below.
-    :param Mapping[str, str] tags: A map of tags assigned to the resource.
+    :param Mapping[str, str] tags: Map of tags assigned to the resource.
     """
     __args__ = dict()
     __args__['dhcpOptionsId'] = dhcp_options_id
@@ -259,8 +259,8 @@ def get_vpc_dhcp_options_output(dhcp_options_id: Optional[pulumi.Input[Optional[
     ```
 
 
-    :param str dhcp_options_id: The EC2 DHCP Options ID.
+    :param str dhcp_options_id: EC2 DHCP Options ID.
     :param Sequence[pulumi.InputType['GetVpcDhcpOptionsFilterArgs']] filters: List of custom filters as described below.
-    :param Mapping[str, str] tags: A map of tags assigned to the resource.
+    :param Mapping[str, str] tags: Map of tags assigned to the resource.
     """
     ...

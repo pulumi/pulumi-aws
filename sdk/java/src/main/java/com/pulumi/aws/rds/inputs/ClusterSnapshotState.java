@@ -20,14 +20,14 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
     public static final ClusterSnapshotState Empty = new ClusterSnapshotState();
 
     /**
-     * Specifies the allocated storage size in gigabytes (GB).
+     * Allocated storage size in gigabytes (GB).
      * 
      */
     @Import(name="allocatedStorage")
     private @Nullable Output<Integer> allocatedStorage;
 
     /**
-     * @return Specifies the allocated storage size in gigabytes (GB).
+     * @return Allocated storage size in gigabytes (GB).
      * 
      */
     public Optional<Output<Integer>> allocatedStorage() {
@@ -95,14 +95,14 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Specifies the name of the database engine.
+     * Name of the database engine.
      * 
      */
     @Import(name="engine")
     private @Nullable Output<String> engine;
 
     /**
-     * @return Specifies the name of the database engine.
+     * @return Name of the database engine.
      * 
      */
     public Optional<Output<String>> engine() {
@@ -199,14 +199,14 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Specifies whether the DB cluster snapshot is encrypted.
+     * Whether the DB cluster snapshot is encrypted.
      * 
      */
     @Import(name="storageEncrypted")
     private @Nullable Output<Boolean> storageEncrypted;
 
     /**
-     * @return Specifies whether the DB cluster snapshot is encrypted.
+     * @return Whether the DB cluster snapshot is encrypted.
      * 
      */
     public Optional<Output<Boolean>> storageEncrypted() {
@@ -299,7 +299,7 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param allocatedStorage Specifies the allocated storage size in gigabytes (GB).
+         * @param allocatedStorage Allocated storage size in gigabytes (GB).
          * 
          * @return builder
          * 
@@ -310,7 +310,7 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param allocatedStorage Specifies the allocated storage size in gigabytes (GB).
+         * @param allocatedStorage Allocated storage size in gigabytes (GB).
          * 
          * @return builder
          * 
@@ -414,7 +414,7 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param engine Specifies the name of the database engine.
+         * @param engine Name of the database engine.
          * 
          * @return builder
          * 
@@ -425,7 +425,7 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param engine Specifies the name of the database engine.
+         * @param engine Name of the database engine.
          * 
          * @return builder
          * 
@@ -558,7 +558,7 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param storageEncrypted Specifies whether the DB cluster snapshot is encrypted.
+         * @param storageEncrypted Whether the DB cluster snapshot is encrypted.
          * 
          * @return builder
          * 
@@ -569,7 +569,7 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param storageEncrypted Specifies whether the DB cluster snapshot is encrypted.
+         * @param storageEncrypted Whether the DB cluster snapshot is encrypted.
          * 
          * @return builder
          * 

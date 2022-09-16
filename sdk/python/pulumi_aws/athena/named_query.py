@@ -21,11 +21,11 @@ class NamedQueryArgs:
                  workgroup: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a NamedQuery resource.
-        :param pulumi.Input[str] database: The database to which the query belongs.
-        :param pulumi.Input[str] query: The text of the query itself. In other words, all query statements. Maximum length of 262144.
-        :param pulumi.Input[str] description: A brief explanation of the query. Maximum length of 1024.
-        :param pulumi.Input[str] name: The plain language name for the query. Maximum length of 128.
-        :param pulumi.Input[str] workgroup: The workgroup to which the query belongs. Defaults to `primary`
+        :param pulumi.Input[str] database: Database to which the query belongs.
+        :param pulumi.Input[str] query: Text of the query itself. In other words, all query statements. Maximum length of 262144.
+        :param pulumi.Input[str] description: Brief explanation of the query. Maximum length of 1024.
+        :param pulumi.Input[str] name: Plain language name for the query. Maximum length of 128.
+        :param pulumi.Input[str] workgroup: Workgroup to which the query belongs. Defaults to `primary`
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "query", query)
@@ -40,7 +40,7 @@ class NamedQueryArgs:
     @pulumi.getter
     def database(self) -> pulumi.Input[str]:
         """
-        The database to which the query belongs.
+        Database to which the query belongs.
         """
         return pulumi.get(self, "database")
 
@@ -52,7 +52,7 @@ class NamedQueryArgs:
     @pulumi.getter
     def query(self) -> pulumi.Input[str]:
         """
-        The text of the query itself. In other words, all query statements. Maximum length of 262144.
+        Text of the query itself. In other words, all query statements. Maximum length of 262144.
         """
         return pulumi.get(self, "query")
 
@@ -64,7 +64,7 @@ class NamedQueryArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        A brief explanation of the query. Maximum length of 1024.
+        Brief explanation of the query. Maximum length of 1024.
         """
         return pulumi.get(self, "description")
 
@@ -76,7 +76,7 @@ class NamedQueryArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The plain language name for the query. Maximum length of 128.
+        Plain language name for the query. Maximum length of 128.
         """
         return pulumi.get(self, "name")
 
@@ -88,7 +88,7 @@ class NamedQueryArgs:
     @pulumi.getter
     def workgroup(self) -> Optional[pulumi.Input[str]]:
         """
-        The workgroup to which the query belongs. Defaults to `primary`
+        Workgroup to which the query belongs. Defaults to `primary`
         """
         return pulumi.get(self, "workgroup")
 
@@ -107,11 +107,11 @@ class _NamedQueryState:
                  workgroup: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering NamedQuery resources.
-        :param pulumi.Input[str] database: The database to which the query belongs.
-        :param pulumi.Input[str] description: A brief explanation of the query. Maximum length of 1024.
-        :param pulumi.Input[str] name: The plain language name for the query. Maximum length of 128.
-        :param pulumi.Input[str] query: The text of the query itself. In other words, all query statements. Maximum length of 262144.
-        :param pulumi.Input[str] workgroup: The workgroup to which the query belongs. Defaults to `primary`
+        :param pulumi.Input[str] database: Database to which the query belongs.
+        :param pulumi.Input[str] description: Brief explanation of the query. Maximum length of 1024.
+        :param pulumi.Input[str] name: Plain language name for the query. Maximum length of 128.
+        :param pulumi.Input[str] query: Text of the query itself. In other words, all query statements. Maximum length of 262144.
+        :param pulumi.Input[str] workgroup: Workgroup to which the query belongs. Defaults to `primary`
         """
         if database is not None:
             pulumi.set(__self__, "database", database)
@@ -128,7 +128,7 @@ class _NamedQueryState:
     @pulumi.getter
     def database(self) -> Optional[pulumi.Input[str]]:
         """
-        The database to which the query belongs.
+        Database to which the query belongs.
         """
         return pulumi.get(self, "database")
 
@@ -140,7 +140,7 @@ class _NamedQueryState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        A brief explanation of the query. Maximum length of 1024.
+        Brief explanation of the query. Maximum length of 1024.
         """
         return pulumi.get(self, "description")
 
@@ -152,7 +152,7 @@ class _NamedQueryState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The plain language name for the query. Maximum length of 128.
+        Plain language name for the query. Maximum length of 128.
         """
         return pulumi.get(self, "name")
 
@@ -164,7 +164,7 @@ class _NamedQueryState:
     @pulumi.getter
     def query(self) -> Optional[pulumi.Input[str]]:
         """
-        The text of the query itself. In other words, all query statements. Maximum length of 262144.
+        Text of the query itself. In other words, all query statements. Maximum length of 262144.
         """
         return pulumi.get(self, "query")
 
@@ -176,7 +176,7 @@ class _NamedQueryState:
     @pulumi.getter
     def workgroup(self) -> Optional[pulumi.Input[str]]:
         """
-        The workgroup to which the query belongs. Defaults to `primary`
+        Workgroup to which the query belongs. Defaults to `primary`
         """
         return pulumi.get(self, "workgroup")
 
@@ -236,11 +236,11 @@ class NamedQuery(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] database: The database to which the query belongs.
-        :param pulumi.Input[str] description: A brief explanation of the query. Maximum length of 1024.
-        :param pulumi.Input[str] name: The plain language name for the query. Maximum length of 128.
-        :param pulumi.Input[str] query: The text of the query itself. In other words, all query statements. Maximum length of 262144.
-        :param pulumi.Input[str] workgroup: The workgroup to which the query belongs. Defaults to `primary`
+        :param pulumi.Input[str] database: Database to which the query belongs.
+        :param pulumi.Input[str] description: Brief explanation of the query. Maximum length of 1024.
+        :param pulumi.Input[str] name: Plain language name for the query. Maximum length of 128.
+        :param pulumi.Input[str] query: Text of the query itself. In other words, all query statements. Maximum length of 262144.
+        :param pulumi.Input[str] workgroup: Workgroup to which the query belongs. Defaults to `primary`
         """
         ...
     @overload
@@ -346,11 +346,11 @@ class NamedQuery(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] database: The database to which the query belongs.
-        :param pulumi.Input[str] description: A brief explanation of the query. Maximum length of 1024.
-        :param pulumi.Input[str] name: The plain language name for the query. Maximum length of 128.
-        :param pulumi.Input[str] query: The text of the query itself. In other words, all query statements. Maximum length of 262144.
-        :param pulumi.Input[str] workgroup: The workgroup to which the query belongs. Defaults to `primary`
+        :param pulumi.Input[str] database: Database to which the query belongs.
+        :param pulumi.Input[str] description: Brief explanation of the query. Maximum length of 1024.
+        :param pulumi.Input[str] name: Plain language name for the query. Maximum length of 128.
+        :param pulumi.Input[str] query: Text of the query itself. In other words, all query statements. Maximum length of 262144.
+        :param pulumi.Input[str] workgroup: Workgroup to which the query belongs. Defaults to `primary`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -367,7 +367,7 @@ class NamedQuery(pulumi.CustomResource):
     @pulumi.getter
     def database(self) -> pulumi.Output[str]:
         """
-        The database to which the query belongs.
+        Database to which the query belongs.
         """
         return pulumi.get(self, "database")
 
@@ -375,7 +375,7 @@ class NamedQuery(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        A brief explanation of the query. Maximum length of 1024.
+        Brief explanation of the query. Maximum length of 1024.
         """
         return pulumi.get(self, "description")
 
@@ -383,7 +383,7 @@ class NamedQuery(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The plain language name for the query. Maximum length of 128.
+        Plain language name for the query. Maximum length of 128.
         """
         return pulumi.get(self, "name")
 
@@ -391,7 +391,7 @@ class NamedQuery(pulumi.CustomResource):
     @pulumi.getter
     def query(self) -> pulumi.Output[str]:
         """
-        The text of the query itself. In other words, all query statements. Maximum length of 262144.
+        Text of the query itself. In other words, all query statements. Maximum length of 262144.
         """
         return pulumi.get(self, "query")
 
@@ -399,7 +399,7 @@ class NamedQuery(pulumi.CustomResource):
     @pulumi.getter
     def workgroup(self) -> pulumi.Output[Optional[str]]:
         """
-        The workgroup to which the query belongs. Defaults to `primary`
+        Workgroup to which the query belongs. Defaults to `primary`
         """
         return pulumi.get(self, "workgroup")
 

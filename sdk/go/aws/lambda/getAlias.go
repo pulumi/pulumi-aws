@@ -57,7 +57,7 @@ type LookupAliasArgs struct {
 
 // A collection of values returned by getAlias.
 type LookupAliasResult struct {
-	// The Amazon Resource Name (ARN) identifying the Lambda function alias.
+	// ARN identifying the Lambda function alias.
 	Arn string `pulumi:"arn"`
 	// Description of alias.
 	Description  string `pulumi:"description"`
@@ -66,7 +66,7 @@ type LookupAliasResult struct {
 	FunctionVersion string `pulumi:"functionVersion"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The ARN to be used for invoking Lambda Function from API Gateway - to be used in aws_api_gateway_integration's `uri`.
+	// ARN to be used for invoking Lambda Function from API Gateway - to be used in aws_api_gateway_integration's `uri`.
 	InvokeArn string `pulumi:"invokeArn"`
 	Name      string `pulumi:"name"`
 }
@@ -111,7 +111,7 @@ func (o LookupAliasResultOutput) ToLookupAliasResultOutputWithContext(ctx contex
 	return o
 }
 
-// The Amazon Resource Name (ARN) identifying the Lambda function alias.
+// ARN identifying the Lambda function alias.
 func (o LookupAliasResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAliasResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -135,7 +135,7 @@ func (o LookupAliasResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAliasResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The ARN to be used for invoking Lambda Function from API Gateway - to be used in aws_api_gateway_integration's `uri`.
+// ARN to be used for invoking Lambda Function from API Gateway - to be used in aws_api_gateway_integration's `uri`.
 func (o LookupAliasResultOutput) InvokeArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAliasResult) string { return v.InvokeArn }).(pulumi.StringOutput)
 }

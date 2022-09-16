@@ -114,7 +114,7 @@ namespace Pulumi.Aws.SecretsManager
     public sealed class GetSecretVersionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Specifies the secret containing the version that you want to retrieve. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
+        /// Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
         /// </summary>
         [Input("secretId", required: true)]
         public string SecretId { get; set; } = null!;
@@ -140,7 +140,7 @@ namespace Pulumi.Aws.SecretsManager
     public sealed class GetSecretVersionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Specifies the secret containing the version that you want to retrieve. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
+        /// Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
         /// </summary>
         [Input("secretId", required: true)]
         public Input<string> SecretId { get; set; } = null!;
@@ -168,7 +168,7 @@ namespace Pulumi.Aws.SecretsManager
     public sealed class GetSecretVersionResult
     {
         /// <summary>
-        /// The ARN of the secret.
+        /// ARN of the secret.
         /// </summary>
         public readonly string Arn;
         /// <summary>
@@ -176,16 +176,16 @@ namespace Pulumi.Aws.SecretsManager
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The decrypted part of the protected secret information that was originally provided as a binary.
+        /// Decrypted part of the protected secret information that was originally provided as a binary.
         /// </summary>
         public readonly string SecretBinary;
         public readonly string SecretId;
         /// <summary>
-        /// The decrypted part of the protected secret information that was originally provided as a string.
+        /// Decrypted part of the protected secret information that was originally provided as a string.
         /// </summary>
         public readonly string SecretString;
         /// <summary>
-        /// The unique identifier of this version of the secret.
+        /// Unique identifier of this version of the secret.
         /// </summary>
         public readonly string VersionId;
         public readonly string? VersionStage;

@@ -13,14 +13,14 @@ public final class GetCodeSigningConfigPlainArgs extends com.pulumi.resources.In
     public static final GetCodeSigningConfigPlainArgs Empty = new GetCodeSigningConfigPlainArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the code signing configuration.
+     * ARN of the code signing configuration.
      * 
      */
     @Import(name="arn", required=true)
     private String arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the code signing configuration.
+     * @return ARN of the code signing configuration.
      * 
      */
     public String arn() {
@@ -52,7 +52,7 @@ public final class GetCodeSigningConfigPlainArgs extends com.pulumi.resources.In
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the code signing configuration.
+         * @param arn ARN of the code signing configuration.
          * 
          * @return builder
          * 

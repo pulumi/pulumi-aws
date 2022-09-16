@@ -16,12 +16,12 @@ import java.util.Objects;
 @CustomType
 public final class GetClusterResult {
     /**
-     * @return The name of the Access Control List associated with the cluster.
+     * @return Name of the Access Control List associated with the cluster.
      * 
      */
     private String aclName;
     /**
-     * @return The ARN of the cluster.
+     * @return ARN of the cluster.
      * 
      */
     private String arn;
@@ -63,7 +63,7 @@ public final class GetClusterResult {
      */
     private String kmsKeyArn;
     /**
-     * @return The weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). Example: `sun:23:00-mon:01:30`.
+     * @return Weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). Example: `sun:23:00-mon:01:30`.
      * 
      */
     private String maintenanceWindow;
@@ -74,7 +74,7 @@ public final class GetClusterResult {
      */
     private String name;
     /**
-     * @return The compute and memory capacity of the nodes in the cluster.
+     * @return Compute and memory capacity of the nodes in the cluster.
      * 
      */
     private String nodeType;
@@ -84,7 +84,7 @@ public final class GetClusterResult {
      */
     private Integer numReplicasPerShard;
     /**
-     * @return The number of shards in the cluster.
+     * @return Number of shards in the cluster.
      * 
      */
     private Integer numShards;
@@ -114,7 +114,7 @@ public final class GetClusterResult {
      */
     private Integer snapshotRetentionLimit;
     /**
-     * @return The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
+     * @return Daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
      * 
      */
     private String snapshotWindow;
@@ -126,7 +126,7 @@ public final class GetClusterResult {
     private String snsTopicArn;
     private String subnetGroupName;
     /**
-     * @return A map of tags assigned to the cluster.
+     * @return Map of tags assigned to the cluster.
      * 
      */
     private Map<String,String> tags;
@@ -138,14 +138,14 @@ public final class GetClusterResult {
 
     private GetClusterResult() {}
     /**
-     * @return The name of the Access Control List associated with the cluster.
+     * @return Name of the Access Control List associated with the cluster.
      * 
      */
     public String aclName() {
         return this.aclName;
     }
     /**
-     * @return The ARN of the cluster.
+     * @return ARN of the cluster.
      * 
      */
     public String arn() {
@@ -205,7 +205,7 @@ public final class GetClusterResult {
         return this.kmsKeyArn;
     }
     /**
-     * @return The weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). Example: `sun:23:00-mon:01:30`.
+     * @return Weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). Example: `sun:23:00-mon:01:30`.
      * 
      */
     public String maintenanceWindow() {
@@ -220,7 +220,7 @@ public final class GetClusterResult {
         return this.name;
     }
     /**
-     * @return The compute and memory capacity of the nodes in the cluster.
+     * @return Compute and memory capacity of the nodes in the cluster.
      * 
      */
     public String nodeType() {
@@ -234,7 +234,7 @@ public final class GetClusterResult {
         return this.numReplicasPerShard;
     }
     /**
-     * @return The number of shards in the cluster.
+     * @return Number of shards in the cluster.
      * 
      */
     public Integer numShards() {
@@ -276,7 +276,7 @@ public final class GetClusterResult {
         return this.snapshotRetentionLimit;
     }
     /**
-     * @return The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
+     * @return Daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
      * 
      */
     public String snapshotWindow() {
@@ -294,7 +294,7 @@ public final class GetClusterResult {
         return this.subnetGroupName;
     }
     /**
-     * @return A map of tags assigned to the cluster.
+     * @return Map of tags assigned to the cluster.
      * 
      */
     public Map<String,String> tags() {

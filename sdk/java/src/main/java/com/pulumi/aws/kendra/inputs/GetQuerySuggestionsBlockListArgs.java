@@ -17,14 +17,14 @@ public final class GetQuerySuggestionsBlockListArgs extends com.pulumi.resources
     public static final GetQuerySuggestionsBlockListArgs Empty = new GetQuerySuggestionsBlockListArgs();
 
     /**
-     * The identifier of the index that contains the block list.
+     * Identifier of the index that contains the block list.
      * 
      */
     @Import(name="indexId", required=true)
     private Output<String> indexId;
 
     /**
-     * @return The identifier of the index that contains the block list.
+     * @return Identifier of the index that contains the block list.
      * 
      */
     public Output<String> indexId() {
@@ -32,14 +32,14 @@ public final class GetQuerySuggestionsBlockListArgs extends com.pulumi.resources
     }
 
     /**
-     * The identifier of the block list.
+     * Identifier of the block list.
      * 
      */
     @Import(name="querySuggestionsBlockListId", required=true)
     private Output<String> querySuggestionsBlockListId;
 
     /**
-     * @return The identifier of the block list.
+     * @return Identifier of the block list.
      * 
      */
     public Output<String> querySuggestionsBlockListId() {
@@ -88,7 +88,7 @@ public final class GetQuerySuggestionsBlockListArgs extends com.pulumi.resources
         }
 
         /**
-         * @param indexId The identifier of the index that contains the block list.
+         * @param indexId Identifier of the index that contains the block list.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class GetQuerySuggestionsBlockListArgs extends com.pulumi.resources
         }
 
         /**
-         * @param indexId The identifier of the index that contains the block list.
+         * @param indexId Identifier of the index that contains the block list.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class GetQuerySuggestionsBlockListArgs extends com.pulumi.resources
         }
 
         /**
-         * @param querySuggestionsBlockListId The identifier of the block list.
+         * @param querySuggestionsBlockListId Identifier of the block list.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class GetQuerySuggestionsBlockListArgs extends com.pulumi.resources
         }
 
         /**
-         * @param querySuggestionsBlockListId The identifier of the block list.
+         * @param querySuggestionsBlockListId Identifier of the block list.
          * 
          * @return builder
          * 

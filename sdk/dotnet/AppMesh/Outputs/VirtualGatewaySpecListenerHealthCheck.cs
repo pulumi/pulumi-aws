@@ -14,31 +14,31 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class VirtualGatewaySpecListenerHealthCheck
     {
         /// <summary>
-        /// The number of consecutive successful health checks that must occur before declaring listener healthy.
+        /// Number of consecutive successful health checks that must occur before declaring listener healthy.
         /// </summary>
         public readonly int HealthyThreshold;
         /// <summary>
-        /// The time period in milliseconds between each health check execution.
+        /// Time period in milliseconds between each health check execution.
         /// </summary>
         public readonly int IntervalMillis;
         /// <summary>
-        /// The destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
+        /// Destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
         /// </summary>
         public readonly string? Path;
         /// <summary>
-        /// The destination port for the health check request. This port must match the port defined in the `port_mapping` for the listener.
+        /// Destination port for the health check request. This port must match the port defined in the `port_mapping` for the listener.
         /// </summary>
         public readonly int? Port;
         /// <summary>
-        /// The protocol for the health check request. Valid values are `http`, `http2`, and `grpc`.
+        /// Protocol for the health check request. Valid values are `http`, `http2`, and `grpc`.
         /// </summary>
         public readonly string Protocol;
         /// <summary>
-        /// The amount of time to wait when receiving a response from the health check, in milliseconds.
+        /// Amount of time to wait when receiving a response from the health check, in milliseconds.
         /// </summary>
         public readonly int TimeoutMillis;
         /// <summary>
-        /// The number of consecutive failed health checks that must occur before declaring a virtual gateway unhealthy.
+        /// Number of consecutive failed health checks that must occur before declaring a virtual gateway unhealthy.
         /// </summary>
         public readonly int UnhealthyThreshold;
 

@@ -14,11 +14,11 @@ namespace Pulumi.Aws.AppRunner.Outputs
     public sealed class ServiceSourceConfigurationCodeRepositorySourceCodeVersion
     {
         /// <summary>
-        /// The type of version identifier. For a git-based repository, branches represent versions. Valid values: `BRANCH`.
+        /// Type of version identifier. For a git-based repository, branches represent versions. Valid values: `BRANCH`.
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// A source code version. For a git-based repository, a branch name maps to a specific version. App Runner uses the most recent commit to the branch.
+        /// Source code version. For a git-based repository, a branch name maps to a specific version. App Runner uses the most recent commit to the branch.
         /// </summary>
         public readonly string Value;
 

@@ -50,7 +50,7 @@ class GetRouteTableResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        EC2 Transit Gateway Route Table Amazon Resource Name (ARN).
+        EC2 Transit Gateway Route Table ARN.
         """
         return pulumi.get(self, "arn")
 

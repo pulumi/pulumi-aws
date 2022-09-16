@@ -14,14 +14,14 @@ public final class GetDataCatalogEncryptionSettingsArgs extends com.pulumi.resou
     public static final GetDataCatalogEncryptionSettingsArgs Empty = new GetDataCatalogEncryptionSettingsArgs();
 
     /**
-     * The ID of the Data Catalog. This is typically the AWS account ID.
+     * ID of the Data Catalog. This is typically the AWS account ID.
      * 
      */
     @Import(name="catalogId", required=true)
     private Output<String> catalogId;
 
     /**
-     * @return The ID of the Data Catalog. This is typically the AWS account ID.
+     * @return ID of the Data Catalog. This is typically the AWS account ID.
      * 
      */
     public Output<String> catalogId() {
@@ -53,7 +53,7 @@ public final class GetDataCatalogEncryptionSettingsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param catalogId The ID of the Data Catalog. This is typically the AWS account ID.
+         * @param catalogId ID of the Data Catalog. This is typically the AWS account ID.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class GetDataCatalogEncryptionSettingsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param catalogId The ID of the Data Catalog. This is typically the AWS account ID.
+         * @param catalogId ID of the Data Catalog. This is typically the AWS account ID.
          * 
          * @return builder
          * 

@@ -92,7 +92,7 @@ def get_log_groups(log_group_name_prefix: Optional[str] = None,
     ```
 
 
-    :param str log_group_name_prefix: The group prefix of the Cloudwatch log groups to list
+    :param str log_group_name_prefix: Group prefix of the Cloudwatch log groups to list
     """
     __args__ = dict()
     __args__['logGroupNamePrefix'] = log_group_name_prefix
@@ -122,6 +122,6 @@ def get_log_groups_output(log_group_name_prefix: Optional[pulumi.Input[Optional[
     ```
 
 
-    :param str log_group_name_prefix: The group prefix of the Cloudwatch log groups to list
+    :param str log_group_name_prefix: Group prefix of the Cloudwatch log groups to list
     """
     ...

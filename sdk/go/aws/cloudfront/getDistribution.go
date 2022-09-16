@@ -48,36 +48,36 @@ func LookupDistribution(ctx *pulumi.Context, args *LookupDistributionArgs, opts 
 
 // A collection of arguments for invoking getDistribution.
 type LookupDistributionArgs struct {
-	// The identifier for the distribution. For example: `EDFDVBD632BHDS5`.
+	// Identifier for the distribution. For example: `EDFDVBD632BHDS5`.
 	Id   string            `pulumi:"id"`
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getDistribution.
 type LookupDistributionResult struct {
-	// A list that contains information about CNAMEs (alternate domain names), if any, for this distribution.
+	// List that contains information about CNAMEs (alternate domain names), if any, for this distribution.
 	Aliases []string `pulumi:"aliases"`
-	// The ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
+	// ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
 	Arn string `pulumi:"arn"`
-	// The domain name corresponding to the distribution. For
+	// Domain name corresponding to the distribution. For
 	// example: `d604721fxaaqy9.cloudfront.net`.
 	DomainName string `pulumi:"domainName"`
 	Enabled    bool   `pulumi:"enabled"`
-	// The current version of the distribution's information. For example:
+	// Current version of the distribution's information. For example:
 	// `E2QWRUHAPOMQZL`.
 	Etag string `pulumi:"etag"`
-	// The CloudFront Route 53 zone ID that can be used to
+	// CloudFront Route 53 zone ID that can be used to
 	// route an [Alias Resource Record Set][7] to. This attribute is simply an
 	// alias for the zone ID `Z2FDTNDATAQYW2`.
 	HostedZoneId string `pulumi:"hostedZoneId"`
-	// The identifier for the distribution. For example: `EDFDVBD632BHDS5`.
+	// Identifier for the distribution. For example: `EDFDVBD632BHDS5`.
 	Id string `pulumi:"id"`
 	// The number of invalidation batches
 	// currently in progress.
 	InProgressValidationBatches int `pulumi:"inProgressValidationBatches"`
-	// The date and time the distribution was last modified.
+	// Date and time the distribution was last modified.
 	LastModifiedTime string `pulumi:"lastModifiedTime"`
-	// The current status of the distribution. `Deployed` if the
+	// Current status of the distribution. `Deployed` if the
 	// distribution's information is fully propagated throughout the Amazon
 	// CloudFront system.
 	Status string            `pulumi:"status"`
@@ -99,7 +99,7 @@ func LookupDistributionOutput(ctx *pulumi.Context, args LookupDistributionOutput
 
 // A collection of arguments for invoking getDistribution.
 type LookupDistributionOutputArgs struct {
-	// The identifier for the distribution. For example: `EDFDVBD632BHDS5`.
+	// Identifier for the distribution. For example: `EDFDVBD632BHDS5`.
 	Id   pulumi.StringInput    `pulumi:"id"`
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -123,17 +123,17 @@ func (o LookupDistributionResultOutput) ToLookupDistributionResultOutputWithCont
 	return o
 }
 
-// A list that contains information about CNAMEs (alternate domain names), if any, for this distribution.
+// List that contains information about CNAMEs (alternate domain names), if any, for this distribution.
 func (o LookupDistributionResultOutput) Aliases() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupDistributionResult) []string { return v.Aliases }).(pulumi.StringArrayOutput)
 }
 
-// The ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
+// ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
 func (o LookupDistributionResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDistributionResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The domain name corresponding to the distribution. For
+// Domain name corresponding to the distribution. For
 // example: `d604721fxaaqy9.cloudfront.net`.
 func (o LookupDistributionResultOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDistributionResult) string { return v.DomainName }).(pulumi.StringOutput)
@@ -143,20 +143,20 @@ func (o LookupDistributionResultOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupDistributionResult) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// The current version of the distribution's information. For example:
+// Current version of the distribution's information. For example:
 // `E2QWRUHAPOMQZL`.
 func (o LookupDistributionResultOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDistributionResult) string { return v.Etag }).(pulumi.StringOutput)
 }
 
-// The CloudFront Route 53 zone ID that can be used to
+// CloudFront Route 53 zone ID that can be used to
 // route an [Alias Resource Record Set][7] to. This attribute is simply an
 // alias for the zone ID `Z2FDTNDATAQYW2`.
 func (o LookupDistributionResultOutput) HostedZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDistributionResult) string { return v.HostedZoneId }).(pulumi.StringOutput)
 }
 
-// The identifier for the distribution. For example: `EDFDVBD632BHDS5`.
+// Identifier for the distribution. For example: `EDFDVBD632BHDS5`.
 func (o LookupDistributionResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDistributionResult) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -167,12 +167,12 @@ func (o LookupDistributionResultOutput) InProgressValidationBatches() pulumi.Int
 	return o.ApplyT(func(v LookupDistributionResult) int { return v.InProgressValidationBatches }).(pulumi.IntOutput)
 }
 
-// The date and time the distribution was last modified.
+// Date and time the distribution was last modified.
 func (o LookupDistributionResultOutput) LastModifiedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDistributionResult) string { return v.LastModifiedTime }).(pulumi.StringOutput)
 }
 
-// The current status of the distribution. `Deployed` if the
+// Current status of the distribution. `Deployed` if the
 // distribution's information is fully propagated throughout the Amazon
 // CloudFront system.
 func (o LookupDistributionResultOutput) Status() pulumi.StringOutput {

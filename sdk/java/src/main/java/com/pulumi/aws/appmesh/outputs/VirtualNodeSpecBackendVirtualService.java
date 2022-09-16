@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VirtualNodeSpecBackendVirtualService {
     /**
-     * @return The client policy for the backend.
+     * @return Client policy for the backend.
      * 
      */
     private @Nullable VirtualNodeSpecBackendVirtualServiceClientPolicy clientPolicy;
     /**
-     * @return The name of the virtual service that is acting as a virtual node backend. Must be between 1 and 255 characters in length.
+     * @return Name of the virtual service that is acting as a virtual node backend. Must be between 1 and 255 characters in length.
      * 
      */
     private String virtualServiceName;
 
     private VirtualNodeSpecBackendVirtualService() {}
     /**
-     * @return The client policy for the backend.
+     * @return Client policy for the backend.
      * 
      */
     public Optional<VirtualNodeSpecBackendVirtualServiceClientPolicy> clientPolicy() {
         return Optional.ofNullable(this.clientPolicy);
     }
     /**
-     * @return The name of the virtual service that is acting as a virtual node backend. Must be between 1 and 255 characters in length.
+     * @return Name of the virtual service that is acting as a virtual node backend. Must be between 1 and 255 characters in length.
      * 
      */
     public String virtualServiceName() {

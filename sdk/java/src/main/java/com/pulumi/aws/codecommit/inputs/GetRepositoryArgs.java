@@ -14,14 +14,14 @@ public final class GetRepositoryArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetRepositoryArgs Empty = new GetRepositoryArgs();
 
     /**
-     * The name for the repository. This needs to be less than 100 characters.
+     * Name for the repository. This needs to be less than 100 characters.
      * 
      */
     @Import(name="repositoryName", required=true)
     private Output<String> repositoryName;
 
     /**
-     * @return The name for the repository. This needs to be less than 100 characters.
+     * @return Name for the repository. This needs to be less than 100 characters.
      * 
      */
     public Output<String> repositoryName() {
@@ -53,7 +53,7 @@ public final class GetRepositoryArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param repositoryName The name for the repository. This needs to be less than 100 characters.
+         * @param repositoryName Name for the repository. This needs to be less than 100 characters.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class GetRepositoryArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param repositoryName The name for the repository. This needs to be less than 100 characters.
+         * @param repositoryName Name for the repository. This needs to be less than 100 characters.
          * 
          * @return builder
          * 

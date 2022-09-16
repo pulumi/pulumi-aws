@@ -5,16 +5,26 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./languageModel";
-export * from "./medicalVocabulary";
-export * from "./vocabulary";
-export * from "./vocabularyFilter";
+export { LanguageModelArgs, LanguageModelState } from "./languageModel";
+export type LanguageModel = import("./languageModel").LanguageModel;
+export const LanguageModel: typeof import("./languageModel").LanguageModel = null as any;
 
-// Import resources to register:
-import { LanguageModel } from "./languageModel";
-import { MedicalVocabulary } from "./medicalVocabulary";
-import { Vocabulary } from "./vocabulary";
-import { VocabularyFilter } from "./vocabularyFilter";
+export { MedicalVocabularyArgs, MedicalVocabularyState } from "./medicalVocabulary";
+export type MedicalVocabulary = import("./medicalVocabulary").MedicalVocabulary;
+export const MedicalVocabulary: typeof import("./medicalVocabulary").MedicalVocabulary = null as any;
+
+export { VocabularyArgs, VocabularyState } from "./vocabulary";
+export type Vocabulary = import("./vocabulary").Vocabulary;
+export const Vocabulary: typeof import("./vocabulary").Vocabulary = null as any;
+
+export { VocabularyFilterArgs, VocabularyFilterState } from "./vocabularyFilter";
+export type VocabularyFilter = import("./vocabularyFilter").VocabularyFilter;
+export const VocabularyFilter: typeof import("./vocabularyFilter").VocabularyFilter = null as any;
+
+utilities.lazyLoad(exports, ["LanguageModel"], () => require("./languageModel"));
+utilities.lazyLoad(exports, ["MedicalVocabulary"], () => require("./medicalVocabulary"));
+utilities.lazyLoad(exports, ["Vocabulary"], () => require("./vocabulary"));
+utilities.lazyLoad(exports, ["VocabularyFilter"], () => require("./vocabularyFilter"));
 
 const _module = {
     version: utilities.getVersion(),

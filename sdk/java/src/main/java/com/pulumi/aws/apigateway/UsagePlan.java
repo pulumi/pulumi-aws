@@ -134,70 +134,70 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:apigateway/usagePlan:UsagePlan")
 public class UsagePlan extends com.pulumi.resources.CustomResource {
     /**
-     * The associated API stages of the usage plan.
+     * Associated API stages of the usage plan.
      * 
      */
     @Export(name="apiStages", type=List.class, parameters={UsagePlanApiStage.class})
     private Output</* @Nullable */ List<UsagePlanApiStage>> apiStages;
 
     /**
-     * @return The associated API stages of the usage plan.
+     * @return Associated API stages of the usage plan.
      * 
      */
     public Output<Optional<List<UsagePlanApiStage>>> apiStages() {
         return Codegen.optional(this.apiStages);
     }
     /**
-     * Amazon Resource Name (ARN)
+     * ARN
      * 
      */
     @Export(name="arn", type=String.class, parameters={})
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN)
+     * @return ARN
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The description of a usage plan.
+     * Description of a usage plan.
      * 
      */
     @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return The description of a usage plan.
+     * @return Description of a usage plan.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * The name of the usage plan.
+     * Name of the usage plan.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name of the usage plan.
+     * @return Name of the usage plan.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
+     * AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
      * 
      */
     @Export(name="productCode", type=String.class, parameters={})
     private Output</* @Nullable */ String> productCode;
 
     /**
-     * @return The AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
+     * @return AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
      * 
      */
     public Output<Optional<String>> productCode() {
@@ -232,14 +232,14 @@ public class UsagePlan extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

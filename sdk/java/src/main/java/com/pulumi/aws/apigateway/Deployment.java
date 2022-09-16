@@ -174,14 +174,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:apigateway/deployment:Deployment")
 public class Deployment extends com.pulumi.resources.CustomResource {
     /**
-     * The creation date of the deployment
+     * Creation date of the deployment
      * 
      */
     @Export(name="createdDate", type=String.class, parameters={})
     private Output<String> createdDate;
 
     /**
-     * @return The creation date of the deployment
+     * @return Creation date of the deployment
      * 
      */
     public Output<String> createdDate() {
@@ -202,7 +202,7 @@ public class Deployment extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * The execution ARN to be used in `lambda_permission` resource&#39;s `source_arn`
+     * Execution ARN to be used in `lambda_permission`&#39;s `source_arn`
      * when allowing API Gateway to invoke a Lambda function,
      * e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
      * 
@@ -211,7 +211,7 @@ public class Deployment extends com.pulumi.resources.CustomResource {
     private Output<String> executionArn;
 
     /**
-     * @return The execution ARN to be used in `lambda_permission` resource&#39;s `source_arn`
+     * @return Execution ARN to be used in `lambda_permission`&#39;s `source_arn`
      * when allowing API Gateway to invoke a Lambda function,
      * e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
      * 
@@ -220,16 +220,16 @@ public class Deployment extends com.pulumi.resources.CustomResource {
         return this.executionArn;
     }
     /**
-     * The URL to invoke the API pointing to the stage,
-     * e.g. `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
+     * URL to invoke the API pointing to the stage,
+     * e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
      * 
      */
     @Export(name="invokeUrl", type=String.class, parameters={})
     private Output<String> invokeUrl;
 
     /**
-     * @return The URL to invoke the API pointing to the stage,
-     * e.g. `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
+     * @return URL to invoke the API pointing to the stage,
+     * e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
      * 
      */
     public Output<String> invokeUrl() {

@@ -30,14 +30,14 @@ public final class GetResourcePlainArgs extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
-     * Amazon Resource Name (ARN) of the IAM Role to assume for operations.
+     * ARN of the IAM Role to assume for operations.
      * 
      */
     @Import(name="roleArn")
     private @Nullable String roleArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the IAM Role to assume for operations.
+     * @return ARN of the IAM Role to assume for operations.
      * 
      */
     public Optional<String> roleArn() {
@@ -113,7 +113,7 @@ public final class GetResourcePlainArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param roleArn Amazon Resource Name (ARN) of the IAM Role to assume for operations.
+         * @param roleArn ARN of the IAM Role to assume for operations.
          * 
          * @return builder
          * 

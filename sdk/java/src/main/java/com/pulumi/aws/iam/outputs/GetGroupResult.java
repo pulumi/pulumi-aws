@@ -12,12 +12,12 @@ import java.util.Objects;
 @CustomType
 public final class GetGroupResult {
     /**
-     * @return The Amazon Resource Name (ARN) specifying the iam user.
+     * @return User ARN.
      * 
      */
     private String arn;
     /**
-     * @return The stable and unique string identifying the group.
+     * @return Stable and unique string identifying the group.
      * 
      */
     private String groupId;
@@ -28,26 +28,26 @@ public final class GetGroupResult {
      */
     private String id;
     /**
-     * @return The path to the iam user.
+     * @return Path to the IAM user.
      * 
      */
     private String path;
     /**
-     * @return List of objects containing group member information. See supported fields below.
+     * @return List of objects containing group member information. See below.
      * 
      */
     private List<GetGroupUser> users;
 
     private GetGroupResult() {}
     /**
-     * @return The Amazon Resource Name (ARN) specifying the iam user.
+     * @return User ARN.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return The stable and unique string identifying the group.
+     * @return Stable and unique string identifying the group.
      * 
      */
     public String groupId() {
@@ -64,14 +64,14 @@ public final class GetGroupResult {
         return this.id;
     }
     /**
-     * @return The path to the iam user.
+     * @return Path to the IAM user.
      * 
      */
     public String path() {
         return this.path;
     }
     /**
-     * @return List of objects containing group member information. See supported fields below.
+     * @return List of objects containing group member information. See below.
      * 
      */
     public List<GetGroupUser> users() {

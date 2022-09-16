@@ -20,14 +20,14 @@ public final class RouteSpecArgs extends com.pulumi.resources.ResourceArgs {
     public static final RouteSpecArgs Empty = new RouteSpecArgs();
 
     /**
-     * The gRPC routing information for the route.
+     * GRPC routing information for the route.
      * 
      */
     @Import(name="grpcRoute")
     private @Nullable Output<RouteSpecGrpcRouteArgs> grpcRoute;
 
     /**
-     * @return The gRPC routing information for the route.
+     * @return GRPC routing information for the route.
      * 
      */
     public Optional<Output<RouteSpecGrpcRouteArgs>> grpcRoute() {
@@ -35,14 +35,14 @@ public final class RouteSpecArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The HTTP/2 routing information for the route.
+     * HTTP/2 routing information for the route.
      * 
      */
     @Import(name="http2Route")
     private @Nullable Output<RouteSpecHttp2RouteArgs> http2Route;
 
     /**
-     * @return The HTTP/2 routing information for the route.
+     * @return HTTP/2 routing information for the route.
      * 
      */
     public Optional<Output<RouteSpecHttp2RouteArgs>> http2Route() {
@@ -50,14 +50,14 @@ public final class RouteSpecArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The HTTP routing information for the route.
+     * HTTP routing information for the route.
      * 
      */
     @Import(name="httpRoute")
     private @Nullable Output<RouteSpecHttpRouteArgs> httpRoute;
 
     /**
-     * @return The HTTP routing information for the route.
+     * @return HTTP routing information for the route.
      * 
      */
     public Optional<Output<RouteSpecHttpRouteArgs>> httpRoute() {
@@ -65,7 +65,7 @@ public final class RouteSpecArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The priority for the route, between `0` and `1000`.
+     * Priority for the route, between `0` and `1000`.
      * Routes are matched based on the specified value, where `0` is the highest priority.
      * 
      */
@@ -73,7 +73,7 @@ public final class RouteSpecArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<Integer> priority;
 
     /**
-     * @return The priority for the route, between `0` and `1000`.
+     * @return Priority for the route, between `0` and `1000`.
      * Routes are matched based on the specified value, where `0` is the highest priority.
      * 
      */
@@ -82,14 +82,14 @@ public final class RouteSpecArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The TCP routing information for the route.
+     * TCP routing information for the route.
      * 
      */
     @Import(name="tcpRoute")
     private @Nullable Output<RouteSpecTcpRouteArgs> tcpRoute;
 
     /**
-     * @return The TCP routing information for the route.
+     * @return TCP routing information for the route.
      * 
      */
     public Optional<Output<RouteSpecTcpRouteArgs>> tcpRoute() {
@@ -125,7 +125,7 @@ public final class RouteSpecArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param grpcRoute The gRPC routing information for the route.
+         * @param grpcRoute GRPC routing information for the route.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class RouteSpecArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param grpcRoute The gRPC routing information for the route.
+         * @param grpcRoute GRPC routing information for the route.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class RouteSpecArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param http2Route The HTTP/2 routing information for the route.
+         * @param http2Route HTTP/2 routing information for the route.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class RouteSpecArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param http2Route The HTTP/2 routing information for the route.
+         * @param http2Route HTTP/2 routing information for the route.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class RouteSpecArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param httpRoute The HTTP routing information for the route.
+         * @param httpRoute HTTP routing information for the route.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class RouteSpecArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param httpRoute The HTTP routing information for the route.
+         * @param httpRoute HTTP routing information for the route.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class RouteSpecArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param priority The priority for the route, between `0` and `1000`.
+         * @param priority Priority for the route, between `0` and `1000`.
          * Routes are matched based on the specified value, where `0` is the highest priority.
          * 
          * @return builder
@@ -200,7 +200,7 @@ public final class RouteSpecArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param priority The priority for the route, between `0` and `1000`.
+         * @param priority Priority for the route, between `0` and `1000`.
          * Routes are matched based on the specified value, where `0` is the highest priority.
          * 
          * @return builder
@@ -211,7 +211,7 @@ public final class RouteSpecArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tcpRoute The TCP routing information for the route.
+         * @param tcpRoute TCP routing information for the route.
          * 
          * @return builder
          * 
@@ -222,7 +222,7 @@ public final class RouteSpecArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tcpRoute The TCP routing information for the route.
+         * @param tcpRoute TCP routing information for the route.
          * 
          * @return builder
          * 

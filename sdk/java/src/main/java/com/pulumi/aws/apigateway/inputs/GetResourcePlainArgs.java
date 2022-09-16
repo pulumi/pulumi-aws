@@ -13,14 +13,14 @@ public final class GetResourcePlainArgs extends com.pulumi.resources.InvokeArgs 
     public static final GetResourcePlainArgs Empty = new GetResourcePlainArgs();
 
     /**
-     * The full path of the resource.  If no path is found, an error will be returned.
+     * Full path of the resource.  If no path is found, an error will be returned.
      * 
      */
     @Import(name="path", required=true)
     private String path;
 
     /**
-     * @return The full path of the resource.  If no path is found, an error will be returned.
+     * @return Full path of the resource.  If no path is found, an error will be returned.
      * 
      */
     public String path() {
@@ -28,14 +28,14 @@ public final class GetResourcePlainArgs extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
-     * The REST API id that owns the resource. If no REST API is found, an error will be returned.
+     * REST API id that owns the resource. If no REST API is found, an error will be returned.
      * 
      */
     @Import(name="restApiId", required=true)
     private String restApiId;
 
     /**
-     * @return The REST API id that owns the resource. If no REST API is found, an error will be returned.
+     * @return REST API id that owns the resource. If no REST API is found, an error will be returned.
      * 
      */
     public String restApiId() {
@@ -68,7 +68,7 @@ public final class GetResourcePlainArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param path The full path of the resource.  If no path is found, an error will be returned.
+         * @param path Full path of the resource.  If no path is found, an error will be returned.
          * 
          * @return builder
          * 
@@ -79,7 +79,7 @@ public final class GetResourcePlainArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param restApiId The REST API id that owns the resource. If no REST API is found, an error will be returned.
+         * @param restApiId REST API id that owns the resource. If no REST API is found, an error will be returned.
          * 
          * @return builder
          * 

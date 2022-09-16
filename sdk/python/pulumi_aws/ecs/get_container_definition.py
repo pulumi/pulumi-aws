@@ -65,7 +65,7 @@ class GetContainerDefinitionResult:
     @pulumi.getter
     def cpu(self) -> int:
         """
-        The CPU limit for this container definition
+        CPU limit for this container definition
         """
         return pulumi.get(self, "cpu")
 
@@ -89,7 +89,7 @@ class GetContainerDefinitionResult:
     @pulumi.getter
     def environment(self) -> Mapping[str, str]:
         """
-        The environment in use
+        Environment in use
         """
         return pulumi.get(self, "environment")
 
@@ -105,7 +105,7 @@ class GetContainerDefinitionResult:
     @pulumi.getter
     def image(self) -> str:
         """
-        The docker image in use, including the digest
+        Docker image in use, including the digest
         """
         return pulumi.get(self, "image")
 
@@ -113,7 +113,7 @@ class GetContainerDefinitionResult:
     @pulumi.getter(name="imageDigest")
     def image_digest(self) -> str:
         """
-        The digest of the docker image in use
+        Digest of the docker image in use
         """
         return pulumi.get(self, "image_digest")
 
@@ -121,7 +121,7 @@ class GetContainerDefinitionResult:
     @pulumi.getter
     def memory(self) -> int:
         """
-        The memory limit for this container definition
+        Memory limit for this container definition
         """
         return pulumi.get(self, "memory")
 
@@ -129,7 +129,7 @@ class GetContainerDefinitionResult:
     @pulumi.getter(name="memoryReservation")
     def memory_reservation(self) -> int:
         """
-        The soft limit (in MiB) of memory to reserve for the container. When system memory is under contention, Docker attempts to keep the container memory to this soft limit
+        Soft limit (in MiB) of memory to reserve for the container. When system memory is under contention, Docker attempts to keep the container memory to this soft limit
         """
         return pulumi.get(self, "memory_reservation")
 
@@ -176,8 +176,8 @@ def get_container_definition(container_name: Optional[str] = None,
     ```
 
 
-    :param str container_name: The name of the container definition
-    :param str task_definition: The ARN of the task definition which contains the container
+    :param str container_name: Name of the container definition
+    :param str task_definition: ARN of the task definition which contains the container
     """
     __args__ = dict()
     __args__['containerName'] = container_name
@@ -218,7 +218,7 @@ def get_container_definition_output(container_name: Optional[pulumi.Input[str]] 
     ```
 
 
-    :param str container_name: The name of the container definition
-    :param str task_definition: The ARN of the task definition which contains the container
+    :param str container_name: Name of the container definition
+    :param str task_definition: ARN of the task definition which contains the container
     """
     ...

@@ -78,21 +78,21 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:elasticloadbalancing/appCookieStickinessPolicy:AppCookieStickinessPolicy")
 public class AppCookieStickinessPolicy extends com.pulumi.resources.CustomResource {
     /**
-     * The application cookie whose lifetime the ELB&#39;s cookie should follow.
+     * Application cookie whose lifetime the ELB&#39;s cookie should follow.
      * 
      */
     @Export(name="cookieName", type=String.class, parameters={})
     private Output<String> cookieName;
 
     /**
-     * @return The application cookie whose lifetime the ELB&#39;s cookie should follow.
+     * @return Application cookie whose lifetime the ELB&#39;s cookie should follow.
      * 
      */
     public Output<String> cookieName() {
         return this.cookieName;
     }
     /**
-     * The load balancer port to which the policy
+     * Load balancer port to which the policy
      * should be applied. This must be an active listener on the load
      * balancer.
      * 
@@ -101,7 +101,7 @@ public class AppCookieStickinessPolicy extends com.pulumi.resources.CustomResour
     private Output<Integer> lbPort;
 
     /**
-     * @return The load balancer port to which the policy
+     * @return Load balancer port to which the policy
      * should be applied. This must be an active listener on the load
      * balancer.
      * 
@@ -110,7 +110,7 @@ public class AppCookieStickinessPolicy extends com.pulumi.resources.CustomResour
         return this.lbPort;
     }
     /**
-     * The name of load balancer to which the policy
+     * Name of load balancer to which the policy
      * should be attached.
      * 
      */
@@ -118,7 +118,7 @@ public class AppCookieStickinessPolicy extends com.pulumi.resources.CustomResour
     private Output<String> loadBalancer;
 
     /**
-     * @return The name of load balancer to which the policy
+     * @return Name of load balancer to which the policy
      * should be attached.
      * 
      */
@@ -126,14 +126,14 @@ public class AppCookieStickinessPolicy extends com.pulumi.resources.CustomResour
         return this.loadBalancer;
     }
     /**
-     * The name of the stickiness policy.
+     * Name of the stickiness policy.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name of the stickiness policy.
+     * @return Name of the stickiness policy.
      * 
      */
     public Output<String> name() {

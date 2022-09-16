@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -61,47 +63,47 @@ export class Stage extends pulumi.CustomResource {
      */
     public readonly accessLogSettings!: pulumi.Output<outputs.apigatewayv2.StageAccessLogSettings | undefined>;
     /**
-     * The API identifier.
+     * API identifier.
      */
     public readonly apiId!: pulumi.Output<string>;
     /**
-     * The ARN of the stage.
+     * ARN of the stage.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * Whether updates to an API automatically trigger a new deployment. Defaults to `false`.
+     * Whether updates to an API automatically trigger a new deployment. Defaults to `false`. Applicable for HTTP APIs.
      */
     public readonly autoDeploy!: pulumi.Output<boolean | undefined>;
     /**
-     * The identifier of a client certificate for the stage. Use the `aws.apigateway.ClientCertificate` resource to configure a client certificate.
+     * Identifier of a client certificate for the stage. Use the `aws.apigateway.ClientCertificate` resource to configure a client certificate.
      * Supported only for WebSocket APIs.
      */
     public readonly clientCertificateId!: pulumi.Output<string | undefined>;
     /**
-     * The default route settings for the stage.
+     * Default route settings for the stage.
      */
     public readonly defaultRouteSettings!: pulumi.Output<outputs.apigatewayv2.StageDefaultRouteSettings | undefined>;
     /**
-     * The deployment identifier of the stage. Use the `aws.apigatewayv2.Deployment` resource to configure a deployment.
+     * Deployment identifier of the stage. Use the `aws.apigatewayv2.Deployment` resource to configure a deployment.
      */
     public readonly deploymentId!: pulumi.Output<string>;
     /**
-     * The description for the stage. Must be less than or equal to 1024 characters in length.
+     * Description for the stage. Must be less than or equal to 1024 characters in length.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The ARN prefix to be used in an `aws.lambda.Permission` `sourceArn` attribute.
+     * ARN prefix to be used in an `aws.lambda.Permission`'s `sourceArn` attribute.
      * For WebSocket APIs this attribute can additionally be used in an `aws.iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
      * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
      */
     public /*out*/ readonly executionArn!: pulumi.Output<string>;
     /**
-     * The URL to invoke the API pointing to the stage,
+     * URL to invoke the API pointing to the stage,
      * e.g., `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
      */
     public /*out*/ readonly invokeUrl!: pulumi.Output<string>;
     /**
-     * The name of the stage. Must be between 1 and 128 characters in length.
+     * Name of the stage. Must be between 1 and 128 characters in length.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -109,15 +111,15 @@ export class Stage extends pulumi.CustomResource {
      */
     public readonly routeSettings!: pulumi.Output<outputs.apigatewayv2.StageRouteSetting[] | undefined>;
     /**
-     * A map that defines the stage variables for the stage.
+     * Map that defines the stage variables for the stage.
      */
     public readonly stageVariables!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags to assign to the stage. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the stage. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -185,47 +187,47 @@ export interface StageState {
      */
     accessLogSettings?: pulumi.Input<inputs.apigatewayv2.StageAccessLogSettings>;
     /**
-     * The API identifier.
+     * API identifier.
      */
     apiId?: pulumi.Input<string>;
     /**
-     * The ARN of the stage.
+     * ARN of the stage.
      */
     arn?: pulumi.Input<string>;
     /**
-     * Whether updates to an API automatically trigger a new deployment. Defaults to `false`.
+     * Whether updates to an API automatically trigger a new deployment. Defaults to `false`. Applicable for HTTP APIs.
      */
     autoDeploy?: pulumi.Input<boolean>;
     /**
-     * The identifier of a client certificate for the stage. Use the `aws.apigateway.ClientCertificate` resource to configure a client certificate.
+     * Identifier of a client certificate for the stage. Use the `aws.apigateway.ClientCertificate` resource to configure a client certificate.
      * Supported only for WebSocket APIs.
      */
     clientCertificateId?: pulumi.Input<string>;
     /**
-     * The default route settings for the stage.
+     * Default route settings for the stage.
      */
     defaultRouteSettings?: pulumi.Input<inputs.apigatewayv2.StageDefaultRouteSettings>;
     /**
-     * The deployment identifier of the stage. Use the `aws.apigatewayv2.Deployment` resource to configure a deployment.
+     * Deployment identifier of the stage. Use the `aws.apigatewayv2.Deployment` resource to configure a deployment.
      */
     deploymentId?: pulumi.Input<string>;
     /**
-     * The description for the stage. Must be less than or equal to 1024 characters in length.
+     * Description for the stage. Must be less than or equal to 1024 characters in length.
      */
     description?: pulumi.Input<string>;
     /**
-     * The ARN prefix to be used in an `aws.lambda.Permission` `sourceArn` attribute.
+     * ARN prefix to be used in an `aws.lambda.Permission`'s `sourceArn` attribute.
      * For WebSocket APIs this attribute can additionally be used in an `aws.iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
      * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
      */
     executionArn?: pulumi.Input<string>;
     /**
-     * The URL to invoke the API pointing to the stage,
+     * URL to invoke the API pointing to the stage,
      * e.g., `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
      */
     invokeUrl?: pulumi.Input<string>;
     /**
-     * The name of the stage. Must be between 1 and 128 characters in length.
+     * Name of the stage. Must be between 1 and 128 characters in length.
      */
     name?: pulumi.Input<string>;
     /**
@@ -233,15 +235,15 @@ export interface StageState {
      */
     routeSettings?: pulumi.Input<pulumi.Input<inputs.apigatewayv2.StageRouteSetting>[]>;
     /**
-     * A map that defines the stage variables for the stage.
+     * Map that defines the stage variables for the stage.
      */
     stageVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags to assign to the stage. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the stage. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -256,32 +258,32 @@ export interface StageArgs {
      */
     accessLogSettings?: pulumi.Input<inputs.apigatewayv2.StageAccessLogSettings>;
     /**
-     * The API identifier.
+     * API identifier.
      */
     apiId: pulumi.Input<string>;
     /**
-     * Whether updates to an API automatically trigger a new deployment. Defaults to `false`.
+     * Whether updates to an API automatically trigger a new deployment. Defaults to `false`. Applicable for HTTP APIs.
      */
     autoDeploy?: pulumi.Input<boolean>;
     /**
-     * The identifier of a client certificate for the stage. Use the `aws.apigateway.ClientCertificate` resource to configure a client certificate.
+     * Identifier of a client certificate for the stage. Use the `aws.apigateway.ClientCertificate` resource to configure a client certificate.
      * Supported only for WebSocket APIs.
      */
     clientCertificateId?: pulumi.Input<string>;
     /**
-     * The default route settings for the stage.
+     * Default route settings for the stage.
      */
     defaultRouteSettings?: pulumi.Input<inputs.apigatewayv2.StageDefaultRouteSettings>;
     /**
-     * The deployment identifier of the stage. Use the `aws.apigatewayv2.Deployment` resource to configure a deployment.
+     * Deployment identifier of the stage. Use the `aws.apigatewayv2.Deployment` resource to configure a deployment.
      */
     deploymentId?: pulumi.Input<string>;
     /**
-     * The description for the stage. Must be less than or equal to 1024 characters in length.
+     * Description for the stage. Must be less than or equal to 1024 characters in length.
      */
     description?: pulumi.Input<string>;
     /**
-     * The name of the stage. Must be between 1 and 128 characters in length.
+     * Name of the stage. Must be between 1 and 128 characters in length.
      */
     name?: pulumi.Input<string>;
     /**
@@ -289,11 +291,11 @@ export interface StageArgs {
      */
     routeSettings?: pulumi.Input<pulumi.Input<inputs.apigatewayv2.StageRouteSetting>[]>;
     /**
-     * A map that defines the stage variables for the stage.
+     * Map that defines the stage variables for the stage.
      */
     stageVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags to assign to the stage. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the stage. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

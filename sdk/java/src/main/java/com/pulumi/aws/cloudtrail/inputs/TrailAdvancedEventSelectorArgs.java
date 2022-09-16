@@ -33,14 +33,14 @@ public final class TrailAdvancedEventSelectorArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Specifies the name of the advanced event selector.
+     * Name of the advanced event selector.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the name of the advanced event selector.
+     * @return Name of the advanced event selector.
      * 
      */
     public Optional<Output<String>> name() {
@@ -104,7 +104,7 @@ public final class TrailAdvancedEventSelectorArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param name Specifies the name of the advanced event selector.
+         * @param name Name of the advanced event selector.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class TrailAdvancedEventSelectorArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param name Specifies the name of the advanced event selector.
+         * @param name Name of the advanced event selector.
          * 
          * @return builder
          * 

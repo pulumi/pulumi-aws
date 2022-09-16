@@ -51,7 +51,7 @@ func GetLocation(ctx *pulumi.Context, args *GetLocationArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getLocation.
 type GetLocationArgs struct {
-	// The code for the location to retrieve.
+	// Code for the location to retrieve.
 	LocationCode string `pulumi:"locationCode"`
 }
 
@@ -61,12 +61,12 @@ type GetLocationResult struct {
 	AvailableMacsecPortSpeeds []string `pulumi:"availableMacsecPortSpeeds"`
 	// The available port speeds for the location.
 	AvailablePortSpeeds []string `pulumi:"availablePortSpeeds"`
-	// The names of the service providers for the location.
+	// Names of the service providers for the location.
 	AvailableProviders []string `pulumi:"availableProviders"`
 	// The provider-assigned unique ID for this managed resource.
 	Id           string `pulumi:"id"`
 	LocationCode string `pulumi:"locationCode"`
-	// The name of the location. This includes the name of the colocation partner and the physical site of the building.
+	// Name of the location. This includes the name of the colocation partner and the physical site of the building.
 	LocationName string `pulumi:"locationName"`
 }
 
@@ -85,7 +85,7 @@ func GetLocationOutput(ctx *pulumi.Context, args GetLocationOutputArgs, opts ...
 
 // A collection of arguments for invoking getLocation.
 type GetLocationOutputArgs struct {
-	// The code for the location to retrieve.
+	// Code for the location to retrieve.
 	LocationCode pulumi.StringInput `pulumi:"locationCode"`
 }
 
@@ -118,7 +118,7 @@ func (o GetLocationResultOutput) AvailablePortSpeeds() pulumi.StringArrayOutput 
 	return o.ApplyT(func(v GetLocationResult) []string { return v.AvailablePortSpeeds }).(pulumi.StringArrayOutput)
 }
 
-// The names of the service providers for the location.
+// Names of the service providers for the location.
 func (o GetLocationResultOutput) AvailableProviders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetLocationResult) []string { return v.AvailableProviders }).(pulumi.StringArrayOutput)
 }
@@ -132,7 +132,7 @@ func (o GetLocationResultOutput) LocationCode() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLocationResult) string { return v.LocationCode }).(pulumi.StringOutput)
 }
 
-// The name of the location. This includes the name of the colocation partner and the physical site of the building.
+// Name of the location. This includes the name of the colocation partner and the physical site of the building.
 func (o GetLocationResultOutput) LocationName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLocationResult) string { return v.LocationName }).(pulumi.StringOutput)
 }

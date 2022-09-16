@@ -54,7 +54,7 @@ type LookupConfigurationArgs struct {
 
 // A collection of values returned by getConfiguration.
 type LookupConfigurationResult struct {
-	// Amazon Resource Name (ARN) of the configuration.
+	// ARN of the configuration.
 	Arn string `pulumi:"arn"`
 	// Description of the configuration.
 	Description string `pulumi:"description"`
@@ -107,7 +107,7 @@ func (o LookupConfigurationResultOutput) ToLookupConfigurationResultOutputWithCo
 	return o
 }
 
-// Amazon Resource Name (ARN) of the configuration.
+// ARN of the configuration.
 func (o LookupConfigurationResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConfigurationResult) string { return v.Arn }).(pulumi.StringOutput)
 }

@@ -31,14 +31,14 @@ public final class GetTrackerPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The name of the tracker resource.
+     * Name of the tracker resource.
      * 
      */
     @Import(name="trackerName", required=true)
     private String trackerName;
 
     /**
-     * @return The name of the tracker resource.
+     * @return Name of the tracker resource.
      * 
      */
     public String trackerName() {
@@ -82,7 +82,7 @@ public final class GetTrackerPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param trackerName The name of the tracker resource.
+         * @param trackerName Name of the tracker resource.
          * 
          * @return builder
          * 

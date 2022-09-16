@@ -41,7 +41,7 @@ export interface GetFunctionArgs {
      */
     name: string;
     /**
-     * The function’s stage, either `DEVELOPMENT` or `LIVE`.
+     * Function’s stage, either `DEVELOPMENT` or `LIVE`.
      */
     stage: string;
 }
@@ -51,7 +51,7 @@ export interface GetFunctionArgs {
  */
 export interface GetFunctionResult {
     /**
-     * Amazon Resource Name (ARN) identifying your CloudFront Function.
+     * ARN identifying your CloudFront Function.
      */
     readonly arn: string;
     /**
@@ -99,7 +99,7 @@ export interface GetFunctionOutputArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * The function’s stage, either `DEVELOPMENT` or `LIVE`.
+     * Function’s stage, either `DEVELOPMENT` or `LIVE`.
      */
     stage: pulumi.Input<string>;
 }

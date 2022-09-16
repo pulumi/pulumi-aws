@@ -65,7 +65,7 @@ class GetOriginRequestPolicyResult:
     @pulumi.getter
     def etag(self) -> str:
         """
-        The current version of the origin request policy.
+        Current version of the origin request policy.
         """
         return pulumi.get(self, "etag")
 
@@ -127,7 +127,7 @@ def get_origin_request_policy(id: Optional[str] = None,
     ```
 
 
-    :param str id: The identifier for the origin request policy.
+    :param str id: Identifier for the origin request policy.
     :param str name: Unique name to identify the origin request policy.
     """
     __args__ = dict()
@@ -163,7 +163,7 @@ def get_origin_request_policy_output(id: Optional[pulumi.Input[Optional[str]]] =
     ```
 
 
-    :param str id: The identifier for the origin request policy.
+    :param str id: Identifier for the origin request policy.
     :param str name: Unique name to identify the origin request policy.
     """
     ...

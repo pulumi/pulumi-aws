@@ -19,6 +19,7 @@ type AssumeRole struct {
 	PolicyArns        []string          `pulumi:"policyArns"`
 	RoleArn           *string           `pulumi:"roleArn"`
 	SessionName       *string           `pulumi:"sessionName"`
+	SourceIdentity    *string           `pulumi:"sourceIdentity"`
 	Tags              map[string]string `pulumi:"tags"`
 	TransitiveTagKeys []string          `pulumi:"transitiveTagKeys"`
 }
@@ -43,6 +44,7 @@ type AssumeRoleArgs struct {
 	PolicyArns        pulumi.StringArrayInput `pulumi:"policyArns"`
 	RoleArn           pulumi.StringPtrInput   `pulumi:"roleArn"`
 	SessionName       pulumi.StringPtrInput   `pulumi:"sessionName"`
+	SourceIdentity    pulumi.StringPtrInput   `pulumi:"sourceIdentity"`
 	Tags              pulumi.StringMapInput   `pulumi:"tags"`
 	TransitiveTagKeys pulumi.StringArrayInput `pulumi:"transitiveTagKeys"`
 }
@@ -100,6 +102,10 @@ func (o AssumeRoleOutput) RoleArn() pulumi.StringPtrOutput {
 
 func (o AssumeRoleOutput) SessionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssumeRole) *string { return v.SessionName }).(pulumi.StringPtrOutput)
+}
+
+func (o AssumeRoleOutput) SourceIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssumeRole) *string { return v.SourceIdentity }).(pulumi.StringPtrOutput)
 }
 
 func (o AssumeRoleOutput) Tags() pulumi.StringMapOutput {

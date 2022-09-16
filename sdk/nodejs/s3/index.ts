@@ -5,74 +5,181 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./accessPoint";
-export * from "./accountPublicAccessBlock";
-export * from "./analyticsConfiguration";
-export * from "./bucket";
-export * from "./bucketAccelerateConfigurationV2";
-export * from "./bucketAclV2";
-export * from "./bucketCorsConfigurationV2";
-export * from "./bucketIntelligentTieringConfiguration";
-export * from "./bucketLifecycleConfigurationV2";
-export * from "./bucketLoggingV2";
-export * from "./bucketMetric";
-export * from "./bucketNotification";
-export * from "./bucketObject";
-export * from "./bucketObjectLockConfigurationV2";
-export * from "./bucketObjectv2";
-export * from "./bucketOwnershipControls";
-export * from "./bucketPolicy";
-export * from "./bucketPublicAccessBlock";
-export * from "./bucketReplicationConfig";
-export * from "./bucketRequestPaymentConfigurationV2";
-export * from "./bucketServerSideEncryptionConfigurationV2";
-export * from "./bucketV2";
-export * from "./bucketVersioningV2";
-export * from "./bucketWebsiteConfigurationV2";
+export { AccessPointArgs, AccessPointState } from "./accessPoint";
+export type AccessPoint = import("./accessPoint").AccessPoint;
+export const AccessPoint: typeof import("./accessPoint").AccessPoint = null as any;
+
+export { AccountPublicAccessBlockArgs, AccountPublicAccessBlockState } from "./accountPublicAccessBlock";
+export type AccountPublicAccessBlock = import("./accountPublicAccessBlock").AccountPublicAccessBlock;
+export const AccountPublicAccessBlock: typeof import("./accountPublicAccessBlock").AccountPublicAccessBlock = null as any;
+
+export { AnalyticsConfigurationArgs, AnalyticsConfigurationState } from "./analyticsConfiguration";
+export type AnalyticsConfiguration = import("./analyticsConfiguration").AnalyticsConfiguration;
+export const AnalyticsConfiguration: typeof import("./analyticsConfiguration").AnalyticsConfiguration = null as any;
+
+export { BucketArgs, BucketState } from "./bucket";
+export type Bucket = import("./bucket").Bucket;
+export const Bucket: typeof import("./bucket").Bucket = null as any;
+
+export { BucketAccelerateConfigurationV2Args, BucketAccelerateConfigurationV2State } from "./bucketAccelerateConfigurationV2";
+export type BucketAccelerateConfigurationV2 = import("./bucketAccelerateConfigurationV2").BucketAccelerateConfigurationV2;
+export const BucketAccelerateConfigurationV2: typeof import("./bucketAccelerateConfigurationV2").BucketAccelerateConfigurationV2 = null as any;
+
+export { BucketAclV2Args, BucketAclV2State } from "./bucketAclV2";
+export type BucketAclV2 = import("./bucketAclV2").BucketAclV2;
+export const BucketAclV2: typeof import("./bucketAclV2").BucketAclV2 = null as any;
+
+export { BucketCorsConfigurationV2Args, BucketCorsConfigurationV2State } from "./bucketCorsConfigurationV2";
+export type BucketCorsConfigurationV2 = import("./bucketCorsConfigurationV2").BucketCorsConfigurationV2;
+export const BucketCorsConfigurationV2: typeof import("./bucketCorsConfigurationV2").BucketCorsConfigurationV2 = null as any;
+
+export { BucketIntelligentTieringConfigurationArgs, BucketIntelligentTieringConfigurationState } from "./bucketIntelligentTieringConfiguration";
+export type BucketIntelligentTieringConfiguration = import("./bucketIntelligentTieringConfiguration").BucketIntelligentTieringConfiguration;
+export const BucketIntelligentTieringConfiguration: typeof import("./bucketIntelligentTieringConfiguration").BucketIntelligentTieringConfiguration = null as any;
+
+export { BucketLifecycleConfigurationV2Args, BucketLifecycleConfigurationV2State } from "./bucketLifecycleConfigurationV2";
+export type BucketLifecycleConfigurationV2 = import("./bucketLifecycleConfigurationV2").BucketLifecycleConfigurationV2;
+export const BucketLifecycleConfigurationV2: typeof import("./bucketLifecycleConfigurationV2").BucketLifecycleConfigurationV2 = null as any;
+
+export { BucketLoggingV2Args, BucketLoggingV2State } from "./bucketLoggingV2";
+export type BucketLoggingV2 = import("./bucketLoggingV2").BucketLoggingV2;
+export const BucketLoggingV2: typeof import("./bucketLoggingV2").BucketLoggingV2 = null as any;
+
+export { BucketMetricArgs, BucketMetricState } from "./bucketMetric";
+export type BucketMetric = import("./bucketMetric").BucketMetric;
+export const BucketMetric: typeof import("./bucketMetric").BucketMetric = null as any;
+
+export { BucketNotificationArgs, BucketNotificationState } from "./bucketNotification";
+export type BucketNotification = import("./bucketNotification").BucketNotification;
+export const BucketNotification: typeof import("./bucketNotification").BucketNotification = null as any;
+
+export { BucketObjectArgs, BucketObjectState } from "./bucketObject";
+export type BucketObject = import("./bucketObject").BucketObject;
+export const BucketObject: typeof import("./bucketObject").BucketObject = null as any;
+
+export { BucketObjectLockConfigurationV2Args, BucketObjectLockConfigurationV2State } from "./bucketObjectLockConfigurationV2";
+export type BucketObjectLockConfigurationV2 = import("./bucketObjectLockConfigurationV2").BucketObjectLockConfigurationV2;
+export const BucketObjectLockConfigurationV2: typeof import("./bucketObjectLockConfigurationV2").BucketObjectLockConfigurationV2 = null as any;
+
+export { BucketObjectv2Args, BucketObjectv2State } from "./bucketObjectv2";
+export type BucketObjectv2 = import("./bucketObjectv2").BucketObjectv2;
+export const BucketObjectv2: typeof import("./bucketObjectv2").BucketObjectv2 = null as any;
+
+export { BucketOwnershipControlsArgs, BucketOwnershipControlsState } from "./bucketOwnershipControls";
+export type BucketOwnershipControls = import("./bucketOwnershipControls").BucketOwnershipControls;
+export const BucketOwnershipControls: typeof import("./bucketOwnershipControls").BucketOwnershipControls = null as any;
+
+export { BucketPolicyArgs, BucketPolicyState } from "./bucketPolicy";
+export type BucketPolicy = import("./bucketPolicy").BucketPolicy;
+export const BucketPolicy: typeof import("./bucketPolicy").BucketPolicy = null as any;
+
+export { BucketPublicAccessBlockArgs, BucketPublicAccessBlockState } from "./bucketPublicAccessBlock";
+export type BucketPublicAccessBlock = import("./bucketPublicAccessBlock").BucketPublicAccessBlock;
+export const BucketPublicAccessBlock: typeof import("./bucketPublicAccessBlock").BucketPublicAccessBlock = null as any;
+
+export { BucketReplicationConfigArgs, BucketReplicationConfigState } from "./bucketReplicationConfig";
+export type BucketReplicationConfig = import("./bucketReplicationConfig").BucketReplicationConfig;
+export const BucketReplicationConfig: typeof import("./bucketReplicationConfig").BucketReplicationConfig = null as any;
+
+export { BucketRequestPaymentConfigurationV2Args, BucketRequestPaymentConfigurationV2State } from "./bucketRequestPaymentConfigurationV2";
+export type BucketRequestPaymentConfigurationV2 = import("./bucketRequestPaymentConfigurationV2").BucketRequestPaymentConfigurationV2;
+export const BucketRequestPaymentConfigurationV2: typeof import("./bucketRequestPaymentConfigurationV2").BucketRequestPaymentConfigurationV2 = null as any;
+
+export { BucketServerSideEncryptionConfigurationV2Args, BucketServerSideEncryptionConfigurationV2State } from "./bucketServerSideEncryptionConfigurationV2";
+export type BucketServerSideEncryptionConfigurationV2 = import("./bucketServerSideEncryptionConfigurationV2").BucketServerSideEncryptionConfigurationV2;
+export const BucketServerSideEncryptionConfigurationV2: typeof import("./bucketServerSideEncryptionConfigurationV2").BucketServerSideEncryptionConfigurationV2 = null as any;
+
+export { BucketV2Args, BucketV2State } from "./bucketV2";
+export type BucketV2 = import("./bucketV2").BucketV2;
+export const BucketV2: typeof import("./bucketV2").BucketV2 = null as any;
+
+export { BucketVersioningV2Args, BucketVersioningV2State } from "./bucketVersioningV2";
+export type BucketVersioningV2 = import("./bucketVersioningV2").BucketVersioningV2;
+export const BucketVersioningV2: typeof import("./bucketVersioningV2").BucketVersioningV2 = null as any;
+
+export { BucketWebsiteConfigurationV2Args, BucketWebsiteConfigurationV2State } from "./bucketWebsiteConfigurationV2";
+export type BucketWebsiteConfigurationV2 = import("./bucketWebsiteConfigurationV2").BucketWebsiteConfigurationV2;
+export const BucketWebsiteConfigurationV2: typeof import("./bucketWebsiteConfigurationV2").BucketWebsiteConfigurationV2 = null as any;
+
 export * from "./cannedAcl";
-export * from "./getAccountPublicAccessBlock";
-export * from "./getBucket";
-export * from "./getBucketObject";
-export * from "./getBucketObjects";
-export * from "./getBucketPolicy";
-export * from "./getCanonicalUserId";
-export * from "./getObject";
-export * from "./getObjects";
-export * from "./inventory";
-export * from "./objectCopy";
+export { GetAccountPublicAccessBlockArgs, GetAccountPublicAccessBlockResult, GetAccountPublicAccessBlockOutputArgs } from "./getAccountPublicAccessBlock";
+export const getAccountPublicAccessBlock: typeof import("./getAccountPublicAccessBlock").getAccountPublicAccessBlock = null as any;
+export const getAccountPublicAccessBlockOutput: typeof import("./getAccountPublicAccessBlock").getAccountPublicAccessBlockOutput = null as any;
+
+export { GetBucketArgs, GetBucketResult, GetBucketOutputArgs } from "./getBucket";
+export const getBucket: typeof import("./getBucket").getBucket = null as any;
+export const getBucketOutput: typeof import("./getBucket").getBucketOutput = null as any;
+
+export { GetBucketObjectArgs, GetBucketObjectResult, GetBucketObjectOutputArgs } from "./getBucketObject";
+export const getBucketObject: typeof import("./getBucketObject").getBucketObject = null as any;
+export const getBucketObjectOutput: typeof import("./getBucketObject").getBucketObjectOutput = null as any;
+
+export { GetBucketObjectsArgs, GetBucketObjectsResult, GetBucketObjectsOutputArgs } from "./getBucketObjects";
+export const getBucketObjects: typeof import("./getBucketObjects").getBucketObjects = null as any;
+export const getBucketObjectsOutput: typeof import("./getBucketObjects").getBucketObjectsOutput = null as any;
+
+export { GetBucketPolicyArgs, GetBucketPolicyResult, GetBucketPolicyOutputArgs } from "./getBucketPolicy";
+export const getBucketPolicy: typeof import("./getBucketPolicy").getBucketPolicy = null as any;
+export const getBucketPolicyOutput: typeof import("./getBucketPolicy").getBucketPolicyOutput = null as any;
+
+export { GetCanonicalUserIdResult } from "./getCanonicalUserId";
+export const getCanonicalUserId: typeof import("./getCanonicalUserId").getCanonicalUserId = null as any;
+
+export { GetObjectArgs, GetObjectResult, GetObjectOutputArgs } from "./getObject";
+export const getObject: typeof import("./getObject").getObject = null as any;
+export const getObjectOutput: typeof import("./getObject").getObjectOutput = null as any;
+
+export { GetObjectsArgs, GetObjectsResult, GetObjectsOutputArgs } from "./getObjects";
+export const getObjects: typeof import("./getObjects").getObjects = null as any;
+export const getObjectsOutput: typeof import("./getObjects").getObjectsOutput = null as any;
+
+export { InventoryArgs, InventoryState } from "./inventory";
+export type Inventory = import("./inventory").Inventory;
+export const Inventory: typeof import("./inventory").Inventory = null as any;
+
+export { ObjectCopyArgs, ObjectCopyState } from "./objectCopy";
+export type ObjectCopy = import("./objectCopy").ObjectCopy;
+export const ObjectCopy: typeof import("./objectCopy").ObjectCopy = null as any;
+
 export * from "./routingRules";
 export * from "./s3Mixins";
+utilities.lazyLoad(exports, ["AccessPoint"], () => require("./accessPoint"));
+utilities.lazyLoad(exports, ["AccountPublicAccessBlock"], () => require("./accountPublicAccessBlock"));
+utilities.lazyLoad(exports, ["AnalyticsConfiguration"], () => require("./analyticsConfiguration"));
+utilities.lazyLoad(exports, ["Bucket"], () => require("./bucket"));
+utilities.lazyLoad(exports, ["BucketAccelerateConfigurationV2"], () => require("./bucketAccelerateConfigurationV2"));
+utilities.lazyLoad(exports, ["BucketAclV2"], () => require("./bucketAclV2"));
+utilities.lazyLoad(exports, ["BucketCorsConfigurationV2"], () => require("./bucketCorsConfigurationV2"));
+utilities.lazyLoad(exports, ["BucketIntelligentTieringConfiguration"], () => require("./bucketIntelligentTieringConfiguration"));
+utilities.lazyLoad(exports, ["BucketLifecycleConfigurationV2"], () => require("./bucketLifecycleConfigurationV2"));
+utilities.lazyLoad(exports, ["BucketLoggingV2"], () => require("./bucketLoggingV2"));
+utilities.lazyLoad(exports, ["BucketMetric"], () => require("./bucketMetric"));
+utilities.lazyLoad(exports, ["BucketNotification"], () => require("./bucketNotification"));
+utilities.lazyLoad(exports, ["BucketObject"], () => require("./bucketObject"));
+utilities.lazyLoad(exports, ["BucketObjectLockConfigurationV2"], () => require("./bucketObjectLockConfigurationV2"));
+utilities.lazyLoad(exports, ["BucketObjectv2"], () => require("./bucketObjectv2"));
+utilities.lazyLoad(exports, ["BucketOwnershipControls"], () => require("./bucketOwnershipControls"));
+utilities.lazyLoad(exports, ["BucketPolicy"], () => require("./bucketPolicy"));
+utilities.lazyLoad(exports, ["BucketPublicAccessBlock"], () => require("./bucketPublicAccessBlock"));
+utilities.lazyLoad(exports, ["BucketReplicationConfig"], () => require("./bucketReplicationConfig"));
+utilities.lazyLoad(exports, ["BucketRequestPaymentConfigurationV2"], () => require("./bucketRequestPaymentConfigurationV2"));
+utilities.lazyLoad(exports, ["BucketServerSideEncryptionConfigurationV2"], () => require("./bucketServerSideEncryptionConfigurationV2"));
+utilities.lazyLoad(exports, ["BucketV2"], () => require("./bucketV2"));
+utilities.lazyLoad(exports, ["BucketVersioningV2"], () => require("./bucketVersioningV2"));
+utilities.lazyLoad(exports, ["BucketWebsiteConfigurationV2"], () => require("./bucketWebsiteConfigurationV2"));
+utilities.lazyLoad(exports, ["getAccountPublicAccessBlock","getAccountPublicAccessBlockOutput"], () => require("./getAccountPublicAccessBlock"));
+utilities.lazyLoad(exports, ["getBucket","getBucketOutput"], () => require("./getBucket"));
+utilities.lazyLoad(exports, ["getBucketObject","getBucketObjectOutput"], () => require("./getBucketObject"));
+utilities.lazyLoad(exports, ["getBucketObjects","getBucketObjectsOutput"], () => require("./getBucketObjects"));
+utilities.lazyLoad(exports, ["getBucketPolicy","getBucketPolicyOutput"], () => require("./getBucketPolicy"));
+utilities.lazyLoad(exports, ["getCanonicalUserId"], () => require("./getCanonicalUserId"));
+utilities.lazyLoad(exports, ["getObject","getObjectOutput"], () => require("./getObject"));
+utilities.lazyLoad(exports, ["getObjects","getObjectsOutput"], () => require("./getObjects"));
+utilities.lazyLoad(exports, ["Inventory"], () => require("./inventory"));
+utilities.lazyLoad(exports, ["ObjectCopy"], () => require("./objectCopy"));
 
 // Export enums:
 export * from "../types/enums/s3";
-
-// Import resources to register:
-import { AccessPoint } from "./accessPoint";
-import { AccountPublicAccessBlock } from "./accountPublicAccessBlock";
-import { AnalyticsConfiguration } from "./analyticsConfiguration";
-import { Bucket } from "./bucket";
-import { BucketAccelerateConfigurationV2 } from "./bucketAccelerateConfigurationV2";
-import { BucketAclV2 } from "./bucketAclV2";
-import { BucketCorsConfigurationV2 } from "./bucketCorsConfigurationV2";
-import { BucketIntelligentTieringConfiguration } from "./bucketIntelligentTieringConfiguration";
-import { BucketLifecycleConfigurationV2 } from "./bucketLifecycleConfigurationV2";
-import { BucketLoggingV2 } from "./bucketLoggingV2";
-import { BucketMetric } from "./bucketMetric";
-import { BucketNotification } from "./bucketNotification";
-import { BucketObject } from "./bucketObject";
-import { BucketObjectLockConfigurationV2 } from "./bucketObjectLockConfigurationV2";
-import { BucketObjectv2 } from "./bucketObjectv2";
-import { BucketOwnershipControls } from "./bucketOwnershipControls";
-import { BucketPolicy } from "./bucketPolicy";
-import { BucketPublicAccessBlock } from "./bucketPublicAccessBlock";
-import { BucketReplicationConfig } from "./bucketReplicationConfig";
-import { BucketRequestPaymentConfigurationV2 } from "./bucketRequestPaymentConfigurationV2";
-import { BucketServerSideEncryptionConfigurationV2 } from "./bucketServerSideEncryptionConfigurationV2";
-import { BucketV2 } from "./bucketV2";
-import { BucketVersioningV2 } from "./bucketVersioningV2";
-import { BucketWebsiteConfigurationV2 } from "./bucketWebsiteConfigurationV2";
-import { Inventory } from "./inventory";
-import { ObjectCopy } from "./objectCopy";
 
 const _module = {
     version: utilities.getVersion(),

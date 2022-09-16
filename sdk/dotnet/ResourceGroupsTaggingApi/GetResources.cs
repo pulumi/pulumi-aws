@@ -193,7 +193,7 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi
         private List<string>? _resourceTypeFilters;
 
         /// <summary>
-        /// The constraints on the resources that you want returned. The format of each resource type is `service:resourceType`. For example, specifying a resource type of `ec2` returns all Amazon EC2 resources (which includes EC2 instances). Specifying a resource type of `ec2:instance` returns only EC2 instances.
+        /// Constraints on the resources that you want returned. The format of each resource type is `service:resourceType`. For example, specifying a resource type of `ec2` returns all Amazon EC2 resources (which includes EC2 instances). Specifying a resource type of `ec2:instance` returns only EC2 instances.
         /// </summary>
         public List<string> ResourceTypeFilters
         {
@@ -249,7 +249,7 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi
         private InputList<string>? _resourceTypeFilters;
 
         /// <summary>
-        /// The constraints on the resources that you want returned. The format of each resource type is `service:resourceType`. For example, specifying a resource type of `ec2` returns all Amazon EC2 resources (which includes EC2 instances). Specifying a resource type of `ec2:instance` returns only EC2 instances.
+        /// Constraints on the resources that you want returned. The format of each resource type is `service:resourceType`. For example, specifying a resource type of `ec2` returns all Amazon EC2 resources (which includes EC2 instances). Specifying a resource type of `ec2:instance` returns only EC2 instances.
         /// </summary>
         public InputList<string> ResourceTypeFilters
         {

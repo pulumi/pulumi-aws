@@ -20,7 +20,7 @@ public final class GetVpcPeeringConnectionsResult {
      */
     private String id;
     /**
-     * @return The IDs of the VPC Peering Connections.
+     * @return IDs of the VPC Peering Connections.
      * 
      */
     private List<String> ids;
@@ -38,7 +38,7 @@ public final class GetVpcPeeringConnectionsResult {
         return this.id;
     }
     /**
-     * @return The IDs of the VPC Peering Connections.
+     * @return IDs of the VPC Peering Connections.
      * 
      */
     public List<String> ids() {

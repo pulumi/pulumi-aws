@@ -606,9 +606,9 @@ func (o ServiceHealthCheckCustomConfigPtrOutput) FailureThreshold() pulumi.IntPt
 type GetServiceDnsConfig struct {
 	// An array that contains one DnsRecord object for each resource record set.
 	DnsRecords []GetServiceDnsConfigDnsRecord `pulumi:"dnsRecords"`
-	// The ID of the namespace that the service belongs to.
+	// ID of the namespace that the service belongs to.
 	NamespaceId string `pulumi:"namespaceId"`
-	// The routing policy that you want to apply to all records that Route 53 creates when you register an instance and specify the service. Valid Values: MULTIVALUE, WEIGHTED
+	// Routing policy that you want to apply to all records that Route 53 creates when you register an instance and specify the service. Valid Values: MULTIVALUE, WEIGHTED
 	RoutingPolicy string `pulumi:"routingPolicy"`
 }
 
@@ -626,9 +626,9 @@ type GetServiceDnsConfigInput interface {
 type GetServiceDnsConfigArgs struct {
 	// An array that contains one DnsRecord object for each resource record set.
 	DnsRecords GetServiceDnsConfigDnsRecordArrayInput `pulumi:"dnsRecords"`
-	// The ID of the namespace that the service belongs to.
+	// ID of the namespace that the service belongs to.
 	NamespaceId pulumi.StringInput `pulumi:"namespaceId"`
-	// The routing policy that you want to apply to all records that Route 53 creates when you register an instance and specify the service. Valid Values: MULTIVALUE, WEIGHTED
+	// Routing policy that you want to apply to all records that Route 53 creates when you register an instance and specify the service. Valid Values: MULTIVALUE, WEIGHTED
 	RoutingPolicy pulumi.StringInput `pulumi:"routingPolicy"`
 }
 
@@ -688,12 +688,12 @@ func (o GetServiceDnsConfigOutput) DnsRecords() GetServiceDnsConfigDnsRecordArra
 	return o.ApplyT(func(v GetServiceDnsConfig) []GetServiceDnsConfigDnsRecord { return v.DnsRecords }).(GetServiceDnsConfigDnsRecordArrayOutput)
 }
 
-// The ID of the namespace that the service belongs to.
+// ID of the namespace that the service belongs to.
 func (o GetServiceDnsConfigOutput) NamespaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceDnsConfig) string { return v.NamespaceId }).(pulumi.StringOutput)
 }
 
-// The routing policy that you want to apply to all records that Route 53 creates when you register an instance and specify the service. Valid Values: MULTIVALUE, WEIGHTED
+// Routing policy that you want to apply to all records that Route 53 creates when you register an instance and specify the service. Valid Values: MULTIVALUE, WEIGHTED
 func (o GetServiceDnsConfigOutput) RoutingPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceDnsConfig) string { return v.RoutingPolicy }).(pulumi.StringOutput)
 }
@@ -719,7 +719,7 @@ func (o GetServiceDnsConfigArrayOutput) Index(i pulumi.IntInput) GetServiceDnsCo
 }
 
 type GetServiceDnsConfigDnsRecord struct {
-	// The amount of time, in seconds, that you want DNS resolvers to cache the settings for this resource record set.
+	// Amount of time, in seconds, that you want DNS resolvers to cache the settings for this resource record set.
 	Ttl int `pulumi:"ttl"`
 	// The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
 	Type string `pulumi:"type"`
@@ -737,7 +737,7 @@ type GetServiceDnsConfigDnsRecordInput interface {
 }
 
 type GetServiceDnsConfigDnsRecordArgs struct {
-	// The amount of time, in seconds, that you want DNS resolvers to cache the settings for this resource record set.
+	// Amount of time, in seconds, that you want DNS resolvers to cache the settings for this resource record set.
 	Ttl pulumi.IntInput `pulumi:"ttl"`
 	// The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
 	Type pulumi.StringInput `pulumi:"type"`
@@ -794,7 +794,7 @@ func (o GetServiceDnsConfigDnsRecordOutput) ToGetServiceDnsConfigDnsRecordOutput
 	return o
 }
 
-// The amount of time, in seconds, that you want DNS resolvers to cache the settings for this resource record set.
+// Amount of time, in seconds, that you want DNS resolvers to cache the settings for this resource record set.
 func (o GetServiceDnsConfigDnsRecordOutput) Ttl() pulumi.IntOutput {
 	return o.ApplyT(func(v GetServiceDnsConfigDnsRecord) int { return v.Ttl }).(pulumi.IntOutput)
 }
@@ -827,7 +827,7 @@ func (o GetServiceDnsConfigDnsRecordArrayOutput) Index(i pulumi.IntInput) GetSer
 type GetServiceHealthCheckConfig struct {
 	// The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
 	FailureThreshold int `pulumi:"failureThreshold"`
-	// The path that you want Route 53 to request when performing health checks. Route 53 automatically adds the DNS name for the service. If you don't specify a value, the default value is /.
+	// Path that you want Route 53 to request when performing health checks. Route 53 automatically adds the DNS name for the service. If you don't specify a value, the default value is /.
 	ResourcePath string `pulumi:"resourcePath"`
 	// The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
 	Type string `pulumi:"type"`
@@ -847,7 +847,7 @@ type GetServiceHealthCheckConfigInput interface {
 type GetServiceHealthCheckConfigArgs struct {
 	// The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
 	FailureThreshold pulumi.IntInput `pulumi:"failureThreshold"`
-	// The path that you want Route 53 to request when performing health checks. Route 53 automatically adds the DNS name for the service. If you don't specify a value, the default value is /.
+	// Path that you want Route 53 to request when performing health checks. Route 53 automatically adds the DNS name for the service. If you don't specify a value, the default value is /.
 	ResourcePath pulumi.StringInput `pulumi:"resourcePath"`
 	// The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
 	Type pulumi.StringInput `pulumi:"type"`
@@ -909,7 +909,7 @@ func (o GetServiceHealthCheckConfigOutput) FailureThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v GetServiceHealthCheckConfig) int { return v.FailureThreshold }).(pulumi.IntOutput)
 }
 
-// The path that you want Route 53 to request when performing health checks. Route 53 automatically adds the DNS name for the service. If you don't specify a value, the default value is /.
+// Path that you want Route 53 to request when performing health checks. Route 53 automatically adds the DNS name for the service. If you don't specify a value, the default value is /.
 func (o GetServiceHealthCheckConfigOutput) ResourcePath() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceHealthCheckConfig) string { return v.ResourcePath }).(pulumi.StringOutput)
 }

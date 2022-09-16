@@ -5,30 +5,61 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./account";
-export * from "./actionTarget";
-export * from "./findingAggregator";
-export * from "./insight";
-export * from "./inviteAccepter";
-export * from "./member";
-export * from "./organizationAdminAccount";
-export * from "./organizationConfiguration";
-export * from "./productSubscription";
-export * from "./standardsControl";
-export * from "./standardsSubscription";
+export { AccountArgs, AccountState } from "./account";
+export type Account = import("./account").Account;
+export const Account: typeof import("./account").Account = null as any;
 
-// Import resources to register:
-import { Account } from "./account";
-import { ActionTarget } from "./actionTarget";
-import { FindingAggregator } from "./findingAggregator";
-import { Insight } from "./insight";
-import { InviteAccepter } from "./inviteAccepter";
-import { Member } from "./member";
-import { OrganizationAdminAccount } from "./organizationAdminAccount";
-import { OrganizationConfiguration } from "./organizationConfiguration";
-import { ProductSubscription } from "./productSubscription";
-import { StandardsControl } from "./standardsControl";
-import { StandardsSubscription } from "./standardsSubscription";
+export { ActionTargetArgs, ActionTargetState } from "./actionTarget";
+export type ActionTarget = import("./actionTarget").ActionTarget;
+export const ActionTarget: typeof import("./actionTarget").ActionTarget = null as any;
+
+export { FindingAggregatorArgs, FindingAggregatorState } from "./findingAggregator";
+export type FindingAggregator = import("./findingAggregator").FindingAggregator;
+export const FindingAggregator: typeof import("./findingAggregator").FindingAggregator = null as any;
+
+export { InsightArgs, InsightState } from "./insight";
+export type Insight = import("./insight").Insight;
+export const Insight: typeof import("./insight").Insight = null as any;
+
+export { InviteAccepterArgs, InviteAccepterState } from "./inviteAccepter";
+export type InviteAccepter = import("./inviteAccepter").InviteAccepter;
+export const InviteAccepter: typeof import("./inviteAccepter").InviteAccepter = null as any;
+
+export { MemberArgs, MemberState } from "./member";
+export type Member = import("./member").Member;
+export const Member: typeof import("./member").Member = null as any;
+
+export { OrganizationAdminAccountArgs, OrganizationAdminAccountState } from "./organizationAdminAccount";
+export type OrganizationAdminAccount = import("./organizationAdminAccount").OrganizationAdminAccount;
+export const OrganizationAdminAccount: typeof import("./organizationAdminAccount").OrganizationAdminAccount = null as any;
+
+export { OrganizationConfigurationArgs, OrganizationConfigurationState } from "./organizationConfiguration";
+export type OrganizationConfiguration = import("./organizationConfiguration").OrganizationConfiguration;
+export const OrganizationConfiguration: typeof import("./organizationConfiguration").OrganizationConfiguration = null as any;
+
+export { ProductSubscriptionArgs, ProductSubscriptionState } from "./productSubscription";
+export type ProductSubscription = import("./productSubscription").ProductSubscription;
+export const ProductSubscription: typeof import("./productSubscription").ProductSubscription = null as any;
+
+export { StandardsControlArgs, StandardsControlState } from "./standardsControl";
+export type StandardsControl = import("./standardsControl").StandardsControl;
+export const StandardsControl: typeof import("./standardsControl").StandardsControl = null as any;
+
+export { StandardsSubscriptionArgs, StandardsSubscriptionState } from "./standardsSubscription";
+export type StandardsSubscription = import("./standardsSubscription").StandardsSubscription;
+export const StandardsSubscription: typeof import("./standardsSubscription").StandardsSubscription = null as any;
+
+utilities.lazyLoad(exports, ["Account"], () => require("./account"));
+utilities.lazyLoad(exports, ["ActionTarget"], () => require("./actionTarget"));
+utilities.lazyLoad(exports, ["FindingAggregator"], () => require("./findingAggregator"));
+utilities.lazyLoad(exports, ["Insight"], () => require("./insight"));
+utilities.lazyLoad(exports, ["InviteAccepter"], () => require("./inviteAccepter"));
+utilities.lazyLoad(exports, ["Member"], () => require("./member"));
+utilities.lazyLoad(exports, ["OrganizationAdminAccount"], () => require("./organizationAdminAccount"));
+utilities.lazyLoad(exports, ["OrganizationConfiguration"], () => require("./organizationConfiguration"));
+utilities.lazyLoad(exports, ["ProductSubscription"], () => require("./productSubscription"));
+utilities.lazyLoad(exports, ["StandardsControl"], () => require("./standardsControl"));
+utilities.lazyLoad(exports, ["StandardsSubscription"], () => require("./standardsSubscription"));
 
 const _module = {
     version: utilities.getVersion(),

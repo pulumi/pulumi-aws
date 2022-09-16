@@ -77,7 +77,7 @@ class GetElasticIpResult:
     @pulumi.getter(name="associationId")
     def association_id(self) -> str:
         """
-        The ID representing the association of the address with an instance in a VPC.
+        ID representing the association of the address with an instance in a VPC.
         """
         return pulumi.get(self, "association_id")
 
@@ -85,7 +85,7 @@ class GetElasticIpResult:
     @pulumi.getter(name="carrierIp")
     def carrier_ip(self) -> str:
         """
-        The carrier IP address.
+        Carrier IP address.
         """
         return pulumi.get(self, "carrier_ip")
 
@@ -109,7 +109,7 @@ class GetElasticIpResult:
     @pulumi.getter
     def domain(self) -> str:
         """
-        Indicates whether the address is for use in EC2-Classic (standard) or in a VPC (vpc).
+        Whether the address is for use in EC2-Classic (standard) or in a VPC (vpc).
         """
         return pulumi.get(self, "domain")
 
@@ -130,7 +130,7 @@ class GetElasticIpResult:
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> str:
         """
-        The ID of the instance that the address is associated with (if any).
+        ID of the instance that the address is associated with (if any).
         """
         return pulumi.get(self, "instance_id")
 
@@ -154,7 +154,7 @@ class GetElasticIpResult:
     @pulumi.getter(name="privateDns")
     def private_dns(self) -> str:
         """
-        The Private DNS associated with the Elastic IP address.
+        Private DNS associated with the Elastic IP address.
         """
         return pulumi.get(self, "private_dns")
 
@@ -162,7 +162,7 @@ class GetElasticIpResult:
     @pulumi.getter(name="privateIp")
     def private_ip(self) -> str:
         """
-        The private IP address associated with the Elastic IP address.
+        Private IP address associated with the Elastic IP address.
         """
         return pulumi.get(self, "private_ip")
 
@@ -186,7 +186,7 @@ class GetElasticIpResult:
     @pulumi.getter(name="publicIpv4Pool")
     def public_ipv4_pool(self) -> str:
         """
-        The ID of an address pool.
+        ID of an address pool.
         """
         return pulumi.get(self, "public_ipv4_pool")
 
@@ -272,9 +272,9 @@ def get_elastic_ip(filters: Optional[Sequence[pulumi.InputType['GetElasticIpFilt
 
 
     :param Sequence[pulumi.InputType['GetElasticIpFilterArgs']] filters: One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html).
-    :param str id: The allocation id of the specific VPC EIP to retrieve. If a classic EIP is required, do NOT set `id`, only set `public_ip`
-    :param str public_ip: The public IP of the specific EIP to retrieve.
-    :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match a pair on the desired Elastic IP
+    :param str id: Allocation ID of the specific VPC EIP to retrieve. If a classic EIP is required, do NOT set `id`, only set `public_ip`
+    :param str public_ip: Public IP of the specific EIP to retrieve.
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired Elastic IP
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -353,8 +353,8 @@ def get_elastic_ip_output(filters: Optional[pulumi.Input[Optional[Sequence[pulum
 
 
     :param Sequence[pulumi.InputType['GetElasticIpFilterArgs']] filters: One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html).
-    :param str id: The allocation id of the specific VPC EIP to retrieve. If a classic EIP is required, do NOT set `id`, only set `public_ip`
-    :param str public_ip: The public IP of the specific EIP to retrieve.
-    :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match a pair on the desired Elastic IP
+    :param str id: Allocation ID of the specific VPC EIP to retrieve. If a classic EIP is required, do NOT set `id`, only set `public_ip`
+    :param str public_ip: Public IP of the specific EIP to retrieve.
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired Elastic IP
     """
     ...

@@ -19,7 +19,7 @@ namespace Pulumi.Aws.ApiGateway.Inputs
         public Input<int>? BurstLimit { get; set; }
 
         /// <summary>
-        /// The method to apply the throttle settings for. Specfiy the path and method, for example `/test/GET`.
+        /// Method to apply the throttle settings for. Specfiy the path and method, for example `/test/GET`.
         /// </summary>
         [Input("path", required: true)]
         public Input<string> Path { get; set; } = null!;

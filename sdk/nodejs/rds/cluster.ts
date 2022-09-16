@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -338,6 +340,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly masterUsername!: pulumi.Output<string>;
     /**
+     * The network type of the cluster. Valid values: `IPV4`, `DUAL`.
+     */
+    public readonly networkType!: pulumi.Output<string>;
+    /**
      * The port on which the DB accepts connections
      */
     public readonly port!: pulumi.Output<number>;
@@ -452,6 +458,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
             resourceInputs["masterPassword"] = state ? state.masterPassword : undefined;
             resourceInputs["masterUsername"] = state ? state.masterUsername : undefined;
+            resourceInputs["networkType"] = state ? state.networkType : undefined;
             resourceInputs["port"] = state ? state.port : undefined;
             resourceInputs["preferredBackupWindow"] = state ? state.preferredBackupWindow : undefined;
             resourceInputs["preferredMaintenanceWindow"] = state ? state.preferredMaintenanceWindow : undefined;
@@ -501,6 +508,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["masterPassword"] = args ? args.masterPassword : undefined;
             resourceInputs["masterUsername"] = args ? args.masterUsername : undefined;
+            resourceInputs["networkType"] = args ? args.networkType : undefined;
             resourceInputs["port"] = args ? args.port : undefined;
             resourceInputs["preferredBackupWindow"] = args ? args.preferredBackupWindow : undefined;
             resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
@@ -673,6 +681,10 @@ export interface ClusterState {
      * Username for the master DB user. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
      */
     masterUsername?: pulumi.Input<string>;
+    /**
+     * The network type of the cluster. Valid values: `IPV4`, `DUAL`.
+     */
+    networkType?: pulumi.Input<string>;
     /**
      * The port on which the DB accepts connections
      */
@@ -865,6 +877,10 @@ export interface ClusterArgs {
      * Username for the master DB user. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
      */
     masterUsername?: pulumi.Input<string>;
+    /**
+     * The network type of the cluster. Valid values: `IPV4`, `DUAL`.
+     */
+    networkType?: pulumi.Input<string>;
     /**
      * The port on which the DB accepts connections
      */

@@ -17,12 +17,12 @@ public final class GetPermissionsLfTagPolicy {
      */
     private String catalogId;
     /**
-     * @return A list of tag conditions that apply to the resource&#39;s tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
+     * @return List of tag conditions that apply to the resource&#39;s tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
      * 
      */
     private List<GetPermissionsLfTagPolicyExpression> expressions;
     /**
-     * @return The resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
+     * @return Resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
      * 
      */
     private String resourceType;
@@ -36,14 +36,14 @@ public final class GetPermissionsLfTagPolicy {
         return this.catalogId;
     }
     /**
-     * @return A list of tag conditions that apply to the resource&#39;s tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
+     * @return List of tag conditions that apply to the resource&#39;s tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
      * 
      */
     public List<GetPermissionsLfTagPolicyExpression> expressions() {
         return this.expressions;
     }
     /**
-     * @return The resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
+     * @return Resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
      * 
      */
     public String resourceType() {

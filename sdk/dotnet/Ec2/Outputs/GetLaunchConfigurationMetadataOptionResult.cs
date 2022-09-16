@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Ec2.Outputs
     public sealed class GetLaunchConfigurationMetadataOptionResult
     {
         /// <summary>
-        /// The state of the metadata service: `enabled`, `disabled`.
+        /// State of the metadata service: `enabled`, `disabled`.
         /// </summary>
         public readonly string HttpEndpoint;
         /// <summary>

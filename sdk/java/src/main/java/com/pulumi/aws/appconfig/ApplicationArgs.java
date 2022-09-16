@@ -17,14 +17,14 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
     public static final ApplicationArgs Empty = new ApplicationArgs();
 
     /**
-     * The description of the application. Can be at most 1024 characters.
+     * Description of the application. Can be at most 1024 characters.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description of the application. Can be at most 1024 characters.
+     * @return Description of the application. Can be at most 1024 characters.
      * 
      */
     public Optional<Output<String>> description() {
@@ -32,14 +32,14 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name for the application. Must be between 1 and 64 characters in length.
+     * Name for the application. Must be between 1 and 64 characters in length.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name for the application. Must be between 1 and 64 characters in length.
+     * @return Name for the application. Must be between 1 and 64 characters in length.
      * 
      */
     public Optional<Output<String>> name() {
@@ -47,14 +47,14 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -88,7 +88,7 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The description of the application. Can be at most 1024 characters.
+         * @param description Description of the application. Can be at most 1024 characters.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The description of the application. Can be at most 1024 characters.
+         * @param description Description of the application. Can be at most 1024 characters.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name for the application. Must be between 1 and 64 characters in length.
+         * @param name Name for the application. Must be between 1 and 64 characters in length.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name for the application. Must be between 1 and 64 characters in length.
+         * @param name Name for the application. Must be between 1 and 64 characters in length.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

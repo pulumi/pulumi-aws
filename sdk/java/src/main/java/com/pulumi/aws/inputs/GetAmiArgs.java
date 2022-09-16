@@ -88,7 +88,7 @@ public final class GetAmiArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * A regex string to apply to the AMI list returned
+     * Regex string to apply to the AMI list returned
      * by AWS. This allows more advanced filtering not supported from the AWS API. This
      * filtering is done locally on what AWS returns, and could have a performance
      * impact if the result is large. Combine this with other
@@ -99,7 +99,7 @@ public final class GetAmiArgs extends com.pulumi.resources.InvokeArgs {
     private @Nullable Output<String> nameRegex;
 
     /**
-     * @return A regex string to apply to the AMI list returned
+     * @return Regex string to apply to the AMI list returned
      * by AWS. This allows more advanced filtering not supported from the AWS API. This
      * filtering is done locally on what AWS returns, and could have a performance
      * impact if the result is large. Combine this with other
@@ -127,8 +127,8 @@ public final class GetAmiArgs extends com.pulumi.resources.InvokeArgs {
 
     /**
      * Any tags assigned to the image.
-     * * `tags.#.key` - The key name of the tag.
-     * * `tags.#.value` - The value of the tag.
+     * * `tags.#.key` - Key name of the tag.
+     * * `tags.#.value` - Value of the tag.
      * 
      */
     @Import(name="tags")
@@ -136,8 +136,8 @@ public final class GetAmiArgs extends com.pulumi.resources.InvokeArgs {
 
     /**
      * @return Any tags assigned to the image.
-     * * `tags.#.key` - The key name of the tag.
-     * * `tags.#.value` - The value of the tag.
+     * * `tags.#.key` - Key name of the tag.
+     * * `tags.#.value` - Value of the tag.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -290,7 +290,7 @@ public final class GetAmiArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param nameRegex A regex string to apply to the AMI list returned
+         * @param nameRegex Regex string to apply to the AMI list returned
          * by AWS. This allows more advanced filtering not supported from the AWS API. This
          * filtering is done locally on what AWS returns, and could have a performance
          * impact if the result is large. Combine this with other
@@ -305,7 +305,7 @@ public final class GetAmiArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param nameRegex A regex string to apply to the AMI list returned
+         * @param nameRegex Regex string to apply to the AMI list returned
          * by AWS. This allows more advanced filtering not supported from the AWS API. This
          * filtering is done locally on what AWS returns, and could have a performance
          * impact if the result is large. Combine this with other
@@ -351,8 +351,8 @@ public final class GetAmiArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param tags Any tags assigned to the image.
-         * * `tags.#.key` - The key name of the tag.
-         * * `tags.#.value` - The value of the tag.
+         * * `tags.#.key` - Key name of the tag.
+         * * `tags.#.value` - Value of the tag.
          * 
          * @return builder
          * 
@@ -364,8 +364,8 @@ public final class GetAmiArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param tags Any tags assigned to the image.
-         * * `tags.#.key` - The key name of the tag.
-         * * `tags.#.value` - The value of the tag.
+         * * `tags.#.key` - Key name of the tag.
+         * * `tags.#.value` - Value of the tag.
          * 
          * @return builder
          * 

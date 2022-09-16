@@ -5,15 +5,26 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./domain";
-export * from "./domainPolicy";
-export * from "./domainSamlOptions";
-export * from "./getDomain";
+export { DomainArgs, DomainState } from "./domain";
+export type Domain = import("./domain").Domain;
+export const Domain: typeof import("./domain").Domain = null as any;
 
-// Import resources to register:
-import { Domain } from "./domain";
-import { DomainPolicy } from "./domainPolicy";
-import { DomainSamlOptions } from "./domainSamlOptions";
+export { DomainPolicyArgs, DomainPolicyState } from "./domainPolicy";
+export type DomainPolicy = import("./domainPolicy").DomainPolicy;
+export const DomainPolicy: typeof import("./domainPolicy").DomainPolicy = null as any;
+
+export { DomainSamlOptionsArgs, DomainSamlOptionsState } from "./domainSamlOptions";
+export type DomainSamlOptions = import("./domainSamlOptions").DomainSamlOptions;
+export const DomainSamlOptions: typeof import("./domainSamlOptions").DomainSamlOptions = null as any;
+
+export { GetDomainArgs, GetDomainResult, GetDomainOutputArgs } from "./getDomain";
+export const getDomain: typeof import("./getDomain").getDomain = null as any;
+export const getDomainOutput: typeof import("./getDomain").getDomainOutput = null as any;
+
+utilities.lazyLoad(exports, ["Domain"], () => require("./domain"));
+utilities.lazyLoad(exports, ["DomainPolicy"], () => require("./domainPolicy"));
+utilities.lazyLoad(exports, ["DomainSamlOptions"], () => require("./domainSamlOptions"));
+utilities.lazyLoad(exports, ["getDomain","getDomainOutput"], () => require("./getDomain"));
 
 const _module = {
     version: utilities.getVersion(),

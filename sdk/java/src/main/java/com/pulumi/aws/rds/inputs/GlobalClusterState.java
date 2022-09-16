@@ -77,6 +77,13 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.engineVersion);
     }
 
+    @Import(name="engineVersionActual")
+    private @Nullable Output<String> engineVersionActual;
+
+    public Optional<Output<String>> engineVersionActual() {
+        return Optional.ofNullable(this.engineVersionActual);
+    }
+
     /**
      * Enable to remove DB Cluster members from Global Cluster on destroy. Required with `source_db_cluster_identifier`.
      * 
@@ -175,6 +182,7 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
         this.deletionProtection = $.deletionProtection;
         this.engine = $.engine;
         this.engineVersion = $.engineVersion;
+        this.engineVersionActual = $.engineVersionActual;
         this.forceDestroy = $.forceDestroy;
         this.globalClusterIdentifier = $.globalClusterIdentifier;
         this.globalClusterMembers = $.globalClusterMembers;
@@ -280,6 +288,15 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
 
         public Builder engineVersion(String engineVersion) {
             return engineVersion(Output.of(engineVersion));
+        }
+
+        public Builder engineVersionActual(@Nullable Output<String> engineVersionActual) {
+            $.engineVersionActual = engineVersionActual;
+            return this;
+        }
+
+        public Builder engineVersionActual(String engineVersionActual) {
+            return engineVersionActual(Output.of(engineVersionActual));
         }
 
         /**

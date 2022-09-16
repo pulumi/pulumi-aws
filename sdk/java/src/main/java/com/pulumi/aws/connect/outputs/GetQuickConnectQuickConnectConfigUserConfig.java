@@ -10,26 +10,26 @@ import java.util.Objects;
 @CustomType
 public final class GetQuickConnectQuickConnectConfigUserConfig {
     /**
-     * @return Specifies the identifier of the contact flow.
+     * @return Identifier of the contact flow.
      * 
      */
     private String contactFlowId;
     /**
-     * @return Specifies the identifier for the user.
+     * @return Identifier for the user.
      * 
      */
     private String userId;
 
     private GetQuickConnectQuickConnectConfigUserConfig() {}
     /**
-     * @return Specifies the identifier of the contact flow.
+     * @return Identifier of the contact flow.
      * 
      */
     public String contactFlowId() {
         return this.contactFlowId;
     }
     /**
-     * @return Specifies the identifier for the user.
+     * @return Identifier for the user.
      * 
      */
     public String userId() {

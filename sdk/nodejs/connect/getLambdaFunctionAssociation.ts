@@ -36,11 +36,11 @@ export function getLambdaFunctionAssociation(args: GetLambdaFunctionAssociationA
  */
 export interface GetLambdaFunctionAssociationArgs {
     /**
-     * Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+     * ARN of the Lambda Function, omitting any version or alias qualifier.
      */
     functionArn: string;
     /**
-     * The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
+     * Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
      */
     instanceId: string;
 }
@@ -66,11 +66,11 @@ export function getLambdaFunctionAssociationOutput(args: GetLambdaFunctionAssoci
  */
 export interface GetLambdaFunctionAssociationOutputArgs {
     /**
-     * Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+     * ARN of the Lambda Function, omitting any version or alias qualifier.
      */
     functionArn: pulumi.Input<string>;
     /**
-     * The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
+     * Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
      */
     instanceId: pulumi.Input<string>;
 }

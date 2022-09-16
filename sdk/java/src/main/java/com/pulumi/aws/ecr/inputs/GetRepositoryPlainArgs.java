@@ -16,14 +16,14 @@ public final class GetRepositoryPlainArgs extends com.pulumi.resources.InvokeArg
     public static final GetRepositoryPlainArgs Empty = new GetRepositoryPlainArgs();
 
     /**
-     * The name of the ECR Repository.
+     * Name of the ECR Repository.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return The name of the ECR Repository.
+     * @return Name of the ECR Repository.
      * 
      */
     public String name() {
@@ -31,14 +31,14 @@ public final class GetRepositoryPlainArgs extends com.pulumi.resources.InvokeArg
     }
 
     /**
-     * The registry ID where the repository was created.
+     * Registry ID where the repository was created.
      * 
      */
     @Import(name="registryId")
     private @Nullable String registryId;
 
     /**
-     * @return The registry ID where the repository was created.
+     * @return Registry ID where the repository was created.
      * 
      */
     public Optional<String> registryId() {
@@ -46,14 +46,14 @@ public final class GetRepositoryPlainArgs extends com.pulumi.resources.InvokeArg
     }
 
     /**
-     * A map of tags assigned to the resource.
+     * Map of tags assigned to the resource.
      * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return A map of tags assigned to the resource.
+     * @return Map of tags assigned to the resource.
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -87,7 +87,7 @@ public final class GetRepositoryPlainArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param name The name of the ECR Repository.
+         * @param name Name of the ECR Repository.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class GetRepositoryPlainArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param registryId The registry ID where the repository was created.
+         * @param registryId Registry ID where the repository was created.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class GetRepositoryPlainArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param tags A map of tags assigned to the resource.
+         * @param tags Map of tags assigned to the resource.
          * 
          * @return builder
          * 

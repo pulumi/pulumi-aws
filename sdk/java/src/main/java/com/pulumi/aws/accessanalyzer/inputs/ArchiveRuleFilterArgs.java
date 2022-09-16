@@ -32,14 +32,14 @@ public final class ArchiveRuleFilterArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The filter criteria.
+     * Filter criteria.
      * 
      */
     @Import(name="criteria", required=true)
     private Output<String> criteria;
 
     /**
-     * @return The filter criteria.
+     * @return Filter criteria.
      * 
      */
     public Output<String> criteria() {
@@ -151,7 +151,7 @@ public final class ArchiveRuleFilterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param criteria The filter criteria.
+         * @param criteria Filter criteria.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class ArchiveRuleFilterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param criteria The filter criteria.
+         * @param criteria Filter criteria.
          * 
          * @return builder
          * 

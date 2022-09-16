@@ -58,6 +58,8 @@ type Workgroup struct {
 	BaseCapacity pulumi.IntOutput `pulumi:"baseCapacity"`
 	// An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
 	ConfigParameters WorkgroupConfigParameterArrayOutput `pulumi:"configParameters"`
+	// The endpoint that is created from the workgroup. See `Endpoint` below.
+	Endpoints WorkgroupEndpointArrayOutput `pulumi:"endpoints"`
 	// The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
 	EnhancedVpcRouting pulumi.BoolPtrOutput `pulumi:"enhancedVpcRouting"`
 	NamespaceName      pulumi.StringOutput  `pulumi:"namespaceName"`
@@ -68,7 +70,8 @@ type Workgroup struct {
 	// An array of VPC subnet IDs to associate with the workgroup.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	Tags      pulumi.StringMapOutput   `pulumi:"tags"`
-	TagsAll   pulumi.StringMapOutput   `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The Redshift Workgroup ID.
 	WorkgroupId pulumi.StringOutput `pulumi:"workgroupId"`
 	// The name of the workgroup.
@@ -116,6 +119,8 @@ type workgroupState struct {
 	BaseCapacity *int `pulumi:"baseCapacity"`
 	// An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
 	ConfigParameters []WorkgroupConfigParameter `pulumi:"configParameters"`
+	// The endpoint that is created from the workgroup. See `Endpoint` below.
+	Endpoints []WorkgroupEndpoint `pulumi:"endpoints"`
 	// The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
 	EnhancedVpcRouting *bool   `pulumi:"enhancedVpcRouting"`
 	NamespaceName      *string `pulumi:"namespaceName"`
@@ -126,7 +131,8 @@ type workgroupState struct {
 	// An array of VPC subnet IDs to associate with the workgroup.
 	SubnetIds []string          `pulumi:"subnetIds"`
 	Tags      map[string]string `pulumi:"tags"`
-	TagsAll   map[string]string `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The Redshift Workgroup ID.
 	WorkgroupId *string `pulumi:"workgroupId"`
 	// The name of the workgroup.
@@ -140,6 +146,8 @@ type WorkgroupState struct {
 	BaseCapacity pulumi.IntPtrInput
 	// An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
 	ConfigParameters WorkgroupConfigParameterArrayInput
+	// The endpoint that is created from the workgroup. See `Endpoint` below.
+	Endpoints WorkgroupEndpointArrayInput
 	// The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
 	EnhancedVpcRouting pulumi.BoolPtrInput
 	NamespaceName      pulumi.StringPtrInput
@@ -150,7 +158,8 @@ type WorkgroupState struct {
 	// An array of VPC subnet IDs to associate with the workgroup.
 	SubnetIds pulumi.StringArrayInput
 	Tags      pulumi.StringMapInput
-	TagsAll   pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// The Redshift Workgroup ID.
 	WorkgroupId pulumi.StringPtrInput
 	// The name of the workgroup.
@@ -176,7 +185,6 @@ type workgroupArgs struct {
 	// An array of VPC subnet IDs to associate with the workgroup.
 	SubnetIds []string          `pulumi:"subnetIds"`
 	Tags      map[string]string `pulumi:"tags"`
-	TagsAll   map[string]string `pulumi:"tagsAll"`
 	// The name of the workgroup.
 	WorkgroupName string `pulumi:"workgroupName"`
 }
@@ -197,7 +205,6 @@ type WorkgroupArgs struct {
 	// An array of VPC subnet IDs to associate with the workgroup.
 	SubnetIds pulumi.StringArrayInput
 	Tags      pulumi.StringMapInput
-	TagsAll   pulumi.StringMapInput
 	// The name of the workgroup.
 	WorkgroupName pulumi.StringInput
 }
@@ -304,6 +311,11 @@ func (o WorkgroupOutput) ConfigParameters() WorkgroupConfigParameterArrayOutput 
 	return o.ApplyT(func(v *Workgroup) WorkgroupConfigParameterArrayOutput { return v.ConfigParameters }).(WorkgroupConfigParameterArrayOutput)
 }
 
+// The endpoint that is created from the workgroup. See `Endpoint` below.
+func (o WorkgroupOutput) Endpoints() WorkgroupEndpointArrayOutput {
+	return o.ApplyT(func(v *Workgroup) WorkgroupEndpointArrayOutput { return v.Endpoints }).(WorkgroupEndpointArrayOutput)
+}
+
 // The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
 func (o WorkgroupOutput) EnhancedVpcRouting() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.BoolPtrOutput { return v.EnhancedVpcRouting }).(pulumi.BoolPtrOutput)
@@ -332,6 +344,7 @@ func (o WorkgroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o WorkgroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

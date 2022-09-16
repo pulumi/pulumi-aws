@@ -22,13 +22,13 @@ namespace Pulumi.Aws.AutoScaling
     public partial class Tag : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of the Autoscaling Group to apply the tag to.
+        /// Name of the Autoscaling Group to apply the tag to.
         /// </summary>
         [Output("autoscalingGroupName")]
         public Output<string> AutoscalingGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The tag to create. The `tag` block is documented below.
+        /// Tag to create. The `tag` block is documented below.
         /// </summary>
         [Output("tag")]
         public Output<Outputs.TagTag> TagDetails { get; private set; } = null!;
@@ -80,13 +80,13 @@ namespace Pulumi.Aws.AutoScaling
     public sealed class TagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the Autoscaling Group to apply the tag to.
+        /// Name of the Autoscaling Group to apply the tag to.
         /// </summary>
         [Input("autoscalingGroupName", required: true)]
         public Input<string> AutoscalingGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The tag to create. The `tag` block is documented below.
+        /// Tag to create. The `tag` block is documented below.
         /// </summary>
         [Input("tag", required: true)]
         public Input<Inputs.TagTagArgs> TagDetails { get; set; } = null!;
@@ -100,13 +100,13 @@ namespace Pulumi.Aws.AutoScaling
     public sealed class TagState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the Autoscaling Group to apply the tag to.
+        /// Name of the Autoscaling Group to apply the tag to.
         /// </summary>
         [Input("autoscalingGroupName")]
         public Input<string>? AutoscalingGroupName { get; set; }
 
         /// <summary>
-        /// The tag to create. The `tag` block is documented below.
+        /// Tag to create. The `tag` block is documented below.
         /// </summary>
         [Input("tag")]
         public Input<Inputs.TagTagGetArgs>? TagDetails { get; set; }

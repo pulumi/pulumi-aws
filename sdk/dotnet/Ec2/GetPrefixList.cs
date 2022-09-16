@@ -180,13 +180,13 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
+        /// Name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
         /// <summary>
-        /// The ID of the prefix list to select.
+        /// ID of the prefix list to select.
         /// </summary>
         [Input("prefixListId")]
         public string? PrefixListId { get; set; }
@@ -212,13 +212,13 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
+        /// Name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ID of the prefix list to select.
+        /// ID of the prefix list to select.
         /// </summary>
         [Input("prefixListId")]
         public Input<string>? PrefixListId { get; set; }
@@ -234,7 +234,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class GetPrefixListResult
     {
         /// <summary>
-        /// The list of CIDR blocks for the AWS service associated with the prefix list.
+        /// List of CIDR blocks for the AWS service associated with the prefix list.
         /// </summary>
         public readonly ImmutableArray<string> CidrBlocks;
         public readonly ImmutableArray<Outputs.GetPrefixListFilterResult> Filters;
@@ -243,7 +243,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The name of the selected prefix list.
+        /// Name of the selected prefix list.
         /// </summary>
         public readonly string Name;
         public readonly string? PrefixListId;

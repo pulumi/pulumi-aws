@@ -72,7 +72,7 @@ def get_data_catalog_encryption_settings(catalog_id: Optional[str] = None,
     This data source can be used to fetch information about AWS Glue Data Catalog Encryption Settings.
 
 
-    :param str catalog_id: The ID of the Data Catalog. This is typically the AWS account ID.
+    :param str catalog_id: ID of the Data Catalog. This is typically the AWS account ID.
     """
     __args__ = dict()
     __args__['catalogId'] = catalog_id
@@ -92,6 +92,6 @@ def get_data_catalog_encryption_settings_output(catalog_id: Optional[pulumi.Inpu
     This data source can be used to fetch information about AWS Glue Data Catalog Encryption Settings.
 
 
-    :param str catalog_id: The ID of the Data Catalog. This is typically the AWS account ID.
+    :param str catalog_id: ID of the Data Catalog. This is typically the AWS account ID.
     """
     ...

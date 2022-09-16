@@ -102,7 +102,7 @@ class GetClusterResult:
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> str:
         """
-        The Availability Zone for the cache cluster.
+        Availability Zone for the cache cluster.
         """
         return pulumi.get(self, "availability_zone")
 
@@ -119,7 +119,7 @@ class GetClusterResult:
     @pulumi.getter(name="clusterAddress")
     def cluster_address(self) -> str:
         """
-        (Memcached only) The DNS name of the cache cluster without the port appended.
+        (Memcached only) DNS name of the cache cluster without the port appended.
         """
         return pulumi.get(self, "cluster_address")
 
@@ -132,7 +132,7 @@ class GetClusterResult:
     @pulumi.getter(name="configurationEndpoint")
     def configuration_endpoint(self) -> str:
         """
-        (Memcached only) The configuration endpoint to allow host discovery.
+        (Memcached only) Configuration endpoint to allow host discovery.
         """
         return pulumi.get(self, "configuration_endpoint")
 
@@ -189,7 +189,7 @@ class GetClusterResult:
     @pulumi.getter(name="notificationTopicArn")
     def notification_topic_arn(self) -> str:
         """
-        An Amazon Resource Name (ARN) of an
+        An ARN of an
         SNS topic that ElastiCache notifications get sent to.
         """
         return pulumi.get(self, "notification_topic_arn")
@@ -256,7 +256,7 @@ class GetClusterResult:
     @pulumi.getter(name="snapshotWindow")
     def snapshot_window(self) -> str:
         """
-        The daily time range (in UTC) during which ElastiCache will
+        Daily time range (in UTC) during which ElastiCache will
         begin taking a daily snapshot of the cache cluster.
         """
         return pulumi.get(self, "snapshot_window")
@@ -273,7 +273,7 @@ class GetClusterResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        The tags assigned to the resource
+        Tags assigned to the resource
         """
         return pulumi.get(self, "tags")
 
@@ -326,7 +326,7 @@ def get_cluster(cluster_id: Optional[str] = None,
 
 
     :param str cluster_id: Group identifier.
-    :param Mapping[str, str] tags: The tags assigned to the resource
+    :param Mapping[str, str] tags: Tags assigned to the resource
     """
     __args__ = dict()
     __args__['clusterId'] = cluster_id
@@ -378,6 +378,6 @@ def get_cluster_output(cluster_id: Optional[pulumi.Input[str]] = None,
 
 
     :param str cluster_id: Group identifier.
-    :param Mapping[str, str] tags: The tags assigned to the resource
+    :param Mapping[str, str] tags: Tags assigned to the resource
     """
     ...

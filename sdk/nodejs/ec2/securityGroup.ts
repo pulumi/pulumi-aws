@@ -2,10 +2,106 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Provides a security group resource.
+ *
+ * > **NOTE on Security Groups and Security Group Rules:** This provider currently
+ * provides both a standalone Security Group Rule resource (a single `ingress` or
+ * `egress` rule), and a Security Group resource with `ingress` and `egress` rules
+ * defined in-line. At this time you cannot use a Security Group with in-line rules
+ * in conjunction with any Security Group Rule resources. Doing so will cause
+ * a conflict of rule settings and will overwrite rules.
+ *
+ * > **NOTE:** Referencing Security Groups across VPC peering has certain restrictions. More information is available in the [VPC Peering User Guide](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-security-groups.html).
+ *
+ * > **NOTE:** Due to [AWS Lambda improved VPC networking changes that began deploying in September 2019](https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/), security groups associated with Lambda Functions can take up to 45 minutes to successfully delete.
+ *
+ * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const allowTls = new aws.ec2.SecurityGroup("allowTls", {
+ *     description: "Allow TLS inbound traffic",
+ *     vpcId: aws_vpc.main.id,
+ *     ingress: [{
+ *         description: "TLS from VPC",
+ *         fromPort: 443,
+ *         toPort: 443,
+ *         protocol: "tcp",
+ *         cidrBlocks: [aws_vpc.main.cidr_block],
+ *         ipv6CidrBlocks: [aws_vpc.main.ipv6_cidr_block],
+ *     }],
+ *     egress: [{
+ *         fromPort: 0,
+ *         toPort: 0,
+ *         protocol: "-1",
+ *         cidrBlocks: ["0.0.0.0/0"],
+ *         ipv6CidrBlocks: ["::/0"],
+ *     }],
+ *     tags: {
+ *         Name: "allow_tls",
+ *     },
+ * });
+ * ```
+ *
+ * > **NOTE on Egress rules:** By default, AWS creates an `ALLOW ALL` egress rule when creating a new Security Group inside of a VPC. When creating a new Security Group inside a VPC, **this provider will remove this default rule**, and require you specifically re-create it if you desire that rule. We feel this leads to fewer surprises in terms of controlling your egress rules. If you desire this rule to be in place, you can use this `egress` block:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.ec2.SecurityGroup("example", {
+ *     egress: [{
+ *         cidrBlocks: ["0.0.0.0/0"],
+ *         fromPort: 0,
+ *         ipv6CidrBlocks: ["::/0"],
+ *         protocol: "-1",
+ *         toPort: 0,
+ *     }],
+ * });
+ * ```
+ * ### Usage With Prefix List IDs
+ *
+ * Prefix Lists are either managed by AWS internally, or created by the customer using a
+ * Prefix List resource. Prefix Lists provided by
+ * AWS are associated with a prefix list name, or service name, that is linked to a specific region.
+ * Prefix list IDs are exported on VPC Endpoints, so you can use this format:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const myEndpoint = new aws.ec2.VpcEndpoint("myEndpoint", {});
+ * // ... other configuration ...
+ * // ... other configuration ...
+ * const example = new aws.ec2.SecurityGroup("example", {egress: [{
+ *     fromPort: 0,
+ *     toPort: 0,
+ *     protocol: "-1",
+ *     prefixListIds: [myEndpoint.prefixListId],
+ * }]});
+ * ```
+ *
+ * You can also find a specific Prefix List using the `aws.ec2.getPrefixList` data source.
+ * ### Change of name or name-prefix value
+ *
+ * Security Group's Name [cannot be edited after the resource is created](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-security-groups.html#creating-security-group). In fact, the `name` and `name-prefix` arguments force the creation of a new Security Group resource when they change value. In that case, this provider first deletes the existing Security Group resource and then it creates a new one. If the existing Security Group is associated to a Network Interface resource, the deletion cannot complete. The reason is that Network Interface resources cannot be left with no Security Group attached and the new one is not yet available at that point.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const sgWithChangeableName = new aws.ec2.SecurityGroup("sg_with_changeable_name", {});
+ * ```
+ *
  * ## Import
  *
  * Security Groups can be imported using the `security group id`, e.g.,
@@ -84,6 +180,7 @@ export class SecurityGroup extends pulumi.CustomResource {
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * VPC ID.
+     * Defaults to the region's default VPC.
      */
     public readonly vpcId!: pulumi.Output<string>;
 
@@ -176,6 +273,7 @@ export interface SecurityGroupState {
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * VPC ID.
+     * Defaults to the region's default VPC.
      */
     vpcId?: pulumi.Input<string>;
 }
@@ -214,6 +312,7 @@ export interface SecurityGroupArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * VPC ID.
+     * Defaults to the region's default VPC.
      */
     vpcId?: pulumi.Input<string>;
 }

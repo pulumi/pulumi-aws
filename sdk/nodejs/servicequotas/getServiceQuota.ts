@@ -65,7 +65,7 @@ export interface GetServiceQuotaResult {
      */
     readonly adjustable: boolean;
     /**
-     * Amazon Resource Name (ARN) of the service quota.
+     * ARN of the service quota.
      */
     readonly arn: string;
     /**

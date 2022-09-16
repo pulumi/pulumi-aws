@@ -76,7 +76,7 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class GetVpcLinkArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned.
+        /// Name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned.
         /// If multiple API Gateway VPC Links are found with this name, an error will be returned.
         /// </summary>
         [Input("name", required: true)]
@@ -103,7 +103,7 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class GetVpcLinkInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned.
+        /// Name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned.
         /// If multiple API Gateway VPC Links are found with this name, an error will be returned.
         /// </summary>
         [Input("name", required: true)]
@@ -132,7 +132,7 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class GetVpcLinkResult
     {
         /// <summary>
-        /// The description of the VPC link.
+        /// Description of the VPC link.
         /// </summary>
         public readonly string Description;
         /// <summary>
@@ -141,11 +141,11 @@ namespace Pulumi.Aws.ApiGateway
         public readonly string Id;
         public readonly string Name;
         /// <summary>
-        /// The status of the VPC link.
+        /// Status of the VPC link.
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// The status message of the VPC link.
+        /// Status message of the VPC link.
         /// </summary>
         public readonly string StatusMessage;
         /// <summary>
@@ -153,7 +153,7 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
+        /// List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
         /// </summary>
         public readonly ImmutableArray<string> TargetArns;
 

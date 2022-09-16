@@ -16,6 +16,24 @@ namespace Pulumi.Aws.Amp
         /// 
         /// {{% examples %}}
         /// ## Example Usage
+        /// {{% example %}}
+        /// ### Basic configuration
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Amp.GetWorkspace.Invoke(new()
+        ///     {
+        ///         WorkspaceId = "ws-41det8a1-2c67-6a1a-9381-9b83d3d78ef7",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
@@ -26,6 +44,24 @@ namespace Pulumi.Aws.Amp
         /// 
         /// {{% examples %}}
         /// ## Example Usage
+        /// {{% example %}}
+        /// ### Basic configuration
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Amp.GetWorkspace.Invoke(new()
+        ///     {
+        ///         WorkspaceId = "ws-41det8a1-2c67-6a1a-9381-9b83d3d78ef7",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetWorkspaceResult> Invoke(GetWorkspaceInvokeArgs args, InvokeOptions? options = null)
@@ -39,7 +75,7 @@ namespace Pulumi.Aws.Amp
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// The tags assigned to the resource.
+        /// Tags assigned to the resource.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -48,7 +84,7 @@ namespace Pulumi.Aws.Amp
         }
 
         /// <summary>
-        /// The Prometheus workspace ID.
+        /// Prometheus workspace ID.
         /// </summary>
         [Input("workspaceId", required: true)]
         public string WorkspaceId { get; set; } = null!;
@@ -65,7 +101,7 @@ namespace Pulumi.Aws.Amp
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// The tags assigned to the resource.
+        /// Tags assigned to the resource.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -74,7 +110,7 @@ namespace Pulumi.Aws.Amp
         }
 
         /// <summary>
-        /// The Prometheus workspace ID.
+        /// Prometheus workspace ID.
         /// </summary>
         [Input("workspaceId", required: true)]
         public Input<string> WorkspaceId { get; set; } = null!;
@@ -90,15 +126,15 @@ namespace Pulumi.Aws.Amp
     public sealed class GetWorkspaceResult
     {
         /// <summary>
-        /// The Prometheus workspace alias.
+        /// Prometheus workspace alias.
         /// </summary>
         public readonly string Alias;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Prometheus workspace.
+        /// ARN of the Prometheus workspace.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The creation date of the Prometheus workspace.
+        /// Creation date of the Prometheus workspace.
         /// </summary>
         public readonly string CreatedDate;
         /// <summary>
@@ -106,15 +142,15 @@ namespace Pulumi.Aws.Amp
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The endpoint of the Prometheus workspace.
+        /// Endpoint of the Prometheus workspace.
         /// </summary>
         public readonly string PrometheusEndpoint;
         /// <summary>
-        /// The status of the Prometheus workspace.
+        /// Status of the Prometheus workspace.
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// The tags assigned to the resource.
+        /// Tags assigned to the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         public readonly string WorkspaceId;

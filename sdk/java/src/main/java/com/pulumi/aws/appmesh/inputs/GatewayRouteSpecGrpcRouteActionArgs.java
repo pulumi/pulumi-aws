@@ -14,14 +14,14 @@ public final class GatewayRouteSpecGrpcRouteActionArgs extends com.pulumi.resour
     public static final GatewayRouteSpecGrpcRouteActionArgs Empty = new GatewayRouteSpecGrpcRouteActionArgs();
 
     /**
-     * The target that traffic is routed to when a request matches the gateway route.
+     * Target that traffic is routed to when a request matches the gateway route.
      * 
      */
     @Import(name="target", required=true)
     private Output<GatewayRouteSpecGrpcRouteActionTargetArgs> target;
 
     /**
-     * @return The target that traffic is routed to when a request matches the gateway route.
+     * @return Target that traffic is routed to when a request matches the gateway route.
      * 
      */
     public Output<GatewayRouteSpecGrpcRouteActionTargetArgs> target() {
@@ -53,7 +53,7 @@ public final class GatewayRouteSpecGrpcRouteActionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param target The target that traffic is routed to when a request matches the gateway route.
+         * @param target Target that traffic is routed to when a request matches the gateway route.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class GatewayRouteSpecGrpcRouteActionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param target The target that traffic is routed to when a request matches the gateway route.
+         * @param target Target that traffic is routed to when a request matches the gateway route.
          * 
          * @return builder
          * 

@@ -14,15 +14,15 @@ namespace Pulumi.Aws.AppRunner.Outputs
     public sealed class ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues
     {
         /// <summary>
-        /// The command App Runner runs to build your application.
+        /// Command App Runner runs to build your application.
         /// </summary>
         public readonly string? BuildCommand;
         /// <summary>
-        /// The port that your application listens to in the container. Defaults to `"8080"`.
+        /// Port that your application listens to in the container. Defaults to `"8080"`.
         /// </summary>
         public readonly string? Port;
         /// <summary>
-        /// A runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`.
+        /// Runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`.
         /// </summary>
         public readonly string Runtime;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.AppRunner.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? RuntimeEnvironmentVariables;
         /// <summary>
-        /// The command App Runner runs to start your application.
+        /// Command App Runner runs to start your application.
         /// </summary>
         public readonly string? StartCommand;
 

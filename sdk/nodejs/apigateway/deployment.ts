@@ -126,7 +126,7 @@ export class Deployment extends pulumi.CustomResource {
     }
 
     /**
-     * The creation date of the deployment
+     * Creation date of the deployment
      */
     public /*out*/ readonly createdDate!: pulumi.Output<string>;
     /**
@@ -134,14 +134,14 @@ export class Deployment extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The execution ARN to be used in `lambdaPermission` resource's `sourceArn`
+     * Execution ARN to be used in `lambdaPermission`'s `sourceArn`
      * when allowing API Gateway to invoke a Lambda function,
      * e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
      */
     public /*out*/ readonly executionArn!: pulumi.Output<string>;
     /**
-     * The URL to invoke the API pointing to the stage,
-     * e.g. `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
+     * URL to invoke the API pointing to the stage,
+     * e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
      */
     public /*out*/ readonly invokeUrl!: pulumi.Output<string>;
     /**
@@ -212,7 +212,7 @@ export class Deployment extends pulumi.CustomResource {
  */
 export interface DeploymentState {
     /**
-     * The creation date of the deployment
+     * Creation date of the deployment
      */
     createdDate?: pulumi.Input<string>;
     /**
@@ -220,14 +220,14 @@ export interface DeploymentState {
      */
     description?: pulumi.Input<string>;
     /**
-     * The execution ARN to be used in `lambdaPermission` resource's `sourceArn`
+     * Execution ARN to be used in `lambdaPermission`'s `sourceArn`
      * when allowing API Gateway to invoke a Lambda function,
      * e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
      */
     executionArn?: pulumi.Input<string>;
     /**
-     * The URL to invoke the API pointing to the stage,
-     * e.g. `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
+     * URL to invoke the API pointing to the stage,
+     * e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
      */
     invokeUrl?: pulumi.Input<string>;
     /**

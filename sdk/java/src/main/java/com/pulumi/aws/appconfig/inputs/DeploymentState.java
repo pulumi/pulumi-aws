@@ -18,14 +18,14 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
     public static final DeploymentState Empty = new DeploymentState();
 
     /**
-     * The application ID. Must be between 4 and 7 characters in length.
+     * Application ID. Must be between 4 and 7 characters in length.
      * 
      */
     @Import(name="applicationId")
     private @Nullable Output<String> applicationId;
 
     /**
-     * @return The application ID. Must be between 4 and 7 characters in length.
+     * @return Application ID. Must be between 4 and 7 characters in length.
      * 
      */
     public Optional<Output<String>> applicationId() {
@@ -33,14 +33,14 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the AppConfig Deployment.
+     * ARN of the AppConfig Deployment.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the AppConfig Deployment.
+     * @return ARN of the AppConfig Deployment.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -48,14 +48,14 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The configuration profile ID. Must be between 4 and 7 characters in length.
+     * Configuration profile ID. Must be between 4 and 7 characters in length.
      * 
      */
     @Import(name="configurationProfileId")
     private @Nullable Output<String> configurationProfileId;
 
     /**
-     * @return The configuration profile ID. Must be between 4 and 7 characters in length.
+     * @return Configuration profile ID. Must be between 4 and 7 characters in length.
      * 
      */
     public Optional<Output<String>> configurationProfileId() {
@@ -63,14 +63,14 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The configuration version to deploy. Can be at most 1024 characters.
+     * Configuration version to deploy. Can be at most 1024 characters.
      * 
      */
     @Import(name="configurationVersion")
     private @Nullable Output<String> configurationVersion;
 
     /**
-     * @return The configuration version to deploy. Can be at most 1024 characters.
+     * @return Configuration version to deploy. Can be at most 1024 characters.
      * 
      */
     public Optional<Output<String>> configurationVersion() {
@@ -78,14 +78,14 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The deployment number.
+     * Deployment number.
      * 
      */
     @Import(name="deploymentNumber")
     private @Nullable Output<Integer> deploymentNumber;
 
     /**
-     * @return The deployment number.
+     * @return Deployment number.
      * 
      */
     public Optional<Output<Integer>> deploymentNumber() {
@@ -93,14 +93,14 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
+     * Deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
      * 
      */
     @Import(name="deploymentStrategyId")
     private @Nullable Output<String> deploymentStrategyId;
 
     /**
-     * @return The deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
+     * @return Deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
      * 
      */
     public Optional<Output<String>> deploymentStrategyId() {
@@ -108,14 +108,14 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The description of the deployment. Can be at most 1024 characters.
+     * Description of the deployment. Can be at most 1024 characters.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description of the deployment. Can be at most 1024 characters.
+     * @return Description of the deployment. Can be at most 1024 characters.
      * 
      */
     public Optional<Output<String>> description() {
@@ -123,14 +123,14 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The environment ID. Must be between 4 and 7 characters in length.
+     * Environment ID. Must be between 4 and 7 characters in length.
      * 
      */
     @Import(name="environmentId")
     private @Nullable Output<String> environmentId;
 
     /**
-     * @return The environment ID. Must be between 4 and 7 characters in length.
+     * @return Environment ID. Must be between 4 and 7 characters in length.
      * 
      */
     public Optional<Output<String>> environmentId() {
@@ -138,14 +138,14 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The state of the deployment.
+     * State of the deployment.
      * 
      */
     @Import(name="state")
     private @Nullable Output<String> state;
 
     /**
-     * @return The state of the deployment.
+     * @return State of the deployment.
      * 
      */
     public Optional<Output<String>> state() {
@@ -153,14 +153,14 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -168,14 +168,14 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -217,7 +217,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applicationId The application ID. Must be between 4 and 7 characters in length.
+         * @param applicationId Application ID. Must be between 4 and 7 characters in length.
          * 
          * @return builder
          * 
@@ -228,7 +228,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applicationId The application ID. Must be between 4 and 7 characters in length.
+         * @param applicationId Application ID. Must be between 4 and 7 characters in length.
          * 
          * @return builder
          * 
@@ -238,7 +238,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the AppConfig Deployment.
+         * @param arn ARN of the AppConfig Deployment.
          * 
          * @return builder
          * 
@@ -249,7 +249,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the AppConfig Deployment.
+         * @param arn ARN of the AppConfig Deployment.
          * 
          * @return builder
          * 
@@ -259,7 +259,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param configurationProfileId The configuration profile ID. Must be between 4 and 7 characters in length.
+         * @param configurationProfileId Configuration profile ID. Must be between 4 and 7 characters in length.
          * 
          * @return builder
          * 
@@ -270,7 +270,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param configurationProfileId The configuration profile ID. Must be between 4 and 7 characters in length.
+         * @param configurationProfileId Configuration profile ID. Must be between 4 and 7 characters in length.
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param configurationVersion The configuration version to deploy. Can be at most 1024 characters.
+         * @param configurationVersion Configuration version to deploy. Can be at most 1024 characters.
          * 
          * @return builder
          * 
@@ -291,7 +291,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param configurationVersion The configuration version to deploy. Can be at most 1024 characters.
+         * @param configurationVersion Configuration version to deploy. Can be at most 1024 characters.
          * 
          * @return builder
          * 
@@ -301,7 +301,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deploymentNumber The deployment number.
+         * @param deploymentNumber Deployment number.
          * 
          * @return builder
          * 
@@ -312,7 +312,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deploymentNumber The deployment number.
+         * @param deploymentNumber Deployment number.
          * 
          * @return builder
          * 
@@ -322,7 +322,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deploymentStrategyId The deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
+         * @param deploymentStrategyId Deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
          * 
          * @return builder
          * 
@@ -333,7 +333,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deploymentStrategyId The deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
+         * @param deploymentStrategyId Deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
          * 
          * @return builder
          * 
@@ -343,7 +343,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The description of the deployment. Can be at most 1024 characters.
+         * @param description Description of the deployment. Can be at most 1024 characters.
          * 
          * @return builder
          * 
@@ -354,7 +354,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The description of the deployment. Can be at most 1024 characters.
+         * @param description Description of the deployment. Can be at most 1024 characters.
          * 
          * @return builder
          * 
@@ -364,7 +364,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param environmentId The environment ID. Must be between 4 and 7 characters in length.
+         * @param environmentId Environment ID. Must be between 4 and 7 characters in length.
          * 
          * @return builder
          * 
@@ -375,7 +375,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param environmentId The environment ID. Must be between 4 and 7 characters in length.
+         * @param environmentId Environment ID. Must be between 4 and 7 characters in length.
          * 
          * @return builder
          * 
@@ -385,7 +385,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param state The state of the deployment.
+         * @param state State of the deployment.
          * 
          * @return builder
          * 
@@ -396,7 +396,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param state The state of the deployment.
+         * @param state State of the deployment.
          * 
          * @return builder
          * 
@@ -406,7 +406,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -417,7 +417,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -427,7 +427,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
@@ -438,7 +438,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 

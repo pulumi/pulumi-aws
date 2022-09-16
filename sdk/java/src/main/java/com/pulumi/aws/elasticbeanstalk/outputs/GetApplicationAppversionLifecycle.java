@@ -17,17 +17,17 @@ public final class GetApplicationAppversionLifecycle {
      */
     private Boolean deleteSourceFromS3;
     /**
-     * @return The number of days to retain an application version.
+     * @return Number of days to retain an application version.
      * 
      */
     private Integer maxAgeInDays;
     /**
-     * @return The maximum number of application versions to retain.
+     * @return Maximum number of application versions to retain.
      * 
      */
     private Integer maxCount;
     /**
-     * @return The ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
+     * @return ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
      * 
      */
     private String serviceRole;
@@ -41,21 +41,21 @@ public final class GetApplicationAppversionLifecycle {
         return this.deleteSourceFromS3;
     }
     /**
-     * @return The number of days to retain an application version.
+     * @return Number of days to retain an application version.
      * 
      */
     public Integer maxAgeInDays() {
         return this.maxAgeInDays;
     }
     /**
-     * @return The maximum number of application versions to retain.
+     * @return Maximum number of application versions to retain.
      * 
      */
     public Integer maxCount() {
         return this.maxCount;
     }
     /**
-     * @return The ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
+     * @return ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
      * 
      */
     public String serviceRole() {

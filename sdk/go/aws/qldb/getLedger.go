@@ -48,7 +48,7 @@ func LookupLedger(ctx *pulumi.Context, args *LookupLedgerArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getLedger.
 type LookupLedgerArgs struct {
-	// The friendly name of the ledger to match.
+	// Friendly name of the ledger to match.
 	Name string            `pulumi:"name"`
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -80,7 +80,7 @@ func LookupLedgerOutput(ctx *pulumi.Context, args LookupLedgerOutputArgs, opts .
 
 // A collection of arguments for invoking getLedger.
 type LookupLedgerOutputArgs struct {
-	// The friendly name of the ledger to match.
+	// Friendly name of the ledger to match.
 	Name pulumi.StringInput    `pulumi:"name"`
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }

@@ -14,7 +14,7 @@ public final class GetSubnetIdsFilter extends com.pulumi.resources.InvokeArgs {
     public static final GetSubnetIdsFilter Empty = new GetSubnetIdsFilter();
 
     /**
-     * The name of the field to filter by, as defined by
+     * Name of the field to filter by, as defined by
      * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
      * For example, if matching against tag `Name`, use:
      * 
@@ -23,7 +23,7 @@ public final class GetSubnetIdsFilter extends com.pulumi.resources.InvokeArgs {
     private String name;
 
     /**
-     * @return The name of the field to filter by, as defined by
+     * @return Name of the field to filter by, as defined by
      * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
      * For example, if matching against tag `Name`, use:
      * 
@@ -75,7 +75,7 @@ public final class GetSubnetIdsFilter extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the field to filter by, as defined by
+         * @param name Name of the field to filter by, as defined by
          * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
          * For example, if matching against tag `Name`, use:
          * 

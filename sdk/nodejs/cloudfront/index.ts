@@ -5,41 +5,116 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./cachePolicy";
-export * from "./distribution";
-export * from "./fieldLevelEncryptionConfig";
-export * from "./fieldLevelEncryptionProfile";
-export * from "./function";
-export * from "./getCachePolicy";
-export * from "./getDistribution";
-export * from "./getFunction";
-export * from "./getLogDeliveryCanonicalUserId";
-export * from "./getOriginAccessIdentities";
-export * from "./getOriginAccessIdentity";
-export * from "./getOriginRequestPolicy";
-export * from "./getRealtimeLogConfig";
-export * from "./getResponseHeadersPolicy";
-export * from "./keyGroup";
-export * from "./monitoringSubscription";
-export * from "./originAccessIdentity";
-export * from "./originRequestPolicy";
-export * from "./publicKey";
-export * from "./realtimeLogConfig";
-export * from "./responseHeadersPolicy";
+export { CachePolicyArgs, CachePolicyState } from "./cachePolicy";
+export type CachePolicy = import("./cachePolicy").CachePolicy;
+export const CachePolicy: typeof import("./cachePolicy").CachePolicy = null as any;
 
-// Import resources to register:
-import { CachePolicy } from "./cachePolicy";
-import { Distribution } from "./distribution";
-import { FieldLevelEncryptionConfig } from "./fieldLevelEncryptionConfig";
-import { FieldLevelEncryptionProfile } from "./fieldLevelEncryptionProfile";
-import { Function } from "./function";
-import { KeyGroup } from "./keyGroup";
-import { MonitoringSubscription } from "./monitoringSubscription";
-import { OriginAccessIdentity } from "./originAccessIdentity";
-import { OriginRequestPolicy } from "./originRequestPolicy";
-import { PublicKey } from "./publicKey";
-import { RealtimeLogConfig } from "./realtimeLogConfig";
-import { ResponseHeadersPolicy } from "./responseHeadersPolicy";
+export { DistributionArgs, DistributionState } from "./distribution";
+export type Distribution = import("./distribution").Distribution;
+export const Distribution: typeof import("./distribution").Distribution = null as any;
+
+export { FieldLevelEncryptionConfigArgs, FieldLevelEncryptionConfigState } from "./fieldLevelEncryptionConfig";
+export type FieldLevelEncryptionConfig = import("./fieldLevelEncryptionConfig").FieldLevelEncryptionConfig;
+export const FieldLevelEncryptionConfig: typeof import("./fieldLevelEncryptionConfig").FieldLevelEncryptionConfig = null as any;
+
+export { FieldLevelEncryptionProfileArgs, FieldLevelEncryptionProfileState } from "./fieldLevelEncryptionProfile";
+export type FieldLevelEncryptionProfile = import("./fieldLevelEncryptionProfile").FieldLevelEncryptionProfile;
+export const FieldLevelEncryptionProfile: typeof import("./fieldLevelEncryptionProfile").FieldLevelEncryptionProfile = null as any;
+
+export { FunctionArgs, FunctionState } from "./function";
+export type Function = import("./function").Function;
+export const Function: typeof import("./function").Function = null as any;
+
+export { GetCachePolicyArgs, GetCachePolicyResult, GetCachePolicyOutputArgs } from "./getCachePolicy";
+export const getCachePolicy: typeof import("./getCachePolicy").getCachePolicy = null as any;
+export const getCachePolicyOutput: typeof import("./getCachePolicy").getCachePolicyOutput = null as any;
+
+export { GetDistributionArgs, GetDistributionResult, GetDistributionOutputArgs } from "./getDistribution";
+export const getDistribution: typeof import("./getDistribution").getDistribution = null as any;
+export const getDistributionOutput: typeof import("./getDistribution").getDistributionOutput = null as any;
+
+export { GetFunctionArgs, GetFunctionResult, GetFunctionOutputArgs } from "./getFunction";
+export const getFunction: typeof import("./getFunction").getFunction = null as any;
+export const getFunctionOutput: typeof import("./getFunction").getFunctionOutput = null as any;
+
+export { GetLogDeliveryCanonicalUserIdArgs, GetLogDeliveryCanonicalUserIdResult, GetLogDeliveryCanonicalUserIdOutputArgs } from "./getLogDeliveryCanonicalUserId";
+export const getLogDeliveryCanonicalUserId: typeof import("./getLogDeliveryCanonicalUserId").getLogDeliveryCanonicalUserId = null as any;
+export const getLogDeliveryCanonicalUserIdOutput: typeof import("./getLogDeliveryCanonicalUserId").getLogDeliveryCanonicalUserIdOutput = null as any;
+
+export { GetOriginAccessIdentitiesArgs, GetOriginAccessIdentitiesResult, GetOriginAccessIdentitiesOutputArgs } from "./getOriginAccessIdentities";
+export const getOriginAccessIdentities: typeof import("./getOriginAccessIdentities").getOriginAccessIdentities = null as any;
+export const getOriginAccessIdentitiesOutput: typeof import("./getOriginAccessIdentities").getOriginAccessIdentitiesOutput = null as any;
+
+export { GetOriginAccessIdentityArgs, GetOriginAccessIdentityResult, GetOriginAccessIdentityOutputArgs } from "./getOriginAccessIdentity";
+export const getOriginAccessIdentity: typeof import("./getOriginAccessIdentity").getOriginAccessIdentity = null as any;
+export const getOriginAccessIdentityOutput: typeof import("./getOriginAccessIdentity").getOriginAccessIdentityOutput = null as any;
+
+export { GetOriginRequestPolicyArgs, GetOriginRequestPolicyResult, GetOriginRequestPolicyOutputArgs } from "./getOriginRequestPolicy";
+export const getOriginRequestPolicy: typeof import("./getOriginRequestPolicy").getOriginRequestPolicy = null as any;
+export const getOriginRequestPolicyOutput: typeof import("./getOriginRequestPolicy").getOriginRequestPolicyOutput = null as any;
+
+export { GetRealtimeLogConfigArgs, GetRealtimeLogConfigResult, GetRealtimeLogConfigOutputArgs } from "./getRealtimeLogConfig";
+export const getRealtimeLogConfig: typeof import("./getRealtimeLogConfig").getRealtimeLogConfig = null as any;
+export const getRealtimeLogConfigOutput: typeof import("./getRealtimeLogConfig").getRealtimeLogConfigOutput = null as any;
+
+export { GetResponseHeadersPolicyArgs, GetResponseHeadersPolicyResult, GetResponseHeadersPolicyOutputArgs } from "./getResponseHeadersPolicy";
+export const getResponseHeadersPolicy: typeof import("./getResponseHeadersPolicy").getResponseHeadersPolicy = null as any;
+export const getResponseHeadersPolicyOutput: typeof import("./getResponseHeadersPolicy").getResponseHeadersPolicyOutput = null as any;
+
+export { KeyGroupArgs, KeyGroupState } from "./keyGroup";
+export type KeyGroup = import("./keyGroup").KeyGroup;
+export const KeyGroup: typeof import("./keyGroup").KeyGroup = null as any;
+
+export { MonitoringSubscriptionArgs, MonitoringSubscriptionState } from "./monitoringSubscription";
+export type MonitoringSubscription = import("./monitoringSubscription").MonitoringSubscription;
+export const MonitoringSubscription: typeof import("./monitoringSubscription").MonitoringSubscription = null as any;
+
+export { OriginAccessControlArgs, OriginAccessControlState } from "./originAccessControl";
+export type OriginAccessControl = import("./originAccessControl").OriginAccessControl;
+export const OriginAccessControl: typeof import("./originAccessControl").OriginAccessControl = null as any;
+
+export { OriginAccessIdentityArgs, OriginAccessIdentityState } from "./originAccessIdentity";
+export type OriginAccessIdentity = import("./originAccessIdentity").OriginAccessIdentity;
+export const OriginAccessIdentity: typeof import("./originAccessIdentity").OriginAccessIdentity = null as any;
+
+export { OriginRequestPolicyArgs, OriginRequestPolicyState } from "./originRequestPolicy";
+export type OriginRequestPolicy = import("./originRequestPolicy").OriginRequestPolicy;
+export const OriginRequestPolicy: typeof import("./originRequestPolicy").OriginRequestPolicy = null as any;
+
+export { PublicKeyArgs, PublicKeyState } from "./publicKey";
+export type PublicKey = import("./publicKey").PublicKey;
+export const PublicKey: typeof import("./publicKey").PublicKey = null as any;
+
+export { RealtimeLogConfigArgs, RealtimeLogConfigState } from "./realtimeLogConfig";
+export type RealtimeLogConfig = import("./realtimeLogConfig").RealtimeLogConfig;
+export const RealtimeLogConfig: typeof import("./realtimeLogConfig").RealtimeLogConfig = null as any;
+
+export { ResponseHeadersPolicyArgs, ResponseHeadersPolicyState } from "./responseHeadersPolicy";
+export type ResponseHeadersPolicy = import("./responseHeadersPolicy").ResponseHeadersPolicy;
+export const ResponseHeadersPolicy: typeof import("./responseHeadersPolicy").ResponseHeadersPolicy = null as any;
+
+utilities.lazyLoad(exports, ["CachePolicy"], () => require("./cachePolicy"));
+utilities.lazyLoad(exports, ["Distribution"], () => require("./distribution"));
+utilities.lazyLoad(exports, ["FieldLevelEncryptionConfig"], () => require("./fieldLevelEncryptionConfig"));
+utilities.lazyLoad(exports, ["FieldLevelEncryptionProfile"], () => require("./fieldLevelEncryptionProfile"));
+utilities.lazyLoad(exports, ["Function"], () => require("./function"));
+utilities.lazyLoad(exports, ["getCachePolicy","getCachePolicyOutput"], () => require("./getCachePolicy"));
+utilities.lazyLoad(exports, ["getDistribution","getDistributionOutput"], () => require("./getDistribution"));
+utilities.lazyLoad(exports, ["getFunction","getFunctionOutput"], () => require("./getFunction"));
+utilities.lazyLoad(exports, ["getLogDeliveryCanonicalUserId","getLogDeliveryCanonicalUserIdOutput"], () => require("./getLogDeliveryCanonicalUserId"));
+utilities.lazyLoad(exports, ["getOriginAccessIdentities","getOriginAccessIdentitiesOutput"], () => require("./getOriginAccessIdentities"));
+utilities.lazyLoad(exports, ["getOriginAccessIdentity","getOriginAccessIdentityOutput"], () => require("./getOriginAccessIdentity"));
+utilities.lazyLoad(exports, ["getOriginRequestPolicy","getOriginRequestPolicyOutput"], () => require("./getOriginRequestPolicy"));
+utilities.lazyLoad(exports, ["getRealtimeLogConfig","getRealtimeLogConfigOutput"], () => require("./getRealtimeLogConfig"));
+utilities.lazyLoad(exports, ["getResponseHeadersPolicy","getResponseHeadersPolicyOutput"], () => require("./getResponseHeadersPolicy"));
+utilities.lazyLoad(exports, ["KeyGroup"], () => require("./keyGroup"));
+utilities.lazyLoad(exports, ["MonitoringSubscription"], () => require("./monitoringSubscription"));
+utilities.lazyLoad(exports, ["OriginAccessControl"], () => require("./originAccessControl"));
+utilities.lazyLoad(exports, ["OriginAccessIdentity"], () => require("./originAccessIdentity"));
+utilities.lazyLoad(exports, ["OriginRequestPolicy"], () => require("./originRequestPolicy"));
+utilities.lazyLoad(exports, ["PublicKey"], () => require("./publicKey"));
+utilities.lazyLoad(exports, ["RealtimeLogConfig"], () => require("./realtimeLogConfig"));
+utilities.lazyLoad(exports, ["ResponseHeadersPolicy"], () => require("./responseHeadersPolicy"));
 
 const _module = {
     version: utilities.getVersion(),
@@ -59,6 +134,8 @@ const _module = {
                 return new KeyGroup(name, <any>undefined, { urn })
             case "aws:cloudfront/monitoringSubscription:MonitoringSubscription":
                 return new MonitoringSubscription(name, <any>undefined, { urn })
+            case "aws:cloudfront/originAccessControl:OriginAccessControl":
+                return new OriginAccessControl(name, <any>undefined, { urn })
             case "aws:cloudfront/originAccessIdentity:OriginAccessIdentity":
                 return new OriginAccessIdentity(name, <any>undefined, { urn })
             case "aws:cloudfront/originRequestPolicy:OriginRequestPolicy":
@@ -81,6 +158,7 @@ pulumi.runtime.registerResourceModule("aws", "cloudfront/fieldLevelEncryptionPro
 pulumi.runtime.registerResourceModule("aws", "cloudfront/function", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudfront/keyGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudfront/monitoringSubscription", _module)
+pulumi.runtime.registerResourceModule("aws", "cloudfront/originAccessControl", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudfront/originAccessIdentity", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudfront/originRequestPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudfront/publicKey", _module)

@@ -16,14 +16,14 @@ public final class GetStreamConsumerArgs extends com.pulumi.resources.InvokeArgs
     public static final GetStreamConsumerArgs Empty = new GetStreamConsumerArgs();
 
     /**
-     * Amazon Resource Name (ARN) of the stream consumer.
+     * ARN of the stream consumer.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the stream consumer.
+     * @return ARN of the stream consumer.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -46,14 +46,14 @@ public final class GetStreamConsumerArgs extends com.pulumi.resources.InvokeArgs
     }
 
     /**
-     * Amazon Resource Name (ARN) of the data stream the consumer is registered with.
+     * ARN of the data stream the consumer is registered with.
      * 
      */
     @Import(name="streamArn", required=true)
     private Output<String> streamArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the data stream the consumer is registered with.
+     * @return ARN of the data stream the consumer is registered with.
      * 
      */
     public Output<String> streamArn() {
@@ -87,7 +87,7 @@ public final class GetStreamConsumerArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the stream consumer.
+         * @param arn ARN of the stream consumer.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class GetStreamConsumerArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the stream consumer.
+         * @param arn ARN of the stream consumer.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class GetStreamConsumerArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param streamArn Amazon Resource Name (ARN) of the data stream the consumer is registered with.
+         * @param streamArn ARN of the data stream the consumer is registered with.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class GetStreamConsumerArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param streamArn Amazon Resource Name (ARN) of the data stream the consumer is registered with.
+         * @param streamArn ARN of the data stream the consumer is registered with.
          * 
          * @return builder
          * 

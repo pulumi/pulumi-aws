@@ -18,14 +18,14 @@ public final class GroupWarmPoolArgs extends com.pulumi.resources.ResourceArgs {
     public static final GroupWarmPoolArgs Empty = new GroupWarmPoolArgs();
 
     /**
-     * Indicates whether instances in the Auto Scaling group can be returned to the warm pool on scale in. The default is to terminate instances in the Auto Scaling group when the group scales in.
+     * Whether instances in the Auto Scaling group can be returned to the warm pool on scale in. The default is to terminate instances in the Auto Scaling group when the group scales in.
      * 
      */
     @Import(name="instanceReusePolicy")
     private @Nullable Output<GroupWarmPoolInstanceReusePolicyArgs> instanceReusePolicy;
 
     /**
-     * @return Indicates whether instances in the Auto Scaling group can be returned to the warm pool on scale in. The default is to terminate instances in the Auto Scaling group when the group scales in.
+     * @return Whether instances in the Auto Scaling group can be returned to the warm pool on scale in. The default is to terminate instances in the Auto Scaling group when the group scales in.
      * 
      */
     public Optional<Output<GroupWarmPoolInstanceReusePolicyArgs>> instanceReusePolicy() {
@@ -33,14 +33,14 @@ public final class GroupWarmPoolArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the total maximum number of instances that are allowed to be in the warm pool or in any state except Terminated for the Auto Scaling group.
+     * Total maximum number of instances that are allowed to be in the warm pool or in any state except Terminated for the Auto Scaling group.
      * 
      */
     @Import(name="maxGroupPreparedCapacity")
     private @Nullable Output<Integer> maxGroupPreparedCapacity;
 
     /**
-     * @return Specifies the total maximum number of instances that are allowed to be in the warm pool or in any state except Terminated for the Auto Scaling group.
+     * @return Total maximum number of instances that are allowed to be in the warm pool or in any state except Terminated for the Auto Scaling group.
      * 
      */
     public Optional<Output<Integer>> maxGroupPreparedCapacity() {
@@ -48,14 +48,14 @@ public final class GroupWarmPoolArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
+     * Minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
      * 
      */
     @Import(name="minSize")
     private @Nullable Output<Integer> minSize;
 
     /**
-     * @return Specifies the minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
+     * @return Minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
      * 
      */
     public Optional<Output<Integer>> minSize() {
@@ -105,7 +105,7 @@ public final class GroupWarmPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instanceReusePolicy Indicates whether instances in the Auto Scaling group can be returned to the warm pool on scale in. The default is to terminate instances in the Auto Scaling group when the group scales in.
+         * @param instanceReusePolicy Whether instances in the Auto Scaling group can be returned to the warm pool on scale in. The default is to terminate instances in the Auto Scaling group when the group scales in.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class GroupWarmPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instanceReusePolicy Indicates whether instances in the Auto Scaling group can be returned to the warm pool on scale in. The default is to terminate instances in the Auto Scaling group when the group scales in.
+         * @param instanceReusePolicy Whether instances in the Auto Scaling group can be returned to the warm pool on scale in. The default is to terminate instances in the Auto Scaling group when the group scales in.
          * 
          * @return builder
          * 
@@ -126,7 +126,7 @@ public final class GroupWarmPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxGroupPreparedCapacity Specifies the total maximum number of instances that are allowed to be in the warm pool or in any state except Terminated for the Auto Scaling group.
+         * @param maxGroupPreparedCapacity Total maximum number of instances that are allowed to be in the warm pool or in any state except Terminated for the Auto Scaling group.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class GroupWarmPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxGroupPreparedCapacity Specifies the total maximum number of instances that are allowed to be in the warm pool or in any state except Terminated for the Auto Scaling group.
+         * @param maxGroupPreparedCapacity Total maximum number of instances that are allowed to be in the warm pool or in any state except Terminated for the Auto Scaling group.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class GroupWarmPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param minSize Specifies the minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
+         * @param minSize Minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class GroupWarmPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param minSize Specifies the minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
+         * @param minSize Minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
          * 
          * @return builder
          * 

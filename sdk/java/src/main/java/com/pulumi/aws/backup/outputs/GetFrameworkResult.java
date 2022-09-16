@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class GetFrameworkResult {
     /**
-     * @return The ARN of the backup framework.
+     * @return ARN of the backup framework.
      * 
      */
     private String arn;
@@ -23,17 +23,17 @@ public final class GetFrameworkResult {
      */
     private List<GetFrameworkControl> controls;
     /**
-     * @return The date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
+     * @return Date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
      * 
      */
     private String creationTime;
     /**
-     * @return The deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`| `FAILED`.
+     * @return Deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`| `FAILED`.
      * 
      */
     private String deploymentStatus;
     /**
-     * @return The description of the framework.
+     * @return Description of the framework.
      * 
      */
     private String description;
@@ -43,24 +43,24 @@ public final class GetFrameworkResult {
      */
     private String id;
     /**
-     * @return The name of a parameter, for example, BackupPlanFrequency.
+     * @return Name of a parameter, for example, BackupPlanFrequency.
      * 
      */
     private String name;
     /**
-     * @return A framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. The statuses are: `ACTIVE`, `PARTIALLY_ACTIVE`, `INACTIVE`, `UNAVAILABLE`. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
+     * @return Framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. The statuses are: `ACTIVE`, `PARTIALLY_ACTIVE`, `INACTIVE`, `UNAVAILABLE`. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
      * 
      */
     private String status;
     /**
-     * @return The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+     * @return Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
      * 
      */
     private Map<String,String> tags;
 
     private GetFrameworkResult() {}
     /**
-     * @return The ARN of the backup framework.
+     * @return ARN of the backup framework.
      * 
      */
     public String arn() {
@@ -74,21 +74,21 @@ public final class GetFrameworkResult {
         return this.controls;
     }
     /**
-     * @return The date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
+     * @return Date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
      * 
      */
     public String creationTime() {
         return this.creationTime;
     }
     /**
-     * @return The deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`| `FAILED`.
+     * @return Deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`| `FAILED`.
      * 
      */
     public String deploymentStatus() {
         return this.deploymentStatus;
     }
     /**
-     * @return The description of the framework.
+     * @return Description of the framework.
      * 
      */
     public String description() {
@@ -102,21 +102,21 @@ public final class GetFrameworkResult {
         return this.id;
     }
     /**
-     * @return The name of a parameter, for example, BackupPlanFrequency.
+     * @return Name of a parameter, for example, BackupPlanFrequency.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return A framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. The statuses are: `ACTIVE`, `PARTIALLY_ACTIVE`, `INACTIVE`, `UNAVAILABLE`. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
+     * @return Framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. The statuses are: `ACTIVE`, `PARTIALLY_ACTIVE`, `INACTIVE`, `UNAVAILABLE`. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
      * 
      */
     public String status() {
         return this.status;
     }
     /**
-     * @return The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+     * @return Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
      * 
      */
     public Map<String,String> tags() {

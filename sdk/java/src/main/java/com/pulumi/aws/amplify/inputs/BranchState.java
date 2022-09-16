@@ -19,14 +19,14 @@ public final class BranchState extends com.pulumi.resources.ResourceArgs {
     public static final BranchState Empty = new BranchState();
 
     /**
-     * The unique ID for an Amplify app.
+     * Unique ID for an Amplify app.
      * 
      */
     @Import(name="appId")
     private @Nullable Output<String> appId;
 
     /**
-     * @return The unique ID for an Amplify app.
+     * @return Unique ID for an Amplify app.
      * 
      */
     public Optional<Output<String>> appId() {
@@ -34,14 +34,14 @@ public final class BranchState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) for the branch.
+     * ARN for the branch.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the branch.
+     * @return ARN for the branch.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -64,14 +64,14 @@ public final class BranchState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) for a backend environment that is part of an Amplify app.
+     * ARN for a backend environment that is part of an Amplify app.
      * 
      */
     @Import(name="backendEnvironmentArn")
     private @Nullable Output<String> backendEnvironmentArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for a backend environment that is part of an Amplify app.
+     * @return ARN for a backend environment that is part of an Amplify app.
      * 
      */
     public Optional<Output<String>> backendEnvironmentArn() {
@@ -79,14 +79,14 @@ public final class BranchState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The basic authorization credentials for the branch.
+     * Basic authorization credentials for the branch.
      * 
      */
     @Import(name="basicAuthCredentials")
     private @Nullable Output<String> basicAuthCredentials;
 
     /**
-     * @return The basic authorization credentials for the branch.
+     * @return Basic authorization credentials for the branch.
      * 
      */
     public Optional<Output<String>> basicAuthCredentials() {
@@ -94,14 +94,14 @@ public final class BranchState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name for the branch.
+     * Name for the branch.
      * 
      */
     @Import(name="branchName")
     private @Nullable Output<String> branchName;
 
     /**
-     * @return The name for the branch.
+     * @return Name for the branch.
      * 
      */
     public Optional<Output<String>> branchName() {
@@ -109,14 +109,14 @@ public final class BranchState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The custom domains for the branch.
+     * Custom domains for the branch.
      * 
      */
     @Import(name="customDomains")
     private @Nullable Output<List<String>> customDomains;
 
     /**
-     * @return The custom domains for the branch.
+     * @return Custom domains for the branch.
      * 
      */
     public Optional<Output<List<String>>> customDomains() {
@@ -124,14 +124,14 @@ public final class BranchState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The description for the branch.
+     * Description for the branch.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description for the branch.
+     * @return Description for the branch.
      * 
      */
     public Optional<Output<String>> description() {
@@ -139,14 +139,14 @@ public final class BranchState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The destination branch if the branch is a pull request branch.
+     * Destination branch if the branch is a pull request branch.
      * 
      */
     @Import(name="destinationBranch")
     private @Nullable Output<String> destinationBranch;
 
     /**
-     * @return The destination branch if the branch is a pull request branch.
+     * @return Destination branch if the branch is a pull request branch.
      * 
      */
     public Optional<Output<String>> destinationBranch() {
@@ -154,14 +154,14 @@ public final class BranchState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The display name for a branch. This is used as the default domain prefix.
+     * Display name for a branch. This is used as the default domain prefix.
      * 
      */
     @Import(name="displayName")
     private @Nullable Output<String> displayName;
 
     /**
-     * @return The display name for a branch. This is used as the default domain prefix.
+     * @return Display name for a branch. This is used as the default domain prefix.
      * 
      */
     public Optional<Output<String>> displayName() {
@@ -244,14 +244,14 @@ public final class BranchState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The environment variables for the branch.
+     * Environment variables for the branch.
      * 
      */
     @Import(name="environmentVariables")
     private @Nullable Output<Map<String,String>> environmentVariables;
 
     /**
-     * @return The environment variables for the branch.
+     * @return Environment variables for the branch.
      * 
      */
     public Optional<Output<Map<String,String>>> environmentVariables() {
@@ -259,14 +259,14 @@ public final class BranchState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The framework for the branch.
+     * Framework for the branch.
      * 
      */
     @Import(name="framework")
     private @Nullable Output<String> framework;
 
     /**
-     * @return The framework for the branch.
+     * @return Framework for the branch.
      * 
      */
     public Optional<Output<String>> framework() {
@@ -274,14 +274,14 @@ public final class BranchState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amplify environment name for the pull request.
+     * Amplify environment name for the pull request.
      * 
      */
     @Import(name="pullRequestEnvironmentName")
     private @Nullable Output<String> pullRequestEnvironmentName;
 
     /**
-     * @return The Amplify environment name for the pull request.
+     * @return Amplify environment name for the pull request.
      * 
      */
     public Optional<Output<String>> pullRequestEnvironmentName() {
@@ -289,14 +289,14 @@ public final class BranchState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The source branch if the branch is a pull request branch.
+     * Source branch if the branch is a pull request branch.
      * 
      */
     @Import(name="sourceBranch")
     private @Nullable Output<String> sourceBranch;
 
     /**
-     * @return The source branch if the branch is a pull request branch.
+     * @return Source branch if the branch is a pull request branch.
      * 
      */
     public Optional<Output<String>> sourceBranch() {
@@ -334,14 +334,14 @@ public final class BranchState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -349,14 +349,14 @@ public final class BranchState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The content Time To Live (TTL) for the website in seconds.
+     * Content Time To Live (TTL) for the website in seconds.
      * 
      */
     @Import(name="ttl")
     private @Nullable Output<String> ttl;
 
     /**
-     * @return The content Time To Live (TTL) for the website in seconds.
+     * @return Content Time To Live (TTL) for the website in seconds.
      * 
      */
     public Optional<Output<String>> ttl() {
@@ -410,7 +410,7 @@ public final class BranchState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appId The unique ID for an Amplify app.
+         * @param appId Unique ID for an Amplify app.
          * 
          * @return builder
          * 
@@ -421,7 +421,7 @@ public final class BranchState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appId The unique ID for an Amplify app.
+         * @param appId Unique ID for an Amplify app.
          * 
          * @return builder
          * 
@@ -431,7 +431,7 @@ public final class BranchState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) for the branch.
+         * @param arn ARN for the branch.
          * 
          * @return builder
          * 
@@ -442,7 +442,7 @@ public final class BranchState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) for the branch.
+         * @param arn ARN for the branch.
          * 
          * @return builder
          * 
@@ -483,7 +483,7 @@ public final class BranchState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param backendEnvironmentArn The Amazon Resource Name (ARN) for a backend environment that is part of an Amplify app.
+         * @param backendEnvironmentArn ARN for a backend environment that is part of an Amplify app.
          * 
          * @return builder
          * 
@@ -494,7 +494,7 @@ public final class BranchState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param backendEnvironmentArn The Amazon Resource Name (ARN) for a backend environment that is part of an Amplify app.
+         * @param backendEnvironmentArn ARN for a backend environment that is part of an Amplify app.
          * 
          * @return builder
          * 
@@ -504,7 +504,7 @@ public final class BranchState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param basicAuthCredentials The basic authorization credentials for the branch.
+         * @param basicAuthCredentials Basic authorization credentials for the branch.
          * 
          * @return builder
          * 
@@ -515,7 +515,7 @@ public final class BranchState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param basicAuthCredentials The basic authorization credentials for the branch.
+         * @param basicAuthCredentials Basic authorization credentials for the branch.
          * 
          * @return builder
          * 
@@ -525,7 +525,7 @@ public final class BranchState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param branchName The name for the branch.
+         * @param branchName Name for the branch.
          * 
          * @return builder
          * 
@@ -536,7 +536,7 @@ public final class BranchState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param branchName The name for the branch.
+         * @param branchName Name for the branch.
          * 
          * @return builder
          * 
@@ -546,7 +546,7 @@ public final class BranchState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customDomains The custom domains for the branch.
+         * @param customDomains Custom domains for the branch.
          * 
          * @return builder
          * 
@@ -557,7 +557,7 @@ public final class BranchState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customDomains The custom domains for the branch.
+         * @param customDomains Custom domains for the branch.
          * 
          * @return builder
          * 
@@ -567,7 +567,7 @@ public final class BranchState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customDomains The custom domains for the branch.
+         * @param customDomains Custom domains for the branch.
          * 
          * @return builder
          * 
@@ -577,7 +577,7 @@ public final class BranchState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The description for the branch.
+         * @param description Description for the branch.
          * 
          * @return builder
          * 
@@ -588,7 +588,7 @@ public final class BranchState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The description for the branch.
+         * @param description Description for the branch.
          * 
          * @return builder
          * 
@@ -598,7 +598,7 @@ public final class BranchState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param destinationBranch The destination branch if the branch is a pull request branch.
+         * @param destinationBranch Destination branch if the branch is a pull request branch.
          * 
          * @return builder
          * 
@@ -609,7 +609,7 @@ public final class BranchState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param destinationBranch The destination branch if the branch is a pull request branch.
+         * @param destinationBranch Destination branch if the branch is a pull request branch.
          * 
          * @return builder
          * 
@@ -619,7 +619,7 @@ public final class BranchState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param displayName The display name for a branch. This is used as the default domain prefix.
+         * @param displayName Display name for a branch. This is used as the default domain prefix.
          * 
          * @return builder
          * 
@@ -630,7 +630,7 @@ public final class BranchState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param displayName The display name for a branch. This is used as the default domain prefix.
+         * @param displayName Display name for a branch. This is used as the default domain prefix.
          * 
          * @return builder
          * 
@@ -745,7 +745,7 @@ public final class BranchState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param environmentVariables The environment variables for the branch.
+         * @param environmentVariables Environment variables for the branch.
          * 
          * @return builder
          * 
@@ -756,7 +756,7 @@ public final class BranchState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param environmentVariables The environment variables for the branch.
+         * @param environmentVariables Environment variables for the branch.
          * 
          * @return builder
          * 
@@ -766,7 +766,7 @@ public final class BranchState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param framework The framework for the branch.
+         * @param framework Framework for the branch.
          * 
          * @return builder
          * 
@@ -777,7 +777,7 @@ public final class BranchState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param framework The framework for the branch.
+         * @param framework Framework for the branch.
          * 
          * @return builder
          * 
@@ -787,7 +787,7 @@ public final class BranchState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param pullRequestEnvironmentName The Amplify environment name for the pull request.
+         * @param pullRequestEnvironmentName Amplify environment name for the pull request.
          * 
          * @return builder
          * 
@@ -798,7 +798,7 @@ public final class BranchState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param pullRequestEnvironmentName The Amplify environment name for the pull request.
+         * @param pullRequestEnvironmentName Amplify environment name for the pull request.
          * 
          * @return builder
          * 
@@ -808,7 +808,7 @@ public final class BranchState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceBranch The source branch if the branch is a pull request branch.
+         * @param sourceBranch Source branch if the branch is a pull request branch.
          * 
          * @return builder
          * 
@@ -819,7 +819,7 @@ public final class BranchState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceBranch The source branch if the branch is a pull request branch.
+         * @param sourceBranch Source branch if the branch is a pull request branch.
          * 
          * @return builder
          * 
@@ -871,7 +871,7 @@ public final class BranchState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
@@ -882,7 +882,7 @@ public final class BranchState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
@@ -892,7 +892,7 @@ public final class BranchState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ttl The content Time To Live (TTL) for the website in seconds.
+         * @param ttl Content Time To Live (TTL) for the website in seconds.
          * 
          * @return builder
          * 
@@ -903,7 +903,7 @@ public final class BranchState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ttl The content Time To Live (TTL) for the website in seconds.
+         * @param ttl Content Time To Live (TTL) for the website in seconds.
          * 
          * @return builder
          * 

@@ -72,37 +72,37 @@ namespace Pulumi.Aws.AppRunner
         public Output<bool> Latest { get; private set; } = null!;
 
         /// <summary>
-        /// The maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
+        /// Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
         /// </summary>
         [Output("maxConcurrency")]
         public Output<int?> MaxConcurrency { get; private set; } = null!;
 
         /// <summary>
-        /// The maximal number of instances that App Runner provisions for your service.
+        /// Maximal number of instances that App Runner provisions for your service.
         /// </summary>
         [Output("maxSize")]
         public Output<int?> MaxSize { get; private set; } = null!;
 
         /// <summary>
-        /// The minimal number of instances that App Runner provisions for your service.
+        /// Minimal number of instances that App Runner provisions for your service.
         /// </summary>
         [Output("minSize")]
         public Output<int?> MinSize { get; private set; } = null!;
 
         /// <summary>
-        /// The current state of the auto scaling configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
+        /// Current state of the auto scaling configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -160,19 +160,19 @@ namespace Pulumi.Aws.AppRunner
         public Input<string> AutoScalingConfigurationName { get; set; } = null!;
 
         /// <summary>
-        /// The maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
+        /// Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
         /// </summary>
         [Input("maxConcurrency")]
         public Input<int>? MaxConcurrency { get; set; }
 
         /// <summary>
-        /// The maximal number of instances that App Runner provisions for your service.
+        /// Maximal number of instances that App Runner provisions for your service.
         /// </summary>
         [Input("maxSize")]
         public Input<int>? MaxSize { get; set; }
 
         /// <summary>
-        /// The minimal number of instances that App Runner provisions for your service.
+        /// Minimal number of instances that App Runner provisions for your service.
         /// </summary>
         [Input("minSize")]
         public Input<int>? MinSize { get; set; }
@@ -181,7 +181,7 @@ namespace Pulumi.Aws.AppRunner
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -222,25 +222,25 @@ namespace Pulumi.Aws.AppRunner
         public Input<bool>? Latest { get; set; }
 
         /// <summary>
-        /// The maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
+        /// Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
         /// </summary>
         [Input("maxConcurrency")]
         public Input<int>? MaxConcurrency { get; set; }
 
         /// <summary>
-        /// The maximal number of instances that App Runner provisions for your service.
+        /// Maximal number of instances that App Runner provisions for your service.
         /// </summary>
         [Input("maxSize")]
         public Input<int>? MaxSize { get; set; }
 
         /// <summary>
-        /// The minimal number of instances that App Runner provisions for your service.
+        /// Minimal number of instances that App Runner provisions for your service.
         /// </summary>
         [Input("minSize")]
         public Input<int>? MinSize { get; set; }
 
         /// <summary>
-        /// The current state of the auto scaling configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
+        /// Current state of the auto scaling configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -249,7 +249,7 @@ namespace Pulumi.Aws.AppRunner
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -261,7 +261,7 @@ namespace Pulumi.Aws.AppRunner
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

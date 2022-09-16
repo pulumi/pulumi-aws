@@ -19,14 +19,14 @@ public final class DeploymentStrategyState extends com.pulumi.resources.Resource
     public static final DeploymentStrategyState Empty = new DeploymentStrategyState();
 
     /**
-     * The Amazon Resource Name (ARN) of the AppConfig Deployment Strategy.
+     * ARN of the AppConfig Deployment Strategy.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the AppConfig Deployment Strategy.
+     * @return ARN of the AppConfig Deployment Strategy.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -49,14 +49,14 @@ public final class DeploymentStrategyState extends com.pulumi.resources.Resource
     }
 
     /**
-     * A description of the deployment strategy. Can be at most 1024 characters.
+     * Description of the deployment strategy. Can be at most 1024 characters.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A description of the deployment strategy. Can be at most 1024 characters.
+     * @return Description of the deployment strategy. Can be at most 1024 characters.
      * 
      */
     public Optional<Output<String>> description() {
@@ -64,14 +64,14 @@ public final class DeploymentStrategyState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.
+     * Amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.
      * 
      */
     @Import(name="finalBakeTimeInMinutes")
     private @Nullable Output<Integer> finalBakeTimeInMinutes;
 
     /**
-     * @return The amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.
+     * @return Amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.
      * 
      */
     public Optional<Output<Integer>> finalBakeTimeInMinutes() {
@@ -79,14 +79,14 @@ public final class DeploymentStrategyState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.
+     * Percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.
      * 
      */
     @Import(name="growthFactor")
     private @Nullable Output<Double> growthFactor;
 
     /**
-     * @return The percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.
+     * @return Percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.
      * 
      */
     public Optional<Output<Double>> growthFactor() {
@@ -94,14 +94,14 @@ public final class DeploymentStrategyState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
+     * Algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
      * 
      */
     @Import(name="growthType")
     private @Nullable Output<String> growthType;
 
     /**
-     * @return The algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
+     * @return Algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
      * 
      */
     public Optional<Output<String>> growthType() {
@@ -109,14 +109,14 @@ public final class DeploymentStrategyState extends com.pulumi.resources.Resource
     }
 
     /**
-     * A name for the deployment strategy. Must be between 1 and 64 characters in length.
+     * Name for the deployment strategy. Must be between 1 and 64 characters in length.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return A name for the deployment strategy. Must be between 1 and 64 characters in length.
+     * @return Name for the deployment strategy. Must be between 1 and 64 characters in length.
      * 
      */
     public Optional<Output<String>> name() {
@@ -139,14 +139,14 @@ public final class DeploymentStrategyState extends com.pulumi.resources.Resource
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -154,14 +154,14 @@ public final class DeploymentStrategyState extends com.pulumi.resources.Resource
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -202,7 +202,7 @@ public final class DeploymentStrategyState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the AppConfig Deployment Strategy.
+         * @param arn ARN of the AppConfig Deployment Strategy.
          * 
          * @return builder
          * 
@@ -213,7 +213,7 @@ public final class DeploymentStrategyState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the AppConfig Deployment Strategy.
+         * @param arn ARN of the AppConfig Deployment Strategy.
          * 
          * @return builder
          * 
@@ -244,7 +244,7 @@ public final class DeploymentStrategyState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param description A description of the deployment strategy. Can be at most 1024 characters.
+         * @param description Description of the deployment strategy. Can be at most 1024 characters.
          * 
          * @return builder
          * 
@@ -255,7 +255,7 @@ public final class DeploymentStrategyState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param description A description of the deployment strategy. Can be at most 1024 characters.
+         * @param description Description of the deployment strategy. Can be at most 1024 characters.
          * 
          * @return builder
          * 
@@ -265,7 +265,7 @@ public final class DeploymentStrategyState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param finalBakeTimeInMinutes The amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.
+         * @param finalBakeTimeInMinutes Amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.
          * 
          * @return builder
          * 
@@ -276,7 +276,7 @@ public final class DeploymentStrategyState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param finalBakeTimeInMinutes The amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.
+         * @param finalBakeTimeInMinutes Amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.
          * 
          * @return builder
          * 
@@ -286,7 +286,7 @@ public final class DeploymentStrategyState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param growthFactor The percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.
+         * @param growthFactor Percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.
          * 
          * @return builder
          * 
@@ -297,7 +297,7 @@ public final class DeploymentStrategyState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param growthFactor The percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.
+         * @param growthFactor Percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.
          * 
          * @return builder
          * 
@@ -307,7 +307,7 @@ public final class DeploymentStrategyState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param growthType The algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
+         * @param growthType Algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
          * 
          * @return builder
          * 
@@ -318,7 +318,7 @@ public final class DeploymentStrategyState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param growthType The algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
+         * @param growthType Algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
          * 
          * @return builder
          * 
@@ -328,7 +328,7 @@ public final class DeploymentStrategyState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param name A name for the deployment strategy. Must be between 1 and 64 characters in length.
+         * @param name Name for the deployment strategy. Must be between 1 and 64 characters in length.
          * 
          * @return builder
          * 
@@ -339,7 +339,7 @@ public final class DeploymentStrategyState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param name A name for the deployment strategy. Must be between 1 and 64 characters in length.
+         * @param name Name for the deployment strategy. Must be between 1 and 64 characters in length.
          * 
          * @return builder
          * 
@@ -370,7 +370,7 @@ public final class DeploymentStrategyState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -381,7 +381,7 @@ public final class DeploymentStrategyState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -391,7 +391,7 @@ public final class DeploymentStrategyState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
@@ -402,7 +402,7 @@ public final class DeploymentStrategyState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 

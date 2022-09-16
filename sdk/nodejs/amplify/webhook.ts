@@ -62,23 +62,23 @@ export class Webhook extends pulumi.CustomResource {
     }
 
     /**
-     * The unique ID for an Amplify app.
+     * Unique ID for an Amplify app.
      */
     public readonly appId!: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) for the webhook.
+     * ARN for the webhook.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The name for a branch that is part of the Amplify app.
+     * Name for a branch that is part of the Amplify app.
      */
     public readonly branchName!: pulumi.Output<string>;
     /**
-     * The description for a webhook.
+     * Description for a webhook.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The URL of the webhook.
+     * URL of the webhook.
      */
     public /*out*/ readonly url!: pulumi.Output<string>;
 
@@ -124,23 +124,23 @@ export class Webhook extends pulumi.CustomResource {
  */
 export interface WebhookState {
     /**
-     * The unique ID for an Amplify app.
+     * Unique ID for an Amplify app.
      */
     appId?: pulumi.Input<string>;
     /**
-     * The Amazon Resource Name (ARN) for the webhook.
+     * ARN for the webhook.
      */
     arn?: pulumi.Input<string>;
     /**
-     * The name for a branch that is part of the Amplify app.
+     * Name for a branch that is part of the Amplify app.
      */
     branchName?: pulumi.Input<string>;
     /**
-     * The description for a webhook.
+     * Description for a webhook.
      */
     description?: pulumi.Input<string>;
     /**
-     * The URL of the webhook.
+     * URL of the webhook.
      */
     url?: pulumi.Input<string>;
 }
@@ -150,15 +150,15 @@ export interface WebhookState {
  */
 export interface WebhookArgs {
     /**
-     * The unique ID for an Amplify app.
+     * Unique ID for an Amplify app.
      */
     appId: pulumi.Input<string>;
     /**
-     * The name for a branch that is part of the Amplify app.
+     * Name for a branch that is part of the Amplify app.
      */
     branchName: pulumi.Input<string>;
     /**
-     * The description for a webhook.
+     * Description for a webhook.
      */
     description?: pulumi.Input<string>;
 }

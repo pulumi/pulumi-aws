@@ -19,14 +19,14 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
     public static final EnvironmentState Empty = new EnvironmentState();
 
     /**
-     * The AppConfig application ID. Must be between 4 and 7 characters in length.
+     * AppConfig application ID. Must be between 4 and 7 characters in length.
      * 
      */
     @Import(name="applicationId")
     private @Nullable Output<String> applicationId;
 
     /**
-     * @return The AppConfig application ID. Must be between 4 and 7 characters in length.
+     * @return AppConfig application ID. Must be between 4 and 7 characters in length.
      * 
      */
     public Optional<Output<String>> applicationId() {
@@ -34,14 +34,14 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the AppConfig Environment.
+     * ARN of the AppConfig Environment.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the AppConfig Environment.
+     * @return ARN of the AppConfig Environment.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -49,14 +49,14 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The description of the environment. Can be at most 1024 characters.
+     * Description of the environment. Can be at most 1024 characters.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description of the environment. Can be at most 1024 characters.
+     * @return Description of the environment. Can be at most 1024 characters.
      * 
      */
     public Optional<Output<String>> description() {
@@ -64,14 +64,14 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The AppConfig environment ID.
+     * AppConfig environment ID.
      * 
      */
     @Import(name="environmentId")
     private @Nullable Output<String> environmentId;
 
     /**
-     * @return The AppConfig environment ID.
+     * @return AppConfig environment ID.
      * 
      */
     public Optional<Output<String>> environmentId() {
@@ -94,14 +94,14 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name for the environment. Must be between 1 and 64 characters in length.
+     * Name for the environment. Must be between 1 and 64 characters in length.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name for the environment. Must be between 1 and 64 characters in length.
+     * @return Name for the environment. Must be between 1 and 64 characters in length.
      * 
      */
     public Optional<Output<String>> name() {
@@ -116,14 +116,14 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -131,14 +131,14 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -178,7 +178,7 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applicationId The AppConfig application ID. Must be between 4 and 7 characters in length.
+         * @param applicationId AppConfig application ID. Must be between 4 and 7 characters in length.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applicationId The AppConfig application ID. Must be between 4 and 7 characters in length.
+         * @param applicationId AppConfig application ID. Must be between 4 and 7 characters in length.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the AppConfig Environment.
+         * @param arn ARN of the AppConfig Environment.
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the AppConfig Environment.
+         * @param arn ARN of the AppConfig Environment.
          * 
          * @return builder
          * 
@@ -220,7 +220,7 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The description of the environment. Can be at most 1024 characters.
+         * @param description Description of the environment. Can be at most 1024 characters.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The description of the environment. Can be at most 1024 characters.
+         * @param description Description of the environment. Can be at most 1024 characters.
          * 
          * @return builder
          * 
@@ -241,7 +241,7 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param environmentId The AppConfig environment ID.
+         * @param environmentId AppConfig environment ID.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param environmentId The AppConfig environment ID.
+         * @param environmentId AppConfig environment ID.
          * 
          * @return builder
          * 
@@ -293,7 +293,7 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name for the environment. Must be between 1 and 64 characters in length.
+         * @param name Name for the environment. Must be between 1 and 64 characters in length.
          * 
          * @return builder
          * 
@@ -304,7 +304,7 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name for the environment. Must be between 1 and 64 characters in length.
+         * @param name Name for the environment. Must be between 1 and 64 characters in length.
          * 
          * @return builder
          * 
@@ -323,7 +323,7 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -334,7 +334,7 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -344,7 +344,7 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
@@ -355,7 +355,7 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 

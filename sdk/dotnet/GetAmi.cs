@@ -185,7 +185,7 @@ namespace Pulumi.Aws
         public bool? MostRecent { get; set; }
 
         /// <summary>
-        /// A regex string to apply to the AMI list returned
+        /// Regex string to apply to the AMI list returned
         /// by AWS. This allows more advanced filtering not supported from the AWS API. This
         /// filtering is done locally on what AWS returns, and could have a performance
         /// impact if the result is large. Combine this with other
@@ -211,8 +211,8 @@ namespace Pulumi.Aws
 
         /// <summary>
         /// Any tags assigned to the image.
-        /// * `tags.#.key` - The key name of the tag.
-        /// * `tags.#.value` - The value of the tag.
+        /// * `tags.#.key` - Key name of the tag.
+        /// * `tags.#.value` - Value of the tag.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -269,7 +269,7 @@ namespace Pulumi.Aws
         public Input<bool>? MostRecent { get; set; }
 
         /// <summary>
-        /// A regex string to apply to the AMI list returned
+        /// Regex string to apply to the AMI list returned
         /// by AWS. This allows more advanced filtering not supported from the AWS API. This
         /// filtering is done locally on what AWS returns, and could have a performance
         /// impact if the result is large. Combine this with other
@@ -295,8 +295,8 @@ namespace Pulumi.Aws
 
         /// <summary>
         /// Any tags assigned to the image.
-        /// * `tags.#.key` - The key name of the tag.
-        /// * `tags.#.value` - The value of the tag.
+        /// * `tags.#.key` - Key name of the tag.
+        /// * `tags.#.value` - Value of the tag.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -315,11 +315,11 @@ namespace Pulumi.Aws
     public sealed class GetAmiResult
     {
         /// <summary>
-        /// The OS architecture of the AMI (ie: `i386` or `x86_64`).
+        /// OS architecture of the AMI (ie: `i386` or `x86_64`).
         /// </summary>
         public readonly string Architecture;
         /// <summary>
-        /// The ARN of the AMI.
+        /// ARN of the AMI.
         /// </summary>
         public readonly string Arn;
         /// <summary>
@@ -327,30 +327,30 @@ namespace Pulumi.Aws
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAmiBlockDeviceMappingResult> BlockDeviceMappings;
         /// <summary>
-        /// The boot mode of the image.
+        /// Boot mode of the image.
         /// </summary>
         public readonly string BootMode;
         /// <summary>
-        /// The date and time the image was created.
+        /// Date and time the image was created.
         /// </summary>
         public readonly string CreationDate;
         /// <summary>
-        /// The date and time when the image will be deprecated.
+        /// Date and time when the image will be deprecated.
         /// </summary>
         public readonly string DeprecationTime;
         /// <summary>
-        /// The description of the AMI that was provided during image
+        /// Description of the AMI that was provided during image
         /// creation.
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// Specifies whether enhanced networking with ENA is enabled.
+        /// Whether enhanced networking with ENA is enabled.
         /// </summary>
         public readonly bool EnaSupport;
         public readonly ImmutableArray<string> ExecutableUsers;
         public readonly ImmutableArray<Outputs.GetAmiFilterResult> Filters;
         /// <summary>
-        /// The hypervisor type of the image.
+        /// Hypervisor type of the image.
         /// </summary>
         public readonly string Hypervisor;
         /// <summary>
@@ -358,45 +358,45 @@ namespace Pulumi.Aws
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The ID of the AMI. Should be the same as the resource `id`.
+        /// ID of the AMI. Should be the same as the resource `id`.
         /// </summary>
         public readonly string ImageId;
         /// <summary>
-        /// The location of the AMI.
+        /// Location of the AMI.
         /// </summary>
         public readonly string ImageLocation;
         /// <summary>
-        /// The AWS account alias (for example, `amazon`, `self`) or
+        /// AWS account alias (for example, `amazon`, `self`) or
         /// the AWS account ID of the AMI owner.
         /// </summary>
         public readonly string ImageOwnerAlias;
         /// <summary>
-        /// The type of image.
+        /// Type of image.
         /// </summary>
         public readonly string ImageType;
         public readonly bool? IncludeDeprecated;
         /// <summary>
-        /// The kernel associated with the image, if any. Only applicable
+        /// Kernel associated with the image, if any. Only applicable
         /// for machine images.
         /// </summary>
         public readonly string KernelId;
         public readonly bool? MostRecent;
         /// <summary>
-        /// The name of the AMI that was provided during image creation.
+        /// Name of the AMI that was provided during image creation.
         /// </summary>
         public readonly string Name;
         public readonly string? NameRegex;
         /// <summary>
-        /// The AWS account ID of the image owner.
+        /// AWS account ID of the image owner.
         /// </summary>
         public readonly string OwnerId;
         public readonly ImmutableArray<string> Owners;
         /// <summary>
-        /// The value is Windows for `Windows` AMIs; otherwise blank.
+        /// Value is Windows for `Windows` AMIs; otherwise blank.
         /// </summary>
         public readonly string Platform;
         /// <summary>
-        /// The platform details associated with the billing code of the AMI.
+        /// Platform details associated with the billing code of the AMI.
         /// </summary>
         public readonly string PlatformDetails;
         /// <summary>
@@ -410,29 +410,29 @@ namespace Pulumi.Aws
         /// </summary>
         public readonly bool Public;
         /// <summary>
-        /// The RAM disk associated with the image, if any. Only applicable
+        /// RAM disk associated with the image, if any. Only applicable
         /// for machine images.
         /// </summary>
         public readonly string RamdiskId;
         /// <summary>
-        /// The device name of the root device.
+        /// Device name of the root device.
         /// </summary>
         public readonly string RootDeviceName;
         /// <summary>
-        /// The type of root device (ie: `ebs` or `instance-store`).
+        /// Type of root device (ie: `ebs` or `instance-store`).
         /// </summary>
         public readonly string RootDeviceType;
         /// <summary>
-        /// The snapshot id associated with the root device, if any
+        /// Snapshot id associated with the root device, if any
         /// (only applies to `ebs` root devices).
         /// </summary>
         public readonly string RootSnapshotId;
         /// <summary>
-        /// Specifies whether enhanced networking is enabled.
+        /// Whether enhanced networking is enabled.
         /// </summary>
         public readonly string SriovNetSupport;
         /// <summary>
-        /// The current state of the AMI. If the state is `available`, the image
+        /// Current state of the AMI. If the state is `available`, the image
         /// is successfully registered and can be used to launch an instance.
         /// </summary>
         public readonly string State;
@@ -444,8 +444,8 @@ namespace Pulumi.Aws
         public readonly ImmutableDictionary<string, string> StateReason;
         /// <summary>
         /// Any tags assigned to the image.
-        /// * `tags.#.key` - The key name of the tag.
-        /// * `tags.#.value` - The value of the tag.
+        /// * `tags.#.key` - Key name of the tag.
+        /// * `tags.#.value` - Value of the tag.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
@@ -453,11 +453,11 @@ namespace Pulumi.Aws
         /// </summary>
         public readonly string TpmSupport;
         /// <summary>
-        /// The operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
+        /// Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
         /// </summary>
         public readonly string UsageOperation;
         /// <summary>
-        /// The type of virtualization of the AMI (ie: `hvm` or
+        /// Type of virtualization of the AMI (ie: `hvm` or
         /// `paravirtual`).
         /// </summary>
         public readonly string VirtualizationType;

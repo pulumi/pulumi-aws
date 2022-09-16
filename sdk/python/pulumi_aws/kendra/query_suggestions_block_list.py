@@ -132,6 +132,7 @@ class _QuerySuggestionsBlockListState:
         :param pulumi.Input[str] query_suggestions_block_list_id: The unique indentifier of the block list.
         :param pulumi.Input[str] role_arn: The IAM (Identity and Access Management) role used to access the block list text file in S3.
         :param pulumi.Input['QuerySuggestionsBlockListSourceS3PathArgs'] source_s3_path: The S3 path where your block list text file sits in S3. Detailed below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -259,6 +260,9 @@ class _QuerySuggestionsBlockListState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -428,6 +432,7 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
         :param pulumi.Input[str] query_suggestions_block_list_id: The unique indentifier of the block list.
         :param pulumi.Input[str] role_arn: The IAM (Identity and Access Management) role used to access the block list text file in S3.
         :param pulumi.Input[pulumi.InputType['QuerySuggestionsBlockListSourceS3PathArgs']] source_s3_path: The S3 path where your block list text file sits in S3. Detailed below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -514,5 +519,8 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 

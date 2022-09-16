@@ -153,7 +153,7 @@ class GetSubnetResult:
     @pulumi.getter(name="enableDns64")
     def enable_dns64(self) -> bool:
         """
-        Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet return synthetic IPv6 addresses for IPv4-only destinations.
+        Whether DNS queries made to the Amazon-provided DNS Resolver in this subnet return synthetic IPv6 addresses for IPv4-only destinations.
         """
         return pulumi.get(self, "enable_dns64")
 
@@ -200,7 +200,7 @@ class GetSubnetResult:
     @pulumi.getter(name="ipv6Native")
     def ipv6_native(self) -> bool:
         """
-        Indicates whether this is an IPv6-only subnet.
+        Whether this is an IPv6-only subnet.
         """
         return pulumi.get(self, "ipv6_native")
 

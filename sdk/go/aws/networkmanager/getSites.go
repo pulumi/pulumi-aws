@@ -51,7 +51,7 @@ func GetSites(ctx *pulumi.Context, args *GetSitesArgs, opts ...pulumi.InvokeOpti
 
 // A collection of arguments for invoking getSites.
 type GetSitesArgs struct {
-	// The ID of the Global Network of the sites to retrieve.
+	// ID of the Global Network of the sites to retrieve.
 	GlobalNetworkId string `pulumi:"globalNetworkId"`
 	// Restricts the list to the sites with these tags.
 	Tags map[string]string `pulumi:"tags"`
@@ -62,7 +62,7 @@ type GetSitesResult struct {
 	GlobalNetworkId string `pulumi:"globalNetworkId"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The IDs of the sites.
+	// IDs of the sites.
 	Ids  []string          `pulumi:"ids"`
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -82,7 +82,7 @@ func GetSitesOutput(ctx *pulumi.Context, args GetSitesOutputArgs, opts ...pulumi
 
 // A collection of arguments for invoking getSites.
 type GetSitesOutputArgs struct {
-	// The ID of the Global Network of the sites to retrieve.
+	// ID of the Global Network of the sites to retrieve.
 	GlobalNetworkId pulumi.StringInput `pulumi:"globalNetworkId"`
 	// Restricts the list to the sites with these tags.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -116,7 +116,7 @@ func (o GetSitesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSitesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The IDs of the sites.
+// IDs of the sites.
 func (o GetSitesResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetSitesResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }

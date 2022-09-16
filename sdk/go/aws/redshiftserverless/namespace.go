@@ -72,7 +72,8 @@ type Namespace struct {
 	// The name of the namespace.
 	NamespaceName pulumi.StringOutput    `pulumi:"namespaceName"`
 	Tags          pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll       pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewNamespace registers a new resource with the given unique name, arguments, and options.
@@ -128,7 +129,8 @@ type namespaceState struct {
 	// The name of the namespace.
 	NamespaceName *string           `pulumi:"namespaceName"`
 	Tags          map[string]string `pulumi:"tags"`
-	TagsAll       map[string]string `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type NamespaceState struct {
@@ -153,7 +155,8 @@ type NamespaceState struct {
 	// The name of the namespace.
 	NamespaceName pulumi.StringPtrInput
 	Tags          pulumi.StringMapInput
-	TagsAll       pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (NamespaceState) ElementType() reflect.Type {
@@ -342,6 +345,7 @@ func (o NamespaceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o NamespaceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

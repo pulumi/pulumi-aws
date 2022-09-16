@@ -13,25 +13,25 @@ namespace Pulumi.Aws.AppAutoScaling.Inputs
     public sealed class PolicyStepScalingPolicyConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
+        /// Whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
         /// </summary>
         [Input("adjustmentType")]
         public Input<string>? AdjustmentType { get; set; }
 
         /// <summary>
-        /// The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
+        /// Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
         /// </summary>
         [Input("cooldown")]
         public Input<int>? Cooldown { get; set; }
 
         /// <summary>
-        /// The aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
+        /// Aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
         /// </summary>
         [Input("metricAggregationType")]
         public Input<string>? MetricAggregationType { get; set; }
 
         /// <summary>
-        /// The minimum number to adjust your scalable dimension as a result of a scaling activity. If the adjustment type is PercentChangeInCapacity, the scaling policy changes the scalable dimension of the scalable target by this amount.
+        /// Minimum number to adjust your scalable dimension as a result of a scaling activity. If the adjustment type is PercentChangeInCapacity, the scaling policy changes the scalable dimension of the scalable target by this amount.
         /// </summary>
         [Input("minAdjustmentMagnitude")]
         public Input<int>? MinAdjustmentMagnitude { get; set; }
@@ -40,7 +40,7 @@ namespace Pulumi.Aws.AppAutoScaling.Inputs
         private InputList<Inputs.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs>? _stepAdjustments;
 
         /// <summary>
-        /// A set of adjustments that manage scaling. These have the following structure:
+        /// Set of adjustments that manage scaling. These have the following structure:
         /// </summary>
         public InputList<Inputs.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs> StepAdjustments
         {

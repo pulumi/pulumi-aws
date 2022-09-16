@@ -14,12 +14,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AppAutoBranchCreationConfig {
     /**
-     * @return The basic authorization credentials for the autocreated branch.
+     * @return Basic authorization credentials for the autocreated branch.
      * 
      */
     private @Nullable String basicAuthCredentials;
     /**
-     * @return The build specification (build spec) for the autocreated branch.
+     * @return Build specification (build spec) for the autocreated branch.
      * 
      */
     private @Nullable String buildSpec;
@@ -44,17 +44,17 @@ public final class AppAutoBranchCreationConfig {
      */
     private @Nullable Boolean enablePullRequestPreview;
     /**
-     * @return The environment variables for the autocreated branch.
+     * @return Environment variables for the autocreated branch.
      * 
      */
     private @Nullable Map<String,String> environmentVariables;
     /**
-     * @return The framework for the autocreated branch.
+     * @return Framework for the autocreated branch.
      * 
      */
     private @Nullable String framework;
     /**
-     * @return The Amplify environment name for the pull request.
+     * @return Amplify environment name for the pull request.
      * 
      */
     private @Nullable String pullRequestEnvironmentName;
@@ -66,14 +66,14 @@ public final class AppAutoBranchCreationConfig {
 
     private AppAutoBranchCreationConfig() {}
     /**
-     * @return The basic authorization credentials for the autocreated branch.
+     * @return Basic authorization credentials for the autocreated branch.
      * 
      */
     public Optional<String> basicAuthCredentials() {
         return Optional.ofNullable(this.basicAuthCredentials);
     }
     /**
-     * @return The build specification (build spec) for the autocreated branch.
+     * @return Build specification (build spec) for the autocreated branch.
      * 
      */
     public Optional<String> buildSpec() {
@@ -108,21 +108,21 @@ public final class AppAutoBranchCreationConfig {
         return Optional.ofNullable(this.enablePullRequestPreview);
     }
     /**
-     * @return The environment variables for the autocreated branch.
+     * @return Environment variables for the autocreated branch.
      * 
      */
     public Map<String,String> environmentVariables() {
         return this.environmentVariables == null ? Map.of() : this.environmentVariables;
     }
     /**
-     * @return The framework for the autocreated branch.
+     * @return Framework for the autocreated branch.
      * 
      */
     public Optional<String> framework() {
         return Optional.ofNullable(this.framework);
     }
     /**
-     * @return The Amplify environment name for the pull request.
+     * @return Amplify environment name for the pull request.
      * 
      */
     public Optional<String> pullRequestEnvironmentName() {

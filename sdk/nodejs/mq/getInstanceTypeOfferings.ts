@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -72,11 +74,11 @@ export interface GetInstanceTypeOfferingsResult {
      */
     readonly brokerInstanceOptions: outputs.mq.GetInstanceTypeOfferingsBrokerInstanceOption[];
     /**
-     * The broker's engine type.
+     * Broker's engine type.
      */
     readonly engineType?: string;
     /**
-     * The broker's instance type.
+     * Broker's instance type.
      */
     readonly hostInstanceType?: string;
     /**
@@ -84,7 +86,7 @@ export interface GetInstanceTypeOfferingsResult {
      */
     readonly id: string;
     /**
-     * The broker's storage type.
+     * Broker's storage type.
      */
     readonly storageType?: string;
 }

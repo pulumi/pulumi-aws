@@ -17,14 +17,14 @@ public final class GatewayRouteSpecHttpRouteMatchArgs extends com.pulumi.resourc
     public static final GatewayRouteSpecHttpRouteMatchArgs Empty = new GatewayRouteSpecHttpRouteMatchArgs();
 
     /**
-     * The host name to rewrite.
+     * Host name to rewrite.
      * 
      */
     @Import(name="hostname")
     private @Nullable Output<GatewayRouteSpecHttpRouteMatchHostnameArgs> hostname;
 
     /**
-     * @return The host name to rewrite.
+     * @return Host name to rewrite.
      * 
      */
     public Optional<Output<GatewayRouteSpecHttpRouteMatchHostnameArgs>> hostname() {
@@ -32,14 +32,14 @@ public final class GatewayRouteSpecHttpRouteMatchArgs extends com.pulumi.resourc
     }
 
     /**
-     * The specified beginning characters to rewrite.
+     * Specified beginning characters to rewrite.
      * 
      */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
     /**
-     * @return The specified beginning characters to rewrite.
+     * @return Specified beginning characters to rewrite.
      * 
      */
     public Optional<Output<String>> prefix() {
@@ -72,7 +72,7 @@ public final class GatewayRouteSpecHttpRouteMatchArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param hostname The host name to rewrite.
+         * @param hostname Host name to rewrite.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class GatewayRouteSpecHttpRouteMatchArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param hostname The host name to rewrite.
+         * @param hostname Host name to rewrite.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class GatewayRouteSpecHttpRouteMatchArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param prefix The specified beginning characters to rewrite.
+         * @param prefix Specified beginning characters to rewrite.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class GatewayRouteSpecHttpRouteMatchArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param prefix The specified beginning characters to rewrite.
+         * @param prefix Specified beginning characters to rewrite.
          * 
          * @return builder
          * 

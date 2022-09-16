@@ -70,7 +70,7 @@ namespace Pulumi.Aws.LakeFormation
     public sealed class GetResourceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the resource, an S3 path.
+        /// ARN of the resource, an S3 path.
         /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.Aws.LakeFormation
     public sealed class GetResourceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the resource, an S3 path.
+        /// ARN of the resource, an S3 path.
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
@@ -105,7 +105,7 @@ namespace Pulumi.Aws.LakeFormation
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        /// Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         /// </summary>
         public readonly string LastModified;
         /// <summary>

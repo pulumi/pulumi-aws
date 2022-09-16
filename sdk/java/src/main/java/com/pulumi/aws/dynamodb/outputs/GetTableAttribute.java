@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class GetTableAttribute {
     /**
-     * @return The name of the DynamoDB table.
+     * @return Name of the DynamoDB table.
      * 
      */
     private String name;
@@ -18,7 +18,7 @@ public final class GetTableAttribute {
 
     private GetTableAttribute() {}
     /**
-     * @return The name of the DynamoDB table.
+     * @return Name of the DynamoDB table.
      * 
      */
     public String name() {

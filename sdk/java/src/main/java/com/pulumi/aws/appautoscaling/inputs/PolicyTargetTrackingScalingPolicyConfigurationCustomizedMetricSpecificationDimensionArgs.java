@@ -14,14 +14,14 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
     public static final PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArgs Empty = new PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArgs();
 
     /**
-     * The name of the policy. Must be between 1 and 255 characters in length.
+     * Name of the policy. Must be between 1 and 255 characters in length.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the policy. Must be between 1 and 255 characters in length.
+     * @return Name of the policy. Must be between 1 and 255 characters in length.
      * 
      */
     public Output<String> name() {
@@ -69,7 +69,7 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
         }
 
         /**
-         * @param name The name of the policy. Must be between 1 and 255 characters in length.
+         * @param name Name of the policy. Must be between 1 and 255 characters in length.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
         }
 
         /**
-         * @param name The name of the policy. Must be between 1 and 255 characters in length.
+         * @param name Name of the policy. Must be between 1 and 255 characters in length.
          * 
          * @return builder
          * 

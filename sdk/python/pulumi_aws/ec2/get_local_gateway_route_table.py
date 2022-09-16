@@ -127,11 +127,11 @@ def get_local_gateway_route_table(filters: Optional[Sequence[pulumi.InputType['G
     ```
 
 
-    :param str local_gateway_id: The id of the specific local gateway route table to retrieve.
+    :param str local_gateway_id: ID of the specific local gateway route table to retrieve.
     :param str local_gateway_route_table_id: Local Gateway Route Table Id assigned to desired local gateway route table
-    :param str outpost_arn: The arn of the Outpost the local gateway route table is associated with.
-    :param str state: The state of the local gateway route table.
-    :param Mapping[str, str] tags: A mapping of tags, each pair of which must exactly match
+    :param str outpost_arn: ARN of the Outpost the local gateway route table is associated with.
+    :param str state: State of the local gateway route table.
+    :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the desired local gateway route table.
     """
     __args__ = dict()
@@ -182,11 +182,11 @@ def get_local_gateway_route_table_output(filters: Optional[pulumi.Input[Optional
     ```
 
 
-    :param str local_gateway_id: The id of the specific local gateway route table to retrieve.
+    :param str local_gateway_id: ID of the specific local gateway route table to retrieve.
     :param str local_gateway_route_table_id: Local Gateway Route Table Id assigned to desired local gateway route table
-    :param str outpost_arn: The arn of the Outpost the local gateway route table is associated with.
-    :param str state: The state of the local gateway route table.
-    :param Mapping[str, str] tags: A mapping of tags, each pair of which must exactly match
+    :param str outpost_arn: ARN of the Outpost the local gateway route table is associated with.
+    :param str state: State of the local gateway route table.
+    :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the desired local gateway route table.
     """
     ...

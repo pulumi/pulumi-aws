@@ -14,11 +14,11 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class VirtualServiceSpecProvider
     {
         /// <summary>
-        /// The virtual node associated with a virtual service.
+        /// Virtual node associated with a virtual service.
         /// </summary>
         public readonly Outputs.VirtualServiceSpecProviderVirtualNode? VirtualNode;
         /// <summary>
-        /// The virtual router associated with a virtual service.
+        /// Virtual router associated with a virtual service.
         /// </summary>
         public readonly Outputs.VirtualServiceSpecProviderVirtualRouter? VirtualRouter;
 

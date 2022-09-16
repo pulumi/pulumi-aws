@@ -60,7 +60,7 @@ type GetReleaseLabelsResult struct {
 	Filters *GetReleaseLabelsFilters `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The returned release labels.
+	// Returned release labels.
 	ReleaseLabels []string `pulumi:"releaseLabels"`
 }
 
@@ -111,7 +111,7 @@ func (o GetReleaseLabelsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReleaseLabelsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The returned release labels.
+// Returned release labels.
 func (o GetReleaseLabelsResultOutput) ReleaseLabels() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetReleaseLabelsResult) []string { return v.ReleaseLabels }).(pulumi.StringArrayOutput)
 }

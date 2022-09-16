@@ -18,12 +18,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetAmiResult {
     /**
-     * @return The OS architecture of the AMI (ie: `i386` or `x86_64`).
+     * @return OS architecture of the AMI (ie: `i386` or `x86_64`).
      * 
      */
     private String architecture;
     /**
-     * @return The ARN of the AMI.
+     * @return ARN of the AMI.
      * 
      */
     private String arn;
@@ -33,35 +33,35 @@ public final class GetAmiResult {
      */
     private List<GetAmiBlockDeviceMapping> blockDeviceMappings;
     /**
-     * @return The boot mode of the image.
+     * @return Boot mode of the image.
      * 
      */
     private String bootMode;
     /**
-     * @return The date and time the image was created.
+     * @return Date and time the image was created.
      * 
      */
     private String creationDate;
     /**
-     * @return The date and time when the image will be deprecated.
+     * @return Date and time when the image will be deprecated.
      * 
      */
     private String deprecationTime;
     /**
-     * @return The description of the AMI that was provided during image
+     * @return Description of the AMI that was provided during image
      * creation.
      * 
      */
     private String description;
     /**
-     * @return Specifies whether enhanced networking with ENA is enabled.
+     * @return Whether enhanced networking with ENA is enabled.
      * 
      */
     private Boolean enaSupport;
     private @Nullable List<String> executableUsers;
     private @Nullable List<GetAmiFilter> filters;
     /**
-     * @return The hypervisor type of the image.
+     * @return Hypervisor type of the image.
      * 
      */
     private String hypervisor;
@@ -71,53 +71,53 @@ public final class GetAmiResult {
      */
     private String id;
     /**
-     * @return The ID of the AMI. Should be the same as the resource `id`.
+     * @return ID of the AMI. Should be the same as the resource `id`.
      * 
      */
     private String imageId;
     /**
-     * @return The location of the AMI.
+     * @return Location of the AMI.
      * 
      */
     private String imageLocation;
     /**
-     * @return The AWS account alias (for example, `amazon`, `self`) or
+     * @return AWS account alias (for example, `amazon`, `self`) or
      * the AWS account ID of the AMI owner.
      * 
      */
     private String imageOwnerAlias;
     /**
-     * @return The type of image.
+     * @return Type of image.
      * 
      */
     private String imageType;
     private @Nullable Boolean includeDeprecated;
     /**
-     * @return The kernel associated with the image, if any. Only applicable
+     * @return Kernel associated with the image, if any. Only applicable
      * for machine images.
      * 
      */
     private String kernelId;
     private @Nullable Boolean mostRecent;
     /**
-     * @return The name of the AMI that was provided during image creation.
+     * @return Name of the AMI that was provided during image creation.
      * 
      */
     private String name;
     private @Nullable String nameRegex;
     /**
-     * @return The AWS account ID of the image owner.
+     * @return AWS account ID of the image owner.
      * 
      */
     private String ownerId;
     private @Nullable List<String> owners;
     /**
-     * @return The value is Windows for `Windows` AMIs; otherwise blank.
+     * @return Value is Windows for `Windows` AMIs; otherwise blank.
      * 
      */
     private String platform;
     /**
-     * @return The platform details associated with the billing code of the AMI.
+     * @return Platform details associated with the billing code of the AMI.
      * 
      */
     private String platformDetails;
@@ -134,34 +134,34 @@ public final class GetAmiResult {
      */
     private Boolean public_;
     /**
-     * @return The RAM disk associated with the image, if any. Only applicable
+     * @return RAM disk associated with the image, if any. Only applicable
      * for machine images.
      * 
      */
     private String ramdiskId;
     /**
-     * @return The device name of the root device.
+     * @return Device name of the root device.
      * 
      */
     private String rootDeviceName;
     /**
-     * @return The type of root device (ie: `ebs` or `instance-store`).
+     * @return Type of root device (ie: `ebs` or `instance-store`).
      * 
      */
     private String rootDeviceType;
     /**
-     * @return The snapshot id associated with the root device, if any
+     * @return Snapshot id associated with the root device, if any
      * (only applies to `ebs` root devices).
      * 
      */
     private String rootSnapshotId;
     /**
-     * @return Specifies whether enhanced networking is enabled.
+     * @return Whether enhanced networking is enabled.
      * 
      */
     private String sriovNetSupport;
     /**
-     * @return The current state of the AMI. If the state is `available`, the image
+     * @return Current state of the AMI. If the state is `available`, the image
      * is successfully registered and can be used to launch an instance.
      * 
      */
@@ -175,8 +175,8 @@ public final class GetAmiResult {
     private Map<String,String> stateReason;
     /**
      * @return Any tags assigned to the image.
-     * * `tags.#.key` - The key name of the tag.
-     * * `tags.#.value` - The value of the tag.
+     * * `tags.#.key` - Key name of the tag.
+     * * `tags.#.value` - Value of the tag.
      * 
      */
     private Map<String,String> tags;
@@ -186,12 +186,12 @@ public final class GetAmiResult {
      */
     private String tpmSupport;
     /**
-     * @return The operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
+     * @return Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
      * 
      */
     private String usageOperation;
     /**
-     * @return The type of virtualization of the AMI (ie: `hvm` or
+     * @return Type of virtualization of the AMI (ie: `hvm` or
      * `paravirtual`).
      * 
      */
@@ -199,14 +199,14 @@ public final class GetAmiResult {
 
     private GetAmiResult() {}
     /**
-     * @return The OS architecture of the AMI (ie: `i386` or `x86_64`).
+     * @return OS architecture of the AMI (ie: `i386` or `x86_64`).
      * 
      */
     public String architecture() {
         return this.architecture;
     }
     /**
-     * @return The ARN of the AMI.
+     * @return ARN of the AMI.
      * 
      */
     public String arn() {
@@ -220,28 +220,28 @@ public final class GetAmiResult {
         return this.blockDeviceMappings;
     }
     /**
-     * @return The boot mode of the image.
+     * @return Boot mode of the image.
      * 
      */
     public String bootMode() {
         return this.bootMode;
     }
     /**
-     * @return The date and time the image was created.
+     * @return Date and time the image was created.
      * 
      */
     public String creationDate() {
         return this.creationDate;
     }
     /**
-     * @return The date and time when the image will be deprecated.
+     * @return Date and time when the image will be deprecated.
      * 
      */
     public String deprecationTime() {
         return this.deprecationTime;
     }
     /**
-     * @return The description of the AMI that was provided during image
+     * @return Description of the AMI that was provided during image
      * creation.
      * 
      */
@@ -249,7 +249,7 @@ public final class GetAmiResult {
         return this.description;
     }
     /**
-     * @return Specifies whether enhanced networking with ENA is enabled.
+     * @return Whether enhanced networking with ENA is enabled.
      * 
      */
     public Boolean enaSupport() {
@@ -262,7 +262,7 @@ public final class GetAmiResult {
         return this.filters == null ? List.of() : this.filters;
     }
     /**
-     * @return The hypervisor type of the image.
+     * @return Hypervisor type of the image.
      * 
      */
     public String hypervisor() {
@@ -276,21 +276,21 @@ public final class GetAmiResult {
         return this.id;
     }
     /**
-     * @return The ID of the AMI. Should be the same as the resource `id`.
+     * @return ID of the AMI. Should be the same as the resource `id`.
      * 
      */
     public String imageId() {
         return this.imageId;
     }
     /**
-     * @return The location of the AMI.
+     * @return Location of the AMI.
      * 
      */
     public String imageLocation() {
         return this.imageLocation;
     }
     /**
-     * @return The AWS account alias (for example, `amazon`, `self`) or
+     * @return AWS account alias (for example, `amazon`, `self`) or
      * the AWS account ID of the AMI owner.
      * 
      */
@@ -298,7 +298,7 @@ public final class GetAmiResult {
         return this.imageOwnerAlias;
     }
     /**
-     * @return The type of image.
+     * @return Type of image.
      * 
      */
     public String imageType() {
@@ -308,7 +308,7 @@ public final class GetAmiResult {
         return Optional.ofNullable(this.includeDeprecated);
     }
     /**
-     * @return The kernel associated with the image, if any. Only applicable
+     * @return Kernel associated with the image, if any. Only applicable
      * for machine images.
      * 
      */
@@ -319,7 +319,7 @@ public final class GetAmiResult {
         return Optional.ofNullable(this.mostRecent);
     }
     /**
-     * @return The name of the AMI that was provided during image creation.
+     * @return Name of the AMI that was provided during image creation.
      * 
      */
     public String name() {
@@ -329,7 +329,7 @@ public final class GetAmiResult {
         return Optional.ofNullable(this.nameRegex);
     }
     /**
-     * @return The AWS account ID of the image owner.
+     * @return AWS account ID of the image owner.
      * 
      */
     public String ownerId() {
@@ -339,14 +339,14 @@ public final class GetAmiResult {
         return this.owners == null ? List.of() : this.owners;
     }
     /**
-     * @return The value is Windows for `Windows` AMIs; otherwise blank.
+     * @return Value is Windows for `Windows` AMIs; otherwise blank.
      * 
      */
     public String platform() {
         return this.platform;
     }
     /**
-     * @return The platform details associated with the billing code of the AMI.
+     * @return Platform details associated with the billing code of the AMI.
      * 
      */
     public String platformDetails() {
@@ -369,7 +369,7 @@ public final class GetAmiResult {
         return this.public_;
     }
     /**
-     * @return The RAM disk associated with the image, if any. Only applicable
+     * @return RAM disk associated with the image, if any. Only applicable
      * for machine images.
      * 
      */
@@ -377,21 +377,21 @@ public final class GetAmiResult {
         return this.ramdiskId;
     }
     /**
-     * @return The device name of the root device.
+     * @return Device name of the root device.
      * 
      */
     public String rootDeviceName() {
         return this.rootDeviceName;
     }
     /**
-     * @return The type of root device (ie: `ebs` or `instance-store`).
+     * @return Type of root device (ie: `ebs` or `instance-store`).
      * 
      */
     public String rootDeviceType() {
         return this.rootDeviceType;
     }
     /**
-     * @return The snapshot id associated with the root device, if any
+     * @return Snapshot id associated with the root device, if any
      * (only applies to `ebs` root devices).
      * 
      */
@@ -399,14 +399,14 @@ public final class GetAmiResult {
         return this.rootSnapshotId;
     }
     /**
-     * @return Specifies whether enhanced networking is enabled.
+     * @return Whether enhanced networking is enabled.
      * 
      */
     public String sriovNetSupport() {
         return this.sriovNetSupport;
     }
     /**
-     * @return The current state of the AMI. If the state is `available`, the image
+     * @return Current state of the AMI. If the state is `available`, the image
      * is successfully registered and can be used to launch an instance.
      * 
      */
@@ -424,8 +424,8 @@ public final class GetAmiResult {
     }
     /**
      * @return Any tags assigned to the image.
-     * * `tags.#.key` - The key name of the tag.
-     * * `tags.#.value` - The value of the tag.
+     * * `tags.#.key` - Key name of the tag.
+     * * `tags.#.value` - Value of the tag.
      * 
      */
     public Map<String,String> tags() {
@@ -439,14 +439,14 @@ public final class GetAmiResult {
         return this.tpmSupport;
     }
     /**
-     * @return The operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
+     * @return Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
      * 
      */
     public String usageOperation() {
         return this.usageOperation;
     }
     /**
-     * @return The type of virtualization of the AMI (ie: `hvm` or
+     * @return Type of virtualization of the AMI (ie: `hvm` or
      * `paravirtual`).
      * 
      */

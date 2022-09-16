@@ -14,6 +14,107 @@ import (
 // Provides a CE Anomaly Subscription.
 //
 // ## Example Usage
+// ### Basic Example
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/costexplorer"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testAnomalyMonitor, err := costexplorer.NewAnomalyMonitor(ctx, "testAnomalyMonitor", &costexplorer.AnomalyMonitorArgs{
+//				MonitorType:      pulumi.String("DIMENSIONAL"),
+//				MonitorDimension: pulumi.String("SERVICE"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = costexplorer.NewAnomalySubscription(ctx, "testAnomalySubscription", &costexplorer.AnomalySubscriptionArgs{
+//				Threshold: pulumi.Float64(100),
+//				Frequency: pulumi.String("DAILY"),
+//				MonitorArnLists: pulumi.StringArray{
+//					testAnomalyMonitor.Arn,
+//				},
+//				Subscribers: costexplorer.AnomalySubscriptionSubscriberArray{
+//					&costexplorer.AnomalySubscriptionSubscriberArgs{
+//						Type:    pulumi.String("EMAIL"),
+//						Address: pulumi.String("abc@example.com"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### SNS Example
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/costexplorer"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			costAnomalyUpdates, err := sns.NewTopic(ctx, "costAnomalyUpdates", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = sns.NewTopicPolicy(ctx, "default", &sns.TopicPolicyArgs{
+//				Arn: costAnomalyUpdates.Arn,
+//				Policy: snsTopicPolicy.ApplyT(func(snsTopicPolicy iam.GetPolicyDocumentResult) (string, error) {
+//					return snsTopicPolicy.Json, nil
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			anomalyMonitor, err := costexplorer.NewAnomalyMonitor(ctx, "anomalyMonitor", &costexplorer.AnomalyMonitorArgs{
+//				MonitorType:      pulumi.String("DIMENSIONAL"),
+//				MonitorDimension: pulumi.String("SERVICE"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = costexplorer.NewAnomalySubscription(ctx, "realtimeSubscription", &costexplorer.AnomalySubscriptionArgs{
+//				Threshold: pulumi.Float64(0),
+//				Frequency: pulumi.String("IMMEDIATE"),
+//				MonitorArnLists: pulumi.StringArray{
+//					anomalyMonitor.Arn,
+//				},
+//				Subscribers: costexplorer.AnomalySubscriptionSubscriberArray{
+//					&costexplorer.AnomalySubscriptionSubscriberArgs{
+//						Type:    pulumi.String("SNS"),
+//						Address: costAnomalyUpdates.Arn,
+//					},
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				_default,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //
@@ -40,7 +141,8 @@ type AnomalySubscription struct {
 	// A subscriber configuration. Multiple subscribers can be defined.
 	Subscribers AnomalySubscriptionSubscriberArrayOutput `pulumi:"subscribers"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The dollar value that triggers a notification if the threshold is exceeded.
 	Threshold pulumi.Float64Output `pulumi:"threshold"`
@@ -100,7 +202,8 @@ type anomalySubscriptionState struct {
 	// A subscriber configuration. Multiple subscribers can be defined.
 	Subscribers []AnomalySubscriptionSubscriber `pulumi:"subscribers"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The dollar value that triggers a notification if the threshold is exceeded.
 	Threshold *float64 `pulumi:"threshold"`
@@ -120,7 +223,8 @@ type AnomalySubscriptionState struct {
 	// A subscriber configuration. Multiple subscribers can be defined.
 	Subscribers AnomalySubscriptionSubscriberArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The dollar value that triggers a notification if the threshold is exceeded.
 	Threshold pulumi.Float64PtrInput
@@ -287,6 +391,7 @@ func (o AnomalySubscriptionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AnomalySubscription) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o AnomalySubscriptionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AnomalySubscription) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

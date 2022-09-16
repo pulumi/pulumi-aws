@@ -39,7 +39,7 @@ export interface GetBucketObjectsArgs {
      */
     bucket: string;
     /**
-     * A character used to group keys (Default: none)
+     * Character used to group keys (Default: none)
      */
     delimiter?: string;
     /**
@@ -111,7 +111,7 @@ export interface GetBucketObjectsOutputArgs {
      */
     bucket: pulumi.Input<string>;
     /**
-     * A character used to group keys (Default: none)
+     * Character used to group keys (Default: none)
      */
     delimiter?: pulumi.Input<string>;
     /**

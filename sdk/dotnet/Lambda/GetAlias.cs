@@ -114,7 +114,7 @@ namespace Pulumi.Aws.Lambda
     public sealed class GetAliasResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) identifying the Lambda function alias.
+        /// ARN identifying the Lambda function alias.
         /// </summary>
         public readonly string Arn;
         /// <summary>
@@ -131,7 +131,7 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The ARN to be used for invoking Lambda Function from API Gateway - to be used in aws_api_gateway_integration's `uri`.
+        /// ARN to be used for invoking Lambda Function from API Gateway - to be used in aws_api_gateway_integration's `uri`.
         /// </summary>
         public readonly string InvokeArn;
         public readonly string Name;

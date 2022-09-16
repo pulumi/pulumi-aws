@@ -23,7 +23,6 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * ### Basic Example
- * 
  * ```java
  * package generated_program;
  * 
@@ -49,8 +48,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var testAnomalyMonitor = new AnomalyMonitor(&#34;testAnomalyMonitor&#34;, AnomalyMonitorArgs.builder()        
- *             .type(&#34;DIMENSIONAL&#34;)
- *             .dimension(&#34;SERVICE&#34;)
+ *             .monitorType(&#34;DIMENSIONAL&#34;)
+ *             .monitorDimension(&#34;SERVICE&#34;)
  *             .build());
  * 
  *         var testAnomalySubscription = new AnomalySubscription(&#34;testAnomalySubscription&#34;, AnomalySubscriptionArgs.builder()        
@@ -67,7 +66,6 @@ import javax.annotation.Nullable;
  * }
  * ```
  * ### SNS Example
- * 
  * ```java
  * package generated_program;
  * 
@@ -145,8 +143,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var anomalyMonitor = new AnomalyMonitor(&#34;anomalyMonitor&#34;, AnomalyMonitorArgs.builder()        
- *             .type(&#34;DIMENSIONAL&#34;)
- *             .dimension(&#34;SERVICE&#34;)
+ *             .monitorType(&#34;DIMENSIONAL&#34;)
+ *             .monitorDimension(&#34;SERVICE&#34;)
  *             .build());
  * 
  *         var realtimeSubscription = new AnomalySubscription(&#34;realtimeSubscription&#34;, AnomalySubscriptionArgs.builder()        
@@ -274,9 +272,17 @@ public class AnomalySubscription extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

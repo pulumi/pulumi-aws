@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -65,7 +67,7 @@ export interface GetHoursOfOperationArgs {
      */
     name?: string;
     /**
-     * A map of tags to assign to the Hours of Operation.
+     * Map of tags to assign to the Hours of Operation.
      */
     tags?: {[key: string]: string};
 }
@@ -75,19 +77,19 @@ export interface GetHoursOfOperationArgs {
  */
 export interface GetHoursOfOperationResult {
     /**
-     * The Amazon Resource Name (ARN) of the Hours of Operation.
+     * ARN of the Hours of Operation.
      */
     readonly arn: string;
     /**
-     * Specifies configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below. Config blocks are documented below.
+     * Configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below. Config blocks are documented below.
      */
     readonly configs: outputs.connect.GetHoursOfOperationConfig[];
     /**
-     * Specifies the description of the Hours of Operation.
+     * Description of the Hours of Operation.
      */
     readonly description: string;
     /**
-     * (**Deprecated**) The Amazon Resource Name (ARN) of the Hours of Operation.
+     * (**Deprecated**) ARN of the Hours of Operation.
      *
      * @deprecated use 'arn' attribute instead
      */
@@ -101,19 +103,19 @@ export interface GetHoursOfOperationResult {
      */
     readonly id: string;
     /**
-     * Specifies the identifier of the hosting Amazon Connect Instance.
+     * Identifier of the hosting Amazon Connect Instance.
      */
     readonly instanceId: string;
     /**
-     * Specifies the name of the Hours of Operation.
+     * Name of the Hours of Operation.
      */
     readonly name: string;
     /**
-     * A map of tags to assign to the Hours of Operation.
+     * Map of tags to assign to the Hours of Operation.
      */
     readonly tags: {[key: string]: string};
     /**
-     * Specifies the time zone of the Hours of Operation.
+     * Time zone of the Hours of Operation.
      */
     readonly timeZone: string;
 }
@@ -139,7 +141,7 @@ export interface GetHoursOfOperationOutputArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the Hours of Operation.
+     * Map of tags to assign to the Hours of Operation.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

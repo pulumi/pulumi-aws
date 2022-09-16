@@ -17,14 +17,14 @@ public final class RouteSpecGrpcRouteTimeoutArgs extends com.pulumi.resources.Re
     public static final RouteSpecGrpcRouteTimeoutArgs Empty = new RouteSpecGrpcRouteTimeoutArgs();
 
     /**
-     * The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+     * Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
      * 
      */
     @Import(name="idle")
     private @Nullable Output<RouteSpecGrpcRouteTimeoutIdleArgs> idle;
 
     /**
-     * @return The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+     * @return Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
      * 
      */
     public Optional<Output<RouteSpecGrpcRouteTimeoutIdleArgs>> idle() {
@@ -32,14 +32,14 @@ public final class RouteSpecGrpcRouteTimeoutArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The per request timeout.
+     * Per request timeout.
      * 
      */
     @Import(name="perRequest")
     private @Nullable Output<RouteSpecGrpcRouteTimeoutPerRequestArgs> perRequest;
 
     /**
-     * @return The per request timeout.
+     * @return Per request timeout.
      * 
      */
     public Optional<Output<RouteSpecGrpcRouteTimeoutPerRequestArgs>> perRequest() {
@@ -72,7 +72,7 @@ public final class RouteSpecGrpcRouteTimeoutArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param idle The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+         * @param idle Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class RouteSpecGrpcRouteTimeoutArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param idle The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+         * @param idle Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class RouteSpecGrpcRouteTimeoutArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param perRequest The per request timeout.
+         * @param perRequest Per request timeout.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class RouteSpecGrpcRouteTimeoutArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param perRequest The per request timeout.
+         * @param perRequest Per request timeout.
          * 
          * @return builder
          * 

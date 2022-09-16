@@ -5,251 +5,738 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./ami";
-export * from "./amiCopy";
-export * from "./amiFromInstance";
-export * from "./amiLaunchPermission";
-export * from "./availabilityZoneGroup";
-export * from "./capacityReservation";
-export * from "./carrierGateway";
-export * from "./customerGateway";
-export * from "./dedicatedHost";
-export * from "./defaultNetworkAcl";
-export * from "./defaultRouteTable";
-export * from "./defaultSecurityGroup";
-export * from "./defaultSubnet";
-export * from "./defaultVpc";
-export * from "./defaultVpcDhcpOptions";
-export * from "./egressOnlyInternetGateway";
-export * from "./eip";
-export * from "./eipAssociation";
-export * from "./fleet";
-export * from "./flowLog";
-export * from "./getAmi";
-export * from "./getAmiIds";
-export * from "./getCoipPool";
-export * from "./getCoipPools";
-export * from "./getCustomerGateway";
-export * from "./getDedicatedHost";
-export * from "./getEips";
-export * from "./getElasticIp";
-export * from "./getInstance";
-export * from "./getInstanceType";
-export * from "./getInstanceTypeOffering";
-export * from "./getInstanceTypeOfferings";
-export * from "./getInstanceTypes";
-export * from "./getInstances";
-export * from "./getInternetGateway";
-export * from "./getIpamPreviewNextCidr";
-export * from "./getKeyPair";
-export * from "./getLaunchConfiguration";
-export * from "./getLaunchTemplate";
-export * from "./getLocalGateway";
-export * from "./getLocalGatewayRouteTable";
-export * from "./getLocalGatewayRouteTables";
-export * from "./getLocalGatewayVirtualInterface";
-export * from "./getLocalGatewayVirtualInterfaceGroup";
-export * from "./getLocalGatewayVirtualInterfaceGroups";
-export * from "./getLocalGateways";
-export * from "./getManagedPrefixList";
-export * from "./getNatGateway";
-export * from "./getNatGateways";
-export * from "./getNetworkAcls";
-export * from "./getNetworkInsightsAnalysis";
-export * from "./getNetworkInsightsPath";
-export * from "./getNetworkInterface";
-export * from "./getNetworkInterfaces";
-export * from "./getPrefixList";
-export * from "./getRoute";
-export * from "./getRouteTable";
-export * from "./getRouteTables";
-export * from "./getSecurityGroup";
-export * from "./getSecurityGroups";
-export * from "./getSerialConsoleAccess";
-export * from "./getSpotPrice";
-export * from "./getSubnet";
-export * from "./getSubnetIds";
-export * from "./getSubnets";
-export * from "./getTransitGatewayRouteTables";
-export * from "./getVpc";
-export * from "./getVpcDhcpOptions";
-export * from "./getVpcEndpoint";
-export * from "./getVpcEndpointService";
-export * from "./getVpcIamPool";
-export * from "./getVpcPeeringConnection";
-export * from "./getVpcPeeringConnections";
-export * from "./getVpcs";
-export * from "./getVpnGateway";
-export * from "./instance";
+export { AmiArgs, AmiState } from "./ami";
+export type Ami = import("./ami").Ami;
+export const Ami: typeof import("./ami").Ami = null as any;
+
+export { AmiCopyArgs, AmiCopyState } from "./amiCopy";
+export type AmiCopy = import("./amiCopy").AmiCopy;
+export const AmiCopy: typeof import("./amiCopy").AmiCopy = null as any;
+
+export { AmiFromInstanceArgs, AmiFromInstanceState } from "./amiFromInstance";
+export type AmiFromInstance = import("./amiFromInstance").AmiFromInstance;
+export const AmiFromInstance: typeof import("./amiFromInstance").AmiFromInstance = null as any;
+
+export { AmiLaunchPermissionArgs, AmiLaunchPermissionState } from "./amiLaunchPermission";
+export type AmiLaunchPermission = import("./amiLaunchPermission").AmiLaunchPermission;
+export const AmiLaunchPermission: typeof import("./amiLaunchPermission").AmiLaunchPermission = null as any;
+
+export { AvailabilityZoneGroupArgs, AvailabilityZoneGroupState } from "./availabilityZoneGroup";
+export type AvailabilityZoneGroup = import("./availabilityZoneGroup").AvailabilityZoneGroup;
+export const AvailabilityZoneGroup: typeof import("./availabilityZoneGroup").AvailabilityZoneGroup = null as any;
+
+export { CapacityReservationArgs, CapacityReservationState } from "./capacityReservation";
+export type CapacityReservation = import("./capacityReservation").CapacityReservation;
+export const CapacityReservation: typeof import("./capacityReservation").CapacityReservation = null as any;
+
+export { CarrierGatewayArgs, CarrierGatewayState } from "./carrierGateway";
+export type CarrierGateway = import("./carrierGateway").CarrierGateway;
+export const CarrierGateway: typeof import("./carrierGateway").CarrierGateway = null as any;
+
+export { CustomerGatewayArgs, CustomerGatewayState } from "./customerGateway";
+export type CustomerGateway = import("./customerGateway").CustomerGateway;
+export const CustomerGateway: typeof import("./customerGateway").CustomerGateway = null as any;
+
+export { DedicatedHostArgs, DedicatedHostState } from "./dedicatedHost";
+export type DedicatedHost = import("./dedicatedHost").DedicatedHost;
+export const DedicatedHost: typeof import("./dedicatedHost").DedicatedHost = null as any;
+
+export { DefaultNetworkAclArgs, DefaultNetworkAclState } from "./defaultNetworkAcl";
+export type DefaultNetworkAcl = import("./defaultNetworkAcl").DefaultNetworkAcl;
+export const DefaultNetworkAcl: typeof import("./defaultNetworkAcl").DefaultNetworkAcl = null as any;
+
+export { DefaultRouteTableArgs, DefaultRouteTableState } from "./defaultRouteTable";
+export type DefaultRouteTable = import("./defaultRouteTable").DefaultRouteTable;
+export const DefaultRouteTable: typeof import("./defaultRouteTable").DefaultRouteTable = null as any;
+
+export { DefaultSecurityGroupArgs, DefaultSecurityGroupState } from "./defaultSecurityGroup";
+export type DefaultSecurityGroup = import("./defaultSecurityGroup").DefaultSecurityGroup;
+export const DefaultSecurityGroup: typeof import("./defaultSecurityGroup").DefaultSecurityGroup = null as any;
+
+export { DefaultSubnetArgs, DefaultSubnetState } from "./defaultSubnet";
+export type DefaultSubnet = import("./defaultSubnet").DefaultSubnet;
+export const DefaultSubnet: typeof import("./defaultSubnet").DefaultSubnet = null as any;
+
+export { DefaultVpcArgs, DefaultVpcState } from "./defaultVpc";
+export type DefaultVpc = import("./defaultVpc").DefaultVpc;
+export const DefaultVpc: typeof import("./defaultVpc").DefaultVpc = null as any;
+
+export { DefaultVpcDhcpOptionsArgs, DefaultVpcDhcpOptionsState } from "./defaultVpcDhcpOptions";
+export type DefaultVpcDhcpOptions = import("./defaultVpcDhcpOptions").DefaultVpcDhcpOptions;
+export const DefaultVpcDhcpOptions: typeof import("./defaultVpcDhcpOptions").DefaultVpcDhcpOptions = null as any;
+
+export { EgressOnlyInternetGatewayArgs, EgressOnlyInternetGatewayState } from "./egressOnlyInternetGateway";
+export type EgressOnlyInternetGateway = import("./egressOnlyInternetGateway").EgressOnlyInternetGateway;
+export const EgressOnlyInternetGateway: typeof import("./egressOnlyInternetGateway").EgressOnlyInternetGateway = null as any;
+
+export { EipArgs, EipState } from "./eip";
+export type Eip = import("./eip").Eip;
+export const Eip: typeof import("./eip").Eip = null as any;
+
+export { EipAssociationArgs, EipAssociationState } from "./eipAssociation";
+export type EipAssociation = import("./eipAssociation").EipAssociation;
+export const EipAssociation: typeof import("./eipAssociation").EipAssociation = null as any;
+
+export { FleetArgs, FleetState } from "./fleet";
+export type Fleet = import("./fleet").Fleet;
+export const Fleet: typeof import("./fleet").Fleet = null as any;
+
+export { FlowLogArgs, FlowLogState } from "./flowLog";
+export type FlowLog = import("./flowLog").FlowLog;
+export const FlowLog: typeof import("./flowLog").FlowLog = null as any;
+
+export { GetAmiArgs, GetAmiResult, GetAmiOutputArgs } from "./getAmi";
+export const getAmi: typeof import("./getAmi").getAmi = null as any;
+export const getAmiOutput: typeof import("./getAmi").getAmiOutput = null as any;
+
+export { GetAmiIdsArgs, GetAmiIdsResult, GetAmiIdsOutputArgs } from "./getAmiIds";
+export const getAmiIds: typeof import("./getAmiIds").getAmiIds = null as any;
+export const getAmiIdsOutput: typeof import("./getAmiIds").getAmiIdsOutput = null as any;
+
+export { GetCoipPoolArgs, GetCoipPoolResult, GetCoipPoolOutputArgs } from "./getCoipPool";
+export const getCoipPool: typeof import("./getCoipPool").getCoipPool = null as any;
+export const getCoipPoolOutput: typeof import("./getCoipPool").getCoipPoolOutput = null as any;
+
+export { GetCoipPoolsArgs, GetCoipPoolsResult, GetCoipPoolsOutputArgs } from "./getCoipPools";
+export const getCoipPools: typeof import("./getCoipPools").getCoipPools = null as any;
+export const getCoipPoolsOutput: typeof import("./getCoipPools").getCoipPoolsOutput = null as any;
+
+export { GetCustomerGatewayArgs, GetCustomerGatewayResult, GetCustomerGatewayOutputArgs } from "./getCustomerGateway";
+export const getCustomerGateway: typeof import("./getCustomerGateway").getCustomerGateway = null as any;
+export const getCustomerGatewayOutput: typeof import("./getCustomerGateway").getCustomerGatewayOutput = null as any;
+
+export { GetDedicatedHostArgs, GetDedicatedHostResult, GetDedicatedHostOutputArgs } from "./getDedicatedHost";
+export const getDedicatedHost: typeof import("./getDedicatedHost").getDedicatedHost = null as any;
+export const getDedicatedHostOutput: typeof import("./getDedicatedHost").getDedicatedHostOutput = null as any;
+
+export { GetEipsArgs, GetEipsResult, GetEipsOutputArgs } from "./getEips";
+export const getEips: typeof import("./getEips").getEips = null as any;
+export const getEipsOutput: typeof import("./getEips").getEipsOutput = null as any;
+
+export { GetElasticIpArgs, GetElasticIpResult, GetElasticIpOutputArgs } from "./getElasticIp";
+export const getElasticIp: typeof import("./getElasticIp").getElasticIp = null as any;
+export const getElasticIpOutput: typeof import("./getElasticIp").getElasticIpOutput = null as any;
+
+export { GetInstanceArgs, GetInstanceResult, GetInstanceOutputArgs } from "./getInstance";
+export const getInstance: typeof import("./getInstance").getInstance = null as any;
+export const getInstanceOutput: typeof import("./getInstance").getInstanceOutput = null as any;
+
+export { GetInstanceTypeArgs, GetInstanceTypeResult, GetInstanceTypeOutputArgs } from "./getInstanceType";
+export const getInstanceType: typeof import("./getInstanceType").getInstanceType = null as any;
+export const getInstanceTypeOutput: typeof import("./getInstanceType").getInstanceTypeOutput = null as any;
+
+export { GetInstanceTypeOfferingArgs, GetInstanceTypeOfferingResult, GetInstanceTypeOfferingOutputArgs } from "./getInstanceTypeOffering";
+export const getInstanceTypeOffering: typeof import("./getInstanceTypeOffering").getInstanceTypeOffering = null as any;
+export const getInstanceTypeOfferingOutput: typeof import("./getInstanceTypeOffering").getInstanceTypeOfferingOutput = null as any;
+
+export { GetInstanceTypeOfferingsArgs, GetInstanceTypeOfferingsResult, GetInstanceTypeOfferingsOutputArgs } from "./getInstanceTypeOfferings";
+export const getInstanceTypeOfferings: typeof import("./getInstanceTypeOfferings").getInstanceTypeOfferings = null as any;
+export const getInstanceTypeOfferingsOutput: typeof import("./getInstanceTypeOfferings").getInstanceTypeOfferingsOutput = null as any;
+
+export { GetInstanceTypesArgs, GetInstanceTypesResult, GetInstanceTypesOutputArgs } from "./getInstanceTypes";
+export const getInstanceTypes: typeof import("./getInstanceTypes").getInstanceTypes = null as any;
+export const getInstanceTypesOutput: typeof import("./getInstanceTypes").getInstanceTypesOutput = null as any;
+
+export { GetInstancesArgs, GetInstancesResult, GetInstancesOutputArgs } from "./getInstances";
+export const getInstances: typeof import("./getInstances").getInstances = null as any;
+export const getInstancesOutput: typeof import("./getInstances").getInstancesOutput = null as any;
+
+export { GetInternetGatewayArgs, GetInternetGatewayResult, GetInternetGatewayOutputArgs } from "./getInternetGateway";
+export const getInternetGateway: typeof import("./getInternetGateway").getInternetGateway = null as any;
+export const getInternetGatewayOutput: typeof import("./getInternetGateway").getInternetGatewayOutput = null as any;
+
+export { GetIpamPreviewNextCidrArgs, GetIpamPreviewNextCidrResult, GetIpamPreviewNextCidrOutputArgs } from "./getIpamPreviewNextCidr";
+export const getIpamPreviewNextCidr: typeof import("./getIpamPreviewNextCidr").getIpamPreviewNextCidr = null as any;
+export const getIpamPreviewNextCidrOutput: typeof import("./getIpamPreviewNextCidr").getIpamPreviewNextCidrOutput = null as any;
+
+export { GetKeyPairArgs, GetKeyPairResult, GetKeyPairOutputArgs } from "./getKeyPair";
+export const getKeyPair: typeof import("./getKeyPair").getKeyPair = null as any;
+export const getKeyPairOutput: typeof import("./getKeyPair").getKeyPairOutput = null as any;
+
+export { GetLaunchConfigurationArgs, GetLaunchConfigurationResult, GetLaunchConfigurationOutputArgs } from "./getLaunchConfiguration";
+export const getLaunchConfiguration: typeof import("./getLaunchConfiguration").getLaunchConfiguration = null as any;
+export const getLaunchConfigurationOutput: typeof import("./getLaunchConfiguration").getLaunchConfigurationOutput = null as any;
+
+export { GetLaunchTemplateArgs, GetLaunchTemplateResult, GetLaunchTemplateOutputArgs } from "./getLaunchTemplate";
+export const getLaunchTemplate: typeof import("./getLaunchTemplate").getLaunchTemplate = null as any;
+export const getLaunchTemplateOutput: typeof import("./getLaunchTemplate").getLaunchTemplateOutput = null as any;
+
+export { GetLocalGatewayArgs, GetLocalGatewayResult, GetLocalGatewayOutputArgs } from "./getLocalGateway";
+export const getLocalGateway: typeof import("./getLocalGateway").getLocalGateway = null as any;
+export const getLocalGatewayOutput: typeof import("./getLocalGateway").getLocalGatewayOutput = null as any;
+
+export { GetLocalGatewayRouteTableArgs, GetLocalGatewayRouteTableResult, GetLocalGatewayRouteTableOutputArgs } from "./getLocalGatewayRouteTable";
+export const getLocalGatewayRouteTable: typeof import("./getLocalGatewayRouteTable").getLocalGatewayRouteTable = null as any;
+export const getLocalGatewayRouteTableOutput: typeof import("./getLocalGatewayRouteTable").getLocalGatewayRouteTableOutput = null as any;
+
+export { GetLocalGatewayRouteTablesArgs, GetLocalGatewayRouteTablesResult, GetLocalGatewayRouteTablesOutputArgs } from "./getLocalGatewayRouteTables";
+export const getLocalGatewayRouteTables: typeof import("./getLocalGatewayRouteTables").getLocalGatewayRouteTables = null as any;
+export const getLocalGatewayRouteTablesOutput: typeof import("./getLocalGatewayRouteTables").getLocalGatewayRouteTablesOutput = null as any;
+
+export { GetLocalGatewayVirtualInterfaceArgs, GetLocalGatewayVirtualInterfaceResult, GetLocalGatewayVirtualInterfaceOutputArgs } from "./getLocalGatewayVirtualInterface";
+export const getLocalGatewayVirtualInterface: typeof import("./getLocalGatewayVirtualInterface").getLocalGatewayVirtualInterface = null as any;
+export const getLocalGatewayVirtualInterfaceOutput: typeof import("./getLocalGatewayVirtualInterface").getLocalGatewayVirtualInterfaceOutput = null as any;
+
+export { GetLocalGatewayVirtualInterfaceGroupArgs, GetLocalGatewayVirtualInterfaceGroupResult, GetLocalGatewayVirtualInterfaceGroupOutputArgs } from "./getLocalGatewayVirtualInterfaceGroup";
+export const getLocalGatewayVirtualInterfaceGroup: typeof import("./getLocalGatewayVirtualInterfaceGroup").getLocalGatewayVirtualInterfaceGroup = null as any;
+export const getLocalGatewayVirtualInterfaceGroupOutput: typeof import("./getLocalGatewayVirtualInterfaceGroup").getLocalGatewayVirtualInterfaceGroupOutput = null as any;
+
+export { GetLocalGatewayVirtualInterfaceGroupsArgs, GetLocalGatewayVirtualInterfaceGroupsResult, GetLocalGatewayVirtualInterfaceGroupsOutputArgs } from "./getLocalGatewayVirtualInterfaceGroups";
+export const getLocalGatewayVirtualInterfaceGroups: typeof import("./getLocalGatewayVirtualInterfaceGroups").getLocalGatewayVirtualInterfaceGroups = null as any;
+export const getLocalGatewayVirtualInterfaceGroupsOutput: typeof import("./getLocalGatewayVirtualInterfaceGroups").getLocalGatewayVirtualInterfaceGroupsOutput = null as any;
+
+export { GetLocalGatewaysArgs, GetLocalGatewaysResult, GetLocalGatewaysOutputArgs } from "./getLocalGateways";
+export const getLocalGateways: typeof import("./getLocalGateways").getLocalGateways = null as any;
+export const getLocalGatewaysOutput: typeof import("./getLocalGateways").getLocalGatewaysOutput = null as any;
+
+export { GetManagedPrefixListArgs, GetManagedPrefixListResult, GetManagedPrefixListOutputArgs } from "./getManagedPrefixList";
+export const getManagedPrefixList: typeof import("./getManagedPrefixList").getManagedPrefixList = null as any;
+export const getManagedPrefixListOutput: typeof import("./getManagedPrefixList").getManagedPrefixListOutput = null as any;
+
+export { GetNatGatewayArgs, GetNatGatewayResult, GetNatGatewayOutputArgs } from "./getNatGateway";
+export const getNatGateway: typeof import("./getNatGateway").getNatGateway = null as any;
+export const getNatGatewayOutput: typeof import("./getNatGateway").getNatGatewayOutput = null as any;
+
+export { GetNatGatewaysArgs, GetNatGatewaysResult, GetNatGatewaysOutputArgs } from "./getNatGateways";
+export const getNatGateways: typeof import("./getNatGateways").getNatGateways = null as any;
+export const getNatGatewaysOutput: typeof import("./getNatGateways").getNatGatewaysOutput = null as any;
+
+export { GetNetworkAclsArgs, GetNetworkAclsResult, GetNetworkAclsOutputArgs } from "./getNetworkAcls";
+export const getNetworkAcls: typeof import("./getNetworkAcls").getNetworkAcls = null as any;
+export const getNetworkAclsOutput: typeof import("./getNetworkAcls").getNetworkAclsOutput = null as any;
+
+export { GetNetworkInsightsAnalysisArgs, GetNetworkInsightsAnalysisResult, GetNetworkInsightsAnalysisOutputArgs } from "./getNetworkInsightsAnalysis";
+export const getNetworkInsightsAnalysis: typeof import("./getNetworkInsightsAnalysis").getNetworkInsightsAnalysis = null as any;
+export const getNetworkInsightsAnalysisOutput: typeof import("./getNetworkInsightsAnalysis").getNetworkInsightsAnalysisOutput = null as any;
+
+export { GetNetworkInsightsPathArgs, GetNetworkInsightsPathResult, GetNetworkInsightsPathOutputArgs } from "./getNetworkInsightsPath";
+export const getNetworkInsightsPath: typeof import("./getNetworkInsightsPath").getNetworkInsightsPath = null as any;
+export const getNetworkInsightsPathOutput: typeof import("./getNetworkInsightsPath").getNetworkInsightsPathOutput = null as any;
+
+export { GetNetworkInterfaceArgs, GetNetworkInterfaceResult, GetNetworkInterfaceOutputArgs } from "./getNetworkInterface";
+export const getNetworkInterface: typeof import("./getNetworkInterface").getNetworkInterface = null as any;
+export const getNetworkInterfaceOutput: typeof import("./getNetworkInterface").getNetworkInterfaceOutput = null as any;
+
+export { GetNetworkInterfacesArgs, GetNetworkInterfacesResult, GetNetworkInterfacesOutputArgs } from "./getNetworkInterfaces";
+export const getNetworkInterfaces: typeof import("./getNetworkInterfaces").getNetworkInterfaces = null as any;
+export const getNetworkInterfacesOutput: typeof import("./getNetworkInterfaces").getNetworkInterfacesOutput = null as any;
+
+export { GetPrefixListArgs, GetPrefixListResult, GetPrefixListOutputArgs } from "./getPrefixList";
+export const getPrefixList: typeof import("./getPrefixList").getPrefixList = null as any;
+export const getPrefixListOutput: typeof import("./getPrefixList").getPrefixListOutput = null as any;
+
+export { GetRouteArgs, GetRouteResult, GetRouteOutputArgs } from "./getRoute";
+export const getRoute: typeof import("./getRoute").getRoute = null as any;
+export const getRouteOutput: typeof import("./getRoute").getRouteOutput = null as any;
+
+export { GetRouteTableArgs, GetRouteTableResult, GetRouteTableOutputArgs } from "./getRouteTable";
+export const getRouteTable: typeof import("./getRouteTable").getRouteTable = null as any;
+export const getRouteTableOutput: typeof import("./getRouteTable").getRouteTableOutput = null as any;
+
+export { GetRouteTablesArgs, GetRouteTablesResult, GetRouteTablesOutputArgs } from "./getRouteTables";
+export const getRouteTables: typeof import("./getRouteTables").getRouteTables = null as any;
+export const getRouteTablesOutput: typeof import("./getRouteTables").getRouteTablesOutput = null as any;
+
+export { GetSecurityGroupArgs, GetSecurityGroupResult, GetSecurityGroupOutputArgs } from "./getSecurityGroup";
+export const getSecurityGroup: typeof import("./getSecurityGroup").getSecurityGroup = null as any;
+export const getSecurityGroupOutput: typeof import("./getSecurityGroup").getSecurityGroupOutput = null as any;
+
+export { GetSecurityGroupsArgs, GetSecurityGroupsResult, GetSecurityGroupsOutputArgs } from "./getSecurityGroups";
+export const getSecurityGroups: typeof import("./getSecurityGroups").getSecurityGroups = null as any;
+export const getSecurityGroupsOutput: typeof import("./getSecurityGroups").getSecurityGroupsOutput = null as any;
+
+export { GetSerialConsoleAccessResult } from "./getSerialConsoleAccess";
+export const getSerialConsoleAccess: typeof import("./getSerialConsoleAccess").getSerialConsoleAccess = null as any;
+
+export { GetSpotPriceArgs, GetSpotPriceResult, GetSpotPriceOutputArgs } from "./getSpotPrice";
+export const getSpotPrice: typeof import("./getSpotPrice").getSpotPrice = null as any;
+export const getSpotPriceOutput: typeof import("./getSpotPrice").getSpotPriceOutput = null as any;
+
+export { GetSubnetArgs, GetSubnetResult, GetSubnetOutputArgs } from "./getSubnet";
+export const getSubnet: typeof import("./getSubnet").getSubnet = null as any;
+export const getSubnetOutput: typeof import("./getSubnet").getSubnetOutput = null as any;
+
+export { GetSubnetIdsArgs, GetSubnetIdsResult, GetSubnetIdsOutputArgs } from "./getSubnetIds";
+export const getSubnetIds: typeof import("./getSubnetIds").getSubnetIds = null as any;
+export const getSubnetIdsOutput: typeof import("./getSubnetIds").getSubnetIdsOutput = null as any;
+
+export { GetSubnetsArgs, GetSubnetsResult, GetSubnetsOutputArgs } from "./getSubnets";
+export const getSubnets: typeof import("./getSubnets").getSubnets = null as any;
+export const getSubnetsOutput: typeof import("./getSubnets").getSubnetsOutput = null as any;
+
+export { GetTransitGatewayRouteTablesArgs, GetTransitGatewayRouteTablesResult, GetTransitGatewayRouteTablesOutputArgs } from "./getTransitGatewayRouteTables";
+export const getTransitGatewayRouteTables: typeof import("./getTransitGatewayRouteTables").getTransitGatewayRouteTables = null as any;
+export const getTransitGatewayRouteTablesOutput: typeof import("./getTransitGatewayRouteTables").getTransitGatewayRouteTablesOutput = null as any;
+
+export { GetVpcArgs, GetVpcResult, GetVpcOutputArgs } from "./getVpc";
+export const getVpc: typeof import("./getVpc").getVpc = null as any;
+export const getVpcOutput: typeof import("./getVpc").getVpcOutput = null as any;
+
+export { GetVpcDhcpOptionsArgs, GetVpcDhcpOptionsResult, GetVpcDhcpOptionsOutputArgs } from "./getVpcDhcpOptions";
+export const getVpcDhcpOptions: typeof import("./getVpcDhcpOptions").getVpcDhcpOptions = null as any;
+export const getVpcDhcpOptionsOutput: typeof import("./getVpcDhcpOptions").getVpcDhcpOptionsOutput = null as any;
+
+export { GetVpcEndpointArgs, GetVpcEndpointResult, GetVpcEndpointOutputArgs } from "./getVpcEndpoint";
+export const getVpcEndpoint: typeof import("./getVpcEndpoint").getVpcEndpoint = null as any;
+export const getVpcEndpointOutput: typeof import("./getVpcEndpoint").getVpcEndpointOutput = null as any;
+
+export { GetVpcEndpointServiceArgs, GetVpcEndpointServiceResult, GetVpcEndpointServiceOutputArgs } from "./getVpcEndpointService";
+export const getVpcEndpointService: typeof import("./getVpcEndpointService").getVpcEndpointService = null as any;
+export const getVpcEndpointServiceOutput: typeof import("./getVpcEndpointService").getVpcEndpointServiceOutput = null as any;
+
+export { GetVpcIamPoolArgs, GetVpcIamPoolResult, GetVpcIamPoolOutputArgs } from "./getVpcIamPool";
+export const getVpcIamPool: typeof import("./getVpcIamPool").getVpcIamPool = null as any;
+export const getVpcIamPoolOutput: typeof import("./getVpcIamPool").getVpcIamPoolOutput = null as any;
+
+export { GetVpcPeeringConnectionArgs, GetVpcPeeringConnectionResult, GetVpcPeeringConnectionOutputArgs } from "./getVpcPeeringConnection";
+export const getVpcPeeringConnection: typeof import("./getVpcPeeringConnection").getVpcPeeringConnection = null as any;
+export const getVpcPeeringConnectionOutput: typeof import("./getVpcPeeringConnection").getVpcPeeringConnectionOutput = null as any;
+
+export { GetVpcPeeringConnectionsArgs, GetVpcPeeringConnectionsResult, GetVpcPeeringConnectionsOutputArgs } from "./getVpcPeeringConnections";
+export const getVpcPeeringConnections: typeof import("./getVpcPeeringConnections").getVpcPeeringConnections = null as any;
+export const getVpcPeeringConnectionsOutput: typeof import("./getVpcPeeringConnections").getVpcPeeringConnectionsOutput = null as any;
+
+export { GetVpcsArgs, GetVpcsResult, GetVpcsOutputArgs } from "./getVpcs";
+export const getVpcs: typeof import("./getVpcs").getVpcs = null as any;
+export const getVpcsOutput: typeof import("./getVpcs").getVpcsOutput = null as any;
+
+export { GetVpnGatewayArgs, GetVpnGatewayResult, GetVpnGatewayOutputArgs } from "./getVpnGateway";
+export const getVpnGateway: typeof import("./getVpnGateway").getVpnGateway = null as any;
+export const getVpnGatewayOutput: typeof import("./getVpnGateway").getVpnGatewayOutput = null as any;
+
+export { InstanceArgs, InstanceState } from "./instance";
+export type Instance = import("./instance").Instance;
+export const Instance: typeof import("./instance").Instance = null as any;
+
 export * from "./instancePlatform";
 export * from "./instanceType";
-export * from "./internetGateway";
-export * from "./internetGatewayAttachment";
-export * from "./keyPair";
-export * from "./launchConfiguration";
-export * from "./launchTemplate";
-export * from "./localGatewayRoute";
-export * from "./localGatewayRouteTableVpcAssociation";
-export * from "./mainRouteTableAssociation";
-export * from "./managedPrefixList";
-export * from "./managedPrefixListEntry";
-export * from "./natGateway";
-export * from "./networkAcl";
-export * from "./networkAclAssociation";
-export * from "./networkAclRule";
-export * from "./networkInsightsAnalysis";
-export * from "./networkInsightsPath";
-export * from "./networkInterface";
-export * from "./networkInterfaceAttachment";
-export * from "./networkInterfaceSecurityGroupAttachment";
-export * from "./peeringConnectionOptions";
-export * from "./placementGroup";
+export { InternetGatewayArgs, InternetGatewayState } from "./internetGateway";
+export type InternetGateway = import("./internetGateway").InternetGateway;
+export const InternetGateway: typeof import("./internetGateway").InternetGateway = null as any;
+
+export { InternetGatewayAttachmentArgs, InternetGatewayAttachmentState } from "./internetGatewayAttachment";
+export type InternetGatewayAttachment = import("./internetGatewayAttachment").InternetGatewayAttachment;
+export const InternetGatewayAttachment: typeof import("./internetGatewayAttachment").InternetGatewayAttachment = null as any;
+
+export { KeyPairArgs, KeyPairState } from "./keyPair";
+export type KeyPair = import("./keyPair").KeyPair;
+export const KeyPair: typeof import("./keyPair").KeyPair = null as any;
+
+export { LaunchConfigurationArgs, LaunchConfigurationState } from "./launchConfiguration";
+export type LaunchConfiguration = import("./launchConfiguration").LaunchConfiguration;
+export const LaunchConfiguration: typeof import("./launchConfiguration").LaunchConfiguration = null as any;
+
+export { LaunchTemplateArgs, LaunchTemplateState } from "./launchTemplate";
+export type LaunchTemplate = import("./launchTemplate").LaunchTemplate;
+export const LaunchTemplate: typeof import("./launchTemplate").LaunchTemplate = null as any;
+
+export { LocalGatewayRouteArgs, LocalGatewayRouteState } from "./localGatewayRoute";
+export type LocalGatewayRoute = import("./localGatewayRoute").LocalGatewayRoute;
+export const LocalGatewayRoute: typeof import("./localGatewayRoute").LocalGatewayRoute = null as any;
+
+export { LocalGatewayRouteTableVpcAssociationArgs, LocalGatewayRouteTableVpcAssociationState } from "./localGatewayRouteTableVpcAssociation";
+export type LocalGatewayRouteTableVpcAssociation = import("./localGatewayRouteTableVpcAssociation").LocalGatewayRouteTableVpcAssociation;
+export const LocalGatewayRouteTableVpcAssociation: typeof import("./localGatewayRouteTableVpcAssociation").LocalGatewayRouteTableVpcAssociation = null as any;
+
+export { MainRouteTableAssociationArgs, MainRouteTableAssociationState } from "./mainRouteTableAssociation";
+export type MainRouteTableAssociation = import("./mainRouteTableAssociation").MainRouteTableAssociation;
+export const MainRouteTableAssociation: typeof import("./mainRouteTableAssociation").MainRouteTableAssociation = null as any;
+
+export { ManagedPrefixListArgs, ManagedPrefixListState } from "./managedPrefixList";
+export type ManagedPrefixList = import("./managedPrefixList").ManagedPrefixList;
+export const ManagedPrefixList: typeof import("./managedPrefixList").ManagedPrefixList = null as any;
+
+export { ManagedPrefixListEntryArgs, ManagedPrefixListEntryState } from "./managedPrefixListEntry";
+export type ManagedPrefixListEntry = import("./managedPrefixListEntry").ManagedPrefixListEntry;
+export const ManagedPrefixListEntry: typeof import("./managedPrefixListEntry").ManagedPrefixListEntry = null as any;
+
+export { NatGatewayArgs, NatGatewayState } from "./natGateway";
+export type NatGateway = import("./natGateway").NatGateway;
+export const NatGateway: typeof import("./natGateway").NatGateway = null as any;
+
+export { NetworkAclArgs, NetworkAclState } from "./networkAcl";
+export type NetworkAcl = import("./networkAcl").NetworkAcl;
+export const NetworkAcl: typeof import("./networkAcl").NetworkAcl = null as any;
+
+export { NetworkAclAssociationArgs, NetworkAclAssociationState } from "./networkAclAssociation";
+export type NetworkAclAssociation = import("./networkAclAssociation").NetworkAclAssociation;
+export const NetworkAclAssociation: typeof import("./networkAclAssociation").NetworkAclAssociation = null as any;
+
+export { NetworkAclRuleArgs, NetworkAclRuleState } from "./networkAclRule";
+export type NetworkAclRule = import("./networkAclRule").NetworkAclRule;
+export const NetworkAclRule: typeof import("./networkAclRule").NetworkAclRule = null as any;
+
+export { NetworkInsightsAnalysisArgs, NetworkInsightsAnalysisState } from "./networkInsightsAnalysis";
+export type NetworkInsightsAnalysis = import("./networkInsightsAnalysis").NetworkInsightsAnalysis;
+export const NetworkInsightsAnalysis: typeof import("./networkInsightsAnalysis").NetworkInsightsAnalysis = null as any;
+
+export { NetworkInsightsPathArgs, NetworkInsightsPathState } from "./networkInsightsPath";
+export type NetworkInsightsPath = import("./networkInsightsPath").NetworkInsightsPath;
+export const NetworkInsightsPath: typeof import("./networkInsightsPath").NetworkInsightsPath = null as any;
+
+export { NetworkInterfaceArgs, NetworkInterfaceState } from "./networkInterface";
+export type NetworkInterface = import("./networkInterface").NetworkInterface;
+export const NetworkInterface: typeof import("./networkInterface").NetworkInterface = null as any;
+
+export { NetworkInterfaceAttachmentArgs, NetworkInterfaceAttachmentState } from "./networkInterfaceAttachment";
+export type NetworkInterfaceAttachment = import("./networkInterfaceAttachment").NetworkInterfaceAttachment;
+export const NetworkInterfaceAttachment: typeof import("./networkInterfaceAttachment").NetworkInterfaceAttachment = null as any;
+
+export { NetworkInterfaceSecurityGroupAttachmentArgs, NetworkInterfaceSecurityGroupAttachmentState } from "./networkInterfaceSecurityGroupAttachment";
+export type NetworkInterfaceSecurityGroupAttachment = import("./networkInterfaceSecurityGroupAttachment").NetworkInterfaceSecurityGroupAttachment;
+export const NetworkInterfaceSecurityGroupAttachment: typeof import("./networkInterfaceSecurityGroupAttachment").NetworkInterfaceSecurityGroupAttachment = null as any;
+
+export { PeeringConnectionOptionsArgs, PeeringConnectionOptionsState } from "./peeringConnectionOptions";
+export type PeeringConnectionOptions = import("./peeringConnectionOptions").PeeringConnectionOptions;
+export const PeeringConnectionOptions: typeof import("./peeringConnectionOptions").PeeringConnectionOptions = null as any;
+
+export { PlacementGroupArgs, PlacementGroupState } from "./placementGroup";
+export type PlacementGroup = import("./placementGroup").PlacementGroup;
+export const PlacementGroup: typeof import("./placementGroup").PlacementGroup = null as any;
+
 export * from "./placementStrategy";
 export * from "./protocolType";
-export * from "./proxyProtocolPolicy";
-export * from "./route";
-export * from "./routeTable";
-export * from "./routeTableAssociation";
-export * from "./securityGroup";
-export * from "./securityGroupAssociation";
-export * from "./securityGroupRule";
-export * from "./serialConsoleAccess";
-export * from "./snapshotCreateVolumePermission";
-export * from "./spotDatafeedSubscription";
-export * from "./spotFleetRequest";
-export * from "./spotInstanceRequest";
-export * from "./subnet";
-export * from "./subnetCidrReservation";
-export * from "./tag";
+export { ProxyProtocolPolicyArgs, ProxyProtocolPolicyState } from "./proxyProtocolPolicy";
+export type ProxyProtocolPolicy = import("./proxyProtocolPolicy").ProxyProtocolPolicy;
+export const ProxyProtocolPolicy: typeof import("./proxyProtocolPolicy").ProxyProtocolPolicy = null as any;
+
+export { RouteArgs, RouteState } from "./route";
+export type Route = import("./route").Route;
+export const Route: typeof import("./route").Route = null as any;
+
+export { RouteTableArgs, RouteTableState } from "./routeTable";
+export type RouteTable = import("./routeTable").RouteTable;
+export const RouteTable: typeof import("./routeTable").RouteTable = null as any;
+
+export { RouteTableAssociationArgs, RouteTableAssociationState } from "./routeTableAssociation";
+export type RouteTableAssociation = import("./routeTableAssociation").RouteTableAssociation;
+export const RouteTableAssociation: typeof import("./routeTableAssociation").RouteTableAssociation = null as any;
+
+export { SecurityGroupArgs, SecurityGroupState } from "./securityGroup";
+export type SecurityGroup = import("./securityGroup").SecurityGroup;
+export const SecurityGroup: typeof import("./securityGroup").SecurityGroup = null as any;
+
+export { SecurityGroupAssociationArgs, SecurityGroupAssociationState } from "./securityGroupAssociation";
+export type SecurityGroupAssociation = import("./securityGroupAssociation").SecurityGroupAssociation;
+export const SecurityGroupAssociation: typeof import("./securityGroupAssociation").SecurityGroupAssociation = null as any;
+
+export { SecurityGroupRuleArgs, SecurityGroupRuleState } from "./securityGroupRule";
+export type SecurityGroupRule = import("./securityGroupRule").SecurityGroupRule;
+export const SecurityGroupRule: typeof import("./securityGroupRule").SecurityGroupRule = null as any;
+
+export { SerialConsoleAccessArgs, SerialConsoleAccessState } from "./serialConsoleAccess";
+export type SerialConsoleAccess = import("./serialConsoleAccess").SerialConsoleAccess;
+export const SerialConsoleAccess: typeof import("./serialConsoleAccess").SerialConsoleAccess = null as any;
+
+export { SnapshotCreateVolumePermissionArgs, SnapshotCreateVolumePermissionState } from "./snapshotCreateVolumePermission";
+export type SnapshotCreateVolumePermission = import("./snapshotCreateVolumePermission").SnapshotCreateVolumePermission;
+export const SnapshotCreateVolumePermission: typeof import("./snapshotCreateVolumePermission").SnapshotCreateVolumePermission = null as any;
+
+export { SpotDatafeedSubscriptionArgs, SpotDatafeedSubscriptionState } from "./spotDatafeedSubscription";
+export type SpotDatafeedSubscription = import("./spotDatafeedSubscription").SpotDatafeedSubscription;
+export const SpotDatafeedSubscription: typeof import("./spotDatafeedSubscription").SpotDatafeedSubscription = null as any;
+
+export { SpotFleetRequestArgs, SpotFleetRequestState } from "./spotFleetRequest";
+export type SpotFleetRequest = import("./spotFleetRequest").SpotFleetRequest;
+export const SpotFleetRequest: typeof import("./spotFleetRequest").SpotFleetRequest = null as any;
+
+export { SpotInstanceRequestArgs, SpotInstanceRequestState } from "./spotInstanceRequest";
+export type SpotInstanceRequest = import("./spotInstanceRequest").SpotInstanceRequest;
+export const SpotInstanceRequest: typeof import("./spotInstanceRequest").SpotInstanceRequest = null as any;
+
+export { SubnetArgs, SubnetState } from "./subnet";
+export type Subnet = import("./subnet").Subnet;
+export const Subnet: typeof import("./subnet").Subnet = null as any;
+
+export { SubnetCidrReservationArgs, SubnetCidrReservationState } from "./subnetCidrReservation";
+export type SubnetCidrReservation = import("./subnetCidrReservation").SubnetCidrReservation;
+export const SubnetCidrReservation: typeof import("./subnetCidrReservation").SubnetCidrReservation = null as any;
+
+export { TagArgs, TagState } from "./tag";
+export type Tag = import("./tag").Tag;
+export const Tag: typeof import("./tag").Tag = null as any;
+
 export * from "./tenancy";
-export * from "./trafficMirrorFilter";
-export * from "./trafficMirrorFilterRule";
-export * from "./trafficMirrorSession";
-export * from "./trafficMirrorTarget";
-export * from "./transitGatewayPeeringAttachmentAccepter";
-export * from "./volumeAttachment";
-export * from "./vpc";
-export * from "./vpcDhcpOptions";
-export * from "./vpcDhcpOptionsAssociation";
-export * from "./vpcEndpoint";
-export * from "./vpcEndpointConnectionAccepter";
-export * from "./vpcEndpointConnectionNotification";
-export * from "./vpcEndpointPolicy";
-export * from "./vpcEndpointRouteTableAssociation";
-export * from "./vpcEndpointService";
-export * from "./vpcEndpointServiceAllowedPrinciple";
-export * from "./vpcEndpointSubnetAssociation";
-export * from "./vpcIpam";
-export * from "./vpcIpamOrganizationAdminAccount";
-export * from "./vpcIpamPool";
-export * from "./vpcIpamPoolCidr";
-export * from "./vpcIpamPoolCidrAllocation";
-export * from "./vpcIpamPreviewNextCidr";
-export * from "./vpcIpamScope";
-export * from "./vpcIpv4CidrBlockAssociation";
-export * from "./vpcIpv6CidrBlockAssociation";
-export * from "./vpcPeeringConnection";
-export * from "./vpcPeeringConnectionAccepter";
-export * from "./vpnConnection";
-export * from "./vpnConnectionRoute";
-export * from "./vpnGateway";
-export * from "./vpnGatewayAttachment";
-export * from "./vpnGatewayRoutePropagation";
+export { TrafficMirrorFilterArgs, TrafficMirrorFilterState } from "./trafficMirrorFilter";
+export type TrafficMirrorFilter = import("./trafficMirrorFilter").TrafficMirrorFilter;
+export const TrafficMirrorFilter: typeof import("./trafficMirrorFilter").TrafficMirrorFilter = null as any;
+
+export { TrafficMirrorFilterRuleArgs, TrafficMirrorFilterRuleState } from "./trafficMirrorFilterRule";
+export type TrafficMirrorFilterRule = import("./trafficMirrorFilterRule").TrafficMirrorFilterRule;
+export const TrafficMirrorFilterRule: typeof import("./trafficMirrorFilterRule").TrafficMirrorFilterRule = null as any;
+
+export { TrafficMirrorSessionArgs, TrafficMirrorSessionState } from "./trafficMirrorSession";
+export type TrafficMirrorSession = import("./trafficMirrorSession").TrafficMirrorSession;
+export const TrafficMirrorSession: typeof import("./trafficMirrorSession").TrafficMirrorSession = null as any;
+
+export { TrafficMirrorTargetArgs, TrafficMirrorTargetState } from "./trafficMirrorTarget";
+export type TrafficMirrorTarget = import("./trafficMirrorTarget").TrafficMirrorTarget;
+export const TrafficMirrorTarget: typeof import("./trafficMirrorTarget").TrafficMirrorTarget = null as any;
+
+export { TransitGatewayPeeringAttachmentAccepterArgs, TransitGatewayPeeringAttachmentAccepterState } from "./transitGatewayPeeringAttachmentAccepter";
+export type TransitGatewayPeeringAttachmentAccepter = import("./transitGatewayPeeringAttachmentAccepter").TransitGatewayPeeringAttachmentAccepter;
+export const TransitGatewayPeeringAttachmentAccepter: typeof import("./transitGatewayPeeringAttachmentAccepter").TransitGatewayPeeringAttachmentAccepter = null as any;
+
+export { VolumeAttachmentArgs, VolumeAttachmentState } from "./volumeAttachment";
+export type VolumeAttachment = import("./volumeAttachment").VolumeAttachment;
+export const VolumeAttachment: typeof import("./volumeAttachment").VolumeAttachment = null as any;
+
+export { VpcArgs, VpcState } from "./vpc";
+export type Vpc = import("./vpc").Vpc;
+export const Vpc: typeof import("./vpc").Vpc = null as any;
+
+export { VpcDhcpOptionsArgs, VpcDhcpOptionsState } from "./vpcDhcpOptions";
+export type VpcDhcpOptions = import("./vpcDhcpOptions").VpcDhcpOptions;
+export const VpcDhcpOptions: typeof import("./vpcDhcpOptions").VpcDhcpOptions = null as any;
+
+export { VpcDhcpOptionsAssociationArgs, VpcDhcpOptionsAssociationState } from "./vpcDhcpOptionsAssociation";
+export type VpcDhcpOptionsAssociation = import("./vpcDhcpOptionsAssociation").VpcDhcpOptionsAssociation;
+export const VpcDhcpOptionsAssociation: typeof import("./vpcDhcpOptionsAssociation").VpcDhcpOptionsAssociation = null as any;
+
+export { VpcEndpointArgs, VpcEndpointState } from "./vpcEndpoint";
+export type VpcEndpoint = import("./vpcEndpoint").VpcEndpoint;
+export const VpcEndpoint: typeof import("./vpcEndpoint").VpcEndpoint = null as any;
+
+export { VpcEndpointConnectionAccepterArgs, VpcEndpointConnectionAccepterState } from "./vpcEndpointConnectionAccepter";
+export type VpcEndpointConnectionAccepter = import("./vpcEndpointConnectionAccepter").VpcEndpointConnectionAccepter;
+export const VpcEndpointConnectionAccepter: typeof import("./vpcEndpointConnectionAccepter").VpcEndpointConnectionAccepter = null as any;
+
+export { VpcEndpointConnectionNotificationArgs, VpcEndpointConnectionNotificationState } from "./vpcEndpointConnectionNotification";
+export type VpcEndpointConnectionNotification = import("./vpcEndpointConnectionNotification").VpcEndpointConnectionNotification;
+export const VpcEndpointConnectionNotification: typeof import("./vpcEndpointConnectionNotification").VpcEndpointConnectionNotification = null as any;
+
+export { VpcEndpointPolicyArgs, VpcEndpointPolicyState } from "./vpcEndpointPolicy";
+export type VpcEndpointPolicy = import("./vpcEndpointPolicy").VpcEndpointPolicy;
+export const VpcEndpointPolicy: typeof import("./vpcEndpointPolicy").VpcEndpointPolicy = null as any;
+
+export { VpcEndpointRouteTableAssociationArgs, VpcEndpointRouteTableAssociationState } from "./vpcEndpointRouteTableAssociation";
+export type VpcEndpointRouteTableAssociation = import("./vpcEndpointRouteTableAssociation").VpcEndpointRouteTableAssociation;
+export const VpcEndpointRouteTableAssociation: typeof import("./vpcEndpointRouteTableAssociation").VpcEndpointRouteTableAssociation = null as any;
+
+export { VpcEndpointServiceArgs, VpcEndpointServiceState } from "./vpcEndpointService";
+export type VpcEndpointService = import("./vpcEndpointService").VpcEndpointService;
+export const VpcEndpointService: typeof import("./vpcEndpointService").VpcEndpointService = null as any;
+
+export { VpcEndpointServiceAllowedPrincipleArgs, VpcEndpointServiceAllowedPrincipleState } from "./vpcEndpointServiceAllowedPrinciple";
+export type VpcEndpointServiceAllowedPrinciple = import("./vpcEndpointServiceAllowedPrinciple").VpcEndpointServiceAllowedPrinciple;
+export const VpcEndpointServiceAllowedPrinciple: typeof import("./vpcEndpointServiceAllowedPrinciple").VpcEndpointServiceAllowedPrinciple = null as any;
+
+export { VpcEndpointSubnetAssociationArgs, VpcEndpointSubnetAssociationState } from "./vpcEndpointSubnetAssociation";
+export type VpcEndpointSubnetAssociation = import("./vpcEndpointSubnetAssociation").VpcEndpointSubnetAssociation;
+export const VpcEndpointSubnetAssociation: typeof import("./vpcEndpointSubnetAssociation").VpcEndpointSubnetAssociation = null as any;
+
+export { VpcIpamArgs, VpcIpamState } from "./vpcIpam";
+export type VpcIpam = import("./vpcIpam").VpcIpam;
+export const VpcIpam: typeof import("./vpcIpam").VpcIpam = null as any;
+
+export { VpcIpamOrganizationAdminAccountArgs, VpcIpamOrganizationAdminAccountState } from "./vpcIpamOrganizationAdminAccount";
+export type VpcIpamOrganizationAdminAccount = import("./vpcIpamOrganizationAdminAccount").VpcIpamOrganizationAdminAccount;
+export const VpcIpamOrganizationAdminAccount: typeof import("./vpcIpamOrganizationAdminAccount").VpcIpamOrganizationAdminAccount = null as any;
+
+export { VpcIpamPoolArgs, VpcIpamPoolState } from "./vpcIpamPool";
+export type VpcIpamPool = import("./vpcIpamPool").VpcIpamPool;
+export const VpcIpamPool: typeof import("./vpcIpamPool").VpcIpamPool = null as any;
+
+export { VpcIpamPoolCidrArgs, VpcIpamPoolCidrState } from "./vpcIpamPoolCidr";
+export type VpcIpamPoolCidr = import("./vpcIpamPoolCidr").VpcIpamPoolCidr;
+export const VpcIpamPoolCidr: typeof import("./vpcIpamPoolCidr").VpcIpamPoolCidr = null as any;
+
+export { VpcIpamPoolCidrAllocationArgs, VpcIpamPoolCidrAllocationState } from "./vpcIpamPoolCidrAllocation";
+export type VpcIpamPoolCidrAllocation = import("./vpcIpamPoolCidrAllocation").VpcIpamPoolCidrAllocation;
+export const VpcIpamPoolCidrAllocation: typeof import("./vpcIpamPoolCidrAllocation").VpcIpamPoolCidrAllocation = null as any;
+
+export { VpcIpamPreviewNextCidrArgs, VpcIpamPreviewNextCidrState } from "./vpcIpamPreviewNextCidr";
+export type VpcIpamPreviewNextCidr = import("./vpcIpamPreviewNextCidr").VpcIpamPreviewNextCidr;
+export const VpcIpamPreviewNextCidr: typeof import("./vpcIpamPreviewNextCidr").VpcIpamPreviewNextCidr = null as any;
+
+export { VpcIpamScopeArgs, VpcIpamScopeState } from "./vpcIpamScope";
+export type VpcIpamScope = import("./vpcIpamScope").VpcIpamScope;
+export const VpcIpamScope: typeof import("./vpcIpamScope").VpcIpamScope = null as any;
+
+export { VpcIpv4CidrBlockAssociationArgs, VpcIpv4CidrBlockAssociationState } from "./vpcIpv4CidrBlockAssociation";
+export type VpcIpv4CidrBlockAssociation = import("./vpcIpv4CidrBlockAssociation").VpcIpv4CidrBlockAssociation;
+export const VpcIpv4CidrBlockAssociation: typeof import("./vpcIpv4CidrBlockAssociation").VpcIpv4CidrBlockAssociation = null as any;
+
+export { VpcIpv6CidrBlockAssociationArgs, VpcIpv6CidrBlockAssociationState } from "./vpcIpv6CidrBlockAssociation";
+export type VpcIpv6CidrBlockAssociation = import("./vpcIpv6CidrBlockAssociation").VpcIpv6CidrBlockAssociation;
+export const VpcIpv6CidrBlockAssociation: typeof import("./vpcIpv6CidrBlockAssociation").VpcIpv6CidrBlockAssociation = null as any;
+
+export { VpcPeeringConnectionArgs, VpcPeeringConnectionState } from "./vpcPeeringConnection";
+export type VpcPeeringConnection = import("./vpcPeeringConnection").VpcPeeringConnection;
+export const VpcPeeringConnection: typeof import("./vpcPeeringConnection").VpcPeeringConnection = null as any;
+
+export { VpcPeeringConnectionAccepterArgs, VpcPeeringConnectionAccepterState } from "./vpcPeeringConnectionAccepter";
+export type VpcPeeringConnectionAccepter = import("./vpcPeeringConnectionAccepter").VpcPeeringConnectionAccepter;
+export const VpcPeeringConnectionAccepter: typeof import("./vpcPeeringConnectionAccepter").VpcPeeringConnectionAccepter = null as any;
+
+export { VpnConnectionArgs, VpnConnectionState } from "./vpnConnection";
+export type VpnConnection = import("./vpnConnection").VpnConnection;
+export const VpnConnection: typeof import("./vpnConnection").VpnConnection = null as any;
+
+export { VpnConnectionRouteArgs, VpnConnectionRouteState } from "./vpnConnectionRoute";
+export type VpnConnectionRoute = import("./vpnConnectionRoute").VpnConnectionRoute;
+export const VpnConnectionRoute: typeof import("./vpnConnectionRoute").VpnConnectionRoute = null as any;
+
+export { VpnGatewayArgs, VpnGatewayState } from "./vpnGateway";
+export type VpnGateway = import("./vpnGateway").VpnGateway;
+export const VpnGateway: typeof import("./vpnGateway").VpnGateway = null as any;
+
+export { VpnGatewayAttachmentArgs, VpnGatewayAttachmentState } from "./vpnGatewayAttachment";
+export type VpnGatewayAttachment = import("./vpnGatewayAttachment").VpnGatewayAttachment;
+export const VpnGatewayAttachment: typeof import("./vpnGatewayAttachment").VpnGatewayAttachment = null as any;
+
+export { VpnGatewayRoutePropagationArgs, VpnGatewayRoutePropagationState } from "./vpnGatewayRoutePropagation";
+export type VpnGatewayRoutePropagation = import("./vpnGatewayRoutePropagation").VpnGatewayRoutePropagation;
+export const VpnGatewayRoutePropagation: typeof import("./vpnGatewayRoutePropagation").VpnGatewayRoutePropagation = null as any;
+
+utilities.lazyLoad(exports, ["Ami"], () => require("./ami"));
+utilities.lazyLoad(exports, ["AmiCopy"], () => require("./amiCopy"));
+utilities.lazyLoad(exports, ["AmiFromInstance"], () => require("./amiFromInstance"));
+utilities.lazyLoad(exports, ["AmiLaunchPermission"], () => require("./amiLaunchPermission"));
+utilities.lazyLoad(exports, ["AvailabilityZoneGroup"], () => require("./availabilityZoneGroup"));
+utilities.lazyLoad(exports, ["CapacityReservation"], () => require("./capacityReservation"));
+utilities.lazyLoad(exports, ["CarrierGateway"], () => require("./carrierGateway"));
+utilities.lazyLoad(exports, ["CustomerGateway"], () => require("./customerGateway"));
+utilities.lazyLoad(exports, ["DedicatedHost"], () => require("./dedicatedHost"));
+utilities.lazyLoad(exports, ["DefaultNetworkAcl"], () => require("./defaultNetworkAcl"));
+utilities.lazyLoad(exports, ["DefaultRouteTable"], () => require("./defaultRouteTable"));
+utilities.lazyLoad(exports, ["DefaultSecurityGroup"], () => require("./defaultSecurityGroup"));
+utilities.lazyLoad(exports, ["DefaultSubnet"], () => require("./defaultSubnet"));
+utilities.lazyLoad(exports, ["DefaultVpc"], () => require("./defaultVpc"));
+utilities.lazyLoad(exports, ["DefaultVpcDhcpOptions"], () => require("./defaultVpcDhcpOptions"));
+utilities.lazyLoad(exports, ["EgressOnlyInternetGateway"], () => require("./egressOnlyInternetGateway"));
+utilities.lazyLoad(exports, ["Eip"], () => require("./eip"));
+utilities.lazyLoad(exports, ["EipAssociation"], () => require("./eipAssociation"));
+utilities.lazyLoad(exports, ["Fleet"], () => require("./fleet"));
+utilities.lazyLoad(exports, ["FlowLog"], () => require("./flowLog"));
+utilities.lazyLoad(exports, ["getAmi","getAmiOutput"], () => require("./getAmi"));
+utilities.lazyLoad(exports, ["getAmiIds","getAmiIdsOutput"], () => require("./getAmiIds"));
+utilities.lazyLoad(exports, ["getCoipPool","getCoipPoolOutput"], () => require("./getCoipPool"));
+utilities.lazyLoad(exports, ["getCoipPools","getCoipPoolsOutput"], () => require("./getCoipPools"));
+utilities.lazyLoad(exports, ["getCustomerGateway","getCustomerGatewayOutput"], () => require("./getCustomerGateway"));
+utilities.lazyLoad(exports, ["getDedicatedHost","getDedicatedHostOutput"], () => require("./getDedicatedHost"));
+utilities.lazyLoad(exports, ["getEips","getEipsOutput"], () => require("./getEips"));
+utilities.lazyLoad(exports, ["getElasticIp","getElasticIpOutput"], () => require("./getElasticIp"));
+utilities.lazyLoad(exports, ["getInstance","getInstanceOutput"], () => require("./getInstance"));
+utilities.lazyLoad(exports, ["getInstanceType","getInstanceTypeOutput"], () => require("./getInstanceType"));
+utilities.lazyLoad(exports, ["getInstanceTypeOffering","getInstanceTypeOfferingOutput"], () => require("./getInstanceTypeOffering"));
+utilities.lazyLoad(exports, ["getInstanceTypeOfferings","getInstanceTypeOfferingsOutput"], () => require("./getInstanceTypeOfferings"));
+utilities.lazyLoad(exports, ["getInstanceTypes","getInstanceTypesOutput"], () => require("./getInstanceTypes"));
+utilities.lazyLoad(exports, ["getInstances","getInstancesOutput"], () => require("./getInstances"));
+utilities.lazyLoad(exports, ["getInternetGateway","getInternetGatewayOutput"], () => require("./getInternetGateway"));
+utilities.lazyLoad(exports, ["getIpamPreviewNextCidr","getIpamPreviewNextCidrOutput"], () => require("./getIpamPreviewNextCidr"));
+utilities.lazyLoad(exports, ["getKeyPair","getKeyPairOutput"], () => require("./getKeyPair"));
+utilities.lazyLoad(exports, ["getLaunchConfiguration","getLaunchConfigurationOutput"], () => require("./getLaunchConfiguration"));
+utilities.lazyLoad(exports, ["getLaunchTemplate","getLaunchTemplateOutput"], () => require("./getLaunchTemplate"));
+utilities.lazyLoad(exports, ["getLocalGateway","getLocalGatewayOutput"], () => require("./getLocalGateway"));
+utilities.lazyLoad(exports, ["getLocalGatewayRouteTable","getLocalGatewayRouteTableOutput"], () => require("./getLocalGatewayRouteTable"));
+utilities.lazyLoad(exports, ["getLocalGatewayRouteTables","getLocalGatewayRouteTablesOutput"], () => require("./getLocalGatewayRouteTables"));
+utilities.lazyLoad(exports, ["getLocalGatewayVirtualInterface","getLocalGatewayVirtualInterfaceOutput"], () => require("./getLocalGatewayVirtualInterface"));
+utilities.lazyLoad(exports, ["getLocalGatewayVirtualInterfaceGroup","getLocalGatewayVirtualInterfaceGroupOutput"], () => require("./getLocalGatewayVirtualInterfaceGroup"));
+utilities.lazyLoad(exports, ["getLocalGatewayVirtualInterfaceGroups","getLocalGatewayVirtualInterfaceGroupsOutput"], () => require("./getLocalGatewayVirtualInterfaceGroups"));
+utilities.lazyLoad(exports, ["getLocalGateways","getLocalGatewaysOutput"], () => require("./getLocalGateways"));
+utilities.lazyLoad(exports, ["getManagedPrefixList","getManagedPrefixListOutput"], () => require("./getManagedPrefixList"));
+utilities.lazyLoad(exports, ["getNatGateway","getNatGatewayOutput"], () => require("./getNatGateway"));
+utilities.lazyLoad(exports, ["getNatGateways","getNatGatewaysOutput"], () => require("./getNatGateways"));
+utilities.lazyLoad(exports, ["getNetworkAcls","getNetworkAclsOutput"], () => require("./getNetworkAcls"));
+utilities.lazyLoad(exports, ["getNetworkInsightsAnalysis","getNetworkInsightsAnalysisOutput"], () => require("./getNetworkInsightsAnalysis"));
+utilities.lazyLoad(exports, ["getNetworkInsightsPath","getNetworkInsightsPathOutput"], () => require("./getNetworkInsightsPath"));
+utilities.lazyLoad(exports, ["getNetworkInterface","getNetworkInterfaceOutput"], () => require("./getNetworkInterface"));
+utilities.lazyLoad(exports, ["getNetworkInterfaces","getNetworkInterfacesOutput"], () => require("./getNetworkInterfaces"));
+utilities.lazyLoad(exports, ["getPrefixList","getPrefixListOutput"], () => require("./getPrefixList"));
+utilities.lazyLoad(exports, ["getRoute","getRouteOutput"], () => require("./getRoute"));
+utilities.lazyLoad(exports, ["getRouteTable","getRouteTableOutput"], () => require("./getRouteTable"));
+utilities.lazyLoad(exports, ["getRouteTables","getRouteTablesOutput"], () => require("./getRouteTables"));
+utilities.lazyLoad(exports, ["getSecurityGroup","getSecurityGroupOutput"], () => require("./getSecurityGroup"));
+utilities.lazyLoad(exports, ["getSecurityGroups","getSecurityGroupsOutput"], () => require("./getSecurityGroups"));
+utilities.lazyLoad(exports, ["getSerialConsoleAccess"], () => require("./getSerialConsoleAccess"));
+utilities.lazyLoad(exports, ["getSpotPrice","getSpotPriceOutput"], () => require("./getSpotPrice"));
+utilities.lazyLoad(exports, ["getSubnet","getSubnetOutput"], () => require("./getSubnet"));
+utilities.lazyLoad(exports, ["getSubnetIds","getSubnetIdsOutput"], () => require("./getSubnetIds"));
+utilities.lazyLoad(exports, ["getSubnets","getSubnetsOutput"], () => require("./getSubnets"));
+utilities.lazyLoad(exports, ["getTransitGatewayRouteTables","getTransitGatewayRouteTablesOutput"], () => require("./getTransitGatewayRouteTables"));
+utilities.lazyLoad(exports, ["getVpc","getVpcOutput"], () => require("./getVpc"));
+utilities.lazyLoad(exports, ["getVpcDhcpOptions","getVpcDhcpOptionsOutput"], () => require("./getVpcDhcpOptions"));
+utilities.lazyLoad(exports, ["getVpcEndpoint","getVpcEndpointOutput"], () => require("./getVpcEndpoint"));
+utilities.lazyLoad(exports, ["getVpcEndpointService","getVpcEndpointServiceOutput"], () => require("./getVpcEndpointService"));
+utilities.lazyLoad(exports, ["getVpcIamPool","getVpcIamPoolOutput"], () => require("./getVpcIamPool"));
+utilities.lazyLoad(exports, ["getVpcPeeringConnection","getVpcPeeringConnectionOutput"], () => require("./getVpcPeeringConnection"));
+utilities.lazyLoad(exports, ["getVpcPeeringConnections","getVpcPeeringConnectionsOutput"], () => require("./getVpcPeeringConnections"));
+utilities.lazyLoad(exports, ["getVpcs","getVpcsOutput"], () => require("./getVpcs"));
+utilities.lazyLoad(exports, ["getVpnGateway","getVpnGatewayOutput"], () => require("./getVpnGateway"));
+utilities.lazyLoad(exports, ["Instance"], () => require("./instance"));
+utilities.lazyLoad(exports, ["InternetGateway"], () => require("./internetGateway"));
+utilities.lazyLoad(exports, ["InternetGatewayAttachment"], () => require("./internetGatewayAttachment"));
+utilities.lazyLoad(exports, ["KeyPair"], () => require("./keyPair"));
+utilities.lazyLoad(exports, ["LaunchConfiguration"], () => require("./launchConfiguration"));
+utilities.lazyLoad(exports, ["LaunchTemplate"], () => require("./launchTemplate"));
+utilities.lazyLoad(exports, ["LocalGatewayRoute"], () => require("./localGatewayRoute"));
+utilities.lazyLoad(exports, ["LocalGatewayRouteTableVpcAssociation"], () => require("./localGatewayRouteTableVpcAssociation"));
+utilities.lazyLoad(exports, ["MainRouteTableAssociation"], () => require("./mainRouteTableAssociation"));
+utilities.lazyLoad(exports, ["ManagedPrefixList"], () => require("./managedPrefixList"));
+utilities.lazyLoad(exports, ["ManagedPrefixListEntry"], () => require("./managedPrefixListEntry"));
+utilities.lazyLoad(exports, ["NatGateway"], () => require("./natGateway"));
+utilities.lazyLoad(exports, ["NetworkAcl"], () => require("./networkAcl"));
+utilities.lazyLoad(exports, ["NetworkAclAssociation"], () => require("./networkAclAssociation"));
+utilities.lazyLoad(exports, ["NetworkAclRule"], () => require("./networkAclRule"));
+utilities.lazyLoad(exports, ["NetworkInsightsAnalysis"], () => require("./networkInsightsAnalysis"));
+utilities.lazyLoad(exports, ["NetworkInsightsPath"], () => require("./networkInsightsPath"));
+utilities.lazyLoad(exports, ["NetworkInterface"], () => require("./networkInterface"));
+utilities.lazyLoad(exports, ["NetworkInterfaceAttachment"], () => require("./networkInterfaceAttachment"));
+utilities.lazyLoad(exports, ["NetworkInterfaceSecurityGroupAttachment"], () => require("./networkInterfaceSecurityGroupAttachment"));
+utilities.lazyLoad(exports, ["PeeringConnectionOptions"], () => require("./peeringConnectionOptions"));
+utilities.lazyLoad(exports, ["PlacementGroup"], () => require("./placementGroup"));
+utilities.lazyLoad(exports, ["ProxyProtocolPolicy"], () => require("./proxyProtocolPolicy"));
+utilities.lazyLoad(exports, ["Route"], () => require("./route"));
+utilities.lazyLoad(exports, ["RouteTable"], () => require("./routeTable"));
+utilities.lazyLoad(exports, ["RouteTableAssociation"], () => require("./routeTableAssociation"));
+utilities.lazyLoad(exports, ["SecurityGroup"], () => require("./securityGroup"));
+utilities.lazyLoad(exports, ["SecurityGroupAssociation"], () => require("./securityGroupAssociation"));
+utilities.lazyLoad(exports, ["SecurityGroupRule"], () => require("./securityGroupRule"));
+utilities.lazyLoad(exports, ["SerialConsoleAccess"], () => require("./serialConsoleAccess"));
+utilities.lazyLoad(exports, ["SnapshotCreateVolumePermission"], () => require("./snapshotCreateVolumePermission"));
+utilities.lazyLoad(exports, ["SpotDatafeedSubscription"], () => require("./spotDatafeedSubscription"));
+utilities.lazyLoad(exports, ["SpotFleetRequest"], () => require("./spotFleetRequest"));
+utilities.lazyLoad(exports, ["SpotInstanceRequest"], () => require("./spotInstanceRequest"));
+utilities.lazyLoad(exports, ["Subnet"], () => require("./subnet"));
+utilities.lazyLoad(exports, ["SubnetCidrReservation"], () => require("./subnetCidrReservation"));
+utilities.lazyLoad(exports, ["Tag"], () => require("./tag"));
+utilities.lazyLoad(exports, ["TrafficMirrorFilter"], () => require("./trafficMirrorFilter"));
+utilities.lazyLoad(exports, ["TrafficMirrorFilterRule"], () => require("./trafficMirrorFilterRule"));
+utilities.lazyLoad(exports, ["TrafficMirrorSession"], () => require("./trafficMirrorSession"));
+utilities.lazyLoad(exports, ["TrafficMirrorTarget"], () => require("./trafficMirrorTarget"));
+utilities.lazyLoad(exports, ["TransitGatewayPeeringAttachmentAccepter"], () => require("./transitGatewayPeeringAttachmentAccepter"));
+utilities.lazyLoad(exports, ["VolumeAttachment"], () => require("./volumeAttachment"));
+utilities.lazyLoad(exports, ["Vpc"], () => require("./vpc"));
+utilities.lazyLoad(exports, ["VpcDhcpOptions"], () => require("./vpcDhcpOptions"));
+utilities.lazyLoad(exports, ["VpcDhcpOptionsAssociation"], () => require("./vpcDhcpOptionsAssociation"));
+utilities.lazyLoad(exports, ["VpcEndpoint"], () => require("./vpcEndpoint"));
+utilities.lazyLoad(exports, ["VpcEndpointConnectionAccepter"], () => require("./vpcEndpointConnectionAccepter"));
+utilities.lazyLoad(exports, ["VpcEndpointConnectionNotification"], () => require("./vpcEndpointConnectionNotification"));
+utilities.lazyLoad(exports, ["VpcEndpointPolicy"], () => require("./vpcEndpointPolicy"));
+utilities.lazyLoad(exports, ["VpcEndpointRouteTableAssociation"], () => require("./vpcEndpointRouteTableAssociation"));
+utilities.lazyLoad(exports, ["VpcEndpointService"], () => require("./vpcEndpointService"));
+utilities.lazyLoad(exports, ["VpcEndpointServiceAllowedPrinciple"], () => require("./vpcEndpointServiceAllowedPrinciple"));
+utilities.lazyLoad(exports, ["VpcEndpointSubnetAssociation"], () => require("./vpcEndpointSubnetAssociation"));
+utilities.lazyLoad(exports, ["VpcIpam"], () => require("./vpcIpam"));
+utilities.lazyLoad(exports, ["VpcIpamOrganizationAdminAccount"], () => require("./vpcIpamOrganizationAdminAccount"));
+utilities.lazyLoad(exports, ["VpcIpamPool"], () => require("./vpcIpamPool"));
+utilities.lazyLoad(exports, ["VpcIpamPoolCidr"], () => require("./vpcIpamPoolCidr"));
+utilities.lazyLoad(exports, ["VpcIpamPoolCidrAllocation"], () => require("./vpcIpamPoolCidrAllocation"));
+utilities.lazyLoad(exports, ["VpcIpamPreviewNextCidr"], () => require("./vpcIpamPreviewNextCidr"));
+utilities.lazyLoad(exports, ["VpcIpamScope"], () => require("./vpcIpamScope"));
+utilities.lazyLoad(exports, ["VpcIpv4CidrBlockAssociation"], () => require("./vpcIpv4CidrBlockAssociation"));
+utilities.lazyLoad(exports, ["VpcIpv6CidrBlockAssociation"], () => require("./vpcIpv6CidrBlockAssociation"));
+utilities.lazyLoad(exports, ["VpcPeeringConnection"], () => require("./vpcPeeringConnection"));
+utilities.lazyLoad(exports, ["VpcPeeringConnectionAccepter"], () => require("./vpcPeeringConnectionAccepter"));
+utilities.lazyLoad(exports, ["VpnConnection"], () => require("./vpnConnection"));
+utilities.lazyLoad(exports, ["VpnConnectionRoute"], () => require("./vpnConnectionRoute"));
+utilities.lazyLoad(exports, ["VpnGateway"], () => require("./vpnGateway"));
+utilities.lazyLoad(exports, ["VpnGatewayAttachment"], () => require("./vpnGatewayAttachment"));
+utilities.lazyLoad(exports, ["VpnGatewayRoutePropagation"], () => require("./vpnGatewayRoutePropagation"));
 
 // Export enums:
 export * from "../types/enums/ec2";
-
-// Import resources to register:
-import { Ami } from "./ami";
-import { AmiCopy } from "./amiCopy";
-import { AmiFromInstance } from "./amiFromInstance";
-import { AmiLaunchPermission } from "./amiLaunchPermission";
-import { AvailabilityZoneGroup } from "./availabilityZoneGroup";
-import { CapacityReservation } from "./capacityReservation";
-import { CarrierGateway } from "./carrierGateway";
-import { CustomerGateway } from "./customerGateway";
-import { DedicatedHost } from "./dedicatedHost";
-import { DefaultNetworkAcl } from "./defaultNetworkAcl";
-import { DefaultRouteTable } from "./defaultRouteTable";
-import { DefaultSecurityGroup } from "./defaultSecurityGroup";
-import { DefaultSubnet } from "./defaultSubnet";
-import { DefaultVpc } from "./defaultVpc";
-import { DefaultVpcDhcpOptions } from "./defaultVpcDhcpOptions";
-import { EgressOnlyInternetGateway } from "./egressOnlyInternetGateway";
-import { Eip } from "./eip";
-import { EipAssociation } from "./eipAssociation";
-import { Fleet } from "./fleet";
-import { FlowLog } from "./flowLog";
-import { Instance } from "./instance";
-import { InternetGateway } from "./internetGateway";
-import { InternetGatewayAttachment } from "./internetGatewayAttachment";
-import { KeyPair } from "./keyPair";
-import { LaunchConfiguration } from "./launchConfiguration";
-import { LaunchTemplate } from "./launchTemplate";
-import { LocalGatewayRoute } from "./localGatewayRoute";
-import { LocalGatewayRouteTableVpcAssociation } from "./localGatewayRouteTableVpcAssociation";
-import { MainRouteTableAssociation } from "./mainRouteTableAssociation";
-import { ManagedPrefixList } from "./managedPrefixList";
-import { ManagedPrefixListEntry } from "./managedPrefixListEntry";
-import { NatGateway } from "./natGateway";
-import { NetworkAcl } from "./networkAcl";
-import { NetworkAclAssociation } from "./networkAclAssociation";
-import { NetworkAclRule } from "./networkAclRule";
-import { NetworkInsightsAnalysis } from "./networkInsightsAnalysis";
-import { NetworkInsightsPath } from "./networkInsightsPath";
-import { NetworkInterface } from "./networkInterface";
-import { NetworkInterfaceAttachment } from "./networkInterfaceAttachment";
-import { NetworkInterfaceSecurityGroupAttachment } from "./networkInterfaceSecurityGroupAttachment";
-import { PeeringConnectionOptions } from "./peeringConnectionOptions";
-import { PlacementGroup } from "./placementGroup";
-import { ProxyProtocolPolicy } from "./proxyProtocolPolicy";
-import { Route } from "./route";
-import { RouteTable } from "./routeTable";
-import { RouteTableAssociation } from "./routeTableAssociation";
-import { SecurityGroup } from "./securityGroup";
-import { SecurityGroupAssociation } from "./securityGroupAssociation";
-import { SecurityGroupRule } from "./securityGroupRule";
-import { SerialConsoleAccess } from "./serialConsoleAccess";
-import { SnapshotCreateVolumePermission } from "./snapshotCreateVolumePermission";
-import { SpotDatafeedSubscription } from "./spotDatafeedSubscription";
-import { SpotFleetRequest } from "./spotFleetRequest";
-import { SpotInstanceRequest } from "./spotInstanceRequest";
-import { Subnet } from "./subnet";
-import { SubnetCidrReservation } from "./subnetCidrReservation";
-import { Tag } from "./tag";
-import { TrafficMirrorFilter } from "./trafficMirrorFilter";
-import { TrafficMirrorFilterRule } from "./trafficMirrorFilterRule";
-import { TrafficMirrorSession } from "./trafficMirrorSession";
-import { TrafficMirrorTarget } from "./trafficMirrorTarget";
-import { TransitGatewayPeeringAttachmentAccepter } from "./transitGatewayPeeringAttachmentAccepter";
-import { VolumeAttachment } from "./volumeAttachment";
-import { Vpc } from "./vpc";
-import { VpcDhcpOptions } from "./vpcDhcpOptions";
-import { VpcDhcpOptionsAssociation } from "./vpcDhcpOptionsAssociation";
-import { VpcEndpoint } from "./vpcEndpoint";
-import { VpcEndpointConnectionAccepter } from "./vpcEndpointConnectionAccepter";
-import { VpcEndpointConnectionNotification } from "./vpcEndpointConnectionNotification";
-import { VpcEndpointPolicy } from "./vpcEndpointPolicy";
-import { VpcEndpointRouteTableAssociation } from "./vpcEndpointRouteTableAssociation";
-import { VpcEndpointService } from "./vpcEndpointService";
-import { VpcEndpointServiceAllowedPrinciple } from "./vpcEndpointServiceAllowedPrinciple";
-import { VpcEndpointSubnetAssociation } from "./vpcEndpointSubnetAssociation";
-import { VpcIpam } from "./vpcIpam";
-import { VpcIpamOrganizationAdminAccount } from "./vpcIpamOrganizationAdminAccount";
-import { VpcIpamPool } from "./vpcIpamPool";
-import { VpcIpamPoolCidr } from "./vpcIpamPoolCidr";
-import { VpcIpamPoolCidrAllocation } from "./vpcIpamPoolCidrAllocation";
-import { VpcIpamPreviewNextCidr } from "./vpcIpamPreviewNextCidr";
-import { VpcIpamScope } from "./vpcIpamScope";
-import { VpcIpv4CidrBlockAssociation } from "./vpcIpv4CidrBlockAssociation";
-import { VpcIpv6CidrBlockAssociation } from "./vpcIpv6CidrBlockAssociation";
-import { VpcPeeringConnection } from "./vpcPeeringConnection";
-import { VpcPeeringConnectionAccepter } from "./vpcPeeringConnectionAccepter";
-import { VpnConnection } from "./vpnConnection";
-import { VpnConnectionRoute } from "./vpnConnectionRoute";
-import { VpnGateway } from "./vpnGateway";
-import { VpnGatewayAttachment } from "./vpnGatewayAttachment";
-import { VpnGatewayRoutePropagation } from "./vpnGatewayRoutePropagation";
 
 const _module = {
     version: utilities.getVersion(),

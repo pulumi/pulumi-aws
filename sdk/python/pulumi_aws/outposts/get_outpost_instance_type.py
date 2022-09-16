@@ -79,7 +79,7 @@ def get_outpost_instance_type(arn: Optional[str] = None,
     Information about single Outpost Instance Type.
 
 
-    :param str arn: Outpost Amazon Resource Name (ARN).
+    :param str arn: Outpost ARN.
     :param str instance_type: Desired instance type. Conflicts with `preferred_instance_types`.
     :param Sequence[str] preferred_instance_types: Ordered list of preferred instance types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. Conflicts with `instance_type`.
     """
@@ -106,7 +106,7 @@ def get_outpost_instance_type_output(arn: Optional[pulumi.Input[str]] = None,
     Information about single Outpost Instance Type.
 
 
-    :param str arn: Outpost Amazon Resource Name (ARN).
+    :param str arn: Outpost ARN.
     :param str instance_type: Desired instance type. Conflicts with `preferred_instance_types`.
     :param Sequence[str] preferred_instance_types: Ordered list of preferred instance types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. Conflicts with `instance_type`.
     """

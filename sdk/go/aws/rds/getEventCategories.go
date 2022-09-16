@@ -74,13 +74,13 @@ func GetEventCategories(ctx *pulumi.Context, args *GetEventCategoriesArgs, opts 
 
 // A collection of arguments for invoking getEventCategories.
 type GetEventCategoriesArgs struct {
-	// The type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot.
+	// Type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot.
 	SourceType *string `pulumi:"sourceType"`
 }
 
 // A collection of values returned by getEventCategories.
 type GetEventCategoriesResult struct {
-	// A list of the event categories.
+	// List of the event categories.
 	EventCategories []string `pulumi:"eventCategories"`
 	// The provider-assigned unique ID for this managed resource.
 	Id         string  `pulumi:"id"`
@@ -102,7 +102,7 @@ func GetEventCategoriesOutput(ctx *pulumi.Context, args GetEventCategoriesOutput
 
 // A collection of arguments for invoking getEventCategories.
 type GetEventCategoriesOutputArgs struct {
-	// The type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot.
+	// Type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot.
 	SourceType pulumi.StringPtrInput `pulumi:"sourceType"`
 }
 
@@ -125,7 +125,7 @@ func (o GetEventCategoriesResultOutput) ToGetEventCategoriesResultOutputWithCont
 	return o
 }
 
-// A list of the event categories.
+// List of the event categories.
 func (o GetEventCategoriesResultOutput) EventCategories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetEventCategoriesResult) []string { return v.EventCategories }).(pulumi.StringArrayOutput)
 }

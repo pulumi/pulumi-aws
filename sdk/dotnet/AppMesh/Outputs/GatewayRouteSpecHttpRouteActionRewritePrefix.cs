@@ -14,11 +14,11 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class GatewayRouteSpecHttpRouteActionRewritePrefix
     {
         /// <summary>
-        /// The default prefix used to replace the incoming route prefix when rewritten. Valid values: `ENABLED`, `DISABLED`.
+        /// Default prefix used to replace the incoming route prefix when rewritten. Valid values: `ENABLED`, `DISABLED`.
         /// </summary>
         public readonly string? DefaultPrefix;
         /// <summary>
-        /// The value used to replace the incoming route prefix when rewritten.
+        /// Value used to replace the incoming route prefix when rewritten.
         /// </summary>
         public readonly string? Value;
 

@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -46,7 +48,7 @@ export interface GetLocalGatewaysArgs {
      */
     filters?: inputs.ec2.GetLocalGatewaysFilter[];
     /**
-     * A mapping of tags, each pair of which must exactly match
+     * Mapping of tags, each pair of which must exactly match
      * a pair on the desired local_gateways.
      */
     tags?: {[key: string]: string};
@@ -81,7 +83,7 @@ export interface GetLocalGatewaysOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetLocalGatewaysFilterArgs>[]>;
     /**
-     * A mapping of tags, each pair of which must exactly match
+     * Mapping of tags, each pair of which must exactly match
      * a pair on the desired local_gateways.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

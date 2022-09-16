@@ -64,7 +64,7 @@ class GetImageResult:
     @pulumi.getter(name="imagePushedAt")
     def image_pushed_at(self) -> int:
         """
-        The date and time, expressed as a unix timestamp, at which the current image was pushed to the repository.
+        Date and time, expressed as a unix timestamp, at which the current image was pushed to the repository.
         """
         return pulumi.get(self, "image_pushed_at")
 
@@ -72,7 +72,7 @@ class GetImageResult:
     @pulumi.getter(name="imageSizeInBytes")
     def image_size_in_bytes(self) -> int:
         """
-        The size, in bytes, of the image in the repository.
+        Size, in bytes, of the image in the repository.
         """
         return pulumi.get(self, "image_size_in_bytes")
 
@@ -85,7 +85,7 @@ class GetImageResult:
     @pulumi.getter(name="imageTags")
     def image_tags(self) -> Sequence[str]:
         """
-        The list of tags associated with this image.
+        List of tags associated with this image.
         """
         return pulumi.get(self, "image_tags")
 
@@ -135,10 +135,10 @@ def get_image(image_digest: Optional[str] = None,
     ```
 
 
-    :param str image_digest: The sha256 digest of the image manifest. At least one of `image_digest` or `image_tag` must be specified.
-    :param str image_tag: The tag associated with this image. At least one of `image_digest` or `image_tag` must be specified.
-    :param str registry_id: The ID of the Registry where the repository resides.
-    :param str repository_name: The name of the ECR Repository.
+    :param str image_digest: Sha256 digest of the image manifest. At least one of `image_digest` or `image_tag` must be specified.
+    :param str image_tag: Tag associated with this image. At least one of `image_digest` or `image_tag` must be specified.
+    :param str registry_id: ID of the Registry where the repository resides.
+    :param str repository_name: Name of the ECR Repository.
     """
     __args__ = dict()
     __args__['imageDigest'] = image_digest
@@ -179,9 +179,9 @@ def get_image_output(image_digest: Optional[pulumi.Input[Optional[str]]] = None,
     ```
 
 
-    :param str image_digest: The sha256 digest of the image manifest. At least one of `image_digest` or `image_tag` must be specified.
-    :param str image_tag: The tag associated with this image. At least one of `image_digest` or `image_tag` must be specified.
-    :param str registry_id: The ID of the Registry where the repository resides.
-    :param str repository_name: The name of the ECR Repository.
+    :param str image_digest: Sha256 digest of the image manifest. At least one of `image_digest` or `image_tag` must be specified.
+    :param str image_tag: Tag associated with this image. At least one of `image_digest` or `image_tag` must be specified.
+    :param str registry_id: ID of the Registry where the repository resides.
+    :param str repository_name: Name of the ECR Repository.
     """
     ...

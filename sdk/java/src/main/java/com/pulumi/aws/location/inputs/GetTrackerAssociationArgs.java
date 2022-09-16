@@ -14,14 +14,14 @@ public final class GetTrackerAssociationArgs extends com.pulumi.resources.Invoke
     public static final GetTrackerAssociationArgs Empty = new GetTrackerAssociationArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the geofence collection associated to tracker resource.
+     * ARN of the geofence collection associated to tracker resource.
      * 
      */
     @Import(name="consumerArn", required=true)
     private Output<String> consumerArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the geofence collection associated to tracker resource.
+     * @return ARN of the geofence collection associated to tracker resource.
      * 
      */
     public Output<String> consumerArn() {
@@ -29,14 +29,14 @@ public final class GetTrackerAssociationArgs extends com.pulumi.resources.Invoke
     }
 
     /**
-     * The name of the tracker resource associated with a geofence collection.
+     * Name of the tracker resource associated with a geofence collection.
      * 
      */
     @Import(name="trackerName", required=true)
     private Output<String> trackerName;
 
     /**
-     * @return The name of the tracker resource associated with a geofence collection.
+     * @return Name of the tracker resource associated with a geofence collection.
      * 
      */
     public Output<String> trackerName() {
@@ -69,7 +69,7 @@ public final class GetTrackerAssociationArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param consumerArn The Amazon Resource Name (ARN) of the geofence collection associated to tracker resource.
+         * @param consumerArn ARN of the geofence collection associated to tracker resource.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class GetTrackerAssociationArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param consumerArn The Amazon Resource Name (ARN) of the geofence collection associated to tracker resource.
+         * @param consumerArn ARN of the geofence collection associated to tracker resource.
          * 
          * @return builder
          * 
@@ -90,7 +90,7 @@ public final class GetTrackerAssociationArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param trackerName The name of the tracker resource associated with a geofence collection.
+         * @param trackerName Name of the tracker resource associated with a geofence collection.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class GetTrackerAssociationArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param trackerName The name of the tracker resource associated with a geofence collection.
+         * @param trackerName Name of the tracker resource associated with a geofence collection.
          * 
          * @return builder
          * 

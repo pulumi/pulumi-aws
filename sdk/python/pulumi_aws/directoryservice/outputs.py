@@ -263,11 +263,11 @@ class GetDirectoryConnectSettingResult(dict):
                  subnet_ids: Sequence[str],
                  vpc_id: str):
         """
-        :param Sequence[str] connect_ips: The IP addresses of the AD Connector servers.
-        :param Sequence[str] customer_dns_ips: The DNS IP addresses of the domain to connect to.
-        :param str customer_username: The username corresponding to the password provided.
-        :param Sequence[str] subnet_ids: The identifiers of the subnets for the connector servers (2 subnets in 2 different AZs).
-        :param str vpc_id: The ID of the VPC that the connector is in.
+        :param Sequence[str] connect_ips: IP addresses of the AD Connector servers.
+        :param Sequence[str] customer_dns_ips: DNS IP addresses of the domain to connect to.
+        :param str customer_username: Username corresponding to the password provided.
+        :param Sequence[str] subnet_ids: Identifiers of the subnets for the connector servers (2 subnets in 2 different AZs).
+        :param str vpc_id: ID of the VPC that the connector is in.
         """
         pulumi.set(__self__, "availability_zones", availability_zones)
         pulumi.set(__self__, "connect_ips", connect_ips)
@@ -285,7 +285,7 @@ class GetDirectoryConnectSettingResult(dict):
     @pulumi.getter(name="connectIps")
     def connect_ips(self) -> Sequence[str]:
         """
-        The IP addresses of the AD Connector servers.
+        IP addresses of the AD Connector servers.
         """
         return pulumi.get(self, "connect_ips")
 
@@ -293,7 +293,7 @@ class GetDirectoryConnectSettingResult(dict):
     @pulumi.getter(name="customerDnsIps")
     def customer_dns_ips(self) -> Sequence[str]:
         """
-        The DNS IP addresses of the domain to connect to.
+        DNS IP addresses of the domain to connect to.
         """
         return pulumi.get(self, "customer_dns_ips")
 
@@ -301,7 +301,7 @@ class GetDirectoryConnectSettingResult(dict):
     @pulumi.getter(name="customerUsername")
     def customer_username(self) -> str:
         """
-        The username corresponding to the password provided.
+        Username corresponding to the password provided.
         """
         return pulumi.get(self, "customer_username")
 
@@ -309,7 +309,7 @@ class GetDirectoryConnectSettingResult(dict):
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Sequence[str]:
         """
-        The identifiers of the subnets for the connector servers (2 subnets in 2 different AZs).
+        Identifiers of the subnets for the connector servers (2 subnets in 2 different AZs).
         """
         return pulumi.get(self, "subnet_ids")
 
@@ -317,7 +317,7 @@ class GetDirectoryConnectSettingResult(dict):
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> str:
         """
-        The ID of the VPC that the connector is in.
+        ID of the VPC that the connector is in.
         """
         return pulumi.get(self, "vpc_id")
 
@@ -335,10 +335,10 @@ class GetDirectoryRadiusSettingResult(dict):
         """
         :param str authentication_protocol: The protocol specified for your RADIUS endpoints.
         :param str display_label: Display label.
-        :param int radius_port: The port that your RADIUS server is using for communications.
-        :param int radius_retries: The maximum number of times that communication with the RADIUS server is attempted.
-        :param Sequence[str] radius_servers: A set of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
-        :param int radius_timeout: The amount of time, in seconds, to wait for the RADIUS server to respond.
+        :param int radius_port: Port that your RADIUS server is using for communications.
+        :param int radius_retries: Maximum number of times that communication with the RADIUS server is attempted.
+        :param Sequence[str] radius_servers: Set of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
+        :param int radius_timeout: Amount of time, in seconds, to wait for the RADIUS server to respond.
         :param bool use_same_username: Not currently used.
         """
         pulumi.set(__self__, "authentication_protocol", authentication_protocol)
@@ -369,7 +369,7 @@ class GetDirectoryRadiusSettingResult(dict):
     @pulumi.getter(name="radiusPort")
     def radius_port(self) -> int:
         """
-        The port that your RADIUS server is using for communications.
+        Port that your RADIUS server is using for communications.
         """
         return pulumi.get(self, "radius_port")
 
@@ -377,7 +377,7 @@ class GetDirectoryRadiusSettingResult(dict):
     @pulumi.getter(name="radiusRetries")
     def radius_retries(self) -> int:
         """
-        The maximum number of times that communication with the RADIUS server is attempted.
+        Maximum number of times that communication with the RADIUS server is attempted.
         """
         return pulumi.get(self, "radius_retries")
 
@@ -385,7 +385,7 @@ class GetDirectoryRadiusSettingResult(dict):
     @pulumi.getter(name="radiusServers")
     def radius_servers(self) -> Sequence[str]:
         """
-        A set of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
+        Set of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
         """
         return pulumi.get(self, "radius_servers")
 
@@ -393,7 +393,7 @@ class GetDirectoryRadiusSettingResult(dict):
     @pulumi.getter(name="radiusTimeout")
     def radius_timeout(self) -> int:
         """
-        The amount of time, in seconds, to wait for the RADIUS server to respond.
+        Amount of time, in seconds, to wait for the RADIUS server to respond.
         """
         return pulumi.get(self, "radius_timeout")
 
@@ -413,8 +413,8 @@ class GetDirectoryVpcSettingResult(dict):
                  subnet_ids: Sequence[str],
                  vpc_id: str):
         """
-        :param Sequence[str] subnet_ids: The identifiers of the subnets for the connector servers (2 subnets in 2 different AZs).
-        :param str vpc_id: The ID of the VPC that the connector is in.
+        :param Sequence[str] subnet_ids: Identifiers of the subnets for the connector servers (2 subnets in 2 different AZs).
+        :param str vpc_id: ID of the VPC that the connector is in.
         """
         pulumi.set(__self__, "availability_zones", availability_zones)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
@@ -429,7 +429,7 @@ class GetDirectoryVpcSettingResult(dict):
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Sequence[str]:
         """
-        The identifiers of the subnets for the connector servers (2 subnets in 2 different AZs).
+        Identifiers of the subnets for the connector servers (2 subnets in 2 different AZs).
         """
         return pulumi.get(self, "subnet_ids")
 
@@ -437,7 +437,7 @@ class GetDirectoryVpcSettingResult(dict):
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> str:
         """
-        The ID of the VPC that the connector is in.
+        ID of the VPC that the connector is in.
         """
         return pulumi.get(self, "vpc_id")
 

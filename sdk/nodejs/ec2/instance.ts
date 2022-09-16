@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 import {InstanceProfile} from "../iam";
@@ -11,7 +13,7 @@ import {InstanceProfile} from "../iam";
  * Provides an EC2 instance resource. This allows instances to be created, updated, and deleted.
  *
  * ## Example Usage
- * ### Basic Example Using AMI Lookup
+ * ### Basic example using AMI lookup
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -39,7 +41,7 @@ import {InstanceProfile} from "../iam";
  *     },
  * });
  * ```
- * ### Network and Credit Specification Example
+ * ### Network and credit specification example
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -76,6 +78,23 @@ import {InstanceProfile} from "../iam";
  *     creditSpecification: {
  *         cpuCredits: "unlimited",
  *     },
+ * });
+ * ```
+ * ### Host resource group or Licence Manager registered AMI example
+ *
+ * A host resource group is a collection of Dedicated Hosts that you can manage as a single entity. As you launch instances, License Manager allocates the hosts and launches instances on them based on the settings that you configured. You can add existing Dedicated Hosts to a host resource group and take advantage of automated host management through License Manager.
+ *
+ * > **NOTE:** A dedicated host is automatically associated with a License Manager host resource group if **Allocate hosts automatically** is enabled. Otherwise, use the `hostResourceGroupArn` argument to explicitly associate the instance with the host resource group.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const thisInstance = new aws.ec2.Instance("this", {
+ *     ami: "ami-0dcc1e21636832c5d",
+ *     hostResourceGroupArn: "arn:aws:resource-groups:us-west-2:012345678901:group/win-testhost",
+ *     instanceType: "m5.large",
+ *     tenancy: "host",
  * });
  * ```
  *
@@ -120,7 +139,7 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly ami!: pulumi.Output<string>;
     /**
-     * The ARN of the instance.
+     * ARN of the instance.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -184,6 +203,10 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly hostId!: pulumi.Output<string>;
     /**
+     * ARN of the host resource group in which to launch the instances. If you specify an ARN, omit the `tenancy` parameter or set it to `host`.
+     */
+    public readonly hostResourceGroupArn!: pulumi.Output<string>;
+    /**
      * IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
      */
     public readonly iamInstanceProfile!: pulumi.Output<string | undefined>;
@@ -192,15 +215,15 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly instanceInitiatedShutdownBehavior!: pulumi.Output<string>;
     /**
-     * The state of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
+     * State of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
      */
     public /*out*/ readonly instanceState!: pulumi.Output<string>;
     /**
-     * The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
+     * Instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
      */
     public readonly instanceType!: pulumi.Output<string>;
     /**
-     * A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
+     * Number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
      */
     public readonly ipv6AddressCount!: pulumi.Output<number>;
     /**
@@ -217,7 +240,7 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly launchTemplate!: pulumi.Output<outputs.ec2.InstanceLaunchTemplate | undefined>;
     /**
-     * The maintenance and recovery options for the instance. See Maintenance Options below for more details.
+     * Maintenance and recovery options for the instance. See Maintenance Options below for more details.
      */
     public readonly maintenanceOptions!: pulumi.Output<outputs.ec2.InstanceMaintenanceOptions>;
     /**
@@ -233,7 +256,7 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly networkInterfaces!: pulumi.Output<outputs.ec2.InstanceNetworkInterface[]>;
     /**
-     * The ARN of the Outpost the instance is assigned to.
+     * ARN of the Outpost the instance is assigned to.
      */
     public /*out*/ readonly outpostArn!: pulumi.Output<string>;
     /**
@@ -245,19 +268,19 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly placementGroup!: pulumi.Output<string>;
     /**
-     * The number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
+     * Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
      */
     public readonly placementPartitionNumber!: pulumi.Output<number>;
     /**
-     * The ID of the instance's primary network interface.
+     * ID of the instance's primary network interface.
      */
     public /*out*/ readonly primaryNetworkInterfaceId!: pulumi.Output<string>;
     /**
-     * The private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you've enabled DNS hostnames for your VPC.
+     * Private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you've enabled DNS hostnames for your VPC.
      */
     public /*out*/ readonly privateDns!: pulumi.Output<string>;
     /**
-     * The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+     * Options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
      */
     public readonly privateDnsNameOptions!: pulumi.Output<outputs.ec2.InstancePrivateDnsNameOptions>;
     /**
@@ -265,11 +288,11 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly privateIp!: pulumi.Output<string>;
     /**
-     * The public DNS name assigned to the instance. For EC2-VPC, this is only available if you've enabled DNS hostnames for your VPC.
+     * Public DNS name assigned to the instance. For EC2-VPC, this is only available if you've enabled DNS hostnames for your VPC.
      */
     public /*out*/ readonly publicDns!: pulumi.Output<string>;
     /**
-     * The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an `aws.ec2.Eip` with your instance, you should refer to the EIP's address directly and not use `publicIp` as this field will change after the EIP is attached.
+     * Public IP address assigned to the instance, if applicable. **NOTE**: If you are using an `aws.ec2.Eip` with your instance, you should refer to the EIP's address directly and not use `publicIp` as this field will change after the EIP is attached.
      */
     public /*out*/ readonly publicIp!: pulumi.Output<string>;
     /**
@@ -277,11 +300,11 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly rootBlockDevice!: pulumi.Output<outputs.ec2.InstanceRootBlockDevice>;
     /**
-     * A list of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
+     * List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
      */
     public readonly secondaryPrivateIps!: pulumi.Output<string[]>;
     /**
-     * A list of security group names to associate with.
+     * List of security group names to associate with.
      *
      * @deprecated Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.
      */
@@ -295,15 +318,15 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly subnetId!: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
+     * Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for the import-instance command. Valid values are `default`, `dedicated`, and `host`.
      */
     public readonly tenancy!: pulumi.Output<string>;
     /**
@@ -319,11 +342,11 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly userDataReplaceOnChange!: pulumi.Output<boolean | undefined>;
     /**
-     * A map of tags to assign, at instance-creation time, to root and EBS volumes.
+     * Map of tags to assign, at instance-creation time, to root and EBS volumes.
      */
     public readonly volumeTags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A list of security group IDs to associate with.
+     * List of security group IDs to associate with.
      */
     public readonly vpcSecurityGroupIds!: pulumi.Output<string[]>;
 
@@ -357,6 +380,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["getPasswordData"] = state ? state.getPasswordData : undefined;
             resourceInputs["hibernation"] = state ? state.hibernation : undefined;
             resourceInputs["hostId"] = state ? state.hostId : undefined;
+            resourceInputs["hostResourceGroupArn"] = state ? state.hostResourceGroupArn : undefined;
             resourceInputs["iamInstanceProfile"] = state ? state.iamInstanceProfile : undefined;
             resourceInputs["instanceInitiatedShutdownBehavior"] = state ? state.instanceInitiatedShutdownBehavior : undefined;
             resourceInputs["instanceState"] = state ? state.instanceState : undefined;
@@ -410,6 +434,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["getPasswordData"] = args ? args.getPasswordData : undefined;
             resourceInputs["hibernation"] = args ? args.hibernation : undefined;
             resourceInputs["hostId"] = args ? args.hostId : undefined;
+            resourceInputs["hostResourceGroupArn"] = args ? args.hostResourceGroupArn : undefined;
             resourceInputs["iamInstanceProfile"] = args ? args.iamInstanceProfile : undefined;
             resourceInputs["instanceInitiatedShutdownBehavior"] = args ? args.instanceInitiatedShutdownBehavior : undefined;
             resourceInputs["instanceType"] = args ? args.instanceType : undefined;
@@ -461,7 +486,7 @@ export interface InstanceState {
      */
     ami?: pulumi.Input<string>;
     /**
-     * The ARN of the instance.
+     * ARN of the instance.
      */
     arn?: pulumi.Input<string>;
     /**
@@ -525,6 +550,10 @@ export interface InstanceState {
      */
     hostId?: pulumi.Input<string>;
     /**
+     * ARN of the host resource group in which to launch the instances. If you specify an ARN, omit the `tenancy` parameter or set it to `host`.
+     */
+    hostResourceGroupArn?: pulumi.Input<string>;
+    /**
      * IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
      */
     iamInstanceProfile?: pulumi.Input<string | InstanceProfile>;
@@ -533,15 +562,15 @@ export interface InstanceState {
      */
     instanceInitiatedShutdownBehavior?: pulumi.Input<string>;
     /**
-     * The state of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
+     * State of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
      */
     instanceState?: pulumi.Input<string>;
     /**
-     * The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
+     * Instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
      */
     instanceType?: pulumi.Input<string | enums.ec2.InstanceType>;
     /**
-     * A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
+     * Number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
      */
     ipv6AddressCount?: pulumi.Input<number>;
     /**
@@ -558,7 +587,7 @@ export interface InstanceState {
      */
     launchTemplate?: pulumi.Input<inputs.ec2.InstanceLaunchTemplate>;
     /**
-     * The maintenance and recovery options for the instance. See Maintenance Options below for more details.
+     * Maintenance and recovery options for the instance. See Maintenance Options below for more details.
      */
     maintenanceOptions?: pulumi.Input<inputs.ec2.InstanceMaintenanceOptions>;
     /**
@@ -574,7 +603,7 @@ export interface InstanceState {
      */
     networkInterfaces?: pulumi.Input<pulumi.Input<inputs.ec2.InstanceNetworkInterface>[]>;
     /**
-     * The ARN of the Outpost the instance is assigned to.
+     * ARN of the Outpost the instance is assigned to.
      */
     outpostArn?: pulumi.Input<string>;
     /**
@@ -586,19 +615,19 @@ export interface InstanceState {
      */
     placementGroup?: pulumi.Input<string>;
     /**
-     * The number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
+     * Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
      */
     placementPartitionNumber?: pulumi.Input<number>;
     /**
-     * The ID of the instance's primary network interface.
+     * ID of the instance's primary network interface.
      */
     primaryNetworkInterfaceId?: pulumi.Input<string>;
     /**
-     * The private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you've enabled DNS hostnames for your VPC.
+     * Private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you've enabled DNS hostnames for your VPC.
      */
     privateDns?: pulumi.Input<string>;
     /**
-     * The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+     * Options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
      */
     privateDnsNameOptions?: pulumi.Input<inputs.ec2.InstancePrivateDnsNameOptions>;
     /**
@@ -606,11 +635,11 @@ export interface InstanceState {
      */
     privateIp?: pulumi.Input<string>;
     /**
-     * The public DNS name assigned to the instance. For EC2-VPC, this is only available if you've enabled DNS hostnames for your VPC.
+     * Public DNS name assigned to the instance. For EC2-VPC, this is only available if you've enabled DNS hostnames for your VPC.
      */
     publicDns?: pulumi.Input<string>;
     /**
-     * The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an `aws.ec2.Eip` with your instance, you should refer to the EIP's address directly and not use `publicIp` as this field will change after the EIP is attached.
+     * Public IP address assigned to the instance, if applicable. **NOTE**: If you are using an `aws.ec2.Eip` with your instance, you should refer to the EIP's address directly and not use `publicIp` as this field will change after the EIP is attached.
      */
     publicIp?: pulumi.Input<string>;
     /**
@@ -618,11 +647,11 @@ export interface InstanceState {
      */
     rootBlockDevice?: pulumi.Input<inputs.ec2.InstanceRootBlockDevice>;
     /**
-     * A list of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
+     * List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
      */
     secondaryPrivateIps?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of security group names to associate with.
+     * List of security group names to associate with.
      *
      * @deprecated Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.
      */
@@ -636,15 +665,15 @@ export interface InstanceState {
      */
     subnetId?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
+     * Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for the import-instance command. Valid values are `default`, `dedicated`, and `host`.
      */
     tenancy?: pulumi.Input<string | enums.ec2.Tenancy>;
     /**
@@ -660,11 +689,11 @@ export interface InstanceState {
      */
     userDataReplaceOnChange?: pulumi.Input<boolean>;
     /**
-     * A map of tags to assign, at instance-creation time, to root and EBS volumes.
+     * Map of tags to assign, at instance-creation time, to root and EBS volumes.
      */
     volumeTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A list of security group IDs to associate with.
+     * List of security group IDs to associate with.
      */
     vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -738,6 +767,10 @@ export interface InstanceArgs {
      */
     hostId?: pulumi.Input<string>;
     /**
+     * ARN of the host resource group in which to launch the instances. If you specify an ARN, omit the `tenancy` parameter or set it to `host`.
+     */
+    hostResourceGroupArn?: pulumi.Input<string>;
+    /**
      * IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
      */
     iamInstanceProfile?: pulumi.Input<string | InstanceProfile>;
@@ -746,11 +779,11 @@ export interface InstanceArgs {
      */
     instanceInitiatedShutdownBehavior?: pulumi.Input<string>;
     /**
-     * The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
+     * Instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
      */
     instanceType?: pulumi.Input<string | enums.ec2.InstanceType>;
     /**
-     * A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
+     * Number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
      */
     ipv6AddressCount?: pulumi.Input<number>;
     /**
@@ -767,7 +800,7 @@ export interface InstanceArgs {
      */
     launchTemplate?: pulumi.Input<inputs.ec2.InstanceLaunchTemplate>;
     /**
-     * The maintenance and recovery options for the instance. See Maintenance Options below for more details.
+     * Maintenance and recovery options for the instance. See Maintenance Options below for more details.
      */
     maintenanceOptions?: pulumi.Input<inputs.ec2.InstanceMaintenanceOptions>;
     /**
@@ -787,11 +820,11 @@ export interface InstanceArgs {
      */
     placementGroup?: pulumi.Input<string>;
     /**
-     * The number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
+     * Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
      */
     placementPartitionNumber?: pulumi.Input<number>;
     /**
-     * The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+     * Options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
      */
     privateDnsNameOptions?: pulumi.Input<inputs.ec2.InstancePrivateDnsNameOptions>;
     /**
@@ -803,11 +836,11 @@ export interface InstanceArgs {
      */
     rootBlockDevice?: pulumi.Input<inputs.ec2.InstanceRootBlockDevice>;
     /**
-     * A list of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
+     * List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
      */
     secondaryPrivateIps?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of security group names to associate with.
+     * List of security group names to associate with.
      *
      * @deprecated Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.
      */
@@ -821,11 +854,11 @@ export interface InstanceArgs {
      */
     subnetId?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
+     * Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for the import-instance command. Valid values are `default`, `dedicated`, and `host`.
      */
     tenancy?: pulumi.Input<string | enums.ec2.Tenancy>;
     /**
@@ -841,11 +874,11 @@ export interface InstanceArgs {
      */
     userDataReplaceOnChange?: pulumi.Input<boolean>;
     /**
-     * A map of tags to assign, at instance-creation time, to root and EBS volumes.
+     * Map of tags to assign, at instance-creation time, to root and EBS volumes.
      */
     volumeTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A list of security group IDs to associate with.
+     * List of security group IDs to associate with.
      */
     vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
 }

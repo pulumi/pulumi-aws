@@ -32,14 +32,14 @@ public final class UserStackAssociationState extends com.pulumi.resources.Resour
     }
 
     /**
-     * Specifies whether a welcome email is sent to a user after the user is created in the user pool.
+     * Whether a welcome email is sent to a user after the user is created in the user pool.
      * 
      */
     @Import(name="sendEmailNotification")
     private @Nullable Output<Boolean> sendEmailNotification;
 
     /**
-     * @return Specifies whether a welcome email is sent to a user after the user is created in the user pool.
+     * @return Whether a welcome email is sent to a user after the user is created in the user pool.
      * 
      */
     public Optional<Output<Boolean>> sendEmailNotification() {
@@ -125,7 +125,7 @@ public final class UserStackAssociationState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param sendEmailNotification Specifies whether a welcome email is sent to a user after the user is created in the user pool.
+         * @param sendEmailNotification Whether a welcome email is sent to a user after the user is created in the user pool.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class UserStackAssociationState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param sendEmailNotification Specifies whether a welcome email is sent to a user after the user is created in the user pool.
+         * @param sendEmailNotification Whether a welcome email is sent to a user after the user is created in the user pool.
          * 
          * @return builder
          * 

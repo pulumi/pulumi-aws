@@ -13,14 +13,14 @@ public final class GetLambdaFunctionAssociationPlainArgs extends com.pulumi.reso
     public static final GetLambdaFunctionAssociationPlainArgs Empty = new GetLambdaFunctionAssociationPlainArgs();
 
     /**
-     * Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+     * ARN of the Lambda Function, omitting any version or alias qualifier.
      * 
      */
     @Import(name="functionArn", required=true)
     private String functionArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+     * @return ARN of the Lambda Function, omitting any version or alias qualifier.
      * 
      */
     public String functionArn() {
@@ -28,14 +28,14 @@ public final class GetLambdaFunctionAssociationPlainArgs extends com.pulumi.reso
     }
 
     /**
-     * The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
+     * Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
      * 
      */
     @Import(name="instanceId", required=true)
     private String instanceId;
 
     /**
-     * @return The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
+     * @return Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
      * 
      */
     public String instanceId() {
@@ -68,7 +68,7 @@ public final class GetLambdaFunctionAssociationPlainArgs extends com.pulumi.reso
         }
 
         /**
-         * @param functionArn Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+         * @param functionArn ARN of the Lambda Function, omitting any version or alias qualifier.
          * 
          * @return builder
          * 
@@ -79,7 +79,7 @@ public final class GetLambdaFunctionAssociationPlainArgs extends com.pulumi.reso
         }
 
         /**
-         * @param instanceId The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
+         * @param instanceId Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
          * 
          * @return builder
          * 

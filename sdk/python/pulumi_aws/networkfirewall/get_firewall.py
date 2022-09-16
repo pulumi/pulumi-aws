@@ -70,7 +70,7 @@ class GetFirewallResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the firewall.
+        ARN of the firewall.
         """
         return pulumi.get(self, "arn")
 
@@ -78,7 +78,7 @@ class GetFirewallResult:
     @pulumi.getter(name="deleteProtection")
     def delete_protection(self) -> bool:
         """
-        A boolean flag indicating whether it is possible to delete the firewall.
+        Boolean flag indicating whether it is possible to delete the firewall.
         """
         return pulumi.get(self, "delete_protection")
 
@@ -86,7 +86,7 @@ class GetFirewallResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        A description of the firewall.
+        Description of the firewall.
         """
         return pulumi.get(self, "description")
 
@@ -102,7 +102,7 @@ class GetFirewallResult:
     @pulumi.getter(name="firewallPolicyArn")
     def firewall_policy_arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the VPC Firewall policy.
+        ARN of the VPC Firewall policy.
         """
         return pulumi.get(self, "firewall_policy_arn")
 
@@ -134,7 +134,7 @@ class GetFirewallResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The descriptive name of the firewall.
+        Descriptive name of the firewall.
         """
         return pulumi.get(self, "name")
 
@@ -166,7 +166,7 @@ class GetFirewallResult:
     @pulumi.getter(name="updateToken")
     def update_token(self) -> str:
         """
-        A string token used when updating a firewall.
+        String token used when updating a firewall.
         """
         return pulumi.get(self, "update_token")
 
@@ -174,7 +174,7 @@ class GetFirewallResult:
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> str:
         """
-        The unique identifier of the VPC where AWS Network Firewall should create the firewall.
+        Unique identifier of the VPC where AWS Network Firewall should create the firewall.
         """
         return pulumi.get(self, "vpc_id")
 
@@ -209,7 +209,7 @@ def get_firewall(arn: Optional[str] = None,
     Retrieve information about a firewall.
 
     ## Example Usage
-    ### Find firewall policy by Amazon Resource Name (ARN)
+    ### Find firewall policy by ARN
 
     ```python
     import pulumi
@@ -225,7 +225,7 @@ def get_firewall(arn: Optional[str] = None,
 
     example = aws.networkfirewall.get_firewall(name="Test")
     ```
-    ### Find firewall policy by Amazon Resource Name (ARN) and Name
+    ### Find firewall policy by ARN and Name
 
     ```python
     import pulumi
@@ -236,8 +236,8 @@ def get_firewall(arn: Optional[str] = None,
     ```
 
 
-    :param str arn: The Amazon Resource Name (ARN) of the firewall.
-    :param str name: The descriptive name of the firewall.
+    :param str arn: ARN of the firewall.
+    :param str name: Descriptive name of the firewall.
     :param Mapping[str, str] tags: Map of resource tags to associate with the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
     """
     __args__ = dict()
@@ -273,7 +273,7 @@ def get_firewall_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     Retrieve information about a firewall.
 
     ## Example Usage
-    ### Find firewall policy by Amazon Resource Name (ARN)
+    ### Find firewall policy by ARN
 
     ```python
     import pulumi
@@ -289,7 +289,7 @@ def get_firewall_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
 
     example = aws.networkfirewall.get_firewall(name="Test")
     ```
-    ### Find firewall policy by Amazon Resource Name (ARN) and Name
+    ### Find firewall policy by ARN and Name
 
     ```python
     import pulumi
@@ -300,8 +300,8 @@ def get_firewall_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     ```
 
 
-    :param str arn: The Amazon Resource Name (ARN) of the firewall.
-    :param str name: The descriptive name of the firewall.
+    :param str arn: ARN of the firewall.
+    :param str name: Descriptive name of the firewall.
     :param Mapping[str, str] tags: Map of resource tags to associate with the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
     """
     ...

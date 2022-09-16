@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class GetAccountAliasResult {
     /**
-     * @return The alias associated with the AWS account.
+     * @return Alias associated with the AWS account.
      * 
      */
     private String accountAlias;
@@ -22,7 +22,7 @@ public final class GetAccountAliasResult {
 
     private GetAccountAliasResult() {}
     /**
-     * @return The alias associated with the AWS account.
+     * @return Alias associated with the AWS account.
      * 
      */
     public String accountAlias() {

@@ -17,7 +17,7 @@ public final class GetHostedZoneResult {
      */
     private String id;
     /**
-     * @return The region of the hosted zone.
+     * @return Region of the hosted zone.
      * 
      */
     private @Nullable String region;
@@ -31,7 +31,7 @@ public final class GetHostedZoneResult {
         return this.id;
     }
     /**
-     * @return The region of the hosted zone.
+     * @return Region of the hosted zone.
      * 
      */
     public Optional<String> region() {

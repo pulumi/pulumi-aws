@@ -72,13 +72,13 @@ namespace Pulumi.Aws.Lex
     public sealed class GetSlotTypeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the slot type. The name is case sensitive.
+        /// Name of the slot type. The name is case sensitive.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// The version of the slot type.
+        /// Version of the slot type.
         /// </summary>
         [Input("version")]
         public string? Version { get; set; }
@@ -92,13 +92,13 @@ namespace Pulumi.Aws.Lex
     public sealed class GetSlotTypeInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the slot type. The name is case sensitive.
+        /// Name of the slot type. The name is case sensitive.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The version of the slot type.
+        /// Version of the slot type.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
@@ -119,15 +119,15 @@ namespace Pulumi.Aws.Lex
         /// </summary>
         public readonly string Checksum;
         /// <summary>
-        /// The date when the slot type version was created.
+        /// Date when the slot type version was created.
         /// </summary>
         public readonly string CreatedDate;
         /// <summary>
-        /// A description of the slot type.
+        /// Description of the slot type.
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// A set of EnumerationValue objects that defines the values that
+        /// Set of EnumerationValue objects that defines the values that
         /// the slot type can take. Each value can have a set of synonyms, which are additional values that help
         /// train the machine learning model about the values that it resolves for a slot.
         /// </summary>
@@ -137,11 +137,11 @@ namespace Pulumi.Aws.Lex
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The date when the $LATEST version of this slot type was updated.
+        /// Date when the $LATEST version of this slot type was updated.
         /// </summary>
         public readonly string LastUpdatedDate;
         /// <summary>
-        /// The name of the slot type. The name is not case sensitive.
+        /// Name of the slot type. The name is not case sensitive.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -152,7 +152,7 @@ namespace Pulumi.Aws.Lex
         /// </summary>
         public readonly string ValueSelectionStrategy;
         /// <summary>
-        /// The version of the slot type.
+        /// Version of the slot type.
         /// </summary>
         public readonly string? Version;
 

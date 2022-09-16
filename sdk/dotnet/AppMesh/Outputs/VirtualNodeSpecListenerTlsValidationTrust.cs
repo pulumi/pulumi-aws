@@ -14,11 +14,11 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class VirtualNodeSpecListenerTlsValidationTrust
     {
         /// <summary>
-        /// The TLS validation context trust for a local file certificate.
+        /// TLS validation context trust for a local file certificate.
         /// </summary>
         public readonly Outputs.VirtualNodeSpecListenerTlsValidationTrustFile? File;
         /// <summary>
-        /// The TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+        /// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
         /// </summary>
         public readonly Outputs.VirtualNodeSpecListenerTlsValidationTrustSds? Sds;
 

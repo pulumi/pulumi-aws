@@ -25,7 +25,7 @@ namespace Pulumi.Aws.NetworkManager.Inputs
         public Input<bool>? RequireAcceptance { get; set; }
 
         /// <summary>
-        /// The name of the segment.
+        /// Name of the segment.
         /// </summary>
         [Input("segment")]
         public Input<string>? Segment { get; set; }

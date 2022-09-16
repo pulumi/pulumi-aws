@@ -51,7 +51,7 @@ func GetTransitGatewayRouteTables(ctx *pulumi.Context, args *GetTransitGatewayRo
 type GetTransitGatewayRouteTablesArgs struct {
 	// Custom filter block as described below.
 	Filters []GetTransitGatewayRouteTablesFilter `pulumi:"filters"`
-	// A mapping of tags, each pair of which must exactly match
+	// Mapping of tags, each pair of which must exactly match
 	// a pair on the desired transit gateway route table.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -83,7 +83,7 @@ func GetTransitGatewayRouteTablesOutput(ctx *pulumi.Context, args GetTransitGate
 type GetTransitGatewayRouteTablesOutputArgs struct {
 	// Custom filter block as described below.
 	Filters GetTransitGatewayRouteTablesFilterArrayInput `pulumi:"filters"`
-	// A mapping of tags, each pair of which must exactly match
+	// Mapping of tags, each pair of which must exactly match
 	// a pair on the desired transit gateway route table.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }

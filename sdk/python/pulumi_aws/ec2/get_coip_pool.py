@@ -120,8 +120,8 @@ def get_coip_pool(filters: Optional[Sequence[pulumi.InputType['GetCoipPoolFilter
 
 
     :param str local_gateway_route_table_id: Local Gateway Route Table Id assigned to desired COIP Pool
-    :param str pool_id: The id of the specific COIP Pool to retrieve.
-    :param Mapping[str, str] tags: A mapping of tags, each pair of which must exactly match
+    :param str pool_id: ID of the specific COIP Pool to retrieve.
+    :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the desired COIP Pool.
     """
     __args__ = dict()
@@ -157,8 +157,8 @@ def get_coip_pool_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi
 
 
     :param str local_gateway_route_table_id: Local Gateway Route Table Id assigned to desired COIP Pool
-    :param str pool_id: The id of the specific COIP Pool to retrieve.
-    :param Mapping[str, str] tags: A mapping of tags, each pair of which must exactly match
+    :param str pool_id: ID of the specific COIP Pool to retrieve.
+    :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the desired COIP Pool.
     """
     ...

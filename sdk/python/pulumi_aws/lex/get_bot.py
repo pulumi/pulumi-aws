@@ -78,7 +78,7 @@ class GetBotResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The ARN of the bot.
+        ARN of the bot.
         """
         return pulumi.get(self, "arn")
 
@@ -94,7 +94,7 @@ class GetBotResult:
     @pulumi.getter(name="childDirected")
     def child_directed(self) -> bool:
         """
-        Specifies if this Amazon Lex Bot is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA.
+        If this Amazon Lex Bot is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA.
         """
         return pulumi.get(self, "child_directed")
 
@@ -102,7 +102,7 @@ class GetBotResult:
     @pulumi.getter(name="createdDate")
     def created_date(self) -> str:
         """
-        The date that the bot was created.
+        Date that the bot was created.
         """
         return pulumi.get(self, "created_date")
 
@@ -110,7 +110,7 @@ class GetBotResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        A description of the bot.
+        Description of the bot.
         """
         return pulumi.get(self, "description")
 
@@ -158,7 +158,7 @@ class GetBotResult:
     @pulumi.getter(name="lastUpdatedDate")
     def last_updated_date(self) -> str:
         """
-        The date that the bot was updated.
+        Date that the bot was updated.
         """
         return pulumi.get(self, "last_updated_date")
 
@@ -166,7 +166,7 @@ class GetBotResult:
     @pulumi.getter
     def locale(self) -> str:
         """
-        Specifies the target locale for the bot. Any intent used in the bot must be compatible with the locale of the bot.
+        Target locale for the bot. Any intent used in the bot must be compatible with the locale of the bot.
         """
         return pulumi.get(self, "locale")
 
@@ -174,7 +174,7 @@ class GetBotResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the bot, case sensitive.
+        Name of the bot, case sensitive.
         """
         return pulumi.get(self, "name")
 
@@ -190,7 +190,7 @@ class GetBotResult:
     @pulumi.getter
     def status(self) -> str:
         """
-        The status of the bot.
+        Status of the bot.
         """
         return pulumi.get(self, "status")
 
@@ -198,7 +198,7 @@ class GetBotResult:
     @pulumi.getter
     def version(self) -> Optional[str]:
         """
-        The version of the bot. For a new bot, the version is always `$LATEST`.
+        Version of the bot. For a new bot, the version is always `$LATEST`.
         """
         return pulumi.get(self, "version")
 
@@ -206,7 +206,7 @@ class GetBotResult:
     @pulumi.getter(name="voiceId")
     def voice_id(self) -> str:
         """
-        The Amazon Polly voice ID that the Amazon Lex Bot uses for voice interactions with the user.
+        Amazon Polly voice ID that the Amazon Lex Bot uses for voice interactions with the user.
         """
         return pulumi.get(self, "voice_id")
 
@@ -253,8 +253,8 @@ def get_bot(name: Optional[str] = None,
     ```
 
 
-    :param str name: The name of the bot. The name is case sensitive.
-    :param str version: The version or alias of the bot.
+    :param str name: Name of the bot. The name is case sensitive.
+    :param str version: Version or alias of the bot.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -300,7 +300,7 @@ def get_bot_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str name: The name of the bot. The name is case sensitive.
-    :param str version: The version or alias of the bot.
+    :param str name: Name of the bot. The name is case sensitive.
+    :param str version: Version or alias of the bot.
     """
     ...

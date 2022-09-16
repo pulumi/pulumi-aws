@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetInstancesFilter {
     /**
-     * @return The name of the filter field. Valid values can be found in the [SSM InstanceInformationStringFilter API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_InstanceInformationStringFilter.html).
+     * @return Name of the filter field. Valid values can be found in the [SSM InstanceInformationStringFilter API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_InstanceInformationStringFilter.html).
      * 
      */
     private String name;
@@ -23,7 +23,7 @@ public final class GetInstancesFilter {
 
     private GetInstancesFilter() {}
     /**
-     * @return The name of the filter field. Valid values can be found in the [SSM InstanceInformationStringFilter API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_InstanceInformationStringFilter.html).
+     * @return Name of the filter field. Valid values can be found in the [SSM InstanceInformationStringFilter API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_InstanceInformationStringFilter.html).
      * 
      */
     public String name() {

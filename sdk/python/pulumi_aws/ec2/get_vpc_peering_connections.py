@@ -54,7 +54,7 @@ class GetVpcPeeringConnectionsResult:
     @pulumi.getter
     def ids(self) -> Sequence[str]:
         """
-        The IDs of the VPC Peering Connections.
+        IDs of the VPC Peering Connections.
         """
         return pulumi.get(self, "ids")
 
@@ -85,7 +85,7 @@ def get_vpc_peering_connections(filters: Optional[Sequence[pulumi.InputType['Get
 
 
     :param Sequence[pulumi.InputType['GetVpcPeeringConnectionsFilterArgs']] filters: Custom filter block as described below.
-    :param Mapping[str, str] tags: A mapping of tags, each pair of which must exactly match
+    :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the desired VPC Peering Connection.
     """
     __args__ = dict()
@@ -111,7 +111,7 @@ def get_vpc_peering_connections_output(filters: Optional[pulumi.Input[Optional[S
 
 
     :param Sequence[pulumi.InputType['GetVpcPeeringConnectionsFilterArgs']] filters: Custom filter block as described below.
-    :param Mapping[str, str] tags: A mapping of tags, each pair of which must exactly match
+    :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the desired VPC Peering Connection.
     """
     ...

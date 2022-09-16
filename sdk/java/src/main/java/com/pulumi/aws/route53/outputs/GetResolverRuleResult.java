@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetResolverRuleResult {
     /**
-     * @return The ARN (Amazon Resource Name) for the resolver rule.
+     * @return ARN (Amazon Resource Name) for the resolver rule.
      * 
      */
     private String arn;
@@ -37,14 +37,14 @@ public final class GetResolverRuleResult {
      */
     private String shareStatus;
     /**
-     * @return A map of tags assigned to the resolver rule.
+     * @return Map of tags assigned to the resolver rule.
      * 
      */
     private Map<String,String> tags;
 
     private GetResolverRuleResult() {}
     /**
-     * @return The ARN (Amazon Resource Name) for the resolver rule.
+     * @return ARN (Amazon Resource Name) for the resolver rule.
      * 
      */
     public String arn() {
@@ -88,7 +88,7 @@ public final class GetResolverRuleResult {
         return this.shareStatus;
     }
     /**
-     * @return A map of tags assigned to the resolver rule.
+     * @return Map of tags assigned to the resolver rule.
      * 
      */
     public Map<String,String> tags() {

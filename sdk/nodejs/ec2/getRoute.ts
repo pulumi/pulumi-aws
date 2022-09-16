@@ -76,7 +76,7 @@ export interface GetRouteArgs {
      */
     destinationIpv6CidrBlock?: string;
     /**
-     * The ID of a managed prefix list destination of the Route belonging to the Route Table.
+     * ID of a managed prefix list destination of the Route belonging to the Route Table.
      */
     destinationPrefixListId?: string;
     /**
@@ -104,7 +104,7 @@ export interface GetRouteArgs {
      */
     networkInterfaceId?: string;
     /**
-     * The ID of the specific Route Table containing the Route entry.
+     * ID of the specific Route Table containing the Route entry.
      */
     routeTableId: string;
     /**
@@ -166,7 +166,7 @@ export interface GetRouteOutputArgs {
      */
     destinationIpv6CidrBlock?: pulumi.Input<string>;
     /**
-     * The ID of a managed prefix list destination of the Route belonging to the Route Table.
+     * ID of a managed prefix list destination of the Route belonging to the Route Table.
      */
     destinationPrefixListId?: pulumi.Input<string>;
     /**
@@ -194,7 +194,7 @@ export interface GetRouteOutputArgs {
      */
     networkInterfaceId?: pulumi.Input<string>;
     /**
-     * The ID of the specific Route Table containing the Route entry.
+     * ID of the specific Route Table containing the Route entry.
      */
     routeTableId: pulumi.Input<string>;
     /**

@@ -125,7 +125,7 @@ class GetComponentResult:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> str:
         """
-        Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
+        ARN of the Key Management Service (KMS) Key used to encrypt the component.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -225,7 +225,7 @@ def get_component(arn: Optional[str] = None,
     ```
 
 
-    :param str arn: Amazon Resource Name (ARN) of the component.
+    :param str arn: ARN of the component.
     :param Mapping[str, str] tags: Key-value map of resource tags for the component.
     """
     __args__ = dict()
@@ -269,7 +269,7 @@ def get_component_output(arn: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str arn: Amazon Resource Name (ARN) of the component.
+    :param str arn: ARN of the component.
     :param Mapping[str, str] tags: Key-value map of resource tags for the component.
     """
     ...

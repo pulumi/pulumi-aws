@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -36,7 +38,7 @@ export function getImagePipeline(args: GetImagePipelineArgs, opts?: pulumi.Invok
  */
 export interface GetImagePipelineArgs {
     /**
-     * Amazon Resource Name (ARN) of the image pipeline.
+     * ARN of the image pipeline.
      */
     arn: string;
     /**
@@ -51,7 +53,7 @@ export interface GetImagePipelineArgs {
 export interface GetImagePipelineResult {
     readonly arn: string;
     /**
-     * Amazon Resource Name (ARN) of the container recipe.
+     * ARN of the container recipe.
      */
     readonly containerRecipeArn: string;
     /**
@@ -75,7 +77,7 @@ export interface GetImagePipelineResult {
      */
     readonly description: string;
     /**
-     * Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+     * ARN of the Image Builder Distribution Configuration.
      */
     readonly distributionConfigurationArn: string;
     /**
@@ -87,7 +89,7 @@ export interface GetImagePipelineResult {
      */
     readonly id: string;
     /**
-     * Amazon Resource Name (ARN) of the image recipe.
+     * ARN of the image recipe.
      */
     readonly imageRecipeArn: string;
     /**
@@ -95,7 +97,7 @@ export interface GetImagePipelineResult {
      */
     readonly imageTestsConfigurations: outputs.imagebuilder.GetImagePipelineImageTestsConfiguration[];
     /**
-     * Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+     * ARN of the Image Builder Infrastructure Configuration.
      */
     readonly infrastructureConfigurationArn: string;
     /**
@@ -129,7 +131,7 @@ export function getImagePipelineOutput(args: GetImagePipelineOutputArgs, opts?: 
  */
 export interface GetImagePipelineOutputArgs {
     /**
-     * Amazon Resource Name (ARN) of the image pipeline.
+     * ARN of the image pipeline.
      */
     arn: pulumi.Input<string>;
     /**

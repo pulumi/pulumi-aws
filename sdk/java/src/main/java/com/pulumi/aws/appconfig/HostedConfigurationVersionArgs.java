@@ -16,14 +16,14 @@ public final class HostedConfigurationVersionArgs extends com.pulumi.resources.R
     public static final HostedConfigurationVersionArgs Empty = new HostedConfigurationVersionArgs();
 
     /**
-     * The application ID.
+     * Application ID.
      * 
      */
     @Import(name="applicationId", required=true)
     private Output<String> applicationId;
 
     /**
-     * @return The application ID.
+     * @return Application ID.
      * 
      */
     public Output<String> applicationId() {
@@ -31,14 +31,14 @@ public final class HostedConfigurationVersionArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The configuration profile ID.
+     * Configuration profile ID.
      * 
      */
     @Import(name="configurationProfileId", required=true)
     private Output<String> configurationProfileId;
 
     /**
-     * @return The configuration profile ID.
+     * @return Configuration profile ID.
      * 
      */
     public Output<String> configurationProfileId() {
@@ -46,14 +46,14 @@ public final class HostedConfigurationVersionArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The content of the configuration or the configuration data.
+     * Content of the configuration or the configuration data.
      * 
      */
     @Import(name="content", required=true)
     private Output<String> content;
 
     /**
-     * @return The content of the configuration or the configuration data.
+     * @return Content of the configuration or the configuration data.
      * 
      */
     public Output<String> content() {
@@ -61,14 +61,14 @@ public final class HostedConfigurationVersionArgs extends com.pulumi.resources.R
     }
 
     /**
-     * A standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
+     * Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
      * 
      */
     @Import(name="contentType", required=true)
     private Output<String> contentType;
 
     /**
-     * @return A standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
+     * @return Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
      * 
      */
     public Output<String> contentType() {
@@ -76,14 +76,14 @@ public final class HostedConfigurationVersionArgs extends com.pulumi.resources.R
     }
 
     /**
-     * A description of the configuration.
+     * Description of the configuration.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A description of the configuration.
+     * @return Description of the configuration.
      * 
      */
     public Optional<Output<String>> description() {
@@ -119,7 +119,7 @@ public final class HostedConfigurationVersionArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param applicationId The application ID.
+         * @param applicationId Application ID.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class HostedConfigurationVersionArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param applicationId The application ID.
+         * @param applicationId Application ID.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class HostedConfigurationVersionArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param configurationProfileId The configuration profile ID.
+         * @param configurationProfileId Configuration profile ID.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class HostedConfigurationVersionArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param configurationProfileId The configuration profile ID.
+         * @param configurationProfileId Configuration profile ID.
          * 
          * @return builder
          * 
@@ -161,7 +161,7 @@ public final class HostedConfigurationVersionArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param content The content of the configuration or the configuration data.
+         * @param content Content of the configuration or the configuration data.
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class HostedConfigurationVersionArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param content The content of the configuration or the configuration data.
+         * @param content Content of the configuration or the configuration data.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class HostedConfigurationVersionArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param contentType A standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
+         * @param contentType Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class HostedConfigurationVersionArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param contentType A standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
+         * @param contentType Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
          * 
          * @return builder
          * 
@@ -203,7 +203,7 @@ public final class HostedConfigurationVersionArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param description A description of the configuration.
+         * @param description Description of the configuration.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class HostedConfigurationVersionArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param description A description of the configuration.
+         * @param description Description of the configuration.
          * 
          * @return builder
          * 

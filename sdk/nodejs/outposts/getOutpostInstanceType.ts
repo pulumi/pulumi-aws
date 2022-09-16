@@ -25,7 +25,7 @@ export function getOutpostInstanceType(args: GetOutpostInstanceTypeArgs, opts?: 
  */
 export interface GetOutpostInstanceTypeArgs {
     /**
-     * Outpost Amazon Resource Name (ARN).
+     * Outpost ARN.
      */
     arn: string;
     /**
@@ -60,7 +60,7 @@ export function getOutpostInstanceTypeOutput(args: GetOutpostInstanceTypeOutputA
  */
 export interface GetOutpostInstanceTypeOutputArgs {
     /**
-     * Outpost Amazon Resource Name (ARN).
+     * Outpost ARN.
      */
     arn: pulumi.Input<string>;
     /**

@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetMulticastDomainResult {
     /**
-     * @return EC2 Transit Gateway Multicast Domain Amazon Resource Name (ARN).
+     * @return EC2 Transit Gateway Multicast Domain ARN.
      * 
      */
     private String arn;
@@ -82,7 +82,7 @@ public final class GetMulticastDomainResult {
 
     private GetMulticastDomainResult() {}
     /**
-     * @return EC2 Transit Gateway Multicast Domain Amazon Resource Name (ARN).
+     * @return EC2 Transit Gateway Multicast Domain ARN.
      * 
      */
     public String arn() {

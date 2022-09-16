@@ -176,7 +176,7 @@ namespace Pulumi.Aws.RedShift
     public sealed class GetServiceAccountResult
     {
         /// <summary>
-        /// The ARN of the AWS Redshift service account in the selected region.
+        /// ARN of the AWS Redshift service account in the selected region.
         /// </summary>
         public readonly string Arn;
         /// <summary>

@@ -70,7 +70,7 @@ namespace Pulumi.Aws.CodeCommit
     public sealed class GetRepositoryArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name for the repository. This needs to be less than 100 characters.
+        /// Name for the repository. This needs to be less than 100 characters.
         /// </summary>
         [Input("repositoryName", required: true)]
         public string RepositoryName { get; set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.Aws.CodeCommit
     public sealed class GetRepositoryInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name for the repository. This needs to be less than 100 characters.
+        /// Name for the repository. This needs to be less than 100 characters.
         /// </summary>
         [Input("repositoryName", required: true)]
         public Input<string> RepositoryName { get; set; } = null!;
@@ -100,15 +100,15 @@ namespace Pulumi.Aws.CodeCommit
     public sealed class GetRepositoryResult
     {
         /// <summary>
-        /// The ARN of the repository
+        /// ARN of the repository
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The URL to use for cloning the repository over HTTPS.
+        /// URL to use for cloning the repository over HTTPS.
         /// </summary>
         public readonly string CloneUrlHttp;
         /// <summary>
-        /// The URL to use for cloning the repository over SSH.
+        /// URL to use for cloning the repository over SSH.
         /// </summary>
         public readonly string CloneUrlSsh;
         /// <summary>
@@ -116,7 +116,7 @@ namespace Pulumi.Aws.CodeCommit
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The ID of the repository
+        /// ID of the repository
         /// </summary>
         public readonly string RepositoryId;
         public readonly string RepositoryName;

@@ -176,7 +176,7 @@ class GetSecretsSecretResult(dict):
                  context: Optional[Mapping[str, str]] = None,
                  grant_tokens: Optional[Sequence[str]] = None):
         """
-        :param str name: The name to export this secret under in the attributes.
+        :param str name: Name to export this secret under in the attributes.
         :param str payload: Base64 encoded payload, as returned from a KMS encrypt operation.
         :param Mapping[str, str] context: An optional mapping that makes up the Encryption Context for the secret.
         :param Sequence[str] grant_tokens: An optional list of Grant Tokens for the secret.
@@ -192,7 +192,7 @@ class GetSecretsSecretResult(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name to export this secret under in the attributes.
+        Name to export this secret under in the attributes.
         """
         return pulumi.get(self, "name")
 

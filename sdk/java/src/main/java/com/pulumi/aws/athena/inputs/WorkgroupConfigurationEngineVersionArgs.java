@@ -31,14 +31,14 @@ public final class WorkgroupConfigurationEngineVersionArgs extends com.pulumi.re
     }
 
     /**
-     * The requested engine version. Defaults to `AUTO`.
+     * Requested engine version. Defaults to `AUTO`.
      * 
      */
     @Import(name="selectedEngineVersion")
     private @Nullable Output<String> selectedEngineVersion;
 
     /**
-     * @return The requested engine version. Defaults to `AUTO`.
+     * @return Requested engine version. Defaults to `AUTO`.
      * 
      */
     public Optional<Output<String>> selectedEngineVersion() {
@@ -92,7 +92,7 @@ public final class WorkgroupConfigurationEngineVersionArgs extends com.pulumi.re
         }
 
         /**
-         * @param selectedEngineVersion The requested engine version. Defaults to `AUTO`.
+         * @param selectedEngineVersion Requested engine version. Defaults to `AUTO`.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class WorkgroupConfigurationEngineVersionArgs extends com.pulumi.re
         }
 
         /**
-         * @param selectedEngineVersion The requested engine version. Defaults to `AUTO`.
+         * @param selectedEngineVersion Requested engine version. Defaults to `AUTO`.
          * 
          * @return builder
          * 

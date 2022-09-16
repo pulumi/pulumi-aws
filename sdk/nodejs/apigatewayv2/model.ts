@@ -66,7 +66,7 @@ export class Model extends pulumi.CustomResource {
     }
 
     /**
-     * The API identifier.
+     * API identifier.
      */
     public readonly apiId!: pulumi.Output<string>;
     /**
@@ -74,15 +74,15 @@ export class Model extends pulumi.CustomResource {
      */
     public readonly contentType!: pulumi.Output<string>;
     /**
-     * The description of the model. Must be between 1 and 128 characters in length.
+     * Description of the model. Must be between 1 and 128 characters in length.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
+     * Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
+     * Schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
      */
     public readonly schema!: pulumi.Output<string>;
 
@@ -131,7 +131,7 @@ export class Model extends pulumi.CustomResource {
  */
 export interface ModelState {
     /**
-     * The API identifier.
+     * API identifier.
      */
     apiId?: pulumi.Input<string>;
     /**
@@ -139,15 +139,15 @@ export interface ModelState {
      */
     contentType?: pulumi.Input<string>;
     /**
-     * The description of the model. Must be between 1 and 128 characters in length.
+     * Description of the model. Must be between 1 and 128 characters in length.
      */
     description?: pulumi.Input<string>;
     /**
-     * The name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
+     * Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
      */
     name?: pulumi.Input<string>;
     /**
-     * The schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
+     * Schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
      */
     schema?: pulumi.Input<string>;
 }
@@ -157,7 +157,7 @@ export interface ModelState {
  */
 export interface ModelArgs {
     /**
-     * The API identifier.
+     * API identifier.
      */
     apiId: pulumi.Input<string>;
     /**
@@ -165,15 +165,15 @@ export interface ModelArgs {
      */
     contentType: pulumi.Input<string>;
     /**
-     * The description of the model. Must be between 1 and 128 characters in length.
+     * Description of the model. Must be between 1 and 128 characters in length.
      */
     description?: pulumi.Input<string>;
     /**
-     * The name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
+     * Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
      */
     name?: pulumi.Input<string>;
     /**
-     * The schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
+     * Schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
      */
     schema: pulumi.Input<string>;
 }

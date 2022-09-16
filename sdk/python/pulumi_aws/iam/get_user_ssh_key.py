@@ -53,7 +53,7 @@ class GetUserSshKeyResult:
     @pulumi.getter
     def fingerprint(self) -> str:
         """
-        The MD5 message digest of the SSH public key.
+        MD5 message digest of the SSH public key.
         """
         return pulumi.get(self, "fingerprint")
 
@@ -69,7 +69,7 @@ class GetUserSshKeyResult:
     @pulumi.getter(name="publicKey")
     def public_key(self) -> str:
         """
-        The SSH public key.
+        SSH public key.
         """
         return pulumi.get(self, "public_key")
 
@@ -82,7 +82,7 @@ class GetUserSshKeyResult:
     @pulumi.getter
     def status(self) -> str:
         """
-        The status of the SSH public key. Active means that the key can be used for authentication with an CodeCommit repository. Inactive means that the key cannot be used.
+        Status of the SSH public key. Active means that the key can be used for authentication with an CodeCommit repository. Inactive means that the key cannot be used.
         """
         return pulumi.get(self, "status")
 
@@ -127,8 +127,8 @@ def get_user_ssh_key(encoding: Optional[str] = None,
 
 
     :param str encoding: Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use `SSH`. To retrieve the public key in PEM format, use `PEM`.
-    :param str ssh_public_key_id: The unique identifier for the SSH public key.
-    :param str username: The name of the IAM user associated with the SSH public key.
+    :param str ssh_public_key_id: Unique identifier for the SSH public key.
+    :param str username: Name of the IAM user associated with the SSH public key.
     """
     __args__ = dict()
     __args__['encoding'] = encoding
@@ -168,7 +168,7 @@ def get_user_ssh_key_output(encoding: Optional[pulumi.Input[str]] = None,
 
 
     :param str encoding: Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use `SSH`. To retrieve the public key in PEM format, use `PEM`.
-    :param str ssh_public_key_id: The unique identifier for the SSH public key.
-    :param str username: The name of the IAM user associated with the SSH public key.
+    :param str ssh_public_key_id: Unique identifier for the SSH public key.
+    :param str username: Name of the IAM user associated with the SSH public key.
     """
     ...

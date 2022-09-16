@@ -1026,7 +1026,7 @@ func (o WorkspaceWorkspacePropertiesPtrOutput) UserVolumeSizeGib() pulumi.IntPtr
 }
 
 type GetBundleComputeType struct {
-	// The name of the bundle. You cannot combine this parameter with `bundleId`.
+	// Name of the bundle. You cannot combine this parameter with `bundleId`.
 	Name string `pulumi:"name"`
 }
 
@@ -1042,7 +1042,7 @@ type GetBundleComputeTypeInput interface {
 }
 
 type GetBundleComputeTypeArgs struct {
-	// The name of the bundle. You cannot combine this parameter with `bundleId`.
+	// Name of the bundle. You cannot combine this parameter with `bundleId`.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -1097,7 +1097,7 @@ func (o GetBundleComputeTypeOutput) ToGetBundleComputeTypeOutputWithContext(ctx 
 	return o
 }
 
-// The name of the bundle. You cannot combine this parameter with `bundleId`.
+// Name of the bundle. You cannot combine this parameter with `bundleId`.
 func (o GetBundleComputeTypeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBundleComputeType) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1123,7 +1123,7 @@ func (o GetBundleComputeTypeArrayOutput) Index(i pulumi.IntInput) GetBundleCompu
 }
 
 type GetBundleRootStorage struct {
-	// The size of the user storage.
+	// Size of the user storage.
 	Capacity string `pulumi:"capacity"`
 }
 
@@ -1139,7 +1139,7 @@ type GetBundleRootStorageInput interface {
 }
 
 type GetBundleRootStorageArgs struct {
-	// The size of the user storage.
+	// Size of the user storage.
 	Capacity pulumi.StringInput `pulumi:"capacity"`
 }
 
@@ -1194,7 +1194,7 @@ func (o GetBundleRootStorageOutput) ToGetBundleRootStorageOutputWithContext(ctx 
 	return o
 }
 
-// The size of the user storage.
+// Size of the user storage.
 func (o GetBundleRootStorageOutput) Capacity() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBundleRootStorage) string { return v.Capacity }).(pulumi.StringOutput)
 }
@@ -1220,7 +1220,7 @@ func (o GetBundleRootStorageArrayOutput) Index(i pulumi.IntInput) GetBundleRootS
 }
 
 type GetBundleUserStorage struct {
-	// The size of the user storage.
+	// Size of the user storage.
 	Capacity string `pulumi:"capacity"`
 }
 
@@ -1236,7 +1236,7 @@ type GetBundleUserStorageInput interface {
 }
 
 type GetBundleUserStorageArgs struct {
-	// The size of the user storage.
+	// Size of the user storage.
 	Capacity pulumi.StringInput `pulumi:"capacity"`
 }
 
@@ -1291,7 +1291,7 @@ func (o GetBundleUserStorageOutput) ToGetBundleUserStorageOutputWithContext(ctx 
 	return o
 }
 
-// The size of the user storage.
+// Size of the user storage.
 func (o GetBundleUserStorageOutput) Capacity() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBundleUserStorage) string { return v.Capacity }).(pulumi.StringOutput)
 }
@@ -1743,15 +1743,15 @@ func (o GetDirectoryWorkspaceCreationPropertyArrayOutput) Index(i pulumi.IntInpu
 }
 
 type GetWorkspaceWorkspaceProperty struct {
-	// The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO` and `GRAPHICSPRO`.
+	// Compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO` and `GRAPHICSPRO`.
 	ComputeTypeName string `pulumi:"computeTypeName"`
-	// The size of the root volume.
+	// Size of the root volume.
 	RootVolumeSizeGib int `pulumi:"rootVolumeSizeGib"`
-	// The running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
+	// Running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
 	RunningMode string `pulumi:"runningMode"`
-	// The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
+	// Time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
 	RunningModeAutoStopTimeoutInMinutes int `pulumi:"runningModeAutoStopTimeoutInMinutes"`
-	// The size of the user storage.
+	// Size of the user storage.
 	UserVolumeSizeGib int `pulumi:"userVolumeSizeGib"`
 }
 
@@ -1767,15 +1767,15 @@ type GetWorkspaceWorkspacePropertyInput interface {
 }
 
 type GetWorkspaceWorkspacePropertyArgs struct {
-	// The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO` and `GRAPHICSPRO`.
+	// Compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO` and `GRAPHICSPRO`.
 	ComputeTypeName pulumi.StringInput `pulumi:"computeTypeName"`
-	// The size of the root volume.
+	// Size of the root volume.
 	RootVolumeSizeGib pulumi.IntInput `pulumi:"rootVolumeSizeGib"`
-	// The running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
+	// Running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
 	RunningMode pulumi.StringInput `pulumi:"runningMode"`
-	// The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
+	// Time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
 	RunningModeAutoStopTimeoutInMinutes pulumi.IntInput `pulumi:"runningModeAutoStopTimeoutInMinutes"`
-	// The size of the user storage.
+	// Size of the user storage.
 	UserVolumeSizeGib pulumi.IntInput `pulumi:"userVolumeSizeGib"`
 }
 
@@ -1830,27 +1830,27 @@ func (o GetWorkspaceWorkspacePropertyOutput) ToGetWorkspaceWorkspacePropertyOutp
 	return o
 }
 
-// The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO` and `GRAPHICSPRO`.
+// Compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO` and `GRAPHICSPRO`.
 func (o GetWorkspaceWorkspacePropertyOutput) ComputeTypeName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetWorkspaceWorkspaceProperty) string { return v.ComputeTypeName }).(pulumi.StringOutput)
 }
 
-// The size of the root volume.
+// Size of the root volume.
 func (o GetWorkspaceWorkspacePropertyOutput) RootVolumeSizeGib() pulumi.IntOutput {
 	return o.ApplyT(func(v GetWorkspaceWorkspaceProperty) int { return v.RootVolumeSizeGib }).(pulumi.IntOutput)
 }
 
-// The running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
+// Running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
 func (o GetWorkspaceWorkspacePropertyOutput) RunningMode() pulumi.StringOutput {
 	return o.ApplyT(func(v GetWorkspaceWorkspaceProperty) string { return v.RunningMode }).(pulumi.StringOutput)
 }
 
-// The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
+// Time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
 func (o GetWorkspaceWorkspacePropertyOutput) RunningModeAutoStopTimeoutInMinutes() pulumi.IntOutput {
 	return o.ApplyT(func(v GetWorkspaceWorkspaceProperty) int { return v.RunningModeAutoStopTimeoutInMinutes }).(pulumi.IntOutput)
 }
 
-// The size of the user storage.
+// Size of the user storage.
 func (o GetWorkspaceWorkspacePropertyOutput) UserVolumeSizeGib() pulumi.IntOutput {
 	return o.ApplyT(func(v GetWorkspaceWorkspaceProperty) int { return v.UserVolumeSizeGib }).(pulumi.IntOutput)
 }

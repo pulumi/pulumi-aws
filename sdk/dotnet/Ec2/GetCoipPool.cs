@@ -50,7 +50,7 @@ namespace Pulumi.Aws.Ec2
         public string? LocalGatewayRouteTableId { get; set; }
 
         /// <summary>
-        /// The id of the specific COIP Pool to retrieve.
+        /// ID of the specific COIP Pool to retrieve.
         /// </summary>
         [Input("poolId")]
         public string? PoolId { get; set; }
@@ -59,7 +59,7 @@ namespace Pulumi.Aws.Ec2
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A mapping of tags, each pair of which must exactly match
+        /// Mapping of tags, each pair of which must exactly match
         /// a pair on the desired COIP Pool.
         /// </summary>
         public Dictionary<string, string> Tags
@@ -91,7 +91,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? LocalGatewayRouteTableId { get; set; }
 
         /// <summary>
-        /// The id of the specific COIP Pool to retrieve.
+        /// ID of the specific COIP Pool to retrieve.
         /// </summary>
         [Input("poolId")]
         public Input<string>? PoolId { get; set; }
@@ -100,7 +100,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags, each pair of which must exactly match
+        /// Mapping of tags, each pair of which must exactly match
         /// a pair on the desired COIP Pool.
         /// </summary>
         public InputMap<string> Tags

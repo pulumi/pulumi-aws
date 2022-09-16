@@ -17,14 +17,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesHoneyc
     public static final FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeArgs Empty = new FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeArgs();
 
     /**
-     * The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+     * Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
      * 
      */
     @Import(name="errorHandlingConfig")
     private @Nullable Output<FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigArgs> errorHandlingConfig;
 
     /**
-     * @return The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+     * @return Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
      * 
      */
     public Optional<Output<FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigArgs>> errorHandlingConfig() {
@@ -32,14 +32,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesHoneyc
     }
 
     /**
-     * The object specified in the Veeva flow source.
+     * Object specified in the Veeva flow source.
      * 
      */
     @Import(name="object", required=true)
     private Output<String> object;
 
     /**
-     * @return The object specified in the Veeva flow source.
+     * @return Object specified in the Veeva flow source.
      * 
      */
     public Output<String> object() {
@@ -72,7 +72,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesHoneyc
         }
 
         /**
-         * @param errorHandlingConfig The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+         * @param errorHandlingConfig Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesHoneyc
         }
 
         /**
-         * @param errorHandlingConfig The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+         * @param errorHandlingConfig Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesHoneyc
         }
 
         /**
-         * @param object The object specified in the Veeva flow source.
+         * @param object Object specified in the Veeva flow source.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesHoneyc
         }
 
         /**
-         * @param object The object specified in the Veeva flow source.
+         * @param object Object specified in the Veeva flow source.
          * 
          * @return builder
          * 

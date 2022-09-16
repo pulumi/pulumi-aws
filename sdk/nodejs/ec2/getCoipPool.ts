@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -37,11 +39,11 @@ export interface GetCoipPoolArgs {
      */
     localGatewayRouteTableId?: string;
     /**
-     * The id of the specific COIP Pool to retrieve.
+     * ID of the specific COIP Pool to retrieve.
      */
     poolId?: string;
     /**
-     * A mapping of tags, each pair of which must exactly match
+     * Mapping of tags, each pair of which must exactly match
      * a pair on the desired COIP Pool.
      */
     tags?: {[key: string]: string};
@@ -83,11 +85,11 @@ export interface GetCoipPoolOutputArgs {
      */
     localGatewayRouteTableId?: pulumi.Input<string>;
     /**
-     * The id of the specific COIP Pool to retrieve.
+     * ID of the specific COIP Pool to retrieve.
      */
     poolId?: pulumi.Input<string>;
     /**
-     * A mapping of tags, each pair of which must exactly match
+     * Mapping of tags, each pair of which must exactly match
      * a pair on the desired COIP Pool.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

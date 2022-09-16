@@ -60,56 +60,56 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:apigateway/clientCertificate:ClientCertificate")
 public class ClientCertificate extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN)
+     * ARN
      * 
      */
     @Export(name="arn", type=String.class, parameters={})
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN)
+     * @return ARN
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The date when the client certificate was created.
+     * Date when the client certificate was created.
      * 
      */
     @Export(name="createdDate", type=String.class, parameters={})
     private Output<String> createdDate;
 
     /**
-     * @return The date when the client certificate was created.
+     * @return Date when the client certificate was created.
      * 
      */
     public Output<String> createdDate() {
         return this.createdDate;
     }
     /**
-     * The description of the client certificate.
+     * Description of the client certificate.
      * 
      */
     @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return The description of the client certificate.
+     * @return Description of the client certificate.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * The date when the client certificate will expire.
+     * Date when the client certificate will expire.
      * 
      */
     @Export(name="expirationDate", type=String.class, parameters={})
     private Output<String> expirationDate;
 
     /**
-     * @return The date when the client certificate will expire.
+     * @return Date when the client certificate will expire.
      * 
      */
     public Output<String> expirationDate() {
@@ -144,14 +144,14 @@ public class ClientCertificate extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

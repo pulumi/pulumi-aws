@@ -93,14 +93,14 @@ type LookupConnectPeerArgs struct {
 type LookupConnectPeerResult struct {
 	// EC2 Transit Gateway Connect Peer ARN
 	Arn string `pulumi:"arn"`
-	// The BGP ASN number assigned customer device
+	// BGP ASN number assigned customer device
 	BgpAsn  string                 `pulumi:"bgpAsn"`
 	Filters []GetConnectPeerFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The CIDR blocks that will be used for addressing within the tunnel.
+	// CIDR blocks that will be used for addressing within the tunnel.
 	InsideCidrBlocks []string `pulumi:"insideCidrBlocks"`
-	// The IP addressed assigned to customer device, which is used as tunnel endpoint
+	// IP addressed assigned to customer device, which is used as tunnel endpoint
 	PeerAddress string `pulumi:"peerAddress"`
 	// Key-value tags for the EC2 Transit Gateway Connect Peer
 	Tags map[string]string `pulumi:"tags"`
@@ -158,7 +158,7 @@ func (o LookupConnectPeerResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectPeerResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The BGP ASN number assigned customer device
+// BGP ASN number assigned customer device
 func (o LookupConnectPeerResultOutput) BgpAsn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectPeerResult) string { return v.BgpAsn }).(pulumi.StringOutput)
 }
@@ -172,12 +172,12 @@ func (o LookupConnectPeerResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectPeerResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The CIDR blocks that will be used for addressing within the tunnel.
+// CIDR blocks that will be used for addressing within the tunnel.
 func (o LookupConnectPeerResultOutput) InsideCidrBlocks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupConnectPeerResult) []string { return v.InsideCidrBlocks }).(pulumi.StringArrayOutput)
 }
 
-// The IP addressed assigned to customer device, which is used as tunnel endpoint
+// IP addressed assigned to customer device, which is used as tunnel endpoint
 func (o LookupConnectPeerResultOutput) PeerAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectPeerResult) string { return v.PeerAddress }).(pulumi.StringOutput)
 }

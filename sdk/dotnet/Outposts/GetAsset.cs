@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Outposts
         public string Arn { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the asset.
+        /// ID of the asset.
         /// </summary>
         [Input("assetId", required: true)]
         public string AssetId { get; set; } = null!;
@@ -54,7 +54,7 @@ namespace Pulumi.Aws.Outposts
         public Input<string> Arn { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the asset.
+        /// ID of the asset.
         /// </summary>
         [Input("assetId", required: true)]
         public Input<string> AssetId { get; set; } = null!;
@@ -72,11 +72,11 @@ namespace Pulumi.Aws.Outposts
         public readonly string Arn;
         public readonly string AssetId;
         /// <summary>
-        /// The type of the asset.
+        /// Type of the asset.
         /// </summary>
         public readonly string AssetType;
         /// <summary>
-        /// The host ID of the Dedicated Hosts on the asset, if a Dedicated Host is provisioned.
+        /// Host ID of the Dedicated Hosts on the asset, if a Dedicated Host is provisioned.
         /// </summary>
         public readonly string HostId;
         /// <summary>
@@ -84,11 +84,11 @@ namespace Pulumi.Aws.Outposts
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The position of an asset in a rack measured in rack units.
+        /// Position of an asset in a rack measured in rack units.
         /// </summary>
         public readonly int RackElevation;
         /// <summary>
-        /// The rack ID of the asset.
+        /// Rack ID of the asset.
         /// </summary>
         public readonly string RackId;
 

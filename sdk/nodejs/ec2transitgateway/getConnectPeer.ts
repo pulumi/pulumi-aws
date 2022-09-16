@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -74,7 +76,7 @@ export interface GetConnectPeerResult {
      */
     readonly arn: string;
     /**
-     * The BGP ASN number assigned customer device
+     * BGP ASN number assigned customer device
      */
     readonly bgpAsn: string;
     readonly filters?: outputs.ec2transitgateway.GetConnectPeerFilter[];
@@ -83,11 +85,11 @@ export interface GetConnectPeerResult {
      */
     readonly id: string;
     /**
-     * The CIDR blocks that will be used for addressing within the tunnel.
+     * CIDR blocks that will be used for addressing within the tunnel.
      */
     readonly insideCidrBlocks: string[];
     /**
-     * The IP addressed assigned to customer device, which is used as tunnel endpoint
+     * IP addressed assigned to customer device, which is used as tunnel endpoint
      */
     readonly peerAddress: string;
     /**

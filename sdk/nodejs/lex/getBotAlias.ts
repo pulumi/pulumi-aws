@@ -36,11 +36,11 @@ export function getBotAlias(args: GetBotAliasArgs, opts?: pulumi.InvokeOptions):
  */
 export interface GetBotAliasArgs {
     /**
-     * The name of the bot.
+     * Name of the bot.
      */
     botName: string;
     /**
-     * The name of the bot alias. The name is case sensitive.
+     * Name of the bot alias. The name is case sensitive.
      */
     name: string;
 }
@@ -50,15 +50,15 @@ export interface GetBotAliasArgs {
  */
 export interface GetBotAliasResult {
     /**
-     * The ARN of the bot alias.
+     * ARN of the bot alias.
      */
     readonly arn: string;
     /**
-     * The name of the bot.
+     * Name of the bot.
      */
     readonly botName: string;
     /**
-     * The version of the bot that the alias points to.
+     * Version of the bot that the alias points to.
      */
     readonly botVersion: string;
     /**
@@ -66,11 +66,11 @@ export interface GetBotAliasResult {
      */
     readonly checksum: string;
     /**
-     * The date that the bot alias was created.
+     * Date that the bot alias was created.
      */
     readonly createdDate: string;
     /**
-     * A description of the alias.
+     * Description of the alias.
      */
     readonly description: string;
     /**
@@ -78,11 +78,11 @@ export interface GetBotAliasResult {
      */
     readonly id: string;
     /**
-     * The date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
+     * Date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
      */
     readonly lastUpdatedDate: string;
     /**
-     * The name of the alias. The name is not case sensitive.
+     * Name of the alias. The name is not case sensitive.
      */
     readonly name: string;
 }
@@ -96,11 +96,11 @@ export function getBotAliasOutput(args: GetBotAliasOutputArgs, opts?: pulumi.Inv
  */
 export interface GetBotAliasOutputArgs {
     /**
-     * The name of the bot.
+     * Name of the bot.
      */
     botName: pulumi.Input<string>;
     /**
-     * The name of the bot alias. The name is case sensitive.
+     * Name of the bot alias. The name is case sensitive.
      */
     name: pulumi.Input<string>;
 }

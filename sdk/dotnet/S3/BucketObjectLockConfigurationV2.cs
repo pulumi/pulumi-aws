@@ -144,7 +144,7 @@ namespace Pulumi.Aws.S3
         /// Configuration block for specifying the Object Lock rule for the specified object detailed below.
         /// </summary>
         [Output("rule")]
-        public Output<Outputs.BucketObjectLockConfigurationV2Rule> Rule { get; private set; } = null!;
+        public Output<Outputs.BucketObjectLockConfigurationV2Rule?> Rule { get; private set; } = null!;
 
         /// <summary>
         /// A token to allow Object Lock to be enabled for an existing bucket. You must contact AWS support for the bucket's "Object Lock token".
@@ -220,8 +220,8 @@ namespace Pulumi.Aws.S3
         /// <summary>
         /// Configuration block for specifying the Object Lock rule for the specified object detailed below.
         /// </summary>
-        [Input("rule", required: true)]
-        public Input<Inputs.BucketObjectLockConfigurationV2RuleArgs> Rule { get; set; } = null!;
+        [Input("rule")]
+        public Input<Inputs.BucketObjectLockConfigurationV2RuleArgs>? Rule { get; set; }
 
         /// <summary>
         /// A token to allow Object Lock to be enabled for an existing bucket. You must contact AWS support for the bucket's "Object Lock token".

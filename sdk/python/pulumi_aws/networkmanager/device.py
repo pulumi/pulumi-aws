@@ -201,6 +201,7 @@ class _DeviceState:
         :param pulumi.Input[str] model: The model of device.
         :param pulumi.Input[str] serial_number: The serial number of the device.
         :param pulumi.Input[str] site_id: The ID of the site.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: The type of device.
         :param pulumi.Input[str] vendor: The vendor of the device.
         """
@@ -337,6 +338,9 @@ class _DeviceState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -533,6 +537,7 @@ class Device(pulumi.CustomResource):
         :param pulumi.Input[str] model: The model of device.
         :param pulumi.Input[str] serial_number: The serial number of the device.
         :param pulumi.Input[str] site_id: The ID of the site.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: The type of device.
         :param pulumi.Input[str] vendor: The vendor of the device.
         """
@@ -626,6 +631,9 @@ class Device(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property

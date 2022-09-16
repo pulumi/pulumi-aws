@@ -14,7 +14,7 @@ public final class GetSecurityGroupFilter extends com.pulumi.resources.InvokeArg
     public static final GetSecurityGroupFilter Empty = new GetSecurityGroupFilter();
 
     /**
-     * The name of the field to filter by, as defined by
+     * Name of the field to filter by, as defined by
      * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
      * 
      */
@@ -22,7 +22,7 @@ public final class GetSecurityGroupFilter extends com.pulumi.resources.InvokeArg
     private String name;
 
     /**
-     * @return The name of the field to filter by, as defined by
+     * @return Name of the field to filter by, as defined by
      * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
      * 
      */
@@ -73,7 +73,7 @@ public final class GetSecurityGroupFilter extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param name The name of the field to filter by, as defined by
+         * @param name Name of the field to filter by, as defined by
          * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
          * 
          * @return builder

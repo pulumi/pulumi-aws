@@ -22,22 +22,22 @@ public final class GetLaunchConfigurationRootBlockDevice {
      */
     private Boolean encrypted;
     /**
-     * @return The provisioned IOPs of the volume.
+     * @return Provisioned IOPs of the volume.
      * 
      */
     private Integer iops;
     /**
-     * @return The Throughput of the volume.
+     * @return Throughput of the volume.
      * 
      */
     private Integer throughput;
     /**
-     * @return The Size of the volume.
+     * @return Size of the volume.
      * 
      */
     private Integer volumeSize;
     /**
-     * @return The Type of the volume.
+     * @return Type of the volume.
      * 
      */
     private String volumeType;
@@ -58,28 +58,28 @@ public final class GetLaunchConfigurationRootBlockDevice {
         return this.encrypted;
     }
     /**
-     * @return The provisioned IOPs of the volume.
+     * @return Provisioned IOPs of the volume.
      * 
      */
     public Integer iops() {
         return this.iops;
     }
     /**
-     * @return The Throughput of the volume.
+     * @return Throughput of the volume.
      * 
      */
     public Integer throughput() {
         return this.throughput;
     }
     /**
-     * @return The Size of the volume.
+     * @return Size of the volume.
      * 
      */
     public Integer volumeSize() {
         return this.volumeSize;
     }
     /**
-     * @return The Type of the volume.
+     * @return Type of the volume.
      * 
      */
     public String volumeType() {

@@ -13,14 +13,14 @@ public final class GetUserPoolClientsPlainArgs extends com.pulumi.resources.Invo
     public static final GetUserPoolClientsPlainArgs Empty = new GetUserPoolClientsPlainArgs();
 
     /**
-     * The Cognito user pool ID.
+     * Cognito user pool ID.
      * 
      */
     @Import(name="userPoolId", required=true)
     private String userPoolId;
 
     /**
-     * @return The Cognito user pool ID.
+     * @return Cognito user pool ID.
      * 
      */
     public String userPoolId() {
@@ -52,7 +52,7 @@ public final class GetUserPoolClientsPlainArgs extends com.pulumi.resources.Invo
         }
 
         /**
-         * @param userPoolId The Cognito user pool ID.
+         * @param userPoolId Cognito user pool ID.
          * 
          * @return builder
          * 

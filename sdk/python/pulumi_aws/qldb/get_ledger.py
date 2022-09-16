@@ -114,7 +114,7 @@ def get_ledger(name: Optional[str] = None,
     ```
 
 
-    :param str name: The friendly name of the ledger to match.
+    :param str name: Friendly name of the ledger to match.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -149,6 +149,6 @@ def get_ledger_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str name: The friendly name of the ledger to match.
+    :param str name: Friendly name of the ledger to match.
     """
     ...

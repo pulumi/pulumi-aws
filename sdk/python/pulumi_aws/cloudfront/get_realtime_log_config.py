@@ -46,7 +46,7 @@ class GetRealtimeLogConfigResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
+        ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
         """
         return pulumi.get(self, "arn")
 
@@ -54,7 +54,7 @@ class GetRealtimeLogConfigResult:
     @pulumi.getter
     def endpoints(self) -> Sequence['outputs.GetRealtimeLogConfigEndpointResult']:
         """
-        (Required) The Amazon Kinesis data streams where real-time log data is sent.
+        (Required) Amazon Kinesis data streams where real-time log data is sent.
         """
         return pulumi.get(self, "endpoints")
 
@@ -62,7 +62,7 @@ class GetRealtimeLogConfigResult:
     @pulumi.getter
     def fields(self) -> Sequence[str]:
         """
-        (Required) The fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
+        (Required) Fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
         """
         return pulumi.get(self, "fields")
 
@@ -83,7 +83,7 @@ class GetRealtimeLogConfigResult:
     @pulumi.getter(name="samplingRate")
     def sampling_rate(self) -> int:
         """
-        (Required) The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. An integer between `1` and `100`, inclusive.
+        (Required) Sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. An integer between `1` and `100`, inclusive.
         """
         return pulumi.get(self, "sampling_rate")
 
@@ -117,7 +117,7 @@ def get_realtime_log_config(name: Optional[str] = None,
     ```
 
 
-    :param str name: The unique name to identify this real-time log configuration.
+    :param str name: Unique name to identify this real-time log configuration.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -149,6 +149,6 @@ def get_realtime_log_config_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str name: The unique name to identify this real-time log configuration.
+    :param str name: Unique name to identify this real-time log configuration.
     """
     ...

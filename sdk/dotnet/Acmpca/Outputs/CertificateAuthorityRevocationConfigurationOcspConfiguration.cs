@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Acmpca.Outputs
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
-        /// A CNAME specifying a customized OCSP domain. Note: The value of the CNAME must not include a protocol prefix such as "http://" or "https://".
+        /// CNAME specifying a customized OCSP domain. Note: The value of the CNAME must not include a protocol prefix such as "http://" or "https://".
         /// </summary>
         public readonly string? OcspCustomCname;
 

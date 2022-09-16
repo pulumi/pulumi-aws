@@ -15,17 +15,17 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData {
     /**
-     * @return The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+     * @return Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
      * 
      */
     private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig errorHandlingConfig;
     /**
-     * @return The name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+     * @return Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
      * 
      */
     private @Nullable List<String> idFieldNames;
     /**
-     * @return The object path specified in the SAPOData flow source.
+     * @return Object path specified in the SAPOData flow source.
      * 
      */
     private String objectPath;
@@ -42,21 +42,21 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDa
 
     private FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData() {}
     /**
-     * @return The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+     * @return Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
      * 
      */
     public Optional<FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig> errorHandlingConfig() {
         return Optional.ofNullable(this.errorHandlingConfig);
     }
     /**
-     * @return The name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+     * @return Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
      * 
      */
     public List<String> idFieldNames() {
         return this.idFieldNames == null ? List.of() : this.idFieldNames;
     }
     /**
-     * @return The object path specified in the SAPOData flow source.
+     * @return Object path specified in the SAPOData flow source.
      * 
      */
     public String objectPath() {

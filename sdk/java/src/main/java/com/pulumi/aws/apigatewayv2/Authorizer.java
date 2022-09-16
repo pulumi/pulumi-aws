@@ -104,21 +104,21 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:apigatewayv2/authorizer:Authorizer")
 public class Authorizer extends com.pulumi.resources.CustomResource {
     /**
-     * The API identifier.
+     * API identifier.
      * 
      */
     @Export(name="apiId", type=String.class, parameters={})
     private Output<String> apiId;
 
     /**
-     * @return The API identifier.
+     * @return API identifier.
      * 
      */
     public Output<String> apiId() {
         return this.apiId;
     }
     /**
-     * The required credentials as an IAM role for API Gateway to invoke the authorizer.
+     * Required credentials as an IAM role for API Gateway to invoke the authorizer.
      * Supported only for `REQUEST` authorizers.
      * 
      */
@@ -126,7 +126,7 @@ public class Authorizer extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> authorizerCredentialsArn;
 
     /**
-     * @return The required credentials as an IAM role for API Gateway to invoke the authorizer.
+     * @return Required credentials as an IAM role for API Gateway to invoke the authorizer.
      * Supported only for `REQUEST` authorizers.
      * 
      */
@@ -134,7 +134,7 @@ public class Authorizer extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.authorizerCredentialsArn);
     }
     /**
-     * The format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers.
+     * Format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers.
      * Valid values: `1.0`, `2.0`.
      * 
      */
@@ -142,7 +142,7 @@ public class Authorizer extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> authorizerPayloadFormatVersion;
 
     /**
-     * @return The format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers.
+     * @return Format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers.
      * Valid values: `1.0`, `2.0`.
      * 
      */
@@ -150,7 +150,7 @@ public class Authorizer extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.authorizerPayloadFormatVersion);
     }
     /**
-     * The time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled.
+     * Time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled.
      * If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Defaults to `300`.
      * Supported only for HTTP API Lambda authorizers.
      * 
@@ -159,7 +159,7 @@ public class Authorizer extends com.pulumi.resources.CustomResource {
     private Output<Integer> authorizerResultTtlInSeconds;
 
     /**
-     * @return The time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled.
+     * @return Time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled.
      * If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Defaults to `300`.
      * Supported only for HTTP API Lambda authorizers.
      * 
@@ -168,7 +168,7 @@ public class Authorizer extends com.pulumi.resources.CustomResource {
         return this.authorizerResultTtlInSeconds;
     }
     /**
-     * The authorizer type. Valid values: `JWT`, `REQUEST`.
+     * Authorizer type. Valid values: `JWT`, `REQUEST`.
      * Specify `REQUEST` for a Lambda function using incoming request parameters.
      * For HTTP APIs, specify `JWT` to use JSON Web Tokens.
      * 
@@ -177,7 +177,7 @@ public class Authorizer extends com.pulumi.resources.CustomResource {
     private Output<String> authorizerType;
 
     /**
-     * @return The authorizer type. Valid values: `JWT`, `REQUEST`.
+     * @return Authorizer type. Valid values: `JWT`, `REQUEST`.
      * Specify `REQUEST` for a Lambda function using incoming request parameters.
      * For HTTP APIs, specify `JWT` to use JSON Web Tokens.
      * 
@@ -186,7 +186,7 @@ public class Authorizer extends com.pulumi.resources.CustomResource {
         return this.authorizerType;
     }
     /**
-     * The authorizer&#39;s Uniform Resource Identifier (URI).
+     * Authorizer&#39;s Uniform Resource Identifier (URI).
      * For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invoke_arn` attribute of the `aws.lambda.Function` resource.
      * Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
      * 
@@ -195,7 +195,7 @@ public class Authorizer extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> authorizerUri;
 
     /**
-     * @return The authorizer&#39;s Uniform Resource Identifier (URI).
+     * @return Authorizer&#39;s Uniform Resource Identifier (URI).
      * For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invoke_arn` attribute of the `aws.lambda.Function` resource.
      * Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
      * 
@@ -220,7 +220,7 @@ public class Authorizer extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enableSimpleResponses);
     }
     /**
-     * The identity sources for which authorization is requested.
+     * Identity sources for which authorization is requested.
      * For `REQUEST` authorizers the value is a list of one or more mapping expressions of the specified request parameters.
      * For `JWT` authorizers the single entry specifies where to extract the JSON Web Token (JWT) from inbound requests.
      * 
@@ -229,7 +229,7 @@ public class Authorizer extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ List<String>> identitySources;
 
     /**
-     * @return The identity sources for which authorization is requested.
+     * @return Identity sources for which authorization is requested.
      * For `REQUEST` authorizers the value is a list of one or more mapping expressions of the specified request parameters.
      * For `JWT` authorizers the single entry specifies where to extract the JSON Web Token (JWT) from inbound requests.
      * 
@@ -238,7 +238,7 @@ public class Authorizer extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.identitySources);
     }
     /**
-     * The configuration of a JWT authorizer. Required for the `JWT` authorizer type.
+     * Configuration of a JWT authorizer. Required for the `JWT` authorizer type.
      * Supported only for HTTP APIs.
      * 
      */
@@ -246,7 +246,7 @@ public class Authorizer extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ AuthorizerJwtConfiguration> jwtConfiguration;
 
     /**
-     * @return The configuration of a JWT authorizer. Required for the `JWT` authorizer type.
+     * @return Configuration of a JWT authorizer. Required for the `JWT` authorizer type.
      * Supported only for HTTP APIs.
      * 
      */
@@ -254,14 +254,14 @@ public class Authorizer extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.jwtConfiguration);
     }
     /**
-     * The name of the authorizer. Must be between 1 and 128 characters in length.
+     * Name of the authorizer. Must be between 1 and 128 characters in length.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name of the authorizer. Must be between 1 and 128 characters in length.
+     * @return Name of the authorizer. Must be between 1 and 128 characters in length.
      * 
      */
     public Output<String> name() {

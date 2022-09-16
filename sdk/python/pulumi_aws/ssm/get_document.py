@@ -48,7 +48,7 @@ class GetDocumentResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The ARN of the document. If the document is an AWS managed document, this value will be set to the name of the document instead.
+        ARN of the document. If the document is an AWS managed document, this value will be set to the name of the document instead.
         """
         return pulumi.get(self, "arn")
 
@@ -56,7 +56,7 @@ class GetDocumentResult:
     @pulumi.getter
     def content(self) -> str:
         """
-        The contents of the document.
+        Contents of the document.
         """
         return pulumi.get(self, "content")
 
@@ -69,7 +69,7 @@ class GetDocumentResult:
     @pulumi.getter(name="documentType")
     def document_type(self) -> str:
         """
-        The type of the document.
+        Type of the document.
         """
         return pulumi.get(self, "document_type")
 
@@ -139,8 +139,8 @@ def get_document(document_format: Optional[str] = None,
 
 
     :param str document_format: Returns the document in the specified format. The document format can be either `JSON`, `YAML` and `TEXT`. JSON is the default format.
-    :param str document_version: The document version for which you want information.
-    :param str name: The name of the Systems Manager document.
+    :param str document_version: Document version for which you want information.
+    :param str name: Name of the Systems Manager document.
     """
     __args__ = dict()
     __args__['documentFormat'] = document_format
@@ -192,7 +192,7 @@ def get_document_output(document_format: Optional[pulumi.Input[Optional[str]]] =
 
 
     :param str document_format: Returns the document in the specified format. The document format can be either `JSON`, `YAML` and `TEXT`. JSON is the default format.
-    :param str document_version: The document version for which you want information.
-    :param str name: The name of the Systems Manager document.
+    :param str document_version: Document version for which you want information.
+    :param str name: Name of the Systems Manager document.
     """
     ...

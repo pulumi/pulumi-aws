@@ -16,14 +16,14 @@ public final class GetFirewallPlainArgs extends com.pulumi.resources.InvokeArgs 
     public static final GetFirewallPlainArgs Empty = new GetFirewallPlainArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the firewall.
+     * ARN of the firewall.
      * 
      */
     @Import(name="arn")
     private @Nullable String arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the firewall.
+     * @return ARN of the firewall.
      * 
      */
     public Optional<String> arn() {
@@ -31,14 +31,14 @@ public final class GetFirewallPlainArgs extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
-     * The descriptive name of the firewall.
+     * Descriptive name of the firewall.
      * 
      */
     @Import(name="name")
     private @Nullable String name;
 
     /**
-     * @return The descriptive name of the firewall.
+     * @return Descriptive name of the firewall.
      * 
      */
     public Optional<String> name() {
@@ -87,7 +87,7 @@ public final class GetFirewallPlainArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the firewall.
+         * @param arn ARN of the firewall.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class GetFirewallPlainArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param name The descriptive name of the firewall.
+         * @param name Descriptive name of the firewall.
          * 
          * @return builder
          * 

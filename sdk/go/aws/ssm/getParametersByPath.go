@@ -21,7 +21,7 @@ func GetParametersByPath(ctx *pulumi.Context, args *GetParametersByPathArgs, opt
 
 // A collection of arguments for invoking getParametersByPath.
 type GetParametersByPathArgs struct {
-	// The prefix path of the parameter.
+	// Prefix path of the parameter.
 	Path string `pulumi:"path"`
 	// Whether to recursively return parameters under `path`. Defaults to `false`.
 	Recursive *bool `pulumi:"recursive"`
@@ -57,7 +57,7 @@ func GetParametersByPathOutput(ctx *pulumi.Context, args GetParametersByPathOutp
 
 // A collection of arguments for invoking getParametersByPath.
 type GetParametersByPathOutputArgs struct {
-	// The prefix path of the parameter.
+	// Prefix path of the parameter.
 	Path pulumi.StringInput `pulumi:"path"`
 	// Whether to recursively return parameters under `path`. Defaults to `false`.
 	Recursive pulumi.BoolPtrInput `pulumi:"recursive"`

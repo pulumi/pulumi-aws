@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -70,7 +72,7 @@ export class ImageBuilder extends pulumi.CustomResource {
      */
     public readonly accessEndpoints!: pulumi.Output<outputs.appstream.ImageBuilderAccessEndpoint[] | undefined>;
     /**
-     * The version of the AppStream 2.0 agent to use for this image builder.
+     * Version of the AppStream 2.0 agent to use for this image builder.
      */
     public readonly appstreamAgentVersion!: pulumi.Output<string>;
     /**
@@ -110,7 +112,7 @@ export class ImageBuilder extends pulumi.CustomResource {
      */
     public readonly imageName!: pulumi.Output<string>;
     /**
-     * The instance type to use when launching the image builder.
+     * Instance type to use when launching the image builder.
      */
     public readonly instanceType!: pulumi.Output<string>;
     /**
@@ -122,11 +124,11 @@ export class ImageBuilder extends pulumi.CustomResource {
      */
     public /*out*/ readonly state!: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -201,7 +203,7 @@ export interface ImageBuilderState {
      */
     accessEndpoints?: pulumi.Input<pulumi.Input<inputs.appstream.ImageBuilderAccessEndpoint>[]>;
     /**
-     * The version of the AppStream 2.0 agent to use for this image builder.
+     * Version of the AppStream 2.0 agent to use for this image builder.
      */
     appstreamAgentVersion?: pulumi.Input<string>;
     /**
@@ -241,7 +243,7 @@ export interface ImageBuilderState {
      */
     imageName?: pulumi.Input<string>;
     /**
-     * The instance type to use when launching the image builder.
+     * Instance type to use when launching the image builder.
      */
     instanceType?: pulumi.Input<string>;
     /**
@@ -253,11 +255,11 @@ export interface ImageBuilderState {
      */
     state?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -275,7 +277,7 @@ export interface ImageBuilderArgs {
      */
     accessEndpoints?: pulumi.Input<pulumi.Input<inputs.appstream.ImageBuilderAccessEndpoint>[]>;
     /**
-     * The version of the AppStream 2.0 agent to use for this image builder.
+     * Version of the AppStream 2.0 agent to use for this image builder.
      */
     appstreamAgentVersion?: pulumi.Input<string>;
     /**
@@ -307,7 +309,7 @@ export interface ImageBuilderArgs {
      */
     imageName?: pulumi.Input<string>;
     /**
-     * The instance type to use when launching the image builder.
+     * Instance type to use when launching the image builder.
      */
     instanceType: pulumi.Input<string>;
     /**
@@ -315,7 +317,7 @@ export interface ImageBuilderArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

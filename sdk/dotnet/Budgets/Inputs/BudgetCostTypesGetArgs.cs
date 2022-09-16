@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Budgets.Inputs
         public Input<bool>? IncludeCredit { get; set; }
 
         /// <summary>
-        /// Specifies whether a budget includes discounts. Defaults to `true`
+        /// Whether a budget includes discounts. Defaults to `true`
         /// </summary>
         [Input("includeDiscount")]
         public Input<bool>? IncludeDiscount { get; set; }
@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Budgets.Inputs
         public Input<bool>? IncludeUpfront { get; set; }
 
         /// <summary>
-        /// Specifies whether a budget uses the amortized rate. Defaults to `false`
+        /// Whether a budget uses the amortized rate. Defaults to `false`
         /// </summary>
         [Input("useAmortized")]
         public Input<bool>? UseAmortized { get; set; }

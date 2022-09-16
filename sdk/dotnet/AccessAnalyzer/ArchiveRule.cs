@@ -71,7 +71,7 @@ namespace Pulumi.Aws.AccessAnalyzer
         public Output<string> AnalyzerName { get; private set; } = null!;
 
         /// <summary>
-        /// The filter criteria for the archive rule. See Filter for more details.
+        /// Filter criteria for the archive rule. See Filter for more details.
         /// </summary>
         [Output("filters")]
         public Output<ImmutableArray<Outputs.ArchiveRuleFilter>> Filters { get; private set; } = null!;
@@ -138,7 +138,7 @@ namespace Pulumi.Aws.AccessAnalyzer
         private InputList<Inputs.ArchiveRuleFilterArgs>? _filters;
 
         /// <summary>
-        /// The filter criteria for the archive rule. See Filter for more details.
+        /// Filter criteria for the archive rule. See Filter for more details.
         /// </summary>
         public InputList<Inputs.ArchiveRuleFilterArgs> Filters
         {
@@ -170,7 +170,7 @@ namespace Pulumi.Aws.AccessAnalyzer
         private InputList<Inputs.ArchiveRuleFilterGetArgs>? _filters;
 
         /// <summary>
-        /// The filter criteria for the archive rule. See Filter for more details.
+        /// Filter criteria for the archive rule. See Filter for more details.
         /// </summary>
         public InputList<Inputs.ArchiveRuleFilterGetArgs> Filters
         {

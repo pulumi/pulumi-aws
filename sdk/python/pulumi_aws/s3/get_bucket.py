@@ -54,7 +54,7 @@ class GetBucketResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
+        ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
         """
         return pulumi.get(self, "arn")
 
@@ -67,7 +67,7 @@ class GetBucketResult:
     @pulumi.getter(name="bucketDomainName")
     def bucket_domain_name(self) -> str:
         """
-        The bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
+        Bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
         """
         return pulumi.get(self, "bucket_domain_name")
 
@@ -99,7 +99,7 @@ class GetBucketResult:
     @pulumi.getter
     def region(self) -> str:
         """
-        The AWS region this bucket resides in.
+        AWS region this bucket resides in.
         """
         return pulumi.get(self, "region")
 
@@ -107,7 +107,7 @@ class GetBucketResult:
     @pulumi.getter(name="websiteDomain")
     def website_domain(self) -> str:
         """
-        The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
+        Domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
         """
         return pulumi.get(self, "website_domain")
 
@@ -115,7 +115,7 @@ class GetBucketResult:
     @pulumi.getter(name="websiteEndpoint")
     def website_endpoint(self) -> str:
         """
-        The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
+        Website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
         """
         return pulumi.get(self, "website_endpoint")
 
@@ -177,7 +177,7 @@ def get_bucket(bucket: Optional[str] = None,
     ```
 
 
-    :param str bucket: The name of the bucket
+    :param str bucket: Name of the bucket
     """
     __args__ = dict()
     __args__['bucket'] = bucket
@@ -237,6 +237,6 @@ def get_bucket_output(bucket: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str bucket: The name of the bucket
+    :param str bucket: Name of the bucket
     """
     ...

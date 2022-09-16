@@ -5,26 +5,71 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./geofenceCollection";
-export * from "./getGeofenceCollection";
-export * from "./getMap";
-export * from "./getPlaceIndex";
-export * from "./getRouteCalculator";
-export * from "./getTracker";
-export * from "./getTrackerAssociation";
-export * from "./map";
-export * from "./placeIndex";
-export * from "./routeCalculation";
-export * from "./tracker";
-export * from "./trackerAssociation";
+export { GeofenceCollectionArgs, GeofenceCollectionState } from "./geofenceCollection";
+export type GeofenceCollection = import("./geofenceCollection").GeofenceCollection;
+export const GeofenceCollection: typeof import("./geofenceCollection").GeofenceCollection = null as any;
 
-// Import resources to register:
-import { GeofenceCollection } from "./geofenceCollection";
-import { Map } from "./map";
-import { PlaceIndex } from "./placeIndex";
-import { RouteCalculation } from "./routeCalculation";
-import { Tracker } from "./tracker";
-import { TrackerAssociation } from "./trackerAssociation";
+export { GetGeofenceCollectionArgs, GetGeofenceCollectionResult, GetGeofenceCollectionOutputArgs } from "./getGeofenceCollection";
+export const getGeofenceCollection: typeof import("./getGeofenceCollection").getGeofenceCollection = null as any;
+export const getGeofenceCollectionOutput: typeof import("./getGeofenceCollection").getGeofenceCollectionOutput = null as any;
+
+export { GetMapArgs, GetMapResult, GetMapOutputArgs } from "./getMap";
+export const getMap: typeof import("./getMap").getMap = null as any;
+export const getMapOutput: typeof import("./getMap").getMapOutput = null as any;
+
+export { GetPlaceIndexArgs, GetPlaceIndexResult, GetPlaceIndexOutputArgs } from "./getPlaceIndex";
+export const getPlaceIndex: typeof import("./getPlaceIndex").getPlaceIndex = null as any;
+export const getPlaceIndexOutput: typeof import("./getPlaceIndex").getPlaceIndexOutput = null as any;
+
+export { GetRouteCalculatorArgs, GetRouteCalculatorResult, GetRouteCalculatorOutputArgs } from "./getRouteCalculator";
+export const getRouteCalculator: typeof import("./getRouteCalculator").getRouteCalculator = null as any;
+export const getRouteCalculatorOutput: typeof import("./getRouteCalculator").getRouteCalculatorOutput = null as any;
+
+export { GetTrackerArgs, GetTrackerResult, GetTrackerOutputArgs } from "./getTracker";
+export const getTracker: typeof import("./getTracker").getTracker = null as any;
+export const getTrackerOutput: typeof import("./getTracker").getTrackerOutput = null as any;
+
+export { GetTrackerAssociationArgs, GetTrackerAssociationResult, GetTrackerAssociationOutputArgs } from "./getTrackerAssociation";
+export const getTrackerAssociation: typeof import("./getTrackerAssociation").getTrackerAssociation = null as any;
+export const getTrackerAssociationOutput: typeof import("./getTrackerAssociation").getTrackerAssociationOutput = null as any;
+
+export { GetTrackerAssociationsArgs, GetTrackerAssociationsResult, GetTrackerAssociationsOutputArgs } from "./getTrackerAssociations";
+export const getTrackerAssociations: typeof import("./getTrackerAssociations").getTrackerAssociations = null as any;
+export const getTrackerAssociationsOutput: typeof import("./getTrackerAssociations").getTrackerAssociationsOutput = null as any;
+
+export { MapArgs, MapState } from "./map";
+export type Map = import("./map").Map;
+export const Map: typeof import("./map").Map = null as any;
+
+export { PlaceIndexArgs, PlaceIndexState } from "./placeIndex";
+export type PlaceIndex = import("./placeIndex").PlaceIndex;
+export const PlaceIndex: typeof import("./placeIndex").PlaceIndex = null as any;
+
+export { RouteCalculationArgs, RouteCalculationState } from "./routeCalculation";
+export type RouteCalculation = import("./routeCalculation").RouteCalculation;
+export const RouteCalculation: typeof import("./routeCalculation").RouteCalculation = null as any;
+
+export { TrackerArgs, TrackerState } from "./tracker";
+export type Tracker = import("./tracker").Tracker;
+export const Tracker: typeof import("./tracker").Tracker = null as any;
+
+export { TrackerAssociationArgs, TrackerAssociationState } from "./trackerAssociation";
+export type TrackerAssociation = import("./trackerAssociation").TrackerAssociation;
+export const TrackerAssociation: typeof import("./trackerAssociation").TrackerAssociation = null as any;
+
+utilities.lazyLoad(exports, ["GeofenceCollection"], () => require("./geofenceCollection"));
+utilities.lazyLoad(exports, ["getGeofenceCollection","getGeofenceCollectionOutput"], () => require("./getGeofenceCollection"));
+utilities.lazyLoad(exports, ["getMap","getMapOutput"], () => require("./getMap"));
+utilities.lazyLoad(exports, ["getPlaceIndex","getPlaceIndexOutput"], () => require("./getPlaceIndex"));
+utilities.lazyLoad(exports, ["getRouteCalculator","getRouteCalculatorOutput"], () => require("./getRouteCalculator"));
+utilities.lazyLoad(exports, ["getTracker","getTrackerOutput"], () => require("./getTracker"));
+utilities.lazyLoad(exports, ["getTrackerAssociation","getTrackerAssociationOutput"], () => require("./getTrackerAssociation"));
+utilities.lazyLoad(exports, ["getTrackerAssociations","getTrackerAssociationsOutput"], () => require("./getTrackerAssociations"));
+utilities.lazyLoad(exports, ["Map"], () => require("./map"));
+utilities.lazyLoad(exports, ["PlaceIndex"], () => require("./placeIndex"));
+utilities.lazyLoad(exports, ["RouteCalculation"], () => require("./routeCalculation"));
+utilities.lazyLoad(exports, ["Tracker"], () => require("./tracker"));
+utilities.lazyLoad(exports, ["TrackerAssociation"], () => require("./trackerAssociation"));
 
 const _module = {
     version: utilities.getVersion(),

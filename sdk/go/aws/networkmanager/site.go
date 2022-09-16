@@ -64,7 +64,8 @@ type Site struct {
 	// The site location as documented below.
 	Location SiteLocationPtrOutput  `pulumi:"location"`
 	Tags     pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll  pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewSite registers a new resource with the given unique name, arguments, and options.
@@ -108,7 +109,8 @@ type siteState struct {
 	// The site location as documented below.
 	Location *SiteLocation     `pulumi:"location"`
 	Tags     map[string]string `pulumi:"tags"`
-	TagsAll  map[string]string `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type SiteState struct {
@@ -121,7 +123,8 @@ type SiteState struct {
 	// The site location as documented below.
 	Location SiteLocationPtrInput
 	Tags     pulumi.StringMapInput
-	TagsAll  pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (SiteState) ElementType() reflect.Type {
@@ -260,6 +263,7 @@ func (o SiteOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Site) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o SiteOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Site) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

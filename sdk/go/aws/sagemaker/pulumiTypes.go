@@ -1208,7 +1208,7 @@ type DomainDefaultUserSettings struct {
 	JupyterServerAppSettings *DomainDefaultUserSettingsJupyterServerAppSettings `pulumi:"jupyterServerAppSettings"`
 	// The kernel gateway app settings. See Kernel Gateway App Settings below.
 	KernelGatewayAppSettings *DomainDefaultUserSettingsKernelGatewayAppSettings `pulumi:"kernelGatewayAppSettings"`
-	// The security groups.
+	// A list of security group IDs that will be attached to the user.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// The sharing settings. See Sharing Settings below.
 	SharingSettings *DomainDefaultUserSettingsSharingSettings `pulumi:"sharingSettings"`
@@ -1234,7 +1234,7 @@ type DomainDefaultUserSettingsArgs struct {
 	JupyterServerAppSettings DomainDefaultUserSettingsJupyterServerAppSettingsPtrInput `pulumi:"jupyterServerAppSettings"`
 	// The kernel gateway app settings. See Kernel Gateway App Settings below.
 	KernelGatewayAppSettings DomainDefaultUserSettingsKernelGatewayAppSettingsPtrInput `pulumi:"kernelGatewayAppSettings"`
-	// The security groups.
+	// A list of security group IDs that will be attached to the user.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
 	// The sharing settings. See Sharing Settings below.
 	SharingSettings DomainDefaultUserSettingsSharingSettingsPtrInput `pulumi:"sharingSettings"`
@@ -1338,7 +1338,7 @@ func (o DomainDefaultUserSettingsOutput) KernelGatewayAppSettings() DomainDefaul
 	}).(DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput)
 }
 
-// The security groups.
+// A list of security group IDs that will be attached to the user.
 func (o DomainDefaultUserSettingsOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettings) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
@@ -1409,7 +1409,7 @@ func (o DomainDefaultUserSettingsPtrOutput) KernelGatewayAppSettings() DomainDef
 	}).(DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput)
 }
 
-// The security groups.
+// A list of security group IDs that will be attached to the user.
 func (o DomainDefaultUserSettingsPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettings) []string {
 		if v == nil {
@@ -11059,7 +11059,7 @@ func (o UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutpu
 type WorkforceCognitoConfig struct {
 	// The OIDC IdP client ID used to configure your private workforce.
 	ClientId string `pulumi:"clientId"`
-	// The id for your Amazon Cognito user pool.
+	// ID for your Amazon Cognito user pool.
 	UserPool string `pulumi:"userPool"`
 }
 
@@ -11077,7 +11077,7 @@ type WorkforceCognitoConfigInput interface {
 type WorkforceCognitoConfigArgs struct {
 	// The OIDC IdP client ID used to configure your private workforce.
 	ClientId pulumi.StringInput `pulumi:"clientId"`
-	// The id for your Amazon Cognito user pool.
+	// ID for your Amazon Cognito user pool.
 	UserPool pulumi.StringInput `pulumi:"userPool"`
 }
 
@@ -11163,7 +11163,7 @@ func (o WorkforceCognitoConfigOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkforceCognitoConfig) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
-// The id for your Amazon Cognito user pool.
+// ID for your Amazon Cognito user pool.
 func (o WorkforceCognitoConfigOutput) UserPool() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkforceCognitoConfig) string { return v.UserPool }).(pulumi.StringOutput)
 }
@@ -11202,7 +11202,7 @@ func (o WorkforceCognitoConfigPtrOutput) ClientId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The id for your Amazon Cognito user pool.
+// ID for your Amazon Cognito user pool.
 func (o WorkforceCognitoConfigPtrOutput) UserPool() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkforceCognitoConfig) *string {
 		if v == nil {

@@ -11,74 +11,74 @@ import java.util.Objects;
 @CustomType
 public final class GetRoutingProfileQueueConfig {
     /**
-     * @return Specifies the channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
+     * @return Channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
      * 
      */
     private String channel;
     /**
-     * @return Specifies the delay, in seconds, that a contact should be in the queue before they are routed to an available agent
+     * @return Delay, in seconds, that a contact should be in the queue before they are routed to an available agent
      * 
      */
     private Integer delay;
     /**
-     * @return Specifies the order in which contacts are to be handled for the queue.
+     * @return Order in which contacts are to be handled for the queue.
      * 
      */
     private Integer priority;
     /**
-     * @return Specifies the ARN for the queue.
+     * @return ARN for the queue.
      * 
      */
     private String queueArn;
     /**
-     * @return Specifies the identifier for the queue.
+     * @return Identifier for the queue.
      * 
      */
     private String queueId;
     /**
-     * @return Specifies the name for the queue.
+     * @return Name for the queue.
      * 
      */
     private String queueName;
 
     private GetRoutingProfileQueueConfig() {}
     /**
-     * @return Specifies the channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
+     * @return Channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
      * 
      */
     public String channel() {
         return this.channel;
     }
     /**
-     * @return Specifies the delay, in seconds, that a contact should be in the queue before they are routed to an available agent
+     * @return Delay, in seconds, that a contact should be in the queue before they are routed to an available agent
      * 
      */
     public Integer delay() {
         return this.delay;
     }
     /**
-     * @return Specifies the order in which contacts are to be handled for the queue.
+     * @return Order in which contacts are to be handled for the queue.
      * 
      */
     public Integer priority() {
         return this.priority;
     }
     /**
-     * @return Specifies the ARN for the queue.
+     * @return ARN for the queue.
      * 
      */
     public String queueArn() {
         return this.queueArn;
     }
     /**
-     * @return Specifies the identifier for the queue.
+     * @return Identifier for the queue.
      * 
      */
     public String queueId() {
         return this.queueId;
     }
     /**
-     * @return Specifies the name for the queue.
+     * @return Name for the queue.
      * 
      */
     public String queueName() {

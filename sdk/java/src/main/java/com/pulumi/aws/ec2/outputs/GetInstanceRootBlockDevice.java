@@ -18,7 +18,7 @@ public final class GetInstanceRootBlockDevice {
      */
     private Boolean deleteOnTermination;
     /**
-     * @return The physical name of the device.
+     * @return Physical name of the device.
      * 
      */
     private String deviceName;
@@ -34,23 +34,23 @@ public final class GetInstanceRootBlockDevice {
     private Integer iops;
     private String kmsKeyId;
     /**
-     * @return A map of tags assigned to the Instance.
+     * @return Map of tags assigned to the Instance.
      * 
      */
     private Map<String,String> tags;
     /**
-     * @return The throughput of the volume, in MiB/s.
+     * @return Throughput of the volume, in MiB/s.
      * 
      */
     private Integer throughput;
     private String volumeId;
     /**
-     * @return The size of the volume, in GiB.
+     * @return Size of the volume, in GiB.
      * 
      */
     private Integer volumeSize;
     /**
-     * @return The type of the volume.
+     * @return Type of the volume.
      * 
      */
     private String volumeType;
@@ -64,7 +64,7 @@ public final class GetInstanceRootBlockDevice {
         return this.deleteOnTermination;
     }
     /**
-     * @return The physical name of the device.
+     * @return Physical name of the device.
      * 
      */
     public String deviceName() {
@@ -88,14 +88,14 @@ public final class GetInstanceRootBlockDevice {
         return this.kmsKeyId;
     }
     /**
-     * @return A map of tags assigned to the Instance.
+     * @return Map of tags assigned to the Instance.
      * 
      */
     public Map<String,String> tags() {
         return this.tags;
     }
     /**
-     * @return The throughput of the volume, in MiB/s.
+     * @return Throughput of the volume, in MiB/s.
      * 
      */
     public Integer throughput() {
@@ -105,14 +105,14 @@ public final class GetInstanceRootBlockDevice {
         return this.volumeId;
     }
     /**
-     * @return The size of the volume, in GiB.
+     * @return Size of the volume, in GiB.
      * 
      */
     public Integer volumeSize() {
         return this.volumeSize;
     }
     /**
-     * @return The type of the volume.
+     * @return Type of the volume.
      * 
      */
     public String volumeType() {

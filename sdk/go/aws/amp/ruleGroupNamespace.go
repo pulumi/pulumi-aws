@@ -62,7 +62,7 @@ type RuleGroupNamespace struct {
 	Data pulumi.StringOutput `pulumi:"data"`
 	// The name of the rule group namespace
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The id of the prometheus workspace the rule group namespace should be linked to
+	// ID of the prometheus workspace the rule group namespace should be linked to
 	WorkspaceId pulumi.StringOutput `pulumi:"workspaceId"`
 }
 
@@ -105,7 +105,7 @@ type ruleGroupNamespaceState struct {
 	Data *string `pulumi:"data"`
 	// The name of the rule group namespace
 	Name *string `pulumi:"name"`
-	// The id of the prometheus workspace the rule group namespace should be linked to
+	// ID of the prometheus workspace the rule group namespace should be linked to
 	WorkspaceId *string `pulumi:"workspaceId"`
 }
 
@@ -114,7 +114,7 @@ type RuleGroupNamespaceState struct {
 	Data pulumi.StringPtrInput
 	// The name of the rule group namespace
 	Name pulumi.StringPtrInput
-	// The id of the prometheus workspace the rule group namespace should be linked to
+	// ID of the prometheus workspace the rule group namespace should be linked to
 	WorkspaceId pulumi.StringPtrInput
 }
 
@@ -127,7 +127,7 @@ type ruleGroupNamespaceArgs struct {
 	Data string `pulumi:"data"`
 	// The name of the rule group namespace
 	Name *string `pulumi:"name"`
-	// The id of the prometheus workspace the rule group namespace should be linked to
+	// ID of the prometheus workspace the rule group namespace should be linked to
 	WorkspaceId string `pulumi:"workspaceId"`
 }
 
@@ -137,7 +137,7 @@ type RuleGroupNamespaceArgs struct {
 	Data pulumi.StringInput
 	// The name of the rule group namespace
 	Name pulumi.StringPtrInput
-	// The id of the prometheus workspace the rule group namespace should be linked to
+	// ID of the prometheus workspace the rule group namespace should be linked to
 	WorkspaceId pulumi.StringInput
 }
 
@@ -238,7 +238,7 @@ func (o RuleGroupNamespaceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *RuleGroupNamespace) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The id of the prometheus workspace the rule group namespace should be linked to
+// ID of the prometheus workspace the rule group namespace should be linked to
 func (o RuleGroupNamespaceOutput) WorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RuleGroupNamespace) pulumi.StringOutput { return v.WorkspaceId }).(pulumi.StringOutput)
 }

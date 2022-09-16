@@ -50,13 +50,13 @@ namespace Pulumi.Aws.Account
     public partial class AlternativeContact : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
+        /// ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
         /// </summary>
         [Output("accountId")]
         public Output<string?> AccountId { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
+        /// Type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
         /// </summary>
         [Output("alternateContactType")]
         public Output<string> AlternateContactType { get; private set; } = null!;
@@ -68,19 +68,19 @@ namespace Pulumi.Aws.Account
         public Output<string> EmailAddress { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the alternate contact.
+        /// Name of the alternate contact.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A phone number for the alternate contact.
+        /// Phone number for the alternate contact.
         /// </summary>
         [Output("phoneNumber")]
         public Output<string> PhoneNumber { get; private set; } = null!;
 
         /// <summary>
-        /// A title for the alternate contact.
+        /// Title for the alternate contact.
         /// </summary>
         [Output("title")]
         public Output<string> Title { get; private set; } = null!;
@@ -132,13 +132,13 @@ namespace Pulumi.Aws.Account
     public sealed class AlternativeContactArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
+        /// ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// The type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
+        /// Type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
         /// </summary>
         [Input("alternateContactType", required: true)]
         public Input<string> AlternateContactType { get; set; } = null!;
@@ -150,19 +150,19 @@ namespace Pulumi.Aws.Account
         public Input<string> EmailAddress { get; set; } = null!;
 
         /// <summary>
-        /// The name of the alternate contact.
+        /// Name of the alternate contact.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A phone number for the alternate contact.
+        /// Phone number for the alternate contact.
         /// </summary>
         [Input("phoneNumber", required: true)]
         public Input<string> PhoneNumber { get; set; } = null!;
 
         /// <summary>
-        /// A title for the alternate contact.
+        /// Title for the alternate contact.
         /// </summary>
         [Input("title", required: true)]
         public Input<string> Title { get; set; } = null!;
@@ -176,13 +176,13 @@ namespace Pulumi.Aws.Account
     public sealed class AlternativeContactState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
+        /// ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// The type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
+        /// Type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
         /// </summary>
         [Input("alternateContactType")]
         public Input<string>? AlternateContactType { get; set; }
@@ -194,19 +194,19 @@ namespace Pulumi.Aws.Account
         public Input<string>? EmailAddress { get; set; }
 
         /// <summary>
-        /// The name of the alternate contact.
+        /// Name of the alternate contact.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A phone number for the alternate contact.
+        /// Phone number for the alternate contact.
         /// </summary>
         [Input("phoneNumber")]
         public Input<string>? PhoneNumber { get; set; }
 
         /// <summary>
-        /// A title for the alternate contact.
+        /// Title for the alternate contact.
         /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }

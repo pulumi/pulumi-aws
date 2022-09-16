@@ -14,17 +14,17 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GroupWarmPool {
     /**
-     * @return Indicates whether instances in the Auto Scaling group can be returned to the warm pool on scale in. The default is to terminate instances in the Auto Scaling group when the group scales in.
+     * @return Whether instances in the Auto Scaling group can be returned to the warm pool on scale in. The default is to terminate instances in the Auto Scaling group when the group scales in.
      * 
      */
     private @Nullable GroupWarmPoolInstanceReusePolicy instanceReusePolicy;
     /**
-     * @return Specifies the total maximum number of instances that are allowed to be in the warm pool or in any state except Terminated for the Auto Scaling group.
+     * @return Total maximum number of instances that are allowed to be in the warm pool or in any state except Terminated for the Auto Scaling group.
      * 
      */
     private @Nullable Integer maxGroupPreparedCapacity;
     /**
-     * @return Specifies the minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
+     * @return Minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
      * 
      */
     private @Nullable Integer minSize;
@@ -36,21 +36,21 @@ public final class GroupWarmPool {
 
     private GroupWarmPool() {}
     /**
-     * @return Indicates whether instances in the Auto Scaling group can be returned to the warm pool on scale in. The default is to terminate instances in the Auto Scaling group when the group scales in.
+     * @return Whether instances in the Auto Scaling group can be returned to the warm pool on scale in. The default is to terminate instances in the Auto Scaling group when the group scales in.
      * 
      */
     public Optional<GroupWarmPoolInstanceReusePolicy> instanceReusePolicy() {
         return Optional.ofNullable(this.instanceReusePolicy);
     }
     /**
-     * @return Specifies the total maximum number of instances that are allowed to be in the warm pool or in any state except Terminated for the Auto Scaling group.
+     * @return Total maximum number of instances that are allowed to be in the warm pool or in any state except Terminated for the Auto Scaling group.
      * 
      */
     public Optional<Integer> maxGroupPreparedCapacity() {
         return Optional.ofNullable(this.maxGroupPreparedCapacity);
     }
     /**
-     * @return Specifies the minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
+     * @return Minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
      * 
      */
     public Optional<Integer> minSize() {

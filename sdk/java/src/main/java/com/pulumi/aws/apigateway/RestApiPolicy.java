@@ -98,14 +98,14 @@ public class RestApiPolicy extends com.pulumi.resources.CustomResource {
         return this.policy;
     }
     /**
-     * The ID of the REST API.
+     * ID of the REST API.
      * 
      */
     @Export(name="restApiId", type=String.class, parameters={})
     private Output<String> restApiId;
 
     /**
-     * @return The ID of the REST API.
+     * @return ID of the REST API.
      * 
      */
     public Output<String> restApiId() {

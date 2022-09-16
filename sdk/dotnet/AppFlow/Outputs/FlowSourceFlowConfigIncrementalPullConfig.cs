@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppFlow.Outputs
     public sealed class FlowSourceFlowConfigIncrementalPullConfig
     {
         /// <summary>
-        /// A field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.
+        /// Field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.
         /// </summary>
         public readonly string? DatetimeTypeFieldName;
 

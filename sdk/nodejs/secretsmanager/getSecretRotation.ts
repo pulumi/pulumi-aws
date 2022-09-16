@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -36,7 +38,7 @@ export function getSecretRotation(args: GetSecretRotationArgs, opts?: pulumi.Inv
  */
 export interface GetSecretRotationArgs {
     /**
-     * Specifies the secret containing the version that you want to retrieve. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
+     * Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
      */
     secretId: string;
 }
@@ -50,15 +52,15 @@ export interface GetSecretRotationResult {
      */
     readonly id: string;
     /**
-     * The ARN of the secret.
+     * ARN of the secret.
      */
     readonly rotationEnabled: boolean;
     /**
-     * The decrypted part of the protected secret information that was originally provided as a string.
+     * Decrypted part of the protected secret information that was originally provided as a string.
      */
     readonly rotationLambdaArn: string;
     /**
-     * The decrypted part of the protected secret information that was originally provided as a binary. Base64 encoded.
+     * Decrypted part of the protected secret information that was originally provided as a binary. Base64 encoded.
      */
     readonly rotationRules: outputs.secretsmanager.GetSecretRotationRotationRule[];
     readonly secretId: string;
@@ -73,7 +75,7 @@ export function getSecretRotationOutput(args: GetSecretRotationOutputArgs, opts?
  */
 export interface GetSecretRotationOutputArgs {
     /**
-     * Specifies the secret containing the version that you want to retrieve. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
+     * Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
      */
     secretId: pulumi.Input<string>;
 }

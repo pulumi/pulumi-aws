@@ -17,14 +17,14 @@ public final class ResponseHeadersPolicySecurityHeadersConfigXssProtectionArgs e
     public static final ResponseHeadersPolicySecurityHeadersConfigXssProtectionArgs Empty = new ResponseHeadersPolicySecurityHeadersConfigXssProtectionArgs();
 
     /**
-     * A Boolean value that determines whether CloudFront includes the `mode=block` directive in the `X-XSS-Protection` header.
+     * Whether CloudFront includes the `mode=block` directive in the `X-XSS-Protection` header.
      * 
      */
     @Import(name="modeBlock")
     private @Nullable Output<Boolean> modeBlock;
 
     /**
-     * @return A Boolean value that determines whether CloudFront includes the `mode=block` directive in the `X-XSS-Protection` header.
+     * @return Whether CloudFront includes the `mode=block` directive in the `X-XSS-Protection` header.
      * 
      */
     public Optional<Output<Boolean>> modeBlock() {
@@ -32,14 +32,14 @@ public final class ResponseHeadersPolicySecurityHeadersConfigXssProtectionArgs e
     }
 
     /**
-     * A Boolean value that determines whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+     * Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
      * 
      */
     @Import(name="override", required=true)
     private Output<Boolean> override;
 
     /**
-     * @return A Boolean value that determines whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+     * @return Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
      * 
      */
     public Output<Boolean> override() {
@@ -104,7 +104,7 @@ public final class ResponseHeadersPolicySecurityHeadersConfigXssProtectionArgs e
         }
 
         /**
-         * @param modeBlock A Boolean value that determines whether CloudFront includes the `mode=block` directive in the `X-XSS-Protection` header.
+         * @param modeBlock Whether CloudFront includes the `mode=block` directive in the `X-XSS-Protection` header.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class ResponseHeadersPolicySecurityHeadersConfigXssProtectionArgs e
         }
 
         /**
-         * @param modeBlock A Boolean value that determines whether CloudFront includes the `mode=block` directive in the `X-XSS-Protection` header.
+         * @param modeBlock Whether CloudFront includes the `mode=block` directive in the `X-XSS-Protection` header.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class ResponseHeadersPolicySecurityHeadersConfigXssProtectionArgs e
         }
 
         /**
-         * @param override A Boolean value that determines whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+         * @param override Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class ResponseHeadersPolicySecurityHeadersConfigXssProtectionArgs e
         }
 
         /**
-         * @param override A Boolean value that determines whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+         * @param override Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
          * 
          * @return builder
          * 

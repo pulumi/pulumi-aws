@@ -14,23 +14,23 @@ namespace Pulumi.Aws.AutoScalingPlans.Outputs
     public sealed class ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecification
     {
         /// <summary>
-        /// The dimensions of the metric.
+        /// Dimensions of the metric.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Dimensions;
         /// <summary>
-        /// The name of the metric.
+        /// Name of the metric.
         /// </summary>
         public readonly string MetricName;
         /// <summary>
-        /// The namespace of the metric.
+        /// Namespace of the metric.
         /// </summary>
         public readonly string Namespace;
         /// <summary>
-        /// The statistic of the metric. Valid values: `Average`, `Maximum`, `Minimum`, `SampleCount`, `Sum`.
+        /// Statistic of the metric. Valid values: `Average`, `Maximum`, `Minimum`, `SampleCount`, `Sum`.
         /// </summary>
         public readonly string Statistic;
         /// <summary>
-        /// The unit of the metric.
+        /// Unit of the metric.
         /// </summary>
         public readonly string? Unit;
 

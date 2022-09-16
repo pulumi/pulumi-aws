@@ -70,7 +70,7 @@ namespace Pulumi.Aws.WafRegional
     public sealed class GetWebAclArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the WAF Regional Web ACL.
+        /// Name of the WAF Regional Web ACL.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.Aws.WafRegional
     public sealed class GetWebAclInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the WAF Regional Web ACL.
+        /// Name of the WAF Regional Web ACL.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

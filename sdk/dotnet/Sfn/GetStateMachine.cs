@@ -74,7 +74,7 @@ namespace Pulumi.Aws.Sfn
     public sealed class GetStateMachineArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The friendly name of the state machine to match.
+        /// Friendly name of the state machine to match.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -88,7 +88,7 @@ namespace Pulumi.Aws.Sfn
     public sealed class GetStateMachineInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The friendly name of the state machine to match.
+        /// Friendly name of the state machine to match.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -108,7 +108,7 @@ namespace Pulumi.Aws.Sfn
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The date the state machine was created.
+        /// Date the state machine was created.
         /// </summary>
         public readonly string CreationDate;
         /// <summary>

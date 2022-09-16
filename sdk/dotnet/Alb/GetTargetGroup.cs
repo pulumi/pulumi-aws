@@ -90,13 +90,13 @@ namespace Pulumi.Aws.Alb
     public sealed class GetTargetGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The full ARN of the target group.
+        /// Full ARN of the target group.
         /// </summary>
         [Input("arn")]
         public string? Arn { get; set; }
 
         /// <summary>
-        /// The unique name of the target group.
+        /// Unique name of the target group.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -118,13 +118,13 @@ namespace Pulumi.Aws.Alb
     public sealed class GetTargetGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The full ARN of the target group.
+        /// Full ARN of the target group.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The unique name of the target group.
+        /// Unique name of the target group.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

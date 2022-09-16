@@ -16,7 +16,7 @@ public final class GetResourceResult {
      */
     private String id;
     /**
-     * @return The date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+     * @return Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
     private String lastModified;
@@ -38,7 +38,7 @@ public final class GetResourceResult {
         return this.id;
     }
     /**
-     * @return The date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+     * @return Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
     public String lastModified() {

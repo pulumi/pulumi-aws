@@ -187,14 +187,14 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.contactLensEnabled);
     }
     /**
-     * Specifies when the instance was created.
+     * When the instance was created.
      * 
      */
     @Export(name="createdTime", type=String.class, parameters={})
     private Output<String> createdTime;
 
     /**
-     * @return Specifies when the instance was created.
+     * @return When the instance was created.
      * 
      */
     public Output<String> createdTime() {
@@ -272,7 +272,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
     }
     /**
      * Specifies whether outbound calls are enabled.
-     * &lt;!-- * `use_custom_tts_voices` - (Optional) Specifies Whether use custom tts voices is enabled. Defaults to `false` --&gt;
+     * &lt;!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --&gt;
      * 
      */
     @Export(name="outboundCallsEnabled", type=Boolean.class, parameters={})
@@ -280,7 +280,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Specifies whether outbound calls are enabled.
-     * &lt;!-- * `use_custom_tts_voices` - (Optional) Specifies Whether use custom tts voices is enabled. Defaults to `false` --&gt;
+     * &lt;!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --&gt;
      * 
      */
     public Output<Boolean> outboundCallsEnabled() {

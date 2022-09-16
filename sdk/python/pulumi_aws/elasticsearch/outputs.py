@@ -1266,7 +1266,7 @@ class GetDomainAutoTuneOptionMaintenanceScheduleResult(dict):
                  durations: Sequence['outputs.GetDomainAutoTuneOptionMaintenanceScheduleDurationResult'],
                  start_at: str):
         """
-        :param str cron_expression_for_recurrence: A cron expression specifying the recurrence pattern for an Auto-Tune maintenance schedule.
+        :param str cron_expression_for_recurrence: Cron expression for an Auto-Tune maintenance schedule.
         :param Sequence['GetDomainAutoTuneOptionMaintenanceScheduleDurationArgs'] durations: Configuration block for the duration of the Auto-Tune maintenance window.
         :param str start_at: Date and time at which the Auto-Tune maintenance schedule starts in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         """
@@ -1278,7 +1278,7 @@ class GetDomainAutoTuneOptionMaintenanceScheduleResult(dict):
     @pulumi.getter(name="cronExpressionForRecurrence")
     def cron_expression_for_recurrence(self) -> str:
         """
-        A cron expression specifying the recurrence pattern for an Auto-Tune maintenance schedule.
+        Cron expression for an Auto-Tune maintenance schedule.
         """
         return pulumi.get(self, "cron_expression_for_recurrence")
 
@@ -1305,8 +1305,8 @@ class GetDomainAutoTuneOptionMaintenanceScheduleDurationResult(dict):
                  unit: str,
                  value: int):
         """
-        :param str unit: The unit of time specifying the duration of an Auto-Tune maintenance window.
-        :param int value: An integer specifying the value of the duration of an Auto-Tune maintenance window.
+        :param str unit: Unit of time.
+        :param int value: Duration of an Auto-Tune maintenance window.
         """
         pulumi.set(__self__, "unit", unit)
         pulumi.set(__self__, "value", value)
@@ -1315,7 +1315,7 @@ class GetDomainAutoTuneOptionMaintenanceScheduleDurationResult(dict):
     @pulumi.getter
     def unit(self) -> str:
         """
-        The unit of time specifying the duration of an Auto-Tune maintenance window.
+        Unit of time.
         """
         return pulumi.get(self, "unit")
 
@@ -1323,7 +1323,7 @@ class GetDomainAutoTuneOptionMaintenanceScheduleDurationResult(dict):
     @pulumi.getter
     def value(self) -> int:
         """
-        An integer specifying the value of the duration of an Auto-Tune maintenance window.
+        Duration of an Auto-Tune maintenance window.
         """
         return pulumi.get(self, "value")
 
@@ -1350,7 +1350,7 @@ class GetDomainClusterConfigResult(dict):
         :param int instance_count: Number of instances in the cluster.
         :param str instance_type: Instance type of data nodes in the cluster.
         :param int warm_count: The number of warm nodes in the cluster.
-        :param bool warm_enabled: Indicates warm storage is enabled.
+        :param bool warm_enabled: Warm storage is enabled.
         :param str warm_type: The instance type for the Elasticsearch cluster's warm nodes.
         :param Sequence['GetDomainClusterConfigZoneAwarenessConfigArgs'] zone_awareness_configs: Configuration block containing zone awareness settings.
         :param bool zone_awareness_enabled: Indicates whether zone awareness is enabled.
@@ -1427,7 +1427,7 @@ class GetDomainClusterConfigResult(dict):
     @pulumi.getter(name="warmEnabled")
     def warm_enabled(self) -> bool:
         """
-        Indicates warm storage is enabled.
+        Warm storage is enabled.
         """
         return pulumi.get(self, "warm_enabled")
 

@@ -275,14 +275,14 @@ public class StaticWebLayer extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The id of the stack the layer will belong to.
+     * ID of the stack the layer will belong to.
      * 
      */
     @Export(name="stackId", type=String.class, parameters={})
     private Output<String> stackId;
 
     /**
-     * @return The id of the stack the layer will belong to.
+     * @return ID of the stack the layer will belong to.
      * 
      */
     public Output<String> stackId() {

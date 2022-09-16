@@ -68,28 +68,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:account/alternativeContact:AlternativeContact")
 public class AlternativeContact extends com.pulumi.resources.CustomResource {
     /**
-     * The ID of the target account when managing member accounts. Will manage current user&#39;s account by default if omitted.
+     * ID of the target account when managing member accounts. Will manage current user&#39;s account by default if omitted.
      * 
      */
     @Export(name="accountId", type=String.class, parameters={})
     private Output</* @Nullable */ String> accountId;
 
     /**
-     * @return The ID of the target account when managing member accounts. Will manage current user&#39;s account by default if omitted.
+     * @return ID of the target account when managing member accounts. Will manage current user&#39;s account by default if omitted.
      * 
      */
     public Output<Optional<String>> accountId() {
         return Codegen.optional(this.accountId);
     }
     /**
-     * The type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
+     * Type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
      * 
      */
     @Export(name="alternateContactType", type=String.class, parameters={})
     private Output<String> alternateContactType;
 
     /**
-     * @return The type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
+     * @return Type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
      * 
      */
     public Output<String> alternateContactType() {
@@ -110,42 +110,42 @@ public class AlternativeContact extends com.pulumi.resources.CustomResource {
         return this.emailAddress;
     }
     /**
-     * The name of the alternate contact.
+     * Name of the alternate contact.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name of the alternate contact.
+     * @return Name of the alternate contact.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * A phone number for the alternate contact.
+     * Phone number for the alternate contact.
      * 
      */
     @Export(name="phoneNumber", type=String.class, parameters={})
     private Output<String> phoneNumber;
 
     /**
-     * @return A phone number for the alternate contact.
+     * @return Phone number for the alternate contact.
      * 
      */
     public Output<String> phoneNumber() {
         return this.phoneNumber;
     }
     /**
-     * A title for the alternate contact.
+     * Title for the alternate contact.
      * 
      */
     @Export(name="title", type=String.class, parameters={})
     private Output<String> title;
 
     /**
-     * @return A title for the alternate contact.
+     * @return Title for the alternate contact.
      * 
      */
     public Output<String> title() {

@@ -79,7 +79,7 @@ namespace Pulumi.Aws.MemoryDb
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A map of tags assigned to the ACL.
+        /// Map of tags assigned to the ACL.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -105,7 +105,7 @@ namespace Pulumi.Aws.MemoryDb
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags assigned to the ACL.
+        /// Map of tags assigned to the ACL.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -137,7 +137,7 @@ namespace Pulumi.Aws.MemoryDb
         public readonly string MinimumEngineVersion;
         public readonly string Name;
         /// <summary>
-        /// A map of tags assigned to the ACL.
+        /// Map of tags assigned to the ACL.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>

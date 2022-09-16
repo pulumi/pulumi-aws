@@ -12,7 +12,7 @@ import java.util.Objects;
 public final class GetAssetsResult {
     private String arn;
     /**
-     * @return A list of all the subnet ids found. This data source will fail if none are found.
+     * @return List of all the subnet ids found. This data source will fail if none are found.
      * 
      */
     private List<String> assetIds;
@@ -27,7 +27,7 @@ public final class GetAssetsResult {
         return this.arn;
     }
     /**
-     * @return A list of all the subnet ids found. This data source will fail if none are found.
+     * @return List of all the subnet ids found. This data source will fail if none are found.
      * 
      */
     public List<String> assetIds() {

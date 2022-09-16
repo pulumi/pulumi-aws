@@ -105,7 +105,7 @@ class GetRepositoryResult:
     @pulumi.getter(name="repositoryUrl")
     def repository_url(self) -> str:
         """
-        The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
+        URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
         """
         return pulumi.get(self, "repository_url")
 
@@ -113,7 +113,7 @@ class GetRepositoryResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        A map of tags assigned to the resource.
+        Map of tags assigned to the resource.
         """
         return pulumi.get(self, "tags")
 
@@ -152,9 +152,9 @@ def get_repository(name: Optional[str] = None,
     ```
 
 
-    :param str name: The name of the ECR Repository.
-    :param str registry_id: The registry ID where the repository was created.
-    :param Mapping[str, str] tags: A map of tags assigned to the resource.
+    :param str name: Name of the ECR Repository.
+    :param str registry_id: Registry ID where the repository was created.
+    :param Mapping[str, str] tags: Map of tags assigned to the resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -193,8 +193,8 @@ def get_repository_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str name: The name of the ECR Repository.
-    :param str registry_id: The registry ID where the repository was created.
-    :param Mapping[str, str] tags: A map of tags assigned to the resource.
+    :param str name: Name of the ECR Repository.
+    :param str registry_id: Registry ID where the repository was created.
+    :param Mapping[str, str] tags: Map of tags assigned to the resource.
     """
     ...

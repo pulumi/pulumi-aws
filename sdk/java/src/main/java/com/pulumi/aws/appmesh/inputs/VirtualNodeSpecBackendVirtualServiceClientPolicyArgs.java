@@ -16,14 +16,14 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyArgs extends 
     public static final VirtualNodeSpecBackendVirtualServiceClientPolicyArgs Empty = new VirtualNodeSpecBackendVirtualServiceClientPolicyArgs();
 
     /**
-     * The Transport Layer Security (TLS) client policy.
+     * Transport Layer Security (TLS) client policy.
      * 
      */
     @Import(name="tls")
     private @Nullable Output<VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgs> tls;
 
     /**
-     * @return The Transport Layer Security (TLS) client policy.
+     * @return Transport Layer Security (TLS) client policy.
      * 
      */
     public Optional<Output<VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgs>> tls() {
@@ -55,7 +55,7 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyArgs extends 
         }
 
         /**
-         * @param tls The Transport Layer Security (TLS) client policy.
+         * @param tls Transport Layer Security (TLS) client policy.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyArgs extends 
         }
 
         /**
-         * @param tls The Transport Layer Security (TLS) client policy.
+         * @param tls Transport Layer Security (TLS) client policy.
          * 
          * @return builder
          * 

@@ -58,20 +58,20 @@ namespace Pulumi.Aws.AutoScaling
     public partial class Notification : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A list of AutoScaling Group Names
+        /// List of AutoScaling Group Names
         /// </summary>
         [Output("groupNames")]
         public Output<ImmutableArray<string>> GroupNames { get; private set; } = null!;
 
         /// <summary>
-        /// A list of Notification Types that trigger
+        /// List of Notification Types that trigger
         /// notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
         /// </summary>
         [Output("notifications")]
         public Output<ImmutableArray<string>> Notifications { get; private set; } = null!;
 
         /// <summary>
-        /// The Topic ARN for notifications to be sent through
+        /// Topic ARN for notifications to be sent through
         /// </summary>
         [Output("topicArn")]
         public Output<string> TopicArn { get; private set; } = null!;
@@ -126,7 +126,7 @@ namespace Pulumi.Aws.AutoScaling
         private InputList<string>? _groupNames;
 
         /// <summary>
-        /// A list of AutoScaling Group Names
+        /// List of AutoScaling Group Names
         /// </summary>
         public InputList<string> GroupNames
         {
@@ -138,7 +138,7 @@ namespace Pulumi.Aws.AutoScaling
         private InputList<string>? _notifications;
 
         /// <summary>
-        /// A list of Notification Types that trigger
+        /// List of Notification Types that trigger
         /// notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
         /// </summary>
         public InputList<string> Notifications
@@ -148,7 +148,7 @@ namespace Pulumi.Aws.AutoScaling
         }
 
         /// <summary>
-        /// The Topic ARN for notifications to be sent through
+        /// Topic ARN for notifications to be sent through
         /// </summary>
         [Input("topicArn", required: true)]
         public Input<string> TopicArn { get; set; } = null!;
@@ -165,7 +165,7 @@ namespace Pulumi.Aws.AutoScaling
         private InputList<string>? _groupNames;
 
         /// <summary>
-        /// A list of AutoScaling Group Names
+        /// List of AutoScaling Group Names
         /// </summary>
         public InputList<string> GroupNames
         {
@@ -177,7 +177,7 @@ namespace Pulumi.Aws.AutoScaling
         private InputList<string>? _notifications;
 
         /// <summary>
-        /// A list of Notification Types that trigger
+        /// List of Notification Types that trigger
         /// notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
         /// </summary>
         public InputList<string> Notifications
@@ -187,7 +187,7 @@ namespace Pulumi.Aws.AutoScaling
         }
 
         /// <summary>
-        /// The Topic ARN for notifications to be sent through
+        /// Topic ARN for notifications to be sent through
         /// </summary>
         [Input("topicArn")]
         public Input<string>? TopicArn { get; set; }

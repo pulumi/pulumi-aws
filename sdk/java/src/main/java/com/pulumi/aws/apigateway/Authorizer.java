@@ -132,49 +132,49 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:apigateway/authorizer:Authorizer")
 public class Authorizer extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the API Gateway Authorizer
+     * ARN of the API Gateway Authorizer
      * 
      */
     @Export(name="arn", type=String.class, parameters={})
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the API Gateway Authorizer
+     * @return ARN of the API Gateway Authorizer
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The credentials required for the authorizer. To specify an IAM Role for API Gateway to assume, use the IAM Role ARN.
+     * Credentials required for the authorizer. To specify an IAM Role for API Gateway to assume, use the IAM Role ARN.
      * 
      */
     @Export(name="authorizerCredentials", type=String.class, parameters={})
     private Output</* @Nullable */ String> authorizerCredentials;
 
     /**
-     * @return The credentials required for the authorizer. To specify an IAM Role for API Gateway to assume, use the IAM Role ARN.
+     * @return Credentials required for the authorizer. To specify an IAM Role for API Gateway to assume, use the IAM Role ARN.
      * 
      */
     public Output<Optional<String>> authorizerCredentials() {
         return Codegen.optional(this.authorizerCredentials);
     }
     /**
-     * The TTL of cached authorizer results in seconds. Defaults to `300`.
+     * TTL of cached authorizer results in seconds. Defaults to `300`.
      * 
      */
     @Export(name="authorizerResultTtlInSeconds", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> authorizerResultTtlInSeconds;
 
     /**
-     * @return The TTL of cached authorizer results in seconds. Defaults to `300`.
+     * @return TTL of cached authorizer results in seconds. Defaults to `300`.
      * 
      */
     public Output<Optional<Integer>> authorizerResultTtlInSeconds() {
         return Codegen.optional(this.authorizerResultTtlInSeconds);
     }
     /**
-     * The authorizer&#39;s Uniform Resource Identifier (URI). This must be a well-formed Lambda function URI in the form of `arn:aws:apigateway:{region}:lambda:path/{service_api}`,
+     * Authorizer&#39;s Uniform Resource Identifier (URI). This must be a well-formed Lambda function URI in the form of `arn:aws:apigateway:{region}:lambda:path/{service_api}`,
      * e.g., `arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:012345678912:function:my-function/invocations`
      * 
      */
@@ -182,7 +182,7 @@ public class Authorizer extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> authorizerUri;
 
     /**
-     * @return The authorizer&#39;s Uniform Resource Identifier (URI). This must be a well-formed Lambda function URI in the form of `arn:aws:apigateway:{region}:lambda:path/{service_api}`,
+     * @return Authorizer&#39;s Uniform Resource Identifier (URI). This must be a well-formed Lambda function URI in the form of `arn:aws:apigateway:{region}:lambda:path/{service_api}`,
      * e.g., `arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:012345678912:function:my-function/invocations`
      * 
      */
@@ -190,84 +190,84 @@ public class Authorizer extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.authorizerUri);
     }
     /**
-     * The source of the identity in an incoming request. Defaults to `method.request.header.Authorization`. For `REQUEST` type, this may be a comma-separated list of values, including headers, query string parameters and stage variables - e.g., `&#34;method.request.header.SomeHeaderName,method.request.querystring.SomeQueryStringName,stageVariables.SomeStageVariableName&#34;`
+     * Source of the identity in an incoming request. Defaults to `method.request.header.Authorization`. For `REQUEST` type, this may be a comma-separated list of values, including headers, query string parameters and stage variables - e.g., `&#34;method.request.header.SomeHeaderName,method.request.querystring.SomeQueryStringName,stageVariables.SomeStageVariableName&#34;`
      * 
      */
     @Export(name="identitySource", type=String.class, parameters={})
     private Output</* @Nullable */ String> identitySource;
 
     /**
-     * @return The source of the identity in an incoming request. Defaults to `method.request.header.Authorization`. For `REQUEST` type, this may be a comma-separated list of values, including headers, query string parameters and stage variables - e.g., `&#34;method.request.header.SomeHeaderName,method.request.querystring.SomeQueryStringName,stageVariables.SomeStageVariableName&#34;`
+     * @return Source of the identity in an incoming request. Defaults to `method.request.header.Authorization`. For `REQUEST` type, this may be a comma-separated list of values, including headers, query string parameters and stage variables - e.g., `&#34;method.request.header.SomeHeaderName,method.request.querystring.SomeQueryStringName,stageVariables.SomeStageVariableName&#34;`
      * 
      */
     public Output<Optional<String>> identitySource() {
         return Codegen.optional(this.identitySource);
     }
     /**
-     * A validation expression for the incoming identity. For `TOKEN` type, this value should be a regular expression. The incoming token from the client is matched against this expression, and will proceed if the token matches. If the token doesn&#39;t match, the client receives a 401 Unauthorized response.
+     * Validation expression for the incoming identity. For `TOKEN` type, this value should be a regular expression. The incoming token from the client is matched against this expression, and will proceed if the token matches. If the token doesn&#39;t match, the client receives a 401 Unauthorized response.
      * 
      */
     @Export(name="identityValidationExpression", type=String.class, parameters={})
     private Output</* @Nullable */ String> identityValidationExpression;
 
     /**
-     * @return A validation expression for the incoming identity. For `TOKEN` type, this value should be a regular expression. The incoming token from the client is matched against this expression, and will proceed if the token matches. If the token doesn&#39;t match, the client receives a 401 Unauthorized response.
+     * @return Validation expression for the incoming identity. For `TOKEN` type, this value should be a regular expression. The incoming token from the client is matched against this expression, and will proceed if the token matches. If the token doesn&#39;t match, the client receives a 401 Unauthorized response.
      * 
      */
     public Output<Optional<String>> identityValidationExpression() {
         return Codegen.optional(this.identityValidationExpression);
     }
     /**
-     * The name of the authorizer
+     * Name of the authorizer
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name of the authorizer
+     * @return Name of the authorizer
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * A list of the Amazon Cognito user pool ARNs. Each element is of this format: `arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}`.
+     * List of the Amazon Cognito user pool ARNs. Each element is of this format: `arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}`.
      * 
      */
     @Export(name="providerArns", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> providerArns;
 
     /**
-     * @return A list of the Amazon Cognito user pool ARNs. Each element is of this format: `arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}`.
+     * @return List of the Amazon Cognito user pool ARNs. Each element is of this format: `arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}`.
      * 
      */
     public Output<Optional<List<String>>> providerArns() {
         return Codegen.optional(this.providerArns);
     }
     /**
-     * The ID of the associated REST API
+     * ID of the associated REST API
      * 
      */
     @Export(name="restApi", type=String.class, parameters={})
     private Output<String> restApi;
 
     /**
-     * @return The ID of the associated REST API
+     * @return ID of the associated REST API
      * 
      */
     public Output<String> restApi() {
         return this.restApi;
     }
     /**
-     * The type of the authorizer. Possible values are `TOKEN` for a Lambda function using a single authorization token submitted in a custom header, `REQUEST` for a Lambda function using incoming request parameters, or `COGNITO_USER_POOLS` for using an Amazon Cognito user pool. Defaults to `TOKEN`.
+     * Type of the authorizer. Possible values are `TOKEN` for a Lambda function using a single authorization token submitted in a custom header, `REQUEST` for a Lambda function using incoming request parameters, or `COGNITO_USER_POOLS` for using an Amazon Cognito user pool. Defaults to `TOKEN`.
      * 
      */
     @Export(name="type", type=String.class, parameters={})
     private Output</* @Nullable */ String> type;
 
     /**
-     * @return The type of the authorizer. Possible values are `TOKEN` for a Lambda function using a single authorization token submitted in a custom header, `REQUEST` for a Lambda function using incoming request parameters, or `COGNITO_USER_POOLS` for using an Amazon Cognito user pool. Defaults to `TOKEN`.
+     * @return Type of the authorizer. Possible values are `TOKEN` for a Lambda function using a single authorization token submitted in a custom header, `REQUEST` for a Lambda function using incoming request parameters, or `COGNITO_USER_POOLS` for using an Amazon Cognito user pool. Defaults to `TOKEN`.
      * 
      */
     public Output<Optional<String>> type() {

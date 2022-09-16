@@ -5,43 +5,106 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./authenticationProfile";
-export * from "./cluster";
-export * from "./clusterIamRoles";
-export * from "./endpointAccess";
-export * from "./eventSubscription";
-export * from "./getCluster";
-export * from "./getClusterCredentials";
-export * from "./getOrderableCluster";
-export * from "./getServiceAccount";
-export * from "./getSubnetGroup";
-export * from "./hsmClientCertificate";
-export * from "./hsmConfiguration";
-export * from "./parameterGroup";
-export * from "./scheduledAction";
-export * from "./securityGroup";
-export * from "./snapshotCopyGrant";
-export * from "./snapshotSchedule";
-export * from "./snapshotScheduleAssociation";
-export * from "./subnetGroup";
-export * from "./usageLimit";
+export { AuthenticationProfileArgs, AuthenticationProfileState } from "./authenticationProfile";
+export type AuthenticationProfile = import("./authenticationProfile").AuthenticationProfile;
+export const AuthenticationProfile: typeof import("./authenticationProfile").AuthenticationProfile = null as any;
 
-// Import resources to register:
-import { AuthenticationProfile } from "./authenticationProfile";
-import { Cluster } from "./cluster";
-import { ClusterIamRoles } from "./clusterIamRoles";
-import { EndpointAccess } from "./endpointAccess";
-import { EventSubscription } from "./eventSubscription";
-import { HsmClientCertificate } from "./hsmClientCertificate";
-import { HsmConfiguration } from "./hsmConfiguration";
-import { ParameterGroup } from "./parameterGroup";
-import { ScheduledAction } from "./scheduledAction";
-import { SecurityGroup } from "./securityGroup";
-import { SnapshotCopyGrant } from "./snapshotCopyGrant";
-import { SnapshotSchedule } from "./snapshotSchedule";
-import { SnapshotScheduleAssociation } from "./snapshotScheduleAssociation";
-import { SubnetGroup } from "./subnetGroup";
-import { UsageLimit } from "./usageLimit";
+export { ClusterArgs, ClusterState } from "./cluster";
+export type Cluster = import("./cluster").Cluster;
+export const Cluster: typeof import("./cluster").Cluster = null as any;
+
+export { ClusterIamRolesArgs, ClusterIamRolesState } from "./clusterIamRoles";
+export type ClusterIamRoles = import("./clusterIamRoles").ClusterIamRoles;
+export const ClusterIamRoles: typeof import("./clusterIamRoles").ClusterIamRoles = null as any;
+
+export { EndpointAccessArgs, EndpointAccessState } from "./endpointAccess";
+export type EndpointAccess = import("./endpointAccess").EndpointAccess;
+export const EndpointAccess: typeof import("./endpointAccess").EndpointAccess = null as any;
+
+export { EventSubscriptionArgs, EventSubscriptionState } from "./eventSubscription";
+export type EventSubscription = import("./eventSubscription").EventSubscription;
+export const EventSubscription: typeof import("./eventSubscription").EventSubscription = null as any;
+
+export { GetClusterArgs, GetClusterResult, GetClusterOutputArgs } from "./getCluster";
+export const getCluster: typeof import("./getCluster").getCluster = null as any;
+export const getClusterOutput: typeof import("./getCluster").getClusterOutput = null as any;
+
+export { GetClusterCredentialsArgs, GetClusterCredentialsResult, GetClusterCredentialsOutputArgs } from "./getClusterCredentials";
+export const getClusterCredentials: typeof import("./getClusterCredentials").getClusterCredentials = null as any;
+export const getClusterCredentialsOutput: typeof import("./getClusterCredentials").getClusterCredentialsOutput = null as any;
+
+export { GetOrderableClusterArgs, GetOrderableClusterResult, GetOrderableClusterOutputArgs } from "./getOrderableCluster";
+export const getOrderableCluster: typeof import("./getOrderableCluster").getOrderableCluster = null as any;
+export const getOrderableClusterOutput: typeof import("./getOrderableCluster").getOrderableClusterOutput = null as any;
+
+export { GetServiceAccountArgs, GetServiceAccountResult, GetServiceAccountOutputArgs } from "./getServiceAccount";
+export const getServiceAccount: typeof import("./getServiceAccount").getServiceAccount = null as any;
+export const getServiceAccountOutput: typeof import("./getServiceAccount").getServiceAccountOutput = null as any;
+
+export { GetSubnetGroupArgs, GetSubnetGroupResult, GetSubnetGroupOutputArgs } from "./getSubnetGroup";
+export const getSubnetGroup: typeof import("./getSubnetGroup").getSubnetGroup = null as any;
+export const getSubnetGroupOutput: typeof import("./getSubnetGroup").getSubnetGroupOutput = null as any;
+
+export { HsmClientCertificateArgs, HsmClientCertificateState } from "./hsmClientCertificate";
+export type HsmClientCertificate = import("./hsmClientCertificate").HsmClientCertificate;
+export const HsmClientCertificate: typeof import("./hsmClientCertificate").HsmClientCertificate = null as any;
+
+export { HsmConfigurationArgs, HsmConfigurationState } from "./hsmConfiguration";
+export type HsmConfiguration = import("./hsmConfiguration").HsmConfiguration;
+export const HsmConfiguration: typeof import("./hsmConfiguration").HsmConfiguration = null as any;
+
+export { ParameterGroupArgs, ParameterGroupState } from "./parameterGroup";
+export type ParameterGroup = import("./parameterGroup").ParameterGroup;
+export const ParameterGroup: typeof import("./parameterGroup").ParameterGroup = null as any;
+
+export { ScheduledActionArgs, ScheduledActionState } from "./scheduledAction";
+export type ScheduledAction = import("./scheduledAction").ScheduledAction;
+export const ScheduledAction: typeof import("./scheduledAction").ScheduledAction = null as any;
+
+export { SecurityGroupArgs, SecurityGroupState } from "./securityGroup";
+export type SecurityGroup = import("./securityGroup").SecurityGroup;
+export const SecurityGroup: typeof import("./securityGroup").SecurityGroup = null as any;
+
+export { SnapshotCopyGrantArgs, SnapshotCopyGrantState } from "./snapshotCopyGrant";
+export type SnapshotCopyGrant = import("./snapshotCopyGrant").SnapshotCopyGrant;
+export const SnapshotCopyGrant: typeof import("./snapshotCopyGrant").SnapshotCopyGrant = null as any;
+
+export { SnapshotScheduleArgs, SnapshotScheduleState } from "./snapshotSchedule";
+export type SnapshotSchedule = import("./snapshotSchedule").SnapshotSchedule;
+export const SnapshotSchedule: typeof import("./snapshotSchedule").SnapshotSchedule = null as any;
+
+export { SnapshotScheduleAssociationArgs, SnapshotScheduleAssociationState } from "./snapshotScheduleAssociation";
+export type SnapshotScheduleAssociation = import("./snapshotScheduleAssociation").SnapshotScheduleAssociation;
+export const SnapshotScheduleAssociation: typeof import("./snapshotScheduleAssociation").SnapshotScheduleAssociation = null as any;
+
+export { SubnetGroupArgs, SubnetGroupState } from "./subnetGroup";
+export type SubnetGroup = import("./subnetGroup").SubnetGroup;
+export const SubnetGroup: typeof import("./subnetGroup").SubnetGroup = null as any;
+
+export { UsageLimitArgs, UsageLimitState } from "./usageLimit";
+export type UsageLimit = import("./usageLimit").UsageLimit;
+export const UsageLimit: typeof import("./usageLimit").UsageLimit = null as any;
+
+utilities.lazyLoad(exports, ["AuthenticationProfile"], () => require("./authenticationProfile"));
+utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
+utilities.lazyLoad(exports, ["ClusterIamRoles"], () => require("./clusterIamRoles"));
+utilities.lazyLoad(exports, ["EndpointAccess"], () => require("./endpointAccess"));
+utilities.lazyLoad(exports, ["EventSubscription"], () => require("./eventSubscription"));
+utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
+utilities.lazyLoad(exports, ["getClusterCredentials","getClusterCredentialsOutput"], () => require("./getClusterCredentials"));
+utilities.lazyLoad(exports, ["getOrderableCluster","getOrderableClusterOutput"], () => require("./getOrderableCluster"));
+utilities.lazyLoad(exports, ["getServiceAccount","getServiceAccountOutput"], () => require("./getServiceAccount"));
+utilities.lazyLoad(exports, ["getSubnetGroup","getSubnetGroupOutput"], () => require("./getSubnetGroup"));
+utilities.lazyLoad(exports, ["HsmClientCertificate"], () => require("./hsmClientCertificate"));
+utilities.lazyLoad(exports, ["HsmConfiguration"], () => require("./hsmConfiguration"));
+utilities.lazyLoad(exports, ["ParameterGroup"], () => require("./parameterGroup"));
+utilities.lazyLoad(exports, ["ScheduledAction"], () => require("./scheduledAction"));
+utilities.lazyLoad(exports, ["SecurityGroup"], () => require("./securityGroup"));
+utilities.lazyLoad(exports, ["SnapshotCopyGrant"], () => require("./snapshotCopyGrant"));
+utilities.lazyLoad(exports, ["SnapshotSchedule"], () => require("./snapshotSchedule"));
+utilities.lazyLoad(exports, ["SnapshotScheduleAssociation"], () => require("./snapshotScheduleAssociation"));
+utilities.lazyLoad(exports, ["SubnetGroup"], () => require("./subnetGroup"));
+utilities.lazyLoad(exports, ["UsageLimit"], () => require("./usageLimit"));
 
 const _module = {
     version: utilities.getVersion(),

@@ -36,7 +36,7 @@ class GetEventBusResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) specifying the role.
+        ARN.
         """
         return pulumi.get(self, "arn")
 
@@ -82,7 +82,7 @@ def get_event_bus(name: Optional[str] = None,
     ```
 
 
-    :param str name: The friendly EventBridge event bus name.
+    :param str name: Friendly EventBridge event bus name.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -113,6 +113,6 @@ def get_event_bus_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str name: The friendly EventBridge event bus name.
+    :param str name: Friendly EventBridge event bus name.
     """
     ...

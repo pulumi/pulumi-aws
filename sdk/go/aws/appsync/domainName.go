@@ -52,15 +52,15 @@ import (
 type DomainName struct {
 	pulumi.CustomResourceState
 
-	// The domain name that AppSync provides.
+	// Domain name that AppSync provides.
 	AppsyncDomainName pulumi.StringOutput `pulumi:"appsyncDomainName"`
-	// The Amazon Resource Name (ARN) of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
+	// ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
 	CertificateArn pulumi.StringOutput `pulumi:"certificateArn"`
 	// A description of the Domain Name.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The domain name.
+	// Domain name.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
-	// The ID of your Amazon Route 53 hosted zone.
+	// ID of your Amazon Route 53 hosted zone.
 	HostedZoneId pulumi.StringOutput `pulumi:"hostedZoneId"`
 }
 
@@ -99,28 +99,28 @@ func GetDomainName(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DomainName resources.
 type domainNameState struct {
-	// The domain name that AppSync provides.
+	// Domain name that AppSync provides.
 	AppsyncDomainName *string `pulumi:"appsyncDomainName"`
-	// The Amazon Resource Name (ARN) of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
+	// ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
 	CertificateArn *string `pulumi:"certificateArn"`
 	// A description of the Domain Name.
 	Description *string `pulumi:"description"`
-	// The domain name.
+	// Domain name.
 	DomainName *string `pulumi:"domainName"`
-	// The ID of your Amazon Route 53 hosted zone.
+	// ID of your Amazon Route 53 hosted zone.
 	HostedZoneId *string `pulumi:"hostedZoneId"`
 }
 
 type DomainNameState struct {
-	// The domain name that AppSync provides.
+	// Domain name that AppSync provides.
 	AppsyncDomainName pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
+	// ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
 	CertificateArn pulumi.StringPtrInput
 	// A description of the Domain Name.
 	Description pulumi.StringPtrInput
-	// The domain name.
+	// Domain name.
 	DomainName pulumi.StringPtrInput
-	// The ID of your Amazon Route 53 hosted zone.
+	// ID of your Amazon Route 53 hosted zone.
 	HostedZoneId pulumi.StringPtrInput
 }
 
@@ -129,21 +129,21 @@ func (DomainNameState) ElementType() reflect.Type {
 }
 
 type domainNameArgs struct {
-	// The Amazon Resource Name (ARN) of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
+	// ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
 	CertificateArn string `pulumi:"certificateArn"`
 	// A description of the Domain Name.
 	Description *string `pulumi:"description"`
-	// The domain name.
+	// Domain name.
 	DomainName string `pulumi:"domainName"`
 }
 
 // The set of arguments for constructing a DomainName resource.
 type DomainNameArgs struct {
-	// The Amazon Resource Name (ARN) of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
+	// ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
 	CertificateArn pulumi.StringInput
 	// A description of the Domain Name.
 	Description pulumi.StringPtrInput
-	// The domain name.
+	// Domain name.
 	DomainName pulumi.StringInput
 }
 
@@ -234,12 +234,12 @@ func (o DomainNameOutput) ToDomainNameOutputWithContext(ctx context.Context) Dom
 	return o
 }
 
-// The domain name that AppSync provides.
+// Domain name that AppSync provides.
 func (o DomainNameOutput) AppsyncDomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.AppsyncDomainName }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
+// ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
 func (o DomainNameOutput) CertificateArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.CertificateArn }).(pulumi.StringOutput)
 }
@@ -249,12 +249,12 @@ func (o DomainNameOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The domain name.
+// Domain name.
 func (o DomainNameOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// The ID of your Amazon Route 53 hosted zone.
+// ID of your Amazon Route 53 hosted zone.
 func (o DomainNameOutput) HostedZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.HostedZoneId }).(pulumi.StringOutput)
 }

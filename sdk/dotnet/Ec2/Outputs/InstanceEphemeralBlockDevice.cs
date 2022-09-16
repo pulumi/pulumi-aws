@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Ec2.Outputs
     public sealed class InstanceEphemeralBlockDevice
     {
         /// <summary>
-        /// The name of the block device to mount on the instance.
+        /// Name of the block device to mount on the instance.
         /// </summary>
         public readonly string DeviceName;
         /// <summary>

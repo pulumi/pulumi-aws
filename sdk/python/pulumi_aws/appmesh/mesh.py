@@ -21,9 +21,9 @@ class MeshArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Mesh resource.
-        :param pulumi.Input[str] name: The name to use for the service mesh. Must be between 1 and 255 characters in length.
-        :param pulumi.Input['MeshSpecArgs'] spec: The service mesh specification to apply.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] name: Name to use for the service mesh. Must be between 1 and 255 characters in length.
+        :param pulumi.Input['MeshSpecArgs'] spec: Service mesh specification to apply.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -36,7 +36,7 @@ class MeshArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name to use for the service mesh. Must be between 1 and 255 characters in length.
+        Name to use for the service mesh. Must be between 1 and 255 characters in length.
         """
         return pulumi.get(self, "name")
 
@@ -48,7 +48,7 @@ class MeshArgs:
     @pulumi.getter
     def spec(self) -> Optional[pulumi.Input['MeshSpecArgs']]:
         """
-        The service mesh specification to apply.
+        Service mesh specification to apply.
         """
         return pulumi.get(self, "spec")
 
@@ -60,7 +60,7 @@ class MeshArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -83,15 +83,15 @@ class _MeshState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Mesh resources.
-        :param pulumi.Input[str] arn: The ARN of the service mesh.
-        :param pulumi.Input[str] created_date: The creation date of the service mesh.
-        :param pulumi.Input[str] last_updated_date: The last update date of the service mesh.
-        :param pulumi.Input[str] mesh_owner: The AWS account ID of the service mesh's owner.
-        :param pulumi.Input[str] name: The name to use for the service mesh. Must be between 1 and 255 characters in length.
-        :param pulumi.Input[str] resource_owner: The resource owner's AWS account ID.
-        :param pulumi.Input['MeshSpecArgs'] spec: The service mesh specification to apply.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] arn: ARN of the service mesh.
+        :param pulumi.Input[str] created_date: Creation date of the service mesh.
+        :param pulumi.Input[str] last_updated_date: Last update date of the service mesh.
+        :param pulumi.Input[str] mesh_owner: AWS account ID of the service mesh's owner.
+        :param pulumi.Input[str] name: Name to use for the service mesh. Must be between 1 and 255 characters in length.
+        :param pulumi.Input[str] resource_owner: Resource owner's AWS account ID.
+        :param pulumi.Input['MeshSpecArgs'] spec: Service mesh specification to apply.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -116,7 +116,7 @@ class _MeshState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of the service mesh.
+        ARN of the service mesh.
         """
         return pulumi.get(self, "arn")
 
@@ -128,7 +128,7 @@ class _MeshState:
     @pulumi.getter(name="createdDate")
     def created_date(self) -> Optional[pulumi.Input[str]]:
         """
-        The creation date of the service mesh.
+        Creation date of the service mesh.
         """
         return pulumi.get(self, "created_date")
 
@@ -140,7 +140,7 @@ class _MeshState:
     @pulumi.getter(name="lastUpdatedDate")
     def last_updated_date(self) -> Optional[pulumi.Input[str]]:
         """
-        The last update date of the service mesh.
+        Last update date of the service mesh.
         """
         return pulumi.get(self, "last_updated_date")
 
@@ -152,7 +152,7 @@ class _MeshState:
     @pulumi.getter(name="meshOwner")
     def mesh_owner(self) -> Optional[pulumi.Input[str]]:
         """
-        The AWS account ID of the service mesh's owner.
+        AWS account ID of the service mesh's owner.
         """
         return pulumi.get(self, "mesh_owner")
 
@@ -164,7 +164,7 @@ class _MeshState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name to use for the service mesh. Must be between 1 and 255 characters in length.
+        Name to use for the service mesh. Must be between 1 and 255 characters in length.
         """
         return pulumi.get(self, "name")
 
@@ -176,7 +176,7 @@ class _MeshState:
     @pulumi.getter(name="resourceOwner")
     def resource_owner(self) -> Optional[pulumi.Input[str]]:
         """
-        The resource owner's AWS account ID.
+        Resource owner's AWS account ID.
         """
         return pulumi.get(self, "resource_owner")
 
@@ -188,7 +188,7 @@ class _MeshState:
     @pulumi.getter
     def spec(self) -> Optional[pulumi.Input['MeshSpecArgs']]:
         """
-        The service mesh specification to apply.
+        Service mesh specification to apply.
         """
         return pulumi.get(self, "spec")
 
@@ -200,7 +200,7 @@ class _MeshState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -212,7 +212,7 @@ class _MeshState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -265,9 +265,9 @@ class Mesh(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name to use for the service mesh. Must be between 1 and 255 characters in length.
-        :param pulumi.Input[pulumi.InputType['MeshSpecArgs']] spec: The service mesh specification to apply.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] name: Name to use for the service mesh. Must be between 1 and 255 characters in length.
+        :param pulumi.Input[pulumi.InputType['MeshSpecArgs']] spec: Service mesh specification to apply.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -370,15 +370,15 @@ class Mesh(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: The ARN of the service mesh.
-        :param pulumi.Input[str] created_date: The creation date of the service mesh.
-        :param pulumi.Input[str] last_updated_date: The last update date of the service mesh.
-        :param pulumi.Input[str] mesh_owner: The AWS account ID of the service mesh's owner.
-        :param pulumi.Input[str] name: The name to use for the service mesh. Must be between 1 and 255 characters in length.
-        :param pulumi.Input[str] resource_owner: The resource owner's AWS account ID.
-        :param pulumi.Input[pulumi.InputType['MeshSpecArgs']] spec: The service mesh specification to apply.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] arn: ARN of the service mesh.
+        :param pulumi.Input[str] created_date: Creation date of the service mesh.
+        :param pulumi.Input[str] last_updated_date: Last update date of the service mesh.
+        :param pulumi.Input[str] mesh_owner: AWS account ID of the service mesh's owner.
+        :param pulumi.Input[str] name: Name to use for the service mesh. Must be between 1 and 255 characters in length.
+        :param pulumi.Input[str] resource_owner: Resource owner's AWS account ID.
+        :param pulumi.Input[pulumi.InputType['MeshSpecArgs']] spec: Service mesh specification to apply.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -399,7 +399,7 @@ class Mesh(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        The ARN of the service mesh.
+        ARN of the service mesh.
         """
         return pulumi.get(self, "arn")
 
@@ -407,7 +407,7 @@ class Mesh(pulumi.CustomResource):
     @pulumi.getter(name="createdDate")
     def created_date(self) -> pulumi.Output[str]:
         """
-        The creation date of the service mesh.
+        Creation date of the service mesh.
         """
         return pulumi.get(self, "created_date")
 
@@ -415,7 +415,7 @@ class Mesh(pulumi.CustomResource):
     @pulumi.getter(name="lastUpdatedDate")
     def last_updated_date(self) -> pulumi.Output[str]:
         """
-        The last update date of the service mesh.
+        Last update date of the service mesh.
         """
         return pulumi.get(self, "last_updated_date")
 
@@ -423,7 +423,7 @@ class Mesh(pulumi.CustomResource):
     @pulumi.getter(name="meshOwner")
     def mesh_owner(self) -> pulumi.Output[str]:
         """
-        The AWS account ID of the service mesh's owner.
+        AWS account ID of the service mesh's owner.
         """
         return pulumi.get(self, "mesh_owner")
 
@@ -431,7 +431,7 @@ class Mesh(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name to use for the service mesh. Must be between 1 and 255 characters in length.
+        Name to use for the service mesh. Must be between 1 and 255 characters in length.
         """
         return pulumi.get(self, "name")
 
@@ -439,7 +439,7 @@ class Mesh(pulumi.CustomResource):
     @pulumi.getter(name="resourceOwner")
     def resource_owner(self) -> pulumi.Output[str]:
         """
-        The resource owner's AWS account ID.
+        Resource owner's AWS account ID.
         """
         return pulumi.get(self, "resource_owner")
 
@@ -447,7 +447,7 @@ class Mesh(pulumi.CustomResource):
     @pulumi.getter
     def spec(self) -> pulumi.Output[Optional['outputs.MeshSpec']]:
         """
-        The service mesh specification to apply.
+        Service mesh specification to apply.
         """
         return pulumi.get(self, "spec")
 
@@ -455,7 +455,7 @@ class Mesh(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -463,7 +463,7 @@ class Mesh(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

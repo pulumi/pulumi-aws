@@ -80,23 +80,23 @@ export class AmiLaunchPermission extends pulumi.CustomResource {
     }
 
     /**
-     * The AWS account ID for the launch permission.
+     * AWS account ID for the launch permission.
      */
     public readonly accountId!: pulumi.Output<string | undefined>;
     /**
-     * The name of the group for the launch permission. Valid values: `"all"`.
+     * Name of the group for the launch permission. Valid values: `"all"`.
      */
     public readonly group!: pulumi.Output<string | undefined>;
     /**
-     * The ID of the AMI.
+     * ID of the AMI.
      */
     public readonly imageId!: pulumi.Output<string>;
     /**
-     * The ARN of an organization for the launch permission.
+     * ARN of an organization for the launch permission.
      */
     public readonly organizationArn!: pulumi.Output<string | undefined>;
     /**
-     * The ARN of an organizational unit for the launch permission.
+     * ARN of an organizational unit for the launch permission.
      */
     public readonly organizationalUnitArn!: pulumi.Output<string | undefined>;
 
@@ -139,23 +139,23 @@ export class AmiLaunchPermission extends pulumi.CustomResource {
  */
 export interface AmiLaunchPermissionState {
     /**
-     * The AWS account ID for the launch permission.
+     * AWS account ID for the launch permission.
      */
     accountId?: pulumi.Input<string>;
     /**
-     * The name of the group for the launch permission. Valid values: `"all"`.
+     * Name of the group for the launch permission. Valid values: `"all"`.
      */
     group?: pulumi.Input<string>;
     /**
-     * The ID of the AMI.
+     * ID of the AMI.
      */
     imageId?: pulumi.Input<string>;
     /**
-     * The ARN of an organization for the launch permission.
+     * ARN of an organization for the launch permission.
      */
     organizationArn?: pulumi.Input<string>;
     /**
-     * The ARN of an organizational unit for the launch permission.
+     * ARN of an organizational unit for the launch permission.
      */
     organizationalUnitArn?: pulumi.Input<string>;
 }
@@ -165,23 +165,23 @@ export interface AmiLaunchPermissionState {
  */
 export interface AmiLaunchPermissionArgs {
     /**
-     * The AWS account ID for the launch permission.
+     * AWS account ID for the launch permission.
      */
     accountId?: pulumi.Input<string>;
     /**
-     * The name of the group for the launch permission. Valid values: `"all"`.
+     * Name of the group for the launch permission. Valid values: `"all"`.
      */
     group?: pulumi.Input<string>;
     /**
-     * The ID of the AMI.
+     * ID of the AMI.
      */
     imageId: pulumi.Input<string>;
     /**
-     * The ARN of an organization for the launch permission.
+     * ARN of an organization for the launch permission.
      */
     organizationArn?: pulumi.Input<string>;
     /**
-     * The ARN of an organizational unit for the launch permission.
+     * ARN of an organizational unit for the launch permission.
      */
     organizationalUnitArn?: pulumi.Input<string>;
 }

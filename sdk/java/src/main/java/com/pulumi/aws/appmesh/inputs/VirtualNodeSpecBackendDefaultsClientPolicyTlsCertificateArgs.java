@@ -17,14 +17,14 @@ public final class VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateArgs 
     public static final VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateArgs Empty = new VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateArgs();
 
     /**
-     * A local file certificate.
+     * Local file certificate.
      * 
      */
     @Import(name="file")
     private @Nullable Output<VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileArgs> file;
 
     /**
-     * @return A local file certificate.
+     * @return Local file certificate.
      * 
      */
     public Optional<Output<VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileArgs>> file() {
@@ -72,7 +72,7 @@ public final class VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateArgs 
         }
 
         /**
-         * @param file A local file certificate.
+         * @param file Local file certificate.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateArgs 
         }
 
         /**
-         * @param file A local file certificate.
+         * @param file Local file certificate.
          * 
          * @return builder
          * 

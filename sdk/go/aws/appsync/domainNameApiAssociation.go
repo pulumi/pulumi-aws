@@ -52,9 +52,9 @@ import (
 type DomainNameApiAssociation struct {
 	pulumi.CustomResourceState
 
-	// The API ID.
+	// API ID.
 	ApiId pulumi.StringOutput `pulumi:"apiId"`
-	// The Appsync domain name.
+	// Appsync domain name.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
 }
 
@@ -93,16 +93,16 @@ func GetDomainNameApiAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DomainNameApiAssociation resources.
 type domainNameApiAssociationState struct {
-	// The API ID.
+	// API ID.
 	ApiId *string `pulumi:"apiId"`
-	// The Appsync domain name.
+	// Appsync domain name.
 	DomainName *string `pulumi:"domainName"`
 }
 
 type DomainNameApiAssociationState struct {
-	// The API ID.
+	// API ID.
 	ApiId pulumi.StringPtrInput
-	// The Appsync domain name.
+	// Appsync domain name.
 	DomainName pulumi.StringPtrInput
 }
 
@@ -111,17 +111,17 @@ func (DomainNameApiAssociationState) ElementType() reflect.Type {
 }
 
 type domainNameApiAssociationArgs struct {
-	// The API ID.
+	// API ID.
 	ApiId string `pulumi:"apiId"`
-	// The Appsync domain name.
+	// Appsync domain name.
 	DomainName string `pulumi:"domainName"`
 }
 
 // The set of arguments for constructing a DomainNameApiAssociation resource.
 type DomainNameApiAssociationArgs struct {
-	// The API ID.
+	// API ID.
 	ApiId pulumi.StringInput
-	// The Appsync domain name.
+	// Appsync domain name.
 	DomainName pulumi.StringInput
 }
 
@@ -212,12 +212,12 @@ func (o DomainNameApiAssociationOutput) ToDomainNameApiAssociationOutputWithCont
 	return o
 }
 
-// The API ID.
+// API ID.
 func (o DomainNameApiAssociationOutput) ApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainNameApiAssociation) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
 }
 
-// The Appsync domain name.
+// Appsync domain name.
 func (o DomainNameApiAssociationOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainNameApiAssociation) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Inputs
     public sealed class GetAutoscalingGroupsFilterInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the DescribeAutoScalingGroup filter. The recommended values are: `tag-key`, `tag-value`, and `tag:&lt;tag name&gt;`
+        /// Name of the DescribeAutoScalingGroup filter. The recommended values are: `tag-key`, `tag-value`, and `tag:&lt;tag name&gt;`
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Inputs
         private InputList<string>? _values;
 
         /// <summary>
-        /// The value of the filter.
+        /// Value of the filter.
         /// </summary>
         public InputList<string> Values
         {

@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly bool DeleteOnTermination;
         /// <summary>
-        /// The Name of the device.
+        /// Name of the device.
         /// </summary>
         public readonly string DeviceName;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly bool Encrypted;
         /// <summary>
-        /// The provisioned IOPs of the volume.
+        /// Provisioned IOPs of the volume.
         /// </summary>
         public readonly int Iops;
         /// <summary>
@@ -34,19 +34,19 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly bool NoDevice;
         /// <summary>
-        /// The Snapshot ID of the mount.
+        /// Snapshot ID of the mount.
         /// </summary>
         public readonly string SnapshotId;
         /// <summary>
-        /// The Throughput of the volume.
+        /// Throughput of the volume.
         /// </summary>
         public readonly int Throughput;
         /// <summary>
-        /// The Size of the volume.
+        /// Size of the volume.
         /// </summary>
         public readonly int VolumeSize;
         /// <summary>
-        /// The Type of the volume.
+        /// Type of the volume.
         /// </summary>
         public readonly string VolumeType;
 

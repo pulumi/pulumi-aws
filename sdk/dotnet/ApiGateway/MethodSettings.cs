@@ -122,19 +122,19 @@ namespace Pulumi.Aws.ApiGateway
         public Output<string> MethodPath { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the REST API
+        /// ID of the REST API
         /// </summary>
         [Output("restApi")]
         public Output<string> RestApi { get; private set; } = null!;
 
         /// <summary>
-        /// The settings block, see below.
+        /// Settings block, see below.
         /// </summary>
         [Output("settings")]
         public Output<Outputs.MethodSettingsSettings> Settings { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the stage
+        /// Name of the stage
         /// </summary>
         [Output("stageName")]
         public Output<string> StageName { get; private set; } = null!;
@@ -192,19 +192,19 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string> MethodPath { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the REST API
+        /// ID of the REST API
         /// </summary>
         [Input("restApi", required: true)]
         public Input<string> RestApi { get; set; } = null!;
 
         /// <summary>
-        /// The settings block, see below.
+        /// Settings block, see below.
         /// </summary>
         [Input("settings", required: true)]
         public Input<Inputs.MethodSettingsSettingsArgs> Settings { get; set; } = null!;
 
         /// <summary>
-        /// The name of the stage
+        /// Name of the stage
         /// </summary>
         [Input("stageName", required: true)]
         public Input<string> StageName { get; set; } = null!;
@@ -224,19 +224,19 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? MethodPath { get; set; }
 
         /// <summary>
-        /// The ID of the REST API
+        /// ID of the REST API
         /// </summary>
         [Input("restApi")]
         public Input<string>? RestApi { get; set; }
 
         /// <summary>
-        /// The settings block, see below.
+        /// Settings block, see below.
         /// </summary>
         [Input("settings")]
         public Input<Inputs.MethodSettingsSettingsGetArgs>? Settings { get; set; }
 
         /// <summary>
-        /// The name of the stage
+        /// Name of the stage
         /// </summary>
         [Input("stageName")]
         public Input<string>? StageName { get; set; }

@@ -16,7 +16,7 @@ namespace Pulumi.Aws.AppFlow.Inputs
         private InputMap<string>? _customProperties;
 
         /// <summary>
-        /// The custom properties that are specific to the connector when it's used as a source in the flow. Maximum of 50 items.
+        /// Custom properties that are specific to the connector when it's used as a source in the flow. Maximum of 50 items.
         /// </summary>
         public InputMap<string> CustomProperties
         {
@@ -25,13 +25,13 @@ namespace Pulumi.Aws.AppFlow.Inputs
         }
 
         /// <summary>
-        /// The entity specified in the custom connector as a source in the flow.
+        /// Entity specified in the custom connector as a source in the flow.
         /// </summary>
         [Input("entityName", required: true)]
         public Input<string> EntityName { get; set; } = null!;
 
         /// <summary>
-        /// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+        /// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
         /// </summary>
         [Input("errorHandlingConfig")]
         public Input<Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigArgs>? ErrorHandlingConfig { get; set; }
@@ -40,7 +40,7 @@ namespace Pulumi.Aws.AppFlow.Inputs
         private InputList<string>? _idFieldNames;
 
         /// <summary>
-        /// The name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+        /// Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
         /// </summary>
         public InputList<string> IdFieldNames
         {

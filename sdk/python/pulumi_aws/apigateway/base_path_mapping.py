@@ -20,10 +20,10 @@ class BasePathMappingArgs:
                  stage_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a BasePathMapping resource.
-        :param pulumi.Input[str] domain_name: The already-registered domain name to connect the API to.
-        :param pulumi.Input[str] rest_api: The id of the API to connect.
+        :param pulumi.Input[str] domain_name: Already-registered domain name to connect the API to.
+        :param pulumi.Input[str] rest_api: ID of the API to connect.
         :param pulumi.Input[str] base_path: Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
-        :param pulumi.Input[str] stage_name: The name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
+        :param pulumi.Input[str] stage_name: Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
         """
         pulumi.set(__self__, "domain_name", domain_name)
         pulumi.set(__self__, "rest_api", rest_api)
@@ -36,7 +36,7 @@ class BasePathMappingArgs:
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Input[str]:
         """
-        The already-registered domain name to connect the API to.
+        Already-registered domain name to connect the API to.
         """
         return pulumi.get(self, "domain_name")
 
@@ -48,7 +48,7 @@ class BasePathMappingArgs:
     @pulumi.getter(name="restApi")
     def rest_api(self) -> pulumi.Input[str]:
         """
-        The id of the API to connect.
+        ID of the API to connect.
         """
         return pulumi.get(self, "rest_api")
 
@@ -72,7 +72,7 @@ class BasePathMappingArgs:
     @pulumi.getter(name="stageName")
     def stage_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
+        Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
         """
         return pulumi.get(self, "stage_name")
 
@@ -91,9 +91,9 @@ class _BasePathMappingState:
         """
         Input properties used for looking up and filtering BasePathMapping resources.
         :param pulumi.Input[str] base_path: Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
-        :param pulumi.Input[str] domain_name: The already-registered domain name to connect the API to.
-        :param pulumi.Input[str] rest_api: The id of the API to connect.
-        :param pulumi.Input[str] stage_name: The name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
+        :param pulumi.Input[str] domain_name: Already-registered domain name to connect the API to.
+        :param pulumi.Input[str] rest_api: ID of the API to connect.
+        :param pulumi.Input[str] stage_name: Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
         """
         if base_path is not None:
             pulumi.set(__self__, "base_path", base_path)
@@ -120,7 +120,7 @@ class _BasePathMappingState:
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The already-registered domain name to connect the API to.
+        Already-registered domain name to connect the API to.
         """
         return pulumi.get(self, "domain_name")
 
@@ -132,7 +132,7 @@ class _BasePathMappingState:
     @pulumi.getter(name="restApi")
     def rest_api(self) -> Optional[pulumi.Input[str]]:
         """
-        The id of the API to connect.
+        ID of the API to connect.
         """
         return pulumi.get(self, "rest_api")
 
@@ -144,7 +144,7 @@ class _BasePathMappingState:
     @pulumi.getter(name="stageName")
     def stage_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
+        Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
         """
         return pulumi.get(self, "stage_name")
 
@@ -207,9 +207,9 @@ class BasePathMapping(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] base_path: Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
-        :param pulumi.Input[str] domain_name: The already-registered domain name to connect the API to.
-        :param pulumi.Input[str] rest_api: The id of the API to connect.
-        :param pulumi.Input[str] stage_name: The name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
+        :param pulumi.Input[str] domain_name: Already-registered domain name to connect the API to.
+        :param pulumi.Input[str] rest_api: ID of the API to connect.
+        :param pulumi.Input[str] stage_name: Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
         """
         ...
     @overload
@@ -316,9 +316,9 @@ class BasePathMapping(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] base_path: Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
-        :param pulumi.Input[str] domain_name: The already-registered domain name to connect the API to.
-        :param pulumi.Input[str] rest_api: The id of the API to connect.
-        :param pulumi.Input[str] stage_name: The name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
+        :param pulumi.Input[str] domain_name: Already-registered domain name to connect the API to.
+        :param pulumi.Input[str] rest_api: ID of the API to connect.
+        :param pulumi.Input[str] stage_name: Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -342,7 +342,7 @@ class BasePathMapping(pulumi.CustomResource):
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[str]:
         """
-        The already-registered domain name to connect the API to.
+        Already-registered domain name to connect the API to.
         """
         return pulumi.get(self, "domain_name")
 
@@ -350,7 +350,7 @@ class BasePathMapping(pulumi.CustomResource):
     @pulumi.getter(name="restApi")
     def rest_api(self) -> pulumi.Output[str]:
         """
-        The id of the API to connect.
+        ID of the API to connect.
         """
         return pulumi.get(self, "rest_api")
 
@@ -358,7 +358,7 @@ class BasePathMapping(pulumi.CustomResource):
     @pulumi.getter(name="stageName")
     def stage_name(self) -> pulumi.Output[Optional[str]]:
         """
-        The name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
+        Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
         """
         return pulumi.get(self, "stage_name")
 

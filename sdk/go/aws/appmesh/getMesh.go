@@ -78,31 +78,31 @@ func LookupMesh(ctx *pulumi.Context, args *LookupMeshArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getMesh.
 type LookupMeshArgs struct {
-	// The AWS account ID of the service mesh's owner.
+	// AWS account ID of the service mesh's owner.
 	MeshOwner *string `pulumi:"meshOwner"`
-	// The name of the service mesh.
+	// Name of the service mesh.
 	Name string `pulumi:"name"`
-	// A map of tags.
+	// Map of tags.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getMesh.
 type LookupMeshResult struct {
-	// The ARN of the service mesh.
+	// ARN of the service mesh.
 	Arn string `pulumi:"arn"`
-	// The creation date of the service mesh.
+	// Creation date of the service mesh.
 	CreatedDate string `pulumi:"createdDate"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The last update date of the service mesh.
+	// Last update date of the service mesh.
 	LastUpdatedDate string `pulumi:"lastUpdatedDate"`
 	MeshOwner       string `pulumi:"meshOwner"`
 	Name            string `pulumi:"name"`
-	// The resource owner's AWS account ID.
+	// Resource owner's AWS account ID.
 	ResourceOwner string `pulumi:"resourceOwner"`
-	// The service mesh specification.
+	// Service mesh specification.
 	Specs []GetMeshSpec `pulumi:"specs"`
-	// A map of tags.
+	// Map of tags.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -121,11 +121,11 @@ func LookupMeshOutput(ctx *pulumi.Context, args LookupMeshOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getMesh.
 type LookupMeshOutputArgs struct {
-	// The AWS account ID of the service mesh's owner.
+	// AWS account ID of the service mesh's owner.
 	MeshOwner pulumi.StringPtrInput `pulumi:"meshOwner"`
-	// The name of the service mesh.
+	// Name of the service mesh.
 	Name pulumi.StringInput `pulumi:"name"`
-	// A map of tags.
+	// Map of tags.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -148,12 +148,12 @@ func (o LookupMeshResultOutput) ToLookupMeshResultOutputWithContext(ctx context.
 	return o
 }
 
-// The ARN of the service mesh.
+// ARN of the service mesh.
 func (o LookupMeshResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMeshResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The creation date of the service mesh.
+// Creation date of the service mesh.
 func (o LookupMeshResultOutput) CreatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMeshResult) string { return v.CreatedDate }).(pulumi.StringOutput)
 }
@@ -163,7 +163,7 @@ func (o LookupMeshResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMeshResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The last update date of the service mesh.
+// Last update date of the service mesh.
 func (o LookupMeshResultOutput) LastUpdatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMeshResult) string { return v.LastUpdatedDate }).(pulumi.StringOutput)
 }
@@ -176,17 +176,17 @@ func (o LookupMeshResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMeshResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The resource owner's AWS account ID.
+// Resource owner's AWS account ID.
 func (o LookupMeshResultOutput) ResourceOwner() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMeshResult) string { return v.ResourceOwner }).(pulumi.StringOutput)
 }
 
-// The service mesh specification.
+// Service mesh specification.
 func (o LookupMeshResultOutput) Specs() GetMeshSpecArrayOutput {
 	return o.ApplyT(func(v LookupMeshResult) []GetMeshSpec { return v.Specs }).(GetMeshSpecArrayOutput)
 }
 
-// A map of tags.
+// Map of tags.
 func (o LookupMeshResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupMeshResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

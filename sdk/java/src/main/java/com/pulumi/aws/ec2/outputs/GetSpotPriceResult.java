@@ -22,7 +22,7 @@ public final class GetSpotPriceResult {
     private String id;
     private @Nullable String instanceType;
     /**
-     * @return The most recent Spot Price value for the given instance type and AZ.
+     * @return Most recent Spot Price value for the given instance type and AZ.
      * 
      */
     private String spotPrice;
@@ -50,7 +50,7 @@ public final class GetSpotPriceResult {
         return Optional.ofNullable(this.instanceType);
     }
     /**
-     * @return The most recent Spot Price value for the given instance type and AZ.
+     * @return Most recent Spot Price value for the given instance type and AZ.
      * 
      */
     public String spotPrice() {

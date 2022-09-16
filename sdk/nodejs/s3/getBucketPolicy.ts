@@ -37,7 +37,7 @@ export function getBucketPolicy(args: GetBucketPolicyArgs, opts?: pulumi.InvokeO
  */
 export interface GetBucketPolicyArgs {
     /**
-     * The bucket name.
+     * Bucket name.
      */
     bucket: string;
 }
@@ -66,7 +66,7 @@ export function getBucketPolicyOutput(args: GetBucketPolicyOutputArgs, opts?: pu
  */
 export interface GetBucketPolicyOutputArgs {
     /**
-     * The bucket name.
+     * Bucket name.
      */
     bucket: pulumi.Input<string>;
 }

@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.redshiftserverless.WorkgroupArgs;
 import com.pulumi.aws.redshiftserverless.inputs.WorkgroupState;
 import com.pulumi.aws.redshiftserverless.outputs.WorkgroupConfigParameter;
+import com.pulumi.aws.redshiftserverless.outputs.WorkgroupEndpoint;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -107,6 +108,20 @@ public class Workgroup extends com.pulumi.resources.CustomResource {
         return this.configParameters;
     }
     /**
+     * The endpoint that is created from the workgroup. See `Endpoint` below.
+     * 
+     */
+    @Export(name="endpoints", type=List.class, parameters={WorkgroupEndpoint.class})
+    private Output<List<WorkgroupEndpoint>> endpoints;
+
+    /**
+     * @return The endpoint that is created from the workgroup. See `Endpoint` below.
+     * 
+     */
+    public Output<List<WorkgroupEndpoint>> endpoints() {
+        return this.endpoints;
+    }
+    /**
      * The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
      * 
      */
@@ -174,9 +189,17 @@ public class Workgroup extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

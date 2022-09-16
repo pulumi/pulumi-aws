@@ -355,7 +355,7 @@ class GetRepositoryEncryptionConfigurationResult(dict):
                  encryption_type: str,
                  kms_key: str):
         """
-        :param str encryption_type: The encryption type to use for the repository, either `AES256` or `KMS`.
+        :param str encryption_type: Encryption type to use for the repository, either `AES256` or `KMS`.
         :param str kms_key: If `encryption_type` is `KMS`, the ARN of the KMS key used.
         """
         pulumi.set(__self__, "encryption_type", encryption_type)
@@ -365,7 +365,7 @@ class GetRepositoryEncryptionConfigurationResult(dict):
     @pulumi.getter(name="encryptionType")
     def encryption_type(self) -> str:
         """
-        The encryption type to use for the repository, either `AES256` or `KMS`.
+        Encryption type to use for the repository, either `AES256` or `KMS`.
         """
         return pulumi.get(self, "encryption_type")
 
@@ -383,7 +383,7 @@ class GetRepositoryImageScanningConfigurationResult(dict):
     def __init__(__self__, *,
                  scan_on_push: bool):
         """
-        :param bool scan_on_push: Indicates whether images are scanned after being pushed to the repository.
+        :param bool scan_on_push: Whether images are scanned after being pushed to the repository.
         """
         pulumi.set(__self__, "scan_on_push", scan_on_push)
 
@@ -391,7 +391,7 @@ class GetRepositoryImageScanningConfigurationResult(dict):
     @pulumi.getter(name="scanOnPush")
     def scan_on_push(self) -> bool:
         """
-        Indicates whether images are scanned after being pushed to the repository.
+        Whether images are scanned after being pushed to the repository.
         """
         return pulumi.get(self, "scan_on_push")
 

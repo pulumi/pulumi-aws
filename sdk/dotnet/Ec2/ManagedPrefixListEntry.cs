@@ -35,7 +35,7 @@ namespace Pulumi.Aws.Ec2
     ///     {
     ///         Cidr = aws_vpc.Example.Cidr_block,
     ///         Description = "Primary",
-    ///         PrefixListId = aws_ec2_managed_prefix_list.Entry.Id,
+    ///         PrefixListId = example.Id,
     ///     });
     /// 
     /// });

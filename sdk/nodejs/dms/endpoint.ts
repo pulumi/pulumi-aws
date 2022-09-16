@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -123,9 +125,10 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly password!: pulumi.Output<string | undefined>;
     /**
-     * Port used by the endpoint database.
+     * Transmission Control Protocol (TCP) port for the endpoint.
      */
     public readonly port!: pulumi.Output<number | undefined>;
+    public readonly redisSettings!: pulumi.Output<outputs.dms.EndpointRedisSettings | undefined>;
     /**
      * Configuration block for Redshift settings. See below.
      */
@@ -143,7 +146,7 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly secretsManagerArn!: pulumi.Output<string | undefined>;
     /**
-     * Host name of the server.
+     * Fully qualified domain name of the endpoint.
      */
     public readonly serverName!: pulumi.Output<string | undefined>;
     /**
@@ -194,6 +197,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["mongodbSettings"] = state ? state.mongodbSettings : undefined;
             resourceInputs["password"] = state ? state.password : undefined;
             resourceInputs["port"] = state ? state.port : undefined;
+            resourceInputs["redisSettings"] = state ? state.redisSettings : undefined;
             resourceInputs["redshiftSettings"] = state ? state.redshiftSettings : undefined;
             resourceInputs["s3Settings"] = state ? state.s3Settings : undefined;
             resourceInputs["secretsManagerAccessRoleArn"] = state ? state.secretsManagerAccessRoleArn : undefined;
@@ -228,6 +232,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["mongodbSettings"] = args ? args.mongodbSettings : undefined;
             resourceInputs["password"] = args ? args.password : undefined;
             resourceInputs["port"] = args ? args.port : undefined;
+            resourceInputs["redisSettings"] = args ? args.redisSettings : undefined;
             resourceInputs["redshiftSettings"] = args ? args.redshiftSettings : undefined;
             resourceInputs["s3Settings"] = args ? args.s3Settings : undefined;
             resourceInputs["secretsManagerAccessRoleArn"] = args ? args.secretsManagerAccessRoleArn : undefined;
@@ -302,9 +307,10 @@ export interface EndpointState {
      */
     password?: pulumi.Input<string>;
     /**
-     * Port used by the endpoint database.
+     * Transmission Control Protocol (TCP) port for the endpoint.
      */
     port?: pulumi.Input<number>;
+    redisSettings?: pulumi.Input<inputs.dms.EndpointRedisSettings>;
     /**
      * Configuration block for Redshift settings. See below.
      */
@@ -322,7 +328,7 @@ export interface EndpointState {
      */
     secretsManagerArn?: pulumi.Input<string>;
     /**
-     * Host name of the server.
+     * Fully qualified domain name of the endpoint.
      */
     serverName?: pulumi.Input<string>;
     /**
@@ -400,9 +406,10 @@ export interface EndpointArgs {
      */
     password?: pulumi.Input<string>;
     /**
-     * Port used by the endpoint database.
+     * Transmission Control Protocol (TCP) port for the endpoint.
      */
     port?: pulumi.Input<number>;
+    redisSettings?: pulumi.Input<inputs.dms.EndpointRedisSettings>;
     /**
      * Configuration block for Redshift settings. See below.
      */
@@ -420,7 +427,7 @@ export interface EndpointArgs {
      */
     secretsManagerArn?: pulumi.Input<string>;
     /**
-     * Host name of the server.
+     * Fully qualified domain name of the endpoint.
      */
     serverName?: pulumi.Input<string>;
     /**

@@ -35,14 +35,14 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether a cache cluster is enabled for the stage
+     * Whether a cache cluster is enabled for the stage
      * 
      */
     @Import(name="cacheClusterEnabled")
     private @Nullable Output<Boolean> cacheClusterEnabled;
 
     /**
-     * @return Specifies whether a cache cluster is enabled for the stage
+     * @return Whether a cache cluster is enabled for the stage
      * 
      */
     public Optional<Output<Boolean>> cacheClusterEnabled() {
@@ -50,14 +50,14 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
+     * Size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
      * 
      */
     @Import(name="cacheClusterSize")
     private @Nullable Output<String> cacheClusterSize;
 
     /**
-     * @return The size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
+     * @return Size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
      * 
      */
     public Optional<Output<String>> cacheClusterSize() {
@@ -80,14 +80,14 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The identifier of a client certificate for the stage.
+     * Identifier of a client certificate for the stage.
      * 
      */
     @Import(name="clientCertificateId")
     private @Nullable Output<String> clientCertificateId;
 
     /**
-     * @return The identifier of a client certificate for the stage.
+     * @return Identifier of a client certificate for the stage.
      * 
      */
     public Optional<Output<String>> clientCertificateId() {
@@ -95,14 +95,14 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the deployment that the stage points to
+     * ID of the deployment that the stage points to
      * 
      */
     @Import(name="deployment", required=true)
     private Output<String> deployment;
 
     /**
-     * @return The ID of the deployment that the stage points to
+     * @return ID of the deployment that the stage points to
      * 
      */
     public Output<String> deployment() {
@@ -110,14 +110,14 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The description of the stage.
+     * Description of the stage.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description of the stage.
+     * @return Description of the stage.
      * 
      */
     public Optional<Output<String>> description() {
@@ -125,14 +125,14 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The version of the associated API documentation
+     * Version of the associated API documentation
      * 
      */
     @Import(name="documentationVersion")
     private @Nullable Output<String> documentationVersion;
 
     /**
-     * @return The version of the associated API documentation
+     * @return Version of the associated API documentation
      * 
      */
     public Optional<Output<String>> documentationVersion() {
@@ -140,14 +140,14 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the associated REST API
+     * ID of the associated REST API
      * 
      */
     @Import(name="restApi", required=true)
     private Output<String> restApi;
 
     /**
-     * @return The ID of the associated REST API
+     * @return ID of the associated REST API
      * 
      */
     public Output<String> restApi() {
@@ -155,14 +155,14 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the stage
+     * Name of the stage
      * 
      */
     @Import(name="stageName", required=true)
     private Output<String> stageName;
 
     /**
-     * @return The name of the stage
+     * @return Name of the stage
      * 
      */
     public Output<String> stageName() {
@@ -170,14 +170,14 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -185,14 +185,14 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map that defines the stage variables
+     * Map that defines the stage variables
      * 
      */
     @Import(name="variables")
     private @Nullable Output<Map<String,String>> variables;
 
     /**
-     * @return A map that defines the stage variables
+     * @return Map that defines the stage variables
      * 
      */
     public Optional<Output<Map<String,String>>> variables() {
@@ -272,7 +272,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cacheClusterEnabled Specifies whether a cache cluster is enabled for the stage
+         * @param cacheClusterEnabled Whether a cache cluster is enabled for the stage
          * 
          * @return builder
          * 
@@ -283,7 +283,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cacheClusterEnabled Specifies whether a cache cluster is enabled for the stage
+         * @param cacheClusterEnabled Whether a cache cluster is enabled for the stage
          * 
          * @return builder
          * 
@@ -293,7 +293,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cacheClusterSize The size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
+         * @param cacheClusterSize Size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
          * 
          * @return builder
          * 
@@ -304,7 +304,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cacheClusterSize The size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
+         * @param cacheClusterSize Size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
          * 
          * @return builder
          * 
@@ -335,7 +335,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientCertificateId The identifier of a client certificate for the stage.
+         * @param clientCertificateId Identifier of a client certificate for the stage.
          * 
          * @return builder
          * 
@@ -346,7 +346,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientCertificateId The identifier of a client certificate for the stage.
+         * @param clientCertificateId Identifier of a client certificate for the stage.
          * 
          * @return builder
          * 
@@ -356,7 +356,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deployment The ID of the deployment that the stage points to
+         * @param deployment ID of the deployment that the stage points to
          * 
          * @return builder
          * 
@@ -367,7 +367,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deployment The ID of the deployment that the stage points to
+         * @param deployment ID of the deployment that the stage points to
          * 
          * @return builder
          * 
@@ -377,7 +377,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The description of the stage.
+         * @param description Description of the stage.
          * 
          * @return builder
          * 
@@ -388,7 +388,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The description of the stage.
+         * @param description Description of the stage.
          * 
          * @return builder
          * 
@@ -398,7 +398,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param documentationVersion The version of the associated API documentation
+         * @param documentationVersion Version of the associated API documentation
          * 
          * @return builder
          * 
@@ -409,7 +409,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param documentationVersion The version of the associated API documentation
+         * @param documentationVersion Version of the associated API documentation
          * 
          * @return builder
          * 
@@ -419,7 +419,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param restApi The ID of the associated REST API
+         * @param restApi ID of the associated REST API
          * 
          * @return builder
          * 
@@ -430,7 +430,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param restApi The ID of the associated REST API
+         * @param restApi ID of the associated REST API
          * 
          * @return builder
          * 
@@ -440,7 +440,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param stageName The name of the stage
+         * @param stageName Name of the stage
          * 
          * @return builder
          * 
@@ -451,7 +451,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param stageName The name of the stage
+         * @param stageName Name of the stage
          * 
          * @return builder
          * 
@@ -461,7 +461,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -472,7 +472,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -482,7 +482,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param variables A map that defines the stage variables
+         * @param variables Map that defines the stage variables
          * 
          * @return builder
          * 
@@ -493,7 +493,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param variables A map that defines the stage variables
+         * @param variables Map that defines the stage variables
          * 
          * @return builder
          * 

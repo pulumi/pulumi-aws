@@ -325,7 +325,7 @@ class GetDelegatedAdministratorsDelegatedAdministratorResult(dict):
                  name: str,
                  status: str):
         """
-        :param str arn: The Amazon Resource Name (ARN) of the delegated administrator's account.
+        :param str arn: The ARN of the delegated administrator's account.
         :param str delegation_enabled_date: The date when the account was made a delegated administrator.
         :param str email: The email address that is associated with the delegated administrator's AWS account.
         :param str id: The unique identifier (ID) of the delegated administrator's account.
@@ -347,7 +347,7 @@ class GetDelegatedAdministratorsDelegatedAdministratorResult(dict):
     @pulumi.getter
     def arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the delegated administrator's account.
+        The ARN of the delegated administrator's account.
         """
         return pulumi.get(self, "arn")
 

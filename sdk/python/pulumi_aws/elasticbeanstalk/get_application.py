@@ -48,7 +48,7 @@ class GetApplicationResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the application.
+        ARN of the application.
         """
         return pulumi.get(self, "arn")
 
@@ -104,7 +104,7 @@ def get_application(name: Optional[str] = None,
     ```
 
 
-    :param str name: The name of the application
+    :param str name: Name of the application
     """
     __args__ = dict()
     __args__['name'] = name
@@ -137,6 +137,6 @@ def get_application_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str name: The name of the application
+    :param str name: Name of the application
     """
     ...

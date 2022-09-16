@@ -16,7 +16,7 @@ public final class AttachmentState extends com.pulumi.resources.ResourceArgs {
     public static final AttachmentState Empty = new AttachmentState();
 
     /**
-     * The ARN of an ALB Target Group.
+     * ARN of an ALB Target Group.
      * 
      * @deprecated
      * Use lb_target_group_arn instead
@@ -27,7 +27,7 @@ public final class AttachmentState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> albTargetGroupArn;
 
     /**
-     * @return The ARN of an ALB Target Group.
+     * @return ARN of an ALB Target Group.
      * 
      * @deprecated
      * Use lb_target_group_arn instead
@@ -54,14 +54,14 @@ public final class AttachmentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the ELB.
+     * Name of the ELB.
      * 
      */
     @Import(name="elb")
     private @Nullable Output<String> elb;
 
     /**
-     * @return The name of the ELB.
+     * @return Name of the ELB.
      * 
      */
     public Optional<Output<String>> elb() {
@@ -69,14 +69,14 @@ public final class AttachmentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN of a load balancer target group.
+     * ARN of a load balancer target group.
      * 
      */
     @Import(name="lbTargetGroupArn")
     private @Nullable Output<String> lbTargetGroupArn;
 
     /**
-     * @return The ARN of a load balancer target group.
+     * @return ARN of a load balancer target group.
      * 
      */
     public Optional<Output<String>> lbTargetGroupArn() {
@@ -111,7 +111,7 @@ public final class AttachmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param albTargetGroupArn The ARN of an ALB Target Group.
+         * @param albTargetGroupArn ARN of an ALB Target Group.
          * 
          * @return builder
          * 
@@ -126,7 +126,7 @@ public final class AttachmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param albTargetGroupArn The ARN of an ALB Target Group.
+         * @param albTargetGroupArn ARN of an ALB Target Group.
          * 
          * @return builder
          * 
@@ -161,7 +161,7 @@ public final class AttachmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param elb The name of the ELB.
+         * @param elb Name of the ELB.
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class AttachmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param elb The name of the ELB.
+         * @param elb Name of the ELB.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class AttachmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lbTargetGroupArn The ARN of a load balancer target group.
+         * @param lbTargetGroupArn ARN of a load balancer target group.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class AttachmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lbTargetGroupArn The ARN of a load balancer target group.
+         * @param lbTargetGroupArn ARN of a load balancer target group.
          * 
          * @return builder
          * 

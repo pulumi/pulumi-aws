@@ -130,13 +130,13 @@ namespace Pulumi.Aws.Ssm
         public string? NamePrefix { get; set; }
 
         /// <summary>
-        /// The specified OS for the baseline.
+        /// Specified OS for the baseline.
         /// </summary>
         [Input("operatingSystem")]
         public string? OperatingSystem { get; set; }
 
         /// <summary>
-        /// The owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
+        /// Owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
         /// </summary>
         [Input("owner", required: true)]
         public string Owner { get; set; } = null!;
@@ -162,13 +162,13 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? NamePrefix { get; set; }
 
         /// <summary>
-        /// The specified OS for the baseline.
+        /// Specified OS for the baseline.
         /// </summary>
         [Input("operatingSystem")]
         public Input<string>? OperatingSystem { get; set; }
 
         /// <summary>
-        /// The owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
+        /// Owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
         /// </summary>
         [Input("owner", required: true)]
         public Input<string> Owner { get; set; } = null!;
@@ -184,11 +184,11 @@ namespace Pulumi.Aws.Ssm
     public sealed class GetPatchBaselineResult
     {
         /// <summary>
-        /// A list of rules used to include patches in the baseline.
+        /// List of rules used to include patches in the baseline.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPatchBaselineApprovalRuleResult> ApprovalRules;
         /// <summary>
-        /// A list of explicitly approved patches for the baseline.
+        /// List of explicitly approved patches for the baseline.
         /// </summary>
         public readonly ImmutableArray<string> ApprovedPatches;
         /// <summary>
@@ -201,11 +201,11 @@ namespace Pulumi.Aws.Ssm
         public readonly bool ApprovedPatchesEnableNonSecurity;
         public readonly bool? DefaultBaseline;
         /// <summary>
-        /// The description of the baseline.
+        /// Description of the baseline.
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// A set of global filters used to exclude patches from the baseline.
+        /// Set of global filters used to exclude patches from the baseline.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPatchBaselineGlobalFilterResult> GlobalFilters;
         /// <summary>
@@ -220,7 +220,7 @@ namespace Pulumi.Aws.Ssm
         public readonly string? OperatingSystem;
         public readonly string Owner;
         /// <summary>
-        /// A list of rejected patches.
+        /// List of rejected patches.
         /// </summary>
         public readonly ImmutableArray<string> RejectedPatches;
         /// <summary>

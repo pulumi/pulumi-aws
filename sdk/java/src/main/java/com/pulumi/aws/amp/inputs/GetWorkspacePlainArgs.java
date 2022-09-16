@@ -16,14 +16,14 @@ public final class GetWorkspacePlainArgs extends com.pulumi.resources.InvokeArgs
     public static final GetWorkspacePlainArgs Empty = new GetWorkspacePlainArgs();
 
     /**
-     * The tags assigned to the resource.
+     * Tags assigned to the resource.
      * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return The tags assigned to the resource.
+     * @return Tags assigned to the resource.
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -31,14 +31,14 @@ public final class GetWorkspacePlainArgs extends com.pulumi.resources.InvokeArgs
     }
 
     /**
-     * The Prometheus workspace ID.
+     * Prometheus workspace ID.
      * 
      */
     @Import(name="workspaceId", required=true)
     private String workspaceId;
 
     /**
-     * @return The Prometheus workspace ID.
+     * @return Prometheus workspace ID.
      * 
      */
     public String workspaceId() {
@@ -71,7 +71,7 @@ public final class GetWorkspacePlainArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param tags The tags assigned to the resource.
+         * @param tags Tags assigned to the resource.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class GetWorkspacePlainArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param workspaceId The Prometheus workspace ID.
+         * @param workspaceId Prometheus workspace ID.
          * 
          * @return builder
          * 

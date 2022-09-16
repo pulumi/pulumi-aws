@@ -80,7 +80,7 @@ namespace Pulumi.Aws.AutoScaling
     public partial class Attachment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of an ALB Target Group.
+        /// ARN of an ALB Target Group.
         /// </summary>
         [Output("albTargetGroupArn")]
         public Output<string?> AlbTargetGroupArn { get; private set; } = null!;
@@ -92,13 +92,13 @@ namespace Pulumi.Aws.AutoScaling
         public Output<string> AutoscalingGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the ELB.
+        /// Name of the ELB.
         /// </summary>
         [Output("elb")]
         public Output<string?> Elb { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of a load balancer target group.
+        /// ARN of a load balancer target group.
         /// </summary>
         [Output("lbTargetGroupArn")]
         public Output<string?> LbTargetGroupArn { get; private set; } = null!;
@@ -150,7 +150,7 @@ namespace Pulumi.Aws.AutoScaling
     public sealed class AttachmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of an ALB Target Group.
+        /// ARN of an ALB Target Group.
         /// </summary>
         [Input("albTargetGroupArn")]
         public Input<string>? AlbTargetGroupArn { get; set; }
@@ -162,13 +162,13 @@ namespace Pulumi.Aws.AutoScaling
         public Input<string> AutoscalingGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the ELB.
+        /// Name of the ELB.
         /// </summary>
         [Input("elb")]
         public Input<string>? Elb { get; set; }
 
         /// <summary>
-        /// The ARN of a load balancer target group.
+        /// ARN of a load balancer target group.
         /// </summary>
         [Input("lbTargetGroupArn")]
         public Input<string>? LbTargetGroupArn { get; set; }
@@ -182,7 +182,7 @@ namespace Pulumi.Aws.AutoScaling
     public sealed class AttachmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of an ALB Target Group.
+        /// ARN of an ALB Target Group.
         /// </summary>
         [Input("albTargetGroupArn")]
         public Input<string>? AlbTargetGroupArn { get; set; }
@@ -194,13 +194,13 @@ namespace Pulumi.Aws.AutoScaling
         public Input<string>? AutoscalingGroupName { get; set; }
 
         /// <summary>
-        /// The name of the ELB.
+        /// Name of the ELB.
         /// </summary>
         [Input("elb")]
         public Input<string>? Elb { get; set; }
 
         /// <summary>
-        /// The ARN of a load balancer target group.
+        /// ARN of a load balancer target group.
         /// </summary>
         [Input("lbTargetGroupArn")]
         public Input<string>? LbTargetGroupArn { get; set; }

@@ -80,7 +80,7 @@ namespace Pulumi.Aws.Lambda
         public string FunctionName { get; set; } = null!;
 
         /// <summary>
-        /// Alias name or version number of the lambda functionE.g., `$LATEST`, `my-alias`, or `1`
+        /// Alias name or version number of the lambda functionE.g., `$LATEST`, `my-alias`, or `1`. When not included: the data source resolves to the most recent published version; if no published version exists: it resolves to the most recent unpublished version.
         /// </summary>
         [Input("qualifier")]
         public string? Qualifier { get; set; }
@@ -108,7 +108,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string> FunctionName { get; set; } = null!;
 
         /// <summary>
-        /// Alias name or version number of the lambda functionE.g., `$LATEST`, `my-alias`, or `1`
+        /// Alias name or version number of the lambda functionE.g., `$LATEST`, `my-alias`, or `1`. When not included: the data source resolves to the most recent published version; if no published version exists: it resolves to the most recent unpublished version.
         /// </summary>
         [Input("qualifier")]
         public Input<string>? Qualifier { get; set; }
@@ -132,15 +132,15 @@ namespace Pulumi.Aws.Lambda
     public sealed class GetFunctionResult
     {
         /// <summary>
-        /// The instruction set architecture for the Lambda function.
+        /// Instruction set architecture for the Lambda function.
         /// </summary>
         public readonly ImmutableArray<string> Architectures;
         /// <summary>
-        /// Unqualified (no `:QUALIFIER` or `:VERSION` suffix) Amazon Resource Name (ARN) identifying your Lambda Function. See also `qualified_arn`.
+        /// Unqualified (no `:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `qualified_arn`.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// Amazon Resource Name (ARN) for a Code Signing Configuration.
+        /// ARN for a Code Signing Configuration.
         /// </summary>
         public readonly string CodeSigningConfigArn;
         /// <summary>
@@ -152,20 +152,20 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// The Lambda environment's configuration settings.
+        /// Lambda environment's configuration settings.
         /// </summary>
         public readonly Outputs.GetFunctionEnvironmentResult Environment;
         /// <summary>
-        /// The amount of Ephemeral storage(`/tmp`) allocated for the Lambda Function.
+        /// Amount of Ephemeral storage(`/tmp`) allocated for the Lambda Function.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFunctionEphemeralStorageResult> EphemeralStorages;
         /// <summary>
-        /// The connection settings for an Amazon EFS file system.
+        /// Connection settings for an Amazon EFS file system.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFunctionFileSystemConfigResult> FileSystemConfigs;
         public readonly string FunctionName;
         /// <summary>
-        /// The function entrypoint in your code.
+        /// Function entrypoint in your code.
         /// </summary>
         public readonly string Handler;
         /// <summary>
@@ -173,23 +173,23 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The URI of the container image.
+        /// URI of the container image.
         /// </summary>
         public readonly string ImageUri;
         /// <summary>
-        /// The ARN to be used for invoking Lambda Function from API Gateway.
+        /// ARN to be used for invoking Lambda Function from API Gateway.
         /// </summary>
         public readonly string InvokeArn;
         /// <summary>
-        /// The ARN for the KMS encryption key.
+        /// ARN for the KMS encryption key.
         /// </summary>
         public readonly string KmsKeyArn;
         /// <summary>
-        /// The date this resource was last modified.
+        /// Date this resource was last modified.
         /// </summary>
         public readonly string LastModified;
         /// <summary>
-        /// A list of Lambda Layer ARNs attached to your Lambda Function.
+        /// List of Lambda Layer ARNs attached to your Lambda Function.
         /// </summary>
         public readonly ImmutableArray<string> Layers;
         /// <summary>
@@ -197,7 +197,7 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly int MemorySize;
         /// <summary>
-        /// Qualified (`:QUALIFIER` or `:VERSION` suffix) Amazon Resource Name (ARN) identifying your Lambda Function. See also `arn`.
+        /// Qualified (`:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `arn`.
         /// </summary>
         public readonly string QualifiedArn;
         public readonly string? Qualifier;
@@ -210,15 +210,15 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly string Role;
         /// <summary>
-        /// The runtime environment for the Lambda function.
+        /// Runtime environment for the Lambda function.
         /// </summary>
         public readonly string Runtime;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of a signing job.
+        /// ARN of a signing job.
         /// </summary>
         public readonly string SigningJobArn;
         /// <summary>
-        /// The Amazon Resource Name (ARN) for a signing profile version.
+        /// The ARN for a signing profile version.
         /// </summary>
         public readonly string SigningProfileVersionArn;
         /// <summary>
@@ -226,12 +226,12 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly string SourceCodeHash;
         /// <summary>
-        /// The size in bytes of the function .zip file.
+        /// Size in bytes of the function .zip file.
         /// </summary>
         public readonly int SourceCodeSize;
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The function execution time at which Lambda should terminate the function.
+        /// Function execution time at which Lambda should terminate the function.
         /// </summary>
         public readonly int Timeout;
         /// <summary>
@@ -239,7 +239,7 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly Outputs.GetFunctionTracingConfigResult TracingConfig;
         /// <summary>
-        /// The version of the Lambda function.
+        /// The version of the Lambda function returned. If `qualifier` is not set, this will resolve to the most recent published version. If no published version of the function exists, `version` will resolve to `$LATEST`.
         /// </summary>
         public readonly string Version;
         /// <summary>

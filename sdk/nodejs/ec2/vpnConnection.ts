@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -237,6 +239,10 @@ export class VpnConnection extends pulumi.CustomResource {
      */
     public readonly tunnel1InsideIpv6Cidr!: pulumi.Output<string>;
     /**
+     * Options for logging VPN tunnel activity. See Log Options below for more details.
+     */
+    public readonly tunnel1LogOptions!: pulumi.Output<outputs.ec2.VpnConnectionTunnel1LogOptions>;
+    /**
      * List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
      */
     public readonly tunnel1Phase1DhGroupNumbers!: pulumi.Output<number[] | undefined>;
@@ -328,6 +334,10 @@ export class VpnConnection extends pulumi.CustomResource {
      * The range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
      */
     public readonly tunnel2InsideIpv6Cidr!: pulumi.Output<string>;
+    /**
+     * Options for logging VPN tunnel activity. See Log Options below for more details.
+     */
+    public readonly tunnel2LogOptions!: pulumi.Output<outputs.ec2.VpnConnectionTunnel2LogOptions>;
     /**
      * List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
      */
@@ -441,6 +451,7 @@ export class VpnConnection extends pulumi.CustomResource {
             resourceInputs["tunnel1IkeVersions"] = state ? state.tunnel1IkeVersions : undefined;
             resourceInputs["tunnel1InsideCidr"] = state ? state.tunnel1InsideCidr : undefined;
             resourceInputs["tunnel1InsideIpv6Cidr"] = state ? state.tunnel1InsideIpv6Cidr : undefined;
+            resourceInputs["tunnel1LogOptions"] = state ? state.tunnel1LogOptions : undefined;
             resourceInputs["tunnel1Phase1DhGroupNumbers"] = state ? state.tunnel1Phase1DhGroupNumbers : undefined;
             resourceInputs["tunnel1Phase1EncryptionAlgorithms"] = state ? state.tunnel1Phase1EncryptionAlgorithms : undefined;
             resourceInputs["tunnel1Phase1IntegrityAlgorithms"] = state ? state.tunnel1Phase1IntegrityAlgorithms : undefined;
@@ -464,6 +475,7 @@ export class VpnConnection extends pulumi.CustomResource {
             resourceInputs["tunnel2IkeVersions"] = state ? state.tunnel2IkeVersions : undefined;
             resourceInputs["tunnel2InsideCidr"] = state ? state.tunnel2InsideCidr : undefined;
             resourceInputs["tunnel2InsideIpv6Cidr"] = state ? state.tunnel2InsideIpv6Cidr : undefined;
+            resourceInputs["tunnel2LogOptions"] = state ? state.tunnel2LogOptions : undefined;
             resourceInputs["tunnel2Phase1DhGroupNumbers"] = state ? state.tunnel2Phase1DhGroupNumbers : undefined;
             resourceInputs["tunnel2Phase1EncryptionAlgorithms"] = state ? state.tunnel2Phase1EncryptionAlgorithms : undefined;
             resourceInputs["tunnel2Phase1IntegrityAlgorithms"] = state ? state.tunnel2Phase1IntegrityAlgorithms : undefined;
@@ -506,6 +518,7 @@ export class VpnConnection extends pulumi.CustomResource {
             resourceInputs["tunnel1IkeVersions"] = args ? args.tunnel1IkeVersions : undefined;
             resourceInputs["tunnel1InsideCidr"] = args ? args.tunnel1InsideCidr : undefined;
             resourceInputs["tunnel1InsideIpv6Cidr"] = args ? args.tunnel1InsideIpv6Cidr : undefined;
+            resourceInputs["tunnel1LogOptions"] = args ? args.tunnel1LogOptions : undefined;
             resourceInputs["tunnel1Phase1DhGroupNumbers"] = args ? args.tunnel1Phase1DhGroupNumbers : undefined;
             resourceInputs["tunnel1Phase1EncryptionAlgorithms"] = args ? args.tunnel1Phase1EncryptionAlgorithms : undefined;
             resourceInputs["tunnel1Phase1IntegrityAlgorithms"] = args ? args.tunnel1Phase1IntegrityAlgorithms : undefined;
@@ -524,6 +537,7 @@ export class VpnConnection extends pulumi.CustomResource {
             resourceInputs["tunnel2IkeVersions"] = args ? args.tunnel2IkeVersions : undefined;
             resourceInputs["tunnel2InsideCidr"] = args ? args.tunnel2InsideCidr : undefined;
             resourceInputs["tunnel2InsideIpv6Cidr"] = args ? args.tunnel2InsideIpv6Cidr : undefined;
+            resourceInputs["tunnel2LogOptions"] = args ? args.tunnel2LogOptions : undefined;
             resourceInputs["tunnel2Phase1DhGroupNumbers"] = args ? args.tunnel2Phase1DhGroupNumbers : undefined;
             resourceInputs["tunnel2Phase1EncryptionAlgorithms"] = args ? args.tunnel2Phase1EncryptionAlgorithms : undefined;
             resourceInputs["tunnel2Phase1IntegrityAlgorithms"] = args ? args.tunnel2Phase1IntegrityAlgorithms : undefined;
@@ -677,6 +691,10 @@ export interface VpnConnectionState {
      */
     tunnel1InsideIpv6Cidr?: pulumi.Input<string>;
     /**
+     * Options for logging VPN tunnel activity. See Log Options below for more details.
+     */
+    tunnel1LogOptions?: pulumi.Input<inputs.ec2.VpnConnectionTunnel1LogOptions>;
+    /**
      * List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
      */
     tunnel1Phase1DhGroupNumbers?: pulumi.Input<pulumi.Input<number>[]>;
@@ -768,6 +786,10 @@ export interface VpnConnectionState {
      * The range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
      */
     tunnel2InsideIpv6Cidr?: pulumi.Input<string>;
+    /**
+     * Options for logging VPN tunnel activity. See Log Options below for more details.
+     */
+    tunnel2LogOptions?: pulumi.Input<inputs.ec2.VpnConnectionTunnel2LogOptions>;
     /**
      * List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
      */
@@ -911,6 +933,10 @@ export interface VpnConnectionArgs {
      */
     tunnel1InsideIpv6Cidr?: pulumi.Input<string>;
     /**
+     * Options for logging VPN tunnel activity. See Log Options below for more details.
+     */
+    tunnel1LogOptions?: pulumi.Input<inputs.ec2.VpnConnectionTunnel1LogOptions>;
+    /**
      * List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
      */
     tunnel1Phase1DhGroupNumbers?: pulumi.Input<pulumi.Input<number>[]>;
@@ -982,6 +1008,10 @@ export interface VpnConnectionArgs {
      * The range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
      */
     tunnel2InsideIpv6Cidr?: pulumi.Input<string>;
+    /**
+     * Options for logging VPN tunnel activity. See Log Options below for more details.
+     */
+    tunnel2LogOptions?: pulumi.Input<inputs.ec2.VpnConnectionTunnel2LogOptions>;
     /**
      * List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
      */

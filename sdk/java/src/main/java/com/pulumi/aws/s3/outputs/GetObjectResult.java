@@ -26,22 +26,22 @@ public final class GetObjectResult {
      */
     private Boolean bucketKeyEnabled;
     /**
-     * @return Specifies caching behavior along the request/reply chain.
+     * @return Caching behavior along the request/reply chain.
      * 
      */
     private String cacheControl;
     /**
-     * @return Specifies presentational information for the object.
+     * @return Presentational information for the object.
      * 
      */
     private String contentDisposition;
     /**
-     * @return Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
+     * @return What content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
      * 
      */
     private String contentEncoding;
     /**
-     * @return The language the content is in.
+     * @return Language the content is in.
      * 
      */
     private String contentLanguage;
@@ -51,7 +51,7 @@ public final class GetObjectResult {
      */
     private Integer contentLength;
     /**
-     * @return A standard MIME type describing the format of the object data.
+     * @return Standard MIME type describing the format of the object data.
      * 
      */
     private String contentType;
@@ -66,7 +66,7 @@ public final class GetObjectResult {
      */
     private String expiration;
     /**
-     * @return The date and time at which the object is no longer cacheable.
+     * @return Date and time at which the object is no longer cacheable.
      * 
      */
     private String expires;
@@ -82,7 +82,7 @@ public final class GetObjectResult {
      */
     private String lastModified;
     /**
-     * @return A map of metadata stored with the object in S3
+     * @return Map of metadata stored with the object in S3
      * 
      */
     private Map<String,String> metadata;
@@ -92,7 +92,7 @@ public final class GetObjectResult {
      */
     private String objectLockLegalHoldStatus;
     /**
-     * @return The object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) currently in place for this object.
+     * @return Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) currently in place for this object.
      * 
      */
     private String objectLockMode;
@@ -118,12 +118,12 @@ public final class GetObjectResult {
      */
     private String storageClass;
     /**
-     * @return A map of tags assigned to the object.
+     * @return Map of tags assigned to the object.
      * 
      */
     private Map<String,String> tags;
     /**
-     * @return The latest version ID of the object returned.
+     * @return Latest version ID of the object returned.
      * 
      */
     private String versionId;
@@ -152,28 +152,28 @@ public final class GetObjectResult {
         return this.bucketKeyEnabled;
     }
     /**
-     * @return Specifies caching behavior along the request/reply chain.
+     * @return Caching behavior along the request/reply chain.
      * 
      */
     public String cacheControl() {
         return this.cacheControl;
     }
     /**
-     * @return Specifies presentational information for the object.
+     * @return Presentational information for the object.
      * 
      */
     public String contentDisposition() {
         return this.contentDisposition;
     }
     /**
-     * @return Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
+     * @return What content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
      * 
      */
     public String contentEncoding() {
         return this.contentEncoding;
     }
     /**
-     * @return The language the content is in.
+     * @return Language the content is in.
      * 
      */
     public String contentLanguage() {
@@ -187,7 +187,7 @@ public final class GetObjectResult {
         return this.contentLength;
     }
     /**
-     * @return A standard MIME type describing the format of the object data.
+     * @return Standard MIME type describing the format of the object data.
      * 
      */
     public String contentType() {
@@ -208,7 +208,7 @@ public final class GetObjectResult {
         return this.expiration;
     }
     /**
-     * @return The date and time at which the object is no longer cacheable.
+     * @return Date and time at which the object is no longer cacheable.
      * 
      */
     public String expires() {
@@ -232,7 +232,7 @@ public final class GetObjectResult {
         return this.lastModified;
     }
     /**
-     * @return A map of metadata stored with the object in S3
+     * @return Map of metadata stored with the object in S3
      * 
      */
     public Map<String,String> metadata() {
@@ -246,7 +246,7 @@ public final class GetObjectResult {
         return this.objectLockLegalHoldStatus;
     }
     /**
-     * @return The object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) currently in place for this object.
+     * @return Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) currently in place for this object.
      * 
      */
     public String objectLockMode() {
@@ -284,14 +284,14 @@ public final class GetObjectResult {
         return this.storageClass;
     }
     /**
-     * @return A map of tags assigned to the object.
+     * @return Map of tags assigned to the object.
      * 
      */
     public Map<String,String> tags() {
         return this.tags;
     }
     /**
-     * @return The latest version ID of the object returned.
+     * @return Latest version ID of the object returned.
      * 
      */
     public String versionId() {

@@ -68,7 +68,7 @@ class GetAuthorizationTokenResult:
     @pulumi.getter
     def expiration(self) -> str:
         """
-        The time in UTC RFC3339 format when the authorization token expires.
+        Time in UTC RFC3339 format when the authorization token expires.
         """
         return pulumi.get(self, "expiration")
 
@@ -112,9 +112,9 @@ def get_authorization_token(domain: Optional[str] = None,
     ```
 
 
-    :param str domain: The name of the domain that is in scope for the generated authorization token.
-    :param str domain_owner: The account number of the AWS account that owns the domain.
-    :param int duration_seconds: The time, in seconds, that the generated authorization token is valid. Valid values are `0` and between `900` and `43200`.
+    :param str domain: Name of the domain that is in scope for the generated authorization token.
+    :param str domain_owner: Account number of the AWS account that owns the domain.
+    :param int duration_seconds: Time, in seconds, that the generated authorization token is valid. Valid values are `0` and between `900` and `43200`.
     """
     __args__ = dict()
     __args__['domain'] = domain
@@ -150,8 +150,8 @@ def get_authorization_token_output(domain: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str domain: The name of the domain that is in scope for the generated authorization token.
-    :param str domain_owner: The account number of the AWS account that owns the domain.
-    :param int duration_seconds: The time, in seconds, that the generated authorization token is valid. Valid values are `0` and between `900` and `43200`.
+    :param str domain: Name of the domain that is in scope for the generated authorization token.
+    :param str domain_owner: Account number of the AWS account that owns the domain.
+    :param int duration_seconds: Time, in seconds, that the generated authorization token is valid. Valid values are `0` and between `900` and `43200`.
     """
     ...

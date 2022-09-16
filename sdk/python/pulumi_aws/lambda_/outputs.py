@@ -15,11 +15,13 @@ __all__ = [
     'AliasRoutingConfig',
     'CodeSigningConfigAllowedPublishers',
     'CodeSigningConfigPolicies',
+    'EventSourceMappingAmazonManagedKafkaEventSourceConfig',
     'EventSourceMappingDestinationConfig',
     'EventSourceMappingDestinationConfigOnFailure',
     'EventSourceMappingFilterCriteria',
     'EventSourceMappingFilterCriteriaFilter',
     'EventSourceMappingSelfManagedEventSource',
+    'EventSourceMappingSelfManagedKafkaEventSourceConfig',
     'EventSourceMappingSourceAccessConfiguration',
     'FunctionDeadLetterConfig',
     'FunctionEnvironment',
@@ -150,6 +152,42 @@ class CodeSigningConfigPolicies(dict):
 
 
 @pulumi.output_type
+class EventSourceMappingAmazonManagedKafkaEventSourceConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "consumerGroupId":
+            suggest = "consumer_group_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventSourceMappingAmazonManagedKafkaEventSourceConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventSourceMappingAmazonManagedKafkaEventSourceConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventSourceMappingAmazonManagedKafkaEventSourceConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 consumer_group_id: Optional[str] = None):
+        """
+        :param str consumer_group_id: A Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [SelfManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_SelfManagedKafkaEventSourceConfig.html).
+        """
+        if consumer_group_id is not None:
+            pulumi.set(__self__, "consumer_group_id", consumer_group_id)
+
+    @property
+    @pulumi.getter(name="consumerGroupId")
+    def consumer_group_id(self) -> Optional[str]:
+        """
+        A Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [SelfManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_SelfManagedKafkaEventSourceConfig.html).
+        """
+        return pulumi.get(self, "consumer_group_id")
+
+
+@pulumi.output_type
 class EventSourceMappingDestinationConfig(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -274,6 +312,42 @@ class EventSourceMappingSelfManagedEventSource(dict):
         A map of endpoints for the self managed source.  For Kafka self-managed sources, the key should be `KAFKA_BOOTSTRAP_SERVERS` and the value should be a string with a comma separated list of broker endpoints.
         """
         return pulumi.get(self, "endpoints")
+
+
+@pulumi.output_type
+class EventSourceMappingSelfManagedKafkaEventSourceConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "consumerGroupId":
+            suggest = "consumer_group_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventSourceMappingSelfManagedKafkaEventSourceConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventSourceMappingSelfManagedKafkaEventSourceConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventSourceMappingSelfManagedKafkaEventSourceConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 consumer_group_id: Optional[str] = None):
+        """
+        :param str consumer_group_id: A Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [SelfManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_SelfManagedKafkaEventSourceConfig.html).
+        """
+        if consumer_group_id is not None:
+            pulumi.set(__self__, "consumer_group_id", consumer_group_id)
+
+    @property
+    @pulumi.getter(name="consumerGroupId")
+    def consumer_group_id(self) -> Optional[str]:
+        """
+        A Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [SelfManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_SelfManagedKafkaEventSourceConfig.html).
+        """
+        return pulumi.get(self, "consumer_group_id")
 
 
 @pulumi.output_type
@@ -759,7 +833,7 @@ class GetCodeSigningConfigAllowedPublisherResult(dict):
     def __init__(__self__, *,
                  signing_profile_version_arns: Sequence[str]):
         """
-        :param Sequence[str] signing_profile_version_arns: The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
+        :param Sequence[str] signing_profile_version_arns: The ARN for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
         """
         pulumi.set(__self__, "signing_profile_version_arns", signing_profile_version_arns)
 
@@ -767,7 +841,7 @@ class GetCodeSigningConfigAllowedPublisherResult(dict):
     @pulumi.getter(name="signingProfileVersionArns")
     def signing_profile_version_arns(self) -> Sequence[str]:
         """
-        The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
+        The ARN for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
         """
         return pulumi.get(self, "signing_profile_version_arns")
 
@@ -832,7 +906,7 @@ class GetFunctionFileSystemConfigResult(dict):
                  arn: str,
                  local_mount_path: str):
         """
-        :param str arn: Unqualified (no `:QUALIFIER` or `:VERSION` suffix) Amazon Resource Name (ARN) identifying your Lambda Function. See also `qualified_arn`.
+        :param str arn: Unqualified (no `:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `qualified_arn`.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "local_mount_path", local_mount_path)
@@ -841,7 +915,7 @@ class GetFunctionFileSystemConfigResult(dict):
     @pulumi.getter
     def arn(self) -> str:
         """
-        Unqualified (no `:QUALIFIER` or `:VERSION` suffix) Amazon Resource Name (ARN) identifying your Lambda Function. See also `qualified_arn`.
+        Unqualified (no `:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `qualified_arn`.
         """
         return pulumi.get(self, "arn")
 

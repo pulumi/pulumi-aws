@@ -19,14 +19,14 @@ public final class GetVpnGatewayArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetVpnGatewayArgs Empty = new GetVpnGatewayArgs();
 
     /**
-     * The Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
+     * Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
      * 
      */
     @Import(name="amazonSideAsn")
     private @Nullable Output<String> amazonSideAsn;
 
     /**
-     * @return The Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
+     * @return Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
      * 
      */
     public Optional<Output<String>> amazonSideAsn() {
@@ -34,14 +34,14 @@ public final class GetVpnGatewayArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The ID of a VPC attached to the specific VPN Gateway to retrieve.
+     * ID of a VPC attached to the specific VPN Gateway to retrieve.
      * 
      */
     @Import(name="attachedVpcId")
     private @Nullable Output<String> attachedVpcId;
 
     /**
-     * @return The ID of a VPC attached to the specific VPN Gateway to retrieve.
+     * @return ID of a VPC attached to the specific VPN Gateway to retrieve.
      * 
      */
     public Optional<Output<String>> attachedVpcId() {
@@ -49,14 +49,14 @@ public final class GetVpnGatewayArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The Availability Zone of the specific VPN Gateway to retrieve.
+     * Availability Zone of the specific VPN Gateway to retrieve.
      * 
      */
     @Import(name="availabilityZone")
     private @Nullable Output<String> availabilityZone;
 
     /**
-     * @return The Availability Zone of the specific VPN Gateway to retrieve.
+     * @return Availability Zone of the specific VPN Gateway to retrieve.
      * 
      */
     public Optional<Output<String>> availabilityZone() {
@@ -79,14 +79,14 @@ public final class GetVpnGatewayArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The ID of the specific VPN Gateway to retrieve.
+     * ID of the specific VPN Gateway to retrieve.
      * 
      */
     @Import(name="id")
     private @Nullable Output<String> id;
 
     /**
-     * @return The ID of the specific VPN Gateway to retrieve.
+     * @return ID of the specific VPN Gateway to retrieve.
      * 
      */
     public Optional<Output<String>> id() {
@@ -94,14 +94,14 @@ public final class GetVpnGatewayArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The state of the specific VPN Gateway to retrieve.
+     * State of the specific VPN Gateway to retrieve.
      * 
      */
     @Import(name="state")
     private @Nullable Output<String> state;
 
     /**
-     * @return The state of the specific VPN Gateway to retrieve.
+     * @return State of the specific VPN Gateway to retrieve.
      * 
      */
     public Optional<Output<String>> state() {
@@ -109,7 +109,7 @@ public final class GetVpnGatewayArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * A map of tags, each pair of which must exactly match
+     * Map of tags, each pair of which must exactly match
      * a pair on the desired VPN Gateway.
      * 
      */
@@ -117,7 +117,7 @@ public final class GetVpnGatewayArgs extends com.pulumi.resources.InvokeArgs {
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags, each pair of which must exactly match
+     * @return Map of tags, each pair of which must exactly match
      * a pair on the desired VPN Gateway.
      * 
      */
@@ -156,7 +156,7 @@ public final class GetVpnGatewayArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param amazonSideAsn The Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
+         * @param amazonSideAsn Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class GetVpnGatewayArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param amazonSideAsn The Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
+         * @param amazonSideAsn Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class GetVpnGatewayArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param attachedVpcId The ID of a VPC attached to the specific VPN Gateway to retrieve.
+         * @param attachedVpcId ID of a VPC attached to the specific VPN Gateway to retrieve.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class GetVpnGatewayArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param attachedVpcId The ID of a VPC attached to the specific VPN Gateway to retrieve.
+         * @param attachedVpcId ID of a VPC attached to the specific VPN Gateway to retrieve.
          * 
          * @return builder
          * 
@@ -198,7 +198,7 @@ public final class GetVpnGatewayArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param availabilityZone The Availability Zone of the specific VPN Gateway to retrieve.
+         * @param availabilityZone Availability Zone of the specific VPN Gateway to retrieve.
          * 
          * @return builder
          * 
@@ -209,7 +209,7 @@ public final class GetVpnGatewayArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param availabilityZone The Availability Zone of the specific VPN Gateway to retrieve.
+         * @param availabilityZone Availability Zone of the specific VPN Gateway to retrieve.
          * 
          * @return builder
          * 
@@ -250,7 +250,7 @@ public final class GetVpnGatewayArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param id The ID of the specific VPN Gateway to retrieve.
+         * @param id ID of the specific VPN Gateway to retrieve.
          * 
          * @return builder
          * 
@@ -261,7 +261,7 @@ public final class GetVpnGatewayArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param id The ID of the specific VPN Gateway to retrieve.
+         * @param id ID of the specific VPN Gateway to retrieve.
          * 
          * @return builder
          * 
@@ -271,7 +271,7 @@ public final class GetVpnGatewayArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param state The state of the specific VPN Gateway to retrieve.
+         * @param state State of the specific VPN Gateway to retrieve.
          * 
          * @return builder
          * 
@@ -282,7 +282,7 @@ public final class GetVpnGatewayArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param state The state of the specific VPN Gateway to retrieve.
+         * @param state State of the specific VPN Gateway to retrieve.
          * 
          * @return builder
          * 
@@ -292,7 +292,7 @@ public final class GetVpnGatewayArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags A map of tags, each pair of which must exactly match
+         * @param tags Map of tags, each pair of which must exactly match
          * a pair on the desired VPN Gateway.
          * 
          * @return builder
@@ -304,7 +304,7 @@ public final class GetVpnGatewayArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags A map of tags, each pair of which must exactly match
+         * @param tags Map of tags, each pair of which must exactly match
          * a pair on the desired VPN Gateway.
          * 
          * @return builder

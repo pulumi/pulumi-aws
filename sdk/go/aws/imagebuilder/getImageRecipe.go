@@ -48,7 +48,7 @@ func LookupImageRecipe(ctx *pulumi.Context, args *LookupImageRecipeArgs, opts ..
 
 // A collection of arguments for invoking getImageRecipe.
 type LookupImageRecipeArgs struct {
-	// Amazon Resource Name (ARN) of the image recipe.
+	// ARN of the image recipe.
 	Arn string `pulumi:"arn"`
 	// Key-value map of resource tags for the image recipe.
 	Tags map[string]string `pulumi:"tags"`
@@ -81,7 +81,7 @@ type LookupImageRecipeResult struct {
 	UserDataBase64 string `pulumi:"userDataBase64"`
 	// Version of the image recipe.
 	Version string `pulumi:"version"`
-	// The working directory used during build and test workflows.
+	// Working directory used during build and test workflows.
 	WorkingDirectory string `pulumi:"workingDirectory"`
 }
 
@@ -100,7 +100,7 @@ func LookupImageRecipeOutput(ctx *pulumi.Context, args LookupImageRecipeOutputAr
 
 // A collection of arguments for invoking getImageRecipe.
 type LookupImageRecipeOutputArgs struct {
-	// Amazon Resource Name (ARN) of the image recipe.
+	// ARN of the image recipe.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// Key-value map of resource tags for the image recipe.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -189,7 +189,7 @@ func (o LookupImageRecipeResultOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupImageRecipeResult) string { return v.Version }).(pulumi.StringOutput)
 }
 
-// The working directory used during build and test workflows.
+// Working directory used during build and test workflows.
 func (o LookupImageRecipeResultOutput) WorkingDirectory() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupImageRecipeResult) string { return v.WorkingDirectory }).(pulumi.StringOutput)
 }

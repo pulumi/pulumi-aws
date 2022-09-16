@@ -55,7 +55,7 @@ class GetReportPlanResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The ARN of the backup report plan.
+        ARN of the backup report plan.
         """
         return pulumi.get(self, "arn")
 
@@ -63,7 +63,7 @@ class GetReportPlanResult:
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> str:
         """
-        The date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
+        Date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
         """
         return pulumi.get(self, "creation_time")
 
@@ -71,7 +71,7 @@ class GetReportPlanResult:
     @pulumi.getter(name="deploymentStatus")
     def deployment_status(self) -> str:
         """
-        The deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
+        Deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
         """
         return pulumi.get(self, "deployment_status")
 
@@ -79,7 +79,7 @@ class GetReportPlanResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        The description of the report plan.
+        Description of the report plan.
         """
         return pulumi.get(self, "description")
 
@@ -154,7 +154,7 @@ def get_report_plan(name: Optional[str] = None,
     ```
 
 
-    :param str name: The backup report plan name.
+    :param str name: Backup report plan name.
     :param Mapping[str, str] tags: Metadata that you can assign to help organize the report plans you create.
     """
     __args__ = dict()
@@ -192,7 +192,7 @@ def get_report_plan_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str name: The backup report plan name.
+    :param str name: Backup report plan name.
     :param Mapping[str, str] tags: Metadata that you can assign to help organize the report plans you create.
     """
     ...

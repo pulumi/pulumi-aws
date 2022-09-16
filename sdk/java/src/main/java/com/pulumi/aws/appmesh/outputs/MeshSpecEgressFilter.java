@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class MeshSpecEgressFilter {
     /**
-     * @return The egress filter type. By default, the type is `DROP_ALL`.
+     * @return Egress filter type. By default, the type is `DROP_ALL`.
      * Valid values are `ALLOW_ALL` and `DROP_ALL`.
      * 
      */
@@ -20,7 +20,7 @@ public final class MeshSpecEgressFilter {
 
     private MeshSpecEgressFilter() {}
     /**
-     * @return The egress filter type. By default, the type is `DROP_ALL`.
+     * @return Egress filter type. By default, the type is `DROP_ALL`.
      * Valid values are `ALLOW_ALL` and `DROP_ALL`.
      * 
      */

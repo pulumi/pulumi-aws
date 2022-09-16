@@ -177,7 +177,7 @@ class GetInfrastructureConfigurationResult:
     @pulumi.getter(name="snsTopicArn")
     def sns_topic_arn(self) -> str:
         """
-        Amazon Resource Name (ARN) of the SNS Topic associated with the configuration.
+        ARN of the SNS Topic associated with the configuration.
         """
         return pulumi.get(self, "sns_topic_arn")
 
@@ -248,7 +248,7 @@ def get_infrastructure_configuration(arn: Optional[str] = None,
     ```
 
 
-    :param str arn: Amazon Resource Name (ARN) of the infrastructure configuration.
+    :param str arn: ARN of the infrastructure configuration.
     :param Mapping[str, str] resource_tags: Key-value map of resource tags for the infrastructure created by the infrastructure configuration.
     :param Mapping[str, str] tags: Key-value map of resource tags for the infrastructure configuration.
     """
@@ -297,7 +297,7 @@ def get_infrastructure_configuration_output(arn: Optional[pulumi.Input[str]] = N
     ```
 
 
-    :param str arn: Amazon Resource Name (ARN) of the infrastructure configuration.
+    :param str arn: ARN of the infrastructure configuration.
     :param Mapping[str, str] resource_tags: Key-value map of resource tags for the infrastructure created by the infrastructure configuration.
     :param Mapping[str, str] tags: Key-value map of resource tags for the infrastructure configuration.
     """

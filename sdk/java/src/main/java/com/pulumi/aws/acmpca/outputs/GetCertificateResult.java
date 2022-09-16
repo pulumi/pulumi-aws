@@ -11,13 +11,13 @@ import java.util.Objects;
 public final class GetCertificateResult {
     private String arn;
     /**
-     * @return The PEM-encoded certificate value.
+     * @return PEM-encoded certificate value.
      * 
      */
     private String certificate;
     private String certificateAuthorityArn;
     /**
-     * @return The PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
+     * @return PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
      * 
      */
     private String certificateChain;
@@ -32,7 +32,7 @@ public final class GetCertificateResult {
         return this.arn;
     }
     /**
-     * @return The PEM-encoded certificate value.
+     * @return PEM-encoded certificate value.
      * 
      */
     public String certificate() {
@@ -42,7 +42,7 @@ public final class GetCertificateResult {
         return this.certificateAuthorityArn;
     }
     /**
-     * @return The PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
+     * @return PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
      * 
      */
     public String certificateChain() {

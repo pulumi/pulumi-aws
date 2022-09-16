@@ -42,7 +42,7 @@ class GetQueueResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the queue.
+        ARN of the queue.
         """
         return pulumi.get(self, "arn")
 
@@ -63,7 +63,7 @@ class GetQueueResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        A map of tags for the resource.
+        Map of tags for the resource.
         """
         return pulumi.get(self, "tags")
 
@@ -71,7 +71,7 @@ class GetQueueResult:
     @pulumi.getter
     def url(self) -> str:
         """
-        The URL of the queue.
+        URL of the queue.
         """
         return pulumi.get(self, "url")
 
@@ -107,8 +107,8 @@ def get_queue(name: Optional[str] = None,
     ```
 
 
-    :param str name: The name of the queue to match.
-    :param Mapping[str, str] tags: A map of tags for the resource.
+    :param str name: Name of the queue to match.
+    :param Mapping[str, str] tags: Map of tags for the resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -143,7 +143,7 @@ def get_queue_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str name: The name of the queue to match.
-    :param Mapping[str, str] tags: A map of tags for the resource.
+    :param str name: Name of the queue to match.
+    :param Mapping[str, str] tags: Map of tags for the resource.
     """
     ...

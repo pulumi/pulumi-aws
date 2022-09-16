@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetFunctionUrlResult {
     /**
-     * @return The type of authentication that the function URL uses.
+     * @return Type of authentication that the function URL uses.
      * 
      */
     private String authorizationType;
@@ -29,13 +29,13 @@ public final class GetFunctionUrlResult {
      */
     private String creationTime;
     /**
-     * @return The Amazon Resource Name (ARN) of the function.
+     * @return ARN of the function.
      * 
      */
     private String functionArn;
     private String functionName;
     /**
-     * @return The HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws`.
+     * @return HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws`.
      * 
      */
     private String functionUrl;
@@ -51,14 +51,14 @@ public final class GetFunctionUrlResult {
     private String lastModifiedTime;
     private @Nullable String qualifier;
     /**
-     * @return A generated ID for the endpoint.
+     * @return Generated ID for the endpoint.
      * 
      */
     private String urlId;
 
     private GetFunctionUrlResult() {}
     /**
-     * @return The type of authentication that the function URL uses.
+     * @return Type of authentication that the function URL uses.
      * 
      */
     public String authorizationType() {
@@ -79,7 +79,7 @@ public final class GetFunctionUrlResult {
         return this.creationTime;
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the function.
+     * @return ARN of the function.
      * 
      */
     public String functionArn() {
@@ -89,7 +89,7 @@ public final class GetFunctionUrlResult {
         return this.functionName;
     }
     /**
-     * @return The HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws`.
+     * @return HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws`.
      * 
      */
     public String functionUrl() {
@@ -113,7 +113,7 @@ public final class GetFunctionUrlResult {
         return Optional.ofNullable(this.qualifier);
     }
     /**
-     * @return A generated ID for the endpoint.
+     * @return Generated ID for the endpoint.
      * 
      */
     public String urlId() {

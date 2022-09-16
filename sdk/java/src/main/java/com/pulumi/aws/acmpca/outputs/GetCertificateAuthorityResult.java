@@ -67,12 +67,12 @@ public final class GetCertificateAuthorityResult {
      */
     private String status;
     /**
-     * @return Specifies a key-value map of user-defined tags that are attached to the certificate authority.
+     * @return Key-value map of user-defined tags that are attached to the certificate authority.
      * 
      */
     private Map<String,String> tags;
     /**
-     * @return The type of the certificate authority.
+     * @return Type of the certificate authority.
      * 
      */
     private String type;
@@ -153,14 +153,14 @@ public final class GetCertificateAuthorityResult {
         return this.status;
     }
     /**
-     * @return Specifies a key-value map of user-defined tags that are attached to the certificate authority.
+     * @return Key-value map of user-defined tags that are attached to the certificate authority.
      * 
      */
     public Map<String,String> tags() {
         return this.tags;
     }
     /**
-     * @return The type of the certificate authority.
+     * @return Type of the certificate authority.
      * 
      */
     public String type() {

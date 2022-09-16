@@ -85,7 +85,7 @@ class GetVpcEndpointServiceResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the VPC endpoint service.
+        ARN of the VPC endpoint service.
         """
         return pulumi.get(self, "arn")
 
@@ -93,7 +93,7 @@ class GetVpcEndpointServiceResult:
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> Sequence[str]:
         """
-        The Availability Zones in which the service is available.
+        Availability Zones in which the service is available.
         """
         return pulumi.get(self, "availability_zones")
 
@@ -130,7 +130,7 @@ class GetVpcEndpointServiceResult:
     @pulumi.getter
     def owner(self) -> str:
         """
-        The AWS account ID of the service owner or `amazon`.
+        AWS account ID of the service owner or `amazon`.
         """
         return pulumi.get(self, "owner")
 
@@ -138,7 +138,7 @@ class GetVpcEndpointServiceResult:
     @pulumi.getter(name="privateDnsName")
     def private_dns_name(self) -> str:
         """
-        The private DNS name for the service.
+        Private DNS name for the service.
         """
         return pulumi.get(self, "private_dns_name")
 
@@ -151,7 +151,7 @@ class GetVpcEndpointServiceResult:
     @pulumi.getter(name="serviceId")
     def service_id(self) -> str:
         """
-        The ID of the endpoint service.
+        ID of the endpoint service.
         """
         return pulumi.get(self, "service_id")
 
@@ -177,7 +177,7 @@ class GetVpcEndpointServiceResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        A map of tags assigned to the resource.
+        Map of tags assigned to the resource.
         """
         return pulumi.get(self, "tags")
 
@@ -262,10 +262,10 @@ def get_vpc_endpoint_service(filters: Optional[Sequence[pulumi.InputType['GetVpc
 
 
     :param Sequence[pulumi.InputType['GetVpcEndpointServiceFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
-    :param str service: The common name of an AWS service (e.g., `s3`).
-    :param str service_name: The service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
-    :param str service_type: The service type, `Gateway` or `Interface`.
-    :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
+    :param str service: Common name of an AWS service (e.g., `s3`).
+    :param str service_name: Service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
+    :param str service_type: Service type, `Gateway` or `Interface`.
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -344,9 +344,9 @@ def get_vpc_endpoint_service_output(filters: Optional[pulumi.Input[Optional[Sequ
 
 
     :param Sequence[pulumi.InputType['GetVpcEndpointServiceFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
-    :param str service: The common name of an AWS service (e.g., `s3`).
-    :param str service_name: The service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
-    :param str service_type: The service type, `Gateway` or `Interface`.
-    :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
+    :param str service: Common name of an AWS service (e.g., `s3`).
+    :param str service_name: Service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
+    :param str service_type: Service type, `Gateway` or `Interface`.
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
     """
     ...

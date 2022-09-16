@@ -52,7 +52,7 @@ import (
 type ClusterSnapshot struct {
 	pulumi.CustomResourceState
 
-	// Specifies the allocated storage size in gigabytes (GB).
+	// Allocated storage size in gigabytes (GB).
 	AllocatedStorage pulumi.IntOutput `pulumi:"allocatedStorage"`
 	// List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
 	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
@@ -62,7 +62,7 @@ type ClusterSnapshot struct {
 	DbClusterSnapshotArn pulumi.StringOutput `pulumi:"dbClusterSnapshotArn"`
 	// The Identifier for the snapshot.
 	DbClusterSnapshotIdentifier pulumi.StringOutput `pulumi:"dbClusterSnapshotIdentifier"`
-	// Specifies the name of the database engine.
+	// Name of the database engine.
 	Engine pulumi.StringOutput `pulumi:"engine"`
 	// Version of the database engine for this DB cluster snapshot.
 	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
@@ -76,7 +76,7 @@ type ClusterSnapshot struct {
 	SourceDbClusterSnapshotArn pulumi.StringOutput `pulumi:"sourceDbClusterSnapshotArn"`
 	// The status of this DB Cluster Snapshot.
 	Status pulumi.StringOutput `pulumi:"status"`
-	// Specifies whether the DB cluster snapshot is encrypted.
+	// Whether the DB cluster snapshot is encrypted.
 	StorageEncrypted pulumi.BoolOutput `pulumi:"storageEncrypted"`
 	// A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -121,7 +121,7 @@ func GetClusterSnapshot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ClusterSnapshot resources.
 type clusterSnapshotState struct {
-	// Specifies the allocated storage size in gigabytes (GB).
+	// Allocated storage size in gigabytes (GB).
 	AllocatedStorage *int `pulumi:"allocatedStorage"`
 	// List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
@@ -131,7 +131,7 @@ type clusterSnapshotState struct {
 	DbClusterSnapshotArn *string `pulumi:"dbClusterSnapshotArn"`
 	// The Identifier for the snapshot.
 	DbClusterSnapshotIdentifier *string `pulumi:"dbClusterSnapshotIdentifier"`
-	// Specifies the name of the database engine.
+	// Name of the database engine.
 	Engine *string `pulumi:"engine"`
 	// Version of the database engine for this DB cluster snapshot.
 	EngineVersion *string `pulumi:"engineVersion"`
@@ -145,7 +145,7 @@ type clusterSnapshotState struct {
 	SourceDbClusterSnapshotArn *string `pulumi:"sourceDbClusterSnapshotArn"`
 	// The status of this DB Cluster Snapshot.
 	Status *string `pulumi:"status"`
-	// Specifies whether the DB cluster snapshot is encrypted.
+	// Whether the DB cluster snapshot is encrypted.
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
 	// A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -156,7 +156,7 @@ type clusterSnapshotState struct {
 }
 
 type ClusterSnapshotState struct {
-	// Specifies the allocated storage size in gigabytes (GB).
+	// Allocated storage size in gigabytes (GB).
 	AllocatedStorage pulumi.IntPtrInput
 	// List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
 	AvailabilityZones pulumi.StringArrayInput
@@ -166,7 +166,7 @@ type ClusterSnapshotState struct {
 	DbClusterSnapshotArn pulumi.StringPtrInput
 	// The Identifier for the snapshot.
 	DbClusterSnapshotIdentifier pulumi.StringPtrInput
-	// Specifies the name of the database engine.
+	// Name of the database engine.
 	Engine pulumi.StringPtrInput
 	// Version of the database engine for this DB cluster snapshot.
 	EngineVersion pulumi.StringPtrInput
@@ -180,7 +180,7 @@ type ClusterSnapshotState struct {
 	SourceDbClusterSnapshotArn pulumi.StringPtrInput
 	// The status of this DB Cluster Snapshot.
 	Status pulumi.StringPtrInput
-	// Specifies whether the DB cluster snapshot is encrypted.
+	// Whether the DB cluster snapshot is encrypted.
 	StorageEncrypted pulumi.BoolPtrInput
 	// A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -300,7 +300,7 @@ func (o ClusterSnapshotOutput) ToClusterSnapshotOutputWithContext(ctx context.Co
 	return o
 }
 
-// Specifies the allocated storage size in gigabytes (GB).
+// Allocated storage size in gigabytes (GB).
 func (o ClusterSnapshotOutput) AllocatedStorage() pulumi.IntOutput {
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.IntOutput { return v.AllocatedStorage }).(pulumi.IntOutput)
 }
@@ -325,7 +325,7 @@ func (o ClusterSnapshotOutput) DbClusterSnapshotIdentifier() pulumi.StringOutput
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringOutput { return v.DbClusterSnapshotIdentifier }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the database engine.
+// Name of the database engine.
 func (o ClusterSnapshotOutput) Engine() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringOutput { return v.Engine }).(pulumi.StringOutput)
 }
@@ -363,7 +363,7 @@ func (o ClusterSnapshotOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// Specifies whether the DB cluster snapshot is encrypted.
+// Whether the DB cluster snapshot is encrypted.
 func (o ClusterSnapshotOutput) StorageEncrypted() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.BoolOutput { return v.StorageEncrypted }).(pulumi.BoolOutput)
 }

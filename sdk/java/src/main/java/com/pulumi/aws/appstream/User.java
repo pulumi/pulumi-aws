@@ -105,14 +105,14 @@ public class User extends com.pulumi.resources.CustomResource {
         return this.createdTime;
     }
     /**
-     * Specifies whether the user in the user pool is enabled.
+     * Whether the user in the user pool is enabled.
      * 
      */
     @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
-     * @return Specifies whether the user in the user pool is enabled.
+     * @return Whether the user in the user pool is enabled.
      * 
      */
     public Output<Optional<Boolean>> enabled() {

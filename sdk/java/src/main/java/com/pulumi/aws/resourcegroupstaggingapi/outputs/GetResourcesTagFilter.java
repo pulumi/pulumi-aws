@@ -17,7 +17,7 @@ public final class GetResourcesTagFilter {
      */
     private String key;
     /**
-     * @return The optional part of a key-value pair that make up a tag.
+     * @return Optional part of a key-value pair that make up a tag.
      * 
      */
     private @Nullable List<String> values;
@@ -31,7 +31,7 @@ public final class GetResourcesTagFilter {
         return this.key;
     }
     /**
-     * @return The optional part of a key-value pair that make up a tag.
+     * @return Optional part of a key-value pair that make up a tag.
      * 
      */
     public List<String> values() {

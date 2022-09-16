@@ -2302,7 +2302,7 @@ func (o GetDataLakeSettingsCreateTableDefaultPermissionArrayOutput) Index(i pulu
 }
 
 type GetPermissionsDataLocation struct {
-	// Amazon Resource Name (ARN) that uniquely identifies the data location resource.
+	// ARN that uniquely identifies the data location resource.
 	Arn string `pulumi:"arn"`
 	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId string `pulumi:"catalogId"`
@@ -2320,7 +2320,7 @@ type GetPermissionsDataLocationInput interface {
 }
 
 type GetPermissionsDataLocationArgs struct {
-	// Amazon Resource Name (ARN) that uniquely identifies the data location resource.
+	// ARN that uniquely identifies the data location resource.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId pulumi.StringInput `pulumi:"catalogId"`
@@ -2403,7 +2403,7 @@ func (o GetPermissionsDataLocationOutput) ToGetPermissionsDataLocationPtrOutputW
 	}).(GetPermissionsDataLocationPtrOutput)
 }
 
-// Amazon Resource Name (ARN) that uniquely identifies the data location resource.
+// ARN that uniquely identifies the data location resource.
 func (o GetPermissionsDataLocationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPermissionsDataLocation) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -2437,7 +2437,7 @@ func (o GetPermissionsDataLocationPtrOutput) Elem() GetPermissionsDataLocationOu
 	}).(GetPermissionsDataLocationOutput)
 }
 
-// Amazon Resource Name (ARN) that uniquely identifies the data location resource.
+// ARN that uniquely identifies the data location resource.
 func (o GetPermissionsDataLocationPtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetPermissionsDataLocation) *string {
 		if v == nil {
@@ -2616,9 +2616,9 @@ func (o GetPermissionsDatabasePtrOutput) Name() pulumi.StringPtrOutput {
 type GetPermissionsLfTag struct {
 	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId string `pulumi:"catalogId"`
-	// The key-name of an LF-Tag.
+	// Key-name of an LF-Tag.
 	Key string `pulumi:"key"`
-	// A list of possible values of an LF-Tag.
+	// List of possible values of an LF-Tag.
 	Values []string `pulumi:"values"`
 }
 
@@ -2636,9 +2636,9 @@ type GetPermissionsLfTagInput interface {
 type GetPermissionsLfTagArgs struct {
 	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId pulumi.StringInput `pulumi:"catalogId"`
-	// The key-name of an LF-Tag.
+	// Key-name of an LF-Tag.
 	Key pulumi.StringInput `pulumi:"key"`
-	// A list of possible values of an LF-Tag.
+	// List of possible values of an LF-Tag.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -2724,12 +2724,12 @@ func (o GetPermissionsLfTagOutput) CatalogId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPermissionsLfTag) string { return v.CatalogId }).(pulumi.StringOutput)
 }
 
-// The key-name of an LF-Tag.
+// Key-name of an LF-Tag.
 func (o GetPermissionsLfTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPermissionsLfTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// A list of possible values of an LF-Tag.
+// List of possible values of an LF-Tag.
 func (o GetPermissionsLfTagOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetPermissionsLfTag) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -2768,7 +2768,7 @@ func (o GetPermissionsLfTagPtrOutput) CatalogId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The key-name of an LF-Tag.
+// Key-name of an LF-Tag.
 func (o GetPermissionsLfTagPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetPermissionsLfTag) *string {
 		if v == nil {
@@ -2778,7 +2778,7 @@ func (o GetPermissionsLfTagPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A list of possible values of an LF-Tag.
+// List of possible values of an LF-Tag.
 func (o GetPermissionsLfTagPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GetPermissionsLfTag) []string {
 		if v == nil {
@@ -2791,9 +2791,9 @@ func (o GetPermissionsLfTagPtrOutput) Values() pulumi.StringArrayOutput {
 type GetPermissionsLfTagPolicy struct {
 	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId string `pulumi:"catalogId"`
-	// A list of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
+	// List of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
 	Expressions []GetPermissionsLfTagPolicyExpression `pulumi:"expressions"`
-	// The resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
+	// Resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
 	ResourceType string `pulumi:"resourceType"`
 }
 
@@ -2811,9 +2811,9 @@ type GetPermissionsLfTagPolicyInput interface {
 type GetPermissionsLfTagPolicyArgs struct {
 	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId pulumi.StringInput `pulumi:"catalogId"`
-	// A list of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
+	// List of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
 	Expressions GetPermissionsLfTagPolicyExpressionArrayInput `pulumi:"expressions"`
-	// The resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
+	// Resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
 	ResourceType pulumi.StringInput `pulumi:"resourceType"`
 }
 
@@ -2899,12 +2899,12 @@ func (o GetPermissionsLfTagPolicyOutput) CatalogId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPermissionsLfTagPolicy) string { return v.CatalogId }).(pulumi.StringOutput)
 }
 
-// A list of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
+// List of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
 func (o GetPermissionsLfTagPolicyOutput) Expressions() GetPermissionsLfTagPolicyExpressionArrayOutput {
 	return o.ApplyT(func(v GetPermissionsLfTagPolicy) []GetPermissionsLfTagPolicyExpression { return v.Expressions }).(GetPermissionsLfTagPolicyExpressionArrayOutput)
 }
 
-// The resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
+// Resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
 func (o GetPermissionsLfTagPolicyOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPermissionsLfTagPolicy) string { return v.ResourceType }).(pulumi.StringOutput)
 }
@@ -2943,7 +2943,7 @@ func (o GetPermissionsLfTagPolicyPtrOutput) CatalogId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A list of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
+// List of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
 func (o GetPermissionsLfTagPolicyPtrOutput) Expressions() GetPermissionsLfTagPolicyExpressionArrayOutput {
 	return o.ApplyT(func(v *GetPermissionsLfTagPolicy) []GetPermissionsLfTagPolicyExpression {
 		if v == nil {
@@ -2953,7 +2953,7 @@ func (o GetPermissionsLfTagPolicyPtrOutput) Expressions() GetPermissionsLfTagPol
 	}).(GetPermissionsLfTagPolicyExpressionArrayOutput)
 }
 
-// The resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
+// Resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
 func (o GetPermissionsLfTagPolicyPtrOutput) ResourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetPermissionsLfTagPolicy) *string {
 		if v == nil {
@@ -2964,9 +2964,9 @@ func (o GetPermissionsLfTagPolicyPtrOutput) ResourceType() pulumi.StringPtrOutpu
 }
 
 type GetPermissionsLfTagPolicyExpression struct {
-	// The key-name of an LF-Tag.
+	// Key-name of an LF-Tag.
 	Key string `pulumi:"key"`
-	// A list of possible values of an LF-Tag.
+	// List of possible values of an LF-Tag.
 	Values []string `pulumi:"values"`
 }
 
@@ -2982,9 +2982,9 @@ type GetPermissionsLfTagPolicyExpressionInput interface {
 }
 
 type GetPermissionsLfTagPolicyExpressionArgs struct {
-	// The key-name of an LF-Tag.
+	// Key-name of an LF-Tag.
 	Key pulumi.StringInput `pulumi:"key"`
-	// A list of possible values of an LF-Tag.
+	// List of possible values of an LF-Tag.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -3039,12 +3039,12 @@ func (o GetPermissionsLfTagPolicyExpressionOutput) ToGetPermissionsLfTagPolicyEx
 	return o
 }
 
-// The key-name of an LF-Tag.
+// Key-name of an LF-Tag.
 func (o GetPermissionsLfTagPolicyExpressionOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPermissionsLfTagPolicyExpression) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// A list of possible values of an LF-Tag.
+// List of possible values of an LF-Tag.
 func (o GetPermissionsLfTagPolicyExpressionOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetPermissionsLfTagPolicyExpression) []string { return v.Values }).(pulumi.StringArrayOutput)
 }

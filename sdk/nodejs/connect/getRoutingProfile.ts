@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -65,7 +67,7 @@ export interface GetRoutingProfileArgs {
      */
     routingProfileId?: string;
     /**
-     * A map of tags to assign to the Routing Profile.
+     * Map of tags to assign to the Routing Profile.
      */
     tags?: {[key: string]: string};
 }
@@ -75,7 +77,7 @@ export interface GetRoutingProfileArgs {
  */
 export interface GetRoutingProfileResult {
     /**
-     * The Amazon Resource Name (ARN) of the Routing Profile.
+     * ARN of the Routing Profile.
      */
     readonly arn: string;
     /**
@@ -83,7 +85,7 @@ export interface GetRoutingProfileResult {
      */
     readonly defaultOutboundQueueId: string;
     /**
-     * Specifies the description of the Routing Profile.
+     * Description of the Routing Profile.
      */
     readonly description: string;
     /**
@@ -102,7 +104,7 @@ export interface GetRoutingProfileResult {
     readonly queueConfigs: outputs.connect.GetRoutingProfileQueueConfig[];
     readonly routingProfileId: string;
     /**
-     * A map of tags to assign to the Routing Profile.
+     * Map of tags to assign to the Routing Profile.
      */
     readonly tags: {[key: string]: string};
 }
@@ -128,7 +130,7 @@ export interface GetRoutingProfileOutputArgs {
      */
     routingProfileId?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the Routing Profile.
+     * Map of tags to assign to the Routing Profile.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

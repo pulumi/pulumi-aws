@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class VirtualNodeSpecLoggingAccessLog
     {
         /// <summary>
-        /// The file object to send virtual node access logs to.
+        /// File object to send virtual node access logs to.
         /// </summary>
         public readonly Outputs.VirtualNodeSpecLoggingAccessLogFile? File;
 

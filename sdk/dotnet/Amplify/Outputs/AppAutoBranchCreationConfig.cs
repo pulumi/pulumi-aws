@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Amplify.Outputs
     public sealed class AppAutoBranchCreationConfig
     {
         /// <summary>
-        /// The basic authorization credentials for the autocreated branch.
+        /// Basic authorization credentials for the autocreated branch.
         /// </summary>
         public readonly string? BasicAuthCredentials;
         /// <summary>
-        /// The build specification (build spec) for the autocreated branch.
+        /// Build specification (build spec) for the autocreated branch.
         /// </summary>
         public readonly string? BuildSpec;
         /// <summary>
@@ -38,15 +38,15 @@ namespace Pulumi.Aws.Amplify.Outputs
         /// </summary>
         public readonly bool? EnablePullRequestPreview;
         /// <summary>
-        /// The environment variables for the autocreated branch.
+        /// Environment variables for the autocreated branch.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? EnvironmentVariables;
         /// <summary>
-        /// The framework for the autocreated branch.
+        /// Framework for the autocreated branch.
         /// </summary>
         public readonly string? Framework;
         /// <summary>
-        /// The Amplify environment name for the pull request.
+        /// Amplify environment name for the pull request.
         /// </summary>
         public readonly string? PullRequestEnvironmentName;
         /// <summary>

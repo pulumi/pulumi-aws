@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames
     {
         /// <summary>
-        /// The criteria for determining a SAN's match.
+        /// Criteria for determining a SAN's match.
         /// </summary>
         public readonly Outputs.VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch Match;
 

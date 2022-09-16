@@ -59,23 +59,23 @@ export class BackendEnvironment extends pulumi.CustomResource {
     }
 
     /**
-     * The unique ID for an Amplify app.
+     * Unique ID for an Amplify app.
      */
     public readonly appId!: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) for a backend environment that is part of an Amplify app.
+     * ARN for a backend environment that is part of an Amplify app.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The name of deployment artifacts.
+     * Name of deployment artifacts.
      */
     public readonly deploymentArtifacts!: pulumi.Output<string>;
     /**
-     * The name for the backend environment.
+     * Name for the backend environment.
      */
     public readonly environmentName!: pulumi.Output<string>;
     /**
-     * The AWS CloudFormation stack name of a backend environment.
+     * AWS CloudFormation stack name of a backend environment.
      */
     public readonly stackName!: pulumi.Output<string>;
 
@@ -121,23 +121,23 @@ export class BackendEnvironment extends pulumi.CustomResource {
  */
 export interface BackendEnvironmentState {
     /**
-     * The unique ID for an Amplify app.
+     * Unique ID for an Amplify app.
      */
     appId?: pulumi.Input<string>;
     /**
-     * The Amazon Resource Name (ARN) for a backend environment that is part of an Amplify app.
+     * ARN for a backend environment that is part of an Amplify app.
      */
     arn?: pulumi.Input<string>;
     /**
-     * The name of deployment artifacts.
+     * Name of deployment artifacts.
      */
     deploymentArtifacts?: pulumi.Input<string>;
     /**
-     * The name for the backend environment.
+     * Name for the backend environment.
      */
     environmentName?: pulumi.Input<string>;
     /**
-     * The AWS CloudFormation stack name of a backend environment.
+     * AWS CloudFormation stack name of a backend environment.
      */
     stackName?: pulumi.Input<string>;
 }
@@ -147,19 +147,19 @@ export interface BackendEnvironmentState {
  */
 export interface BackendEnvironmentArgs {
     /**
-     * The unique ID for an Amplify app.
+     * Unique ID for an Amplify app.
      */
     appId: pulumi.Input<string>;
     /**
-     * The name of deployment artifacts.
+     * Name of deployment artifacts.
      */
     deploymentArtifacts?: pulumi.Input<string>;
     /**
-     * The name for the backend environment.
+     * Name for the backend environment.
      */
     environmentName: pulumi.Input<string>;
     /**
-     * The AWS CloudFormation stack name of a backend environment.
+     * AWS CloudFormation stack name of a backend environment.
      */
     stackName?: pulumi.Input<string>;
 }

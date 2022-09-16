@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
+import * as enums from "./types/enums";
 import * as utilities from "./utilities";
 
 /**
@@ -56,7 +58,7 @@ export interface GetAmiIdsArgs {
      */
     filters?: inputs.GetAmiIdsFilter[];
     /**
-     * A regex string to apply to the AMI list returned
+     * Regex string to apply to the AMI list returned
      * by AWS. This allows more advanced filtering not supported from the AWS API.
      * This filtering is done locally on what AWS returns, and could have a performance
      * impact if the result is large. Combine this with other
@@ -109,7 +111,7 @@ export interface GetAmiIdsOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.GetAmiIdsFilterArgs>[]>;
     /**
-     * A regex string to apply to the AMI list returned
+     * Regex string to apply to the AMI list returned
      * by AWS. This allows more advanced filtering not supported from the AWS API.
      * This filtering is done locally on what AWS returns, and could have a performance
      * impact if the result is large. Combine this with other

@@ -15,12 +15,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetCertificateResult {
     /**
-     * @return Amazon Resource Name (ARN) of the found certificate, suitable for referencing in other resources that support ACM certificates.
+     * @return ARN of the found certificate, suitable for referencing in other resources that support ACM certificates.
      * 
      */
     private String arn;
     /**
-     * @return The ACM-issued certificate.
+     * @return ACM-issued certificate.
      * 
      */
     private String certificate;
@@ -44,7 +44,7 @@ public final class GetCertificateResult {
     private String status;
     private @Nullable List<String> statuses;
     /**
-     * @return A mapping of tags for the resource.
+     * @return Mapping of tags for the resource.
      * 
      */
     private Map<String,String> tags;
@@ -52,14 +52,14 @@ public final class GetCertificateResult {
 
     private GetCertificateResult() {}
     /**
-     * @return Amazon Resource Name (ARN) of the found certificate, suitable for referencing in other resources that support ACM certificates.
+     * @return ARN of the found certificate, suitable for referencing in other resources that support ACM certificates.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return The ACM-issued certificate.
+     * @return ACM-issued certificate.
      * 
      */
     public String certificate() {
@@ -99,7 +99,7 @@ public final class GetCertificateResult {
         return this.statuses == null ? List.of() : this.statuses;
     }
     /**
-     * @return A mapping of tags for the resource.
+     * @return Mapping of tags for the resource.
      * 
      */
     public Map<String,String> tags() {

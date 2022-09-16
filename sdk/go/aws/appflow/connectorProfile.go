@@ -31,7 +31,7 @@ import (
 type ConnectorProfile struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the connector profile.
+	// ARN of the connector profile.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
 	ConnectionMode pulumi.StringOutput `pulumi:"connectionMode"`
@@ -41,9 +41,9 @@ type ConnectorProfile struct {
 	ConnectorProfileConfig ConnectorProfileConnectorProfileConfigOutput `pulumi:"connectorProfileConfig"`
 	// The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
 	ConnectorType pulumi.StringOutput `pulumi:"connectorType"`
-	// The Amazon Resource Name (ARN) of the connector profile credentials.
+	// ARN of the connector profile credentials.
 	CredentialsArn pulumi.StringOutput `pulumi:"credentialsArn"`
-	// The ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+	// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
 	KmsArn pulumi.StringOutput `pulumi:"kmsArn"`
 	Name   pulumi.StringOutput `pulumi:"name"`
 }
@@ -86,7 +86,7 @@ func GetConnectorProfile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ConnectorProfile resources.
 type connectorProfileState struct {
-	// The Amazon Resource Name (ARN) of the connector profile.
+	// ARN of the connector profile.
 	Arn *string `pulumi:"arn"`
 	// Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
 	ConnectionMode *string `pulumi:"connectionMode"`
@@ -96,15 +96,15 @@ type connectorProfileState struct {
 	ConnectorProfileConfig *ConnectorProfileConnectorProfileConfig `pulumi:"connectorProfileConfig"`
 	// The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
 	ConnectorType *string `pulumi:"connectorType"`
-	// The Amazon Resource Name (ARN) of the connector profile credentials.
+	// ARN of the connector profile credentials.
 	CredentialsArn *string `pulumi:"credentialsArn"`
-	// The ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+	// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
 	KmsArn *string `pulumi:"kmsArn"`
 	Name   *string `pulumi:"name"`
 }
 
 type ConnectorProfileState struct {
-	// The Amazon Resource Name (ARN) of the connector profile.
+	// ARN of the connector profile.
 	Arn pulumi.StringPtrInput
 	// Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
 	ConnectionMode pulumi.StringPtrInput
@@ -114,9 +114,9 @@ type ConnectorProfileState struct {
 	ConnectorProfileConfig ConnectorProfileConnectorProfileConfigPtrInput
 	// The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
 	ConnectorType pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the connector profile credentials.
+	// ARN of the connector profile credentials.
 	CredentialsArn pulumi.StringPtrInput
-	// The ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+	// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
 	KmsArn pulumi.StringPtrInput
 	Name   pulumi.StringPtrInput
 }
@@ -134,7 +134,7 @@ type connectorProfileArgs struct {
 	ConnectorProfileConfig ConnectorProfileConnectorProfileConfig `pulumi:"connectorProfileConfig"`
 	// The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
 	ConnectorType string `pulumi:"connectorType"`
-	// The ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+	// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
 	KmsArn *string `pulumi:"kmsArn"`
 	Name   *string `pulumi:"name"`
 }
@@ -149,7 +149,7 @@ type ConnectorProfileArgs struct {
 	ConnectorProfileConfig ConnectorProfileConnectorProfileConfigInput
 	// The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
 	ConnectorType pulumi.StringInput
-	// The ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+	// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
 	KmsArn pulumi.StringPtrInput
 	Name   pulumi.StringPtrInput
 }
@@ -241,7 +241,7 @@ func (o ConnectorProfileOutput) ToConnectorProfileOutputWithContext(ctx context.
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the connector profile.
+// ARN of the connector profile.
 func (o ConnectorProfileOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectorProfile) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -268,12 +268,12 @@ func (o ConnectorProfileOutput) ConnectorType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectorProfile) pulumi.StringOutput { return v.ConnectorType }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the connector profile credentials.
+// ARN of the connector profile credentials.
 func (o ConnectorProfileOutput) CredentialsArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectorProfile) pulumi.StringOutput { return v.CredentialsArn }).(pulumi.StringOutput)
 }
 
-// The ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
 func (o ConnectorProfileOutput) KmsArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectorProfile) pulumi.StringOutput { return v.KmsArn }).(pulumi.StringOutput)
 }

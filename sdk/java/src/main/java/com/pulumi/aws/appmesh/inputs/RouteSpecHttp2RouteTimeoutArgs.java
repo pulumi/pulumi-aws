@@ -17,14 +17,14 @@ public final class RouteSpecHttp2RouteTimeoutArgs extends com.pulumi.resources.R
     public static final RouteSpecHttp2RouteTimeoutArgs Empty = new RouteSpecHttp2RouteTimeoutArgs();
 
     /**
-     * The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+     * Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
      * 
      */
     @Import(name="idle")
     private @Nullable Output<RouteSpecHttp2RouteTimeoutIdleArgs> idle;
 
     /**
-     * @return The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+     * @return Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
      * 
      */
     public Optional<Output<RouteSpecHttp2RouteTimeoutIdleArgs>> idle() {
@@ -32,14 +32,14 @@ public final class RouteSpecHttp2RouteTimeoutArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The per request timeout.
+     * Per request timeout.
      * 
      */
     @Import(name="perRequest")
     private @Nullable Output<RouteSpecHttp2RouteTimeoutPerRequestArgs> perRequest;
 
     /**
-     * @return The per request timeout.
+     * @return Per request timeout.
      * 
      */
     public Optional<Output<RouteSpecHttp2RouteTimeoutPerRequestArgs>> perRequest() {
@@ -72,7 +72,7 @@ public final class RouteSpecHttp2RouteTimeoutArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param idle The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+         * @param idle Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class RouteSpecHttp2RouteTimeoutArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param idle The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+         * @param idle Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class RouteSpecHttp2RouteTimeoutArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param perRequest The per request timeout.
+         * @param perRequest Per request timeout.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class RouteSpecHttp2RouteTimeoutArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param perRequest The per request timeout.
+         * @param perRequest Per request timeout.
          * 
          * @return builder
          * 

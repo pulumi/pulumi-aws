@@ -5,18 +5,40 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./accountAssignment";
-export * from "./getInstances";
-export * from "./getPermissionSet";
-export * from "./managedPolicyAttachment";
-export * from "./permissionSet";
-export * from "./permissionSetInlinePolicy";
+export { AccountAssignmentArgs, AccountAssignmentState } from "./accountAssignment";
+export type AccountAssignment = import("./accountAssignment").AccountAssignment;
+export const AccountAssignment: typeof import("./accountAssignment").AccountAssignment = null as any;
 
-// Import resources to register:
-import { AccountAssignment } from "./accountAssignment";
-import { ManagedPolicyAttachment } from "./managedPolicyAttachment";
-import { PermissionSet } from "./permissionSet";
-import { PermissionSetInlinePolicy } from "./permissionSetInlinePolicy";
+export { CustomerManagedPolicyAttachmentArgs, CustomerManagedPolicyAttachmentState } from "./customerManagedPolicyAttachment";
+export type CustomerManagedPolicyAttachment = import("./customerManagedPolicyAttachment").CustomerManagedPolicyAttachment;
+export const CustomerManagedPolicyAttachment: typeof import("./customerManagedPolicyAttachment").CustomerManagedPolicyAttachment = null as any;
+
+export { GetInstancesResult } from "./getInstances";
+export const getInstances: typeof import("./getInstances").getInstances = null as any;
+
+export { GetPermissionSetArgs, GetPermissionSetResult, GetPermissionSetOutputArgs } from "./getPermissionSet";
+export const getPermissionSet: typeof import("./getPermissionSet").getPermissionSet = null as any;
+export const getPermissionSetOutput: typeof import("./getPermissionSet").getPermissionSetOutput = null as any;
+
+export { ManagedPolicyAttachmentArgs, ManagedPolicyAttachmentState } from "./managedPolicyAttachment";
+export type ManagedPolicyAttachment = import("./managedPolicyAttachment").ManagedPolicyAttachment;
+export const ManagedPolicyAttachment: typeof import("./managedPolicyAttachment").ManagedPolicyAttachment = null as any;
+
+export { PermissionSetArgs, PermissionSetState } from "./permissionSet";
+export type PermissionSet = import("./permissionSet").PermissionSet;
+export const PermissionSet: typeof import("./permissionSet").PermissionSet = null as any;
+
+export { PermissionSetInlinePolicyArgs, PermissionSetInlinePolicyState } from "./permissionSetInlinePolicy";
+export type PermissionSetInlinePolicy = import("./permissionSetInlinePolicy").PermissionSetInlinePolicy;
+export const PermissionSetInlinePolicy: typeof import("./permissionSetInlinePolicy").PermissionSetInlinePolicy = null as any;
+
+utilities.lazyLoad(exports, ["AccountAssignment"], () => require("./accountAssignment"));
+utilities.lazyLoad(exports, ["CustomerManagedPolicyAttachment"], () => require("./customerManagedPolicyAttachment"));
+utilities.lazyLoad(exports, ["getInstances"], () => require("./getInstances"));
+utilities.lazyLoad(exports, ["getPermissionSet","getPermissionSetOutput"], () => require("./getPermissionSet"));
+utilities.lazyLoad(exports, ["ManagedPolicyAttachment"], () => require("./managedPolicyAttachment"));
+utilities.lazyLoad(exports, ["PermissionSet"], () => require("./permissionSet"));
+utilities.lazyLoad(exports, ["PermissionSetInlinePolicy"], () => require("./permissionSetInlinePolicy"));
 
 const _module = {
     version: utilities.getVersion(),
@@ -24,6 +46,8 @@ const _module = {
         switch (type) {
             case "aws:ssoadmin/accountAssignment:AccountAssignment":
                 return new AccountAssignment(name, <any>undefined, { urn })
+            case "aws:ssoadmin/customerManagedPolicyAttachment:CustomerManagedPolicyAttachment":
+                return new CustomerManagedPolicyAttachment(name, <any>undefined, { urn })
             case "aws:ssoadmin/managedPolicyAttachment:ManagedPolicyAttachment":
                 return new ManagedPolicyAttachment(name, <any>undefined, { urn })
             case "aws:ssoadmin/permissionSet:PermissionSet":
@@ -36,6 +60,7 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("aws", "ssoadmin/accountAssignment", _module)
+pulumi.runtime.registerResourceModule("aws", "ssoadmin/customerManagedPolicyAttachment", _module)
 pulumi.runtime.registerResourceModule("aws", "ssoadmin/managedPolicyAttachment", _module)
 pulumi.runtime.registerResourceModule("aws", "ssoadmin/permissionSet", _module)
 pulumi.runtime.registerResourceModule("aws", "ssoadmin/permissionSetInlinePolicy", _module)

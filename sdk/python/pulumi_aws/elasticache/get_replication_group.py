@@ -99,7 +99,7 @@ class GetReplicationGroupResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the created ElastiCache Replication Group.
+        ARN of the created ElastiCache Replication Group.
         """
         return pulumi.get(self, "arn")
 
@@ -107,7 +107,7 @@ class GetReplicationGroupResult:
     @pulumi.getter(name="authTokenEnabled")
     def auth_token_enabled(self) -> bool:
         """
-        Specifies whether an AuthToken (password) is enabled.
+        Whether an AuthToken (password) is enabled.
         """
         return pulumi.get(self, "auth_token_enabled")
 
@@ -131,7 +131,7 @@ class GetReplicationGroupResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        The description of the replication group.
+        Description of the replication group.
         """
         return pulumi.get(self, "description")
 
@@ -155,7 +155,7 @@ class GetReplicationGroupResult:
     @pulumi.getter(name="memberClusters")
     def member_clusters(self) -> Sequence[str]:
         """
-        The identifiers of all the nodes that are part of this replication group.
+        Identifiers of all the nodes that are part of this replication group.
         """
         return pulumi.get(self, "member_clusters")
 
@@ -163,7 +163,7 @@ class GetReplicationGroupResult:
     @pulumi.getter(name="multiAzEnabled")
     def multi_az_enabled(self) -> bool:
         """
-        Specifies whether Multi-AZ Support is enabled for the replication group.
+        Whether Multi-AZ Support is enabled for the replication group.
         """
         return pulumi.get(self, "multi_az_enabled")
 
@@ -195,7 +195,7 @@ class GetReplicationGroupResult:
     @pulumi.getter(name="numberCacheClusters")
     def number_cache_clusters(self) -> int:
         """
-        (**Deprecated** use `num_cache_clusters` instead) The number of cache clusters that the replication group has.
+        (**Deprecated** use `num_cache_clusters` instead) Number of cache clusters that the replication group has.
         """
         return pulumi.get(self, "number_cache_clusters")
 
@@ -235,7 +235,7 @@ class GetReplicationGroupResult:
     @pulumi.getter(name="replicationGroupDescription")
     def replication_group_description(self) -> str:
         """
-        (**Deprecated** use `description` instead) The description of the replication group.
+        (**Deprecated** use `description` instead) Description of the replication group.
         """
         return pulumi.get(self, "replication_group_description")
 
@@ -256,7 +256,7 @@ class GetReplicationGroupResult:
     @pulumi.getter(name="snapshotWindow")
     def snapshot_window(self) -> str:
         """
-        The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard).
+        Daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard).
         """
         return pulumi.get(self, "snapshot_window")
 
@@ -305,7 +305,7 @@ def get_replication_group(replication_group_id: Optional[str] = None,
     ```
 
 
-    :param str replication_group_id: The identifier for the replication group.
+    :param str replication_group_id: Identifier for the replication group.
     """
     __args__ = dict()
     __args__['replicationGroupId'] = replication_group_id
@@ -352,6 +352,6 @@ def get_replication_group_output(replication_group_id: Optional[pulumi.Input[str
     ```
 
 
-    :param str replication_group_id: The identifier for the replication group.
+    :param str replication_group_id: Identifier for the replication group.
     """
     ...

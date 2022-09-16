@@ -164,7 +164,7 @@ def get_bucket_objects(bucket: Optional[str] = None,
 
 
     :param str bucket: Lists object keys in this S3 bucket. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
-    :param str delimiter: A character used to group keys (Default: none)
+    :param str delimiter: Character used to group keys (Default: none)
     :param str encoding_type: Encodes keys using this method (Default: none; besides none, only "url" can be used)
     :param bool fetch_owner: Boolean specifying whether to populate the owner list (Default: false)
     :param int max_keys: Maximum object keys to return (Default: 1000)
@@ -214,7 +214,7 @@ def get_bucket_objects_output(bucket: Optional[pulumi.Input[str]] = None,
 
 
     :param str bucket: Lists object keys in this S3 bucket. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
-    :param str delimiter: A character used to group keys (Default: none)
+    :param str delimiter: Character used to group keys (Default: none)
     :param str encoding_type: Encodes keys using this method (Default: none; besides none, only "url" can be used)
     :param bool fetch_owner: Boolean specifying whether to populate the owner list (Default: false)
     :param int max_keys: Maximum object keys to return (Default: 1000)

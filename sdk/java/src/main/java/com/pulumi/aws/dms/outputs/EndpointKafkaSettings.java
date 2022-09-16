@@ -79,7 +79,7 @@ public final class EndpointKafkaSettings {
      */
     private @Nullable String securityProtocol;
     /**
-     * @return ARN for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
+     * @return The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
      * 
      */
     private @Nullable String sslCaCertificateArn;
@@ -197,7 +197,7 @@ public final class EndpointKafkaSettings {
         return Optional.ofNullable(this.securityProtocol);
     }
     /**
-     * @return ARN for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
+     * @return The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
      * 
      */
     public Optional<String> sslCaCertificateArn() {

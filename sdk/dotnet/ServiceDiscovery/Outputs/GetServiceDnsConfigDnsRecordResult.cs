@@ -14,7 +14,7 @@ namespace Pulumi.Aws.ServiceDiscovery.Outputs
     public sealed class GetServiceDnsConfigDnsRecordResult
     {
         /// <summary>
-        /// The amount of time, in seconds, that you want DNS resolvers to cache the settings for this resource record set.
+        /// Amount of time, in seconds, that you want DNS resolvers to cache the settings for this resource record set.
         /// </summary>
         public readonly int Ttl;
         /// <summary>

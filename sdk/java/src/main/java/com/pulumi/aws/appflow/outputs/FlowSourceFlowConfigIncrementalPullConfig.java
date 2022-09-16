@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FlowSourceFlowConfigIncrementalPullConfig {
     /**
-     * @return A field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.
+     * @return Field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.
      * 
      */
     private @Nullable String datetimeTypeFieldName;
 
     private FlowSourceFlowConfigIncrementalPullConfig() {}
     /**
-     * @return A field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.
+     * @return Field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.
      * 
      */
     public Optional<String> datetimeTypeFieldName() {

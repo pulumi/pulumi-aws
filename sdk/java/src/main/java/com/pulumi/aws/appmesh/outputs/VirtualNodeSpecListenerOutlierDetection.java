@@ -12,12 +12,12 @@ import java.util.Objects;
 @CustomType
 public final class VirtualNodeSpecListenerOutlierDetection {
     /**
-     * @return The base amount of time for which a host is ejected.
+     * @return Base amount of time for which a host is ejected.
      * 
      */
     private VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration baseEjectionDuration;
     /**
-     * @return The time interval between ejection sweep analysis.
+     * @return Time interval between ejection sweep analysis.
      * 
      */
     private VirtualNodeSpecListenerOutlierDetectionInterval interval;
@@ -35,14 +35,14 @@ public final class VirtualNodeSpecListenerOutlierDetection {
 
     private VirtualNodeSpecListenerOutlierDetection() {}
     /**
-     * @return The base amount of time for which a host is ejected.
+     * @return Base amount of time for which a host is ejected.
      * 
      */
     public VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration baseEjectionDuration() {
         return this.baseEjectionDuration;
     }
     /**
-     * @return The time interval between ejection sweep analysis.
+     * @return Time interval between ejection sweep analysis.
      * 
      */
     public VirtualNodeSpecListenerOutlierDetectionInterval interval() {

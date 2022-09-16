@@ -58,7 +58,7 @@ class GetFunctionUrlResult:
     @pulumi.getter(name="authorizationType")
     def authorization_type(self) -> str:
         """
-        The type of authentication that the function URL uses.
+        Type of authentication that the function URL uses.
         """
         return pulumi.get(self, "authorization_type")
 
@@ -82,7 +82,7 @@ class GetFunctionUrlResult:
     @pulumi.getter(name="functionArn")
     def function_arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the function.
+        ARN of the function.
         """
         return pulumi.get(self, "function_arn")
 
@@ -95,7 +95,7 @@ class GetFunctionUrlResult:
     @pulumi.getter(name="functionUrl")
     def function_url(self) -> str:
         """
-        The HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws`.
+        HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws`.
         """
         return pulumi.get(self, "function_url")
 
@@ -124,7 +124,7 @@ class GetFunctionUrlResult:
     @pulumi.getter(name="urlId")
     def url_id(self) -> str:
         """
-        A generated ID for the endpoint.
+        Generated ID for the endpoint.
         """
         return pulumi.get(self, "url_id")
 
@@ -166,7 +166,7 @@ def get_function_url(function_name: Optional[str] = None,
 
 
     :param str function_name: he name (or ARN) of the Lambda function.
-    :param str qualifier: The alias name or `"$LATEST"`.
+    :param str qualifier: Alias name or `"$LATEST"`.
     """
     __args__ = dict()
     __args__['functionName'] = function_name
@@ -207,6 +207,6 @@ def get_function_url_output(function_name: Optional[pulumi.Input[str]] = None,
 
 
     :param str function_name: he name (or ARN) of the Lambda function.
-    :param str qualifier: The alias name or `"$LATEST"`.
+    :param str qualifier: Alias name or `"$LATEST"`.
     """
     ...

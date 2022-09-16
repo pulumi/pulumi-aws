@@ -5,20 +5,36 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./account";
-export * from "./classificationExportConfiguration";
-export * from "./classificationJob";
-export * from "./invitationAccepter";
-export * from "./member";
-export * from "./organizationAdminAccount";
+export { AccountArgs, AccountState } from "./account";
+export type Account = import("./account").Account;
+export const Account: typeof import("./account").Account = null as any;
 
-// Import resources to register:
-import { Account } from "./account";
-import { ClassificationExportConfiguration } from "./classificationExportConfiguration";
-import { ClassificationJob } from "./classificationJob";
-import { InvitationAccepter } from "./invitationAccepter";
-import { Member } from "./member";
-import { OrganizationAdminAccount } from "./organizationAdminAccount";
+export { ClassificationExportConfigurationArgs, ClassificationExportConfigurationState } from "./classificationExportConfiguration";
+export type ClassificationExportConfiguration = import("./classificationExportConfiguration").ClassificationExportConfiguration;
+export const ClassificationExportConfiguration: typeof import("./classificationExportConfiguration").ClassificationExportConfiguration = null as any;
+
+export { ClassificationJobArgs, ClassificationJobState } from "./classificationJob";
+export type ClassificationJob = import("./classificationJob").ClassificationJob;
+export const ClassificationJob: typeof import("./classificationJob").ClassificationJob = null as any;
+
+export { InvitationAccepterArgs, InvitationAccepterState } from "./invitationAccepter";
+export type InvitationAccepter = import("./invitationAccepter").InvitationAccepter;
+export const InvitationAccepter: typeof import("./invitationAccepter").InvitationAccepter = null as any;
+
+export { MemberArgs, MemberState } from "./member";
+export type Member = import("./member").Member;
+export const Member: typeof import("./member").Member = null as any;
+
+export { OrganizationAdminAccountArgs, OrganizationAdminAccountState } from "./organizationAdminAccount";
+export type OrganizationAdminAccount = import("./organizationAdminAccount").OrganizationAdminAccount;
+export const OrganizationAdminAccount: typeof import("./organizationAdminAccount").OrganizationAdminAccount = null as any;
+
+utilities.lazyLoad(exports, ["Account"], () => require("./account"));
+utilities.lazyLoad(exports, ["ClassificationExportConfiguration"], () => require("./classificationExportConfiguration"));
+utilities.lazyLoad(exports, ["ClassificationJob"], () => require("./classificationJob"));
+utilities.lazyLoad(exports, ["InvitationAccepter"], () => require("./invitationAccepter"));
+utilities.lazyLoad(exports, ["Member"], () => require("./member"));
+utilities.lazyLoad(exports, ["OrganizationAdminAccount"], () => require("./organizationAdminAccount"));
 
 const _module = {
     version: utilities.getVersion(),

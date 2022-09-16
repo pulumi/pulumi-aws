@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Connect.Inputs
     public sealed class GetBotAssociationLexBotArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Region that the Amazon Lex (V1) bot was created in.
+        /// Region that the Amazon Lex (V1) bot was created in.
         /// </summary>
         [Input("lexRegion", required: true)]
         public string LexRegion { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Amazon Lex (V1) bot.
+        /// Name of the Amazon Lex (V1) bot.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;

@@ -15,14 +15,14 @@ public final class RouteSpecHttp2RouteActionWeightedTargetArgs extends com.pulum
     public static final RouteSpecHttp2RouteActionWeightedTargetArgs Empty = new RouteSpecHttp2RouteActionWeightedTargetArgs();
 
     /**
-     * The virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
+     * Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
      * 
      */
     @Import(name="virtualNode", required=true)
     private Output<String> virtualNode;
 
     /**
-     * @return The virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
+     * @return Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
      * 
      */
     public Output<String> virtualNode() {
@@ -30,14 +30,14 @@ public final class RouteSpecHttp2RouteActionWeightedTargetArgs extends com.pulum
     }
 
     /**
-     * The relative weight of the weighted target. An integer between 0 and 100.
+     * Relative weight of the weighted target. An integer between 0 and 100.
      * 
      */
     @Import(name="weight", required=true)
     private Output<Integer> weight;
 
     /**
-     * @return The relative weight of the weighted target. An integer between 0 and 100.
+     * @return Relative weight of the weighted target. An integer between 0 and 100.
      * 
      */
     public Output<Integer> weight() {
@@ -70,7 +70,7 @@ public final class RouteSpecHttp2RouteActionWeightedTargetArgs extends com.pulum
         }
 
         /**
-         * @param virtualNode The virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
+         * @param virtualNode Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class RouteSpecHttp2RouteActionWeightedTargetArgs extends com.pulum
         }
 
         /**
-         * @param virtualNode The virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
+         * @param virtualNode Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class RouteSpecHttp2RouteActionWeightedTargetArgs extends com.pulum
         }
 
         /**
-         * @param weight The relative weight of the weighted target. An integer between 0 and 100.
+         * @param weight Relative weight of the weighted target. An integer between 0 and 100.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class RouteSpecHttp2RouteActionWeightedTargetArgs extends com.pulum
         }
 
         /**
-         * @param weight The relative weight of the weighted target. An integer between 0 and 100.
+         * @param weight Relative weight of the weighted target. An integer between 0 and 100.
          * 
          * @return builder
          * 

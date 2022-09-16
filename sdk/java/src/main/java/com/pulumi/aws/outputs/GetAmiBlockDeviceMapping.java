@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetAmiBlockDeviceMapping {
     /**
-     * @return The physical name of the device.
+     * @return Physical name of the device.
      * 
      */
     private String deviceName;
@@ -26,14 +26,14 @@ public final class GetAmiBlockDeviceMapping {
      */
     private String noDevice;
     /**
-     * @return The virtual device name (for instance stores).
+     * @return Virtual device name (for instance stores).
      * 
      */
     private String virtualName;
 
     private GetAmiBlockDeviceMapping() {}
     /**
-     * @return The physical name of the device.
+     * @return Physical name of the device.
      * 
      */
     public String deviceName() {
@@ -54,7 +54,7 @@ public final class GetAmiBlockDeviceMapping {
         return this.noDevice;
     }
     /**
-     * @return The virtual device name (for instance stores).
+     * @return Virtual device name (for instance stores).
      * 
      */
     public String virtualName() {

@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetLocalGatewayRouteTableFilter {
     /**
-     * @return The name of the field to filter by, as defined by
+     * @return Name of the field to filter by, as defined by
      * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayRouteTables.html).
      * 
      */
@@ -25,7 +25,7 @@ public final class GetLocalGatewayRouteTableFilter {
 
     private GetLocalGatewayRouteTableFilter() {}
     /**
-     * @return The name of the field to filter by, as defined by
+     * @return Name of the field to filter by, as defined by
      * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayRouteTables.html).
      * 
      */

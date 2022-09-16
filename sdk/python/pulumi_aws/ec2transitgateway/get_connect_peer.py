@@ -67,7 +67,7 @@ class GetConnectPeerResult:
     @pulumi.getter(name="bgpAsn")
     def bgp_asn(self) -> str:
         """
-        The BGP ASN number assigned customer device
+        BGP ASN number assigned customer device
         """
         return pulumi.get(self, "bgp_asn")
 
@@ -88,7 +88,7 @@ class GetConnectPeerResult:
     @pulumi.getter(name="insideCidrBlocks")
     def inside_cidr_blocks(self) -> Sequence[str]:
         """
-        The CIDR blocks that will be used for addressing within the tunnel.
+        CIDR blocks that will be used for addressing within the tunnel.
         """
         return pulumi.get(self, "inside_cidr_blocks")
 
@@ -96,7 +96,7 @@ class GetConnectPeerResult:
     @pulumi.getter(name="peerAddress")
     def peer_address(self) -> str:
         """
-        The IP addressed assigned to customer device, which is used as tunnel endpoint
+        IP addressed assigned to customer device, which is used as tunnel endpoint
         """
         return pulumi.get(self, "peer_address")
 

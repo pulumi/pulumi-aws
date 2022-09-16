@@ -28,14 +28,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     public static final GroupState Empty = new GroupState();
 
     /**
-     * The ARN for this Auto Scaling Group
+     * ARN for this Auto Scaling Group
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN for this Auto Scaling Group
+     * @return ARN for this Auto Scaling Group
      * 
      */
     public Optional<Output<String>> arn() {
@@ -43,14 +43,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of one or more availability zones for the group. Used for EC2-Classic, attaching a network interface via id from a launch template and default subnets when not specified with `vpc_zone_identifier` argument. Conflicts with `vpc_zone_identifier`.
+     * List of one or more availability zones for the group. Used for EC2-Classic, attaching a network interface via id from a launch template and default subnets when not specified with `vpc_zone_identifier` argument. Conflicts with `vpc_zone_identifier`.
      * 
      */
     @Import(name="availabilityZones")
     private @Nullable Output<List<String>> availabilityZones;
 
     /**
-     * @return A list of one or more availability zones for the group. Used for EC2-Classic, attaching a network interface via id from a launch template and default subnets when not specified with `vpc_zone_identifier` argument. Conflicts with `vpc_zone_identifier`.
+     * @return List of one or more availability zones for the group. Used for EC2-Classic, attaching a network interface via id from a launch template and default subnets when not specified with `vpc_zone_identifier` argument. Conflicts with `vpc_zone_identifier`.
      * 
      */
     public Optional<Output<List<String>>> availabilityZones() {
@@ -58,14 +58,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Indicates whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
+     * Whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
      * 
      */
     @Import(name="capacityRebalance")
     private @Nullable Output<Boolean> capacityRebalance;
 
     /**
-     * @return Indicates whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
+     * @return Whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
      * 
      */
     public Optional<Output<Boolean>> capacityRebalance() {
@@ -88,14 +88,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
+     * Amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
      * 
      */
     @Import(name="defaultCooldown")
     private @Nullable Output<Integer> defaultCooldown;
 
     /**
-     * @return The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
+     * @return Amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
      * 
      */
     public Optional<Output<Integer>> defaultCooldown() {
@@ -103,14 +103,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The amount of time, in seconds, until a newly launched instance can contribute to the Amazon CloudWatch metrics. This delay lets an instance finish initializing before Amazon EC2 Auto Scaling aggregates instance metrics, resulting in more reliable usage data. Set this value equal to the amount of time that it takes for resource consumption to become stable after an instance reaches the InService state. (See [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html))
+     * Amount of time, in seconds, until a newly launched instance can contribute to the Amazon CloudWatch metrics. This delay lets an instance finish initializing before Amazon EC2 Auto Scaling aggregates instance metrics, resulting in more reliable usage data. Set this value equal to the amount of time that it takes for resource consumption to become stable after an instance reaches the InService state. (See [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html))
      * 
      */
     @Import(name="defaultInstanceWarmup")
     private @Nullable Output<Integer> defaultInstanceWarmup;
 
     /**
-     * @return The amount of time, in seconds, until a newly launched instance can contribute to the Amazon CloudWatch metrics. This delay lets an instance finish initializing before Amazon EC2 Auto Scaling aggregates instance metrics, resulting in more reliable usage data. Set this value equal to the amount of time that it takes for resource consumption to become stable after an instance reaches the InService state. (See [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html))
+     * @return Amount of time, in seconds, until a newly launched instance can contribute to the Amazon CloudWatch metrics. This delay lets an instance finish initializing before Amazon EC2 Auto Scaling aggregates instance metrics, resulting in more reliable usage data. Set this value equal to the amount of time that it takes for resource consumption to become stable after an instance reaches the InService state. (See [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html))
      * 
      */
     public Optional<Output<Integer>> defaultInstanceWarmup() {
@@ -118,7 +118,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The number of Amazon EC2 instances that
+     * Number of Amazon EC2 instances that
      * should be running in the group. (See also Waiting for
      * Capacity below.)
      * 
@@ -127,7 +127,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<Integer> desiredCapacity;
 
     /**
-     * @return The number of Amazon EC2 instances that
+     * @return Number of Amazon EC2 instances that
      * should be running in the group. (See also Waiting for
      * Capacity below.)
      * 
@@ -137,14 +137,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
+     * List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
      * 
      */
     @Import(name="enabledMetrics")
     private @Nullable Output<List<String>> enabledMetrics;
 
     /**
-     * @return A list of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
+     * @return List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
      * 
      */
     public Optional<Output<List<String>>> enabledMetrics() {
@@ -258,14 +258,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the launch configuration to use.
+     * Name of the launch configuration to use.
      * 
      */
     @Import(name="launchConfiguration")
     private @Nullable Output<String> launchConfiguration;
 
     /**
-     * @return The name of the launch configuration to use.
+     * @return Name of the launch configuration to use.
      * 
      */
     public Optional<Output<String>> launchConfiguration() {
@@ -288,7 +288,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of elastic load balancer names to add to the autoscaling
+     * List of elastic load balancer names to add to the autoscaling
      * group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead.
      * 
      */
@@ -296,7 +296,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<List<String>> loadBalancers;
 
     /**
-     * @return A list of elastic load balancer names to add to the autoscaling
+     * @return List of elastic load balancer names to add to the autoscaling
      * group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead.
      * 
      */
@@ -305,14 +305,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 86400 and 31536000 seconds.
+     * Maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 86400 and 31536000 seconds.
      * 
      */
     @Import(name="maxInstanceLifetime")
     private @Nullable Output<Integer> maxInstanceLifetime;
 
     /**
-     * @return The maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 86400 and 31536000 seconds.
+     * @return Maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 86400 and 31536000 seconds.
      * 
      */
     public Optional<Output<Integer>> maxInstanceLifetime() {
@@ -320,14 +320,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The maximum size of the Auto Scaling Group.
+     * Maximum size of the Auto Scaling Group.
      * 
      */
     @Import(name="maxSize")
     private @Nullable Output<Integer> maxSize;
 
     /**
-     * @return The maximum size of the Auto Scaling Group.
+     * @return Maximum size of the Auto Scaling Group.
      * 
      */
     public Optional<Output<Integer>> maxSize() {
@@ -335,14 +335,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
+     * Granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
      * 
      */
     @Import(name="metricsGranularity")
     private @Nullable Output<Either<String,MetricsGranularity>> metricsGranularity;
 
     /**
-     * @return The granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
+     * @return Granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
      * 
      */
     public Optional<Output<Either<String,MetricsGranularity>>> metricsGranularity() {
@@ -371,14 +371,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
+     * Minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
      * 
      */
     @Import(name="minSize")
     private @Nullable Output<Integer> minSize;
 
     /**
-     * @return Specifies the minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
+     * @return Minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
      * 
      */
     public Optional<Output<Integer>> minSize() {
@@ -401,14 +401,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the Auto Scaling Group. By default generated by this provider. Conflicts with `name_prefix`.
+     * Name of the Auto Scaling Group. By default generated by this provider. Conflicts with `name_prefix`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the Auto Scaling Group. By default generated by this provider. Conflicts with `name_prefix`.
+     * @return Name of the Auto Scaling Group. By default generated by this provider. Conflicts with `name_prefix`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -433,14 +433,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the placement group into which you&#39;ll launch your instances, if any.
+     * Name of the placement group into which you&#39;ll launch your instances, if any.
      * 
      */
     @Import(name="placementGroup")
     private @Nullable Output<String> placementGroup;
 
     /**
-     * @return The name of the placement group into which you&#39;ll launch your instances, if any.
+     * @return Name of the placement group into which you&#39;ll launch your instances, if any.
      * 
      */
     public Optional<Output<String>> placementGroup() {
@@ -448,7 +448,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Indicates whether newly launched instances
+     * Whether newly launched instances
      * are automatically protected from termination by Amazon EC2 Auto Scaling when
      * scaling in. For more information about preventing instances from terminating
      * on scale in, see [Using instance scale-in protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html)
@@ -459,7 +459,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<Boolean> protectFromScaleIn;
 
     /**
-     * @return Indicates whether newly launched instances
+     * @return Whether newly launched instances
      * are automatically protected from termination by Amazon EC2 Auto Scaling when
      * scaling in. For more information about preventing instances from terminating
      * on scale in, see [Using instance scale-in protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html)
@@ -471,14 +471,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN of the service-linked role that the ASG will use to call other AWS services
+     * ARN of the service-linked role that the ASG will use to call other AWS services
      * 
      */
     @Import(name="serviceLinkedRoleArn")
     private @Nullable Output<String> serviceLinkedRoleArn;
 
     /**
-     * @return The ARN of the service-linked role that the ASG will use to call other AWS services
+     * @return ARN of the service-linked role that the ASG will use to call other AWS services
      * 
      */
     public Optional<Output<String>> serviceLinkedRoleArn() {
@@ -486,7 +486,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`, `InstanceRefresh`.
+     * List of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`, `InstanceRefresh`.
      * Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
      * 
      */
@@ -494,7 +494,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<List<String>> suspendedProcesses;
 
     /**
-     * @return A list of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`, `InstanceRefresh`.
+     * @return List of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`, `InstanceRefresh`.
      * Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
      * 
      */
@@ -541,14 +541,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A set of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
+     * Set of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
      * 
      */
     @Import(name="targetGroupArns")
     private @Nullable Output<List<String>> targetGroupArns;
 
     /**
-     * @return A set of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
+     * @return Set of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
      * 
      */
     public Optional<Output<List<String>>> targetGroupArns() {
@@ -556,14 +556,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of policies to decide how the instances in the Auto Scaling Group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`.
+     * List of policies to decide how the instances in the Auto Scaling Group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`. Additionally, the ARN of a Lambda function can be specified for custom termination policies.
      * 
      */
     @Import(name="terminationPolicies")
     private @Nullable Output<List<String>> terminationPolicies;
 
     /**
-     * @return A list of policies to decide how the instances in the Auto Scaling Group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`.
+     * @return List of policies to decide how the instances in the Auto Scaling Group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`. Additionally, the ARN of a Lambda function can be specified for custom termination policies.
      * 
      */
     public Optional<Output<List<String>>> terminationPolicies() {
@@ -571,14 +571,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availability_zones`.
+     * List of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availability_zones`.
      * 
      */
     @Import(name="vpcZoneIdentifiers")
     private @Nullable Output<List<String>> vpcZoneIdentifiers;
 
     /**
-     * @return A list of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availability_zones`.
+     * @return List of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availability_zones`.
      * 
      */
     public Optional<Output<List<String>>> vpcZoneIdentifiers() {
@@ -586,8 +586,8 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A maximum
-     * [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
+     * Maximum
+     * [duration](https://golang.org/pkg/time/#ParseDuration) that the provider should
      * wait for ASG instances to be healthy before timing out.  (See also Waiting
      * for Capacity below.) Setting this to &#34;0&#34; causes
      * this provider to skip all Capacity Waiting behavior.
@@ -597,8 +597,8 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> waitForCapacityTimeout;
 
     /**
-     * @return A maximum
-     * [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
+     * @return Maximum
+     * [duration](https://golang.org/pkg/time/#ParseDuration) that the provider should
      * wait for ASG instances to be healthy before timing out.  (See also Waiting
      * for Capacity below.) Setting this to &#34;0&#34; causes
      * this provider to skip all Capacity Waiting behavior.
@@ -709,7 +709,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN for this Auto Scaling Group
+         * @param arn ARN for this Auto Scaling Group
          * 
          * @return builder
          * 
@@ -720,7 +720,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN for this Auto Scaling Group
+         * @param arn ARN for this Auto Scaling Group
          * 
          * @return builder
          * 
@@ -730,7 +730,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availabilityZones A list of one or more availability zones for the group. Used for EC2-Classic, attaching a network interface via id from a launch template and default subnets when not specified with `vpc_zone_identifier` argument. Conflicts with `vpc_zone_identifier`.
+         * @param availabilityZones List of one or more availability zones for the group. Used for EC2-Classic, attaching a network interface via id from a launch template and default subnets when not specified with `vpc_zone_identifier` argument. Conflicts with `vpc_zone_identifier`.
          * 
          * @return builder
          * 
@@ -741,7 +741,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availabilityZones A list of one or more availability zones for the group. Used for EC2-Classic, attaching a network interface via id from a launch template and default subnets when not specified with `vpc_zone_identifier` argument. Conflicts with `vpc_zone_identifier`.
+         * @param availabilityZones List of one or more availability zones for the group. Used for EC2-Classic, attaching a network interface via id from a launch template and default subnets when not specified with `vpc_zone_identifier` argument. Conflicts with `vpc_zone_identifier`.
          * 
          * @return builder
          * 
@@ -751,7 +751,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availabilityZones A list of one or more availability zones for the group. Used for EC2-Classic, attaching a network interface via id from a launch template and default subnets when not specified with `vpc_zone_identifier` argument. Conflicts with `vpc_zone_identifier`.
+         * @param availabilityZones List of one or more availability zones for the group. Used for EC2-Classic, attaching a network interface via id from a launch template and default subnets when not specified with `vpc_zone_identifier` argument. Conflicts with `vpc_zone_identifier`.
          * 
          * @return builder
          * 
@@ -761,7 +761,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param capacityRebalance Indicates whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
+         * @param capacityRebalance Whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
          * 
          * @return builder
          * 
@@ -772,7 +772,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param capacityRebalance Indicates whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
+         * @param capacityRebalance Whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
          * 
          * @return builder
          * 
@@ -803,7 +803,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultCooldown The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
+         * @param defaultCooldown Amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
          * 
          * @return builder
          * 
@@ -814,7 +814,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultCooldown The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
+         * @param defaultCooldown Amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
          * 
          * @return builder
          * 
@@ -824,7 +824,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultInstanceWarmup The amount of time, in seconds, until a newly launched instance can contribute to the Amazon CloudWatch metrics. This delay lets an instance finish initializing before Amazon EC2 Auto Scaling aggregates instance metrics, resulting in more reliable usage data. Set this value equal to the amount of time that it takes for resource consumption to become stable after an instance reaches the InService state. (See [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html))
+         * @param defaultInstanceWarmup Amount of time, in seconds, until a newly launched instance can contribute to the Amazon CloudWatch metrics. This delay lets an instance finish initializing before Amazon EC2 Auto Scaling aggregates instance metrics, resulting in more reliable usage data. Set this value equal to the amount of time that it takes for resource consumption to become stable after an instance reaches the InService state. (See [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html))
          * 
          * @return builder
          * 
@@ -835,7 +835,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultInstanceWarmup The amount of time, in seconds, until a newly launched instance can contribute to the Amazon CloudWatch metrics. This delay lets an instance finish initializing before Amazon EC2 Auto Scaling aggregates instance metrics, resulting in more reliable usage data. Set this value equal to the amount of time that it takes for resource consumption to become stable after an instance reaches the InService state. (See [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html))
+         * @param defaultInstanceWarmup Amount of time, in seconds, until a newly launched instance can contribute to the Amazon CloudWatch metrics. This delay lets an instance finish initializing before Amazon EC2 Auto Scaling aggregates instance metrics, resulting in more reliable usage data. Set this value equal to the amount of time that it takes for resource consumption to become stable after an instance reaches the InService state. (See [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html))
          * 
          * @return builder
          * 
@@ -845,7 +845,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param desiredCapacity The number of Amazon EC2 instances that
+         * @param desiredCapacity Number of Amazon EC2 instances that
          * should be running in the group. (See also Waiting for
          * Capacity below.)
          * 
@@ -858,7 +858,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param desiredCapacity The number of Amazon EC2 instances that
+         * @param desiredCapacity Number of Amazon EC2 instances that
          * should be running in the group. (See also Waiting for
          * Capacity below.)
          * 
@@ -870,7 +870,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabledMetrics A list of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
+         * @param enabledMetrics List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
          * 
          * @return builder
          * 
@@ -881,7 +881,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabledMetrics A list of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
+         * @param enabledMetrics List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
          * 
          * @return builder
          * 
@@ -891,7 +891,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabledMetrics A list of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
+         * @param enabledMetrics List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
          * 
          * @return builder
          * 
@@ -1055,7 +1055,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param launchConfiguration The name of the launch configuration to use.
+         * @param launchConfiguration Name of the launch configuration to use.
          * 
          * @return builder
          * 
@@ -1066,7 +1066,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param launchConfiguration The name of the launch configuration to use.
+         * @param launchConfiguration Name of the launch configuration to use.
          * 
          * @return builder
          * 
@@ -1097,7 +1097,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loadBalancers A list of elastic load balancer names to add to the autoscaling
+         * @param loadBalancers List of elastic load balancer names to add to the autoscaling
          * group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead.
          * 
          * @return builder
@@ -1109,7 +1109,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loadBalancers A list of elastic load balancer names to add to the autoscaling
+         * @param loadBalancers List of elastic load balancer names to add to the autoscaling
          * group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead.
          * 
          * @return builder
@@ -1120,7 +1120,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loadBalancers A list of elastic load balancer names to add to the autoscaling
+         * @param loadBalancers List of elastic load balancer names to add to the autoscaling
          * group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead.
          * 
          * @return builder
@@ -1131,7 +1131,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxInstanceLifetime The maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 86400 and 31536000 seconds.
+         * @param maxInstanceLifetime Maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 86400 and 31536000 seconds.
          * 
          * @return builder
          * 
@@ -1142,7 +1142,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxInstanceLifetime The maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 86400 and 31536000 seconds.
+         * @param maxInstanceLifetime Maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 86400 and 31536000 seconds.
          * 
          * @return builder
          * 
@@ -1152,7 +1152,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxSize The maximum size of the Auto Scaling Group.
+         * @param maxSize Maximum size of the Auto Scaling Group.
          * 
          * @return builder
          * 
@@ -1163,7 +1163,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxSize The maximum size of the Auto Scaling Group.
+         * @param maxSize Maximum size of the Auto Scaling Group.
          * 
          * @return builder
          * 
@@ -1173,7 +1173,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param metricsGranularity The granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
+         * @param metricsGranularity Granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
          * 
          * @return builder
          * 
@@ -1184,7 +1184,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param metricsGranularity The granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
+         * @param metricsGranularity Granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
          * 
          * @return builder
          * 
@@ -1194,7 +1194,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param metricsGranularity The granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
+         * @param metricsGranularity Granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
          * 
          * @return builder
          * 
@@ -1204,7 +1204,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param metricsGranularity The granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
+         * @param metricsGranularity Granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
          * 
          * @return builder
          * 
@@ -1241,7 +1241,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param minSize Specifies the minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
+         * @param minSize Minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
          * 
          * @return builder
          * 
@@ -1252,7 +1252,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param minSize Specifies the minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
+         * @param minSize Minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
          * 
          * @return builder
          * 
@@ -1283,7 +1283,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the Auto Scaling Group. By default generated by this provider. Conflicts with `name_prefix`.
+         * @param name Name of the Auto Scaling Group. By default generated by this provider. Conflicts with `name_prefix`.
          * 
          * @return builder
          * 
@@ -1294,7 +1294,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the Auto Scaling Group. By default generated by this provider. Conflicts with `name_prefix`.
+         * @param name Name of the Auto Scaling Group. By default generated by this provider. Conflicts with `name_prefix`.
          * 
          * @return builder
          * 
@@ -1327,7 +1327,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param placementGroup The name of the placement group into which you&#39;ll launch your instances, if any.
+         * @param placementGroup Name of the placement group into which you&#39;ll launch your instances, if any.
          * 
          * @return builder
          * 
@@ -1338,7 +1338,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param placementGroup The name of the placement group into which you&#39;ll launch your instances, if any.
+         * @param placementGroup Name of the placement group into which you&#39;ll launch your instances, if any.
          * 
          * @return builder
          * 
@@ -1348,7 +1348,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protectFromScaleIn Indicates whether newly launched instances
+         * @param protectFromScaleIn Whether newly launched instances
          * are automatically protected from termination by Amazon EC2 Auto Scaling when
          * scaling in. For more information about preventing instances from terminating
          * on scale in, see [Using instance scale-in protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html)
@@ -1363,7 +1363,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protectFromScaleIn Indicates whether newly launched instances
+         * @param protectFromScaleIn Whether newly launched instances
          * are automatically protected from termination by Amazon EC2 Auto Scaling when
          * scaling in. For more information about preventing instances from terminating
          * on scale in, see [Using instance scale-in protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html)
@@ -1377,7 +1377,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceLinkedRoleArn The ARN of the service-linked role that the ASG will use to call other AWS services
+         * @param serviceLinkedRoleArn ARN of the service-linked role that the ASG will use to call other AWS services
          * 
          * @return builder
          * 
@@ -1388,7 +1388,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceLinkedRoleArn The ARN of the service-linked role that the ASG will use to call other AWS services
+         * @param serviceLinkedRoleArn ARN of the service-linked role that the ASG will use to call other AWS services
          * 
          * @return builder
          * 
@@ -1398,7 +1398,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param suspendedProcesses A list of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`, `InstanceRefresh`.
+         * @param suspendedProcesses List of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`, `InstanceRefresh`.
          * Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
          * 
          * @return builder
@@ -1410,7 +1410,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param suspendedProcesses A list of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`, `InstanceRefresh`.
+         * @param suspendedProcesses List of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`, `InstanceRefresh`.
          * Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
          * 
          * @return builder
@@ -1421,7 +1421,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param suspendedProcesses A list of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`, `InstanceRefresh`.
+         * @param suspendedProcesses List of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`, `InstanceRefresh`.
          * Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
          * 
          * @return builder
@@ -1506,7 +1506,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetGroupArns A set of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
+         * @param targetGroupArns Set of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
          * 
          * @return builder
          * 
@@ -1517,7 +1517,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetGroupArns A set of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
+         * @param targetGroupArns Set of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
          * 
          * @return builder
          * 
@@ -1527,7 +1527,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetGroupArns A set of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
+         * @param targetGroupArns Set of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
          * 
          * @return builder
          * 
@@ -1537,7 +1537,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param terminationPolicies A list of policies to decide how the instances in the Auto Scaling Group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`.
+         * @param terminationPolicies List of policies to decide how the instances in the Auto Scaling Group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`. Additionally, the ARN of a Lambda function can be specified for custom termination policies.
          * 
          * @return builder
          * 
@@ -1548,7 +1548,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param terminationPolicies A list of policies to decide how the instances in the Auto Scaling Group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`.
+         * @param terminationPolicies List of policies to decide how the instances in the Auto Scaling Group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`. Additionally, the ARN of a Lambda function can be specified for custom termination policies.
          * 
          * @return builder
          * 
@@ -1558,7 +1558,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param terminationPolicies A list of policies to decide how the instances in the Auto Scaling Group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`.
+         * @param terminationPolicies List of policies to decide how the instances in the Auto Scaling Group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`. Additionally, the ARN of a Lambda function can be specified for custom termination policies.
          * 
          * @return builder
          * 
@@ -1568,7 +1568,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcZoneIdentifiers A list of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availability_zones`.
+         * @param vpcZoneIdentifiers List of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availability_zones`.
          * 
          * @return builder
          * 
@@ -1579,7 +1579,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcZoneIdentifiers A list of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availability_zones`.
+         * @param vpcZoneIdentifiers List of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availability_zones`.
          * 
          * @return builder
          * 
@@ -1589,7 +1589,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcZoneIdentifiers A list of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availability_zones`.
+         * @param vpcZoneIdentifiers List of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availability_zones`.
          * 
          * @return builder
          * 
@@ -1599,8 +1599,8 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param waitForCapacityTimeout A maximum
-         * [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
+         * @param waitForCapacityTimeout Maximum
+         * [duration](https://golang.org/pkg/time/#ParseDuration) that the provider should
          * wait for ASG instances to be healthy before timing out.  (See also Waiting
          * for Capacity below.) Setting this to &#34;0&#34; causes
          * this provider to skip all Capacity Waiting behavior.
@@ -1614,8 +1614,8 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param waitForCapacityTimeout A maximum
-         * [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
+         * @param waitForCapacityTimeout Maximum
+         * [duration](https://golang.org/pkg/time/#ParseDuration) that the provider should
          * wait for ASG instances to be healthy before timing out.  (See also Waiting
          * for Capacity below.) Setting this to &#34;0&#34; causes
          * this provider to skip all Capacity Waiting behavior.

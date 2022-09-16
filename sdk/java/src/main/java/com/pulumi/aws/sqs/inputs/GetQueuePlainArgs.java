@@ -16,14 +16,14 @@ public final class GetQueuePlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetQueuePlainArgs Empty = new GetQueuePlainArgs();
 
     /**
-     * The name of the queue to match.
+     * Name of the queue to match.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return The name of the queue to match.
+     * @return Name of the queue to match.
      * 
      */
     public String name() {
@@ -31,14 +31,14 @@ public final class GetQueuePlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * A map of tags for the resource.
+     * Map of tags for the resource.
      * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return A map of tags for the resource.
+     * @return Map of tags for the resource.
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -71,7 +71,7 @@ public final class GetQueuePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the queue to match.
+         * @param name Name of the queue to match.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class GetQueuePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags A map of tags for the resource.
+         * @param tags Map of tags for the resource.
          * 
          * @return builder
          * 

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AppSync.Inputs
     public sealed class FunctionSyncConfigLambdaConflictHandlerConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.
+        /// ARN for the Lambda function to use as the Conflict Handler.
         /// </summary>
         [Input("lambdaConflictHandlerArn")]
         public Input<string>? LambdaConflictHandlerArn { get; set; }

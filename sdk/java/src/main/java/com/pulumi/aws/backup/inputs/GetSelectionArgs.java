@@ -14,14 +14,14 @@ public final class GetSelectionArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetSelectionArgs Empty = new GetSelectionArgs();
 
     /**
-     * The backup plan ID associated with the selection of resources.
+     * Backup plan ID associated with the selection of resources.
      * 
      */
     @Import(name="planId", required=true)
     private Output<String> planId;
 
     /**
-     * @return The backup plan ID associated with the selection of resources.
+     * @return Backup plan ID associated with the selection of resources.
      * 
      */
     public Output<String> planId() {
@@ -29,14 +29,14 @@ public final class GetSelectionArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The backup selection ID.
+     * Backup selection ID.
      * 
      */
     @Import(name="selectionId", required=true)
     private Output<String> selectionId;
 
     /**
-     * @return The backup selection ID.
+     * @return Backup selection ID.
      * 
      */
     public Output<String> selectionId() {
@@ -69,7 +69,7 @@ public final class GetSelectionArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param planId The backup plan ID associated with the selection of resources.
+         * @param planId Backup plan ID associated with the selection of resources.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class GetSelectionArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param planId The backup plan ID associated with the selection of resources.
+         * @param planId Backup plan ID associated with the selection of resources.
          * 
          * @return builder
          * 
@@ -90,7 +90,7 @@ public final class GetSelectionArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param selectionId The backup selection ID.
+         * @param selectionId Backup selection ID.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class GetSelectionArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param selectionId The backup selection ID.
+         * @param selectionId Backup selection ID.
          * 
          * @return builder
          * 

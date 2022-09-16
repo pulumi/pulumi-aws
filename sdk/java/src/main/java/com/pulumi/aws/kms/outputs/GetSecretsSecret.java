@@ -23,7 +23,7 @@ public final class GetSecretsSecret {
      */
     private @Nullable List<String> grantTokens;
     /**
-     * @return The name to export this secret under in the attributes.
+     * @return Name to export this secret under in the attributes.
      * 
      */
     private String name;
@@ -49,7 +49,7 @@ public final class GetSecretsSecret {
         return this.grantTokens == null ? List.of() : this.grantTokens;
     }
     /**
-     * @return The name to export this secret under in the attributes.
+     * @return Name to export this secret under in the attributes.
      * 
      */
     public String name() {

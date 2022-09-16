@@ -17,14 +17,14 @@ public final class IntegrationResponseArgs extends com.pulumi.resources.Resource
     public static final IntegrationResponseArgs Empty = new IntegrationResponseArgs();
 
     /**
-     * Specifies how to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
+     * How to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
      * 
      */
     @Import(name="contentHandling")
     private @Nullable Output<String> contentHandling;
 
     /**
-     * @return Specifies how to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
+     * @return How to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
      * 
      */
     public Optional<Output<String>> contentHandling() {
@@ -32,14 +32,14 @@ public final class IntegrationResponseArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+     * HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
      * 
      */
     @Import(name="httpMethod", required=true)
     private Output<String> httpMethod;
 
     /**
-     * @return The HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+     * @return HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
      * 
      */
     public Output<String> httpMethod() {
@@ -47,14 +47,14 @@ public final class IntegrationResponseArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The API resource ID
+     * API resource ID.
      * 
      */
     @Import(name="resourceId", required=true)
     private Output<String> resourceId;
 
     /**
-     * @return The API resource ID
+     * @return API resource ID.
      * 
      */
     public Output<String> resourceId() {
@@ -62,16 +62,14 @@ public final class IntegrationResponseArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * A map of response parameters that can be read from the backend response.
-     * For example: `response_parameters = { &#34;method.response.header.X-Some-Header&#34; = &#34;integration.response.header.X-Some-Other-Header&#34; }`
+     * Map of response parameters that can be read from the backend response. For example: `response_parameters = { &#34;method.response.header.X-Some-Header&#34; = &#34;integration.response.header.X-Some-Other-Header&#34; }`.
      * 
      */
     @Import(name="responseParameters")
     private @Nullable Output<Map<String,String>> responseParameters;
 
     /**
-     * @return A map of response parameters that can be read from the backend response.
-     * For example: `response_parameters = { &#34;method.response.header.X-Some-Header&#34; = &#34;integration.response.header.X-Some-Other-Header&#34; }`
+     * @return Map of response parameters that can be read from the backend response. For example: `response_parameters = { &#34;method.response.header.X-Some-Header&#34; = &#34;integration.response.header.X-Some-Other-Header&#34; }`.
      * 
      */
     public Optional<Output<Map<String,String>>> responseParameters() {
@@ -79,14 +77,14 @@ public final class IntegrationResponseArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * A map specifying the templates used to transform the integration response body
+     * Map of templates used to transform the integration response body.
      * 
      */
     @Import(name="responseTemplates")
     private @Nullable Output<Map<String,String>> responseTemplates;
 
     /**
-     * @return A map specifying the templates used to transform the integration response body
+     * @return Map of templates used to transform the integration response body.
      * 
      */
     public Optional<Output<Map<String,String>>> responseTemplates() {
@@ -94,14 +92,14 @@ public final class IntegrationResponseArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The ID of the associated REST API
+     * ID of the associated REST API.
      * 
      */
     @Import(name="restApi", required=true)
     private Output<String> restApi;
 
     /**
-     * @return The ID of the associated REST API
+     * @return ID of the associated REST API.
      * 
      */
     public Output<String> restApi() {
@@ -109,20 +107,14 @@ public final class IntegrationResponseArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Specifies the regular expression pattern used to choose
-     * an integration response based on the response from the backend. Omit configuring this to make the integration the default one.
-     * If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched.
-     * For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
+     * Regular expression pattern used to choose an integration response based on the response from the backend. Omit configuring this to make the integration the default one. If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched. For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
      * 
      */
     @Import(name="selectionPattern")
     private @Nullable Output<String> selectionPattern;
 
     /**
-     * @return Specifies the regular expression pattern used to choose
-     * an integration response based on the response from the backend. Omit configuring this to make the integration the default one.
-     * If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched.
-     * For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
+     * @return Regular expression pattern used to choose an integration response based on the response from the backend. Omit configuring this to make the integration the default one. If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched. For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
      * 
      */
     public Optional<Output<String>> selectionPattern() {
@@ -130,14 +122,14 @@ public final class IntegrationResponseArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The HTTP status code
+     * HTTP status code.
      * 
      */
     @Import(name="statusCode", required=true)
     private Output<String> statusCode;
 
     /**
-     * @return The HTTP status code
+     * @return HTTP status code.
      * 
      */
     public Output<String> statusCode() {
@@ -176,7 +168,7 @@ public final class IntegrationResponseArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param contentHandling Specifies how to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
+         * @param contentHandling How to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
          * 
          * @return builder
          * 
@@ -187,7 +179,7 @@ public final class IntegrationResponseArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param contentHandling Specifies how to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
+         * @param contentHandling How to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
          * 
          * @return builder
          * 
@@ -197,7 +189,7 @@ public final class IntegrationResponseArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param httpMethod The HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+         * @param httpMethod HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
          * 
          * @return builder
          * 
@@ -208,7 +200,7 @@ public final class IntegrationResponseArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param httpMethod The HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+         * @param httpMethod HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
          * 
          * @return builder
          * 
@@ -218,7 +210,7 @@ public final class IntegrationResponseArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param resourceId The API resource ID
+         * @param resourceId API resource ID.
          * 
          * @return builder
          * 
@@ -229,7 +221,7 @@ public final class IntegrationResponseArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param resourceId The API resource ID
+         * @param resourceId API resource ID.
          * 
          * @return builder
          * 
@@ -239,8 +231,7 @@ public final class IntegrationResponseArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param responseParameters A map of response parameters that can be read from the backend response.
-         * For example: `response_parameters = { &#34;method.response.header.X-Some-Header&#34; = &#34;integration.response.header.X-Some-Other-Header&#34; }`
+         * @param responseParameters Map of response parameters that can be read from the backend response. For example: `response_parameters = { &#34;method.response.header.X-Some-Header&#34; = &#34;integration.response.header.X-Some-Other-Header&#34; }`.
          * 
          * @return builder
          * 
@@ -251,8 +242,7 @@ public final class IntegrationResponseArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param responseParameters A map of response parameters that can be read from the backend response.
-         * For example: `response_parameters = { &#34;method.response.header.X-Some-Header&#34; = &#34;integration.response.header.X-Some-Other-Header&#34; }`
+         * @param responseParameters Map of response parameters that can be read from the backend response. For example: `response_parameters = { &#34;method.response.header.X-Some-Header&#34; = &#34;integration.response.header.X-Some-Other-Header&#34; }`.
          * 
          * @return builder
          * 
@@ -262,7 +252,7 @@ public final class IntegrationResponseArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param responseTemplates A map specifying the templates used to transform the integration response body
+         * @param responseTemplates Map of templates used to transform the integration response body.
          * 
          * @return builder
          * 
@@ -273,7 +263,7 @@ public final class IntegrationResponseArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param responseTemplates A map specifying the templates used to transform the integration response body
+         * @param responseTemplates Map of templates used to transform the integration response body.
          * 
          * @return builder
          * 
@@ -283,7 +273,7 @@ public final class IntegrationResponseArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param restApi The ID of the associated REST API
+         * @param restApi ID of the associated REST API.
          * 
          * @return builder
          * 
@@ -294,7 +284,7 @@ public final class IntegrationResponseArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param restApi The ID of the associated REST API
+         * @param restApi ID of the associated REST API.
          * 
          * @return builder
          * 
@@ -304,10 +294,7 @@ public final class IntegrationResponseArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param selectionPattern Specifies the regular expression pattern used to choose
-         * an integration response based on the response from the backend. Omit configuring this to make the integration the default one.
-         * If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched.
-         * For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
+         * @param selectionPattern Regular expression pattern used to choose an integration response based on the response from the backend. Omit configuring this to make the integration the default one. If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched. For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
          * 
          * @return builder
          * 
@@ -318,10 +305,7 @@ public final class IntegrationResponseArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param selectionPattern Specifies the regular expression pattern used to choose
-         * an integration response based on the response from the backend. Omit configuring this to make the integration the default one.
-         * If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched.
-         * For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
+         * @param selectionPattern Regular expression pattern used to choose an integration response based on the response from the backend. Omit configuring this to make the integration the default one. If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched. For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
          * 
          * @return builder
          * 
@@ -331,7 +315,7 @@ public final class IntegrationResponseArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param statusCode The HTTP status code
+         * @param statusCode HTTP status code.
          * 
          * @return builder
          * 
@@ -342,7 +326,7 @@ public final class IntegrationResponseArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param statusCode The HTTP status code
+         * @param statusCode HTTP status code.
          * 
          * @return builder
          * 

@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -130,7 +132,7 @@ export class BucketObjectLockConfigurationV2 extends pulumi.CustomResource {
     /**
      * Configuration block for specifying the Object Lock rule for the specified object detailed below.
      */
-    public readonly rule!: pulumi.Output<outputs.s3.BucketObjectLockConfigurationV2Rule>;
+    public readonly rule!: pulumi.Output<outputs.s3.BucketObjectLockConfigurationV2Rule | undefined>;
     /**
      * A token to allow Object Lock to be enabled for an existing bucket. You must contact AWS support for the bucket's "Object Lock token".
      * The token is generated in the back-end when [versioning](https://docs.aws.amazon.com/AmazonS3/latest/userguide/manage-versioning-examples.html) is enabled on a bucket. For more details on versioning, see the `aws.s3.BucketVersioningV2` resource.
@@ -159,9 +161,6 @@ export class BucketObjectLockConfigurationV2 extends pulumi.CustomResource {
             const args = argsOrState as BucketObjectLockConfigurationV2Args | undefined;
             if ((!args || args.bucket === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bucket'");
-            }
-            if ((!args || args.rule === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'rule'");
             }
             resourceInputs["bucket"] = args ? args.bucket : undefined;
             resourceInputs["expectedBucketOwner"] = args ? args.expectedBucketOwner : undefined;
@@ -220,7 +219,7 @@ export interface BucketObjectLockConfigurationV2Args {
     /**
      * Configuration block for specifying the Object Lock rule for the specified object detailed below.
      */
-    rule: pulumi.Input<inputs.s3.BucketObjectLockConfigurationV2Rule>;
+    rule?: pulumi.Input<inputs.s3.BucketObjectLockConfigurationV2Rule>;
     /**
      * A token to allow Object Lock to be enabled for an existing bucket. You must contact AWS support for the bucket's "Object Lock token".
      * The token is generated in the back-end when [versioning](https://docs.aws.amazon.com/AmazonS3/latest/userguide/manage-versioning-examples.html) is enabled on a bucket. For more details on versioning, see the `aws.s3.BucketVersioningV2` resource.

@@ -14,19 +14,19 @@ namespace Pulumi.Aws.Amplify.Outputs
     public sealed class DomainAssociationSubDomain
     {
         /// <summary>
-        /// The branch name setting for the subdomain.
+        /// Branch name setting for the subdomain.
         /// </summary>
         public readonly string BranchName;
         /// <summary>
-        /// The DNS record for the subdomain.
+        /// DNS record for the subdomain.
         /// </summary>
         public readonly string? DnsRecord;
         /// <summary>
-        /// The prefix setting for the subdomain.
+        /// Prefix setting for the subdomain.
         /// </summary>
         public readonly string Prefix;
         /// <summary>
-        /// The verified status of the subdomain.
+        /// Verified status of the subdomain.
         /// </summary>
         public readonly bool? Verified;
 

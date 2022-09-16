@@ -17,14 +17,14 @@ public final class GetParameterArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetParameterArgs Empty = new GetParameterArgs();
 
     /**
-     * The name of the parameter.
+     * Name of the parameter.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the parameter.
+     * @return Name of the parameter.
      * 
      */
     public Output<String> name() {
@@ -72,7 +72,7 @@ public final class GetParameterArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the parameter.
+         * @param name Name of the parameter.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class GetParameterArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the parameter.
+         * @param name Name of the parameter.
          * 
          * @return builder
          * 

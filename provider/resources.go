@@ -145,6 +145,7 @@ const (
 	macieMod                    = "Macie"                    // Macie (Classic)
 	macie2Mod                   = "Macie2"                   // Macie2
 	mediaconvertMod             = "MediaConvert"             // Media Convert
+	medialiveMod                = "MediaLive"                // Media Live
 	mediapackageMod             = "MediaPackage"             // Elemental MediaPackage
 	mediastoreMod               = "MediaStore"               // Elemental MediaStore
 	memoryDbMod                 = "MemoryDb"                 // Memory DB
@@ -905,6 +906,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_cloudfront_response_headers_policy":        {Tok: awsResource(cloudfrontMod, "ResponseHeadersPolicy")},
 			"aws_cloudfront_field_level_encryption_config":  {Tok: awsResource(cloudfrontMod, "FieldLevelEncryptionConfig")},
 			"aws_cloudfront_field_level_encryption_profile": {Tok: awsResource(cloudfrontMod, "FieldLevelEncryptionProfile")},
+			"aws_cloudfront_origin_access_control":          {Tok: awsResource(cloudfrontMod, "OriginAccessControl")},
 
 			// CloudSearch
 			"aws_cloudsearch_domain":                       {Tok: awsResource(cloudsearchMod, "Domain")},
@@ -2280,6 +2282,12 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			// MediaConvert
 			"aws_media_convert_queue": {Tok: awsResource(mediaconvertMod, "Queue")},
+
+			// MediaLive
+			"aws_medialive_input":                {Tok: awsResource(medialiveMod, "Input")},
+			"aws_medialive_input_security_group": {Tok: awsResource(medialiveMod, "InputSecurityGroup")},
+			"aws_medialive_multiplex":            {Tok: awsResource(medialiveMod, "Multiplex")},
+
 			// Elemental MediaStore
 			"aws_media_store_container":        {Tok: awsResource(mediastoreMod, "Container")},
 			"aws_media_store_container_policy": {Tok: awsResource(mediastoreMod, "ContainerPolicy")},
@@ -2552,8 +2560,10 @@ func Provider() tfbridge.ProviderInfo {
 			// RedshiftData
 			"aws_redshiftdata_statement": {Tok: awsResource(redshiftDataMod, "Statement")},
 			// Redshift serverless
-			"aws_redshiftserverless_namespace": {Tok: awsResource(redshiftServerlessMod, "Namespace")},
-			"aws_redshiftserverless_workgroup": {Tok: awsResource(redshiftServerlessMod, "Workgroup")},
+			"aws_redshiftserverless_namespace":       {Tok: awsResource(redshiftServerlessMod, "Namespace")},
+			"aws_redshiftserverless_workgroup":       {Tok: awsResource(redshiftServerlessMod, "Workgroup")},
+			"aws_redshiftserverless_endpoint_access": {Tok: awsResource(redshiftServerlessMod, "EndpointAccess")},
+			"aws_redshiftserverless_usage_limit":     {Tok: awsResource(redshiftServerlessMod, "UsageLimit")},
 			// Resource Groups
 			"aws_resourcegroups_group": {Tok: awsResource(resourcegroupsMod, "Group")},
 			// Roles Anywhere
@@ -3398,11 +3408,11 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_codestarconnections_host":       {Tok: awsResource(codestarConnectionsMod, "Host")},
 
 			// SSO Admin
-			"aws_ssoadmin_managed_policy_attachment":    {Tok: awsResource(ssoAdminMod, "ManagedPolicyAttachment")},
-			"aws_ssoadmin_permission_set":               {Tok: awsResource(ssoAdminMod, "PermissionSet")},
-			"aws_ssoadmin_permission_set_inline_policy": {Tok: awsResource(ssoAdminMod, "PermissionSetInlinePolicy")},
-			"aws_ssoadmin_account_assignment":           {Tok: awsResource(ssoAdminMod, "AccountAssignment")},
-
+			"aws_ssoadmin_managed_policy_attachment":          {Tok: awsResource(ssoAdminMod, "ManagedPolicyAttachment")},
+			"aws_ssoadmin_permission_set":                     {Tok: awsResource(ssoAdminMod, "PermissionSet")},
+			"aws_ssoadmin_permission_set_inline_policy":       {Tok: awsResource(ssoAdminMod, "PermissionSetInlinePolicy")},
+			"aws_ssoadmin_account_assignment":                 {Tok: awsResource(ssoAdminMod, "AccountAssignment")},
+			"aws_ssoadmin_customer_managed_policy_attachment": {Tok: awsResource(ssoAdminMod, "CustomerManagedPolicyAttachment")},
 			// AMP (Managed Prometheus)
 			"aws_prometheus_workspace":                {Tok: awsResource(ampMod, "Workspace")},
 			"aws_prometheus_alert_manager_definition": {Tok: awsResource(ampMod, "AlertManagerDefinition")},
@@ -4960,12 +4970,13 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_kms_public_key": {Tok: awsDataSource(kmsMod, "getPublicKey")},
 
 			// Location
-			"aws_location_map":                 {Tok: awsDataSource(locationMod, "getMap")},
-			"aws_location_place_index":         {Tok: awsDataSource(locationMod, "getPlaceIndex")},
-			"aws_location_route_calculator":    {Tok: awsDataSource(locationMod, "getRouteCalculator")},
-			"aws_location_tracker":             {Tok: awsDataSource(locationMod, "getTracker")},
-			"aws_location_geofence_collection": {Tok: awsDataSource(locationMod, "getGeofenceCollection")},
-			"aws_location_tracker_association": {Tok: awsDataSource(locationMod, "getTrackerAssociation")},
+			"aws_location_map":                  {Tok: awsDataSource(locationMod, "getMap")},
+			"aws_location_place_index":          {Tok: awsDataSource(locationMod, "getPlaceIndex")},
+			"aws_location_route_calculator":     {Tok: awsDataSource(locationMod, "getRouteCalculator")},
+			"aws_location_tracker":              {Tok: awsDataSource(locationMod, "getTracker")},
+			"aws_location_geofence_collection":  {Tok: awsDataSource(locationMod, "getGeofenceCollection")},
+			"aws_location_tracker_association":  {Tok: awsDataSource(locationMod, "getTrackerAssociation")},
+			"aws_location_tracker_associations": {Tok: awsDataSource(locationMod, "getTrackerAssociations")},
 
 			// Pricing
 			"aws_pricing_product": {Tok: awsDataSource(pricingMod, "getProduct")},

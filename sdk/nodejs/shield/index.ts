@@ -5,14 +5,21 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./protection";
-export * from "./protectionGroup";
-export * from "./protectionHealthCheckAssociation";
+export { ProtectionArgs, ProtectionState } from "./protection";
+export type Protection = import("./protection").Protection;
+export const Protection: typeof import("./protection").Protection = null as any;
 
-// Import resources to register:
-import { Protection } from "./protection";
-import { ProtectionGroup } from "./protectionGroup";
-import { ProtectionHealthCheckAssociation } from "./protectionHealthCheckAssociation";
+export { ProtectionGroupArgs, ProtectionGroupState } from "./protectionGroup";
+export type ProtectionGroup = import("./protectionGroup").ProtectionGroup;
+export const ProtectionGroup: typeof import("./protectionGroup").ProtectionGroup = null as any;
+
+export { ProtectionHealthCheckAssociationArgs, ProtectionHealthCheckAssociationState } from "./protectionHealthCheckAssociation";
+export type ProtectionHealthCheckAssociation = import("./protectionHealthCheckAssociation").ProtectionHealthCheckAssociation;
+export const ProtectionHealthCheckAssociation: typeof import("./protectionHealthCheckAssociation").ProtectionHealthCheckAssociation = null as any;
+
+utilities.lazyLoad(exports, ["Protection"], () => require("./protection"));
+utilities.lazyLoad(exports, ["ProtectionGroup"], () => require("./protectionGroup"));
+utilities.lazyLoad(exports, ["ProtectionHealthCheckAssociation"], () => require("./protectionHealthCheckAssociation"));
 
 const _module = {
     version: utilities.getVersion(),

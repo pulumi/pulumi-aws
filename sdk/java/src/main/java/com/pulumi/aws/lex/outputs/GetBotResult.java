@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetBotResult {
     /**
-     * @return The ARN of the bot.
+     * @return ARN of the bot.
      * 
      */
     private String arn;
@@ -25,17 +25,17 @@ public final class GetBotResult {
      */
     private String checksum;
     /**
-     * @return Specifies if this Amazon Lex Bot is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA.
+     * @return If this Amazon Lex Bot is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA.
      * 
      */
     private Boolean childDirected;
     /**
-     * @return The date that the bot was created.
+     * @return Date that the bot was created.
      * 
      */
     private String createdDate;
     /**
-     * @return A description of the bot.
+     * @return Description of the bot.
      * 
      */
     private String description;
@@ -65,17 +65,17 @@ public final class GetBotResult {
      */
     private Integer idleSessionTtlInSeconds;
     /**
-     * @return The date that the bot was updated.
+     * @return Date that the bot was updated.
      * 
      */
     private String lastUpdatedDate;
     /**
-     * @return Specifies the target locale for the bot. Any intent used in the bot must be compatible with the locale of the bot.
+     * @return Target locale for the bot. Any intent used in the bot must be compatible with the locale of the bot.
      * 
      */
     private String locale;
     /**
-     * @return The name of the bot, case sensitive.
+     * @return Name of the bot, case sensitive.
      * 
      */
     private String name;
@@ -85,24 +85,24 @@ public final class GetBotResult {
      */
     private Double nluIntentConfidenceThreshold;
     /**
-     * @return The status of the bot.
+     * @return Status of the bot.
      * 
      */
     private String status;
     /**
-     * @return The version of the bot. For a new bot, the version is always `$LATEST`.
+     * @return Version of the bot. For a new bot, the version is always `$LATEST`.
      * 
      */
     private @Nullable String version;
     /**
-     * @return The Amazon Polly voice ID that the Amazon Lex Bot uses for voice interactions with the user.
+     * @return Amazon Polly voice ID that the Amazon Lex Bot uses for voice interactions with the user.
      * 
      */
     private String voiceId;
 
     private GetBotResult() {}
     /**
-     * @return The ARN of the bot.
+     * @return ARN of the bot.
      * 
      */
     public String arn() {
@@ -116,21 +116,21 @@ public final class GetBotResult {
         return this.checksum;
     }
     /**
-     * @return Specifies if this Amazon Lex Bot is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA.
+     * @return If this Amazon Lex Bot is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA.
      * 
      */
     public Boolean childDirected() {
         return this.childDirected;
     }
     /**
-     * @return The date that the bot was created.
+     * @return Date that the bot was created.
      * 
      */
     public String createdDate() {
         return this.createdDate;
     }
     /**
-     * @return A description of the bot.
+     * @return Description of the bot.
      * 
      */
     public String description() {
@@ -172,21 +172,21 @@ public final class GetBotResult {
         return this.idleSessionTtlInSeconds;
     }
     /**
-     * @return The date that the bot was updated.
+     * @return Date that the bot was updated.
      * 
      */
     public String lastUpdatedDate() {
         return this.lastUpdatedDate;
     }
     /**
-     * @return Specifies the target locale for the bot. Any intent used in the bot must be compatible with the locale of the bot.
+     * @return Target locale for the bot. Any intent used in the bot must be compatible with the locale of the bot.
      * 
      */
     public String locale() {
         return this.locale;
     }
     /**
-     * @return The name of the bot, case sensitive.
+     * @return Name of the bot, case sensitive.
      * 
      */
     public String name() {
@@ -200,21 +200,21 @@ public final class GetBotResult {
         return this.nluIntentConfidenceThreshold;
     }
     /**
-     * @return The status of the bot.
+     * @return Status of the bot.
      * 
      */
     public String status() {
         return this.status;
     }
     /**
-     * @return The version of the bot. For a new bot, the version is always `$LATEST`.
+     * @return Version of the bot. For a new bot, the version is always `$LATEST`.
      * 
      */
     public Optional<String> version() {
         return Optional.ofNullable(this.version);
     }
     /**
-     * @return The Amazon Polly voice ID that the Amazon Lex Bot uses for voice interactions with the user.
+     * @return Amazon Polly voice ID that the Amazon Lex Bot uses for voice interactions with the user.
      * 
      */
     public String voiceId() {

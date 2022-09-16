@@ -200,11 +200,11 @@ type CertificateAuthorityCertificateAuthorityConfigurationSubject struct {
 	GivenName *string `pulumi:"givenName"`
 	// Concatenation that typically contains the first letter of the `givenName`, the first letter of the middle name if one exists, and the first letter of the `surname`. Must be less than or equal to 5 characters in length.
 	Initials *string `pulumi:"initials"`
-	// The locality (such as a city or town) in which the certificate subject is located. Must be less than or equal to 128 characters in length.
+	// Locality (such as a city or town) in which the certificate subject is located. Must be less than or equal to 128 characters in length.
 	Locality *string `pulumi:"locality"`
 	// Legal name of the organization with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
 	Organization *string `pulumi:"organization"`
-	// A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
+	// Subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
 	OrganizationalUnit *string `pulumi:"organizationalUnit"`
 	// Typically a shortened version of a longer `givenName`. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza. Must be less than or equal to 128 characters in length.
 	Pseudonym *string `pulumi:"pseudonym"`
@@ -212,7 +212,7 @@ type CertificateAuthorityCertificateAuthorityConfigurationSubject struct {
 	State *string `pulumi:"state"`
 	// Family name. In the US and the UK for example, the surname of an individual is ordered last. In Asian cultures the surname is typically ordered first. Must be less than or equal to 40 characters in length.
 	Surname *string `pulumi:"surname"`
-	// A title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject. Must be less than or equal to 64 characters in length.
+	// Title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject. Must be less than or equal to 64 characters in length.
 	Title *string `pulumi:"title"`
 }
 
@@ -240,11 +240,11 @@ type CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs struct {
 	GivenName pulumi.StringPtrInput `pulumi:"givenName"`
 	// Concatenation that typically contains the first letter of the `givenName`, the first letter of the middle name if one exists, and the first letter of the `surname`. Must be less than or equal to 5 characters in length.
 	Initials pulumi.StringPtrInput `pulumi:"initials"`
-	// The locality (such as a city or town) in which the certificate subject is located. Must be less than or equal to 128 characters in length.
+	// Locality (such as a city or town) in which the certificate subject is located. Must be less than or equal to 128 characters in length.
 	Locality pulumi.StringPtrInput `pulumi:"locality"`
 	// Legal name of the organization with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
 	Organization pulumi.StringPtrInput `pulumi:"organization"`
-	// A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
+	// Subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
 	OrganizationalUnit pulumi.StringPtrInput `pulumi:"organizationalUnit"`
 	// Typically a shortened version of a longer `givenName`. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza. Must be less than or equal to 128 characters in length.
 	Pseudonym pulumi.StringPtrInput `pulumi:"pseudonym"`
@@ -252,7 +252,7 @@ type CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs struct {
 	State pulumi.StringPtrInput `pulumi:"state"`
 	// Family name. In the US and the UK for example, the surname of an individual is ordered last. In Asian cultures the surname is typically ordered first. Must be less than or equal to 40 characters in length.
 	Surname pulumi.StringPtrInput `pulumi:"surname"`
-	// A title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject. Must be less than or equal to 64 characters in length.
+	// Title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject. Must be less than or equal to 64 characters in length.
 	Title pulumi.StringPtrInput `pulumi:"title"`
 }
 
@@ -367,7 +367,7 @@ func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput) Init
 	return o.ApplyT(func(v CertificateAuthorityCertificateAuthorityConfigurationSubject) *string { return v.Initials }).(pulumi.StringPtrOutput)
 }
 
-// The locality (such as a city or town) in which the certificate subject is located. Must be less than or equal to 128 characters in length.
+// Locality (such as a city or town) in which the certificate subject is located. Must be less than or equal to 128 characters in length.
 func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput) Locality() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateAuthorityCertificateAuthorityConfigurationSubject) *string { return v.Locality }).(pulumi.StringPtrOutput)
 }
@@ -377,7 +377,7 @@ func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput) Orga
 	return o.ApplyT(func(v CertificateAuthorityCertificateAuthorityConfigurationSubject) *string { return v.Organization }).(pulumi.StringPtrOutput)
 }
 
-// A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
+// Subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
 func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput) OrganizationalUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateAuthorityCertificateAuthorityConfigurationSubject) *string {
 		return v.OrganizationalUnit
@@ -399,7 +399,7 @@ func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput) Surn
 	return o.ApplyT(func(v CertificateAuthorityCertificateAuthorityConfigurationSubject) *string { return v.Surname }).(pulumi.StringPtrOutput)
 }
 
-// A title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject. Must be less than or equal to 64 characters in length.
+// Title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject. Must be less than or equal to 64 characters in length.
 func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput) Title() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateAuthorityCertificateAuthorityConfigurationSubject) *string { return v.Title }).(pulumi.StringPtrOutput)
 }
@@ -488,7 +488,7 @@ func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput) I
 	}).(pulumi.StringPtrOutput)
 }
 
-// The locality (such as a city or town) in which the certificate subject is located. Must be less than or equal to 128 characters in length.
+// Locality (such as a city or town) in which the certificate subject is located. Must be less than or equal to 128 characters in length.
 func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput) Locality() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateAuthorityCertificateAuthorityConfigurationSubject) *string {
 		if v == nil {
@@ -508,7 +508,7 @@ func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput) O
 	}).(pulumi.StringPtrOutput)
 }
 
-// A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
+// Subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
 func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput) OrganizationalUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateAuthorityCertificateAuthorityConfigurationSubject) *string {
 		if v == nil {
@@ -548,7 +548,7 @@ func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput) S
 	}).(pulumi.StringPtrOutput)
 }
 
-// A title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject. Must be less than or equal to 64 characters in length.
+// Title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject. Must be less than or equal to 64 characters in length.
 func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput) Title() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateAuthorityCertificateAuthorityConfigurationSubject) *string {
 		if v == nil {
@@ -938,7 +938,7 @@ func (o CertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput) S3
 type CertificateAuthorityRevocationConfigurationOcspConfiguration struct {
 	// Boolean value that specifies whether a custom OCSP responder is enabled.
 	Enabled bool `pulumi:"enabled"`
-	// A CNAME specifying a customized OCSP domain. Note: The value of the CNAME must not include a protocol prefix such as "http://" or "https://".
+	// CNAME specifying a customized OCSP domain. Note: The value of the CNAME must not include a protocol prefix such as "http://" or "https://".
 	OcspCustomCname *string `pulumi:"ocspCustomCname"`
 }
 
@@ -956,7 +956,7 @@ type CertificateAuthorityRevocationConfigurationOcspConfigurationInput interface
 type CertificateAuthorityRevocationConfigurationOcspConfigurationArgs struct {
 	// Boolean value that specifies whether a custom OCSP responder is enabled.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// A CNAME specifying a customized OCSP domain. Note: The value of the CNAME must not include a protocol prefix such as "http://" or "https://".
+	// CNAME specifying a customized OCSP domain. Note: The value of the CNAME must not include a protocol prefix such as "http://" or "https://".
 	OcspCustomCname pulumi.StringPtrInput `pulumi:"ocspCustomCname"`
 }
 
@@ -1042,7 +1042,7 @@ func (o CertificateAuthorityRevocationConfigurationOcspConfigurationOutput) Enab
 	return o.ApplyT(func(v CertificateAuthorityRevocationConfigurationOcspConfiguration) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// A CNAME specifying a customized OCSP domain. Note: The value of the CNAME must not include a protocol prefix such as "http://" or "https://".
+// CNAME specifying a customized OCSP domain. Note: The value of the CNAME must not include a protocol prefix such as "http://" or "https://".
 func (o CertificateAuthorityRevocationConfigurationOcspConfigurationOutput) OcspCustomCname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateAuthorityRevocationConfigurationOcspConfiguration) *string { return v.OcspCustomCname }).(pulumi.StringPtrOutput)
 }
@@ -1081,7 +1081,7 @@ func (o CertificateAuthorityRevocationConfigurationOcspConfigurationPtrOutput) E
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A CNAME specifying a customized OCSP domain. Note: The value of the CNAME must not include a protocol prefix such as "http://" or "https://".
+// CNAME specifying a customized OCSP domain. Note: The value of the CNAME must not include a protocol prefix such as "http://" or "https://".
 func (o CertificateAuthorityRevocationConfigurationOcspConfigurationPtrOutput) OcspCustomCname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateAuthorityRevocationConfigurationOcspConfiguration) *string {
 		if v == nil {

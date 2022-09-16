@@ -62,14 +62,14 @@ public final class GetContactFlowArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * A the map of tags to assign to the Contact Flow.
+     * Tags to assign to the Contact Flow.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A the map of tags to assign to the Contact Flow.
+     * @return Tags to assign to the Contact Flow.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -77,14 +77,14 @@ public final class GetContactFlowArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Specifies the type of Contact Flow.
+     * Type of Contact Flow.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Specifies the type of Contact Flow.
+     * @return Type of Contact Flow.
      * 
      */
     public Optional<Output<String>> type() {
@@ -183,7 +183,7 @@ public final class GetContactFlowArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags A the map of tags to assign to the Contact Flow.
+         * @param tags Tags to assign to the Contact Flow.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class GetContactFlowArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags A the map of tags to assign to the Contact Flow.
+         * @param tags Tags to assign to the Contact Flow.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class GetContactFlowArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param type Specifies the type of Contact Flow.
+         * @param type Type of Contact Flow.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class GetContactFlowArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param type Specifies the type of Contact Flow.
+         * @param type Type of Contact Flow.
          * 
          * @return builder
          * 
