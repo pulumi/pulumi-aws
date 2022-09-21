@@ -323,14 +323,15 @@ func preConfigureCallback(vars resource.PropertyMap, c shim.ResourceConfig) erro
 	}
 
 	if details, ok := vars["assumeRole"]; ok {
-		assumeRoleDetails := resource.NewPropertyMap(details)
+
 		assumeRole := awsbase.AssumeRole{
-			RoleARN:     stringValue(assumeRoleDetails, "roleArn", []string{}),
-			ExternalID:  stringValue(assumeRoleDetails, "externalId", []string{}),
-			Policy:      stringValue(assumeRoleDetails, "policy", []string{}),
-			SessionName: stringValue(assumeRoleDetails, "sessionName", []string{}),
+			RoleARN:     stringValue(details.ObjectValue(), "roleArn", []string{}),
+			ExternalID:  stringValue(details.ObjectValue(), "externalId", []string{}),
+			Policy:      stringValue(details.ObjectValue(), "policy", []string{}),
+			SessionName: stringValue(details.ObjectValue(), "sessionName", []string{}),
 		}
 		config.AssumeRole = &assumeRole
+
 	}
 
 	// By default `skipMetadataApiCheck` is true for Pulumi to speed operations
@@ -381,11 +382,12 @@ func preConfigureCallback(vars resource.PropertyMap, c shim.ResourceConfig) erro
 	config.SharedConfigFiles = []string{configPath}
 
 	if _, err := awsbase.GetAwsConfig(context.Background(), config); err != nil {
-
-		return fmt.Errorf("unable to validate AWS credentials. Make sure you have: \n\n" +
-			" \t • Set your AWS region, e.g. `pulumi config set aws:region us-west-2` \n" +
-			" \t • Configured your AWS credentials as per https://pulumi.io/install/aws.html \n" +
-			" \t You can also set these via cli using `aws configure`. \n\n")
+		return fmt.Errorf("unable to validate AWS credentials. \n"+
+			"Details: %v\n\n"+
+			"Make sure you have: \n\n"+
+			" \t • Set your AWS region, e.g. `pulumi config set aws:region us-west-2` \n"+
+			" \t • Configured your AWS credentials as per https://pulumi.io/install/aws.html \n"+
+			" \t You can also set these via cli using `aws configure`. \n\n", err)
 	}
 
 	return nil
