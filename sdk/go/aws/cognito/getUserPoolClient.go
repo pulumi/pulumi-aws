@@ -70,7 +70,8 @@ type LookupUserPoolClientResult struct {
 	// (Optional) List of allowed callback URLs for the identity providers.
 	CallbackUrls []string `pulumi:"callbackUrls"`
 	ClientId     string   `pulumi:"clientId"`
-	ClientSecret string   `pulumi:"clientSecret"`
+	// Client secret of the user pool client.
+	ClientSecret string `pulumi:"clientSecret"`
 	// (Optional) Default redirect URI. Must be in the list of callback URLs.
 	DefaultRedirectUri                       string `pulumi:"defaultRedirectUri"`
 	EnablePropagateAdditionalUserContextData bool   `pulumi:"enablePropagateAdditionalUserContextData"`
@@ -178,6 +179,7 @@ func (o LookupUserPoolClientResultOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserPoolClientResult) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
+// Client secret of the user pool client.
 func (o LookupUserPoolClientResultOutput) ClientSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserPoolClientResult) string { return v.ClientSecret }).(pulumi.StringOutput)
 }

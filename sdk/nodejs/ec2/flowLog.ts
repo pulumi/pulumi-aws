@@ -146,7 +146,7 @@ export class FlowLog extends pulumi.CustomResource {
      */
     public readonly iamRoleArn!: pulumi.Output<string | undefined>;
     /**
-     * The ARN of the logging destination.
+     * The ARN of the logging destination. Either `logDestination` or `logGroupName` must be set.
      */
     public readonly logDestination!: pulumi.Output<string>;
     /**
@@ -158,7 +158,7 @@ export class FlowLog extends pulumi.CustomResource {
      */
     public readonly logFormat!: pulumi.Output<string>;
     /**
-     * *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group.
+     * *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group. Either `logGroupName` or `logDestination` must be set.
      *
      * @deprecated use 'log_destination' argument instead
      */
@@ -273,7 +273,7 @@ export interface FlowLogState {
      */
     iamRoleArn?: pulumi.Input<string>;
     /**
-     * The ARN of the logging destination.
+     * The ARN of the logging destination. Either `logDestination` or `logGroupName` must be set.
      */
     logDestination?: pulumi.Input<string>;
     /**
@@ -285,7 +285,7 @@ export interface FlowLogState {
      */
     logFormat?: pulumi.Input<string>;
     /**
-     * *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group.
+     * *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group. Either `logGroupName` or `logDestination` must be set.
      *
      * @deprecated use 'log_destination' argument instead
      */
@@ -344,7 +344,7 @@ export interface FlowLogArgs {
      */
     iamRoleArn?: pulumi.Input<string>;
     /**
-     * The ARN of the logging destination.
+     * The ARN of the logging destination. Either `logDestination` or `logGroupName` must be set.
      */
     logDestination?: pulumi.Input<string>;
     /**
@@ -356,7 +356,7 @@ export interface FlowLogArgs {
      */
     logFormat?: pulumi.Input<string>;
     /**
-     * *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group.
+     * *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group. Either `logGroupName` or `logDestination` must be set.
      *
      * @deprecated use 'log_destination' argument instead
      */

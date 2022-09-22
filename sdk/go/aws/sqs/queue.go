@@ -241,9 +241,9 @@ type Queue struct {
 	// The time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.
 	ReceiveWaitTimeSeconds pulumi.IntPtrOutput `pulumi:"receiveWaitTimeSeconds"`
 	// The JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html).
-	RedriveAllowPolicy pulumi.StringPtrOutput `pulumi:"redriveAllowPolicy"`
+	RedriveAllowPolicy pulumi.StringOutput `pulumi:"redriveAllowPolicy"`
 	// The JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
-	RedrivePolicy pulumi.StringPtrOutput `pulumi:"redrivePolicy"`
+	RedrivePolicy pulumi.StringOutput `pulumi:"redrivePolicy"`
 	// Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. Defaults to `false`. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html).
 	SqsManagedSseEnabled pulumi.BoolPtrOutput `pulumi:"sqsManagedSseEnabled"`
 	// A map of tags to assign to the queue. If configured with a provider `defaultTags` configuration block) present, tags with matching keys will overwrite those defined at the provider-level.
@@ -615,13 +615,13 @@ func (o QueueOutput) ReceiveWaitTimeSeconds() pulumi.IntPtrOutput {
 }
 
 // The JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html).
-func (o QueueOutput) RedriveAllowPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Queue) pulumi.StringPtrOutput { return v.RedriveAllowPolicy }).(pulumi.StringPtrOutput)
+func (o QueueOutput) RedriveAllowPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.RedriveAllowPolicy }).(pulumi.StringOutput)
 }
 
 // The JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
-func (o QueueOutput) RedrivePolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Queue) pulumi.StringPtrOutput { return v.RedrivePolicy }).(pulumi.StringPtrOutput)
+func (o QueueOutput) RedrivePolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.RedrivePolicy }).(pulumi.StringOutput)
 }
 
 // Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. Defaults to `false`. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html).

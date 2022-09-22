@@ -106,6 +106,11 @@ public final class GetFunctionResult {
      * 
      */
     private String qualifiedArn;
+    /**
+     * @return Qualified (`:QUALIFIER` or `:VERSION` suffix) ARN to be used for invoking Lambda Function from API Gateway. See also `invoke_arn`.
+     * 
+     */
+    private String qualifiedInvokeArn;
     private @Nullable String qualifier;
     /**
      * @return The amount of reserved concurrent executions for this lambda function or `-1` if unreserved.
@@ -287,6 +292,13 @@ public final class GetFunctionResult {
     public String qualifiedArn() {
         return this.qualifiedArn;
     }
+    /**
+     * @return Qualified (`:QUALIFIER` or `:VERSION` suffix) ARN to be used for invoking Lambda Function from API Gateway. See also `invoke_arn`.
+     * 
+     */
+    public String qualifiedInvokeArn() {
+        return this.qualifiedInvokeArn;
+    }
     public Optional<String> qualifier() {
         return Optional.ofNullable(this.qualifier);
     }
@@ -398,6 +410,7 @@ public final class GetFunctionResult {
         private List<String> layers;
         private Integer memorySize;
         private String qualifiedArn;
+        private String qualifiedInvokeArn;
         private @Nullable String qualifier;
         private Integer reservedConcurrentExecutions;
         private String role;
@@ -432,6 +445,7 @@ public final class GetFunctionResult {
     	      this.layers = defaults.layers;
     	      this.memorySize = defaults.memorySize;
     	      this.qualifiedArn = defaults.qualifiedArn;
+    	      this.qualifiedInvokeArn = defaults.qualifiedInvokeArn;
     	      this.qualifier = defaults.qualifier;
     	      this.reservedConcurrentExecutions = defaults.reservedConcurrentExecutions;
     	      this.role = defaults.role;
@@ -550,6 +564,11 @@ public final class GetFunctionResult {
             return this;
         }
         @CustomType.Setter
+        public Builder qualifiedInvokeArn(String qualifiedInvokeArn) {
+            this.qualifiedInvokeArn = Objects.requireNonNull(qualifiedInvokeArn);
+            return this;
+        }
+        @CustomType.Setter
         public Builder qualifier(@Nullable String qualifier) {
             this.qualifier = qualifier;
             return this;
@@ -634,6 +653,7 @@ public final class GetFunctionResult {
             o.layers = layers;
             o.memorySize = memorySize;
             o.qualifiedArn = qualifiedArn;
+            o.qualifiedInvokeArn = qualifiedInvokeArn;
             o.qualifier = qualifier;
             o.reservedConcurrentExecutions = reservedConcurrentExecutions;
             o.role = role;

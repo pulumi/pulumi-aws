@@ -18,10 +18,20 @@ export type QueuePolicy = import("./queuePolicy").QueuePolicy;
 export const QueuePolicy: typeof import("./queuePolicy").QueuePolicy = null as any;
 
 export * from "./redrive";
+export { RedriveAllowPolicyArgs, RedriveAllowPolicyState } from "./redriveAllowPolicy";
+export type RedriveAllowPolicy = import("./redriveAllowPolicy").RedriveAllowPolicy;
+export const RedriveAllowPolicy: typeof import("./redriveAllowPolicy").RedriveAllowPolicy = null as any;
+
+export { RedrivePolicyArgs, RedrivePolicyState } from "./redrivePolicy";
+export type RedrivePolicy = import("./redrivePolicy").RedrivePolicy;
+export const RedrivePolicy: typeof import("./redrivePolicy").RedrivePolicy = null as any;
+
 export * from "./sqsMixins";
 utilities.lazyLoad(exports, ["getQueue","getQueueOutput"], () => require("./getQueue"));
 utilities.lazyLoad(exports, ["Queue"], () => require("./queue"));
 utilities.lazyLoad(exports, ["QueuePolicy"], () => require("./queuePolicy"));
+utilities.lazyLoad(exports, ["RedriveAllowPolicy"], () => require("./redriveAllowPolicy"));
+utilities.lazyLoad(exports, ["RedrivePolicy"], () => require("./redrivePolicy"));
 
 const _module = {
     version: utilities.getVersion(),
@@ -31,6 +41,10 @@ const _module = {
                 return new Queue(name, <any>undefined, { urn })
             case "aws:sqs/queuePolicy:QueuePolicy":
                 return new QueuePolicy(name, <any>undefined, { urn })
+            case "aws:sqs/redriveAllowPolicy:RedriveAllowPolicy":
+                return new RedriveAllowPolicy(name, <any>undefined, { urn })
+            case "aws:sqs/redrivePolicy:RedrivePolicy":
+                return new RedrivePolicy(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -38,3 +52,5 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "sqs/queue", _module)
 pulumi.runtime.registerResourceModule("aws", "sqs/queuePolicy", _module)
+pulumi.runtime.registerResourceModule("aws", "sqs/redriveAllowPolicy", _module)
+pulumi.runtime.registerResourceModule("aws", "sqs/redrivePolicy", _module)

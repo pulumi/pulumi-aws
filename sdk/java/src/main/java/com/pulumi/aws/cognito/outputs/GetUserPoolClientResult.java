@@ -45,6 +45,10 @@ public final class GetUserPoolClientResult {
      */
     private List<String> callbackUrls;
     private String clientId;
+    /**
+     * @return Client secret of the user pool client.
+     * 
+     */
     private String clientSecret;
     /**
      * @return (Optional) Default redirect URI. Must be in the list of callback URLs.
@@ -161,6 +165,10 @@ public final class GetUserPoolClientResult {
     public String clientId() {
         return this.clientId;
     }
+    /**
+     * @return Client secret of the user pool client.
+     * 
+     */
     public String clientSecret() {
         return this.clientSecret;
     }

@@ -42,6 +42,7 @@ class FunctionArgs:
                  s3_object_version: Optional[pulumi.Input[str]] = None,
                  source_code_hash: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
                  tracing_config: Optional[pulumi.Input['FunctionTracingConfigArgs']] = None,
                  vpc_config: Optional[pulumi.Input['FunctionVpcConfigArgs']] = None):
@@ -72,6 +73,7 @@ class FunctionArgs:
         :param pulumi.Input[str] s3_object_version: Object version containing the function's deployment package. Conflicts with `filename` and `image_uri`.
         :param pulumi.Input[str] source_code_hash: Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `filebase64sha256("file.zip")`, where "file.zip" is the local filename of the lambda function source archive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[int] timeout: Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
         :param pulumi.Input['FunctionTracingConfigArgs'] tracing_config: Configuration block. Detailed below.
         :param pulumi.Input['FunctionVpcConfigArgs'] vpc_config: Configuration block. Detailed below.
@@ -125,6 +127,8 @@ class FunctionArgs:
             pulumi.set(__self__, "source_code_hash", source_code_hash)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if timeout is not None:
             pulumi.set(__self__, "timeout", timeout)
         if tracing_config is not None:
@@ -433,6 +437,18 @@ class FunctionArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter
     def timeout(self) -> Optional[pulumi.Input[int]]:
         """
@@ -493,6 +509,7 @@ class _FunctionState:
                  package_type: Optional[pulumi.Input[str]] = None,
                  publish: Optional[pulumi.Input[bool]] = None,
                  qualified_arn: Optional[pulumi.Input[str]] = None,
+                 qualified_invoke_arn: Optional[pulumi.Input[str]] = None,
                  reserved_concurrent_executions: Optional[pulumi.Input[int]] = None,
                  role: Optional[pulumi.Input[str]] = None,
                  runtime: Optional[pulumi.Input[Union[str, 'Runtime']]] = None,
@@ -532,6 +549,7 @@ class _FunctionState:
         :param pulumi.Input[str] package_type: Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
         :param pulumi.Input[bool] publish: Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
         :param pulumi.Input[str] qualified_arn: ARN identifying your Lambda Function Version (if versioning is enabled via `publish = true`).
+        :param pulumi.Input[str] qualified_invoke_arn: Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in [`apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`.
         :param pulumi.Input[int] reserved_concurrent_executions: Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
         :param pulumi.Input[str] role: Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
         :param pulumi.Input[Union[str, 'Runtime']] runtime: Identifier of the function's runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
@@ -592,6 +610,8 @@ class _FunctionState:
             pulumi.set(__self__, "publish", publish)
         if qualified_arn is not None:
             pulumi.set(__self__, "qualified_arn", qualified_arn)
+        if qualified_invoke_arn is not None:
+            pulumi.set(__self__, "qualified_invoke_arn", qualified_invoke_arn)
         if reserved_concurrent_executions is not None:
             pulumi.set(__self__, "reserved_concurrent_executions", reserved_concurrent_executions)
         if role is not None:
@@ -878,6 +898,18 @@ class _FunctionState:
         pulumi.set(self, "qualified_arn", value)
 
     @property
+    @pulumi.getter(name="qualifiedInvokeArn")
+    def qualified_invoke_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in [`apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`.
+        """
+        return pulumi.get(self, "qualified_invoke_arn")
+
+    @qualified_invoke_arn.setter
+    def qualified_invoke_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "qualified_invoke_arn", value)
+
+    @property
     @pulumi.getter(name="reservedConcurrentExecutions")
     def reserved_concurrent_executions(self) -> Optional[pulumi.Input[int]]:
         """
@@ -1101,6 +1133,7 @@ class Function(pulumi.CustomResource):
                  s3_object_version: Optional[pulumi.Input[str]] = None,
                  source_code_hash: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
                  tracing_config: Optional[pulumi.Input[pulumi.InputType['FunctionTracingConfigArgs']]] = None,
                  vpc_config: Optional[pulumi.Input[pulumi.InputType['FunctionVpcConfigArgs']]] = None,
@@ -1346,6 +1379,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[str] s3_object_version: Object version containing the function's deployment package. Conflicts with `filename` and `image_uri`.
         :param pulumi.Input[str] source_code_hash: Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `filebase64sha256("file.zip")`, where "file.zip" is the local filename of the lambda function source archive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[int] timeout: Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
         :param pulumi.Input[pulumi.InputType['FunctionTracingConfigArgs']] tracing_config: Configuration block. Detailed below.
         :param pulumi.Input[pulumi.InputType['FunctionVpcConfigArgs']] vpc_config: Configuration block. Detailed below.
@@ -1610,6 +1644,7 @@ class Function(pulumi.CustomResource):
                  s3_object_version: Optional[pulumi.Input[str]] = None,
                  source_code_hash: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
                  tracing_config: Optional[pulumi.Input[pulumi.InputType['FunctionTracingConfigArgs']]] = None,
                  vpc_config: Optional[pulumi.Input[pulumi.InputType['FunctionVpcConfigArgs']]] = None,
@@ -1649,6 +1684,7 @@ class Function(pulumi.CustomResource):
             __props__.__dict__["s3_object_version"] = s3_object_version
             __props__.__dict__["source_code_hash"] = source_code_hash
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["timeout"] = timeout
             __props__.__dict__["tracing_config"] = tracing_config
             __props__.__dict__["vpc_config"] = vpc_config
@@ -1656,10 +1692,10 @@ class Function(pulumi.CustomResource):
             __props__.__dict__["invoke_arn"] = None
             __props__.__dict__["last_modified"] = None
             __props__.__dict__["qualified_arn"] = None
+            __props__.__dict__["qualified_invoke_arn"] = None
             __props__.__dict__["signing_job_arn"] = None
             __props__.__dict__["signing_profile_version_arn"] = None
             __props__.__dict__["source_code_size"] = None
-            __props__.__dict__["tags_all"] = None
             __props__.__dict__["version"] = None
         super(Function, __self__).__init__(
             'aws:lambda/function:Function',
@@ -1692,6 +1728,7 @@ class Function(pulumi.CustomResource):
             package_type: Optional[pulumi.Input[str]] = None,
             publish: Optional[pulumi.Input[bool]] = None,
             qualified_arn: Optional[pulumi.Input[str]] = None,
+            qualified_invoke_arn: Optional[pulumi.Input[str]] = None,
             reserved_concurrent_executions: Optional[pulumi.Input[int]] = None,
             role: Optional[pulumi.Input[str]] = None,
             runtime: Optional[pulumi.Input[Union[str, 'Runtime']]] = None,
@@ -1736,6 +1773,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[str] package_type: Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
         :param pulumi.Input[bool] publish: Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
         :param pulumi.Input[str] qualified_arn: ARN identifying your Lambda Function Version (if versioning is enabled via `publish = true`).
+        :param pulumi.Input[str] qualified_invoke_arn: Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in [`apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`.
         :param pulumi.Input[int] reserved_concurrent_executions: Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
         :param pulumi.Input[str] role: Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
         :param pulumi.Input[Union[str, 'Runtime']] runtime: Identifier of the function's runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
@@ -1779,6 +1817,7 @@ class Function(pulumi.CustomResource):
         __props__.__dict__["package_type"] = package_type
         __props__.__dict__["publish"] = publish
         __props__.__dict__["qualified_arn"] = qualified_arn
+        __props__.__dict__["qualified_invoke_arn"] = qualified_invoke_arn
         __props__.__dict__["reserved_concurrent_executions"] = reserved_concurrent_executions
         __props__.__dict__["role"] = role
         __props__.__dict__["runtime"] = runtime
@@ -1964,6 +2003,14 @@ class Function(pulumi.CustomResource):
         ARN identifying your Lambda Function Version (if versioning is enabled via `publish = true`).
         """
         return pulumi.get(self, "qualified_arn")
+
+    @property
+    @pulumi.getter(name="qualifiedInvokeArn")
+    def qualified_invoke_arn(self) -> pulumi.Output[str]:
+        """
+        Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in [`apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`.
+        """
+        return pulumi.get(self, "qualified_invoke_arn")
 
     @property
     @pulumi.getter(name="reservedConcurrentExecutions")

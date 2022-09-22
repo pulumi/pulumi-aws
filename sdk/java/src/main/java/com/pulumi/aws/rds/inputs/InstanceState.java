@@ -231,6 +231,21 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
+     * 
+     */
+    @Import(name="customIamInstanceProfile")
+    private @Nullable Output<String> customIamInstanceProfile;
+
+    /**
+     * @return The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
+     * 
+     */
+    public Optional<Output<String>> customIamInstanceProfile() {
+        return Optional.ofNullable(this.customIamInstanceProfile);
+    }
+
+    /**
      * Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
      * 
      */
@@ -1216,6 +1231,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         this.caCertIdentifier = $.caCertIdentifier;
         this.characterSetName = $.characterSetName;
         this.copyTagsToSnapshot = $.copyTagsToSnapshot;
+        this.customIamInstanceProfile = $.customIamInstanceProfile;
         this.customerOwnedIpEnabled = $.customerOwnedIpEnabled;
         this.dbName = $.dbName;
         this.dbSubnetGroupName = $.dbSubnetGroupName;
@@ -1567,6 +1583,27 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder copyTagsToSnapshot(Boolean copyTagsToSnapshot) {
             return copyTagsToSnapshot(Output.of(copyTagsToSnapshot));
+        }
+
+        /**
+         * @param customIamInstanceProfile The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customIamInstanceProfile(@Nullable Output<String> customIamInstanceProfile) {
+            $.customIamInstanceProfile = customIamInstanceProfile;
+            return this;
+        }
+
+        /**
+         * @param customIamInstanceProfile The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customIamInstanceProfile(String customIamInstanceProfile) {
+            return customIamInstanceProfile(Output.of(customIamInstanceProfile));
         }
 
         /**

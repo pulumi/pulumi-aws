@@ -193,6 +193,10 @@ export { GetManagedPrefixListArgs, GetManagedPrefixListResult, GetManagedPrefixL
 export const getManagedPrefixList: typeof import("./getManagedPrefixList").getManagedPrefixList = null as any;
 export const getManagedPrefixListOutput: typeof import("./getManagedPrefixList").getManagedPrefixListOutput = null as any;
 
+export { GetManagedPrefixListsArgs, GetManagedPrefixListsResult, GetManagedPrefixListsOutputArgs } from "./getManagedPrefixLists";
+export const getManagedPrefixLists: typeof import("./getManagedPrefixLists").getManagedPrefixLists = null as any;
+export const getManagedPrefixListsOutput: typeof import("./getManagedPrefixLists").getManagedPrefixListsOutput = null as any;
+
 export { GetNatGatewayArgs, GetNatGatewayResult, GetNatGatewayOutputArgs } from "./getNatGateway";
 export const getNatGateway: typeof import("./getNatGateway").getNatGateway = null as any;
 export const getNatGatewayOutput: typeof import("./getNatGateway").getNatGatewayOutput = null as any;
@@ -636,6 +640,7 @@ utilities.lazyLoad(exports, ["getLocalGatewayVirtualInterfaceGroup","getLocalGat
 utilities.lazyLoad(exports, ["getLocalGatewayVirtualInterfaceGroups","getLocalGatewayVirtualInterfaceGroupsOutput"], () => require("./getLocalGatewayVirtualInterfaceGroups"));
 utilities.lazyLoad(exports, ["getLocalGateways","getLocalGatewaysOutput"], () => require("./getLocalGateways"));
 utilities.lazyLoad(exports, ["getManagedPrefixList","getManagedPrefixListOutput"], () => require("./getManagedPrefixList"));
+utilities.lazyLoad(exports, ["getManagedPrefixLists","getManagedPrefixListsOutput"], () => require("./getManagedPrefixLists"));
 utilities.lazyLoad(exports, ["getNatGateway","getNatGatewayOutput"], () => require("./getNatGateway"));
 utilities.lazyLoad(exports, ["getNatGateways","getNatGatewaysOutput"], () => require("./getNatGateways"));
 utilities.lazyLoad(exports, ["getNetworkAcls","getNetworkAclsOutput"], () => require("./getNetworkAcls"));

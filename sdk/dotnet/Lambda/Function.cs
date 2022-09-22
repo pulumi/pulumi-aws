@@ -462,6 +462,12 @@ namespace Pulumi.Aws.Lambda
         public Output<string> QualifiedArn { get; private set; } = null!;
 
         /// <summary>
+        /// Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in [`aws.apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`.
+        /// </summary>
+        [Output("qualifiedInvokeArn")]
+        public Output<string> QualifiedInvokeArn { get; private set; } = null!;
+
+        /// <summary>
         /// Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
         /// </summary>
         [Output("reservedConcurrentExecutions")]
@@ -772,6 +778,18 @@ namespace Pulumi.Aws.Lambda
             set => _tags = value;
         }
 
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
+        }
+
         /// <summary>
         /// Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
         /// </summary>
@@ -935,6 +953,12 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Input("qualifiedArn")]
         public Input<string>? QualifiedArn { get; set; }
+
+        /// <summary>
+        /// Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in [`aws.apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`.
+        /// </summary>
+        [Input("qualifiedInvokeArn")]
+        public Input<string>? QualifiedInvokeArn { get; set; }
 
         /// <summary>
         /// Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)

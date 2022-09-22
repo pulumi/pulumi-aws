@@ -145,8 +145,7 @@ type ClusterInstance struct {
 	PerformanceInsightsRetentionPeriod pulumi.IntOutput `pulumi:"performanceInsightsRetentionPeriod"`
 	// The database port
 	Port pulumi.IntOutput `pulumi:"port"`
-	// The daily time range during which automated backups are created if automated backups are enabled.
-	// Eg: "04:00-09:00"
+	// The daily time range during which automated backups are created if automated backups are enabled. Eg: "04:00-09:00". **NOTE:** If `preferredBackupWindow` is set at the cluster level, this argument **must** be omitted.
 	PreferredBackupWindow pulumi.StringOutput `pulumi:"preferredBackupWindow"`
 	// The window to perform maintenance in.
 	// Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
@@ -259,8 +258,7 @@ type clusterInstanceState struct {
 	PerformanceInsightsRetentionPeriod *int `pulumi:"performanceInsightsRetentionPeriod"`
 	// The database port
 	Port *int `pulumi:"port"`
-	// The daily time range during which automated backups are created if automated backups are enabled.
-	// Eg: "04:00-09:00"
+	// The daily time range during which automated backups are created if automated backups are enabled. Eg: "04:00-09:00". **NOTE:** If `preferredBackupWindow` is set at the cluster level, this argument **must** be omitted.
 	PreferredBackupWindow *string `pulumi:"preferredBackupWindow"`
 	// The window to perform maintenance in.
 	// Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
@@ -339,8 +337,7 @@ type ClusterInstanceState struct {
 	PerformanceInsightsRetentionPeriod pulumi.IntPtrInput
 	// The database port
 	Port pulumi.IntPtrInput
-	// The daily time range during which automated backups are created if automated backups are enabled.
-	// Eg: "04:00-09:00"
+	// The daily time range during which automated backups are created if automated backups are enabled. Eg: "04:00-09:00". **NOTE:** If `preferredBackupWindow` is set at the cluster level, this argument **must** be omitted.
 	PreferredBackupWindow pulumi.StringPtrInput
 	// The window to perform maintenance in.
 	// Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
@@ -409,8 +406,7 @@ type clusterInstanceArgs struct {
 	PerformanceInsightsKmsKeyId *string `pulumi:"performanceInsightsKmsKeyId"`
 	// Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.
 	PerformanceInsightsRetentionPeriod *int `pulumi:"performanceInsightsRetentionPeriod"`
-	// The daily time range during which automated backups are created if automated backups are enabled.
-	// Eg: "04:00-09:00"
+	// The daily time range during which automated backups are created if automated backups are enabled. Eg: "04:00-09:00". **NOTE:** If `preferredBackupWindow` is set at the cluster level, this argument **must** be omitted.
 	PreferredBackupWindow *string `pulumi:"preferredBackupWindow"`
 	// The window to perform maintenance in.
 	// Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
@@ -470,8 +466,7 @@ type ClusterInstanceArgs struct {
 	PerformanceInsightsKmsKeyId pulumi.StringPtrInput
 	// Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.
 	PerformanceInsightsRetentionPeriod pulumi.IntPtrInput
-	// The daily time range during which automated backups are created if automated backups are enabled.
-	// Eg: "04:00-09:00"
+	// The daily time range during which automated backups are created if automated backups are enabled. Eg: "04:00-09:00". **NOTE:** If `preferredBackupWindow` is set at the cluster level, this argument **must** be omitted.
 	PreferredBackupWindow pulumi.StringPtrInput
 	// The window to perform maintenance in.
 	// Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
@@ -705,8 +700,7 @@ func (o ClusterInstanceOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v *ClusterInstance) pulumi.IntOutput { return v.Port }).(pulumi.IntOutput)
 }
 
-// The daily time range during which automated backups are created if automated backups are enabled.
-// Eg: "04:00-09:00"
+// The daily time range during which automated backups are created if automated backups are enabled. Eg: "04:00-09:00". **NOTE:** If `preferredBackupWindow` is set at the cluster level, this argument **must** be omitted.
 func (o ClusterInstanceOutput) PreferredBackupWindow() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterInstance) pulumi.StringOutput { return v.PreferredBackupWindow }).(pulumi.StringOutput)
 }

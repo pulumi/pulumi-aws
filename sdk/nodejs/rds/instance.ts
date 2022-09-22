@@ -40,10 +40,10 @@ import * as utilities from "../utilities";
  *
  * const defaultInstance = new aws.rds.Instance("default", {
  *     allocatedStorage: 10,
+ *     dbName: "mydb",
  *     engine: "mysql",
  *     engineVersion: "5.7",
  *     instanceClass: "db.t3.micro",
- *     name: "mydb",
  *     parameterGroupName: "default.mysql5.7",
  *     password: "foobarbaz",
  *     skipFinalSnapshot: true,
@@ -161,6 +161,10 @@ export class Instance extends pulumi.CustomResource {
      * Copy all Instance `tags` to snapshots. Default is `false`.
      */
     public readonly copyTagsToSnapshot!: pulumi.Output<boolean | undefined>;
+    /**
+     * The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
+     */
+    public readonly customIamInstanceProfile!: pulumi.Output<string | undefined>;
     /**
      * Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
      */
@@ -477,6 +481,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["caCertIdentifier"] = state ? state.caCertIdentifier : undefined;
             resourceInputs["characterSetName"] = state ? state.characterSetName : undefined;
             resourceInputs["copyTagsToSnapshot"] = state ? state.copyTagsToSnapshot : undefined;
+            resourceInputs["customIamInstanceProfile"] = state ? state.customIamInstanceProfile : undefined;
             resourceInputs["customerOwnedIpEnabled"] = state ? state.customerOwnedIpEnabled : undefined;
             resourceInputs["dbName"] = state ? state.dbName : undefined;
             resourceInputs["dbSubnetGroupName"] = state ? state.dbSubnetGroupName : undefined;
@@ -547,6 +552,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["caCertIdentifier"] = args ? args.caCertIdentifier : undefined;
             resourceInputs["characterSetName"] = args ? args.characterSetName : undefined;
             resourceInputs["copyTagsToSnapshot"] = args ? args.copyTagsToSnapshot : undefined;
+            resourceInputs["customIamInstanceProfile"] = args ? args.customIamInstanceProfile : undefined;
             resourceInputs["customerOwnedIpEnabled"] = args ? args.customerOwnedIpEnabled : undefined;
             resourceInputs["dbName"] = args ? args.dbName : undefined;
             resourceInputs["dbSubnetGroupName"] = args ? args.dbSubnetGroupName : undefined;
@@ -675,6 +681,10 @@ export interface InstanceState {
      * Copy all Instance `tags` to snapshots. Default is `false`.
      */
     copyTagsToSnapshot?: pulumi.Input<boolean>;
+    /**
+     * The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
+     */
+    customIamInstanceProfile?: pulumi.Input<string>;
     /**
      * Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
      */
@@ -1024,6 +1034,10 @@ export interface InstanceArgs {
      * Copy all Instance `tags` to snapshots. Default is `false`.
      */
     copyTagsToSnapshot?: pulumi.Input<boolean>;
+    /**
+     * The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
+     */
+    customIamInstanceProfile?: pulumi.Input<string>;
     /**
      * Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
      */

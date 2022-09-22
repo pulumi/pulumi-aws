@@ -77,6 +77,9 @@ export interface GetUserPoolClientResult {
      */
     readonly callbackUrls: string[];
     readonly clientId: string;
+    /**
+     * Client secret of the user pool client.
+     */
     readonly clientSecret: string;
     /**
      * (Optional) Default redirect URI. Must be in the list of callback URLs.

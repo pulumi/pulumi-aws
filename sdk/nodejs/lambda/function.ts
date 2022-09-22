@@ -345,6 +345,10 @@ export class Function extends pulumi.CustomResource {
      */
     public /*out*/ readonly qualifiedArn!: pulumi.Output<string>;
     /**
+     * Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in [`aws.apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`.
+     */
+    public /*out*/ readonly qualifiedInvokeArn!: pulumi.Output<string>;
+    /**
      * Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
      */
     public readonly reservedConcurrentExecutions!: pulumi.Output<number | undefined>;
@@ -391,7 +395,7 @@ export class Function extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
      */
@@ -444,6 +448,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["packageType"] = state ? state.packageType : undefined;
             resourceInputs["publish"] = state ? state.publish : undefined;
             resourceInputs["qualifiedArn"] = state ? state.qualifiedArn : undefined;
+            resourceInputs["qualifiedInvokeArn"] = state ? state.qualifiedInvokeArn : undefined;
             resourceInputs["reservedConcurrentExecutions"] = state ? state.reservedConcurrentExecutions : undefined;
             resourceInputs["role"] = state ? state.role : undefined;
             resourceInputs["runtime"] = state ? state.runtime : undefined;
@@ -490,6 +495,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["s3ObjectVersion"] = args ? args.s3ObjectVersion : undefined;
             resourceInputs["sourceCodeHash"] = args ? args.sourceCodeHash : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["timeout"] = args ? args.timeout : undefined;
             resourceInputs["tracingConfig"] = args ? args.tracingConfig : undefined;
             resourceInputs["vpcConfig"] = args ? args.vpcConfig : undefined;
@@ -497,10 +503,10 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["invokeArn"] = undefined /*out*/;
             resourceInputs["lastModified"] = undefined /*out*/;
             resourceInputs["qualifiedArn"] = undefined /*out*/;
+            resourceInputs["qualifiedInvokeArn"] = undefined /*out*/;
             resourceInputs["signingJobArn"] = undefined /*out*/;
             resourceInputs["signingProfileVersionArn"] = undefined /*out*/;
             resourceInputs["sourceCodeSize"] = undefined /*out*/;
-            resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -596,6 +602,10 @@ export interface FunctionState {
      * ARN identifying your Lambda Function Version (if versioning is enabled via `publish = true`).
      */
     qualifiedArn?: pulumi.Input<string>;
+    /**
+     * Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in [`aws.apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`.
+     */
+    qualifiedInvokeArn?: pulumi.Input<string>;
     /**
      * Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
      */
@@ -767,6 +777,10 @@ export interface FunctionArgs {
      * Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
      */

@@ -36,7 +36,7 @@ public final class FirehoseDeliveryStreamElasticsearchConfiguration {
      */
     private @Nullable String clusterEndpoint;
     /**
-     * @return The ARN of the Amazon ES domain.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig` after assuming `RoleARN`.  The pattern needs to be `arn:.*`. Conflicts with `cluster_endpoint`.
+     * @return The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `cluster_endpoint`.
      * 
      */
     private @Nullable String domainArn;
@@ -61,7 +61,7 @@ public final class FirehoseDeliveryStreamElasticsearchConfiguration {
      */
     private @Nullable Integer retryDuration;
     /**
-     * @return The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
+     * @return The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
      * 
      */
     private String roleArn;
@@ -111,7 +111,7 @@ public final class FirehoseDeliveryStreamElasticsearchConfiguration {
         return Optional.ofNullable(this.clusterEndpoint);
     }
     /**
-     * @return The ARN of the Amazon ES domain.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig` after assuming `RoleARN`.  The pattern needs to be `arn:.*`. Conflicts with `cluster_endpoint`.
+     * @return The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `cluster_endpoint`.
      * 
      */
     public Optional<String> domainArn() {
@@ -146,7 +146,7 @@ public final class FirehoseDeliveryStreamElasticsearchConfiguration {
         return Optional.ofNullable(this.retryDuration);
     }
     /**
-     * @return The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
+     * @return The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
      * 
      */
     public String roleArn() {

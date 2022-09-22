@@ -430,28 +430,28 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="redriveAllowPolicy", type=String.class, parameters={})
-    private Output</* @Nullable */ String> redriveAllowPolicy;
+    private Output<String> redriveAllowPolicy;
 
     /**
      * @return The JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html).
      * 
      */
-    public Output<Optional<String>> redriveAllowPolicy() {
-        return Codegen.optional(this.redriveAllowPolicy);
+    public Output<String> redriveAllowPolicy() {
+        return this.redriveAllowPolicy;
     }
     /**
      * The JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`&#34;5&#34;`).
      * 
      */
     @Export(name="redrivePolicy", type=String.class, parameters={})
-    private Output</* @Nullable */ String> redrivePolicy;
+    private Output<String> redrivePolicy;
 
     /**
      * @return The JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`&#34;5&#34;`).
      * 
      */
-    public Output<Optional<String>> redrivePolicy() {
-        return Codegen.optional(this.redrivePolicy);
+    public Output<String> redrivePolicy() {
+        return this.redrivePolicy;
     }
     /**
      * Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. Defaults to `false`. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html).

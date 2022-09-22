@@ -22,7 +22,7 @@ class GetFunctionResult:
     """
     A collection of values returned by getFunction.
     """
-    def __init__(__self__, architectures=None, arn=None, code_signing_config_arn=None, dead_letter_config=None, description=None, environment=None, ephemeral_storages=None, file_system_configs=None, function_name=None, handler=None, id=None, image_uri=None, invoke_arn=None, kms_key_arn=None, last_modified=None, layers=None, memory_size=None, qualified_arn=None, qualifier=None, reserved_concurrent_executions=None, role=None, runtime=None, signing_job_arn=None, signing_profile_version_arn=None, source_code_hash=None, source_code_size=None, tags=None, timeout=None, tracing_config=None, version=None, vpc_config=None):
+    def __init__(__self__, architectures=None, arn=None, code_signing_config_arn=None, dead_letter_config=None, description=None, environment=None, ephemeral_storages=None, file_system_configs=None, function_name=None, handler=None, id=None, image_uri=None, invoke_arn=None, kms_key_arn=None, last_modified=None, layers=None, memory_size=None, qualified_arn=None, qualified_invoke_arn=None, qualifier=None, reserved_concurrent_executions=None, role=None, runtime=None, signing_job_arn=None, signing_profile_version_arn=None, source_code_hash=None, source_code_size=None, tags=None, timeout=None, tracing_config=None, version=None, vpc_config=None):
         if architectures and not isinstance(architectures, list):
             raise TypeError("Expected argument 'architectures' to be a list")
         pulumi.set(__self__, "architectures", architectures)
@@ -77,6 +77,9 @@ class GetFunctionResult:
         if qualified_arn and not isinstance(qualified_arn, str):
             raise TypeError("Expected argument 'qualified_arn' to be a str")
         pulumi.set(__self__, "qualified_arn", qualified_arn)
+        if qualified_invoke_arn and not isinstance(qualified_invoke_arn, str):
+            raise TypeError("Expected argument 'qualified_invoke_arn' to be a str")
+        pulumi.set(__self__, "qualified_invoke_arn", qualified_invoke_arn)
         if qualifier and not isinstance(qualifier, str):
             raise TypeError("Expected argument 'qualifier' to be a str")
         pulumi.set(__self__, "qualifier", qualifier)
@@ -259,6 +262,14 @@ class GetFunctionResult:
         return pulumi.get(self, "qualified_arn")
 
     @property
+    @pulumi.getter(name="qualifiedInvokeArn")
+    def qualified_invoke_arn(self) -> str:
+        """
+        Qualified (`:QUALIFIER` or `:VERSION` suffix) ARN to be used for invoking Lambda Function from API Gateway. See also `invoke_arn`.
+        """
+        return pulumi.get(self, "qualified_invoke_arn")
+
+    @property
     @pulumi.getter
     def qualifier(self) -> Optional[str]:
         return pulumi.get(self, "qualifier")
@@ -381,6 +392,7 @@ class AwaitableGetFunctionResult(GetFunctionResult):
             layers=self.layers,
             memory_size=self.memory_size,
             qualified_arn=self.qualified_arn,
+            qualified_invoke_arn=self.qualified_invoke_arn,
             qualifier=self.qualifier,
             reserved_concurrent_executions=self.reserved_concurrent_executions,
             role=self.role,
@@ -444,6 +456,7 @@ def get_function(function_name: Optional[str] = None,
         layers=__ret__.layers,
         memory_size=__ret__.memory_size,
         qualified_arn=__ret__.qualified_arn,
+        qualified_invoke_arn=__ret__.qualified_invoke_arn,
         qualifier=__ret__.qualifier,
         reserved_concurrent_executions=__ret__.reserved_concurrent_executions,
         role=__ret__.role,

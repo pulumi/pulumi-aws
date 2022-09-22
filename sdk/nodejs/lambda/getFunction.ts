@@ -124,6 +124,10 @@ export interface GetFunctionResult {
      * Qualified (`:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `arn`.
      */
     readonly qualifiedArn: string;
+    /**
+     * Qualified (`:QUALIFIER` or `:VERSION` suffix) ARN to be used for invoking Lambda Function from API Gateway. See also `invokeArn`.
+     */
+    readonly qualifiedInvokeArn: string;
     readonly qualifier?: string;
     /**
      * The amount of reserved concurrent executions for this lambda function or `-1` if unreserved.

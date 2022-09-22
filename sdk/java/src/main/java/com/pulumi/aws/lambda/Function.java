@@ -703,6 +703,20 @@ public class Function extends com.pulumi.resources.CustomResource {
         return this.qualifiedArn;
     }
     /**
+     * Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in [`aws.apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)&#39;s `uri`.
+     * 
+     */
+    @Export(name="qualifiedInvokeArn", type=String.class, parameters={})
+    private Output<String> qualifiedInvokeArn;
+
+    /**
+     * @return Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in [`aws.apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)&#39;s `uri`.
+     * 
+     */
+    public Output<String> qualifiedInvokeArn() {
+        return this.qualifiedInvokeArn;
+    }
+    /**
      * Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
      * 
      */

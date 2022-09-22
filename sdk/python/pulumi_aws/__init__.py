@@ -8573,6 +8573,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "sqs/redriveAllowPolicy",
+  "fqn": "pulumi_aws.sqs",
+  "classes": {
+   "aws:sqs/redriveAllowPolicy:RedriveAllowPolicy": "RedriveAllowPolicy"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "sqs/redrivePolicy",
+  "fqn": "pulumi_aws.sqs",
+  "classes": {
+   "aws:sqs/redrivePolicy:RedrivePolicy": "RedrivePolicy"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "ssm/activation",
   "fqn": "pulumi_aws.ssm",
   "classes": {
