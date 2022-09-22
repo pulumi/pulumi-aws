@@ -137,7 +137,7 @@ var provider = new Aws.Provider("named-provider", new Aws.ProviderArgs
 ```go
 provider, err := aws.NewProvider(ctx, "named-provider", &aws.ProviderArgs{
     // other config
-    SkipMetadataApiCheck: pulumi.Bool(false),
+    SkipMetadataApiCheck: pulumi.BoolPtr(false),
 })
 ```
 
