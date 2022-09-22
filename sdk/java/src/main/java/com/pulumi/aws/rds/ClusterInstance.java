@@ -460,16 +460,14 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
         return this.port;
     }
     /**
-     * The daily time range during which automated backups are created if automated backups are enabled.
-     * Eg: &#34;04:00-09:00&#34;
+     * The daily time range during which automated backups are created if automated backups are enabled. Eg: &#34;04:00-09:00&#34;. **NOTE:** If `preferred_backup_window` is set at the cluster level, this argument **must** be omitted.
      * 
      */
     @Export(name="preferredBackupWindow", type=String.class, parameters={})
     private Output<String> preferredBackupWindow;
 
     /**
-     * @return The daily time range during which automated backups are created if automated backups are enabled.
-     * Eg: &#34;04:00-09:00&#34;
+     * @return The daily time range during which automated backups are created if automated backups are enabled. Eg: &#34;04:00-09:00&#34;. **NOTE:** If `preferred_backup_window` is set at the cluster level, this argument **must** be omitted.
      * 
      */
     public Output<String> preferredBackupWindow() {

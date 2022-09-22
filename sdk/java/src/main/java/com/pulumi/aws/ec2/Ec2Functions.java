@@ -58,6 +58,8 @@ import com.pulumi.aws.ec2.inputs.GetLocalGatewaysArgs;
 import com.pulumi.aws.ec2.inputs.GetLocalGatewaysPlainArgs;
 import com.pulumi.aws.ec2.inputs.GetManagedPrefixListArgs;
 import com.pulumi.aws.ec2.inputs.GetManagedPrefixListPlainArgs;
+import com.pulumi.aws.ec2.inputs.GetManagedPrefixListsArgs;
+import com.pulumi.aws.ec2.inputs.GetManagedPrefixListsPlainArgs;
 import com.pulumi.aws.ec2.inputs.GetNatGatewayArgs;
 import com.pulumi.aws.ec2.inputs.GetNatGatewayPlainArgs;
 import com.pulumi.aws.ec2.inputs.GetNatGatewaysArgs;
@@ -139,6 +141,7 @@ import com.pulumi.aws.ec2.outputs.GetLocalGatewayVirtualInterfaceGroupsResult;
 import com.pulumi.aws.ec2.outputs.GetLocalGatewayVirtualInterfaceResult;
 import com.pulumi.aws.ec2.outputs.GetLocalGatewaysResult;
 import com.pulumi.aws.ec2.outputs.GetManagedPrefixListResult;
+import com.pulumi.aws.ec2.outputs.GetManagedPrefixListsResult;
 import com.pulumi.aws.ec2.outputs.GetNatGatewayResult;
 import com.pulumi.aws.ec2.outputs.GetNatGatewaysResult;
 import com.pulumi.aws.ec2.outputs.GetNetworkAclsResult;
@@ -6934,6 +6937,48 @@ public final class Ec2Functions {
      */
     public static CompletableFuture<GetManagedPrefixListResult> getManagedPrefixListPlain(GetManagedPrefixListPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ec2/getManagedPrefixList:getManagedPrefixList", TypeShape.of(GetManagedPrefixListResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
+     * 
+     */
+    public static Output<GetManagedPrefixListsResult> getManagedPrefixLists() {
+        return getManagedPrefixLists(GetManagedPrefixListsArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
+     * 
+     */
+    public static CompletableFuture<GetManagedPrefixListsResult> getManagedPrefixListsPlain() {
+        return getManagedPrefixListsPlain(GetManagedPrefixListsPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
+     * 
+     */
+    public static Output<GetManagedPrefixListsResult> getManagedPrefixLists(GetManagedPrefixListsArgs args) {
+        return getManagedPrefixLists(args, InvokeOptions.Empty);
+    }
+    /**
+     * This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
+     * 
+     */
+    public static CompletableFuture<GetManagedPrefixListsResult> getManagedPrefixListsPlain(GetManagedPrefixListsPlainArgs args) {
+        return getManagedPrefixListsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
+     * 
+     */
+    public static Output<GetManagedPrefixListsResult> getManagedPrefixLists(GetManagedPrefixListsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:ec2/getManagedPrefixLists:getManagedPrefixLists", TypeShape.of(GetManagedPrefixListsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
+     * 
+     */
+    public static CompletableFuture<GetManagedPrefixListsResult> getManagedPrefixListsPlain(GetManagedPrefixListsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:ec2/getManagedPrefixLists:getManagedPrefixLists", TypeShape.of(GetManagedPrefixListsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Provides details about a specific Nat Gateway.

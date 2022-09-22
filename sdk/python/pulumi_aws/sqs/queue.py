@@ -1140,7 +1140,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="redriveAllowPolicy")
-    def redrive_allow_policy(self) -> pulumi.Output[Optional[str]]:
+    def redrive_allow_policy(self) -> pulumi.Output[str]:
         """
         The JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html).
         """
@@ -1148,7 +1148,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="redrivePolicy")
-    def redrive_policy(self) -> pulumi.Output[Optional[str]]:
+    def redrive_policy(self) -> pulumi.Output[str]:
         """
         The JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
         """

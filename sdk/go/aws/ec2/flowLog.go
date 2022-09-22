@@ -187,13 +187,13 @@ type FlowLog struct {
 	EniId pulumi.StringPtrOutput `pulumi:"eniId"`
 	// The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
 	IamRoleArn pulumi.StringPtrOutput `pulumi:"iamRoleArn"`
-	// The ARN of the logging destination.
+	// The ARN of the logging destination. Either `logDestination` or `logGroupName` must be set.
 	LogDestination pulumi.StringOutput `pulumi:"logDestination"`
 	// The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`. Default: `cloud-watch-logs`.
 	LogDestinationType pulumi.StringPtrOutput `pulumi:"logDestinationType"`
 	// The fields to include in the flow log record, in the order in which they should appear.
 	LogFormat pulumi.StringOutput `pulumi:"logFormat"`
-	// *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group.
+	// *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group. Either `logGroupName` or `logDestination` must be set.
 	//
 	// Deprecated: use 'log_destination' argument instead
 	LogGroupName pulumi.StringOutput `pulumi:"logGroupName"`
@@ -255,13 +255,13 @@ type flowLogState struct {
 	EniId *string `pulumi:"eniId"`
 	// The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
 	IamRoleArn *string `pulumi:"iamRoleArn"`
-	// The ARN of the logging destination.
+	// The ARN of the logging destination. Either `logDestination` or `logGroupName` must be set.
 	LogDestination *string `pulumi:"logDestination"`
 	// The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`. Default: `cloud-watch-logs`.
 	LogDestinationType *string `pulumi:"logDestinationType"`
 	// The fields to include in the flow log record, in the order in which they should appear.
 	LogFormat *string `pulumi:"logFormat"`
-	// *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group.
+	// *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group. Either `logGroupName` or `logDestination` must be set.
 	//
 	// Deprecated: use 'log_destination' argument instead
 	LogGroupName *string `pulumi:"logGroupName"`
@@ -295,13 +295,13 @@ type FlowLogState struct {
 	EniId pulumi.StringPtrInput
 	// The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
 	IamRoleArn pulumi.StringPtrInput
-	// The ARN of the logging destination.
+	// The ARN of the logging destination. Either `logDestination` or `logGroupName` must be set.
 	LogDestination pulumi.StringPtrInput
 	// The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`. Default: `cloud-watch-logs`.
 	LogDestinationType pulumi.StringPtrInput
 	// The fields to include in the flow log record, in the order in which they should appear.
 	LogFormat pulumi.StringPtrInput
-	// *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group.
+	// *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group. Either `logGroupName` or `logDestination` must be set.
 	//
 	// Deprecated: use 'log_destination' argument instead
 	LogGroupName pulumi.StringPtrInput
@@ -337,13 +337,13 @@ type flowLogArgs struct {
 	EniId *string `pulumi:"eniId"`
 	// The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
 	IamRoleArn *string `pulumi:"iamRoleArn"`
-	// The ARN of the logging destination.
+	// The ARN of the logging destination. Either `logDestination` or `logGroupName` must be set.
 	LogDestination *string `pulumi:"logDestination"`
 	// The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`. Default: `cloud-watch-logs`.
 	LogDestinationType *string `pulumi:"logDestinationType"`
 	// The fields to include in the flow log record, in the order in which they should appear.
 	LogFormat *string `pulumi:"logFormat"`
-	// *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group.
+	// *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group. Either `logGroupName` or `logDestination` must be set.
 	//
 	// Deprecated: use 'log_destination' argument instead
 	LogGroupName *string `pulumi:"logGroupName"`
@@ -374,13 +374,13 @@ type FlowLogArgs struct {
 	EniId pulumi.StringPtrInput
 	// The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
 	IamRoleArn pulumi.StringPtrInput
-	// The ARN of the logging destination.
+	// The ARN of the logging destination. Either `logDestination` or `logGroupName` must be set.
 	LogDestination pulumi.StringPtrInput
 	// The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`. Default: `cloud-watch-logs`.
 	LogDestinationType pulumi.StringPtrInput
 	// The fields to include in the flow log record, in the order in which they should appear.
 	LogFormat pulumi.StringPtrInput
-	// *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group.
+	// *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group. Either `logGroupName` or `logDestination` must be set.
 	//
 	// Deprecated: use 'log_destination' argument instead
 	LogGroupName pulumi.StringPtrInput
@@ -510,7 +510,7 @@ func (o FlowLogOutput) IamRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowLog) pulumi.StringPtrOutput { return v.IamRoleArn }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the logging destination.
+// The ARN of the logging destination. Either `logDestination` or `logGroupName` must be set.
 func (o FlowLogOutput) LogDestination() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlowLog) pulumi.StringOutput { return v.LogDestination }).(pulumi.StringOutput)
 }
@@ -525,7 +525,7 @@ func (o FlowLogOutput) LogFormat() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlowLog) pulumi.StringOutput { return v.LogFormat }).(pulumi.StringOutput)
 }
 
-// *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group.
+// *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group. Either `logGroupName` or `logDestination` must be set.
 //
 // Deprecated: use 'log_destination' argument instead
 func (o FlowLogOutput) LogGroupName() pulumi.StringOutput {

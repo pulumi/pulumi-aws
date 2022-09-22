@@ -1587,12 +1587,12 @@ class FirehoseDeliveryStreamElasticsearchConfiguration(dict):
                  vpc_config: Optional['outputs.FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig'] = None):
         """
         :param str index_name: The Elasticsearch index name.
-        :param str role_arn: The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
+        :param str role_arn: The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
         :param int buffering_interval: Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
         :param int buffering_size: Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
         :param 'FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsArgs' cloudwatch_logging_options: The CloudWatch Logging Options for the delivery stream. More details are given below
         :param str cluster_endpoint: The endpoint to use when communicating with the cluster. Conflicts with `domain_arn`.
-        :param str domain_arn: The ARN of the Amazon ES domain.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig` after assuming `RoleARN`.  The pattern needs to be `arn:.*`. Conflicts with `cluster_endpoint`.
+        :param str domain_arn: The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `cluster_endpoint`.
         :param str index_rotation_period: The Elasticsearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
         :param 'FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationArgs' processing_configuration: The data processing configuration.  More details are given below.
         :param int retry_duration: After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
@@ -1637,7 +1637,7 @@ class FirehoseDeliveryStreamElasticsearchConfiguration(dict):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
         """
-        The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
+        The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
         """
         return pulumi.get(self, "role_arn")
 
@@ -1677,7 +1677,7 @@ class FirehoseDeliveryStreamElasticsearchConfiguration(dict):
     @pulumi.getter(name="domainArn")
     def domain_arn(self) -> Optional[str]:
         """
-        The ARN of the Amazon ES domain.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig` after assuming `RoleARN`.  The pattern needs to be `arn:.*`. Conflicts with `cluster_endpoint`.
+        The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `cluster_endpoint`.
         """
         return pulumi.get(self, "domain_arn")
 

@@ -3075,6 +3075,22 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
+			"aws_sqs_queue_redrive_allow_policy": {
+				Tok: awsResource(sqsMod, "RedriveAllowPolicy"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"redrive_allow_policy": {
+						CSharpName: "RedriveAllowPolicyName",
+					},
+				},
+			},
+			"aws_sqs_queue_redrive_policy": {
+				Tok: awsResource(sqsMod, "RedrivePolicy"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"redrive_policy": {
+						CSharpName: "RedrivePolicyName",
+					},
+				},
+			},
 			// Storage Gateway
 			"aws_storagegateway_gateway":             {Tok: awsResource(storagegatewayMod, "Gateway")},
 			"aws_storagegateway_cache":               {Tok: awsResource(storagegatewayMod, "Cache")},
@@ -4765,6 +4781,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ec2_serial_console_access":        {Tok: awsDataSource(ec2Mod, "getSerialConsoleAccess")},
 			"aws_ec2_network_insights_analysis":    {Tok: awsDataSource(ec2Mod, "getNetworkInsightsAnalysis")},
 			"aws_ec2_network_insights_path":        {Tok: awsDataSource(ec2Mod, "getNetworkInsightsPath")},
+			"aws_ec2_managed_prefix_lists":         {Tok: awsDataSource(ec2Mod, "getManagedPrefixLists")},
 
 			// Ec2 Client
 			"aws_ec2_client_vpn_endpoint": {Tok: awsDataSource(ec2ClientVpnMod, "getEndpoint")},

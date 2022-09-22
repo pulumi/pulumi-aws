@@ -440,6 +440,8 @@ type Function struct {
 	Publish pulumi.BoolPtrOutput `pulumi:"publish"`
 	// ARN identifying your Lambda Function Version (if versioning is enabled via `publish = true`).
 	QualifiedArn pulumi.StringOutput `pulumi:"qualifiedArn"`
+	// Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in [`apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`.
+	QualifiedInvokeArn pulumi.StringOutput `pulumi:"qualifiedInvokeArn"`
 	// Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
 	ReservedConcurrentExecutions pulumi.IntPtrOutput `pulumi:"reservedConcurrentExecutions"`
 	// Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
@@ -549,6 +551,8 @@ type functionState struct {
 	Publish *bool `pulumi:"publish"`
 	// ARN identifying your Lambda Function Version (if versioning is enabled via `publish = true`).
 	QualifiedArn *string `pulumi:"qualifiedArn"`
+	// Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in [`apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`.
+	QualifiedInvokeArn *string `pulumi:"qualifiedInvokeArn"`
 	// Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
 	ReservedConcurrentExecutions *int `pulumi:"reservedConcurrentExecutions"`
 	// Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
@@ -627,6 +631,8 @@ type FunctionState struct {
 	Publish pulumi.BoolPtrInput
 	// ARN identifying your Lambda Function Version (if versioning is enabled via `publish = true`).
 	QualifiedArn pulumi.StringPtrInput
+	// Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in [`apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`.
+	QualifiedInvokeArn pulumi.StringPtrInput
 	// Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
 	ReservedConcurrentExecutions pulumi.IntPtrInput
 	// Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
@@ -717,6 +723,8 @@ type functionArgs struct {
 	SourceCodeHash *string `pulumi:"sourceCodeHash"`
 	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
 	Timeout *int `pulumi:"timeout"`
 	// Configuration block. Detailed below.
@@ -777,6 +785,8 @@ type FunctionArgs struct {
 	SourceCodeHash pulumi.StringPtrInput
 	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
 	Timeout pulumi.IntPtrInput
 	// Configuration block. Detailed below.
@@ -975,6 +985,11 @@ func (o FunctionOutput) Publish() pulumi.BoolPtrOutput {
 // ARN identifying your Lambda Function Version (if versioning is enabled via `publish = true`).
 func (o FunctionOutput) QualifiedArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.QualifiedArn }).(pulumi.StringOutput)
+}
+
+// Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in [`apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`.
+func (o FunctionOutput) QualifiedInvokeArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.QualifiedInvokeArn }).(pulumi.StringOutput)
 }
 
 // Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)

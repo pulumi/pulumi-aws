@@ -297,6 +297,7 @@ __all__ = [
     'GetLocalGatewaysFilterResult',
     'GetManagedPrefixListEntryResult',
     'GetManagedPrefixListFilterResult',
+    'GetManagedPrefixListsFilterResult',
     'GetNatGatewayFilterResult',
     'GetNatGatewaysFilterResult',
     'GetNetworkAclsFilterResult',
@@ -17052,6 +17053,39 @@ class GetManagedPrefixListFilterResult(dict):
     def values(self) -> Sequence[str]:
         """
         Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetManagedPrefixListsFilterResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: Name of the field to filter by, as defined by
+               [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html).
+        :param Sequence[str] values: Set of values that are accepted for the given field.
+               A managed prefix list will be selected if any one of the given values matches.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the field to filter by, as defined by
+        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html).
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Set of values that are accepted for the given field.
+        A managed prefix list will be selected if any one of the given values matches.
         """
         return pulumi.get(self, "values")
 

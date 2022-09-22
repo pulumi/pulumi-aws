@@ -64,14 +64,14 @@ public final class FlowLogArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN of the logging destination.
+     * The ARN of the logging destination. Either `log_destination` or `log_group_name` must be set.
      * 
      */
     @Import(name="logDestination")
     private @Nullable Output<String> logDestination;
 
     /**
-     * @return The ARN of the logging destination.
+     * @return The ARN of the logging destination. Either `log_destination` or `log_group_name` must be set.
      * 
      */
     public Optional<Output<String>> logDestination() {
@@ -109,7 +109,7 @@ public final class FlowLogArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group.
+     * *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
      * 
      * @deprecated
      * use &#39;log_destination&#39; argument instead
@@ -120,7 +120,7 @@ public final class FlowLogArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> logGroupName;
 
     /**
-     * @return *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group.
+     * @return *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
      * 
      * @deprecated
      * use &#39;log_destination&#39; argument instead
@@ -343,7 +343,7 @@ public final class FlowLogArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logDestination The ARN of the logging destination.
+         * @param logDestination The ARN of the logging destination. Either `log_destination` or `log_group_name` must be set.
          * 
          * @return builder
          * 
@@ -354,7 +354,7 @@ public final class FlowLogArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logDestination The ARN of the logging destination.
+         * @param logDestination The ARN of the logging destination. Either `log_destination` or `log_group_name` must be set.
          * 
          * @return builder
          * 
@@ -406,7 +406,7 @@ public final class FlowLogArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logGroupName *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group.
+         * @param logGroupName *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
          * 
          * @return builder
          * 
@@ -421,7 +421,7 @@ public final class FlowLogArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logGroupName *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group.
+         * @param logGroupName *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
          * 
          * @return builder
          * 

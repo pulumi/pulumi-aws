@@ -94,8 +94,10 @@ type LookupFunctionResult struct {
 	// Amount of memory in MB your Lambda Function can use at runtime.
 	MemorySize int `pulumi:"memorySize"`
 	// Qualified (`:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `arn`.
-	QualifiedArn string  `pulumi:"qualifiedArn"`
-	Qualifier    *string `pulumi:"qualifier"`
+	QualifiedArn string `pulumi:"qualifiedArn"`
+	// Qualified (`:QUALIFIER` or `:VERSION` suffix) ARN to be used for invoking Lambda Function from API Gateway. See also `invokeArn`.
+	QualifiedInvokeArn string  `pulumi:"qualifiedInvokeArn"`
+	Qualifier          *string `pulumi:"qualifier"`
 	// The amount of reserved concurrent executions for this lambda function or `-1` if unreserved.
 	ReservedConcurrentExecutions int `pulumi:"reservedConcurrentExecutions"`
 	// IAM role attached to the Lambda Function.
@@ -249,6 +251,11 @@ func (o LookupFunctionResultOutput) MemorySize() pulumi.IntOutput {
 // Qualified (`:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `arn`.
 func (o LookupFunctionResultOutput) QualifiedArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFunctionResult) string { return v.QualifiedArn }).(pulumi.StringOutput)
+}
+
+// Qualified (`:QUALIFIER` or `:VERSION` suffix) ARN to be used for invoking Lambda Function from API Gateway. See also `invokeArn`.
+func (o LookupFunctionResultOutput) QualifiedInvokeArn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFunctionResult) string { return v.QualifiedInvokeArn }).(pulumi.StringOutput)
 }
 
 func (o LookupFunctionResultOutput) Qualifier() pulumi.StringPtrOutput {

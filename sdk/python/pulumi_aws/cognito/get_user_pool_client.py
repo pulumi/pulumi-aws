@@ -152,6 +152,9 @@ class GetUserPoolClientResult:
     @property
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> str:
+        """
+        Client secret of the user pool client.
+        """
         return pulumi.get(self, "client_secret")
 
     @property

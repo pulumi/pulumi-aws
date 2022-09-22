@@ -138,6 +138,9 @@ namespace Pulumi.Aws.Cognito
         /// </summary>
         public readonly ImmutableArray<string> CallbackUrls;
         public readonly string ClientId;
+        /// <summary>
+        /// Client secret of the user pool client.
+        /// </summary>
         public readonly string ClientSecret;
         /// <summary>
         /// (Optional) Default redirect URI. Must be in the list of callback URLs.

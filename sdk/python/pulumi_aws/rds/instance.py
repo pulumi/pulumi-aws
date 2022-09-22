@@ -28,6 +28,7 @@ class InstanceArgs:
                  ca_cert_identifier: Optional[pulumi.Input[str]] = None,
                  character_set_name: Optional[pulumi.Input[str]] = None,
                  copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
+                 custom_iam_instance_profile: Optional[pulumi.Input[str]] = None,
                  customer_owned_ip_enabled: Optional[pulumi.Input[bool]] = None,
                  db_name: Optional[pulumi.Input[str]] = None,
                  db_subnet_group_name: Optional[pulumi.Input[str]] = None,
@@ -100,6 +101,7 @@ class InstanceArgs:
                Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
                or [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
         :param pulumi.Input[bool] copy_tags_to_snapshot: Copy all Instance `tags` to snapshots. Default is `false`.
+        :param pulumi.Input[str] custom_iam_instance_profile: The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
         :param pulumi.Input[bool] customer_owned_ip_enabled: Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
         :param pulumi.Input[str] db_name: The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
         :param pulumi.Input[str] db_subnet_group_name: Name of DB subnet group. DB instance will
@@ -236,6 +238,8 @@ class InstanceArgs:
             pulumi.set(__self__, "character_set_name", character_set_name)
         if copy_tags_to_snapshot is not None:
             pulumi.set(__self__, "copy_tags_to_snapshot", copy_tags_to_snapshot)
+        if custom_iam_instance_profile is not None:
+            pulumi.set(__self__, "custom_iam_instance_profile", custom_iam_instance_profile)
         if customer_owned_ip_enabled is not None:
             pulumi.set(__self__, "customer_owned_ip_enabled", customer_owned_ip_enabled)
         if db_name is not None:
@@ -479,6 +483,18 @@ class InstanceArgs:
     @copy_tags_to_snapshot.setter
     def copy_tags_to_snapshot(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "copy_tags_to_snapshot", value)
+
+    @property
+    @pulumi.getter(name="customIamInstanceProfile")
+    def custom_iam_instance_profile(self) -> Optional[pulumi.Input[str]]:
+        """
+        The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
+        """
+        return pulumi.get(self, "custom_iam_instance_profile")
+
+    @custom_iam_instance_profile.setter
+    def custom_iam_instance_profile(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_iam_instance_profile", value)
 
     @property
     @pulumi.getter(name="customerOwnedIpEnabled")
@@ -1116,6 +1132,7 @@ class _InstanceState:
                  ca_cert_identifier: Optional[pulumi.Input[str]] = None,
                  character_set_name: Optional[pulumi.Input[str]] = None,
                  copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
+                 custom_iam_instance_profile: Optional[pulumi.Input[str]] = None,
                  customer_owned_ip_enabled: Optional[pulumi.Input[bool]] = None,
                  db_name: Optional[pulumi.Input[str]] = None,
                  db_subnet_group_name: Optional[pulumi.Input[str]] = None,
@@ -1198,6 +1215,7 @@ class _InstanceState:
                Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
                or [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
         :param pulumi.Input[bool] copy_tags_to_snapshot: Copy all Instance `tags` to snapshots. Default is `false`.
+        :param pulumi.Input[str] custom_iam_instance_profile: The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
         :param pulumi.Input[bool] customer_owned_ip_enabled: Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
         :param pulumi.Input[str] db_name: The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
         :param pulumi.Input[str] db_subnet_group_name: Name of DB subnet group. DB instance will
@@ -1346,6 +1364,8 @@ class _InstanceState:
             pulumi.set(__self__, "character_set_name", character_set_name)
         if copy_tags_to_snapshot is not None:
             pulumi.set(__self__, "copy_tags_to_snapshot", copy_tags_to_snapshot)
+        if custom_iam_instance_profile is not None:
+            pulumi.set(__self__, "custom_iam_instance_profile", custom_iam_instance_profile)
         if customer_owned_ip_enabled is not None:
             pulumi.set(__self__, "customer_owned_ip_enabled", customer_owned_ip_enabled)
         if db_name is not None:
@@ -1619,6 +1639,18 @@ class _InstanceState:
     @copy_tags_to_snapshot.setter
     def copy_tags_to_snapshot(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "copy_tags_to_snapshot", value)
+
+    @property
+    @pulumi.getter(name="customIamInstanceProfile")
+    def custom_iam_instance_profile(self) -> Optional[pulumi.Input[str]]:
+        """
+        The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
+        """
+        return pulumi.get(self, "custom_iam_instance_profile")
+
+    @custom_iam_instance_profile.setter
+    def custom_iam_instance_profile(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_iam_instance_profile", value)
 
     @property
     @pulumi.getter(name="customerOwnedIpEnabled")
@@ -2362,6 +2394,7 @@ class Instance(pulumi.CustomResource):
                  ca_cert_identifier: Optional[pulumi.Input[str]] = None,
                  character_set_name: Optional[pulumi.Input[str]] = None,
                  copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
+                 custom_iam_instance_profile: Optional[pulumi.Input[str]] = None,
                  customer_owned_ip_enabled: Optional[pulumi.Input[bool]] = None,
                  db_name: Optional[pulumi.Input[str]] = None,
                  db_subnet_group_name: Optional[pulumi.Input[str]] = None,
@@ -2443,10 +2476,10 @@ class Instance(pulumi.CustomResource):
 
         default = aws.rds.Instance("default",
             allocated_storage=10,
+            db_name="mydb",
             engine="mysql",
             engine_version="5.7",
             instance_class="db.t3.micro",
-            name="mydb",
             parameter_group_name="default.mysql5.7",
             password="foobarbaz",
             skip_final_snapshot=True,
@@ -2498,6 +2531,7 @@ class Instance(pulumi.CustomResource):
                Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
                or [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
         :param pulumi.Input[bool] copy_tags_to_snapshot: Copy all Instance `tags` to snapshots. Default is `false`.
+        :param pulumi.Input[str] custom_iam_instance_profile: The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
         :param pulumi.Input[bool] customer_owned_ip_enabled: Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
         :param pulumi.Input[str] db_name: The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
         :param pulumi.Input[str] db_subnet_group_name: Name of DB subnet group. DB instance will
@@ -2653,10 +2687,10 @@ class Instance(pulumi.CustomResource):
 
         default = aws.rds.Instance("default",
             allocated_storage=10,
+            db_name="mydb",
             engine="mysql",
             engine_version="5.7",
             instance_class="db.t3.micro",
-            name="mydb",
             parameter_group_name="default.mysql5.7",
             password="foobarbaz",
             skip_final_snapshot=True,
@@ -2708,6 +2742,7 @@ class Instance(pulumi.CustomResource):
                  ca_cert_identifier: Optional[pulumi.Input[str]] = None,
                  character_set_name: Optional[pulumi.Input[str]] = None,
                  copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
+                 custom_iam_instance_profile: Optional[pulumi.Input[str]] = None,
                  customer_owned_ip_enabled: Optional[pulumi.Input[bool]] = None,
                  db_name: Optional[pulumi.Input[str]] = None,
                  db_subnet_group_name: Optional[pulumi.Input[str]] = None,
@@ -2774,6 +2809,7 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["ca_cert_identifier"] = ca_cert_identifier
             __props__.__dict__["character_set_name"] = character_set_name
             __props__.__dict__["copy_tags_to_snapshot"] = copy_tags_to_snapshot
+            __props__.__dict__["custom_iam_instance_profile"] = custom_iam_instance_profile
             __props__.__dict__["customer_owned_ip_enabled"] = customer_owned_ip_enabled
             __props__.__dict__["db_name"] = db_name
             __props__.__dict__["db_subnet_group_name"] = db_subnet_group_name
@@ -2861,6 +2897,7 @@ class Instance(pulumi.CustomResource):
             ca_cert_identifier: Optional[pulumi.Input[str]] = None,
             character_set_name: Optional[pulumi.Input[str]] = None,
             copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
+            custom_iam_instance_profile: Optional[pulumi.Input[str]] = None,
             customer_owned_ip_enabled: Optional[pulumi.Input[bool]] = None,
             db_name: Optional[pulumi.Input[str]] = None,
             db_subnet_group_name: Optional[pulumi.Input[str]] = None,
@@ -2948,6 +2985,7 @@ class Instance(pulumi.CustomResource):
                Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
                or [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
         :param pulumi.Input[bool] copy_tags_to_snapshot: Copy all Instance `tags` to snapshots. Default is `false`.
+        :param pulumi.Input[str] custom_iam_instance_profile: The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
         :param pulumi.Input[bool] customer_owned_ip_enabled: Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
         :param pulumi.Input[str] db_name: The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
         :param pulumi.Input[str] db_subnet_group_name: Name of DB subnet group. DB instance will
@@ -3088,6 +3126,7 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["ca_cert_identifier"] = ca_cert_identifier
         __props__.__dict__["character_set_name"] = character_set_name
         __props__.__dict__["copy_tags_to_snapshot"] = copy_tags_to_snapshot
+        __props__.__dict__["custom_iam_instance_profile"] = custom_iam_instance_profile
         __props__.__dict__["customer_owned_ip_enabled"] = customer_owned_ip_enabled
         __props__.__dict__["db_name"] = db_name
         __props__.__dict__["db_subnet_group_name"] = db_subnet_group_name
@@ -3253,6 +3292,14 @@ class Instance(pulumi.CustomResource):
         Copy all Instance `tags` to snapshots. Default is `false`.
         """
         return pulumi.get(self, "copy_tags_to_snapshot")
+
+    @property
+    @pulumi.getter(name="customIamInstanceProfile")
+    def custom_iam_instance_profile(self) -> pulumi.Output[Optional[str]]:
+        """
+        The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
+        """
+        return pulumi.get(self, "custom_iam_instance_profile")
 
     @property
     @pulumi.getter(name="customerOwnedIpEnabled")

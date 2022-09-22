@@ -182,11 +182,11 @@ export class Queue extends pulumi.CustomResource {
     /**
      * The JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html).
      */
-    public readonly redriveAllowPolicy!: pulumi.Output<string | undefined>;
+    public readonly redriveAllowPolicy!: pulumi.Output<string>;
     /**
      * The JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
      */
-    public readonly redrivePolicy!: pulumi.Output<string | undefined>;
+    public readonly redrivePolicy!: pulumi.Output<string>;
     /**
      * Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. Defaults to `false`. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html).
      */

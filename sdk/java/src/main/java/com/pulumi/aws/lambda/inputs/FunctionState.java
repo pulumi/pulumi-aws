@@ -345,6 +345,21 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in [`aws.apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)&#39;s `uri`.
+     * 
+     */
+    @Import(name="qualifiedInvokeArn")
+    private @Nullable Output<String> qualifiedInvokeArn;
+
+    /**
+     * @return Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in [`aws.apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)&#39;s `uri`.
+     * 
+     */
+    public Optional<Output<String>> qualifiedInvokeArn() {
+        return Optional.ofNullable(this.qualifiedInvokeArn);
+    }
+
+    /**
      * Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
      * 
      */
@@ -610,6 +625,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         this.packageType = $.packageType;
         this.publish = $.publish;
         this.qualifiedArn = $.qualifiedArn;
+        this.qualifiedInvokeArn = $.qualifiedInvokeArn;
         this.reservedConcurrentExecutions = $.reservedConcurrentExecutions;
         this.role = $.role;
         this.runtime = $.runtime;
@@ -1105,6 +1121,27 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder qualifiedArn(String qualifiedArn) {
             return qualifiedArn(Output.of(qualifiedArn));
+        }
+
+        /**
+         * @param qualifiedInvokeArn Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in [`aws.apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)&#39;s `uri`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder qualifiedInvokeArn(@Nullable Output<String> qualifiedInvokeArn) {
+            $.qualifiedInvokeArn = qualifiedInvokeArn;
+            return this;
+        }
+
+        /**
+         * @param qualifiedInvokeArn Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in [`aws.apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)&#39;s `uri`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder qualifiedInvokeArn(String qualifiedInvokeArn) {
+            return qualifiedInvokeArn(Output.of(qualifiedInvokeArn));
         }
 
         /**

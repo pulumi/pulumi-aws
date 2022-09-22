@@ -200,6 +200,10 @@ namespace Pulumi.Aws.Lambda
         /// Qualified (`:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `arn`.
         /// </summary>
         public readonly string QualifiedArn;
+        /// <summary>
+        /// Qualified (`:QUALIFIER` or `:VERSION` suffix) ARN to be used for invoking Lambda Function from API Gateway. See also `invoke_arn`.
+        /// </summary>
+        public readonly string QualifiedInvokeArn;
         public readonly string? Qualifier;
         /// <summary>
         /// The amount of reserved concurrent executions for this lambda function or `-1` if unreserved.
@@ -285,6 +289,8 @@ namespace Pulumi.Aws.Lambda
 
             string qualifiedArn,
 
+            string qualifiedInvokeArn,
+
             string? qualifier,
 
             int reservedConcurrentExecutions,
@@ -329,6 +335,7 @@ namespace Pulumi.Aws.Lambda
             Layers = layers;
             MemorySize = memorySize;
             QualifiedArn = qualifiedArn;
+            QualifiedInvokeArn = qualifiedInvokeArn;
             Qualifier = qualifier;
             ReservedConcurrentExecutions = reservedConcurrentExecutions;
             Role = role;

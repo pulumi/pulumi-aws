@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<string>? ClusterEndpoint { get; set; }
 
         /// <summary>
-        /// The ARN of the Amazon ES domain.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig` after assuming `RoleARN`.  The pattern needs to be `arn:.*`. Conflicts with `cluster_endpoint`.
+        /// The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `cluster_endpoint`.
         /// </summary>
         [Input("domainArn")]
         public Input<string>? DomainArn { get; set; }
@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<int>? RetryDuration { get; set; }
 
         /// <summary>
-        /// The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
+        /// The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;

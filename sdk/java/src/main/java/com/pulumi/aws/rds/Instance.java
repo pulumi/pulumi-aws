@@ -69,10 +69,10 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var default_ = new Instance(&#34;default&#34;, InstanceArgs.builder()        
  *             .allocatedStorage(10)
+ *             .dbName(&#34;mydb&#34;)
  *             .engine(&#34;mysql&#34;)
  *             .engineVersion(&#34;5.7&#34;)
  *             .instanceClass(&#34;db.t3.micro&#34;)
- *             .name(&#34;mydb&#34;)
  *             .parameterGroupName(&#34;default.mysql5.7&#34;)
  *             .password(&#34;foobarbaz&#34;)
  *             .skipFinalSnapshot(true)
@@ -319,6 +319,20 @@ public class Instance extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> copyTagsToSnapshot() {
         return Codegen.optional(this.copyTagsToSnapshot);
+    }
+    /**
+     * The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
+     * 
+     */
+    @Export(name="customIamInstanceProfile", type=String.class, parameters={})
+    private Output</* @Nullable */ String> customIamInstanceProfile;
+
+    /**
+     * @return The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
+     * 
+     */
+    public Output<Optional<String>> customIamInstanceProfile() {
+        return Codegen.optional(this.customIamInstanceProfile);
     }
     /**
      * Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.

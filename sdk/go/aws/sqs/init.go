@@ -25,6 +25,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Queue{}
 	case "aws:sqs/queuePolicy:QueuePolicy":
 		r = &QueuePolicy{}
+	case "aws:sqs/redriveAllowPolicy:RedriveAllowPolicy":
+		r = &RedriveAllowPolicy{}
+	case "aws:sqs/redrivePolicy:RedrivePolicy":
+		r = &RedrivePolicy{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -46,6 +50,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"sqs/queuePolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"sqs/redriveAllowPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"sqs/redrivePolicy",
 		&module{version},
 	)
 }

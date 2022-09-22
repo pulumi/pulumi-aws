@@ -40049,6 +40049,118 @@ func (o GetManagedPrefixListFilterArrayOutput) Index(i pulumi.IntInput) GetManag
 	}).(GetManagedPrefixListFilterOutput)
 }
 
+type GetManagedPrefixListsFilter struct {
+	// Name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// A managed prefix list will be selected if any one of the given values matches.
+	Values []string `pulumi:"values"`
+}
+
+// GetManagedPrefixListsFilterInput is an input type that accepts GetManagedPrefixListsFilterArgs and GetManagedPrefixListsFilterOutput values.
+// You can construct a concrete instance of `GetManagedPrefixListsFilterInput` via:
+//
+//	GetManagedPrefixListsFilterArgs{...}
+type GetManagedPrefixListsFilterInput interface {
+	pulumi.Input
+
+	ToGetManagedPrefixListsFilterOutput() GetManagedPrefixListsFilterOutput
+	ToGetManagedPrefixListsFilterOutputWithContext(context.Context) GetManagedPrefixListsFilterOutput
+}
+
+type GetManagedPrefixListsFilterArgs struct {
+	// Name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// A managed prefix list will be selected if any one of the given values matches.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetManagedPrefixListsFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedPrefixListsFilter)(nil)).Elem()
+}
+
+func (i GetManagedPrefixListsFilterArgs) ToGetManagedPrefixListsFilterOutput() GetManagedPrefixListsFilterOutput {
+	return i.ToGetManagedPrefixListsFilterOutputWithContext(context.Background())
+}
+
+func (i GetManagedPrefixListsFilterArgs) ToGetManagedPrefixListsFilterOutputWithContext(ctx context.Context) GetManagedPrefixListsFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedPrefixListsFilterOutput)
+}
+
+// GetManagedPrefixListsFilterArrayInput is an input type that accepts GetManagedPrefixListsFilterArray and GetManagedPrefixListsFilterArrayOutput values.
+// You can construct a concrete instance of `GetManagedPrefixListsFilterArrayInput` via:
+//
+//	GetManagedPrefixListsFilterArray{ GetManagedPrefixListsFilterArgs{...} }
+type GetManagedPrefixListsFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetManagedPrefixListsFilterArrayOutput() GetManagedPrefixListsFilterArrayOutput
+	ToGetManagedPrefixListsFilterArrayOutputWithContext(context.Context) GetManagedPrefixListsFilterArrayOutput
+}
+
+type GetManagedPrefixListsFilterArray []GetManagedPrefixListsFilterInput
+
+func (GetManagedPrefixListsFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedPrefixListsFilter)(nil)).Elem()
+}
+
+func (i GetManagedPrefixListsFilterArray) ToGetManagedPrefixListsFilterArrayOutput() GetManagedPrefixListsFilterArrayOutput {
+	return i.ToGetManagedPrefixListsFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetManagedPrefixListsFilterArray) ToGetManagedPrefixListsFilterArrayOutputWithContext(ctx context.Context) GetManagedPrefixListsFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedPrefixListsFilterArrayOutput)
+}
+
+type GetManagedPrefixListsFilterOutput struct{ *pulumi.OutputState }
+
+func (GetManagedPrefixListsFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedPrefixListsFilter)(nil)).Elem()
+}
+
+func (o GetManagedPrefixListsFilterOutput) ToGetManagedPrefixListsFilterOutput() GetManagedPrefixListsFilterOutput {
+	return o
+}
+
+func (o GetManagedPrefixListsFilterOutput) ToGetManagedPrefixListsFilterOutputWithContext(ctx context.Context) GetManagedPrefixListsFilterOutput {
+	return o
+}
+
+// Name of the field to filter by, as defined by
+// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html).
+func (o GetManagedPrefixListsFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedPrefixListsFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of values that are accepted for the given field.
+// A managed prefix list will be selected if any one of the given values matches.
+func (o GetManagedPrefixListsFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetManagedPrefixListsFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetManagedPrefixListsFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetManagedPrefixListsFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedPrefixListsFilter)(nil)).Elem()
+}
+
+func (o GetManagedPrefixListsFilterArrayOutput) ToGetManagedPrefixListsFilterArrayOutput() GetManagedPrefixListsFilterArrayOutput {
+	return o
+}
+
+func (o GetManagedPrefixListsFilterArrayOutput) ToGetManagedPrefixListsFilterArrayOutputWithContext(ctx context.Context) GetManagedPrefixListsFilterArrayOutput {
+	return o
+}
+
+func (o GetManagedPrefixListsFilterArrayOutput) Index(i pulumi.IntInput) GetManagedPrefixListsFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetManagedPrefixListsFilter {
+		return vs[0].([]GetManagedPrefixListsFilter)[vs[1].(int)]
+	}).(GetManagedPrefixListsFilterOutput)
+}
+
 type GetNatGatewayFilter struct {
 	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNatGateways.html).
@@ -54192,6 +54304,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedPrefixListEntryTypeArrayInput)(nil)).Elem(), GetManagedPrefixListEntryTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedPrefixListFilterInput)(nil)).Elem(), GetManagedPrefixListFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedPrefixListFilterArrayInput)(nil)).Elem(), GetManagedPrefixListFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedPrefixListsFilterInput)(nil)).Elem(), GetManagedPrefixListsFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedPrefixListsFilterArrayInput)(nil)).Elem(), GetManagedPrefixListsFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNatGatewayFilterInput)(nil)).Elem(), GetNatGatewayFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNatGatewayFilterArrayInput)(nil)).Elem(), GetNatGatewayFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNatGatewaysFilterInput)(nil)).Elem(), GetNatGatewaysFilterArgs{})
@@ -54991,6 +55105,8 @@ func init() {
 	pulumi.RegisterOutputType(GetManagedPrefixListEntryTypeArrayOutput{})
 	pulumi.RegisterOutputType(GetManagedPrefixListFilterOutput{})
 	pulumi.RegisterOutputType(GetManagedPrefixListFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetManagedPrefixListsFilterOutput{})
+	pulumi.RegisterOutputType(GetManagedPrefixListsFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetNatGatewayFilterOutput{})
 	pulumi.RegisterOutputType(GetNatGatewayFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetNatGatewaysFilterOutput{})

@@ -237,13 +237,13 @@ namespace Pulumi.Aws.Sqs
         /// The JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html).
         /// </summary>
         [Output("redriveAllowPolicy")]
-        public Output<string?> RedriveAllowPolicy { get; private set; } = null!;
+        public Output<string> RedriveAllowPolicy { get; private set; } = null!;
 
         /// <summary>
         /// The JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
         /// </summary>
         [Output("redrivePolicy")]
-        public Output<string?> RedrivePolicy { get; private set; } = null!;
+        public Output<string> RedrivePolicy { get; private set; } = null!;
 
         /// <summary>
         /// Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. Defaults to `false`. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html).

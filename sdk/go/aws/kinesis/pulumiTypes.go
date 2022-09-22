@@ -4253,7 +4253,7 @@ type FirehoseDeliveryStreamElasticsearchConfiguration struct {
 	CloudwatchLoggingOptions *FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
 	// The endpoint to use when communicating with the cluster. Conflicts with `domainArn`.
 	ClusterEndpoint *string `pulumi:"clusterEndpoint"`
-	// The ARN of the Amazon ES domain.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig` after assuming `RoleARN`.  The pattern needs to be `arn:.*`. Conflicts with `clusterEndpoint`.
+	// The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `clusterEndpoint`.
 	DomainArn *string `pulumi:"domainArn"`
 	// The Elasticsearch index name.
 	IndexName string `pulumi:"indexName"`
@@ -4263,7 +4263,7 @@ type FirehoseDeliveryStreamElasticsearchConfiguration struct {
 	ProcessingConfiguration *FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration `pulumi:"processingConfiguration"`
 	// After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
 	RetryDuration *int `pulumi:"retryDuration"`
-	// The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
+	// The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
 	RoleArn string `pulumi:"roleArn"`
 	// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
 	S3BackupMode *string `pulumi:"s3BackupMode"`
@@ -4293,7 +4293,7 @@ type FirehoseDeliveryStreamElasticsearchConfigurationArgs struct {
 	CloudwatchLoggingOptions FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsPtrInput `pulumi:"cloudwatchLoggingOptions"`
 	// The endpoint to use when communicating with the cluster. Conflicts with `domainArn`.
 	ClusterEndpoint pulumi.StringPtrInput `pulumi:"clusterEndpoint"`
-	// The ARN of the Amazon ES domain.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig` after assuming `RoleARN`.  The pattern needs to be `arn:.*`. Conflicts with `clusterEndpoint`.
+	// The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `clusterEndpoint`.
 	DomainArn pulumi.StringPtrInput `pulumi:"domainArn"`
 	// The Elasticsearch index name.
 	IndexName pulumi.StringInput `pulumi:"indexName"`
@@ -4303,7 +4303,7 @@ type FirehoseDeliveryStreamElasticsearchConfigurationArgs struct {
 	ProcessingConfiguration FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationPtrInput `pulumi:"processingConfiguration"`
 	// After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
 	RetryDuration pulumi.IntPtrInput `pulumi:"retryDuration"`
-	// The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
+	// The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 	// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
 	S3BackupMode pulumi.StringPtrInput `pulumi:"s3BackupMode"`
@@ -4412,7 +4412,7 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationOutput) ClusterEndpoint(
 	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfiguration) *string { return v.ClusterEndpoint }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the Amazon ES domain.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig` after assuming `RoleARN`.  The pattern needs to be `arn:.*`. Conflicts with `clusterEndpoint`.
+// The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `clusterEndpoint`.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationOutput) DomainArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfiguration) *string { return v.DomainArn }).(pulumi.StringPtrOutput)
 }
@@ -4439,7 +4439,7 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationOutput) RetryDuration() 
 	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfiguration) *int { return v.RetryDuration }).(pulumi.IntPtrOutput)
 }
 
-// The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
+// The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -4525,7 +4525,7 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationPtrOutput) ClusterEndpoi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the Amazon ES domain.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig` after assuming `RoleARN`.  The pattern needs to be `arn:.*`. Conflicts with `clusterEndpoint`.
+// The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `clusterEndpoint`.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationPtrOutput) DomainArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamElasticsearchConfiguration) *string {
 		if v == nil {
@@ -4575,7 +4575,7 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationPtrOutput) RetryDuration
 	}).(pulumi.IntPtrOutput)
 }
 
-// The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
+// The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamElasticsearchConfiguration) *string {
 		if v == nil {

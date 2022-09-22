@@ -198,8 +198,7 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     public /*out*/ readonly port!: pulumi.Output<number>;
     /**
-     * The daily time range during which automated backups are created if automated backups are enabled.
-     * Eg: "04:00-09:00"
+     * The daily time range during which automated backups are created if automated backups are enabled. Eg: "04:00-09:00". **NOTE:** If `preferredBackupWindow` is set at the cluster level, this argument **must** be omitted.
      */
     public readonly preferredBackupWindow!: pulumi.Output<string>;
     /**
@@ -439,8 +438,7 @@ export interface ClusterInstanceState {
      */
     port?: pulumi.Input<number>;
     /**
-     * The daily time range during which automated backups are created if automated backups are enabled.
-     * Eg: "04:00-09:00"
+     * The daily time range during which automated backups are created if automated backups are enabled. Eg: "04:00-09:00". **NOTE:** If `preferredBackupWindow` is set at the cluster level, this argument **must** be omitted.
      */
     preferredBackupWindow?: pulumi.Input<string>;
     /**
@@ -560,8 +558,7 @@ export interface ClusterInstanceArgs {
      */
     performanceInsightsRetentionPeriod?: pulumi.Input<number>;
     /**
-     * The daily time range during which automated backups are created if automated backups are enabled.
-     * Eg: "04:00-09:00"
+     * The daily time range during which automated backups are created if automated backups are enabled. Eg: "04:00-09:00". **NOTE:** If `preferredBackupWindow` is set at the cluster level, this argument **must** be omitted.
      */
     preferredBackupWindow?: pulumi.Input<string>;
     /**

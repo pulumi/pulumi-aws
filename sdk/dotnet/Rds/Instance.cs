@@ -46,10 +46,10 @@ namespace Pulumi.Aws.Rds
     ///     var @default = new Aws.Rds.Instance("default", new()
     ///     {
     ///         AllocatedStorage = 10,
+    ///         DbName = "mydb",
     ///         Engine = "mysql",
     ///         EngineVersion = "5.7",
     ///         InstanceClass = "db.t3.micro",
-    ///         Name = "mydb",
     ///         ParameterGroupName = "default.mysql5.7",
     ///         Password = "foobarbaz",
     ///         SkipFinalSnapshot = true,
@@ -173,6 +173,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Output("copyTagsToSnapshot")]
         public Output<bool?> CopyTagsToSnapshot { get; private set; } = null!;
+
+        /// <summary>
+        /// The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
+        /// </summary>
+        [Output("customIamInstanceProfile")]
+        public Output<string?> CustomIamInstanceProfile { get; private set; } = null!;
 
         /// <summary>
         /// Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
@@ -690,6 +696,12 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? CopyTagsToSnapshot { get; set; }
 
         /// <summary>
+        /// The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
+        /// </summary>
+        [Input("customIamInstanceProfile")]
+        public Input<string>? CustomIamInstanceProfile { get; set; }
+
+        /// <summary>
         /// Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
         /// </summary>
         [Input("customerOwnedIpEnabled")]
@@ -1156,6 +1168,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("copyTagsToSnapshot")]
         public Input<bool>? CopyTagsToSnapshot { get; set; }
+
+        /// <summary>
+        /// The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
+        /// </summary>
+        [Input("customIamInstanceProfile")]
+        public Input<string>? CustomIamInstanceProfile { get; set; }
 
         /// <summary>
         /// Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.

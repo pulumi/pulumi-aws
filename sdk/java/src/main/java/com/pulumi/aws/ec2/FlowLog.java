@@ -245,14 +245,14 @@ public class FlowLog extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.iamRoleArn);
     }
     /**
-     * The ARN of the logging destination.
+     * The ARN of the logging destination. Either `log_destination` or `log_group_name` must be set.
      * 
      */
     @Export(name="logDestination", type=String.class, parameters={})
     private Output<String> logDestination;
 
     /**
-     * @return The ARN of the logging destination.
+     * @return The ARN of the logging destination. Either `log_destination` or `log_group_name` must be set.
      * 
      */
     public Output<String> logDestination() {
@@ -287,7 +287,7 @@ public class FlowLog extends com.pulumi.resources.CustomResource {
         return this.logFormat;
     }
     /**
-     * *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group.
+     * *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
      * 
      * @deprecated
      * use &#39;log_destination&#39; argument instead
@@ -298,7 +298,7 @@ public class FlowLog extends com.pulumi.resources.CustomResource {
     private Output<String> logGroupName;
 
     /**
-     * @return *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group.
+     * @return *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
      * 
      */
     public Output<String> logGroupName() {

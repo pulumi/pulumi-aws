@@ -65,8 +65,7 @@ class ClusterInstanceArgs:
         :param pulumi.Input[bool] performance_insights_enabled: Specifies whether Performance Insights is enabled or not.
         :param pulumi.Input[str] performance_insights_kms_key_id: ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true.
         :param pulumi.Input[int] performance_insights_retention_period: Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
-        :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled.
-               Eg: "04:00-09:00"
+        :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled. Eg: "04:00-09:00". **NOTE:** If `preferred_backup_window` is set at the cluster level, this argument **must** be omitted.
         :param pulumi.Input[str] preferred_maintenance_window: The window to perform maintenance in.
                Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
         :param pulumi.Input[int] promotion_tier: Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoted to writer.
@@ -347,8 +346,7 @@ class ClusterInstanceArgs:
     @pulumi.getter(name="preferredBackupWindow")
     def preferred_backup_window(self) -> Optional[pulumi.Input[str]]:
         """
-        The daily time range during which automated backups are created if automated backups are enabled.
-        Eg: "04:00-09:00"
+        The daily time range during which automated backups are created if automated backups are enabled. Eg: "04:00-09:00". **NOTE:** If `preferred_backup_window` is set at the cluster level, this argument **must** be omitted.
         """
         return pulumi.get(self, "preferred_backup_window")
 
@@ -478,8 +476,7 @@ class _ClusterInstanceState:
         :param pulumi.Input[str] performance_insights_kms_key_id: ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true.
         :param pulumi.Input[int] performance_insights_retention_period: Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
         :param pulumi.Input[int] port: The database port
-        :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled.
-               Eg: "04:00-09:00"
+        :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled. Eg: "04:00-09:00". **NOTE:** If `preferred_backup_window` is set at the cluster level, this argument **must** be omitted.
         :param pulumi.Input[str] preferred_maintenance_window: The window to perform maintenance in.
                Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
         :param pulumi.Input[int] promotion_tier: Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoted to writer.
@@ -869,8 +866,7 @@ class _ClusterInstanceState:
     @pulumi.getter(name="preferredBackupWindow")
     def preferred_backup_window(self) -> Optional[pulumi.Input[str]]:
         """
-        The daily time range during which automated backups are created if automated backups are enabled.
-        Eg: "04:00-09:00"
+        The daily time range during which automated backups are created if automated backups are enabled. Eg: "04:00-09:00". **NOTE:** If `preferred_backup_window` is set at the cluster level, this argument **must** be omitted.
         """
         return pulumi.get(self, "preferred_backup_window")
 
@@ -1072,8 +1068,7 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[bool] performance_insights_enabled: Specifies whether Performance Insights is enabled or not.
         :param pulumi.Input[str] performance_insights_kms_key_id: ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true.
         :param pulumi.Input[int] performance_insights_retention_period: Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
-        :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled.
-               Eg: "04:00-09:00"
+        :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled. Eg: "04:00-09:00". **NOTE:** If `preferred_backup_window` is set at the cluster level, this argument **must** be omitted.
         :param pulumi.Input[str] preferred_maintenance_window: The window to perform maintenance in.
                Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
         :param pulumi.Input[int] promotion_tier: Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoted to writer.
@@ -1304,8 +1299,7 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[str] performance_insights_kms_key_id: ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true.
         :param pulumi.Input[int] performance_insights_retention_period: Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
         :param pulumi.Input[int] port: The database port
-        :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled.
-               Eg: "04:00-09:00"
+        :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled. Eg: "04:00-09:00". **NOTE:** If `preferred_backup_window` is set at the cluster level, this argument **must** be omitted.
         :param pulumi.Input[str] preferred_maintenance_window: The window to perform maintenance in.
                Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
         :param pulumi.Input[int] promotion_tier: Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoted to writer.
@@ -1567,8 +1561,7 @@ class ClusterInstance(pulumi.CustomResource):
     @pulumi.getter(name="preferredBackupWindow")
     def preferred_backup_window(self) -> pulumi.Output[str]:
         """
-        The daily time range during which automated backups are created if automated backups are enabled.
-        Eg: "04:00-09:00"
+        The daily time range during which automated backups are created if automated backups are enabled. Eg: "04:00-09:00". **NOTE:** If `preferred_backup_window` is set at the cluster level, this argument **must** be omitted.
         """
         return pulumi.get(self, "preferred_backup_window")
 
