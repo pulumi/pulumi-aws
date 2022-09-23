@@ -16,6 +16,7 @@ __all__ = [
     'ClusterIdentityArgs',
     'ClusterIdentityOidcArgs',
     'ClusterKubernetesNetworkConfigArgs',
+    'ClusterOutpostConfigArgs',
     'ClusterVpcConfigArgs',
     'FargateProfileSelectorArgs',
     'IdentityProviderConfigOidcArgs',
@@ -193,6 +194,43 @@ class ClusterKubernetesNetworkConfigArgs:
     @service_ipv4_cidr.setter
     def service_ipv4_cidr(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "service_ipv4_cidr", value)
+
+
+@pulumi.input_type
+class ClusterOutpostConfigArgs:
+    def __init__(__self__, *,
+                 control_plane_instance_type: pulumi.Input[str],
+                 outpost_arns: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] control_plane_instance_type: The Amazon EC2 instance type that you want to use for your local Amazon EKS cluster on Outposts. The instance type that you specify is used for all Kubernetes control plane instances. The instance type can't be changed after cluster creation. Choose an instance type based on the number of nodes that your cluster will have. If your cluster will have:
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] outpost_arns: The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. This argument is a list of arns, but only a single Outpost ARN is supported currently.
+        """
+        pulumi.set(__self__, "control_plane_instance_type", control_plane_instance_type)
+        pulumi.set(__self__, "outpost_arns", outpost_arns)
+
+    @property
+    @pulumi.getter(name="controlPlaneInstanceType")
+    def control_plane_instance_type(self) -> pulumi.Input[str]:
+        """
+        The Amazon EC2 instance type that you want to use for your local Amazon EKS cluster on Outposts. The instance type that you specify is used for all Kubernetes control plane instances. The instance type can't be changed after cluster creation. Choose an instance type based on the number of nodes that your cluster will have. If your cluster will have:
+        """
+        return pulumi.get(self, "control_plane_instance_type")
+
+    @control_plane_instance_type.setter
+    def control_plane_instance_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "control_plane_instance_type", value)
+
+    @property
+    @pulumi.getter(name="outpostArns")
+    def outpost_arns(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. This argument is a list of arns, but only a single Outpost ARN is supported currently.
+        """
+        return pulumi.get(self, "outpost_arns")
+
+    @outpost_arns.setter
+    def outpost_arns(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "outpost_arns", value)
 
 
 @pulumi.input_type

@@ -76,6 +76,8 @@ type LookupClusterResult struct {
 	// Nested list containing Kubernetes Network Configuration.
 	KubernetesNetworkConfigs []GetClusterKubernetesNetworkConfig `pulumi:"kubernetesNetworkConfigs"`
 	Name                     string                              `pulumi:"name"`
+	// Contains Outpost Configuration.
+	OutpostConfigs []GetClusterOutpostConfig `pulumi:"outpostConfigs"`
 	// Platform version for the cluster.
 	PlatformVersion string `pulumi:"platformVersion"`
 	// ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
@@ -172,6 +174,11 @@ func (o LookupClusterResultOutput) KubernetesNetworkConfigs() GetClusterKubernet
 
 func (o LookupClusterResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Contains Outpost Configuration.
+func (o LookupClusterResultOutput) OutpostConfigs() GetClusterOutpostConfigArrayOutput {
+	return o.ApplyT(func(v LookupClusterResult) []GetClusterOutpostConfig { return v.OutpostConfigs }).(GetClusterOutpostConfigArrayOutput)
 }
 
 // Platform version for the cluster.

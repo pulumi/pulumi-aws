@@ -7,6 +7,7 @@ import com.pulumi.aws.eks.inputs.ClusterCertificateAuthorityArgs;
 import com.pulumi.aws.eks.inputs.ClusterEncryptionConfigArgs;
 import com.pulumi.aws.eks.inputs.ClusterIdentityArgs;
 import com.pulumi.aws.eks.inputs.ClusterKubernetesNetworkConfigArgs;
+import com.pulumi.aws.eks.inputs.ClusterOutpostConfigArgs;
 import com.pulumi.aws.eks.inputs.ClusterVpcConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -188,6 +189,21 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn&#39;t available for creating Amazon EKS clusters on the AWS cloud.
+     * 
+     */
+    @Import(name="outpostConfig")
+    private @Nullable Output<ClusterOutpostConfigArgs> outpostConfig;
+
+    /**
+     * @return Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn&#39;t available for creating Amazon EKS clusters on the AWS cloud.
+     * 
+     */
+    public Optional<Output<ClusterOutpostConfigArgs>> outpostConfig() {
+        return Optional.ofNullable(this.outpostConfig);
+    }
+
+    /**
      * Platform version for the cluster.
      * 
      */
@@ -306,6 +322,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         this.identities = $.identities;
         this.kubernetesNetworkConfig = $.kubernetesNetworkConfig;
         this.name = $.name;
+        this.outpostConfig = $.outpostConfig;
         this.platformVersion = $.platformVersion;
         this.roleArn = $.roleArn;
         this.status = $.status;
@@ -602,6 +619,27 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param outpostConfig Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn&#39;t available for creating Amazon EKS clusters on the AWS cloud.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder outpostConfig(@Nullable Output<ClusterOutpostConfigArgs> outpostConfig) {
+            $.outpostConfig = outpostConfig;
+            return this;
+        }
+
+        /**
+         * @param outpostConfig Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn&#39;t available for creating Amazon EKS clusters on the AWS cloud.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder outpostConfig(ClusterOutpostConfigArgs outpostConfig) {
+            return outpostConfig(Output.of(outpostConfig));
         }
 
         /**

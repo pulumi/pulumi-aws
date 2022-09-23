@@ -22,7 +22,7 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, arn=None, certificate_authorities=None, created_at=None, enabled_cluster_log_types=None, endpoint=None, id=None, identities=None, kubernetes_network_configs=None, name=None, platform_version=None, role_arn=None, status=None, tags=None, version=None, vpc_config=None):
+    def __init__(__self__, arn=None, certificate_authorities=None, created_at=None, enabled_cluster_log_types=None, endpoint=None, id=None, identities=None, kubernetes_network_configs=None, name=None, outpost_configs=None, platform_version=None, role_arn=None, status=None, tags=None, version=None, vpc_config=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -50,6 +50,9 @@ class GetClusterResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if outpost_configs and not isinstance(outpost_configs, list):
+            raise TypeError("Expected argument 'outpost_configs' to be a list")
+        pulumi.set(__self__, "outpost_configs", outpost_configs)
         if platform_version and not isinstance(platform_version, str):
             raise TypeError("Expected argument 'platform_version' to be a str")
         pulumi.set(__self__, "platform_version", platform_version)
@@ -139,6 +142,14 @@ class GetClusterResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="outpostConfigs")
+    def outpost_configs(self) -> Sequence['outputs.GetClusterOutpostConfigResult']:
+        """
+        Contains Outpost Configuration.
+        """
+        return pulumi.get(self, "outpost_configs")
+
+    @property
     @pulumi.getter(name="platformVersion")
     def platform_version(self) -> str:
         """
@@ -202,6 +213,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             identities=self.identities,
             kubernetes_network_configs=self.kubernetes_network_configs,
             name=self.name,
+            outpost_configs=self.outpost_configs,
             platform_version=self.platform_version,
             role_arn=self.role_arn,
             status=self.status,
@@ -248,6 +260,7 @@ def get_cluster(name: Optional[str] = None,
         identities=__ret__.identities,
         kubernetes_network_configs=__ret__.kubernetes_network_configs,
         name=__ret__.name,
+        outpost_configs=__ret__.outpost_configs,
         platform_version=__ret__.platform_version,
         role_arn=__ret__.role_arn,
         status=__ret__.status,

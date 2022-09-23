@@ -17,6 +17,7 @@ __all__ = [
     'ClusterIdentity',
     'ClusterIdentityOidc',
     'ClusterKubernetesNetworkConfig',
+    'ClusterOutpostConfig',
     'ClusterVpcConfig',
     'FargateProfileSelector',
     'IdentityProviderConfigOidc',
@@ -31,6 +32,7 @@ __all__ = [
     'GetClusterIdentityResult',
     'GetClusterIdentityOidcResult',
     'GetClusterKubernetesNetworkConfigResult',
+    'GetClusterOutpostConfigResult',
     'GetClusterVpcConfigResult',
     'GetNodeGroupRemoteAccessResult',
     'GetNodeGroupResourceResult',
@@ -208,6 +210,54 @@ class ClusterKubernetesNetworkConfig(dict):
         The CIDR block to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. You can only specify a custom CIDR block when you create a cluster, changing this value will force a new cluster to be created. The block must meet the following requirements:
         """
         return pulumi.get(self, "service_ipv4_cidr")
+
+
+@pulumi.output_type
+class ClusterOutpostConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "controlPlaneInstanceType":
+            suggest = "control_plane_instance_type"
+        elif key == "outpostArns":
+            suggest = "outpost_arns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterOutpostConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterOutpostConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterOutpostConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 control_plane_instance_type: str,
+                 outpost_arns: Sequence[str]):
+        """
+        :param str control_plane_instance_type: The Amazon EC2 instance type that you want to use for your local Amazon EKS cluster on Outposts. The instance type that you specify is used for all Kubernetes control plane instances. The instance type can't be changed after cluster creation. Choose an instance type based on the number of nodes that your cluster will have. If your cluster will have:
+        :param Sequence[str] outpost_arns: The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. This argument is a list of arns, but only a single Outpost ARN is supported currently.
+        """
+        pulumi.set(__self__, "control_plane_instance_type", control_plane_instance_type)
+        pulumi.set(__self__, "outpost_arns", outpost_arns)
+
+    @property
+    @pulumi.getter(name="controlPlaneInstanceType")
+    def control_plane_instance_type(self) -> str:
+        """
+        The Amazon EC2 instance type that you want to use for your local Amazon EKS cluster on Outposts. The instance type that you specify is used for all Kubernetes control plane instances. The instance type can't be changed after cluster creation. Choose an instance type based on the number of nodes that your cluster will have. If your cluster will have:
+        """
+        return pulumi.get(self, "control_plane_instance_type")
+
+    @property
+    @pulumi.getter(name="outpostArns")
+    def outpost_arns(self) -> Sequence[str]:
+        """
+        The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. This argument is a list of arns, but only a single Outpost ARN is supported currently.
+        """
+        return pulumi.get(self, "outpost_arns")
 
 
 @pulumi.output_type
@@ -880,6 +930,35 @@ class GetClusterKubernetesNetworkConfigResult(dict):
         The CIDR block to assign Kubernetes service IP addresses from.
         """
         return pulumi.get(self, "service_ipv4_cidr")
+
+
+@pulumi.output_type
+class GetClusterOutpostConfigResult(dict):
+    def __init__(__self__, *,
+                 control_plane_instance_type: str,
+                 outpost_arns: Sequence[str]):
+        """
+        :param str control_plane_instance_type: The Amazon EC2 instance type for all Kubernetes control plane instances.
+        :param Sequence[str] outpost_arns: List of ARNs of the Outposts hosting the EKS cluster. Only a single ARN is supported currently.
+        """
+        pulumi.set(__self__, "control_plane_instance_type", control_plane_instance_type)
+        pulumi.set(__self__, "outpost_arns", outpost_arns)
+
+    @property
+    @pulumi.getter(name="controlPlaneInstanceType")
+    def control_plane_instance_type(self) -> str:
+        """
+        The Amazon EC2 instance type for all Kubernetes control plane instances.
+        """
+        return pulumi.get(self, "control_plane_instance_type")
+
+    @property
+    @pulumi.getter(name="outpostArns")
+    def outpost_arns(self) -> Sequence[str]:
+        """
+        List of ARNs of the Outposts hosting the EKS cluster. Only a single ARN is supported currently.
+        """
+        return pulumi.get(self, "outpost_arns")
 
 
 @pulumi.output_type

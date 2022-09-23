@@ -144,7 +144,7 @@ class ClusterRoleAssociation(pulumi.CustomResource):
         example = aws.rds.ClusterRoleAssociation("example",
             db_cluster_identifier=aws_rds_cluster["example"]["id"],
             feature_name="S3_INTEGRATION",
-            role_arn=aws_iam_role["example"]["id"])
+            role_arn=aws_iam_role["example"]["arn"])
         ```
 
         ## Import
@@ -182,7 +182,7 @@ class ClusterRoleAssociation(pulumi.CustomResource):
         example = aws.rds.ClusterRoleAssociation("example",
             db_cluster_identifier=aws_rds_cluster["example"]["id"],
             feature_name="S3_INTEGRATION",
-            role_arn=aws_iam_role["example"]["id"])
+            role_arn=aws_iam_role["example"]["arn"])
         ```
 
         ## Import

@@ -9,6 +9,56 @@ import * as utilities from "../utilities";
 
 /**
  * ## Example Usage
+ * ### Basic
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.kendra.Faq("example", {
+ *     indexId: aws_kendra_index.example.id,
+ *     roleArn: aws_iam_role.example.arn,
+ *     s3Path: {
+ *         bucket: aws_s3_bucket.example.id,
+ *         key: aws_s3_object.example.key,
+ *     },
+ *     tags: {
+ *         Name: "Example Kendra Faq",
+ *     },
+ * });
+ * ```
+ * ### With File Format
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.kendra.Faq("example", {
+ *     indexId: aws_kendra_index.example.id,
+ *     fileFormat: "CSV",
+ *     roleArn: aws_iam_role.example.arn,
+ *     s3Path: {
+ *         bucket: aws_s3_bucket.example.id,
+ *         key: aws_s3_object.example.key,
+ *     },
+ * });
+ * ```
+ * ### With Language Code
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.kendra.Faq("example", {
+ *     indexId: aws_kendra_index.example.id,
+ *     languageCode: "en",
+ *     roleArn: aws_iam_role.example.arn,
+ *     s3Path: {
+ *         bucket: aws_s3_bucket.example.id,
+ *         key: aws_s3_object.example.key,
+ *     },
+ * });
+ * ```
  *
  * ## Import
  *

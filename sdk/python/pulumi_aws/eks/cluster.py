@@ -23,6 +23,7 @@ class ClusterArgs:
                  encryption_config: Optional[pulumi.Input['ClusterEncryptionConfigArgs']] = None,
                  kubernetes_network_config: Optional[pulumi.Input['ClusterKubernetesNetworkConfigArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 outpost_config: Optional[pulumi.Input['ClusterOutpostConfigArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
@@ -34,6 +35,7 @@ class ClusterArgs:
         :param pulumi.Input['ClusterEncryptionConfigArgs'] encryption_config: Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
         :param pulumi.Input['ClusterKubernetesNetworkConfigArgs'] kubernetes_network_config: Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, this provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[str] name: Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
+        :param pulumi.Input['ClusterOutpostConfigArgs'] outpost_config: Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn't available for creating Amazon EKS clusters on the AWS cloud.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] version: Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
         """
@@ -49,6 +51,8 @@ class ClusterArgs:
             pulumi.set(__self__, "kubernetes_network_config", kubernetes_network_config)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if outpost_config is not None:
+            pulumi.set(__self__, "outpost_config", outpost_config)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if version is not None:
@@ -139,6 +143,18 @@ class ClusterArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="outpostConfig")
+    def outpost_config(self) -> Optional[pulumi.Input['ClusterOutpostConfigArgs']]:
+        """
+        Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn't available for creating Amazon EKS clusters on the AWS cloud.
+        """
+        return pulumi.get(self, "outpost_config")
+
+    @outpost_config.setter
+    def outpost_config(self, value: Optional[pulumi.Input['ClusterOutpostConfigArgs']]):
+        pulumi.set(self, "outpost_config", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -177,6 +193,7 @@ class _ClusterState:
                  identities: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterIdentityArgs']]]] = None,
                  kubernetes_network_config: Optional[pulumi.Input['ClusterKubernetesNetworkConfigArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 outpost_config: Optional[pulumi.Input['ClusterOutpostConfigArgs']] = None,
                  platform_version: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
@@ -197,6 +214,7 @@ class _ClusterState:
         :param pulumi.Input[Sequence[pulumi.Input['ClusterIdentityArgs']]] identities: Attribute block containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. Detailed below.
         :param pulumi.Input['ClusterKubernetesNetworkConfigArgs'] kubernetes_network_config: Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, this provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[str] name: Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
+        :param pulumi.Input['ClusterOutpostConfigArgs'] outpost_config: Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn't available for creating Amazon EKS clusters on the AWS cloud.
         :param pulumi.Input[str] platform_version: Platform version for the cluster.
         :param pulumi.Input[str] role_arn: ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
         :param pulumi.Input[str] status: Status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
@@ -227,6 +245,8 @@ class _ClusterState:
             pulumi.set(__self__, "kubernetes_network_config", kubernetes_network_config)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if outpost_config is not None:
+            pulumi.set(__self__, "outpost_config", outpost_config)
         if platform_version is not None:
             pulumi.set(__self__, "platform_version", platform_version)
         if role_arn is not None:
@@ -375,6 +395,18 @@ class _ClusterState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="outpostConfig")
+    def outpost_config(self) -> Optional[pulumi.Input['ClusterOutpostConfigArgs']]:
+        """
+        Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn't available for creating Amazon EKS clusters on the AWS cloud.
+        """
+        return pulumi.get(self, "outpost_config")
+
+    @outpost_config.setter
+    def outpost_config(self, value: Optional[pulumi.Input['ClusterOutpostConfigArgs']]):
+        pulumi.set(self, "outpost_config", value)
+
+    @property
     @pulumi.getter(name="platformVersion")
     def platform_version(self) -> Optional[pulumi.Input[str]]:
         """
@@ -469,6 +501,7 @@ class Cluster(pulumi.CustomResource):
                  encryption_config: Optional[pulumi.Input[pulumi.InputType['ClusterEncryptionConfigArgs']]] = None,
                  kubernetes_network_config: Optional[pulumi.Input[pulumi.InputType['ClusterKubernetesNetworkConfigArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 outpost_config: Optional[pulumi.Input[pulumi.InputType['ClusterOutpostConfigArgs']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
@@ -550,6 +583,28 @@ class Cluster(pulumi.CustomResource):
         opts=pulumi.ResourceOptions(depends_on=[example_log_group]))
         # ... other configuration ...
         ```
+        ### EKS Cluster on AWS Outpost
+
+        [Creating a local Amazon EKS cluster on an AWS Outpost](https://docs.aws.amazon.com/eks/latest/userguide/create-cluster-outpost.html)
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_role = aws.iam.Role("exampleRole", assume_role_policy=data["aws_iam_policy_document"]["example_assume_role_policy"]["json"])
+        example_cluster = aws.eks.Cluster("exampleCluster",
+            role_arn=example_role.arn,
+            vpc_config=aws.eks.ClusterVpcConfigArgs(
+                endpoint_private_access=True,
+                endpoint_public_access=False,
+            ),
+            outpost_config=aws.eks.ClusterOutpostConfigArgs(
+                control_plane_instance_type="m5d.large",
+                outpost_arns=[data["aws_outposts_outpost"]["example"]["arn"]],
+            ))
+        ```
+
+        After adding inline IAM Policies (e.g., `iam.RolePolicy` resource) or attaching IAM Policies (e.g., `iam.Policy` resource and `iam.RolePolicyAttachment` resource) with the desired permissions to the IAM Role, annotate the Kubernetes service account (e.g., `kubernetes_service_account` resource) and recreate any pods.
 
         ## Import
 
@@ -566,6 +621,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ClusterEncryptionConfigArgs']] encryption_config: Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
         :param pulumi.Input[pulumi.InputType['ClusterKubernetesNetworkConfigArgs']] kubernetes_network_config: Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, this provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[str] name: Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
+        :param pulumi.Input[pulumi.InputType['ClusterOutpostConfigArgs']] outpost_config: Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn't available for creating Amazon EKS clusters on the AWS cloud.
         :param pulumi.Input[str] role_arn: ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] version: Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
@@ -653,6 +709,28 @@ class Cluster(pulumi.CustomResource):
         opts=pulumi.ResourceOptions(depends_on=[example_log_group]))
         # ... other configuration ...
         ```
+        ### EKS Cluster on AWS Outpost
+
+        [Creating a local Amazon EKS cluster on an AWS Outpost](https://docs.aws.amazon.com/eks/latest/userguide/create-cluster-outpost.html)
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_role = aws.iam.Role("exampleRole", assume_role_policy=data["aws_iam_policy_document"]["example_assume_role_policy"]["json"])
+        example_cluster = aws.eks.Cluster("exampleCluster",
+            role_arn=example_role.arn,
+            vpc_config=aws.eks.ClusterVpcConfigArgs(
+                endpoint_private_access=True,
+                endpoint_public_access=False,
+            ),
+            outpost_config=aws.eks.ClusterOutpostConfigArgs(
+                control_plane_instance_type="m5d.large",
+                outpost_arns=[data["aws_outposts_outpost"]["example"]["arn"]],
+            ))
+        ```
+
+        After adding inline IAM Policies (e.g., `iam.RolePolicy` resource) or attaching IAM Policies (e.g., `iam.Policy` resource and `iam.RolePolicyAttachment` resource) with the desired permissions to the IAM Role, annotate the Kubernetes service account (e.g., `kubernetes_service_account` resource) and recreate any pods.
 
         ## Import
 
@@ -682,6 +760,7 @@ class Cluster(pulumi.CustomResource):
                  encryption_config: Optional[pulumi.Input[pulumi.InputType['ClusterEncryptionConfigArgs']]] = None,
                  kubernetes_network_config: Optional[pulumi.Input[pulumi.InputType['ClusterKubernetesNetworkConfigArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 outpost_config: Optional[pulumi.Input[pulumi.InputType['ClusterOutpostConfigArgs']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
@@ -700,6 +779,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["encryption_config"] = encryption_config
             __props__.__dict__["kubernetes_network_config"] = kubernetes_network_config
             __props__.__dict__["name"] = name
+            __props__.__dict__["outpost_config"] = outpost_config
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
@@ -738,6 +818,7 @@ class Cluster(pulumi.CustomResource):
             identities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterIdentityArgs']]]]] = None,
             kubernetes_network_config: Optional[pulumi.Input[pulumi.InputType['ClusterKubernetesNetworkConfigArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            outpost_config: Optional[pulumi.Input[pulumi.InputType['ClusterOutpostConfigArgs']]] = None,
             platform_version: Optional[pulumi.Input[str]] = None,
             role_arn: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
@@ -763,6 +844,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterIdentityArgs']]]] identities: Attribute block containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. Detailed below.
         :param pulumi.Input[pulumi.InputType['ClusterKubernetesNetworkConfigArgs']] kubernetes_network_config: Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, this provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[str] name: Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
+        :param pulumi.Input[pulumi.InputType['ClusterOutpostConfigArgs']] outpost_config: Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn't available for creating Amazon EKS clusters on the AWS cloud.
         :param pulumi.Input[str] platform_version: Platform version for the cluster.
         :param pulumi.Input[str] role_arn: ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
         :param pulumi.Input[str] status: Status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
@@ -786,6 +868,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["identities"] = identities
         __props__.__dict__["kubernetes_network_config"] = kubernetes_network_config
         __props__.__dict__["name"] = name
+        __props__.__dict__["outpost_config"] = outpost_config
         __props__.__dict__["platform_version"] = platform_version
         __props__.__dict__["role_arn"] = role_arn
         __props__.__dict__["status"] = status
@@ -882,6 +965,14 @@ class Cluster(pulumi.CustomResource):
         Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="outpostConfig")
+    def outpost_config(self) -> pulumi.Output[Optional['outputs.ClusterOutpostConfig']]:
+        """
+        Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn't available for creating Amazon EKS clusters on the AWS cloud.
+        """
+        return pulumi.get(self, "outpost_config")
 
     @property
     @pulumi.getter(name="platformVersion")

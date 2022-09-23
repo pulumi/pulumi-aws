@@ -10,6 +10,7 @@ import com.pulumi.aws.eks.outputs.ClusterCertificateAuthority;
 import com.pulumi.aws.eks.outputs.ClusterEncryptionConfig;
 import com.pulumi.aws.eks.outputs.ClusterIdentity;
 import com.pulumi.aws.eks.outputs.ClusterKubernetesNetworkConfig;
+import com.pulumi.aws.eks.outputs.ClusterOutpostConfig;
 import com.pulumi.aws.eks.outputs.ClusterVpcConfig;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -167,6 +168,55 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### EKS Cluster on AWS Outpost
+ * 
+ * [Creating a local Amazon EKS cluster on an AWS Outpost](https://docs.aws.amazon.com/eks/latest/userguide/create-cluster-outpost.html)
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.eks.Cluster;
+ * import com.pulumi.aws.eks.ClusterArgs;
+ * import com.pulumi.aws.eks.inputs.ClusterVpcConfigArgs;
+ * import com.pulumi.aws.eks.inputs.ClusterOutpostConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
+ *             .assumeRolePolicy(data.aws_iam_policy_document().example_assume_role_policy().json())
+ *             .build());
+ * 
+ *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;, ClusterArgs.builder()        
+ *             .roleArn(exampleRole.arn())
+ *             .vpcConfig(ClusterVpcConfigArgs.builder()
+ *                 .endpointPrivateAccess(true)
+ *                 .endpointPublicAccess(false)
+ *                 .build())
+ *             .outpostConfig(ClusterOutpostConfigArgs.builder()
+ *                 .controlPlaneInstanceType(&#34;m5d.large&#34;)
+ *                 .outpostArns(data.aws_outposts_outpost().example().arn())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * After adding inline IAM Policies (e.g., `aws.iam.RolePolicy` resource) or attaching IAM Policies (e.g., `aws.iam.Policy` resource and `aws.iam.RolePolicyAttachment` resource) with the desired permissions to the IAM Role, annotate the Kubernetes service account (e.g., `kubernetes_service_account` resource) and recreate any pods.
  * 
  * ## Import
  * 
@@ -332,6 +382,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn&#39;t available for creating Amazon EKS clusters on the AWS cloud.
+     * 
+     */
+    @Export(name="outpostConfig", type=ClusterOutpostConfig.class, parameters={})
+    private Output</* @Nullable */ ClusterOutpostConfig> outpostConfig;
+
+    /**
+     * @return Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn&#39;t available for creating Amazon EKS clusters on the AWS cloud.
+     * 
+     */
+    public Output<Optional<ClusterOutpostConfig>> outpostConfig() {
+        return Codegen.optional(this.outpostConfig);
     }
     /**
      * Platform version for the cluster.

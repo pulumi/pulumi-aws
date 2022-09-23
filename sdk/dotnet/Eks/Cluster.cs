@@ -130,6 +130,44 @@ namespace Pulumi.Aws.Eks
     ///     // ... other configuration ...
     /// });
     /// ```
+    /// ### EKS Cluster on AWS Outpost
+    /// 
+    /// [Creating a local Amazon EKS cluster on an AWS Outpost](https://docs.aws.amazon.com/eks/latest/userguide/create-cluster-outpost.html)
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
+    ///     {
+    ///         AssumeRolePolicy = data.Aws_iam_policy_document.Example_assume_role_policy.Json,
+    ///     });
+    /// 
+    ///     var exampleCluster = new Aws.Eks.Cluster("exampleCluster", new()
+    ///     {
+    ///         RoleArn = exampleRole.Arn,
+    ///         VpcConfig = new Aws.Eks.Inputs.ClusterVpcConfigArgs
+    ///         {
+    ///             EndpointPrivateAccess = true,
+    ///             EndpointPublicAccess = false,
+    ///         },
+    ///         OutpostConfig = new Aws.Eks.Inputs.ClusterOutpostConfigArgs
+    ///         {
+    ///             ControlPlaneInstanceType = "m5d.large",
+    ///             OutpostArns = new[]
+    ///             {
+    ///                 data.Aws_outposts_outpost.Example.Arn,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// After adding inline IAM Policies (e.g., `aws.iam.RolePolicy` resource) or attaching IAM Policies (e.g., `aws.iam.Policy` resource and `aws.iam.RolePolicyAttachment` resource) with the desired permissions to the IAM Role, annotate the Kubernetes service account (e.g., `kubernetes_service_account` resource) and recreate any pods.
     /// 
     /// ## Import
     /// 
@@ -207,6 +245,12 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn't available for creating Amazon EKS clusters on the AWS cloud.
+        /// </summary>
+        [Output("outpostConfig")]
+        public Output<Outputs.ClusterOutpostConfig?> OutpostConfig { get; private set; } = null!;
 
         /// <summary>
         /// Platform version for the cluster.
@@ -339,6 +383,12 @@ namespace Pulumi.Aws.Eks
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn't available for creating Amazon EKS clusters on the AWS cloud.
+        /// </summary>
+        [Input("outpostConfig")]
+        public Input<Inputs.ClusterOutpostConfigArgs>? OutpostConfig { get; set; }
+
+        /// <summary>
         /// ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
         /// </summary>
         [Input("roleArn", required: true)]
@@ -465,6 +515,12 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn't available for creating Amazon EKS clusters on the AWS cloud.
+        /// </summary>
+        [Input("outpostConfig")]
+        public Input<Inputs.ClusterOutpostConfigGetArgs>? OutpostConfig { get; set; }
 
         /// <summary>
         /// Platform version for the cluster.
