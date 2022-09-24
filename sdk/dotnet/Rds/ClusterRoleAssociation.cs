@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Rds
     ///     {
     ///         DbClusterIdentifier = aws_rds_cluster.Example.Id,
     ///         FeatureName = "S3_INTEGRATION",
-    ///         RoleArn = aws_iam_role.Example.Id,
+    ///         RoleArn = aws_iam_role.Example.Arn,
     ///     });
     /// 
     /// });

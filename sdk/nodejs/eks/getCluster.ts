@@ -95,6 +95,10 @@ export interface GetClusterResult {
     readonly kubernetesNetworkConfigs: outputs.eks.GetClusterKubernetesNetworkConfig[];
     readonly name: string;
     /**
+     * Contains Outpost Configuration.
+     */
+    readonly outpostConfigs: outputs.eks.GetClusterOutpostConfig[];
+    /**
      * Platform version for the cluster.
      */
     readonly platformVersion: string;

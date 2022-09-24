@@ -6,6 +6,7 @@ package com.pulumi.aws.eks.outputs;
 import com.pulumi.aws.eks.outputs.GetClusterCertificateAuthority;
 import com.pulumi.aws.eks.outputs.GetClusterIdentity;
 import com.pulumi.aws.eks.outputs.GetClusterKubernetesNetworkConfig;
+import com.pulumi.aws.eks.outputs.GetClusterOutpostConfig;
 import com.pulumi.aws.eks.outputs.GetClusterVpcConfig;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
@@ -56,6 +57,11 @@ public final class GetClusterResult {
      */
     private List<GetClusterKubernetesNetworkConfig> kubernetesNetworkConfigs;
     private String name;
+    /**
+     * @return Contains Outpost Configuration.
+     * 
+     */
+    private List<GetClusterOutpostConfig> outpostConfigs;
     /**
      * @return Platform version for the cluster.
      * 
@@ -148,6 +154,13 @@ public final class GetClusterResult {
         return this.name;
     }
     /**
+     * @return Contains Outpost Configuration.
+     * 
+     */
+    public List<GetClusterOutpostConfig> outpostConfigs() {
+        return this.outpostConfigs;
+    }
+    /**
      * @return Platform version for the cluster.
      * 
      */
@@ -208,6 +221,7 @@ public final class GetClusterResult {
         private List<GetClusterIdentity> identities;
         private List<GetClusterKubernetesNetworkConfig> kubernetesNetworkConfigs;
         private String name;
+        private List<GetClusterOutpostConfig> outpostConfigs;
         private String platformVersion;
         private String roleArn;
         private String status;
@@ -226,6 +240,7 @@ public final class GetClusterResult {
     	      this.identities = defaults.identities;
     	      this.kubernetesNetworkConfigs = defaults.kubernetesNetworkConfigs;
     	      this.name = defaults.name;
+    	      this.outpostConfigs = defaults.outpostConfigs;
     	      this.platformVersion = defaults.platformVersion;
     	      this.roleArn = defaults.roleArn;
     	      this.status = defaults.status;
@@ -292,6 +307,14 @@ public final class GetClusterResult {
             return this;
         }
         @CustomType.Setter
+        public Builder outpostConfigs(List<GetClusterOutpostConfig> outpostConfigs) {
+            this.outpostConfigs = Objects.requireNonNull(outpostConfigs);
+            return this;
+        }
+        public Builder outpostConfigs(GetClusterOutpostConfig... outpostConfigs) {
+            return outpostConfigs(List.of(outpostConfigs));
+        }
+        @CustomType.Setter
         public Builder platformVersion(String platformVersion) {
             this.platformVersion = Objects.requireNonNull(platformVersion);
             return this;
@@ -332,6 +355,7 @@ public final class GetClusterResult {
             o.identities = identities;
             o.kubernetesNetworkConfigs = kubernetesNetworkConfigs;
             o.name = name;
+            o.outpostConfigs = outpostConfigs;
             o.platformVersion = platformVersion;
             o.roleArn = roleArn;
             o.status = status;

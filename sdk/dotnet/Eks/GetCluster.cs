@@ -169,6 +169,10 @@ namespace Pulumi.Aws.Eks
         public readonly ImmutableArray<Outputs.GetClusterKubernetesNetworkConfigResult> KubernetesNetworkConfigs;
         public readonly string Name;
         /// <summary>
+        /// Contains Outpost Configuration.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetClusterOutpostConfigResult> OutpostConfigs;
+        /// <summary>
         /// Platform version for the cluster.
         /// </summary>
         public readonly string PlatformVersion;
@@ -213,6 +217,8 @@ namespace Pulumi.Aws.Eks
 
             string name,
 
+            ImmutableArray<Outputs.GetClusterOutpostConfigResult> outpostConfigs,
+
             string platformVersion,
 
             string roleArn,
@@ -234,6 +240,7 @@ namespace Pulumi.Aws.Eks
             Identities = identities;
             KubernetesNetworkConfigs = kubernetesNetworkConfigs;
             Name = name;
+            OutpostConfigs = outpostConfigs;
             PlatformVersion = platformVersion;
             RoleArn = roleArn;
             Status = status;

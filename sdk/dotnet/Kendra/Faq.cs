@@ -11,6 +11,78 @@ namespace Pulumi.Aws.Kendra
 {
     /// <summary>
     /// ## Example Usage
+    /// ### Basic
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Kendra.Faq("example", new()
+    ///     {
+    ///         IndexId = aws_kendra_index.Example.Id,
+    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         S3Path = new Aws.Kendra.Inputs.FaqS3PathArgs
+    ///         {
+    ///             Bucket = aws_s3_bucket.Example.Id,
+    ///             Key = aws_s3_object.Example.Key,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "Example Kendra Faq" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### With File Format
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Kendra.Faq("example", new()
+    ///     {
+    ///         IndexId = aws_kendra_index.Example.Id,
+    ///         FileFormat = "CSV",
+    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         S3Path = new Aws.Kendra.Inputs.FaqS3PathArgs
+    ///         {
+    ///             Bucket = aws_s3_bucket.Example.Id,
+    ///             Key = aws_s3_object.Example.Key,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### With Language Code
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Kendra.Faq("example", new()
+    ///     {
+    ///         IndexId = aws_kendra_index.Example.Id,
+    ///         LanguageCode = "en",
+    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         S3Path = new Aws.Kendra.Inputs.FaqS3PathArgs
+    ///         {
+    ///             Bucket = aws_s3_bucket.Example.Id,
+    ///             Key = aws_s3_object.Example.Key,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 

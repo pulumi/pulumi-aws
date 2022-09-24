@@ -19,7 +19,6 @@ import javax.annotation.Nullable;
 /**
  * ## Example Usage
  * ### Basic
- * 
  * ```java
  * package generated_program;
  * 
@@ -28,6 +27,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.kendra.Faq;
  * import com.pulumi.aws.kendra.FaqArgs;
+ * import com.pulumi.aws.kendra.inputs.FaqS3PathArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -44,7 +44,10 @@ import javax.annotation.Nullable;
  *         var example = new Faq(&#34;example&#34;, FaqArgs.builder()        
  *             .indexId(aws_kendra_index.example().id())
  *             .roleArn(aws_iam_role.example().arn())
- *             .sourceS3Path(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .s3Path(FaqS3PathArgs.builder()
+ *                 .bucket(aws_s3_bucket.example().id())
+ *                 .key(aws_s3_object.example().key())
+ *                 .build())
  *             .tags(Map.of(&#34;Name&#34;, &#34;Example Kendra Faq&#34;))
  *             .build());
  * 
@@ -52,7 +55,6 @@ import javax.annotation.Nullable;
  * }
  * ```
  * ### With File Format
- * 
  * ```java
  * package generated_program;
  * 
@@ -61,6 +63,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.kendra.Faq;
  * import com.pulumi.aws.kendra.FaqArgs;
+ * import com.pulumi.aws.kendra.inputs.FaqS3PathArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -78,14 +81,16 @@ import javax.annotation.Nullable;
  *             .indexId(aws_kendra_index.example().id())
  *             .fileFormat(&#34;CSV&#34;)
  *             .roleArn(aws_iam_role.example().arn())
- *             .sourceS3Path(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .s3Path(FaqS3PathArgs.builder()
+ *                 .bucket(aws_s3_bucket.example().id())
+ *                 .key(aws_s3_object.example().key())
+ *                 .build())
  *             .build());
  * 
  *     }
  * }
  * ```
  * ### With Language Code
- * 
  * ```java
  * package generated_program;
  * 
@@ -94,6 +99,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.kendra.Faq;
  * import com.pulumi.aws.kendra.FaqArgs;
+ * import com.pulumi.aws.kendra.inputs.FaqS3PathArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -111,7 +117,10 @@ import javax.annotation.Nullable;
  *             .indexId(aws_kendra_index.example().id())
  *             .languageCode(&#34;en&#34;)
  *             .roleArn(aws_iam_role.example().arn())
- *             .sourceS3Path(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .s3Path(FaqS3PathArgs.builder()
+ *                 .bucket(aws_s3_bucket.example().id())
+ *                 .key(aws_s3_object.example().key())
+ *                 .build())
  *             .build());
  * 
  *     }

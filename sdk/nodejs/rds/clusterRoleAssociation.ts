@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * const example = new aws.rds.ClusterRoleAssociation("example", {
  *     dbClusterIdentifier: aws_rds_cluster.example.id,
  *     featureName: "S3_INTEGRATION",
- *     roleArn: aws_iam_role.example.id,
+ *     roleArn: aws_iam_role.example.arn,
  * });
  * ```
  *

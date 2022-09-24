@@ -835,6 +835,162 @@ func (o ClusterKubernetesNetworkConfigPtrOutput) ServiceIpv4Cidr() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+type ClusterOutpostConfig struct {
+	// The Amazon EC2 instance type that you want to use for your local Amazon EKS cluster on Outposts. The instance type that you specify is used for all Kubernetes control plane instances. The instance type can't be changed after cluster creation. Choose an instance type based on the number of nodes that your cluster will have. If your cluster will have:
+	ControlPlaneInstanceType string `pulumi:"controlPlaneInstanceType"`
+	// The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. This argument is a list of arns, but only a single Outpost ARN is supported currently.
+	OutpostArns []string `pulumi:"outpostArns"`
+}
+
+// ClusterOutpostConfigInput is an input type that accepts ClusterOutpostConfigArgs and ClusterOutpostConfigOutput values.
+// You can construct a concrete instance of `ClusterOutpostConfigInput` via:
+//
+//	ClusterOutpostConfigArgs{...}
+type ClusterOutpostConfigInput interface {
+	pulumi.Input
+
+	ToClusterOutpostConfigOutput() ClusterOutpostConfigOutput
+	ToClusterOutpostConfigOutputWithContext(context.Context) ClusterOutpostConfigOutput
+}
+
+type ClusterOutpostConfigArgs struct {
+	// The Amazon EC2 instance type that you want to use for your local Amazon EKS cluster on Outposts. The instance type that you specify is used for all Kubernetes control plane instances. The instance type can't be changed after cluster creation. Choose an instance type based on the number of nodes that your cluster will have. If your cluster will have:
+	ControlPlaneInstanceType pulumi.StringInput `pulumi:"controlPlaneInstanceType"`
+	// The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. This argument is a list of arns, but only a single Outpost ARN is supported currently.
+	OutpostArns pulumi.StringArrayInput `pulumi:"outpostArns"`
+}
+
+func (ClusterOutpostConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterOutpostConfig)(nil)).Elem()
+}
+
+func (i ClusterOutpostConfigArgs) ToClusterOutpostConfigOutput() ClusterOutpostConfigOutput {
+	return i.ToClusterOutpostConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterOutpostConfigArgs) ToClusterOutpostConfigOutputWithContext(ctx context.Context) ClusterOutpostConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterOutpostConfigOutput)
+}
+
+func (i ClusterOutpostConfigArgs) ToClusterOutpostConfigPtrOutput() ClusterOutpostConfigPtrOutput {
+	return i.ToClusterOutpostConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterOutpostConfigArgs) ToClusterOutpostConfigPtrOutputWithContext(ctx context.Context) ClusterOutpostConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterOutpostConfigOutput).ToClusterOutpostConfigPtrOutputWithContext(ctx)
+}
+
+// ClusterOutpostConfigPtrInput is an input type that accepts ClusterOutpostConfigArgs, ClusterOutpostConfigPtr and ClusterOutpostConfigPtrOutput values.
+// You can construct a concrete instance of `ClusterOutpostConfigPtrInput` via:
+//
+//	        ClusterOutpostConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterOutpostConfigPtrInput interface {
+	pulumi.Input
+
+	ToClusterOutpostConfigPtrOutput() ClusterOutpostConfigPtrOutput
+	ToClusterOutpostConfigPtrOutputWithContext(context.Context) ClusterOutpostConfigPtrOutput
+}
+
+type clusterOutpostConfigPtrType ClusterOutpostConfigArgs
+
+func ClusterOutpostConfigPtr(v *ClusterOutpostConfigArgs) ClusterOutpostConfigPtrInput {
+	return (*clusterOutpostConfigPtrType)(v)
+}
+
+func (*clusterOutpostConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterOutpostConfig)(nil)).Elem()
+}
+
+func (i *clusterOutpostConfigPtrType) ToClusterOutpostConfigPtrOutput() ClusterOutpostConfigPtrOutput {
+	return i.ToClusterOutpostConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterOutpostConfigPtrType) ToClusterOutpostConfigPtrOutputWithContext(ctx context.Context) ClusterOutpostConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterOutpostConfigPtrOutput)
+}
+
+type ClusterOutpostConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterOutpostConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterOutpostConfig)(nil)).Elem()
+}
+
+func (o ClusterOutpostConfigOutput) ToClusterOutpostConfigOutput() ClusterOutpostConfigOutput {
+	return o
+}
+
+func (o ClusterOutpostConfigOutput) ToClusterOutpostConfigOutputWithContext(ctx context.Context) ClusterOutpostConfigOutput {
+	return o
+}
+
+func (o ClusterOutpostConfigOutput) ToClusterOutpostConfigPtrOutput() ClusterOutpostConfigPtrOutput {
+	return o.ToClusterOutpostConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterOutpostConfigOutput) ToClusterOutpostConfigPtrOutputWithContext(ctx context.Context) ClusterOutpostConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterOutpostConfig) *ClusterOutpostConfig {
+		return &v
+	}).(ClusterOutpostConfigPtrOutput)
+}
+
+// The Amazon EC2 instance type that you want to use for your local Amazon EKS cluster on Outposts. The instance type that you specify is used for all Kubernetes control plane instances. The instance type can't be changed after cluster creation. Choose an instance type based on the number of nodes that your cluster will have. If your cluster will have:
+func (o ClusterOutpostConfigOutput) ControlPlaneInstanceType() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterOutpostConfig) string { return v.ControlPlaneInstanceType }).(pulumi.StringOutput)
+}
+
+// The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. This argument is a list of arns, but only a single Outpost ARN is supported currently.
+func (o ClusterOutpostConfigOutput) OutpostArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ClusterOutpostConfig) []string { return v.OutpostArns }).(pulumi.StringArrayOutput)
+}
+
+type ClusterOutpostConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterOutpostConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterOutpostConfig)(nil)).Elem()
+}
+
+func (o ClusterOutpostConfigPtrOutput) ToClusterOutpostConfigPtrOutput() ClusterOutpostConfigPtrOutput {
+	return o
+}
+
+func (o ClusterOutpostConfigPtrOutput) ToClusterOutpostConfigPtrOutputWithContext(ctx context.Context) ClusterOutpostConfigPtrOutput {
+	return o
+}
+
+func (o ClusterOutpostConfigPtrOutput) Elem() ClusterOutpostConfigOutput {
+	return o.ApplyT(func(v *ClusterOutpostConfig) ClusterOutpostConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterOutpostConfig
+		return ret
+	}).(ClusterOutpostConfigOutput)
+}
+
+// The Amazon EC2 instance type that you want to use for your local Amazon EKS cluster on Outposts. The instance type that you specify is used for all Kubernetes control plane instances. The instance type can't be changed after cluster creation. Choose an instance type based on the number of nodes that your cluster will have. If your cluster will have:
+func (o ClusterOutpostConfigPtrOutput) ControlPlaneInstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterOutpostConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ControlPlaneInstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. This argument is a list of arns, but only a single Outpost ARN is supported currently.
+func (o ClusterOutpostConfigPtrOutput) OutpostArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ClusterOutpostConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.OutpostArns
+	}).(pulumi.StringArrayOutput)
+}
+
 type ClusterVpcConfig struct {
 	// Cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.
 	ClusterSecurityGroupId *string `pulumi:"clusterSecurityGroupId"`
@@ -2836,6 +2992,112 @@ func (o GetClusterKubernetesNetworkConfigArrayOutput) Index(i pulumi.IntInput) G
 	}).(GetClusterKubernetesNetworkConfigOutput)
 }
 
+type GetClusterOutpostConfig struct {
+	// The Amazon EC2 instance type for all Kubernetes control plane instances.
+	ControlPlaneInstanceType string `pulumi:"controlPlaneInstanceType"`
+	// List of ARNs of the Outposts hosting the EKS cluster. Only a single ARN is supported currently.
+	OutpostArns []string `pulumi:"outpostArns"`
+}
+
+// GetClusterOutpostConfigInput is an input type that accepts GetClusterOutpostConfigArgs and GetClusterOutpostConfigOutput values.
+// You can construct a concrete instance of `GetClusterOutpostConfigInput` via:
+//
+//	GetClusterOutpostConfigArgs{...}
+type GetClusterOutpostConfigInput interface {
+	pulumi.Input
+
+	ToGetClusterOutpostConfigOutput() GetClusterOutpostConfigOutput
+	ToGetClusterOutpostConfigOutputWithContext(context.Context) GetClusterOutpostConfigOutput
+}
+
+type GetClusterOutpostConfigArgs struct {
+	// The Amazon EC2 instance type for all Kubernetes control plane instances.
+	ControlPlaneInstanceType pulumi.StringInput `pulumi:"controlPlaneInstanceType"`
+	// List of ARNs of the Outposts hosting the EKS cluster. Only a single ARN is supported currently.
+	OutpostArns pulumi.StringArrayInput `pulumi:"outpostArns"`
+}
+
+func (GetClusterOutpostConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterOutpostConfig)(nil)).Elem()
+}
+
+func (i GetClusterOutpostConfigArgs) ToGetClusterOutpostConfigOutput() GetClusterOutpostConfigOutput {
+	return i.ToGetClusterOutpostConfigOutputWithContext(context.Background())
+}
+
+func (i GetClusterOutpostConfigArgs) ToGetClusterOutpostConfigOutputWithContext(ctx context.Context) GetClusterOutpostConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterOutpostConfigOutput)
+}
+
+// GetClusterOutpostConfigArrayInput is an input type that accepts GetClusterOutpostConfigArray and GetClusterOutpostConfigArrayOutput values.
+// You can construct a concrete instance of `GetClusterOutpostConfigArrayInput` via:
+//
+//	GetClusterOutpostConfigArray{ GetClusterOutpostConfigArgs{...} }
+type GetClusterOutpostConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterOutpostConfigArrayOutput() GetClusterOutpostConfigArrayOutput
+	ToGetClusterOutpostConfigArrayOutputWithContext(context.Context) GetClusterOutpostConfigArrayOutput
+}
+
+type GetClusterOutpostConfigArray []GetClusterOutpostConfigInput
+
+func (GetClusterOutpostConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterOutpostConfig)(nil)).Elem()
+}
+
+func (i GetClusterOutpostConfigArray) ToGetClusterOutpostConfigArrayOutput() GetClusterOutpostConfigArrayOutput {
+	return i.ToGetClusterOutpostConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterOutpostConfigArray) ToGetClusterOutpostConfigArrayOutputWithContext(ctx context.Context) GetClusterOutpostConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterOutpostConfigArrayOutput)
+}
+
+type GetClusterOutpostConfigOutput struct{ *pulumi.OutputState }
+
+func (GetClusterOutpostConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterOutpostConfig)(nil)).Elem()
+}
+
+func (o GetClusterOutpostConfigOutput) ToGetClusterOutpostConfigOutput() GetClusterOutpostConfigOutput {
+	return o
+}
+
+func (o GetClusterOutpostConfigOutput) ToGetClusterOutpostConfigOutputWithContext(ctx context.Context) GetClusterOutpostConfigOutput {
+	return o
+}
+
+// The Amazon EC2 instance type for all Kubernetes control plane instances.
+func (o GetClusterOutpostConfigOutput) ControlPlaneInstanceType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterOutpostConfig) string { return v.ControlPlaneInstanceType }).(pulumi.StringOutput)
+}
+
+// List of ARNs of the Outposts hosting the EKS cluster. Only a single ARN is supported currently.
+func (o GetClusterOutpostConfigOutput) OutpostArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetClusterOutpostConfig) []string { return v.OutpostArns }).(pulumi.StringArrayOutput)
+}
+
+type GetClusterOutpostConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterOutpostConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterOutpostConfig)(nil)).Elem()
+}
+
+func (o GetClusterOutpostConfigArrayOutput) ToGetClusterOutpostConfigArrayOutput() GetClusterOutpostConfigArrayOutput {
+	return o
+}
+
+func (o GetClusterOutpostConfigArrayOutput) ToGetClusterOutpostConfigArrayOutputWithContext(ctx context.Context) GetClusterOutpostConfigArrayOutput {
+	return o
+}
+
+func (o GetClusterOutpostConfigArrayOutput) Index(i pulumi.IntInput) GetClusterOutpostConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterOutpostConfig {
+		return vs[0].([]GetClusterOutpostConfig)[vs[1].(int)]
+	}).(GetClusterOutpostConfigOutput)
+}
+
 type GetClusterVpcConfig struct {
 	// The cluster security group that was created by Amazon EKS for the cluster.
 	ClusterSecurityGroupId string `pulumi:"clusterSecurityGroupId"`
@@ -3495,6 +3757,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterIdentityOidcArrayInput)(nil)).Elem(), ClusterIdentityOidcArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubernetesNetworkConfigInput)(nil)).Elem(), ClusterKubernetesNetworkConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubernetesNetworkConfigPtrInput)(nil)).Elem(), ClusterKubernetesNetworkConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOutpostConfigInput)(nil)).Elem(), ClusterOutpostConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOutpostConfigPtrInput)(nil)).Elem(), ClusterOutpostConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterVpcConfigInput)(nil)).Elem(), ClusterVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterVpcConfigPtrInput)(nil)).Elem(), ClusterVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FargateProfileSelectorInput)(nil)).Elem(), FargateProfileSelectorArgs{})
@@ -3523,6 +3787,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterIdentityOidcArrayInput)(nil)).Elem(), GetClusterIdentityOidcArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterKubernetesNetworkConfigInput)(nil)).Elem(), GetClusterKubernetesNetworkConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterKubernetesNetworkConfigArrayInput)(nil)).Elem(), GetClusterKubernetesNetworkConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterOutpostConfigInput)(nil)).Elem(), GetClusterOutpostConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterOutpostConfigArrayInput)(nil)).Elem(), GetClusterOutpostConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVpcConfigInput)(nil)).Elem(), GetClusterVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNodeGroupRemoteAccessInput)(nil)).Elem(), GetNodeGroupRemoteAccessArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNodeGroupRemoteAccessArrayInput)(nil)).Elem(), GetNodeGroupRemoteAccessArray{})
@@ -3547,6 +3813,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterIdentityOidcArrayOutput{})
 	pulumi.RegisterOutputType(ClusterKubernetesNetworkConfigOutput{})
 	pulumi.RegisterOutputType(ClusterKubernetesNetworkConfigPtrOutput{})
+	pulumi.RegisterOutputType(ClusterOutpostConfigOutput{})
+	pulumi.RegisterOutputType(ClusterOutpostConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterVpcConfigOutput{})
 	pulumi.RegisterOutputType(ClusterVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(FargateProfileSelectorOutput{})
@@ -3575,6 +3843,8 @@ func init() {
 	pulumi.RegisterOutputType(GetClusterIdentityOidcArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterKubernetesNetworkConfigOutput{})
 	pulumi.RegisterOutputType(GetClusterKubernetesNetworkConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterOutpostConfigOutput{})
+	pulumi.RegisterOutputType(GetClusterOutpostConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterVpcConfigOutput{})
 	pulumi.RegisterOutputType(GetNodeGroupRemoteAccessOutput{})
 	pulumi.RegisterOutputType(GetNodeGroupRemoteAccessArrayOutput{})

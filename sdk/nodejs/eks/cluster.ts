@@ -92,6 +92,29 @@ import * as utilities from "../utilities";
  * });
  * // ... other configuration ...
  * ```
+ * ### EKS Cluster on AWS Outpost
+ *
+ * [Creating a local Amazon EKS cluster on an AWS Outpost](https://docs.aws.amazon.com/eks/latest/userguide/create-cluster-outpost.html)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: data.aws_iam_policy_document.example_assume_role_policy.json});
+ * const exampleCluster = new aws.eks.Cluster("exampleCluster", {
+ *     roleArn: exampleRole.arn,
+ *     vpcConfig: {
+ *         endpointPrivateAccess: true,
+ *         endpointPublicAccess: false,
+ *     },
+ *     outpostConfig: {
+ *         controlPlaneInstanceType: "m5d.large",
+ *         outpostArns: [data.aws_outposts_outpost.example.arn],
+ *     },
+ * });
+ * ```
+ *
+ * After adding inline IAM Policies (e.g., `aws.iam.RolePolicy` resource) or attaching IAM Policies (e.g., `aws.iam.Policy` resource and `aws.iam.RolePolicyAttachment` resource) with the desired permissions to the IAM Role, annotate the Kubernetes service account (e.g., `kubernetesServiceAccount` resource) and recreate any pods.
  *
  * ## Import
  *
@@ -174,6 +197,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn't available for creating Amazon EKS clusters on the AWS cloud.
+     */
+    public readonly outpostConfig!: pulumi.Output<outputs.eks.ClusterOutpostConfig | undefined>;
+    /**
      * Platform version for the cluster.
      */
     public /*out*/ readonly platformVersion!: pulumi.Output<string>;
@@ -226,6 +253,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["identities"] = state ? state.identities : undefined;
             resourceInputs["kubernetesNetworkConfig"] = state ? state.kubernetesNetworkConfig : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["outpostConfig"] = state ? state.outpostConfig : undefined;
             resourceInputs["platformVersion"] = state ? state.platformVersion : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
@@ -246,6 +274,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["encryptionConfig"] = args ? args.encryptionConfig : undefined;
             resourceInputs["kubernetesNetworkConfig"] = args ? args.kubernetesNetworkConfig : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["outpostConfig"] = args ? args.outpostConfig : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
@@ -314,6 +343,10 @@ export interface ClusterState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn't available for creating Amazon EKS clusters on the AWS cloud.
+     */
+    outpostConfig?: pulumi.Input<inputs.eks.ClusterOutpostConfig>;
+    /**
      * Platform version for the cluster.
      */
     platformVersion?: pulumi.Input<string>;
@@ -367,6 +400,10 @@ export interface ClusterArgs {
      * Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
      */
     name?: pulumi.Input<string>;
+    /**
+     * Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn't available for creating Amazon EKS clusters on the AWS cloud.
+     */
+    outpostConfig?: pulumi.Input<inputs.eks.ClusterOutpostConfig>;
     /**
      * ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
      */

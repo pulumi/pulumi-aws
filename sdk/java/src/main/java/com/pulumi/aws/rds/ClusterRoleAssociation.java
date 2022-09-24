@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *         var example = new ClusterRoleAssociation(&#34;example&#34;, ClusterRoleAssociationArgs.builder()        
  *             .dbClusterIdentifier(aws_rds_cluster.example().id())
  *             .featureName(&#34;S3_INTEGRATION&#34;)
- *             .roleArn(aws_iam_role.example().id())
+ *             .roleArn(aws_iam_role.example().arn())
  *             .build());
  * 
  *     }

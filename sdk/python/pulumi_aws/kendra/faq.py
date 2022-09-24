@@ -402,6 +402,53 @@ class Faq(pulumi.CustomResource):
                  __props__=None):
         """
         ## Example Usage
+        ### Basic
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.kendra.Faq("example",
+            index_id=aws_kendra_index["example"]["id"],
+            role_arn=aws_iam_role["example"]["arn"],
+            s3_path=aws.kendra.FaqS3PathArgs(
+                bucket=aws_s3_bucket["example"]["id"],
+                key=aws_s3_object["example"]["key"],
+            ),
+            tags={
+                "Name": "Example Kendra Faq",
+            })
+        ```
+        ### With File Format
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.kendra.Faq("example",
+            index_id=aws_kendra_index["example"]["id"],
+            file_format="CSV",
+            role_arn=aws_iam_role["example"]["arn"],
+            s3_path=aws.kendra.FaqS3PathArgs(
+                bucket=aws_s3_bucket["example"]["id"],
+                key=aws_s3_object["example"]["key"],
+            ))
+        ```
+        ### With Language Code
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.kendra.Faq("example",
+            index_id=aws_kendra_index["example"]["id"],
+            language_code="en",
+            role_arn=aws_iam_role["example"]["arn"],
+            s3_path=aws.kendra.FaqS3PathArgs(
+                bucket=aws_s3_bucket["example"]["id"],
+                key=aws_s3_object["example"]["key"],
+            ))
+        ```
 
         ## Import
 
@@ -429,6 +476,53 @@ class Faq(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
+        ### Basic
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.kendra.Faq("example",
+            index_id=aws_kendra_index["example"]["id"],
+            role_arn=aws_iam_role["example"]["arn"],
+            s3_path=aws.kendra.FaqS3PathArgs(
+                bucket=aws_s3_bucket["example"]["id"],
+                key=aws_s3_object["example"]["key"],
+            ),
+            tags={
+                "Name": "Example Kendra Faq",
+            })
+        ```
+        ### With File Format
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.kendra.Faq("example",
+            index_id=aws_kendra_index["example"]["id"],
+            file_format="CSV",
+            role_arn=aws_iam_role["example"]["arn"],
+            s3_path=aws.kendra.FaqS3PathArgs(
+                bucket=aws_s3_bucket["example"]["id"],
+                key=aws_s3_object["example"]["key"],
+            ))
+        ```
+        ### With Language Code
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.kendra.Faq("example",
+            index_id=aws_kendra_index["example"]["id"],
+            language_code="en",
+            role_arn=aws_iam_role["example"]["arn"],
+            s3_path=aws.kendra.FaqS3PathArgs(
+                bucket=aws_s3_bucket["example"]["id"],
+                key=aws_s3_object["example"]["key"],
+            ))
+        ```
 
         ## Import
 
