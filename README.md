@@ -110,8 +110,7 @@ The following configuration points are available:
 
 ### Authenticating pulumi-aws via EC2 Instance Metadata?
 
-As of pulumi-aws v3.28.1, the default behaviour for the provider [was changed](https://github.com/pulumi/pulumi-aws/blob/master/CHANGELOG_OLD.md#3281-2021-02-10) to disable MetadataApiCheck by default. This means,
-you need to do either of the following
+As of pulumi-aws v3.28.1, the default behaviour for the provider [was changed](https://github.com/pulumi/pulumi-aws/blob/master/CHANGELOG_OLD.md#3281-2021-02-10) to disable MetadataApiCheck by default. This means, you need to do either of the following
 
 1. When using the default provider:
 ```
