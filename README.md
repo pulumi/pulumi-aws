@@ -4,7 +4,7 @@
 [![Python version](https://badge.fury.io/py/pulumi-aws.svg)](https://pypi.org/project/pulumi-aws)
 [![NuGet version](https://badge.fury.io/nu/pulumi.aws.svg)](https://badge.fury.io/nu/pulumi.aws)
 [![PkgGoDev](https://pkg.go.dev/badge/github.com/pulumi/pulumi-aws/sdk/v5/go)](https://pkg.go.dev/github.com/pulumi/pulumi-aws/sdk/v5/go)
-[![License](https://img.shields.io/npm/l/%40pulumi%2Fpulumi.svg)](https://github.com/pulumi/pulumi-aws/blob/master/LICENSE)
+[![License](https://img.shields.io/github/license/pulumi/pulumi-aws)](https://github.com/pulumi/pulumi-aws/blob/master/LICENSE)
 
 # Amazon Web Services (AWS) provider
 
