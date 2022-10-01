@@ -34,6 +34,11 @@ import (
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
+
+	"github.com/pulumi/pulumi-aws/provider/v5/telemetry/cloudwatchlogs"
+	"github.com/pulumi/pulumi-aws/provider/v5/telemetry/ecs"
+	"github.com/pulumi/pulumi-aws/provider/v5/telemetry/lambda"
+	"github.com/pulumi/pulumi-aws/provider/v5/telemetry/rds"
 )
 
 // all of the AWS token components used below.
@@ -883,8 +888,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_cloudwatch_log_destination":        {Tok: awsResource(cloudwatchMod, "LogDestination")},
 			"aws_cloudwatch_log_destination_policy": {Tok: awsResource(cloudwatchMod, "LogDestinationPolicy")},
 			"aws_cloudwatch_log_group": {
-				IDFields: []string{"name"},
-				Tok:      awsResource(cloudwatchMod, "LogGroup"),
+				IDFields:        []string{"name"},
+				Tok:             awsResource(cloudwatchMod, "LogGroup"),
+				GetResourceLogs: cloudwatchlogs.GetLogGroupResourceLogs,
 			},
 			"aws_cloudwatch_log_metric_filter": {Tok: awsResource(cloudwatchMod, "LogMetricFilter")},
 			"aws_cloudwatch_log_resource_policy": {
@@ -1573,7 +1579,10 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ecrpublic_repository":        {Tok: awsResource(ecrPublicMod, "Repository")},
 			"aws_ecrpublic_repository_policy": {Tok: awsResource(ecrPublicMod, "RepositoryPolicy")},
 			// Elastic Container Service
-			"aws_ecs_cluster": {Tok: awsResource(ecsMod, "Cluster")},
+			"aws_ecs_cluster": {
+				Tok:                awsResource(ecsMod, "Cluster"),
+				GetResourceMetrics: ecs.GetClusterResourceMetrics,
+			},
 			"aws_ecs_service": {
 				Tok: awsResource(ecsMod, "Service"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -1584,6 +1593,7 @@ func Provider() tfbridge.ProviderInfo {
 						MaxItemsOne: boolRef(false),
 					},
 				},
+				GetResourceLogs: ecs.GetServiceResourceLogs,
 			},
 			"aws_ecs_task_definition":            {Tok: awsResource(ecsMod, "TaskDefinition")},
 			"aws_ecs_capacity_provider":          {Tok: awsResource(ecsMod, "CapacityProvider")},
@@ -2115,6 +2125,8 @@ func Provider() tfbridge.ProviderInfo {
 						Name:        "architectures",
 					},
 				},
+				GetResourceLogs:    lambda.GetFunctionResourceLogs,
+				GetResourceMetrics: lambda.GetFunctionResourceMetrics,
 			},
 			"aws_lambda_function_url": {
 				Tok: awsResource(lambdaMod, "FunctionUrl"),
@@ -2331,6 +2343,7 @@ func Provider() tfbridge.ProviderInfo {
 						AltTypes: []tokens.Type{awsType(rdsMod, "InstanceType", "InstanceType")},
 					},
 				},
+				GetResourceMetrics: rds.GetClusterInstanceResourceMetrics,
 			},
 			"aws_rds_cluster_parameter_group": {
 				Tok: awsResource(rdsMod, "ClusterParameterGroup"),
