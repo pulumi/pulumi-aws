@@ -19,6 +19,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"strconv"
 	"strings"
 	"unicode"
 
@@ -274,6 +275,25 @@ func stringValue(vars resource.PropertyMap, prop resource.PropertyKey, envs []st
 	return ""
 }
 
+// boolValue gets a bool value from a property map if present, else false
+func boolValue(vars resource.PropertyMap, prop resource.PropertyKey, envs []string) bool {
+	val, ok := vars[prop]
+	if ok && val.IsBool() {
+		return val.BoolValue()
+	}
+	for _, env := range envs {
+		val, ok := os.LookupEnv(env)
+		if ok {
+			boolValue, err := strconv.ParseBool(val)
+			if err != nil {
+				return false
+			}
+			return boolValue
+		}
+	}
+	return false
+}
+
 func arrayValue(vars resource.PropertyMap, prop resource.PropertyKey, envs []string) []string {
 	val, ok := vars[prop]
 	var vals []string
@@ -301,12 +321,8 @@ func stringRef(s string) *string {
 // configuration subset of `github.com/terraform-providers/terraform-provider-aws/aws.providerConfigure`.  We do this
 // before passing control to the TF provider to ensure we can report actionable errors.
 func preConfigureCallback(vars resource.PropertyMap, c shim.ResourceConfig) error {
-	var skipCredentialsValidation bool
-	if val, ok := vars["skipCredentialsValidation"]; ok {
-		if val.IsBool() {
-			skipCredentialsValidation = val.BoolValue()
-		}
-	}
+	skipCredentialsValidation := boolValue(vars, "skipCredentialsValidation",
+		[]string{"AWS_SKIP_CREDENTIALS_VALIDATION"})
 
 	// if we skipCredentialsValidation then we don't need to do anything in
 	// preConfigureCallback as this is an explicit operation
@@ -339,10 +355,10 @@ func preConfigureCallback(vars resource.PropertyMap, c shim.ResourceConfig) erro
 	// will specify that skipMetadataApiCheck: false
 	// therefore, if we have skipMetadataApiCheck false, then we are enabling the imds client
 	config.EC2MetadataServiceEnableState = imds.ClientDisabled
-	if val, ok := vars["skipMetadataApiCheck"]; ok {
-		if val.IsBool() && !val.BoolValue() {
-			config.EC2MetadataServiceEnableState = imds.ClientEnabled
-		}
+	skipMetadataApiCheck := boolValue(vars, "skipMetadataApiCheck",
+		[]string{"AWS_SKIP_METADATA_API_CHECK"})
+	if !skipMetadataApiCheck {
+		config.EC2MetadataServiceEnableState = imds.ClientEnabled
 	}
 
 	// lastly let's set the sharedCreds and sharedConfig file. If these are not found then let's default to the
