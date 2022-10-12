@@ -34,6 +34,29 @@ namespace Pulumi.Aws.Eks
     /// 
     /// });
     /// ```
+    /// ## Example Update add-on usage with resolve_conflicts and PRESERVE
+    /// 
+    /// `resolve_conflicts` with `PRESERVE` can be used to retain the config changes applied to the add-on with kubectl while upgrading to a newer version of the add-on.
+    /// 
+    /// &gt; **Note:** `resolve_conflicts` with `PRESERVE` can only be used for upgrading the add-ons but not during the creation of add-on.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Eks.Addon("example", new()
+    ///     {
+    ///         ClusterName = aws_eks_cluster.Example.Name,
+    ///         AddonName = "coredns",
+    ///         AddonVersion = "v1.8.7-eksbuild.3",
+    ///         ResolveConflicts = "PRESERVE",
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -93,7 +116,7 @@ namespace Pulumi.Aws.Eks
         /// <summary>
         /// Define how to resolve parameter value conflicts
         /// when migrating an existing add-on to an Amazon EKS add-on or when applying
-        /// version updates to the add-on. Valid values are `NONE` and `OVERWRITE`.
+        /// version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`.
         /// </summary>
         [Output("resolveConflicts")]
         public Output<string?> ResolveConflicts { get; private set; } = null!;
@@ -196,7 +219,7 @@ namespace Pulumi.Aws.Eks
         /// <summary>
         /// Define how to resolve parameter value conflicts
         /// when migrating an existing add-on to an Amazon EKS add-on or when applying
-        /// version updates to the add-on. Valid values are `NONE` and `OVERWRITE`.
+        /// version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`.
         /// </summary>
         [Input("resolveConflicts")]
         public Input<string>? ResolveConflicts { get; set; }
@@ -279,7 +302,7 @@ namespace Pulumi.Aws.Eks
         /// <summary>
         /// Define how to resolve parameter value conflicts
         /// when migrating an existing add-on to an Amazon EKS add-on or when applying
-        /// version updates to the add-on. Valid values are `NONE` and `OVERWRITE`.
+        /// version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`.
         /// </summary>
         [Input("resolveConflicts")]
         public Input<string>? ResolveConflicts { get; set; }

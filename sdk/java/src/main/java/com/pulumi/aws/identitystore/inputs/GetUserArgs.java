@@ -3,11 +3,11 @@
 
 package com.pulumi.aws.identitystore.inputs;
 
+import com.pulumi.aws.identitystore.inputs.GetUserAlternateIdentifierArgs;
 import com.pulumi.aws.identitystore.inputs.GetUserFilterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -18,18 +18,41 @@ public final class GetUserArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetUserArgs Empty = new GetUserArgs();
 
     /**
-     * Configuration block(s) for filtering. Currently, the AWS Identity Store API supports only 1 filter. Detailed below.
+     * A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id` and `filter`. Detailed below.
      * 
      */
-    @Import(name="filters", required=true)
-    private Output<List<GetUserFilterArgs>> filters;
+    @Import(name="alternateIdentifier")
+    private @Nullable Output<GetUserAlternateIdentifierArgs> alternateIdentifier;
 
     /**
-     * @return Configuration block(s) for filtering. Currently, the AWS Identity Store API supports only 1 filter. Detailed below.
+     * @return A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id` and `filter`. Detailed below.
      * 
      */
-    public Output<List<GetUserFilterArgs>> filters() {
-        return this.filters;
+    public Optional<Output<GetUserAlternateIdentifierArgs>> alternateIdentifier() {
+        return Optional.ofNullable(this.alternateIdentifier);
+    }
+
+    /**
+     * Configuration block for filtering by a unique attribute of the user. Detailed below.
+     * 
+     * @deprecated
+     * Use the alternate_identifier attribute instead.
+     * 
+     */
+    @Deprecated /* Use the alternate_identifier attribute instead. */
+    @Import(name="filter")
+    private @Nullable Output<GetUserFilterArgs> filter;
+
+    /**
+     * @return Configuration block for filtering by a unique attribute of the user. Detailed below.
+     * 
+     * @deprecated
+     * Use the alternate_identifier attribute instead.
+     * 
+     */
+    @Deprecated /* Use the alternate_identifier attribute instead. */
+    public Optional<Output<GetUserFilterArgs>> filter() {
+        return Optional.ofNullable(this.filter);
     }
 
     /**
@@ -65,7 +88,8 @@ public final class GetUserArgs extends com.pulumi.resources.InvokeArgs {
     private GetUserArgs() {}
 
     private GetUserArgs(GetUserArgs $) {
-        this.filters = $.filters;
+        this.alternateIdentifier = $.alternateIdentifier;
+        this.filter = $.filter;
         this.identityStoreId = $.identityStoreId;
         this.userId = $.userId;
     }
@@ -89,34 +113,53 @@ public final class GetUserArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param filters Configuration block(s) for filtering. Currently, the AWS Identity Store API supports only 1 filter. Detailed below.
+         * @param alternateIdentifier A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id` and `filter`. Detailed below.
          * 
          * @return builder
          * 
          */
-        public Builder filters(Output<List<GetUserFilterArgs>> filters) {
-            $.filters = filters;
+        public Builder alternateIdentifier(@Nullable Output<GetUserAlternateIdentifierArgs> alternateIdentifier) {
+            $.alternateIdentifier = alternateIdentifier;
             return this;
         }
 
         /**
-         * @param filters Configuration block(s) for filtering. Currently, the AWS Identity Store API supports only 1 filter. Detailed below.
+         * @param alternateIdentifier A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id` and `filter`. Detailed below.
          * 
          * @return builder
          * 
          */
-        public Builder filters(List<GetUserFilterArgs> filters) {
-            return filters(Output.of(filters));
+        public Builder alternateIdentifier(GetUserAlternateIdentifierArgs alternateIdentifier) {
+            return alternateIdentifier(Output.of(alternateIdentifier));
         }
 
         /**
-         * @param filters Configuration block(s) for filtering. Currently, the AWS Identity Store API supports only 1 filter. Detailed below.
+         * @param filter Configuration block for filtering by a unique attribute of the user. Detailed below.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use the alternate_identifier attribute instead.
+         * 
          */
-        public Builder filters(GetUserFilterArgs... filters) {
-            return filters(List.of(filters));
+        @Deprecated /* Use the alternate_identifier attribute instead. */
+        public Builder filter(@Nullable Output<GetUserFilterArgs> filter) {
+            $.filter = filter;
+            return this;
+        }
+
+        /**
+         * @param filter Configuration block for filtering by a unique attribute of the user. Detailed below.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * Use the alternate_identifier attribute instead.
+         * 
+         */
+        @Deprecated /* Use the alternate_identifier attribute instead. */
+        public Builder filter(GetUserFilterArgs filter) {
+            return filter(Output.of(filter));
         }
 
         /**
@@ -162,7 +205,6 @@ public final class GetUserArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetUserArgs build() {
-            $.filters = Objects.requireNonNull($.filters, "expected parameter 'filters' to be non-null");
             $.identityStoreId = Objects.requireNonNull($.identityStoreId, "expected parameter 'identityStoreId' to be non-null");
             return $;
         }

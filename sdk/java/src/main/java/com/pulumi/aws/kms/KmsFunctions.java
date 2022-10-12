@@ -8,6 +8,8 @@ import com.pulumi.aws.kms.inputs.GetAliasArgs;
 import com.pulumi.aws.kms.inputs.GetAliasPlainArgs;
 import com.pulumi.aws.kms.inputs.GetCipherTextArgs;
 import com.pulumi.aws.kms.inputs.GetCipherTextPlainArgs;
+import com.pulumi.aws.kms.inputs.GetCustomKeyStoreArgs;
+import com.pulumi.aws.kms.inputs.GetCustomKeyStorePlainArgs;
 import com.pulumi.aws.kms.inputs.GetKeyArgs;
 import com.pulumi.aws.kms.inputs.GetKeyPlainArgs;
 import com.pulumi.aws.kms.inputs.GetPublicKeyArgs;
@@ -18,6 +20,7 @@ import com.pulumi.aws.kms.inputs.GetSecretsArgs;
 import com.pulumi.aws.kms.inputs.GetSecretsPlainArgs;
 import com.pulumi.aws.kms.outputs.GetAliasResult;
 import com.pulumi.aws.kms.outputs.GetCipherTextResult;
+import com.pulumi.aws.kms.outputs.GetCustomKeyStoreResult;
 import com.pulumi.aws.kms.outputs.GetKeyResult;
 import com.pulumi.aws.kms.outputs.GetPublicKeyResult;
 import com.pulumi.aws.kms.outputs.GetSecretResult;
@@ -396,6 +399,240 @@ public final class KmsFunctions {
      */
     public static CompletableFuture<GetCipherTextResult> getCipherTextPlain(GetCipherTextPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:kms/getCipherText:getCipherText", TypeShape.of(GetCipherTextResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get the metadata KMS custom key store.
+     * By using this data source, you can reference KMS custom key store
+     * without having to hard code the ID as input.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.kms.KmsFunctions;
+     * import com.pulumi.aws.kms.inputs.GetCustomKeyStoreArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var keystore = KmsFunctions.getCustomKeyStore(GetCustomKeyStoreArgs.builder()
+     *             .customKeyStoreName(&#34;my_cloudhsm&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetCustomKeyStoreResult> getCustomKeyStore() {
+        return getCustomKeyStore(GetCustomKeyStoreArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get the metadata KMS custom key store.
+     * By using this data source, you can reference KMS custom key store
+     * without having to hard code the ID as input.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.kms.KmsFunctions;
+     * import com.pulumi.aws.kms.inputs.GetCustomKeyStoreArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var keystore = KmsFunctions.getCustomKeyStore(GetCustomKeyStoreArgs.builder()
+     *             .customKeyStoreName(&#34;my_cloudhsm&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetCustomKeyStoreResult> getCustomKeyStorePlain() {
+        return getCustomKeyStorePlain(GetCustomKeyStorePlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get the metadata KMS custom key store.
+     * By using this data source, you can reference KMS custom key store
+     * without having to hard code the ID as input.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.kms.KmsFunctions;
+     * import com.pulumi.aws.kms.inputs.GetCustomKeyStoreArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var keystore = KmsFunctions.getCustomKeyStore(GetCustomKeyStoreArgs.builder()
+     *             .customKeyStoreName(&#34;my_cloudhsm&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetCustomKeyStoreResult> getCustomKeyStore(GetCustomKeyStoreArgs args) {
+        return getCustomKeyStore(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get the metadata KMS custom key store.
+     * By using this data source, you can reference KMS custom key store
+     * without having to hard code the ID as input.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.kms.KmsFunctions;
+     * import com.pulumi.aws.kms.inputs.GetCustomKeyStoreArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var keystore = KmsFunctions.getCustomKeyStore(GetCustomKeyStoreArgs.builder()
+     *             .customKeyStoreName(&#34;my_cloudhsm&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetCustomKeyStoreResult> getCustomKeyStorePlain(GetCustomKeyStorePlainArgs args) {
+        return getCustomKeyStorePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get the metadata KMS custom key store.
+     * By using this data source, you can reference KMS custom key store
+     * without having to hard code the ID as input.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.kms.KmsFunctions;
+     * import com.pulumi.aws.kms.inputs.GetCustomKeyStoreArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var keystore = KmsFunctions.getCustomKeyStore(GetCustomKeyStoreArgs.builder()
+     *             .customKeyStoreName(&#34;my_cloudhsm&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetCustomKeyStoreResult> getCustomKeyStore(GetCustomKeyStoreArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:kms/getCustomKeyStore:getCustomKeyStore", TypeShape.of(GetCustomKeyStoreResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get the metadata KMS custom key store.
+     * By using this data source, you can reference KMS custom key store
+     * without having to hard code the ID as input.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.kms.KmsFunctions;
+     * import com.pulumi.aws.kms.inputs.GetCustomKeyStoreArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var keystore = KmsFunctions.getCustomKeyStore(GetCustomKeyStoreArgs.builder()
+     *             .customKeyStoreName(&#34;my_cloudhsm&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetCustomKeyStoreResult> getCustomKeyStorePlain(GetCustomKeyStorePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:kms/getCustomKeyStore:getCustomKeyStore", TypeShape.of(GetCustomKeyStoreResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get detailed information about

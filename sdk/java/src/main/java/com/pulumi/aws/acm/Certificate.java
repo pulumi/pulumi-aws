@@ -8,11 +8,13 @@ import com.pulumi.aws.acm.CertificateArgs;
 import com.pulumi.aws.acm.inputs.CertificateState;
 import com.pulumi.aws.acm.outputs.CertificateDomainValidationOption;
 import com.pulumi.aws.acm.outputs.CertificateOptions;
+import com.pulumi.aws.acm.outputs.CertificateRenewalSummary;
 import com.pulumi.aws.acm.outputs.CertificateValidationOption;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -23,17 +25,40 @@ import javax.annotation.Nullable;
  * The ACM certificate resource allows requesting and management of certificates
  * from the Amazon Certificate Manager.
  * 
- * It deals with requesting certificates and managing their attributes and life-cycle.
+ * ACM certificates can be created in three ways:
+ * Amazon-issued, where AWS provides the certificate authority and automatically manages renewal;
+ * imported certificates, issued by another certificate authority;
+ * and private certificates, issued using an ACM Private Certificate Authority.
+ * 
+ * ## Amazon-Issued Certificates
+ * 
+ * For Amazon-issued certificates, this resource deals with requesting certificates and managing their attributes and life-cycle.
  * This resource does not deal with validation of a certificate but can provide inputs
- * for other resources implementing the validation. It does not wait for a certificate to be issued.
+ * for other resources implementing the validation.
+ * It does not wait for a certificate to be issued.
  * Use a `aws.acm.CertificateValidation` resource for this.
  * 
  * Most commonly, this resource is used together with `aws.route53.Record` and
  * `aws.acm.CertificateValidation` to request a DNS validated certificate,
  * deploy the required validation records and wait for validation to complete.
  * 
- * Domain validation through E-Mail is also supported but should be avoided as it requires a manual step outside
- * of this provider.
+ * Domain validation through email is also supported but should be avoided as it requires a manual step outside of this provider.
+ * 
+ * ## Certificates Imported from Other Certificate Authority
+ * 
+ * Imported certificates can be used to make certificates created with an external certificate authority available for AWS services.
+ * 
+ * As they are not managed by AWS, imported certificates are not eligible for automatic renewal.
+ * New certificate materials can be supplied to an existing imported certificate to update it in place.
+ * 
+ * ## Private Certificates
+ * 
+ * Private certificates are issued by an ACM Private Cerificate Authority, which can be created using the resource type `aws.acmpca.CertificateAuthority`.
+ * 
+ * Private certificates created using this resource are eligible for managed renewal if they have been exported or associated with another AWS service.
+ * See [managed renewal documentation](https://docs.aws.amazon.com/acm/latest/userguide/managed-renewal.html) for more information.
+ * By default, a certificate is valid for 395 days and the managed renewal process will start 60 days before expiration.
+ * To renew the certificate earlier than 60 days before expiration, configure `early_renewal_duration`.
  * 
  * ## Example Usage
  * ### Create Certificate
@@ -240,18 +265,44 @@ public class Certificate extends com.pulumi.resources.CustomResource {
         return this.domainName;
     }
     /**
-     * Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Only set if `DNS`-validation was used.
+     * Set of domain validation objects which can be used to complete certificate validation.
+     * Can have more than one element, e.g., if SANs are defined.
+     * Only set if `DNS`-validation was used.
      * 
      */
     @Export(name="domainValidationOptions", type=List.class, parameters={CertificateDomainValidationOption.class})
     private Output<List<CertificateDomainValidationOption>> domainValidationOptions;
 
     /**
-     * @return Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Only set if `DNS`-validation was used.
+     * @return Set of domain validation objects which can be used to complete certificate validation.
+     * Can have more than one element, e.g., if SANs are defined.
+     * Only set if `DNS`-validation was used.
      * 
      */
     public Output<List<CertificateDomainValidationOption>> domainValidationOptions() {
         return this.domainValidationOptions;
+    }
+    /**
+     * Amount of time to start automatic renewal process before expiration.
+     * Has no effect if less than 60 days.
+     * Represented by either
+     * a subset of [RFC 3339 duration](https://www.rfc-editor.org/rfc/rfc3339) supporting years, months, and days (e.g., `P90D`),
+     * or a string such as `2160h`.
+     * 
+     */
+    @Export(name="earlyRenewalDuration", type=String.class, parameters={})
+    private Output</* @Nullable */ String> earlyRenewalDuration;
+
+    /**
+     * @return Amount of time to start automatic renewal process before expiration.
+     * Has no effect if less than 60 days.
+     * Represented by either
+     * a subset of [RFC 3339 duration](https://www.rfc-editor.org/rfc/rfc3339) supporting years, months, and days (e.g., `P90D`),
+     * or a string such as `2160h`.
+     * 
+     */
+    public Output<Optional<String>> earlyRenewalDuration() {
+        return Codegen.optional(this.earlyRenewalDuration);
     }
     /**
      * Expiration date and time of the certificate.
@@ -296,6 +347,20 @@ public class Certificate extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.options);
     }
     /**
+     * `true` if a Private certificate eligible for managed renewal is within the `early_renewal_duration` period.
+     * 
+     */
+    @Export(name="pendingRenewal", type=Boolean.class, parameters={})
+    private Output<Boolean> pendingRenewal;
+
+    /**
+     * @return `true` if a Private certificate eligible for managed renewal is within the `early_renewal_duration` period.
+     * 
+     */
+    public Output<Boolean> pendingRenewal() {
+        return this.pendingRenewal;
+    }
+    /**
      * Certificate&#39;s PEM-formatted private key
      * 
      */
@@ -308,6 +373,34 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> privateKey() {
         return Codegen.optional(this.privateKey);
+    }
+    /**
+     * Whether the certificate is eligible for managed renewal.
+     * 
+     */
+    @Export(name="renewalEligibility", type=String.class, parameters={})
+    private Output<String> renewalEligibility;
+
+    /**
+     * @return Whether the certificate is eligible for managed renewal.
+     * 
+     */
+    public Output<String> renewalEligibility() {
+        return this.renewalEligibility;
+    }
+    /**
+     * Contains information about the status of ACM&#39;s [managed renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html) for the certificate.
+     * 
+     */
+    @Export(name="renewalSummaries", type=List.class, parameters={CertificateRenewalSummary.class})
+    private Output<List<CertificateRenewalSummary>> renewalSummaries;
+
+    /**
+     * @return Contains information about the status of ACM&#39;s [managed renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html) for the certificate.
+     * 
+     */
+    public Output<List<CertificateRenewalSummary>> renewalSummaries() {
+        return this.renewalSummaries;
     }
     /**
      * Status of the certificate.
@@ -324,14 +417,16 @@ public class Certificate extends com.pulumi.resources.CustomResource {
         return this.status;
     }
     /**
-     * Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+     * Set of domains that should be SANs in the issued certificate.
+     * To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
      * 
      */
     @Export(name="subjectAlternativeNames", type=List.class, parameters={String.class})
     private Output<List<String>> subjectAlternativeNames;
 
     /**
-     * @return Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+     * @return Set of domains that should be SANs in the issued certificate.
+     * To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
      * 
      */
     public Output<List<String>> subjectAlternativeNames() {
@@ -366,14 +461,28 @@ public class Certificate extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * List of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
+     * Source of the certificate.
+     * 
+     */
+    @Export(name="type", type=String.class, parameters={})
+    private Output<String> type;
+
+    /**
+     * @return Source of the certificate.
+     * 
+     */
+    public Output<String> type() {
+        return this.type;
+    }
+    /**
+     * List of addresses that received a validation email. Only set if `EMAIL` validation was used.
      * 
      */
     @Export(name="validationEmails", type=List.class, parameters={String.class})
     private Output<List<String>> validationEmails;
 
     /**
-     * @return List of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
+     * @return List of addresses that received a validation email. Only set if `EMAIL` validation was used.
      * 
      */
     public Output<List<String>> validationEmails() {

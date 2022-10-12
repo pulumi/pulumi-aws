@@ -103,7 +103,7 @@ import javax.annotation.Nullable;
  *             .code(new FileArchive(&#34;lambda.zip&#34;))
  *             .role(lambdaIam.arn())
  *             .handler(&#34;exports.handler&#34;)
- *             .runtime(&#34;nodejs12.x&#34;)
+ *             .runtime(&#34;nodejs16.x&#34;)
  *             .build());
  * 
  *         var extendedS3Stream = new FirehoseDeliveryStream(&#34;extendedS3Stream&#34;, FirehoseDeliveryStreamArgs.builder()        

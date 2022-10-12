@@ -95,7 +95,7 @@ export class AccessKey extends pulumi.CustomResource {
      */
     public /*out*/ readonly keyFingerprint!: pulumi.Output<string>;
     /**
-     * Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:some_person_that_exists`, for use in the `encryptedSecret` output attribute.
+     * Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:some_person_that_exists`, for use in the `encryptedSecret` output attribute. If providing a base-64 encoded PGP public key, make sure to provide the "raw" version and not the "armored" one (e.g. avoid passing the `-a` option to `gpg --export`).
      */
     public readonly pgpKey!: pulumi.Output<string | undefined>;
     /**
@@ -172,7 +172,7 @@ export interface AccessKeyState {
      */
     keyFingerprint?: pulumi.Input<string>;
     /**
-     * Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:some_person_that_exists`, for use in the `encryptedSecret` output attribute.
+     * Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:some_person_that_exists`, for use in the `encryptedSecret` output attribute. If providing a base-64 encoded PGP public key, make sure to provide the "raw" version and not the "armored" one (e.g. avoid passing the `-a` option to `gpg --export`).
      */
     pgpKey?: pulumi.Input<string>;
     /**
@@ -198,7 +198,7 @@ export interface AccessKeyState {
  */
 export interface AccessKeyArgs {
     /**
-     * Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:some_person_that_exists`, for use in the `encryptedSecret` output attribute.
+     * Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:some_person_that_exists`, for use in the `encryptedSecret` output attribute. If providing a base-64 encoded PGP public key, make sure to provide the "raw" version and not the "armored" one (e.g. avoid passing the `-a` option to `gpg --export`).
      */
     pgpKey?: pulumi.Input<string>;
     /**

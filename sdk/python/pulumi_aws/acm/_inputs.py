@@ -12,6 +12,7 @@ from .. import _utilities
 __all__ = [
     'CertificateDomainValidationOptionArgs',
     'CertificateOptionsArgs',
+    'CertificateRenewalSummaryArgs',
     'CertificateValidationOptionArgs',
 ]
 
@@ -107,6 +108,57 @@ class CertificateOptionsArgs:
     @certificate_transparency_logging_preference.setter
     def certificate_transparency_logging_preference(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "certificate_transparency_logging_preference", value)
+
+
+@pulumi.input_type
+class CertificateRenewalSummaryArgs:
+    def __init__(__self__, *,
+                 renewal_status: Optional[pulumi.Input[str]] = None,
+                 renewal_status_reason: Optional[pulumi.Input[str]] = None,
+                 updated_at: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] renewal_status: The status of ACM's managed renewal of the certificate
+        :param pulumi.Input[str] renewal_status_reason: The reason that a renewal request was unsuccessful or is pending
+        """
+        if renewal_status is not None:
+            pulumi.set(__self__, "renewal_status", renewal_status)
+        if renewal_status_reason is not None:
+            pulumi.set(__self__, "renewal_status_reason", renewal_status_reason)
+        if updated_at is not None:
+            pulumi.set(__self__, "updated_at", updated_at)
+
+    @property
+    @pulumi.getter(name="renewalStatus")
+    def renewal_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The status of ACM's managed renewal of the certificate
+        """
+        return pulumi.get(self, "renewal_status")
+
+    @renewal_status.setter
+    def renewal_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "renewal_status", value)
+
+    @property
+    @pulumi.getter(name="renewalStatusReason")
+    def renewal_status_reason(self) -> Optional[pulumi.Input[str]]:
+        """
+        The reason that a renewal request was unsuccessful or is pending
+        """
+        return pulumi.get(self, "renewal_status_reason")
+
+    @renewal_status_reason.setter
+    def renewal_status_reason(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "renewal_status_reason", value)
+
+    @property
+    @pulumi.getter(name="updatedAt")
+    def updated_at(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "updated_at")
+
+    @updated_at.setter
+    def updated_at(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "updated_at", value)
 
 
 @pulumi.input_type

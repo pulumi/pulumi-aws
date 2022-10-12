@@ -11,9 +11,9 @@ import (
 )
 
 type CertificateAuthorityCertificateAuthorityConfiguration struct {
-	// Type of the public key algorithm and size, in bits, of the key pair that your key pair creates when it issues a certificate. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
+	// Type of the public key algorithm and size, in bits, of the key pair that your key pair creates when it issues a certificate. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
 	KeyAlgorithm string `pulumi:"keyAlgorithm"`
-	// Name of the algorithm your private CA uses to sign certificate requests. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
+	// Name of the algorithm your private CA uses to sign certificate requests. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
 	SigningAlgorithm string `pulumi:"signingAlgorithm"`
 	// Nested argument that contains X.500 distinguished name information. At least one nested attribute must be specified.
 	Subject CertificateAuthorityCertificateAuthorityConfigurationSubject `pulumi:"subject"`
@@ -31,9 +31,9 @@ type CertificateAuthorityCertificateAuthorityConfigurationInput interface {
 }
 
 type CertificateAuthorityCertificateAuthorityConfigurationArgs struct {
-	// Type of the public key algorithm and size, in bits, of the key pair that your key pair creates when it issues a certificate. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
+	// Type of the public key algorithm and size, in bits, of the key pair that your key pair creates when it issues a certificate. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
 	KeyAlgorithm pulumi.StringInput `pulumi:"keyAlgorithm"`
-	// Name of the algorithm your private CA uses to sign certificate requests. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
+	// Name of the algorithm your private CA uses to sign certificate requests. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
 	SigningAlgorithm pulumi.StringInput `pulumi:"signingAlgorithm"`
 	// Nested argument that contains X.500 distinguished name information. At least one nested attribute must be specified.
 	Subject CertificateAuthorityCertificateAuthorityConfigurationSubjectInput `pulumi:"subject"`
@@ -116,12 +116,12 @@ func (o CertificateAuthorityCertificateAuthorityConfigurationOutput) ToCertifica
 	}).(CertificateAuthorityCertificateAuthorityConfigurationPtrOutput)
 }
 
-// Type of the public key algorithm and size, in bits, of the key pair that your key pair creates when it issues a certificate. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
+// Type of the public key algorithm and size, in bits, of the key pair that your key pair creates when it issues a certificate. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
 func (o CertificateAuthorityCertificateAuthorityConfigurationOutput) KeyAlgorithm() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificateAuthorityCertificateAuthorityConfiguration) string { return v.KeyAlgorithm }).(pulumi.StringOutput)
 }
 
-// Name of the algorithm your private CA uses to sign certificate requests. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
+// Name of the algorithm your private CA uses to sign certificate requests. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
 func (o CertificateAuthorityCertificateAuthorityConfigurationOutput) SigningAlgorithm() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificateAuthorityCertificateAuthorityConfiguration) string { return v.SigningAlgorithm }).(pulumi.StringOutput)
 }
@@ -157,7 +157,7 @@ func (o CertificateAuthorityCertificateAuthorityConfigurationPtrOutput) Elem() C
 	}).(CertificateAuthorityCertificateAuthorityConfigurationOutput)
 }
 
-// Type of the public key algorithm and size, in bits, of the key pair that your key pair creates when it issues a certificate. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
+// Type of the public key algorithm and size, in bits, of the key pair that your key pair creates when it issues a certificate. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
 func (o CertificateAuthorityCertificateAuthorityConfigurationPtrOutput) KeyAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateAuthorityCertificateAuthorityConfiguration) *string {
 		if v == nil {
@@ -167,7 +167,7 @@ func (o CertificateAuthorityCertificateAuthorityConfigurationPtrOutput) KeyAlgor
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the algorithm your private CA uses to sign certificate requests. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
+// Name of the algorithm your private CA uses to sign certificate requests. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
 func (o CertificateAuthorityCertificateAuthorityConfigurationPtrOutput) SigningAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateAuthorityCertificateAuthorityConfiguration) *string {
 		if v == nil {

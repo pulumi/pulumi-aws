@@ -17,6 +17,7 @@ __all__ = [
     'FirewallPolicyFirewallPolicy',
     'FirewallPolicyFirewallPolicyStatefulEngineOptions',
     'FirewallPolicyFirewallPolicyStatefulRuleGroupReference',
+    'FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride',
     'FirewallPolicyFirewallPolicyStatelessCustomAction',
     'FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition',
     'FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction',
@@ -380,12 +381,16 @@ class FirewallPolicyFirewallPolicyStatefulRuleGroupReference(dict):
 
     def __init__(__self__, *,
                  resource_arn: str,
+                 override: Optional['outputs.FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride'] = None,
                  priority: Optional[int] = None):
         """
         :param str resource_arn: The Amazon Resource Name (ARN) of the stateful rule group.
+        :param 'FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArgs' override: Configuration block for override values
         :param int priority: An integer setting that indicates the order in which to apply the stateful rule groups in a single policy. This argument must be specified if the policy has a `stateful_engine_options` block with a `rule_order` value of `STRICT_ORDER`. AWS Network Firewall applies each stateful rule group to a packet starting with the group that has the lowest priority setting.
         """
         pulumi.set(__self__, "resource_arn", resource_arn)
+        if override is not None:
+            pulumi.set(__self__, "override", override)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
 
@@ -399,11 +404,38 @@ class FirewallPolicyFirewallPolicyStatefulRuleGroupReference(dict):
 
     @property
     @pulumi.getter
+    def override(self) -> Optional['outputs.FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride']:
+        """
+        Configuration block for override values
+        """
+        return pulumi.get(self, "override")
+
+    @property
+    @pulumi.getter
     def priority(self) -> Optional[int]:
         """
         An integer setting that indicates the order in which to apply the stateful rule groups in a single policy. This argument must be specified if the policy has a `stateful_engine_options` block with a `rule_order` value of `STRICT_ORDER`. AWS Network Firewall applies each stateful rule group to a packet starting with the group that has the lowest priority setting.
         """
         return pulumi.get(self, "priority")
+
+
+@pulumi.output_type
+class FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride(dict):
+    def __init__(__self__, *,
+                 action: Optional[str] = None):
+        """
+        :param str action: The action that changes the rule group from DROP to ALERT . This only applies to managed rule groups.
+        """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[str]:
+        """
+        The action that changes the rule group from DROP to ALERT . This only applies to managed rule groups.
+        """
+        return pulumi.get(self, "action")
 
 
 @pulumi.output_type

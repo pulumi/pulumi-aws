@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.cloudwatch.outputs;
 
+import com.pulumi.aws.cloudwatch.outputs.EventTargetEcsTargetCapacityProviderStrategy;
 import com.pulumi.aws.cloudwatch.outputs.EventTargetEcsTargetNetworkConfiguration;
 import com.pulumi.aws.cloudwatch.outputs.EventTargetEcsTargetPlacementConstraint;
 import com.pulumi.core.annotations.CustomType;
@@ -17,6 +18,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EventTargetEcsTarget {
+    /**
+     * @return The capacity provider strategy to use for the task. If a `capacity_provider_strategy` specified, the `launch_type` parameter must be omitted. If no `capacity_provider_strategy` or `launch_type` is specified, the default capacity provider strategy for the cluster is used. Can be one or more. See below.
+     * 
+     */
+    private @Nullable List<EventTargetEcsTargetCapacityProviderStrategy> capacityProviderStrategies;
     /**
      * @return Specifies whether to enable Amazon ECS managed tags for the task.
      * 
@@ -74,6 +80,13 @@ public final class EventTargetEcsTarget {
     private String taskDefinitionArn;
 
     private EventTargetEcsTarget() {}
+    /**
+     * @return The capacity provider strategy to use for the task. If a `capacity_provider_strategy` specified, the `launch_type` parameter must be omitted. If no `capacity_provider_strategy` or `launch_type` is specified, the default capacity provider strategy for the cluster is used. Can be one or more. See below.
+     * 
+     */
+    public List<EventTargetEcsTargetCapacityProviderStrategy> capacityProviderStrategies() {
+        return this.capacityProviderStrategies == null ? List.of() : this.capacityProviderStrategies;
+    }
     /**
      * @return Specifies whether to enable Amazon ECS managed tags for the task.
      * 
@@ -161,6 +174,7 @@ public final class EventTargetEcsTarget {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable List<EventTargetEcsTargetCapacityProviderStrategy> capacityProviderStrategies;
         private @Nullable Boolean enableEcsManagedTags;
         private @Nullable Boolean enableExecuteCommand;
         private @Nullable String group;
@@ -175,6 +189,7 @@ public final class EventTargetEcsTarget {
         public Builder() {}
         public Builder(EventTargetEcsTarget defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.capacityProviderStrategies = defaults.capacityProviderStrategies;
     	      this.enableEcsManagedTags = defaults.enableEcsManagedTags;
     	      this.enableExecuteCommand = defaults.enableExecuteCommand;
     	      this.group = defaults.group;
@@ -188,6 +203,14 @@ public final class EventTargetEcsTarget {
     	      this.taskDefinitionArn = defaults.taskDefinitionArn;
         }
 
+        @CustomType.Setter
+        public Builder capacityProviderStrategies(@Nullable List<EventTargetEcsTargetCapacityProviderStrategy> capacityProviderStrategies) {
+            this.capacityProviderStrategies = capacityProviderStrategies;
+            return this;
+        }
+        public Builder capacityProviderStrategies(EventTargetEcsTargetCapacityProviderStrategy... capacityProviderStrategies) {
+            return capacityProviderStrategies(List.of(capacityProviderStrategies));
+        }
         @CustomType.Setter
         public Builder enableEcsManagedTags(@Nullable Boolean enableEcsManagedTags) {
             this.enableEcsManagedTags = enableEcsManagedTags;
@@ -248,6 +271,7 @@ public final class EventTargetEcsTarget {
         }
         public EventTargetEcsTarget build() {
             final var o = new EventTargetEcsTarget();
+            o.capacityProviderStrategies = capacityProviderStrategies;
             o.enableEcsManagedTags = enableEcsManagedTags;
             o.enableExecuteCommand = enableExecuteCommand;
             o.group = group;

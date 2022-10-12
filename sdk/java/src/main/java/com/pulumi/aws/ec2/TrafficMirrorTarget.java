@@ -53,6 +53,11 @@ import javax.annotation.Nullable;
  *             .networkInterfaceId(aws_instance.test().primary_network_interface_id())
  *             .build());
  * 
+ *         var gwlb = new TrafficMirrorTarget(&#34;gwlb&#34;, TrafficMirrorTargetArgs.builder()        
+ *             .description(&#34;GWLB target&#34;)
+ *             .gatewayLoadBalancerEndpointId(aws_vpc_endpoint.example().id())
+ *             .build());
+ * 
  *     }
  * }
  * ```
@@ -95,6 +100,20 @@ public class TrafficMirrorTarget extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
+    }
+    /**
+     * The VPC Endpoint Id of the Gateway Load Balancer that is associated with the target.
+     * 
+     */
+    @Export(name="gatewayLoadBalancerEndpointId", type=String.class, parameters={})
+    private Output</* @Nullable */ String> gatewayLoadBalancerEndpointId;
+
+    /**
+     * @return The VPC Endpoint Id of the Gateway Load Balancer that is associated with the target.
+     * 
+     */
+    public Output<Optional<String>> gatewayLoadBalancerEndpointId() {
+        return Codegen.optional(this.gatewayLoadBalancerEndpointId);
     }
     /**
      * The network interface ID that is associated with the target.

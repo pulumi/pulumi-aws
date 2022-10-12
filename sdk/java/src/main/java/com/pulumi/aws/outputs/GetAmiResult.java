@@ -91,6 +91,11 @@ public final class GetAmiResult {
      * 
      */
     private String imageType;
+    /**
+     * @return Instance Metadata Service (IMDS) support mode for the image. Set to `v2.0` if instances ran from this image enforce IMDSv2.
+     * 
+     */
+    private String imdsSupport;
     private @Nullable Boolean includeDeprecated;
     /**
      * @return Kernel associated with the image, if any. Only applicable
@@ -304,6 +309,13 @@ public final class GetAmiResult {
     public String imageType() {
         return this.imageType;
     }
+    /**
+     * @return Instance Metadata Service (IMDS) support mode for the image. Set to `v2.0` if instances ran from this image enforce IMDSv2.
+     * 
+     */
+    public String imdsSupport() {
+        return this.imdsSupport;
+    }
     public Optional<Boolean> includeDeprecated() {
         return Optional.ofNullable(this.includeDeprecated);
     }
@@ -479,6 +491,7 @@ public final class GetAmiResult {
         private String imageLocation;
         private String imageOwnerAlias;
         private String imageType;
+        private String imdsSupport;
         private @Nullable Boolean includeDeprecated;
         private String kernelId;
         private @Nullable Boolean mostRecent;
@@ -520,6 +533,7 @@ public final class GetAmiResult {
     	      this.imageLocation = defaults.imageLocation;
     	      this.imageOwnerAlias = defaults.imageOwnerAlias;
     	      this.imageType = defaults.imageType;
+    	      this.imdsSupport = defaults.imdsSupport;
     	      this.includeDeprecated = defaults.includeDeprecated;
     	      this.kernelId = defaults.kernelId;
     	      this.mostRecent = defaults.mostRecent;
@@ -631,6 +645,11 @@ public final class GetAmiResult {
         @CustomType.Setter
         public Builder imageType(String imageType) {
             this.imageType = Objects.requireNonNull(imageType);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder imdsSupport(String imdsSupport) {
+            this.imdsSupport = Objects.requireNonNull(imdsSupport);
             return this;
         }
         @CustomType.Setter
@@ -767,6 +786,7 @@ public final class GetAmiResult {
             o.imageLocation = imageLocation;
             o.imageOwnerAlias = imageOwnerAlias;
             o.imageType = imageType;
+            o.imdsSupport = imdsSupport;
             o.includeDeprecated = includeDeprecated;
             o.kernelId = kernelId;
             o.mostRecent = mostRecent;

@@ -95,6 +95,10 @@ export class Environment extends pulumi.CustomResource {
      * Name for the environment. Must be between 1 and 64 characters in length.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
+     * or `ROLLED_BACK`.
+     */
     public /*out*/ readonly state!: pulumi.Output<string>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -175,6 +179,10 @@ export interface EnvironmentState {
      * Name for the environment. Must be between 1 and 64 characters in length.
      */
     name?: pulumi.Input<string>;
+    /**
+     * State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
+     * or `ROLLED_BACK`.
+     */
     state?: pulumi.Input<string>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

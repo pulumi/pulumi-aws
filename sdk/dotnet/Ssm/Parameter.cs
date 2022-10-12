@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ssm
 {
     /// <summary>
-    /// Provides an SSM Parameter resource.
-    /// 
     /// ## Example Usage
     /// ### Basic example
     /// 

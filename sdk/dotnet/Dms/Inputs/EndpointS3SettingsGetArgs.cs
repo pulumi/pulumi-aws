@@ -228,6 +228,14 @@ namespace Pulumi.Aws.Dms.Inputs
         [Input("useCsvNoSupValue")]
         public Input<bool>? UseCsvNoSupValue { get; set; }
 
+        /// <summary>
+        /// When set to true, uses the task start time as the timestamp column value instead of the time data is written to target.
+        /// For full load, when set to true, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time.
+        /// When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
+        /// </summary>
+        [Input("useTaskStartTimeForFullLoadTimestamp")]
+        public Input<bool>? UseTaskStartTimeForFullLoadTimestamp { get; set; }
+
         public EndpointS3SettingsGetArgs()
         {
         }

@@ -12,6 +12,7 @@ import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementA
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementNotStatementArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementOrStatementArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementArgs;
+import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRegexMatchStatementArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRegexPatternSetReferenceStatementArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRuleGroupReferenceStatementArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementSizeConstraintStatementArgs;
@@ -164,6 +165,21 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
     }
 
     /**
+     * Rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+     * 
+     */
+    @Import(name="regexMatchStatement")
+    private @Nullable Output<WebAclRuleStatementRegexMatchStatementArgs> regexMatchStatement;
+
+    /**
+     * @return Rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+     * 
+     */
+    public Optional<Output<WebAclRuleStatementRegexMatchStatementArgs>> regexMatchStatement() {
+        return Optional.ofNullable(this.regexMatchStatement);
+    }
+
+    /**
      * Rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
      * 
      */
@@ -250,6 +266,7 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
         this.notStatement = $.notStatement;
         this.orStatement = $.orStatement;
         this.rateBasedStatement = $.rateBasedStatement;
+        this.regexMatchStatement = $.regexMatchStatement;
         this.regexPatternSetReferenceStatement = $.regexPatternSetReferenceStatement;
         this.ruleGroupReferenceStatement = $.ruleGroupReferenceStatement;
         this.sizeConstraintStatement = $.sizeConstraintStatement;
@@ -462,6 +479,27 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
          */
         public Builder rateBasedStatement(WebAclRuleStatementRateBasedStatementArgs rateBasedStatement) {
             return rateBasedStatement(Output.of(rateBasedStatement));
+        }
+
+        /**
+         * @param regexMatchStatement Rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder regexMatchStatement(@Nullable Output<WebAclRuleStatementRegexMatchStatementArgs> regexMatchStatement) {
+            $.regexMatchStatement = regexMatchStatement;
+            return this;
+        }
+
+        /**
+         * @param regexMatchStatement Rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder regexMatchStatement(WebAclRuleStatementRegexMatchStatementArgs regexMatchStatement) {
+            return regexMatchStatement(Output.of(regexMatchStatement));
         }
 
         /**

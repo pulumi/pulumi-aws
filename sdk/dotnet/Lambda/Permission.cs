@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Lambda
     ///         Code = new FileArchive("lambdatest.zip"),
     ///         Role = iamForLambda.Arn,
     ///         Handler = "exports.handler",
-    ///         Runtime = "nodejs12.x",
+    ///         Runtime = "nodejs16.x",
     ///     });
     /// 
     ///     var testAlias = new Aws.Lambda.Alias("testAlias", new()

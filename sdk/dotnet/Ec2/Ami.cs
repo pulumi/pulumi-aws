@@ -42,6 +42,7 @@ namespace Pulumi.Aws.Ec2
     ///                 VolumeSize = 8,
     ///             },
     ///         },
+    ///         ImdsSupport = "v2.0",
     ///         RootDeviceName = "/dev/xvda",
     ///         VirtualizationType = "hvm",
     ///     });
@@ -134,6 +135,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Output("imageType")]
         public Output<string> ImageType { get; private set; } = null!;
+
+        /// <summary>
+        /// If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
+        /// </summary>
+        [Output("imdsSupport")]
+        public Output<string?> ImdsSupport { get; private set; } = null!;
 
         /// <summary>
         /// ID of the kernel image (AKI) that will be used as the paravirtual
@@ -343,6 +350,12 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? ImageLocation { get; set; }
 
         /// <summary>
+        /// If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
+        /// </summary>
+        [Input("imdsSupport")]
+        public Input<string>? ImdsSupport { get; set; }
+
+        /// <summary>
         /// ID of the kernel image (AKI) that will be used as the paravirtual
         /// kernel in created instances.
         /// </summary>
@@ -495,6 +508,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("imageType")]
         public Input<string>? ImageType { get; set; }
+
+        /// <summary>
+        /// If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
+        /// </summary>
+        [Input("imdsSupport")]
+        public Input<string>? ImdsSupport { get; set; }
 
         /// <summary>
         /// ID of the kernel image (AKI) that will be used as the paravirtual

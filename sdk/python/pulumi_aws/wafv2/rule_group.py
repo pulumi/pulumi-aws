@@ -458,6 +458,20 @@ class RuleGroup(pulumi.CustomResource):
                         or_statement=aws.wafv2.RuleGroupRuleStatementOrStatementArgs(
                             statements=[
                                 aws.wafv2.RuleGroupRuleStatementOrStatementStatementArgs(
+                                    regex_match_statement=aws.wafv2.RuleGroupRuleStatementOrStatementStatementRegexMatchStatementArgs(
+                                        regex_string="[a-z]([a-z0-9_-]*[a-z0-9])?",
+                                        field_to_match=aws.wafv2.RuleGroupRuleStatementOrStatementStatementRegexMatchStatementFieldToMatchArgs(
+                                            single_header=aws.wafv2.RuleGroupRuleStatementOrStatementStatementRegexMatchStatementFieldToMatchSingleHeaderArgs(
+                                                name="user-agent",
+                                            ),
+                                        ),
+                                        text_transformations=[aws.wafv2.RuleGroupRuleStatementOrStatementStatementRegexMatchStatementTextTransformationArgs(
+                                            priority=6,
+                                            type="NONE",
+                                        )],
+                                    ),
+                                ),
+                                aws.wafv2.RuleGroupRuleStatementOrStatementStatementArgs(
                                     sqli_match_statement=aws.wafv2.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementArgs(
                                         field_to_match=aws.wafv2.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchArgs(
                                             body=aws.wafv2.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchBodyArgs(),
@@ -716,6 +730,20 @@ class RuleGroup(pulumi.CustomResource):
                     statement=aws.wafv2.RuleGroupRuleStatementArgs(
                         or_statement=aws.wafv2.RuleGroupRuleStatementOrStatementArgs(
                             statements=[
+                                aws.wafv2.RuleGroupRuleStatementOrStatementStatementArgs(
+                                    regex_match_statement=aws.wafv2.RuleGroupRuleStatementOrStatementStatementRegexMatchStatementArgs(
+                                        regex_string="[a-z]([a-z0-9_-]*[a-z0-9])?",
+                                        field_to_match=aws.wafv2.RuleGroupRuleStatementOrStatementStatementRegexMatchStatementFieldToMatchArgs(
+                                            single_header=aws.wafv2.RuleGroupRuleStatementOrStatementStatementRegexMatchStatementFieldToMatchSingleHeaderArgs(
+                                                name="user-agent",
+                                            ),
+                                        ),
+                                        text_transformations=[aws.wafv2.RuleGroupRuleStatementOrStatementStatementRegexMatchStatementTextTransformationArgs(
+                                            priority=6,
+                                            type="NONE",
+                                        )],
+                                    ),
+                                ),
                                 aws.wafv2.RuleGroupRuleStatementOrStatementStatementArgs(
                                     sqli_match_statement=aws.wafv2.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementArgs(
                                         field_to_match=aws.wafv2.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchArgs(

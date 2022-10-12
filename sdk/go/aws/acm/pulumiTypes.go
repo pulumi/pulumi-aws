@@ -271,6 +271,118 @@ func (o CertificateOptionsPtrOutput) CertificateTransparencyLoggingPreference() 
 	}).(pulumi.StringPtrOutput)
 }
 
+type CertificateRenewalSummary struct {
+	// The status of ACM's managed renewal of the certificate
+	RenewalStatus *string `pulumi:"renewalStatus"`
+	// The reason that a renewal request was unsuccessful or is pending
+	RenewalStatusReason *string `pulumi:"renewalStatusReason"`
+	UpdatedAt           *string `pulumi:"updatedAt"`
+}
+
+// CertificateRenewalSummaryInput is an input type that accepts CertificateRenewalSummaryArgs and CertificateRenewalSummaryOutput values.
+// You can construct a concrete instance of `CertificateRenewalSummaryInput` via:
+//
+//	CertificateRenewalSummaryArgs{...}
+type CertificateRenewalSummaryInput interface {
+	pulumi.Input
+
+	ToCertificateRenewalSummaryOutput() CertificateRenewalSummaryOutput
+	ToCertificateRenewalSummaryOutputWithContext(context.Context) CertificateRenewalSummaryOutput
+}
+
+type CertificateRenewalSummaryArgs struct {
+	// The status of ACM's managed renewal of the certificate
+	RenewalStatus pulumi.StringPtrInput `pulumi:"renewalStatus"`
+	// The reason that a renewal request was unsuccessful or is pending
+	RenewalStatusReason pulumi.StringPtrInput `pulumi:"renewalStatusReason"`
+	UpdatedAt           pulumi.StringPtrInput `pulumi:"updatedAt"`
+}
+
+func (CertificateRenewalSummaryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateRenewalSummary)(nil)).Elem()
+}
+
+func (i CertificateRenewalSummaryArgs) ToCertificateRenewalSummaryOutput() CertificateRenewalSummaryOutput {
+	return i.ToCertificateRenewalSummaryOutputWithContext(context.Background())
+}
+
+func (i CertificateRenewalSummaryArgs) ToCertificateRenewalSummaryOutputWithContext(ctx context.Context) CertificateRenewalSummaryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateRenewalSummaryOutput)
+}
+
+// CertificateRenewalSummaryArrayInput is an input type that accepts CertificateRenewalSummaryArray and CertificateRenewalSummaryArrayOutput values.
+// You can construct a concrete instance of `CertificateRenewalSummaryArrayInput` via:
+//
+//	CertificateRenewalSummaryArray{ CertificateRenewalSummaryArgs{...} }
+type CertificateRenewalSummaryArrayInput interface {
+	pulumi.Input
+
+	ToCertificateRenewalSummaryArrayOutput() CertificateRenewalSummaryArrayOutput
+	ToCertificateRenewalSummaryArrayOutputWithContext(context.Context) CertificateRenewalSummaryArrayOutput
+}
+
+type CertificateRenewalSummaryArray []CertificateRenewalSummaryInput
+
+func (CertificateRenewalSummaryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertificateRenewalSummary)(nil)).Elem()
+}
+
+func (i CertificateRenewalSummaryArray) ToCertificateRenewalSummaryArrayOutput() CertificateRenewalSummaryArrayOutput {
+	return i.ToCertificateRenewalSummaryArrayOutputWithContext(context.Background())
+}
+
+func (i CertificateRenewalSummaryArray) ToCertificateRenewalSummaryArrayOutputWithContext(ctx context.Context) CertificateRenewalSummaryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateRenewalSummaryArrayOutput)
+}
+
+type CertificateRenewalSummaryOutput struct{ *pulumi.OutputState }
+
+func (CertificateRenewalSummaryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateRenewalSummary)(nil)).Elem()
+}
+
+func (o CertificateRenewalSummaryOutput) ToCertificateRenewalSummaryOutput() CertificateRenewalSummaryOutput {
+	return o
+}
+
+func (o CertificateRenewalSummaryOutput) ToCertificateRenewalSummaryOutputWithContext(ctx context.Context) CertificateRenewalSummaryOutput {
+	return o
+}
+
+// The status of ACM's managed renewal of the certificate
+func (o CertificateRenewalSummaryOutput) RenewalStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateRenewalSummary) *string { return v.RenewalStatus }).(pulumi.StringPtrOutput)
+}
+
+// The reason that a renewal request was unsuccessful or is pending
+func (o CertificateRenewalSummaryOutput) RenewalStatusReason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateRenewalSummary) *string { return v.RenewalStatusReason }).(pulumi.StringPtrOutput)
+}
+
+func (o CertificateRenewalSummaryOutput) UpdatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateRenewalSummary) *string { return v.UpdatedAt }).(pulumi.StringPtrOutput)
+}
+
+type CertificateRenewalSummaryArrayOutput struct{ *pulumi.OutputState }
+
+func (CertificateRenewalSummaryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertificateRenewalSummary)(nil)).Elem()
+}
+
+func (o CertificateRenewalSummaryArrayOutput) ToCertificateRenewalSummaryArrayOutput() CertificateRenewalSummaryArrayOutput {
+	return o
+}
+
+func (o CertificateRenewalSummaryArrayOutput) ToCertificateRenewalSummaryArrayOutputWithContext(ctx context.Context) CertificateRenewalSummaryArrayOutput {
+	return o
+}
+
+func (o CertificateRenewalSummaryArrayOutput) Index(i pulumi.IntInput) CertificateRenewalSummaryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CertificateRenewalSummary {
+		return vs[0].([]CertificateRenewalSummary)[vs[1].(int)]
+	}).(CertificateRenewalSummaryOutput)
+}
+
 type CertificateValidationOption struct {
 	// Fully qualified domain name (FQDN) in the certificate.
 	DomainName string `pulumi:"domainName"`
@@ -382,12 +494,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateDomainValidationOptionArrayInput)(nil)).Elem(), CertificateDomainValidationOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateOptionsInput)(nil)).Elem(), CertificateOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateOptionsPtrInput)(nil)).Elem(), CertificateOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateRenewalSummaryInput)(nil)).Elem(), CertificateRenewalSummaryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateRenewalSummaryArrayInput)(nil)).Elem(), CertificateRenewalSummaryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateValidationOptionInput)(nil)).Elem(), CertificateValidationOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateValidationOptionArrayInput)(nil)).Elem(), CertificateValidationOptionArray{})
 	pulumi.RegisterOutputType(CertificateDomainValidationOptionOutput{})
 	pulumi.RegisterOutputType(CertificateDomainValidationOptionArrayOutput{})
 	pulumi.RegisterOutputType(CertificateOptionsOutput{})
 	pulumi.RegisterOutputType(CertificateOptionsPtrOutput{})
+	pulumi.RegisterOutputType(CertificateRenewalSummaryOutput{})
+	pulumi.RegisterOutputType(CertificateRenewalSummaryArrayOutput{})
 	pulumi.RegisterOutputType(CertificateValidationOptionOutput{})
 	pulumi.RegisterOutputType(CertificateValidationOptionArrayOutput{})
 }

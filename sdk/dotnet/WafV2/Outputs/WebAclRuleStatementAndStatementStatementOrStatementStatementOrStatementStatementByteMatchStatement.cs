@@ -26,7 +26,9 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly string SearchString;
         /// <summary>
-        /// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+        /// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+        /// At least one required.
+        /// See Text Transformation below for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.WebAclRuleStatementAndStatementStatementOrStatementStatementOrStatementStatementByteMatchStatementTextTransformation> TextTransformations;
 

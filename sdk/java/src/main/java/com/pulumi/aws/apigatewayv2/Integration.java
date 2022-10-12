@@ -83,7 +83,7 @@ import javax.annotation.Nullable;
  *             .code(new FileArchive(&#34;example.zip&#34;))
  *             .role(aws_iam_role.example().arn())
  *             .handler(&#34;index.handler&#34;)
- *             .runtime(&#34;nodejs12.x&#34;)
+ *             .runtime(&#34;nodejs16.x&#34;)
  *             .build());
  * 
  *         var exampleIntegration = new Integration(&#34;exampleIntegration&#34;, IntegrationArgs.builder()        

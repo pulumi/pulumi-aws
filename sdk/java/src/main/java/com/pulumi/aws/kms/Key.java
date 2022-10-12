@@ -97,6 +97,20 @@ public class Key extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.bypassPolicyLockoutSafetyCheck);
     }
     /**
+     * ID of the KMS [Custom Key Store](https://docs.aws.amazon.com/kms/latest/developerguide/create-cmk-keystore.html) where the key will be stored instead of KMS (eg CloudHSM).
+     * 
+     */
+    @Export(name="customKeyStoreId", type=String.class, parameters={})
+    private Output</* @Nullable */ String> customKeyStoreId;
+
+    /**
+     * @return ID of the KMS [Custom Key Store](https://docs.aws.amazon.com/kms/latest/developerguide/create-cmk-keystore.html) where the key will be stored instead of KMS (eg CloudHSM).
+     * 
+     */
+    public Output<Optional<String>> customKeyStoreId() {
+        return Codegen.optional(this.customKeyStoreId);
+    }
+    /**
      * Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
      * Valid values: `SYMMETRIC_DEFAULT`,  `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_256`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, or `ECC_SECG_P256K1`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
      * 
@@ -187,7 +201,7 @@ public class Key extends com.pulumi.resources.CustomResource {
         return this.keyId;
     }
     /**
-     * Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT` or `SIGN_VERIFY`.
+     * Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`.
      * Defaults to `ENCRYPT_DECRYPT`.
      * 
      */
@@ -195,7 +209,7 @@ public class Key extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> keyUsage;
 
     /**
-     * @return Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT` or `SIGN_VERIFY`.
+     * @return Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`.
      * Defaults to `ENCRYPT_DECRYPT`.
      * 
      */

@@ -65,7 +65,7 @@ import (
 //				Code:    pulumi.NewFileArchive("lambda_function_payload.zip"),
 //				Role:    iamForLambda.Arn,
 //				Handler: pulumi.String("index.test"),
-//				Runtime: pulumi.String("nodejs12.x"),
+//				Runtime: pulumi.String("nodejs16.x"),
 //				Environment: &lambda.FunctionEnvironmentArgs{
 //					Variables: pulumi.StringMap{
 //						"foo": pulumi.String("bar"),

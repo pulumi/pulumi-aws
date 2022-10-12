@@ -10,6 +10,8 @@ import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementIpSetReferenceStatement
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementLabelMatchStatementArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementNotStatementArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementOrStatementArgs;
+import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementArgs;
+import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRegexMatchStatementArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementSizeConstraintStatementArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementSqliMatchStatementArgs;
@@ -131,6 +133,36 @@ public final class RuleGroupRuleStatementArgs extends com.pulumi.resources.Resou
     }
 
     /**
+     * A rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any `5-minute` time span. This statement can not be nested. See Rate Based Statement below for details.
+     * 
+     */
+    @Import(name="rateBasedStatement")
+    private @Nullable Output<RuleGroupRuleStatementRateBasedStatementArgs> rateBasedStatement;
+
+    /**
+     * @return A rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any `5-minute` time span. This statement can not be nested. See Rate Based Statement below for details.
+     * 
+     */
+    public Optional<Output<RuleGroupRuleStatementRateBasedStatementArgs>> rateBasedStatement() {
+        return Optional.ofNullable(this.rateBasedStatement);
+    }
+
+    /**
+     * A rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+     * 
+     */
+    @Import(name="regexMatchStatement")
+    private @Nullable Output<RuleGroupRuleStatementRegexMatchStatementArgs> regexMatchStatement;
+
+    /**
+     * @return A rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+     * 
+     */
+    public Optional<Output<RuleGroupRuleStatementRegexMatchStatementArgs>> regexMatchStatement() {
+        return Optional.ofNullable(this.regexMatchStatement);
+    }
+
+    /**
      * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
      * 
      */
@@ -200,6 +232,8 @@ public final class RuleGroupRuleStatementArgs extends com.pulumi.resources.Resou
         this.labelMatchStatement = $.labelMatchStatement;
         this.notStatement = $.notStatement;
         this.orStatement = $.orStatement;
+        this.rateBasedStatement = $.rateBasedStatement;
+        this.regexMatchStatement = $.regexMatchStatement;
         this.regexPatternSetReferenceStatement = $.regexPatternSetReferenceStatement;
         this.sizeConstraintStatement = $.sizeConstraintStatement;
         this.sqliMatchStatement = $.sqliMatchStatement;
@@ -369,6 +403,48 @@ public final class RuleGroupRuleStatementArgs extends com.pulumi.resources.Resou
          */
         public Builder orStatement(RuleGroupRuleStatementOrStatementArgs orStatement) {
             return orStatement(Output.of(orStatement));
+        }
+
+        /**
+         * @param rateBasedStatement A rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any `5-minute` time span. This statement can not be nested. See Rate Based Statement below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rateBasedStatement(@Nullable Output<RuleGroupRuleStatementRateBasedStatementArgs> rateBasedStatement) {
+            $.rateBasedStatement = rateBasedStatement;
+            return this;
+        }
+
+        /**
+         * @param rateBasedStatement A rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any `5-minute` time span. This statement can not be nested. See Rate Based Statement below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rateBasedStatement(RuleGroupRuleStatementRateBasedStatementArgs rateBasedStatement) {
+            return rateBasedStatement(Output.of(rateBasedStatement));
+        }
+
+        /**
+         * @param regexMatchStatement A rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder regexMatchStatement(@Nullable Output<RuleGroupRuleStatementRegexMatchStatementArgs> regexMatchStatement) {
+            $.regexMatchStatement = regexMatchStatement;
+            return this;
+        }
+
+        /**
+         * @param regexMatchStatement A rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder regexMatchStatement(RuleGroupRuleStatementRegexMatchStatementArgs regexMatchStatement) {
+            return regexMatchStatement(Output.of(regexMatchStatement));
         }
 
         /**

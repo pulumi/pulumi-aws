@@ -15,14 +15,14 @@ public final class CertificateAuthorityCertificateAuthorityConfigurationArgs ext
     public static final CertificateAuthorityCertificateAuthorityConfigurationArgs Empty = new CertificateAuthorityCertificateAuthorityConfigurationArgs();
 
     /**
-     * Type of the public key algorithm and size, in bits, of the key pair that your key pair creates when it issues a certificate. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
+     * Type of the public key algorithm and size, in bits, of the key pair that your key pair creates when it issues a certificate. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
      * 
      */
     @Import(name="keyAlgorithm", required=true)
     private Output<String> keyAlgorithm;
 
     /**
-     * @return Type of the public key algorithm and size, in bits, of the key pair that your key pair creates when it issues a certificate. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
+     * @return Type of the public key algorithm and size, in bits, of the key pair that your key pair creates when it issues a certificate. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
      * 
      */
     public Output<String> keyAlgorithm() {
@@ -30,14 +30,14 @@ public final class CertificateAuthorityCertificateAuthorityConfigurationArgs ext
     }
 
     /**
-     * Name of the algorithm your private CA uses to sign certificate requests. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
+     * Name of the algorithm your private CA uses to sign certificate requests. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
      * 
      */
     @Import(name="signingAlgorithm", required=true)
     private Output<String> signingAlgorithm;
 
     /**
-     * @return Name of the algorithm your private CA uses to sign certificate requests. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
+     * @return Name of the algorithm your private CA uses to sign certificate requests. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
      * 
      */
     public Output<String> signingAlgorithm() {
@@ -86,7 +86,7 @@ public final class CertificateAuthorityCertificateAuthorityConfigurationArgs ext
         }
 
         /**
-         * @param keyAlgorithm Type of the public key algorithm and size, in bits, of the key pair that your key pair creates when it issues a certificate. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
+         * @param keyAlgorithm Type of the public key algorithm and size, in bits, of the key pair that your key pair creates when it issues a certificate. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
          * 
          * @return builder
          * 
@@ -97,7 +97,7 @@ public final class CertificateAuthorityCertificateAuthorityConfigurationArgs ext
         }
 
         /**
-         * @param keyAlgorithm Type of the public key algorithm and size, in bits, of the key pair that your key pair creates when it issues a certificate. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
+         * @param keyAlgorithm Type of the public key algorithm and size, in bits, of the key pair that your key pair creates when it issues a certificate. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
          * 
          * @return builder
          * 
@@ -107,7 +107,7 @@ public final class CertificateAuthorityCertificateAuthorityConfigurationArgs ext
         }
 
         /**
-         * @param signingAlgorithm Name of the algorithm your private CA uses to sign certificate requests. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
+         * @param signingAlgorithm Name of the algorithm your private CA uses to sign certificate requests. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class CertificateAuthorityCertificateAuthorityConfigurationArgs ext
         }
 
         /**
-         * @param signingAlgorithm Name of the algorithm your private CA uses to sign certificate requests. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
+         * @param signingAlgorithm Name of the algorithm your private CA uses to sign certificate requests. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
          * 
          * @return builder
          * 

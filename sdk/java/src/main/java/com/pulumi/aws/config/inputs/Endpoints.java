@@ -97,6 +97,7 @@ public final class Endpoints {
     private @Nullable String connectcontactlens;
     private @Nullable String connectparticipant;
     private @Nullable String connectwisdomservice;
+    private @Nullable String controltower;
     private @Nullable String costandusagereportservice;
     private @Nullable String costexplorer;
     private @Nullable String cur;
@@ -176,6 +177,7 @@ public final class Endpoints {
     private @Nullable String imagebuilder;
     private @Nullable String inspector;
     private @Nullable String inspector2;
+    private @Nullable String inspectorv2;
     private @Nullable String iot;
     private @Nullable String iot1clickdevices;
     private @Nullable String iot1clickdevicesservice;
@@ -639,6 +641,9 @@ public final class Endpoints {
     public Optional<String> connectwisdomservice() {
         return Optional.ofNullable(this.connectwisdomservice);
     }
+    public Optional<String> controltower() {
+        return Optional.ofNullable(this.controltower);
+    }
     public Optional<String> costandusagereportservice() {
         return Optional.ofNullable(this.costandusagereportservice);
     }
@@ -875,6 +880,9 @@ public final class Endpoints {
     }
     public Optional<String> inspector2() {
         return Optional.ofNullable(this.inspector2);
+    }
+    public Optional<String> inspectorv2() {
+        return Optional.ofNullable(this.inspectorv2);
     }
     public Optional<String> iot() {
         return Optional.ofNullable(this.iot);
@@ -1581,6 +1589,7 @@ public final class Endpoints {
         private @Nullable String connectcontactlens;
         private @Nullable String connectparticipant;
         private @Nullable String connectwisdomservice;
+        private @Nullable String controltower;
         private @Nullable String costandusagereportservice;
         private @Nullable String costexplorer;
         private @Nullable String cur;
@@ -1660,6 +1669,7 @@ public final class Endpoints {
         private @Nullable String imagebuilder;
         private @Nullable String inspector;
         private @Nullable String inspector2;
+        private @Nullable String inspectorv2;
         private @Nullable String iot;
         private @Nullable String iot1clickdevices;
         private @Nullable String iot1clickdevicesservice;
@@ -1952,6 +1962,7 @@ public final class Endpoints {
     	      this.connectcontactlens = defaults.connectcontactlens;
     	      this.connectparticipant = defaults.connectparticipant;
     	      this.connectwisdomservice = defaults.connectwisdomservice;
+    	      this.controltower = defaults.controltower;
     	      this.costandusagereportservice = defaults.costandusagereportservice;
     	      this.costexplorer = defaults.costexplorer;
     	      this.cur = defaults.cur;
@@ -2031,6 +2042,7 @@ public final class Endpoints {
     	      this.imagebuilder = defaults.imagebuilder;
     	      this.inspector = defaults.inspector;
     	      this.inspector2 = defaults.inspector2;
+    	      this.inspectorv2 = defaults.inspectorv2;
     	      this.iot = defaults.iot;
     	      this.iot1clickdevices = defaults.iot1clickdevices;
     	      this.iot1clickdevicesservice = defaults.iot1clickdevicesservice;
@@ -2667,6 +2679,11 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
+        public Builder controltower(@Nullable String controltower) {
+            this.controltower = controltower;
+            return this;
+        }
+        @CustomType.Setter
         public Builder costandusagereportservice(@Nullable String costandusagereportservice) {
             this.costandusagereportservice = costandusagereportservice;
             return this;
@@ -3059,6 +3076,11 @@ public final class Endpoints {
         @CustomType.Setter
         public Builder inspector2(@Nullable String inspector2) {
             this.inspector2 = inspector2;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder inspectorv2(@Nullable String inspectorv2) {
+            this.inspectorv2 = inspectorv2;
             return this;
         }
         @CustomType.Setter
@@ -4164,6 +4186,7 @@ public final class Endpoints {
             o.connectcontactlens = connectcontactlens;
             o.connectparticipant = connectparticipant;
             o.connectwisdomservice = connectwisdomservice;
+            o.controltower = controltower;
             o.costandusagereportservice = costandusagereportservice;
             o.costexplorer = costexplorer;
             o.cur = cur;
@@ -4243,6 +4266,7 @@ public final class Endpoints {
             o.imagebuilder = imagebuilder;
             o.inspector = inspector;
             o.inspector2 = inspector2;
+            o.inspectorv2 = inspectorv2;
             o.iot = iot;
             o.iot1clickdevices = iot1clickdevices;
             o.iot1clickdevicesservice = iot1clickdevicesservice;

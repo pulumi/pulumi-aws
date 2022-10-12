@@ -135,6 +135,7 @@ import * as cloudhsmv2 from "./cloudhsmv2";
 import * as cloudsearch from "./cloudsearch";
 import * as cloudtrail from "./cloudtrail";
 import * as cloudwatch from "./cloudwatch";
+import * as cloudwatchevidently from "./cloudwatchevidently";
 import * as codeartifact from "./codeartifact";
 import * as codebuild from "./codebuild";
 import * as codecommit from "./codecommit";
@@ -192,6 +193,7 @@ import * as iam from "./iam";
 import * as identitystore from "./identitystore";
 import * as imagebuilder from "./imagebuilder";
 import * as inspector from "./inspector";
+import * as inspector2 from "./inspector2";
 import * as iot from "./iot";
 import * as kendra from "./kendra";
 import * as keyspaces from "./keyspaces";
@@ -310,6 +312,7 @@ export {
     cloudsearch,
     cloudtrail,
     cloudwatch,
+    cloudwatchevidently,
     codeartifact,
     codebuild,
     codecommit,
@@ -367,6 +370,7 @@ export {
     identitystore,
     imagebuilder,
     inspector,
+    inspector2,
     iot,
     kendra,
     keyspaces,

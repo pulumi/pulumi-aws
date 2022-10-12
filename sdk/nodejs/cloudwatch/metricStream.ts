@@ -151,7 +151,7 @@ import * as utilities from "../utilities";
  * CloudWatch metric streams can be imported using the `name`, e.g.,
  *
  * ```sh
- *  $ pulumi import aws:cloudwatch/metricStream:MetricStream sample <name>
+ *  $ pulumi import aws:cloudwatch/metricStream:MetricStream sample sample-stream-name
  * ```
  */
 export class MetricStream extends pulumi.CustomResource {

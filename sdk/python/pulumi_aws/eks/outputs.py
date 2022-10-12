@@ -171,6 +171,8 @@ class ClusterKubernetesNetworkConfig(dict):
             suggest = "ip_family"
         elif key == "serviceIpv4Cidr":
             suggest = "service_ipv4_cidr"
+        elif key == "serviceIpv6Cidr":
+            suggest = "service_ipv6_cidr"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ClusterKubernetesNetworkConfig. Access the value via the '{suggest}' property getter instead.")
@@ -185,15 +187,18 @@ class ClusterKubernetesNetworkConfig(dict):
 
     def __init__(__self__, *,
                  ip_family: Optional[str] = None,
-                 service_ipv4_cidr: Optional[str] = None):
+                 service_ipv4_cidr: Optional[str] = None,
+                 service_ipv6_cidr: Optional[str] = None):
         """
         :param str ip_family: The IP family used to assign Kubernetes pod and service addresses. Valid values are `ipv4` (default) and `ipv6`. You can only specify an IP family when you create a cluster, changing this value will force a new cluster to be created.
-        :param str service_ipv4_cidr: The CIDR block to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. You can only specify a custom CIDR block when you create a cluster, changing this value will force a new cluster to be created. The block must meet the following requirements:
+        :param str service_ipv4_cidr: The CIDR block to assign Kubernetes pod and service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. You can only specify a custom CIDR block when you create a cluster, changing this value will force a new cluster to be created. The block must meet the following requirements:
         """
         if ip_family is not None:
             pulumi.set(__self__, "ip_family", ip_family)
         if service_ipv4_cidr is not None:
             pulumi.set(__self__, "service_ipv4_cidr", service_ipv4_cidr)
+        if service_ipv6_cidr is not None:
+            pulumi.set(__self__, "service_ipv6_cidr", service_ipv6_cidr)
 
     @property
     @pulumi.getter(name="ipFamily")
@@ -207,9 +212,14 @@ class ClusterKubernetesNetworkConfig(dict):
     @pulumi.getter(name="serviceIpv4Cidr")
     def service_ipv4_cidr(self) -> Optional[str]:
         """
-        The CIDR block to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. You can only specify a custom CIDR block when you create a cluster, changing this value will force a new cluster to be created. The block must meet the following requirements:
+        The CIDR block to assign Kubernetes pod and service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. You can only specify a custom CIDR block when you create a cluster, changing this value will force a new cluster to be created. The block must meet the following requirements:
         """
         return pulumi.get(self, "service_ipv4_cidr")
+
+    @property
+    @pulumi.getter(name="serviceIpv6Cidr")
+    def service_ipv6_cidr(self) -> Optional[str]:
+        return pulumi.get(self, "service_ipv6_cidr")
 
 
 @pulumi.output_type
@@ -911,25 +921,40 @@ class GetClusterIdentityOidcResult(dict):
 class GetClusterKubernetesNetworkConfigResult(dict):
     def __init__(__self__, *,
                  ip_family: str,
-                 service_ipv4_cidr: str):
+                 service_ipv4_cidr: str,
+                 service_ipv6_cidr: str):
         """
-        :param str service_ipv4_cidr: The CIDR block to assign Kubernetes service IP addresses from.
+        :param str ip_family: `ipv4` or `ipv6`.
+        :param str service_ipv4_cidr: The CIDR block to assign Kubernetes pod and service IP addresses from if `ipv4` was specified when the cluster was created.
+        :param str service_ipv6_cidr: The CIDR block to assign Kubernetes pod and service IP addresses from if `ipv6` was specified when the cluster was created. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
         """
         pulumi.set(__self__, "ip_family", ip_family)
         pulumi.set(__self__, "service_ipv4_cidr", service_ipv4_cidr)
+        pulumi.set(__self__, "service_ipv6_cidr", service_ipv6_cidr)
 
     @property
     @pulumi.getter(name="ipFamily")
     def ip_family(self) -> str:
+        """
+        `ipv4` or `ipv6`.
+        """
         return pulumi.get(self, "ip_family")
 
     @property
     @pulumi.getter(name="serviceIpv4Cidr")
     def service_ipv4_cidr(self) -> str:
         """
-        The CIDR block to assign Kubernetes service IP addresses from.
+        The CIDR block to assign Kubernetes pod and service IP addresses from if `ipv4` was specified when the cluster was created.
         """
         return pulumi.get(self, "service_ipv4_cidr")
+
+    @property
+    @pulumi.getter(name="serviceIpv6Cidr")
+    def service_ipv6_cidr(self) -> str:
+        """
+        The CIDR block to assign Kubernetes pod and service IP addresses from if `ipv6` was specified when the cluster was created. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
+        """
+        return pulumi.get(self, "service_ipv6_cidr")
 
 
 @pulumi.output_type

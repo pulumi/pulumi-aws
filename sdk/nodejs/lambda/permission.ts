@@ -31,7 +31,7 @@ import {Function} from "./index";
  *     code: new pulumi.asset.FileArchive("lambdatest.zip"),
  *     role: iamForLambda.arn,
  *     handler: "exports.handler",
- *     runtime: "nodejs12.x",
+ *     runtime: "nodejs16.x",
  * });
  * const testAlias = new aws.lambda.Alias("testAlias", {
  *     description: "a sample description",

@@ -20,6 +20,7 @@ class CertificateArgs:
                  certificate_body: Optional[pulumi.Input[str]] = None,
                  certificate_chain: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
+                 early_renewal_duration: Optional[pulumi.Input[str]] = None,
                  options: Optional[pulumi.Input['CertificateOptionsArgs']] = None,
                  private_key: Optional[pulumi.Input[str]] = None,
                  subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -33,9 +34,15 @@ class CertificateArgs:
         :param pulumi.Input[str] certificate_chain: Certificate's PEM-formatted chain
                * Creating a private CA issued certificate
         :param pulumi.Input[str] domain_name: Fully qualified domain name (FQDN) in the certificate.
+        :param pulumi.Input[str] early_renewal_duration: Amount of time to start automatic renewal process before expiration.
+               Has no effect if less than 60 days.
+               Represented by either
+               a subset of [RFC 3339 duration](https://www.rfc-editor.org/rfc/rfc3339) supporting years, months, and days (e.g., `P90D`),
+               or a string such as `2160h`.
         :param pulumi.Input['CertificateOptionsArgs'] options: Configuration block used to set certificate options. Detailed below.
         :param pulumi.Input[str] private_key: Certificate's PEM-formatted private key
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] subject_alternative_names: Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subject_alternative_names: Set of domains that should be SANs in the issued certificate.
+               To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input['CertificateValidationOptionArgs']]] validation_options: Configuration block used to specify information about the initial validation of each domain name. Detailed below.
                * Importing an existing certificate
@@ -48,6 +55,8 @@ class CertificateArgs:
             pulumi.set(__self__, "certificate_chain", certificate_chain)
         if domain_name is not None:
             pulumi.set(__self__, "domain_name", domain_name)
+        if early_renewal_duration is not None:
+            pulumi.set(__self__, "early_renewal_duration", early_renewal_duration)
         if options is not None:
             pulumi.set(__self__, "options", options)
         if private_key is not None:
@@ -111,6 +120,22 @@ class CertificateArgs:
         pulumi.set(self, "domain_name", value)
 
     @property
+    @pulumi.getter(name="earlyRenewalDuration")
+    def early_renewal_duration(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amount of time to start automatic renewal process before expiration.
+        Has no effect if less than 60 days.
+        Represented by either
+        a subset of [RFC 3339 duration](https://www.rfc-editor.org/rfc/rfc3339) supporting years, months, and days (e.g., `P90D`),
+        or a string such as `2160h`.
+        """
+        return pulumi.get(self, "early_renewal_duration")
+
+    @early_renewal_duration.setter
+    def early_renewal_duration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "early_renewal_duration", value)
+
+    @property
     @pulumi.getter
     def options(self) -> Optional[pulumi.Input['CertificateOptionsArgs']]:
         """
@@ -138,7 +163,8 @@ class CertificateArgs:
     @pulumi.getter(name="subjectAlternativeNames")
     def subject_alternative_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+        Set of domains that should be SANs in the issued certificate.
+        To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
         """
         return pulumi.get(self, "subject_alternative_names")
 
@@ -190,14 +216,19 @@ class _CertificateState:
                  certificate_chain: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  domain_validation_options: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateDomainValidationOptionArgs']]]] = None,
+                 early_renewal_duration: Optional[pulumi.Input[str]] = None,
                  not_after: Optional[pulumi.Input[str]] = None,
                  not_before: Optional[pulumi.Input[str]] = None,
                  options: Optional[pulumi.Input['CertificateOptionsArgs']] = None,
+                 pending_renewal: Optional[pulumi.Input[bool]] = None,
                  private_key: Optional[pulumi.Input[str]] = None,
+                 renewal_eligibility: Optional[pulumi.Input[str]] = None,
+                 renewal_summaries: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateRenewalSummaryArgs']]]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
                  validation_emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  validation_method: Optional[pulumi.Input[str]] = None,
                  validation_options: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateValidationOptionArgs']]]] = None):
@@ -209,16 +240,28 @@ class _CertificateState:
         :param pulumi.Input[str] certificate_chain: Certificate's PEM-formatted chain
                * Creating a private CA issued certificate
         :param pulumi.Input[str] domain_name: Fully qualified domain name (FQDN) in the certificate.
-        :param pulumi.Input[Sequence[pulumi.Input['CertificateDomainValidationOptionArgs']]] domain_validation_options: Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Only set if `DNS`-validation was used.
+        :param pulumi.Input[Sequence[pulumi.Input['CertificateDomainValidationOptionArgs']]] domain_validation_options: Set of domain validation objects which can be used to complete certificate validation.
+               Can have more than one element, e.g., if SANs are defined.
+               Only set if `DNS`-validation was used.
+        :param pulumi.Input[str] early_renewal_duration: Amount of time to start automatic renewal process before expiration.
+               Has no effect if less than 60 days.
+               Represented by either
+               a subset of [RFC 3339 duration](https://www.rfc-editor.org/rfc/rfc3339) supporting years, months, and days (e.g., `P90D`),
+               or a string such as `2160h`.
         :param pulumi.Input[str] not_after: Expiration date and time of the certificate.
         :param pulumi.Input[str] not_before: Start of the validity period of the certificate.
         :param pulumi.Input['CertificateOptionsArgs'] options: Configuration block used to set certificate options. Detailed below.
+        :param pulumi.Input[bool] pending_renewal: `true` if a Private certificate eligible for managed renewal is within the `early_renewal_duration` period.
         :param pulumi.Input[str] private_key: Certificate's PEM-formatted private key
+        :param pulumi.Input[str] renewal_eligibility: Whether the certificate is eligible for managed renewal.
+        :param pulumi.Input[Sequence[pulumi.Input['CertificateRenewalSummaryArgs']]] renewal_summaries: Contains information about the status of ACM's [managed renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html) for the certificate.
         :param pulumi.Input[str] status: Status of the certificate.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] subject_alternative_names: Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subject_alternative_names: Set of domains that should be SANs in the issued certificate.
+               To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] validation_emails: List of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
+        :param pulumi.Input[str] type: Source of the certificate.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] validation_emails: List of addresses that received a validation email. Only set if `EMAIL` validation was used.
         :param pulumi.Input[Sequence[pulumi.Input['CertificateValidationOptionArgs']]] validation_options: Configuration block used to specify information about the initial validation of each domain name. Detailed below.
                * Importing an existing certificate
         """
@@ -234,14 +277,22 @@ class _CertificateState:
             pulumi.set(__self__, "domain_name", domain_name)
         if domain_validation_options is not None:
             pulumi.set(__self__, "domain_validation_options", domain_validation_options)
+        if early_renewal_duration is not None:
+            pulumi.set(__self__, "early_renewal_duration", early_renewal_duration)
         if not_after is not None:
             pulumi.set(__self__, "not_after", not_after)
         if not_before is not None:
             pulumi.set(__self__, "not_before", not_before)
         if options is not None:
             pulumi.set(__self__, "options", options)
+        if pending_renewal is not None:
+            pulumi.set(__self__, "pending_renewal", pending_renewal)
         if private_key is not None:
             pulumi.set(__self__, "private_key", private_key)
+        if renewal_eligibility is not None:
+            pulumi.set(__self__, "renewal_eligibility", renewal_eligibility)
+        if renewal_summaries is not None:
+            pulumi.set(__self__, "renewal_summaries", renewal_summaries)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if subject_alternative_names is not None:
@@ -250,6 +301,8 @@ class _CertificateState:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
         if validation_emails is not None:
             pulumi.set(__self__, "validation_emails", validation_emails)
         if validation_method is not None:
@@ -322,13 +375,31 @@ class _CertificateState:
     @pulumi.getter(name="domainValidationOptions")
     def domain_validation_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificateDomainValidationOptionArgs']]]]:
         """
-        Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Only set if `DNS`-validation was used.
+        Set of domain validation objects which can be used to complete certificate validation.
+        Can have more than one element, e.g., if SANs are defined.
+        Only set if `DNS`-validation was used.
         """
         return pulumi.get(self, "domain_validation_options")
 
     @domain_validation_options.setter
     def domain_validation_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateDomainValidationOptionArgs']]]]):
         pulumi.set(self, "domain_validation_options", value)
+
+    @property
+    @pulumi.getter(name="earlyRenewalDuration")
+    def early_renewal_duration(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amount of time to start automatic renewal process before expiration.
+        Has no effect if less than 60 days.
+        Represented by either
+        a subset of [RFC 3339 duration](https://www.rfc-editor.org/rfc/rfc3339) supporting years, months, and days (e.g., `P90D`),
+        or a string such as `2160h`.
+        """
+        return pulumi.get(self, "early_renewal_duration")
+
+    @early_renewal_duration.setter
+    def early_renewal_duration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "early_renewal_duration", value)
 
     @property
     @pulumi.getter(name="notAfter")
@@ -367,6 +438,18 @@ class _CertificateState:
         pulumi.set(self, "options", value)
 
     @property
+    @pulumi.getter(name="pendingRenewal")
+    def pending_renewal(self) -> Optional[pulumi.Input[bool]]:
+        """
+        `true` if a Private certificate eligible for managed renewal is within the `early_renewal_duration` period.
+        """
+        return pulumi.get(self, "pending_renewal")
+
+    @pending_renewal.setter
+    def pending_renewal(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "pending_renewal", value)
+
+    @property
     @pulumi.getter(name="privateKey")
     def private_key(self) -> Optional[pulumi.Input[str]]:
         """
@@ -377,6 +460,30 @@ class _CertificateState:
     @private_key.setter
     def private_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "private_key", value)
+
+    @property
+    @pulumi.getter(name="renewalEligibility")
+    def renewal_eligibility(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether the certificate is eligible for managed renewal.
+        """
+        return pulumi.get(self, "renewal_eligibility")
+
+    @renewal_eligibility.setter
+    def renewal_eligibility(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "renewal_eligibility", value)
+
+    @property
+    @pulumi.getter(name="renewalSummaries")
+    def renewal_summaries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificateRenewalSummaryArgs']]]]:
+        """
+        Contains information about the status of ACM's [managed renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html) for the certificate.
+        """
+        return pulumi.get(self, "renewal_summaries")
+
+    @renewal_summaries.setter
+    def renewal_summaries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateRenewalSummaryArgs']]]]):
+        pulumi.set(self, "renewal_summaries", value)
 
     @property
     @pulumi.getter
@@ -394,7 +501,8 @@ class _CertificateState:
     @pulumi.getter(name="subjectAlternativeNames")
     def subject_alternative_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+        Set of domains that should be SANs in the issued certificate.
+        To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
         """
         return pulumi.get(self, "subject_alternative_names")
 
@@ -427,10 +535,22 @@ class _CertificateState:
         pulumi.set(self, "tags_all", value)
 
     @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Source of the certificate.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+    @property
     @pulumi.getter(name="validationEmails")
     def validation_emails(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
+        List of addresses that received a validation email. Only set if `EMAIL` validation was used.
         """
         return pulumi.get(self, "validation_emails")
 
@@ -470,6 +590,7 @@ class Certificate(pulumi.CustomResource):
                  certificate_body: Optional[pulumi.Input[str]] = None,
                  certificate_chain: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
+                 early_renewal_duration: Optional[pulumi.Input[str]] = None,
                  options: Optional[pulumi.Input[pulumi.InputType['CertificateOptionsArgs']]] = None,
                  private_key: Optional[pulumi.Input[str]] = None,
                  subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -481,17 +602,40 @@ class Certificate(pulumi.CustomResource):
         The ACM certificate resource allows requesting and management of certificates
         from the Amazon Certificate Manager.
 
-        It deals with requesting certificates and managing their attributes and life-cycle.
+        ACM certificates can be created in three ways:
+        Amazon-issued, where AWS provides the certificate authority and automatically manages renewal;
+        imported certificates, issued by another certificate authority;
+        and private certificates, issued using an ACM Private Certificate Authority.
+
+        ## Amazon-Issued Certificates
+
+        For Amazon-issued certificates, this resource deals with requesting certificates and managing their attributes and life-cycle.
         This resource does not deal with validation of a certificate but can provide inputs
-        for other resources implementing the validation. It does not wait for a certificate to be issued.
+        for other resources implementing the validation.
+        It does not wait for a certificate to be issued.
         Use a `acm.CertificateValidation` resource for this.
 
         Most commonly, this resource is used together with `route53.Record` and
         `acm.CertificateValidation` to request a DNS validated certificate,
         deploy the required validation records and wait for validation to complete.
 
-        Domain validation through E-Mail is also supported but should be avoided as it requires a manual step outside
-        of this provider.
+        Domain validation through email is also supported but should be avoided as it requires a manual step outside of this provider.
+
+        ## Certificates Imported from Other Certificate Authority
+
+        Imported certificates can be used to make certificates created with an external certificate authority available for AWS services.
+
+        As they are not managed by AWS, imported certificates are not eligible for automatic renewal.
+        New certificate materials can be supplied to an existing imported certificate to update it in place.
+
+        ## Private Certificates
+
+        Private certificates are issued by an ACM Private Cerificate Authority, which can be created using the resource type `acmpca.CertificateAuthority`.
+
+        Private certificates created using this resource are eligible for managed renewal if they have been exported or associated with another AWS service.
+        See [managed renewal documentation](https://docs.aws.amazon.com/acm/latest/userguide/managed-renewal.html) for more information.
+        By default, a certificate is valid for 395 days and the managed renewal process will start 60 days before expiration.
+        To renew the certificate earlier than 60 days before expiration, configure `early_renewal_duration`.
 
         ## Example Usage
         ### Create Certificate
@@ -584,9 +728,15 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] certificate_chain: Certificate's PEM-formatted chain
                * Creating a private CA issued certificate
         :param pulumi.Input[str] domain_name: Fully qualified domain name (FQDN) in the certificate.
+        :param pulumi.Input[str] early_renewal_duration: Amount of time to start automatic renewal process before expiration.
+               Has no effect if less than 60 days.
+               Represented by either
+               a subset of [RFC 3339 duration](https://www.rfc-editor.org/rfc/rfc3339) supporting years, months, and days (e.g., `P90D`),
+               or a string such as `2160h`.
         :param pulumi.Input[pulumi.InputType['CertificateOptionsArgs']] options: Configuration block used to set certificate options. Detailed below.
         :param pulumi.Input[str] private_key: Certificate's PEM-formatted private key
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] subject_alternative_names: Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subject_alternative_names: Set of domains that should be SANs in the issued certificate.
+               To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateValidationOptionArgs']]]] validation_options: Configuration block used to specify information about the initial validation of each domain name. Detailed below.
                * Importing an existing certificate
@@ -601,17 +751,40 @@ class Certificate(pulumi.CustomResource):
         The ACM certificate resource allows requesting and management of certificates
         from the Amazon Certificate Manager.
 
-        It deals with requesting certificates and managing their attributes and life-cycle.
+        ACM certificates can be created in three ways:
+        Amazon-issued, where AWS provides the certificate authority and automatically manages renewal;
+        imported certificates, issued by another certificate authority;
+        and private certificates, issued using an ACM Private Certificate Authority.
+
+        ## Amazon-Issued Certificates
+
+        For Amazon-issued certificates, this resource deals with requesting certificates and managing their attributes and life-cycle.
         This resource does not deal with validation of a certificate but can provide inputs
-        for other resources implementing the validation. It does not wait for a certificate to be issued.
+        for other resources implementing the validation.
+        It does not wait for a certificate to be issued.
         Use a `acm.CertificateValidation` resource for this.
 
         Most commonly, this resource is used together with `route53.Record` and
         `acm.CertificateValidation` to request a DNS validated certificate,
         deploy the required validation records and wait for validation to complete.
 
-        Domain validation through E-Mail is also supported but should be avoided as it requires a manual step outside
-        of this provider.
+        Domain validation through email is also supported but should be avoided as it requires a manual step outside of this provider.
+
+        ## Certificates Imported from Other Certificate Authority
+
+        Imported certificates can be used to make certificates created with an external certificate authority available for AWS services.
+
+        As they are not managed by AWS, imported certificates are not eligible for automatic renewal.
+        New certificate materials can be supplied to an existing imported certificate to update it in place.
+
+        ## Private Certificates
+
+        Private certificates are issued by an ACM Private Cerificate Authority, which can be created using the resource type `acmpca.CertificateAuthority`.
+
+        Private certificates created using this resource are eligible for managed renewal if they have been exported or associated with another AWS service.
+        See [managed renewal documentation](https://docs.aws.amazon.com/acm/latest/userguide/managed-renewal.html) for more information.
+        By default, a certificate is valid for 395 days and the managed renewal process will start 60 days before expiration.
+        To renew the certificate earlier than 60 days before expiration, configure `early_renewal_duration`.
 
         ## Example Usage
         ### Create Certificate
@@ -716,6 +889,7 @@ class Certificate(pulumi.CustomResource):
                  certificate_body: Optional[pulumi.Input[str]] = None,
                  certificate_chain: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
+                 early_renewal_duration: Optional[pulumi.Input[str]] = None,
                  options: Optional[pulumi.Input[pulumi.InputType['CertificateOptionsArgs']]] = None,
                  private_key: Optional[pulumi.Input[str]] = None,
                  subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -735,6 +909,7 @@ class Certificate(pulumi.CustomResource):
             __props__.__dict__["certificate_body"] = certificate_body
             __props__.__dict__["certificate_chain"] = certificate_chain
             __props__.__dict__["domain_name"] = domain_name
+            __props__.__dict__["early_renewal_duration"] = early_renewal_duration
             __props__.__dict__["options"] = options
             __props__.__dict__["private_key"] = private_key
             __props__.__dict__["subject_alternative_names"] = subject_alternative_names
@@ -745,8 +920,12 @@ class Certificate(pulumi.CustomResource):
             __props__.__dict__["domain_validation_options"] = None
             __props__.__dict__["not_after"] = None
             __props__.__dict__["not_before"] = None
+            __props__.__dict__["pending_renewal"] = None
+            __props__.__dict__["renewal_eligibility"] = None
+            __props__.__dict__["renewal_summaries"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["tags_all"] = None
+            __props__.__dict__["type"] = None
             __props__.__dict__["validation_emails"] = None
         super(Certificate, __self__).__init__(
             'aws:acm/certificate:Certificate',
@@ -764,14 +943,19 @@ class Certificate(pulumi.CustomResource):
             certificate_chain: Optional[pulumi.Input[str]] = None,
             domain_name: Optional[pulumi.Input[str]] = None,
             domain_validation_options: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateDomainValidationOptionArgs']]]]] = None,
+            early_renewal_duration: Optional[pulumi.Input[str]] = None,
             not_after: Optional[pulumi.Input[str]] = None,
             not_before: Optional[pulumi.Input[str]] = None,
             options: Optional[pulumi.Input[pulumi.InputType['CertificateOptionsArgs']]] = None,
+            pending_renewal: Optional[pulumi.Input[bool]] = None,
             private_key: Optional[pulumi.Input[str]] = None,
+            renewal_eligibility: Optional[pulumi.Input[str]] = None,
+            renewal_summaries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateRenewalSummaryArgs']]]]] = None,
             status: Optional[pulumi.Input[str]] = None,
             subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            type: Optional[pulumi.Input[str]] = None,
             validation_emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             validation_method: Optional[pulumi.Input[str]] = None,
             validation_options: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateValidationOptionArgs']]]]] = None) -> 'Certificate':
@@ -788,16 +972,28 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] certificate_chain: Certificate's PEM-formatted chain
                * Creating a private CA issued certificate
         :param pulumi.Input[str] domain_name: Fully qualified domain name (FQDN) in the certificate.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateDomainValidationOptionArgs']]]] domain_validation_options: Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Only set if `DNS`-validation was used.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateDomainValidationOptionArgs']]]] domain_validation_options: Set of domain validation objects which can be used to complete certificate validation.
+               Can have more than one element, e.g., if SANs are defined.
+               Only set if `DNS`-validation was used.
+        :param pulumi.Input[str] early_renewal_duration: Amount of time to start automatic renewal process before expiration.
+               Has no effect if less than 60 days.
+               Represented by either
+               a subset of [RFC 3339 duration](https://www.rfc-editor.org/rfc/rfc3339) supporting years, months, and days (e.g., `P90D`),
+               or a string such as `2160h`.
         :param pulumi.Input[str] not_after: Expiration date and time of the certificate.
         :param pulumi.Input[str] not_before: Start of the validity period of the certificate.
         :param pulumi.Input[pulumi.InputType['CertificateOptionsArgs']] options: Configuration block used to set certificate options. Detailed below.
+        :param pulumi.Input[bool] pending_renewal: `true` if a Private certificate eligible for managed renewal is within the `early_renewal_duration` period.
         :param pulumi.Input[str] private_key: Certificate's PEM-formatted private key
+        :param pulumi.Input[str] renewal_eligibility: Whether the certificate is eligible for managed renewal.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateRenewalSummaryArgs']]]] renewal_summaries: Contains information about the status of ACM's [managed renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html) for the certificate.
         :param pulumi.Input[str] status: Status of the certificate.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] subject_alternative_names: Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subject_alternative_names: Set of domains that should be SANs in the issued certificate.
+               To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] validation_emails: List of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
+        :param pulumi.Input[str] type: Source of the certificate.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] validation_emails: List of addresses that received a validation email. Only set if `EMAIL` validation was used.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateValidationOptionArgs']]]] validation_options: Configuration block used to specify information about the initial validation of each domain name. Detailed below.
                * Importing an existing certificate
         """
@@ -811,14 +1007,19 @@ class Certificate(pulumi.CustomResource):
         __props__.__dict__["certificate_chain"] = certificate_chain
         __props__.__dict__["domain_name"] = domain_name
         __props__.__dict__["domain_validation_options"] = domain_validation_options
+        __props__.__dict__["early_renewal_duration"] = early_renewal_duration
         __props__.__dict__["not_after"] = not_after
         __props__.__dict__["not_before"] = not_before
         __props__.__dict__["options"] = options
+        __props__.__dict__["pending_renewal"] = pending_renewal
         __props__.__dict__["private_key"] = private_key
+        __props__.__dict__["renewal_eligibility"] = renewal_eligibility
+        __props__.__dict__["renewal_summaries"] = renewal_summaries
         __props__.__dict__["status"] = status
         __props__.__dict__["subject_alternative_names"] = subject_alternative_names
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
+        __props__.__dict__["type"] = type
         __props__.__dict__["validation_emails"] = validation_emails
         __props__.__dict__["validation_method"] = validation_method
         __props__.__dict__["validation_options"] = validation_options
@@ -869,9 +1070,23 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter(name="domainValidationOptions")
     def domain_validation_options(self) -> pulumi.Output[Sequence['outputs.CertificateDomainValidationOption']]:
         """
-        Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Only set if `DNS`-validation was used.
+        Set of domain validation objects which can be used to complete certificate validation.
+        Can have more than one element, e.g., if SANs are defined.
+        Only set if `DNS`-validation was used.
         """
         return pulumi.get(self, "domain_validation_options")
+
+    @property
+    @pulumi.getter(name="earlyRenewalDuration")
+    def early_renewal_duration(self) -> pulumi.Output[Optional[str]]:
+        """
+        Amount of time to start automatic renewal process before expiration.
+        Has no effect if less than 60 days.
+        Represented by either
+        a subset of [RFC 3339 duration](https://www.rfc-editor.org/rfc/rfc3339) supporting years, months, and days (e.g., `P90D`),
+        or a string such as `2160h`.
+        """
+        return pulumi.get(self, "early_renewal_duration")
 
     @property
     @pulumi.getter(name="notAfter")
@@ -898,12 +1113,36 @@ class Certificate(pulumi.CustomResource):
         return pulumi.get(self, "options")
 
     @property
+    @pulumi.getter(name="pendingRenewal")
+    def pending_renewal(self) -> pulumi.Output[bool]:
+        """
+        `true` if a Private certificate eligible for managed renewal is within the `early_renewal_duration` period.
+        """
+        return pulumi.get(self, "pending_renewal")
+
+    @property
     @pulumi.getter(name="privateKey")
     def private_key(self) -> pulumi.Output[Optional[str]]:
         """
         Certificate's PEM-formatted private key
         """
         return pulumi.get(self, "private_key")
+
+    @property
+    @pulumi.getter(name="renewalEligibility")
+    def renewal_eligibility(self) -> pulumi.Output[str]:
+        """
+        Whether the certificate is eligible for managed renewal.
+        """
+        return pulumi.get(self, "renewal_eligibility")
+
+    @property
+    @pulumi.getter(name="renewalSummaries")
+    def renewal_summaries(self) -> pulumi.Output[Sequence['outputs.CertificateRenewalSummary']]:
+        """
+        Contains information about the status of ACM's [managed renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html) for the certificate.
+        """
+        return pulumi.get(self, "renewal_summaries")
 
     @property
     @pulumi.getter
@@ -917,7 +1156,8 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter(name="subjectAlternativeNames")
     def subject_alternative_names(self) -> pulumi.Output[Sequence[str]]:
         """
-        Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+        Set of domains that should be SANs in the issued certificate.
+        To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
         """
         return pulumi.get(self, "subject_alternative_names")
 
@@ -938,10 +1178,18 @@ class Certificate(pulumi.CustomResource):
         return pulumi.get(self, "tags_all")
 
     @property
+    @pulumi.getter
+    def type(self) -> pulumi.Output[str]:
+        """
+        Source of the certificate.
+        """
+        return pulumi.get(self, "type")
+
+    @property
     @pulumi.getter(name="validationEmails")
     def validation_emails(self) -> pulumi.Output[Sequence[str]]:
         """
-        List of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
+        List of addresses that received a validation email. Only set if `EMAIL` validation was used.
         """
         return pulumi.get(self, "validation_emails")
 

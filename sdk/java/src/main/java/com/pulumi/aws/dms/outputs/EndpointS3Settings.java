@@ -193,6 +193,13 @@ public final class EndpointS3Settings {
      * 
      */
     private @Nullable Boolean useCsvNoSupValue;
+    /**
+     * @return When set to true, uses the task start time as the timestamp column value instead of the time data is written to target.
+     * For full load, when set to true, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time.
+     * When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
+     * 
+     */
+    private @Nullable Boolean useTaskStartTimeForFullLoadTimestamp;
 
     private EndpointS3Settings() {}
     /**
@@ -447,6 +454,15 @@ public final class EndpointS3Settings {
     public Optional<Boolean> useCsvNoSupValue() {
         return Optional.ofNullable(this.useCsvNoSupValue);
     }
+    /**
+     * @return When set to true, uses the task start time as the timestamp column value instead of the time data is written to target.
+     * For full load, when set to true, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time.
+     * When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
+     * 
+     */
+    public Optional<Boolean> useTaskStartTimeForFullLoadTimestamp() {
+        return Optional.ofNullable(this.useTaskStartTimeForFullLoadTimestamp);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -493,6 +509,7 @@ public final class EndpointS3Settings {
         private @Nullable String serviceAccessRoleArn;
         private @Nullable String timestampColumnName;
         private @Nullable Boolean useCsvNoSupValue;
+        private @Nullable Boolean useTaskStartTimeForFullLoadTimestamp;
         public Builder() {}
         public Builder(EndpointS3Settings defaults) {
     	      Objects.requireNonNull(defaults);
@@ -532,6 +549,7 @@ public final class EndpointS3Settings {
     	      this.serviceAccessRoleArn = defaults.serviceAccessRoleArn;
     	      this.timestampColumnName = defaults.timestampColumnName;
     	      this.useCsvNoSupValue = defaults.useCsvNoSupValue;
+    	      this.useTaskStartTimeForFullLoadTimestamp = defaults.useTaskStartTimeForFullLoadTimestamp;
         }
 
         @CustomType.Setter
@@ -714,6 +732,11 @@ public final class EndpointS3Settings {
             this.useCsvNoSupValue = useCsvNoSupValue;
             return this;
         }
+        @CustomType.Setter
+        public Builder useTaskStartTimeForFullLoadTimestamp(@Nullable Boolean useTaskStartTimeForFullLoadTimestamp) {
+            this.useTaskStartTimeForFullLoadTimestamp = useTaskStartTimeForFullLoadTimestamp;
+            return this;
+        }
         public EndpointS3Settings build() {
             final var o = new EndpointS3Settings();
             o.addColumnName = addColumnName;
@@ -752,6 +775,7 @@ public final class EndpointS3Settings {
             o.serviceAccessRoleArn = serviceAccessRoleArn;
             o.timestampColumnName = timestampColumnName;
             o.useCsvNoSupValue = useCsvNoSupValue;
+            o.useTaskStartTimeForFullLoadTimestamp = useTaskStartTimeForFullLoadTimestamp;
             return o;
         }
     }

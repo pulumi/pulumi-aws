@@ -157,6 +157,12 @@ namespace Pulumi.Aws.Dms.Outputs
         /// Whether to use `csv_no_sup_value` for columns not included in the supplemental log.
         /// </summary>
         public readonly bool? UseCsvNoSupValue;
+        /// <summary>
+        /// When set to true, uses the task start time as the timestamp column value instead of the time data is written to target.
+        /// For full load, when set to true, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time.
+        /// When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
+        /// </summary>
+        public readonly bool? UseTaskStartTimeForFullLoadTimestamp;
 
         [OutputConstructor]
         private EndpointS3Settings(
@@ -230,7 +236,9 @@ namespace Pulumi.Aws.Dms.Outputs
 
             string? timestampColumnName,
 
-            bool? useCsvNoSupValue)
+            bool? useCsvNoSupValue,
+
+            bool? useTaskStartTimeForFullLoadTimestamp)
         {
             AddColumnName = addColumnName;
             BucketFolder = bucketFolder;
@@ -268,6 +276,7 @@ namespace Pulumi.Aws.Dms.Outputs
             ServiceAccessRoleArn = serviceAccessRoleArn;
             TimestampColumnName = timestampColumnName;
             UseCsvNoSupValue = useCsvNoSupValue;
+            UseTaskStartTimeForFullLoadTimestamp = useTaskStartTimeForFullLoadTimestamp;
         }
     }
 }

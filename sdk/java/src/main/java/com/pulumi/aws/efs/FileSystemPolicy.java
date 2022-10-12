@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *         var policy = new FileSystemPolicy(&#34;policy&#34;, FileSystemPolicyArgs.builder()        
  *             .fileSystemId(fs.id())
  *             .bypassPolicyLockoutSafetyCheck(true)
- *             .policy(&#34;&#34;&#34;
+ *             .policy(fs.arn().applyValue(arn -&gt; &#34;&#34;&#34;
  * {
  *     &#34;Version&#34;: &#34;2012-10-17&#34;,
  *     &#34;Id&#34;: &#34;ExamplePolicy01&#34;,
@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  *         }
  *     ]
  * }
- * &#34;, aws_efs_file_system.test().arn()))
+ * &#34;, arn)))
  *             .build());
  * 
  *     }

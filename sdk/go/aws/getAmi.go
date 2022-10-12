@@ -137,7 +137,9 @@ type GetAmiResult struct {
 	// the AWS account ID of the AMI owner.
 	ImageOwnerAlias string `pulumi:"imageOwnerAlias"`
 	// Type of image.
-	ImageType         string `pulumi:"imageType"`
+	ImageType string `pulumi:"imageType"`
+	// Instance Metadata Service (IMDS) support mode for the image. Set to `v2.0` if instances ran from this image enforce IMDSv2.
+	ImdsSupport       string `pulumi:"imdsSupport"`
 	IncludeDeprecated *bool  `pulumi:"includeDeprecated"`
 	// Kernel associated with the image, if any. Only applicable
 	// for machine images.
@@ -329,6 +331,11 @@ func (o GetAmiResultOutput) ImageOwnerAlias() pulumi.StringOutput {
 // Type of image.
 func (o GetAmiResultOutput) ImageType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAmiResult) string { return v.ImageType }).(pulumi.StringOutput)
+}
+
+// Instance Metadata Service (IMDS) support mode for the image. Set to `v2.0` if instances ran from this image enforce IMDSv2.
+func (o GetAmiResultOutput) ImdsSupport() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAmiResult) string { return v.ImdsSupport }).(pulumi.StringOutput)
 }
 
 func (o GetAmiResultOutput) IncludeDeprecated() pulumi.BoolPtrOutput {

@@ -129,7 +129,7 @@ public final class AddonState extends com.pulumi.resources.ResourceArgs {
     /**
      * Define how to resolve parameter value conflicts
      * when migrating an existing add-on to an Amazon EKS add-on or when applying
-     * version updates to the add-on. Valid values are `NONE` and `OVERWRITE`.
+     * version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`.
      * 
      */
     @Import(name="resolveConflicts")
@@ -138,7 +138,7 @@ public final class AddonState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Define how to resolve parameter value conflicts
      * when migrating an existing add-on to an Amazon EKS add-on or when applying
-     * version updates to the add-on. Valid values are `NONE` and `OVERWRITE`.
+     * version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`.
      * 
      */
     public Optional<Output<String>> resolveConflicts() {
@@ -388,7 +388,7 @@ public final class AddonState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param resolveConflicts Define how to resolve parameter value conflicts
          * when migrating an existing add-on to an Amazon EKS add-on or when applying
-         * version updates to the add-on. Valid values are `NONE` and `OVERWRITE`.
+         * version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`.
          * 
          * @return builder
          * 
@@ -401,7 +401,7 @@ public final class AddonState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param resolveConflicts Define how to resolve parameter value conflicts
          * when migrating an existing add-on to an Amazon EKS add-on or when applying
-         * version updates to the add-on. Valid values are `NONE` and `OVERWRITE`.
+         * version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`.
          * 
          * @return builder
          * 

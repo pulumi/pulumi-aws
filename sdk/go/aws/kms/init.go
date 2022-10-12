@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Alias{}
 	case "aws:kms/ciphertext:Ciphertext":
 		r = &Ciphertext{}
+	case "aws:kms/customKeyStore:CustomKeyStore":
+		r = &CustomKeyStore{}
 	case "aws:kms/externalKey:ExternalKey":
 		r = &ExternalKey{}
 	case "aws:kms/grant:Grant":
@@ -56,6 +58,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"kms/ciphertext",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"kms/customKeyStore",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

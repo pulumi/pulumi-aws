@@ -700,7 +700,7 @@ class Integration(pulumi.CustomResource):
             code=pulumi.FileArchive("example.zip"),
             role=aws_iam_role["example"]["arn"],
             handler="index.handler",
-            runtime="nodejs12.x")
+            runtime="nodejs16.x")
         example_integration = aws.apigatewayv2.Integration("exampleIntegration",
             api_id=aws_apigatewayv2_api["example"]["id"],
             integration_type="AWS_PROXY",
@@ -834,7 +834,7 @@ class Integration(pulumi.CustomResource):
             code=pulumi.FileArchive("example.zip"),
             role=aws_iam_role["example"]["arn"],
             handler="index.handler",
-            runtime="nodejs12.x")
+            runtime="nodejs16.x")
         example_integration = aws.apigatewayv2.Integration("exampleIntegration",
             api_id=aws_apigatewayv2_api["example"]["id"],
             integration_type="AWS_PROXY",

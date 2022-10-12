@@ -265,6 +265,7 @@ class Endpoints(dict):
                  connectcontactlens: Optional[str] = None,
                  connectparticipant: Optional[str] = None,
                  connectwisdomservice: Optional[str] = None,
+                 controltower: Optional[str] = None,
                  costandusagereportservice: Optional[str] = None,
                  costexplorer: Optional[str] = None,
                  cur: Optional[str] = None,
@@ -344,6 +345,7 @@ class Endpoints(dict):
                  imagebuilder: Optional[str] = None,
                  inspector: Optional[str] = None,
                  inspector2: Optional[str] = None,
+                 inspectorv2: Optional[str] = None,
                  iot: Optional[str] = None,
                  iot1clickdevices: Optional[str] = None,
                  iot1clickdevicesservice: Optional[str] = None,
@@ -719,6 +721,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "connectparticipant", connectparticipant)
         if connectwisdomservice is not None:
             pulumi.set(__self__, "connectwisdomservice", connectwisdomservice)
+        if controltower is not None:
+            pulumi.set(__self__, "controltower", controltower)
         if costandusagereportservice is not None:
             pulumi.set(__self__, "costandusagereportservice", costandusagereportservice)
         if costexplorer is not None:
@@ -877,6 +881,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "inspector", inspector)
         if inspector2 is not None:
             pulumi.set(__self__, "inspector2", inspector2)
+        if inspectorv2 is not None:
+            pulumi.set(__self__, "inspectorv2", inspectorv2)
         if iot is not None:
             pulumi.set(__self__, "iot", iot)
         if iot1clickdevices is not None:
@@ -1716,6 +1722,11 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
+    def controltower(self) -> Optional[str]:
+        return pulumi.get(self, "controltower")
+
+    @property
+    @pulumi.getter
     def costandusagereportservice(self) -> Optional[str]:
         return pulumi.get(self, "costandusagereportservice")
 
@@ -2108,6 +2119,11 @@ class Endpoints(dict):
     @pulumi.getter
     def inspector2(self) -> Optional[str]:
         return pulumi.get(self, "inspector2")
+
+    @property
+    @pulumi.getter
+    def inspectorv2(self) -> Optional[str]:
+        return pulumi.get(self, "inspectorv2")
 
     @property
     @pulumi.getter

@@ -67,6 +67,10 @@ export class Key extends pulumi.CustomResource {
      */
     public readonly bypassPolicyLockoutSafetyCheck!: pulumi.Output<boolean | undefined>;
     /**
+     * ID of the KMS [Custom Key Store](https://docs.aws.amazon.com/kms/latest/developerguide/create-cmk-keystore.html) where the key will be stored instead of KMS (eg CloudHSM).
+     */
+    public readonly customKeyStoreId!: pulumi.Output<string | undefined>;
+    /**
      * Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
      * Valid values: `SYMMETRIC_DEFAULT`,  `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_256`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, or `ECC_SECG_P256K1`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
      */
@@ -94,7 +98,7 @@ export class Key extends pulumi.CustomResource {
      */
     public /*out*/ readonly keyId!: pulumi.Output<string>;
     /**
-     * Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT` or `SIGN_VERIFY`.
+     * Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`.
      * Defaults to `ENCRYPT_DECRYPT`.
      */
     public readonly keyUsage!: pulumi.Output<string | undefined>;
@@ -130,6 +134,7 @@ export class Key extends pulumi.CustomResource {
             const state = argsOrState as KeyState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["bypassPolicyLockoutSafetyCheck"] = state ? state.bypassPolicyLockoutSafetyCheck : undefined;
+            resourceInputs["customKeyStoreId"] = state ? state.customKeyStoreId : undefined;
             resourceInputs["customerMasterKeySpec"] = state ? state.customerMasterKeySpec : undefined;
             resourceInputs["deletionWindowInDays"] = state ? state.deletionWindowInDays : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
@@ -144,6 +149,7 @@ export class Key extends pulumi.CustomResource {
         } else {
             const args = argsOrState as KeyArgs | undefined;
             resourceInputs["bypassPolicyLockoutSafetyCheck"] = args ? args.bypassPolicyLockoutSafetyCheck : undefined;
+            resourceInputs["customKeyStoreId"] = args ? args.customKeyStoreId : undefined;
             resourceInputs["customerMasterKeySpec"] = args ? args.customerMasterKeySpec : undefined;
             resourceInputs["deletionWindowInDays"] = args ? args.deletionWindowInDays : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
@@ -178,6 +184,10 @@ export interface KeyState {
      */
     bypassPolicyLockoutSafetyCheck?: pulumi.Input<boolean>;
     /**
+     * ID of the KMS [Custom Key Store](https://docs.aws.amazon.com/kms/latest/developerguide/create-cmk-keystore.html) where the key will be stored instead of KMS (eg CloudHSM).
+     */
+    customKeyStoreId?: pulumi.Input<string>;
+    /**
      * Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
      * Valid values: `SYMMETRIC_DEFAULT`,  `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_256`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, or `ECC_SECG_P256K1`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
      */
@@ -205,7 +215,7 @@ export interface KeyState {
      */
     keyId?: pulumi.Input<string>;
     /**
-     * Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT` or `SIGN_VERIFY`.
+     * Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`.
      * Defaults to `ENCRYPT_DECRYPT`.
      */
     keyUsage?: pulumi.Input<string>;
@@ -239,6 +249,10 @@ export interface KeyArgs {
      */
     bypassPolicyLockoutSafetyCheck?: pulumi.Input<boolean>;
     /**
+     * ID of the KMS [Custom Key Store](https://docs.aws.amazon.com/kms/latest/developerguide/create-cmk-keystore.html) where the key will be stored instead of KMS (eg CloudHSM).
+     */
+    customKeyStoreId?: pulumi.Input<string>;
+    /**
      * Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
      * Valid values: `SYMMETRIC_DEFAULT`,  `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_256`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, or `ECC_SECG_P256K1`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
      */
@@ -262,7 +276,7 @@ export interface KeyArgs {
      */
     isEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT` or `SIGN_VERIFY`.
+     * Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`.
      * Defaults to `ENCRYPT_DECRYPT`.
      */
     keyUsage?: pulumi.Input<string>;

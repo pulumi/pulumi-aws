@@ -239,6 +239,8 @@ import (
 type Policy struct {
 	pulumi.CustomResourceState
 
+	// List of CloudWatch alarm ARNs associated with the scaling policy.
+	AlarmArns pulumi.StringArrayOutput `pulumi:"alarmArns"`
 	// ARN assigned by AWS to the scaling policy.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Name of the policy. Must be between 1 and 255 characters in length.
@@ -295,6 +297,8 @@ func GetPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Policy resources.
 type policyState struct {
+	// List of CloudWatch alarm ARNs associated with the scaling policy.
+	AlarmArns []string `pulumi:"alarmArns"`
 	// ARN assigned by AWS to the scaling policy.
 	Arn *string `pulumi:"arn"`
 	// Name of the policy. Must be between 1 and 255 characters in length.
@@ -314,6 +318,8 @@ type policyState struct {
 }
 
 type PolicyState struct {
+	// List of CloudWatch alarm ARNs associated with the scaling policy.
+	AlarmArns pulumi.StringArrayInput
 	// ARN assigned by AWS to the scaling policy.
 	Arn pulumi.StringPtrInput
 	// Name of the policy. Must be between 1 and 255 characters in length.
@@ -456,6 +462,11 @@ func (o PolicyOutput) ToPolicyOutput() PolicyOutput {
 
 func (o PolicyOutput) ToPolicyOutputWithContext(ctx context.Context) PolicyOutput {
 	return o
+}
+
+// List of CloudWatch alarm ARNs associated with the scaling policy.
+func (o PolicyOutput) AlarmArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringArrayOutput { return v.AlarmArns }).(pulumi.StringArrayOutput)
 }
 
 // ARN assigned by AWS to the scaling policy.

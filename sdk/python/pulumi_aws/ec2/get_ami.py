@@ -23,7 +23,7 @@ class GetAmiResult:
     """
     A collection of values returned by getAmi.
     """
-    def __init__(__self__, architecture=None, arn=None, block_device_mappings=None, boot_mode=None, creation_date=None, deprecation_time=None, description=None, ena_support=None, executable_users=None, filters=None, hypervisor=None, id=None, image_id=None, image_location=None, image_owner_alias=None, image_type=None, include_deprecated=None, kernel_id=None, most_recent=None, name=None, name_regex=None, owner_id=None, owners=None, platform=None, platform_details=None, product_codes=None, public=None, ramdisk_id=None, root_device_name=None, root_device_type=None, root_snapshot_id=None, sriov_net_support=None, state=None, state_reason=None, tags=None, tpm_support=None, usage_operation=None, virtualization_type=None):
+    def __init__(__self__, architecture=None, arn=None, block_device_mappings=None, boot_mode=None, creation_date=None, deprecation_time=None, description=None, ena_support=None, executable_users=None, filters=None, hypervisor=None, id=None, image_id=None, image_location=None, image_owner_alias=None, image_type=None, imds_support=None, include_deprecated=None, kernel_id=None, most_recent=None, name=None, name_regex=None, owner_id=None, owners=None, platform=None, platform_details=None, product_codes=None, public=None, ramdisk_id=None, root_device_name=None, root_device_type=None, root_snapshot_id=None, sriov_net_support=None, state=None, state_reason=None, tags=None, tpm_support=None, usage_operation=None, virtualization_type=None):
         if architecture and not isinstance(architecture, str):
             raise TypeError("Expected argument 'architecture' to be a str")
         pulumi.set(__self__, "architecture", architecture)
@@ -72,6 +72,9 @@ class GetAmiResult:
         if image_type and not isinstance(image_type, str):
             raise TypeError("Expected argument 'image_type' to be a str")
         pulumi.set(__self__, "image_type", image_type)
+        if imds_support and not isinstance(imds_support, str):
+            raise TypeError("Expected argument 'imds_support' to be a str")
+        pulumi.set(__self__, "imds_support", imds_support)
         if include_deprecated and not isinstance(include_deprecated, bool):
             raise TypeError("Expected argument 'include_deprecated' to be a bool")
         pulumi.set(__self__, "include_deprecated", include_deprecated)
@@ -262,6 +265,14 @@ class GetAmiResult:
         Type of image.
         """
         return pulumi.get(self, "image_type")
+
+    @property
+    @pulumi.getter(name="imdsSupport")
+    def imds_support(self) -> str:
+        """
+        Instance Metadata Service (IMDS) support mode for the image. Set to `v2.0` if instances ran from this image enforce IMDSv2.
+        """
+        return pulumi.get(self, "imds_support")
 
     @property
     @pulumi.getter(name="includeDeprecated")
@@ -461,6 +472,7 @@ class AwaitableGetAmiResult(GetAmiResult):
             image_location=self.image_location,
             image_owner_alias=self.image_owner_alias,
             image_type=self.image_type,
+            imds_support=self.imds_support,
             include_deprecated=self.include_deprecated,
             kernel_id=self.kernel_id,
             most_recent=self.most_recent,
@@ -570,6 +582,7 @@ def get_ami(executable_users: Optional[Sequence[str]] = None,
         image_location=__ret__.image_location,
         image_owner_alias=__ret__.image_owner_alias,
         image_type=__ret__.image_type,
+        imds_support=__ret__.imds_support,
         include_deprecated=__ret__.include_deprecated,
         kernel_id=__ret__.kernel_id,
         most_recent=__ret__.most_recent,

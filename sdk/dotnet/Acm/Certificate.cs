@@ -13,17 +13,40 @@ namespace Pulumi.Aws.Acm
     /// The ACM certificate resource allows requesting and management of certificates
     /// from the Amazon Certificate Manager.
     /// 
-    /// It deals with requesting certificates and managing their attributes and life-cycle.
+    /// ACM certificates can be created in three ways:
+    /// Amazon-issued, where AWS provides the certificate authority and automatically manages renewal;
+    /// imported certificates, issued by another certificate authority;
+    /// and private certificates, issued using an ACM Private Certificate Authority.
+    /// 
+    /// ## Amazon-Issued Certificates
+    /// 
+    /// For Amazon-issued certificates, this resource deals with requesting certificates and managing their attributes and life-cycle.
     /// This resource does not deal with validation of a certificate but can provide inputs
-    /// for other resources implementing the validation. It does not wait for a certificate to be issued.
+    /// for other resources implementing the validation.
+    /// It does not wait for a certificate to be issued.
     /// Use a `aws.acm.CertificateValidation` resource for this.
     /// 
     /// Most commonly, this resource is used together with `aws.route53.Record` and
     /// `aws.acm.CertificateValidation` to request a DNS validated certificate,
     /// deploy the required validation records and wait for validation to complete.
     /// 
-    /// Domain validation through E-Mail is also supported but should be avoided as it requires a manual step outside
-    /// of this provider.
+    /// Domain validation through email is also supported but should be avoided as it requires a manual step outside of this provider.
+    /// 
+    /// ## Certificates Imported from Other Certificate Authority
+    /// 
+    /// Imported certificates can be used to make certificates created with an external certificate authority available for AWS services.
+    /// 
+    /// As they are not managed by AWS, imported certificates are not eligible for automatic renewal.
+    /// New certificate materials can be supplied to an existing imported certificate to update it in place.
+    /// 
+    /// ## Private Certificates
+    /// 
+    /// Private certificates are issued by an ACM Private Cerificate Authority, which can be created using the resource type `aws.acmpca.CertificateAuthority`.
+    /// 
+    /// Private certificates created using this resource are eligible for managed renewal if they have been exported or associated with another AWS service.
+    /// See [managed renewal documentation](https://docs.aws.amazon.com/acm/latest/userguide/managed-renewal.html) for more information.
+    /// By default, a certificate is valid for 395 days and the managed renewal process will start 60 days before expiration.
+    /// To renew the certificate earlier than 60 days before expiration, configure `early_renewal_duration`.
     /// 
     /// ## Example Usage
     /// ### Create Certificate
@@ -160,10 +183,22 @@ namespace Pulumi.Aws.Acm
         public Output<string> DomainName { get; private set; } = null!;
 
         /// <summary>
-        /// Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Only set if `DNS`-validation was used.
+        /// Set of domain validation objects which can be used to complete certificate validation.
+        /// Can have more than one element, e.g., if SANs are defined.
+        /// Only set if `DNS`-validation was used.
         /// </summary>
         [Output("domainValidationOptions")]
         public Output<ImmutableArray<Outputs.CertificateDomainValidationOption>> DomainValidationOptions { get; private set; } = null!;
+
+        /// <summary>
+        /// Amount of time to start automatic renewal process before expiration.
+        /// Has no effect if less than 60 days.
+        /// Represented by either
+        /// a subset of [RFC 3339 duration](https://www.rfc-editor.org/rfc/rfc3339) supporting years, months, and days (e.g., `P90D`),
+        /// or a string such as `2160h`.
+        /// </summary>
+        [Output("earlyRenewalDuration")]
+        public Output<string?> EarlyRenewalDuration { get; private set; } = null!;
 
         /// <summary>
         /// Expiration date and time of the certificate.
@@ -184,10 +219,28 @@ namespace Pulumi.Aws.Acm
         public Output<Outputs.CertificateOptions?> Options { get; private set; } = null!;
 
         /// <summary>
+        /// `true` if a Private certificate eligible for managed renewal is within the `early_renewal_duration` period.
+        /// </summary>
+        [Output("pendingRenewal")]
+        public Output<bool> PendingRenewal { get; private set; } = null!;
+
+        /// <summary>
         /// Certificate's PEM-formatted private key
         /// </summary>
         [Output("privateKey")]
         public Output<string?> PrivateKey { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether the certificate is eligible for managed renewal.
+        /// </summary>
+        [Output("renewalEligibility")]
+        public Output<string> RenewalEligibility { get; private set; } = null!;
+
+        /// <summary>
+        /// Contains information about the status of ACM's [managed renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html) for the certificate.
+        /// </summary>
+        [Output("renewalSummaries")]
+        public Output<ImmutableArray<Outputs.CertificateRenewalSummary>> RenewalSummaries { get; private set; } = null!;
 
         /// <summary>
         /// Status of the certificate.
@@ -196,7 +249,8 @@ namespace Pulumi.Aws.Acm
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+        /// Set of domains that should be SANs in the issued certificate.
+        /// To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
         /// </summary>
         [Output("subjectAlternativeNames")]
         public Output<ImmutableArray<string>> SubjectAlternativeNames { get; private set; } = null!;
@@ -214,7 +268,13 @@ namespace Pulumi.Aws.Acm
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// List of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
+        /// Source of the certificate.
+        /// </summary>
+        [Output("type")]
+        public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// List of addresses that received a validation email. Only set if `EMAIL` validation was used.
         /// </summary>
         [Output("validationEmails")]
         public Output<ImmutableArray<string>> ValidationEmails { get; private set; } = null!;
@@ -301,6 +361,16 @@ namespace Pulumi.Aws.Acm
         public Input<string>? DomainName { get; set; }
 
         /// <summary>
+        /// Amount of time to start automatic renewal process before expiration.
+        /// Has no effect if less than 60 days.
+        /// Represented by either
+        /// a subset of [RFC 3339 duration](https://www.rfc-editor.org/rfc/rfc3339) supporting years, months, and days (e.g., `P90D`),
+        /// or a string such as `2160h`.
+        /// </summary>
+        [Input("earlyRenewalDuration")]
+        public Input<string>? EarlyRenewalDuration { get; set; }
+
+        /// <summary>
         /// Configuration block used to set certificate options. Detailed below.
         /// </summary>
         [Input("options")]
@@ -316,7 +386,8 @@ namespace Pulumi.Aws.Acm
         private InputList<string>? _subjectAlternativeNames;
 
         /// <summary>
-        /// Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+        /// Set of domains that should be SANs in the issued certificate.
+        /// To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
         /// </summary>
         public InputList<string> SubjectAlternativeNames
         {
@@ -395,13 +466,25 @@ namespace Pulumi.Aws.Acm
         private InputList<Inputs.CertificateDomainValidationOptionGetArgs>? _domainValidationOptions;
 
         /// <summary>
-        /// Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Only set if `DNS`-validation was used.
+        /// Set of domain validation objects which can be used to complete certificate validation.
+        /// Can have more than one element, e.g., if SANs are defined.
+        /// Only set if `DNS`-validation was used.
         /// </summary>
         public InputList<Inputs.CertificateDomainValidationOptionGetArgs> DomainValidationOptions
         {
             get => _domainValidationOptions ?? (_domainValidationOptions = new InputList<Inputs.CertificateDomainValidationOptionGetArgs>());
             set => _domainValidationOptions = value;
         }
+
+        /// <summary>
+        /// Amount of time to start automatic renewal process before expiration.
+        /// Has no effect if less than 60 days.
+        /// Represented by either
+        /// a subset of [RFC 3339 duration](https://www.rfc-editor.org/rfc/rfc3339) supporting years, months, and days (e.g., `P90D`),
+        /// or a string such as `2160h`.
+        /// </summary>
+        [Input("earlyRenewalDuration")]
+        public Input<string>? EarlyRenewalDuration { get; set; }
 
         /// <summary>
         /// Expiration date and time of the certificate.
@@ -422,10 +505,34 @@ namespace Pulumi.Aws.Acm
         public Input<Inputs.CertificateOptionsGetArgs>? Options { get; set; }
 
         /// <summary>
+        /// `true` if a Private certificate eligible for managed renewal is within the `early_renewal_duration` period.
+        /// </summary>
+        [Input("pendingRenewal")]
+        public Input<bool>? PendingRenewal { get; set; }
+
+        /// <summary>
         /// Certificate's PEM-formatted private key
         /// </summary>
         [Input("privateKey")]
         public Input<string>? PrivateKey { get; set; }
+
+        /// <summary>
+        /// Whether the certificate is eligible for managed renewal.
+        /// </summary>
+        [Input("renewalEligibility")]
+        public Input<string>? RenewalEligibility { get; set; }
+
+        [Input("renewalSummaries")]
+        private InputList<Inputs.CertificateRenewalSummaryGetArgs>? _renewalSummaries;
+
+        /// <summary>
+        /// Contains information about the status of ACM's [managed renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html) for the certificate.
+        /// </summary>
+        public InputList<Inputs.CertificateRenewalSummaryGetArgs> RenewalSummaries
+        {
+            get => _renewalSummaries ?? (_renewalSummaries = new InputList<Inputs.CertificateRenewalSummaryGetArgs>());
+            set => _renewalSummaries = value;
+        }
 
         /// <summary>
         /// Status of the certificate.
@@ -437,7 +544,8 @@ namespace Pulumi.Aws.Acm
         private InputList<string>? _subjectAlternativeNames;
 
         /// <summary>
-        /// Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+        /// Set of domains that should be SANs in the issued certificate.
+        /// To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
         /// </summary>
         public InputList<string> SubjectAlternativeNames
         {
@@ -469,11 +577,17 @@ namespace Pulumi.Aws.Acm
             set => _tagsAll = value;
         }
 
+        /// <summary>
+        /// Source of the certificate.
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
+
         [Input("validationEmails")]
         private InputList<string>? _validationEmails;
 
         /// <summary>
-        /// List of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
+        /// List of addresses that received a validation email. Only set if `EMAIL` validation was used.
         /// </summary>
         public InputList<string> ValidationEmails
         {

@@ -374,6 +374,10 @@ namespace Pulumi.Aws
         /// Type of image.
         /// </summary>
         public readonly string ImageType;
+        /// <summary>
+        /// Instance Metadata Service (IMDS) support mode for the image. Set to `v2.0` if instances ran from this image enforce IMDSv2.
+        /// </summary>
+        public readonly string ImdsSupport;
         public readonly bool? IncludeDeprecated;
         /// <summary>
         /// Kernel associated with the image, if any. Only applicable
@@ -496,6 +500,8 @@ namespace Pulumi.Aws
 
             string imageType,
 
+            string imdsSupport,
+
             bool? includeDeprecated,
 
             string kernelId,
@@ -556,6 +562,7 @@ namespace Pulumi.Aws
             ImageLocation = imageLocation;
             ImageOwnerAlias = imageOwnerAlias;
             ImageType = imageType;
+            ImdsSupport = imdsSupport;
             IncludeDeprecated = includeDeprecated;
             KernelId = kernelId;
             MostRecent = mostRecent;

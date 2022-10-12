@@ -45,7 +45,7 @@ import {ARN} from "..";
  *     code: new pulumi.asset.FileArchive("lambda_function_payload.zip"),
  *     role: iamForLambda.arn,
  *     handler: "index.test",
- *     runtime: "nodejs12.x",
+ *     runtime: "nodejs16.x",
  *     environment: {
  *         variables: {
  *             foo: "bar",

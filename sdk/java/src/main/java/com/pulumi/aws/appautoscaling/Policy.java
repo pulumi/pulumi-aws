@@ -13,6 +13,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -215,6 +216,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:appautoscaling/policy:Policy")
 public class Policy extends com.pulumi.resources.CustomResource {
+    /**
+     * List of CloudWatch alarm ARNs associated with the scaling policy.
+     * 
+     */
+    @Export(name="alarmArns", type=List.class, parameters={String.class})
+    private Output<List<String>> alarmArns;
+
+    /**
+     * @return List of CloudWatch alarm ARNs associated with the scaling policy.
+     * 
+     */
+    public Output<List<String>> alarmArns() {
+        return this.alarmArns;
+    }
     /**
      * ARN assigned by AWS to the scaling policy.
      * 

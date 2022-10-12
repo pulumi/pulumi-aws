@@ -27,6 +27,7 @@ __all__ = [
     'EventTargetBatchTargetArgs',
     'EventTargetDeadLetterConfigArgs',
     'EventTargetEcsTargetArgs',
+    'EventTargetEcsTargetCapacityProviderStrategyArgs',
     'EventTargetEcsTargetNetworkConfigurationArgs',
     'EventTargetEcsTargetPlacementConstraintArgs',
     'EventTargetHttpTargetArgs',
@@ -883,6 +884,7 @@ class EventTargetDeadLetterConfigArgs:
 class EventTargetEcsTargetArgs:
     def __init__(__self__, *,
                  task_definition_arn: pulumi.Input[str],
+                 capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input['EventTargetEcsTargetCapacityProviderStrategyArgs']]]] = None,
                  enable_ecs_managed_tags: Optional[pulumi.Input[bool]] = None,
                  enable_execute_command: Optional[pulumi.Input[bool]] = None,
                  group: Optional[pulumi.Input[str]] = None,
@@ -895,6 +897,7 @@ class EventTargetEcsTargetArgs:
                  task_count: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] task_definition_arn: The ARN of the task definition to use if the event target is an Amazon ECS cluster.
+        :param pulumi.Input[Sequence[pulumi.Input['EventTargetEcsTargetCapacityProviderStrategyArgs']]] capacity_provider_strategies: The capacity provider strategy to use for the task. If a `capacity_provider_strategy` specified, the `launch_type` parameter must be omitted. If no `capacity_provider_strategy` or `launch_type` is specified, the default capacity provider strategy for the cluster is used. Can be one or more. See below.
         :param pulumi.Input[bool] enable_ecs_managed_tags: Specifies whether to enable Amazon ECS managed tags for the task.
         :param pulumi.Input[bool] enable_execute_command: Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task.
         :param pulumi.Input[str] group: Specifies an ECS task group for the task. The maximum length is 255 characters.
@@ -907,6 +910,8 @@ class EventTargetEcsTargetArgs:
         :param pulumi.Input[int] task_count: The number of tasks to create based on the TaskDefinition. The default is 1.
         """
         pulumi.set(__self__, "task_definition_arn", task_definition_arn)
+        if capacity_provider_strategies is not None:
+            pulumi.set(__self__, "capacity_provider_strategies", capacity_provider_strategies)
         if enable_ecs_managed_tags is not None:
             pulumi.set(__self__, "enable_ecs_managed_tags", enable_ecs_managed_tags)
         if enable_execute_command is not None:
@@ -939,6 +944,18 @@ class EventTargetEcsTargetArgs:
     @task_definition_arn.setter
     def task_definition_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "task_definition_arn", value)
+
+    @property
+    @pulumi.getter(name="capacityProviderStrategies")
+    def capacity_provider_strategies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventTargetEcsTargetCapacityProviderStrategyArgs']]]]:
+        """
+        The capacity provider strategy to use for the task. If a `capacity_provider_strategy` specified, the `launch_type` parameter must be omitted. If no `capacity_provider_strategy` or `launch_type` is specified, the default capacity provider strategy for the cluster is used. Can be one or more. See below.
+        """
+        return pulumi.get(self, "capacity_provider_strategies")
+
+    @capacity_provider_strategies.setter
+    def capacity_provider_strategies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventTargetEcsTargetCapacityProviderStrategyArgs']]]]):
+        pulumi.set(self, "capacity_provider_strategies", value)
 
     @property
     @pulumi.getter(name="enableEcsManagedTags")
@@ -1059,6 +1076,60 @@ class EventTargetEcsTargetArgs:
     @task_count.setter
     def task_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "task_count", value)
+
+
+@pulumi.input_type
+class EventTargetEcsTargetCapacityProviderStrategyArgs:
+    def __init__(__self__, *,
+                 capacity_provider: pulumi.Input[str],
+                 base: Optional[pulumi.Input[int]] = None,
+                 weight: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] capacity_provider: Short name of the capacity provider.
+        :param pulumi.Input[int] base: The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. If no value is specified, the default value of 0 is used.
+        :param pulumi.Input[int] weight: The weight value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied.
+        """
+        pulumi.set(__self__, "capacity_provider", capacity_provider)
+        if base is not None:
+            pulumi.set(__self__, "base", base)
+        if weight is not None:
+            pulumi.set(__self__, "weight", weight)
+
+    @property
+    @pulumi.getter(name="capacityProvider")
+    def capacity_provider(self) -> pulumi.Input[str]:
+        """
+        Short name of the capacity provider.
+        """
+        return pulumi.get(self, "capacity_provider")
+
+    @capacity_provider.setter
+    def capacity_provider(self, value: pulumi.Input[str]):
+        pulumi.set(self, "capacity_provider", value)
+
+    @property
+    @pulumi.getter
+    def base(self) -> Optional[pulumi.Input[int]]:
+        """
+        The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. If no value is specified, the default value of 0 is used.
+        """
+        return pulumi.get(self, "base")
+
+    @base.setter
+    def base(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "base", value)
+
+    @property
+    @pulumi.getter
+    def weight(self) -> Optional[pulumi.Input[int]]:
+        """
+        The weight value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied.
+        """
+        return pulumi.get(self, "weight")
+
+    @weight.setter
+    def weight(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "weight", value)
 
 
 @pulumi.input_type

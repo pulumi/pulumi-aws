@@ -17,7 +17,8 @@ export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:identitystore/getUser:getUser", {
-        "filters": args.filters,
+        "alternateIdentifier": args.alternateIdentifier,
+        "filter": args.filter,
         "identityStoreId": args.identityStoreId,
         "userId": args.userId,
     }, opts);
@@ -28,9 +29,15 @@ export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise
  */
 export interface GetUserArgs {
     /**
-     * Configuration block(s) for filtering. Currently, the AWS Identity Store API supports only 1 filter. Detailed below.
+     * A unique identifier for a user or group that is not the primary identifier. Conflicts with `userId` and `filter`. Detailed below.
      */
-    filters: inputs.identitystore.GetUserFilter[];
+    alternateIdentifier?: inputs.identitystore.GetUserAlternateIdentifier;
+    /**
+     * Configuration block for filtering by a unique attribute of the user. Detailed below.
+     *
+     * @deprecated Use the alternate_identifier attribute instead.
+     */
+    filter?: inputs.identitystore.GetUserFilter;
     /**
      * Identity Store ID associated with the Single Sign-On Instance.
      */
@@ -45,17 +52,73 @@ export interface GetUserArgs {
  * A collection of values returned by getUser.
  */
 export interface GetUserResult {
-    readonly filters: outputs.identitystore.GetUserFilter[];
+    /**
+     * List of details about the user's address.
+     */
+    readonly addresses: outputs.identitystore.GetUserAddress[];
+    readonly alternateIdentifier?: outputs.identitystore.GetUserAlternateIdentifier;
+    /**
+     * The name that is typically displayed when the user is referenced.
+     */
+    readonly displayName: string;
+    /**
+     * List of details about the user's email.
+     */
+    readonly emails: outputs.identitystore.GetUserEmail[];
+    /**
+     * List of identifiers issued to this resource by an external identity provider.
+     */
+    readonly externalIds: outputs.identitystore.GetUserExternalId[];
+    /**
+     * @deprecated Use the alternate_identifier attribute instead.
+     */
+    readonly filter?: outputs.identitystore.GetUserFilter;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     readonly identityStoreId: string;
+    /**
+     * The user's geographical region or location.
+     */
+    readonly locale: string;
+    /**
+     * Details about the user's full name.
+     */
+    readonly names: outputs.identitystore.GetUserName[];
+    /**
+     * An alternate name for the user.
+     */
+    readonly nickname: string;
+    /**
+     * List of details about the user's phone number.
+     */
+    readonly phoneNumbers: outputs.identitystore.GetUserPhoneNumber[];
+    /**
+     * The preferred language of the user.
+     */
+    readonly preferredLanguage: string;
+    /**
+     * An URL that may be associated with the user.
+     */
+    readonly profileUrl: string;
+    /**
+     * The user's time zone.
+     */
+    readonly timezone: string;
+    /**
+     * The user's title.
+     */
+    readonly title: string;
     readonly userId: string;
     /**
      * User's user name value.
      */
     readonly userName: string;
+    /**
+     * The user type.
+     */
+    readonly userType: string;
 }
 
 export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserResult> {
@@ -67,9 +130,15 @@ export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptio
  */
 export interface GetUserOutputArgs {
     /**
-     * Configuration block(s) for filtering. Currently, the AWS Identity Store API supports only 1 filter. Detailed below.
+     * A unique identifier for a user or group that is not the primary identifier. Conflicts with `userId` and `filter`. Detailed below.
      */
-    filters: pulumi.Input<pulumi.Input<inputs.identitystore.GetUserFilterArgs>[]>;
+    alternateIdentifier?: pulumi.Input<inputs.identitystore.GetUserAlternateIdentifierArgs>;
+    /**
+     * Configuration block for filtering by a unique attribute of the user. Detailed below.
+     *
+     * @deprecated Use the alternate_identifier attribute instead.
+     */
+    filter?: pulumi.Input<inputs.identitystore.GetUserFilterArgs>;
     /**
      * Identity Store ID associated with the Single Sign-On Instance.
      */

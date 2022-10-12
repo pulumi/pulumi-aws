@@ -10,6 +10,1070 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type GroupExternalId struct {
+	// The identifier issued to this resource by an external identity provider.
+	Id *string `pulumi:"id"`
+	// The issuer for an external identifier.
+	Issuer *string `pulumi:"issuer"`
+}
+
+// GroupExternalIdInput is an input type that accepts GroupExternalIdArgs and GroupExternalIdOutput values.
+// You can construct a concrete instance of `GroupExternalIdInput` via:
+//
+//	GroupExternalIdArgs{...}
+type GroupExternalIdInput interface {
+	pulumi.Input
+
+	ToGroupExternalIdOutput() GroupExternalIdOutput
+	ToGroupExternalIdOutputWithContext(context.Context) GroupExternalIdOutput
+}
+
+type GroupExternalIdArgs struct {
+	// The identifier issued to this resource by an external identity provider.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The issuer for an external identifier.
+	Issuer pulumi.StringPtrInput `pulumi:"issuer"`
+}
+
+func (GroupExternalIdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupExternalId)(nil)).Elem()
+}
+
+func (i GroupExternalIdArgs) ToGroupExternalIdOutput() GroupExternalIdOutput {
+	return i.ToGroupExternalIdOutputWithContext(context.Background())
+}
+
+func (i GroupExternalIdArgs) ToGroupExternalIdOutputWithContext(ctx context.Context) GroupExternalIdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupExternalIdOutput)
+}
+
+// GroupExternalIdArrayInput is an input type that accepts GroupExternalIdArray and GroupExternalIdArrayOutput values.
+// You can construct a concrete instance of `GroupExternalIdArrayInput` via:
+//
+//	GroupExternalIdArray{ GroupExternalIdArgs{...} }
+type GroupExternalIdArrayInput interface {
+	pulumi.Input
+
+	ToGroupExternalIdArrayOutput() GroupExternalIdArrayOutput
+	ToGroupExternalIdArrayOutputWithContext(context.Context) GroupExternalIdArrayOutput
+}
+
+type GroupExternalIdArray []GroupExternalIdInput
+
+func (GroupExternalIdArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupExternalId)(nil)).Elem()
+}
+
+func (i GroupExternalIdArray) ToGroupExternalIdArrayOutput() GroupExternalIdArrayOutput {
+	return i.ToGroupExternalIdArrayOutputWithContext(context.Background())
+}
+
+func (i GroupExternalIdArray) ToGroupExternalIdArrayOutputWithContext(ctx context.Context) GroupExternalIdArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupExternalIdArrayOutput)
+}
+
+type GroupExternalIdOutput struct{ *pulumi.OutputState }
+
+func (GroupExternalIdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupExternalId)(nil)).Elem()
+}
+
+func (o GroupExternalIdOutput) ToGroupExternalIdOutput() GroupExternalIdOutput {
+	return o
+}
+
+func (o GroupExternalIdOutput) ToGroupExternalIdOutputWithContext(ctx context.Context) GroupExternalIdOutput {
+	return o
+}
+
+// The identifier issued to this resource by an external identity provider.
+func (o GroupExternalIdOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupExternalId) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The issuer for an external identifier.
+func (o GroupExternalIdOutput) Issuer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupExternalId) *string { return v.Issuer }).(pulumi.StringPtrOutput)
+}
+
+type GroupExternalIdArrayOutput struct{ *pulumi.OutputState }
+
+func (GroupExternalIdArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupExternalId)(nil)).Elem()
+}
+
+func (o GroupExternalIdArrayOutput) ToGroupExternalIdArrayOutput() GroupExternalIdArrayOutput {
+	return o
+}
+
+func (o GroupExternalIdArrayOutput) ToGroupExternalIdArrayOutputWithContext(ctx context.Context) GroupExternalIdArrayOutput {
+	return o
+}
+
+func (o GroupExternalIdArrayOutput) Index(i pulumi.IntInput) GroupExternalIdOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupExternalId {
+		return vs[0].([]GroupExternalId)[vs[1].(int)]
+	}).(GroupExternalIdOutput)
+}
+
+type UserAddresses struct {
+	// The country that this address is in.
+	Country *string `pulumi:"country"`
+	// The name that is typically displayed when the name is shown for display.
+	Formatted *string `pulumi:"formatted"`
+	// The address locality.
+	Locality *string `pulumi:"locality"`
+	// The postal code of the address.
+	PostalCode *string `pulumi:"postalCode"`
+	// When `true`, this is the primary phone number associated with the user.
+	Primary *bool `pulumi:"primary"`
+	// The region of the address.
+	Region *string `pulumi:"region"`
+	// The street of the address.
+	StreetAddress *string `pulumi:"streetAddress"`
+	// The type of phone number.
+	Type *string `pulumi:"type"`
+}
+
+// UserAddressesInput is an input type that accepts UserAddressesArgs and UserAddressesOutput values.
+// You can construct a concrete instance of `UserAddressesInput` via:
+//
+//	UserAddressesArgs{...}
+type UserAddressesInput interface {
+	pulumi.Input
+
+	ToUserAddressesOutput() UserAddressesOutput
+	ToUserAddressesOutputWithContext(context.Context) UserAddressesOutput
+}
+
+type UserAddressesArgs struct {
+	// The country that this address is in.
+	Country pulumi.StringPtrInput `pulumi:"country"`
+	// The name that is typically displayed when the name is shown for display.
+	Formatted pulumi.StringPtrInput `pulumi:"formatted"`
+	// The address locality.
+	Locality pulumi.StringPtrInput `pulumi:"locality"`
+	// The postal code of the address.
+	PostalCode pulumi.StringPtrInput `pulumi:"postalCode"`
+	// When `true`, this is the primary phone number associated with the user.
+	Primary pulumi.BoolPtrInput `pulumi:"primary"`
+	// The region of the address.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+	// The street of the address.
+	StreetAddress pulumi.StringPtrInput `pulumi:"streetAddress"`
+	// The type of phone number.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (UserAddressesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAddresses)(nil)).Elem()
+}
+
+func (i UserAddressesArgs) ToUserAddressesOutput() UserAddressesOutput {
+	return i.ToUserAddressesOutputWithContext(context.Background())
+}
+
+func (i UserAddressesArgs) ToUserAddressesOutputWithContext(ctx context.Context) UserAddressesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAddressesOutput)
+}
+
+func (i UserAddressesArgs) ToUserAddressesPtrOutput() UserAddressesPtrOutput {
+	return i.ToUserAddressesPtrOutputWithContext(context.Background())
+}
+
+func (i UserAddressesArgs) ToUserAddressesPtrOutputWithContext(ctx context.Context) UserAddressesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAddressesOutput).ToUserAddressesPtrOutputWithContext(ctx)
+}
+
+// UserAddressesPtrInput is an input type that accepts UserAddressesArgs, UserAddressesPtr and UserAddressesPtrOutput values.
+// You can construct a concrete instance of `UserAddressesPtrInput` via:
+//
+//	        UserAddressesArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserAddressesPtrInput interface {
+	pulumi.Input
+
+	ToUserAddressesPtrOutput() UserAddressesPtrOutput
+	ToUserAddressesPtrOutputWithContext(context.Context) UserAddressesPtrOutput
+}
+
+type userAddressesPtrType UserAddressesArgs
+
+func UserAddressesPtr(v *UserAddressesArgs) UserAddressesPtrInput {
+	return (*userAddressesPtrType)(v)
+}
+
+func (*userAddressesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserAddresses)(nil)).Elem()
+}
+
+func (i *userAddressesPtrType) ToUserAddressesPtrOutput() UserAddressesPtrOutput {
+	return i.ToUserAddressesPtrOutputWithContext(context.Background())
+}
+
+func (i *userAddressesPtrType) ToUserAddressesPtrOutputWithContext(ctx context.Context) UserAddressesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAddressesPtrOutput)
+}
+
+type UserAddressesOutput struct{ *pulumi.OutputState }
+
+func (UserAddressesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAddresses)(nil)).Elem()
+}
+
+func (o UserAddressesOutput) ToUserAddressesOutput() UserAddressesOutput {
+	return o
+}
+
+func (o UserAddressesOutput) ToUserAddressesOutputWithContext(ctx context.Context) UserAddressesOutput {
+	return o
+}
+
+func (o UserAddressesOutput) ToUserAddressesPtrOutput() UserAddressesPtrOutput {
+	return o.ToUserAddressesPtrOutputWithContext(context.Background())
+}
+
+func (o UserAddressesOutput) ToUserAddressesPtrOutputWithContext(ctx context.Context) UserAddressesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserAddresses) *UserAddresses {
+		return &v
+	}).(UserAddressesPtrOutput)
+}
+
+// The country that this address is in.
+func (o UserAddressesOutput) Country() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserAddresses) *string { return v.Country }).(pulumi.StringPtrOutput)
+}
+
+// The name that is typically displayed when the name is shown for display.
+func (o UserAddressesOutput) Formatted() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserAddresses) *string { return v.Formatted }).(pulumi.StringPtrOutput)
+}
+
+// The address locality.
+func (o UserAddressesOutput) Locality() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserAddresses) *string { return v.Locality }).(pulumi.StringPtrOutput)
+}
+
+// The postal code of the address.
+func (o UserAddressesOutput) PostalCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserAddresses) *string { return v.PostalCode }).(pulumi.StringPtrOutput)
+}
+
+// When `true`, this is the primary phone number associated with the user.
+func (o UserAddressesOutput) Primary() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v UserAddresses) *bool { return v.Primary }).(pulumi.BoolPtrOutput)
+}
+
+// The region of the address.
+func (o UserAddressesOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserAddresses) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+// The street of the address.
+func (o UserAddressesOutput) StreetAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserAddresses) *string { return v.StreetAddress }).(pulumi.StringPtrOutput)
+}
+
+// The type of phone number.
+func (o UserAddressesOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserAddresses) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type UserAddressesPtrOutput struct{ *pulumi.OutputState }
+
+func (UserAddressesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserAddresses)(nil)).Elem()
+}
+
+func (o UserAddressesPtrOutput) ToUserAddressesPtrOutput() UserAddressesPtrOutput {
+	return o
+}
+
+func (o UserAddressesPtrOutput) ToUserAddressesPtrOutputWithContext(ctx context.Context) UserAddressesPtrOutput {
+	return o
+}
+
+func (o UserAddressesPtrOutput) Elem() UserAddressesOutput {
+	return o.ApplyT(func(v *UserAddresses) UserAddresses {
+		if v != nil {
+			return *v
+		}
+		var ret UserAddresses
+		return ret
+	}).(UserAddressesOutput)
+}
+
+// The country that this address is in.
+func (o UserAddressesPtrOutput) Country() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserAddresses) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Country
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name that is typically displayed when the name is shown for display.
+func (o UserAddressesPtrOutput) Formatted() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserAddresses) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Formatted
+	}).(pulumi.StringPtrOutput)
+}
+
+// The address locality.
+func (o UserAddressesPtrOutput) Locality() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserAddresses) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Locality
+	}).(pulumi.StringPtrOutput)
+}
+
+// The postal code of the address.
+func (o UserAddressesPtrOutput) PostalCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserAddresses) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PostalCode
+	}).(pulumi.StringPtrOutput)
+}
+
+// When `true`, this is the primary phone number associated with the user.
+func (o UserAddressesPtrOutput) Primary() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *UserAddresses) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Primary
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The region of the address.
+func (o UserAddressesPtrOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserAddresses) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Region
+	}).(pulumi.StringPtrOutput)
+}
+
+// The street of the address.
+func (o UserAddressesPtrOutput) StreetAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserAddresses) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StreetAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of phone number.
+func (o UserAddressesPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserAddresses) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserEmails struct {
+	// When `true`, this is the primary phone number associated with the user.
+	Primary *bool `pulumi:"primary"`
+	// The type of phone number.
+	Type *string `pulumi:"type"`
+	// The user's phone number.
+	Value *string `pulumi:"value"`
+}
+
+// UserEmailsInput is an input type that accepts UserEmailsArgs and UserEmailsOutput values.
+// You can construct a concrete instance of `UserEmailsInput` via:
+//
+//	UserEmailsArgs{...}
+type UserEmailsInput interface {
+	pulumi.Input
+
+	ToUserEmailsOutput() UserEmailsOutput
+	ToUserEmailsOutputWithContext(context.Context) UserEmailsOutput
+}
+
+type UserEmailsArgs struct {
+	// When `true`, this is the primary phone number associated with the user.
+	Primary pulumi.BoolPtrInput `pulumi:"primary"`
+	// The type of phone number.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The user's phone number.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (UserEmailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserEmails)(nil)).Elem()
+}
+
+func (i UserEmailsArgs) ToUserEmailsOutput() UserEmailsOutput {
+	return i.ToUserEmailsOutputWithContext(context.Background())
+}
+
+func (i UserEmailsArgs) ToUserEmailsOutputWithContext(ctx context.Context) UserEmailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserEmailsOutput)
+}
+
+func (i UserEmailsArgs) ToUserEmailsPtrOutput() UserEmailsPtrOutput {
+	return i.ToUserEmailsPtrOutputWithContext(context.Background())
+}
+
+func (i UserEmailsArgs) ToUserEmailsPtrOutputWithContext(ctx context.Context) UserEmailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserEmailsOutput).ToUserEmailsPtrOutputWithContext(ctx)
+}
+
+// UserEmailsPtrInput is an input type that accepts UserEmailsArgs, UserEmailsPtr and UserEmailsPtrOutput values.
+// You can construct a concrete instance of `UserEmailsPtrInput` via:
+//
+//	        UserEmailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserEmailsPtrInput interface {
+	pulumi.Input
+
+	ToUserEmailsPtrOutput() UserEmailsPtrOutput
+	ToUserEmailsPtrOutputWithContext(context.Context) UserEmailsPtrOutput
+}
+
+type userEmailsPtrType UserEmailsArgs
+
+func UserEmailsPtr(v *UserEmailsArgs) UserEmailsPtrInput {
+	return (*userEmailsPtrType)(v)
+}
+
+func (*userEmailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserEmails)(nil)).Elem()
+}
+
+func (i *userEmailsPtrType) ToUserEmailsPtrOutput() UserEmailsPtrOutput {
+	return i.ToUserEmailsPtrOutputWithContext(context.Background())
+}
+
+func (i *userEmailsPtrType) ToUserEmailsPtrOutputWithContext(ctx context.Context) UserEmailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserEmailsPtrOutput)
+}
+
+type UserEmailsOutput struct{ *pulumi.OutputState }
+
+func (UserEmailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserEmails)(nil)).Elem()
+}
+
+func (o UserEmailsOutput) ToUserEmailsOutput() UserEmailsOutput {
+	return o
+}
+
+func (o UserEmailsOutput) ToUserEmailsOutputWithContext(ctx context.Context) UserEmailsOutput {
+	return o
+}
+
+func (o UserEmailsOutput) ToUserEmailsPtrOutput() UserEmailsPtrOutput {
+	return o.ToUserEmailsPtrOutputWithContext(context.Background())
+}
+
+func (o UserEmailsOutput) ToUserEmailsPtrOutputWithContext(ctx context.Context) UserEmailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserEmails) *UserEmails {
+		return &v
+	}).(UserEmailsPtrOutput)
+}
+
+// When `true`, this is the primary phone number associated with the user.
+func (o UserEmailsOutput) Primary() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v UserEmails) *bool { return v.Primary }).(pulumi.BoolPtrOutput)
+}
+
+// The type of phone number.
+func (o UserEmailsOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserEmails) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The user's phone number.
+func (o UserEmailsOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserEmails) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type UserEmailsPtrOutput struct{ *pulumi.OutputState }
+
+func (UserEmailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserEmails)(nil)).Elem()
+}
+
+func (o UserEmailsPtrOutput) ToUserEmailsPtrOutput() UserEmailsPtrOutput {
+	return o
+}
+
+func (o UserEmailsPtrOutput) ToUserEmailsPtrOutputWithContext(ctx context.Context) UserEmailsPtrOutput {
+	return o
+}
+
+func (o UserEmailsPtrOutput) Elem() UserEmailsOutput {
+	return o.ApplyT(func(v *UserEmails) UserEmails {
+		if v != nil {
+			return *v
+		}
+		var ret UserEmails
+		return ret
+	}).(UserEmailsOutput)
+}
+
+// When `true`, this is the primary phone number associated with the user.
+func (o UserEmailsPtrOutput) Primary() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *UserEmails) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Primary
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The type of phone number.
+func (o UserEmailsPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserEmails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// The user's phone number.
+func (o UserEmailsPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserEmails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserExternalId struct {
+	// The identifier issued to this resource by an external identity provider.
+	Id *bool `pulumi:"id"`
+	// The issuer for an external identifier.
+	Issuer *string `pulumi:"issuer"`
+}
+
+// UserExternalIdInput is an input type that accepts UserExternalIdArgs and UserExternalIdOutput values.
+// You can construct a concrete instance of `UserExternalIdInput` via:
+//
+//	UserExternalIdArgs{...}
+type UserExternalIdInput interface {
+	pulumi.Input
+
+	ToUserExternalIdOutput() UserExternalIdOutput
+	ToUserExternalIdOutputWithContext(context.Context) UserExternalIdOutput
+}
+
+type UserExternalIdArgs struct {
+	// The identifier issued to this resource by an external identity provider.
+	Id pulumi.BoolPtrInput `pulumi:"id"`
+	// The issuer for an external identifier.
+	Issuer pulumi.StringPtrInput `pulumi:"issuer"`
+}
+
+func (UserExternalIdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserExternalId)(nil)).Elem()
+}
+
+func (i UserExternalIdArgs) ToUserExternalIdOutput() UserExternalIdOutput {
+	return i.ToUserExternalIdOutputWithContext(context.Background())
+}
+
+func (i UserExternalIdArgs) ToUserExternalIdOutputWithContext(ctx context.Context) UserExternalIdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserExternalIdOutput)
+}
+
+// UserExternalIdArrayInput is an input type that accepts UserExternalIdArray and UserExternalIdArrayOutput values.
+// You can construct a concrete instance of `UserExternalIdArrayInput` via:
+//
+//	UserExternalIdArray{ UserExternalIdArgs{...} }
+type UserExternalIdArrayInput interface {
+	pulumi.Input
+
+	ToUserExternalIdArrayOutput() UserExternalIdArrayOutput
+	ToUserExternalIdArrayOutputWithContext(context.Context) UserExternalIdArrayOutput
+}
+
+type UserExternalIdArray []UserExternalIdInput
+
+func (UserExternalIdArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserExternalId)(nil)).Elem()
+}
+
+func (i UserExternalIdArray) ToUserExternalIdArrayOutput() UserExternalIdArrayOutput {
+	return i.ToUserExternalIdArrayOutputWithContext(context.Background())
+}
+
+func (i UserExternalIdArray) ToUserExternalIdArrayOutputWithContext(ctx context.Context) UserExternalIdArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserExternalIdArrayOutput)
+}
+
+type UserExternalIdOutput struct{ *pulumi.OutputState }
+
+func (UserExternalIdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserExternalId)(nil)).Elem()
+}
+
+func (o UserExternalIdOutput) ToUserExternalIdOutput() UserExternalIdOutput {
+	return o
+}
+
+func (o UserExternalIdOutput) ToUserExternalIdOutputWithContext(ctx context.Context) UserExternalIdOutput {
+	return o
+}
+
+// The identifier issued to this resource by an external identity provider.
+func (o UserExternalIdOutput) Id() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v UserExternalId) *bool { return v.Id }).(pulumi.BoolPtrOutput)
+}
+
+// The issuer for an external identifier.
+func (o UserExternalIdOutput) Issuer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserExternalId) *string { return v.Issuer }).(pulumi.StringPtrOutput)
+}
+
+type UserExternalIdArrayOutput struct{ *pulumi.OutputState }
+
+func (UserExternalIdArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserExternalId)(nil)).Elem()
+}
+
+func (o UserExternalIdArrayOutput) ToUserExternalIdArrayOutput() UserExternalIdArrayOutput {
+	return o
+}
+
+func (o UserExternalIdArrayOutput) ToUserExternalIdArrayOutputWithContext(ctx context.Context) UserExternalIdArrayOutput {
+	return o
+}
+
+func (o UserExternalIdArrayOutput) Index(i pulumi.IntInput) UserExternalIdOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserExternalId {
+		return vs[0].([]UserExternalId)[vs[1].(int)]
+	}).(UserExternalIdOutput)
+}
+
+type UserName struct {
+	// The family name of the user.
+	FamilyName string `pulumi:"familyName"`
+	// The name that is typically displayed when the name is shown for display.
+	Formatted *string `pulumi:"formatted"`
+	// The given name of the user.
+	GivenName string `pulumi:"givenName"`
+	// The honorific prefix of the user.
+	HonorificPrefix *string `pulumi:"honorificPrefix"`
+	// The honorific suffix of the user.
+	HonorificSuffix *string `pulumi:"honorificSuffix"`
+	// The middle name of the user.
+	MiddleName *string `pulumi:"middleName"`
+}
+
+// UserNameInput is an input type that accepts UserNameArgs and UserNameOutput values.
+// You can construct a concrete instance of `UserNameInput` via:
+//
+//	UserNameArgs{...}
+type UserNameInput interface {
+	pulumi.Input
+
+	ToUserNameOutput() UserNameOutput
+	ToUserNameOutputWithContext(context.Context) UserNameOutput
+}
+
+type UserNameArgs struct {
+	// The family name of the user.
+	FamilyName pulumi.StringInput `pulumi:"familyName"`
+	// The name that is typically displayed when the name is shown for display.
+	Formatted pulumi.StringPtrInput `pulumi:"formatted"`
+	// The given name of the user.
+	GivenName pulumi.StringInput `pulumi:"givenName"`
+	// The honorific prefix of the user.
+	HonorificPrefix pulumi.StringPtrInput `pulumi:"honorificPrefix"`
+	// The honorific suffix of the user.
+	HonorificSuffix pulumi.StringPtrInput `pulumi:"honorificSuffix"`
+	// The middle name of the user.
+	MiddleName pulumi.StringPtrInput `pulumi:"middleName"`
+}
+
+func (UserNameArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserName)(nil)).Elem()
+}
+
+func (i UserNameArgs) ToUserNameOutput() UserNameOutput {
+	return i.ToUserNameOutputWithContext(context.Background())
+}
+
+func (i UserNameArgs) ToUserNameOutputWithContext(ctx context.Context) UserNameOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserNameOutput)
+}
+
+func (i UserNameArgs) ToUserNamePtrOutput() UserNamePtrOutput {
+	return i.ToUserNamePtrOutputWithContext(context.Background())
+}
+
+func (i UserNameArgs) ToUserNamePtrOutputWithContext(ctx context.Context) UserNamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserNameOutput).ToUserNamePtrOutputWithContext(ctx)
+}
+
+// UserNamePtrInput is an input type that accepts UserNameArgs, UserNamePtr and UserNamePtrOutput values.
+// You can construct a concrete instance of `UserNamePtrInput` via:
+//
+//	        UserNameArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserNamePtrInput interface {
+	pulumi.Input
+
+	ToUserNamePtrOutput() UserNamePtrOutput
+	ToUserNamePtrOutputWithContext(context.Context) UserNamePtrOutput
+}
+
+type userNamePtrType UserNameArgs
+
+func UserNamePtr(v *UserNameArgs) UserNamePtrInput {
+	return (*userNamePtrType)(v)
+}
+
+func (*userNamePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserName)(nil)).Elem()
+}
+
+func (i *userNamePtrType) ToUserNamePtrOutput() UserNamePtrOutput {
+	return i.ToUserNamePtrOutputWithContext(context.Background())
+}
+
+func (i *userNamePtrType) ToUserNamePtrOutputWithContext(ctx context.Context) UserNamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserNamePtrOutput)
+}
+
+type UserNameOutput struct{ *pulumi.OutputState }
+
+func (UserNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserName)(nil)).Elem()
+}
+
+func (o UserNameOutput) ToUserNameOutput() UserNameOutput {
+	return o
+}
+
+func (o UserNameOutput) ToUserNameOutputWithContext(ctx context.Context) UserNameOutput {
+	return o
+}
+
+func (o UserNameOutput) ToUserNamePtrOutput() UserNamePtrOutput {
+	return o.ToUserNamePtrOutputWithContext(context.Background())
+}
+
+func (o UserNameOutput) ToUserNamePtrOutputWithContext(ctx context.Context) UserNamePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserName) *UserName {
+		return &v
+	}).(UserNamePtrOutput)
+}
+
+// The family name of the user.
+func (o UserNameOutput) FamilyName() pulumi.StringOutput {
+	return o.ApplyT(func(v UserName) string { return v.FamilyName }).(pulumi.StringOutput)
+}
+
+// The name that is typically displayed when the name is shown for display.
+func (o UserNameOutput) Formatted() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserName) *string { return v.Formatted }).(pulumi.StringPtrOutput)
+}
+
+// The given name of the user.
+func (o UserNameOutput) GivenName() pulumi.StringOutput {
+	return o.ApplyT(func(v UserName) string { return v.GivenName }).(pulumi.StringOutput)
+}
+
+// The honorific prefix of the user.
+func (o UserNameOutput) HonorificPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserName) *string { return v.HonorificPrefix }).(pulumi.StringPtrOutput)
+}
+
+// The honorific suffix of the user.
+func (o UserNameOutput) HonorificSuffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserName) *string { return v.HonorificSuffix }).(pulumi.StringPtrOutput)
+}
+
+// The middle name of the user.
+func (o UserNameOutput) MiddleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserName) *string { return v.MiddleName }).(pulumi.StringPtrOutput)
+}
+
+type UserNamePtrOutput struct{ *pulumi.OutputState }
+
+func (UserNamePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserName)(nil)).Elem()
+}
+
+func (o UserNamePtrOutput) ToUserNamePtrOutput() UserNamePtrOutput {
+	return o
+}
+
+func (o UserNamePtrOutput) ToUserNamePtrOutputWithContext(ctx context.Context) UserNamePtrOutput {
+	return o
+}
+
+func (o UserNamePtrOutput) Elem() UserNameOutput {
+	return o.ApplyT(func(v *UserName) UserName {
+		if v != nil {
+			return *v
+		}
+		var ret UserName
+		return ret
+	}).(UserNameOutput)
+}
+
+// The family name of the user.
+func (o UserNamePtrOutput) FamilyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserName) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FamilyName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name that is typically displayed when the name is shown for display.
+func (o UserNamePtrOutput) Formatted() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserName) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Formatted
+	}).(pulumi.StringPtrOutput)
+}
+
+// The given name of the user.
+func (o UserNamePtrOutput) GivenName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserName) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.GivenName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The honorific prefix of the user.
+func (o UserNamePtrOutput) HonorificPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserName) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HonorificPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// The honorific suffix of the user.
+func (o UserNamePtrOutput) HonorificSuffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserName) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HonorificSuffix
+	}).(pulumi.StringPtrOutput)
+}
+
+// The middle name of the user.
+func (o UserNamePtrOutput) MiddleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserName) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MiddleName
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserPhoneNumbers struct {
+	// When `true`, this is the primary phone number associated with the user.
+	Primary *bool `pulumi:"primary"`
+	// The type of phone number.
+	Type *string `pulumi:"type"`
+	// The user's phone number.
+	Value *string `pulumi:"value"`
+}
+
+// UserPhoneNumbersInput is an input type that accepts UserPhoneNumbersArgs and UserPhoneNumbersOutput values.
+// You can construct a concrete instance of `UserPhoneNumbersInput` via:
+//
+//	UserPhoneNumbersArgs{...}
+type UserPhoneNumbersInput interface {
+	pulumi.Input
+
+	ToUserPhoneNumbersOutput() UserPhoneNumbersOutput
+	ToUserPhoneNumbersOutputWithContext(context.Context) UserPhoneNumbersOutput
+}
+
+type UserPhoneNumbersArgs struct {
+	// When `true`, this is the primary phone number associated with the user.
+	Primary pulumi.BoolPtrInput `pulumi:"primary"`
+	// The type of phone number.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The user's phone number.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (UserPhoneNumbersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPhoneNumbers)(nil)).Elem()
+}
+
+func (i UserPhoneNumbersArgs) ToUserPhoneNumbersOutput() UserPhoneNumbersOutput {
+	return i.ToUserPhoneNumbersOutputWithContext(context.Background())
+}
+
+func (i UserPhoneNumbersArgs) ToUserPhoneNumbersOutputWithContext(ctx context.Context) UserPhoneNumbersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPhoneNumbersOutput)
+}
+
+func (i UserPhoneNumbersArgs) ToUserPhoneNumbersPtrOutput() UserPhoneNumbersPtrOutput {
+	return i.ToUserPhoneNumbersPtrOutputWithContext(context.Background())
+}
+
+func (i UserPhoneNumbersArgs) ToUserPhoneNumbersPtrOutputWithContext(ctx context.Context) UserPhoneNumbersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPhoneNumbersOutput).ToUserPhoneNumbersPtrOutputWithContext(ctx)
+}
+
+// UserPhoneNumbersPtrInput is an input type that accepts UserPhoneNumbersArgs, UserPhoneNumbersPtr and UserPhoneNumbersPtrOutput values.
+// You can construct a concrete instance of `UserPhoneNumbersPtrInput` via:
+//
+//	        UserPhoneNumbersArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserPhoneNumbersPtrInput interface {
+	pulumi.Input
+
+	ToUserPhoneNumbersPtrOutput() UserPhoneNumbersPtrOutput
+	ToUserPhoneNumbersPtrOutputWithContext(context.Context) UserPhoneNumbersPtrOutput
+}
+
+type userPhoneNumbersPtrType UserPhoneNumbersArgs
+
+func UserPhoneNumbersPtr(v *UserPhoneNumbersArgs) UserPhoneNumbersPtrInput {
+	return (*userPhoneNumbersPtrType)(v)
+}
+
+func (*userPhoneNumbersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPhoneNumbers)(nil)).Elem()
+}
+
+func (i *userPhoneNumbersPtrType) ToUserPhoneNumbersPtrOutput() UserPhoneNumbersPtrOutput {
+	return i.ToUserPhoneNumbersPtrOutputWithContext(context.Background())
+}
+
+func (i *userPhoneNumbersPtrType) ToUserPhoneNumbersPtrOutputWithContext(ctx context.Context) UserPhoneNumbersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPhoneNumbersPtrOutput)
+}
+
+type UserPhoneNumbersOutput struct{ *pulumi.OutputState }
+
+func (UserPhoneNumbersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPhoneNumbers)(nil)).Elem()
+}
+
+func (o UserPhoneNumbersOutput) ToUserPhoneNumbersOutput() UserPhoneNumbersOutput {
+	return o
+}
+
+func (o UserPhoneNumbersOutput) ToUserPhoneNumbersOutputWithContext(ctx context.Context) UserPhoneNumbersOutput {
+	return o
+}
+
+func (o UserPhoneNumbersOutput) ToUserPhoneNumbersPtrOutput() UserPhoneNumbersPtrOutput {
+	return o.ToUserPhoneNumbersPtrOutputWithContext(context.Background())
+}
+
+func (o UserPhoneNumbersOutput) ToUserPhoneNumbersPtrOutputWithContext(ctx context.Context) UserPhoneNumbersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPhoneNumbers) *UserPhoneNumbers {
+		return &v
+	}).(UserPhoneNumbersPtrOutput)
+}
+
+// When `true`, this is the primary phone number associated with the user.
+func (o UserPhoneNumbersOutput) Primary() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v UserPhoneNumbers) *bool { return v.Primary }).(pulumi.BoolPtrOutput)
+}
+
+// The type of phone number.
+func (o UserPhoneNumbersOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPhoneNumbers) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The user's phone number.
+func (o UserPhoneNumbersOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPhoneNumbers) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type UserPhoneNumbersPtrOutput struct{ *pulumi.OutputState }
+
+func (UserPhoneNumbersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPhoneNumbers)(nil)).Elem()
+}
+
+func (o UserPhoneNumbersPtrOutput) ToUserPhoneNumbersPtrOutput() UserPhoneNumbersPtrOutput {
+	return o
+}
+
+func (o UserPhoneNumbersPtrOutput) ToUserPhoneNumbersPtrOutputWithContext(ctx context.Context) UserPhoneNumbersPtrOutput {
+	return o
+}
+
+func (o UserPhoneNumbersPtrOutput) Elem() UserPhoneNumbersOutput {
+	return o.ApplyT(func(v *UserPhoneNumbers) UserPhoneNumbers {
+		if v != nil {
+			return *v
+		}
+		var ret UserPhoneNumbers
+		return ret
+	}).(UserPhoneNumbersOutput)
+}
+
+// When `true`, this is the primary phone number associated with the user.
+func (o UserPhoneNumbersPtrOutput) Primary() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *UserPhoneNumbers) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Primary
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The type of phone number.
+func (o UserPhoneNumbersPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPhoneNumbers) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// The user's phone number.
+func (o UserPhoneNumbersPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPhoneNumbers) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetGroupFilter struct {
 	// Attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
 	AttributePath string `pulumi:"attributePath"`
@@ -116,8 +1180,859 @@ func (o GetGroupFilterArrayOutput) Index(i pulumi.IntInput) GetGroupFilterOutput
 	}).(GetGroupFilterOutput)
 }
 
+type GetUserAddress struct {
+	// The country that this address is in.
+	Country string `pulumi:"country"`
+	// The name that is typically displayed when the name is shown for display.
+	Formatted string `pulumi:"formatted"`
+	// The address locality.
+	Locality string `pulumi:"locality"`
+	// The postal code of the address.
+	PostalCode string `pulumi:"postalCode"`
+	// When `true`, this is the primary phone number associated with the user.
+	Primary bool `pulumi:"primary"`
+	// The region of the address.
+	Region string `pulumi:"region"`
+	// The street of the address.
+	StreetAddress string `pulumi:"streetAddress"`
+	// The type of phone number.
+	Type string `pulumi:"type"`
+}
+
+// GetUserAddressInput is an input type that accepts GetUserAddressArgs and GetUserAddressOutput values.
+// You can construct a concrete instance of `GetUserAddressInput` via:
+//
+//	GetUserAddressArgs{...}
+type GetUserAddressInput interface {
+	pulumi.Input
+
+	ToGetUserAddressOutput() GetUserAddressOutput
+	ToGetUserAddressOutputWithContext(context.Context) GetUserAddressOutput
+}
+
+type GetUserAddressArgs struct {
+	// The country that this address is in.
+	Country pulumi.StringInput `pulumi:"country"`
+	// The name that is typically displayed when the name is shown for display.
+	Formatted pulumi.StringInput `pulumi:"formatted"`
+	// The address locality.
+	Locality pulumi.StringInput `pulumi:"locality"`
+	// The postal code of the address.
+	PostalCode pulumi.StringInput `pulumi:"postalCode"`
+	// When `true`, this is the primary phone number associated with the user.
+	Primary pulumi.BoolInput `pulumi:"primary"`
+	// The region of the address.
+	Region pulumi.StringInput `pulumi:"region"`
+	// The street of the address.
+	StreetAddress pulumi.StringInput `pulumi:"streetAddress"`
+	// The type of phone number.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetUserAddressArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserAddress)(nil)).Elem()
+}
+
+func (i GetUserAddressArgs) ToGetUserAddressOutput() GetUserAddressOutput {
+	return i.ToGetUserAddressOutputWithContext(context.Background())
+}
+
+func (i GetUserAddressArgs) ToGetUserAddressOutputWithContext(ctx context.Context) GetUserAddressOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserAddressOutput)
+}
+
+// GetUserAddressArrayInput is an input type that accepts GetUserAddressArray and GetUserAddressArrayOutput values.
+// You can construct a concrete instance of `GetUserAddressArrayInput` via:
+//
+//	GetUserAddressArray{ GetUserAddressArgs{...} }
+type GetUserAddressArrayInput interface {
+	pulumi.Input
+
+	ToGetUserAddressArrayOutput() GetUserAddressArrayOutput
+	ToGetUserAddressArrayOutputWithContext(context.Context) GetUserAddressArrayOutput
+}
+
+type GetUserAddressArray []GetUserAddressInput
+
+func (GetUserAddressArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserAddress)(nil)).Elem()
+}
+
+func (i GetUserAddressArray) ToGetUserAddressArrayOutput() GetUserAddressArrayOutput {
+	return i.ToGetUserAddressArrayOutputWithContext(context.Background())
+}
+
+func (i GetUserAddressArray) ToGetUserAddressArrayOutputWithContext(ctx context.Context) GetUserAddressArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserAddressArrayOutput)
+}
+
+type GetUserAddressOutput struct{ *pulumi.OutputState }
+
+func (GetUserAddressOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserAddress)(nil)).Elem()
+}
+
+func (o GetUserAddressOutput) ToGetUserAddressOutput() GetUserAddressOutput {
+	return o
+}
+
+func (o GetUserAddressOutput) ToGetUserAddressOutputWithContext(ctx context.Context) GetUserAddressOutput {
+	return o
+}
+
+// The country that this address is in.
+func (o GetUserAddressOutput) Country() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserAddress) string { return v.Country }).(pulumi.StringOutput)
+}
+
+// The name that is typically displayed when the name is shown for display.
+func (o GetUserAddressOutput) Formatted() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserAddress) string { return v.Formatted }).(pulumi.StringOutput)
+}
+
+// The address locality.
+func (o GetUserAddressOutput) Locality() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserAddress) string { return v.Locality }).(pulumi.StringOutput)
+}
+
+// The postal code of the address.
+func (o GetUserAddressOutput) PostalCode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserAddress) string { return v.PostalCode }).(pulumi.StringOutput)
+}
+
+// When `true`, this is the primary phone number associated with the user.
+func (o GetUserAddressOutput) Primary() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetUserAddress) bool { return v.Primary }).(pulumi.BoolOutput)
+}
+
+// The region of the address.
+func (o GetUserAddressOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserAddress) string { return v.Region }).(pulumi.StringOutput)
+}
+
+// The street of the address.
+func (o GetUserAddressOutput) StreetAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserAddress) string { return v.StreetAddress }).(pulumi.StringOutput)
+}
+
+// The type of phone number.
+func (o GetUserAddressOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserAddress) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetUserAddressArrayOutput struct{ *pulumi.OutputState }
+
+func (GetUserAddressArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserAddress)(nil)).Elem()
+}
+
+func (o GetUserAddressArrayOutput) ToGetUserAddressArrayOutput() GetUserAddressArrayOutput {
+	return o
+}
+
+func (o GetUserAddressArrayOutput) ToGetUserAddressArrayOutputWithContext(ctx context.Context) GetUserAddressArrayOutput {
+	return o
+}
+
+func (o GetUserAddressArrayOutput) Index(i pulumi.IntInput) GetUserAddressOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetUserAddress {
+		return vs[0].([]GetUserAddress)[vs[1].(int)]
+	}).(GetUserAddressOutput)
+}
+
+type GetUserAlternateIdentifier struct {
+	// Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
+	ExternalId *GetUserAlternateIdentifierExternalId `pulumi:"externalId"`
+	// An entity attribute that's unique to a specific entity. Detailed below.
+	UniqueAttribute *GetUserAlternateIdentifierUniqueAttribute `pulumi:"uniqueAttribute"`
+}
+
+// GetUserAlternateIdentifierInput is an input type that accepts GetUserAlternateIdentifierArgs and GetUserAlternateIdentifierOutput values.
+// You can construct a concrete instance of `GetUserAlternateIdentifierInput` via:
+//
+//	GetUserAlternateIdentifierArgs{...}
+type GetUserAlternateIdentifierInput interface {
+	pulumi.Input
+
+	ToGetUserAlternateIdentifierOutput() GetUserAlternateIdentifierOutput
+	ToGetUserAlternateIdentifierOutputWithContext(context.Context) GetUserAlternateIdentifierOutput
+}
+
+type GetUserAlternateIdentifierArgs struct {
+	// Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
+	ExternalId GetUserAlternateIdentifierExternalIdPtrInput `pulumi:"externalId"`
+	// An entity attribute that's unique to a specific entity. Detailed below.
+	UniqueAttribute GetUserAlternateIdentifierUniqueAttributePtrInput `pulumi:"uniqueAttribute"`
+}
+
+func (GetUserAlternateIdentifierArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserAlternateIdentifier)(nil)).Elem()
+}
+
+func (i GetUserAlternateIdentifierArgs) ToGetUserAlternateIdentifierOutput() GetUserAlternateIdentifierOutput {
+	return i.ToGetUserAlternateIdentifierOutputWithContext(context.Background())
+}
+
+func (i GetUserAlternateIdentifierArgs) ToGetUserAlternateIdentifierOutputWithContext(ctx context.Context) GetUserAlternateIdentifierOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserAlternateIdentifierOutput)
+}
+
+func (i GetUserAlternateIdentifierArgs) ToGetUserAlternateIdentifierPtrOutput() GetUserAlternateIdentifierPtrOutput {
+	return i.ToGetUserAlternateIdentifierPtrOutputWithContext(context.Background())
+}
+
+func (i GetUserAlternateIdentifierArgs) ToGetUserAlternateIdentifierPtrOutputWithContext(ctx context.Context) GetUserAlternateIdentifierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserAlternateIdentifierOutput).ToGetUserAlternateIdentifierPtrOutputWithContext(ctx)
+}
+
+// GetUserAlternateIdentifierPtrInput is an input type that accepts GetUserAlternateIdentifierArgs, GetUserAlternateIdentifierPtr and GetUserAlternateIdentifierPtrOutput values.
+// You can construct a concrete instance of `GetUserAlternateIdentifierPtrInput` via:
+//
+//	        GetUserAlternateIdentifierArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetUserAlternateIdentifierPtrInput interface {
+	pulumi.Input
+
+	ToGetUserAlternateIdentifierPtrOutput() GetUserAlternateIdentifierPtrOutput
+	ToGetUserAlternateIdentifierPtrOutputWithContext(context.Context) GetUserAlternateIdentifierPtrOutput
+}
+
+type getUserAlternateIdentifierPtrType GetUserAlternateIdentifierArgs
+
+func GetUserAlternateIdentifierPtr(v *GetUserAlternateIdentifierArgs) GetUserAlternateIdentifierPtrInput {
+	return (*getUserAlternateIdentifierPtrType)(v)
+}
+
+func (*getUserAlternateIdentifierPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetUserAlternateIdentifier)(nil)).Elem()
+}
+
+func (i *getUserAlternateIdentifierPtrType) ToGetUserAlternateIdentifierPtrOutput() GetUserAlternateIdentifierPtrOutput {
+	return i.ToGetUserAlternateIdentifierPtrOutputWithContext(context.Background())
+}
+
+func (i *getUserAlternateIdentifierPtrType) ToGetUserAlternateIdentifierPtrOutputWithContext(ctx context.Context) GetUserAlternateIdentifierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserAlternateIdentifierPtrOutput)
+}
+
+type GetUserAlternateIdentifierOutput struct{ *pulumi.OutputState }
+
+func (GetUserAlternateIdentifierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserAlternateIdentifier)(nil)).Elem()
+}
+
+func (o GetUserAlternateIdentifierOutput) ToGetUserAlternateIdentifierOutput() GetUserAlternateIdentifierOutput {
+	return o
+}
+
+func (o GetUserAlternateIdentifierOutput) ToGetUserAlternateIdentifierOutputWithContext(ctx context.Context) GetUserAlternateIdentifierOutput {
+	return o
+}
+
+func (o GetUserAlternateIdentifierOutput) ToGetUserAlternateIdentifierPtrOutput() GetUserAlternateIdentifierPtrOutput {
+	return o.ToGetUserAlternateIdentifierPtrOutputWithContext(context.Background())
+}
+
+func (o GetUserAlternateIdentifierOutput) ToGetUserAlternateIdentifierPtrOutputWithContext(ctx context.Context) GetUserAlternateIdentifierPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetUserAlternateIdentifier) *GetUserAlternateIdentifier {
+		return &v
+	}).(GetUserAlternateIdentifierPtrOutput)
+}
+
+// Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
+func (o GetUserAlternateIdentifierOutput) ExternalId() GetUserAlternateIdentifierExternalIdPtrOutput {
+	return o.ApplyT(func(v GetUserAlternateIdentifier) *GetUserAlternateIdentifierExternalId { return v.ExternalId }).(GetUserAlternateIdentifierExternalIdPtrOutput)
+}
+
+// An entity attribute that's unique to a specific entity. Detailed below.
+func (o GetUserAlternateIdentifierOutput) UniqueAttribute() GetUserAlternateIdentifierUniqueAttributePtrOutput {
+	return o.ApplyT(func(v GetUserAlternateIdentifier) *GetUserAlternateIdentifierUniqueAttribute {
+		return v.UniqueAttribute
+	}).(GetUserAlternateIdentifierUniqueAttributePtrOutput)
+}
+
+type GetUserAlternateIdentifierPtrOutput struct{ *pulumi.OutputState }
+
+func (GetUserAlternateIdentifierPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetUserAlternateIdentifier)(nil)).Elem()
+}
+
+func (o GetUserAlternateIdentifierPtrOutput) ToGetUserAlternateIdentifierPtrOutput() GetUserAlternateIdentifierPtrOutput {
+	return o
+}
+
+func (o GetUserAlternateIdentifierPtrOutput) ToGetUserAlternateIdentifierPtrOutputWithContext(ctx context.Context) GetUserAlternateIdentifierPtrOutput {
+	return o
+}
+
+func (o GetUserAlternateIdentifierPtrOutput) Elem() GetUserAlternateIdentifierOutput {
+	return o.ApplyT(func(v *GetUserAlternateIdentifier) GetUserAlternateIdentifier {
+		if v != nil {
+			return *v
+		}
+		var ret GetUserAlternateIdentifier
+		return ret
+	}).(GetUserAlternateIdentifierOutput)
+}
+
+// Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
+func (o GetUserAlternateIdentifierPtrOutput) ExternalId() GetUserAlternateIdentifierExternalIdPtrOutput {
+	return o.ApplyT(func(v *GetUserAlternateIdentifier) *GetUserAlternateIdentifierExternalId {
+		if v == nil {
+			return nil
+		}
+		return v.ExternalId
+	}).(GetUserAlternateIdentifierExternalIdPtrOutput)
+}
+
+// An entity attribute that's unique to a specific entity. Detailed below.
+func (o GetUserAlternateIdentifierPtrOutput) UniqueAttribute() GetUserAlternateIdentifierUniqueAttributePtrOutput {
+	return o.ApplyT(func(v *GetUserAlternateIdentifier) *GetUserAlternateIdentifierUniqueAttribute {
+		if v == nil {
+			return nil
+		}
+		return v.UniqueAttribute
+	}).(GetUserAlternateIdentifierUniqueAttributePtrOutput)
+}
+
+type GetUserAlternateIdentifierExternalId struct {
+	// The identifier issued to this resource by an external identity provider.
+	Id string `pulumi:"id"`
+	// The issuer for an external identifier.
+	Issuer string `pulumi:"issuer"`
+}
+
+// GetUserAlternateIdentifierExternalIdInput is an input type that accepts GetUserAlternateIdentifierExternalIdArgs and GetUserAlternateIdentifierExternalIdOutput values.
+// You can construct a concrete instance of `GetUserAlternateIdentifierExternalIdInput` via:
+//
+//	GetUserAlternateIdentifierExternalIdArgs{...}
+type GetUserAlternateIdentifierExternalIdInput interface {
+	pulumi.Input
+
+	ToGetUserAlternateIdentifierExternalIdOutput() GetUserAlternateIdentifierExternalIdOutput
+	ToGetUserAlternateIdentifierExternalIdOutputWithContext(context.Context) GetUserAlternateIdentifierExternalIdOutput
+}
+
+type GetUserAlternateIdentifierExternalIdArgs struct {
+	// The identifier issued to this resource by an external identity provider.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The issuer for an external identifier.
+	Issuer pulumi.StringInput `pulumi:"issuer"`
+}
+
+func (GetUserAlternateIdentifierExternalIdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserAlternateIdentifierExternalId)(nil)).Elem()
+}
+
+func (i GetUserAlternateIdentifierExternalIdArgs) ToGetUserAlternateIdentifierExternalIdOutput() GetUserAlternateIdentifierExternalIdOutput {
+	return i.ToGetUserAlternateIdentifierExternalIdOutputWithContext(context.Background())
+}
+
+func (i GetUserAlternateIdentifierExternalIdArgs) ToGetUserAlternateIdentifierExternalIdOutputWithContext(ctx context.Context) GetUserAlternateIdentifierExternalIdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserAlternateIdentifierExternalIdOutput)
+}
+
+func (i GetUserAlternateIdentifierExternalIdArgs) ToGetUserAlternateIdentifierExternalIdPtrOutput() GetUserAlternateIdentifierExternalIdPtrOutput {
+	return i.ToGetUserAlternateIdentifierExternalIdPtrOutputWithContext(context.Background())
+}
+
+func (i GetUserAlternateIdentifierExternalIdArgs) ToGetUserAlternateIdentifierExternalIdPtrOutputWithContext(ctx context.Context) GetUserAlternateIdentifierExternalIdPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserAlternateIdentifierExternalIdOutput).ToGetUserAlternateIdentifierExternalIdPtrOutputWithContext(ctx)
+}
+
+// GetUserAlternateIdentifierExternalIdPtrInput is an input type that accepts GetUserAlternateIdentifierExternalIdArgs, GetUserAlternateIdentifierExternalIdPtr and GetUserAlternateIdentifierExternalIdPtrOutput values.
+// You can construct a concrete instance of `GetUserAlternateIdentifierExternalIdPtrInput` via:
+//
+//	        GetUserAlternateIdentifierExternalIdArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetUserAlternateIdentifierExternalIdPtrInput interface {
+	pulumi.Input
+
+	ToGetUserAlternateIdentifierExternalIdPtrOutput() GetUserAlternateIdentifierExternalIdPtrOutput
+	ToGetUserAlternateIdentifierExternalIdPtrOutputWithContext(context.Context) GetUserAlternateIdentifierExternalIdPtrOutput
+}
+
+type getUserAlternateIdentifierExternalIdPtrType GetUserAlternateIdentifierExternalIdArgs
+
+func GetUserAlternateIdentifierExternalIdPtr(v *GetUserAlternateIdentifierExternalIdArgs) GetUserAlternateIdentifierExternalIdPtrInput {
+	return (*getUserAlternateIdentifierExternalIdPtrType)(v)
+}
+
+func (*getUserAlternateIdentifierExternalIdPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetUserAlternateIdentifierExternalId)(nil)).Elem()
+}
+
+func (i *getUserAlternateIdentifierExternalIdPtrType) ToGetUserAlternateIdentifierExternalIdPtrOutput() GetUserAlternateIdentifierExternalIdPtrOutput {
+	return i.ToGetUserAlternateIdentifierExternalIdPtrOutputWithContext(context.Background())
+}
+
+func (i *getUserAlternateIdentifierExternalIdPtrType) ToGetUserAlternateIdentifierExternalIdPtrOutputWithContext(ctx context.Context) GetUserAlternateIdentifierExternalIdPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserAlternateIdentifierExternalIdPtrOutput)
+}
+
+type GetUserAlternateIdentifierExternalIdOutput struct{ *pulumi.OutputState }
+
+func (GetUserAlternateIdentifierExternalIdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserAlternateIdentifierExternalId)(nil)).Elem()
+}
+
+func (o GetUserAlternateIdentifierExternalIdOutput) ToGetUserAlternateIdentifierExternalIdOutput() GetUserAlternateIdentifierExternalIdOutput {
+	return o
+}
+
+func (o GetUserAlternateIdentifierExternalIdOutput) ToGetUserAlternateIdentifierExternalIdOutputWithContext(ctx context.Context) GetUserAlternateIdentifierExternalIdOutput {
+	return o
+}
+
+func (o GetUserAlternateIdentifierExternalIdOutput) ToGetUserAlternateIdentifierExternalIdPtrOutput() GetUserAlternateIdentifierExternalIdPtrOutput {
+	return o.ToGetUserAlternateIdentifierExternalIdPtrOutputWithContext(context.Background())
+}
+
+func (o GetUserAlternateIdentifierExternalIdOutput) ToGetUserAlternateIdentifierExternalIdPtrOutputWithContext(ctx context.Context) GetUserAlternateIdentifierExternalIdPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetUserAlternateIdentifierExternalId) *GetUserAlternateIdentifierExternalId {
+		return &v
+	}).(GetUserAlternateIdentifierExternalIdPtrOutput)
+}
+
+// The identifier issued to this resource by an external identity provider.
+func (o GetUserAlternateIdentifierExternalIdOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserAlternateIdentifierExternalId) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The issuer for an external identifier.
+func (o GetUserAlternateIdentifierExternalIdOutput) Issuer() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserAlternateIdentifierExternalId) string { return v.Issuer }).(pulumi.StringOutput)
+}
+
+type GetUserAlternateIdentifierExternalIdPtrOutput struct{ *pulumi.OutputState }
+
+func (GetUserAlternateIdentifierExternalIdPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetUserAlternateIdentifierExternalId)(nil)).Elem()
+}
+
+func (o GetUserAlternateIdentifierExternalIdPtrOutput) ToGetUserAlternateIdentifierExternalIdPtrOutput() GetUserAlternateIdentifierExternalIdPtrOutput {
+	return o
+}
+
+func (o GetUserAlternateIdentifierExternalIdPtrOutput) ToGetUserAlternateIdentifierExternalIdPtrOutputWithContext(ctx context.Context) GetUserAlternateIdentifierExternalIdPtrOutput {
+	return o
+}
+
+func (o GetUserAlternateIdentifierExternalIdPtrOutput) Elem() GetUserAlternateIdentifierExternalIdOutput {
+	return o.ApplyT(func(v *GetUserAlternateIdentifierExternalId) GetUserAlternateIdentifierExternalId {
+		if v != nil {
+			return *v
+		}
+		var ret GetUserAlternateIdentifierExternalId
+		return ret
+	}).(GetUserAlternateIdentifierExternalIdOutput)
+}
+
+// The identifier issued to this resource by an external identity provider.
+func (o GetUserAlternateIdentifierExternalIdPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetUserAlternateIdentifierExternalId) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// The issuer for an external identifier.
+func (o GetUserAlternateIdentifierExternalIdPtrOutput) Issuer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetUserAlternateIdentifierExternalId) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Issuer
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetUserAlternateIdentifierUniqueAttribute struct {
+	// Attribute path that is used to specify which attribute name to search. For example: `UserName`. Refer to the [User data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html).
+	AttributePath string `pulumi:"attributePath"`
+	// Value for an attribute.
+	AttributeValue string `pulumi:"attributeValue"`
+}
+
+// GetUserAlternateIdentifierUniqueAttributeInput is an input type that accepts GetUserAlternateIdentifierUniqueAttributeArgs and GetUserAlternateIdentifierUniqueAttributeOutput values.
+// You can construct a concrete instance of `GetUserAlternateIdentifierUniqueAttributeInput` via:
+//
+//	GetUserAlternateIdentifierUniqueAttributeArgs{...}
+type GetUserAlternateIdentifierUniqueAttributeInput interface {
+	pulumi.Input
+
+	ToGetUserAlternateIdentifierUniqueAttributeOutput() GetUserAlternateIdentifierUniqueAttributeOutput
+	ToGetUserAlternateIdentifierUniqueAttributeOutputWithContext(context.Context) GetUserAlternateIdentifierUniqueAttributeOutput
+}
+
+type GetUserAlternateIdentifierUniqueAttributeArgs struct {
+	// Attribute path that is used to specify which attribute name to search. For example: `UserName`. Refer to the [User data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html).
+	AttributePath pulumi.StringInput `pulumi:"attributePath"`
+	// Value for an attribute.
+	AttributeValue pulumi.StringInput `pulumi:"attributeValue"`
+}
+
+func (GetUserAlternateIdentifierUniqueAttributeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserAlternateIdentifierUniqueAttribute)(nil)).Elem()
+}
+
+func (i GetUserAlternateIdentifierUniqueAttributeArgs) ToGetUserAlternateIdentifierUniqueAttributeOutput() GetUserAlternateIdentifierUniqueAttributeOutput {
+	return i.ToGetUserAlternateIdentifierUniqueAttributeOutputWithContext(context.Background())
+}
+
+func (i GetUserAlternateIdentifierUniqueAttributeArgs) ToGetUserAlternateIdentifierUniqueAttributeOutputWithContext(ctx context.Context) GetUserAlternateIdentifierUniqueAttributeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserAlternateIdentifierUniqueAttributeOutput)
+}
+
+func (i GetUserAlternateIdentifierUniqueAttributeArgs) ToGetUserAlternateIdentifierUniqueAttributePtrOutput() GetUserAlternateIdentifierUniqueAttributePtrOutput {
+	return i.ToGetUserAlternateIdentifierUniqueAttributePtrOutputWithContext(context.Background())
+}
+
+func (i GetUserAlternateIdentifierUniqueAttributeArgs) ToGetUserAlternateIdentifierUniqueAttributePtrOutputWithContext(ctx context.Context) GetUserAlternateIdentifierUniqueAttributePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserAlternateIdentifierUniqueAttributeOutput).ToGetUserAlternateIdentifierUniqueAttributePtrOutputWithContext(ctx)
+}
+
+// GetUserAlternateIdentifierUniqueAttributePtrInput is an input type that accepts GetUserAlternateIdentifierUniqueAttributeArgs, GetUserAlternateIdentifierUniqueAttributePtr and GetUserAlternateIdentifierUniqueAttributePtrOutput values.
+// You can construct a concrete instance of `GetUserAlternateIdentifierUniqueAttributePtrInput` via:
+//
+//	        GetUserAlternateIdentifierUniqueAttributeArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetUserAlternateIdentifierUniqueAttributePtrInput interface {
+	pulumi.Input
+
+	ToGetUserAlternateIdentifierUniqueAttributePtrOutput() GetUserAlternateIdentifierUniqueAttributePtrOutput
+	ToGetUserAlternateIdentifierUniqueAttributePtrOutputWithContext(context.Context) GetUserAlternateIdentifierUniqueAttributePtrOutput
+}
+
+type getUserAlternateIdentifierUniqueAttributePtrType GetUserAlternateIdentifierUniqueAttributeArgs
+
+func GetUserAlternateIdentifierUniqueAttributePtr(v *GetUserAlternateIdentifierUniqueAttributeArgs) GetUserAlternateIdentifierUniqueAttributePtrInput {
+	return (*getUserAlternateIdentifierUniqueAttributePtrType)(v)
+}
+
+func (*getUserAlternateIdentifierUniqueAttributePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetUserAlternateIdentifierUniqueAttribute)(nil)).Elem()
+}
+
+func (i *getUserAlternateIdentifierUniqueAttributePtrType) ToGetUserAlternateIdentifierUniqueAttributePtrOutput() GetUserAlternateIdentifierUniqueAttributePtrOutput {
+	return i.ToGetUserAlternateIdentifierUniqueAttributePtrOutputWithContext(context.Background())
+}
+
+func (i *getUserAlternateIdentifierUniqueAttributePtrType) ToGetUserAlternateIdentifierUniqueAttributePtrOutputWithContext(ctx context.Context) GetUserAlternateIdentifierUniqueAttributePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserAlternateIdentifierUniqueAttributePtrOutput)
+}
+
+type GetUserAlternateIdentifierUniqueAttributeOutput struct{ *pulumi.OutputState }
+
+func (GetUserAlternateIdentifierUniqueAttributeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserAlternateIdentifierUniqueAttribute)(nil)).Elem()
+}
+
+func (o GetUserAlternateIdentifierUniqueAttributeOutput) ToGetUserAlternateIdentifierUniqueAttributeOutput() GetUserAlternateIdentifierUniqueAttributeOutput {
+	return o
+}
+
+func (o GetUserAlternateIdentifierUniqueAttributeOutput) ToGetUserAlternateIdentifierUniqueAttributeOutputWithContext(ctx context.Context) GetUserAlternateIdentifierUniqueAttributeOutput {
+	return o
+}
+
+func (o GetUserAlternateIdentifierUniqueAttributeOutput) ToGetUserAlternateIdentifierUniqueAttributePtrOutput() GetUserAlternateIdentifierUniqueAttributePtrOutput {
+	return o.ToGetUserAlternateIdentifierUniqueAttributePtrOutputWithContext(context.Background())
+}
+
+func (o GetUserAlternateIdentifierUniqueAttributeOutput) ToGetUserAlternateIdentifierUniqueAttributePtrOutputWithContext(ctx context.Context) GetUserAlternateIdentifierUniqueAttributePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetUserAlternateIdentifierUniqueAttribute) *GetUserAlternateIdentifierUniqueAttribute {
+		return &v
+	}).(GetUserAlternateIdentifierUniqueAttributePtrOutput)
+}
+
+// Attribute path that is used to specify which attribute name to search. For example: `UserName`. Refer to the [User data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html).
+func (o GetUserAlternateIdentifierUniqueAttributeOutput) AttributePath() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserAlternateIdentifierUniqueAttribute) string { return v.AttributePath }).(pulumi.StringOutput)
+}
+
+// Value for an attribute.
+func (o GetUserAlternateIdentifierUniqueAttributeOutput) AttributeValue() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserAlternateIdentifierUniqueAttribute) string { return v.AttributeValue }).(pulumi.StringOutput)
+}
+
+type GetUserAlternateIdentifierUniqueAttributePtrOutput struct{ *pulumi.OutputState }
+
+func (GetUserAlternateIdentifierUniqueAttributePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetUserAlternateIdentifierUniqueAttribute)(nil)).Elem()
+}
+
+func (o GetUserAlternateIdentifierUniqueAttributePtrOutput) ToGetUserAlternateIdentifierUniqueAttributePtrOutput() GetUserAlternateIdentifierUniqueAttributePtrOutput {
+	return o
+}
+
+func (o GetUserAlternateIdentifierUniqueAttributePtrOutput) ToGetUserAlternateIdentifierUniqueAttributePtrOutputWithContext(ctx context.Context) GetUserAlternateIdentifierUniqueAttributePtrOutput {
+	return o
+}
+
+func (o GetUserAlternateIdentifierUniqueAttributePtrOutput) Elem() GetUserAlternateIdentifierUniqueAttributeOutput {
+	return o.ApplyT(func(v *GetUserAlternateIdentifierUniqueAttribute) GetUserAlternateIdentifierUniqueAttribute {
+		if v != nil {
+			return *v
+		}
+		var ret GetUserAlternateIdentifierUniqueAttribute
+		return ret
+	}).(GetUserAlternateIdentifierUniqueAttributeOutput)
+}
+
+// Attribute path that is used to specify which attribute name to search. For example: `UserName`. Refer to the [User data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html).
+func (o GetUserAlternateIdentifierUniqueAttributePtrOutput) AttributePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetUserAlternateIdentifierUniqueAttribute) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AttributePath
+	}).(pulumi.StringPtrOutput)
+}
+
+// Value for an attribute.
+func (o GetUserAlternateIdentifierUniqueAttributePtrOutput) AttributeValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetUserAlternateIdentifierUniqueAttribute) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AttributeValue
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetUserEmail struct {
+	// When `true`, this is the primary phone number associated with the user.
+	Primary bool `pulumi:"primary"`
+	// The type of phone number.
+	Type string `pulumi:"type"`
+	// The user's phone number.
+	Value string `pulumi:"value"`
+}
+
+// GetUserEmailInput is an input type that accepts GetUserEmailArgs and GetUserEmailOutput values.
+// You can construct a concrete instance of `GetUserEmailInput` via:
+//
+//	GetUserEmailArgs{...}
+type GetUserEmailInput interface {
+	pulumi.Input
+
+	ToGetUserEmailOutput() GetUserEmailOutput
+	ToGetUserEmailOutputWithContext(context.Context) GetUserEmailOutput
+}
+
+type GetUserEmailArgs struct {
+	// When `true`, this is the primary phone number associated with the user.
+	Primary pulumi.BoolInput `pulumi:"primary"`
+	// The type of phone number.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The user's phone number.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetUserEmailArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserEmail)(nil)).Elem()
+}
+
+func (i GetUserEmailArgs) ToGetUserEmailOutput() GetUserEmailOutput {
+	return i.ToGetUserEmailOutputWithContext(context.Background())
+}
+
+func (i GetUserEmailArgs) ToGetUserEmailOutputWithContext(ctx context.Context) GetUserEmailOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserEmailOutput)
+}
+
+// GetUserEmailArrayInput is an input type that accepts GetUserEmailArray and GetUserEmailArrayOutput values.
+// You can construct a concrete instance of `GetUserEmailArrayInput` via:
+//
+//	GetUserEmailArray{ GetUserEmailArgs{...} }
+type GetUserEmailArrayInput interface {
+	pulumi.Input
+
+	ToGetUserEmailArrayOutput() GetUserEmailArrayOutput
+	ToGetUserEmailArrayOutputWithContext(context.Context) GetUserEmailArrayOutput
+}
+
+type GetUserEmailArray []GetUserEmailInput
+
+func (GetUserEmailArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserEmail)(nil)).Elem()
+}
+
+func (i GetUserEmailArray) ToGetUserEmailArrayOutput() GetUserEmailArrayOutput {
+	return i.ToGetUserEmailArrayOutputWithContext(context.Background())
+}
+
+func (i GetUserEmailArray) ToGetUserEmailArrayOutputWithContext(ctx context.Context) GetUserEmailArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserEmailArrayOutput)
+}
+
+type GetUserEmailOutput struct{ *pulumi.OutputState }
+
+func (GetUserEmailOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserEmail)(nil)).Elem()
+}
+
+func (o GetUserEmailOutput) ToGetUserEmailOutput() GetUserEmailOutput {
+	return o
+}
+
+func (o GetUserEmailOutput) ToGetUserEmailOutputWithContext(ctx context.Context) GetUserEmailOutput {
+	return o
+}
+
+// When `true`, this is the primary phone number associated with the user.
+func (o GetUserEmailOutput) Primary() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetUserEmail) bool { return v.Primary }).(pulumi.BoolOutput)
+}
+
+// The type of phone number.
+func (o GetUserEmailOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserEmail) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The user's phone number.
+func (o GetUserEmailOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserEmail) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetUserEmailArrayOutput struct{ *pulumi.OutputState }
+
+func (GetUserEmailArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserEmail)(nil)).Elem()
+}
+
+func (o GetUserEmailArrayOutput) ToGetUserEmailArrayOutput() GetUserEmailArrayOutput {
+	return o
+}
+
+func (o GetUserEmailArrayOutput) ToGetUserEmailArrayOutputWithContext(ctx context.Context) GetUserEmailArrayOutput {
+	return o
+}
+
+func (o GetUserEmailArrayOutput) Index(i pulumi.IntInput) GetUserEmailOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetUserEmail {
+		return vs[0].([]GetUserEmail)[vs[1].(int)]
+	}).(GetUserEmailOutput)
+}
+
+type GetUserExternalId struct {
+	// The identifier issued to this resource by an external identity provider.
+	Id bool `pulumi:"id"`
+	// The issuer for an external identifier.
+	Issuer string `pulumi:"issuer"`
+}
+
+// GetUserExternalIdInput is an input type that accepts GetUserExternalIdArgs and GetUserExternalIdOutput values.
+// You can construct a concrete instance of `GetUserExternalIdInput` via:
+//
+//	GetUserExternalIdArgs{...}
+type GetUserExternalIdInput interface {
+	pulumi.Input
+
+	ToGetUserExternalIdOutput() GetUserExternalIdOutput
+	ToGetUserExternalIdOutputWithContext(context.Context) GetUserExternalIdOutput
+}
+
+type GetUserExternalIdArgs struct {
+	// The identifier issued to this resource by an external identity provider.
+	Id pulumi.BoolInput `pulumi:"id"`
+	// The issuer for an external identifier.
+	Issuer pulumi.StringInput `pulumi:"issuer"`
+}
+
+func (GetUserExternalIdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserExternalId)(nil)).Elem()
+}
+
+func (i GetUserExternalIdArgs) ToGetUserExternalIdOutput() GetUserExternalIdOutput {
+	return i.ToGetUserExternalIdOutputWithContext(context.Background())
+}
+
+func (i GetUserExternalIdArgs) ToGetUserExternalIdOutputWithContext(ctx context.Context) GetUserExternalIdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserExternalIdOutput)
+}
+
+// GetUserExternalIdArrayInput is an input type that accepts GetUserExternalIdArray and GetUserExternalIdArrayOutput values.
+// You can construct a concrete instance of `GetUserExternalIdArrayInput` via:
+//
+//	GetUserExternalIdArray{ GetUserExternalIdArgs{...} }
+type GetUserExternalIdArrayInput interface {
+	pulumi.Input
+
+	ToGetUserExternalIdArrayOutput() GetUserExternalIdArrayOutput
+	ToGetUserExternalIdArrayOutputWithContext(context.Context) GetUserExternalIdArrayOutput
+}
+
+type GetUserExternalIdArray []GetUserExternalIdInput
+
+func (GetUserExternalIdArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserExternalId)(nil)).Elem()
+}
+
+func (i GetUserExternalIdArray) ToGetUserExternalIdArrayOutput() GetUserExternalIdArrayOutput {
+	return i.ToGetUserExternalIdArrayOutputWithContext(context.Background())
+}
+
+func (i GetUserExternalIdArray) ToGetUserExternalIdArrayOutputWithContext(ctx context.Context) GetUserExternalIdArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserExternalIdArrayOutput)
+}
+
+type GetUserExternalIdOutput struct{ *pulumi.OutputState }
+
+func (GetUserExternalIdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserExternalId)(nil)).Elem()
+}
+
+func (o GetUserExternalIdOutput) ToGetUserExternalIdOutput() GetUserExternalIdOutput {
+	return o
+}
+
+func (o GetUserExternalIdOutput) ToGetUserExternalIdOutputWithContext(ctx context.Context) GetUserExternalIdOutput {
+	return o
+}
+
+// The identifier issued to this resource by an external identity provider.
+func (o GetUserExternalIdOutput) Id() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetUserExternalId) bool { return v.Id }).(pulumi.BoolOutput)
+}
+
+// The issuer for an external identifier.
+func (o GetUserExternalIdOutput) Issuer() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserExternalId) string { return v.Issuer }).(pulumi.StringOutput)
+}
+
+type GetUserExternalIdArrayOutput struct{ *pulumi.OutputState }
+
+func (GetUserExternalIdArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserExternalId)(nil)).Elem()
+}
+
+func (o GetUserExternalIdArrayOutput) ToGetUserExternalIdArrayOutput() GetUserExternalIdArrayOutput {
+	return o
+}
+
+func (o GetUserExternalIdArrayOutput) ToGetUserExternalIdArrayOutputWithContext(ctx context.Context) GetUserExternalIdArrayOutput {
+	return o
+}
+
+func (o GetUserExternalIdArrayOutput) Index(i pulumi.IntInput) GetUserExternalIdOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetUserExternalId {
+		return vs[0].([]GetUserExternalId)[vs[1].(int)]
+	}).(GetUserExternalIdOutput)
+}
+
 type GetUserFilter struct {
-	// Attribute path that is used to specify which attribute name to search. Currently, `UserName` is the only valid attribute path.
+	// Attribute path that is used to specify which attribute name to search. For example: `UserName`. Refer to the [User data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html).
 	AttributePath string `pulumi:"attributePath"`
 	// Value for an attribute.
 	AttributeValue string `pulumi:"attributeValue"`
@@ -135,7 +2050,7 @@ type GetUserFilterInput interface {
 }
 
 type GetUserFilterArgs struct {
-	// Attribute path that is used to specify which attribute name to search. Currently, `UserName` is the only valid attribute path.
+	// Attribute path that is used to specify which attribute name to search. For example: `UserName`. Refer to the [User data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html).
 	AttributePath pulumi.StringInput `pulumi:"attributePath"`
 	// Value for an attribute.
 	AttributeValue pulumi.StringInput `pulumi:"attributeValue"`
@@ -153,29 +2068,45 @@ func (i GetUserFilterArgs) ToGetUserFilterOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(GetUserFilterOutput)
 }
 
-// GetUserFilterArrayInput is an input type that accepts GetUserFilterArray and GetUserFilterArrayOutput values.
-// You can construct a concrete instance of `GetUserFilterArrayInput` via:
+func (i GetUserFilterArgs) ToGetUserFilterPtrOutput() GetUserFilterPtrOutput {
+	return i.ToGetUserFilterPtrOutputWithContext(context.Background())
+}
+
+func (i GetUserFilterArgs) ToGetUserFilterPtrOutputWithContext(ctx context.Context) GetUserFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserFilterOutput).ToGetUserFilterPtrOutputWithContext(ctx)
+}
+
+// GetUserFilterPtrInput is an input type that accepts GetUserFilterArgs, GetUserFilterPtr and GetUserFilterPtrOutput values.
+// You can construct a concrete instance of `GetUserFilterPtrInput` via:
 //
-//	GetUserFilterArray{ GetUserFilterArgs{...} }
-type GetUserFilterArrayInput interface {
+//	        GetUserFilterArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetUserFilterPtrInput interface {
 	pulumi.Input
 
-	ToGetUserFilterArrayOutput() GetUserFilterArrayOutput
-	ToGetUserFilterArrayOutputWithContext(context.Context) GetUserFilterArrayOutput
+	ToGetUserFilterPtrOutput() GetUserFilterPtrOutput
+	ToGetUserFilterPtrOutputWithContext(context.Context) GetUserFilterPtrOutput
 }
 
-type GetUserFilterArray []GetUserFilterInput
+type getUserFilterPtrType GetUserFilterArgs
 
-func (GetUserFilterArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetUserFilter)(nil)).Elem()
+func GetUserFilterPtr(v *GetUserFilterArgs) GetUserFilterPtrInput {
+	return (*getUserFilterPtrType)(v)
 }
 
-func (i GetUserFilterArray) ToGetUserFilterArrayOutput() GetUserFilterArrayOutput {
-	return i.ToGetUserFilterArrayOutputWithContext(context.Background())
+func (*getUserFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetUserFilter)(nil)).Elem()
 }
 
-func (i GetUserFilterArray) ToGetUserFilterArrayOutputWithContext(ctx context.Context) GetUserFilterArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetUserFilterArrayOutput)
+func (i *getUserFilterPtrType) ToGetUserFilterPtrOutput() GetUserFilterPtrOutput {
+	return i.ToGetUserFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *getUserFilterPtrType) ToGetUserFilterPtrOutputWithContext(ctx context.Context) GetUserFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserFilterPtrOutput)
 }
 
 type GetUserFilterOutput struct{ *pulumi.OutputState }
@@ -192,7 +2123,17 @@ func (o GetUserFilterOutput) ToGetUserFilterOutputWithContext(ctx context.Contex
 	return o
 }
 
-// Attribute path that is used to specify which attribute name to search. Currently, `UserName` is the only valid attribute path.
+func (o GetUserFilterOutput) ToGetUserFilterPtrOutput() GetUserFilterPtrOutput {
+	return o.ToGetUserFilterPtrOutputWithContext(context.Background())
+}
+
+func (o GetUserFilterOutput) ToGetUserFilterPtrOutputWithContext(ctx context.Context) GetUserFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetUserFilter) *GetUserFilter {
+		return &v
+	}).(GetUserFilterPtrOutput)
+}
+
+// Attribute path that is used to specify which attribute name to search. For example: `UserName`. Refer to the [User data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html).
 func (o GetUserFilterOutput) AttributePath() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserFilter) string { return v.AttributePath }).(pulumi.StringOutput)
 }
@@ -202,33 +2143,370 @@ func (o GetUserFilterOutput) AttributeValue() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserFilter) string { return v.AttributeValue }).(pulumi.StringOutput)
 }
 
-type GetUserFilterArrayOutput struct{ *pulumi.OutputState }
+type GetUserFilterPtrOutput struct{ *pulumi.OutputState }
 
-func (GetUserFilterArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetUserFilter)(nil)).Elem()
+func (GetUserFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetUserFilter)(nil)).Elem()
 }
 
-func (o GetUserFilterArrayOutput) ToGetUserFilterArrayOutput() GetUserFilterArrayOutput {
+func (o GetUserFilterPtrOutput) ToGetUserFilterPtrOutput() GetUserFilterPtrOutput {
 	return o
 }
 
-func (o GetUserFilterArrayOutput) ToGetUserFilterArrayOutputWithContext(ctx context.Context) GetUserFilterArrayOutput {
+func (o GetUserFilterPtrOutput) ToGetUserFilterPtrOutputWithContext(ctx context.Context) GetUserFilterPtrOutput {
 	return o
 }
 
-func (o GetUserFilterArrayOutput) Index(i pulumi.IntInput) GetUserFilterOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetUserFilter {
-		return vs[0].([]GetUserFilter)[vs[1].(int)]
+func (o GetUserFilterPtrOutput) Elem() GetUserFilterOutput {
+	return o.ApplyT(func(v *GetUserFilter) GetUserFilter {
+		if v != nil {
+			return *v
+		}
+		var ret GetUserFilter
+		return ret
 	}).(GetUserFilterOutput)
 }
 
+// Attribute path that is used to specify which attribute name to search. For example: `UserName`. Refer to the [User data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html).
+func (o GetUserFilterPtrOutput) AttributePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetUserFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AttributePath
+	}).(pulumi.StringPtrOutput)
+}
+
+// Value for an attribute.
+func (o GetUserFilterPtrOutput) AttributeValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetUserFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AttributeValue
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetUserName struct {
+	// The family name of the user.
+	FamilyName string `pulumi:"familyName"`
+	// The name that is typically displayed when the name is shown for display.
+	Formatted string `pulumi:"formatted"`
+	// The given name of the user.
+	GivenName string `pulumi:"givenName"`
+	// The honorific prefix of the user.
+	HonorificPrefix string `pulumi:"honorificPrefix"`
+	// The honorific suffix of the user.
+	HonorificSuffix string `pulumi:"honorificSuffix"`
+	// The middle name of the user.
+	MiddleName string `pulumi:"middleName"`
+}
+
+// GetUserNameInput is an input type that accepts GetUserNameArgs and GetUserNameOutput values.
+// You can construct a concrete instance of `GetUserNameInput` via:
+//
+//	GetUserNameArgs{...}
+type GetUserNameInput interface {
+	pulumi.Input
+
+	ToGetUserNameOutput() GetUserNameOutput
+	ToGetUserNameOutputWithContext(context.Context) GetUserNameOutput
+}
+
+type GetUserNameArgs struct {
+	// The family name of the user.
+	FamilyName pulumi.StringInput `pulumi:"familyName"`
+	// The name that is typically displayed when the name is shown for display.
+	Formatted pulumi.StringInput `pulumi:"formatted"`
+	// The given name of the user.
+	GivenName pulumi.StringInput `pulumi:"givenName"`
+	// The honorific prefix of the user.
+	HonorificPrefix pulumi.StringInput `pulumi:"honorificPrefix"`
+	// The honorific suffix of the user.
+	HonorificSuffix pulumi.StringInput `pulumi:"honorificSuffix"`
+	// The middle name of the user.
+	MiddleName pulumi.StringInput `pulumi:"middleName"`
+}
+
+func (GetUserNameArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserName)(nil)).Elem()
+}
+
+func (i GetUserNameArgs) ToGetUserNameOutput() GetUserNameOutput {
+	return i.ToGetUserNameOutputWithContext(context.Background())
+}
+
+func (i GetUserNameArgs) ToGetUserNameOutputWithContext(ctx context.Context) GetUserNameOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserNameOutput)
+}
+
+// GetUserNameArrayInput is an input type that accepts GetUserNameArray and GetUserNameArrayOutput values.
+// You can construct a concrete instance of `GetUserNameArrayInput` via:
+//
+//	GetUserNameArray{ GetUserNameArgs{...} }
+type GetUserNameArrayInput interface {
+	pulumi.Input
+
+	ToGetUserNameArrayOutput() GetUserNameArrayOutput
+	ToGetUserNameArrayOutputWithContext(context.Context) GetUserNameArrayOutput
+}
+
+type GetUserNameArray []GetUserNameInput
+
+func (GetUserNameArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserName)(nil)).Elem()
+}
+
+func (i GetUserNameArray) ToGetUserNameArrayOutput() GetUserNameArrayOutput {
+	return i.ToGetUserNameArrayOutputWithContext(context.Background())
+}
+
+func (i GetUserNameArray) ToGetUserNameArrayOutputWithContext(ctx context.Context) GetUserNameArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserNameArrayOutput)
+}
+
+type GetUserNameOutput struct{ *pulumi.OutputState }
+
+func (GetUserNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserName)(nil)).Elem()
+}
+
+func (o GetUserNameOutput) ToGetUserNameOutput() GetUserNameOutput {
+	return o
+}
+
+func (o GetUserNameOutput) ToGetUserNameOutputWithContext(ctx context.Context) GetUserNameOutput {
+	return o
+}
+
+// The family name of the user.
+func (o GetUserNameOutput) FamilyName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserName) string { return v.FamilyName }).(pulumi.StringOutput)
+}
+
+// The name that is typically displayed when the name is shown for display.
+func (o GetUserNameOutput) Formatted() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserName) string { return v.Formatted }).(pulumi.StringOutput)
+}
+
+// The given name of the user.
+func (o GetUserNameOutput) GivenName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserName) string { return v.GivenName }).(pulumi.StringOutput)
+}
+
+// The honorific prefix of the user.
+func (o GetUserNameOutput) HonorificPrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserName) string { return v.HonorificPrefix }).(pulumi.StringOutput)
+}
+
+// The honorific suffix of the user.
+func (o GetUserNameOutput) HonorificSuffix() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserName) string { return v.HonorificSuffix }).(pulumi.StringOutput)
+}
+
+// The middle name of the user.
+func (o GetUserNameOutput) MiddleName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserName) string { return v.MiddleName }).(pulumi.StringOutput)
+}
+
+type GetUserNameArrayOutput struct{ *pulumi.OutputState }
+
+func (GetUserNameArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserName)(nil)).Elem()
+}
+
+func (o GetUserNameArrayOutput) ToGetUserNameArrayOutput() GetUserNameArrayOutput {
+	return o
+}
+
+func (o GetUserNameArrayOutput) ToGetUserNameArrayOutputWithContext(ctx context.Context) GetUserNameArrayOutput {
+	return o
+}
+
+func (o GetUserNameArrayOutput) Index(i pulumi.IntInput) GetUserNameOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetUserName {
+		return vs[0].([]GetUserName)[vs[1].(int)]
+	}).(GetUserNameOutput)
+}
+
+type GetUserPhoneNumber struct {
+	// When `true`, this is the primary phone number associated with the user.
+	Primary bool `pulumi:"primary"`
+	// The type of phone number.
+	Type string `pulumi:"type"`
+	// The user's phone number.
+	Value string `pulumi:"value"`
+}
+
+// GetUserPhoneNumberInput is an input type that accepts GetUserPhoneNumberArgs and GetUserPhoneNumberOutput values.
+// You can construct a concrete instance of `GetUserPhoneNumberInput` via:
+//
+//	GetUserPhoneNumberArgs{...}
+type GetUserPhoneNumberInput interface {
+	pulumi.Input
+
+	ToGetUserPhoneNumberOutput() GetUserPhoneNumberOutput
+	ToGetUserPhoneNumberOutputWithContext(context.Context) GetUserPhoneNumberOutput
+}
+
+type GetUserPhoneNumberArgs struct {
+	// When `true`, this is the primary phone number associated with the user.
+	Primary pulumi.BoolInput `pulumi:"primary"`
+	// The type of phone number.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The user's phone number.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetUserPhoneNumberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserPhoneNumber)(nil)).Elem()
+}
+
+func (i GetUserPhoneNumberArgs) ToGetUserPhoneNumberOutput() GetUserPhoneNumberOutput {
+	return i.ToGetUserPhoneNumberOutputWithContext(context.Background())
+}
+
+func (i GetUserPhoneNumberArgs) ToGetUserPhoneNumberOutputWithContext(ctx context.Context) GetUserPhoneNumberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserPhoneNumberOutput)
+}
+
+// GetUserPhoneNumberArrayInput is an input type that accepts GetUserPhoneNumberArray and GetUserPhoneNumberArrayOutput values.
+// You can construct a concrete instance of `GetUserPhoneNumberArrayInput` via:
+//
+//	GetUserPhoneNumberArray{ GetUserPhoneNumberArgs{...} }
+type GetUserPhoneNumberArrayInput interface {
+	pulumi.Input
+
+	ToGetUserPhoneNumberArrayOutput() GetUserPhoneNumberArrayOutput
+	ToGetUserPhoneNumberArrayOutputWithContext(context.Context) GetUserPhoneNumberArrayOutput
+}
+
+type GetUserPhoneNumberArray []GetUserPhoneNumberInput
+
+func (GetUserPhoneNumberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserPhoneNumber)(nil)).Elem()
+}
+
+func (i GetUserPhoneNumberArray) ToGetUserPhoneNumberArrayOutput() GetUserPhoneNumberArrayOutput {
+	return i.ToGetUserPhoneNumberArrayOutputWithContext(context.Background())
+}
+
+func (i GetUserPhoneNumberArray) ToGetUserPhoneNumberArrayOutputWithContext(ctx context.Context) GetUserPhoneNumberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserPhoneNumberArrayOutput)
+}
+
+type GetUserPhoneNumberOutput struct{ *pulumi.OutputState }
+
+func (GetUserPhoneNumberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserPhoneNumber)(nil)).Elem()
+}
+
+func (o GetUserPhoneNumberOutput) ToGetUserPhoneNumberOutput() GetUserPhoneNumberOutput {
+	return o
+}
+
+func (o GetUserPhoneNumberOutput) ToGetUserPhoneNumberOutputWithContext(ctx context.Context) GetUserPhoneNumberOutput {
+	return o
+}
+
+// When `true`, this is the primary phone number associated with the user.
+func (o GetUserPhoneNumberOutput) Primary() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetUserPhoneNumber) bool { return v.Primary }).(pulumi.BoolOutput)
+}
+
+// The type of phone number.
+func (o GetUserPhoneNumberOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserPhoneNumber) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The user's phone number.
+func (o GetUserPhoneNumberOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserPhoneNumber) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetUserPhoneNumberArrayOutput struct{ *pulumi.OutputState }
+
+func (GetUserPhoneNumberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserPhoneNumber)(nil)).Elem()
+}
+
+func (o GetUserPhoneNumberArrayOutput) ToGetUserPhoneNumberArrayOutput() GetUserPhoneNumberArrayOutput {
+	return o
+}
+
+func (o GetUserPhoneNumberArrayOutput) ToGetUserPhoneNumberArrayOutputWithContext(ctx context.Context) GetUserPhoneNumberArrayOutput {
+	return o
+}
+
+func (o GetUserPhoneNumberArrayOutput) Index(i pulumi.IntInput) GetUserPhoneNumberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetUserPhoneNumber {
+		return vs[0].([]GetUserPhoneNumber)[vs[1].(int)]
+	}).(GetUserPhoneNumberOutput)
+}
+
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupExternalIdInput)(nil)).Elem(), GroupExternalIdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupExternalIdArrayInput)(nil)).Elem(), GroupExternalIdArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserAddressesInput)(nil)).Elem(), UserAddressesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserAddressesPtrInput)(nil)).Elem(), UserAddressesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserEmailsInput)(nil)).Elem(), UserEmailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserEmailsPtrInput)(nil)).Elem(), UserEmailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserExternalIdInput)(nil)).Elem(), UserExternalIdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserExternalIdArrayInput)(nil)).Elem(), UserExternalIdArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserNameInput)(nil)).Elem(), UserNameArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserNamePtrInput)(nil)).Elem(), UserNameArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPhoneNumbersInput)(nil)).Elem(), UserPhoneNumbersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPhoneNumbersPtrInput)(nil)).Elem(), UserPhoneNumbersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupFilterInput)(nil)).Elem(), GetGroupFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupFilterArrayInput)(nil)).Elem(), GetGroupFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserAddressInput)(nil)).Elem(), GetUserAddressArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserAddressArrayInput)(nil)).Elem(), GetUserAddressArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserAlternateIdentifierInput)(nil)).Elem(), GetUserAlternateIdentifierArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserAlternateIdentifierPtrInput)(nil)).Elem(), GetUserAlternateIdentifierArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserAlternateIdentifierExternalIdInput)(nil)).Elem(), GetUserAlternateIdentifierExternalIdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserAlternateIdentifierExternalIdPtrInput)(nil)).Elem(), GetUserAlternateIdentifierExternalIdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserAlternateIdentifierUniqueAttributeInput)(nil)).Elem(), GetUserAlternateIdentifierUniqueAttributeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserAlternateIdentifierUniqueAttributePtrInput)(nil)).Elem(), GetUserAlternateIdentifierUniqueAttributeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserEmailInput)(nil)).Elem(), GetUserEmailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserEmailArrayInput)(nil)).Elem(), GetUserEmailArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserExternalIdInput)(nil)).Elem(), GetUserExternalIdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserExternalIdArrayInput)(nil)).Elem(), GetUserExternalIdArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserFilterInput)(nil)).Elem(), GetUserFilterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetUserFilterArrayInput)(nil)).Elem(), GetUserFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserFilterPtrInput)(nil)).Elem(), GetUserFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserNameInput)(nil)).Elem(), GetUserNameArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserNameArrayInput)(nil)).Elem(), GetUserNameArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserPhoneNumberInput)(nil)).Elem(), GetUserPhoneNumberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserPhoneNumberArrayInput)(nil)).Elem(), GetUserPhoneNumberArray{})
+	pulumi.RegisterOutputType(GroupExternalIdOutput{})
+	pulumi.RegisterOutputType(GroupExternalIdArrayOutput{})
+	pulumi.RegisterOutputType(UserAddressesOutput{})
+	pulumi.RegisterOutputType(UserAddressesPtrOutput{})
+	pulumi.RegisterOutputType(UserEmailsOutput{})
+	pulumi.RegisterOutputType(UserEmailsPtrOutput{})
+	pulumi.RegisterOutputType(UserExternalIdOutput{})
+	pulumi.RegisterOutputType(UserExternalIdArrayOutput{})
+	pulumi.RegisterOutputType(UserNameOutput{})
+	pulumi.RegisterOutputType(UserNamePtrOutput{})
+	pulumi.RegisterOutputType(UserPhoneNumbersOutput{})
+	pulumi.RegisterOutputType(UserPhoneNumbersPtrOutput{})
 	pulumi.RegisterOutputType(GetGroupFilterOutput{})
 	pulumi.RegisterOutputType(GetGroupFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetUserAddressOutput{})
+	pulumi.RegisterOutputType(GetUserAddressArrayOutput{})
+	pulumi.RegisterOutputType(GetUserAlternateIdentifierOutput{})
+	pulumi.RegisterOutputType(GetUserAlternateIdentifierPtrOutput{})
+	pulumi.RegisterOutputType(GetUserAlternateIdentifierExternalIdOutput{})
+	pulumi.RegisterOutputType(GetUserAlternateIdentifierExternalIdPtrOutput{})
+	pulumi.RegisterOutputType(GetUserAlternateIdentifierUniqueAttributeOutput{})
+	pulumi.RegisterOutputType(GetUserAlternateIdentifierUniqueAttributePtrOutput{})
+	pulumi.RegisterOutputType(GetUserEmailOutput{})
+	pulumi.RegisterOutputType(GetUserEmailArrayOutput{})
+	pulumi.RegisterOutputType(GetUserExternalIdOutput{})
+	pulumi.RegisterOutputType(GetUserExternalIdArrayOutput{})
 	pulumi.RegisterOutputType(GetUserFilterOutput{})
-	pulumi.RegisterOutputType(GetUserFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetUserFilterPtrOutput{})
+	pulumi.RegisterOutputType(GetUserNameOutput{})
+	pulumi.RegisterOutputType(GetUserNameArrayOutput{})
+	pulumi.RegisterOutputType(GetUserPhoneNumberOutput{})
+	pulumi.RegisterOutputType(GetUserPhoneNumberArrayOutput{})
 }

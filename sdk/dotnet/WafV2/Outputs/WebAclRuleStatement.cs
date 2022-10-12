@@ -50,6 +50,10 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatement? RateBasedStatement;
         /// <summary>
+        /// Rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+        /// </summary>
+        public readonly Outputs.WebAclRuleStatementRegexMatchStatement? RegexMatchStatement;
+        /// <summary>
         /// Rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRegexPatternSetReferenceStatement? RegexPatternSetReferenceStatement;
@@ -90,6 +94,8 @@ namespace Pulumi.Aws.WafV2.Outputs
 
             Outputs.WebAclRuleStatementRateBasedStatement? rateBasedStatement,
 
+            Outputs.WebAclRuleStatementRegexMatchStatement? regexMatchStatement,
+
             Outputs.WebAclRuleStatementRegexPatternSetReferenceStatement? regexPatternSetReferenceStatement,
 
             Outputs.WebAclRuleStatementRuleGroupReferenceStatement? ruleGroupReferenceStatement,
@@ -109,6 +115,7 @@ namespace Pulumi.Aws.WafV2.Outputs
             NotStatement = notStatement;
             OrStatement = orStatement;
             RateBasedStatement = rateBasedStatement;
+            RegexMatchStatement = regexMatchStatement;
             RegexPatternSetReferenceStatement = regexPatternSetReferenceStatement;
             RuleGroupReferenceStatement = ruleGroupReferenceStatement;
             SizeConstraintStatement = sizeConstraintStatement;

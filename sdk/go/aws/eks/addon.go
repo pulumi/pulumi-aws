@@ -44,6 +44,38 @@ import (
 //	}
 //
 // ```
+// ## Example Update add-on usage with resolveConflicts and PRESERVE
+//
+// `resolveConflicts` with `PRESERVE` can be used to retain the config changes applied to the add-on with kubectl while upgrading to a newer version of the add-on.
+//
+// > **Note:** `resolveConflicts` with `PRESERVE` can only be used for upgrading the add-ons but not during the creation of add-on.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/eks"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := eks.NewAddon(ctx, "example", &eks.AddonArgs{
+//				ClusterName:      pulumi.Any(aws_eks_cluster.Example.Name),
+//				AddonName:        pulumi.String("coredns"),
+//				AddonVersion:     pulumi.String("v1.8.7-eksbuild.3"),
+//				ResolveConflicts: pulumi.String("PRESERVE"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //
@@ -75,7 +107,7 @@ type Addon struct {
 	Preserve pulumi.BoolPtrOutput `pulumi:"preserve"`
 	// Define how to resolve parameter value conflicts
 	// when migrating an existing add-on to an Amazon EKS add-on or when applying
-	// version updates to the add-on. Valid values are `NONE` and `OVERWRITE`.
+	// version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`.
 	ResolveConflicts pulumi.StringPtrOutput `pulumi:"resolveConflicts"`
 	// The Amazon Resource Name (ARN) of an
 	// existing IAM role to bind to the add-on's service account. The role must be
@@ -143,7 +175,7 @@ type addonState struct {
 	Preserve *bool `pulumi:"preserve"`
 	// Define how to resolve parameter value conflicts
 	// when migrating an existing add-on to an Amazon EKS add-on or when applying
-	// version updates to the add-on. Valid values are `NONE` and `OVERWRITE`.
+	// version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`.
 	ResolveConflicts *string `pulumi:"resolveConflicts"`
 	// The Amazon Resource Name (ARN) of an
 	// existing IAM role to bind to the add-on's service account. The role must be
@@ -177,7 +209,7 @@ type AddonState struct {
 	Preserve pulumi.BoolPtrInput
 	// Define how to resolve parameter value conflicts
 	// when migrating an existing add-on to an Amazon EKS add-on or when applying
-	// version updates to the add-on. Valid values are `NONE` and `OVERWRITE`.
+	// version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`.
 	ResolveConflicts pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of an
 	// existing IAM role to bind to the add-on's service account. The role must be
@@ -209,7 +241,7 @@ type addonArgs struct {
 	Preserve *bool `pulumi:"preserve"`
 	// Define how to resolve parameter value conflicts
 	// when migrating an existing add-on to an Amazon EKS add-on or when applying
-	// version updates to the add-on. Valid values are `NONE` and `OVERWRITE`.
+	// version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`.
 	ResolveConflicts *string `pulumi:"resolveConflicts"`
 	// The Amazon Resource Name (ARN) of an
 	// existing IAM role to bind to the add-on's service account. The role must be
@@ -236,7 +268,7 @@ type AddonArgs struct {
 	Preserve pulumi.BoolPtrInput
 	// Define how to resolve parameter value conflicts
 	// when migrating an existing add-on to an Amazon EKS add-on or when applying
-	// version updates to the add-on. Valid values are `NONE` and `OVERWRITE`.
+	// version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`.
 	ResolveConflicts pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of an
 	// existing IAM role to bind to the add-on's service account. The role must be
@@ -375,7 +407,7 @@ func (o AddonOutput) Preserve() pulumi.BoolPtrOutput {
 
 // Define how to resolve parameter value conflicts
 // when migrating an existing add-on to an Amazon EKS add-on or when applying
-// version updates to the add-on. Valid values are `NONE` and `OVERWRITE`.
+// version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`.
 func (o AddonOutput) ResolveConflicts() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Addon) pulumi.StringPtrOutput { return v.ResolveConflicts }).(pulumi.StringPtrOutput)
 }

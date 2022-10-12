@@ -617,6 +617,13 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.connectwisdomservice);
     }
 
+    @Import(name="controltower")
+    private @Nullable Output<String> controltower;
+
+    public Optional<Output<String>> controltower() {
+        return Optional.ofNullable(this.controltower);
+    }
+
     @Import(name="costandusagereportservice")
     private @Nullable Output<String> costandusagereportservice;
 
@@ -1168,6 +1175,13 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
     public Optional<Output<String>> inspector2() {
         return Optional.ofNullable(this.inspector2);
+    }
+
+    @Import(name="inspectorv2")
+    private @Nullable Output<String> inspectorv2;
+
+    public Optional<Output<String>> inspectorv2() {
+        return Optional.ofNullable(this.inspectorv2);
     }
 
     @Import(name="iot")
@@ -2680,6 +2694,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.connectcontactlens = $.connectcontactlens;
         this.connectparticipant = $.connectparticipant;
         this.connectwisdomservice = $.connectwisdomservice;
+        this.controltower = $.controltower;
         this.costandusagereportservice = $.costandusagereportservice;
         this.costexplorer = $.costexplorer;
         this.cur = $.cur;
@@ -2759,6 +2774,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.imagebuilder = $.imagebuilder;
         this.inspector = $.inspector;
         this.inspector2 = $.inspector2;
+        this.inspectorv2 = $.inspectorv2;
         this.iot = $.iot;
         this.iot1clickdevices = $.iot1clickdevices;
         this.iot1clickdevicesservice = $.iot1clickdevicesservice;
@@ -3756,6 +3772,15 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
             return connectwisdomservice(Output.of(connectwisdomservice));
         }
 
+        public Builder controltower(@Nullable Output<String> controltower) {
+            $.controltower = controltower;
+            return this;
+        }
+
+        public Builder controltower(String controltower) {
+            return controltower(Output.of(controltower));
+        }
+
         public Builder costandusagereportservice(@Nullable Output<String> costandusagereportservice) {
             $.costandusagereportservice = costandusagereportservice;
             return this;
@@ -4465,6 +4490,15 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
         public Builder inspector2(String inspector2) {
             return inspector2(Output.of(inspector2));
+        }
+
+        public Builder inspectorv2(@Nullable Output<String> inspectorv2) {
+            $.inspectorv2 = inspectorv2;
+            return this;
+        }
+
+        public Builder inspectorv2(String inspectorv2) {
+            return inspectorv2(Output.of(inspectorv2));
         }
 
         public Builder iot(@Nullable Output<String> iot) {

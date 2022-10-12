@@ -167,6 +167,10 @@ export interface GetAmiResult {
      * Type of image.
      */
     readonly imageType: string;
+    /**
+     * Instance Metadata Service (IMDS) support mode for the image. Set to `v2.0` if instances ran from this image enforce IMDSv2.
+     */
+    readonly imdsSupport: string;
     readonly includeDeprecated?: boolean;
     /**
      * Kernel associated with the image, if any. Only applicable

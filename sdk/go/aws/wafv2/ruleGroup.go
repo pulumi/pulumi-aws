@@ -168,6 +168,22 @@ import (
 //							OrStatement: &wafv2.RuleGroupRuleStatementOrStatementArgs{
 //								Statements: wafv2.RuleGroupRuleStatementOrStatementStatementArray{
 //									&wafv2.RuleGroupRuleStatementOrStatementStatementArgs{
+//										RegexMatchStatement: &wafv2.RuleGroupRuleStatementOrStatementStatementRegexMatchStatementArgs{
+//											RegexString: pulumi.String("[a-z]([a-z0-9_-]*[a-z0-9])?"),
+//											FieldToMatch: &wafv2.RuleGroupRuleStatementOrStatementStatementRegexMatchStatementFieldToMatchArgs{
+//												SingleHeader: &wafv2.RuleGroupRuleStatementOrStatementStatementRegexMatchStatementFieldToMatchSingleHeaderArgs{
+//													Name: pulumi.String("user-agent"),
+//												},
+//											},
+//											TextTransformations: wafv2.RuleGroupRuleStatementOrStatementStatementRegexMatchStatementTextTransformationArray{
+//												&wafv2.RuleGroupRuleStatementOrStatementStatementRegexMatchStatementTextTransformationArgs{
+//													Priority: pulumi.Int(6),
+//													Type:     pulumi.String("NONE"),
+//												},
+//											},
+//										},
+//									},
+//									&wafv2.RuleGroupRuleStatementOrStatementStatementArgs{
 //										SqliMatchStatement: &wafv2.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementArgs{
 //											FieldToMatch: &wafv2.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchArgs{
 //												Body: nil,

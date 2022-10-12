@@ -12,6 +12,7 @@ from .. import _utilities
 __all__ = [
     'CertificateDomainValidationOption',
     'CertificateOptions',
+    'CertificateRenewalSummary',
     'CertificateValidationOption',
 ]
 
@@ -127,6 +128,66 @@ class CertificateOptions(dict):
         Whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
         """
         return pulumi.get(self, "certificate_transparency_logging_preference")
+
+
+@pulumi.output_type
+class CertificateRenewalSummary(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "renewalStatus":
+            suggest = "renewal_status"
+        elif key == "renewalStatusReason":
+            suggest = "renewal_status_reason"
+        elif key == "updatedAt":
+            suggest = "updated_at"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CertificateRenewalSummary. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CertificateRenewalSummary.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CertificateRenewalSummary.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 renewal_status: Optional[str] = None,
+                 renewal_status_reason: Optional[str] = None,
+                 updated_at: Optional[str] = None):
+        """
+        :param str renewal_status: The status of ACM's managed renewal of the certificate
+        :param str renewal_status_reason: The reason that a renewal request was unsuccessful or is pending
+        """
+        if renewal_status is not None:
+            pulumi.set(__self__, "renewal_status", renewal_status)
+        if renewal_status_reason is not None:
+            pulumi.set(__self__, "renewal_status_reason", renewal_status_reason)
+        if updated_at is not None:
+            pulumi.set(__self__, "updated_at", updated_at)
+
+    @property
+    @pulumi.getter(name="renewalStatus")
+    def renewal_status(self) -> Optional[str]:
+        """
+        The status of ACM's managed renewal of the certificate
+        """
+        return pulumi.get(self, "renewal_status")
+
+    @property
+    @pulumi.getter(name="renewalStatusReason")
+    def renewal_status_reason(self) -> Optional[str]:
+        """
+        The reason that a renewal request was unsuccessful or is pending
+        """
+        return pulumi.get(self, "renewal_status_reason")
+
+    @property
+    @pulumi.getter(name="updatedAt")
+    def updated_at(self) -> Optional[str]:
+        return pulumi.get(self, "updated_at")
 
 
 @pulumi.output_type

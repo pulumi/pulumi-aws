@@ -2431,6 +2431,8 @@ func (o EventTargetDeadLetterConfigPtrOutput) Arn() pulumi.StringPtrOutput {
 }
 
 type EventTargetEcsTarget struct {
+	// The capacity provider strategy to use for the task. If a `capacityProviderStrategy` specified, the `launchType` parameter must be omitted. If no `capacityProviderStrategy` or `launchType` is specified, the default capacity provider strategy for the cluster is used. Can be one or more. See below.
+	CapacityProviderStrategies []EventTargetEcsTargetCapacityProviderStrategy `pulumi:"capacityProviderStrategies"`
 	// Specifies whether to enable Amazon ECS managed tags for the task.
 	EnableEcsManagedTags *bool `pulumi:"enableEcsManagedTags"`
 	// Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task.
@@ -2467,6 +2469,8 @@ type EventTargetEcsTargetInput interface {
 }
 
 type EventTargetEcsTargetArgs struct {
+	// The capacity provider strategy to use for the task. If a `capacityProviderStrategy` specified, the `launchType` parameter must be omitted. If no `capacityProviderStrategy` or `launchType` is specified, the default capacity provider strategy for the cluster is used. Can be one or more. See below.
+	CapacityProviderStrategies EventTargetEcsTargetCapacityProviderStrategyArrayInput `pulumi:"capacityProviderStrategies"`
 	// Specifies whether to enable Amazon ECS managed tags for the task.
 	EnableEcsManagedTags pulumi.BoolPtrInput `pulumi:"enableEcsManagedTags"`
 	// Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task.
@@ -2568,6 +2572,13 @@ func (o EventTargetEcsTargetOutput) ToEventTargetEcsTargetPtrOutputWithContext(c
 	}).(EventTargetEcsTargetPtrOutput)
 }
 
+// The capacity provider strategy to use for the task. If a `capacityProviderStrategy` specified, the `launchType` parameter must be omitted. If no `capacityProviderStrategy` or `launchType` is specified, the default capacity provider strategy for the cluster is used. Can be one or more. See below.
+func (o EventTargetEcsTargetOutput) CapacityProviderStrategies() EventTargetEcsTargetCapacityProviderStrategyArrayOutput {
+	return o.ApplyT(func(v EventTargetEcsTarget) []EventTargetEcsTargetCapacityProviderStrategy {
+		return v.CapacityProviderStrategies
+	}).(EventTargetEcsTargetCapacityProviderStrategyArrayOutput)
+}
+
 // Specifies whether to enable Amazon ECS managed tags for the task.
 func (o EventTargetEcsTargetOutput) EnableEcsManagedTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EventTargetEcsTarget) *bool { return v.EnableEcsManagedTags }).(pulumi.BoolPtrOutput)
@@ -2645,6 +2656,16 @@ func (o EventTargetEcsTargetPtrOutput) Elem() EventTargetEcsTargetOutput {
 		var ret EventTargetEcsTarget
 		return ret
 	}).(EventTargetEcsTargetOutput)
+}
+
+// The capacity provider strategy to use for the task. If a `capacityProviderStrategy` specified, the `launchType` parameter must be omitted. If no `capacityProviderStrategy` or `launchType` is specified, the default capacity provider strategy for the cluster is used. Can be one or more. See below.
+func (o EventTargetEcsTargetPtrOutput) CapacityProviderStrategies() EventTargetEcsTargetCapacityProviderStrategyArrayOutput {
+	return o.ApplyT(func(v *EventTargetEcsTarget) []EventTargetEcsTargetCapacityProviderStrategy {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityProviderStrategies
+	}).(EventTargetEcsTargetCapacityProviderStrategyArrayOutput)
 }
 
 // Specifies whether to enable Amazon ECS managed tags for the task.
@@ -2755,6 +2776,121 @@ func (o EventTargetEcsTargetPtrOutput) TaskDefinitionArn() pulumi.StringPtrOutpu
 		}
 		return &v.TaskDefinitionArn
 	}).(pulumi.StringPtrOutput)
+}
+
+type EventTargetEcsTargetCapacityProviderStrategy struct {
+	// The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. If no value is specified, the default value of 0 is used.
+	Base *int `pulumi:"base"`
+	// Short name of the capacity provider.
+	CapacityProvider string `pulumi:"capacityProvider"`
+	// The weight value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied.
+	Weight *int `pulumi:"weight"`
+}
+
+// EventTargetEcsTargetCapacityProviderStrategyInput is an input type that accepts EventTargetEcsTargetCapacityProviderStrategyArgs and EventTargetEcsTargetCapacityProviderStrategyOutput values.
+// You can construct a concrete instance of `EventTargetEcsTargetCapacityProviderStrategyInput` via:
+//
+//	EventTargetEcsTargetCapacityProviderStrategyArgs{...}
+type EventTargetEcsTargetCapacityProviderStrategyInput interface {
+	pulumi.Input
+
+	ToEventTargetEcsTargetCapacityProviderStrategyOutput() EventTargetEcsTargetCapacityProviderStrategyOutput
+	ToEventTargetEcsTargetCapacityProviderStrategyOutputWithContext(context.Context) EventTargetEcsTargetCapacityProviderStrategyOutput
+}
+
+type EventTargetEcsTargetCapacityProviderStrategyArgs struct {
+	// The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. If no value is specified, the default value of 0 is used.
+	Base pulumi.IntPtrInput `pulumi:"base"`
+	// Short name of the capacity provider.
+	CapacityProvider pulumi.StringInput `pulumi:"capacityProvider"`
+	// The weight value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied.
+	Weight pulumi.IntPtrInput `pulumi:"weight"`
+}
+
+func (EventTargetEcsTargetCapacityProviderStrategyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTargetEcsTargetCapacityProviderStrategy)(nil)).Elem()
+}
+
+func (i EventTargetEcsTargetCapacityProviderStrategyArgs) ToEventTargetEcsTargetCapacityProviderStrategyOutput() EventTargetEcsTargetCapacityProviderStrategyOutput {
+	return i.ToEventTargetEcsTargetCapacityProviderStrategyOutputWithContext(context.Background())
+}
+
+func (i EventTargetEcsTargetCapacityProviderStrategyArgs) ToEventTargetEcsTargetCapacityProviderStrategyOutputWithContext(ctx context.Context) EventTargetEcsTargetCapacityProviderStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTargetEcsTargetCapacityProviderStrategyOutput)
+}
+
+// EventTargetEcsTargetCapacityProviderStrategyArrayInput is an input type that accepts EventTargetEcsTargetCapacityProviderStrategyArray and EventTargetEcsTargetCapacityProviderStrategyArrayOutput values.
+// You can construct a concrete instance of `EventTargetEcsTargetCapacityProviderStrategyArrayInput` via:
+//
+//	EventTargetEcsTargetCapacityProviderStrategyArray{ EventTargetEcsTargetCapacityProviderStrategyArgs{...} }
+type EventTargetEcsTargetCapacityProviderStrategyArrayInput interface {
+	pulumi.Input
+
+	ToEventTargetEcsTargetCapacityProviderStrategyArrayOutput() EventTargetEcsTargetCapacityProviderStrategyArrayOutput
+	ToEventTargetEcsTargetCapacityProviderStrategyArrayOutputWithContext(context.Context) EventTargetEcsTargetCapacityProviderStrategyArrayOutput
+}
+
+type EventTargetEcsTargetCapacityProviderStrategyArray []EventTargetEcsTargetCapacityProviderStrategyInput
+
+func (EventTargetEcsTargetCapacityProviderStrategyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventTargetEcsTargetCapacityProviderStrategy)(nil)).Elem()
+}
+
+func (i EventTargetEcsTargetCapacityProviderStrategyArray) ToEventTargetEcsTargetCapacityProviderStrategyArrayOutput() EventTargetEcsTargetCapacityProviderStrategyArrayOutput {
+	return i.ToEventTargetEcsTargetCapacityProviderStrategyArrayOutputWithContext(context.Background())
+}
+
+func (i EventTargetEcsTargetCapacityProviderStrategyArray) ToEventTargetEcsTargetCapacityProviderStrategyArrayOutputWithContext(ctx context.Context) EventTargetEcsTargetCapacityProviderStrategyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTargetEcsTargetCapacityProviderStrategyArrayOutput)
+}
+
+type EventTargetEcsTargetCapacityProviderStrategyOutput struct{ *pulumi.OutputState }
+
+func (EventTargetEcsTargetCapacityProviderStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTargetEcsTargetCapacityProviderStrategy)(nil)).Elem()
+}
+
+func (o EventTargetEcsTargetCapacityProviderStrategyOutput) ToEventTargetEcsTargetCapacityProviderStrategyOutput() EventTargetEcsTargetCapacityProviderStrategyOutput {
+	return o
+}
+
+func (o EventTargetEcsTargetCapacityProviderStrategyOutput) ToEventTargetEcsTargetCapacityProviderStrategyOutputWithContext(ctx context.Context) EventTargetEcsTargetCapacityProviderStrategyOutput {
+	return o
+}
+
+// The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. If no value is specified, the default value of 0 is used.
+func (o EventTargetEcsTargetCapacityProviderStrategyOutput) Base() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EventTargetEcsTargetCapacityProviderStrategy) *int { return v.Base }).(pulumi.IntPtrOutput)
+}
+
+// Short name of the capacity provider.
+func (o EventTargetEcsTargetCapacityProviderStrategyOutput) CapacityProvider() pulumi.StringOutput {
+	return o.ApplyT(func(v EventTargetEcsTargetCapacityProviderStrategy) string { return v.CapacityProvider }).(pulumi.StringOutput)
+}
+
+// The weight value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied.
+func (o EventTargetEcsTargetCapacityProviderStrategyOutput) Weight() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EventTargetEcsTargetCapacityProviderStrategy) *int { return v.Weight }).(pulumi.IntPtrOutput)
+}
+
+type EventTargetEcsTargetCapacityProviderStrategyArrayOutput struct{ *pulumi.OutputState }
+
+func (EventTargetEcsTargetCapacityProviderStrategyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventTargetEcsTargetCapacityProviderStrategy)(nil)).Elem()
+}
+
+func (o EventTargetEcsTargetCapacityProviderStrategyArrayOutput) ToEventTargetEcsTargetCapacityProviderStrategyArrayOutput() EventTargetEcsTargetCapacityProviderStrategyArrayOutput {
+	return o
+}
+
+func (o EventTargetEcsTargetCapacityProviderStrategyArrayOutput) ToEventTargetEcsTargetCapacityProviderStrategyArrayOutputWithContext(ctx context.Context) EventTargetEcsTargetCapacityProviderStrategyArrayOutput {
+	return o
+}
+
+func (o EventTargetEcsTargetCapacityProviderStrategyArrayOutput) Index(i pulumi.IntInput) EventTargetEcsTargetCapacityProviderStrategyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventTargetEcsTargetCapacityProviderStrategy {
+		return vs[0].([]EventTargetEcsTargetCapacityProviderStrategy)[vs[1].(int)]
+	}).(EventTargetEcsTargetCapacityProviderStrategyOutput)
 }
 
 type EventTargetEcsTargetNetworkConfiguration struct {
@@ -5210,6 +5346,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventTargetDeadLetterConfigPtrInput)(nil)).Elem(), EventTargetDeadLetterConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventTargetEcsTargetInput)(nil)).Elem(), EventTargetEcsTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventTargetEcsTargetPtrInput)(nil)).Elem(), EventTargetEcsTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventTargetEcsTargetCapacityProviderStrategyInput)(nil)).Elem(), EventTargetEcsTargetCapacityProviderStrategyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventTargetEcsTargetCapacityProviderStrategyArrayInput)(nil)).Elem(), EventTargetEcsTargetCapacityProviderStrategyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventTargetEcsTargetNetworkConfigurationInput)(nil)).Elem(), EventTargetEcsTargetNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventTargetEcsTargetNetworkConfigurationPtrInput)(nil)).Elem(), EventTargetEcsTargetNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventTargetEcsTargetPlacementConstraintInput)(nil)).Elem(), EventTargetEcsTargetPlacementConstraintArgs{})
@@ -5276,6 +5414,8 @@ func init() {
 	pulumi.RegisterOutputType(EventTargetDeadLetterConfigPtrOutput{})
 	pulumi.RegisterOutputType(EventTargetEcsTargetOutput{})
 	pulumi.RegisterOutputType(EventTargetEcsTargetPtrOutput{})
+	pulumi.RegisterOutputType(EventTargetEcsTargetCapacityProviderStrategyOutput{})
+	pulumi.RegisterOutputType(EventTargetEcsTargetCapacityProviderStrategyArrayOutput{})
 	pulumi.RegisterOutputType(EventTargetEcsTargetNetworkConfigurationOutput{})
 	pulumi.RegisterOutputType(EventTargetEcsTargetNetworkConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(EventTargetEcsTargetPlacementConstraintOutput{})

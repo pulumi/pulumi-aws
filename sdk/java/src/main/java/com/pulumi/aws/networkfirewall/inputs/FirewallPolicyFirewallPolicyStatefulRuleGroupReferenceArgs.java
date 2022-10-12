@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.networkfirewall.inputs;
 
+import com.pulumi.aws.networkfirewall.inputs.FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
@@ -15,6 +16,21 @@ import javax.annotation.Nullable;
 public final class FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs Empty = new FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs();
+
+    /**
+     * Configuration block for override values
+     * 
+     */
+    @Import(name="override")
+    private @Nullable Output<FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArgs> override;
+
+    /**
+     * @return Configuration block for override values
+     * 
+     */
+    public Optional<Output<FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArgs>> override() {
+        return Optional.ofNullable(this.override);
+    }
 
     /**
      * An integer setting that indicates the order in which to apply the stateful rule groups in a single policy. This argument must be specified if the policy has a `stateful_engine_options` block with a `rule_order` value of `STRICT_ORDER`. AWS Network Firewall applies each stateful rule group to a packet starting with the group that has the lowest priority setting.
@@ -49,6 +65,7 @@ public final class FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs ex
     private FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs() {}
 
     private FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs(FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs $) {
+        this.override = $.override;
         this.priority = $.priority;
         this.resourceArn = $.resourceArn;
     }
@@ -69,6 +86,27 @@ public final class FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs ex
 
         public Builder(FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs defaults) {
             $ = new FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param override Configuration block for override values
+         * 
+         * @return builder
+         * 
+         */
+        public Builder override(@Nullable Output<FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArgs> override) {
+            $.override = override;
+            return this;
+        }
+
+        /**
+         * @param override Configuration block for override values
+         * 
+         * @return builder
+         * 
+         */
+        public Builder override(FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArgs override) {
+            return override(Output.of(override));
         }
 
         /**

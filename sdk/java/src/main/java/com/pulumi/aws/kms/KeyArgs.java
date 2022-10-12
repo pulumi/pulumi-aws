@@ -40,6 +40,21 @@ public final class KeyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * ID of the KMS [Custom Key Store](https://docs.aws.amazon.com/kms/latest/developerguide/create-cmk-keystore.html) where the key will be stored instead of KMS (eg CloudHSM).
+     * 
+     */
+    @Import(name="customKeyStoreId")
+    private @Nullable Output<String> customKeyStoreId;
+
+    /**
+     * @return ID of the KMS [Custom Key Store](https://docs.aws.amazon.com/kms/latest/developerguide/create-cmk-keystore.html) where the key will be stored instead of KMS (eg CloudHSM).
+     * 
+     */
+    public Optional<Output<String>> customKeyStoreId() {
+        return Optional.ofNullable(this.customKeyStoreId);
+    }
+
+    /**
      * Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
      * Valid values: `SYMMETRIC_DEFAULT`,  `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_256`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, or `ECC_SECG_P256K1`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
      * 
@@ -121,7 +136,7 @@ public final class KeyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT` or `SIGN_VERIFY`.
+     * Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`.
      * Defaults to `ENCRYPT_DECRYPT`.
      * 
      */
@@ -129,7 +144,7 @@ public final class KeyArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> keyUsage;
 
     /**
-     * @return Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT` or `SIGN_VERIFY`.
+     * @return Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`.
      * Defaults to `ENCRYPT_DECRYPT`.
      * 
      */
@@ -186,6 +201,7 @@ public final class KeyArgs extends com.pulumi.resources.ResourceArgs {
 
     private KeyArgs(KeyArgs $) {
         this.bypassPolicyLockoutSafetyCheck = $.bypassPolicyLockoutSafetyCheck;
+        this.customKeyStoreId = $.customKeyStoreId;
         this.customerMasterKeySpec = $.customerMasterKeySpec;
         this.deletionWindowInDays = $.deletionWindowInDays;
         this.description = $.description;
@@ -240,6 +256,27 @@ public final class KeyArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder bypassPolicyLockoutSafetyCheck(Boolean bypassPolicyLockoutSafetyCheck) {
             return bypassPolicyLockoutSafetyCheck(Output.of(bypassPolicyLockoutSafetyCheck));
+        }
+
+        /**
+         * @param customKeyStoreId ID of the KMS [Custom Key Store](https://docs.aws.amazon.com/kms/latest/developerguide/create-cmk-keystore.html) where the key will be stored instead of KMS (eg CloudHSM).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customKeyStoreId(@Nullable Output<String> customKeyStoreId) {
+            $.customKeyStoreId = customKeyStoreId;
+            return this;
+        }
+
+        /**
+         * @param customKeyStoreId ID of the KMS [Custom Key Store](https://docs.aws.amazon.com/kms/latest/developerguide/create-cmk-keystore.html) where the key will be stored instead of KMS (eg CloudHSM).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customKeyStoreId(String customKeyStoreId) {
+            return customKeyStoreId(Output.of(customKeyStoreId));
         }
 
         /**
@@ -354,7 +391,7 @@ public final class KeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyUsage Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT` or `SIGN_VERIFY`.
+         * @param keyUsage Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`.
          * Defaults to `ENCRYPT_DECRYPT`.
          * 
          * @return builder
@@ -366,7 +403,7 @@ public final class KeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyUsage Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT` or `SIGN_VERIFY`.
+         * @param keyUsage Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`.
          * Defaults to `ENCRYPT_DECRYPT`.
          * 
          * @return builder

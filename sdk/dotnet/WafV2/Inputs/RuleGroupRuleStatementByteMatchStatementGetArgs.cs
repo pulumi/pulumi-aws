@@ -34,7 +34,9 @@ namespace Pulumi.Aws.WafV2.Inputs
         private InputList<Inputs.RuleGroupRuleStatementByteMatchStatementTextTransformationGetArgs>? _textTransformations;
 
         /// <summary>
-        /// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+        /// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+        /// At least one required.
+        /// See Text Transformation below for details.
         /// </summary>
         public InputList<Inputs.RuleGroupRuleStatementByteMatchStatementTextTransformationGetArgs> TextTransformations
         {

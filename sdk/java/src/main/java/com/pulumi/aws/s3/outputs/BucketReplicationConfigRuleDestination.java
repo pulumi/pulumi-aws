@@ -26,7 +26,7 @@ public final class BucketReplicationConfigRuleDestination {
      */
     private @Nullable String account;
     /**
-     * @return The ARN of the S3 bucket where you want Amazon S3 to store replicas of the objects identified by the rule.
+     * @return The name of the S3 bucket where you want Amazon S3 to store replicas of the objects identified by the rule.
      * 
      */
     private String bucket;
@@ -67,7 +67,7 @@ public final class BucketReplicationConfigRuleDestination {
         return Optional.ofNullable(this.account);
     }
     /**
-     * @return The ARN of the S3 bucket where you want Amazon S3 to store replicas of the objects identified by the rule.
+     * @return The name of the S3 bucket where you want Amazon S3 to store replicas of the objects identified by the rule.
      * 
      */
     public String bucket() {

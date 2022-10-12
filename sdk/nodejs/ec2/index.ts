@@ -292,6 +292,10 @@ export { GetVpcIamPoolArgs, GetVpcIamPoolResult, GetVpcIamPoolOutputArgs } from 
 export const getVpcIamPool: typeof import("./getVpcIamPool").getVpcIamPool = null as any;
 export const getVpcIamPoolOutput: typeof import("./getVpcIamPool").getVpcIamPoolOutput = null as any;
 
+export { GetVpcIamPoolCidrsArgs, GetVpcIamPoolCidrsResult, GetVpcIamPoolCidrsOutputArgs } from "./getVpcIamPoolCidrs";
+export const getVpcIamPoolCidrs: typeof import("./getVpcIamPoolCidrs").getVpcIamPoolCidrs = null as any;
+export const getVpcIamPoolCidrsOutput: typeof import("./getVpcIamPoolCidrs").getVpcIamPoolCidrsOutput = null as any;
+
 export { GetVpcPeeringConnectionArgs, GetVpcPeeringConnectionResult, GetVpcPeeringConnectionOutputArgs } from "./getVpcPeeringConnection";
 export const getVpcPeeringConnection: typeof import("./getVpcPeeringConnection").getVpcPeeringConnection = null as any;
 export const getVpcPeeringConnectionOutput: typeof import("./getVpcPeeringConnection").getVpcPeeringConnectionOutput = null as any;
@@ -665,6 +669,7 @@ utilities.lazyLoad(exports, ["getVpcDhcpOptions","getVpcDhcpOptionsOutput"], () 
 utilities.lazyLoad(exports, ["getVpcEndpoint","getVpcEndpointOutput"], () => require("./getVpcEndpoint"));
 utilities.lazyLoad(exports, ["getVpcEndpointService","getVpcEndpointServiceOutput"], () => require("./getVpcEndpointService"));
 utilities.lazyLoad(exports, ["getVpcIamPool","getVpcIamPoolOutput"], () => require("./getVpcIamPool"));
+utilities.lazyLoad(exports, ["getVpcIamPoolCidrs","getVpcIamPoolCidrsOutput"], () => require("./getVpcIamPoolCidrs"));
 utilities.lazyLoad(exports, ["getVpcPeeringConnection","getVpcPeeringConnectionOutput"], () => require("./getVpcPeeringConnection"));
 utilities.lazyLoad(exports, ["getVpcPeeringConnections","getVpcPeeringConnectionsOutput"], () => require("./getVpcPeeringConnections"));
 utilities.lazyLoad(exports, ["getVpcs","getVpcsOutput"], () => require("./getVpcs"));

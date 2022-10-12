@@ -13,6 +13,8 @@ __all__ = [
     'ConfigurationProfileValidator',
     'EnvironmentMonitor',
     'EventIntegrationEventFilter',
+    'GetConfigurationProfileValidatorResult',
+    'GetEnvironmentMonitorResult',
 ]
 
 @pulumi.output_type
@@ -110,5 +112,63 @@ class EventIntegrationEventFilter(dict):
         Source of the events.
         """
         return pulumi.get(self, "source")
+
+
+@pulumi.output_type
+class GetConfigurationProfileValidatorResult(dict):
+    def __init__(__self__, *,
+                 content: str,
+                 type: str):
+        """
+        :param str content: Either the JSON Schema content or the ARN of an AWS Lambda function.
+        :param str type: Type of validator. Valid values: JSON_SCHEMA and LAMBDA.
+        """
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def content(self) -> str:
+        """
+        Either the JSON Schema content or the ARN of an AWS Lambda function.
+        """
+        return pulumi.get(self, "content")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of validator. Valid values: JSON_SCHEMA and LAMBDA.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetEnvironmentMonitorResult(dict):
+    def __init__(__self__, *,
+                 alarm_arn: str,
+                 alarm_role_arn: str):
+        """
+        :param str alarm_arn: ARN of the Amazon CloudWatch alarm.
+        :param str alarm_role_arn: ARN of an IAM role for AWS AppConfig to monitor.
+        """
+        pulumi.set(__self__, "alarm_arn", alarm_arn)
+        pulumi.set(__self__, "alarm_role_arn", alarm_role_arn)
+
+    @property
+    @pulumi.getter(name="alarmArn")
+    def alarm_arn(self) -> str:
+        """
+        ARN of the Amazon CloudWatch alarm.
+        """
+        return pulumi.get(self, "alarm_arn")
+
+    @property
+    @pulumi.getter(name="alarmRoleArn")
+    def alarm_role_arn(self) -> str:
+        """
+        ARN of an IAM role for AWS AppConfig to monitor.
+        """
+        return pulumi.get(self, "alarm_role_arn")
 
 
