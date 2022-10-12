@@ -4,7 +4,7 @@
 [![Python version](https://badge.fury.io/py/pulumi-aws.svg)](https://pypi.org/project/pulumi-aws)
 [![NuGet version](https://badge.fury.io/nu/pulumi.aws.svg)](https://badge.fury.io/nu/pulumi.aws)
 [![PkgGoDev](https://pkg.go.dev/badge/github.com/pulumi/pulumi-aws/sdk/v5/go)](https://pkg.go.dev/github.com/pulumi/pulumi-aws/sdk/v5/go)
-[![License](https://img.shields.io/npm/l/%40pulumi%2Fpulumi.svg)](https://github.com/pulumi/pulumi-aws/blob/master/LICENSE)
+[![License](https://img.shields.io/github/license/pulumi/pulumi-aws)](https://github.com/pulumi/pulumi-aws/blob/master/LICENSE)
 
 # Amazon Web Services (AWS) provider
 
@@ -59,11 +59,11 @@ added to make development easier and to help avoid common mistakes, and to get s
 ### Serverless Functions
 
 The `aws.lambda.CallbackFunction` class allows you to create an AWS lambda function directly out of a JavaScript/TypeScript
-function object of the right signature.  This allows a Pulumi program to simply define a lambda using a simple lambda in
+function object of the right signature. This allows a Pulumi program to simply define a lambda using a simple lambda in
 the language of choice, while having Pulumi itself do the appropriate transformation into the final AWS Lambda resource.
 
 This makes many APIs easier to use, such as defining a Lambda to execute when an S3 Bucket is manipulated,
-or a CloudWatch timer is fired.  To see some examples of this in action, please refer to the `examples/` directory.
+or a CloudWatch timer is fired. To see some examples of this in action, please refer to the `examples/` directory.
 
 The [pulumi/pulumi-cloud](https://github.com/pulumi/pulumi-cloud) repo offer higher level abstractions that build on top
 of this underlying capability.
@@ -110,8 +110,7 @@ The following configuration points are available:
 
 ### Authenticating pulumi-aws via EC2 Instance Metadata?
 
-As of pulumi-aws v3.28.1, the default behaviour for the provider [was changed](https://github.com/pulumi/pulumi-aws/blob/master/CHANGELOG_OLD.md#3281-2021-02-10) to disable MetadataApiCheck by default. This means,
-you need to do either of the following
+As of pulumi-aws v3.28.1, the default behaviour for the provider [was changed](https://github.com/pulumi/pulumi-aws/blob/master/CHANGELOG_OLD.md#3281-2021-02-10) to disable MetadataApiCheck by default. This means, you need to do either of the following
 
 1. When using the default provider:
 ```
