@@ -74,6 +74,7 @@ const (
 	cloudsearchMod              = "CloudSearch"              // Cloud Search
 	cloudtrailMod               = "CloudTrail"               // Cloud Trail
 	cloudwatchMod               = "CloudWatch"               // Cloud Watch
+	cloudwatchEvidentlyMod      = "CloudWatchEvidently"      // Cloud Watch Evidently
 	codeartifactMod             = "CodeArtifact"             // CodeArtifact
 	codebuildMod                = "CodeBuild"                // Code Build
 	codecommitMod               = "CodeCommit"               // Code Commit
@@ -131,6 +132,7 @@ const (
 	identityStoreMod            = "IdentityStore"            // Identity Store
 	imageBuilderMod             = "ImageBuilder"             // ImageBuilder
 	inspectorMod                = "Inspector"                // Inspector
+	inspector2Mod               = "Inspector2"               // Inspector V2
 	iotMod                      = "Iot"                      // Internet of Things (IoT)
 	kendraMod                   = "Kendra"                   // Kendra
 	keyspacesMod                = "Keyspaces"                // Keyspaces
@@ -1783,6 +1785,9 @@ func Provider() tfbridge.ProviderInfo {
 			// EMR Serverless
 			"aws_emrserverless_application": {Tok: awsResource(emrServerlessMod, "Application")},
 
+			// Cloudwatch Evidently
+			"aws_evidently_project": {Tok: awsResource(cloudwatchEvidentlyMod, "Project")},
+
 			// FSX
 			"aws_fsx_lustre_file_system":            {Tok: awsResource(fsxMod, "LustreFileSystem")},
 			"aws_fsx_windows_file_system":           {Tok: awsResource(fsxMod, "WindowsFileSystem")},
@@ -2061,10 +2066,19 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_iam_service_specific_credential": {Tok: awsResource(iamMod, "ServiceSpecificCredential")},
 			"aws_iam_signing_certificate":         {Tok: awsResource(iamMod, "SigningCertificate")},
 			"aws_iam_virtual_mfa_device":          {Tok: awsResource(iamMod, "VirtualMfaDevice")},
+
+			// Identity Store
+			"aws_identitystore_group":            {Tok: awsResource(identityStoreMod, "Group")},
+			"aws_identitystore_group_membership": {Tok: awsResource(identityStoreMod, "GroupMembership")},
+			"aws_identitystore_user":             {Tok: awsResource(identityStoreMod, "User")},
+
 			// Inspector
 			"aws_inspector_assessment_target":   {Tok: awsResource(inspectorMod, "AssessmentTarget")},
 			"aws_inspector_assessment_template": {Tok: awsResource(inspectorMod, "AssessmentTemplate")},
 			"aws_inspector_resource_group":      {Tok: awsResource(inspectorMod, "ResourceGroup")},
+
+			// Inspector V2
+			"aws_inspector2_organization_configuration": {Tok: awsResource(inspector2Mod, "OrganizationConfiguration")},
 
 			// IOT
 			"aws_iot_certificate": {Tok: awsResource(iotMod, "Certificate")},
@@ -2176,6 +2190,7 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"aws_kms_ciphertext":           {Tok: awsResource(kmsMod, "Ciphertext")},
+			"aws_kms_custom_key_store":     {Tok: awsResource(kmsMod, "CustomKeyStore")},
 			"aws_kms_external_key":         {Tok: awsResource(kmsMod, "ExternalKey")},
 			"aws_kms_grant":                {Tok: awsResource(kmsMod, "Grant")},
 			"aws_kms_key":                  {Tok: awsResource(kmsMod, "Key")},
@@ -4635,6 +4650,11 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_acmpca_certificate":           {Tok: awsDataSource(acmpcaMod, "getCertificate")},
 			// Amp
 			"aws_prometheus_workspace": {Tok: awsDataSource(ampMod, "getWorkspace")},
+			// AppConfig
+			"aws_appconfig_configuration_profile":  {Tok: awsDataSource(appConfigMod, "getConfigurationProfile")},
+			"aws_appconfig_configuration_profiles": {Tok: awsDataSource(appConfigMod, "getConfigurationProfiles")},
+			"aws_appconfig_environment":            {Tok: awsDataSource(appConfigMod, "getEnvironment")},
+			"aws_appconfig_environments":           {Tok: awsDataSource(appConfigMod, "getEnvironments")},
 			// AppMesh
 			"aws_appmesh_mesh":            {Tok: awsDataSource(appmeshMod, "getMesh")},
 			"aws_appmesh_virtual_service": {Tok: awsDataSource(appmeshMod, "getVirtualService")},
@@ -4794,6 +4814,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ec2_transit_gateway_route_tables": {Tok: awsDataSource(ec2Mod, "getTransitGatewayRouteTables")},
 			"aws_ec2_instance_types":               {Tok: awsDataSource(ec2Mod, "getInstanceTypes")},
 			"aws_vpc_ipam_pool":                    {Tok: awsDataSource(ec2Mod, "getVpcIamPool")},
+			"aws_vpc_ipam_pool_cidrs":              {Tok: awsDataSource(ec2Mod, "getVpcIamPoolCidrs")},
 			"aws_vpc_ipam_preview_next_cidr":       {Tok: awsDataSource(ec2Mod, "getIpamPreviewNextCidr")},
 			"aws_eips":                             {Tok: awsDataSource(ec2Mod, "getEips")},
 			"aws_ec2_serial_console_access":        {Tok: awsDataSource(ec2Mod, "getSerialConsoleAccess")},
@@ -4997,12 +5018,13 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_kinesis_stream_consumer":          {Tok: awsDataSource(kinesisMod, "getStreamConsumer")},
 			"aws_kinesis_firehose_delivery_stream": {Tok: awsDataSource(kinesisMod, "getFirehoseDeliveryStream")},
 			// Key Management Service
-			"aws_kms_alias":      {Tok: awsDataSource(kmsMod, "getAlias")},
-			"aws_kms_ciphertext": {Tok: awsDataSource(kmsMod, "getCipherText")},
-			"aws_kms_key":        {Tok: awsDataSource(kmsMod, "getKey")},
-			"aws_kms_secret":     {Tok: awsDataSource(kmsMod, "getSecret")},
-			"aws_kms_secrets":    {Tok: awsDataSource(kmsMod, "getSecrets")},
-			"aws_kms_public_key": {Tok: awsDataSource(kmsMod, "getPublicKey")},
+			"aws_kms_alias":            {Tok: awsDataSource(kmsMod, "getAlias")},
+			"aws_kms_custom_key_store": {Tok: awsDataSource(kmsMod, "getCustomKeyStore")},
+			"aws_kms_ciphertext":       {Tok: awsDataSource(kmsMod, "getCipherText")},
+			"aws_kms_key":              {Tok: awsDataSource(kmsMod, "getKey")},
+			"aws_kms_secret":           {Tok: awsDataSource(kmsMod, "getSecret")},
+			"aws_kms_secrets":          {Tok: awsDataSource(kmsMod, "getSecrets")},
+			"aws_kms_public_key":       {Tok: awsDataSource(kmsMod, "getPublicKey")},
 
 			// Location
 			"aws_location_map":                  {Tok: awsDataSource(locationMod, "getMap")},
