@@ -74,7 +74,6 @@ const (
 	cloudsearchMod              = "CloudSearch"              // Cloud Search
 	cloudtrailMod               = "CloudTrail"               // Cloud Trail
 	cloudwatchMod               = "CloudWatch"               // Cloud Watch
-	cloudwatchEvidentlyMod      = "CloudWatchEvidently"      // Cloud Watch Evidently
 	codeartifactMod             = "CodeArtifact"             // CodeArtifact
 	codebuildMod                = "CodeBuild"                // Code Build
 	codecommitMod               = "CodeCommit"               // Code Commit
@@ -114,6 +113,7 @@ const (
 	elasticsearchMod            = "ElasticSearch"            // ElasticSearch
 	elastictranscoderMod        = "ElasticTranscoder"        // Elastic Transcoder
 	elbMod                      = "Elb"                      // Elastic Load Balancing
+	evidentlyMod                = "Evidently"                // Cloud Watch Evidently
 	albMod                      = "Alb"                      // Elastic Load Balancing (V2: Application)
 	lbMod                       = "LB"                       // Elastic Load Balancing (V2: Application and Network)
 	emrMod                      = "Emr"                      // Elastic MapReduce
@@ -1786,7 +1786,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_emrserverless_application": {Tok: awsResource(emrServerlessMod, "Application")},
 
 			// Cloudwatch Evidently
-			"aws_evidently_project": {Tok: awsResource(cloudwatchEvidentlyMod, "Project")},
+			"aws_evidently_project": {Tok: awsResource(evidentlyMod, "Project")},
 
 			// FSX
 			"aws_fsx_lustre_file_system":            {Tok: awsResource(fsxMod, "LustreFileSystem")},

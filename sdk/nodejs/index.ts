@@ -135,7 +135,6 @@ import * as cloudhsmv2 from "./cloudhsmv2";
 import * as cloudsearch from "./cloudsearch";
 import * as cloudtrail from "./cloudtrail";
 import * as cloudwatch from "./cloudwatch";
-import * as cloudwatchevidently from "./cloudwatchevidently";
 import * as codeartifact from "./codeartifact";
 import * as codebuild from "./codebuild";
 import * as codecommit from "./codecommit";
@@ -180,6 +179,7 @@ import * as elb from "./elb";
 import * as emr from "./emr";
 import * as emrcontainers from "./emrcontainers";
 import * as emrserverless from "./emrserverless";
+import * as evidently from "./evidently";
 import * as fis from "./fis";
 import * as fms from "./fms";
 import * as fsx from "./fsx";
@@ -312,7 +312,6 @@ export {
     cloudsearch,
     cloudtrail,
     cloudwatch,
-    cloudwatchevidently,
     codeartifact,
     codebuild,
     codecommit,
@@ -357,6 +356,7 @@ export {
     emr,
     emrcontainers,
     emrserverless,
+    evidently,
     fis,
     fms,
     fsx,

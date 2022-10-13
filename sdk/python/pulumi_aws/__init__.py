@@ -97,8 +97,6 @@ if typing.TYPE_CHECKING:
     cloudtrail = __cloudtrail
     import pulumi_aws.cloudwatch as __cloudwatch
     cloudwatch = __cloudwatch
-    import pulumi_aws.cloudwatchevidently as __cloudwatchevidently
-    cloudwatchevidently = __cloudwatchevidently
     import pulumi_aws.codeartifact as __codeartifact
     codeartifact = __codeartifact
     import pulumi_aws.codebuild as __codebuild
@@ -187,6 +185,8 @@ if typing.TYPE_CHECKING:
     emrcontainers = __emrcontainers
     import pulumi_aws.emrserverless as __emrserverless
     emrserverless = __emrserverless
+    import pulumi_aws.evidently as __evidently
+    evidently = __evidently
     import pulumi_aws.fis as __fis
     fis = __fis
     import pulumi_aws.fms as __fms
@@ -410,7 +410,6 @@ else:
     cloudsearch = _utilities.lazy_import('pulumi_aws.cloudsearch')
     cloudtrail = _utilities.lazy_import('pulumi_aws.cloudtrail')
     cloudwatch = _utilities.lazy_import('pulumi_aws.cloudwatch')
-    cloudwatchevidently = _utilities.lazy_import('pulumi_aws.cloudwatchevidently')
     codeartifact = _utilities.lazy_import('pulumi_aws.codeartifact')
     codebuild = _utilities.lazy_import('pulumi_aws.codebuild')
     codecommit = _utilities.lazy_import('pulumi_aws.codecommit')
@@ -455,6 +454,7 @@ else:
     emr = _utilities.lazy_import('pulumi_aws.emr')
     emrcontainers = _utilities.lazy_import('pulumi_aws.emrcontainers')
     emrserverless = _utilities.lazy_import('pulumi_aws.emrserverless')
+    evidently = _utilities.lazy_import('pulumi_aws.evidently')
     fis = _utilities.lazy_import('pulumi_aws.fis')
     fms = _utilities.lazy_import('pulumi_aws.fms')
     fsx = _utilities.lazy_import('pulumi_aws.fsx')
@@ -2143,14 +2143,6 @@ _utilities.register(
   "fqn": "pulumi_aws.cloudwatch",
   "classes": {
    "aws:cloudwatch/queryDefinition:QueryDefinition": "QueryDefinition"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "cloudwatchevidently/project",
-  "fqn": "pulumi_aws.cloudwatchevidently",
-  "classes": {
-   "aws:cloudwatchevidently/project:Project": "Project"
   }
  },
  {
@@ -4727,6 +4719,14 @@ _utilities.register(
   "fqn": "pulumi_aws.emrserverless",
   "classes": {
    "aws:emrserverless/application:Application": "Application"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "evidently/project",
+  "fqn": "pulumi_aws.evidently",
+  "classes": {
+   "aws:evidently/project:Project": "Project"
   }
  },
  {
