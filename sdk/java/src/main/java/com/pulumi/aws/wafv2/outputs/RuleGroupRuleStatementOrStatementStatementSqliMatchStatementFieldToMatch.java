@@ -6,6 +6,7 @@ package com.pulumi.aws.wafv2.outputs;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchBody;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchCookies;
+import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchHeader;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchJsonBody;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchMethod;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchQueryString;
@@ -13,6 +14,7 @@ import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementOrStatementStatementSq
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgument;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchUriPath;
 import com.pulumi.core.annotations.CustomType;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -30,10 +32,15 @@ public final class RuleGroupRuleStatementOrStatementStatementSqliMatchStatementF
      */
     private @Nullable RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchBody body;
     /**
-     * @return Inspect the request cookies.
+     * @return Inspect the cookies in the web request. See Cookies below for details.
      * 
      */
     private @Nullable RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchCookies cookies;
+    /**
+     * @return Inspect the request headers. See Headers below for details.
+     * 
+     */
+    private @Nullable List<RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchHeader> headers;
     /**
      * @return Inspect the request body as JSON. See JSON Body for details.
      * 
@@ -81,11 +88,18 @@ public final class RuleGroupRuleStatementOrStatementStatementSqliMatchStatementF
         return Optional.ofNullable(this.body);
     }
     /**
-     * @return Inspect the request cookies.
+     * @return Inspect the cookies in the web request. See Cookies below for details.
      * 
      */
     public Optional<RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchCookies> cookies() {
         return Optional.ofNullable(this.cookies);
+    }
+    /**
+     * @return Inspect the request headers. See Headers below for details.
+     * 
+     */
+    public List<RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchHeader> headers() {
+        return this.headers == null ? List.of() : this.headers;
     }
     /**
      * @return Inspect the request body as JSON. See JSON Body for details.
@@ -142,6 +156,7 @@ public final class RuleGroupRuleStatementOrStatementStatementSqliMatchStatementF
         private @Nullable RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments allQueryArguments;
         private @Nullable RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchBody body;
         private @Nullable RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchCookies cookies;
+        private @Nullable List<RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchHeader> headers;
         private @Nullable RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchJsonBody jsonBody;
         private @Nullable RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchMethod method;
         private @Nullable RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchQueryString queryString;
@@ -154,6 +169,7 @@ public final class RuleGroupRuleStatementOrStatementStatementSqliMatchStatementF
     	      this.allQueryArguments = defaults.allQueryArguments;
     	      this.body = defaults.body;
     	      this.cookies = defaults.cookies;
+    	      this.headers = defaults.headers;
     	      this.jsonBody = defaults.jsonBody;
     	      this.method = defaults.method;
     	      this.queryString = defaults.queryString;
@@ -176,6 +192,14 @@ public final class RuleGroupRuleStatementOrStatementStatementSqliMatchStatementF
         public Builder cookies(@Nullable RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchCookies cookies) {
             this.cookies = cookies;
             return this;
+        }
+        @CustomType.Setter
+        public Builder headers(@Nullable List<RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchHeader> headers) {
+            this.headers = headers;
+            return this;
+        }
+        public Builder headers(RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchHeader... headers) {
+            return headers(List.of(headers));
         }
         @CustomType.Setter
         public Builder jsonBody(@Nullable RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchJsonBody jsonBody) {
@@ -212,6 +236,7 @@ public final class RuleGroupRuleStatementOrStatementStatementSqliMatchStatementF
             o.allQueryArguments = allQueryArguments;
             o.body = body;
             o.cookies = cookies;
+            o.headers = headers;
             o.jsonBody = jsonBody;
             o.method = method;
             o.queryString = queryString;

@@ -19,7 +19,9 @@ public final class WebAclRuleStatementAndStatementStatementAndStatementStatement
      */
     private @Nullable WebAclRuleStatementAndStatementStatementAndStatementStatementXssMatchStatementFieldToMatch fieldToMatch;
     /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+     * At least one required.
+     * See Text Transformation below for details.
      * 
      */
     private List<WebAclRuleStatementAndStatementStatementAndStatementStatementXssMatchStatementTextTransformation> textTransformations;
@@ -33,7 +35,9 @@ public final class WebAclRuleStatementAndStatementStatementAndStatementStatement
         return Optional.ofNullable(this.fieldToMatch);
     }
     /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+     * At least one required.
+     * See Text Transformation below for details.
      * 
      */
     public List<WebAclRuleStatementAndStatementStatementAndStatementStatementXssMatchStatementTextTransformation> textTransformations() {

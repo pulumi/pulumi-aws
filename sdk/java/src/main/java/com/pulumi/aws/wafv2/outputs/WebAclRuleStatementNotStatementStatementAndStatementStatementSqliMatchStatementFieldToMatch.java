@@ -6,6 +6,7 @@ package com.pulumi.aws.wafv2.outputs;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchBody;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchCookies;
+import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchHeader;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchJsonBody;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchMethod;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchQueryString;
@@ -13,6 +14,7 @@ import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementNotStatementStatementAndS
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgument;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchUriPath;
 import com.pulumi.core.annotations.CustomType;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -30,10 +32,15 @@ public final class WebAclRuleStatementNotStatementStatementAndStatementStatement
      */
     private @Nullable WebAclRuleStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchBody body;
     /**
-     * @return Inspect the request cookies.
+     * @return Inspect the cookies in the web request. See Cookies below for details.
      * 
      */
     private @Nullable WebAclRuleStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchCookies cookies;
+    /**
+     * @return Inspect the request headers. See Headers below for details.
+     * 
+     */
+    private @Nullable List<WebAclRuleStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchHeader> headers;
     /**
      * @return Inspect the request body as JSON. See JSON Body for details.
      * 
@@ -81,11 +88,18 @@ public final class WebAclRuleStatementNotStatementStatementAndStatementStatement
         return Optional.ofNullable(this.body);
     }
     /**
-     * @return Inspect the request cookies.
+     * @return Inspect the cookies in the web request. See Cookies below for details.
      * 
      */
     public Optional<WebAclRuleStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchCookies> cookies() {
         return Optional.ofNullable(this.cookies);
+    }
+    /**
+     * @return Inspect the request headers. See Headers below for details.
+     * 
+     */
+    public List<WebAclRuleStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchHeader> headers() {
+        return this.headers == null ? List.of() : this.headers;
     }
     /**
      * @return Inspect the request body as JSON. See JSON Body for details.
@@ -142,6 +156,7 @@ public final class WebAclRuleStatementNotStatementStatementAndStatementStatement
         private @Nullable WebAclRuleStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments allQueryArguments;
         private @Nullable WebAclRuleStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchBody body;
         private @Nullable WebAclRuleStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchCookies cookies;
+        private @Nullable List<WebAclRuleStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchHeader> headers;
         private @Nullable WebAclRuleStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchJsonBody jsonBody;
         private @Nullable WebAclRuleStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchMethod method;
         private @Nullable WebAclRuleStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchQueryString queryString;
@@ -154,6 +169,7 @@ public final class WebAclRuleStatementNotStatementStatementAndStatementStatement
     	      this.allQueryArguments = defaults.allQueryArguments;
     	      this.body = defaults.body;
     	      this.cookies = defaults.cookies;
+    	      this.headers = defaults.headers;
     	      this.jsonBody = defaults.jsonBody;
     	      this.method = defaults.method;
     	      this.queryString = defaults.queryString;
@@ -176,6 +192,14 @@ public final class WebAclRuleStatementNotStatementStatementAndStatementStatement
         public Builder cookies(@Nullable WebAclRuleStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchCookies cookies) {
             this.cookies = cookies;
             return this;
+        }
+        @CustomType.Setter
+        public Builder headers(@Nullable List<WebAclRuleStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchHeader> headers) {
+            this.headers = headers;
+            return this;
+        }
+        public Builder headers(WebAclRuleStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchHeader... headers) {
+            return headers(List.of(headers));
         }
         @CustomType.Setter
         public Builder jsonBody(@Nullable WebAclRuleStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchJsonBody jsonBody) {
@@ -212,6 +236,7 @@ public final class WebAclRuleStatementNotStatementStatementAndStatementStatement
             o.allQueryArguments = allQueryArguments;
             o.body = body;
             o.cookies = cookies;
+            o.headers = headers;
             o.jsonBody = jsonBody;
             o.method = method;
             o.queryString = queryString;

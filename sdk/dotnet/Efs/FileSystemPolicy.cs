@@ -27,7 +27,7 @@ namespace Pulumi.Aws.Efs
     ///     {
     ///         FileSystemId = fs.Id,
     ///         BypassPolicyLockoutSafetyCheck = true,
-    ///         Policy = @$"{{
+    ///         Policy = fs.Arn.Apply(arn =&gt; @$"{{
     ///     ""Version"": ""2012-10-17"",
     ///     ""Id"": ""ExamplePolicy01"",
     ///     ""Statement"": [
@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Efs
     ///             ""Principal"": {{
     ///                 ""AWS"": ""*""
     ///             }},
-    ///             ""Resource"": ""{aws_efs_file_system.Test.Arn}"",
+    ///             ""Resource"": ""{arn}"",
     ///             ""Action"": [
     ///                 ""elasticfilesystem:ClientMount"",
     ///                 ""elasticfilesystem:ClientWrite""
@@ -50,7 +50,7 @@ namespace Pulumi.Aws.Efs
     ///         }}
     ///     ]
     /// }}
-    /// ",
+    /// "),
     ///     });
     /// 
     /// });

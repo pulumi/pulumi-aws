@@ -179,6 +179,7 @@ import * as elb from "./elb";
 import * as emr from "./emr";
 import * as emrcontainers from "./emrcontainers";
 import * as emrserverless from "./emrserverless";
+import * as evidently from "./evidently";
 import * as fis from "./fis";
 import * as fms from "./fms";
 import * as fsx from "./fsx";
@@ -192,6 +193,7 @@ import * as iam from "./iam";
 import * as identitystore from "./identitystore";
 import * as imagebuilder from "./imagebuilder";
 import * as inspector from "./inspector";
+import * as inspector2 from "./inspector2";
 import * as iot from "./iot";
 import * as kendra from "./kendra";
 import * as keyspaces from "./keyspaces";
@@ -354,6 +356,7 @@ export {
     emr,
     emrcontainers,
     emrserverless,
+    evidently,
     fis,
     fms,
     fsx,
@@ -367,6 +370,7 @@ export {
     identitystore,
     imagebuilder,
     inspector,
+    inspector2,
     iot,
     kendra,
     keyspaces,

@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.cloudwatch.inputs;
 
+import com.pulumi.aws.cloudwatch.inputs.EventTargetEcsTargetCapacityProviderStrategyArgs;
 import com.pulumi.aws.cloudwatch.inputs.EventTargetEcsTargetNetworkConfigurationArgs;
 import com.pulumi.aws.cloudwatch.inputs.EventTargetEcsTargetPlacementConstraintArgs;
 import com.pulumi.core.Output;
@@ -20,6 +21,21 @@ import javax.annotation.Nullable;
 public final class EventTargetEcsTargetArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final EventTargetEcsTargetArgs Empty = new EventTargetEcsTargetArgs();
+
+    /**
+     * The capacity provider strategy to use for the task. If a `capacity_provider_strategy` specified, the `launch_type` parameter must be omitted. If no `capacity_provider_strategy` or `launch_type` is specified, the default capacity provider strategy for the cluster is used. Can be one or more. See below.
+     * 
+     */
+    @Import(name="capacityProviderStrategies")
+    private @Nullable Output<List<EventTargetEcsTargetCapacityProviderStrategyArgs>> capacityProviderStrategies;
+
+    /**
+     * @return The capacity provider strategy to use for the task. If a `capacity_provider_strategy` specified, the `launch_type` parameter must be omitted. If no `capacity_provider_strategy` or `launch_type` is specified, the default capacity provider strategy for the cluster is used. Can be one or more. See below.
+     * 
+     */
+    public Optional<Output<List<EventTargetEcsTargetCapacityProviderStrategyArgs>>> capacityProviderStrategies() {
+        return Optional.ofNullable(this.capacityProviderStrategies);
+    }
 
     /**
      * Specifies whether to enable Amazon ECS managed tags for the task.
@@ -189,6 +205,7 @@ public final class EventTargetEcsTargetArgs extends com.pulumi.resources.Resourc
     private EventTargetEcsTargetArgs() {}
 
     private EventTargetEcsTargetArgs(EventTargetEcsTargetArgs $) {
+        this.capacityProviderStrategies = $.capacityProviderStrategies;
         this.enableEcsManagedTags = $.enableEcsManagedTags;
         this.enableExecuteCommand = $.enableExecuteCommand;
         this.group = $.group;
@@ -218,6 +235,37 @@ public final class EventTargetEcsTargetArgs extends com.pulumi.resources.Resourc
 
         public Builder(EventTargetEcsTargetArgs defaults) {
             $ = new EventTargetEcsTargetArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param capacityProviderStrategies The capacity provider strategy to use for the task. If a `capacity_provider_strategy` specified, the `launch_type` parameter must be omitted. If no `capacity_provider_strategy` or `launch_type` is specified, the default capacity provider strategy for the cluster is used. Can be one or more. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder capacityProviderStrategies(@Nullable Output<List<EventTargetEcsTargetCapacityProviderStrategyArgs>> capacityProviderStrategies) {
+            $.capacityProviderStrategies = capacityProviderStrategies;
+            return this;
+        }
+
+        /**
+         * @param capacityProviderStrategies The capacity provider strategy to use for the task. If a `capacity_provider_strategy` specified, the `launch_type` parameter must be omitted. If no `capacity_provider_strategy` or `launch_type` is specified, the default capacity provider strategy for the cluster is used. Can be one or more. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder capacityProviderStrategies(List<EventTargetEcsTargetCapacityProviderStrategyArgs> capacityProviderStrategies) {
+            return capacityProviderStrategies(Output.of(capacityProviderStrategies));
+        }
+
+        /**
+         * @param capacityProviderStrategies The capacity provider strategy to use for the task. If a `capacity_provider_strategy` specified, the `launch_type` parameter must be omitted. If no `capacity_provider_strategy` or `launch_type` is specified, the default capacity provider strategy for the cluster is used. Can be one or more. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder capacityProviderStrategies(EventTargetEcsTargetCapacityProviderStrategyArgs... capacityProviderStrategies) {
+            return capacityProviderStrategies(List.of(capacityProviderStrategies));
         }
 
         /**

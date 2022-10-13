@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.apigatewayv2.Deployment("example", {
- *     apiId: aws_apigatewayv2_route.example.api_id,
+ *     apiId: aws_apigatewayv2_api.example.id,
  *     description: "Example deployment",
  * });
  * ```

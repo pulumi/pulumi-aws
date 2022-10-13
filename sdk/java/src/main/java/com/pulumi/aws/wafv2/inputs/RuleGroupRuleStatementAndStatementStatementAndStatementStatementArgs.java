@@ -7,6 +7,7 @@ import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementAndStatementStatementAn
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementAndStatementStatementAndStatementStatementGeoMatchStatementArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementAndStatementStatementAndStatementStatementIpSetReferenceStatementArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementAndStatementStatementAndStatementStatementLabelMatchStatementArgs;
+import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementAndStatementStatementAndStatementStatementRegexMatchStatementArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatementArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatementArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementAndStatementStatementAndStatementStatementSqliMatchStatementArgs;
@@ -83,6 +84,21 @@ public final class RuleGroupRuleStatementAndStatementStatementAndStatementStatem
     }
 
     /**
+     * A rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+     * 
+     */
+    @Import(name="regexMatchStatement")
+    private @Nullable Output<RuleGroupRuleStatementAndStatementStatementAndStatementStatementRegexMatchStatementArgs> regexMatchStatement;
+
+    /**
+     * @return A rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+     * 
+     */
+    public Optional<Output<RuleGroupRuleStatementAndStatementStatementAndStatementStatementRegexMatchStatementArgs>> regexMatchStatement() {
+        return Optional.ofNullable(this.regexMatchStatement);
+    }
+
+    /**
      * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
      * 
      */
@@ -149,6 +165,7 @@ public final class RuleGroupRuleStatementAndStatementStatementAndStatementStatem
         this.geoMatchStatement = $.geoMatchStatement;
         this.ipSetReferenceStatement = $.ipSetReferenceStatement;
         this.labelMatchStatement = $.labelMatchStatement;
+        this.regexMatchStatement = $.regexMatchStatement;
         this.regexPatternSetReferenceStatement = $.regexPatternSetReferenceStatement;
         this.sizeConstraintStatement = $.sizeConstraintStatement;
         this.sqliMatchStatement = $.sqliMatchStatement;
@@ -255,6 +272,27 @@ public final class RuleGroupRuleStatementAndStatementStatementAndStatementStatem
          */
         public Builder labelMatchStatement(RuleGroupRuleStatementAndStatementStatementAndStatementStatementLabelMatchStatementArgs labelMatchStatement) {
             return labelMatchStatement(Output.of(labelMatchStatement));
+        }
+
+        /**
+         * @param regexMatchStatement A rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder regexMatchStatement(@Nullable Output<RuleGroupRuleStatementAndStatementStatementAndStatementStatementRegexMatchStatementArgs> regexMatchStatement) {
+            $.regexMatchStatement = regexMatchStatement;
+            return this;
+        }
+
+        /**
+         * @param regexMatchStatement A rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder regexMatchStatement(RuleGroupRuleStatementAndStatementStatementAndStatementStatementRegexMatchStatementArgs regexMatchStatement) {
+            return regexMatchStatement(Output.of(regexMatchStatement));
         }
 
         /**

@@ -17,9 +17,17 @@ public final class WebAclRuleStatementOrStatementStatementAndStatementStatementN
 
     public static final WebAclRuleStatementOrStatementStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternArgs Empty = new WebAclRuleStatementOrStatementStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternArgs();
 
+    /**
+     * An empty configuration block that is used for inspecting all headers.
+     * 
+     */
     @Import(name="all")
     private @Nullable Output<WebAclRuleStatementOrStatementStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllArgs> all;
 
+    /**
+     * @return An empty configuration block that is used for inspecting all headers.
+     * 
+     */
     public Optional<Output<WebAclRuleStatementOrStatementStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllArgs>> all() {
         return Optional.ofNullable(this.all);
     }
@@ -64,11 +72,23 @@ public final class WebAclRuleStatementOrStatementStatementAndStatementStatementN
             $ = new WebAclRuleStatementOrStatementStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param all An empty configuration block that is used for inspecting all headers.
+         * 
+         * @return builder
+         * 
+         */
         public Builder all(@Nullable Output<WebAclRuleStatementOrStatementStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllArgs> all) {
             $.all = all;
             return this;
         }
 
+        /**
+         * @param all An empty configuration block that is used for inspecting all headers.
+         * 
+         * @return builder
+         * 
+         */
         public Builder all(WebAclRuleStatementOrStatementStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllArgs all) {
             return all(Output.of(all));
         }

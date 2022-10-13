@@ -143,7 +143,7 @@ class FileSystemPolicy(pulumi.CustomResource):
         policy = aws.efs.FileSystemPolicy("policy",
             file_system_id=fs.id,
             bypass_policy_lockout_safety_check=True,
-            policy=f\"\"\"{{
+            policy=fs.arn.apply(lambda arn: f\"\"\"{{
             "Version": "2012-10-17",
             "Id": "ExamplePolicy01",
             "Statement": [
@@ -153,7 +153,7 @@ class FileSystemPolicy(pulumi.CustomResource):
                     "Principal": {{
                         "AWS": "*"
                     }},
-                    "Resource": "{aws_efs_file_system["test"]["arn"]}",
+                    "Resource": "{arn}",
                     "Action": [
                         "elasticfilesystem:ClientMount",
                         "elasticfilesystem:ClientWrite"
@@ -166,7 +166,7 @@ class FileSystemPolicy(pulumi.CustomResource):
                 }}
             ]
         }}
-        \"\"\")
+        \"\"\"))
         ```
 
         ## Import
@@ -202,7 +202,7 @@ class FileSystemPolicy(pulumi.CustomResource):
         policy = aws.efs.FileSystemPolicy("policy",
             file_system_id=fs.id,
             bypass_policy_lockout_safety_check=True,
-            policy=f\"\"\"{{
+            policy=fs.arn.apply(lambda arn: f\"\"\"{{
             "Version": "2012-10-17",
             "Id": "ExamplePolicy01",
             "Statement": [
@@ -212,7 +212,7 @@ class FileSystemPolicy(pulumi.CustomResource):
                     "Principal": {{
                         "AWS": "*"
                     }},
-                    "Resource": "{aws_efs_file_system["test"]["arn"]}",
+                    "Resource": "{arn}",
                     "Action": [
                         "elasticfilesystem:ClientMount",
                         "elasticfilesystem:ClientWrite"
@@ -225,7 +225,7 @@ class FileSystemPolicy(pulumi.CustomResource):
                 }}
             ]
         }}
-        \"\"\")
+        \"\"\"))
         ```
 
         ## Import

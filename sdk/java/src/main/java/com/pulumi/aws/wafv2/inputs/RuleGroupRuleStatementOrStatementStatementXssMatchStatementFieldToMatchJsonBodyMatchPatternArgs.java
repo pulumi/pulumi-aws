@@ -17,9 +17,17 @@ public final class RuleGroupRuleStatementOrStatementStatementXssMatchStatementFi
 
     public static final RuleGroupRuleStatementOrStatementStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternArgs Empty = new RuleGroupRuleStatementOrStatementStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternArgs();
 
+    /**
+     * An empty configuration block that is used for inspecting all headers.
+     * 
+     */
     @Import(name="all")
     private @Nullable Output<RuleGroupRuleStatementOrStatementStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs> all;
 
+    /**
+     * @return An empty configuration block that is used for inspecting all headers.
+     * 
+     */
     public Optional<Output<RuleGroupRuleStatementOrStatementStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs>> all() {
         return Optional.ofNullable(this.all);
     }
@@ -56,11 +64,23 @@ public final class RuleGroupRuleStatementOrStatementStatementXssMatchStatementFi
             $ = new RuleGroupRuleStatementOrStatementStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param all An empty configuration block that is used for inspecting all headers.
+         * 
+         * @return builder
+         * 
+         */
         public Builder all(@Nullable Output<RuleGroupRuleStatementOrStatementStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs> all) {
             $.all = all;
             return this;
         }
 
+        /**
+         * @param all An empty configuration block that is used for inspecting all headers.
+         * 
+         * @return builder
+         * 
+         */
         public Builder all(RuleGroupRuleStatementOrStatementStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs all) {
             return all(Output.of(all));
         }

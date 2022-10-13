@@ -17,9 +17,17 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementOrStat
 
     public static final WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgs Empty = new WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgs();
 
+    /**
+     * An empty configuration block that is used for inspecting all headers.
+     * 
+     */
     @Import(name="all")
     private @Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs> all;
 
+    /**
+     * @return An empty configuration block that is used for inspecting all headers.
+     * 
+     */
     public Optional<Output<WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs>> all() {
         return Optional.ofNullable(this.all);
     }
@@ -56,11 +64,23 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementOrStat
             $ = new WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param all An empty configuration block that is used for inspecting all headers.
+         * 
+         * @return builder
+         * 
+         */
         public Builder all(@Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs> all) {
             $.all = all;
             return this;
         }
 
+        /**
+         * @param all An empty configuration block that is used for inspecting all headers.
+         * 
+         * @return builder
+         * 
+         */
         public Builder all(WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs all) {
             return all(Output.of(all));
         }

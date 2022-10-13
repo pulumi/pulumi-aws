@@ -28,7 +28,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lambda.NewLayerVersion(ctx, "lambdaLayer", &lambda.LayerVersionArgs{
 //				CompatibleRuntimes: pulumi.StringArray{
-//					pulumi.String("nodejs12.x"),
+//					pulumi.String("nodejs16.x"),
 //				},
 //				Code:      pulumi.NewFileArchive("lambda_layer_payload.zip"),
 //				LayerName: pulumi.String("lambda_layer_name"),

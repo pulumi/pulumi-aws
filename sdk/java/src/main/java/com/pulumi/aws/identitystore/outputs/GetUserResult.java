@@ -3,31 +3,148 @@
 
 package com.pulumi.aws.identitystore.outputs;
 
+import com.pulumi.aws.identitystore.outputs.GetUserAddress;
+import com.pulumi.aws.identitystore.outputs.GetUserAlternateIdentifier;
+import com.pulumi.aws.identitystore.outputs.GetUserEmail;
+import com.pulumi.aws.identitystore.outputs.GetUserExternalId;
 import com.pulumi.aws.identitystore.outputs.GetUserFilter;
+import com.pulumi.aws.identitystore.outputs.GetUserName;
+import com.pulumi.aws.identitystore.outputs.GetUserPhoneNumber;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetUserResult {
-    private List<GetUserFilter> filters;
+    /**
+     * @return List of details about the user&#39;s address.
+     * 
+     */
+    private List<GetUserAddress> addresses;
+    private @Nullable GetUserAlternateIdentifier alternateIdentifier;
+    /**
+     * @return The name that is typically displayed when the user is referenced.
+     * 
+     */
+    private String displayName;
+    /**
+     * @return List of details about the user&#39;s email.
+     * 
+     */
+    private List<GetUserEmail> emails;
+    /**
+     * @return List of identifiers issued to this resource by an external identity provider.
+     * 
+     */
+    private List<GetUserExternalId> externalIds;
+    /**
+     * @deprecated
+     * Use the alternate_identifier attribute instead.
+     * 
+     */
+    @Deprecated /* Use the alternate_identifier attribute instead. */
+    private @Nullable GetUserFilter filter;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
     private String identityStoreId;
+    /**
+     * @return The user&#39;s geographical region or location.
+     * 
+     */
+    private String locale;
+    /**
+     * @return Details about the user&#39;s full name.
+     * 
+     */
+    private List<GetUserName> names;
+    /**
+     * @return An alternate name for the user.
+     * 
+     */
+    private String nickname;
+    /**
+     * @return List of details about the user&#39;s phone number.
+     * 
+     */
+    private List<GetUserPhoneNumber> phoneNumbers;
+    /**
+     * @return The preferred language of the user.
+     * 
+     */
+    private String preferredLanguage;
+    /**
+     * @return An URL that may be associated with the user.
+     * 
+     */
+    private String profileUrl;
+    /**
+     * @return The user&#39;s time zone.
+     * 
+     */
+    private String timezone;
+    /**
+     * @return The user&#39;s title.
+     * 
+     */
+    private String title;
     private String userId;
     /**
      * @return User&#39;s user name value.
      * 
      */
     private String userName;
+    /**
+     * @return The user type.
+     * 
+     */
+    private String userType;
 
     private GetUserResult() {}
-    public List<GetUserFilter> filters() {
-        return this.filters;
+    /**
+     * @return List of details about the user&#39;s address.
+     * 
+     */
+    public List<GetUserAddress> addresses() {
+        return this.addresses;
+    }
+    public Optional<GetUserAlternateIdentifier> alternateIdentifier() {
+        return Optional.ofNullable(this.alternateIdentifier);
+    }
+    /**
+     * @return The name that is typically displayed when the user is referenced.
+     * 
+     */
+    public String displayName() {
+        return this.displayName;
+    }
+    /**
+     * @return List of details about the user&#39;s email.
+     * 
+     */
+    public List<GetUserEmail> emails() {
+        return this.emails;
+    }
+    /**
+     * @return List of identifiers issued to this resource by an external identity provider.
+     * 
+     */
+    public List<GetUserExternalId> externalIds() {
+        return this.externalIds;
+    }
+    /**
+     * @deprecated
+     * Use the alternate_identifier attribute instead.
+     * 
+     */
+    @Deprecated /* Use the alternate_identifier attribute instead. */
+    public Optional<GetUserFilter> filter() {
+        return Optional.ofNullable(this.filter);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -39,6 +156,62 @@ public final class GetUserResult {
     public String identityStoreId() {
         return this.identityStoreId;
     }
+    /**
+     * @return The user&#39;s geographical region or location.
+     * 
+     */
+    public String locale() {
+        return this.locale;
+    }
+    /**
+     * @return Details about the user&#39;s full name.
+     * 
+     */
+    public List<GetUserName> names() {
+        return this.names;
+    }
+    /**
+     * @return An alternate name for the user.
+     * 
+     */
+    public String nickname() {
+        return this.nickname;
+    }
+    /**
+     * @return List of details about the user&#39;s phone number.
+     * 
+     */
+    public List<GetUserPhoneNumber> phoneNumbers() {
+        return this.phoneNumbers;
+    }
+    /**
+     * @return The preferred language of the user.
+     * 
+     */
+    public String preferredLanguage() {
+        return this.preferredLanguage;
+    }
+    /**
+     * @return An URL that may be associated with the user.
+     * 
+     */
+    public String profileUrl() {
+        return this.profileUrl;
+    }
+    /**
+     * @return The user&#39;s time zone.
+     * 
+     */
+    public String timezone() {
+        return this.timezone;
+    }
+    /**
+     * @return The user&#39;s title.
+     * 
+     */
+    public String title() {
+        return this.title;
+    }
     public String userId() {
         return this.userId;
     }
@@ -48,6 +221,13 @@ public final class GetUserResult {
      */
     public String userName() {
         return this.userName;
+    }
+    /**
+     * @return The user type.
+     * 
+     */
+    public String userType() {
+        return this.userType;
     }
 
     public static Builder builder() {
@@ -59,28 +239,87 @@ public final class GetUserResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetUserFilter> filters;
+        private List<GetUserAddress> addresses;
+        private @Nullable GetUserAlternateIdentifier alternateIdentifier;
+        private String displayName;
+        private List<GetUserEmail> emails;
+        private List<GetUserExternalId> externalIds;
+        private @Nullable GetUserFilter filter;
         private String id;
         private String identityStoreId;
+        private String locale;
+        private List<GetUserName> names;
+        private String nickname;
+        private List<GetUserPhoneNumber> phoneNumbers;
+        private String preferredLanguage;
+        private String profileUrl;
+        private String timezone;
+        private String title;
         private String userId;
         private String userName;
+        private String userType;
         public Builder() {}
         public Builder(GetUserResult defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.filters = defaults.filters;
+    	      this.addresses = defaults.addresses;
+    	      this.alternateIdentifier = defaults.alternateIdentifier;
+    	      this.displayName = defaults.displayName;
+    	      this.emails = defaults.emails;
+    	      this.externalIds = defaults.externalIds;
+    	      this.filter = defaults.filter;
     	      this.id = defaults.id;
     	      this.identityStoreId = defaults.identityStoreId;
+    	      this.locale = defaults.locale;
+    	      this.names = defaults.names;
+    	      this.nickname = defaults.nickname;
+    	      this.phoneNumbers = defaults.phoneNumbers;
+    	      this.preferredLanguage = defaults.preferredLanguage;
+    	      this.profileUrl = defaults.profileUrl;
+    	      this.timezone = defaults.timezone;
+    	      this.title = defaults.title;
     	      this.userId = defaults.userId;
     	      this.userName = defaults.userName;
+    	      this.userType = defaults.userType;
         }
 
         @CustomType.Setter
-        public Builder filters(List<GetUserFilter> filters) {
-            this.filters = Objects.requireNonNull(filters);
+        public Builder addresses(List<GetUserAddress> addresses) {
+            this.addresses = Objects.requireNonNull(addresses);
             return this;
         }
-        public Builder filters(GetUserFilter... filters) {
-            return filters(List.of(filters));
+        public Builder addresses(GetUserAddress... addresses) {
+            return addresses(List.of(addresses));
+        }
+        @CustomType.Setter
+        public Builder alternateIdentifier(@Nullable GetUserAlternateIdentifier alternateIdentifier) {
+            this.alternateIdentifier = alternateIdentifier;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder displayName(String displayName) {
+            this.displayName = Objects.requireNonNull(displayName);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder emails(List<GetUserEmail> emails) {
+            this.emails = Objects.requireNonNull(emails);
+            return this;
+        }
+        public Builder emails(GetUserEmail... emails) {
+            return emails(List.of(emails));
+        }
+        @CustomType.Setter
+        public Builder externalIds(List<GetUserExternalId> externalIds) {
+            this.externalIds = Objects.requireNonNull(externalIds);
+            return this;
+        }
+        public Builder externalIds(GetUserExternalId... externalIds) {
+            return externalIds(List.of(externalIds));
+        }
+        @CustomType.Setter
+        public Builder filter(@Nullable GetUserFilter filter) {
+            this.filter = filter;
+            return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
@@ -93,6 +332,52 @@ public final class GetUserResult {
             return this;
         }
         @CustomType.Setter
+        public Builder locale(String locale) {
+            this.locale = Objects.requireNonNull(locale);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder names(List<GetUserName> names) {
+            this.names = Objects.requireNonNull(names);
+            return this;
+        }
+        public Builder names(GetUserName... names) {
+            return names(List.of(names));
+        }
+        @CustomType.Setter
+        public Builder nickname(String nickname) {
+            this.nickname = Objects.requireNonNull(nickname);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder phoneNumbers(List<GetUserPhoneNumber> phoneNumbers) {
+            this.phoneNumbers = Objects.requireNonNull(phoneNumbers);
+            return this;
+        }
+        public Builder phoneNumbers(GetUserPhoneNumber... phoneNumbers) {
+            return phoneNumbers(List.of(phoneNumbers));
+        }
+        @CustomType.Setter
+        public Builder preferredLanguage(String preferredLanguage) {
+            this.preferredLanguage = Objects.requireNonNull(preferredLanguage);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder profileUrl(String profileUrl) {
+            this.profileUrl = Objects.requireNonNull(profileUrl);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder timezone(String timezone) {
+            this.timezone = Objects.requireNonNull(timezone);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder title(String title) {
+            this.title = Objects.requireNonNull(title);
+            return this;
+        }
+        @CustomType.Setter
         public Builder userId(String userId) {
             this.userId = Objects.requireNonNull(userId);
             return this;
@@ -102,13 +387,32 @@ public final class GetUserResult {
             this.userName = Objects.requireNonNull(userName);
             return this;
         }
+        @CustomType.Setter
+        public Builder userType(String userType) {
+            this.userType = Objects.requireNonNull(userType);
+            return this;
+        }
         public GetUserResult build() {
             final var o = new GetUserResult();
-            o.filters = filters;
+            o.addresses = addresses;
+            o.alternateIdentifier = alternateIdentifier;
+            o.displayName = displayName;
+            o.emails = emails;
+            o.externalIds = externalIds;
+            o.filter = filter;
             o.id = id;
             o.identityStoreId = identityStoreId;
+            o.locale = locale;
+            o.names = names;
+            o.nickname = nickname;
+            o.phoneNumbers = phoneNumbers;
+            o.preferredLanguage = preferredLanguage;
+            o.profileUrl = profileUrl;
+            o.timezone = timezone;
+            o.title = title;
             o.userId = userId;
             o.userName = userName;
+            o.userType = userType;
             return o;
         }
     }

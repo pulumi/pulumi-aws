@@ -6,6 +6,7 @@ package com.pulumi.aws.wafv2.outputs;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementAndStatementStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchAllQueryArguments;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementAndStatementStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchBody;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementAndStatementStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchCookies;
+import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementAndStatementStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchHeader;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementAndStatementStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchJsonBody;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementAndStatementStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchMethod;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementAndStatementStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchQueryString;
@@ -13,6 +14,7 @@ import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementAndStatementStatementAndS
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementAndStatementStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementAndStatementStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchUriPath;
 import com.pulumi.core.annotations.CustomType;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -30,10 +32,15 @@ public final class WebAclRuleStatementAndStatementStatementAndStatementStatement
      */
     private @Nullable WebAclRuleStatementAndStatementStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchBody body;
     /**
-     * @return Inspect the request cookies.
+     * @return Inspect the cookies in the web request. See Cookies below for details.
      * 
      */
     private @Nullable WebAclRuleStatementAndStatementStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchCookies cookies;
+    /**
+     * @return Inspect the request headers. See Headers below for details.
+     * 
+     */
+    private @Nullable List<WebAclRuleStatementAndStatementStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchHeader> headers;
     /**
      * @return Inspect the request body as JSON. See JSON Body for details.
      * 
@@ -81,11 +88,18 @@ public final class WebAclRuleStatementAndStatementStatementAndStatementStatement
         return Optional.ofNullable(this.body);
     }
     /**
-     * @return Inspect the request cookies.
+     * @return Inspect the cookies in the web request. See Cookies below for details.
      * 
      */
     public Optional<WebAclRuleStatementAndStatementStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchCookies> cookies() {
         return Optional.ofNullable(this.cookies);
+    }
+    /**
+     * @return Inspect the request headers. See Headers below for details.
+     * 
+     */
+    public List<WebAclRuleStatementAndStatementStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchHeader> headers() {
+        return this.headers == null ? List.of() : this.headers;
     }
     /**
      * @return Inspect the request body as JSON. See JSON Body for details.
@@ -142,6 +156,7 @@ public final class WebAclRuleStatementAndStatementStatementAndStatementStatement
         private @Nullable WebAclRuleStatementAndStatementStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchAllQueryArguments allQueryArguments;
         private @Nullable WebAclRuleStatementAndStatementStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchBody body;
         private @Nullable WebAclRuleStatementAndStatementStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchCookies cookies;
+        private @Nullable List<WebAclRuleStatementAndStatementStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchHeader> headers;
         private @Nullable WebAclRuleStatementAndStatementStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchJsonBody jsonBody;
         private @Nullable WebAclRuleStatementAndStatementStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchMethod method;
         private @Nullable WebAclRuleStatementAndStatementStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchQueryString queryString;
@@ -154,6 +169,7 @@ public final class WebAclRuleStatementAndStatementStatementAndStatementStatement
     	      this.allQueryArguments = defaults.allQueryArguments;
     	      this.body = defaults.body;
     	      this.cookies = defaults.cookies;
+    	      this.headers = defaults.headers;
     	      this.jsonBody = defaults.jsonBody;
     	      this.method = defaults.method;
     	      this.queryString = defaults.queryString;
@@ -176,6 +192,14 @@ public final class WebAclRuleStatementAndStatementStatementAndStatementStatement
         public Builder cookies(@Nullable WebAclRuleStatementAndStatementStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchCookies cookies) {
             this.cookies = cookies;
             return this;
+        }
+        @CustomType.Setter
+        public Builder headers(@Nullable List<WebAclRuleStatementAndStatementStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchHeader> headers) {
+            this.headers = headers;
+            return this;
+        }
+        public Builder headers(WebAclRuleStatementAndStatementStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchHeader... headers) {
+            return headers(List.of(headers));
         }
         @CustomType.Setter
         public Builder jsonBody(@Nullable WebAclRuleStatementAndStatementStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchJsonBody jsonBody) {
@@ -212,6 +236,7 @@ public final class WebAclRuleStatementAndStatementStatementAndStatementStatement
             o.allQueryArguments = allQueryArguments;
             o.body = body;
             o.cookies = cookies;
+            o.headers = headers;
             o.jsonBody = jsonBody;
             o.method = method;
             o.queryString = queryString;

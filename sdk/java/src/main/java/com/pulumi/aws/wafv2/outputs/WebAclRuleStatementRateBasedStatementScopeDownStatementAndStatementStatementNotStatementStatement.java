@@ -7,6 +7,7 @@ import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDo
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementNotStatementStatementGeoMatchStatement;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementNotStatementStatementIpSetReferenceStatement;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementNotStatementStatementLabelMatchStatement;
+import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementNotStatementStatementRegexMatchStatement;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatement;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementNotStatementStatementSizeConstraintStatement;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementNotStatementStatementSqliMatchStatement;
@@ -38,6 +39,11 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementAndSta
      * 
      */
     private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementNotStatementStatementLabelMatchStatement labelMatchStatement;
+    /**
+     * @return Rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+     * 
+     */
+    private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementNotStatementStatementRegexMatchStatement regexMatchStatement;
     /**
      * @return Rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
      * 
@@ -89,6 +95,13 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementAndSta
         return Optional.ofNullable(this.labelMatchStatement);
     }
     /**
+     * @return Rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+     * 
+     */
+    public Optional<WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementNotStatementStatementRegexMatchStatement> regexMatchStatement() {
+        return Optional.ofNullable(this.regexMatchStatement);
+    }
+    /**
      * @return Rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
      * 
      */
@@ -130,6 +143,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementAndSta
         private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementNotStatementStatementGeoMatchStatement geoMatchStatement;
         private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementNotStatementStatementIpSetReferenceStatement ipSetReferenceStatement;
         private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementNotStatementStatementLabelMatchStatement labelMatchStatement;
+        private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementNotStatementStatementRegexMatchStatement regexMatchStatement;
         private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatement regexPatternSetReferenceStatement;
         private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementNotStatementStatementSizeConstraintStatement sizeConstraintStatement;
         private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementNotStatementStatementSqliMatchStatement sqliMatchStatement;
@@ -141,6 +155,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementAndSta
     	      this.geoMatchStatement = defaults.geoMatchStatement;
     	      this.ipSetReferenceStatement = defaults.ipSetReferenceStatement;
     	      this.labelMatchStatement = defaults.labelMatchStatement;
+    	      this.regexMatchStatement = defaults.regexMatchStatement;
     	      this.regexPatternSetReferenceStatement = defaults.regexPatternSetReferenceStatement;
     	      this.sizeConstraintStatement = defaults.sizeConstraintStatement;
     	      this.sqliMatchStatement = defaults.sqliMatchStatement;
@@ -165,6 +180,11 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementAndSta
         @CustomType.Setter
         public Builder labelMatchStatement(@Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementNotStatementStatementLabelMatchStatement labelMatchStatement) {
             this.labelMatchStatement = labelMatchStatement;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder regexMatchStatement(@Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementNotStatementStatementRegexMatchStatement regexMatchStatement) {
+            this.regexMatchStatement = regexMatchStatement;
             return this;
         }
         @CustomType.Setter
@@ -193,6 +213,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementAndSta
             o.geoMatchStatement = geoMatchStatement;
             o.ipSetReferenceStatement = ipSetReferenceStatement;
             o.labelMatchStatement = labelMatchStatement;
+            o.regexMatchStatement = regexMatchStatement;
             o.regexPatternSetReferenceStatement = regexPatternSetReferenceStatement;
             o.sizeConstraintStatement = sizeConstraintStatement;
             o.sqliMatchStatement = sqliMatchStatement;

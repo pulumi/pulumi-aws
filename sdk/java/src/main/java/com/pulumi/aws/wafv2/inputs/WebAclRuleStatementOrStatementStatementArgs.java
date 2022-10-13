@@ -10,6 +10,7 @@ import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementOrStatementStatementIpSetR
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementOrStatementStatementLabelMatchStatementArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementOrStatementStatementNotStatementArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementOrStatementStatementOrStatementArgs;
+import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementOrStatementStatementRegexMatchStatementArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementOrStatementStatementRegexPatternSetReferenceStatementArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementOrStatementStatementSizeConstraintStatementArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementOrStatementStatementSqliMatchStatementArgs;
@@ -131,6 +132,21 @@ public final class WebAclRuleStatementOrStatementStatementArgs extends com.pulum
     }
 
     /**
+     * Rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+     * 
+     */
+    @Import(name="regexMatchStatement")
+    private @Nullable Output<WebAclRuleStatementOrStatementStatementRegexMatchStatementArgs> regexMatchStatement;
+
+    /**
+     * @return Rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+     * 
+     */
+    public Optional<Output<WebAclRuleStatementOrStatementStatementRegexMatchStatementArgs>> regexMatchStatement() {
+        return Optional.ofNullable(this.regexMatchStatement);
+    }
+
+    /**
      * Rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
      * 
      */
@@ -200,6 +216,7 @@ public final class WebAclRuleStatementOrStatementStatementArgs extends com.pulum
         this.labelMatchStatement = $.labelMatchStatement;
         this.notStatement = $.notStatement;
         this.orStatement = $.orStatement;
+        this.regexMatchStatement = $.regexMatchStatement;
         this.regexPatternSetReferenceStatement = $.regexPatternSetReferenceStatement;
         this.sizeConstraintStatement = $.sizeConstraintStatement;
         this.sqliMatchStatement = $.sqliMatchStatement;
@@ -369,6 +386,27 @@ public final class WebAclRuleStatementOrStatementStatementArgs extends com.pulum
          */
         public Builder orStatement(WebAclRuleStatementOrStatementStatementOrStatementArgs orStatement) {
             return orStatement(Output.of(orStatement));
+        }
+
+        /**
+         * @param regexMatchStatement Rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder regexMatchStatement(@Nullable Output<WebAclRuleStatementOrStatementStatementRegexMatchStatementArgs> regexMatchStatement) {
+            $.regexMatchStatement = regexMatchStatement;
+            return this;
+        }
+
+        /**
+         * @param regexMatchStatement Rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder regexMatchStatement(WebAclRuleStatementOrStatementStatementRegexMatchStatementArgs regexMatchStatement) {
+            return regexMatchStatement(Output.of(regexMatchStatement));
         }
 
         /**

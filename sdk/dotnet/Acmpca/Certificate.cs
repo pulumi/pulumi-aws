@@ -12,6 +12,11 @@ namespace Pulumi.Aws.Acmpca
     /// <summary>
     /// Provides a resource to issue a certificate using AWS Certificate Manager Private Certificate Authority (ACM PCA).
     /// 
+    /// Certificates created using `aws.acmpca.Certificate` are not eligible for automatic renewal,
+    /// and must be replaced instead.
+    /// To issue a renewable certificate using an ACM PCA, create a `aws.acm.Certificate`
+    /// with the parameter `certificate_authority_arn`.
+    /// 
     /// ## Example Usage
     /// 
     /// ## Import
@@ -52,13 +57,14 @@ namespace Pulumi.Aws.Acmpca
         public Output<string> CertificateSigningRequest { get; private set; } = null!;
 
         /// <summary>
-        /// Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`
+        /// Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
         /// </summary>
         [Output("signingAlgorithm")]
         public Output<string> SigningAlgorithm { get; private set; } = null!;
 
         /// <summary>
-        /// Template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
+        /// Template to use when issuing a certificate.
+        /// See [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.
         /// </summary>
         [Output("templateArn")]
         public Output<string?> TemplateArn { get; private set; } = null!;
@@ -128,13 +134,14 @@ namespace Pulumi.Aws.Acmpca
         public Input<string> CertificateSigningRequest { get; set; } = null!;
 
         /// <summary>
-        /// Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`
+        /// Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
         /// </summary>
         [Input("signingAlgorithm", required: true)]
         public Input<string> SigningAlgorithm { get; set; } = null!;
 
         /// <summary>
-        /// Template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
+        /// Template to use when issuing a certificate.
+        /// See [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.
         /// </summary>
         [Input("templateArn")]
         public Input<string>? TemplateArn { get; set; }
@@ -184,13 +191,14 @@ namespace Pulumi.Aws.Acmpca
         public Input<string>? CertificateSigningRequest { get; set; }
 
         /// <summary>
-        /// Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`
+        /// Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
         /// </summary>
         [Input("signingAlgorithm")]
         public Input<string>? SigningAlgorithm { get; set; }
 
         /// <summary>
-        /// Template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
+        /// Template to use when issuing a certificate.
+        /// See [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.
         /// </summary>
         [Input("templateArn")]
         public Input<string>? TemplateArn { get; set; }

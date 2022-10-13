@@ -164,14 +164,14 @@ public class AccessKey extends com.pulumi.resources.CustomResource {
         return this.keyFingerprint;
     }
     /**
-     * Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:some_person_that_exists`, for use in the `encrypted_secret` output attribute.
+     * Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:some_person_that_exists`, for use in the `encrypted_secret` output attribute. If providing a base-64 encoded PGP public key, make sure to provide the &#34;raw&#34; version and not the &#34;armored&#34; one (e.g. avoid passing the `-a` option to `gpg --export`).
      * 
      */
     @Export(name="pgpKey", type=String.class, parameters={})
     private Output</* @Nullable */ String> pgpKey;
 
     /**
-     * @return Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:some_person_that_exists`, for use in the `encrypted_secret` output attribute.
+     * @return Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:some_person_that_exists`, for use in the `encrypted_secret` output attribute. If providing a base-64 encoded PGP public key, make sure to provide the &#34;raw&#34; version and not the &#34;armored&#34; one (e.g. avoid passing the `-a` option to `gpg --export`).
      * 
      */
     public Output<Optional<String>> pgpKey() {

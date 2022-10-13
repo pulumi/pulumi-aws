@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * const policy = new aws.efs.FileSystemPolicy("policy", {
  *     fileSystemId: fs.id,
  *     bypassPolicyLockoutSafetyCheck: true,
- *     policy: `{
+ *     policy: pulumi.interpolate`{
  *     "Version": "2012-10-17",
  *     "Id": "ExamplePolicy01",
  *     "Statement": [
@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *             "Principal": {
  *                 "AWS": "*"
  *             },
- *             "Resource": "${aws_efs_file_system.test.arn}",
+ *             "Resource": "${fs.arn}",
  *             "Action": [
  *                 "elasticfilesystem:ClientMount",
  *                 "elasticfilesystem:ClientWrite"

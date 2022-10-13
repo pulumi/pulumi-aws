@@ -25,7 +25,7 @@ namespace Pulumi.Aws.S3.Inputs
         public Input<string>? Account { get; set; }
 
         /// <summary>
-        /// The ARN of the S3 bucket where you want Amazon S3 to store replicas of the objects identified by the rule.
+        /// The name of the S3 bucket where you want Amazon S3 to store replicas of the objects identified by the rule.
         /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;

@@ -30,6 +30,10 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly Outputs.WebAclRuleStatementAndStatementStatementOrStatementStatementNotStatementStatementLabelMatchStatement? LabelMatchStatement;
         /// <summary>
+        /// Rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+        /// </summary>
+        public readonly Outputs.WebAclRuleStatementAndStatementStatementOrStatementStatementNotStatementStatementRegexMatchStatement? RegexMatchStatement;
+        /// <summary>
         /// Rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementAndStatementStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatement? RegexPatternSetReferenceStatement;
@@ -56,6 +60,8 @@ namespace Pulumi.Aws.WafV2.Outputs
 
             Outputs.WebAclRuleStatementAndStatementStatementOrStatementStatementNotStatementStatementLabelMatchStatement? labelMatchStatement,
 
+            Outputs.WebAclRuleStatementAndStatementStatementOrStatementStatementNotStatementStatementRegexMatchStatement? regexMatchStatement,
+
             Outputs.WebAclRuleStatementAndStatementStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatement? regexPatternSetReferenceStatement,
 
             Outputs.WebAclRuleStatementAndStatementStatementOrStatementStatementNotStatementStatementSizeConstraintStatement? sizeConstraintStatement,
@@ -68,6 +74,7 @@ namespace Pulumi.Aws.WafV2.Outputs
             GeoMatchStatement = geoMatchStatement;
             IpSetReferenceStatement = ipSetReferenceStatement;
             LabelMatchStatement = labelMatchStatement;
+            RegexMatchStatement = regexMatchStatement;
             RegexPatternSetReferenceStatement = regexPatternSetReferenceStatement;
             SizeConstraintStatement = sizeConstraintStatement;
             SqliMatchStatement = sqliMatchStatement;

@@ -196,6 +196,12 @@ namespace Pulumi.Aws.AppAutoScaling
     public partial class Policy : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// List of CloudWatch alarm ARNs associated with the scaling policy.
+        /// </summary>
+        [Output("alarmArns")]
+        public Output<ImmutableArray<string>> AlarmArns { get; private set; } = null!;
+
+        /// <summary>
         /// ARN assigned by AWS to the scaling policy.
         /// </summary>
         [Output("arn")]
@@ -339,6 +345,18 @@ namespace Pulumi.Aws.AppAutoScaling
 
     public sealed class PolicyState : global::Pulumi.ResourceArgs
     {
+        [Input("alarmArns")]
+        private InputList<string>? _alarmArns;
+
+        /// <summary>
+        /// List of CloudWatch alarm ARNs associated with the scaling policy.
+        /// </summary>
+        public InputList<string> AlarmArns
+        {
+            get => _alarmArns ?? (_alarmArns = new InputList<string>());
+            set => _alarmArns = value;
+        }
+
         /// <summary>
         /// ARN assigned by AWS to the scaling policy.
         /// </summary>

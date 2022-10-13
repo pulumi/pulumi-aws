@@ -24,6 +24,10 @@ import * as utilities from "../utilities";
  *     description: "ENI target",
  *     networkInterfaceId: aws_instance.test.primary_network_interface_id,
  * });
+ * const gwlb = new aws.ec2.TrafficMirrorTarget("gwlb", {
+ *     description: "GWLB target",
+ *     gatewayLoadBalancerEndpointId: aws_vpc_endpoint.example.id,
+ * });
  * ```
  *
  * ## Import
@@ -71,6 +75,10 @@ export class TrafficMirrorTarget extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * The VPC Endpoint Id of the Gateway Load Balancer that is associated with the target.
+     */
+    public readonly gatewayLoadBalancerEndpointId!: pulumi.Output<string | undefined>;
+    /**
      * The network interface ID that is associated with the target.
      */
     public readonly networkInterfaceId!: pulumi.Output<string | undefined>;
@@ -106,6 +114,7 @@ export class TrafficMirrorTarget extends pulumi.CustomResource {
             const state = argsOrState as TrafficMirrorTargetState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["gatewayLoadBalancerEndpointId"] = state ? state.gatewayLoadBalancerEndpointId : undefined;
             resourceInputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
             resourceInputs["networkLoadBalancerArn"] = state ? state.networkLoadBalancerArn : undefined;
             resourceInputs["ownerId"] = state ? state.ownerId : undefined;
@@ -114,6 +123,7 @@ export class TrafficMirrorTarget extends pulumi.CustomResource {
         } else {
             const args = argsOrState as TrafficMirrorTargetArgs | undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["gatewayLoadBalancerEndpointId"] = args ? args.gatewayLoadBalancerEndpointId : undefined;
             resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
             resourceInputs["networkLoadBalancerArn"] = args ? args.networkLoadBalancerArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -138,6 +148,10 @@ export interface TrafficMirrorTargetState {
      * A description of the traffic mirror session.
      */
     description?: pulumi.Input<string>;
+    /**
+     * The VPC Endpoint Id of the Gateway Load Balancer that is associated with the target.
+     */
+    gatewayLoadBalancerEndpointId?: pulumi.Input<string>;
     /**
      * The network interface ID that is associated with the target.
      */
@@ -168,6 +182,10 @@ export interface TrafficMirrorTargetArgs {
      * A description of the traffic mirror session.
      */
     description?: pulumi.Input<string>;
+    /**
+     * The VPC Endpoint Id of the Gateway Load Balancer that is associated with the target.
+     */
+    gatewayLoadBalancerEndpointId?: pulumi.Input<string>;
     /**
      * The network interface ID that is associated with the target.
      */

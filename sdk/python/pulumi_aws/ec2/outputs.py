@@ -406,6 +406,8 @@ __all__ = [
     'GetVpcEndpointFilterResult',
     'GetVpcEndpointServiceFilterResult',
     'GetVpcFilterResult',
+    'GetVpcIamPoolCidrsFilterResult',
+    'GetVpcIamPoolCidrsIpamPoolCidrResult',
     'GetVpcIamPoolFilterResult',
     'GetVpcPeeringConnectionCidrBlockSetResult',
     'GetVpcPeeringConnectionFilterResult',
@@ -21395,6 +21397,54 @@ class GetVpcFilterResult(dict):
         A VPC will be selected if any one of the given values matches.
         """
         return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetVpcIamPoolCidrsFilterResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetVpcIamPoolCidrsIpamPoolCidrResult(dict):
+    def __init__(__self__, *,
+                 cidr: str,
+                 state: str):
+        """
+        :param str cidr: A network CIDR.
+        :param str state: The provisioning state of that CIDR.
+        """
+        pulumi.set(__self__, "cidr", cidr)
+        pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def cidr(self) -> str:
+        """
+        A network CIDR.
+        """
+        return pulumi.get(self, "cidr")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        The provisioning state of that CIDR.
+        """
+        return pulumi.get(self, "state")
 
 
 @pulumi.output_type

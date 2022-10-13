@@ -10,6 +10,7 @@ import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementAndStatementStatementAndS
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementAndStatementStatementAndStatementStatementLabelMatchStatement;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementAndStatementStatementAndStatementStatementNotStatement;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementAndStatementStatementAndStatementStatementOrStatement;
+import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementAndStatementStatementAndStatementStatementRegexMatchStatement;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatement;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatement;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementAndStatementStatementAndStatementStatementSqliMatchStatement;
@@ -56,6 +57,11 @@ public final class WebAclRuleStatementAndStatementStatementAndStatementStatement
      * 
      */
     private @Nullable WebAclRuleStatementAndStatementStatementAndStatementStatementOrStatement orStatement;
+    /**
+     * @return Rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+     * 
+     */
+    private @Nullable WebAclRuleStatementAndStatementStatementAndStatementStatementRegexMatchStatement regexMatchStatement;
     /**
      * @return Rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
      * 
@@ -128,6 +134,13 @@ public final class WebAclRuleStatementAndStatementStatementAndStatementStatement
         return Optional.ofNullable(this.orStatement);
     }
     /**
+     * @return Rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+     * 
+     */
+    public Optional<WebAclRuleStatementAndStatementStatementAndStatementStatementRegexMatchStatement> regexMatchStatement() {
+        return Optional.ofNullable(this.regexMatchStatement);
+    }
+    /**
      * @return Rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
      * 
      */
@@ -172,6 +185,7 @@ public final class WebAclRuleStatementAndStatementStatementAndStatementStatement
         private @Nullable WebAclRuleStatementAndStatementStatementAndStatementStatementLabelMatchStatement labelMatchStatement;
         private @Nullable WebAclRuleStatementAndStatementStatementAndStatementStatementNotStatement notStatement;
         private @Nullable WebAclRuleStatementAndStatementStatementAndStatementStatementOrStatement orStatement;
+        private @Nullable WebAclRuleStatementAndStatementStatementAndStatementStatementRegexMatchStatement regexMatchStatement;
         private @Nullable WebAclRuleStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatement regexPatternSetReferenceStatement;
         private @Nullable WebAclRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatement sizeConstraintStatement;
         private @Nullable WebAclRuleStatementAndStatementStatementAndStatementStatementSqliMatchStatement sqliMatchStatement;
@@ -186,6 +200,7 @@ public final class WebAclRuleStatementAndStatementStatementAndStatementStatement
     	      this.labelMatchStatement = defaults.labelMatchStatement;
     	      this.notStatement = defaults.notStatement;
     	      this.orStatement = defaults.orStatement;
+    	      this.regexMatchStatement = defaults.regexMatchStatement;
     	      this.regexPatternSetReferenceStatement = defaults.regexPatternSetReferenceStatement;
     	      this.sizeConstraintStatement = defaults.sizeConstraintStatement;
     	      this.sqliMatchStatement = defaults.sqliMatchStatement;
@@ -228,6 +243,11 @@ public final class WebAclRuleStatementAndStatementStatementAndStatementStatement
             return this;
         }
         @CustomType.Setter
+        public Builder regexMatchStatement(@Nullable WebAclRuleStatementAndStatementStatementAndStatementStatementRegexMatchStatement regexMatchStatement) {
+            this.regexMatchStatement = regexMatchStatement;
+            return this;
+        }
+        @CustomType.Setter
         public Builder regexPatternSetReferenceStatement(@Nullable WebAclRuleStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatement regexPatternSetReferenceStatement) {
             this.regexPatternSetReferenceStatement = regexPatternSetReferenceStatement;
             return this;
@@ -256,6 +276,7 @@ public final class WebAclRuleStatementAndStatementStatementAndStatementStatement
             o.labelMatchStatement = labelMatchStatement;
             o.notStatement = notStatement;
             o.orStatement = orStatement;
+            o.regexMatchStatement = regexMatchStatement;
             o.regexPatternSetReferenceStatement = regexPatternSetReferenceStatement;
             o.sizeConstraintStatement = sizeConstraintStatement;
             o.sqliMatchStatement = sqliMatchStatement;

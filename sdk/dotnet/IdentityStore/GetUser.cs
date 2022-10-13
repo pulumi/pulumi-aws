@@ -27,17 +27,17 @@ namespace Pulumi.Aws.IdentityStore
 
     public sealed class GetUserArgs : global::Pulumi.InvokeArgs
     {
-        [Input("filters", required: true)]
-        private List<Inputs.GetUserFilterArgs>? _filters;
+        /// <summary>
+        /// A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id` and `filter`. Detailed below.
+        /// </summary>
+        [Input("alternateIdentifier")]
+        public Inputs.GetUserAlternateIdentifierArgs? AlternateIdentifier { get; set; }
 
         /// <summary>
-        /// Configuration block(s) for filtering. Currently, the AWS Identity Store API supports only 1 filter. Detailed below.
+        /// Configuration block for filtering by a unique attribute of the user. Detailed below.
         /// </summary>
-        public List<Inputs.GetUserFilterArgs> Filters
-        {
-            get => _filters ?? (_filters = new List<Inputs.GetUserFilterArgs>());
-            set => _filters = value;
-        }
+        [Input("filter")]
+        public Inputs.GetUserFilterArgs? Filter { get; set; }
 
         /// <summary>
         /// Identity Store ID associated with the Single Sign-On Instance.
@@ -59,17 +59,17 @@ namespace Pulumi.Aws.IdentityStore
 
     public sealed class GetUserInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("filters", required: true)]
-        private InputList<Inputs.GetUserFilterInputArgs>? _filters;
+        /// <summary>
+        /// A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id` and `filter`. Detailed below.
+        /// </summary>
+        [Input("alternateIdentifier")]
+        public Input<Inputs.GetUserAlternateIdentifierInputArgs>? AlternateIdentifier { get; set; }
 
         /// <summary>
-        /// Configuration block(s) for filtering. Currently, the AWS Identity Store API supports only 1 filter. Detailed below.
+        /// Configuration block for filtering by a unique attribute of the user. Detailed below.
         /// </summary>
-        public InputList<Inputs.GetUserFilterInputArgs> Filters
-        {
-            get => _filters ?? (_filters = new InputList<Inputs.GetUserFilterInputArgs>());
-            set => _filters = value;
-        }
+        [Input("filter")]
+        public Input<Inputs.GetUserFilterInputArgs>? Filter { get; set; }
 
         /// <summary>
         /// Identity Store ID associated with the Single Sign-On Instance.
@@ -93,35 +93,130 @@ namespace Pulumi.Aws.IdentityStore
     [OutputType]
     public sealed class GetUserResult
     {
-        public readonly ImmutableArray<Outputs.GetUserFilterResult> Filters;
+        /// <summary>
+        /// List of details about the user's address.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetUserAddressResult> Addresses;
+        public readonly Outputs.GetUserAlternateIdentifierResult? AlternateIdentifier;
+        /// <summary>
+        /// The name that is typically displayed when the user is referenced.
+        /// </summary>
+        public readonly string DisplayName;
+        /// <summary>
+        /// List of details about the user's email.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetUserEmailResult> Emails;
+        /// <summary>
+        /// List of identifiers issued to this resource by an external identity provider.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetUserExternalIdResult> ExternalIds;
+        public readonly Outputs.GetUserFilterResult? Filter;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly string IdentityStoreId;
+        /// <summary>
+        /// The user's geographical region or location.
+        /// </summary>
+        public readonly string Locale;
+        /// <summary>
+        /// Details about the user's full name.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetUserNameResult> Names;
+        /// <summary>
+        /// An alternate name for the user.
+        /// </summary>
+        public readonly string Nickname;
+        /// <summary>
+        /// List of details about the user's phone number.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetUserPhoneNumberResult> PhoneNumbers;
+        /// <summary>
+        /// The preferred language of the user.
+        /// </summary>
+        public readonly string PreferredLanguage;
+        /// <summary>
+        /// An URL that may be associated with the user.
+        /// </summary>
+        public readonly string ProfileUrl;
+        /// <summary>
+        /// The user's time zone.
+        /// </summary>
+        public readonly string Timezone;
+        /// <summary>
+        /// The user's title.
+        /// </summary>
+        public readonly string Title;
         public readonly string UserId;
         /// <summary>
         /// User's user name value.
         /// </summary>
         public readonly string UserName;
+        /// <summary>
+        /// The user type.
+        /// </summary>
+        public readonly string UserType;
 
         [OutputConstructor]
         private GetUserResult(
-            ImmutableArray<Outputs.GetUserFilterResult> filters,
+            ImmutableArray<Outputs.GetUserAddressResult> addresses,
+
+            Outputs.GetUserAlternateIdentifierResult? alternateIdentifier,
+
+            string displayName,
+
+            ImmutableArray<Outputs.GetUserEmailResult> emails,
+
+            ImmutableArray<Outputs.GetUserExternalIdResult> externalIds,
+
+            Outputs.GetUserFilterResult? filter,
 
             string id,
 
             string identityStoreId,
 
+            string locale,
+
+            ImmutableArray<Outputs.GetUserNameResult> names,
+
+            string nickname,
+
+            ImmutableArray<Outputs.GetUserPhoneNumberResult> phoneNumbers,
+
+            string preferredLanguage,
+
+            string profileUrl,
+
+            string timezone,
+
+            string title,
+
             string userId,
 
-            string userName)
+            string userName,
+
+            string userType)
         {
-            Filters = filters;
+            Addresses = addresses;
+            AlternateIdentifier = alternateIdentifier;
+            DisplayName = displayName;
+            Emails = emails;
+            ExternalIds = externalIds;
+            Filter = filter;
             Id = id;
             IdentityStoreId = identityStoreId;
+            Locale = locale;
+            Names = names;
+            Nickname = nickname;
+            PhoneNumbers = phoneNumbers;
+            PreferredLanguage = preferredLanguage;
+            ProfileUrl = profileUrl;
+            Timezone = timezone;
+            Title = title;
             UserId = userId;
             UserName = userName;
+            UserType = userType;
         }
     }
 }

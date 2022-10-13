@@ -7,6 +7,7 @@ import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementNotStatementStatementN
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementNotStatementStatementNotStatementStatementGeoMatchStatement;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementNotStatementStatementNotStatementStatementIpSetReferenceStatement;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementNotStatementStatementNotStatementStatementLabelMatchStatement;
+import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementNotStatementStatementNotStatementStatementRegexMatchStatement;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatement;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementNotStatementStatementNotStatementStatementSizeConstraintStatement;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementNotStatementStatementNotStatementStatementSqliMatchStatement;
@@ -38,6 +39,11 @@ public final class RuleGroupRuleStatementNotStatementStatementNotStatementStatem
      * 
      */
     private @Nullable RuleGroupRuleStatementNotStatementStatementNotStatementStatementLabelMatchStatement labelMatchStatement;
+    /**
+     * @return A rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+     * 
+     */
+    private @Nullable RuleGroupRuleStatementNotStatementStatementNotStatementStatementRegexMatchStatement regexMatchStatement;
     /**
      * @return A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
      * 
@@ -89,6 +95,13 @@ public final class RuleGroupRuleStatementNotStatementStatementNotStatementStatem
         return Optional.ofNullable(this.labelMatchStatement);
     }
     /**
+     * @return A rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+     * 
+     */
+    public Optional<RuleGroupRuleStatementNotStatementStatementNotStatementStatementRegexMatchStatement> regexMatchStatement() {
+        return Optional.ofNullable(this.regexMatchStatement);
+    }
+    /**
      * @return A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
      * 
      */
@@ -130,6 +143,7 @@ public final class RuleGroupRuleStatementNotStatementStatementNotStatementStatem
         private @Nullable RuleGroupRuleStatementNotStatementStatementNotStatementStatementGeoMatchStatement geoMatchStatement;
         private @Nullable RuleGroupRuleStatementNotStatementStatementNotStatementStatementIpSetReferenceStatement ipSetReferenceStatement;
         private @Nullable RuleGroupRuleStatementNotStatementStatementNotStatementStatementLabelMatchStatement labelMatchStatement;
+        private @Nullable RuleGroupRuleStatementNotStatementStatementNotStatementStatementRegexMatchStatement regexMatchStatement;
         private @Nullable RuleGroupRuleStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatement regexPatternSetReferenceStatement;
         private @Nullable RuleGroupRuleStatementNotStatementStatementNotStatementStatementSizeConstraintStatement sizeConstraintStatement;
         private @Nullable RuleGroupRuleStatementNotStatementStatementNotStatementStatementSqliMatchStatement sqliMatchStatement;
@@ -141,6 +155,7 @@ public final class RuleGroupRuleStatementNotStatementStatementNotStatementStatem
     	      this.geoMatchStatement = defaults.geoMatchStatement;
     	      this.ipSetReferenceStatement = defaults.ipSetReferenceStatement;
     	      this.labelMatchStatement = defaults.labelMatchStatement;
+    	      this.regexMatchStatement = defaults.regexMatchStatement;
     	      this.regexPatternSetReferenceStatement = defaults.regexPatternSetReferenceStatement;
     	      this.sizeConstraintStatement = defaults.sizeConstraintStatement;
     	      this.sqliMatchStatement = defaults.sqliMatchStatement;
@@ -165,6 +180,11 @@ public final class RuleGroupRuleStatementNotStatementStatementNotStatementStatem
         @CustomType.Setter
         public Builder labelMatchStatement(@Nullable RuleGroupRuleStatementNotStatementStatementNotStatementStatementLabelMatchStatement labelMatchStatement) {
             this.labelMatchStatement = labelMatchStatement;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder regexMatchStatement(@Nullable RuleGroupRuleStatementNotStatementStatementNotStatementStatementRegexMatchStatement regexMatchStatement) {
+            this.regexMatchStatement = regexMatchStatement;
             return this;
         }
         @CustomType.Setter
@@ -193,6 +213,7 @@ public final class RuleGroupRuleStatementNotStatementStatementNotStatementStatem
             o.geoMatchStatement = geoMatchStatement;
             o.ipSetReferenceStatement = ipSetReferenceStatement;
             o.labelMatchStatement = labelMatchStatement;
+            o.regexMatchStatement = regexMatchStatement;
             o.regexPatternSetReferenceStatement = regexPatternSetReferenceStatement;
             o.sizeConstraintStatement = sizeConstraintStatement;
             o.sqliMatchStatement = sqliMatchStatement;

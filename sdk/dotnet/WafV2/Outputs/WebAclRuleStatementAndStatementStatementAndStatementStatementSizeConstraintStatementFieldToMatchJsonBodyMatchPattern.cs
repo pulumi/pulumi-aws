@@ -13,6 +13,9 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern
     {
+        /// <summary>
+        /// An empty configuration block that is used for inspecting all headers.
+        /// </summary>
         public readonly Outputs.WebAclRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll? All;
         public readonly ImmutableArray<string> IncludedPaths;
 

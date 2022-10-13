@@ -57,6 +57,12 @@ namespace Pulumi.Aws.Kms
         public Output<bool?> BypassPolicyLockoutSafetyCheck { get; private set; } = null!;
 
         /// <summary>
+        /// ID of the KMS [Custom Key Store](https://docs.aws.amazon.com/kms/latest/developerguide/create-cmk-keystore.html) where the key will be stored instead of KMS (eg CloudHSM).
+        /// </summary>
+        [Output("customKeyStoreId")]
+        public Output<string?> CustomKeyStoreId { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
         /// Valid values: `SYMMETRIC_DEFAULT`,  `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_256`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, or `ECC_SECG_P256K1`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
         /// </summary>
@@ -96,7 +102,7 @@ namespace Pulumi.Aws.Kms
         public Output<string> KeyId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT` or `SIGN_VERIFY`.
+        /// Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`.
         /// Defaults to `ENCRYPT_DECRYPT`.
         /// </summary>
         [Output("keyUsage")]
@@ -182,6 +188,12 @@ namespace Pulumi.Aws.Kms
         public Input<bool>? BypassPolicyLockoutSafetyCheck { get; set; }
 
         /// <summary>
+        /// ID of the KMS [Custom Key Store](https://docs.aws.amazon.com/kms/latest/developerguide/create-cmk-keystore.html) where the key will be stored instead of KMS (eg CloudHSM).
+        /// </summary>
+        [Input("customKeyStoreId")]
+        public Input<string>? CustomKeyStoreId { get; set; }
+
+        /// <summary>
         /// Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
         /// Valid values: `SYMMETRIC_DEFAULT`,  `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_256`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, or `ECC_SECG_P256K1`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
         /// </summary>
@@ -215,7 +227,7 @@ namespace Pulumi.Aws.Kms
         public Input<bool>? IsEnabled { get; set; }
 
         /// <summary>
-        /// Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT` or `SIGN_VERIFY`.
+        /// Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`.
         /// Defaults to `ENCRYPT_DECRYPT`.
         /// </summary>
         [Input("keyUsage")]
@@ -269,6 +281,12 @@ namespace Pulumi.Aws.Kms
         public Input<bool>? BypassPolicyLockoutSafetyCheck { get; set; }
 
         /// <summary>
+        /// ID of the KMS [Custom Key Store](https://docs.aws.amazon.com/kms/latest/developerguide/create-cmk-keystore.html) where the key will be stored instead of KMS (eg CloudHSM).
+        /// </summary>
+        [Input("customKeyStoreId")]
+        public Input<string>? CustomKeyStoreId { get; set; }
+
+        /// <summary>
         /// Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
         /// Valid values: `SYMMETRIC_DEFAULT`,  `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_256`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, or `ECC_SECG_P256K1`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
         /// </summary>
@@ -308,7 +326,7 @@ namespace Pulumi.Aws.Kms
         public Input<string>? KeyId { get; set; }
 
         /// <summary>
-        /// Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT` or `SIGN_VERIFY`.
+        /// Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`.
         /// Defaults to `ENCRYPT_DECRYPT`.
         /// </summary>
         [Input("keyUsage")]

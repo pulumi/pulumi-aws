@@ -10,6 +10,7 @@ import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDow
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementLabelMatchStatementArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementNotStatementArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementOrStatementArgs;
+import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementRegexMatchStatementArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementRegexPatternSetReferenceStatementArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementSizeConstraintStatementArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementSqliMatchStatementArgs;
@@ -131,6 +132,21 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementNotSta
     }
 
     /**
+     * Rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+     * 
+     */
+    @Import(name="regexMatchStatement")
+    private @Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementRegexMatchStatementArgs> regexMatchStatement;
+
+    /**
+     * @return Rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+     * 
+     */
+    public Optional<Output<WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementRegexMatchStatementArgs>> regexMatchStatement() {
+        return Optional.ofNullable(this.regexMatchStatement);
+    }
+
+    /**
      * Rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
      * 
      */
@@ -200,6 +216,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementNotSta
         this.labelMatchStatement = $.labelMatchStatement;
         this.notStatement = $.notStatement;
         this.orStatement = $.orStatement;
+        this.regexMatchStatement = $.regexMatchStatement;
         this.regexPatternSetReferenceStatement = $.regexPatternSetReferenceStatement;
         this.sizeConstraintStatement = $.sizeConstraintStatement;
         this.sqliMatchStatement = $.sqliMatchStatement;
@@ -369,6 +386,27 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementNotSta
          */
         public Builder orStatement(WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementOrStatementArgs orStatement) {
             return orStatement(Output.of(orStatement));
+        }
+
+        /**
+         * @param regexMatchStatement Rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder regexMatchStatement(@Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementRegexMatchStatementArgs> regexMatchStatement) {
+            $.regexMatchStatement = regexMatchStatement;
+            return this;
+        }
+
+        /**
+         * @param regexMatchStatement Rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder regexMatchStatement(WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementRegexMatchStatementArgs regexMatchStatement) {
+            return regexMatchStatement(Output.of(regexMatchStatement));
         }
 
         /**

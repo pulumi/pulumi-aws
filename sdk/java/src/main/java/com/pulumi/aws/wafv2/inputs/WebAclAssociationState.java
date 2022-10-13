@@ -16,14 +16,14 @@ public final class WebAclAssociationState extends com.pulumi.resources.ResourceA
     public static final WebAclAssociationState Empty = new WebAclAssociationState();
 
     /**
-     * The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer or an Amazon API Gateway stage.
+     * The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage, or an Amazon Cognito User Pool.
      * 
      */
     @Import(name="resourceArn")
     private @Nullable Output<String> resourceArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer or an Amazon API Gateway stage.
+     * @return The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage, or an Amazon Cognito User Pool.
      * 
      */
     public Optional<Output<String>> resourceArn() {
@@ -71,7 +71,7 @@ public final class WebAclAssociationState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param resourceArn The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer or an Amazon API Gateway stage.
+         * @param resourceArn The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage, or an Amazon Cognito User Pool.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class WebAclAssociationState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param resourceArn The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer or an Amazon API Gateway stage.
+         * @param resourceArn The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage, or an Amazon Cognito User Pool.
          * 
          * @return builder
          * 

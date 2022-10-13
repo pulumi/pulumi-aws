@@ -6,6 +6,7 @@ package com.pulumi.aws.wafv2.inputs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatchAllQueryArgumentsArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatchBodyArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatchCookiesArgs;
+import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatchHeaderArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatchJsonBodyArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatchMethodArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatchQueryStringArgs;
@@ -14,6 +15,7 @@ import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementAndStatementStatementOr
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatchUriPathArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -54,18 +56,33 @@ public final class RuleGroupRuleStatementAndStatementStatementOrStatementStateme
     }
 
     /**
-     * Inspect the request cookies.
+     * Inspect the cookies in the web request. See Cookies below for details.
      * 
      */
     @Import(name="cookies")
     private @Nullable Output<RuleGroupRuleStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatchCookiesArgs> cookies;
 
     /**
-     * @return Inspect the request cookies.
+     * @return Inspect the cookies in the web request. See Cookies below for details.
      * 
      */
     public Optional<Output<RuleGroupRuleStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatchCookiesArgs>> cookies() {
         return Optional.ofNullable(this.cookies);
+    }
+
+    /**
+     * Inspect the request headers. See Headers below for details.
+     * 
+     */
+    @Import(name="headers")
+    private @Nullable Output<List<RuleGroupRuleStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatchHeaderArgs>> headers;
+
+    /**
+     * @return Inspect the request headers. See Headers below for details.
+     * 
+     */
+    public Optional<Output<List<RuleGroupRuleStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatchHeaderArgs>>> headers() {
+        return Optional.ofNullable(this.headers);
     }
 
     /**
@@ -164,6 +181,7 @@ public final class RuleGroupRuleStatementAndStatementStatementOrStatementStateme
         this.allQueryArguments = $.allQueryArguments;
         this.body = $.body;
         this.cookies = $.cookies;
+        this.headers = $.headers;
         this.jsonBody = $.jsonBody;
         this.method = $.method;
         this.queryString = $.queryString;
@@ -233,7 +251,7 @@ public final class RuleGroupRuleStatementAndStatementStatementOrStatementStateme
         }
 
         /**
-         * @param cookies Inspect the request cookies.
+         * @param cookies Inspect the cookies in the web request. See Cookies below for details.
          * 
          * @return builder
          * 
@@ -244,13 +262,44 @@ public final class RuleGroupRuleStatementAndStatementStatementOrStatementStateme
         }
 
         /**
-         * @param cookies Inspect the request cookies.
+         * @param cookies Inspect the cookies in the web request. See Cookies below for details.
          * 
          * @return builder
          * 
          */
         public Builder cookies(RuleGroupRuleStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatchCookiesArgs cookies) {
             return cookies(Output.of(cookies));
+        }
+
+        /**
+         * @param headers Inspect the request headers. See Headers below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder headers(@Nullable Output<List<RuleGroupRuleStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatchHeaderArgs>> headers) {
+            $.headers = headers;
+            return this;
+        }
+
+        /**
+         * @param headers Inspect the request headers. See Headers below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder headers(List<RuleGroupRuleStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatchHeaderArgs> headers) {
+            return headers(Output.of(headers));
+        }
+
+        /**
+         * @param headers Inspect the request headers. See Headers below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder headers(RuleGroupRuleStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatchHeaderArgs... headers) {
+            return headers(List.of(headers));
         }
 
         /**

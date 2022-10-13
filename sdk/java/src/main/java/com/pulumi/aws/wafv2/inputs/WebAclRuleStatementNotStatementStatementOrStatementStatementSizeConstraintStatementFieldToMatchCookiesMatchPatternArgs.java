@@ -17,9 +17,17 @@ public final class WebAclRuleStatementNotStatementStatementOrStatementStatementS
 
     public static final WebAclRuleStatementNotStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternArgs Empty = new WebAclRuleStatementNotStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternArgs();
 
+    /**
+     * An empty configuration block that is used for inspecting all headers.
+     * 
+     */
     @Import(name="all")
     private @Nullable Output<WebAclRuleStatementNotStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllArgs> all;
 
+    /**
+     * @return An empty configuration block that is used for inspecting all headers.
+     * 
+     */
     public Optional<Output<WebAclRuleStatementNotStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllArgs>> all() {
         return Optional.ofNullable(this.all);
     }
@@ -64,11 +72,23 @@ public final class WebAclRuleStatementNotStatementStatementOrStatementStatementS
             $ = new WebAclRuleStatementNotStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param all An empty configuration block that is used for inspecting all headers.
+         * 
+         * @return builder
+         * 
+         */
         public Builder all(@Nullable Output<WebAclRuleStatementNotStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllArgs> all) {
             $.all = all;
             return this;
         }
 
+        /**
+         * @param all An empty configuration block that is used for inspecting all headers.
+         * 
+         * @return builder
+         * 
+         */
         public Builder all(WebAclRuleStatementNotStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllArgs all) {
             return all(Output.of(all));
         }

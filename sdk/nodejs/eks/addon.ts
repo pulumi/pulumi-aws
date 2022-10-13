@@ -23,6 +23,23 @@ import * as utilities from "../utilities";
  *     addonName: "vpc-cni",
  * });
  * ```
+ * ## Example Update add-on usage with resolveConflicts and PRESERVE
+ *
+ * `resolveConflicts` with `PRESERVE` can be used to retain the config changes applied to the add-on with kubectl while upgrading to a newer version of the add-on.
+ *
+ * > **Note:** `resolveConflicts` with `PRESERVE` can only be used for upgrading the add-ons but not during the creation of add-on.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.eks.Addon("example", {
+ *     clusterName: aws_eks_cluster.example.name,
+ *     addonName: "coredns",
+ *     addonVersion: "v1.8.7-eksbuild.3",
+ *     resolveConflicts: "PRESERVE",
+ * });
+ * ```
  *
  * ## Import
  *
@@ -93,7 +110,7 @@ export class Addon extends pulumi.CustomResource {
     /**
      * Define how to resolve parameter value conflicts
      * when migrating an existing add-on to an Amazon EKS add-on or when applying
-     * version updates to the add-on. Valid values are `NONE` and `OVERWRITE`.
+     * version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`.
      */
     public readonly resolveConflicts!: pulumi.Output<string | undefined>;
     /**
@@ -200,7 +217,7 @@ export interface AddonState {
     /**
      * Define how to resolve parameter value conflicts
      * when migrating an existing add-on to an Amazon EKS add-on or when applying
-     * version updates to the add-on. Valid values are `NONE` and `OVERWRITE`.
+     * version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`.
      */
     resolveConflicts?: pulumi.Input<string>;
     /**
@@ -247,7 +264,7 @@ export interface AddonArgs {
     /**
      * Define how to resolve parameter value conflicts
      * when migrating an existing add-on to an Amazon EKS add-on or when applying
-     * version updates to the add-on. Valid values are `NONE` and `OVERWRITE`.
+     * version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`.
      */
     resolveConflicts?: pulumi.Input<string>;
     /**

@@ -133,6 +133,7 @@ class PolicyArgs:
 @pulumi.input_type
 class _PolicyState:
     def __init__(__self__, *,
+                 alarm_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  policy_type: Optional[pulumi.Input[str]] = None,
@@ -143,6 +144,7 @@ class _PolicyState:
                  target_tracking_scaling_policy_configuration: Optional[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationArgs']] = None):
         """
         Input properties used for looking up and filtering Policy resources.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] alarm_arns: List of CloudWatch alarm ARNs associated with the scaling policy.
         :param pulumi.Input[str] arn: ARN assigned by AWS to the scaling policy.
         :param pulumi.Input[str] name: Name of the policy. Must be between 1 and 255 characters in length.
         :param pulumi.Input[str] policy_type: Policy type. Valid values are `StepScaling` and `TargetTrackingScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) and [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) documentation.
@@ -152,6 +154,8 @@ class _PolicyState:
         :param pulumi.Input['PolicyStepScalingPolicyConfigurationArgs'] step_scaling_policy_configuration: Step scaling policy configuration, requires `policy_type = "StepScaling"` (default). See supported fields below.
         :param pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationArgs'] target_tracking_scaling_policy_configuration: Target tracking policy, requires `policy_type = "TargetTrackingScaling"`. See supported fields below.
         """
+        if alarm_arns is not None:
+            pulumi.set(__self__, "alarm_arns", alarm_arns)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if name is not None:
@@ -168,6 +172,18 @@ class _PolicyState:
             pulumi.set(__self__, "step_scaling_policy_configuration", step_scaling_policy_configuration)
         if target_tracking_scaling_policy_configuration is not None:
             pulumi.set(__self__, "target_tracking_scaling_policy_configuration", target_tracking_scaling_policy_configuration)
+
+    @property
+    @pulumi.getter(name="alarmArns")
+    def alarm_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of CloudWatch alarm ARNs associated with the scaling policy.
+        """
+        return pulumi.get(self, "alarm_arns")
+
+    @alarm_arns.setter
+    def alarm_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "alarm_arns", value)
 
     @property
     @pulumi.getter
@@ -589,6 +605,7 @@ class Policy(pulumi.CustomResource):
             __props__.__dict__["service_namespace"] = service_namespace
             __props__.__dict__["step_scaling_policy_configuration"] = step_scaling_policy_configuration
             __props__.__dict__["target_tracking_scaling_policy_configuration"] = target_tracking_scaling_policy_configuration
+            __props__.__dict__["alarm_arns"] = None
             __props__.__dict__["arn"] = None
         super(Policy, __self__).__init__(
             'aws:appautoscaling/policy:Policy',
@@ -600,6 +617,7 @@ class Policy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            alarm_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             policy_type: Optional[pulumi.Input[str]] = None,
@@ -615,6 +633,7 @@ class Policy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] alarm_arns: List of CloudWatch alarm ARNs associated with the scaling policy.
         :param pulumi.Input[str] arn: ARN assigned by AWS to the scaling policy.
         :param pulumi.Input[str] name: Name of the policy. Must be between 1 and 255 characters in length.
         :param pulumi.Input[str] policy_type: Policy type. Valid values are `StepScaling` and `TargetTrackingScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) and [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) documentation.
@@ -628,6 +647,7 @@ class Policy(pulumi.CustomResource):
 
         __props__ = _PolicyState.__new__(_PolicyState)
 
+        __props__.__dict__["alarm_arns"] = alarm_arns
         __props__.__dict__["arn"] = arn
         __props__.__dict__["name"] = name
         __props__.__dict__["policy_type"] = policy_type
@@ -637,6 +657,14 @@ class Policy(pulumi.CustomResource):
         __props__.__dict__["step_scaling_policy_configuration"] = step_scaling_policy_configuration
         __props__.__dict__["target_tracking_scaling_policy_configuration"] = target_tracking_scaling_policy_configuration
         return Policy(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="alarmArns")
+    def alarm_arns(self) -> pulumi.Output[Sequence[str]]:
+        """
+        List of CloudWatch alarm ARNs associated with the scaling policy.
+        """
+        return pulumi.get(self, "alarm_arns")
 
     @property
     @pulumi.getter

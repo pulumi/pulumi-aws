@@ -54,6 +54,42 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ## Example Update add-on usage with resolve_conflicts and PRESERVE
+ * 
+ * `resolve_conflicts` with `PRESERVE` can be used to retain the config changes applied to the add-on with kubectl while upgrading to a newer version of the add-on.
+ * 
+ * &gt; **Note:** `resolve_conflicts` with `PRESERVE` can only be used for upgrading the add-ons but not during the creation of add-on.
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.eks.Addon;
+ * import com.pulumi.aws.eks.AddonArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Addon(&#34;example&#34;, AddonArgs.builder()        
+ *             .clusterName(aws_eks_cluster.example().name())
+ *             .addonName(&#34;coredns&#34;)
+ *             .addonVersion(&#34;v1.8.7-eksbuild.3&#34;)
+ *             .resolveConflicts(&#34;PRESERVE&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 
@@ -171,7 +207,7 @@ public class Addon extends com.pulumi.resources.CustomResource {
     /**
      * Define how to resolve parameter value conflicts
      * when migrating an existing add-on to an Amazon EKS add-on or when applying
-     * version updates to the add-on. Valid values are `NONE` and `OVERWRITE`.
+     * version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`.
      * 
      */
     @Export(name="resolveConflicts", type=String.class, parameters={})
@@ -180,7 +216,7 @@ public class Addon extends com.pulumi.resources.CustomResource {
     /**
      * @return Define how to resolve parameter value conflicts
      * when migrating an existing add-on to an Amazon EKS add-on or when applying
-     * version updates to the add-on. Valid values are `NONE` and `OVERWRITE`.
+     * version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`.
      * 
      */
     public Output<Optional<String>> resolveConflicts() {

@@ -11,6 +11,10 @@ from .deployment import *
 from .deployment_strategy import *
 from .environment import *
 from .event_integration import *
+from .get_configuration_profile import *
+from .get_configuration_profiles import *
+from .get_environment import *
+from .get_environments import *
 from .hosted_configuration_version import *
 from ._inputs import *
 from . import outputs

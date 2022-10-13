@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Kinesis
     ///         Code = new FileArchive("lambda.zip"),
     ///         Role = lambdaIam.Arn,
     ///         Handler = "exports.handler",
-    ///         Runtime = "nodejs12.x",
+    ///         Runtime = "nodejs16.x",
     ///     });
     /// 
     ///     var extendedS3Stream = new Aws.Kinesis.FirehoseDeliveryStream("extendedS3Stream", new()

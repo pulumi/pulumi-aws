@@ -41,6 +41,7 @@ import (
 //						VolumeSize: pulumi.Int(8),
 //					},
 //				},
+//				ImdsSupport:        pulumi.String("v2.0"),
 //				RootDeviceName:     pulumi.String("/dev/xvda"),
 //				VirtualizationType: pulumi.String("hvm"),
 //			})
@@ -92,6 +93,8 @@ type Ami struct {
 	ImageOwnerAlias pulumi.StringOutput `pulumi:"imageOwnerAlias"`
 	// Type of image.
 	ImageType pulumi.StringOutput `pulumi:"imageType"`
+	// If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
+	ImdsSupport pulumi.StringPtrOutput `pulumi:"imdsSupport"`
 	// ID of the kernel image (AKI) that will be used as the paravirtual
 	// kernel in created instances.
 	KernelId           pulumi.StringPtrOutput `pulumi:"kernelId"`
@@ -186,6 +189,8 @@ type amiState struct {
 	ImageOwnerAlias *string `pulumi:"imageOwnerAlias"`
 	// Type of image.
 	ImageType *string `pulumi:"imageType"`
+	// If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
+	ImdsSupport *string `pulumi:"imdsSupport"`
 	// ID of the kernel image (AKI) that will be used as the paravirtual
 	// kernel in created instances.
 	KernelId           *string `pulumi:"kernelId"`
@@ -252,6 +257,8 @@ type AmiState struct {
 	ImageOwnerAlias pulumi.StringPtrInput
 	// Type of image.
 	ImageType pulumi.StringPtrInput
+	// If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
+	ImdsSupport pulumi.StringPtrInput
 	// ID of the kernel image (AKI) that will be used as the paravirtual
 	// kernel in created instances.
 	KernelId           pulumi.StringPtrInput
@@ -314,6 +321,8 @@ type amiArgs struct {
 	// Path to an S3 object containing an image manifest, e.g., created
 	// by the `ec2-upload-bundle` command in the EC2 command line tools.
 	ImageLocation *string `pulumi:"imageLocation"`
+	// If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
+	ImdsSupport *string `pulumi:"imdsSupport"`
 	// ID of the kernel image (AKI) that will be used as the paravirtual
 	// kernel in created instances.
 	KernelId *string `pulumi:"kernelId"`
@@ -358,6 +367,8 @@ type AmiArgs struct {
 	// Path to an S3 object containing an image manifest, e.g., created
 	// by the `ec2-upload-bundle` command in the EC2 command line tools.
 	ImageLocation pulumi.StringPtrInput
+	// If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
+	ImdsSupport pulumi.StringPtrInput
 	// ID of the kernel image (AKI) that will be used as the paravirtual
 	// kernel in created instances.
 	KernelId pulumi.StringPtrInput
@@ -529,6 +540,11 @@ func (o AmiOutput) ImageOwnerAlias() pulumi.StringOutput {
 // Type of image.
 func (o AmiOutput) ImageType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Ami) pulumi.StringOutput { return v.ImageType }).(pulumi.StringOutput)
+}
+
+// If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
+func (o AmiOutput) ImdsSupport() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Ami) pulumi.StringPtrOutput { return v.ImdsSupport }).(pulumi.StringPtrOutput)
 }
 
 // ID of the kernel image (AKI) that will be used as the paravirtual

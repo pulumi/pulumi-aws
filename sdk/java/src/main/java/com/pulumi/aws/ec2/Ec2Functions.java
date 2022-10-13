@@ -104,6 +104,8 @@ import com.pulumi.aws.ec2.inputs.GetVpcEndpointPlainArgs;
 import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
 import com.pulumi.aws.ec2.inputs.GetVpcEndpointServicePlainArgs;
 import com.pulumi.aws.ec2.inputs.GetVpcIamPoolArgs;
+import com.pulumi.aws.ec2.inputs.GetVpcIamPoolCidrsArgs;
+import com.pulumi.aws.ec2.inputs.GetVpcIamPoolCidrsPlainArgs;
 import com.pulumi.aws.ec2.inputs.GetVpcIamPoolPlainArgs;
 import com.pulumi.aws.ec2.inputs.GetVpcPeeringConnectionArgs;
 import com.pulumi.aws.ec2.inputs.GetVpcPeeringConnectionPlainArgs;
@@ -164,6 +166,7 @@ import com.pulumi.aws.ec2.outputs.GetTransitGatewayRouteTablesResult;
 import com.pulumi.aws.ec2.outputs.GetVpcDhcpOptionsResult;
 import com.pulumi.aws.ec2.outputs.GetVpcEndpointResult;
 import com.pulumi.aws.ec2.outputs.GetVpcEndpointServiceResult;
+import com.pulumi.aws.ec2.outputs.GetVpcIamPoolCidrsResult;
 import com.pulumi.aws.ec2.outputs.GetVpcIamPoolResult;
 import com.pulumi.aws.ec2.outputs.GetVpcPeeringConnectionResult;
 import com.pulumi.aws.ec2.outputs.GetVpcPeeringConnectionsResult;
@@ -14397,6 +14400,42 @@ public final class Ec2Functions {
      */
     public static CompletableFuture<GetVpcIamPoolResult> getVpcIamPoolPlain(GetVpcIamPoolPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ec2/getVpcIamPool:getVpcIamPool", TypeShape.of(GetVpcIamPoolResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * `aws.ec2.getVpcIamPoolCidrs` provides details about an IPAM pool.
+     * 
+     * This resource can prove useful when an ipam pool was shared to your account and you want to know all (or a filtered list) of the CIDRs that are provisioned into the pool.
+     * 
+     */
+    public static Output<GetVpcIamPoolCidrsResult> getVpcIamPoolCidrs(GetVpcIamPoolCidrsArgs args) {
+        return getVpcIamPoolCidrs(args, InvokeOptions.Empty);
+    }
+    /**
+     * `aws.ec2.getVpcIamPoolCidrs` provides details about an IPAM pool.
+     * 
+     * This resource can prove useful when an ipam pool was shared to your account and you want to know all (or a filtered list) of the CIDRs that are provisioned into the pool.
+     * 
+     */
+    public static CompletableFuture<GetVpcIamPoolCidrsResult> getVpcIamPoolCidrsPlain(GetVpcIamPoolCidrsPlainArgs args) {
+        return getVpcIamPoolCidrsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * `aws.ec2.getVpcIamPoolCidrs` provides details about an IPAM pool.
+     * 
+     * This resource can prove useful when an ipam pool was shared to your account and you want to know all (or a filtered list) of the CIDRs that are provisioned into the pool.
+     * 
+     */
+    public static Output<GetVpcIamPoolCidrsResult> getVpcIamPoolCidrs(GetVpcIamPoolCidrsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:ec2/getVpcIamPoolCidrs:getVpcIamPoolCidrs", TypeShape.of(GetVpcIamPoolCidrsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * `aws.ec2.getVpcIamPoolCidrs` provides details about an IPAM pool.
+     * 
+     * This resource can prove useful when an ipam pool was shared to your account and you want to know all (or a filtered list) of the CIDRs that are provisioned into the pool.
+     * 
+     */
+    public static CompletableFuture<GetVpcIamPoolCidrsResult> getVpcIamPoolCidrsPlain(GetVpcIamPoolCidrsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:ec2/getVpcIamPoolCidrs:getVpcIamPoolCidrs", TypeShape.of(GetVpcIamPoolCidrsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * The VPC Peering Connection data source provides details about

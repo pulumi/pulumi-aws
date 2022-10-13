@@ -10,6 +10,8 @@ import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementIpSetReferenceStatemen
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementLabelMatchStatement;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementNotStatement;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementOrStatement;
+import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatement;
+import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRegexMatchStatement;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatement;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementSizeConstraintStatement;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementSqliMatchStatement;
@@ -56,6 +58,16 @@ public final class RuleGroupRuleStatement {
      * 
      */
     private @Nullable RuleGroupRuleStatementOrStatement orStatement;
+    /**
+     * @return A rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any `5-minute` time span. This statement can not be nested. See Rate Based Statement below for details.
+     * 
+     */
+    private @Nullable RuleGroupRuleStatementRateBasedStatement rateBasedStatement;
+    /**
+     * @return A rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+     * 
+     */
+    private @Nullable RuleGroupRuleStatementRegexMatchStatement regexMatchStatement;
     /**
      * @return A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
      * 
@@ -128,6 +140,20 @@ public final class RuleGroupRuleStatement {
         return Optional.ofNullable(this.orStatement);
     }
     /**
+     * @return A rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any `5-minute` time span. This statement can not be nested. See Rate Based Statement below for details.
+     * 
+     */
+    public Optional<RuleGroupRuleStatementRateBasedStatement> rateBasedStatement() {
+        return Optional.ofNullable(this.rateBasedStatement);
+    }
+    /**
+     * @return A rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+     * 
+     */
+    public Optional<RuleGroupRuleStatementRegexMatchStatement> regexMatchStatement() {
+        return Optional.ofNullable(this.regexMatchStatement);
+    }
+    /**
      * @return A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
      * 
      */
@@ -172,6 +198,8 @@ public final class RuleGroupRuleStatement {
         private @Nullable RuleGroupRuleStatementLabelMatchStatement labelMatchStatement;
         private @Nullable RuleGroupRuleStatementNotStatement notStatement;
         private @Nullable RuleGroupRuleStatementOrStatement orStatement;
+        private @Nullable RuleGroupRuleStatementRateBasedStatement rateBasedStatement;
+        private @Nullable RuleGroupRuleStatementRegexMatchStatement regexMatchStatement;
         private @Nullable RuleGroupRuleStatementRegexPatternSetReferenceStatement regexPatternSetReferenceStatement;
         private @Nullable RuleGroupRuleStatementSizeConstraintStatement sizeConstraintStatement;
         private @Nullable RuleGroupRuleStatementSqliMatchStatement sqliMatchStatement;
@@ -186,6 +214,8 @@ public final class RuleGroupRuleStatement {
     	      this.labelMatchStatement = defaults.labelMatchStatement;
     	      this.notStatement = defaults.notStatement;
     	      this.orStatement = defaults.orStatement;
+    	      this.rateBasedStatement = defaults.rateBasedStatement;
+    	      this.regexMatchStatement = defaults.regexMatchStatement;
     	      this.regexPatternSetReferenceStatement = defaults.regexPatternSetReferenceStatement;
     	      this.sizeConstraintStatement = defaults.sizeConstraintStatement;
     	      this.sqliMatchStatement = defaults.sqliMatchStatement;
@@ -228,6 +258,16 @@ public final class RuleGroupRuleStatement {
             return this;
         }
         @CustomType.Setter
+        public Builder rateBasedStatement(@Nullable RuleGroupRuleStatementRateBasedStatement rateBasedStatement) {
+            this.rateBasedStatement = rateBasedStatement;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder regexMatchStatement(@Nullable RuleGroupRuleStatementRegexMatchStatement regexMatchStatement) {
+            this.regexMatchStatement = regexMatchStatement;
+            return this;
+        }
+        @CustomType.Setter
         public Builder regexPatternSetReferenceStatement(@Nullable RuleGroupRuleStatementRegexPatternSetReferenceStatement regexPatternSetReferenceStatement) {
             this.regexPatternSetReferenceStatement = regexPatternSetReferenceStatement;
             return this;
@@ -256,6 +296,8 @@ public final class RuleGroupRuleStatement {
             o.labelMatchStatement = labelMatchStatement;
             o.notStatement = notStatement;
             o.orStatement = orStatement;
+            o.rateBasedStatement = rateBasedStatement;
+            o.regexMatchStatement = regexMatchStatement;
             o.regexPatternSetReferenceStatement = regexPatternSetReferenceStatement;
             o.sizeConstraintStatement = sizeConstraintStatement;
             o.sqliMatchStatement = sqliMatchStatement;

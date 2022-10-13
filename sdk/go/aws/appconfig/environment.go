@@ -81,7 +81,9 @@ type Environment struct {
 	// Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
 	Monitors EnvironmentMonitorArrayOutput `pulumi:"monitors"`
 	// Name for the environment. Must be between 1 and 64 characters in length.
-	Name  pulumi.StringOutput `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
+	// or `ROLLED_BACK`.
 	State pulumi.StringOutput `pulumi:"state"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -132,7 +134,9 @@ type environmentState struct {
 	// Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
 	Monitors []EnvironmentMonitor `pulumi:"monitors"`
 	// Name for the environment. Must be between 1 and 64 characters in length.
-	Name  *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
+	// or `ROLLED_BACK`.
 	State *string `pulumi:"state"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -152,7 +156,9 @@ type EnvironmentState struct {
 	// Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
 	Monitors EnvironmentMonitorArrayInput
 	// Name for the environment. Must be between 1 and 64 characters in length.
-	Name  pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
+	// or `ROLLED_BACK`.
 	State pulumi.StringPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -308,6 +314,8 @@ func (o EnvironmentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
+// or `ROLLED_BACK`.
 func (o EnvironmentOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }

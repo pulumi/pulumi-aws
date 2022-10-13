@@ -18,6 +18,11 @@ import javax.annotation.Nullable;
 /**
  * Provides a resource to issue a certificate using AWS Certificate Manager Private Certificate Authority (ACM PCA).
  * 
+ * Certificates created using `aws.acmpca.Certificate` are not eligible for automatic renewal,
+ * and must be replaced instead.
+ * To issue a renewable certificate using an ACM PCA, create a `aws.acm.Certificate`
+ * with the parameter `certificate_authority_arn`.
+ * 
  * ## Example Usage
  * ### Basic
  * 
@@ -159,28 +164,30 @@ public class Certificate extends com.pulumi.resources.CustomResource {
         return this.certificateSigningRequest;
     }
     /**
-     * Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`
+     * Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
      * 
      */
     @Export(name="signingAlgorithm", type=String.class, parameters={})
     private Output<String> signingAlgorithm;
 
     /**
-     * @return Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`
+     * @return Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
      * 
      */
     public Output<String> signingAlgorithm() {
         return this.signingAlgorithm;
     }
     /**
-     * Template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
+     * Template to use when issuing a certificate.
+     * See [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.
      * 
      */
     @Export(name="templateArn", type=String.class, parameters={})
     private Output</* @Nullable */ String> templateArn;
 
     /**
-     * @return Template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
+     * @return Template to use when issuing a certificate.
+     * See [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.
      * 
      */
     public Output<Optional<String>> templateArn() {

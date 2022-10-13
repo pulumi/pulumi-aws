@@ -29,6 +29,22 @@ export { EventIntegrationArgs, EventIntegrationState } from "./eventIntegration"
 export type EventIntegration = import("./eventIntegration").EventIntegration;
 export const EventIntegration: typeof import("./eventIntegration").EventIntegration = null as any;
 
+export { GetConfigurationProfileArgs, GetConfigurationProfileResult, GetConfigurationProfileOutputArgs } from "./getConfigurationProfile";
+export const getConfigurationProfile: typeof import("./getConfigurationProfile").getConfigurationProfile = null as any;
+export const getConfigurationProfileOutput: typeof import("./getConfigurationProfile").getConfigurationProfileOutput = null as any;
+
+export { GetConfigurationProfilesArgs, GetConfigurationProfilesResult, GetConfigurationProfilesOutputArgs } from "./getConfigurationProfiles";
+export const getConfigurationProfiles: typeof import("./getConfigurationProfiles").getConfigurationProfiles = null as any;
+export const getConfigurationProfilesOutput: typeof import("./getConfigurationProfiles").getConfigurationProfilesOutput = null as any;
+
+export { GetEnvironmentArgs, GetEnvironmentResult, GetEnvironmentOutputArgs } from "./getEnvironment";
+export const getEnvironment: typeof import("./getEnvironment").getEnvironment = null as any;
+export const getEnvironmentOutput: typeof import("./getEnvironment").getEnvironmentOutput = null as any;
+
+export { GetEnvironmentsArgs, GetEnvironmentsResult, GetEnvironmentsOutputArgs } from "./getEnvironments";
+export const getEnvironments: typeof import("./getEnvironments").getEnvironments = null as any;
+export const getEnvironmentsOutput: typeof import("./getEnvironments").getEnvironmentsOutput = null as any;
+
 export { HostedConfigurationVersionArgs, HostedConfigurationVersionState } from "./hostedConfigurationVersion";
 export type HostedConfigurationVersion = import("./hostedConfigurationVersion").HostedConfigurationVersion;
 export const HostedConfigurationVersion: typeof import("./hostedConfigurationVersion").HostedConfigurationVersion = null as any;
@@ -39,6 +55,10 @@ utilities.lazyLoad(exports, ["Deployment"], () => require("./deployment"));
 utilities.lazyLoad(exports, ["DeploymentStrategy"], () => require("./deploymentStrategy"));
 utilities.lazyLoad(exports, ["Environment"], () => require("./environment"));
 utilities.lazyLoad(exports, ["EventIntegration"], () => require("./eventIntegration"));
+utilities.lazyLoad(exports, ["getConfigurationProfile","getConfigurationProfileOutput"], () => require("./getConfigurationProfile"));
+utilities.lazyLoad(exports, ["getConfigurationProfiles","getConfigurationProfilesOutput"], () => require("./getConfigurationProfiles"));
+utilities.lazyLoad(exports, ["getEnvironment","getEnvironmentOutput"], () => require("./getEnvironment"));
+utilities.lazyLoad(exports, ["getEnvironments","getEnvironmentsOutput"], () => require("./getEnvironments"));
 utilities.lazyLoad(exports, ["HostedConfigurationVersion"], () => require("./hostedConfigurationVersion"));
 
 const _module = {

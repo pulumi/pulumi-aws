@@ -52992,6 +52992,212 @@ func (o GetVpcFilterArrayOutput) Index(i pulumi.IntInput) GetVpcFilterOutput {
 	}).(GetVpcFilterOutput)
 }
 
+type GetVpcIamPoolCidrsFilter struct {
+	Name   string   `pulumi:"name"`
+	Values []string `pulumi:"values"`
+}
+
+// GetVpcIamPoolCidrsFilterInput is an input type that accepts GetVpcIamPoolCidrsFilterArgs and GetVpcIamPoolCidrsFilterOutput values.
+// You can construct a concrete instance of `GetVpcIamPoolCidrsFilterInput` via:
+//
+//	GetVpcIamPoolCidrsFilterArgs{...}
+type GetVpcIamPoolCidrsFilterInput interface {
+	pulumi.Input
+
+	ToGetVpcIamPoolCidrsFilterOutput() GetVpcIamPoolCidrsFilterOutput
+	ToGetVpcIamPoolCidrsFilterOutputWithContext(context.Context) GetVpcIamPoolCidrsFilterOutput
+}
+
+type GetVpcIamPoolCidrsFilterArgs struct {
+	Name   pulumi.StringInput      `pulumi:"name"`
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetVpcIamPoolCidrsFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpcIamPoolCidrsFilter)(nil)).Elem()
+}
+
+func (i GetVpcIamPoolCidrsFilterArgs) ToGetVpcIamPoolCidrsFilterOutput() GetVpcIamPoolCidrsFilterOutput {
+	return i.ToGetVpcIamPoolCidrsFilterOutputWithContext(context.Background())
+}
+
+func (i GetVpcIamPoolCidrsFilterArgs) ToGetVpcIamPoolCidrsFilterOutputWithContext(ctx context.Context) GetVpcIamPoolCidrsFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpcIamPoolCidrsFilterOutput)
+}
+
+// GetVpcIamPoolCidrsFilterArrayInput is an input type that accepts GetVpcIamPoolCidrsFilterArray and GetVpcIamPoolCidrsFilterArrayOutput values.
+// You can construct a concrete instance of `GetVpcIamPoolCidrsFilterArrayInput` via:
+//
+//	GetVpcIamPoolCidrsFilterArray{ GetVpcIamPoolCidrsFilterArgs{...} }
+type GetVpcIamPoolCidrsFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetVpcIamPoolCidrsFilterArrayOutput() GetVpcIamPoolCidrsFilterArrayOutput
+	ToGetVpcIamPoolCidrsFilterArrayOutputWithContext(context.Context) GetVpcIamPoolCidrsFilterArrayOutput
+}
+
+type GetVpcIamPoolCidrsFilterArray []GetVpcIamPoolCidrsFilterInput
+
+func (GetVpcIamPoolCidrsFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpcIamPoolCidrsFilter)(nil)).Elem()
+}
+
+func (i GetVpcIamPoolCidrsFilterArray) ToGetVpcIamPoolCidrsFilterArrayOutput() GetVpcIamPoolCidrsFilterArrayOutput {
+	return i.ToGetVpcIamPoolCidrsFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetVpcIamPoolCidrsFilterArray) ToGetVpcIamPoolCidrsFilterArrayOutputWithContext(ctx context.Context) GetVpcIamPoolCidrsFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpcIamPoolCidrsFilterArrayOutput)
+}
+
+type GetVpcIamPoolCidrsFilterOutput struct{ *pulumi.OutputState }
+
+func (GetVpcIamPoolCidrsFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpcIamPoolCidrsFilter)(nil)).Elem()
+}
+
+func (o GetVpcIamPoolCidrsFilterOutput) ToGetVpcIamPoolCidrsFilterOutput() GetVpcIamPoolCidrsFilterOutput {
+	return o
+}
+
+func (o GetVpcIamPoolCidrsFilterOutput) ToGetVpcIamPoolCidrsFilterOutputWithContext(ctx context.Context) GetVpcIamPoolCidrsFilterOutput {
+	return o
+}
+
+func (o GetVpcIamPoolCidrsFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcIamPoolCidrsFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetVpcIamPoolCidrsFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetVpcIamPoolCidrsFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetVpcIamPoolCidrsFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVpcIamPoolCidrsFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpcIamPoolCidrsFilter)(nil)).Elem()
+}
+
+func (o GetVpcIamPoolCidrsFilterArrayOutput) ToGetVpcIamPoolCidrsFilterArrayOutput() GetVpcIamPoolCidrsFilterArrayOutput {
+	return o
+}
+
+func (o GetVpcIamPoolCidrsFilterArrayOutput) ToGetVpcIamPoolCidrsFilterArrayOutputWithContext(ctx context.Context) GetVpcIamPoolCidrsFilterArrayOutput {
+	return o
+}
+
+func (o GetVpcIamPoolCidrsFilterArrayOutput) Index(i pulumi.IntInput) GetVpcIamPoolCidrsFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVpcIamPoolCidrsFilter {
+		return vs[0].([]GetVpcIamPoolCidrsFilter)[vs[1].(int)]
+	}).(GetVpcIamPoolCidrsFilterOutput)
+}
+
+type GetVpcIamPoolCidrsIpamPoolCidr struct {
+	// A network CIDR.
+	Cidr string `pulumi:"cidr"`
+	// The provisioning state of that CIDR.
+	State string `pulumi:"state"`
+}
+
+// GetVpcIamPoolCidrsIpamPoolCidrInput is an input type that accepts GetVpcIamPoolCidrsIpamPoolCidrArgs and GetVpcIamPoolCidrsIpamPoolCidrOutput values.
+// You can construct a concrete instance of `GetVpcIamPoolCidrsIpamPoolCidrInput` via:
+//
+//	GetVpcIamPoolCidrsIpamPoolCidrArgs{...}
+type GetVpcIamPoolCidrsIpamPoolCidrInput interface {
+	pulumi.Input
+
+	ToGetVpcIamPoolCidrsIpamPoolCidrOutput() GetVpcIamPoolCidrsIpamPoolCidrOutput
+	ToGetVpcIamPoolCidrsIpamPoolCidrOutputWithContext(context.Context) GetVpcIamPoolCidrsIpamPoolCidrOutput
+}
+
+type GetVpcIamPoolCidrsIpamPoolCidrArgs struct {
+	// A network CIDR.
+	Cidr pulumi.StringInput `pulumi:"cidr"`
+	// The provisioning state of that CIDR.
+	State pulumi.StringInput `pulumi:"state"`
+}
+
+func (GetVpcIamPoolCidrsIpamPoolCidrArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpcIamPoolCidrsIpamPoolCidr)(nil)).Elem()
+}
+
+func (i GetVpcIamPoolCidrsIpamPoolCidrArgs) ToGetVpcIamPoolCidrsIpamPoolCidrOutput() GetVpcIamPoolCidrsIpamPoolCidrOutput {
+	return i.ToGetVpcIamPoolCidrsIpamPoolCidrOutputWithContext(context.Background())
+}
+
+func (i GetVpcIamPoolCidrsIpamPoolCidrArgs) ToGetVpcIamPoolCidrsIpamPoolCidrOutputWithContext(ctx context.Context) GetVpcIamPoolCidrsIpamPoolCidrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpcIamPoolCidrsIpamPoolCidrOutput)
+}
+
+// GetVpcIamPoolCidrsIpamPoolCidrArrayInput is an input type that accepts GetVpcIamPoolCidrsIpamPoolCidrArray and GetVpcIamPoolCidrsIpamPoolCidrArrayOutput values.
+// You can construct a concrete instance of `GetVpcIamPoolCidrsIpamPoolCidrArrayInput` via:
+//
+//	GetVpcIamPoolCidrsIpamPoolCidrArray{ GetVpcIamPoolCidrsIpamPoolCidrArgs{...} }
+type GetVpcIamPoolCidrsIpamPoolCidrArrayInput interface {
+	pulumi.Input
+
+	ToGetVpcIamPoolCidrsIpamPoolCidrArrayOutput() GetVpcIamPoolCidrsIpamPoolCidrArrayOutput
+	ToGetVpcIamPoolCidrsIpamPoolCidrArrayOutputWithContext(context.Context) GetVpcIamPoolCidrsIpamPoolCidrArrayOutput
+}
+
+type GetVpcIamPoolCidrsIpamPoolCidrArray []GetVpcIamPoolCidrsIpamPoolCidrInput
+
+func (GetVpcIamPoolCidrsIpamPoolCidrArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpcIamPoolCidrsIpamPoolCidr)(nil)).Elem()
+}
+
+func (i GetVpcIamPoolCidrsIpamPoolCidrArray) ToGetVpcIamPoolCidrsIpamPoolCidrArrayOutput() GetVpcIamPoolCidrsIpamPoolCidrArrayOutput {
+	return i.ToGetVpcIamPoolCidrsIpamPoolCidrArrayOutputWithContext(context.Background())
+}
+
+func (i GetVpcIamPoolCidrsIpamPoolCidrArray) ToGetVpcIamPoolCidrsIpamPoolCidrArrayOutputWithContext(ctx context.Context) GetVpcIamPoolCidrsIpamPoolCidrArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpcIamPoolCidrsIpamPoolCidrArrayOutput)
+}
+
+type GetVpcIamPoolCidrsIpamPoolCidrOutput struct{ *pulumi.OutputState }
+
+func (GetVpcIamPoolCidrsIpamPoolCidrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpcIamPoolCidrsIpamPoolCidr)(nil)).Elem()
+}
+
+func (o GetVpcIamPoolCidrsIpamPoolCidrOutput) ToGetVpcIamPoolCidrsIpamPoolCidrOutput() GetVpcIamPoolCidrsIpamPoolCidrOutput {
+	return o
+}
+
+func (o GetVpcIamPoolCidrsIpamPoolCidrOutput) ToGetVpcIamPoolCidrsIpamPoolCidrOutputWithContext(ctx context.Context) GetVpcIamPoolCidrsIpamPoolCidrOutput {
+	return o
+}
+
+// A network CIDR.
+func (o GetVpcIamPoolCidrsIpamPoolCidrOutput) Cidr() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcIamPoolCidrsIpamPoolCidr) string { return v.Cidr }).(pulumi.StringOutput)
+}
+
+// The provisioning state of that CIDR.
+func (o GetVpcIamPoolCidrsIpamPoolCidrOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcIamPoolCidrsIpamPoolCidr) string { return v.State }).(pulumi.StringOutput)
+}
+
+type GetVpcIamPoolCidrsIpamPoolCidrArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVpcIamPoolCidrsIpamPoolCidrArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpcIamPoolCidrsIpamPoolCidr)(nil)).Elem()
+}
+
+func (o GetVpcIamPoolCidrsIpamPoolCidrArrayOutput) ToGetVpcIamPoolCidrsIpamPoolCidrArrayOutput() GetVpcIamPoolCidrsIpamPoolCidrArrayOutput {
+	return o
+}
+
+func (o GetVpcIamPoolCidrsIpamPoolCidrArrayOutput) ToGetVpcIamPoolCidrsIpamPoolCidrArrayOutputWithContext(ctx context.Context) GetVpcIamPoolCidrsIpamPoolCidrArrayOutput {
+	return o
+}
+
+func (o GetVpcIamPoolCidrsIpamPoolCidrArrayOutput) Index(i pulumi.IntInput) GetVpcIamPoolCidrsIpamPoolCidrOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVpcIamPoolCidrsIpamPoolCidr {
+		return vs[0].([]GetVpcIamPoolCidrsIpamPoolCidr)[vs[1].(int)]
+	}).(GetVpcIamPoolCidrsIpamPoolCidrOutput)
+}
+
 type GetVpcIamPoolFilter struct {
 	Name   string   `pulumi:"name"`
 	Values []string `pulumi:"values"`
@@ -54522,6 +54728,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcEndpointServiceFilterArrayInput)(nil)).Elem(), GetVpcEndpointServiceFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcFilterInput)(nil)).Elem(), GetVpcFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcFilterArrayInput)(nil)).Elem(), GetVpcFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcIamPoolCidrsFilterInput)(nil)).Elem(), GetVpcIamPoolCidrsFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcIamPoolCidrsFilterArrayInput)(nil)).Elem(), GetVpcIamPoolCidrsFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcIamPoolCidrsIpamPoolCidrInput)(nil)).Elem(), GetVpcIamPoolCidrsIpamPoolCidrArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcIamPoolCidrsIpamPoolCidrArrayInput)(nil)).Elem(), GetVpcIamPoolCidrsIpamPoolCidrArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcIamPoolFilterInput)(nil)).Elem(), GetVpcIamPoolFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcIamPoolFilterArrayInput)(nil)).Elem(), GetVpcIamPoolFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcPeeringConnectionCidrBlockSetInput)(nil)).Elem(), GetVpcPeeringConnectionCidrBlockSetArgs{})
@@ -55323,6 +55533,10 @@ func init() {
 	pulumi.RegisterOutputType(GetVpcEndpointServiceFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcFilterOutput{})
 	pulumi.RegisterOutputType(GetVpcFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetVpcIamPoolCidrsFilterOutput{})
+	pulumi.RegisterOutputType(GetVpcIamPoolCidrsFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetVpcIamPoolCidrsIpamPoolCidrOutput{})
+	pulumi.RegisterOutputType(GetVpcIamPoolCidrsIpamPoolCidrArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcIamPoolFilterOutput{})
 	pulumi.RegisterOutputType(GetVpcIamPoolFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcPeeringConnectionCidrBlockSetOutput{})

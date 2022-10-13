@@ -31,7 +31,9 @@ public final class RuleGroupRuleStatementAndStatementStatementAndStatementStatem
      */
     private Integer size;
     /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+     * At least one required.
+     * See Text Transformation below for details.
      * 
      */
     private List<RuleGroupRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatementTextTransformation> textTransformations;
@@ -59,7 +61,9 @@ public final class RuleGroupRuleStatementAndStatementStatementAndStatementStatem
         return this.size;
     }
     /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+     * At least one required.
+     * See Text Transformation below for details.
      * 
      */
     public List<RuleGroupRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatementTextTransformation> textTransformations() {

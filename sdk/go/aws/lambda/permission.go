@@ -60,7 +60,7 @@ import (
 //				Code:    pulumi.NewFileArchive("lambdatest.zip"),
 //				Role:    iamForLambda.Arn,
 //				Handler: pulumi.String("exports.handler"),
-//				Runtime: pulumi.String("nodejs12.x"),
+//				Runtime: pulumi.String("nodejs16.x"),
 //			})
 //			if err != nil {
 //				return err

@@ -108,9 +108,19 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
+     * or `ROLLED_BACK`.
+     * 
+     */
     @Import(name="state")
     private @Nullable Output<String> state;
 
+    /**
+     * @return State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
+     * or `ROLLED_BACK`.
+     * 
+     */
     public Optional<Output<String>> state() {
         return Optional.ofNullable(this.state);
     }
@@ -313,11 +323,25 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
             return name(Output.of(name));
         }
 
+        /**
+         * @param state State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
+         * or `ROLLED_BACK`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder state(@Nullable Output<String> state) {
             $.state = state;
             return this;
         }
 
+        /**
+         * @param state State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
+         * or `ROLLED_BACK`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder state(String state) {
             return state(Output.of(state));
         }

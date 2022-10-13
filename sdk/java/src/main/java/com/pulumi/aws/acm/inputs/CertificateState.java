@@ -5,9 +5,11 @@ package com.pulumi.aws.acm.inputs;
 
 import com.pulumi.aws.acm.inputs.CertificateDomainValidationOptionArgs;
 import com.pulumi.aws.acm.inputs.CertificateOptionsArgs;
+import com.pulumi.aws.acm.inputs.CertificateRenewalSummaryArgs;
 import com.pulumi.aws.acm.inputs.CertificateValidationOptionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -98,18 +100,45 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Only set if `DNS`-validation was used.
+     * Set of domain validation objects which can be used to complete certificate validation.
+     * Can have more than one element, e.g., if SANs are defined.
+     * Only set if `DNS`-validation was used.
      * 
      */
     @Import(name="domainValidationOptions")
     private @Nullable Output<List<CertificateDomainValidationOptionArgs>> domainValidationOptions;
 
     /**
-     * @return Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Only set if `DNS`-validation was used.
+     * @return Set of domain validation objects which can be used to complete certificate validation.
+     * Can have more than one element, e.g., if SANs are defined.
+     * Only set if `DNS`-validation was used.
      * 
      */
     public Optional<Output<List<CertificateDomainValidationOptionArgs>>> domainValidationOptions() {
         return Optional.ofNullable(this.domainValidationOptions);
+    }
+
+    /**
+     * Amount of time to start automatic renewal process before expiration.
+     * Has no effect if less than 60 days.
+     * Represented by either
+     * a subset of [RFC 3339 duration](https://www.rfc-editor.org/rfc/rfc3339) supporting years, months, and days (e.g., `P90D`),
+     * or a string such as `2160h`.
+     * 
+     */
+    @Import(name="earlyRenewalDuration")
+    private @Nullable Output<String> earlyRenewalDuration;
+
+    /**
+     * @return Amount of time to start automatic renewal process before expiration.
+     * Has no effect if less than 60 days.
+     * Represented by either
+     * a subset of [RFC 3339 duration](https://www.rfc-editor.org/rfc/rfc3339) supporting years, months, and days (e.g., `P90D`),
+     * or a string such as `2160h`.
+     * 
+     */
+    public Optional<Output<String>> earlyRenewalDuration() {
+        return Optional.ofNullable(this.earlyRenewalDuration);
     }
 
     /**
@@ -158,6 +187,21 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * `true` if a Private certificate eligible for managed renewal is within the `early_renewal_duration` period.
+     * 
+     */
+    @Import(name="pendingRenewal")
+    private @Nullable Output<Boolean> pendingRenewal;
+
+    /**
+     * @return `true` if a Private certificate eligible for managed renewal is within the `early_renewal_duration` period.
+     * 
+     */
+    public Optional<Output<Boolean>> pendingRenewal() {
+        return Optional.ofNullable(this.pendingRenewal);
+    }
+
+    /**
      * Certificate&#39;s PEM-formatted private key
      * 
      */
@@ -170,6 +214,36 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> privateKey() {
         return Optional.ofNullable(this.privateKey);
+    }
+
+    /**
+     * Whether the certificate is eligible for managed renewal.
+     * 
+     */
+    @Import(name="renewalEligibility")
+    private @Nullable Output<String> renewalEligibility;
+
+    /**
+     * @return Whether the certificate is eligible for managed renewal.
+     * 
+     */
+    public Optional<Output<String>> renewalEligibility() {
+        return Optional.ofNullable(this.renewalEligibility);
+    }
+
+    /**
+     * Contains information about the status of ACM&#39;s [managed renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html) for the certificate.
+     * 
+     */
+    @Import(name="renewalSummaries")
+    private @Nullable Output<List<CertificateRenewalSummaryArgs>> renewalSummaries;
+
+    /**
+     * @return Contains information about the status of ACM&#39;s [managed renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html) for the certificate.
+     * 
+     */
+    public Optional<Output<List<CertificateRenewalSummaryArgs>>> renewalSummaries() {
+        return Optional.ofNullable(this.renewalSummaries);
     }
 
     /**
@@ -188,14 +262,16 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+     * Set of domains that should be SANs in the issued certificate.
+     * To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
      * 
      */
     @Import(name="subjectAlternativeNames")
     private @Nullable Output<List<String>> subjectAlternativeNames;
 
     /**
-     * @return Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+     * @return Set of domains that should be SANs in the issued certificate.
+     * To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
      * 
      */
     public Optional<Output<List<String>>> subjectAlternativeNames() {
@@ -233,14 +309,29 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
+     * Source of the certificate.
+     * 
+     */
+    @Import(name="type")
+    private @Nullable Output<String> type;
+
+    /**
+     * @return Source of the certificate.
+     * 
+     */
+    public Optional<Output<String>> type() {
+        return Optional.ofNullable(this.type);
+    }
+
+    /**
+     * List of addresses that received a validation email. Only set if `EMAIL` validation was used.
      * 
      */
     @Import(name="validationEmails")
     private @Nullable Output<List<String>> validationEmails;
 
     /**
-     * @return List of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
+     * @return List of addresses that received a validation email. Only set if `EMAIL` validation was used.
      * 
      */
     public Optional<Output<List<String>>> validationEmails() {
@@ -280,14 +371,19 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         this.certificateChain = $.certificateChain;
         this.domainName = $.domainName;
         this.domainValidationOptions = $.domainValidationOptions;
+        this.earlyRenewalDuration = $.earlyRenewalDuration;
         this.notAfter = $.notAfter;
         this.notBefore = $.notBefore;
         this.options = $.options;
+        this.pendingRenewal = $.pendingRenewal;
         this.privateKey = $.privateKey;
+        this.renewalEligibility = $.renewalEligibility;
+        this.renewalSummaries = $.renewalSummaries;
         this.status = $.status;
         this.subjectAlternativeNames = $.subjectAlternativeNames;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
+        this.type = $.type;
         this.validationEmails = $.validationEmails;
         this.validationMethod = $.validationMethod;
         this.validationOptions = $.validationOptions;
@@ -419,7 +515,9 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domainValidationOptions Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Only set if `DNS`-validation was used.
+         * @param domainValidationOptions Set of domain validation objects which can be used to complete certificate validation.
+         * Can have more than one element, e.g., if SANs are defined.
+         * Only set if `DNS`-validation was used.
          * 
          * @return builder
          * 
@@ -430,7 +528,9 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domainValidationOptions Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Only set if `DNS`-validation was used.
+         * @param domainValidationOptions Set of domain validation objects which can be used to complete certificate validation.
+         * Can have more than one element, e.g., if SANs are defined.
+         * Only set if `DNS`-validation was used.
          * 
          * @return builder
          * 
@@ -440,13 +540,44 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domainValidationOptions Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Only set if `DNS`-validation was used.
+         * @param domainValidationOptions Set of domain validation objects which can be used to complete certificate validation.
+         * Can have more than one element, e.g., if SANs are defined.
+         * Only set if `DNS`-validation was used.
          * 
          * @return builder
          * 
          */
         public Builder domainValidationOptions(CertificateDomainValidationOptionArgs... domainValidationOptions) {
             return domainValidationOptions(List.of(domainValidationOptions));
+        }
+
+        /**
+         * @param earlyRenewalDuration Amount of time to start automatic renewal process before expiration.
+         * Has no effect if less than 60 days.
+         * Represented by either
+         * a subset of [RFC 3339 duration](https://www.rfc-editor.org/rfc/rfc3339) supporting years, months, and days (e.g., `P90D`),
+         * or a string such as `2160h`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder earlyRenewalDuration(@Nullable Output<String> earlyRenewalDuration) {
+            $.earlyRenewalDuration = earlyRenewalDuration;
+            return this;
+        }
+
+        /**
+         * @param earlyRenewalDuration Amount of time to start automatic renewal process before expiration.
+         * Has no effect if less than 60 days.
+         * Represented by either
+         * a subset of [RFC 3339 duration](https://www.rfc-editor.org/rfc/rfc3339) supporting years, months, and days (e.g., `P90D`),
+         * or a string such as `2160h`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder earlyRenewalDuration(String earlyRenewalDuration) {
+            return earlyRenewalDuration(Output.of(earlyRenewalDuration));
         }
 
         /**
@@ -513,6 +644,27 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param pendingRenewal `true` if a Private certificate eligible for managed renewal is within the `early_renewal_duration` period.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pendingRenewal(@Nullable Output<Boolean> pendingRenewal) {
+            $.pendingRenewal = pendingRenewal;
+            return this;
+        }
+
+        /**
+         * @param pendingRenewal `true` if a Private certificate eligible for managed renewal is within the `early_renewal_duration` period.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pendingRenewal(Boolean pendingRenewal) {
+            return pendingRenewal(Output.of(pendingRenewal));
+        }
+
+        /**
          * @param privateKey Certificate&#39;s PEM-formatted private key
          * 
          * @return builder
@@ -531,6 +683,58 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder privateKey(String privateKey) {
             return privateKey(Output.of(privateKey));
+        }
+
+        /**
+         * @param renewalEligibility Whether the certificate is eligible for managed renewal.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder renewalEligibility(@Nullable Output<String> renewalEligibility) {
+            $.renewalEligibility = renewalEligibility;
+            return this;
+        }
+
+        /**
+         * @param renewalEligibility Whether the certificate is eligible for managed renewal.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder renewalEligibility(String renewalEligibility) {
+            return renewalEligibility(Output.of(renewalEligibility));
+        }
+
+        /**
+         * @param renewalSummaries Contains information about the status of ACM&#39;s [managed renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html) for the certificate.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder renewalSummaries(@Nullable Output<List<CertificateRenewalSummaryArgs>> renewalSummaries) {
+            $.renewalSummaries = renewalSummaries;
+            return this;
+        }
+
+        /**
+         * @param renewalSummaries Contains information about the status of ACM&#39;s [managed renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html) for the certificate.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder renewalSummaries(List<CertificateRenewalSummaryArgs> renewalSummaries) {
+            return renewalSummaries(Output.of(renewalSummaries));
+        }
+
+        /**
+         * @param renewalSummaries Contains information about the status of ACM&#39;s [managed renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html) for the certificate.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder renewalSummaries(CertificateRenewalSummaryArgs... renewalSummaries) {
+            return renewalSummaries(List.of(renewalSummaries));
         }
 
         /**
@@ -555,7 +759,8 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subjectAlternativeNames Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+         * @param subjectAlternativeNames Set of domains that should be SANs in the issued certificate.
+         * To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
          * 
          * @return builder
          * 
@@ -566,7 +771,8 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subjectAlternativeNames Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+         * @param subjectAlternativeNames Set of domains that should be SANs in the issued certificate.
+         * To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
          * 
          * @return builder
          * 
@@ -576,7 +782,8 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subjectAlternativeNames Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+         * @param subjectAlternativeNames Set of domains that should be SANs in the issued certificate.
+         * To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
          * 
          * @return builder
          * 
@@ -628,7 +835,28 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param validationEmails List of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
+         * @param type Source of the certificate.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder type(@Nullable Output<String> type) {
+            $.type = type;
+            return this;
+        }
+
+        /**
+         * @param type Source of the certificate.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder type(String type) {
+            return type(Output.of(type));
+        }
+
+        /**
+         * @param validationEmails List of addresses that received a validation email. Only set if `EMAIL` validation was used.
          * 
          * @return builder
          * 
@@ -639,7 +867,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param validationEmails List of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
+         * @param validationEmails List of addresses that received a validation email. Only set if `EMAIL` validation was used.
          * 
          * @return builder
          * 
@@ -649,7 +877,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param validationEmails List of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
+         * @param validationEmails List of addresses that received a validation email. Only set if `EMAIL` validation was used.
          * 
          * @return builder
          * 

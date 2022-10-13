@@ -22,9 +22,13 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchBody? Body;
         /// <summary>
-        /// Inspect the request cookies.
+        /// Inspect the cookies in the web request. See Cookies below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchCookies? Cookies;
+        /// <summary>
+        /// Inspect the request headers. See Headers below for details.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchHeader> Headers;
         /// <summary>
         /// Inspect the request body as JSON. See JSON Body for details.
         /// </summary>
@@ -58,6 +62,8 @@ namespace Pulumi.Aws.WafV2.Outputs
 
             Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchCookies? cookies,
 
+            ImmutableArray<Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchHeader> headers,
+
             Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchJsonBody? jsonBody,
 
             Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchMethod? method,
@@ -73,6 +79,7 @@ namespace Pulumi.Aws.WafV2.Outputs
             AllQueryArguments = allQueryArguments;
             Body = body;
             Cookies = cookies;
+            Headers = headers;
             JsonBody = jsonBody;
             Method = method;
             QueryString = queryString;

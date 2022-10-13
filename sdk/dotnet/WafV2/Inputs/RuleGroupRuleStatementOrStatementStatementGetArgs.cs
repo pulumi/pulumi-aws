@@ -55,6 +55,12 @@ namespace Pulumi.Aws.WafV2.Inputs
         public Input<Inputs.RuleGroupRuleStatementOrStatementStatementOrStatementGetArgs>? OrStatement { get; set; }
 
         /// <summary>
+        /// A rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+        /// </summary>
+        [Input("regexMatchStatement")]
+        public Input<Inputs.RuleGroupRuleStatementOrStatementStatementRegexMatchStatementGetArgs>? RegexMatchStatement { get; set; }
+
+        /// <summary>
         /// A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
         /// </summary>
         [Input("regexPatternSetReferenceStatement")]

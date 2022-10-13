@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var lambdaLayer = new LayerVersion(&#34;lambdaLayer&#34;, LayerVersionArgs.builder()        
- *             .compatibleRuntimes(&#34;nodejs12.x&#34;)
+ *             .compatibleRuntimes(&#34;nodejs16.x&#34;)
  *             .code(new FileArchive(&#34;lambda_layer_payload.zip&#34;))
  *             .layerName(&#34;lambda_layer_name&#34;)
  *             .build());

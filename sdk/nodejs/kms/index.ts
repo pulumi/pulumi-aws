@@ -13,6 +13,10 @@ export { CiphertextArgs, CiphertextState } from "./ciphertext";
 export type Ciphertext = import("./ciphertext").Ciphertext;
 export const Ciphertext: typeof import("./ciphertext").Ciphertext = null as any;
 
+export { CustomKeyStoreArgs, CustomKeyStoreState } from "./customKeyStore";
+export type CustomKeyStore = import("./customKeyStore").CustomKeyStore;
+export const CustomKeyStore: typeof import("./customKeyStore").CustomKeyStore = null as any;
+
 export { ExternalKeyArgs, ExternalKeyState } from "./externalKey";
 export type ExternalKey = import("./externalKey").ExternalKey;
 export const ExternalKey: typeof import("./externalKey").ExternalKey = null as any;
@@ -24,6 +28,10 @@ export const getAliasOutput: typeof import("./getAlias").getAliasOutput = null a
 export { GetCipherTextArgs, GetCipherTextResult, GetCipherTextOutputArgs } from "./getCipherText";
 export const getCipherText: typeof import("./getCipherText").getCipherText = null as any;
 export const getCipherTextOutput: typeof import("./getCipherText").getCipherTextOutput = null as any;
+
+export { GetCustomKeyStoreArgs, GetCustomKeyStoreResult, GetCustomKeyStoreOutputArgs } from "./getCustomKeyStore";
+export const getCustomKeyStore: typeof import("./getCustomKeyStore").getCustomKeyStore = null as any;
+export const getCustomKeyStoreOutput: typeof import("./getCustomKeyStore").getCustomKeyStoreOutput = null as any;
 
 export { GetKeyArgs, GetKeyResult, GetKeyOutputArgs } from "./getKey";
 export const getKey: typeof import("./getKey").getKey = null as any;
@@ -59,9 +67,11 @@ export const ReplicaKey: typeof import("./replicaKey").ReplicaKey = null as any;
 
 utilities.lazyLoad(exports, ["Alias"], () => require("./alias"));
 utilities.lazyLoad(exports, ["Ciphertext"], () => require("./ciphertext"));
+utilities.lazyLoad(exports, ["CustomKeyStore"], () => require("./customKeyStore"));
 utilities.lazyLoad(exports, ["ExternalKey"], () => require("./externalKey"));
 utilities.lazyLoad(exports, ["getAlias","getAliasOutput"], () => require("./getAlias"));
 utilities.lazyLoad(exports, ["getCipherText","getCipherTextOutput"], () => require("./getCipherText"));
+utilities.lazyLoad(exports, ["getCustomKeyStore","getCustomKeyStoreOutput"], () => require("./getCustomKeyStore"));
 utilities.lazyLoad(exports, ["getKey","getKeyOutput"], () => require("./getKey"));
 utilities.lazyLoad(exports, ["getPublicKey","getPublicKeyOutput"], () => require("./getPublicKey"));
 utilities.lazyLoad(exports, ["getSecret","getSecretOutput"], () => require("./getSecret"));
@@ -79,6 +89,8 @@ const _module = {
                 return new Alias(name, <any>undefined, { urn })
             case "aws:kms/ciphertext:Ciphertext":
                 return new Ciphertext(name, <any>undefined, { urn })
+            case "aws:kms/customKeyStore:CustomKeyStore":
+                return new CustomKeyStore(name, <any>undefined, { urn })
             case "aws:kms/externalKey:ExternalKey":
                 return new ExternalKey(name, <any>undefined, { urn })
             case "aws:kms/grant:Grant":
@@ -96,6 +108,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "kms/alias", _module)
 pulumi.runtime.registerResourceModule("aws", "kms/ciphertext", _module)
+pulumi.runtime.registerResourceModule("aws", "kms/customKeyStore", _module)
 pulumi.runtime.registerResourceModule("aws", "kms/externalKey", _module)
 pulumi.runtime.registerResourceModule("aws", "kms/grant", _module)
 pulumi.runtime.registerResourceModule("aws", "kms/key", _module)

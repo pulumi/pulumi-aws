@@ -188,6 +188,28 @@ namespace Pulumi.Aws.WafV2
     ///                         {
     ///                             new Aws.WafV2.Inputs.RuleGroupRuleStatementOrStatementStatementArgs
     ///                             {
+    ///                                 RegexMatchStatement = new Aws.WafV2.Inputs.RuleGroupRuleStatementOrStatementStatementRegexMatchStatementArgs
+    ///                                 {
+    ///                                     RegexString = "[a-z]([a-z0-9_-]*[a-z0-9])?",
+    ///                                     FieldToMatch = new Aws.WafV2.Inputs.RuleGroupRuleStatementOrStatementStatementRegexMatchStatementFieldToMatchArgs
+    ///                                     {
+    ///                                         SingleHeader = new Aws.WafV2.Inputs.RuleGroupRuleStatementOrStatementStatementRegexMatchStatementFieldToMatchSingleHeaderArgs
+    ///                                         {
+    ///                                             Name = "user-agent",
+    ///                                         },
+    ///                                     },
+    ///                                     TextTransformations = new[]
+    ///                                     {
+    ///                                         new Aws.WafV2.Inputs.RuleGroupRuleStatementOrStatementStatementRegexMatchStatementTextTransformationArgs
+    ///                                         {
+    ///                                             Priority = 6,
+    ///                                             Type = "NONE",
+    ///                                         },
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                             new Aws.WafV2.Inputs.RuleGroupRuleStatementOrStatementStatementArgs
+    ///                             {
     ///                                 SqliMatchStatement = new Aws.WafV2.Inputs.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementArgs
     ///                                 {
     ///                                     FieldToMatch = new Aws.WafV2.Inputs.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchArgs

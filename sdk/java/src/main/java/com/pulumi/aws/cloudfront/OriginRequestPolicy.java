@@ -74,6 +74,14 @@ import javax.annotation.Nullable;
  * }
  * ```
  * 
+ * ## Import
+ * 
+ * Cloudfront Origin Request Policies can be imported using the `id`, e.g.
+ * 
+ * ```sh
+ *  $ pulumi import aws:cloudfront/originRequestPolicy:OriginRequestPolicy policy ccca32ef-dce3-4df3-80df-1bd3000bc4d3
+ * ```
+ * 
  */
 @ResourceType(type="aws:cloudfront/originRequestPolicy:OriginRequestPolicy")
 public class OriginRequestPolicy extends com.pulumi.resources.CustomResource {

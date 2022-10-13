@@ -49,14 +49,18 @@ public final class RuleGroupRuleStatementAndStatementStatementOrStatementStateme
     }
 
     /**
-     * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+     * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+     * At least one required.
+     * See Text Transformation below for details.
      * 
      */
     @Import(name="textTransformations", required=true)
     private Output<List<RuleGroupRuleStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatementTextTransformationArgs>> textTransformations;
 
     /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+     * At least one required.
+     * See Text Transformation below for details.
      * 
      */
     public Output<List<RuleGroupRuleStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatementTextTransformationArgs>> textTransformations() {
@@ -132,7 +136,9 @@ public final class RuleGroupRuleStatementAndStatementStatementOrStatementStateme
         }
 
         /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+         * At least one required.
+         * See Text Transformation below for details.
          * 
          * @return builder
          * 
@@ -143,7 +149,9 @@ public final class RuleGroupRuleStatementAndStatementStatementOrStatementStateme
         }
 
         /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+         * At least one required.
+         * See Text Transformation below for details.
          * 
          * @return builder
          * 
@@ -153,7 +161,9 @@ public final class RuleGroupRuleStatementAndStatementStatementOrStatementStateme
         }
 
         /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+         * At least one required.
+         * See Text Transformation below for details.
          * 
          * @return builder
          * 

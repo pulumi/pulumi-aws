@@ -349,6 +349,7 @@ class ProviderEndpointArgs:
                  connectcontactlens: Optional[pulumi.Input[str]] = None,
                  connectparticipant: Optional[pulumi.Input[str]] = None,
                  connectwisdomservice: Optional[pulumi.Input[str]] = None,
+                 controltower: Optional[pulumi.Input[str]] = None,
                  costandusagereportservice: Optional[pulumi.Input[str]] = None,
                  costexplorer: Optional[pulumi.Input[str]] = None,
                  cur: Optional[pulumi.Input[str]] = None,
@@ -428,6 +429,7 @@ class ProviderEndpointArgs:
                  imagebuilder: Optional[pulumi.Input[str]] = None,
                  inspector: Optional[pulumi.Input[str]] = None,
                  inspector2: Optional[pulumi.Input[str]] = None,
+                 inspectorv2: Optional[pulumi.Input[str]] = None,
                  iot: Optional[pulumi.Input[str]] = None,
                  iot1clickdevices: Optional[pulumi.Input[str]] = None,
                  iot1clickdevicesservice: Optional[pulumi.Input[str]] = None,
@@ -803,6 +805,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "connectparticipant", connectparticipant)
         if connectwisdomservice is not None:
             pulumi.set(__self__, "connectwisdomservice", connectwisdomservice)
+        if controltower is not None:
+            pulumi.set(__self__, "controltower", controltower)
         if costandusagereportservice is not None:
             pulumi.set(__self__, "costandusagereportservice", costandusagereportservice)
         if costexplorer is not None:
@@ -961,6 +965,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "inspector", inspector)
         if inspector2 is not None:
             pulumi.set(__self__, "inspector2", inspector2)
+        if inspectorv2 is not None:
+            pulumi.set(__self__, "inspectorv2", inspectorv2)
         if iot is not None:
             pulumi.set(__self__, "iot", iot)
         if iot1clickdevices is not None:
@@ -2144,6 +2150,15 @@ class ProviderEndpointArgs:
 
     @property
     @pulumi.getter
+    def controltower(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "controltower")
+
+    @controltower.setter
+    def controltower(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "controltower", value)
+
+    @property
+    @pulumi.getter
     def costandusagereportservice(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "costandusagereportservice")
 
@@ -2852,6 +2867,15 @@ class ProviderEndpointArgs:
     @inspector2.setter
     def inspector2(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "inspector2", value)
+
+    @property
+    @pulumi.getter
+    def inspectorv2(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "inspectorv2")
+
+    @inspectorv2.setter
+    def inspectorv2(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "inspectorv2", value)
 
     @property
     @pulumi.getter

@@ -36,6 +36,12 @@ namespace Pulumi.Aws.Ec2
     ///         NetworkInterfaceId = aws_instance.Test.Primary_network_interface_id,
     ///     });
     /// 
+    ///     var gwlb = new Aws.Ec2.TrafficMirrorTarget("gwlb", new()
+    ///     {
+    ///         Description = "GWLB target",
+    ///         GatewayLoadBalancerEndpointId = aws_vpc_endpoint.Example.Id,
+    ///     });
+    /// 
     /// });
     /// ```
     /// 
@@ -61,6 +67,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// The VPC Endpoint Id of the Gateway Load Balancer that is associated with the target.
+        /// </summary>
+        [Output("gatewayLoadBalancerEndpointId")]
+        public Output<string?> GatewayLoadBalancerEndpointId { get; private set; } = null!;
 
         /// <summary>
         /// The network interface ID that is associated with the target.
@@ -145,6 +157,12 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// The VPC Endpoint Id of the Gateway Load Balancer that is associated with the target.
+        /// </summary>
+        [Input("gatewayLoadBalancerEndpointId")]
+        public Input<string>? GatewayLoadBalancerEndpointId { get; set; }
+
+        /// <summary>
         /// The network interface ID that is associated with the target.
         /// </summary>
         [Input("networkInterfaceId")]
@@ -187,6 +205,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The VPC Endpoint Id of the Gateway Load Balancer that is associated with the target.
+        /// </summary>
+        [Input("gatewayLoadBalancerEndpointId")]
+        public Input<string>? GatewayLoadBalancerEndpointId { get; set; }
 
         /// <summary>
         /// The network interface ID that is associated with the target.

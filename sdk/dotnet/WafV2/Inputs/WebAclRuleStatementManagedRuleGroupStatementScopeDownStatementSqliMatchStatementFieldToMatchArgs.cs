@@ -25,10 +25,22 @@ namespace Pulumi.Aws.WafV2.Inputs
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchBodyArgs>? Body { get; set; }
 
         /// <summary>
-        /// Inspect the request cookies.
+        /// Inspect the cookies in the web request. See Cookies below for details.
         /// </summary>
         [Input("cookies")]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesArgs>? Cookies { get; set; }
+
+        [Input("headers")]
+        private InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderArgs>? _headers;
+
+        /// <summary>
+        /// Inspect the request headers. See Headers below for details.
+        /// </summary>
+        public InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderArgs> Headers
+        {
+            get => _headers ?? (_headers = new InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderArgs>());
+            set => _headers = value;
+        }
 
         /// <summary>
         /// Inspect the request body as JSON. See JSON Body for details.

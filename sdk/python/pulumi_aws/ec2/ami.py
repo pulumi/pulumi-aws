@@ -24,6 +24,7 @@ class AmiArgs:
                  ena_support: Optional[pulumi.Input[bool]] = None,
                  ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['AmiEphemeralBlockDeviceArgs']]]] = None,
                  image_location: Optional[pulumi.Input[str]] = None,
+                 imds_support: Optional[pulumi.Input[str]] = None,
                  kernel_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  ramdisk_id: Optional[pulumi.Input[str]] = None,
@@ -45,6 +46,7 @@ class AmiArgs:
                should be attached to created instances. The structure of this block is described below.
         :param pulumi.Input[str] image_location: Path to an S3 object containing an image manifest, e.g., created
                by the `ec2-upload-bundle` command in the EC2 command line tools.
+        :param pulumi.Input[str] imds_support: If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
         :param pulumi.Input[str] kernel_id: ID of the kernel image (AKI) that will be used as the paravirtual
                kernel in created instances.
         :param pulumi.Input[str] name: Region-unique name for the AMI.
@@ -75,6 +77,8 @@ class AmiArgs:
             pulumi.set(__self__, "ephemeral_block_devices", ephemeral_block_devices)
         if image_location is not None:
             pulumi.set(__self__, "image_location", image_location)
+        if imds_support is not None:
+            pulumi.set(__self__, "imds_support", imds_support)
         if kernel_id is not None:
             pulumi.set(__self__, "kernel_id", kernel_id)
         if name is not None:
@@ -190,6 +194,18 @@ class AmiArgs:
     @image_location.setter
     def image_location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "image_location", value)
+
+    @property
+    @pulumi.getter(name="imdsSupport")
+    def imds_support(self) -> Optional[pulumi.Input[str]]:
+        """
+        If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
+        """
+        return pulumi.get(self, "imds_support")
+
+    @imds_support.setter
+    def imds_support(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "imds_support", value)
 
     @property
     @pulumi.getter(name="kernelId")
@@ -308,6 +324,7 @@ class _AmiState:
                  image_location: Optional[pulumi.Input[str]] = None,
                  image_owner_alias: Optional[pulumi.Input[str]] = None,
                  image_type: Optional[pulumi.Input[str]] = None,
+                 imds_support: Optional[pulumi.Input[str]] = None,
                  kernel_id: Optional[pulumi.Input[str]] = None,
                  manage_ebs_snapshots: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -341,6 +358,7 @@ class _AmiState:
                by the `ec2-upload-bundle` command in the EC2 command line tools.
         :param pulumi.Input[str] image_owner_alias: AWS account alias (for example, amazon, self) or the AWS account ID of the AMI owner.
         :param pulumi.Input[str] image_type: Type of image.
+        :param pulumi.Input[str] imds_support: If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
         :param pulumi.Input[str] kernel_id: ID of the kernel image (AKI) that will be used as the paravirtual
                kernel in created instances.
         :param pulumi.Input[str] name: Region-unique name for the AMI.
@@ -386,6 +404,8 @@ class _AmiState:
             pulumi.set(__self__, "image_owner_alias", image_owner_alias)
         if image_type is not None:
             pulumi.set(__self__, "image_type", image_type)
+        if imds_support is not None:
+            pulumi.set(__self__, "imds_support", imds_support)
         if kernel_id is not None:
             pulumi.set(__self__, "kernel_id", kernel_id)
         if manage_ebs_snapshots is not None:
@@ -565,6 +585,18 @@ class _AmiState:
     @image_type.setter
     def image_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "image_type", value)
+
+    @property
+    @pulumi.getter(name="imdsSupport")
+    def imds_support(self) -> Optional[pulumi.Input[str]]:
+        """
+        If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
+        """
+        return pulumi.get(self, "imds_support")
+
+    @imds_support.setter
+    def imds_support(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "imds_support", value)
 
     @property
     @pulumi.getter(name="kernelId")
@@ -774,6 +806,7 @@ class Ami(pulumi.CustomResource):
                  ena_support: Optional[pulumi.Input[bool]] = None,
                  ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiEphemeralBlockDeviceArgs']]]]] = None,
                  image_location: Optional[pulumi.Input[str]] = None,
+                 imds_support: Optional[pulumi.Input[str]] = None,
                  kernel_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  ramdisk_id: Optional[pulumi.Input[str]] = None,
@@ -808,6 +841,7 @@ class Ami(pulumi.CustomResource):
                 snapshot_id="snap-xxxxxxxx",
                 volume_size=8,
             )],
+            imds_support="v2.0",
             root_device_name="/dev/xvda",
             virtualization_type="hvm")
         ```
@@ -833,6 +867,7 @@ class Ami(pulumi.CustomResource):
                should be attached to created instances. The structure of this block is described below.
         :param pulumi.Input[str] image_location: Path to an S3 object containing an image manifest, e.g., created
                by the `ec2-upload-bundle` command in the EC2 command line tools.
+        :param pulumi.Input[str] imds_support: If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
         :param pulumi.Input[str] kernel_id: ID of the kernel image (AKI) that will be used as the paravirtual
                kernel in created instances.
         :param pulumi.Input[str] name: Region-unique name for the AMI.
@@ -878,6 +913,7 @@ class Ami(pulumi.CustomResource):
                 snapshot_id="snap-xxxxxxxx",
                 volume_size=8,
             )],
+            imds_support="v2.0",
             root_device_name="/dev/xvda",
             virtualization_type="hvm")
         ```
@@ -913,6 +949,7 @@ class Ami(pulumi.CustomResource):
                  ena_support: Optional[pulumi.Input[bool]] = None,
                  ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiEphemeralBlockDeviceArgs']]]]] = None,
                  image_location: Optional[pulumi.Input[str]] = None,
+                 imds_support: Optional[pulumi.Input[str]] = None,
                  kernel_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  ramdisk_id: Optional[pulumi.Input[str]] = None,
@@ -938,6 +975,7 @@ class Ami(pulumi.CustomResource):
             __props__.__dict__["ena_support"] = ena_support
             __props__.__dict__["ephemeral_block_devices"] = ephemeral_block_devices
             __props__.__dict__["image_location"] = image_location
+            __props__.__dict__["imds_support"] = imds_support
             __props__.__dict__["kernel_id"] = kernel_id
             __props__.__dict__["name"] = name
             __props__.__dict__["ramdisk_id"] = ramdisk_id
@@ -980,6 +1018,7 @@ class Ami(pulumi.CustomResource):
             image_location: Optional[pulumi.Input[str]] = None,
             image_owner_alias: Optional[pulumi.Input[str]] = None,
             image_type: Optional[pulumi.Input[str]] = None,
+            imds_support: Optional[pulumi.Input[str]] = None,
             kernel_id: Optional[pulumi.Input[str]] = None,
             manage_ebs_snapshots: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -1018,6 +1057,7 @@ class Ami(pulumi.CustomResource):
                by the `ec2-upload-bundle` command in the EC2 command line tools.
         :param pulumi.Input[str] image_owner_alias: AWS account alias (for example, amazon, self) or the AWS account ID of the AMI owner.
         :param pulumi.Input[str] image_type: Type of image.
+        :param pulumi.Input[str] imds_support: If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
         :param pulumi.Input[str] kernel_id: ID of the kernel image (AKI) that will be used as the paravirtual
                kernel in created instances.
         :param pulumi.Input[str] name: Region-unique name for the AMI.
@@ -1055,6 +1095,7 @@ class Ami(pulumi.CustomResource):
         __props__.__dict__["image_location"] = image_location
         __props__.__dict__["image_owner_alias"] = image_owner_alias
         __props__.__dict__["image_type"] = image_type
+        __props__.__dict__["imds_support"] = imds_support
         __props__.__dict__["kernel_id"] = kernel_id
         __props__.__dict__["manage_ebs_snapshots"] = manage_ebs_snapshots
         __props__.__dict__["name"] = name
@@ -1171,6 +1212,14 @@ class Ami(pulumi.CustomResource):
         Type of image.
         """
         return pulumi.get(self, "image_type")
+
+    @property
+    @pulumi.getter(name="imdsSupport")
+    def imds_support(self) -> pulumi.Output[Optional[str]]:
+        """
+        If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
+        """
+        return pulumi.get(self, "imds_support")
 
     @property
     @pulumi.getter(name="kernelId")

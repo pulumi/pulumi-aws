@@ -557,6 +557,25 @@ public final class EndpointS3SettingsArgs extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.useCsvNoSupValue);
     }
 
+    /**
+     * When set to true, uses the task start time as the timestamp column value instead of the time data is written to target.
+     * For full load, when set to true, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time.
+     * When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
+     * 
+     */
+    @Import(name="useTaskStartTimeForFullLoadTimestamp")
+    private @Nullable Output<Boolean> useTaskStartTimeForFullLoadTimestamp;
+
+    /**
+     * @return When set to true, uses the task start time as the timestamp column value instead of the time data is written to target.
+     * For full load, when set to true, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time.
+     * When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> useTaskStartTimeForFullLoadTimestamp() {
+        return Optional.ofNullable(this.useTaskStartTimeForFullLoadTimestamp);
+    }
+
     private EndpointS3SettingsArgs() {}
 
     private EndpointS3SettingsArgs(EndpointS3SettingsArgs $) {
@@ -596,6 +615,7 @@ public final class EndpointS3SettingsArgs extends com.pulumi.resources.ResourceA
         this.serviceAccessRoleArn = $.serviceAccessRoleArn;
         this.timestampColumnName = $.timestampColumnName;
         this.useCsvNoSupValue = $.useCsvNoSupValue;
+        this.useTaskStartTimeForFullLoadTimestamp = $.useTaskStartTimeForFullLoadTimestamp;
     }
 
     public static Builder builder() {
@@ -1370,6 +1390,31 @@ public final class EndpointS3SettingsArgs extends com.pulumi.resources.ResourceA
          */
         public Builder useCsvNoSupValue(Boolean useCsvNoSupValue) {
             return useCsvNoSupValue(Output.of(useCsvNoSupValue));
+        }
+
+        /**
+         * @param useTaskStartTimeForFullLoadTimestamp When set to true, uses the task start time as the timestamp column value instead of the time data is written to target.
+         * For full load, when set to true, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time.
+         * When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder useTaskStartTimeForFullLoadTimestamp(@Nullable Output<Boolean> useTaskStartTimeForFullLoadTimestamp) {
+            $.useTaskStartTimeForFullLoadTimestamp = useTaskStartTimeForFullLoadTimestamp;
+            return this;
+        }
+
+        /**
+         * @param useTaskStartTimeForFullLoadTimestamp When set to true, uses the task start time as the timestamp column value instead of the time data is written to target.
+         * For full load, when set to true, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time.
+         * When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder useTaskStartTimeForFullLoadTimestamp(Boolean useTaskStartTimeForFullLoadTimestamp) {
+            return useTaskStartTimeForFullLoadTimestamp(Output.of(useTaskStartTimeForFullLoadTimestamp));
         }
 
         public EndpointS3SettingsArgs build() {

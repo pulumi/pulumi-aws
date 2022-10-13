@@ -103,7 +103,7 @@ export class WebAclAssociation extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer or an Amazon API Gateway stage.
+     * The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage, or an Amazon Cognito User Pool.
      */
     public readonly resourceArn!: pulumi.Output<string>;
     /**
@@ -147,7 +147,7 @@ export class WebAclAssociation extends pulumi.CustomResource {
  */
 export interface WebAclAssociationState {
     /**
-     * The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer or an Amazon API Gateway stage.
+     * The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage, or an Amazon Cognito User Pool.
      */
     resourceArn?: pulumi.Input<string>;
     /**
@@ -161,7 +161,7 @@ export interface WebAclAssociationState {
  */
 export interface WebAclAssociationArgs {
     /**
-     * The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer or an Amazon API Gateway stage.
+     * The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage, or an Amazon Cognito User Pool.
      */
     resourceArn: pulumi.Input<string>;
     /**

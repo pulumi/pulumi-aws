@@ -270,6 +270,9 @@ namespace Pulumi.Aws.Inputs
         [Input("connectwisdomservice")]
         public Input<string>? Connectwisdomservice { get; set; }
 
+        [Input("controltower")]
+        public Input<string>? Controltower { get; set; }
+
         [Input("costandusagereportservice")]
         public Input<string>? Costandusagereportservice { get; set; }
 
@@ -506,6 +509,9 @@ namespace Pulumi.Aws.Inputs
 
         [Input("inspector2")]
         public Input<string>? Inspector2 { get; set; }
+
+        [Input("inspectorv2")]
+        public Input<string>? Inspectorv2 { get; set; }
 
         [Input("iot")]
         public Input<string>? Iot { get; set; }

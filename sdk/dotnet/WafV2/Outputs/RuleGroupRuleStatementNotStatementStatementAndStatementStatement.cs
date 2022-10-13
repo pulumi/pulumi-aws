@@ -30,6 +30,10 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly Outputs.RuleGroupRuleStatementNotStatementStatementAndStatementStatementLabelMatchStatement? LabelMatchStatement;
         /// <summary>
+        /// A rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+        /// </summary>
+        public readonly Outputs.RuleGroupRuleStatementNotStatementStatementAndStatementStatementRegexMatchStatement? RegexMatchStatement;
+        /// <summary>
         /// A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
         /// </summary>
         public readonly Outputs.RuleGroupRuleStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatement? RegexPatternSetReferenceStatement;
@@ -56,6 +60,8 @@ namespace Pulumi.Aws.WafV2.Outputs
 
             Outputs.RuleGroupRuleStatementNotStatementStatementAndStatementStatementLabelMatchStatement? labelMatchStatement,
 
+            Outputs.RuleGroupRuleStatementNotStatementStatementAndStatementStatementRegexMatchStatement? regexMatchStatement,
+
             Outputs.RuleGroupRuleStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatement? regexPatternSetReferenceStatement,
 
             Outputs.RuleGroupRuleStatementNotStatementStatementAndStatementStatementSizeConstraintStatement? sizeConstraintStatement,
@@ -68,6 +74,7 @@ namespace Pulumi.Aws.WafV2.Outputs
             GeoMatchStatement = geoMatchStatement;
             IpSetReferenceStatement = ipSetReferenceStatement;
             LabelMatchStatement = labelMatchStatement;
+            RegexMatchStatement = regexMatchStatement;
             RegexPatternSetReferenceStatement = regexPatternSetReferenceStatement;
             SizeConstraintStatement = sizeConstraintStatement;
             SqliMatchStatement = sqliMatchStatement;

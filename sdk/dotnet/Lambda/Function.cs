@@ -53,7 +53,7 @@ namespace Pulumi.Aws.Lambda
     ///         Code = new FileArchive("lambda_function_payload.zip"),
     ///         Role = iamForLambda.Arn,
     ///         Handler = "index.test",
-    ///         Runtime = "nodejs12.x",
+    ///         Runtime = "nodejs16.x",
     ///         Environment = new Aws.Lambda.Inputs.FunctionEnvironmentArgs
     ///         {
     ///             Variables = 

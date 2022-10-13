@@ -435,7 +435,7 @@ class Permission(pulumi.CustomResource):
             code=pulumi.FileArchive("lambdatest.zip"),
             role=iam_for_lambda.arn,
             handler="exports.handler",
-            runtime="nodejs12.x")
+            runtime="nodejs16.x")
         test_alias = aws.lambda_.Alias("testAlias",
             description="a sample description",
             function_name=test_lambda.name,
@@ -594,7 +594,7 @@ class Permission(pulumi.CustomResource):
             code=pulumi.FileArchive("lambdatest.zip"),
             role=iam_for_lambda.arn,
             handler="exports.handler",
-            runtime="nodejs12.x")
+            runtime="nodejs16.x")
         test_alias = aws.lambda_.Alias("testAlias",
             description="a sample description",
             function_name=test_lambda.name,

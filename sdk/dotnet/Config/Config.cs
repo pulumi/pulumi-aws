@@ -458,6 +458,7 @@ namespace Pulumi.Aws
                 public string? Connectcontactlens { get; set; } = null!;
                 public string? Connectparticipant { get; set; } = null!;
                 public string? Connectwisdomservice { get; set; } = null!;
+                public string? Controltower { get; set; } = null!;
                 public string? Costandusagereportservice { get; set; } = null!;
                 public string? Costexplorer { get; set; } = null!;
                 public string? Cur { get; set; } = null!;
@@ -537,6 +538,7 @@ namespace Pulumi.Aws
                 public string? Imagebuilder { get; set; } = null!;
                 public string? Inspector { get; set; } = null!;
                 public string? Inspector2 { get; set; } = null!;
+                public string? Inspectorv2 { get; set; } = null!;
                 public string? Iot { get; set; } = null!;
                 public string? Iot1clickdevices { get; set; } = null!;
                 public string? Iot1clickdevicesservice { get; set; } = null!;

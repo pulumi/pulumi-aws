@@ -86,7 +86,7 @@ import javax.annotation.Nullable;
  *             .code(new FileArchive(&#34;lambda_function_payload.zip&#34;))
  *             .role(iamForLambda.arn())
  *             .handler(&#34;index.test&#34;)
- *             .runtime(&#34;nodejs12.x&#34;)
+ *             .runtime(&#34;nodejs16.x&#34;)
  *             .environment(FunctionEnvironmentArgs.builder()
  *                 .variables(Map.of(&#34;foo&#34;, &#34;bar&#34;))
  *                 .build())

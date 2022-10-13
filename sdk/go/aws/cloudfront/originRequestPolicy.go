@@ -62,6 +62,16 @@ import (
 //	}
 //
 // ```
+//
+// ## Import
+//
+// Cloudfront Origin Request Policies can be imported using the `id`, e.g.
+//
+// ```sh
+//
+//	$ pulumi import aws:cloudfront/originRequestPolicy:OriginRequestPolicy policy ccca32ef-dce3-4df3-80df-1bd3000bc4d3
+//
+// ```
 type OriginRequestPolicy struct {
 	pulumi.CustomResourceState
 

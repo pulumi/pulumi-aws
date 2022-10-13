@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an SSM Parameter resource.
-//
 // ## Example Usage
 // ### Basic example
 //

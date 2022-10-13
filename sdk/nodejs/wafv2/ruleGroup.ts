@@ -128,6 +128,20 @@ import * as utilities from "../utilities";
  *                 orStatement: {
  *                     statements: [
  *                         {
+ *                             regexMatchStatement: {
+ *                                 regexString: "[a-z]([a-z0-9_-]*[a-z0-9])?",
+ *                                 fieldToMatch: {
+ *                                     singleHeader: {
+ *                                         name: "user-agent",
+ *                                     },
+ *                                 },
+ *                                 textTransformations: [{
+ *                                     priority: 6,
+ *                                     type: "NONE",
+ *                                 }],
+ *                             },
+ *                         },
+ *                         {
  *                             sqliMatchStatement: {
  *                                 fieldToMatch: {
  *                                     body: {},

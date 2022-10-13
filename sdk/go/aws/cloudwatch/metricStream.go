@@ -233,7 +233,7 @@ import (
 //
 // ```sh
 //
-//	$ pulumi import aws:cloudwatch/metricStream:MetricStream sample <name>
+//	$ pulumi import aws:cloudwatch/metricStream:MetricStream sample sample-stream-name
 //
 // ```
 type MetricStream struct {

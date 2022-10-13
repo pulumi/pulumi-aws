@@ -244,6 +244,14 @@ class OriginRequestPolicy(pulumi.CustomResource):
             ))
         ```
 
+        ## Import
+
+        Cloudfront Origin Request Policies can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:cloudfront/originRequestPolicy:OriginRequestPolicy policy ccca32ef-dce3-4df3-80df-1bd3000bc4d3
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comment: Comment to describe the origin request policy.
@@ -287,6 +295,14 @@ class OriginRequestPolicy(pulumi.CustomResource):
                     items=["example"],
                 ),
             ))
+        ```
+
+        ## Import
+
+        Cloudfront Origin Request Policies can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:cloudfront/originRequestPolicy:OriginRequestPolicy policy ccca32ef-dce3-4df3-80df-1bd3000bc4d3
         ```
 
         :param str resource_name: The name of the resource.

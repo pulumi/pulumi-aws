@@ -14,6 +14,10 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     public sealed class EventTargetEcsTarget
     {
         /// <summary>
+        /// The capacity provider strategy to use for the task. If a `capacity_provider_strategy` specified, the `launch_type` parameter must be omitted. If no `capacity_provider_strategy` or `launch_type` is specified, the default capacity provider strategy for the cluster is used. Can be one or more. See below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.EventTargetEcsTargetCapacityProviderStrategy> CapacityProviderStrategies;
+        /// <summary>
         /// Specifies whether to enable Amazon ECS managed tags for the task.
         /// </summary>
         public readonly bool? EnableEcsManagedTags;
@@ -60,6 +64,8 @@ namespace Pulumi.Aws.CloudWatch.Outputs
 
         [OutputConstructor]
         private EventTargetEcsTarget(
+            ImmutableArray<Outputs.EventTargetEcsTargetCapacityProviderStrategy> capacityProviderStrategies,
+
             bool? enableEcsManagedTags,
 
             bool? enableExecuteCommand,
@@ -82,6 +88,7 @@ namespace Pulumi.Aws.CloudWatch.Outputs
 
             string taskDefinitionArn)
         {
+            CapacityProviderStrategies = capacityProviderStrategies;
             EnableEcsManagedTags = enableEcsManagedTags;
             EnableExecuteCommand = enableExecuteCommand;
             Group = group;

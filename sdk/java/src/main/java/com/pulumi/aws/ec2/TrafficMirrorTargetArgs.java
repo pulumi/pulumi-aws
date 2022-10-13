@@ -32,6 +32,21 @@ public final class TrafficMirrorTargetArgs extends com.pulumi.resources.Resource
     }
 
     /**
+     * The VPC Endpoint Id of the Gateway Load Balancer that is associated with the target.
+     * 
+     */
+    @Import(name="gatewayLoadBalancerEndpointId")
+    private @Nullable Output<String> gatewayLoadBalancerEndpointId;
+
+    /**
+     * @return The VPC Endpoint Id of the Gateway Load Balancer that is associated with the target.
+     * 
+     */
+    public Optional<Output<String>> gatewayLoadBalancerEndpointId() {
+        return Optional.ofNullable(this.gatewayLoadBalancerEndpointId);
+    }
+
+    /**
      * The network interface ID that is associated with the target.
      * 
      */
@@ -80,6 +95,7 @@ public final class TrafficMirrorTargetArgs extends com.pulumi.resources.Resource
 
     private TrafficMirrorTargetArgs(TrafficMirrorTargetArgs $) {
         this.description = $.description;
+        this.gatewayLoadBalancerEndpointId = $.gatewayLoadBalancerEndpointId;
         this.networkInterfaceId = $.networkInterfaceId;
         this.networkLoadBalancerArn = $.networkLoadBalancerArn;
         this.tags = $.tags;
@@ -122,6 +138,27 @@ public final class TrafficMirrorTargetArgs extends com.pulumi.resources.Resource
          */
         public Builder description(String description) {
             return description(Output.of(description));
+        }
+
+        /**
+         * @param gatewayLoadBalancerEndpointId The VPC Endpoint Id of the Gateway Load Balancer that is associated with the target.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder gatewayLoadBalancerEndpointId(@Nullable Output<String> gatewayLoadBalancerEndpointId) {
+            $.gatewayLoadBalancerEndpointId = gatewayLoadBalancerEndpointId;
+            return this;
+        }
+
+        /**
+         * @param gatewayLoadBalancerEndpointId The VPC Endpoint Id of the Gateway Load Balancer that is associated with the target.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder gatewayLoadBalancerEndpointId(String gatewayLoadBalancerEndpointId) {
+            return gatewayLoadBalancerEndpointId(Output.of(gatewayLoadBalancerEndpointId));
         }
 
         /**

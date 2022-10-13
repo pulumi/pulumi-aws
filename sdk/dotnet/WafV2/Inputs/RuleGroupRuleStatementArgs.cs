@@ -55,6 +55,18 @@ namespace Pulumi.Aws.WafV2.Inputs
         public Input<Inputs.RuleGroupRuleStatementOrStatementArgs>? OrStatement { get; set; }
 
         /// <summary>
+        /// A rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any `5-minute` time span. This statement can not be nested. See Rate Based Statement below for details.
+        /// </summary>
+        [Input("rateBasedStatement")]
+        public Input<Inputs.RuleGroupRuleStatementRateBasedStatementArgs>? RateBasedStatement { get; set; }
+
+        /// <summary>
+        /// A rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+        /// </summary>
+        [Input("regexMatchStatement")]
+        public Input<Inputs.RuleGroupRuleStatementRegexMatchStatementArgs>? RegexMatchStatement { get; set; }
+
+        /// <summary>
         /// A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
         /// </summary>
         [Input("regexPatternSetReferenceStatement")]

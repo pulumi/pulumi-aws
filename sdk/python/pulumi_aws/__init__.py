@@ -185,6 +185,8 @@ if typing.TYPE_CHECKING:
     emrcontainers = __emrcontainers
     import pulumi_aws.emrserverless as __emrserverless
     emrserverless = __emrserverless
+    import pulumi_aws.evidently as __evidently
+    evidently = __evidently
     import pulumi_aws.fis as __fis
     fis = __fis
     import pulumi_aws.fms as __fms
@@ -211,6 +213,8 @@ if typing.TYPE_CHECKING:
     imagebuilder = __imagebuilder
     import pulumi_aws.inspector as __inspector
     inspector = __inspector
+    import pulumi_aws.inspector2 as __inspector2
+    inspector2 = __inspector2
     import pulumi_aws.iot as __iot
     iot = __iot
     import pulumi_aws.kendra as __kendra
@@ -450,6 +454,7 @@ else:
     emr = _utilities.lazy_import('pulumi_aws.emr')
     emrcontainers = _utilities.lazy_import('pulumi_aws.emrcontainers')
     emrserverless = _utilities.lazy_import('pulumi_aws.emrserverless')
+    evidently = _utilities.lazy_import('pulumi_aws.evidently')
     fis = _utilities.lazy_import('pulumi_aws.fis')
     fms = _utilities.lazy_import('pulumi_aws.fms')
     fsx = _utilities.lazy_import('pulumi_aws.fsx')
@@ -463,6 +468,7 @@ else:
     identitystore = _utilities.lazy_import('pulumi_aws.identitystore')
     imagebuilder = _utilities.lazy_import('pulumi_aws.imagebuilder')
     inspector = _utilities.lazy_import('pulumi_aws.inspector')
+    inspector2 = _utilities.lazy_import('pulumi_aws.inspector2')
     iot = _utilities.lazy_import('pulumi_aws.iot')
     kendra = _utilities.lazy_import('pulumi_aws.kendra')
     keyspaces = _utilities.lazy_import('pulumi_aws.keyspaces')
@@ -4717,6 +4723,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "evidently/project",
+  "fqn": "pulumi_aws.evidently",
+  "classes": {
+   "aws:evidently/project:Project": "Project"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "fis/experimentTemplate",
   "fqn": "pulumi_aws.fis",
   "classes": {
@@ -5373,6 +5387,30 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "identitystore/group",
+  "fqn": "pulumi_aws.identitystore",
+  "classes": {
+   "aws:identitystore/group:Group": "Group"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "identitystore/groupMembership",
+  "fqn": "pulumi_aws.identitystore",
+  "classes": {
+   "aws:identitystore/groupMembership:GroupMembership": "GroupMembership"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "identitystore/user",
+  "fqn": "pulumi_aws.identitystore",
+  "classes": {
+   "aws:identitystore/user:User": "User"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "imagebuilder/component",
   "fqn": "pulumi_aws.imagebuilder",
   "classes": {
@@ -5449,6 +5487,14 @@ _utilities.register(
   "fqn": "pulumi_aws.inspector",
   "classes": {
    "aws:inspector/resourceGroup:ResourceGroup": "ResourceGroup"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "inspector2/organizationConfiguration",
+  "fqn": "pulumi_aws.inspector2",
+  "classes": {
+   "aws:inspector2/organizationConfiguration:OrganizationConfiguration": "OrganizationConfiguration"
   }
  },
  {
@@ -5705,6 +5751,14 @@ _utilities.register(
   "fqn": "pulumi_aws.kms",
   "classes": {
    "aws:kms/ciphertext:Ciphertext": "Ciphertext"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "kms/customKeyStore",
+  "fqn": "pulumi_aws.kms",
+  "classes": {
+   "aws:kms/customKeyStore:CustomKeyStore": "CustomKeyStore"
   }
  },
  {

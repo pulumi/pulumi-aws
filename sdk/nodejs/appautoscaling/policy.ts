@@ -170,6 +170,10 @@ export class Policy extends pulumi.CustomResource {
     }
 
     /**
+     * List of CloudWatch alarm ARNs associated with the scaling policy.
+     */
+    public /*out*/ readonly alarmArns!: pulumi.Output<string[]>;
+    /**
      * ARN assigned by AWS to the scaling policy.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
@@ -215,6 +219,7 @@ export class Policy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PolicyState | undefined;
+            resourceInputs["alarmArns"] = state ? state.alarmArns : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["policyType"] = state ? state.policyType : undefined;
@@ -241,6 +246,7 @@ export class Policy extends pulumi.CustomResource {
             resourceInputs["serviceNamespace"] = args ? args.serviceNamespace : undefined;
             resourceInputs["stepScalingPolicyConfiguration"] = args ? args.stepScalingPolicyConfiguration : undefined;
             resourceInputs["targetTrackingScalingPolicyConfiguration"] = args ? args.targetTrackingScalingPolicyConfiguration : undefined;
+            resourceInputs["alarmArns"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -252,6 +258,10 @@ export class Policy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Policy resources.
  */
 export interface PolicyState {
+    /**
+     * List of CloudWatch alarm ARNs associated with the scaling policy.
+     */
+    alarmArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * ARN assigned by AWS to the scaling policy.
      */

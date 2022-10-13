@@ -454,8 +454,6 @@ class Parameter(pulumi.CustomResource):
                  value: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides an SSM Parameter resource.
-
         ## Example Usage
         ### Basic example
 
@@ -522,8 +520,6 @@ class Parameter(pulumi.CustomResource):
                  args: ParameterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an SSM Parameter resource.
-
         ## Example Usage
         ### Basic example
 

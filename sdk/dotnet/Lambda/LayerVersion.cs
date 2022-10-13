@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Lambda
     ///     {
     ///         CompatibleRuntimes = new[]
     ///         {
-    ///             "nodejs12.x",
+    ///             "nodejs16.x",
     ///         },
     ///         Code = new FileArchive("lambda_layer_payload.zip"),
     ///         LayerName = "lambda_layer_name",

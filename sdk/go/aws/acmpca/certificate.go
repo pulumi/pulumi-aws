@@ -13,6 +13,11 @@ import (
 
 // Provides a resource to issue a certificate using AWS Certificate Manager Private Certificate Authority (ACM PCA).
 //
+// Certificates created using `acmpca.Certificate` are not eligible for automatic renewal,
+// and must be replaced instead.
+// To issue a renewable certificate using an ACM PCA, create a `acm.Certificate`
+// with the parameter `certificateAuthorityArn`.
+//
 // ## Example Usage
 //
 // ## Import
@@ -31,9 +36,10 @@ type Certificate struct {
 	CertificateChain pulumi.StringOutput `pulumi:"certificateChain"`
 	// Certificate Signing Request in PEM format.
 	CertificateSigningRequest pulumi.StringOutput `pulumi:"certificateSigningRequest"`
-	// Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`
+	// Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
 	SigningAlgorithm pulumi.StringOutput `pulumi:"signingAlgorithm"`
-	// Template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
+	// Template to use when issuing a certificate.
+	// See [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.
 	TemplateArn pulumi.StringPtrOutput `pulumi:"templateArn"`
 	// Configures end of the validity period for the certificate. See validity block below.
 	Validity CertificateValidityOutput `pulumi:"validity"`
@@ -90,9 +96,10 @@ type certificateState struct {
 	CertificateChain *string `pulumi:"certificateChain"`
 	// Certificate Signing Request in PEM format.
 	CertificateSigningRequest *string `pulumi:"certificateSigningRequest"`
-	// Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`
+	// Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
 	SigningAlgorithm *string `pulumi:"signingAlgorithm"`
-	// Template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
+	// Template to use when issuing a certificate.
+	// See [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.
 	TemplateArn *string `pulumi:"templateArn"`
 	// Configures end of the validity period for the certificate. See validity block below.
 	Validity *CertificateValidity `pulumi:"validity"`
@@ -109,9 +116,10 @@ type CertificateState struct {
 	CertificateChain pulumi.StringPtrInput
 	// Certificate Signing Request in PEM format.
 	CertificateSigningRequest pulumi.StringPtrInput
-	// Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`
+	// Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
 	SigningAlgorithm pulumi.StringPtrInput
-	// Template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
+	// Template to use when issuing a certificate.
+	// See [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.
 	TemplateArn pulumi.StringPtrInput
 	// Configures end of the validity period for the certificate. See validity block below.
 	Validity CertificateValidityPtrInput
@@ -126,9 +134,10 @@ type certificateArgs struct {
 	CertificateAuthorityArn string `pulumi:"certificateAuthorityArn"`
 	// Certificate Signing Request in PEM format.
 	CertificateSigningRequest string `pulumi:"certificateSigningRequest"`
-	// Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`
+	// Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
 	SigningAlgorithm string `pulumi:"signingAlgorithm"`
-	// Template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
+	// Template to use when issuing a certificate.
+	// See [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.
 	TemplateArn *string `pulumi:"templateArn"`
 	// Configures end of the validity period for the certificate. See validity block below.
 	Validity CertificateValidity `pulumi:"validity"`
@@ -140,9 +149,10 @@ type CertificateArgs struct {
 	CertificateAuthorityArn pulumi.StringInput
 	// Certificate Signing Request in PEM format.
 	CertificateSigningRequest pulumi.StringInput
-	// Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`
+	// Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
 	SigningAlgorithm pulumi.StringInput
-	// Template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
+	// Template to use when issuing a certificate.
+	// See [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.
 	TemplateArn pulumi.StringPtrInput
 	// Configures end of the validity period for the certificate. See validity block below.
 	Validity CertificateValidityInput
@@ -260,12 +270,13 @@ func (o CertificateOutput) CertificateSigningRequest() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.CertificateSigningRequest }).(pulumi.StringOutput)
 }
 
-// Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`
+// Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
 func (o CertificateOutput) SigningAlgorithm() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.SigningAlgorithm }).(pulumi.StringOutput)
 }
 
-// Template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
+// Template to use when issuing a certificate.
+// See [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.
 func (o CertificateOutput) TemplateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.TemplateArn }).(pulumi.StringPtrOutput)
 }

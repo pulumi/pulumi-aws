@@ -359,6 +359,218 @@ func (o EventIntegrationEventFilterPtrOutput) Source() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetConfigurationProfileValidator struct {
+	// Either the JSON Schema content or the ARN of an AWS Lambda function.
+	Content string `pulumi:"content"`
+	// Type of validator. Valid values: JSON_SCHEMA and LAMBDA.
+	Type string `pulumi:"type"`
+}
+
+// GetConfigurationProfileValidatorInput is an input type that accepts GetConfigurationProfileValidatorArgs and GetConfigurationProfileValidatorOutput values.
+// You can construct a concrete instance of `GetConfigurationProfileValidatorInput` via:
+//
+//	GetConfigurationProfileValidatorArgs{...}
+type GetConfigurationProfileValidatorInput interface {
+	pulumi.Input
+
+	ToGetConfigurationProfileValidatorOutput() GetConfigurationProfileValidatorOutput
+	ToGetConfigurationProfileValidatorOutputWithContext(context.Context) GetConfigurationProfileValidatorOutput
+}
+
+type GetConfigurationProfileValidatorArgs struct {
+	// Either the JSON Schema content or the ARN of an AWS Lambda function.
+	Content pulumi.StringInput `pulumi:"content"`
+	// Type of validator. Valid values: JSON_SCHEMA and LAMBDA.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetConfigurationProfileValidatorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConfigurationProfileValidator)(nil)).Elem()
+}
+
+func (i GetConfigurationProfileValidatorArgs) ToGetConfigurationProfileValidatorOutput() GetConfigurationProfileValidatorOutput {
+	return i.ToGetConfigurationProfileValidatorOutputWithContext(context.Background())
+}
+
+func (i GetConfigurationProfileValidatorArgs) ToGetConfigurationProfileValidatorOutputWithContext(ctx context.Context) GetConfigurationProfileValidatorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationProfileValidatorOutput)
+}
+
+// GetConfigurationProfileValidatorArrayInput is an input type that accepts GetConfigurationProfileValidatorArray and GetConfigurationProfileValidatorArrayOutput values.
+// You can construct a concrete instance of `GetConfigurationProfileValidatorArrayInput` via:
+//
+//	GetConfigurationProfileValidatorArray{ GetConfigurationProfileValidatorArgs{...} }
+type GetConfigurationProfileValidatorArrayInput interface {
+	pulumi.Input
+
+	ToGetConfigurationProfileValidatorArrayOutput() GetConfigurationProfileValidatorArrayOutput
+	ToGetConfigurationProfileValidatorArrayOutputWithContext(context.Context) GetConfigurationProfileValidatorArrayOutput
+}
+
+type GetConfigurationProfileValidatorArray []GetConfigurationProfileValidatorInput
+
+func (GetConfigurationProfileValidatorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConfigurationProfileValidator)(nil)).Elem()
+}
+
+func (i GetConfigurationProfileValidatorArray) ToGetConfigurationProfileValidatorArrayOutput() GetConfigurationProfileValidatorArrayOutput {
+	return i.ToGetConfigurationProfileValidatorArrayOutputWithContext(context.Background())
+}
+
+func (i GetConfigurationProfileValidatorArray) ToGetConfigurationProfileValidatorArrayOutputWithContext(ctx context.Context) GetConfigurationProfileValidatorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationProfileValidatorArrayOutput)
+}
+
+type GetConfigurationProfileValidatorOutput struct{ *pulumi.OutputState }
+
+func (GetConfigurationProfileValidatorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConfigurationProfileValidator)(nil)).Elem()
+}
+
+func (o GetConfigurationProfileValidatorOutput) ToGetConfigurationProfileValidatorOutput() GetConfigurationProfileValidatorOutput {
+	return o
+}
+
+func (o GetConfigurationProfileValidatorOutput) ToGetConfigurationProfileValidatorOutputWithContext(ctx context.Context) GetConfigurationProfileValidatorOutput {
+	return o
+}
+
+// Either the JSON Schema content or the ARN of an AWS Lambda function.
+func (o GetConfigurationProfileValidatorOutput) Content() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConfigurationProfileValidator) string { return v.Content }).(pulumi.StringOutput)
+}
+
+// Type of validator. Valid values: JSON_SCHEMA and LAMBDA.
+func (o GetConfigurationProfileValidatorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConfigurationProfileValidator) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetConfigurationProfileValidatorArrayOutput struct{ *pulumi.OutputState }
+
+func (GetConfigurationProfileValidatorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConfigurationProfileValidator)(nil)).Elem()
+}
+
+func (o GetConfigurationProfileValidatorArrayOutput) ToGetConfigurationProfileValidatorArrayOutput() GetConfigurationProfileValidatorArrayOutput {
+	return o
+}
+
+func (o GetConfigurationProfileValidatorArrayOutput) ToGetConfigurationProfileValidatorArrayOutputWithContext(ctx context.Context) GetConfigurationProfileValidatorArrayOutput {
+	return o
+}
+
+func (o GetConfigurationProfileValidatorArrayOutput) Index(i pulumi.IntInput) GetConfigurationProfileValidatorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetConfigurationProfileValidator {
+		return vs[0].([]GetConfigurationProfileValidator)[vs[1].(int)]
+	}).(GetConfigurationProfileValidatorOutput)
+}
+
+type GetEnvironmentMonitor struct {
+	// ARN of the Amazon CloudWatch alarm.
+	AlarmArn string `pulumi:"alarmArn"`
+	// ARN of an IAM role for AWS AppConfig to monitor.
+	AlarmRoleArn string `pulumi:"alarmRoleArn"`
+}
+
+// GetEnvironmentMonitorInput is an input type that accepts GetEnvironmentMonitorArgs and GetEnvironmentMonitorOutput values.
+// You can construct a concrete instance of `GetEnvironmentMonitorInput` via:
+//
+//	GetEnvironmentMonitorArgs{...}
+type GetEnvironmentMonitorInput interface {
+	pulumi.Input
+
+	ToGetEnvironmentMonitorOutput() GetEnvironmentMonitorOutput
+	ToGetEnvironmentMonitorOutputWithContext(context.Context) GetEnvironmentMonitorOutput
+}
+
+type GetEnvironmentMonitorArgs struct {
+	// ARN of the Amazon CloudWatch alarm.
+	AlarmArn pulumi.StringInput `pulumi:"alarmArn"`
+	// ARN of an IAM role for AWS AppConfig to monitor.
+	AlarmRoleArn pulumi.StringInput `pulumi:"alarmRoleArn"`
+}
+
+func (GetEnvironmentMonitorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEnvironmentMonitor)(nil)).Elem()
+}
+
+func (i GetEnvironmentMonitorArgs) ToGetEnvironmentMonitorOutput() GetEnvironmentMonitorOutput {
+	return i.ToGetEnvironmentMonitorOutputWithContext(context.Background())
+}
+
+func (i GetEnvironmentMonitorArgs) ToGetEnvironmentMonitorOutputWithContext(ctx context.Context) GetEnvironmentMonitorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEnvironmentMonitorOutput)
+}
+
+// GetEnvironmentMonitorArrayInput is an input type that accepts GetEnvironmentMonitorArray and GetEnvironmentMonitorArrayOutput values.
+// You can construct a concrete instance of `GetEnvironmentMonitorArrayInput` via:
+//
+//	GetEnvironmentMonitorArray{ GetEnvironmentMonitorArgs{...} }
+type GetEnvironmentMonitorArrayInput interface {
+	pulumi.Input
+
+	ToGetEnvironmentMonitorArrayOutput() GetEnvironmentMonitorArrayOutput
+	ToGetEnvironmentMonitorArrayOutputWithContext(context.Context) GetEnvironmentMonitorArrayOutput
+}
+
+type GetEnvironmentMonitorArray []GetEnvironmentMonitorInput
+
+func (GetEnvironmentMonitorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEnvironmentMonitor)(nil)).Elem()
+}
+
+func (i GetEnvironmentMonitorArray) ToGetEnvironmentMonitorArrayOutput() GetEnvironmentMonitorArrayOutput {
+	return i.ToGetEnvironmentMonitorArrayOutputWithContext(context.Background())
+}
+
+func (i GetEnvironmentMonitorArray) ToGetEnvironmentMonitorArrayOutputWithContext(ctx context.Context) GetEnvironmentMonitorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEnvironmentMonitorArrayOutput)
+}
+
+type GetEnvironmentMonitorOutput struct{ *pulumi.OutputState }
+
+func (GetEnvironmentMonitorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEnvironmentMonitor)(nil)).Elem()
+}
+
+func (o GetEnvironmentMonitorOutput) ToGetEnvironmentMonitorOutput() GetEnvironmentMonitorOutput {
+	return o
+}
+
+func (o GetEnvironmentMonitorOutput) ToGetEnvironmentMonitorOutputWithContext(ctx context.Context) GetEnvironmentMonitorOutput {
+	return o
+}
+
+// ARN of the Amazon CloudWatch alarm.
+func (o GetEnvironmentMonitorOutput) AlarmArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEnvironmentMonitor) string { return v.AlarmArn }).(pulumi.StringOutput)
+}
+
+// ARN of an IAM role for AWS AppConfig to monitor.
+func (o GetEnvironmentMonitorOutput) AlarmRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEnvironmentMonitor) string { return v.AlarmRoleArn }).(pulumi.StringOutput)
+}
+
+type GetEnvironmentMonitorArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEnvironmentMonitorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEnvironmentMonitor)(nil)).Elem()
+}
+
+func (o GetEnvironmentMonitorArrayOutput) ToGetEnvironmentMonitorArrayOutput() GetEnvironmentMonitorArrayOutput {
+	return o
+}
+
+func (o GetEnvironmentMonitorArrayOutput) ToGetEnvironmentMonitorArrayOutputWithContext(ctx context.Context) GetEnvironmentMonitorArrayOutput {
+	return o
+}
+
+func (o GetEnvironmentMonitorArrayOutput) Index(i pulumi.IntInput) GetEnvironmentMonitorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEnvironmentMonitor {
+		return vs[0].([]GetEnvironmentMonitor)[vs[1].(int)]
+	}).(GetEnvironmentMonitorOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationProfileValidatorInput)(nil)).Elem(), ConfigurationProfileValidatorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationProfileValidatorArrayInput)(nil)).Elem(), ConfigurationProfileValidatorArray{})
@@ -366,10 +578,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentMonitorArrayInput)(nil)).Elem(), EnvironmentMonitorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventIntegrationEventFilterInput)(nil)).Elem(), EventIntegrationEventFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventIntegrationEventFilterPtrInput)(nil)).Elem(), EventIntegrationEventFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationProfileValidatorInput)(nil)).Elem(), GetConfigurationProfileValidatorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationProfileValidatorArrayInput)(nil)).Elem(), GetConfigurationProfileValidatorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEnvironmentMonitorInput)(nil)).Elem(), GetEnvironmentMonitorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEnvironmentMonitorArrayInput)(nil)).Elem(), GetEnvironmentMonitorArray{})
 	pulumi.RegisterOutputType(ConfigurationProfileValidatorOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfileValidatorArrayOutput{})
 	pulumi.RegisterOutputType(EnvironmentMonitorOutput{})
 	pulumi.RegisterOutputType(EnvironmentMonitorArrayOutput{})
 	pulumi.RegisterOutputType(EventIntegrationEventFilterOutput{})
 	pulumi.RegisterOutputType(EventIntegrationEventFilterPtrOutput{})
+	pulumi.RegisterOutputType(GetConfigurationProfileValidatorOutput{})
+	pulumi.RegisterOutputType(GetConfigurationProfileValidatorArrayOutput{})
+	pulumi.RegisterOutputType(GetEnvironmentMonitorOutput{})
+	pulumi.RegisterOutputType(GetEnvironmentMonitorArrayOutput{})
 }

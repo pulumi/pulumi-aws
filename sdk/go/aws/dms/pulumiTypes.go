@@ -1722,6 +1722,10 @@ type EndpointS3Settings struct {
 	TimestampColumnName *string `pulumi:"timestampColumnName"`
 	// Whether to use `csvNoSupValue` for columns not included in the supplemental log.
 	UseCsvNoSupValue *bool `pulumi:"useCsvNoSupValue"`
+	// When set to true, uses the task start time as the timestamp column value instead of the time data is written to target.
+	// For full load, when set to true, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time.
+	// When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
+	UseTaskStartTimeForFullLoadTimestamp *bool `pulumi:"useTaskStartTimeForFullLoadTimestamp"`
 }
 
 // EndpointS3SettingsInput is an input type that accepts EndpointS3SettingsArgs and EndpointS3SettingsOutput values.
@@ -1808,6 +1812,10 @@ type EndpointS3SettingsArgs struct {
 	TimestampColumnName pulumi.StringPtrInput `pulumi:"timestampColumnName"`
 	// Whether to use `csvNoSupValue` for columns not included in the supplemental log.
 	UseCsvNoSupValue pulumi.BoolPtrInput `pulumi:"useCsvNoSupValue"`
+	// When set to true, uses the task start time as the timestamp column value instead of the time data is written to target.
+	// For full load, when set to true, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time.
+	// When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
+	UseTaskStartTimeForFullLoadTimestamp pulumi.BoolPtrInput `pulumi:"useTaskStartTimeForFullLoadTimestamp"`
 }
 
 func (EndpointS3SettingsArgs) ElementType() reflect.Type {
@@ -2065,6 +2073,13 @@ func (o EndpointS3SettingsOutput) TimestampColumnName() pulumi.StringPtrOutput {
 // Whether to use `csvNoSupValue` for columns not included in the supplemental log.
 func (o EndpointS3SettingsOutput) UseCsvNoSupValue() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointS3Settings) *bool { return v.UseCsvNoSupValue }).(pulumi.BoolPtrOutput)
+}
+
+// When set to true, uses the task start time as the timestamp column value instead of the time data is written to target.
+// For full load, when set to true, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time.
+// When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
+func (o EndpointS3SettingsOutput) UseTaskStartTimeForFullLoadTimestamp() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointS3Settings) *bool { return v.UseTaskStartTimeForFullLoadTimestamp }).(pulumi.BoolPtrOutput)
 }
 
 type EndpointS3SettingsPtrOutput struct{ *pulumi.OutputState }
@@ -2448,6 +2463,18 @@ func (o EndpointS3SettingsPtrOutput) UseCsvNoSupValue() pulumi.BoolPtrOutput {
 			return nil
 		}
 		return v.UseCsvNoSupValue
+	}).(pulumi.BoolPtrOutput)
+}
+
+// When set to true, uses the task start time as the timestamp column value instead of the time data is written to target.
+// For full load, when set to true, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time.
+// When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
+func (o EndpointS3SettingsPtrOutput) UseTaskStartTimeForFullLoadTimestamp() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointS3Settings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseTaskStartTimeForFullLoadTimestamp
 	}).(pulumi.BoolPtrOutput)
 }
 

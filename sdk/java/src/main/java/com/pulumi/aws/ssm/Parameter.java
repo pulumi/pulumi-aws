@@ -18,8 +18,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides an SSM Parameter resource.
- * 
  * ## Example Usage
  * ### Basic example
  * ```java

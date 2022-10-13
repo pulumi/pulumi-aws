@@ -113,7 +113,7 @@ namespace Pulumi.Aws.Iam
         public Output<string> KeyFingerprint { get; private set; } = null!;
 
         /// <summary>
-        /// Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:some_person_that_exists`, for use in the `encrypted_secret` output attribute.
+        /// Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:some_person_that_exists`, for use in the `encrypted_secret` output attribute. If providing a base-64 encoded PGP public key, make sure to provide the "raw" version and not the "armored" one (e.g. avoid passing the `-a` option to `gpg --export`).
         /// </summary>
         [Output("pgpKey")]
         public Output<string?> PgpKey { get; private set; } = null!;
@@ -189,7 +189,7 @@ namespace Pulumi.Aws.Iam
     public sealed class AccessKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:some_person_that_exists`, for use in the `encrypted_secret` output attribute.
+        /// Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:some_person_that_exists`, for use in the `encrypted_secret` output attribute. If providing a base-64 encoded PGP public key, make sure to provide the "raw" version and not the "armored" one (e.g. avoid passing the `-a` option to `gpg --export`).
         /// </summary>
         [Input("pgpKey")]
         public Input<string>? PgpKey { get; set; }
@@ -233,7 +233,7 @@ namespace Pulumi.Aws.Iam
         public Input<string>? KeyFingerprint { get; set; }
 
         /// <summary>
-        /// Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:some_person_that_exists`, for use in the `encrypted_secret` output attribute.
+        /// Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:some_person_that_exists`, for use in the `encrypted_secret` output attribute. If providing a base-64 encoded PGP public key, make sure to provide the "raw" version and not the "armored" one (e.g. avoid passing the `-a` option to `gpg --export`).
         /// </summary>
         [Input("pgpKey")]
         public Input<string>? PgpKey { get; set; }

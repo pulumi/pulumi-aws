@@ -61,7 +61,7 @@ import (
 //				Code:    pulumi.NewFileArchive("example.zip"),
 //				Role:    pulumi.Any(aws_iam_role.Example.Arn),
 //				Handler: pulumi.String("index.handler"),
-//				Runtime: pulumi.String("nodejs12.x"),
+//				Runtime: pulumi.String("nodejs16.x"),
 //			})
 //			if err != nil {
 //				return err

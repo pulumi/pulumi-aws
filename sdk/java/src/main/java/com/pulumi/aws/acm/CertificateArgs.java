@@ -82,6 +82,29 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Amount of time to start automatic renewal process before expiration.
+     * Has no effect if less than 60 days.
+     * Represented by either
+     * a subset of [RFC 3339 duration](https://www.rfc-editor.org/rfc/rfc3339) supporting years, months, and days (e.g., `P90D`),
+     * or a string such as `2160h`.
+     * 
+     */
+    @Import(name="earlyRenewalDuration")
+    private @Nullable Output<String> earlyRenewalDuration;
+
+    /**
+     * @return Amount of time to start automatic renewal process before expiration.
+     * Has no effect if less than 60 days.
+     * Represented by either
+     * a subset of [RFC 3339 duration](https://www.rfc-editor.org/rfc/rfc3339) supporting years, months, and days (e.g., `P90D`),
+     * or a string such as `2160h`.
+     * 
+     */
+    public Optional<Output<String>> earlyRenewalDuration() {
+        return Optional.ofNullable(this.earlyRenewalDuration);
+    }
+
+    /**
      * Configuration block used to set certificate options. Detailed below.
      * 
      */
@@ -112,14 +135,16 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+     * Set of domains that should be SANs in the issued certificate.
+     * To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
      * 
      */
     @Import(name="subjectAlternativeNames")
     private @Nullable Output<List<String>> subjectAlternativeNames;
 
     /**
-     * @return Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+     * @return Set of domains that should be SANs in the issued certificate.
+     * To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
      * 
      */
     public Optional<Output<List<String>>> subjectAlternativeNames() {
@@ -172,6 +197,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         this.certificateBody = $.certificateBody;
         this.certificateChain = $.certificateChain;
         this.domainName = $.domainName;
+        this.earlyRenewalDuration = $.earlyRenewalDuration;
         this.options = $.options;
         this.privateKey = $.privateKey;
         this.subjectAlternativeNames = $.subjectAlternativeNames;
@@ -285,6 +311,35 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param earlyRenewalDuration Amount of time to start automatic renewal process before expiration.
+         * Has no effect if less than 60 days.
+         * Represented by either
+         * a subset of [RFC 3339 duration](https://www.rfc-editor.org/rfc/rfc3339) supporting years, months, and days (e.g., `P90D`),
+         * or a string such as `2160h`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder earlyRenewalDuration(@Nullable Output<String> earlyRenewalDuration) {
+            $.earlyRenewalDuration = earlyRenewalDuration;
+            return this;
+        }
+
+        /**
+         * @param earlyRenewalDuration Amount of time to start automatic renewal process before expiration.
+         * Has no effect if less than 60 days.
+         * Represented by either
+         * a subset of [RFC 3339 duration](https://www.rfc-editor.org/rfc/rfc3339) supporting years, months, and days (e.g., `P90D`),
+         * or a string such as `2160h`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder earlyRenewalDuration(String earlyRenewalDuration) {
+            return earlyRenewalDuration(Output.of(earlyRenewalDuration));
+        }
+
+        /**
          * @param options Configuration block used to set certificate options. Detailed below.
          * 
          * @return builder
@@ -327,7 +382,8 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subjectAlternativeNames Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+         * @param subjectAlternativeNames Set of domains that should be SANs in the issued certificate.
+         * To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
          * 
          * @return builder
          * 
@@ -338,7 +394,8 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subjectAlternativeNames Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+         * @param subjectAlternativeNames Set of domains that should be SANs in the issued certificate.
+         * To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
          * 
          * @return builder
          * 
@@ -348,7 +405,8 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subjectAlternativeNames Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+         * @param subjectAlternativeNames Set of domains that should be SANs in the issued certificate.
+         * To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
          * 
          * @return builder
          * 

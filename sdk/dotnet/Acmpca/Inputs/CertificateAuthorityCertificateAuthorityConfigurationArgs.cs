@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Acmpca.Inputs
     public sealed class CertificateAuthorityCertificateAuthorityConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Type of the public key algorithm and size, in bits, of the key pair that your key pair creates when it issues a certificate. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
+        /// Type of the public key algorithm and size, in bits, of the key pair that your key pair creates when it issues a certificate. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
         /// </summary>
         [Input("keyAlgorithm", required: true)]
         public Input<string> KeyAlgorithm { get; set; } = null!;
 
         /// <summary>
-        /// Name of the algorithm your private CA uses to sign certificate requests. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
+        /// Name of the algorithm your private CA uses to sign certificate requests. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
         /// </summary>
         [Input("signingAlgorithm", required: true)]
         public Input<string> SigningAlgorithm { get; set; } = null!;

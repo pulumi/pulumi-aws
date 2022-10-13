@@ -8,6 +8,7 @@ import com.pulumi.aws.appautoscaling.inputs.PolicyTargetTrackingScalingPolicyCon
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -16,6 +17,21 @@ import javax.annotation.Nullable;
 public final class PolicyState extends com.pulumi.resources.ResourceArgs {
 
     public static final PolicyState Empty = new PolicyState();
+
+    /**
+     * List of CloudWatch alarm ARNs associated with the scaling policy.
+     * 
+     */
+    @Import(name="alarmArns")
+    private @Nullable Output<List<String>> alarmArns;
+
+    /**
+     * @return List of CloudWatch alarm ARNs associated with the scaling policy.
+     * 
+     */
+    public Optional<Output<List<String>>> alarmArns() {
+        return Optional.ofNullable(this.alarmArns);
+    }
 
     /**
      * ARN assigned by AWS to the scaling policy.
@@ -140,6 +156,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
     private PolicyState() {}
 
     private PolicyState(PolicyState $) {
+        this.alarmArns = $.alarmArns;
         this.arn = $.arn;
         this.name = $.name;
         this.policyType = $.policyType;
@@ -166,6 +183,37 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
 
         public Builder(PolicyState defaults) {
             $ = new PolicyState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param alarmArns List of CloudWatch alarm ARNs associated with the scaling policy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder alarmArns(@Nullable Output<List<String>> alarmArns) {
+            $.alarmArns = alarmArns;
+            return this;
+        }
+
+        /**
+         * @param alarmArns List of CloudWatch alarm ARNs associated with the scaling policy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder alarmArns(List<String> alarmArns) {
+            return alarmArns(Output.of(alarmArns));
+        }
+
+        /**
+         * @param alarmArns List of CloudWatch alarm ARNs associated with the scaling policy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder alarmArns(String... alarmArns) {
+            return alarmArns(List.of(alarmArns));
         }
 
         /**

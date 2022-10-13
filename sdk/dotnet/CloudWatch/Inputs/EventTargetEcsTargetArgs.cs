@@ -12,6 +12,18 @@ namespace Pulumi.Aws.CloudWatch.Inputs
 
     public sealed class EventTargetEcsTargetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("capacityProviderStrategies")]
+        private InputList<Inputs.EventTargetEcsTargetCapacityProviderStrategyArgs>? _capacityProviderStrategies;
+
+        /// <summary>
+        /// The capacity provider strategy to use for the task. If a `capacity_provider_strategy` specified, the `launch_type` parameter must be omitted. If no `capacity_provider_strategy` or `launch_type` is specified, the default capacity provider strategy for the cluster is used. Can be one or more. See below.
+        /// </summary>
+        public InputList<Inputs.EventTargetEcsTargetCapacityProviderStrategyArgs> CapacityProviderStrategies
+        {
+            get => _capacityProviderStrategies ?? (_capacityProviderStrategies = new InputList<Inputs.EventTargetEcsTargetCapacityProviderStrategyArgs>());
+            set => _capacityProviderStrategies = value;
+        }
+
         /// <summary>
         /// Specifies whether to enable Amazon ECS managed tags for the task.
         /// </summary>

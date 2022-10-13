@@ -58,6 +58,8 @@ type Key struct {
 	// For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS Key Management Service Developer Guide_.
 	// The default value is `false`.
 	BypassPolicyLockoutSafetyCheck pulumi.BoolPtrOutput `pulumi:"bypassPolicyLockoutSafetyCheck"`
+	// ID of the KMS [Custom Key Store](https://docs.aws.amazon.com/kms/latest/developerguide/create-cmk-keystore.html) where the key will be stored instead of KMS (eg CloudHSM).
+	CustomKeyStoreId pulumi.StringPtrOutput `pulumi:"customKeyStoreId"`
 	// Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
 	// Valid values: `SYMMETRIC_DEFAULT`,  `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_256`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, or `ECC_SECG_P256K1`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
 	CustomerMasterKeySpec pulumi.StringPtrOutput `pulumi:"customerMasterKeySpec"`
@@ -73,7 +75,7 @@ type Key struct {
 	IsEnabled pulumi.BoolPtrOutput `pulumi:"isEnabled"`
 	// The globally unique identifier for the key.
 	KeyId pulumi.StringOutput `pulumi:"keyId"`
-	// Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT` or `SIGN_VERIFY`.
+	// Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`.
 	// Defaults to `ENCRYPT_DECRYPT`.
 	KeyUsage pulumi.StringPtrOutput `pulumi:"keyUsage"`
 	// Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
@@ -122,6 +124,8 @@ type keyState struct {
 	// For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS Key Management Service Developer Guide_.
 	// The default value is `false`.
 	BypassPolicyLockoutSafetyCheck *bool `pulumi:"bypassPolicyLockoutSafetyCheck"`
+	// ID of the KMS [Custom Key Store](https://docs.aws.amazon.com/kms/latest/developerguide/create-cmk-keystore.html) where the key will be stored instead of KMS (eg CloudHSM).
+	CustomKeyStoreId *string `pulumi:"customKeyStoreId"`
 	// Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
 	// Valid values: `SYMMETRIC_DEFAULT`,  `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_256`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, or `ECC_SECG_P256K1`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
 	CustomerMasterKeySpec *string `pulumi:"customerMasterKeySpec"`
@@ -137,7 +141,7 @@ type keyState struct {
 	IsEnabled *bool `pulumi:"isEnabled"`
 	// The globally unique identifier for the key.
 	KeyId *string `pulumi:"keyId"`
-	// Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT` or `SIGN_VERIFY`.
+	// Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`.
 	// Defaults to `ENCRYPT_DECRYPT`.
 	KeyUsage *string `pulumi:"keyUsage"`
 	// Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
@@ -158,6 +162,8 @@ type KeyState struct {
 	// For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS Key Management Service Developer Guide_.
 	// The default value is `false`.
 	BypassPolicyLockoutSafetyCheck pulumi.BoolPtrInput
+	// ID of the KMS [Custom Key Store](https://docs.aws.amazon.com/kms/latest/developerguide/create-cmk-keystore.html) where the key will be stored instead of KMS (eg CloudHSM).
+	CustomKeyStoreId pulumi.StringPtrInput
 	// Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
 	// Valid values: `SYMMETRIC_DEFAULT`,  `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_256`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, or `ECC_SECG_P256K1`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
 	CustomerMasterKeySpec pulumi.StringPtrInput
@@ -173,7 +179,7 @@ type KeyState struct {
 	IsEnabled pulumi.BoolPtrInput
 	// The globally unique identifier for the key.
 	KeyId pulumi.StringPtrInput
-	// Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT` or `SIGN_VERIFY`.
+	// Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`.
 	// Defaults to `ENCRYPT_DECRYPT`.
 	KeyUsage pulumi.StringPtrInput
 	// Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
@@ -196,6 +202,8 @@ type keyArgs struct {
 	// For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS Key Management Service Developer Guide_.
 	// The default value is `false`.
 	BypassPolicyLockoutSafetyCheck *bool `pulumi:"bypassPolicyLockoutSafetyCheck"`
+	// ID of the KMS [Custom Key Store](https://docs.aws.amazon.com/kms/latest/developerguide/create-cmk-keystore.html) where the key will be stored instead of KMS (eg CloudHSM).
+	CustomKeyStoreId *string `pulumi:"customKeyStoreId"`
 	// Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
 	// Valid values: `SYMMETRIC_DEFAULT`,  `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_256`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, or `ECC_SECG_P256K1`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
 	CustomerMasterKeySpec *string `pulumi:"customerMasterKeySpec"`
@@ -209,7 +217,7 @@ type keyArgs struct {
 	EnableKeyRotation *bool `pulumi:"enableKeyRotation"`
 	// Specifies whether the key is enabled. Defaults to `true`.
 	IsEnabled *bool `pulumi:"isEnabled"`
-	// Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT` or `SIGN_VERIFY`.
+	// Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`.
 	// Defaults to `ENCRYPT_DECRYPT`.
 	KeyUsage *string `pulumi:"keyUsage"`
 	// Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
@@ -227,6 +235,8 @@ type KeyArgs struct {
 	// For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS Key Management Service Developer Guide_.
 	// The default value is `false`.
 	BypassPolicyLockoutSafetyCheck pulumi.BoolPtrInput
+	// ID of the KMS [Custom Key Store](https://docs.aws.amazon.com/kms/latest/developerguide/create-cmk-keystore.html) where the key will be stored instead of KMS (eg CloudHSM).
+	CustomKeyStoreId pulumi.StringPtrInput
 	// Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
 	// Valid values: `SYMMETRIC_DEFAULT`,  `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_256`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, or `ECC_SECG_P256K1`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
 	CustomerMasterKeySpec pulumi.StringPtrInput
@@ -240,7 +250,7 @@ type KeyArgs struct {
 	EnableKeyRotation pulumi.BoolPtrInput
 	// Specifies whether the key is enabled. Defaults to `true`.
 	IsEnabled pulumi.BoolPtrInput
-	// Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT` or `SIGN_VERIFY`.
+	// Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`.
 	// Defaults to `ENCRYPT_DECRYPT`.
 	KeyUsage pulumi.StringPtrInput
 	// Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
@@ -351,6 +361,11 @@ func (o KeyOutput) BypassPolicyLockoutSafetyCheck() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Key) pulumi.BoolPtrOutput { return v.BypassPolicyLockoutSafetyCheck }).(pulumi.BoolPtrOutput)
 }
 
+// ID of the KMS [Custom Key Store](https://docs.aws.amazon.com/kms/latest/developerguide/create-cmk-keystore.html) where the key will be stored instead of KMS (eg CloudHSM).
+func (o KeyOutput) CustomKeyStoreId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Key) pulumi.StringPtrOutput { return v.CustomKeyStoreId }).(pulumi.StringPtrOutput)
+}
+
 // Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
 // Valid values: `SYMMETRIC_DEFAULT`,  `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_256`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, or `ECC_SECG_P256K1`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
 func (o KeyOutput) CustomerMasterKeySpec() pulumi.StringPtrOutput {
@@ -384,7 +399,7 @@ func (o KeyOutput) KeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Key) pulumi.StringOutput { return v.KeyId }).(pulumi.StringOutput)
 }
 
-// Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT` or `SIGN_VERIFY`.
+// Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`.
 // Defaults to `ENCRYPT_DECRYPT`.
 func (o KeyOutput) KeyUsage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Key) pulumi.StringPtrOutput { return v.KeyUsage }).(pulumi.StringPtrOutput)

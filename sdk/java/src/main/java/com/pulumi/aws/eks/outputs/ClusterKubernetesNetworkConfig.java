@@ -17,10 +17,11 @@ public final class ClusterKubernetesNetworkConfig {
      */
     private @Nullable String ipFamily;
     /**
-     * @return The CIDR block to assign Kubernetes service IP addresses from. If you don&#39;t specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. You can only specify a custom CIDR block when you create a cluster, changing this value will force a new cluster to be created. The block must meet the following requirements:
+     * @return The CIDR block to assign Kubernetes pod and service IP addresses from. If you don&#39;t specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. You can only specify a custom CIDR block when you create a cluster, changing this value will force a new cluster to be created. The block must meet the following requirements:
      * 
      */
     private @Nullable String serviceIpv4Cidr;
+    private @Nullable String serviceIpv6Cidr;
 
     private ClusterKubernetesNetworkConfig() {}
     /**
@@ -31,11 +32,14 @@ public final class ClusterKubernetesNetworkConfig {
         return Optional.ofNullable(this.ipFamily);
     }
     /**
-     * @return The CIDR block to assign Kubernetes service IP addresses from. If you don&#39;t specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. You can only specify a custom CIDR block when you create a cluster, changing this value will force a new cluster to be created. The block must meet the following requirements:
+     * @return The CIDR block to assign Kubernetes pod and service IP addresses from. If you don&#39;t specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. You can only specify a custom CIDR block when you create a cluster, changing this value will force a new cluster to be created. The block must meet the following requirements:
      * 
      */
     public Optional<String> serviceIpv4Cidr() {
         return Optional.ofNullable(this.serviceIpv4Cidr);
+    }
+    public Optional<String> serviceIpv6Cidr() {
+        return Optional.ofNullable(this.serviceIpv6Cidr);
     }
 
     public static Builder builder() {
@@ -49,11 +53,13 @@ public final class ClusterKubernetesNetworkConfig {
     public static final class Builder {
         private @Nullable String ipFamily;
         private @Nullable String serviceIpv4Cidr;
+        private @Nullable String serviceIpv6Cidr;
         public Builder() {}
         public Builder(ClusterKubernetesNetworkConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.ipFamily = defaults.ipFamily;
     	      this.serviceIpv4Cidr = defaults.serviceIpv4Cidr;
+    	      this.serviceIpv6Cidr = defaults.serviceIpv6Cidr;
         }
 
         @CustomType.Setter
@@ -66,10 +72,16 @@ public final class ClusterKubernetesNetworkConfig {
             this.serviceIpv4Cidr = serviceIpv4Cidr;
             return this;
         }
+        @CustomType.Setter
+        public Builder serviceIpv6Cidr(@Nullable String serviceIpv6Cidr) {
+            this.serviceIpv6Cidr = serviceIpv6Cidr;
+            return this;
+        }
         public ClusterKubernetesNetworkConfig build() {
             final var o = new ClusterKubernetesNetworkConfig();
             o.ipFamily = ipFamily;
             o.serviceIpv4Cidr = serviceIpv4Cidr;
+            o.serviceIpv6Cidr = serviceIpv6Cidr;
             return o;
         }
     }

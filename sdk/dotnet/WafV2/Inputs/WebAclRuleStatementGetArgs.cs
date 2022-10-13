@@ -67,6 +67,12 @@ namespace Pulumi.Aws.WafV2.Inputs
         public Input<Inputs.WebAclRuleStatementRateBasedStatementGetArgs>? RateBasedStatement { get; set; }
 
         /// <summary>
+        /// Rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+        /// </summary>
+        [Input("regexMatchStatement")]
+        public Input<Inputs.WebAclRuleStatementRegexMatchStatementGetArgs>? RegexMatchStatement { get; set; }
+
+        /// <summary>
         /// Rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
         /// </summary>
         [Input("regexPatternSetReferenceStatement")]

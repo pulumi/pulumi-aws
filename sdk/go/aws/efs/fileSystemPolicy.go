@@ -36,7 +36,8 @@ import (
 //			_, err = efs.NewFileSystemPolicy(ctx, "policy", &efs.FileSystemPolicyArgs{
 //				FileSystemId:                   fs.ID(),
 //				BypassPolicyLockoutSafetyCheck: pulumi.Bool(true),
-//				Policy: pulumi.String(fmt.Sprintf(`{
+//				Policy: fs.Arn.ApplyT(func(arn string) (string, error) {
+//					return fmt.Sprintf(`{
 //	    "Version": "2012-10-17",
 //	    "Id": "ExamplePolicy01",
 //	    "Statement": [
@@ -60,8 +61,9 @@ import (
 //	    ]
 //	}
 //
-// `, aws_efs_file_system.Test.Arn)),
+// `, arn), nil
 //
+//				}).(pulumi.StringOutput),
 //			})
 //			if err != nil {
 //				return err

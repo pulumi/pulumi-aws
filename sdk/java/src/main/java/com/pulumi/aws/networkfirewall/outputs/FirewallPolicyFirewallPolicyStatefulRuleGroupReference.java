@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.networkfirewall.outputs;
 
+import com.pulumi.aws.networkfirewall.outputs.FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
@@ -12,6 +13,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FirewallPolicyFirewallPolicyStatefulRuleGroupReference {
+    /**
+     * @return Configuration block for override values
+     * 
+     */
+    private @Nullable FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride override;
     /**
      * @return An integer setting that indicates the order in which to apply the stateful rule groups in a single policy. This argument must be specified if the policy has a `stateful_engine_options` block with a `rule_order` value of `STRICT_ORDER`. AWS Network Firewall applies each stateful rule group to a packet starting with the group that has the lowest priority setting.
      * 
@@ -24,6 +30,13 @@ public final class FirewallPolicyFirewallPolicyStatefulRuleGroupReference {
     private String resourceArn;
 
     private FirewallPolicyFirewallPolicyStatefulRuleGroupReference() {}
+    /**
+     * @return Configuration block for override values
+     * 
+     */
+    public Optional<FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride> override() {
+        return Optional.ofNullable(this.override);
+    }
     /**
      * @return An integer setting that indicates the order in which to apply the stateful rule groups in a single policy. This argument must be specified if the policy has a `stateful_engine_options` block with a `rule_order` value of `STRICT_ORDER`. AWS Network Firewall applies each stateful rule group to a packet starting with the group that has the lowest priority setting.
      * 
@@ -48,15 +61,22 @@ public final class FirewallPolicyFirewallPolicyStatefulRuleGroupReference {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride override;
         private @Nullable Integer priority;
         private String resourceArn;
         public Builder() {}
         public Builder(FirewallPolicyFirewallPolicyStatefulRuleGroupReference defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.override = defaults.override;
     	      this.priority = defaults.priority;
     	      this.resourceArn = defaults.resourceArn;
         }
 
+        @CustomType.Setter
+        public Builder override(@Nullable FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride override) {
+            this.override = override;
+            return this;
+        }
         @CustomType.Setter
         public Builder priority(@Nullable Integer priority) {
             this.priority = priority;
@@ -69,6 +89,7 @@ public final class FirewallPolicyFirewallPolicyStatefulRuleGroupReference {
         }
         public FirewallPolicyFirewallPolicyStatefulRuleGroupReference build() {
             final var o = new FirewallPolicyFirewallPolicyStatefulRuleGroupReference();
+            o.override = override;
             o.priority = priority;
             o.resourceArn = resourceArn;
             return o;

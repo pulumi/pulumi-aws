@@ -337,6 +337,7 @@ type Endpoints struct {
 	Connectcontactlens                  *string `pulumi:"connectcontactlens"`
 	Connectparticipant                  *string `pulumi:"connectparticipant"`
 	Connectwisdomservice                *string `pulumi:"connectwisdomservice"`
+	Controltower                        *string `pulumi:"controltower"`
 	Costandusagereportservice           *string `pulumi:"costandusagereportservice"`
 	Costexplorer                        *string `pulumi:"costexplorer"`
 	Cur                                 *string `pulumi:"cur"`
@@ -416,6 +417,7 @@ type Endpoints struct {
 	Imagebuilder                        *string `pulumi:"imagebuilder"`
 	Inspector                           *string `pulumi:"inspector"`
 	Inspector2                          *string `pulumi:"inspector2"`
+	Inspectorv2                         *string `pulumi:"inspectorv2"`
 	Iot                                 *string `pulumi:"iot"`
 	Iot1clickdevices                    *string `pulumi:"iot1clickdevices"`
 	Iot1clickdevicesservice             *string `pulumi:"iot1clickdevicesservice"`
@@ -719,6 +721,7 @@ type EndpointsArgs struct {
 	Connectcontactlens                  pulumi.StringPtrInput `pulumi:"connectcontactlens"`
 	Connectparticipant                  pulumi.StringPtrInput `pulumi:"connectparticipant"`
 	Connectwisdomservice                pulumi.StringPtrInput `pulumi:"connectwisdomservice"`
+	Controltower                        pulumi.StringPtrInput `pulumi:"controltower"`
 	Costandusagereportservice           pulumi.StringPtrInput `pulumi:"costandusagereportservice"`
 	Costexplorer                        pulumi.StringPtrInput `pulumi:"costexplorer"`
 	Cur                                 pulumi.StringPtrInput `pulumi:"cur"`
@@ -798,6 +801,7 @@ type EndpointsArgs struct {
 	Imagebuilder                        pulumi.StringPtrInput `pulumi:"imagebuilder"`
 	Inspector                           pulumi.StringPtrInput `pulumi:"inspector"`
 	Inspector2                          pulumi.StringPtrInput `pulumi:"inspector2"`
+	Inspectorv2                         pulumi.StringPtrInput `pulumi:"inspectorv2"`
 	Iot                                 pulumi.StringPtrInput `pulumi:"iot"`
 	Iot1clickdevices                    pulumi.StringPtrInput `pulumi:"iot1clickdevices"`
 	Iot1clickdevicesservice             pulumi.StringPtrInput `pulumi:"iot1clickdevicesservice"`
@@ -1398,6 +1402,10 @@ func (o EndpointsOutput) Connectwisdomservice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Connectwisdomservice }).(pulumi.StringPtrOutput)
 }
 
+func (o EndpointsOutput) Controltower() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Controltower }).(pulumi.StringPtrOutput)
+}
+
 func (o EndpointsOutput) Costandusagereportservice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Costandusagereportservice }).(pulumi.StringPtrOutput)
 }
@@ -1712,6 +1720,10 @@ func (o EndpointsOutput) Inspector() pulumi.StringPtrOutput {
 
 func (o EndpointsOutput) Inspector2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Inspector2 }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointsOutput) Inspectorv2() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Inspectorv2 }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointsOutput) Iot() pulumi.StringPtrOutput {

@@ -42,6 +42,14 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly Outputs.RuleGroupRuleStatementOrStatement? OrStatement;
         /// <summary>
+        /// A rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any `5-minute` time span. This statement can not be nested. See Rate Based Statement below for details.
+        /// </summary>
+        public readonly Outputs.RuleGroupRuleStatementRateBasedStatement? RateBasedStatement;
+        /// <summary>
+        /// A rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+        /// </summary>
+        public readonly Outputs.RuleGroupRuleStatementRegexMatchStatement? RegexMatchStatement;
+        /// <summary>
         /// A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
         /// </summary>
         public readonly Outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatement? RegexPatternSetReferenceStatement;
@@ -74,6 +82,10 @@ namespace Pulumi.Aws.WafV2.Outputs
 
             Outputs.RuleGroupRuleStatementOrStatement? orStatement,
 
+            Outputs.RuleGroupRuleStatementRateBasedStatement? rateBasedStatement,
+
+            Outputs.RuleGroupRuleStatementRegexMatchStatement? regexMatchStatement,
+
             Outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatement? regexPatternSetReferenceStatement,
 
             Outputs.RuleGroupRuleStatementSizeConstraintStatement? sizeConstraintStatement,
@@ -89,6 +101,8 @@ namespace Pulumi.Aws.WafV2.Outputs
             LabelMatchStatement = labelMatchStatement;
             NotStatement = notStatement;
             OrStatement = orStatement;
+            RateBasedStatement = rateBasedStatement;
+            RegexMatchStatement = regexMatchStatement;
             RegexPatternSetReferenceStatement = regexPatternSetReferenceStatement;
             SizeConstraintStatement = sizeConstraintStatement;
             SqliMatchStatement = sqliMatchStatement;

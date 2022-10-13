@@ -159,9 +159,19 @@ public class Environment extends com.pulumi.resources.CustomResource {
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
+     * or `ROLLED_BACK`.
+     * 
+     */
     @Export(name="state", type=String.class, parameters={})
     private Output<String> state;
 
+    /**
+     * @return State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
+     * or `ROLLED_BACK`.
+     * 
+     */
     public Output<String> state() {
         return this.state;
     }

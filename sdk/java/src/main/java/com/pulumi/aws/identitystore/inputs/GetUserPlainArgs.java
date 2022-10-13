@@ -3,10 +3,10 @@
 
 package com.pulumi.aws.identitystore.inputs;
 
+import com.pulumi.aws.identitystore.inputs.GetUserAlternateIdentifier;
 import com.pulumi.aws.identitystore.inputs.GetUserFilter;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -17,18 +17,41 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetUserPlainArgs Empty = new GetUserPlainArgs();
 
     /**
-     * Configuration block(s) for filtering. Currently, the AWS Identity Store API supports only 1 filter. Detailed below.
+     * A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id` and `filter`. Detailed below.
      * 
      */
-    @Import(name="filters", required=true)
-    private List<GetUserFilter> filters;
+    @Import(name="alternateIdentifier")
+    private @Nullable GetUserAlternateIdentifier alternateIdentifier;
 
     /**
-     * @return Configuration block(s) for filtering. Currently, the AWS Identity Store API supports only 1 filter. Detailed below.
+     * @return A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id` and `filter`. Detailed below.
      * 
      */
-    public List<GetUserFilter> filters() {
-        return this.filters;
+    public Optional<GetUserAlternateIdentifier> alternateIdentifier() {
+        return Optional.ofNullable(this.alternateIdentifier);
+    }
+
+    /**
+     * Configuration block for filtering by a unique attribute of the user. Detailed below.
+     * 
+     * @deprecated
+     * Use the alternate_identifier attribute instead.
+     * 
+     */
+    @Deprecated /* Use the alternate_identifier attribute instead. */
+    @Import(name="filter")
+    private @Nullable GetUserFilter filter;
+
+    /**
+     * @return Configuration block for filtering by a unique attribute of the user. Detailed below.
+     * 
+     * @deprecated
+     * Use the alternate_identifier attribute instead.
+     * 
+     */
+    @Deprecated /* Use the alternate_identifier attribute instead. */
+    public Optional<GetUserFilter> filter() {
+        return Optional.ofNullable(this.filter);
     }
 
     /**
@@ -64,7 +87,8 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
     private GetUserPlainArgs() {}
 
     private GetUserPlainArgs(GetUserPlainArgs $) {
-        this.filters = $.filters;
+        this.alternateIdentifier = $.alternateIdentifier;
+        this.filter = $.filter;
         this.identityStoreId = $.identityStoreId;
         this.userId = $.userId;
     }
@@ -88,24 +112,29 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param filters Configuration block(s) for filtering. Currently, the AWS Identity Store API supports only 1 filter. Detailed below.
+         * @param alternateIdentifier A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id` and `filter`. Detailed below.
          * 
          * @return builder
          * 
          */
-        public Builder filters(List<GetUserFilter> filters) {
-            $.filters = filters;
+        public Builder alternateIdentifier(@Nullable GetUserAlternateIdentifier alternateIdentifier) {
+            $.alternateIdentifier = alternateIdentifier;
             return this;
         }
 
         /**
-         * @param filters Configuration block(s) for filtering. Currently, the AWS Identity Store API supports only 1 filter. Detailed below.
+         * @param filter Configuration block for filtering by a unique attribute of the user. Detailed below.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use the alternate_identifier attribute instead.
+         * 
          */
-        public Builder filters(GetUserFilter... filters) {
-            return filters(List.of(filters));
+        @Deprecated /* Use the alternate_identifier attribute instead. */
+        public Builder filter(@Nullable GetUserFilter filter) {
+            $.filter = filter;
+            return this;
         }
 
         /**
@@ -131,7 +160,6 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetUserPlainArgs build() {
-            $.filters = Objects.requireNonNull($.filters, "expected parameter 'filters' to be non-null");
             $.identityStoreId = Objects.requireNonNull($.identityStoreId, "expected parameter 'identityStoreId' to be non-null");
             return $;
         }

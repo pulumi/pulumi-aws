@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  *             .code(new FileArchive(&#34;lambdatest.zip&#34;))
  *             .role(iamForLambda.arn())
  *             .handler(&#34;exports.handler&#34;)
- *             .runtime(&#34;nodejs12.x&#34;)
+ *             .runtime(&#34;nodejs16.x&#34;)
  *             .build());
  * 
  *         var testAlias = new Alias(&#34;testAlias&#34;, AliasArgs.builder()        

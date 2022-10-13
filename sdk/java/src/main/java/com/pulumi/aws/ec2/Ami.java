@@ -58,6 +58,7 @@ import javax.annotation.Nullable;
  *                 .snapshotId(&#34;snap-xxxxxxxx&#34;)
  *                 .volumeSize(8)
  *                 .build())
+ *             .imdsSupport(&#34;v2.0&#34;)
  *             .rootDeviceName(&#34;/dev/xvda&#34;)
  *             .virtualizationType(&#34;hvm&#34;)
  *             .build());
@@ -250,6 +251,20 @@ public class Ami extends com.pulumi.resources.CustomResource {
      */
     public Output<String> imageType() {
         return this.imageType;
+    }
+    /**
+     * If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
+     * 
+     */
+    @Export(name="imdsSupport", type=String.class, parameters={})
+    private Output</* @Nullable */ String> imdsSupport;
+
+    /**
+     * @return If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
+     * 
+     */
+    public Output<Optional<String>> imdsSupport() {
+        return Codegen.optional(this.imdsSupport);
     }
     /**
      * ID of the kernel image (AKI) that will be used as the paravirtual

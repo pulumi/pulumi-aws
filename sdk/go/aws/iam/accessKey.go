@@ -121,7 +121,7 @@ type AccessKey struct {
 	EncryptedSesSmtpPasswordV4 pulumi.StringOutput `pulumi:"encryptedSesSmtpPasswordV4"`
 	// Fingerprint of the PGP key used to encrypt the secret. This attribute is not available for imported resources.
 	KeyFingerprint pulumi.StringOutput `pulumi:"keyFingerprint"`
-	// Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:some_person_that_exists`, for use in the `encryptedSecret` output attribute.
+	// Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:some_person_that_exists`, for use in the `encryptedSecret` output attribute. If providing a base-64 encoded PGP public key, make sure to provide the "raw" version and not the "armored" one (e.g. avoid passing the `-a` option to `gpg --export`).
 	PgpKey pulumi.StringPtrOutput `pulumi:"pgpKey"`
 	// Secret access key. This attribute is not available for imported resources. Note that this will be written to the state file. If you use this, please protect your backend state file judiciously. Alternatively, you may supply a `pgpKey` instead, which will prevent the secret from being stored in plaintext, at the cost of preventing the use of the secret key in automation.
 	Secret pulumi.StringOutput `pulumi:"secret"`
@@ -171,7 +171,7 @@ type accessKeyState struct {
 	EncryptedSesSmtpPasswordV4 *string `pulumi:"encryptedSesSmtpPasswordV4"`
 	// Fingerprint of the PGP key used to encrypt the secret. This attribute is not available for imported resources.
 	KeyFingerprint *string `pulumi:"keyFingerprint"`
-	// Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:some_person_that_exists`, for use in the `encryptedSecret` output attribute.
+	// Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:some_person_that_exists`, for use in the `encryptedSecret` output attribute. If providing a base-64 encoded PGP public key, make sure to provide the "raw" version and not the "armored" one (e.g. avoid passing the `-a` option to `gpg --export`).
 	PgpKey *string `pulumi:"pgpKey"`
 	// Secret access key. This attribute is not available for imported resources. Note that this will be written to the state file. If you use this, please protect your backend state file judiciously. Alternatively, you may supply a `pgpKey` instead, which will prevent the secret from being stored in plaintext, at the cost of preventing the use of the secret key in automation.
 	Secret *string `pulumi:"secret"`
@@ -190,7 +190,7 @@ type AccessKeyState struct {
 	EncryptedSesSmtpPasswordV4 pulumi.StringPtrInput
 	// Fingerprint of the PGP key used to encrypt the secret. This attribute is not available for imported resources.
 	KeyFingerprint pulumi.StringPtrInput
-	// Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:some_person_that_exists`, for use in the `encryptedSecret` output attribute.
+	// Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:some_person_that_exists`, for use in the `encryptedSecret` output attribute. If providing a base-64 encoded PGP public key, make sure to provide the "raw" version and not the "armored" one (e.g. avoid passing the `-a` option to `gpg --export`).
 	PgpKey pulumi.StringPtrInput
 	// Secret access key. This attribute is not available for imported resources. Note that this will be written to the state file. If you use this, please protect your backend state file judiciously. Alternatively, you may supply a `pgpKey` instead, which will prevent the secret from being stored in plaintext, at the cost of preventing the use of the secret key in automation.
 	Secret pulumi.StringPtrInput
@@ -207,7 +207,7 @@ func (AccessKeyState) ElementType() reflect.Type {
 }
 
 type accessKeyArgs struct {
-	// Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:some_person_that_exists`, for use in the `encryptedSecret` output attribute.
+	// Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:some_person_that_exists`, for use in the `encryptedSecret` output attribute. If providing a base-64 encoded PGP public key, make sure to provide the "raw" version and not the "armored" one (e.g. avoid passing the `-a` option to `gpg --export`).
 	PgpKey *string `pulumi:"pgpKey"`
 	// Access key status to apply. Defaults to `Active`. Valid values are `Active` and `Inactive`.
 	Status *string `pulumi:"status"`
@@ -217,7 +217,7 @@ type accessKeyArgs struct {
 
 // The set of arguments for constructing a AccessKey resource.
 type AccessKeyArgs struct {
-	// Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:some_person_that_exists`, for use in the `encryptedSecret` output attribute.
+	// Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:some_person_that_exists`, for use in the `encryptedSecret` output attribute. If providing a base-64 encoded PGP public key, make sure to provide the "raw" version and not the "armored" one (e.g. avoid passing the `-a` option to `gpg --export`).
 	PgpKey pulumi.StringPtrInput
 	// Access key status to apply. Defaults to `Active`. Valid values are `Active` and `Inactive`.
 	Status pulumi.StringPtrInput
@@ -330,7 +330,7 @@ func (o AccessKeyOutput) KeyFingerprint() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessKey) pulumi.StringOutput { return v.KeyFingerprint }).(pulumi.StringOutput)
 }
 
-// Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:some_person_that_exists`, for use in the `encryptedSecret` output attribute.
+// Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:some_person_that_exists`, for use in the `encryptedSecret` output attribute. If providing a base-64 encoded PGP public key, make sure to provide the "raw" version and not the "armored" one (e.g. avoid passing the `-a` option to `gpg --export`).
 func (o AccessKeyOutput) PgpKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccessKey) pulumi.StringPtrOutput { return v.PgpKey }).(pulumi.StringPtrOutput)
 }

@@ -900,6 +900,8 @@ class EndpointS3Settings(dict):
             suggest = "timestamp_column_name"
         elif key == "useCsvNoSupValue":
             suggest = "use_csv_no_sup_value"
+        elif key == "useTaskStartTimeForFullLoadTimestamp":
+            suggest = "use_task_start_time_for_full_load_timestamp"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in EndpointS3Settings. Access the value via the '{suggest}' property getter instead.")
@@ -948,7 +950,8 @@ class EndpointS3Settings(dict):
                  server_side_encryption_kms_key_id: Optional[str] = None,
                  service_access_role_arn: Optional[str] = None,
                  timestamp_column_name: Optional[str] = None,
-                 use_csv_no_sup_value: Optional[bool] = None):
+                 use_csv_no_sup_value: Optional[bool] = None,
+                 use_task_start_time_for_full_load_timestamp: Optional[bool] = None):
         """
         :param bool add_column_name: Whether to add column name information to the .csv output file. Default is `false`.
         :param str bucket_folder: S3 object prefix.
@@ -986,6 +989,9 @@ class EndpointS3Settings(dict):
         :param str service_access_role_arn: ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
         :param str timestamp_column_name: Column to add with timestamp information to the endpoint data for an Amazon S3 target.
         :param bool use_csv_no_sup_value: Whether to use `csv_no_sup_value` for columns not included in the supplemental log.
+        :param bool use_task_start_time_for_full_load_timestamp: When set to true, uses the task start time as the timestamp column value instead of the time data is written to target.
+               For full load, when set to true, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time.
+               When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
         """
         if add_column_name is not None:
             pulumi.set(__self__, "add_column_name", add_column_name)
@@ -1059,6 +1065,8 @@ class EndpointS3Settings(dict):
             pulumi.set(__self__, "timestamp_column_name", timestamp_column_name)
         if use_csv_no_sup_value is not None:
             pulumi.set(__self__, "use_csv_no_sup_value", use_csv_no_sup_value)
+        if use_task_start_time_for_full_load_timestamp is not None:
+            pulumi.set(__self__, "use_task_start_time_for_full_load_timestamp", use_task_start_time_for_full_load_timestamp)
 
     @property
     @pulumi.getter(name="addColumnName")
@@ -1347,5 +1355,15 @@ class EndpointS3Settings(dict):
         Whether to use `csv_no_sup_value` for columns not included in the supplemental log.
         """
         return pulumi.get(self, "use_csv_no_sup_value")
+
+    @property
+    @pulumi.getter(name="useTaskStartTimeForFullLoadTimestamp")
+    def use_task_start_time_for_full_load_timestamp(self) -> Optional[bool]:
+        """
+        When set to true, uses the task start time as the timestamp column value instead of the time data is written to target.
+        For full load, when set to true, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time.
+        When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
+        """
+        return pulumi.get(self, "use_task_start_time_for_full_load_timestamp")
 
 

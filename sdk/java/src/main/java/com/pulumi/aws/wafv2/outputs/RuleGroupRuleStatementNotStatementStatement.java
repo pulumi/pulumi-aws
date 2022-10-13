@@ -10,6 +10,7 @@ import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementNotStatementStatementI
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementNotStatementStatementLabelMatchStatement;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementNotStatementStatementNotStatement;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementNotStatementStatementOrStatement;
+import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementNotStatementStatementRegexMatchStatement;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementNotStatementStatementRegexPatternSetReferenceStatement;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementNotStatementStatementSizeConstraintStatement;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementNotStatementStatementSqliMatchStatement;
@@ -56,6 +57,11 @@ public final class RuleGroupRuleStatementNotStatementStatement {
      * 
      */
     private @Nullable RuleGroupRuleStatementNotStatementStatementOrStatement orStatement;
+    /**
+     * @return A rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+     * 
+     */
+    private @Nullable RuleGroupRuleStatementNotStatementStatementRegexMatchStatement regexMatchStatement;
     /**
      * @return A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
      * 
@@ -128,6 +134,13 @@ public final class RuleGroupRuleStatementNotStatementStatement {
         return Optional.ofNullable(this.orStatement);
     }
     /**
+     * @return A rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+     * 
+     */
+    public Optional<RuleGroupRuleStatementNotStatementStatementRegexMatchStatement> regexMatchStatement() {
+        return Optional.ofNullable(this.regexMatchStatement);
+    }
+    /**
      * @return A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
      * 
      */
@@ -172,6 +185,7 @@ public final class RuleGroupRuleStatementNotStatementStatement {
         private @Nullable RuleGroupRuleStatementNotStatementStatementLabelMatchStatement labelMatchStatement;
         private @Nullable RuleGroupRuleStatementNotStatementStatementNotStatement notStatement;
         private @Nullable RuleGroupRuleStatementNotStatementStatementOrStatement orStatement;
+        private @Nullable RuleGroupRuleStatementNotStatementStatementRegexMatchStatement regexMatchStatement;
         private @Nullable RuleGroupRuleStatementNotStatementStatementRegexPatternSetReferenceStatement regexPatternSetReferenceStatement;
         private @Nullable RuleGroupRuleStatementNotStatementStatementSizeConstraintStatement sizeConstraintStatement;
         private @Nullable RuleGroupRuleStatementNotStatementStatementSqliMatchStatement sqliMatchStatement;
@@ -186,6 +200,7 @@ public final class RuleGroupRuleStatementNotStatementStatement {
     	      this.labelMatchStatement = defaults.labelMatchStatement;
     	      this.notStatement = defaults.notStatement;
     	      this.orStatement = defaults.orStatement;
+    	      this.regexMatchStatement = defaults.regexMatchStatement;
     	      this.regexPatternSetReferenceStatement = defaults.regexPatternSetReferenceStatement;
     	      this.sizeConstraintStatement = defaults.sizeConstraintStatement;
     	      this.sqliMatchStatement = defaults.sqliMatchStatement;
@@ -228,6 +243,11 @@ public final class RuleGroupRuleStatementNotStatementStatement {
             return this;
         }
         @CustomType.Setter
+        public Builder regexMatchStatement(@Nullable RuleGroupRuleStatementNotStatementStatementRegexMatchStatement regexMatchStatement) {
+            this.regexMatchStatement = regexMatchStatement;
+            return this;
+        }
+        @CustomType.Setter
         public Builder regexPatternSetReferenceStatement(@Nullable RuleGroupRuleStatementNotStatementStatementRegexPatternSetReferenceStatement regexPatternSetReferenceStatement) {
             this.regexPatternSetReferenceStatement = regexPatternSetReferenceStatement;
             return this;
@@ -256,6 +276,7 @@ public final class RuleGroupRuleStatementNotStatementStatement {
             o.labelMatchStatement = labelMatchStatement;
             o.notStatement = notStatement;
             o.orStatement = orStatement;
+            o.regexMatchStatement = regexMatchStatement;
             o.regexPatternSetReferenceStatement = regexPatternSetReferenceStatement;
             o.sizeConstraintStatement = sizeConstraintStatement;
             o.sqliMatchStatement = sqliMatchStatement;

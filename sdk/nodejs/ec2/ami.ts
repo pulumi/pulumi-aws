@@ -32,6 +32,7 @@ import * as utilities from "../utilities";
  *         snapshotId: "snap-xxxxxxxx",
  *         volumeSize: 8,
  *     }],
+ *     imdsSupport: "v2.0", // Enforce usage of IMDSv2. You can safely remove this line if your application explicitly doesn't support it.
  *     rootDeviceName: "/dev/xvda",
  *     virtualizationType: "hvm",
  * });
@@ -125,6 +126,10 @@ export class Ami extends pulumi.CustomResource {
      */
     public /*out*/ readonly imageType!: pulumi.Output<string>;
     /**
+     * If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
+     */
+    public readonly imdsSupport!: pulumi.Output<string | undefined>;
+    /**
      * ID of the kernel image (AKI) that will be used as the paravirtual
      * kernel in created instances.
      */
@@ -216,6 +221,7 @@ export class Ami extends pulumi.CustomResource {
             resourceInputs["imageLocation"] = state ? state.imageLocation : undefined;
             resourceInputs["imageOwnerAlias"] = state ? state.imageOwnerAlias : undefined;
             resourceInputs["imageType"] = state ? state.imageType : undefined;
+            resourceInputs["imdsSupport"] = state ? state.imdsSupport : undefined;
             resourceInputs["kernelId"] = state ? state.kernelId : undefined;
             resourceInputs["manageEbsSnapshots"] = state ? state.manageEbsSnapshots : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -242,6 +248,7 @@ export class Ami extends pulumi.CustomResource {
             resourceInputs["enaSupport"] = args ? args.enaSupport : undefined;
             resourceInputs["ephemeralBlockDevices"] = args ? args.ephemeralBlockDevices : undefined;
             resourceInputs["imageLocation"] = args ? args.imageLocation : undefined;
+            resourceInputs["imdsSupport"] = args ? args.imdsSupport : undefined;
             resourceInputs["kernelId"] = args ? args.kernelId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["ramdiskId"] = args ? args.ramdiskId : undefined;
@@ -323,6 +330,10 @@ export interface AmiState {
      * Type of image.
      */
     imageType?: pulumi.Input<string>;
+    /**
+     * If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
+     */
+    imdsSupport?: pulumi.Input<string>;
     /**
      * ID of the kernel image (AKI) that will be used as the paravirtual
      * kernel in created instances.
@@ -430,6 +441,10 @@ export interface AmiArgs {
      * by the `ec2-upload-bundle` command in the EC2 command line tools.
      */
     imageLocation?: pulumi.Input<string>;
+    /**
+     * If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
+     */
+    imdsSupport?: pulumi.Input<string>;
     /**
      * ID of the kernel image (AKI) that will be used as the paravirtual
      * kernel in created instances.
