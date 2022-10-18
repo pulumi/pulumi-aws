@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get information about an Elasticache Replication Group.
+// Use this data source to get information about an ElastiCache Replication Group.
 //
 // ## Example Usage
 //

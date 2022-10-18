@@ -5516,6 +5516,145 @@ func (o UserPoolSoftwareTokenMfaConfigurationPtrOutput) Enabled() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
+type UserPoolUserAttributeUpdateSettings struct {
+	// A list of attributes requiring verification before update. If set, the provided value(s) must also be set in `autoVerifiedAttributes`. Valid values: `email`, `phoneNumber`.
+	AttributesRequireVerificationBeforeUpdates []string `pulumi:"attributesRequireVerificationBeforeUpdates"`
+}
+
+// UserPoolUserAttributeUpdateSettingsInput is an input type that accepts UserPoolUserAttributeUpdateSettingsArgs and UserPoolUserAttributeUpdateSettingsOutput values.
+// You can construct a concrete instance of `UserPoolUserAttributeUpdateSettingsInput` via:
+//
+//	UserPoolUserAttributeUpdateSettingsArgs{...}
+type UserPoolUserAttributeUpdateSettingsInput interface {
+	pulumi.Input
+
+	ToUserPoolUserAttributeUpdateSettingsOutput() UserPoolUserAttributeUpdateSettingsOutput
+	ToUserPoolUserAttributeUpdateSettingsOutputWithContext(context.Context) UserPoolUserAttributeUpdateSettingsOutput
+}
+
+type UserPoolUserAttributeUpdateSettingsArgs struct {
+	// A list of attributes requiring verification before update. If set, the provided value(s) must also be set in `autoVerifiedAttributes`. Valid values: `email`, `phoneNumber`.
+	AttributesRequireVerificationBeforeUpdates pulumi.StringArrayInput `pulumi:"attributesRequireVerificationBeforeUpdates"`
+}
+
+func (UserPoolUserAttributeUpdateSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolUserAttributeUpdateSettings)(nil)).Elem()
+}
+
+func (i UserPoolUserAttributeUpdateSettingsArgs) ToUserPoolUserAttributeUpdateSettingsOutput() UserPoolUserAttributeUpdateSettingsOutput {
+	return i.ToUserPoolUserAttributeUpdateSettingsOutputWithContext(context.Background())
+}
+
+func (i UserPoolUserAttributeUpdateSettingsArgs) ToUserPoolUserAttributeUpdateSettingsOutputWithContext(ctx context.Context) UserPoolUserAttributeUpdateSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolUserAttributeUpdateSettingsOutput)
+}
+
+func (i UserPoolUserAttributeUpdateSettingsArgs) ToUserPoolUserAttributeUpdateSettingsPtrOutput() UserPoolUserAttributeUpdateSettingsPtrOutput {
+	return i.ToUserPoolUserAttributeUpdateSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i UserPoolUserAttributeUpdateSettingsArgs) ToUserPoolUserAttributeUpdateSettingsPtrOutputWithContext(ctx context.Context) UserPoolUserAttributeUpdateSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolUserAttributeUpdateSettingsOutput).ToUserPoolUserAttributeUpdateSettingsPtrOutputWithContext(ctx)
+}
+
+// UserPoolUserAttributeUpdateSettingsPtrInput is an input type that accepts UserPoolUserAttributeUpdateSettingsArgs, UserPoolUserAttributeUpdateSettingsPtr and UserPoolUserAttributeUpdateSettingsPtrOutput values.
+// You can construct a concrete instance of `UserPoolUserAttributeUpdateSettingsPtrInput` via:
+//
+//	        UserPoolUserAttributeUpdateSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserPoolUserAttributeUpdateSettingsPtrInput interface {
+	pulumi.Input
+
+	ToUserPoolUserAttributeUpdateSettingsPtrOutput() UserPoolUserAttributeUpdateSettingsPtrOutput
+	ToUserPoolUserAttributeUpdateSettingsPtrOutputWithContext(context.Context) UserPoolUserAttributeUpdateSettingsPtrOutput
+}
+
+type userPoolUserAttributeUpdateSettingsPtrType UserPoolUserAttributeUpdateSettingsArgs
+
+func UserPoolUserAttributeUpdateSettingsPtr(v *UserPoolUserAttributeUpdateSettingsArgs) UserPoolUserAttributeUpdateSettingsPtrInput {
+	return (*userPoolUserAttributeUpdateSettingsPtrType)(v)
+}
+
+func (*userPoolUserAttributeUpdateSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolUserAttributeUpdateSettings)(nil)).Elem()
+}
+
+func (i *userPoolUserAttributeUpdateSettingsPtrType) ToUserPoolUserAttributeUpdateSettingsPtrOutput() UserPoolUserAttributeUpdateSettingsPtrOutput {
+	return i.ToUserPoolUserAttributeUpdateSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *userPoolUserAttributeUpdateSettingsPtrType) ToUserPoolUserAttributeUpdateSettingsPtrOutputWithContext(ctx context.Context) UserPoolUserAttributeUpdateSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolUserAttributeUpdateSettingsPtrOutput)
+}
+
+type UserPoolUserAttributeUpdateSettingsOutput struct{ *pulumi.OutputState }
+
+func (UserPoolUserAttributeUpdateSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolUserAttributeUpdateSettings)(nil)).Elem()
+}
+
+func (o UserPoolUserAttributeUpdateSettingsOutput) ToUserPoolUserAttributeUpdateSettingsOutput() UserPoolUserAttributeUpdateSettingsOutput {
+	return o
+}
+
+func (o UserPoolUserAttributeUpdateSettingsOutput) ToUserPoolUserAttributeUpdateSettingsOutputWithContext(ctx context.Context) UserPoolUserAttributeUpdateSettingsOutput {
+	return o
+}
+
+func (o UserPoolUserAttributeUpdateSettingsOutput) ToUserPoolUserAttributeUpdateSettingsPtrOutput() UserPoolUserAttributeUpdateSettingsPtrOutput {
+	return o.ToUserPoolUserAttributeUpdateSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o UserPoolUserAttributeUpdateSettingsOutput) ToUserPoolUserAttributeUpdateSettingsPtrOutputWithContext(ctx context.Context) UserPoolUserAttributeUpdateSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolUserAttributeUpdateSettings) *UserPoolUserAttributeUpdateSettings {
+		return &v
+	}).(UserPoolUserAttributeUpdateSettingsPtrOutput)
+}
+
+// A list of attributes requiring verification before update. If set, the provided value(s) must also be set in `autoVerifiedAttributes`. Valid values: `email`, `phoneNumber`.
+func (o UserPoolUserAttributeUpdateSettingsOutput) AttributesRequireVerificationBeforeUpdates() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v UserPoolUserAttributeUpdateSettings) []string {
+		return v.AttributesRequireVerificationBeforeUpdates
+	}).(pulumi.StringArrayOutput)
+}
+
+type UserPoolUserAttributeUpdateSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (UserPoolUserAttributeUpdateSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolUserAttributeUpdateSettings)(nil)).Elem()
+}
+
+func (o UserPoolUserAttributeUpdateSettingsPtrOutput) ToUserPoolUserAttributeUpdateSettingsPtrOutput() UserPoolUserAttributeUpdateSettingsPtrOutput {
+	return o
+}
+
+func (o UserPoolUserAttributeUpdateSettingsPtrOutput) ToUserPoolUserAttributeUpdateSettingsPtrOutputWithContext(ctx context.Context) UserPoolUserAttributeUpdateSettingsPtrOutput {
+	return o
+}
+
+func (o UserPoolUserAttributeUpdateSettingsPtrOutput) Elem() UserPoolUserAttributeUpdateSettingsOutput {
+	return o.ApplyT(func(v *UserPoolUserAttributeUpdateSettings) UserPoolUserAttributeUpdateSettings {
+		if v != nil {
+			return *v
+		}
+		var ret UserPoolUserAttributeUpdateSettings
+		return ret
+	}).(UserPoolUserAttributeUpdateSettingsOutput)
+}
+
+// A list of attributes requiring verification before update. If set, the provided value(s) must also be set in `autoVerifiedAttributes`. Valid values: `email`, `phoneNumber`.
+func (o UserPoolUserAttributeUpdateSettingsPtrOutput) AttributesRequireVerificationBeforeUpdates() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *UserPoolUserAttributeUpdateSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AttributesRequireVerificationBeforeUpdates
+	}).(pulumi.StringArrayOutput)
+}
+
 type UserPoolUserPoolAddOns struct {
 	// Mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
 	AdvancedSecurityMode string `pulumi:"advancedSecurityMode"`
@@ -6337,6 +6476,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolSmsConfigurationPtrInput)(nil)).Elem(), UserPoolSmsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolSoftwareTokenMfaConfigurationInput)(nil)).Elem(), UserPoolSoftwareTokenMfaConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolSoftwareTokenMfaConfigurationPtrInput)(nil)).Elem(), UserPoolSoftwareTokenMfaConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolUserAttributeUpdateSettingsInput)(nil)).Elem(), UserPoolUserAttributeUpdateSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolUserAttributeUpdateSettingsPtrInput)(nil)).Elem(), UserPoolUserAttributeUpdateSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolUserPoolAddOnsInput)(nil)).Elem(), UserPoolUserPoolAddOnsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolUserPoolAddOnsPtrInput)(nil)).Elem(), UserPoolUserPoolAddOnsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolUsernameConfigurationInput)(nil)).Elem(), UserPoolUsernameConfigurationArgs{})
@@ -6413,6 +6554,8 @@ func init() {
 	pulumi.RegisterOutputType(UserPoolSmsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolSoftwareTokenMfaConfigurationOutput{})
 	pulumi.RegisterOutputType(UserPoolSoftwareTokenMfaConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(UserPoolUserAttributeUpdateSettingsOutput{})
+	pulumi.RegisterOutputType(UserPoolUserAttributeUpdateSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolUserPoolAddOnsOutput{})
 	pulumi.RegisterOutputType(UserPoolUserPoolAddOnsPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolUsernameConfigurationOutput{})

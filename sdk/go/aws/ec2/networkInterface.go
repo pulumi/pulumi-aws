@@ -92,7 +92,8 @@ type NetworkInterface struct {
 	// One or more IPv4 prefixes assigned to the network interface.
 	Ipv4Prefixes pulumi.StringArrayOutput `pulumi:"ipv4Prefixes"`
 	// Number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
-	Ipv6AddressCount       pulumi.IntOutput     `pulumi:"ipv6AddressCount"`
+	Ipv6AddressCount pulumi.IntOutput `pulumi:"ipv6AddressCount"`
+	// Whether `ipv6AddressList` is allowed and controls the IPs to assign to the ENI and `ipv6Addresses` and `ipv6AddressCount` become read-only. Default false.
 	Ipv6AddressListEnabled pulumi.BoolPtrOutput `pulumi:"ipv6AddressListEnabled"`
 	// List of private IPs to assign to the ENI in sequential order.
 	Ipv6AddressLists pulumi.StringArrayOutput `pulumi:"ipv6AddressLists"`
@@ -174,7 +175,8 @@ type networkInterfaceState struct {
 	// One or more IPv4 prefixes assigned to the network interface.
 	Ipv4Prefixes []string `pulumi:"ipv4Prefixes"`
 	// Number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
-	Ipv6AddressCount       *int  `pulumi:"ipv6AddressCount"`
+	Ipv6AddressCount *int `pulumi:"ipv6AddressCount"`
+	// Whether `ipv6AddressList` is allowed and controls the IPs to assign to the ENI and `ipv6Addresses` and `ipv6AddressCount` become read-only. Default false.
 	Ipv6AddressListEnabled *bool `pulumi:"ipv6AddressListEnabled"`
 	// List of private IPs to assign to the ENI in sequential order.
 	Ipv6AddressLists []string `pulumi:"ipv6AddressLists"`
@@ -225,7 +227,8 @@ type NetworkInterfaceState struct {
 	// One or more IPv4 prefixes assigned to the network interface.
 	Ipv4Prefixes pulumi.StringArrayInput
 	// Number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
-	Ipv6AddressCount       pulumi.IntPtrInput
+	Ipv6AddressCount pulumi.IntPtrInput
+	// Whether `ipv6AddressList` is allowed and controls the IPs to assign to the ENI and `ipv6Addresses` and `ipv6AddressCount` become read-only. Default false.
 	Ipv6AddressListEnabled pulumi.BoolPtrInput
 	// List of private IPs to assign to the ENI in sequential order.
 	Ipv6AddressLists pulumi.StringArrayInput
@@ -278,7 +281,8 @@ type networkInterfaceArgs struct {
 	// One or more IPv4 prefixes assigned to the network interface.
 	Ipv4Prefixes []string `pulumi:"ipv4Prefixes"`
 	// Number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
-	Ipv6AddressCount       *int  `pulumi:"ipv6AddressCount"`
+	Ipv6AddressCount *int `pulumi:"ipv6AddressCount"`
+	// Whether `ipv6AddressList` is allowed and controls the IPs to assign to the ENI and `ipv6Addresses` and `ipv6AddressCount` become read-only. Default false.
 	Ipv6AddressListEnabled *bool `pulumi:"ipv6AddressListEnabled"`
 	// List of private IPs to assign to the ENI in sequential order.
 	Ipv6AddressLists []string `pulumi:"ipv6AddressLists"`
@@ -320,7 +324,8 @@ type NetworkInterfaceArgs struct {
 	// One or more IPv4 prefixes assigned to the network interface.
 	Ipv4Prefixes pulumi.StringArrayInput
 	// Number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
-	Ipv6AddressCount       pulumi.IntPtrInput
+	Ipv6AddressCount pulumi.IntPtrInput
+	// Whether `ipv6AddressList` is allowed and controls the IPs to assign to the ENI and `ipv6Addresses` and `ipv6AddressCount` become read-only. Default false.
 	Ipv6AddressListEnabled pulumi.BoolPtrInput
 	// List of private IPs to assign to the ENI in sequential order.
 	Ipv6AddressLists pulumi.StringArrayInput
@@ -471,6 +476,7 @@ func (o NetworkInterfaceOutput) Ipv6AddressCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *NetworkInterface) pulumi.IntOutput { return v.Ipv6AddressCount }).(pulumi.IntOutput)
 }
 
+// Whether `ipv6AddressList` is allowed and controls the IPs to assign to the ENI and `ipv6Addresses` and `ipv6AddressCount` become read-only. Default false.
 func (o NetworkInterfaceOutput) Ipv6AddressListEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *NetworkInterface) pulumi.BoolPtrOutput { return v.Ipv6AddressListEnabled }).(pulumi.BoolPtrOutput)
 }

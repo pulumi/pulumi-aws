@@ -874,6 +874,685 @@ func (o CustomLayerEbsVolumeArrayOutput) Index(i pulumi.IntInput) CustomLayerEbs
 	}).(CustomLayerEbsVolumeOutput)
 }
 
+type CustomLayerLoadBasedAutoScaling struct {
+	// The downscaling settings, as defined below, used for load-based autoscaling
+	Downscaling *CustomLayerLoadBasedAutoScalingDownscaling `pulumi:"downscaling"`
+	// Whether load-based auto scaling is enabled for the layer.
+	Enable *bool `pulumi:"enable"`
+	// The upscaling settings, as defined below, used for load-based autoscaling
+	Upscaling *CustomLayerLoadBasedAutoScalingUpscaling `pulumi:"upscaling"`
+}
+
+// CustomLayerLoadBasedAutoScalingInput is an input type that accepts CustomLayerLoadBasedAutoScalingArgs and CustomLayerLoadBasedAutoScalingOutput values.
+// You can construct a concrete instance of `CustomLayerLoadBasedAutoScalingInput` via:
+//
+//	CustomLayerLoadBasedAutoScalingArgs{...}
+type CustomLayerLoadBasedAutoScalingInput interface {
+	pulumi.Input
+
+	ToCustomLayerLoadBasedAutoScalingOutput() CustomLayerLoadBasedAutoScalingOutput
+	ToCustomLayerLoadBasedAutoScalingOutputWithContext(context.Context) CustomLayerLoadBasedAutoScalingOutput
+}
+
+type CustomLayerLoadBasedAutoScalingArgs struct {
+	// The downscaling settings, as defined below, used for load-based autoscaling
+	Downscaling CustomLayerLoadBasedAutoScalingDownscalingPtrInput `pulumi:"downscaling"`
+	// Whether load-based auto scaling is enabled for the layer.
+	Enable pulumi.BoolPtrInput `pulumi:"enable"`
+	// The upscaling settings, as defined below, used for load-based autoscaling
+	Upscaling CustomLayerLoadBasedAutoScalingUpscalingPtrInput `pulumi:"upscaling"`
+}
+
+func (CustomLayerLoadBasedAutoScalingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomLayerLoadBasedAutoScaling)(nil)).Elem()
+}
+
+func (i CustomLayerLoadBasedAutoScalingArgs) ToCustomLayerLoadBasedAutoScalingOutput() CustomLayerLoadBasedAutoScalingOutput {
+	return i.ToCustomLayerLoadBasedAutoScalingOutputWithContext(context.Background())
+}
+
+func (i CustomLayerLoadBasedAutoScalingArgs) ToCustomLayerLoadBasedAutoScalingOutputWithContext(ctx context.Context) CustomLayerLoadBasedAutoScalingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomLayerLoadBasedAutoScalingOutput)
+}
+
+func (i CustomLayerLoadBasedAutoScalingArgs) ToCustomLayerLoadBasedAutoScalingPtrOutput() CustomLayerLoadBasedAutoScalingPtrOutput {
+	return i.ToCustomLayerLoadBasedAutoScalingPtrOutputWithContext(context.Background())
+}
+
+func (i CustomLayerLoadBasedAutoScalingArgs) ToCustomLayerLoadBasedAutoScalingPtrOutputWithContext(ctx context.Context) CustomLayerLoadBasedAutoScalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomLayerLoadBasedAutoScalingOutput).ToCustomLayerLoadBasedAutoScalingPtrOutputWithContext(ctx)
+}
+
+// CustomLayerLoadBasedAutoScalingPtrInput is an input type that accepts CustomLayerLoadBasedAutoScalingArgs, CustomLayerLoadBasedAutoScalingPtr and CustomLayerLoadBasedAutoScalingPtrOutput values.
+// You can construct a concrete instance of `CustomLayerLoadBasedAutoScalingPtrInput` via:
+//
+//	        CustomLayerLoadBasedAutoScalingArgs{...}
+//
+//	or:
+//
+//	        nil
+type CustomLayerLoadBasedAutoScalingPtrInput interface {
+	pulumi.Input
+
+	ToCustomLayerLoadBasedAutoScalingPtrOutput() CustomLayerLoadBasedAutoScalingPtrOutput
+	ToCustomLayerLoadBasedAutoScalingPtrOutputWithContext(context.Context) CustomLayerLoadBasedAutoScalingPtrOutput
+}
+
+type customLayerLoadBasedAutoScalingPtrType CustomLayerLoadBasedAutoScalingArgs
+
+func CustomLayerLoadBasedAutoScalingPtr(v *CustomLayerLoadBasedAutoScalingArgs) CustomLayerLoadBasedAutoScalingPtrInput {
+	return (*customLayerLoadBasedAutoScalingPtrType)(v)
+}
+
+func (*customLayerLoadBasedAutoScalingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomLayerLoadBasedAutoScaling)(nil)).Elem()
+}
+
+func (i *customLayerLoadBasedAutoScalingPtrType) ToCustomLayerLoadBasedAutoScalingPtrOutput() CustomLayerLoadBasedAutoScalingPtrOutput {
+	return i.ToCustomLayerLoadBasedAutoScalingPtrOutputWithContext(context.Background())
+}
+
+func (i *customLayerLoadBasedAutoScalingPtrType) ToCustomLayerLoadBasedAutoScalingPtrOutputWithContext(ctx context.Context) CustomLayerLoadBasedAutoScalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomLayerLoadBasedAutoScalingPtrOutput)
+}
+
+type CustomLayerLoadBasedAutoScalingOutput struct{ *pulumi.OutputState }
+
+func (CustomLayerLoadBasedAutoScalingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomLayerLoadBasedAutoScaling)(nil)).Elem()
+}
+
+func (o CustomLayerLoadBasedAutoScalingOutput) ToCustomLayerLoadBasedAutoScalingOutput() CustomLayerLoadBasedAutoScalingOutput {
+	return o
+}
+
+func (o CustomLayerLoadBasedAutoScalingOutput) ToCustomLayerLoadBasedAutoScalingOutputWithContext(ctx context.Context) CustomLayerLoadBasedAutoScalingOutput {
+	return o
+}
+
+func (o CustomLayerLoadBasedAutoScalingOutput) ToCustomLayerLoadBasedAutoScalingPtrOutput() CustomLayerLoadBasedAutoScalingPtrOutput {
+	return o.ToCustomLayerLoadBasedAutoScalingPtrOutputWithContext(context.Background())
+}
+
+func (o CustomLayerLoadBasedAutoScalingOutput) ToCustomLayerLoadBasedAutoScalingPtrOutputWithContext(ctx context.Context) CustomLayerLoadBasedAutoScalingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomLayerLoadBasedAutoScaling) *CustomLayerLoadBasedAutoScaling {
+		return &v
+	}).(CustomLayerLoadBasedAutoScalingPtrOutput)
+}
+
+// The downscaling settings, as defined below, used for load-based autoscaling
+func (o CustomLayerLoadBasedAutoScalingOutput) Downscaling() CustomLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o.ApplyT(func(v CustomLayerLoadBasedAutoScaling) *CustomLayerLoadBasedAutoScalingDownscaling {
+		return v.Downscaling
+	}).(CustomLayerLoadBasedAutoScalingDownscalingPtrOutput)
+}
+
+// Whether load-based auto scaling is enabled for the layer.
+func (o CustomLayerLoadBasedAutoScalingOutput) Enable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CustomLayerLoadBasedAutoScaling) *bool { return v.Enable }).(pulumi.BoolPtrOutput)
+}
+
+// The upscaling settings, as defined below, used for load-based autoscaling
+func (o CustomLayerLoadBasedAutoScalingOutput) Upscaling() CustomLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o.ApplyT(func(v CustomLayerLoadBasedAutoScaling) *CustomLayerLoadBasedAutoScalingUpscaling { return v.Upscaling }).(CustomLayerLoadBasedAutoScalingUpscalingPtrOutput)
+}
+
+type CustomLayerLoadBasedAutoScalingPtrOutput struct{ *pulumi.OutputState }
+
+func (CustomLayerLoadBasedAutoScalingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomLayerLoadBasedAutoScaling)(nil)).Elem()
+}
+
+func (o CustomLayerLoadBasedAutoScalingPtrOutput) ToCustomLayerLoadBasedAutoScalingPtrOutput() CustomLayerLoadBasedAutoScalingPtrOutput {
+	return o
+}
+
+func (o CustomLayerLoadBasedAutoScalingPtrOutput) ToCustomLayerLoadBasedAutoScalingPtrOutputWithContext(ctx context.Context) CustomLayerLoadBasedAutoScalingPtrOutput {
+	return o
+}
+
+func (o CustomLayerLoadBasedAutoScalingPtrOutput) Elem() CustomLayerLoadBasedAutoScalingOutput {
+	return o.ApplyT(func(v *CustomLayerLoadBasedAutoScaling) CustomLayerLoadBasedAutoScaling {
+		if v != nil {
+			return *v
+		}
+		var ret CustomLayerLoadBasedAutoScaling
+		return ret
+	}).(CustomLayerLoadBasedAutoScalingOutput)
+}
+
+// The downscaling settings, as defined below, used for load-based autoscaling
+func (o CustomLayerLoadBasedAutoScalingPtrOutput) Downscaling() CustomLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o.ApplyT(func(v *CustomLayerLoadBasedAutoScaling) *CustomLayerLoadBasedAutoScalingDownscaling {
+		if v == nil {
+			return nil
+		}
+		return v.Downscaling
+	}).(CustomLayerLoadBasedAutoScalingDownscalingPtrOutput)
+}
+
+// Whether load-based auto scaling is enabled for the layer.
+func (o CustomLayerLoadBasedAutoScalingPtrOutput) Enable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CustomLayerLoadBasedAutoScaling) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enable
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The upscaling settings, as defined below, used for load-based autoscaling
+func (o CustomLayerLoadBasedAutoScalingPtrOutput) Upscaling() CustomLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o.ApplyT(func(v *CustomLayerLoadBasedAutoScaling) *CustomLayerLoadBasedAutoScalingUpscaling {
+		if v == nil {
+			return nil
+		}
+		return v.Upscaling
+	}).(CustomLayerLoadBasedAutoScalingUpscalingPtrOutput)
+}
+
+type CustomLayerLoadBasedAutoScalingDownscaling struct {
+	// Custom Cloudwatch auto scaling alarms, to be used as thresholds. This parameter takes a list of up to five alarm names, which are case sensitive and must be in the same region as the stack.
+	Alarms []string `pulumi:"alarms"`
+	// The CPU utilization threshold, as a percent of the available CPU. A value of -1 disables the threshold.
+	CpuThreshold *float64 `pulumi:"cpuThreshold"`
+	// The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks Stacks should ignore metrics and suppress additional scaling events.
+	IgnoreMetricsTime *int `pulumi:"ignoreMetricsTime"`
+	// The number of instances to add or remove when the load exceeds a threshold.
+	InstanceCount *int `pulumi:"instanceCount"`
+	// The load threshold. A value of -1 disables the threshold.
+	LoadThreshold *float64 `pulumi:"loadThreshold"`
+	// The memory utilization threshold, as a percent of the available memory. A value of -1 disables the threshold.
+	MemoryThreshold *float64 `pulumi:"memoryThreshold"`
+	// The amount of time, in minutes, that the load must exceed a threshold before more instances are added or removed.
+	ThresholdsWaitTime *int `pulumi:"thresholdsWaitTime"`
+}
+
+// CustomLayerLoadBasedAutoScalingDownscalingInput is an input type that accepts CustomLayerLoadBasedAutoScalingDownscalingArgs and CustomLayerLoadBasedAutoScalingDownscalingOutput values.
+// You can construct a concrete instance of `CustomLayerLoadBasedAutoScalingDownscalingInput` via:
+//
+//	CustomLayerLoadBasedAutoScalingDownscalingArgs{...}
+type CustomLayerLoadBasedAutoScalingDownscalingInput interface {
+	pulumi.Input
+
+	ToCustomLayerLoadBasedAutoScalingDownscalingOutput() CustomLayerLoadBasedAutoScalingDownscalingOutput
+	ToCustomLayerLoadBasedAutoScalingDownscalingOutputWithContext(context.Context) CustomLayerLoadBasedAutoScalingDownscalingOutput
+}
+
+type CustomLayerLoadBasedAutoScalingDownscalingArgs struct {
+	// Custom Cloudwatch auto scaling alarms, to be used as thresholds. This parameter takes a list of up to five alarm names, which are case sensitive and must be in the same region as the stack.
+	Alarms pulumi.StringArrayInput `pulumi:"alarms"`
+	// The CPU utilization threshold, as a percent of the available CPU. A value of -1 disables the threshold.
+	CpuThreshold pulumi.Float64PtrInput `pulumi:"cpuThreshold"`
+	// The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks Stacks should ignore metrics and suppress additional scaling events.
+	IgnoreMetricsTime pulumi.IntPtrInput `pulumi:"ignoreMetricsTime"`
+	// The number of instances to add or remove when the load exceeds a threshold.
+	InstanceCount pulumi.IntPtrInput `pulumi:"instanceCount"`
+	// The load threshold. A value of -1 disables the threshold.
+	LoadThreshold pulumi.Float64PtrInput `pulumi:"loadThreshold"`
+	// The memory utilization threshold, as a percent of the available memory. A value of -1 disables the threshold.
+	MemoryThreshold pulumi.Float64PtrInput `pulumi:"memoryThreshold"`
+	// The amount of time, in minutes, that the load must exceed a threshold before more instances are added or removed.
+	ThresholdsWaitTime pulumi.IntPtrInput `pulumi:"thresholdsWaitTime"`
+}
+
+func (CustomLayerLoadBasedAutoScalingDownscalingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomLayerLoadBasedAutoScalingDownscaling)(nil)).Elem()
+}
+
+func (i CustomLayerLoadBasedAutoScalingDownscalingArgs) ToCustomLayerLoadBasedAutoScalingDownscalingOutput() CustomLayerLoadBasedAutoScalingDownscalingOutput {
+	return i.ToCustomLayerLoadBasedAutoScalingDownscalingOutputWithContext(context.Background())
+}
+
+func (i CustomLayerLoadBasedAutoScalingDownscalingArgs) ToCustomLayerLoadBasedAutoScalingDownscalingOutputWithContext(ctx context.Context) CustomLayerLoadBasedAutoScalingDownscalingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomLayerLoadBasedAutoScalingDownscalingOutput)
+}
+
+func (i CustomLayerLoadBasedAutoScalingDownscalingArgs) ToCustomLayerLoadBasedAutoScalingDownscalingPtrOutput() CustomLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return i.ToCustomLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(context.Background())
+}
+
+func (i CustomLayerLoadBasedAutoScalingDownscalingArgs) ToCustomLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx context.Context) CustomLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomLayerLoadBasedAutoScalingDownscalingOutput).ToCustomLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx)
+}
+
+// CustomLayerLoadBasedAutoScalingDownscalingPtrInput is an input type that accepts CustomLayerLoadBasedAutoScalingDownscalingArgs, CustomLayerLoadBasedAutoScalingDownscalingPtr and CustomLayerLoadBasedAutoScalingDownscalingPtrOutput values.
+// You can construct a concrete instance of `CustomLayerLoadBasedAutoScalingDownscalingPtrInput` via:
+//
+//	        CustomLayerLoadBasedAutoScalingDownscalingArgs{...}
+//
+//	or:
+//
+//	        nil
+type CustomLayerLoadBasedAutoScalingDownscalingPtrInput interface {
+	pulumi.Input
+
+	ToCustomLayerLoadBasedAutoScalingDownscalingPtrOutput() CustomLayerLoadBasedAutoScalingDownscalingPtrOutput
+	ToCustomLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(context.Context) CustomLayerLoadBasedAutoScalingDownscalingPtrOutput
+}
+
+type customLayerLoadBasedAutoScalingDownscalingPtrType CustomLayerLoadBasedAutoScalingDownscalingArgs
+
+func CustomLayerLoadBasedAutoScalingDownscalingPtr(v *CustomLayerLoadBasedAutoScalingDownscalingArgs) CustomLayerLoadBasedAutoScalingDownscalingPtrInput {
+	return (*customLayerLoadBasedAutoScalingDownscalingPtrType)(v)
+}
+
+func (*customLayerLoadBasedAutoScalingDownscalingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomLayerLoadBasedAutoScalingDownscaling)(nil)).Elem()
+}
+
+func (i *customLayerLoadBasedAutoScalingDownscalingPtrType) ToCustomLayerLoadBasedAutoScalingDownscalingPtrOutput() CustomLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return i.ToCustomLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(context.Background())
+}
+
+func (i *customLayerLoadBasedAutoScalingDownscalingPtrType) ToCustomLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx context.Context) CustomLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomLayerLoadBasedAutoScalingDownscalingPtrOutput)
+}
+
+type CustomLayerLoadBasedAutoScalingDownscalingOutput struct{ *pulumi.OutputState }
+
+func (CustomLayerLoadBasedAutoScalingDownscalingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomLayerLoadBasedAutoScalingDownscaling)(nil)).Elem()
+}
+
+func (o CustomLayerLoadBasedAutoScalingDownscalingOutput) ToCustomLayerLoadBasedAutoScalingDownscalingOutput() CustomLayerLoadBasedAutoScalingDownscalingOutput {
+	return o
+}
+
+func (o CustomLayerLoadBasedAutoScalingDownscalingOutput) ToCustomLayerLoadBasedAutoScalingDownscalingOutputWithContext(ctx context.Context) CustomLayerLoadBasedAutoScalingDownscalingOutput {
+	return o
+}
+
+func (o CustomLayerLoadBasedAutoScalingDownscalingOutput) ToCustomLayerLoadBasedAutoScalingDownscalingPtrOutput() CustomLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o.ToCustomLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(context.Background())
+}
+
+func (o CustomLayerLoadBasedAutoScalingDownscalingOutput) ToCustomLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx context.Context) CustomLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomLayerLoadBasedAutoScalingDownscaling) *CustomLayerLoadBasedAutoScalingDownscaling {
+		return &v
+	}).(CustomLayerLoadBasedAutoScalingDownscalingPtrOutput)
+}
+
+// Custom Cloudwatch auto scaling alarms, to be used as thresholds. This parameter takes a list of up to five alarm names, which are case sensitive and must be in the same region as the stack.
+func (o CustomLayerLoadBasedAutoScalingDownscalingOutput) Alarms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CustomLayerLoadBasedAutoScalingDownscaling) []string { return v.Alarms }).(pulumi.StringArrayOutput)
+}
+
+// The CPU utilization threshold, as a percent of the available CPU. A value of -1 disables the threshold.
+func (o CustomLayerLoadBasedAutoScalingDownscalingOutput) CpuThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v CustomLayerLoadBasedAutoScalingDownscaling) *float64 { return v.CpuThreshold }).(pulumi.Float64PtrOutput)
+}
+
+// The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks Stacks should ignore metrics and suppress additional scaling events.
+func (o CustomLayerLoadBasedAutoScalingDownscalingOutput) IgnoreMetricsTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CustomLayerLoadBasedAutoScalingDownscaling) *int { return v.IgnoreMetricsTime }).(pulumi.IntPtrOutput)
+}
+
+// The number of instances to add or remove when the load exceeds a threshold.
+func (o CustomLayerLoadBasedAutoScalingDownscalingOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CustomLayerLoadBasedAutoScalingDownscaling) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
+}
+
+// The load threshold. A value of -1 disables the threshold.
+func (o CustomLayerLoadBasedAutoScalingDownscalingOutput) LoadThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v CustomLayerLoadBasedAutoScalingDownscaling) *float64 { return v.LoadThreshold }).(pulumi.Float64PtrOutput)
+}
+
+// The memory utilization threshold, as a percent of the available memory. A value of -1 disables the threshold.
+func (o CustomLayerLoadBasedAutoScalingDownscalingOutput) MemoryThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v CustomLayerLoadBasedAutoScalingDownscaling) *float64 { return v.MemoryThreshold }).(pulumi.Float64PtrOutput)
+}
+
+// The amount of time, in minutes, that the load must exceed a threshold before more instances are added or removed.
+func (o CustomLayerLoadBasedAutoScalingDownscalingOutput) ThresholdsWaitTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CustomLayerLoadBasedAutoScalingDownscaling) *int { return v.ThresholdsWaitTime }).(pulumi.IntPtrOutput)
+}
+
+type CustomLayerLoadBasedAutoScalingDownscalingPtrOutput struct{ *pulumi.OutputState }
+
+func (CustomLayerLoadBasedAutoScalingDownscalingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomLayerLoadBasedAutoScalingDownscaling)(nil)).Elem()
+}
+
+func (o CustomLayerLoadBasedAutoScalingDownscalingPtrOutput) ToCustomLayerLoadBasedAutoScalingDownscalingPtrOutput() CustomLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o
+}
+
+func (o CustomLayerLoadBasedAutoScalingDownscalingPtrOutput) ToCustomLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx context.Context) CustomLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o
+}
+
+func (o CustomLayerLoadBasedAutoScalingDownscalingPtrOutput) Elem() CustomLayerLoadBasedAutoScalingDownscalingOutput {
+	return o.ApplyT(func(v *CustomLayerLoadBasedAutoScalingDownscaling) CustomLayerLoadBasedAutoScalingDownscaling {
+		if v != nil {
+			return *v
+		}
+		var ret CustomLayerLoadBasedAutoScalingDownscaling
+		return ret
+	}).(CustomLayerLoadBasedAutoScalingDownscalingOutput)
+}
+
+// Custom Cloudwatch auto scaling alarms, to be used as thresholds. This parameter takes a list of up to five alarm names, which are case sensitive and must be in the same region as the stack.
+func (o CustomLayerLoadBasedAutoScalingDownscalingPtrOutput) Alarms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CustomLayerLoadBasedAutoScalingDownscaling) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Alarms
+	}).(pulumi.StringArrayOutput)
+}
+
+// The CPU utilization threshold, as a percent of the available CPU. A value of -1 disables the threshold.
+func (o CustomLayerLoadBasedAutoScalingDownscalingPtrOutput) CpuThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CustomLayerLoadBasedAutoScalingDownscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.CpuThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks Stacks should ignore metrics and suppress additional scaling events.
+func (o CustomLayerLoadBasedAutoScalingDownscalingPtrOutput) IgnoreMetricsTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CustomLayerLoadBasedAutoScalingDownscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IgnoreMetricsTime
+	}).(pulumi.IntPtrOutput)
+}
+
+// The number of instances to add or remove when the load exceeds a threshold.
+func (o CustomLayerLoadBasedAutoScalingDownscalingPtrOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CustomLayerLoadBasedAutoScalingDownscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// The load threshold. A value of -1 disables the threshold.
+func (o CustomLayerLoadBasedAutoScalingDownscalingPtrOutput) LoadThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CustomLayerLoadBasedAutoScalingDownscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.LoadThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The memory utilization threshold, as a percent of the available memory. A value of -1 disables the threshold.
+func (o CustomLayerLoadBasedAutoScalingDownscalingPtrOutput) MemoryThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CustomLayerLoadBasedAutoScalingDownscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MemoryThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The amount of time, in minutes, that the load must exceed a threshold before more instances are added or removed.
+func (o CustomLayerLoadBasedAutoScalingDownscalingPtrOutput) ThresholdsWaitTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CustomLayerLoadBasedAutoScalingDownscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ThresholdsWaitTime
+	}).(pulumi.IntPtrOutput)
+}
+
+type CustomLayerLoadBasedAutoScalingUpscaling struct {
+	// Custom Cloudwatch auto scaling alarms, to be used as thresholds. This parameter takes a list of up to five alarm names, which are case sensitive and must be in the same region as the stack.
+	Alarms []string `pulumi:"alarms"`
+	// The CPU utilization threshold, as a percent of the available CPU. A value of -1 disables the threshold.
+	CpuThreshold *float64 `pulumi:"cpuThreshold"`
+	// The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks Stacks should ignore metrics and suppress additional scaling events.
+	IgnoreMetricsTime *int `pulumi:"ignoreMetricsTime"`
+	// The number of instances to add or remove when the load exceeds a threshold.
+	InstanceCount *int `pulumi:"instanceCount"`
+	// The load threshold. A value of -1 disables the threshold.
+	LoadThreshold *float64 `pulumi:"loadThreshold"`
+	// The memory utilization threshold, as a percent of the available memory. A value of -1 disables the threshold.
+	MemoryThreshold *float64 `pulumi:"memoryThreshold"`
+	// The amount of time, in minutes, that the load must exceed a threshold before more instances are added or removed.
+	ThresholdsWaitTime *int `pulumi:"thresholdsWaitTime"`
+}
+
+// CustomLayerLoadBasedAutoScalingUpscalingInput is an input type that accepts CustomLayerLoadBasedAutoScalingUpscalingArgs and CustomLayerLoadBasedAutoScalingUpscalingOutput values.
+// You can construct a concrete instance of `CustomLayerLoadBasedAutoScalingUpscalingInput` via:
+//
+//	CustomLayerLoadBasedAutoScalingUpscalingArgs{...}
+type CustomLayerLoadBasedAutoScalingUpscalingInput interface {
+	pulumi.Input
+
+	ToCustomLayerLoadBasedAutoScalingUpscalingOutput() CustomLayerLoadBasedAutoScalingUpscalingOutput
+	ToCustomLayerLoadBasedAutoScalingUpscalingOutputWithContext(context.Context) CustomLayerLoadBasedAutoScalingUpscalingOutput
+}
+
+type CustomLayerLoadBasedAutoScalingUpscalingArgs struct {
+	// Custom Cloudwatch auto scaling alarms, to be used as thresholds. This parameter takes a list of up to five alarm names, which are case sensitive and must be in the same region as the stack.
+	Alarms pulumi.StringArrayInput `pulumi:"alarms"`
+	// The CPU utilization threshold, as a percent of the available CPU. A value of -1 disables the threshold.
+	CpuThreshold pulumi.Float64PtrInput `pulumi:"cpuThreshold"`
+	// The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks Stacks should ignore metrics and suppress additional scaling events.
+	IgnoreMetricsTime pulumi.IntPtrInput `pulumi:"ignoreMetricsTime"`
+	// The number of instances to add or remove when the load exceeds a threshold.
+	InstanceCount pulumi.IntPtrInput `pulumi:"instanceCount"`
+	// The load threshold. A value of -1 disables the threshold.
+	LoadThreshold pulumi.Float64PtrInput `pulumi:"loadThreshold"`
+	// The memory utilization threshold, as a percent of the available memory. A value of -1 disables the threshold.
+	MemoryThreshold pulumi.Float64PtrInput `pulumi:"memoryThreshold"`
+	// The amount of time, in minutes, that the load must exceed a threshold before more instances are added or removed.
+	ThresholdsWaitTime pulumi.IntPtrInput `pulumi:"thresholdsWaitTime"`
+}
+
+func (CustomLayerLoadBasedAutoScalingUpscalingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomLayerLoadBasedAutoScalingUpscaling)(nil)).Elem()
+}
+
+func (i CustomLayerLoadBasedAutoScalingUpscalingArgs) ToCustomLayerLoadBasedAutoScalingUpscalingOutput() CustomLayerLoadBasedAutoScalingUpscalingOutput {
+	return i.ToCustomLayerLoadBasedAutoScalingUpscalingOutputWithContext(context.Background())
+}
+
+func (i CustomLayerLoadBasedAutoScalingUpscalingArgs) ToCustomLayerLoadBasedAutoScalingUpscalingOutputWithContext(ctx context.Context) CustomLayerLoadBasedAutoScalingUpscalingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomLayerLoadBasedAutoScalingUpscalingOutput)
+}
+
+func (i CustomLayerLoadBasedAutoScalingUpscalingArgs) ToCustomLayerLoadBasedAutoScalingUpscalingPtrOutput() CustomLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return i.ToCustomLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(context.Background())
+}
+
+func (i CustomLayerLoadBasedAutoScalingUpscalingArgs) ToCustomLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx context.Context) CustomLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomLayerLoadBasedAutoScalingUpscalingOutput).ToCustomLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx)
+}
+
+// CustomLayerLoadBasedAutoScalingUpscalingPtrInput is an input type that accepts CustomLayerLoadBasedAutoScalingUpscalingArgs, CustomLayerLoadBasedAutoScalingUpscalingPtr and CustomLayerLoadBasedAutoScalingUpscalingPtrOutput values.
+// You can construct a concrete instance of `CustomLayerLoadBasedAutoScalingUpscalingPtrInput` via:
+//
+//	        CustomLayerLoadBasedAutoScalingUpscalingArgs{...}
+//
+//	or:
+//
+//	        nil
+type CustomLayerLoadBasedAutoScalingUpscalingPtrInput interface {
+	pulumi.Input
+
+	ToCustomLayerLoadBasedAutoScalingUpscalingPtrOutput() CustomLayerLoadBasedAutoScalingUpscalingPtrOutput
+	ToCustomLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(context.Context) CustomLayerLoadBasedAutoScalingUpscalingPtrOutput
+}
+
+type customLayerLoadBasedAutoScalingUpscalingPtrType CustomLayerLoadBasedAutoScalingUpscalingArgs
+
+func CustomLayerLoadBasedAutoScalingUpscalingPtr(v *CustomLayerLoadBasedAutoScalingUpscalingArgs) CustomLayerLoadBasedAutoScalingUpscalingPtrInput {
+	return (*customLayerLoadBasedAutoScalingUpscalingPtrType)(v)
+}
+
+func (*customLayerLoadBasedAutoScalingUpscalingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomLayerLoadBasedAutoScalingUpscaling)(nil)).Elem()
+}
+
+func (i *customLayerLoadBasedAutoScalingUpscalingPtrType) ToCustomLayerLoadBasedAutoScalingUpscalingPtrOutput() CustomLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return i.ToCustomLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(context.Background())
+}
+
+func (i *customLayerLoadBasedAutoScalingUpscalingPtrType) ToCustomLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx context.Context) CustomLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomLayerLoadBasedAutoScalingUpscalingPtrOutput)
+}
+
+type CustomLayerLoadBasedAutoScalingUpscalingOutput struct{ *pulumi.OutputState }
+
+func (CustomLayerLoadBasedAutoScalingUpscalingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomLayerLoadBasedAutoScalingUpscaling)(nil)).Elem()
+}
+
+func (o CustomLayerLoadBasedAutoScalingUpscalingOutput) ToCustomLayerLoadBasedAutoScalingUpscalingOutput() CustomLayerLoadBasedAutoScalingUpscalingOutput {
+	return o
+}
+
+func (o CustomLayerLoadBasedAutoScalingUpscalingOutput) ToCustomLayerLoadBasedAutoScalingUpscalingOutputWithContext(ctx context.Context) CustomLayerLoadBasedAutoScalingUpscalingOutput {
+	return o
+}
+
+func (o CustomLayerLoadBasedAutoScalingUpscalingOutput) ToCustomLayerLoadBasedAutoScalingUpscalingPtrOutput() CustomLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o.ToCustomLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(context.Background())
+}
+
+func (o CustomLayerLoadBasedAutoScalingUpscalingOutput) ToCustomLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx context.Context) CustomLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomLayerLoadBasedAutoScalingUpscaling) *CustomLayerLoadBasedAutoScalingUpscaling {
+		return &v
+	}).(CustomLayerLoadBasedAutoScalingUpscalingPtrOutput)
+}
+
+// Custom Cloudwatch auto scaling alarms, to be used as thresholds. This parameter takes a list of up to five alarm names, which are case sensitive and must be in the same region as the stack.
+func (o CustomLayerLoadBasedAutoScalingUpscalingOutput) Alarms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CustomLayerLoadBasedAutoScalingUpscaling) []string { return v.Alarms }).(pulumi.StringArrayOutput)
+}
+
+// The CPU utilization threshold, as a percent of the available CPU. A value of -1 disables the threshold.
+func (o CustomLayerLoadBasedAutoScalingUpscalingOutput) CpuThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v CustomLayerLoadBasedAutoScalingUpscaling) *float64 { return v.CpuThreshold }).(pulumi.Float64PtrOutput)
+}
+
+// The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks Stacks should ignore metrics and suppress additional scaling events.
+func (o CustomLayerLoadBasedAutoScalingUpscalingOutput) IgnoreMetricsTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CustomLayerLoadBasedAutoScalingUpscaling) *int { return v.IgnoreMetricsTime }).(pulumi.IntPtrOutput)
+}
+
+// The number of instances to add or remove when the load exceeds a threshold.
+func (o CustomLayerLoadBasedAutoScalingUpscalingOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CustomLayerLoadBasedAutoScalingUpscaling) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
+}
+
+// The load threshold. A value of -1 disables the threshold.
+func (o CustomLayerLoadBasedAutoScalingUpscalingOutput) LoadThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v CustomLayerLoadBasedAutoScalingUpscaling) *float64 { return v.LoadThreshold }).(pulumi.Float64PtrOutput)
+}
+
+// The memory utilization threshold, as a percent of the available memory. A value of -1 disables the threshold.
+func (o CustomLayerLoadBasedAutoScalingUpscalingOutput) MemoryThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v CustomLayerLoadBasedAutoScalingUpscaling) *float64 { return v.MemoryThreshold }).(pulumi.Float64PtrOutput)
+}
+
+// The amount of time, in minutes, that the load must exceed a threshold before more instances are added or removed.
+func (o CustomLayerLoadBasedAutoScalingUpscalingOutput) ThresholdsWaitTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CustomLayerLoadBasedAutoScalingUpscaling) *int { return v.ThresholdsWaitTime }).(pulumi.IntPtrOutput)
+}
+
+type CustomLayerLoadBasedAutoScalingUpscalingPtrOutput struct{ *pulumi.OutputState }
+
+func (CustomLayerLoadBasedAutoScalingUpscalingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomLayerLoadBasedAutoScalingUpscaling)(nil)).Elem()
+}
+
+func (o CustomLayerLoadBasedAutoScalingUpscalingPtrOutput) ToCustomLayerLoadBasedAutoScalingUpscalingPtrOutput() CustomLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o
+}
+
+func (o CustomLayerLoadBasedAutoScalingUpscalingPtrOutput) ToCustomLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx context.Context) CustomLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o
+}
+
+func (o CustomLayerLoadBasedAutoScalingUpscalingPtrOutput) Elem() CustomLayerLoadBasedAutoScalingUpscalingOutput {
+	return o.ApplyT(func(v *CustomLayerLoadBasedAutoScalingUpscaling) CustomLayerLoadBasedAutoScalingUpscaling {
+		if v != nil {
+			return *v
+		}
+		var ret CustomLayerLoadBasedAutoScalingUpscaling
+		return ret
+	}).(CustomLayerLoadBasedAutoScalingUpscalingOutput)
+}
+
+// Custom Cloudwatch auto scaling alarms, to be used as thresholds. This parameter takes a list of up to five alarm names, which are case sensitive and must be in the same region as the stack.
+func (o CustomLayerLoadBasedAutoScalingUpscalingPtrOutput) Alarms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CustomLayerLoadBasedAutoScalingUpscaling) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Alarms
+	}).(pulumi.StringArrayOutput)
+}
+
+// The CPU utilization threshold, as a percent of the available CPU. A value of -1 disables the threshold.
+func (o CustomLayerLoadBasedAutoScalingUpscalingPtrOutput) CpuThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CustomLayerLoadBasedAutoScalingUpscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.CpuThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks Stacks should ignore metrics and suppress additional scaling events.
+func (o CustomLayerLoadBasedAutoScalingUpscalingPtrOutput) IgnoreMetricsTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CustomLayerLoadBasedAutoScalingUpscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IgnoreMetricsTime
+	}).(pulumi.IntPtrOutput)
+}
+
+// The number of instances to add or remove when the load exceeds a threshold.
+func (o CustomLayerLoadBasedAutoScalingUpscalingPtrOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CustomLayerLoadBasedAutoScalingUpscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// The load threshold. A value of -1 disables the threshold.
+func (o CustomLayerLoadBasedAutoScalingUpscalingPtrOutput) LoadThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CustomLayerLoadBasedAutoScalingUpscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.LoadThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The memory utilization threshold, as a percent of the available memory. A value of -1 disables the threshold.
+func (o CustomLayerLoadBasedAutoScalingUpscalingPtrOutput) MemoryThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CustomLayerLoadBasedAutoScalingUpscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MemoryThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The amount of time, in minutes, that the load must exceed a threshold before more instances are added or removed.
+func (o CustomLayerLoadBasedAutoScalingUpscalingPtrOutput) ThresholdsWaitTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CustomLayerLoadBasedAutoScalingUpscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ThresholdsWaitTime
+	}).(pulumi.IntPtrOutput)
+}
+
 type EcsClusterLayerCloudwatchConfiguration struct {
 	Enabled    *bool                                             `pulumi:"enabled"`
 	LogStreams []EcsClusterLayerCloudwatchConfigurationLogStream `pulumi:"logStreams"`
@@ -1324,6 +2003,619 @@ func (o EcsClusterLayerEbsVolumeArrayOutput) Index(i pulumi.IntInput) EcsCluster
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EcsClusterLayerEbsVolume {
 		return vs[0].([]EcsClusterLayerEbsVolume)[vs[1].(int)]
 	}).(EcsClusterLayerEbsVolumeOutput)
+}
+
+type EcsClusterLayerLoadBasedAutoScaling struct {
+	Downscaling *EcsClusterLayerLoadBasedAutoScalingDownscaling `pulumi:"downscaling"`
+	Enable      *bool                                           `pulumi:"enable"`
+	Upscaling   *EcsClusterLayerLoadBasedAutoScalingUpscaling   `pulumi:"upscaling"`
+}
+
+// EcsClusterLayerLoadBasedAutoScalingInput is an input type that accepts EcsClusterLayerLoadBasedAutoScalingArgs and EcsClusterLayerLoadBasedAutoScalingOutput values.
+// You can construct a concrete instance of `EcsClusterLayerLoadBasedAutoScalingInput` via:
+//
+//	EcsClusterLayerLoadBasedAutoScalingArgs{...}
+type EcsClusterLayerLoadBasedAutoScalingInput interface {
+	pulumi.Input
+
+	ToEcsClusterLayerLoadBasedAutoScalingOutput() EcsClusterLayerLoadBasedAutoScalingOutput
+	ToEcsClusterLayerLoadBasedAutoScalingOutputWithContext(context.Context) EcsClusterLayerLoadBasedAutoScalingOutput
+}
+
+type EcsClusterLayerLoadBasedAutoScalingArgs struct {
+	Downscaling EcsClusterLayerLoadBasedAutoScalingDownscalingPtrInput `pulumi:"downscaling"`
+	Enable      pulumi.BoolPtrInput                                    `pulumi:"enable"`
+	Upscaling   EcsClusterLayerLoadBasedAutoScalingUpscalingPtrInput   `pulumi:"upscaling"`
+}
+
+func (EcsClusterLayerLoadBasedAutoScalingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EcsClusterLayerLoadBasedAutoScaling)(nil)).Elem()
+}
+
+func (i EcsClusterLayerLoadBasedAutoScalingArgs) ToEcsClusterLayerLoadBasedAutoScalingOutput() EcsClusterLayerLoadBasedAutoScalingOutput {
+	return i.ToEcsClusterLayerLoadBasedAutoScalingOutputWithContext(context.Background())
+}
+
+func (i EcsClusterLayerLoadBasedAutoScalingArgs) ToEcsClusterLayerLoadBasedAutoScalingOutputWithContext(ctx context.Context) EcsClusterLayerLoadBasedAutoScalingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EcsClusterLayerLoadBasedAutoScalingOutput)
+}
+
+func (i EcsClusterLayerLoadBasedAutoScalingArgs) ToEcsClusterLayerLoadBasedAutoScalingPtrOutput() EcsClusterLayerLoadBasedAutoScalingPtrOutput {
+	return i.ToEcsClusterLayerLoadBasedAutoScalingPtrOutputWithContext(context.Background())
+}
+
+func (i EcsClusterLayerLoadBasedAutoScalingArgs) ToEcsClusterLayerLoadBasedAutoScalingPtrOutputWithContext(ctx context.Context) EcsClusterLayerLoadBasedAutoScalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EcsClusterLayerLoadBasedAutoScalingOutput).ToEcsClusterLayerLoadBasedAutoScalingPtrOutputWithContext(ctx)
+}
+
+// EcsClusterLayerLoadBasedAutoScalingPtrInput is an input type that accepts EcsClusterLayerLoadBasedAutoScalingArgs, EcsClusterLayerLoadBasedAutoScalingPtr and EcsClusterLayerLoadBasedAutoScalingPtrOutput values.
+// You can construct a concrete instance of `EcsClusterLayerLoadBasedAutoScalingPtrInput` via:
+//
+//	        EcsClusterLayerLoadBasedAutoScalingArgs{...}
+//
+//	or:
+//
+//	        nil
+type EcsClusterLayerLoadBasedAutoScalingPtrInput interface {
+	pulumi.Input
+
+	ToEcsClusterLayerLoadBasedAutoScalingPtrOutput() EcsClusterLayerLoadBasedAutoScalingPtrOutput
+	ToEcsClusterLayerLoadBasedAutoScalingPtrOutputWithContext(context.Context) EcsClusterLayerLoadBasedAutoScalingPtrOutput
+}
+
+type ecsClusterLayerLoadBasedAutoScalingPtrType EcsClusterLayerLoadBasedAutoScalingArgs
+
+func EcsClusterLayerLoadBasedAutoScalingPtr(v *EcsClusterLayerLoadBasedAutoScalingArgs) EcsClusterLayerLoadBasedAutoScalingPtrInput {
+	return (*ecsClusterLayerLoadBasedAutoScalingPtrType)(v)
+}
+
+func (*ecsClusterLayerLoadBasedAutoScalingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EcsClusterLayerLoadBasedAutoScaling)(nil)).Elem()
+}
+
+func (i *ecsClusterLayerLoadBasedAutoScalingPtrType) ToEcsClusterLayerLoadBasedAutoScalingPtrOutput() EcsClusterLayerLoadBasedAutoScalingPtrOutput {
+	return i.ToEcsClusterLayerLoadBasedAutoScalingPtrOutputWithContext(context.Background())
+}
+
+func (i *ecsClusterLayerLoadBasedAutoScalingPtrType) ToEcsClusterLayerLoadBasedAutoScalingPtrOutputWithContext(ctx context.Context) EcsClusterLayerLoadBasedAutoScalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EcsClusterLayerLoadBasedAutoScalingPtrOutput)
+}
+
+type EcsClusterLayerLoadBasedAutoScalingOutput struct{ *pulumi.OutputState }
+
+func (EcsClusterLayerLoadBasedAutoScalingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EcsClusterLayerLoadBasedAutoScaling)(nil)).Elem()
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingOutput) ToEcsClusterLayerLoadBasedAutoScalingOutput() EcsClusterLayerLoadBasedAutoScalingOutput {
+	return o
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingOutput) ToEcsClusterLayerLoadBasedAutoScalingOutputWithContext(ctx context.Context) EcsClusterLayerLoadBasedAutoScalingOutput {
+	return o
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingOutput) ToEcsClusterLayerLoadBasedAutoScalingPtrOutput() EcsClusterLayerLoadBasedAutoScalingPtrOutput {
+	return o.ToEcsClusterLayerLoadBasedAutoScalingPtrOutputWithContext(context.Background())
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingOutput) ToEcsClusterLayerLoadBasedAutoScalingPtrOutputWithContext(ctx context.Context) EcsClusterLayerLoadBasedAutoScalingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EcsClusterLayerLoadBasedAutoScaling) *EcsClusterLayerLoadBasedAutoScaling {
+		return &v
+	}).(EcsClusterLayerLoadBasedAutoScalingPtrOutput)
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingOutput) Downscaling() EcsClusterLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o.ApplyT(func(v EcsClusterLayerLoadBasedAutoScaling) *EcsClusterLayerLoadBasedAutoScalingDownscaling {
+		return v.Downscaling
+	}).(EcsClusterLayerLoadBasedAutoScalingDownscalingPtrOutput)
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingOutput) Enable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EcsClusterLayerLoadBasedAutoScaling) *bool { return v.Enable }).(pulumi.BoolPtrOutput)
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingOutput) Upscaling() EcsClusterLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o.ApplyT(func(v EcsClusterLayerLoadBasedAutoScaling) *EcsClusterLayerLoadBasedAutoScalingUpscaling {
+		return v.Upscaling
+	}).(EcsClusterLayerLoadBasedAutoScalingUpscalingPtrOutput)
+}
+
+type EcsClusterLayerLoadBasedAutoScalingPtrOutput struct{ *pulumi.OutputState }
+
+func (EcsClusterLayerLoadBasedAutoScalingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EcsClusterLayerLoadBasedAutoScaling)(nil)).Elem()
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingPtrOutput) ToEcsClusterLayerLoadBasedAutoScalingPtrOutput() EcsClusterLayerLoadBasedAutoScalingPtrOutput {
+	return o
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingPtrOutput) ToEcsClusterLayerLoadBasedAutoScalingPtrOutputWithContext(ctx context.Context) EcsClusterLayerLoadBasedAutoScalingPtrOutput {
+	return o
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingPtrOutput) Elem() EcsClusterLayerLoadBasedAutoScalingOutput {
+	return o.ApplyT(func(v *EcsClusterLayerLoadBasedAutoScaling) EcsClusterLayerLoadBasedAutoScaling {
+		if v != nil {
+			return *v
+		}
+		var ret EcsClusterLayerLoadBasedAutoScaling
+		return ret
+	}).(EcsClusterLayerLoadBasedAutoScalingOutput)
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingPtrOutput) Downscaling() EcsClusterLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o.ApplyT(func(v *EcsClusterLayerLoadBasedAutoScaling) *EcsClusterLayerLoadBasedAutoScalingDownscaling {
+		if v == nil {
+			return nil
+		}
+		return v.Downscaling
+	}).(EcsClusterLayerLoadBasedAutoScalingDownscalingPtrOutput)
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingPtrOutput) Enable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EcsClusterLayerLoadBasedAutoScaling) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enable
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingPtrOutput) Upscaling() EcsClusterLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o.ApplyT(func(v *EcsClusterLayerLoadBasedAutoScaling) *EcsClusterLayerLoadBasedAutoScalingUpscaling {
+		if v == nil {
+			return nil
+		}
+		return v.Upscaling
+	}).(EcsClusterLayerLoadBasedAutoScalingUpscalingPtrOutput)
+}
+
+type EcsClusterLayerLoadBasedAutoScalingDownscaling struct {
+	Alarms             []string `pulumi:"alarms"`
+	CpuThreshold       *float64 `pulumi:"cpuThreshold"`
+	IgnoreMetricsTime  *int     `pulumi:"ignoreMetricsTime"`
+	InstanceCount      *int     `pulumi:"instanceCount"`
+	LoadThreshold      *float64 `pulumi:"loadThreshold"`
+	MemoryThreshold    *float64 `pulumi:"memoryThreshold"`
+	ThresholdsWaitTime *int     `pulumi:"thresholdsWaitTime"`
+}
+
+// EcsClusterLayerLoadBasedAutoScalingDownscalingInput is an input type that accepts EcsClusterLayerLoadBasedAutoScalingDownscalingArgs and EcsClusterLayerLoadBasedAutoScalingDownscalingOutput values.
+// You can construct a concrete instance of `EcsClusterLayerLoadBasedAutoScalingDownscalingInput` via:
+//
+//	EcsClusterLayerLoadBasedAutoScalingDownscalingArgs{...}
+type EcsClusterLayerLoadBasedAutoScalingDownscalingInput interface {
+	pulumi.Input
+
+	ToEcsClusterLayerLoadBasedAutoScalingDownscalingOutput() EcsClusterLayerLoadBasedAutoScalingDownscalingOutput
+	ToEcsClusterLayerLoadBasedAutoScalingDownscalingOutputWithContext(context.Context) EcsClusterLayerLoadBasedAutoScalingDownscalingOutput
+}
+
+type EcsClusterLayerLoadBasedAutoScalingDownscalingArgs struct {
+	Alarms             pulumi.StringArrayInput `pulumi:"alarms"`
+	CpuThreshold       pulumi.Float64PtrInput  `pulumi:"cpuThreshold"`
+	IgnoreMetricsTime  pulumi.IntPtrInput      `pulumi:"ignoreMetricsTime"`
+	InstanceCount      pulumi.IntPtrInput      `pulumi:"instanceCount"`
+	LoadThreshold      pulumi.Float64PtrInput  `pulumi:"loadThreshold"`
+	MemoryThreshold    pulumi.Float64PtrInput  `pulumi:"memoryThreshold"`
+	ThresholdsWaitTime pulumi.IntPtrInput      `pulumi:"thresholdsWaitTime"`
+}
+
+func (EcsClusterLayerLoadBasedAutoScalingDownscalingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EcsClusterLayerLoadBasedAutoScalingDownscaling)(nil)).Elem()
+}
+
+func (i EcsClusterLayerLoadBasedAutoScalingDownscalingArgs) ToEcsClusterLayerLoadBasedAutoScalingDownscalingOutput() EcsClusterLayerLoadBasedAutoScalingDownscalingOutput {
+	return i.ToEcsClusterLayerLoadBasedAutoScalingDownscalingOutputWithContext(context.Background())
+}
+
+func (i EcsClusterLayerLoadBasedAutoScalingDownscalingArgs) ToEcsClusterLayerLoadBasedAutoScalingDownscalingOutputWithContext(ctx context.Context) EcsClusterLayerLoadBasedAutoScalingDownscalingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EcsClusterLayerLoadBasedAutoScalingDownscalingOutput)
+}
+
+func (i EcsClusterLayerLoadBasedAutoScalingDownscalingArgs) ToEcsClusterLayerLoadBasedAutoScalingDownscalingPtrOutput() EcsClusterLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return i.ToEcsClusterLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(context.Background())
+}
+
+func (i EcsClusterLayerLoadBasedAutoScalingDownscalingArgs) ToEcsClusterLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx context.Context) EcsClusterLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EcsClusterLayerLoadBasedAutoScalingDownscalingOutput).ToEcsClusterLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx)
+}
+
+// EcsClusterLayerLoadBasedAutoScalingDownscalingPtrInput is an input type that accepts EcsClusterLayerLoadBasedAutoScalingDownscalingArgs, EcsClusterLayerLoadBasedAutoScalingDownscalingPtr and EcsClusterLayerLoadBasedAutoScalingDownscalingPtrOutput values.
+// You can construct a concrete instance of `EcsClusterLayerLoadBasedAutoScalingDownscalingPtrInput` via:
+//
+//	        EcsClusterLayerLoadBasedAutoScalingDownscalingArgs{...}
+//
+//	or:
+//
+//	        nil
+type EcsClusterLayerLoadBasedAutoScalingDownscalingPtrInput interface {
+	pulumi.Input
+
+	ToEcsClusterLayerLoadBasedAutoScalingDownscalingPtrOutput() EcsClusterLayerLoadBasedAutoScalingDownscalingPtrOutput
+	ToEcsClusterLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(context.Context) EcsClusterLayerLoadBasedAutoScalingDownscalingPtrOutput
+}
+
+type ecsClusterLayerLoadBasedAutoScalingDownscalingPtrType EcsClusterLayerLoadBasedAutoScalingDownscalingArgs
+
+func EcsClusterLayerLoadBasedAutoScalingDownscalingPtr(v *EcsClusterLayerLoadBasedAutoScalingDownscalingArgs) EcsClusterLayerLoadBasedAutoScalingDownscalingPtrInput {
+	return (*ecsClusterLayerLoadBasedAutoScalingDownscalingPtrType)(v)
+}
+
+func (*ecsClusterLayerLoadBasedAutoScalingDownscalingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EcsClusterLayerLoadBasedAutoScalingDownscaling)(nil)).Elem()
+}
+
+func (i *ecsClusterLayerLoadBasedAutoScalingDownscalingPtrType) ToEcsClusterLayerLoadBasedAutoScalingDownscalingPtrOutput() EcsClusterLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return i.ToEcsClusterLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(context.Background())
+}
+
+func (i *ecsClusterLayerLoadBasedAutoScalingDownscalingPtrType) ToEcsClusterLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx context.Context) EcsClusterLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EcsClusterLayerLoadBasedAutoScalingDownscalingPtrOutput)
+}
+
+type EcsClusterLayerLoadBasedAutoScalingDownscalingOutput struct{ *pulumi.OutputState }
+
+func (EcsClusterLayerLoadBasedAutoScalingDownscalingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EcsClusterLayerLoadBasedAutoScalingDownscaling)(nil)).Elem()
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingDownscalingOutput) ToEcsClusterLayerLoadBasedAutoScalingDownscalingOutput() EcsClusterLayerLoadBasedAutoScalingDownscalingOutput {
+	return o
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingDownscalingOutput) ToEcsClusterLayerLoadBasedAutoScalingDownscalingOutputWithContext(ctx context.Context) EcsClusterLayerLoadBasedAutoScalingDownscalingOutput {
+	return o
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingDownscalingOutput) ToEcsClusterLayerLoadBasedAutoScalingDownscalingPtrOutput() EcsClusterLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o.ToEcsClusterLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(context.Background())
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingDownscalingOutput) ToEcsClusterLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx context.Context) EcsClusterLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EcsClusterLayerLoadBasedAutoScalingDownscaling) *EcsClusterLayerLoadBasedAutoScalingDownscaling {
+		return &v
+	}).(EcsClusterLayerLoadBasedAutoScalingDownscalingPtrOutput)
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingDownscalingOutput) Alarms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EcsClusterLayerLoadBasedAutoScalingDownscaling) []string { return v.Alarms }).(pulumi.StringArrayOutput)
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingDownscalingOutput) CpuThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v EcsClusterLayerLoadBasedAutoScalingDownscaling) *float64 { return v.CpuThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingDownscalingOutput) IgnoreMetricsTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EcsClusterLayerLoadBasedAutoScalingDownscaling) *int { return v.IgnoreMetricsTime }).(pulumi.IntPtrOutput)
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingDownscalingOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EcsClusterLayerLoadBasedAutoScalingDownscaling) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingDownscalingOutput) LoadThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v EcsClusterLayerLoadBasedAutoScalingDownscaling) *float64 { return v.LoadThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingDownscalingOutput) MemoryThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v EcsClusterLayerLoadBasedAutoScalingDownscaling) *float64 { return v.MemoryThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingDownscalingOutput) ThresholdsWaitTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EcsClusterLayerLoadBasedAutoScalingDownscaling) *int { return v.ThresholdsWaitTime }).(pulumi.IntPtrOutput)
+}
+
+type EcsClusterLayerLoadBasedAutoScalingDownscalingPtrOutput struct{ *pulumi.OutputState }
+
+func (EcsClusterLayerLoadBasedAutoScalingDownscalingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EcsClusterLayerLoadBasedAutoScalingDownscaling)(nil)).Elem()
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingDownscalingPtrOutput) ToEcsClusterLayerLoadBasedAutoScalingDownscalingPtrOutput() EcsClusterLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingDownscalingPtrOutput) ToEcsClusterLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx context.Context) EcsClusterLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingDownscalingPtrOutput) Elem() EcsClusterLayerLoadBasedAutoScalingDownscalingOutput {
+	return o.ApplyT(func(v *EcsClusterLayerLoadBasedAutoScalingDownscaling) EcsClusterLayerLoadBasedAutoScalingDownscaling {
+		if v != nil {
+			return *v
+		}
+		var ret EcsClusterLayerLoadBasedAutoScalingDownscaling
+		return ret
+	}).(EcsClusterLayerLoadBasedAutoScalingDownscalingOutput)
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingDownscalingPtrOutput) Alarms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *EcsClusterLayerLoadBasedAutoScalingDownscaling) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Alarms
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingDownscalingPtrOutput) CpuThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *EcsClusterLayerLoadBasedAutoScalingDownscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.CpuThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingDownscalingPtrOutput) IgnoreMetricsTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EcsClusterLayerLoadBasedAutoScalingDownscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IgnoreMetricsTime
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingDownscalingPtrOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EcsClusterLayerLoadBasedAutoScalingDownscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceCount
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingDownscalingPtrOutput) LoadThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *EcsClusterLayerLoadBasedAutoScalingDownscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.LoadThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingDownscalingPtrOutput) MemoryThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *EcsClusterLayerLoadBasedAutoScalingDownscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MemoryThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingDownscalingPtrOutput) ThresholdsWaitTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EcsClusterLayerLoadBasedAutoScalingDownscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ThresholdsWaitTime
+	}).(pulumi.IntPtrOutput)
+}
+
+type EcsClusterLayerLoadBasedAutoScalingUpscaling struct {
+	Alarms             []string `pulumi:"alarms"`
+	CpuThreshold       *float64 `pulumi:"cpuThreshold"`
+	IgnoreMetricsTime  *int     `pulumi:"ignoreMetricsTime"`
+	InstanceCount      *int     `pulumi:"instanceCount"`
+	LoadThreshold      *float64 `pulumi:"loadThreshold"`
+	MemoryThreshold    *float64 `pulumi:"memoryThreshold"`
+	ThresholdsWaitTime *int     `pulumi:"thresholdsWaitTime"`
+}
+
+// EcsClusterLayerLoadBasedAutoScalingUpscalingInput is an input type that accepts EcsClusterLayerLoadBasedAutoScalingUpscalingArgs and EcsClusterLayerLoadBasedAutoScalingUpscalingOutput values.
+// You can construct a concrete instance of `EcsClusterLayerLoadBasedAutoScalingUpscalingInput` via:
+//
+//	EcsClusterLayerLoadBasedAutoScalingUpscalingArgs{...}
+type EcsClusterLayerLoadBasedAutoScalingUpscalingInput interface {
+	pulumi.Input
+
+	ToEcsClusterLayerLoadBasedAutoScalingUpscalingOutput() EcsClusterLayerLoadBasedAutoScalingUpscalingOutput
+	ToEcsClusterLayerLoadBasedAutoScalingUpscalingOutputWithContext(context.Context) EcsClusterLayerLoadBasedAutoScalingUpscalingOutput
+}
+
+type EcsClusterLayerLoadBasedAutoScalingUpscalingArgs struct {
+	Alarms             pulumi.StringArrayInput `pulumi:"alarms"`
+	CpuThreshold       pulumi.Float64PtrInput  `pulumi:"cpuThreshold"`
+	IgnoreMetricsTime  pulumi.IntPtrInput      `pulumi:"ignoreMetricsTime"`
+	InstanceCount      pulumi.IntPtrInput      `pulumi:"instanceCount"`
+	LoadThreshold      pulumi.Float64PtrInput  `pulumi:"loadThreshold"`
+	MemoryThreshold    pulumi.Float64PtrInput  `pulumi:"memoryThreshold"`
+	ThresholdsWaitTime pulumi.IntPtrInput      `pulumi:"thresholdsWaitTime"`
+}
+
+func (EcsClusterLayerLoadBasedAutoScalingUpscalingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EcsClusterLayerLoadBasedAutoScalingUpscaling)(nil)).Elem()
+}
+
+func (i EcsClusterLayerLoadBasedAutoScalingUpscalingArgs) ToEcsClusterLayerLoadBasedAutoScalingUpscalingOutput() EcsClusterLayerLoadBasedAutoScalingUpscalingOutput {
+	return i.ToEcsClusterLayerLoadBasedAutoScalingUpscalingOutputWithContext(context.Background())
+}
+
+func (i EcsClusterLayerLoadBasedAutoScalingUpscalingArgs) ToEcsClusterLayerLoadBasedAutoScalingUpscalingOutputWithContext(ctx context.Context) EcsClusterLayerLoadBasedAutoScalingUpscalingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EcsClusterLayerLoadBasedAutoScalingUpscalingOutput)
+}
+
+func (i EcsClusterLayerLoadBasedAutoScalingUpscalingArgs) ToEcsClusterLayerLoadBasedAutoScalingUpscalingPtrOutput() EcsClusterLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return i.ToEcsClusterLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(context.Background())
+}
+
+func (i EcsClusterLayerLoadBasedAutoScalingUpscalingArgs) ToEcsClusterLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx context.Context) EcsClusterLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EcsClusterLayerLoadBasedAutoScalingUpscalingOutput).ToEcsClusterLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx)
+}
+
+// EcsClusterLayerLoadBasedAutoScalingUpscalingPtrInput is an input type that accepts EcsClusterLayerLoadBasedAutoScalingUpscalingArgs, EcsClusterLayerLoadBasedAutoScalingUpscalingPtr and EcsClusterLayerLoadBasedAutoScalingUpscalingPtrOutput values.
+// You can construct a concrete instance of `EcsClusterLayerLoadBasedAutoScalingUpscalingPtrInput` via:
+//
+//	        EcsClusterLayerLoadBasedAutoScalingUpscalingArgs{...}
+//
+//	or:
+//
+//	        nil
+type EcsClusterLayerLoadBasedAutoScalingUpscalingPtrInput interface {
+	pulumi.Input
+
+	ToEcsClusterLayerLoadBasedAutoScalingUpscalingPtrOutput() EcsClusterLayerLoadBasedAutoScalingUpscalingPtrOutput
+	ToEcsClusterLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(context.Context) EcsClusterLayerLoadBasedAutoScalingUpscalingPtrOutput
+}
+
+type ecsClusterLayerLoadBasedAutoScalingUpscalingPtrType EcsClusterLayerLoadBasedAutoScalingUpscalingArgs
+
+func EcsClusterLayerLoadBasedAutoScalingUpscalingPtr(v *EcsClusterLayerLoadBasedAutoScalingUpscalingArgs) EcsClusterLayerLoadBasedAutoScalingUpscalingPtrInput {
+	return (*ecsClusterLayerLoadBasedAutoScalingUpscalingPtrType)(v)
+}
+
+func (*ecsClusterLayerLoadBasedAutoScalingUpscalingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EcsClusterLayerLoadBasedAutoScalingUpscaling)(nil)).Elem()
+}
+
+func (i *ecsClusterLayerLoadBasedAutoScalingUpscalingPtrType) ToEcsClusterLayerLoadBasedAutoScalingUpscalingPtrOutput() EcsClusterLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return i.ToEcsClusterLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(context.Background())
+}
+
+func (i *ecsClusterLayerLoadBasedAutoScalingUpscalingPtrType) ToEcsClusterLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx context.Context) EcsClusterLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EcsClusterLayerLoadBasedAutoScalingUpscalingPtrOutput)
+}
+
+type EcsClusterLayerLoadBasedAutoScalingUpscalingOutput struct{ *pulumi.OutputState }
+
+func (EcsClusterLayerLoadBasedAutoScalingUpscalingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EcsClusterLayerLoadBasedAutoScalingUpscaling)(nil)).Elem()
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingUpscalingOutput) ToEcsClusterLayerLoadBasedAutoScalingUpscalingOutput() EcsClusterLayerLoadBasedAutoScalingUpscalingOutput {
+	return o
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingUpscalingOutput) ToEcsClusterLayerLoadBasedAutoScalingUpscalingOutputWithContext(ctx context.Context) EcsClusterLayerLoadBasedAutoScalingUpscalingOutput {
+	return o
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingUpscalingOutput) ToEcsClusterLayerLoadBasedAutoScalingUpscalingPtrOutput() EcsClusterLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o.ToEcsClusterLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(context.Background())
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingUpscalingOutput) ToEcsClusterLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx context.Context) EcsClusterLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EcsClusterLayerLoadBasedAutoScalingUpscaling) *EcsClusterLayerLoadBasedAutoScalingUpscaling {
+		return &v
+	}).(EcsClusterLayerLoadBasedAutoScalingUpscalingPtrOutput)
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingUpscalingOutput) Alarms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EcsClusterLayerLoadBasedAutoScalingUpscaling) []string { return v.Alarms }).(pulumi.StringArrayOutput)
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingUpscalingOutput) CpuThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v EcsClusterLayerLoadBasedAutoScalingUpscaling) *float64 { return v.CpuThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingUpscalingOutput) IgnoreMetricsTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EcsClusterLayerLoadBasedAutoScalingUpscaling) *int { return v.IgnoreMetricsTime }).(pulumi.IntPtrOutput)
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingUpscalingOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EcsClusterLayerLoadBasedAutoScalingUpscaling) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingUpscalingOutput) LoadThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v EcsClusterLayerLoadBasedAutoScalingUpscaling) *float64 { return v.LoadThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingUpscalingOutput) MemoryThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v EcsClusterLayerLoadBasedAutoScalingUpscaling) *float64 { return v.MemoryThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingUpscalingOutput) ThresholdsWaitTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EcsClusterLayerLoadBasedAutoScalingUpscaling) *int { return v.ThresholdsWaitTime }).(pulumi.IntPtrOutput)
+}
+
+type EcsClusterLayerLoadBasedAutoScalingUpscalingPtrOutput struct{ *pulumi.OutputState }
+
+func (EcsClusterLayerLoadBasedAutoScalingUpscalingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EcsClusterLayerLoadBasedAutoScalingUpscaling)(nil)).Elem()
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingUpscalingPtrOutput) ToEcsClusterLayerLoadBasedAutoScalingUpscalingPtrOutput() EcsClusterLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingUpscalingPtrOutput) ToEcsClusterLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx context.Context) EcsClusterLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingUpscalingPtrOutput) Elem() EcsClusterLayerLoadBasedAutoScalingUpscalingOutput {
+	return o.ApplyT(func(v *EcsClusterLayerLoadBasedAutoScalingUpscaling) EcsClusterLayerLoadBasedAutoScalingUpscaling {
+		if v != nil {
+			return *v
+		}
+		var ret EcsClusterLayerLoadBasedAutoScalingUpscaling
+		return ret
+	}).(EcsClusterLayerLoadBasedAutoScalingUpscalingOutput)
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingUpscalingPtrOutput) Alarms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *EcsClusterLayerLoadBasedAutoScalingUpscaling) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Alarms
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingUpscalingPtrOutput) CpuThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *EcsClusterLayerLoadBasedAutoScalingUpscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.CpuThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingUpscalingPtrOutput) IgnoreMetricsTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EcsClusterLayerLoadBasedAutoScalingUpscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IgnoreMetricsTime
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingUpscalingPtrOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EcsClusterLayerLoadBasedAutoScalingUpscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceCount
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingUpscalingPtrOutput) LoadThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *EcsClusterLayerLoadBasedAutoScalingUpscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.LoadThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingUpscalingPtrOutput) MemoryThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *EcsClusterLayerLoadBasedAutoScalingUpscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MemoryThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingUpscalingPtrOutput) ThresholdsWaitTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EcsClusterLayerLoadBasedAutoScalingUpscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ThresholdsWaitTime
+	}).(pulumi.IntPtrOutput)
 }
 
 type GangliaLayerCloudwatchConfiguration struct {
@@ -1778,6 +3070,619 @@ func (o GangliaLayerEbsVolumeArrayOutput) Index(i pulumi.IntInput) GangliaLayerE
 	}).(GangliaLayerEbsVolumeOutput)
 }
 
+type GangliaLayerLoadBasedAutoScaling struct {
+	Downscaling *GangliaLayerLoadBasedAutoScalingDownscaling `pulumi:"downscaling"`
+	Enable      *bool                                        `pulumi:"enable"`
+	Upscaling   *GangliaLayerLoadBasedAutoScalingUpscaling   `pulumi:"upscaling"`
+}
+
+// GangliaLayerLoadBasedAutoScalingInput is an input type that accepts GangliaLayerLoadBasedAutoScalingArgs and GangliaLayerLoadBasedAutoScalingOutput values.
+// You can construct a concrete instance of `GangliaLayerLoadBasedAutoScalingInput` via:
+//
+//	GangliaLayerLoadBasedAutoScalingArgs{...}
+type GangliaLayerLoadBasedAutoScalingInput interface {
+	pulumi.Input
+
+	ToGangliaLayerLoadBasedAutoScalingOutput() GangliaLayerLoadBasedAutoScalingOutput
+	ToGangliaLayerLoadBasedAutoScalingOutputWithContext(context.Context) GangliaLayerLoadBasedAutoScalingOutput
+}
+
+type GangliaLayerLoadBasedAutoScalingArgs struct {
+	Downscaling GangliaLayerLoadBasedAutoScalingDownscalingPtrInput `pulumi:"downscaling"`
+	Enable      pulumi.BoolPtrInput                                 `pulumi:"enable"`
+	Upscaling   GangliaLayerLoadBasedAutoScalingUpscalingPtrInput   `pulumi:"upscaling"`
+}
+
+func (GangliaLayerLoadBasedAutoScalingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GangliaLayerLoadBasedAutoScaling)(nil)).Elem()
+}
+
+func (i GangliaLayerLoadBasedAutoScalingArgs) ToGangliaLayerLoadBasedAutoScalingOutput() GangliaLayerLoadBasedAutoScalingOutput {
+	return i.ToGangliaLayerLoadBasedAutoScalingOutputWithContext(context.Background())
+}
+
+func (i GangliaLayerLoadBasedAutoScalingArgs) ToGangliaLayerLoadBasedAutoScalingOutputWithContext(ctx context.Context) GangliaLayerLoadBasedAutoScalingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GangliaLayerLoadBasedAutoScalingOutput)
+}
+
+func (i GangliaLayerLoadBasedAutoScalingArgs) ToGangliaLayerLoadBasedAutoScalingPtrOutput() GangliaLayerLoadBasedAutoScalingPtrOutput {
+	return i.ToGangliaLayerLoadBasedAutoScalingPtrOutputWithContext(context.Background())
+}
+
+func (i GangliaLayerLoadBasedAutoScalingArgs) ToGangliaLayerLoadBasedAutoScalingPtrOutputWithContext(ctx context.Context) GangliaLayerLoadBasedAutoScalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GangliaLayerLoadBasedAutoScalingOutput).ToGangliaLayerLoadBasedAutoScalingPtrOutputWithContext(ctx)
+}
+
+// GangliaLayerLoadBasedAutoScalingPtrInput is an input type that accepts GangliaLayerLoadBasedAutoScalingArgs, GangliaLayerLoadBasedAutoScalingPtr and GangliaLayerLoadBasedAutoScalingPtrOutput values.
+// You can construct a concrete instance of `GangliaLayerLoadBasedAutoScalingPtrInput` via:
+//
+//	        GangliaLayerLoadBasedAutoScalingArgs{...}
+//
+//	or:
+//
+//	        nil
+type GangliaLayerLoadBasedAutoScalingPtrInput interface {
+	pulumi.Input
+
+	ToGangliaLayerLoadBasedAutoScalingPtrOutput() GangliaLayerLoadBasedAutoScalingPtrOutput
+	ToGangliaLayerLoadBasedAutoScalingPtrOutputWithContext(context.Context) GangliaLayerLoadBasedAutoScalingPtrOutput
+}
+
+type gangliaLayerLoadBasedAutoScalingPtrType GangliaLayerLoadBasedAutoScalingArgs
+
+func GangliaLayerLoadBasedAutoScalingPtr(v *GangliaLayerLoadBasedAutoScalingArgs) GangliaLayerLoadBasedAutoScalingPtrInput {
+	return (*gangliaLayerLoadBasedAutoScalingPtrType)(v)
+}
+
+func (*gangliaLayerLoadBasedAutoScalingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GangliaLayerLoadBasedAutoScaling)(nil)).Elem()
+}
+
+func (i *gangliaLayerLoadBasedAutoScalingPtrType) ToGangliaLayerLoadBasedAutoScalingPtrOutput() GangliaLayerLoadBasedAutoScalingPtrOutput {
+	return i.ToGangliaLayerLoadBasedAutoScalingPtrOutputWithContext(context.Background())
+}
+
+func (i *gangliaLayerLoadBasedAutoScalingPtrType) ToGangliaLayerLoadBasedAutoScalingPtrOutputWithContext(ctx context.Context) GangliaLayerLoadBasedAutoScalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GangliaLayerLoadBasedAutoScalingPtrOutput)
+}
+
+type GangliaLayerLoadBasedAutoScalingOutput struct{ *pulumi.OutputState }
+
+func (GangliaLayerLoadBasedAutoScalingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GangliaLayerLoadBasedAutoScaling)(nil)).Elem()
+}
+
+func (o GangliaLayerLoadBasedAutoScalingOutput) ToGangliaLayerLoadBasedAutoScalingOutput() GangliaLayerLoadBasedAutoScalingOutput {
+	return o
+}
+
+func (o GangliaLayerLoadBasedAutoScalingOutput) ToGangliaLayerLoadBasedAutoScalingOutputWithContext(ctx context.Context) GangliaLayerLoadBasedAutoScalingOutput {
+	return o
+}
+
+func (o GangliaLayerLoadBasedAutoScalingOutput) ToGangliaLayerLoadBasedAutoScalingPtrOutput() GangliaLayerLoadBasedAutoScalingPtrOutput {
+	return o.ToGangliaLayerLoadBasedAutoScalingPtrOutputWithContext(context.Background())
+}
+
+func (o GangliaLayerLoadBasedAutoScalingOutput) ToGangliaLayerLoadBasedAutoScalingPtrOutputWithContext(ctx context.Context) GangliaLayerLoadBasedAutoScalingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GangliaLayerLoadBasedAutoScaling) *GangliaLayerLoadBasedAutoScaling {
+		return &v
+	}).(GangliaLayerLoadBasedAutoScalingPtrOutput)
+}
+
+func (o GangliaLayerLoadBasedAutoScalingOutput) Downscaling() GangliaLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o.ApplyT(func(v GangliaLayerLoadBasedAutoScaling) *GangliaLayerLoadBasedAutoScalingDownscaling {
+		return v.Downscaling
+	}).(GangliaLayerLoadBasedAutoScalingDownscalingPtrOutput)
+}
+
+func (o GangliaLayerLoadBasedAutoScalingOutput) Enable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GangliaLayerLoadBasedAutoScaling) *bool { return v.Enable }).(pulumi.BoolPtrOutput)
+}
+
+func (o GangliaLayerLoadBasedAutoScalingOutput) Upscaling() GangliaLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o.ApplyT(func(v GangliaLayerLoadBasedAutoScaling) *GangliaLayerLoadBasedAutoScalingUpscaling {
+		return v.Upscaling
+	}).(GangliaLayerLoadBasedAutoScalingUpscalingPtrOutput)
+}
+
+type GangliaLayerLoadBasedAutoScalingPtrOutput struct{ *pulumi.OutputState }
+
+func (GangliaLayerLoadBasedAutoScalingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GangliaLayerLoadBasedAutoScaling)(nil)).Elem()
+}
+
+func (o GangliaLayerLoadBasedAutoScalingPtrOutput) ToGangliaLayerLoadBasedAutoScalingPtrOutput() GangliaLayerLoadBasedAutoScalingPtrOutput {
+	return o
+}
+
+func (o GangliaLayerLoadBasedAutoScalingPtrOutput) ToGangliaLayerLoadBasedAutoScalingPtrOutputWithContext(ctx context.Context) GangliaLayerLoadBasedAutoScalingPtrOutput {
+	return o
+}
+
+func (o GangliaLayerLoadBasedAutoScalingPtrOutput) Elem() GangliaLayerLoadBasedAutoScalingOutput {
+	return o.ApplyT(func(v *GangliaLayerLoadBasedAutoScaling) GangliaLayerLoadBasedAutoScaling {
+		if v != nil {
+			return *v
+		}
+		var ret GangliaLayerLoadBasedAutoScaling
+		return ret
+	}).(GangliaLayerLoadBasedAutoScalingOutput)
+}
+
+func (o GangliaLayerLoadBasedAutoScalingPtrOutput) Downscaling() GangliaLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o.ApplyT(func(v *GangliaLayerLoadBasedAutoScaling) *GangliaLayerLoadBasedAutoScalingDownscaling {
+		if v == nil {
+			return nil
+		}
+		return v.Downscaling
+	}).(GangliaLayerLoadBasedAutoScalingDownscalingPtrOutput)
+}
+
+func (o GangliaLayerLoadBasedAutoScalingPtrOutput) Enable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GangliaLayerLoadBasedAutoScaling) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enable
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GangliaLayerLoadBasedAutoScalingPtrOutput) Upscaling() GangliaLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o.ApplyT(func(v *GangliaLayerLoadBasedAutoScaling) *GangliaLayerLoadBasedAutoScalingUpscaling {
+		if v == nil {
+			return nil
+		}
+		return v.Upscaling
+	}).(GangliaLayerLoadBasedAutoScalingUpscalingPtrOutput)
+}
+
+type GangliaLayerLoadBasedAutoScalingDownscaling struct {
+	Alarms             []string `pulumi:"alarms"`
+	CpuThreshold       *float64 `pulumi:"cpuThreshold"`
+	IgnoreMetricsTime  *int     `pulumi:"ignoreMetricsTime"`
+	InstanceCount      *int     `pulumi:"instanceCount"`
+	LoadThreshold      *float64 `pulumi:"loadThreshold"`
+	MemoryThreshold    *float64 `pulumi:"memoryThreshold"`
+	ThresholdsWaitTime *int     `pulumi:"thresholdsWaitTime"`
+}
+
+// GangliaLayerLoadBasedAutoScalingDownscalingInput is an input type that accepts GangliaLayerLoadBasedAutoScalingDownscalingArgs and GangliaLayerLoadBasedAutoScalingDownscalingOutput values.
+// You can construct a concrete instance of `GangliaLayerLoadBasedAutoScalingDownscalingInput` via:
+//
+//	GangliaLayerLoadBasedAutoScalingDownscalingArgs{...}
+type GangliaLayerLoadBasedAutoScalingDownscalingInput interface {
+	pulumi.Input
+
+	ToGangliaLayerLoadBasedAutoScalingDownscalingOutput() GangliaLayerLoadBasedAutoScalingDownscalingOutput
+	ToGangliaLayerLoadBasedAutoScalingDownscalingOutputWithContext(context.Context) GangliaLayerLoadBasedAutoScalingDownscalingOutput
+}
+
+type GangliaLayerLoadBasedAutoScalingDownscalingArgs struct {
+	Alarms             pulumi.StringArrayInput `pulumi:"alarms"`
+	CpuThreshold       pulumi.Float64PtrInput  `pulumi:"cpuThreshold"`
+	IgnoreMetricsTime  pulumi.IntPtrInput      `pulumi:"ignoreMetricsTime"`
+	InstanceCount      pulumi.IntPtrInput      `pulumi:"instanceCount"`
+	LoadThreshold      pulumi.Float64PtrInput  `pulumi:"loadThreshold"`
+	MemoryThreshold    pulumi.Float64PtrInput  `pulumi:"memoryThreshold"`
+	ThresholdsWaitTime pulumi.IntPtrInput      `pulumi:"thresholdsWaitTime"`
+}
+
+func (GangliaLayerLoadBasedAutoScalingDownscalingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GangliaLayerLoadBasedAutoScalingDownscaling)(nil)).Elem()
+}
+
+func (i GangliaLayerLoadBasedAutoScalingDownscalingArgs) ToGangliaLayerLoadBasedAutoScalingDownscalingOutput() GangliaLayerLoadBasedAutoScalingDownscalingOutput {
+	return i.ToGangliaLayerLoadBasedAutoScalingDownscalingOutputWithContext(context.Background())
+}
+
+func (i GangliaLayerLoadBasedAutoScalingDownscalingArgs) ToGangliaLayerLoadBasedAutoScalingDownscalingOutputWithContext(ctx context.Context) GangliaLayerLoadBasedAutoScalingDownscalingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GangliaLayerLoadBasedAutoScalingDownscalingOutput)
+}
+
+func (i GangliaLayerLoadBasedAutoScalingDownscalingArgs) ToGangliaLayerLoadBasedAutoScalingDownscalingPtrOutput() GangliaLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return i.ToGangliaLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(context.Background())
+}
+
+func (i GangliaLayerLoadBasedAutoScalingDownscalingArgs) ToGangliaLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx context.Context) GangliaLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GangliaLayerLoadBasedAutoScalingDownscalingOutput).ToGangliaLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx)
+}
+
+// GangliaLayerLoadBasedAutoScalingDownscalingPtrInput is an input type that accepts GangliaLayerLoadBasedAutoScalingDownscalingArgs, GangliaLayerLoadBasedAutoScalingDownscalingPtr and GangliaLayerLoadBasedAutoScalingDownscalingPtrOutput values.
+// You can construct a concrete instance of `GangliaLayerLoadBasedAutoScalingDownscalingPtrInput` via:
+//
+//	        GangliaLayerLoadBasedAutoScalingDownscalingArgs{...}
+//
+//	or:
+//
+//	        nil
+type GangliaLayerLoadBasedAutoScalingDownscalingPtrInput interface {
+	pulumi.Input
+
+	ToGangliaLayerLoadBasedAutoScalingDownscalingPtrOutput() GangliaLayerLoadBasedAutoScalingDownscalingPtrOutput
+	ToGangliaLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(context.Context) GangliaLayerLoadBasedAutoScalingDownscalingPtrOutput
+}
+
+type gangliaLayerLoadBasedAutoScalingDownscalingPtrType GangliaLayerLoadBasedAutoScalingDownscalingArgs
+
+func GangliaLayerLoadBasedAutoScalingDownscalingPtr(v *GangliaLayerLoadBasedAutoScalingDownscalingArgs) GangliaLayerLoadBasedAutoScalingDownscalingPtrInput {
+	return (*gangliaLayerLoadBasedAutoScalingDownscalingPtrType)(v)
+}
+
+func (*gangliaLayerLoadBasedAutoScalingDownscalingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GangliaLayerLoadBasedAutoScalingDownscaling)(nil)).Elem()
+}
+
+func (i *gangliaLayerLoadBasedAutoScalingDownscalingPtrType) ToGangliaLayerLoadBasedAutoScalingDownscalingPtrOutput() GangliaLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return i.ToGangliaLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(context.Background())
+}
+
+func (i *gangliaLayerLoadBasedAutoScalingDownscalingPtrType) ToGangliaLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx context.Context) GangliaLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GangliaLayerLoadBasedAutoScalingDownscalingPtrOutput)
+}
+
+type GangliaLayerLoadBasedAutoScalingDownscalingOutput struct{ *pulumi.OutputState }
+
+func (GangliaLayerLoadBasedAutoScalingDownscalingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GangliaLayerLoadBasedAutoScalingDownscaling)(nil)).Elem()
+}
+
+func (o GangliaLayerLoadBasedAutoScalingDownscalingOutput) ToGangliaLayerLoadBasedAutoScalingDownscalingOutput() GangliaLayerLoadBasedAutoScalingDownscalingOutput {
+	return o
+}
+
+func (o GangliaLayerLoadBasedAutoScalingDownscalingOutput) ToGangliaLayerLoadBasedAutoScalingDownscalingOutputWithContext(ctx context.Context) GangliaLayerLoadBasedAutoScalingDownscalingOutput {
+	return o
+}
+
+func (o GangliaLayerLoadBasedAutoScalingDownscalingOutput) ToGangliaLayerLoadBasedAutoScalingDownscalingPtrOutput() GangliaLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o.ToGangliaLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(context.Background())
+}
+
+func (o GangliaLayerLoadBasedAutoScalingDownscalingOutput) ToGangliaLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx context.Context) GangliaLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GangliaLayerLoadBasedAutoScalingDownscaling) *GangliaLayerLoadBasedAutoScalingDownscaling {
+		return &v
+	}).(GangliaLayerLoadBasedAutoScalingDownscalingPtrOutput)
+}
+
+func (o GangliaLayerLoadBasedAutoScalingDownscalingOutput) Alarms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GangliaLayerLoadBasedAutoScalingDownscaling) []string { return v.Alarms }).(pulumi.StringArrayOutput)
+}
+
+func (o GangliaLayerLoadBasedAutoScalingDownscalingOutput) CpuThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v GangliaLayerLoadBasedAutoScalingDownscaling) *float64 { return v.CpuThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o GangliaLayerLoadBasedAutoScalingDownscalingOutput) IgnoreMetricsTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GangliaLayerLoadBasedAutoScalingDownscaling) *int { return v.IgnoreMetricsTime }).(pulumi.IntPtrOutput)
+}
+
+func (o GangliaLayerLoadBasedAutoScalingDownscalingOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GangliaLayerLoadBasedAutoScalingDownscaling) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
+}
+
+func (o GangliaLayerLoadBasedAutoScalingDownscalingOutput) LoadThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v GangliaLayerLoadBasedAutoScalingDownscaling) *float64 { return v.LoadThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o GangliaLayerLoadBasedAutoScalingDownscalingOutput) MemoryThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v GangliaLayerLoadBasedAutoScalingDownscaling) *float64 { return v.MemoryThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o GangliaLayerLoadBasedAutoScalingDownscalingOutput) ThresholdsWaitTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GangliaLayerLoadBasedAutoScalingDownscaling) *int { return v.ThresholdsWaitTime }).(pulumi.IntPtrOutput)
+}
+
+type GangliaLayerLoadBasedAutoScalingDownscalingPtrOutput struct{ *pulumi.OutputState }
+
+func (GangliaLayerLoadBasedAutoScalingDownscalingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GangliaLayerLoadBasedAutoScalingDownscaling)(nil)).Elem()
+}
+
+func (o GangliaLayerLoadBasedAutoScalingDownscalingPtrOutput) ToGangliaLayerLoadBasedAutoScalingDownscalingPtrOutput() GangliaLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o
+}
+
+func (o GangliaLayerLoadBasedAutoScalingDownscalingPtrOutput) ToGangliaLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx context.Context) GangliaLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o
+}
+
+func (o GangliaLayerLoadBasedAutoScalingDownscalingPtrOutput) Elem() GangliaLayerLoadBasedAutoScalingDownscalingOutput {
+	return o.ApplyT(func(v *GangliaLayerLoadBasedAutoScalingDownscaling) GangliaLayerLoadBasedAutoScalingDownscaling {
+		if v != nil {
+			return *v
+		}
+		var ret GangliaLayerLoadBasedAutoScalingDownscaling
+		return ret
+	}).(GangliaLayerLoadBasedAutoScalingDownscalingOutput)
+}
+
+func (o GangliaLayerLoadBasedAutoScalingDownscalingPtrOutput) Alarms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GangliaLayerLoadBasedAutoScalingDownscaling) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Alarms
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o GangliaLayerLoadBasedAutoScalingDownscalingPtrOutput) CpuThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *GangliaLayerLoadBasedAutoScalingDownscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.CpuThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o GangliaLayerLoadBasedAutoScalingDownscalingPtrOutput) IgnoreMetricsTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GangliaLayerLoadBasedAutoScalingDownscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IgnoreMetricsTime
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o GangliaLayerLoadBasedAutoScalingDownscalingPtrOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GangliaLayerLoadBasedAutoScalingDownscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceCount
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o GangliaLayerLoadBasedAutoScalingDownscalingPtrOutput) LoadThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *GangliaLayerLoadBasedAutoScalingDownscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.LoadThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o GangliaLayerLoadBasedAutoScalingDownscalingPtrOutput) MemoryThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *GangliaLayerLoadBasedAutoScalingDownscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MemoryThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o GangliaLayerLoadBasedAutoScalingDownscalingPtrOutput) ThresholdsWaitTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GangliaLayerLoadBasedAutoScalingDownscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ThresholdsWaitTime
+	}).(pulumi.IntPtrOutput)
+}
+
+type GangliaLayerLoadBasedAutoScalingUpscaling struct {
+	Alarms             []string `pulumi:"alarms"`
+	CpuThreshold       *float64 `pulumi:"cpuThreshold"`
+	IgnoreMetricsTime  *int     `pulumi:"ignoreMetricsTime"`
+	InstanceCount      *int     `pulumi:"instanceCount"`
+	LoadThreshold      *float64 `pulumi:"loadThreshold"`
+	MemoryThreshold    *float64 `pulumi:"memoryThreshold"`
+	ThresholdsWaitTime *int     `pulumi:"thresholdsWaitTime"`
+}
+
+// GangliaLayerLoadBasedAutoScalingUpscalingInput is an input type that accepts GangliaLayerLoadBasedAutoScalingUpscalingArgs and GangliaLayerLoadBasedAutoScalingUpscalingOutput values.
+// You can construct a concrete instance of `GangliaLayerLoadBasedAutoScalingUpscalingInput` via:
+//
+//	GangliaLayerLoadBasedAutoScalingUpscalingArgs{...}
+type GangliaLayerLoadBasedAutoScalingUpscalingInput interface {
+	pulumi.Input
+
+	ToGangliaLayerLoadBasedAutoScalingUpscalingOutput() GangliaLayerLoadBasedAutoScalingUpscalingOutput
+	ToGangliaLayerLoadBasedAutoScalingUpscalingOutputWithContext(context.Context) GangliaLayerLoadBasedAutoScalingUpscalingOutput
+}
+
+type GangliaLayerLoadBasedAutoScalingUpscalingArgs struct {
+	Alarms             pulumi.StringArrayInput `pulumi:"alarms"`
+	CpuThreshold       pulumi.Float64PtrInput  `pulumi:"cpuThreshold"`
+	IgnoreMetricsTime  pulumi.IntPtrInput      `pulumi:"ignoreMetricsTime"`
+	InstanceCount      pulumi.IntPtrInput      `pulumi:"instanceCount"`
+	LoadThreshold      pulumi.Float64PtrInput  `pulumi:"loadThreshold"`
+	MemoryThreshold    pulumi.Float64PtrInput  `pulumi:"memoryThreshold"`
+	ThresholdsWaitTime pulumi.IntPtrInput      `pulumi:"thresholdsWaitTime"`
+}
+
+func (GangliaLayerLoadBasedAutoScalingUpscalingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GangliaLayerLoadBasedAutoScalingUpscaling)(nil)).Elem()
+}
+
+func (i GangliaLayerLoadBasedAutoScalingUpscalingArgs) ToGangliaLayerLoadBasedAutoScalingUpscalingOutput() GangliaLayerLoadBasedAutoScalingUpscalingOutput {
+	return i.ToGangliaLayerLoadBasedAutoScalingUpscalingOutputWithContext(context.Background())
+}
+
+func (i GangliaLayerLoadBasedAutoScalingUpscalingArgs) ToGangliaLayerLoadBasedAutoScalingUpscalingOutputWithContext(ctx context.Context) GangliaLayerLoadBasedAutoScalingUpscalingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GangliaLayerLoadBasedAutoScalingUpscalingOutput)
+}
+
+func (i GangliaLayerLoadBasedAutoScalingUpscalingArgs) ToGangliaLayerLoadBasedAutoScalingUpscalingPtrOutput() GangliaLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return i.ToGangliaLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(context.Background())
+}
+
+func (i GangliaLayerLoadBasedAutoScalingUpscalingArgs) ToGangliaLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx context.Context) GangliaLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GangliaLayerLoadBasedAutoScalingUpscalingOutput).ToGangliaLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx)
+}
+
+// GangliaLayerLoadBasedAutoScalingUpscalingPtrInput is an input type that accepts GangliaLayerLoadBasedAutoScalingUpscalingArgs, GangliaLayerLoadBasedAutoScalingUpscalingPtr and GangliaLayerLoadBasedAutoScalingUpscalingPtrOutput values.
+// You can construct a concrete instance of `GangliaLayerLoadBasedAutoScalingUpscalingPtrInput` via:
+//
+//	        GangliaLayerLoadBasedAutoScalingUpscalingArgs{...}
+//
+//	or:
+//
+//	        nil
+type GangliaLayerLoadBasedAutoScalingUpscalingPtrInput interface {
+	pulumi.Input
+
+	ToGangliaLayerLoadBasedAutoScalingUpscalingPtrOutput() GangliaLayerLoadBasedAutoScalingUpscalingPtrOutput
+	ToGangliaLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(context.Context) GangliaLayerLoadBasedAutoScalingUpscalingPtrOutput
+}
+
+type gangliaLayerLoadBasedAutoScalingUpscalingPtrType GangliaLayerLoadBasedAutoScalingUpscalingArgs
+
+func GangliaLayerLoadBasedAutoScalingUpscalingPtr(v *GangliaLayerLoadBasedAutoScalingUpscalingArgs) GangliaLayerLoadBasedAutoScalingUpscalingPtrInput {
+	return (*gangliaLayerLoadBasedAutoScalingUpscalingPtrType)(v)
+}
+
+func (*gangliaLayerLoadBasedAutoScalingUpscalingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GangliaLayerLoadBasedAutoScalingUpscaling)(nil)).Elem()
+}
+
+func (i *gangliaLayerLoadBasedAutoScalingUpscalingPtrType) ToGangliaLayerLoadBasedAutoScalingUpscalingPtrOutput() GangliaLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return i.ToGangliaLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(context.Background())
+}
+
+func (i *gangliaLayerLoadBasedAutoScalingUpscalingPtrType) ToGangliaLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx context.Context) GangliaLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GangliaLayerLoadBasedAutoScalingUpscalingPtrOutput)
+}
+
+type GangliaLayerLoadBasedAutoScalingUpscalingOutput struct{ *pulumi.OutputState }
+
+func (GangliaLayerLoadBasedAutoScalingUpscalingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GangliaLayerLoadBasedAutoScalingUpscaling)(nil)).Elem()
+}
+
+func (o GangliaLayerLoadBasedAutoScalingUpscalingOutput) ToGangliaLayerLoadBasedAutoScalingUpscalingOutput() GangliaLayerLoadBasedAutoScalingUpscalingOutput {
+	return o
+}
+
+func (o GangliaLayerLoadBasedAutoScalingUpscalingOutput) ToGangliaLayerLoadBasedAutoScalingUpscalingOutputWithContext(ctx context.Context) GangliaLayerLoadBasedAutoScalingUpscalingOutput {
+	return o
+}
+
+func (o GangliaLayerLoadBasedAutoScalingUpscalingOutput) ToGangliaLayerLoadBasedAutoScalingUpscalingPtrOutput() GangliaLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o.ToGangliaLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(context.Background())
+}
+
+func (o GangliaLayerLoadBasedAutoScalingUpscalingOutput) ToGangliaLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx context.Context) GangliaLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GangliaLayerLoadBasedAutoScalingUpscaling) *GangliaLayerLoadBasedAutoScalingUpscaling {
+		return &v
+	}).(GangliaLayerLoadBasedAutoScalingUpscalingPtrOutput)
+}
+
+func (o GangliaLayerLoadBasedAutoScalingUpscalingOutput) Alarms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GangliaLayerLoadBasedAutoScalingUpscaling) []string { return v.Alarms }).(pulumi.StringArrayOutput)
+}
+
+func (o GangliaLayerLoadBasedAutoScalingUpscalingOutput) CpuThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v GangliaLayerLoadBasedAutoScalingUpscaling) *float64 { return v.CpuThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o GangliaLayerLoadBasedAutoScalingUpscalingOutput) IgnoreMetricsTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GangliaLayerLoadBasedAutoScalingUpscaling) *int { return v.IgnoreMetricsTime }).(pulumi.IntPtrOutput)
+}
+
+func (o GangliaLayerLoadBasedAutoScalingUpscalingOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GangliaLayerLoadBasedAutoScalingUpscaling) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
+}
+
+func (o GangliaLayerLoadBasedAutoScalingUpscalingOutput) LoadThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v GangliaLayerLoadBasedAutoScalingUpscaling) *float64 { return v.LoadThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o GangliaLayerLoadBasedAutoScalingUpscalingOutput) MemoryThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v GangliaLayerLoadBasedAutoScalingUpscaling) *float64 { return v.MemoryThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o GangliaLayerLoadBasedAutoScalingUpscalingOutput) ThresholdsWaitTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GangliaLayerLoadBasedAutoScalingUpscaling) *int { return v.ThresholdsWaitTime }).(pulumi.IntPtrOutput)
+}
+
+type GangliaLayerLoadBasedAutoScalingUpscalingPtrOutput struct{ *pulumi.OutputState }
+
+func (GangliaLayerLoadBasedAutoScalingUpscalingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GangliaLayerLoadBasedAutoScalingUpscaling)(nil)).Elem()
+}
+
+func (o GangliaLayerLoadBasedAutoScalingUpscalingPtrOutput) ToGangliaLayerLoadBasedAutoScalingUpscalingPtrOutput() GangliaLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o
+}
+
+func (o GangliaLayerLoadBasedAutoScalingUpscalingPtrOutput) ToGangliaLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx context.Context) GangliaLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o
+}
+
+func (o GangliaLayerLoadBasedAutoScalingUpscalingPtrOutput) Elem() GangliaLayerLoadBasedAutoScalingUpscalingOutput {
+	return o.ApplyT(func(v *GangliaLayerLoadBasedAutoScalingUpscaling) GangliaLayerLoadBasedAutoScalingUpscaling {
+		if v != nil {
+			return *v
+		}
+		var ret GangliaLayerLoadBasedAutoScalingUpscaling
+		return ret
+	}).(GangliaLayerLoadBasedAutoScalingUpscalingOutput)
+}
+
+func (o GangliaLayerLoadBasedAutoScalingUpscalingPtrOutput) Alarms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GangliaLayerLoadBasedAutoScalingUpscaling) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Alarms
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o GangliaLayerLoadBasedAutoScalingUpscalingPtrOutput) CpuThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *GangliaLayerLoadBasedAutoScalingUpscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.CpuThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o GangliaLayerLoadBasedAutoScalingUpscalingPtrOutput) IgnoreMetricsTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GangliaLayerLoadBasedAutoScalingUpscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IgnoreMetricsTime
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o GangliaLayerLoadBasedAutoScalingUpscalingPtrOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GangliaLayerLoadBasedAutoScalingUpscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceCount
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o GangliaLayerLoadBasedAutoScalingUpscalingPtrOutput) LoadThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *GangliaLayerLoadBasedAutoScalingUpscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.LoadThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o GangliaLayerLoadBasedAutoScalingUpscalingPtrOutput) MemoryThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *GangliaLayerLoadBasedAutoScalingUpscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MemoryThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o GangliaLayerLoadBasedAutoScalingUpscalingPtrOutput) ThresholdsWaitTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GangliaLayerLoadBasedAutoScalingUpscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ThresholdsWaitTime
+	}).(pulumi.IntPtrOutput)
+}
+
 type HaproxyLayerCloudwatchConfiguration struct {
 	Enabled    *bool                                          `pulumi:"enabled"`
 	LogStreams []HaproxyLayerCloudwatchConfigurationLogStream `pulumi:"logStreams"`
@@ -2228,6 +4133,619 @@ func (o HaproxyLayerEbsVolumeArrayOutput) Index(i pulumi.IntInput) HaproxyLayerE
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HaproxyLayerEbsVolume {
 		return vs[0].([]HaproxyLayerEbsVolume)[vs[1].(int)]
 	}).(HaproxyLayerEbsVolumeOutput)
+}
+
+type HaproxyLayerLoadBasedAutoScaling struct {
+	Downscaling *HaproxyLayerLoadBasedAutoScalingDownscaling `pulumi:"downscaling"`
+	Enable      *bool                                        `pulumi:"enable"`
+	Upscaling   *HaproxyLayerLoadBasedAutoScalingUpscaling   `pulumi:"upscaling"`
+}
+
+// HaproxyLayerLoadBasedAutoScalingInput is an input type that accepts HaproxyLayerLoadBasedAutoScalingArgs and HaproxyLayerLoadBasedAutoScalingOutput values.
+// You can construct a concrete instance of `HaproxyLayerLoadBasedAutoScalingInput` via:
+//
+//	HaproxyLayerLoadBasedAutoScalingArgs{...}
+type HaproxyLayerLoadBasedAutoScalingInput interface {
+	pulumi.Input
+
+	ToHaproxyLayerLoadBasedAutoScalingOutput() HaproxyLayerLoadBasedAutoScalingOutput
+	ToHaproxyLayerLoadBasedAutoScalingOutputWithContext(context.Context) HaproxyLayerLoadBasedAutoScalingOutput
+}
+
+type HaproxyLayerLoadBasedAutoScalingArgs struct {
+	Downscaling HaproxyLayerLoadBasedAutoScalingDownscalingPtrInput `pulumi:"downscaling"`
+	Enable      pulumi.BoolPtrInput                                 `pulumi:"enable"`
+	Upscaling   HaproxyLayerLoadBasedAutoScalingUpscalingPtrInput   `pulumi:"upscaling"`
+}
+
+func (HaproxyLayerLoadBasedAutoScalingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HaproxyLayerLoadBasedAutoScaling)(nil)).Elem()
+}
+
+func (i HaproxyLayerLoadBasedAutoScalingArgs) ToHaproxyLayerLoadBasedAutoScalingOutput() HaproxyLayerLoadBasedAutoScalingOutput {
+	return i.ToHaproxyLayerLoadBasedAutoScalingOutputWithContext(context.Background())
+}
+
+func (i HaproxyLayerLoadBasedAutoScalingArgs) ToHaproxyLayerLoadBasedAutoScalingOutputWithContext(ctx context.Context) HaproxyLayerLoadBasedAutoScalingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HaproxyLayerLoadBasedAutoScalingOutput)
+}
+
+func (i HaproxyLayerLoadBasedAutoScalingArgs) ToHaproxyLayerLoadBasedAutoScalingPtrOutput() HaproxyLayerLoadBasedAutoScalingPtrOutput {
+	return i.ToHaproxyLayerLoadBasedAutoScalingPtrOutputWithContext(context.Background())
+}
+
+func (i HaproxyLayerLoadBasedAutoScalingArgs) ToHaproxyLayerLoadBasedAutoScalingPtrOutputWithContext(ctx context.Context) HaproxyLayerLoadBasedAutoScalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HaproxyLayerLoadBasedAutoScalingOutput).ToHaproxyLayerLoadBasedAutoScalingPtrOutputWithContext(ctx)
+}
+
+// HaproxyLayerLoadBasedAutoScalingPtrInput is an input type that accepts HaproxyLayerLoadBasedAutoScalingArgs, HaproxyLayerLoadBasedAutoScalingPtr and HaproxyLayerLoadBasedAutoScalingPtrOutput values.
+// You can construct a concrete instance of `HaproxyLayerLoadBasedAutoScalingPtrInput` via:
+//
+//	        HaproxyLayerLoadBasedAutoScalingArgs{...}
+//
+//	or:
+//
+//	        nil
+type HaproxyLayerLoadBasedAutoScalingPtrInput interface {
+	pulumi.Input
+
+	ToHaproxyLayerLoadBasedAutoScalingPtrOutput() HaproxyLayerLoadBasedAutoScalingPtrOutput
+	ToHaproxyLayerLoadBasedAutoScalingPtrOutputWithContext(context.Context) HaproxyLayerLoadBasedAutoScalingPtrOutput
+}
+
+type haproxyLayerLoadBasedAutoScalingPtrType HaproxyLayerLoadBasedAutoScalingArgs
+
+func HaproxyLayerLoadBasedAutoScalingPtr(v *HaproxyLayerLoadBasedAutoScalingArgs) HaproxyLayerLoadBasedAutoScalingPtrInput {
+	return (*haproxyLayerLoadBasedAutoScalingPtrType)(v)
+}
+
+func (*haproxyLayerLoadBasedAutoScalingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HaproxyLayerLoadBasedAutoScaling)(nil)).Elem()
+}
+
+func (i *haproxyLayerLoadBasedAutoScalingPtrType) ToHaproxyLayerLoadBasedAutoScalingPtrOutput() HaproxyLayerLoadBasedAutoScalingPtrOutput {
+	return i.ToHaproxyLayerLoadBasedAutoScalingPtrOutputWithContext(context.Background())
+}
+
+func (i *haproxyLayerLoadBasedAutoScalingPtrType) ToHaproxyLayerLoadBasedAutoScalingPtrOutputWithContext(ctx context.Context) HaproxyLayerLoadBasedAutoScalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HaproxyLayerLoadBasedAutoScalingPtrOutput)
+}
+
+type HaproxyLayerLoadBasedAutoScalingOutput struct{ *pulumi.OutputState }
+
+func (HaproxyLayerLoadBasedAutoScalingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HaproxyLayerLoadBasedAutoScaling)(nil)).Elem()
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingOutput) ToHaproxyLayerLoadBasedAutoScalingOutput() HaproxyLayerLoadBasedAutoScalingOutput {
+	return o
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingOutput) ToHaproxyLayerLoadBasedAutoScalingOutputWithContext(ctx context.Context) HaproxyLayerLoadBasedAutoScalingOutput {
+	return o
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingOutput) ToHaproxyLayerLoadBasedAutoScalingPtrOutput() HaproxyLayerLoadBasedAutoScalingPtrOutput {
+	return o.ToHaproxyLayerLoadBasedAutoScalingPtrOutputWithContext(context.Background())
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingOutput) ToHaproxyLayerLoadBasedAutoScalingPtrOutputWithContext(ctx context.Context) HaproxyLayerLoadBasedAutoScalingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HaproxyLayerLoadBasedAutoScaling) *HaproxyLayerLoadBasedAutoScaling {
+		return &v
+	}).(HaproxyLayerLoadBasedAutoScalingPtrOutput)
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingOutput) Downscaling() HaproxyLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o.ApplyT(func(v HaproxyLayerLoadBasedAutoScaling) *HaproxyLayerLoadBasedAutoScalingDownscaling {
+		return v.Downscaling
+	}).(HaproxyLayerLoadBasedAutoScalingDownscalingPtrOutput)
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingOutput) Enable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v HaproxyLayerLoadBasedAutoScaling) *bool { return v.Enable }).(pulumi.BoolPtrOutput)
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingOutput) Upscaling() HaproxyLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o.ApplyT(func(v HaproxyLayerLoadBasedAutoScaling) *HaproxyLayerLoadBasedAutoScalingUpscaling {
+		return v.Upscaling
+	}).(HaproxyLayerLoadBasedAutoScalingUpscalingPtrOutput)
+}
+
+type HaproxyLayerLoadBasedAutoScalingPtrOutput struct{ *pulumi.OutputState }
+
+func (HaproxyLayerLoadBasedAutoScalingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HaproxyLayerLoadBasedAutoScaling)(nil)).Elem()
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingPtrOutput) ToHaproxyLayerLoadBasedAutoScalingPtrOutput() HaproxyLayerLoadBasedAutoScalingPtrOutput {
+	return o
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingPtrOutput) ToHaproxyLayerLoadBasedAutoScalingPtrOutputWithContext(ctx context.Context) HaproxyLayerLoadBasedAutoScalingPtrOutput {
+	return o
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingPtrOutput) Elem() HaproxyLayerLoadBasedAutoScalingOutput {
+	return o.ApplyT(func(v *HaproxyLayerLoadBasedAutoScaling) HaproxyLayerLoadBasedAutoScaling {
+		if v != nil {
+			return *v
+		}
+		var ret HaproxyLayerLoadBasedAutoScaling
+		return ret
+	}).(HaproxyLayerLoadBasedAutoScalingOutput)
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingPtrOutput) Downscaling() HaproxyLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o.ApplyT(func(v *HaproxyLayerLoadBasedAutoScaling) *HaproxyLayerLoadBasedAutoScalingDownscaling {
+		if v == nil {
+			return nil
+		}
+		return v.Downscaling
+	}).(HaproxyLayerLoadBasedAutoScalingDownscalingPtrOutput)
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingPtrOutput) Enable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *HaproxyLayerLoadBasedAutoScaling) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enable
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingPtrOutput) Upscaling() HaproxyLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o.ApplyT(func(v *HaproxyLayerLoadBasedAutoScaling) *HaproxyLayerLoadBasedAutoScalingUpscaling {
+		if v == nil {
+			return nil
+		}
+		return v.Upscaling
+	}).(HaproxyLayerLoadBasedAutoScalingUpscalingPtrOutput)
+}
+
+type HaproxyLayerLoadBasedAutoScalingDownscaling struct {
+	Alarms             []string `pulumi:"alarms"`
+	CpuThreshold       *float64 `pulumi:"cpuThreshold"`
+	IgnoreMetricsTime  *int     `pulumi:"ignoreMetricsTime"`
+	InstanceCount      *int     `pulumi:"instanceCount"`
+	LoadThreshold      *float64 `pulumi:"loadThreshold"`
+	MemoryThreshold    *float64 `pulumi:"memoryThreshold"`
+	ThresholdsWaitTime *int     `pulumi:"thresholdsWaitTime"`
+}
+
+// HaproxyLayerLoadBasedAutoScalingDownscalingInput is an input type that accepts HaproxyLayerLoadBasedAutoScalingDownscalingArgs and HaproxyLayerLoadBasedAutoScalingDownscalingOutput values.
+// You can construct a concrete instance of `HaproxyLayerLoadBasedAutoScalingDownscalingInput` via:
+//
+//	HaproxyLayerLoadBasedAutoScalingDownscalingArgs{...}
+type HaproxyLayerLoadBasedAutoScalingDownscalingInput interface {
+	pulumi.Input
+
+	ToHaproxyLayerLoadBasedAutoScalingDownscalingOutput() HaproxyLayerLoadBasedAutoScalingDownscalingOutput
+	ToHaproxyLayerLoadBasedAutoScalingDownscalingOutputWithContext(context.Context) HaproxyLayerLoadBasedAutoScalingDownscalingOutput
+}
+
+type HaproxyLayerLoadBasedAutoScalingDownscalingArgs struct {
+	Alarms             pulumi.StringArrayInput `pulumi:"alarms"`
+	CpuThreshold       pulumi.Float64PtrInput  `pulumi:"cpuThreshold"`
+	IgnoreMetricsTime  pulumi.IntPtrInput      `pulumi:"ignoreMetricsTime"`
+	InstanceCount      pulumi.IntPtrInput      `pulumi:"instanceCount"`
+	LoadThreshold      pulumi.Float64PtrInput  `pulumi:"loadThreshold"`
+	MemoryThreshold    pulumi.Float64PtrInput  `pulumi:"memoryThreshold"`
+	ThresholdsWaitTime pulumi.IntPtrInput      `pulumi:"thresholdsWaitTime"`
+}
+
+func (HaproxyLayerLoadBasedAutoScalingDownscalingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HaproxyLayerLoadBasedAutoScalingDownscaling)(nil)).Elem()
+}
+
+func (i HaproxyLayerLoadBasedAutoScalingDownscalingArgs) ToHaproxyLayerLoadBasedAutoScalingDownscalingOutput() HaproxyLayerLoadBasedAutoScalingDownscalingOutput {
+	return i.ToHaproxyLayerLoadBasedAutoScalingDownscalingOutputWithContext(context.Background())
+}
+
+func (i HaproxyLayerLoadBasedAutoScalingDownscalingArgs) ToHaproxyLayerLoadBasedAutoScalingDownscalingOutputWithContext(ctx context.Context) HaproxyLayerLoadBasedAutoScalingDownscalingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HaproxyLayerLoadBasedAutoScalingDownscalingOutput)
+}
+
+func (i HaproxyLayerLoadBasedAutoScalingDownscalingArgs) ToHaproxyLayerLoadBasedAutoScalingDownscalingPtrOutput() HaproxyLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return i.ToHaproxyLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(context.Background())
+}
+
+func (i HaproxyLayerLoadBasedAutoScalingDownscalingArgs) ToHaproxyLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx context.Context) HaproxyLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HaproxyLayerLoadBasedAutoScalingDownscalingOutput).ToHaproxyLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx)
+}
+
+// HaproxyLayerLoadBasedAutoScalingDownscalingPtrInput is an input type that accepts HaproxyLayerLoadBasedAutoScalingDownscalingArgs, HaproxyLayerLoadBasedAutoScalingDownscalingPtr and HaproxyLayerLoadBasedAutoScalingDownscalingPtrOutput values.
+// You can construct a concrete instance of `HaproxyLayerLoadBasedAutoScalingDownscalingPtrInput` via:
+//
+//	        HaproxyLayerLoadBasedAutoScalingDownscalingArgs{...}
+//
+//	or:
+//
+//	        nil
+type HaproxyLayerLoadBasedAutoScalingDownscalingPtrInput interface {
+	pulumi.Input
+
+	ToHaproxyLayerLoadBasedAutoScalingDownscalingPtrOutput() HaproxyLayerLoadBasedAutoScalingDownscalingPtrOutput
+	ToHaproxyLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(context.Context) HaproxyLayerLoadBasedAutoScalingDownscalingPtrOutput
+}
+
+type haproxyLayerLoadBasedAutoScalingDownscalingPtrType HaproxyLayerLoadBasedAutoScalingDownscalingArgs
+
+func HaproxyLayerLoadBasedAutoScalingDownscalingPtr(v *HaproxyLayerLoadBasedAutoScalingDownscalingArgs) HaproxyLayerLoadBasedAutoScalingDownscalingPtrInput {
+	return (*haproxyLayerLoadBasedAutoScalingDownscalingPtrType)(v)
+}
+
+func (*haproxyLayerLoadBasedAutoScalingDownscalingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HaproxyLayerLoadBasedAutoScalingDownscaling)(nil)).Elem()
+}
+
+func (i *haproxyLayerLoadBasedAutoScalingDownscalingPtrType) ToHaproxyLayerLoadBasedAutoScalingDownscalingPtrOutput() HaproxyLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return i.ToHaproxyLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(context.Background())
+}
+
+func (i *haproxyLayerLoadBasedAutoScalingDownscalingPtrType) ToHaproxyLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx context.Context) HaproxyLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HaproxyLayerLoadBasedAutoScalingDownscalingPtrOutput)
+}
+
+type HaproxyLayerLoadBasedAutoScalingDownscalingOutput struct{ *pulumi.OutputState }
+
+func (HaproxyLayerLoadBasedAutoScalingDownscalingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HaproxyLayerLoadBasedAutoScalingDownscaling)(nil)).Elem()
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingDownscalingOutput) ToHaproxyLayerLoadBasedAutoScalingDownscalingOutput() HaproxyLayerLoadBasedAutoScalingDownscalingOutput {
+	return o
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingDownscalingOutput) ToHaproxyLayerLoadBasedAutoScalingDownscalingOutputWithContext(ctx context.Context) HaproxyLayerLoadBasedAutoScalingDownscalingOutput {
+	return o
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingDownscalingOutput) ToHaproxyLayerLoadBasedAutoScalingDownscalingPtrOutput() HaproxyLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o.ToHaproxyLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(context.Background())
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingDownscalingOutput) ToHaproxyLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx context.Context) HaproxyLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HaproxyLayerLoadBasedAutoScalingDownscaling) *HaproxyLayerLoadBasedAutoScalingDownscaling {
+		return &v
+	}).(HaproxyLayerLoadBasedAutoScalingDownscalingPtrOutput)
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingDownscalingOutput) Alarms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v HaproxyLayerLoadBasedAutoScalingDownscaling) []string { return v.Alarms }).(pulumi.StringArrayOutput)
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingDownscalingOutput) CpuThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v HaproxyLayerLoadBasedAutoScalingDownscaling) *float64 { return v.CpuThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingDownscalingOutput) IgnoreMetricsTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v HaproxyLayerLoadBasedAutoScalingDownscaling) *int { return v.IgnoreMetricsTime }).(pulumi.IntPtrOutput)
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingDownscalingOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v HaproxyLayerLoadBasedAutoScalingDownscaling) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingDownscalingOutput) LoadThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v HaproxyLayerLoadBasedAutoScalingDownscaling) *float64 { return v.LoadThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingDownscalingOutput) MemoryThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v HaproxyLayerLoadBasedAutoScalingDownscaling) *float64 { return v.MemoryThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingDownscalingOutput) ThresholdsWaitTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v HaproxyLayerLoadBasedAutoScalingDownscaling) *int { return v.ThresholdsWaitTime }).(pulumi.IntPtrOutput)
+}
+
+type HaproxyLayerLoadBasedAutoScalingDownscalingPtrOutput struct{ *pulumi.OutputState }
+
+func (HaproxyLayerLoadBasedAutoScalingDownscalingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HaproxyLayerLoadBasedAutoScalingDownscaling)(nil)).Elem()
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingDownscalingPtrOutput) ToHaproxyLayerLoadBasedAutoScalingDownscalingPtrOutput() HaproxyLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingDownscalingPtrOutput) ToHaproxyLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx context.Context) HaproxyLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingDownscalingPtrOutput) Elem() HaproxyLayerLoadBasedAutoScalingDownscalingOutput {
+	return o.ApplyT(func(v *HaproxyLayerLoadBasedAutoScalingDownscaling) HaproxyLayerLoadBasedAutoScalingDownscaling {
+		if v != nil {
+			return *v
+		}
+		var ret HaproxyLayerLoadBasedAutoScalingDownscaling
+		return ret
+	}).(HaproxyLayerLoadBasedAutoScalingDownscalingOutput)
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingDownscalingPtrOutput) Alarms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *HaproxyLayerLoadBasedAutoScalingDownscaling) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Alarms
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingDownscalingPtrOutput) CpuThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *HaproxyLayerLoadBasedAutoScalingDownscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.CpuThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingDownscalingPtrOutput) IgnoreMetricsTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *HaproxyLayerLoadBasedAutoScalingDownscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IgnoreMetricsTime
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingDownscalingPtrOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *HaproxyLayerLoadBasedAutoScalingDownscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceCount
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingDownscalingPtrOutput) LoadThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *HaproxyLayerLoadBasedAutoScalingDownscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.LoadThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingDownscalingPtrOutput) MemoryThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *HaproxyLayerLoadBasedAutoScalingDownscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MemoryThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingDownscalingPtrOutput) ThresholdsWaitTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *HaproxyLayerLoadBasedAutoScalingDownscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ThresholdsWaitTime
+	}).(pulumi.IntPtrOutput)
+}
+
+type HaproxyLayerLoadBasedAutoScalingUpscaling struct {
+	Alarms             []string `pulumi:"alarms"`
+	CpuThreshold       *float64 `pulumi:"cpuThreshold"`
+	IgnoreMetricsTime  *int     `pulumi:"ignoreMetricsTime"`
+	InstanceCount      *int     `pulumi:"instanceCount"`
+	LoadThreshold      *float64 `pulumi:"loadThreshold"`
+	MemoryThreshold    *float64 `pulumi:"memoryThreshold"`
+	ThresholdsWaitTime *int     `pulumi:"thresholdsWaitTime"`
+}
+
+// HaproxyLayerLoadBasedAutoScalingUpscalingInput is an input type that accepts HaproxyLayerLoadBasedAutoScalingUpscalingArgs and HaproxyLayerLoadBasedAutoScalingUpscalingOutput values.
+// You can construct a concrete instance of `HaproxyLayerLoadBasedAutoScalingUpscalingInput` via:
+//
+//	HaproxyLayerLoadBasedAutoScalingUpscalingArgs{...}
+type HaproxyLayerLoadBasedAutoScalingUpscalingInput interface {
+	pulumi.Input
+
+	ToHaproxyLayerLoadBasedAutoScalingUpscalingOutput() HaproxyLayerLoadBasedAutoScalingUpscalingOutput
+	ToHaproxyLayerLoadBasedAutoScalingUpscalingOutputWithContext(context.Context) HaproxyLayerLoadBasedAutoScalingUpscalingOutput
+}
+
+type HaproxyLayerLoadBasedAutoScalingUpscalingArgs struct {
+	Alarms             pulumi.StringArrayInput `pulumi:"alarms"`
+	CpuThreshold       pulumi.Float64PtrInput  `pulumi:"cpuThreshold"`
+	IgnoreMetricsTime  pulumi.IntPtrInput      `pulumi:"ignoreMetricsTime"`
+	InstanceCount      pulumi.IntPtrInput      `pulumi:"instanceCount"`
+	LoadThreshold      pulumi.Float64PtrInput  `pulumi:"loadThreshold"`
+	MemoryThreshold    pulumi.Float64PtrInput  `pulumi:"memoryThreshold"`
+	ThresholdsWaitTime pulumi.IntPtrInput      `pulumi:"thresholdsWaitTime"`
+}
+
+func (HaproxyLayerLoadBasedAutoScalingUpscalingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HaproxyLayerLoadBasedAutoScalingUpscaling)(nil)).Elem()
+}
+
+func (i HaproxyLayerLoadBasedAutoScalingUpscalingArgs) ToHaproxyLayerLoadBasedAutoScalingUpscalingOutput() HaproxyLayerLoadBasedAutoScalingUpscalingOutput {
+	return i.ToHaproxyLayerLoadBasedAutoScalingUpscalingOutputWithContext(context.Background())
+}
+
+func (i HaproxyLayerLoadBasedAutoScalingUpscalingArgs) ToHaproxyLayerLoadBasedAutoScalingUpscalingOutputWithContext(ctx context.Context) HaproxyLayerLoadBasedAutoScalingUpscalingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HaproxyLayerLoadBasedAutoScalingUpscalingOutput)
+}
+
+func (i HaproxyLayerLoadBasedAutoScalingUpscalingArgs) ToHaproxyLayerLoadBasedAutoScalingUpscalingPtrOutput() HaproxyLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return i.ToHaproxyLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(context.Background())
+}
+
+func (i HaproxyLayerLoadBasedAutoScalingUpscalingArgs) ToHaproxyLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx context.Context) HaproxyLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HaproxyLayerLoadBasedAutoScalingUpscalingOutput).ToHaproxyLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx)
+}
+
+// HaproxyLayerLoadBasedAutoScalingUpscalingPtrInput is an input type that accepts HaproxyLayerLoadBasedAutoScalingUpscalingArgs, HaproxyLayerLoadBasedAutoScalingUpscalingPtr and HaproxyLayerLoadBasedAutoScalingUpscalingPtrOutput values.
+// You can construct a concrete instance of `HaproxyLayerLoadBasedAutoScalingUpscalingPtrInput` via:
+//
+//	        HaproxyLayerLoadBasedAutoScalingUpscalingArgs{...}
+//
+//	or:
+//
+//	        nil
+type HaproxyLayerLoadBasedAutoScalingUpscalingPtrInput interface {
+	pulumi.Input
+
+	ToHaproxyLayerLoadBasedAutoScalingUpscalingPtrOutput() HaproxyLayerLoadBasedAutoScalingUpscalingPtrOutput
+	ToHaproxyLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(context.Context) HaproxyLayerLoadBasedAutoScalingUpscalingPtrOutput
+}
+
+type haproxyLayerLoadBasedAutoScalingUpscalingPtrType HaproxyLayerLoadBasedAutoScalingUpscalingArgs
+
+func HaproxyLayerLoadBasedAutoScalingUpscalingPtr(v *HaproxyLayerLoadBasedAutoScalingUpscalingArgs) HaproxyLayerLoadBasedAutoScalingUpscalingPtrInput {
+	return (*haproxyLayerLoadBasedAutoScalingUpscalingPtrType)(v)
+}
+
+func (*haproxyLayerLoadBasedAutoScalingUpscalingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HaproxyLayerLoadBasedAutoScalingUpscaling)(nil)).Elem()
+}
+
+func (i *haproxyLayerLoadBasedAutoScalingUpscalingPtrType) ToHaproxyLayerLoadBasedAutoScalingUpscalingPtrOutput() HaproxyLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return i.ToHaproxyLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(context.Background())
+}
+
+func (i *haproxyLayerLoadBasedAutoScalingUpscalingPtrType) ToHaproxyLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx context.Context) HaproxyLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HaproxyLayerLoadBasedAutoScalingUpscalingPtrOutput)
+}
+
+type HaproxyLayerLoadBasedAutoScalingUpscalingOutput struct{ *pulumi.OutputState }
+
+func (HaproxyLayerLoadBasedAutoScalingUpscalingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HaproxyLayerLoadBasedAutoScalingUpscaling)(nil)).Elem()
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingUpscalingOutput) ToHaproxyLayerLoadBasedAutoScalingUpscalingOutput() HaproxyLayerLoadBasedAutoScalingUpscalingOutput {
+	return o
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingUpscalingOutput) ToHaproxyLayerLoadBasedAutoScalingUpscalingOutputWithContext(ctx context.Context) HaproxyLayerLoadBasedAutoScalingUpscalingOutput {
+	return o
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingUpscalingOutput) ToHaproxyLayerLoadBasedAutoScalingUpscalingPtrOutput() HaproxyLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o.ToHaproxyLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(context.Background())
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingUpscalingOutput) ToHaproxyLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx context.Context) HaproxyLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HaproxyLayerLoadBasedAutoScalingUpscaling) *HaproxyLayerLoadBasedAutoScalingUpscaling {
+		return &v
+	}).(HaproxyLayerLoadBasedAutoScalingUpscalingPtrOutput)
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingUpscalingOutput) Alarms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v HaproxyLayerLoadBasedAutoScalingUpscaling) []string { return v.Alarms }).(pulumi.StringArrayOutput)
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingUpscalingOutput) CpuThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v HaproxyLayerLoadBasedAutoScalingUpscaling) *float64 { return v.CpuThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingUpscalingOutput) IgnoreMetricsTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v HaproxyLayerLoadBasedAutoScalingUpscaling) *int { return v.IgnoreMetricsTime }).(pulumi.IntPtrOutput)
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingUpscalingOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v HaproxyLayerLoadBasedAutoScalingUpscaling) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingUpscalingOutput) LoadThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v HaproxyLayerLoadBasedAutoScalingUpscaling) *float64 { return v.LoadThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingUpscalingOutput) MemoryThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v HaproxyLayerLoadBasedAutoScalingUpscaling) *float64 { return v.MemoryThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingUpscalingOutput) ThresholdsWaitTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v HaproxyLayerLoadBasedAutoScalingUpscaling) *int { return v.ThresholdsWaitTime }).(pulumi.IntPtrOutput)
+}
+
+type HaproxyLayerLoadBasedAutoScalingUpscalingPtrOutput struct{ *pulumi.OutputState }
+
+func (HaproxyLayerLoadBasedAutoScalingUpscalingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HaproxyLayerLoadBasedAutoScalingUpscaling)(nil)).Elem()
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingUpscalingPtrOutput) ToHaproxyLayerLoadBasedAutoScalingUpscalingPtrOutput() HaproxyLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingUpscalingPtrOutput) ToHaproxyLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx context.Context) HaproxyLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingUpscalingPtrOutput) Elem() HaproxyLayerLoadBasedAutoScalingUpscalingOutput {
+	return o.ApplyT(func(v *HaproxyLayerLoadBasedAutoScalingUpscaling) HaproxyLayerLoadBasedAutoScalingUpscaling {
+		if v != nil {
+			return *v
+		}
+		var ret HaproxyLayerLoadBasedAutoScalingUpscaling
+		return ret
+	}).(HaproxyLayerLoadBasedAutoScalingUpscalingOutput)
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingUpscalingPtrOutput) Alarms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *HaproxyLayerLoadBasedAutoScalingUpscaling) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Alarms
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingUpscalingPtrOutput) CpuThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *HaproxyLayerLoadBasedAutoScalingUpscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.CpuThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingUpscalingPtrOutput) IgnoreMetricsTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *HaproxyLayerLoadBasedAutoScalingUpscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IgnoreMetricsTime
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingUpscalingPtrOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *HaproxyLayerLoadBasedAutoScalingUpscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceCount
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingUpscalingPtrOutput) LoadThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *HaproxyLayerLoadBasedAutoScalingUpscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.LoadThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingUpscalingPtrOutput) MemoryThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *HaproxyLayerLoadBasedAutoScalingUpscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MemoryThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingUpscalingPtrOutput) ThresholdsWaitTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *HaproxyLayerLoadBasedAutoScalingUpscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ThresholdsWaitTime
+	}).(pulumi.IntPtrOutput)
 }
 
 type InstanceEbsBlockDevice struct {
@@ -3018,6 +5536,619 @@ func (o JavaAppLayerEbsVolumeArrayOutput) Index(i pulumi.IntInput) JavaAppLayerE
 	}).(JavaAppLayerEbsVolumeOutput)
 }
 
+type JavaAppLayerLoadBasedAutoScaling struct {
+	Downscaling *JavaAppLayerLoadBasedAutoScalingDownscaling `pulumi:"downscaling"`
+	Enable      *bool                                        `pulumi:"enable"`
+	Upscaling   *JavaAppLayerLoadBasedAutoScalingUpscaling   `pulumi:"upscaling"`
+}
+
+// JavaAppLayerLoadBasedAutoScalingInput is an input type that accepts JavaAppLayerLoadBasedAutoScalingArgs and JavaAppLayerLoadBasedAutoScalingOutput values.
+// You can construct a concrete instance of `JavaAppLayerLoadBasedAutoScalingInput` via:
+//
+//	JavaAppLayerLoadBasedAutoScalingArgs{...}
+type JavaAppLayerLoadBasedAutoScalingInput interface {
+	pulumi.Input
+
+	ToJavaAppLayerLoadBasedAutoScalingOutput() JavaAppLayerLoadBasedAutoScalingOutput
+	ToJavaAppLayerLoadBasedAutoScalingOutputWithContext(context.Context) JavaAppLayerLoadBasedAutoScalingOutput
+}
+
+type JavaAppLayerLoadBasedAutoScalingArgs struct {
+	Downscaling JavaAppLayerLoadBasedAutoScalingDownscalingPtrInput `pulumi:"downscaling"`
+	Enable      pulumi.BoolPtrInput                                 `pulumi:"enable"`
+	Upscaling   JavaAppLayerLoadBasedAutoScalingUpscalingPtrInput   `pulumi:"upscaling"`
+}
+
+func (JavaAppLayerLoadBasedAutoScalingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JavaAppLayerLoadBasedAutoScaling)(nil)).Elem()
+}
+
+func (i JavaAppLayerLoadBasedAutoScalingArgs) ToJavaAppLayerLoadBasedAutoScalingOutput() JavaAppLayerLoadBasedAutoScalingOutput {
+	return i.ToJavaAppLayerLoadBasedAutoScalingOutputWithContext(context.Background())
+}
+
+func (i JavaAppLayerLoadBasedAutoScalingArgs) ToJavaAppLayerLoadBasedAutoScalingOutputWithContext(ctx context.Context) JavaAppLayerLoadBasedAutoScalingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JavaAppLayerLoadBasedAutoScalingOutput)
+}
+
+func (i JavaAppLayerLoadBasedAutoScalingArgs) ToJavaAppLayerLoadBasedAutoScalingPtrOutput() JavaAppLayerLoadBasedAutoScalingPtrOutput {
+	return i.ToJavaAppLayerLoadBasedAutoScalingPtrOutputWithContext(context.Background())
+}
+
+func (i JavaAppLayerLoadBasedAutoScalingArgs) ToJavaAppLayerLoadBasedAutoScalingPtrOutputWithContext(ctx context.Context) JavaAppLayerLoadBasedAutoScalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JavaAppLayerLoadBasedAutoScalingOutput).ToJavaAppLayerLoadBasedAutoScalingPtrOutputWithContext(ctx)
+}
+
+// JavaAppLayerLoadBasedAutoScalingPtrInput is an input type that accepts JavaAppLayerLoadBasedAutoScalingArgs, JavaAppLayerLoadBasedAutoScalingPtr and JavaAppLayerLoadBasedAutoScalingPtrOutput values.
+// You can construct a concrete instance of `JavaAppLayerLoadBasedAutoScalingPtrInput` via:
+//
+//	        JavaAppLayerLoadBasedAutoScalingArgs{...}
+//
+//	or:
+//
+//	        nil
+type JavaAppLayerLoadBasedAutoScalingPtrInput interface {
+	pulumi.Input
+
+	ToJavaAppLayerLoadBasedAutoScalingPtrOutput() JavaAppLayerLoadBasedAutoScalingPtrOutput
+	ToJavaAppLayerLoadBasedAutoScalingPtrOutputWithContext(context.Context) JavaAppLayerLoadBasedAutoScalingPtrOutput
+}
+
+type javaAppLayerLoadBasedAutoScalingPtrType JavaAppLayerLoadBasedAutoScalingArgs
+
+func JavaAppLayerLoadBasedAutoScalingPtr(v *JavaAppLayerLoadBasedAutoScalingArgs) JavaAppLayerLoadBasedAutoScalingPtrInput {
+	return (*javaAppLayerLoadBasedAutoScalingPtrType)(v)
+}
+
+func (*javaAppLayerLoadBasedAutoScalingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JavaAppLayerLoadBasedAutoScaling)(nil)).Elem()
+}
+
+func (i *javaAppLayerLoadBasedAutoScalingPtrType) ToJavaAppLayerLoadBasedAutoScalingPtrOutput() JavaAppLayerLoadBasedAutoScalingPtrOutput {
+	return i.ToJavaAppLayerLoadBasedAutoScalingPtrOutputWithContext(context.Background())
+}
+
+func (i *javaAppLayerLoadBasedAutoScalingPtrType) ToJavaAppLayerLoadBasedAutoScalingPtrOutputWithContext(ctx context.Context) JavaAppLayerLoadBasedAutoScalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JavaAppLayerLoadBasedAutoScalingPtrOutput)
+}
+
+type JavaAppLayerLoadBasedAutoScalingOutput struct{ *pulumi.OutputState }
+
+func (JavaAppLayerLoadBasedAutoScalingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JavaAppLayerLoadBasedAutoScaling)(nil)).Elem()
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingOutput) ToJavaAppLayerLoadBasedAutoScalingOutput() JavaAppLayerLoadBasedAutoScalingOutput {
+	return o
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingOutput) ToJavaAppLayerLoadBasedAutoScalingOutputWithContext(ctx context.Context) JavaAppLayerLoadBasedAutoScalingOutput {
+	return o
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingOutput) ToJavaAppLayerLoadBasedAutoScalingPtrOutput() JavaAppLayerLoadBasedAutoScalingPtrOutput {
+	return o.ToJavaAppLayerLoadBasedAutoScalingPtrOutputWithContext(context.Background())
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingOutput) ToJavaAppLayerLoadBasedAutoScalingPtrOutputWithContext(ctx context.Context) JavaAppLayerLoadBasedAutoScalingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JavaAppLayerLoadBasedAutoScaling) *JavaAppLayerLoadBasedAutoScaling {
+		return &v
+	}).(JavaAppLayerLoadBasedAutoScalingPtrOutput)
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingOutput) Downscaling() JavaAppLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o.ApplyT(func(v JavaAppLayerLoadBasedAutoScaling) *JavaAppLayerLoadBasedAutoScalingDownscaling {
+		return v.Downscaling
+	}).(JavaAppLayerLoadBasedAutoScalingDownscalingPtrOutput)
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingOutput) Enable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v JavaAppLayerLoadBasedAutoScaling) *bool { return v.Enable }).(pulumi.BoolPtrOutput)
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingOutput) Upscaling() JavaAppLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o.ApplyT(func(v JavaAppLayerLoadBasedAutoScaling) *JavaAppLayerLoadBasedAutoScalingUpscaling {
+		return v.Upscaling
+	}).(JavaAppLayerLoadBasedAutoScalingUpscalingPtrOutput)
+}
+
+type JavaAppLayerLoadBasedAutoScalingPtrOutput struct{ *pulumi.OutputState }
+
+func (JavaAppLayerLoadBasedAutoScalingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JavaAppLayerLoadBasedAutoScaling)(nil)).Elem()
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingPtrOutput) ToJavaAppLayerLoadBasedAutoScalingPtrOutput() JavaAppLayerLoadBasedAutoScalingPtrOutput {
+	return o
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingPtrOutput) ToJavaAppLayerLoadBasedAutoScalingPtrOutputWithContext(ctx context.Context) JavaAppLayerLoadBasedAutoScalingPtrOutput {
+	return o
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingPtrOutput) Elem() JavaAppLayerLoadBasedAutoScalingOutput {
+	return o.ApplyT(func(v *JavaAppLayerLoadBasedAutoScaling) JavaAppLayerLoadBasedAutoScaling {
+		if v != nil {
+			return *v
+		}
+		var ret JavaAppLayerLoadBasedAutoScaling
+		return ret
+	}).(JavaAppLayerLoadBasedAutoScalingOutput)
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingPtrOutput) Downscaling() JavaAppLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o.ApplyT(func(v *JavaAppLayerLoadBasedAutoScaling) *JavaAppLayerLoadBasedAutoScalingDownscaling {
+		if v == nil {
+			return nil
+		}
+		return v.Downscaling
+	}).(JavaAppLayerLoadBasedAutoScalingDownscalingPtrOutput)
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingPtrOutput) Enable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *JavaAppLayerLoadBasedAutoScaling) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enable
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingPtrOutput) Upscaling() JavaAppLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o.ApplyT(func(v *JavaAppLayerLoadBasedAutoScaling) *JavaAppLayerLoadBasedAutoScalingUpscaling {
+		if v == nil {
+			return nil
+		}
+		return v.Upscaling
+	}).(JavaAppLayerLoadBasedAutoScalingUpscalingPtrOutput)
+}
+
+type JavaAppLayerLoadBasedAutoScalingDownscaling struct {
+	Alarms             []string `pulumi:"alarms"`
+	CpuThreshold       *float64 `pulumi:"cpuThreshold"`
+	IgnoreMetricsTime  *int     `pulumi:"ignoreMetricsTime"`
+	InstanceCount      *int     `pulumi:"instanceCount"`
+	LoadThreshold      *float64 `pulumi:"loadThreshold"`
+	MemoryThreshold    *float64 `pulumi:"memoryThreshold"`
+	ThresholdsWaitTime *int     `pulumi:"thresholdsWaitTime"`
+}
+
+// JavaAppLayerLoadBasedAutoScalingDownscalingInput is an input type that accepts JavaAppLayerLoadBasedAutoScalingDownscalingArgs and JavaAppLayerLoadBasedAutoScalingDownscalingOutput values.
+// You can construct a concrete instance of `JavaAppLayerLoadBasedAutoScalingDownscalingInput` via:
+//
+//	JavaAppLayerLoadBasedAutoScalingDownscalingArgs{...}
+type JavaAppLayerLoadBasedAutoScalingDownscalingInput interface {
+	pulumi.Input
+
+	ToJavaAppLayerLoadBasedAutoScalingDownscalingOutput() JavaAppLayerLoadBasedAutoScalingDownscalingOutput
+	ToJavaAppLayerLoadBasedAutoScalingDownscalingOutputWithContext(context.Context) JavaAppLayerLoadBasedAutoScalingDownscalingOutput
+}
+
+type JavaAppLayerLoadBasedAutoScalingDownscalingArgs struct {
+	Alarms             pulumi.StringArrayInput `pulumi:"alarms"`
+	CpuThreshold       pulumi.Float64PtrInput  `pulumi:"cpuThreshold"`
+	IgnoreMetricsTime  pulumi.IntPtrInput      `pulumi:"ignoreMetricsTime"`
+	InstanceCount      pulumi.IntPtrInput      `pulumi:"instanceCount"`
+	LoadThreshold      pulumi.Float64PtrInput  `pulumi:"loadThreshold"`
+	MemoryThreshold    pulumi.Float64PtrInput  `pulumi:"memoryThreshold"`
+	ThresholdsWaitTime pulumi.IntPtrInput      `pulumi:"thresholdsWaitTime"`
+}
+
+func (JavaAppLayerLoadBasedAutoScalingDownscalingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JavaAppLayerLoadBasedAutoScalingDownscaling)(nil)).Elem()
+}
+
+func (i JavaAppLayerLoadBasedAutoScalingDownscalingArgs) ToJavaAppLayerLoadBasedAutoScalingDownscalingOutput() JavaAppLayerLoadBasedAutoScalingDownscalingOutput {
+	return i.ToJavaAppLayerLoadBasedAutoScalingDownscalingOutputWithContext(context.Background())
+}
+
+func (i JavaAppLayerLoadBasedAutoScalingDownscalingArgs) ToJavaAppLayerLoadBasedAutoScalingDownscalingOutputWithContext(ctx context.Context) JavaAppLayerLoadBasedAutoScalingDownscalingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JavaAppLayerLoadBasedAutoScalingDownscalingOutput)
+}
+
+func (i JavaAppLayerLoadBasedAutoScalingDownscalingArgs) ToJavaAppLayerLoadBasedAutoScalingDownscalingPtrOutput() JavaAppLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return i.ToJavaAppLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(context.Background())
+}
+
+func (i JavaAppLayerLoadBasedAutoScalingDownscalingArgs) ToJavaAppLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx context.Context) JavaAppLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JavaAppLayerLoadBasedAutoScalingDownscalingOutput).ToJavaAppLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx)
+}
+
+// JavaAppLayerLoadBasedAutoScalingDownscalingPtrInput is an input type that accepts JavaAppLayerLoadBasedAutoScalingDownscalingArgs, JavaAppLayerLoadBasedAutoScalingDownscalingPtr and JavaAppLayerLoadBasedAutoScalingDownscalingPtrOutput values.
+// You can construct a concrete instance of `JavaAppLayerLoadBasedAutoScalingDownscalingPtrInput` via:
+//
+//	        JavaAppLayerLoadBasedAutoScalingDownscalingArgs{...}
+//
+//	or:
+//
+//	        nil
+type JavaAppLayerLoadBasedAutoScalingDownscalingPtrInput interface {
+	pulumi.Input
+
+	ToJavaAppLayerLoadBasedAutoScalingDownscalingPtrOutput() JavaAppLayerLoadBasedAutoScalingDownscalingPtrOutput
+	ToJavaAppLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(context.Context) JavaAppLayerLoadBasedAutoScalingDownscalingPtrOutput
+}
+
+type javaAppLayerLoadBasedAutoScalingDownscalingPtrType JavaAppLayerLoadBasedAutoScalingDownscalingArgs
+
+func JavaAppLayerLoadBasedAutoScalingDownscalingPtr(v *JavaAppLayerLoadBasedAutoScalingDownscalingArgs) JavaAppLayerLoadBasedAutoScalingDownscalingPtrInput {
+	return (*javaAppLayerLoadBasedAutoScalingDownscalingPtrType)(v)
+}
+
+func (*javaAppLayerLoadBasedAutoScalingDownscalingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JavaAppLayerLoadBasedAutoScalingDownscaling)(nil)).Elem()
+}
+
+func (i *javaAppLayerLoadBasedAutoScalingDownscalingPtrType) ToJavaAppLayerLoadBasedAutoScalingDownscalingPtrOutput() JavaAppLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return i.ToJavaAppLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(context.Background())
+}
+
+func (i *javaAppLayerLoadBasedAutoScalingDownscalingPtrType) ToJavaAppLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx context.Context) JavaAppLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JavaAppLayerLoadBasedAutoScalingDownscalingPtrOutput)
+}
+
+type JavaAppLayerLoadBasedAutoScalingDownscalingOutput struct{ *pulumi.OutputState }
+
+func (JavaAppLayerLoadBasedAutoScalingDownscalingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JavaAppLayerLoadBasedAutoScalingDownscaling)(nil)).Elem()
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingDownscalingOutput) ToJavaAppLayerLoadBasedAutoScalingDownscalingOutput() JavaAppLayerLoadBasedAutoScalingDownscalingOutput {
+	return o
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingDownscalingOutput) ToJavaAppLayerLoadBasedAutoScalingDownscalingOutputWithContext(ctx context.Context) JavaAppLayerLoadBasedAutoScalingDownscalingOutput {
+	return o
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingDownscalingOutput) ToJavaAppLayerLoadBasedAutoScalingDownscalingPtrOutput() JavaAppLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o.ToJavaAppLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(context.Background())
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingDownscalingOutput) ToJavaAppLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx context.Context) JavaAppLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JavaAppLayerLoadBasedAutoScalingDownscaling) *JavaAppLayerLoadBasedAutoScalingDownscaling {
+		return &v
+	}).(JavaAppLayerLoadBasedAutoScalingDownscalingPtrOutput)
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingDownscalingOutput) Alarms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v JavaAppLayerLoadBasedAutoScalingDownscaling) []string { return v.Alarms }).(pulumi.StringArrayOutput)
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingDownscalingOutput) CpuThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v JavaAppLayerLoadBasedAutoScalingDownscaling) *float64 { return v.CpuThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingDownscalingOutput) IgnoreMetricsTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JavaAppLayerLoadBasedAutoScalingDownscaling) *int { return v.IgnoreMetricsTime }).(pulumi.IntPtrOutput)
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingDownscalingOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JavaAppLayerLoadBasedAutoScalingDownscaling) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingDownscalingOutput) LoadThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v JavaAppLayerLoadBasedAutoScalingDownscaling) *float64 { return v.LoadThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingDownscalingOutput) MemoryThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v JavaAppLayerLoadBasedAutoScalingDownscaling) *float64 { return v.MemoryThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingDownscalingOutput) ThresholdsWaitTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JavaAppLayerLoadBasedAutoScalingDownscaling) *int { return v.ThresholdsWaitTime }).(pulumi.IntPtrOutput)
+}
+
+type JavaAppLayerLoadBasedAutoScalingDownscalingPtrOutput struct{ *pulumi.OutputState }
+
+func (JavaAppLayerLoadBasedAutoScalingDownscalingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JavaAppLayerLoadBasedAutoScalingDownscaling)(nil)).Elem()
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingDownscalingPtrOutput) ToJavaAppLayerLoadBasedAutoScalingDownscalingPtrOutput() JavaAppLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingDownscalingPtrOutput) ToJavaAppLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx context.Context) JavaAppLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingDownscalingPtrOutput) Elem() JavaAppLayerLoadBasedAutoScalingDownscalingOutput {
+	return o.ApplyT(func(v *JavaAppLayerLoadBasedAutoScalingDownscaling) JavaAppLayerLoadBasedAutoScalingDownscaling {
+		if v != nil {
+			return *v
+		}
+		var ret JavaAppLayerLoadBasedAutoScalingDownscaling
+		return ret
+	}).(JavaAppLayerLoadBasedAutoScalingDownscalingOutput)
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingDownscalingPtrOutput) Alarms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *JavaAppLayerLoadBasedAutoScalingDownscaling) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Alarms
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingDownscalingPtrOutput) CpuThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *JavaAppLayerLoadBasedAutoScalingDownscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.CpuThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingDownscalingPtrOutput) IgnoreMetricsTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *JavaAppLayerLoadBasedAutoScalingDownscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IgnoreMetricsTime
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingDownscalingPtrOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *JavaAppLayerLoadBasedAutoScalingDownscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceCount
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingDownscalingPtrOutput) LoadThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *JavaAppLayerLoadBasedAutoScalingDownscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.LoadThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingDownscalingPtrOutput) MemoryThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *JavaAppLayerLoadBasedAutoScalingDownscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MemoryThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingDownscalingPtrOutput) ThresholdsWaitTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *JavaAppLayerLoadBasedAutoScalingDownscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ThresholdsWaitTime
+	}).(pulumi.IntPtrOutput)
+}
+
+type JavaAppLayerLoadBasedAutoScalingUpscaling struct {
+	Alarms             []string `pulumi:"alarms"`
+	CpuThreshold       *float64 `pulumi:"cpuThreshold"`
+	IgnoreMetricsTime  *int     `pulumi:"ignoreMetricsTime"`
+	InstanceCount      *int     `pulumi:"instanceCount"`
+	LoadThreshold      *float64 `pulumi:"loadThreshold"`
+	MemoryThreshold    *float64 `pulumi:"memoryThreshold"`
+	ThresholdsWaitTime *int     `pulumi:"thresholdsWaitTime"`
+}
+
+// JavaAppLayerLoadBasedAutoScalingUpscalingInput is an input type that accepts JavaAppLayerLoadBasedAutoScalingUpscalingArgs and JavaAppLayerLoadBasedAutoScalingUpscalingOutput values.
+// You can construct a concrete instance of `JavaAppLayerLoadBasedAutoScalingUpscalingInput` via:
+//
+//	JavaAppLayerLoadBasedAutoScalingUpscalingArgs{...}
+type JavaAppLayerLoadBasedAutoScalingUpscalingInput interface {
+	pulumi.Input
+
+	ToJavaAppLayerLoadBasedAutoScalingUpscalingOutput() JavaAppLayerLoadBasedAutoScalingUpscalingOutput
+	ToJavaAppLayerLoadBasedAutoScalingUpscalingOutputWithContext(context.Context) JavaAppLayerLoadBasedAutoScalingUpscalingOutput
+}
+
+type JavaAppLayerLoadBasedAutoScalingUpscalingArgs struct {
+	Alarms             pulumi.StringArrayInput `pulumi:"alarms"`
+	CpuThreshold       pulumi.Float64PtrInput  `pulumi:"cpuThreshold"`
+	IgnoreMetricsTime  pulumi.IntPtrInput      `pulumi:"ignoreMetricsTime"`
+	InstanceCount      pulumi.IntPtrInput      `pulumi:"instanceCount"`
+	LoadThreshold      pulumi.Float64PtrInput  `pulumi:"loadThreshold"`
+	MemoryThreshold    pulumi.Float64PtrInput  `pulumi:"memoryThreshold"`
+	ThresholdsWaitTime pulumi.IntPtrInput      `pulumi:"thresholdsWaitTime"`
+}
+
+func (JavaAppLayerLoadBasedAutoScalingUpscalingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JavaAppLayerLoadBasedAutoScalingUpscaling)(nil)).Elem()
+}
+
+func (i JavaAppLayerLoadBasedAutoScalingUpscalingArgs) ToJavaAppLayerLoadBasedAutoScalingUpscalingOutput() JavaAppLayerLoadBasedAutoScalingUpscalingOutput {
+	return i.ToJavaAppLayerLoadBasedAutoScalingUpscalingOutputWithContext(context.Background())
+}
+
+func (i JavaAppLayerLoadBasedAutoScalingUpscalingArgs) ToJavaAppLayerLoadBasedAutoScalingUpscalingOutputWithContext(ctx context.Context) JavaAppLayerLoadBasedAutoScalingUpscalingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JavaAppLayerLoadBasedAutoScalingUpscalingOutput)
+}
+
+func (i JavaAppLayerLoadBasedAutoScalingUpscalingArgs) ToJavaAppLayerLoadBasedAutoScalingUpscalingPtrOutput() JavaAppLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return i.ToJavaAppLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(context.Background())
+}
+
+func (i JavaAppLayerLoadBasedAutoScalingUpscalingArgs) ToJavaAppLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx context.Context) JavaAppLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JavaAppLayerLoadBasedAutoScalingUpscalingOutput).ToJavaAppLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx)
+}
+
+// JavaAppLayerLoadBasedAutoScalingUpscalingPtrInput is an input type that accepts JavaAppLayerLoadBasedAutoScalingUpscalingArgs, JavaAppLayerLoadBasedAutoScalingUpscalingPtr and JavaAppLayerLoadBasedAutoScalingUpscalingPtrOutput values.
+// You can construct a concrete instance of `JavaAppLayerLoadBasedAutoScalingUpscalingPtrInput` via:
+//
+//	        JavaAppLayerLoadBasedAutoScalingUpscalingArgs{...}
+//
+//	or:
+//
+//	        nil
+type JavaAppLayerLoadBasedAutoScalingUpscalingPtrInput interface {
+	pulumi.Input
+
+	ToJavaAppLayerLoadBasedAutoScalingUpscalingPtrOutput() JavaAppLayerLoadBasedAutoScalingUpscalingPtrOutput
+	ToJavaAppLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(context.Context) JavaAppLayerLoadBasedAutoScalingUpscalingPtrOutput
+}
+
+type javaAppLayerLoadBasedAutoScalingUpscalingPtrType JavaAppLayerLoadBasedAutoScalingUpscalingArgs
+
+func JavaAppLayerLoadBasedAutoScalingUpscalingPtr(v *JavaAppLayerLoadBasedAutoScalingUpscalingArgs) JavaAppLayerLoadBasedAutoScalingUpscalingPtrInput {
+	return (*javaAppLayerLoadBasedAutoScalingUpscalingPtrType)(v)
+}
+
+func (*javaAppLayerLoadBasedAutoScalingUpscalingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JavaAppLayerLoadBasedAutoScalingUpscaling)(nil)).Elem()
+}
+
+func (i *javaAppLayerLoadBasedAutoScalingUpscalingPtrType) ToJavaAppLayerLoadBasedAutoScalingUpscalingPtrOutput() JavaAppLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return i.ToJavaAppLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(context.Background())
+}
+
+func (i *javaAppLayerLoadBasedAutoScalingUpscalingPtrType) ToJavaAppLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx context.Context) JavaAppLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JavaAppLayerLoadBasedAutoScalingUpscalingPtrOutput)
+}
+
+type JavaAppLayerLoadBasedAutoScalingUpscalingOutput struct{ *pulumi.OutputState }
+
+func (JavaAppLayerLoadBasedAutoScalingUpscalingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JavaAppLayerLoadBasedAutoScalingUpscaling)(nil)).Elem()
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingUpscalingOutput) ToJavaAppLayerLoadBasedAutoScalingUpscalingOutput() JavaAppLayerLoadBasedAutoScalingUpscalingOutput {
+	return o
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingUpscalingOutput) ToJavaAppLayerLoadBasedAutoScalingUpscalingOutputWithContext(ctx context.Context) JavaAppLayerLoadBasedAutoScalingUpscalingOutput {
+	return o
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingUpscalingOutput) ToJavaAppLayerLoadBasedAutoScalingUpscalingPtrOutput() JavaAppLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o.ToJavaAppLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(context.Background())
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingUpscalingOutput) ToJavaAppLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx context.Context) JavaAppLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JavaAppLayerLoadBasedAutoScalingUpscaling) *JavaAppLayerLoadBasedAutoScalingUpscaling {
+		return &v
+	}).(JavaAppLayerLoadBasedAutoScalingUpscalingPtrOutput)
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingUpscalingOutput) Alarms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v JavaAppLayerLoadBasedAutoScalingUpscaling) []string { return v.Alarms }).(pulumi.StringArrayOutput)
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingUpscalingOutput) CpuThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v JavaAppLayerLoadBasedAutoScalingUpscaling) *float64 { return v.CpuThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingUpscalingOutput) IgnoreMetricsTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JavaAppLayerLoadBasedAutoScalingUpscaling) *int { return v.IgnoreMetricsTime }).(pulumi.IntPtrOutput)
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingUpscalingOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JavaAppLayerLoadBasedAutoScalingUpscaling) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingUpscalingOutput) LoadThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v JavaAppLayerLoadBasedAutoScalingUpscaling) *float64 { return v.LoadThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingUpscalingOutput) MemoryThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v JavaAppLayerLoadBasedAutoScalingUpscaling) *float64 { return v.MemoryThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingUpscalingOutput) ThresholdsWaitTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JavaAppLayerLoadBasedAutoScalingUpscaling) *int { return v.ThresholdsWaitTime }).(pulumi.IntPtrOutput)
+}
+
+type JavaAppLayerLoadBasedAutoScalingUpscalingPtrOutput struct{ *pulumi.OutputState }
+
+func (JavaAppLayerLoadBasedAutoScalingUpscalingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JavaAppLayerLoadBasedAutoScalingUpscaling)(nil)).Elem()
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingUpscalingPtrOutput) ToJavaAppLayerLoadBasedAutoScalingUpscalingPtrOutput() JavaAppLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingUpscalingPtrOutput) ToJavaAppLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx context.Context) JavaAppLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingUpscalingPtrOutput) Elem() JavaAppLayerLoadBasedAutoScalingUpscalingOutput {
+	return o.ApplyT(func(v *JavaAppLayerLoadBasedAutoScalingUpscaling) JavaAppLayerLoadBasedAutoScalingUpscaling {
+		if v != nil {
+			return *v
+		}
+		var ret JavaAppLayerLoadBasedAutoScalingUpscaling
+		return ret
+	}).(JavaAppLayerLoadBasedAutoScalingUpscalingOutput)
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingUpscalingPtrOutput) Alarms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *JavaAppLayerLoadBasedAutoScalingUpscaling) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Alarms
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingUpscalingPtrOutput) CpuThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *JavaAppLayerLoadBasedAutoScalingUpscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.CpuThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingUpscalingPtrOutput) IgnoreMetricsTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *JavaAppLayerLoadBasedAutoScalingUpscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IgnoreMetricsTime
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingUpscalingPtrOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *JavaAppLayerLoadBasedAutoScalingUpscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceCount
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingUpscalingPtrOutput) LoadThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *JavaAppLayerLoadBasedAutoScalingUpscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.LoadThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingUpscalingPtrOutput) MemoryThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *JavaAppLayerLoadBasedAutoScalingUpscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MemoryThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingUpscalingPtrOutput) ThresholdsWaitTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *JavaAppLayerLoadBasedAutoScalingUpscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ThresholdsWaitTime
+	}).(pulumi.IntPtrOutput)
+}
+
 type MemcachedLayerCloudwatchConfiguration struct {
 	Enabled    *bool                                            `pulumi:"enabled"`
 	LogStreams []MemcachedLayerCloudwatchConfigurationLogStream `pulumi:"logStreams"`
@@ -3468,6 +6599,619 @@ func (o MemcachedLayerEbsVolumeArrayOutput) Index(i pulumi.IntInput) MemcachedLa
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MemcachedLayerEbsVolume {
 		return vs[0].([]MemcachedLayerEbsVolume)[vs[1].(int)]
 	}).(MemcachedLayerEbsVolumeOutput)
+}
+
+type MemcachedLayerLoadBasedAutoScaling struct {
+	Downscaling *MemcachedLayerLoadBasedAutoScalingDownscaling `pulumi:"downscaling"`
+	Enable      *bool                                          `pulumi:"enable"`
+	Upscaling   *MemcachedLayerLoadBasedAutoScalingUpscaling   `pulumi:"upscaling"`
+}
+
+// MemcachedLayerLoadBasedAutoScalingInput is an input type that accepts MemcachedLayerLoadBasedAutoScalingArgs and MemcachedLayerLoadBasedAutoScalingOutput values.
+// You can construct a concrete instance of `MemcachedLayerLoadBasedAutoScalingInput` via:
+//
+//	MemcachedLayerLoadBasedAutoScalingArgs{...}
+type MemcachedLayerLoadBasedAutoScalingInput interface {
+	pulumi.Input
+
+	ToMemcachedLayerLoadBasedAutoScalingOutput() MemcachedLayerLoadBasedAutoScalingOutput
+	ToMemcachedLayerLoadBasedAutoScalingOutputWithContext(context.Context) MemcachedLayerLoadBasedAutoScalingOutput
+}
+
+type MemcachedLayerLoadBasedAutoScalingArgs struct {
+	Downscaling MemcachedLayerLoadBasedAutoScalingDownscalingPtrInput `pulumi:"downscaling"`
+	Enable      pulumi.BoolPtrInput                                   `pulumi:"enable"`
+	Upscaling   MemcachedLayerLoadBasedAutoScalingUpscalingPtrInput   `pulumi:"upscaling"`
+}
+
+func (MemcachedLayerLoadBasedAutoScalingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemcachedLayerLoadBasedAutoScaling)(nil)).Elem()
+}
+
+func (i MemcachedLayerLoadBasedAutoScalingArgs) ToMemcachedLayerLoadBasedAutoScalingOutput() MemcachedLayerLoadBasedAutoScalingOutput {
+	return i.ToMemcachedLayerLoadBasedAutoScalingOutputWithContext(context.Background())
+}
+
+func (i MemcachedLayerLoadBasedAutoScalingArgs) ToMemcachedLayerLoadBasedAutoScalingOutputWithContext(ctx context.Context) MemcachedLayerLoadBasedAutoScalingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemcachedLayerLoadBasedAutoScalingOutput)
+}
+
+func (i MemcachedLayerLoadBasedAutoScalingArgs) ToMemcachedLayerLoadBasedAutoScalingPtrOutput() MemcachedLayerLoadBasedAutoScalingPtrOutput {
+	return i.ToMemcachedLayerLoadBasedAutoScalingPtrOutputWithContext(context.Background())
+}
+
+func (i MemcachedLayerLoadBasedAutoScalingArgs) ToMemcachedLayerLoadBasedAutoScalingPtrOutputWithContext(ctx context.Context) MemcachedLayerLoadBasedAutoScalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemcachedLayerLoadBasedAutoScalingOutput).ToMemcachedLayerLoadBasedAutoScalingPtrOutputWithContext(ctx)
+}
+
+// MemcachedLayerLoadBasedAutoScalingPtrInput is an input type that accepts MemcachedLayerLoadBasedAutoScalingArgs, MemcachedLayerLoadBasedAutoScalingPtr and MemcachedLayerLoadBasedAutoScalingPtrOutput values.
+// You can construct a concrete instance of `MemcachedLayerLoadBasedAutoScalingPtrInput` via:
+//
+//	        MemcachedLayerLoadBasedAutoScalingArgs{...}
+//
+//	or:
+//
+//	        nil
+type MemcachedLayerLoadBasedAutoScalingPtrInput interface {
+	pulumi.Input
+
+	ToMemcachedLayerLoadBasedAutoScalingPtrOutput() MemcachedLayerLoadBasedAutoScalingPtrOutput
+	ToMemcachedLayerLoadBasedAutoScalingPtrOutputWithContext(context.Context) MemcachedLayerLoadBasedAutoScalingPtrOutput
+}
+
+type memcachedLayerLoadBasedAutoScalingPtrType MemcachedLayerLoadBasedAutoScalingArgs
+
+func MemcachedLayerLoadBasedAutoScalingPtr(v *MemcachedLayerLoadBasedAutoScalingArgs) MemcachedLayerLoadBasedAutoScalingPtrInput {
+	return (*memcachedLayerLoadBasedAutoScalingPtrType)(v)
+}
+
+func (*memcachedLayerLoadBasedAutoScalingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemcachedLayerLoadBasedAutoScaling)(nil)).Elem()
+}
+
+func (i *memcachedLayerLoadBasedAutoScalingPtrType) ToMemcachedLayerLoadBasedAutoScalingPtrOutput() MemcachedLayerLoadBasedAutoScalingPtrOutput {
+	return i.ToMemcachedLayerLoadBasedAutoScalingPtrOutputWithContext(context.Background())
+}
+
+func (i *memcachedLayerLoadBasedAutoScalingPtrType) ToMemcachedLayerLoadBasedAutoScalingPtrOutputWithContext(ctx context.Context) MemcachedLayerLoadBasedAutoScalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemcachedLayerLoadBasedAutoScalingPtrOutput)
+}
+
+type MemcachedLayerLoadBasedAutoScalingOutput struct{ *pulumi.OutputState }
+
+func (MemcachedLayerLoadBasedAutoScalingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemcachedLayerLoadBasedAutoScaling)(nil)).Elem()
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingOutput) ToMemcachedLayerLoadBasedAutoScalingOutput() MemcachedLayerLoadBasedAutoScalingOutput {
+	return o
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingOutput) ToMemcachedLayerLoadBasedAutoScalingOutputWithContext(ctx context.Context) MemcachedLayerLoadBasedAutoScalingOutput {
+	return o
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingOutput) ToMemcachedLayerLoadBasedAutoScalingPtrOutput() MemcachedLayerLoadBasedAutoScalingPtrOutput {
+	return o.ToMemcachedLayerLoadBasedAutoScalingPtrOutputWithContext(context.Background())
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingOutput) ToMemcachedLayerLoadBasedAutoScalingPtrOutputWithContext(ctx context.Context) MemcachedLayerLoadBasedAutoScalingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MemcachedLayerLoadBasedAutoScaling) *MemcachedLayerLoadBasedAutoScaling {
+		return &v
+	}).(MemcachedLayerLoadBasedAutoScalingPtrOutput)
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingOutput) Downscaling() MemcachedLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o.ApplyT(func(v MemcachedLayerLoadBasedAutoScaling) *MemcachedLayerLoadBasedAutoScalingDownscaling {
+		return v.Downscaling
+	}).(MemcachedLayerLoadBasedAutoScalingDownscalingPtrOutput)
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingOutput) Enable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MemcachedLayerLoadBasedAutoScaling) *bool { return v.Enable }).(pulumi.BoolPtrOutput)
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingOutput) Upscaling() MemcachedLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o.ApplyT(func(v MemcachedLayerLoadBasedAutoScaling) *MemcachedLayerLoadBasedAutoScalingUpscaling {
+		return v.Upscaling
+	}).(MemcachedLayerLoadBasedAutoScalingUpscalingPtrOutput)
+}
+
+type MemcachedLayerLoadBasedAutoScalingPtrOutput struct{ *pulumi.OutputState }
+
+func (MemcachedLayerLoadBasedAutoScalingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemcachedLayerLoadBasedAutoScaling)(nil)).Elem()
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingPtrOutput) ToMemcachedLayerLoadBasedAutoScalingPtrOutput() MemcachedLayerLoadBasedAutoScalingPtrOutput {
+	return o
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingPtrOutput) ToMemcachedLayerLoadBasedAutoScalingPtrOutputWithContext(ctx context.Context) MemcachedLayerLoadBasedAutoScalingPtrOutput {
+	return o
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingPtrOutput) Elem() MemcachedLayerLoadBasedAutoScalingOutput {
+	return o.ApplyT(func(v *MemcachedLayerLoadBasedAutoScaling) MemcachedLayerLoadBasedAutoScaling {
+		if v != nil {
+			return *v
+		}
+		var ret MemcachedLayerLoadBasedAutoScaling
+		return ret
+	}).(MemcachedLayerLoadBasedAutoScalingOutput)
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingPtrOutput) Downscaling() MemcachedLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o.ApplyT(func(v *MemcachedLayerLoadBasedAutoScaling) *MemcachedLayerLoadBasedAutoScalingDownscaling {
+		if v == nil {
+			return nil
+		}
+		return v.Downscaling
+	}).(MemcachedLayerLoadBasedAutoScalingDownscalingPtrOutput)
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingPtrOutput) Enable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MemcachedLayerLoadBasedAutoScaling) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enable
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingPtrOutput) Upscaling() MemcachedLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o.ApplyT(func(v *MemcachedLayerLoadBasedAutoScaling) *MemcachedLayerLoadBasedAutoScalingUpscaling {
+		if v == nil {
+			return nil
+		}
+		return v.Upscaling
+	}).(MemcachedLayerLoadBasedAutoScalingUpscalingPtrOutput)
+}
+
+type MemcachedLayerLoadBasedAutoScalingDownscaling struct {
+	Alarms             []string `pulumi:"alarms"`
+	CpuThreshold       *float64 `pulumi:"cpuThreshold"`
+	IgnoreMetricsTime  *int     `pulumi:"ignoreMetricsTime"`
+	InstanceCount      *int     `pulumi:"instanceCount"`
+	LoadThreshold      *float64 `pulumi:"loadThreshold"`
+	MemoryThreshold    *float64 `pulumi:"memoryThreshold"`
+	ThresholdsWaitTime *int     `pulumi:"thresholdsWaitTime"`
+}
+
+// MemcachedLayerLoadBasedAutoScalingDownscalingInput is an input type that accepts MemcachedLayerLoadBasedAutoScalingDownscalingArgs and MemcachedLayerLoadBasedAutoScalingDownscalingOutput values.
+// You can construct a concrete instance of `MemcachedLayerLoadBasedAutoScalingDownscalingInput` via:
+//
+//	MemcachedLayerLoadBasedAutoScalingDownscalingArgs{...}
+type MemcachedLayerLoadBasedAutoScalingDownscalingInput interface {
+	pulumi.Input
+
+	ToMemcachedLayerLoadBasedAutoScalingDownscalingOutput() MemcachedLayerLoadBasedAutoScalingDownscalingOutput
+	ToMemcachedLayerLoadBasedAutoScalingDownscalingOutputWithContext(context.Context) MemcachedLayerLoadBasedAutoScalingDownscalingOutput
+}
+
+type MemcachedLayerLoadBasedAutoScalingDownscalingArgs struct {
+	Alarms             pulumi.StringArrayInput `pulumi:"alarms"`
+	CpuThreshold       pulumi.Float64PtrInput  `pulumi:"cpuThreshold"`
+	IgnoreMetricsTime  pulumi.IntPtrInput      `pulumi:"ignoreMetricsTime"`
+	InstanceCount      pulumi.IntPtrInput      `pulumi:"instanceCount"`
+	LoadThreshold      pulumi.Float64PtrInput  `pulumi:"loadThreshold"`
+	MemoryThreshold    pulumi.Float64PtrInput  `pulumi:"memoryThreshold"`
+	ThresholdsWaitTime pulumi.IntPtrInput      `pulumi:"thresholdsWaitTime"`
+}
+
+func (MemcachedLayerLoadBasedAutoScalingDownscalingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemcachedLayerLoadBasedAutoScalingDownscaling)(nil)).Elem()
+}
+
+func (i MemcachedLayerLoadBasedAutoScalingDownscalingArgs) ToMemcachedLayerLoadBasedAutoScalingDownscalingOutput() MemcachedLayerLoadBasedAutoScalingDownscalingOutput {
+	return i.ToMemcachedLayerLoadBasedAutoScalingDownscalingOutputWithContext(context.Background())
+}
+
+func (i MemcachedLayerLoadBasedAutoScalingDownscalingArgs) ToMemcachedLayerLoadBasedAutoScalingDownscalingOutputWithContext(ctx context.Context) MemcachedLayerLoadBasedAutoScalingDownscalingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemcachedLayerLoadBasedAutoScalingDownscalingOutput)
+}
+
+func (i MemcachedLayerLoadBasedAutoScalingDownscalingArgs) ToMemcachedLayerLoadBasedAutoScalingDownscalingPtrOutput() MemcachedLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return i.ToMemcachedLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(context.Background())
+}
+
+func (i MemcachedLayerLoadBasedAutoScalingDownscalingArgs) ToMemcachedLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx context.Context) MemcachedLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemcachedLayerLoadBasedAutoScalingDownscalingOutput).ToMemcachedLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx)
+}
+
+// MemcachedLayerLoadBasedAutoScalingDownscalingPtrInput is an input type that accepts MemcachedLayerLoadBasedAutoScalingDownscalingArgs, MemcachedLayerLoadBasedAutoScalingDownscalingPtr and MemcachedLayerLoadBasedAutoScalingDownscalingPtrOutput values.
+// You can construct a concrete instance of `MemcachedLayerLoadBasedAutoScalingDownscalingPtrInput` via:
+//
+//	        MemcachedLayerLoadBasedAutoScalingDownscalingArgs{...}
+//
+//	or:
+//
+//	        nil
+type MemcachedLayerLoadBasedAutoScalingDownscalingPtrInput interface {
+	pulumi.Input
+
+	ToMemcachedLayerLoadBasedAutoScalingDownscalingPtrOutput() MemcachedLayerLoadBasedAutoScalingDownscalingPtrOutput
+	ToMemcachedLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(context.Context) MemcachedLayerLoadBasedAutoScalingDownscalingPtrOutput
+}
+
+type memcachedLayerLoadBasedAutoScalingDownscalingPtrType MemcachedLayerLoadBasedAutoScalingDownscalingArgs
+
+func MemcachedLayerLoadBasedAutoScalingDownscalingPtr(v *MemcachedLayerLoadBasedAutoScalingDownscalingArgs) MemcachedLayerLoadBasedAutoScalingDownscalingPtrInput {
+	return (*memcachedLayerLoadBasedAutoScalingDownscalingPtrType)(v)
+}
+
+func (*memcachedLayerLoadBasedAutoScalingDownscalingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemcachedLayerLoadBasedAutoScalingDownscaling)(nil)).Elem()
+}
+
+func (i *memcachedLayerLoadBasedAutoScalingDownscalingPtrType) ToMemcachedLayerLoadBasedAutoScalingDownscalingPtrOutput() MemcachedLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return i.ToMemcachedLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(context.Background())
+}
+
+func (i *memcachedLayerLoadBasedAutoScalingDownscalingPtrType) ToMemcachedLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx context.Context) MemcachedLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemcachedLayerLoadBasedAutoScalingDownscalingPtrOutput)
+}
+
+type MemcachedLayerLoadBasedAutoScalingDownscalingOutput struct{ *pulumi.OutputState }
+
+func (MemcachedLayerLoadBasedAutoScalingDownscalingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemcachedLayerLoadBasedAutoScalingDownscaling)(nil)).Elem()
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingDownscalingOutput) ToMemcachedLayerLoadBasedAutoScalingDownscalingOutput() MemcachedLayerLoadBasedAutoScalingDownscalingOutput {
+	return o
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingDownscalingOutput) ToMemcachedLayerLoadBasedAutoScalingDownscalingOutputWithContext(ctx context.Context) MemcachedLayerLoadBasedAutoScalingDownscalingOutput {
+	return o
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingDownscalingOutput) ToMemcachedLayerLoadBasedAutoScalingDownscalingPtrOutput() MemcachedLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o.ToMemcachedLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(context.Background())
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingDownscalingOutput) ToMemcachedLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx context.Context) MemcachedLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MemcachedLayerLoadBasedAutoScalingDownscaling) *MemcachedLayerLoadBasedAutoScalingDownscaling {
+		return &v
+	}).(MemcachedLayerLoadBasedAutoScalingDownscalingPtrOutput)
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingDownscalingOutput) Alarms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MemcachedLayerLoadBasedAutoScalingDownscaling) []string { return v.Alarms }).(pulumi.StringArrayOutput)
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingDownscalingOutput) CpuThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v MemcachedLayerLoadBasedAutoScalingDownscaling) *float64 { return v.CpuThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingDownscalingOutput) IgnoreMetricsTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MemcachedLayerLoadBasedAutoScalingDownscaling) *int { return v.IgnoreMetricsTime }).(pulumi.IntPtrOutput)
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingDownscalingOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MemcachedLayerLoadBasedAutoScalingDownscaling) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingDownscalingOutput) LoadThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v MemcachedLayerLoadBasedAutoScalingDownscaling) *float64 { return v.LoadThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingDownscalingOutput) MemoryThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v MemcachedLayerLoadBasedAutoScalingDownscaling) *float64 { return v.MemoryThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingDownscalingOutput) ThresholdsWaitTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MemcachedLayerLoadBasedAutoScalingDownscaling) *int { return v.ThresholdsWaitTime }).(pulumi.IntPtrOutput)
+}
+
+type MemcachedLayerLoadBasedAutoScalingDownscalingPtrOutput struct{ *pulumi.OutputState }
+
+func (MemcachedLayerLoadBasedAutoScalingDownscalingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemcachedLayerLoadBasedAutoScalingDownscaling)(nil)).Elem()
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingDownscalingPtrOutput) ToMemcachedLayerLoadBasedAutoScalingDownscalingPtrOutput() MemcachedLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingDownscalingPtrOutput) ToMemcachedLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx context.Context) MemcachedLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingDownscalingPtrOutput) Elem() MemcachedLayerLoadBasedAutoScalingDownscalingOutput {
+	return o.ApplyT(func(v *MemcachedLayerLoadBasedAutoScalingDownscaling) MemcachedLayerLoadBasedAutoScalingDownscaling {
+		if v != nil {
+			return *v
+		}
+		var ret MemcachedLayerLoadBasedAutoScalingDownscaling
+		return ret
+	}).(MemcachedLayerLoadBasedAutoScalingDownscalingOutput)
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingDownscalingPtrOutput) Alarms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MemcachedLayerLoadBasedAutoScalingDownscaling) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Alarms
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingDownscalingPtrOutput) CpuThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *MemcachedLayerLoadBasedAutoScalingDownscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.CpuThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingDownscalingPtrOutput) IgnoreMetricsTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MemcachedLayerLoadBasedAutoScalingDownscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IgnoreMetricsTime
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingDownscalingPtrOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MemcachedLayerLoadBasedAutoScalingDownscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceCount
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingDownscalingPtrOutput) LoadThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *MemcachedLayerLoadBasedAutoScalingDownscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.LoadThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingDownscalingPtrOutput) MemoryThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *MemcachedLayerLoadBasedAutoScalingDownscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MemoryThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingDownscalingPtrOutput) ThresholdsWaitTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MemcachedLayerLoadBasedAutoScalingDownscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ThresholdsWaitTime
+	}).(pulumi.IntPtrOutput)
+}
+
+type MemcachedLayerLoadBasedAutoScalingUpscaling struct {
+	Alarms             []string `pulumi:"alarms"`
+	CpuThreshold       *float64 `pulumi:"cpuThreshold"`
+	IgnoreMetricsTime  *int     `pulumi:"ignoreMetricsTime"`
+	InstanceCount      *int     `pulumi:"instanceCount"`
+	LoadThreshold      *float64 `pulumi:"loadThreshold"`
+	MemoryThreshold    *float64 `pulumi:"memoryThreshold"`
+	ThresholdsWaitTime *int     `pulumi:"thresholdsWaitTime"`
+}
+
+// MemcachedLayerLoadBasedAutoScalingUpscalingInput is an input type that accepts MemcachedLayerLoadBasedAutoScalingUpscalingArgs and MemcachedLayerLoadBasedAutoScalingUpscalingOutput values.
+// You can construct a concrete instance of `MemcachedLayerLoadBasedAutoScalingUpscalingInput` via:
+//
+//	MemcachedLayerLoadBasedAutoScalingUpscalingArgs{...}
+type MemcachedLayerLoadBasedAutoScalingUpscalingInput interface {
+	pulumi.Input
+
+	ToMemcachedLayerLoadBasedAutoScalingUpscalingOutput() MemcachedLayerLoadBasedAutoScalingUpscalingOutput
+	ToMemcachedLayerLoadBasedAutoScalingUpscalingOutputWithContext(context.Context) MemcachedLayerLoadBasedAutoScalingUpscalingOutput
+}
+
+type MemcachedLayerLoadBasedAutoScalingUpscalingArgs struct {
+	Alarms             pulumi.StringArrayInput `pulumi:"alarms"`
+	CpuThreshold       pulumi.Float64PtrInput  `pulumi:"cpuThreshold"`
+	IgnoreMetricsTime  pulumi.IntPtrInput      `pulumi:"ignoreMetricsTime"`
+	InstanceCount      pulumi.IntPtrInput      `pulumi:"instanceCount"`
+	LoadThreshold      pulumi.Float64PtrInput  `pulumi:"loadThreshold"`
+	MemoryThreshold    pulumi.Float64PtrInput  `pulumi:"memoryThreshold"`
+	ThresholdsWaitTime pulumi.IntPtrInput      `pulumi:"thresholdsWaitTime"`
+}
+
+func (MemcachedLayerLoadBasedAutoScalingUpscalingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemcachedLayerLoadBasedAutoScalingUpscaling)(nil)).Elem()
+}
+
+func (i MemcachedLayerLoadBasedAutoScalingUpscalingArgs) ToMemcachedLayerLoadBasedAutoScalingUpscalingOutput() MemcachedLayerLoadBasedAutoScalingUpscalingOutput {
+	return i.ToMemcachedLayerLoadBasedAutoScalingUpscalingOutputWithContext(context.Background())
+}
+
+func (i MemcachedLayerLoadBasedAutoScalingUpscalingArgs) ToMemcachedLayerLoadBasedAutoScalingUpscalingOutputWithContext(ctx context.Context) MemcachedLayerLoadBasedAutoScalingUpscalingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemcachedLayerLoadBasedAutoScalingUpscalingOutput)
+}
+
+func (i MemcachedLayerLoadBasedAutoScalingUpscalingArgs) ToMemcachedLayerLoadBasedAutoScalingUpscalingPtrOutput() MemcachedLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return i.ToMemcachedLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(context.Background())
+}
+
+func (i MemcachedLayerLoadBasedAutoScalingUpscalingArgs) ToMemcachedLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx context.Context) MemcachedLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemcachedLayerLoadBasedAutoScalingUpscalingOutput).ToMemcachedLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx)
+}
+
+// MemcachedLayerLoadBasedAutoScalingUpscalingPtrInput is an input type that accepts MemcachedLayerLoadBasedAutoScalingUpscalingArgs, MemcachedLayerLoadBasedAutoScalingUpscalingPtr and MemcachedLayerLoadBasedAutoScalingUpscalingPtrOutput values.
+// You can construct a concrete instance of `MemcachedLayerLoadBasedAutoScalingUpscalingPtrInput` via:
+//
+//	        MemcachedLayerLoadBasedAutoScalingUpscalingArgs{...}
+//
+//	or:
+//
+//	        nil
+type MemcachedLayerLoadBasedAutoScalingUpscalingPtrInput interface {
+	pulumi.Input
+
+	ToMemcachedLayerLoadBasedAutoScalingUpscalingPtrOutput() MemcachedLayerLoadBasedAutoScalingUpscalingPtrOutput
+	ToMemcachedLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(context.Context) MemcachedLayerLoadBasedAutoScalingUpscalingPtrOutput
+}
+
+type memcachedLayerLoadBasedAutoScalingUpscalingPtrType MemcachedLayerLoadBasedAutoScalingUpscalingArgs
+
+func MemcachedLayerLoadBasedAutoScalingUpscalingPtr(v *MemcachedLayerLoadBasedAutoScalingUpscalingArgs) MemcachedLayerLoadBasedAutoScalingUpscalingPtrInput {
+	return (*memcachedLayerLoadBasedAutoScalingUpscalingPtrType)(v)
+}
+
+func (*memcachedLayerLoadBasedAutoScalingUpscalingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemcachedLayerLoadBasedAutoScalingUpscaling)(nil)).Elem()
+}
+
+func (i *memcachedLayerLoadBasedAutoScalingUpscalingPtrType) ToMemcachedLayerLoadBasedAutoScalingUpscalingPtrOutput() MemcachedLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return i.ToMemcachedLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(context.Background())
+}
+
+func (i *memcachedLayerLoadBasedAutoScalingUpscalingPtrType) ToMemcachedLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx context.Context) MemcachedLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemcachedLayerLoadBasedAutoScalingUpscalingPtrOutput)
+}
+
+type MemcachedLayerLoadBasedAutoScalingUpscalingOutput struct{ *pulumi.OutputState }
+
+func (MemcachedLayerLoadBasedAutoScalingUpscalingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemcachedLayerLoadBasedAutoScalingUpscaling)(nil)).Elem()
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingUpscalingOutput) ToMemcachedLayerLoadBasedAutoScalingUpscalingOutput() MemcachedLayerLoadBasedAutoScalingUpscalingOutput {
+	return o
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingUpscalingOutput) ToMemcachedLayerLoadBasedAutoScalingUpscalingOutputWithContext(ctx context.Context) MemcachedLayerLoadBasedAutoScalingUpscalingOutput {
+	return o
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingUpscalingOutput) ToMemcachedLayerLoadBasedAutoScalingUpscalingPtrOutput() MemcachedLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o.ToMemcachedLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(context.Background())
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingUpscalingOutput) ToMemcachedLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx context.Context) MemcachedLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MemcachedLayerLoadBasedAutoScalingUpscaling) *MemcachedLayerLoadBasedAutoScalingUpscaling {
+		return &v
+	}).(MemcachedLayerLoadBasedAutoScalingUpscalingPtrOutput)
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingUpscalingOutput) Alarms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MemcachedLayerLoadBasedAutoScalingUpscaling) []string { return v.Alarms }).(pulumi.StringArrayOutput)
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingUpscalingOutput) CpuThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v MemcachedLayerLoadBasedAutoScalingUpscaling) *float64 { return v.CpuThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingUpscalingOutput) IgnoreMetricsTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MemcachedLayerLoadBasedAutoScalingUpscaling) *int { return v.IgnoreMetricsTime }).(pulumi.IntPtrOutput)
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingUpscalingOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MemcachedLayerLoadBasedAutoScalingUpscaling) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingUpscalingOutput) LoadThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v MemcachedLayerLoadBasedAutoScalingUpscaling) *float64 { return v.LoadThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingUpscalingOutput) MemoryThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v MemcachedLayerLoadBasedAutoScalingUpscaling) *float64 { return v.MemoryThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingUpscalingOutput) ThresholdsWaitTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MemcachedLayerLoadBasedAutoScalingUpscaling) *int { return v.ThresholdsWaitTime }).(pulumi.IntPtrOutput)
+}
+
+type MemcachedLayerLoadBasedAutoScalingUpscalingPtrOutput struct{ *pulumi.OutputState }
+
+func (MemcachedLayerLoadBasedAutoScalingUpscalingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemcachedLayerLoadBasedAutoScalingUpscaling)(nil)).Elem()
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingUpscalingPtrOutput) ToMemcachedLayerLoadBasedAutoScalingUpscalingPtrOutput() MemcachedLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingUpscalingPtrOutput) ToMemcachedLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx context.Context) MemcachedLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingUpscalingPtrOutput) Elem() MemcachedLayerLoadBasedAutoScalingUpscalingOutput {
+	return o.ApplyT(func(v *MemcachedLayerLoadBasedAutoScalingUpscaling) MemcachedLayerLoadBasedAutoScalingUpscaling {
+		if v != nil {
+			return *v
+		}
+		var ret MemcachedLayerLoadBasedAutoScalingUpscaling
+		return ret
+	}).(MemcachedLayerLoadBasedAutoScalingUpscalingOutput)
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingUpscalingPtrOutput) Alarms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MemcachedLayerLoadBasedAutoScalingUpscaling) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Alarms
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingUpscalingPtrOutput) CpuThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *MemcachedLayerLoadBasedAutoScalingUpscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.CpuThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingUpscalingPtrOutput) IgnoreMetricsTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MemcachedLayerLoadBasedAutoScalingUpscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IgnoreMetricsTime
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingUpscalingPtrOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MemcachedLayerLoadBasedAutoScalingUpscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceCount
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingUpscalingPtrOutput) LoadThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *MemcachedLayerLoadBasedAutoScalingUpscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.LoadThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingUpscalingPtrOutput) MemoryThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *MemcachedLayerLoadBasedAutoScalingUpscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MemoryThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingUpscalingPtrOutput) ThresholdsWaitTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MemcachedLayerLoadBasedAutoScalingUpscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ThresholdsWaitTime
+	}).(pulumi.IntPtrOutput)
 }
 
 type MysqlLayerCloudwatchConfiguration struct {
@@ -3922,6 +7666,617 @@ func (o MysqlLayerEbsVolumeArrayOutput) Index(i pulumi.IntInput) MysqlLayerEbsVo
 	}).(MysqlLayerEbsVolumeOutput)
 }
 
+type MysqlLayerLoadBasedAutoScaling struct {
+	Downscaling *MysqlLayerLoadBasedAutoScalingDownscaling `pulumi:"downscaling"`
+	Enable      *bool                                      `pulumi:"enable"`
+	Upscaling   *MysqlLayerLoadBasedAutoScalingUpscaling   `pulumi:"upscaling"`
+}
+
+// MysqlLayerLoadBasedAutoScalingInput is an input type that accepts MysqlLayerLoadBasedAutoScalingArgs and MysqlLayerLoadBasedAutoScalingOutput values.
+// You can construct a concrete instance of `MysqlLayerLoadBasedAutoScalingInput` via:
+//
+//	MysqlLayerLoadBasedAutoScalingArgs{...}
+type MysqlLayerLoadBasedAutoScalingInput interface {
+	pulumi.Input
+
+	ToMysqlLayerLoadBasedAutoScalingOutput() MysqlLayerLoadBasedAutoScalingOutput
+	ToMysqlLayerLoadBasedAutoScalingOutputWithContext(context.Context) MysqlLayerLoadBasedAutoScalingOutput
+}
+
+type MysqlLayerLoadBasedAutoScalingArgs struct {
+	Downscaling MysqlLayerLoadBasedAutoScalingDownscalingPtrInput `pulumi:"downscaling"`
+	Enable      pulumi.BoolPtrInput                               `pulumi:"enable"`
+	Upscaling   MysqlLayerLoadBasedAutoScalingUpscalingPtrInput   `pulumi:"upscaling"`
+}
+
+func (MysqlLayerLoadBasedAutoScalingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MysqlLayerLoadBasedAutoScaling)(nil)).Elem()
+}
+
+func (i MysqlLayerLoadBasedAutoScalingArgs) ToMysqlLayerLoadBasedAutoScalingOutput() MysqlLayerLoadBasedAutoScalingOutput {
+	return i.ToMysqlLayerLoadBasedAutoScalingOutputWithContext(context.Background())
+}
+
+func (i MysqlLayerLoadBasedAutoScalingArgs) ToMysqlLayerLoadBasedAutoScalingOutputWithContext(ctx context.Context) MysqlLayerLoadBasedAutoScalingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MysqlLayerLoadBasedAutoScalingOutput)
+}
+
+func (i MysqlLayerLoadBasedAutoScalingArgs) ToMysqlLayerLoadBasedAutoScalingPtrOutput() MysqlLayerLoadBasedAutoScalingPtrOutput {
+	return i.ToMysqlLayerLoadBasedAutoScalingPtrOutputWithContext(context.Background())
+}
+
+func (i MysqlLayerLoadBasedAutoScalingArgs) ToMysqlLayerLoadBasedAutoScalingPtrOutputWithContext(ctx context.Context) MysqlLayerLoadBasedAutoScalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MysqlLayerLoadBasedAutoScalingOutput).ToMysqlLayerLoadBasedAutoScalingPtrOutputWithContext(ctx)
+}
+
+// MysqlLayerLoadBasedAutoScalingPtrInput is an input type that accepts MysqlLayerLoadBasedAutoScalingArgs, MysqlLayerLoadBasedAutoScalingPtr and MysqlLayerLoadBasedAutoScalingPtrOutput values.
+// You can construct a concrete instance of `MysqlLayerLoadBasedAutoScalingPtrInput` via:
+//
+//	        MysqlLayerLoadBasedAutoScalingArgs{...}
+//
+//	or:
+//
+//	        nil
+type MysqlLayerLoadBasedAutoScalingPtrInput interface {
+	pulumi.Input
+
+	ToMysqlLayerLoadBasedAutoScalingPtrOutput() MysqlLayerLoadBasedAutoScalingPtrOutput
+	ToMysqlLayerLoadBasedAutoScalingPtrOutputWithContext(context.Context) MysqlLayerLoadBasedAutoScalingPtrOutput
+}
+
+type mysqlLayerLoadBasedAutoScalingPtrType MysqlLayerLoadBasedAutoScalingArgs
+
+func MysqlLayerLoadBasedAutoScalingPtr(v *MysqlLayerLoadBasedAutoScalingArgs) MysqlLayerLoadBasedAutoScalingPtrInput {
+	return (*mysqlLayerLoadBasedAutoScalingPtrType)(v)
+}
+
+func (*mysqlLayerLoadBasedAutoScalingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MysqlLayerLoadBasedAutoScaling)(nil)).Elem()
+}
+
+func (i *mysqlLayerLoadBasedAutoScalingPtrType) ToMysqlLayerLoadBasedAutoScalingPtrOutput() MysqlLayerLoadBasedAutoScalingPtrOutput {
+	return i.ToMysqlLayerLoadBasedAutoScalingPtrOutputWithContext(context.Background())
+}
+
+func (i *mysqlLayerLoadBasedAutoScalingPtrType) ToMysqlLayerLoadBasedAutoScalingPtrOutputWithContext(ctx context.Context) MysqlLayerLoadBasedAutoScalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MysqlLayerLoadBasedAutoScalingPtrOutput)
+}
+
+type MysqlLayerLoadBasedAutoScalingOutput struct{ *pulumi.OutputState }
+
+func (MysqlLayerLoadBasedAutoScalingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MysqlLayerLoadBasedAutoScaling)(nil)).Elem()
+}
+
+func (o MysqlLayerLoadBasedAutoScalingOutput) ToMysqlLayerLoadBasedAutoScalingOutput() MysqlLayerLoadBasedAutoScalingOutput {
+	return o
+}
+
+func (o MysqlLayerLoadBasedAutoScalingOutput) ToMysqlLayerLoadBasedAutoScalingOutputWithContext(ctx context.Context) MysqlLayerLoadBasedAutoScalingOutput {
+	return o
+}
+
+func (o MysqlLayerLoadBasedAutoScalingOutput) ToMysqlLayerLoadBasedAutoScalingPtrOutput() MysqlLayerLoadBasedAutoScalingPtrOutput {
+	return o.ToMysqlLayerLoadBasedAutoScalingPtrOutputWithContext(context.Background())
+}
+
+func (o MysqlLayerLoadBasedAutoScalingOutput) ToMysqlLayerLoadBasedAutoScalingPtrOutputWithContext(ctx context.Context) MysqlLayerLoadBasedAutoScalingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MysqlLayerLoadBasedAutoScaling) *MysqlLayerLoadBasedAutoScaling {
+		return &v
+	}).(MysqlLayerLoadBasedAutoScalingPtrOutput)
+}
+
+func (o MysqlLayerLoadBasedAutoScalingOutput) Downscaling() MysqlLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o.ApplyT(func(v MysqlLayerLoadBasedAutoScaling) *MysqlLayerLoadBasedAutoScalingDownscaling {
+		return v.Downscaling
+	}).(MysqlLayerLoadBasedAutoScalingDownscalingPtrOutput)
+}
+
+func (o MysqlLayerLoadBasedAutoScalingOutput) Enable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MysqlLayerLoadBasedAutoScaling) *bool { return v.Enable }).(pulumi.BoolPtrOutput)
+}
+
+func (o MysqlLayerLoadBasedAutoScalingOutput) Upscaling() MysqlLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o.ApplyT(func(v MysqlLayerLoadBasedAutoScaling) *MysqlLayerLoadBasedAutoScalingUpscaling { return v.Upscaling }).(MysqlLayerLoadBasedAutoScalingUpscalingPtrOutput)
+}
+
+type MysqlLayerLoadBasedAutoScalingPtrOutput struct{ *pulumi.OutputState }
+
+func (MysqlLayerLoadBasedAutoScalingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MysqlLayerLoadBasedAutoScaling)(nil)).Elem()
+}
+
+func (o MysqlLayerLoadBasedAutoScalingPtrOutput) ToMysqlLayerLoadBasedAutoScalingPtrOutput() MysqlLayerLoadBasedAutoScalingPtrOutput {
+	return o
+}
+
+func (o MysqlLayerLoadBasedAutoScalingPtrOutput) ToMysqlLayerLoadBasedAutoScalingPtrOutputWithContext(ctx context.Context) MysqlLayerLoadBasedAutoScalingPtrOutput {
+	return o
+}
+
+func (o MysqlLayerLoadBasedAutoScalingPtrOutput) Elem() MysqlLayerLoadBasedAutoScalingOutput {
+	return o.ApplyT(func(v *MysqlLayerLoadBasedAutoScaling) MysqlLayerLoadBasedAutoScaling {
+		if v != nil {
+			return *v
+		}
+		var ret MysqlLayerLoadBasedAutoScaling
+		return ret
+	}).(MysqlLayerLoadBasedAutoScalingOutput)
+}
+
+func (o MysqlLayerLoadBasedAutoScalingPtrOutput) Downscaling() MysqlLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o.ApplyT(func(v *MysqlLayerLoadBasedAutoScaling) *MysqlLayerLoadBasedAutoScalingDownscaling {
+		if v == nil {
+			return nil
+		}
+		return v.Downscaling
+	}).(MysqlLayerLoadBasedAutoScalingDownscalingPtrOutput)
+}
+
+func (o MysqlLayerLoadBasedAutoScalingPtrOutput) Enable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MysqlLayerLoadBasedAutoScaling) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enable
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o MysqlLayerLoadBasedAutoScalingPtrOutput) Upscaling() MysqlLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o.ApplyT(func(v *MysqlLayerLoadBasedAutoScaling) *MysqlLayerLoadBasedAutoScalingUpscaling {
+		if v == nil {
+			return nil
+		}
+		return v.Upscaling
+	}).(MysqlLayerLoadBasedAutoScalingUpscalingPtrOutput)
+}
+
+type MysqlLayerLoadBasedAutoScalingDownscaling struct {
+	Alarms             []string `pulumi:"alarms"`
+	CpuThreshold       *float64 `pulumi:"cpuThreshold"`
+	IgnoreMetricsTime  *int     `pulumi:"ignoreMetricsTime"`
+	InstanceCount      *int     `pulumi:"instanceCount"`
+	LoadThreshold      *float64 `pulumi:"loadThreshold"`
+	MemoryThreshold    *float64 `pulumi:"memoryThreshold"`
+	ThresholdsWaitTime *int     `pulumi:"thresholdsWaitTime"`
+}
+
+// MysqlLayerLoadBasedAutoScalingDownscalingInput is an input type that accepts MysqlLayerLoadBasedAutoScalingDownscalingArgs and MysqlLayerLoadBasedAutoScalingDownscalingOutput values.
+// You can construct a concrete instance of `MysqlLayerLoadBasedAutoScalingDownscalingInput` via:
+//
+//	MysqlLayerLoadBasedAutoScalingDownscalingArgs{...}
+type MysqlLayerLoadBasedAutoScalingDownscalingInput interface {
+	pulumi.Input
+
+	ToMysqlLayerLoadBasedAutoScalingDownscalingOutput() MysqlLayerLoadBasedAutoScalingDownscalingOutput
+	ToMysqlLayerLoadBasedAutoScalingDownscalingOutputWithContext(context.Context) MysqlLayerLoadBasedAutoScalingDownscalingOutput
+}
+
+type MysqlLayerLoadBasedAutoScalingDownscalingArgs struct {
+	Alarms             pulumi.StringArrayInput `pulumi:"alarms"`
+	CpuThreshold       pulumi.Float64PtrInput  `pulumi:"cpuThreshold"`
+	IgnoreMetricsTime  pulumi.IntPtrInput      `pulumi:"ignoreMetricsTime"`
+	InstanceCount      pulumi.IntPtrInput      `pulumi:"instanceCount"`
+	LoadThreshold      pulumi.Float64PtrInput  `pulumi:"loadThreshold"`
+	MemoryThreshold    pulumi.Float64PtrInput  `pulumi:"memoryThreshold"`
+	ThresholdsWaitTime pulumi.IntPtrInput      `pulumi:"thresholdsWaitTime"`
+}
+
+func (MysqlLayerLoadBasedAutoScalingDownscalingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MysqlLayerLoadBasedAutoScalingDownscaling)(nil)).Elem()
+}
+
+func (i MysqlLayerLoadBasedAutoScalingDownscalingArgs) ToMysqlLayerLoadBasedAutoScalingDownscalingOutput() MysqlLayerLoadBasedAutoScalingDownscalingOutput {
+	return i.ToMysqlLayerLoadBasedAutoScalingDownscalingOutputWithContext(context.Background())
+}
+
+func (i MysqlLayerLoadBasedAutoScalingDownscalingArgs) ToMysqlLayerLoadBasedAutoScalingDownscalingOutputWithContext(ctx context.Context) MysqlLayerLoadBasedAutoScalingDownscalingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MysqlLayerLoadBasedAutoScalingDownscalingOutput)
+}
+
+func (i MysqlLayerLoadBasedAutoScalingDownscalingArgs) ToMysqlLayerLoadBasedAutoScalingDownscalingPtrOutput() MysqlLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return i.ToMysqlLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(context.Background())
+}
+
+func (i MysqlLayerLoadBasedAutoScalingDownscalingArgs) ToMysqlLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx context.Context) MysqlLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MysqlLayerLoadBasedAutoScalingDownscalingOutput).ToMysqlLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx)
+}
+
+// MysqlLayerLoadBasedAutoScalingDownscalingPtrInput is an input type that accepts MysqlLayerLoadBasedAutoScalingDownscalingArgs, MysqlLayerLoadBasedAutoScalingDownscalingPtr and MysqlLayerLoadBasedAutoScalingDownscalingPtrOutput values.
+// You can construct a concrete instance of `MysqlLayerLoadBasedAutoScalingDownscalingPtrInput` via:
+//
+//	        MysqlLayerLoadBasedAutoScalingDownscalingArgs{...}
+//
+//	or:
+//
+//	        nil
+type MysqlLayerLoadBasedAutoScalingDownscalingPtrInput interface {
+	pulumi.Input
+
+	ToMysqlLayerLoadBasedAutoScalingDownscalingPtrOutput() MysqlLayerLoadBasedAutoScalingDownscalingPtrOutput
+	ToMysqlLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(context.Context) MysqlLayerLoadBasedAutoScalingDownscalingPtrOutput
+}
+
+type mysqlLayerLoadBasedAutoScalingDownscalingPtrType MysqlLayerLoadBasedAutoScalingDownscalingArgs
+
+func MysqlLayerLoadBasedAutoScalingDownscalingPtr(v *MysqlLayerLoadBasedAutoScalingDownscalingArgs) MysqlLayerLoadBasedAutoScalingDownscalingPtrInput {
+	return (*mysqlLayerLoadBasedAutoScalingDownscalingPtrType)(v)
+}
+
+func (*mysqlLayerLoadBasedAutoScalingDownscalingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MysqlLayerLoadBasedAutoScalingDownscaling)(nil)).Elem()
+}
+
+func (i *mysqlLayerLoadBasedAutoScalingDownscalingPtrType) ToMysqlLayerLoadBasedAutoScalingDownscalingPtrOutput() MysqlLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return i.ToMysqlLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(context.Background())
+}
+
+func (i *mysqlLayerLoadBasedAutoScalingDownscalingPtrType) ToMysqlLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx context.Context) MysqlLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MysqlLayerLoadBasedAutoScalingDownscalingPtrOutput)
+}
+
+type MysqlLayerLoadBasedAutoScalingDownscalingOutput struct{ *pulumi.OutputState }
+
+func (MysqlLayerLoadBasedAutoScalingDownscalingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MysqlLayerLoadBasedAutoScalingDownscaling)(nil)).Elem()
+}
+
+func (o MysqlLayerLoadBasedAutoScalingDownscalingOutput) ToMysqlLayerLoadBasedAutoScalingDownscalingOutput() MysqlLayerLoadBasedAutoScalingDownscalingOutput {
+	return o
+}
+
+func (o MysqlLayerLoadBasedAutoScalingDownscalingOutput) ToMysqlLayerLoadBasedAutoScalingDownscalingOutputWithContext(ctx context.Context) MysqlLayerLoadBasedAutoScalingDownscalingOutput {
+	return o
+}
+
+func (o MysqlLayerLoadBasedAutoScalingDownscalingOutput) ToMysqlLayerLoadBasedAutoScalingDownscalingPtrOutput() MysqlLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o.ToMysqlLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(context.Background())
+}
+
+func (o MysqlLayerLoadBasedAutoScalingDownscalingOutput) ToMysqlLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx context.Context) MysqlLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MysqlLayerLoadBasedAutoScalingDownscaling) *MysqlLayerLoadBasedAutoScalingDownscaling {
+		return &v
+	}).(MysqlLayerLoadBasedAutoScalingDownscalingPtrOutput)
+}
+
+func (o MysqlLayerLoadBasedAutoScalingDownscalingOutput) Alarms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MysqlLayerLoadBasedAutoScalingDownscaling) []string { return v.Alarms }).(pulumi.StringArrayOutput)
+}
+
+func (o MysqlLayerLoadBasedAutoScalingDownscalingOutput) CpuThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v MysqlLayerLoadBasedAutoScalingDownscaling) *float64 { return v.CpuThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o MysqlLayerLoadBasedAutoScalingDownscalingOutput) IgnoreMetricsTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MysqlLayerLoadBasedAutoScalingDownscaling) *int { return v.IgnoreMetricsTime }).(pulumi.IntPtrOutput)
+}
+
+func (o MysqlLayerLoadBasedAutoScalingDownscalingOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MysqlLayerLoadBasedAutoScalingDownscaling) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
+}
+
+func (o MysqlLayerLoadBasedAutoScalingDownscalingOutput) LoadThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v MysqlLayerLoadBasedAutoScalingDownscaling) *float64 { return v.LoadThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o MysqlLayerLoadBasedAutoScalingDownscalingOutput) MemoryThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v MysqlLayerLoadBasedAutoScalingDownscaling) *float64 { return v.MemoryThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o MysqlLayerLoadBasedAutoScalingDownscalingOutput) ThresholdsWaitTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MysqlLayerLoadBasedAutoScalingDownscaling) *int { return v.ThresholdsWaitTime }).(pulumi.IntPtrOutput)
+}
+
+type MysqlLayerLoadBasedAutoScalingDownscalingPtrOutput struct{ *pulumi.OutputState }
+
+func (MysqlLayerLoadBasedAutoScalingDownscalingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MysqlLayerLoadBasedAutoScalingDownscaling)(nil)).Elem()
+}
+
+func (o MysqlLayerLoadBasedAutoScalingDownscalingPtrOutput) ToMysqlLayerLoadBasedAutoScalingDownscalingPtrOutput() MysqlLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o
+}
+
+func (o MysqlLayerLoadBasedAutoScalingDownscalingPtrOutput) ToMysqlLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx context.Context) MysqlLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o
+}
+
+func (o MysqlLayerLoadBasedAutoScalingDownscalingPtrOutput) Elem() MysqlLayerLoadBasedAutoScalingDownscalingOutput {
+	return o.ApplyT(func(v *MysqlLayerLoadBasedAutoScalingDownscaling) MysqlLayerLoadBasedAutoScalingDownscaling {
+		if v != nil {
+			return *v
+		}
+		var ret MysqlLayerLoadBasedAutoScalingDownscaling
+		return ret
+	}).(MysqlLayerLoadBasedAutoScalingDownscalingOutput)
+}
+
+func (o MysqlLayerLoadBasedAutoScalingDownscalingPtrOutput) Alarms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MysqlLayerLoadBasedAutoScalingDownscaling) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Alarms
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o MysqlLayerLoadBasedAutoScalingDownscalingPtrOutput) CpuThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *MysqlLayerLoadBasedAutoScalingDownscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.CpuThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o MysqlLayerLoadBasedAutoScalingDownscalingPtrOutput) IgnoreMetricsTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MysqlLayerLoadBasedAutoScalingDownscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IgnoreMetricsTime
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o MysqlLayerLoadBasedAutoScalingDownscalingPtrOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MysqlLayerLoadBasedAutoScalingDownscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceCount
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o MysqlLayerLoadBasedAutoScalingDownscalingPtrOutput) LoadThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *MysqlLayerLoadBasedAutoScalingDownscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.LoadThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o MysqlLayerLoadBasedAutoScalingDownscalingPtrOutput) MemoryThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *MysqlLayerLoadBasedAutoScalingDownscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MemoryThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o MysqlLayerLoadBasedAutoScalingDownscalingPtrOutput) ThresholdsWaitTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MysqlLayerLoadBasedAutoScalingDownscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ThresholdsWaitTime
+	}).(pulumi.IntPtrOutput)
+}
+
+type MysqlLayerLoadBasedAutoScalingUpscaling struct {
+	Alarms             []string `pulumi:"alarms"`
+	CpuThreshold       *float64 `pulumi:"cpuThreshold"`
+	IgnoreMetricsTime  *int     `pulumi:"ignoreMetricsTime"`
+	InstanceCount      *int     `pulumi:"instanceCount"`
+	LoadThreshold      *float64 `pulumi:"loadThreshold"`
+	MemoryThreshold    *float64 `pulumi:"memoryThreshold"`
+	ThresholdsWaitTime *int     `pulumi:"thresholdsWaitTime"`
+}
+
+// MysqlLayerLoadBasedAutoScalingUpscalingInput is an input type that accepts MysqlLayerLoadBasedAutoScalingUpscalingArgs and MysqlLayerLoadBasedAutoScalingUpscalingOutput values.
+// You can construct a concrete instance of `MysqlLayerLoadBasedAutoScalingUpscalingInput` via:
+//
+//	MysqlLayerLoadBasedAutoScalingUpscalingArgs{...}
+type MysqlLayerLoadBasedAutoScalingUpscalingInput interface {
+	pulumi.Input
+
+	ToMysqlLayerLoadBasedAutoScalingUpscalingOutput() MysqlLayerLoadBasedAutoScalingUpscalingOutput
+	ToMysqlLayerLoadBasedAutoScalingUpscalingOutputWithContext(context.Context) MysqlLayerLoadBasedAutoScalingUpscalingOutput
+}
+
+type MysqlLayerLoadBasedAutoScalingUpscalingArgs struct {
+	Alarms             pulumi.StringArrayInput `pulumi:"alarms"`
+	CpuThreshold       pulumi.Float64PtrInput  `pulumi:"cpuThreshold"`
+	IgnoreMetricsTime  pulumi.IntPtrInput      `pulumi:"ignoreMetricsTime"`
+	InstanceCount      pulumi.IntPtrInput      `pulumi:"instanceCount"`
+	LoadThreshold      pulumi.Float64PtrInput  `pulumi:"loadThreshold"`
+	MemoryThreshold    pulumi.Float64PtrInput  `pulumi:"memoryThreshold"`
+	ThresholdsWaitTime pulumi.IntPtrInput      `pulumi:"thresholdsWaitTime"`
+}
+
+func (MysqlLayerLoadBasedAutoScalingUpscalingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MysqlLayerLoadBasedAutoScalingUpscaling)(nil)).Elem()
+}
+
+func (i MysqlLayerLoadBasedAutoScalingUpscalingArgs) ToMysqlLayerLoadBasedAutoScalingUpscalingOutput() MysqlLayerLoadBasedAutoScalingUpscalingOutput {
+	return i.ToMysqlLayerLoadBasedAutoScalingUpscalingOutputWithContext(context.Background())
+}
+
+func (i MysqlLayerLoadBasedAutoScalingUpscalingArgs) ToMysqlLayerLoadBasedAutoScalingUpscalingOutputWithContext(ctx context.Context) MysqlLayerLoadBasedAutoScalingUpscalingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MysqlLayerLoadBasedAutoScalingUpscalingOutput)
+}
+
+func (i MysqlLayerLoadBasedAutoScalingUpscalingArgs) ToMysqlLayerLoadBasedAutoScalingUpscalingPtrOutput() MysqlLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return i.ToMysqlLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(context.Background())
+}
+
+func (i MysqlLayerLoadBasedAutoScalingUpscalingArgs) ToMysqlLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx context.Context) MysqlLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MysqlLayerLoadBasedAutoScalingUpscalingOutput).ToMysqlLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx)
+}
+
+// MysqlLayerLoadBasedAutoScalingUpscalingPtrInput is an input type that accepts MysqlLayerLoadBasedAutoScalingUpscalingArgs, MysqlLayerLoadBasedAutoScalingUpscalingPtr and MysqlLayerLoadBasedAutoScalingUpscalingPtrOutput values.
+// You can construct a concrete instance of `MysqlLayerLoadBasedAutoScalingUpscalingPtrInput` via:
+//
+//	        MysqlLayerLoadBasedAutoScalingUpscalingArgs{...}
+//
+//	or:
+//
+//	        nil
+type MysqlLayerLoadBasedAutoScalingUpscalingPtrInput interface {
+	pulumi.Input
+
+	ToMysqlLayerLoadBasedAutoScalingUpscalingPtrOutput() MysqlLayerLoadBasedAutoScalingUpscalingPtrOutput
+	ToMysqlLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(context.Context) MysqlLayerLoadBasedAutoScalingUpscalingPtrOutput
+}
+
+type mysqlLayerLoadBasedAutoScalingUpscalingPtrType MysqlLayerLoadBasedAutoScalingUpscalingArgs
+
+func MysqlLayerLoadBasedAutoScalingUpscalingPtr(v *MysqlLayerLoadBasedAutoScalingUpscalingArgs) MysqlLayerLoadBasedAutoScalingUpscalingPtrInput {
+	return (*mysqlLayerLoadBasedAutoScalingUpscalingPtrType)(v)
+}
+
+func (*mysqlLayerLoadBasedAutoScalingUpscalingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MysqlLayerLoadBasedAutoScalingUpscaling)(nil)).Elem()
+}
+
+func (i *mysqlLayerLoadBasedAutoScalingUpscalingPtrType) ToMysqlLayerLoadBasedAutoScalingUpscalingPtrOutput() MysqlLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return i.ToMysqlLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(context.Background())
+}
+
+func (i *mysqlLayerLoadBasedAutoScalingUpscalingPtrType) ToMysqlLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx context.Context) MysqlLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MysqlLayerLoadBasedAutoScalingUpscalingPtrOutput)
+}
+
+type MysqlLayerLoadBasedAutoScalingUpscalingOutput struct{ *pulumi.OutputState }
+
+func (MysqlLayerLoadBasedAutoScalingUpscalingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MysqlLayerLoadBasedAutoScalingUpscaling)(nil)).Elem()
+}
+
+func (o MysqlLayerLoadBasedAutoScalingUpscalingOutput) ToMysqlLayerLoadBasedAutoScalingUpscalingOutput() MysqlLayerLoadBasedAutoScalingUpscalingOutput {
+	return o
+}
+
+func (o MysqlLayerLoadBasedAutoScalingUpscalingOutput) ToMysqlLayerLoadBasedAutoScalingUpscalingOutputWithContext(ctx context.Context) MysqlLayerLoadBasedAutoScalingUpscalingOutput {
+	return o
+}
+
+func (o MysqlLayerLoadBasedAutoScalingUpscalingOutput) ToMysqlLayerLoadBasedAutoScalingUpscalingPtrOutput() MysqlLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o.ToMysqlLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(context.Background())
+}
+
+func (o MysqlLayerLoadBasedAutoScalingUpscalingOutput) ToMysqlLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx context.Context) MysqlLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MysqlLayerLoadBasedAutoScalingUpscaling) *MysqlLayerLoadBasedAutoScalingUpscaling {
+		return &v
+	}).(MysqlLayerLoadBasedAutoScalingUpscalingPtrOutput)
+}
+
+func (o MysqlLayerLoadBasedAutoScalingUpscalingOutput) Alarms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MysqlLayerLoadBasedAutoScalingUpscaling) []string { return v.Alarms }).(pulumi.StringArrayOutput)
+}
+
+func (o MysqlLayerLoadBasedAutoScalingUpscalingOutput) CpuThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v MysqlLayerLoadBasedAutoScalingUpscaling) *float64 { return v.CpuThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o MysqlLayerLoadBasedAutoScalingUpscalingOutput) IgnoreMetricsTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MysqlLayerLoadBasedAutoScalingUpscaling) *int { return v.IgnoreMetricsTime }).(pulumi.IntPtrOutput)
+}
+
+func (o MysqlLayerLoadBasedAutoScalingUpscalingOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MysqlLayerLoadBasedAutoScalingUpscaling) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
+}
+
+func (o MysqlLayerLoadBasedAutoScalingUpscalingOutput) LoadThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v MysqlLayerLoadBasedAutoScalingUpscaling) *float64 { return v.LoadThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o MysqlLayerLoadBasedAutoScalingUpscalingOutput) MemoryThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v MysqlLayerLoadBasedAutoScalingUpscaling) *float64 { return v.MemoryThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o MysqlLayerLoadBasedAutoScalingUpscalingOutput) ThresholdsWaitTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MysqlLayerLoadBasedAutoScalingUpscaling) *int { return v.ThresholdsWaitTime }).(pulumi.IntPtrOutput)
+}
+
+type MysqlLayerLoadBasedAutoScalingUpscalingPtrOutput struct{ *pulumi.OutputState }
+
+func (MysqlLayerLoadBasedAutoScalingUpscalingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MysqlLayerLoadBasedAutoScalingUpscaling)(nil)).Elem()
+}
+
+func (o MysqlLayerLoadBasedAutoScalingUpscalingPtrOutput) ToMysqlLayerLoadBasedAutoScalingUpscalingPtrOutput() MysqlLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o
+}
+
+func (o MysqlLayerLoadBasedAutoScalingUpscalingPtrOutput) ToMysqlLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx context.Context) MysqlLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o
+}
+
+func (o MysqlLayerLoadBasedAutoScalingUpscalingPtrOutput) Elem() MysqlLayerLoadBasedAutoScalingUpscalingOutput {
+	return o.ApplyT(func(v *MysqlLayerLoadBasedAutoScalingUpscaling) MysqlLayerLoadBasedAutoScalingUpscaling {
+		if v != nil {
+			return *v
+		}
+		var ret MysqlLayerLoadBasedAutoScalingUpscaling
+		return ret
+	}).(MysqlLayerLoadBasedAutoScalingUpscalingOutput)
+}
+
+func (o MysqlLayerLoadBasedAutoScalingUpscalingPtrOutput) Alarms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MysqlLayerLoadBasedAutoScalingUpscaling) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Alarms
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o MysqlLayerLoadBasedAutoScalingUpscalingPtrOutput) CpuThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *MysqlLayerLoadBasedAutoScalingUpscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.CpuThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o MysqlLayerLoadBasedAutoScalingUpscalingPtrOutput) IgnoreMetricsTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MysqlLayerLoadBasedAutoScalingUpscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IgnoreMetricsTime
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o MysqlLayerLoadBasedAutoScalingUpscalingPtrOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MysqlLayerLoadBasedAutoScalingUpscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceCount
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o MysqlLayerLoadBasedAutoScalingUpscalingPtrOutput) LoadThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *MysqlLayerLoadBasedAutoScalingUpscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.LoadThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o MysqlLayerLoadBasedAutoScalingUpscalingPtrOutput) MemoryThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *MysqlLayerLoadBasedAutoScalingUpscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MemoryThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o MysqlLayerLoadBasedAutoScalingUpscalingPtrOutput) ThresholdsWaitTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MysqlLayerLoadBasedAutoScalingUpscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ThresholdsWaitTime
+	}).(pulumi.IntPtrOutput)
+}
+
 type NodejsAppLayerCloudwatchConfiguration struct {
 	Enabled    *bool                                            `pulumi:"enabled"`
 	LogStreams []NodejsAppLayerCloudwatchConfigurationLogStream `pulumi:"logStreams"`
@@ -4372,6 +8727,619 @@ func (o NodejsAppLayerEbsVolumeArrayOutput) Index(i pulumi.IntInput) NodejsAppLa
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NodejsAppLayerEbsVolume {
 		return vs[0].([]NodejsAppLayerEbsVolume)[vs[1].(int)]
 	}).(NodejsAppLayerEbsVolumeOutput)
+}
+
+type NodejsAppLayerLoadBasedAutoScaling struct {
+	Downscaling *NodejsAppLayerLoadBasedAutoScalingDownscaling `pulumi:"downscaling"`
+	Enable      *bool                                          `pulumi:"enable"`
+	Upscaling   *NodejsAppLayerLoadBasedAutoScalingUpscaling   `pulumi:"upscaling"`
+}
+
+// NodejsAppLayerLoadBasedAutoScalingInput is an input type that accepts NodejsAppLayerLoadBasedAutoScalingArgs and NodejsAppLayerLoadBasedAutoScalingOutput values.
+// You can construct a concrete instance of `NodejsAppLayerLoadBasedAutoScalingInput` via:
+//
+//	NodejsAppLayerLoadBasedAutoScalingArgs{...}
+type NodejsAppLayerLoadBasedAutoScalingInput interface {
+	pulumi.Input
+
+	ToNodejsAppLayerLoadBasedAutoScalingOutput() NodejsAppLayerLoadBasedAutoScalingOutput
+	ToNodejsAppLayerLoadBasedAutoScalingOutputWithContext(context.Context) NodejsAppLayerLoadBasedAutoScalingOutput
+}
+
+type NodejsAppLayerLoadBasedAutoScalingArgs struct {
+	Downscaling NodejsAppLayerLoadBasedAutoScalingDownscalingPtrInput `pulumi:"downscaling"`
+	Enable      pulumi.BoolPtrInput                                   `pulumi:"enable"`
+	Upscaling   NodejsAppLayerLoadBasedAutoScalingUpscalingPtrInput   `pulumi:"upscaling"`
+}
+
+func (NodejsAppLayerLoadBasedAutoScalingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodejsAppLayerLoadBasedAutoScaling)(nil)).Elem()
+}
+
+func (i NodejsAppLayerLoadBasedAutoScalingArgs) ToNodejsAppLayerLoadBasedAutoScalingOutput() NodejsAppLayerLoadBasedAutoScalingOutput {
+	return i.ToNodejsAppLayerLoadBasedAutoScalingOutputWithContext(context.Background())
+}
+
+func (i NodejsAppLayerLoadBasedAutoScalingArgs) ToNodejsAppLayerLoadBasedAutoScalingOutputWithContext(ctx context.Context) NodejsAppLayerLoadBasedAutoScalingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodejsAppLayerLoadBasedAutoScalingOutput)
+}
+
+func (i NodejsAppLayerLoadBasedAutoScalingArgs) ToNodejsAppLayerLoadBasedAutoScalingPtrOutput() NodejsAppLayerLoadBasedAutoScalingPtrOutput {
+	return i.ToNodejsAppLayerLoadBasedAutoScalingPtrOutputWithContext(context.Background())
+}
+
+func (i NodejsAppLayerLoadBasedAutoScalingArgs) ToNodejsAppLayerLoadBasedAutoScalingPtrOutputWithContext(ctx context.Context) NodejsAppLayerLoadBasedAutoScalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodejsAppLayerLoadBasedAutoScalingOutput).ToNodejsAppLayerLoadBasedAutoScalingPtrOutputWithContext(ctx)
+}
+
+// NodejsAppLayerLoadBasedAutoScalingPtrInput is an input type that accepts NodejsAppLayerLoadBasedAutoScalingArgs, NodejsAppLayerLoadBasedAutoScalingPtr and NodejsAppLayerLoadBasedAutoScalingPtrOutput values.
+// You can construct a concrete instance of `NodejsAppLayerLoadBasedAutoScalingPtrInput` via:
+//
+//	        NodejsAppLayerLoadBasedAutoScalingArgs{...}
+//
+//	or:
+//
+//	        nil
+type NodejsAppLayerLoadBasedAutoScalingPtrInput interface {
+	pulumi.Input
+
+	ToNodejsAppLayerLoadBasedAutoScalingPtrOutput() NodejsAppLayerLoadBasedAutoScalingPtrOutput
+	ToNodejsAppLayerLoadBasedAutoScalingPtrOutputWithContext(context.Context) NodejsAppLayerLoadBasedAutoScalingPtrOutput
+}
+
+type nodejsAppLayerLoadBasedAutoScalingPtrType NodejsAppLayerLoadBasedAutoScalingArgs
+
+func NodejsAppLayerLoadBasedAutoScalingPtr(v *NodejsAppLayerLoadBasedAutoScalingArgs) NodejsAppLayerLoadBasedAutoScalingPtrInput {
+	return (*nodejsAppLayerLoadBasedAutoScalingPtrType)(v)
+}
+
+func (*nodejsAppLayerLoadBasedAutoScalingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NodejsAppLayerLoadBasedAutoScaling)(nil)).Elem()
+}
+
+func (i *nodejsAppLayerLoadBasedAutoScalingPtrType) ToNodejsAppLayerLoadBasedAutoScalingPtrOutput() NodejsAppLayerLoadBasedAutoScalingPtrOutput {
+	return i.ToNodejsAppLayerLoadBasedAutoScalingPtrOutputWithContext(context.Background())
+}
+
+func (i *nodejsAppLayerLoadBasedAutoScalingPtrType) ToNodejsAppLayerLoadBasedAutoScalingPtrOutputWithContext(ctx context.Context) NodejsAppLayerLoadBasedAutoScalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodejsAppLayerLoadBasedAutoScalingPtrOutput)
+}
+
+type NodejsAppLayerLoadBasedAutoScalingOutput struct{ *pulumi.OutputState }
+
+func (NodejsAppLayerLoadBasedAutoScalingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodejsAppLayerLoadBasedAutoScaling)(nil)).Elem()
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingOutput) ToNodejsAppLayerLoadBasedAutoScalingOutput() NodejsAppLayerLoadBasedAutoScalingOutput {
+	return o
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingOutput) ToNodejsAppLayerLoadBasedAutoScalingOutputWithContext(ctx context.Context) NodejsAppLayerLoadBasedAutoScalingOutput {
+	return o
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingOutput) ToNodejsAppLayerLoadBasedAutoScalingPtrOutput() NodejsAppLayerLoadBasedAutoScalingPtrOutput {
+	return o.ToNodejsAppLayerLoadBasedAutoScalingPtrOutputWithContext(context.Background())
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingOutput) ToNodejsAppLayerLoadBasedAutoScalingPtrOutputWithContext(ctx context.Context) NodejsAppLayerLoadBasedAutoScalingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NodejsAppLayerLoadBasedAutoScaling) *NodejsAppLayerLoadBasedAutoScaling {
+		return &v
+	}).(NodejsAppLayerLoadBasedAutoScalingPtrOutput)
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingOutput) Downscaling() NodejsAppLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o.ApplyT(func(v NodejsAppLayerLoadBasedAutoScaling) *NodejsAppLayerLoadBasedAutoScalingDownscaling {
+		return v.Downscaling
+	}).(NodejsAppLayerLoadBasedAutoScalingDownscalingPtrOutput)
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingOutput) Enable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v NodejsAppLayerLoadBasedAutoScaling) *bool { return v.Enable }).(pulumi.BoolPtrOutput)
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingOutput) Upscaling() NodejsAppLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o.ApplyT(func(v NodejsAppLayerLoadBasedAutoScaling) *NodejsAppLayerLoadBasedAutoScalingUpscaling {
+		return v.Upscaling
+	}).(NodejsAppLayerLoadBasedAutoScalingUpscalingPtrOutput)
+}
+
+type NodejsAppLayerLoadBasedAutoScalingPtrOutput struct{ *pulumi.OutputState }
+
+func (NodejsAppLayerLoadBasedAutoScalingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NodejsAppLayerLoadBasedAutoScaling)(nil)).Elem()
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingPtrOutput) ToNodejsAppLayerLoadBasedAutoScalingPtrOutput() NodejsAppLayerLoadBasedAutoScalingPtrOutput {
+	return o
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingPtrOutput) ToNodejsAppLayerLoadBasedAutoScalingPtrOutputWithContext(ctx context.Context) NodejsAppLayerLoadBasedAutoScalingPtrOutput {
+	return o
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingPtrOutput) Elem() NodejsAppLayerLoadBasedAutoScalingOutput {
+	return o.ApplyT(func(v *NodejsAppLayerLoadBasedAutoScaling) NodejsAppLayerLoadBasedAutoScaling {
+		if v != nil {
+			return *v
+		}
+		var ret NodejsAppLayerLoadBasedAutoScaling
+		return ret
+	}).(NodejsAppLayerLoadBasedAutoScalingOutput)
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingPtrOutput) Downscaling() NodejsAppLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o.ApplyT(func(v *NodejsAppLayerLoadBasedAutoScaling) *NodejsAppLayerLoadBasedAutoScalingDownscaling {
+		if v == nil {
+			return nil
+		}
+		return v.Downscaling
+	}).(NodejsAppLayerLoadBasedAutoScalingDownscalingPtrOutput)
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingPtrOutput) Enable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NodejsAppLayerLoadBasedAutoScaling) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enable
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingPtrOutput) Upscaling() NodejsAppLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o.ApplyT(func(v *NodejsAppLayerLoadBasedAutoScaling) *NodejsAppLayerLoadBasedAutoScalingUpscaling {
+		if v == nil {
+			return nil
+		}
+		return v.Upscaling
+	}).(NodejsAppLayerLoadBasedAutoScalingUpscalingPtrOutput)
+}
+
+type NodejsAppLayerLoadBasedAutoScalingDownscaling struct {
+	Alarms             []string `pulumi:"alarms"`
+	CpuThreshold       *float64 `pulumi:"cpuThreshold"`
+	IgnoreMetricsTime  *int     `pulumi:"ignoreMetricsTime"`
+	InstanceCount      *int     `pulumi:"instanceCount"`
+	LoadThreshold      *float64 `pulumi:"loadThreshold"`
+	MemoryThreshold    *float64 `pulumi:"memoryThreshold"`
+	ThresholdsWaitTime *int     `pulumi:"thresholdsWaitTime"`
+}
+
+// NodejsAppLayerLoadBasedAutoScalingDownscalingInput is an input type that accepts NodejsAppLayerLoadBasedAutoScalingDownscalingArgs and NodejsAppLayerLoadBasedAutoScalingDownscalingOutput values.
+// You can construct a concrete instance of `NodejsAppLayerLoadBasedAutoScalingDownscalingInput` via:
+//
+//	NodejsAppLayerLoadBasedAutoScalingDownscalingArgs{...}
+type NodejsAppLayerLoadBasedAutoScalingDownscalingInput interface {
+	pulumi.Input
+
+	ToNodejsAppLayerLoadBasedAutoScalingDownscalingOutput() NodejsAppLayerLoadBasedAutoScalingDownscalingOutput
+	ToNodejsAppLayerLoadBasedAutoScalingDownscalingOutputWithContext(context.Context) NodejsAppLayerLoadBasedAutoScalingDownscalingOutput
+}
+
+type NodejsAppLayerLoadBasedAutoScalingDownscalingArgs struct {
+	Alarms             pulumi.StringArrayInput `pulumi:"alarms"`
+	CpuThreshold       pulumi.Float64PtrInput  `pulumi:"cpuThreshold"`
+	IgnoreMetricsTime  pulumi.IntPtrInput      `pulumi:"ignoreMetricsTime"`
+	InstanceCount      pulumi.IntPtrInput      `pulumi:"instanceCount"`
+	LoadThreshold      pulumi.Float64PtrInput  `pulumi:"loadThreshold"`
+	MemoryThreshold    pulumi.Float64PtrInput  `pulumi:"memoryThreshold"`
+	ThresholdsWaitTime pulumi.IntPtrInput      `pulumi:"thresholdsWaitTime"`
+}
+
+func (NodejsAppLayerLoadBasedAutoScalingDownscalingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodejsAppLayerLoadBasedAutoScalingDownscaling)(nil)).Elem()
+}
+
+func (i NodejsAppLayerLoadBasedAutoScalingDownscalingArgs) ToNodejsAppLayerLoadBasedAutoScalingDownscalingOutput() NodejsAppLayerLoadBasedAutoScalingDownscalingOutput {
+	return i.ToNodejsAppLayerLoadBasedAutoScalingDownscalingOutputWithContext(context.Background())
+}
+
+func (i NodejsAppLayerLoadBasedAutoScalingDownscalingArgs) ToNodejsAppLayerLoadBasedAutoScalingDownscalingOutputWithContext(ctx context.Context) NodejsAppLayerLoadBasedAutoScalingDownscalingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodejsAppLayerLoadBasedAutoScalingDownscalingOutput)
+}
+
+func (i NodejsAppLayerLoadBasedAutoScalingDownscalingArgs) ToNodejsAppLayerLoadBasedAutoScalingDownscalingPtrOutput() NodejsAppLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return i.ToNodejsAppLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(context.Background())
+}
+
+func (i NodejsAppLayerLoadBasedAutoScalingDownscalingArgs) ToNodejsAppLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx context.Context) NodejsAppLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodejsAppLayerLoadBasedAutoScalingDownscalingOutput).ToNodejsAppLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx)
+}
+
+// NodejsAppLayerLoadBasedAutoScalingDownscalingPtrInput is an input type that accepts NodejsAppLayerLoadBasedAutoScalingDownscalingArgs, NodejsAppLayerLoadBasedAutoScalingDownscalingPtr and NodejsAppLayerLoadBasedAutoScalingDownscalingPtrOutput values.
+// You can construct a concrete instance of `NodejsAppLayerLoadBasedAutoScalingDownscalingPtrInput` via:
+//
+//	        NodejsAppLayerLoadBasedAutoScalingDownscalingArgs{...}
+//
+//	or:
+//
+//	        nil
+type NodejsAppLayerLoadBasedAutoScalingDownscalingPtrInput interface {
+	pulumi.Input
+
+	ToNodejsAppLayerLoadBasedAutoScalingDownscalingPtrOutput() NodejsAppLayerLoadBasedAutoScalingDownscalingPtrOutput
+	ToNodejsAppLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(context.Context) NodejsAppLayerLoadBasedAutoScalingDownscalingPtrOutput
+}
+
+type nodejsAppLayerLoadBasedAutoScalingDownscalingPtrType NodejsAppLayerLoadBasedAutoScalingDownscalingArgs
+
+func NodejsAppLayerLoadBasedAutoScalingDownscalingPtr(v *NodejsAppLayerLoadBasedAutoScalingDownscalingArgs) NodejsAppLayerLoadBasedAutoScalingDownscalingPtrInput {
+	return (*nodejsAppLayerLoadBasedAutoScalingDownscalingPtrType)(v)
+}
+
+func (*nodejsAppLayerLoadBasedAutoScalingDownscalingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NodejsAppLayerLoadBasedAutoScalingDownscaling)(nil)).Elem()
+}
+
+func (i *nodejsAppLayerLoadBasedAutoScalingDownscalingPtrType) ToNodejsAppLayerLoadBasedAutoScalingDownscalingPtrOutput() NodejsAppLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return i.ToNodejsAppLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(context.Background())
+}
+
+func (i *nodejsAppLayerLoadBasedAutoScalingDownscalingPtrType) ToNodejsAppLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx context.Context) NodejsAppLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodejsAppLayerLoadBasedAutoScalingDownscalingPtrOutput)
+}
+
+type NodejsAppLayerLoadBasedAutoScalingDownscalingOutput struct{ *pulumi.OutputState }
+
+func (NodejsAppLayerLoadBasedAutoScalingDownscalingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodejsAppLayerLoadBasedAutoScalingDownscaling)(nil)).Elem()
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingDownscalingOutput) ToNodejsAppLayerLoadBasedAutoScalingDownscalingOutput() NodejsAppLayerLoadBasedAutoScalingDownscalingOutput {
+	return o
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingDownscalingOutput) ToNodejsAppLayerLoadBasedAutoScalingDownscalingOutputWithContext(ctx context.Context) NodejsAppLayerLoadBasedAutoScalingDownscalingOutput {
+	return o
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingDownscalingOutput) ToNodejsAppLayerLoadBasedAutoScalingDownscalingPtrOutput() NodejsAppLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o.ToNodejsAppLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(context.Background())
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingDownscalingOutput) ToNodejsAppLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx context.Context) NodejsAppLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NodejsAppLayerLoadBasedAutoScalingDownscaling) *NodejsAppLayerLoadBasedAutoScalingDownscaling {
+		return &v
+	}).(NodejsAppLayerLoadBasedAutoScalingDownscalingPtrOutput)
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingDownscalingOutput) Alarms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NodejsAppLayerLoadBasedAutoScalingDownscaling) []string { return v.Alarms }).(pulumi.StringArrayOutput)
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingDownscalingOutput) CpuThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v NodejsAppLayerLoadBasedAutoScalingDownscaling) *float64 { return v.CpuThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingDownscalingOutput) IgnoreMetricsTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NodejsAppLayerLoadBasedAutoScalingDownscaling) *int { return v.IgnoreMetricsTime }).(pulumi.IntPtrOutput)
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingDownscalingOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NodejsAppLayerLoadBasedAutoScalingDownscaling) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingDownscalingOutput) LoadThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v NodejsAppLayerLoadBasedAutoScalingDownscaling) *float64 { return v.LoadThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingDownscalingOutput) MemoryThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v NodejsAppLayerLoadBasedAutoScalingDownscaling) *float64 { return v.MemoryThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingDownscalingOutput) ThresholdsWaitTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NodejsAppLayerLoadBasedAutoScalingDownscaling) *int { return v.ThresholdsWaitTime }).(pulumi.IntPtrOutput)
+}
+
+type NodejsAppLayerLoadBasedAutoScalingDownscalingPtrOutput struct{ *pulumi.OutputState }
+
+func (NodejsAppLayerLoadBasedAutoScalingDownscalingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NodejsAppLayerLoadBasedAutoScalingDownscaling)(nil)).Elem()
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingDownscalingPtrOutput) ToNodejsAppLayerLoadBasedAutoScalingDownscalingPtrOutput() NodejsAppLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingDownscalingPtrOutput) ToNodejsAppLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx context.Context) NodejsAppLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingDownscalingPtrOutput) Elem() NodejsAppLayerLoadBasedAutoScalingDownscalingOutput {
+	return o.ApplyT(func(v *NodejsAppLayerLoadBasedAutoScalingDownscaling) NodejsAppLayerLoadBasedAutoScalingDownscaling {
+		if v != nil {
+			return *v
+		}
+		var ret NodejsAppLayerLoadBasedAutoScalingDownscaling
+		return ret
+	}).(NodejsAppLayerLoadBasedAutoScalingDownscalingOutput)
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingDownscalingPtrOutput) Alarms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NodejsAppLayerLoadBasedAutoScalingDownscaling) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Alarms
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingDownscalingPtrOutput) CpuThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *NodejsAppLayerLoadBasedAutoScalingDownscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.CpuThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingDownscalingPtrOutput) IgnoreMetricsTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NodejsAppLayerLoadBasedAutoScalingDownscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IgnoreMetricsTime
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingDownscalingPtrOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NodejsAppLayerLoadBasedAutoScalingDownscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceCount
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingDownscalingPtrOutput) LoadThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *NodejsAppLayerLoadBasedAutoScalingDownscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.LoadThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingDownscalingPtrOutput) MemoryThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *NodejsAppLayerLoadBasedAutoScalingDownscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MemoryThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingDownscalingPtrOutput) ThresholdsWaitTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NodejsAppLayerLoadBasedAutoScalingDownscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ThresholdsWaitTime
+	}).(pulumi.IntPtrOutput)
+}
+
+type NodejsAppLayerLoadBasedAutoScalingUpscaling struct {
+	Alarms             []string `pulumi:"alarms"`
+	CpuThreshold       *float64 `pulumi:"cpuThreshold"`
+	IgnoreMetricsTime  *int     `pulumi:"ignoreMetricsTime"`
+	InstanceCount      *int     `pulumi:"instanceCount"`
+	LoadThreshold      *float64 `pulumi:"loadThreshold"`
+	MemoryThreshold    *float64 `pulumi:"memoryThreshold"`
+	ThresholdsWaitTime *int     `pulumi:"thresholdsWaitTime"`
+}
+
+// NodejsAppLayerLoadBasedAutoScalingUpscalingInput is an input type that accepts NodejsAppLayerLoadBasedAutoScalingUpscalingArgs and NodejsAppLayerLoadBasedAutoScalingUpscalingOutput values.
+// You can construct a concrete instance of `NodejsAppLayerLoadBasedAutoScalingUpscalingInput` via:
+//
+//	NodejsAppLayerLoadBasedAutoScalingUpscalingArgs{...}
+type NodejsAppLayerLoadBasedAutoScalingUpscalingInput interface {
+	pulumi.Input
+
+	ToNodejsAppLayerLoadBasedAutoScalingUpscalingOutput() NodejsAppLayerLoadBasedAutoScalingUpscalingOutput
+	ToNodejsAppLayerLoadBasedAutoScalingUpscalingOutputWithContext(context.Context) NodejsAppLayerLoadBasedAutoScalingUpscalingOutput
+}
+
+type NodejsAppLayerLoadBasedAutoScalingUpscalingArgs struct {
+	Alarms             pulumi.StringArrayInput `pulumi:"alarms"`
+	CpuThreshold       pulumi.Float64PtrInput  `pulumi:"cpuThreshold"`
+	IgnoreMetricsTime  pulumi.IntPtrInput      `pulumi:"ignoreMetricsTime"`
+	InstanceCount      pulumi.IntPtrInput      `pulumi:"instanceCount"`
+	LoadThreshold      pulumi.Float64PtrInput  `pulumi:"loadThreshold"`
+	MemoryThreshold    pulumi.Float64PtrInput  `pulumi:"memoryThreshold"`
+	ThresholdsWaitTime pulumi.IntPtrInput      `pulumi:"thresholdsWaitTime"`
+}
+
+func (NodejsAppLayerLoadBasedAutoScalingUpscalingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodejsAppLayerLoadBasedAutoScalingUpscaling)(nil)).Elem()
+}
+
+func (i NodejsAppLayerLoadBasedAutoScalingUpscalingArgs) ToNodejsAppLayerLoadBasedAutoScalingUpscalingOutput() NodejsAppLayerLoadBasedAutoScalingUpscalingOutput {
+	return i.ToNodejsAppLayerLoadBasedAutoScalingUpscalingOutputWithContext(context.Background())
+}
+
+func (i NodejsAppLayerLoadBasedAutoScalingUpscalingArgs) ToNodejsAppLayerLoadBasedAutoScalingUpscalingOutputWithContext(ctx context.Context) NodejsAppLayerLoadBasedAutoScalingUpscalingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodejsAppLayerLoadBasedAutoScalingUpscalingOutput)
+}
+
+func (i NodejsAppLayerLoadBasedAutoScalingUpscalingArgs) ToNodejsAppLayerLoadBasedAutoScalingUpscalingPtrOutput() NodejsAppLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return i.ToNodejsAppLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(context.Background())
+}
+
+func (i NodejsAppLayerLoadBasedAutoScalingUpscalingArgs) ToNodejsAppLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx context.Context) NodejsAppLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodejsAppLayerLoadBasedAutoScalingUpscalingOutput).ToNodejsAppLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx)
+}
+
+// NodejsAppLayerLoadBasedAutoScalingUpscalingPtrInput is an input type that accepts NodejsAppLayerLoadBasedAutoScalingUpscalingArgs, NodejsAppLayerLoadBasedAutoScalingUpscalingPtr and NodejsAppLayerLoadBasedAutoScalingUpscalingPtrOutput values.
+// You can construct a concrete instance of `NodejsAppLayerLoadBasedAutoScalingUpscalingPtrInput` via:
+//
+//	        NodejsAppLayerLoadBasedAutoScalingUpscalingArgs{...}
+//
+//	or:
+//
+//	        nil
+type NodejsAppLayerLoadBasedAutoScalingUpscalingPtrInput interface {
+	pulumi.Input
+
+	ToNodejsAppLayerLoadBasedAutoScalingUpscalingPtrOutput() NodejsAppLayerLoadBasedAutoScalingUpscalingPtrOutput
+	ToNodejsAppLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(context.Context) NodejsAppLayerLoadBasedAutoScalingUpscalingPtrOutput
+}
+
+type nodejsAppLayerLoadBasedAutoScalingUpscalingPtrType NodejsAppLayerLoadBasedAutoScalingUpscalingArgs
+
+func NodejsAppLayerLoadBasedAutoScalingUpscalingPtr(v *NodejsAppLayerLoadBasedAutoScalingUpscalingArgs) NodejsAppLayerLoadBasedAutoScalingUpscalingPtrInput {
+	return (*nodejsAppLayerLoadBasedAutoScalingUpscalingPtrType)(v)
+}
+
+func (*nodejsAppLayerLoadBasedAutoScalingUpscalingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NodejsAppLayerLoadBasedAutoScalingUpscaling)(nil)).Elem()
+}
+
+func (i *nodejsAppLayerLoadBasedAutoScalingUpscalingPtrType) ToNodejsAppLayerLoadBasedAutoScalingUpscalingPtrOutput() NodejsAppLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return i.ToNodejsAppLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(context.Background())
+}
+
+func (i *nodejsAppLayerLoadBasedAutoScalingUpscalingPtrType) ToNodejsAppLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx context.Context) NodejsAppLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodejsAppLayerLoadBasedAutoScalingUpscalingPtrOutput)
+}
+
+type NodejsAppLayerLoadBasedAutoScalingUpscalingOutput struct{ *pulumi.OutputState }
+
+func (NodejsAppLayerLoadBasedAutoScalingUpscalingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodejsAppLayerLoadBasedAutoScalingUpscaling)(nil)).Elem()
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingUpscalingOutput) ToNodejsAppLayerLoadBasedAutoScalingUpscalingOutput() NodejsAppLayerLoadBasedAutoScalingUpscalingOutput {
+	return o
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingUpscalingOutput) ToNodejsAppLayerLoadBasedAutoScalingUpscalingOutputWithContext(ctx context.Context) NodejsAppLayerLoadBasedAutoScalingUpscalingOutput {
+	return o
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingUpscalingOutput) ToNodejsAppLayerLoadBasedAutoScalingUpscalingPtrOutput() NodejsAppLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o.ToNodejsAppLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(context.Background())
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingUpscalingOutput) ToNodejsAppLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx context.Context) NodejsAppLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NodejsAppLayerLoadBasedAutoScalingUpscaling) *NodejsAppLayerLoadBasedAutoScalingUpscaling {
+		return &v
+	}).(NodejsAppLayerLoadBasedAutoScalingUpscalingPtrOutput)
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingUpscalingOutput) Alarms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NodejsAppLayerLoadBasedAutoScalingUpscaling) []string { return v.Alarms }).(pulumi.StringArrayOutput)
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingUpscalingOutput) CpuThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v NodejsAppLayerLoadBasedAutoScalingUpscaling) *float64 { return v.CpuThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingUpscalingOutput) IgnoreMetricsTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NodejsAppLayerLoadBasedAutoScalingUpscaling) *int { return v.IgnoreMetricsTime }).(pulumi.IntPtrOutput)
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingUpscalingOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NodejsAppLayerLoadBasedAutoScalingUpscaling) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingUpscalingOutput) LoadThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v NodejsAppLayerLoadBasedAutoScalingUpscaling) *float64 { return v.LoadThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingUpscalingOutput) MemoryThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v NodejsAppLayerLoadBasedAutoScalingUpscaling) *float64 { return v.MemoryThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingUpscalingOutput) ThresholdsWaitTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NodejsAppLayerLoadBasedAutoScalingUpscaling) *int { return v.ThresholdsWaitTime }).(pulumi.IntPtrOutput)
+}
+
+type NodejsAppLayerLoadBasedAutoScalingUpscalingPtrOutput struct{ *pulumi.OutputState }
+
+func (NodejsAppLayerLoadBasedAutoScalingUpscalingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NodejsAppLayerLoadBasedAutoScalingUpscaling)(nil)).Elem()
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingUpscalingPtrOutput) ToNodejsAppLayerLoadBasedAutoScalingUpscalingPtrOutput() NodejsAppLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingUpscalingPtrOutput) ToNodejsAppLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx context.Context) NodejsAppLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingUpscalingPtrOutput) Elem() NodejsAppLayerLoadBasedAutoScalingUpscalingOutput {
+	return o.ApplyT(func(v *NodejsAppLayerLoadBasedAutoScalingUpscaling) NodejsAppLayerLoadBasedAutoScalingUpscaling {
+		if v != nil {
+			return *v
+		}
+		var ret NodejsAppLayerLoadBasedAutoScalingUpscaling
+		return ret
+	}).(NodejsAppLayerLoadBasedAutoScalingUpscalingOutput)
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingUpscalingPtrOutput) Alarms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NodejsAppLayerLoadBasedAutoScalingUpscaling) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Alarms
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingUpscalingPtrOutput) CpuThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *NodejsAppLayerLoadBasedAutoScalingUpscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.CpuThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingUpscalingPtrOutput) IgnoreMetricsTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NodejsAppLayerLoadBasedAutoScalingUpscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IgnoreMetricsTime
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingUpscalingPtrOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NodejsAppLayerLoadBasedAutoScalingUpscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceCount
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingUpscalingPtrOutput) LoadThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *NodejsAppLayerLoadBasedAutoScalingUpscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.LoadThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingUpscalingPtrOutput) MemoryThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *NodejsAppLayerLoadBasedAutoScalingUpscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MemoryThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingUpscalingPtrOutput) ThresholdsWaitTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NodejsAppLayerLoadBasedAutoScalingUpscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ThresholdsWaitTime
+	}).(pulumi.IntPtrOutput)
 }
 
 type PhpAppLayerCloudwatchConfiguration struct {
@@ -4826,6 +9794,617 @@ func (o PhpAppLayerEbsVolumeArrayOutput) Index(i pulumi.IntInput) PhpAppLayerEbs
 	}).(PhpAppLayerEbsVolumeOutput)
 }
 
+type PhpAppLayerLoadBasedAutoScaling struct {
+	Downscaling *PhpAppLayerLoadBasedAutoScalingDownscaling `pulumi:"downscaling"`
+	Enable      *bool                                       `pulumi:"enable"`
+	Upscaling   *PhpAppLayerLoadBasedAutoScalingUpscaling   `pulumi:"upscaling"`
+}
+
+// PhpAppLayerLoadBasedAutoScalingInput is an input type that accepts PhpAppLayerLoadBasedAutoScalingArgs and PhpAppLayerLoadBasedAutoScalingOutput values.
+// You can construct a concrete instance of `PhpAppLayerLoadBasedAutoScalingInput` via:
+//
+//	PhpAppLayerLoadBasedAutoScalingArgs{...}
+type PhpAppLayerLoadBasedAutoScalingInput interface {
+	pulumi.Input
+
+	ToPhpAppLayerLoadBasedAutoScalingOutput() PhpAppLayerLoadBasedAutoScalingOutput
+	ToPhpAppLayerLoadBasedAutoScalingOutputWithContext(context.Context) PhpAppLayerLoadBasedAutoScalingOutput
+}
+
+type PhpAppLayerLoadBasedAutoScalingArgs struct {
+	Downscaling PhpAppLayerLoadBasedAutoScalingDownscalingPtrInput `pulumi:"downscaling"`
+	Enable      pulumi.BoolPtrInput                                `pulumi:"enable"`
+	Upscaling   PhpAppLayerLoadBasedAutoScalingUpscalingPtrInput   `pulumi:"upscaling"`
+}
+
+func (PhpAppLayerLoadBasedAutoScalingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PhpAppLayerLoadBasedAutoScaling)(nil)).Elem()
+}
+
+func (i PhpAppLayerLoadBasedAutoScalingArgs) ToPhpAppLayerLoadBasedAutoScalingOutput() PhpAppLayerLoadBasedAutoScalingOutput {
+	return i.ToPhpAppLayerLoadBasedAutoScalingOutputWithContext(context.Background())
+}
+
+func (i PhpAppLayerLoadBasedAutoScalingArgs) ToPhpAppLayerLoadBasedAutoScalingOutputWithContext(ctx context.Context) PhpAppLayerLoadBasedAutoScalingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PhpAppLayerLoadBasedAutoScalingOutput)
+}
+
+func (i PhpAppLayerLoadBasedAutoScalingArgs) ToPhpAppLayerLoadBasedAutoScalingPtrOutput() PhpAppLayerLoadBasedAutoScalingPtrOutput {
+	return i.ToPhpAppLayerLoadBasedAutoScalingPtrOutputWithContext(context.Background())
+}
+
+func (i PhpAppLayerLoadBasedAutoScalingArgs) ToPhpAppLayerLoadBasedAutoScalingPtrOutputWithContext(ctx context.Context) PhpAppLayerLoadBasedAutoScalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PhpAppLayerLoadBasedAutoScalingOutput).ToPhpAppLayerLoadBasedAutoScalingPtrOutputWithContext(ctx)
+}
+
+// PhpAppLayerLoadBasedAutoScalingPtrInput is an input type that accepts PhpAppLayerLoadBasedAutoScalingArgs, PhpAppLayerLoadBasedAutoScalingPtr and PhpAppLayerLoadBasedAutoScalingPtrOutput values.
+// You can construct a concrete instance of `PhpAppLayerLoadBasedAutoScalingPtrInput` via:
+//
+//	        PhpAppLayerLoadBasedAutoScalingArgs{...}
+//
+//	or:
+//
+//	        nil
+type PhpAppLayerLoadBasedAutoScalingPtrInput interface {
+	pulumi.Input
+
+	ToPhpAppLayerLoadBasedAutoScalingPtrOutput() PhpAppLayerLoadBasedAutoScalingPtrOutput
+	ToPhpAppLayerLoadBasedAutoScalingPtrOutputWithContext(context.Context) PhpAppLayerLoadBasedAutoScalingPtrOutput
+}
+
+type phpAppLayerLoadBasedAutoScalingPtrType PhpAppLayerLoadBasedAutoScalingArgs
+
+func PhpAppLayerLoadBasedAutoScalingPtr(v *PhpAppLayerLoadBasedAutoScalingArgs) PhpAppLayerLoadBasedAutoScalingPtrInput {
+	return (*phpAppLayerLoadBasedAutoScalingPtrType)(v)
+}
+
+func (*phpAppLayerLoadBasedAutoScalingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PhpAppLayerLoadBasedAutoScaling)(nil)).Elem()
+}
+
+func (i *phpAppLayerLoadBasedAutoScalingPtrType) ToPhpAppLayerLoadBasedAutoScalingPtrOutput() PhpAppLayerLoadBasedAutoScalingPtrOutput {
+	return i.ToPhpAppLayerLoadBasedAutoScalingPtrOutputWithContext(context.Background())
+}
+
+func (i *phpAppLayerLoadBasedAutoScalingPtrType) ToPhpAppLayerLoadBasedAutoScalingPtrOutputWithContext(ctx context.Context) PhpAppLayerLoadBasedAutoScalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PhpAppLayerLoadBasedAutoScalingPtrOutput)
+}
+
+type PhpAppLayerLoadBasedAutoScalingOutput struct{ *pulumi.OutputState }
+
+func (PhpAppLayerLoadBasedAutoScalingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PhpAppLayerLoadBasedAutoScaling)(nil)).Elem()
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingOutput) ToPhpAppLayerLoadBasedAutoScalingOutput() PhpAppLayerLoadBasedAutoScalingOutput {
+	return o
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingOutput) ToPhpAppLayerLoadBasedAutoScalingOutputWithContext(ctx context.Context) PhpAppLayerLoadBasedAutoScalingOutput {
+	return o
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingOutput) ToPhpAppLayerLoadBasedAutoScalingPtrOutput() PhpAppLayerLoadBasedAutoScalingPtrOutput {
+	return o.ToPhpAppLayerLoadBasedAutoScalingPtrOutputWithContext(context.Background())
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingOutput) ToPhpAppLayerLoadBasedAutoScalingPtrOutputWithContext(ctx context.Context) PhpAppLayerLoadBasedAutoScalingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PhpAppLayerLoadBasedAutoScaling) *PhpAppLayerLoadBasedAutoScaling {
+		return &v
+	}).(PhpAppLayerLoadBasedAutoScalingPtrOutput)
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingOutput) Downscaling() PhpAppLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o.ApplyT(func(v PhpAppLayerLoadBasedAutoScaling) *PhpAppLayerLoadBasedAutoScalingDownscaling {
+		return v.Downscaling
+	}).(PhpAppLayerLoadBasedAutoScalingDownscalingPtrOutput)
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingOutput) Enable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PhpAppLayerLoadBasedAutoScaling) *bool { return v.Enable }).(pulumi.BoolPtrOutput)
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingOutput) Upscaling() PhpAppLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o.ApplyT(func(v PhpAppLayerLoadBasedAutoScaling) *PhpAppLayerLoadBasedAutoScalingUpscaling { return v.Upscaling }).(PhpAppLayerLoadBasedAutoScalingUpscalingPtrOutput)
+}
+
+type PhpAppLayerLoadBasedAutoScalingPtrOutput struct{ *pulumi.OutputState }
+
+func (PhpAppLayerLoadBasedAutoScalingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PhpAppLayerLoadBasedAutoScaling)(nil)).Elem()
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingPtrOutput) ToPhpAppLayerLoadBasedAutoScalingPtrOutput() PhpAppLayerLoadBasedAutoScalingPtrOutput {
+	return o
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingPtrOutput) ToPhpAppLayerLoadBasedAutoScalingPtrOutputWithContext(ctx context.Context) PhpAppLayerLoadBasedAutoScalingPtrOutput {
+	return o
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingPtrOutput) Elem() PhpAppLayerLoadBasedAutoScalingOutput {
+	return o.ApplyT(func(v *PhpAppLayerLoadBasedAutoScaling) PhpAppLayerLoadBasedAutoScaling {
+		if v != nil {
+			return *v
+		}
+		var ret PhpAppLayerLoadBasedAutoScaling
+		return ret
+	}).(PhpAppLayerLoadBasedAutoScalingOutput)
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingPtrOutput) Downscaling() PhpAppLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o.ApplyT(func(v *PhpAppLayerLoadBasedAutoScaling) *PhpAppLayerLoadBasedAutoScalingDownscaling {
+		if v == nil {
+			return nil
+		}
+		return v.Downscaling
+	}).(PhpAppLayerLoadBasedAutoScalingDownscalingPtrOutput)
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingPtrOutput) Enable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PhpAppLayerLoadBasedAutoScaling) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enable
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingPtrOutput) Upscaling() PhpAppLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o.ApplyT(func(v *PhpAppLayerLoadBasedAutoScaling) *PhpAppLayerLoadBasedAutoScalingUpscaling {
+		if v == nil {
+			return nil
+		}
+		return v.Upscaling
+	}).(PhpAppLayerLoadBasedAutoScalingUpscalingPtrOutput)
+}
+
+type PhpAppLayerLoadBasedAutoScalingDownscaling struct {
+	Alarms             []string `pulumi:"alarms"`
+	CpuThreshold       *float64 `pulumi:"cpuThreshold"`
+	IgnoreMetricsTime  *int     `pulumi:"ignoreMetricsTime"`
+	InstanceCount      *int     `pulumi:"instanceCount"`
+	LoadThreshold      *float64 `pulumi:"loadThreshold"`
+	MemoryThreshold    *float64 `pulumi:"memoryThreshold"`
+	ThresholdsWaitTime *int     `pulumi:"thresholdsWaitTime"`
+}
+
+// PhpAppLayerLoadBasedAutoScalingDownscalingInput is an input type that accepts PhpAppLayerLoadBasedAutoScalingDownscalingArgs and PhpAppLayerLoadBasedAutoScalingDownscalingOutput values.
+// You can construct a concrete instance of `PhpAppLayerLoadBasedAutoScalingDownscalingInput` via:
+//
+//	PhpAppLayerLoadBasedAutoScalingDownscalingArgs{...}
+type PhpAppLayerLoadBasedAutoScalingDownscalingInput interface {
+	pulumi.Input
+
+	ToPhpAppLayerLoadBasedAutoScalingDownscalingOutput() PhpAppLayerLoadBasedAutoScalingDownscalingOutput
+	ToPhpAppLayerLoadBasedAutoScalingDownscalingOutputWithContext(context.Context) PhpAppLayerLoadBasedAutoScalingDownscalingOutput
+}
+
+type PhpAppLayerLoadBasedAutoScalingDownscalingArgs struct {
+	Alarms             pulumi.StringArrayInput `pulumi:"alarms"`
+	CpuThreshold       pulumi.Float64PtrInput  `pulumi:"cpuThreshold"`
+	IgnoreMetricsTime  pulumi.IntPtrInput      `pulumi:"ignoreMetricsTime"`
+	InstanceCount      pulumi.IntPtrInput      `pulumi:"instanceCount"`
+	LoadThreshold      pulumi.Float64PtrInput  `pulumi:"loadThreshold"`
+	MemoryThreshold    pulumi.Float64PtrInput  `pulumi:"memoryThreshold"`
+	ThresholdsWaitTime pulumi.IntPtrInput      `pulumi:"thresholdsWaitTime"`
+}
+
+func (PhpAppLayerLoadBasedAutoScalingDownscalingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PhpAppLayerLoadBasedAutoScalingDownscaling)(nil)).Elem()
+}
+
+func (i PhpAppLayerLoadBasedAutoScalingDownscalingArgs) ToPhpAppLayerLoadBasedAutoScalingDownscalingOutput() PhpAppLayerLoadBasedAutoScalingDownscalingOutput {
+	return i.ToPhpAppLayerLoadBasedAutoScalingDownscalingOutputWithContext(context.Background())
+}
+
+func (i PhpAppLayerLoadBasedAutoScalingDownscalingArgs) ToPhpAppLayerLoadBasedAutoScalingDownscalingOutputWithContext(ctx context.Context) PhpAppLayerLoadBasedAutoScalingDownscalingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PhpAppLayerLoadBasedAutoScalingDownscalingOutput)
+}
+
+func (i PhpAppLayerLoadBasedAutoScalingDownscalingArgs) ToPhpAppLayerLoadBasedAutoScalingDownscalingPtrOutput() PhpAppLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return i.ToPhpAppLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(context.Background())
+}
+
+func (i PhpAppLayerLoadBasedAutoScalingDownscalingArgs) ToPhpAppLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx context.Context) PhpAppLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PhpAppLayerLoadBasedAutoScalingDownscalingOutput).ToPhpAppLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx)
+}
+
+// PhpAppLayerLoadBasedAutoScalingDownscalingPtrInput is an input type that accepts PhpAppLayerLoadBasedAutoScalingDownscalingArgs, PhpAppLayerLoadBasedAutoScalingDownscalingPtr and PhpAppLayerLoadBasedAutoScalingDownscalingPtrOutput values.
+// You can construct a concrete instance of `PhpAppLayerLoadBasedAutoScalingDownscalingPtrInput` via:
+//
+//	        PhpAppLayerLoadBasedAutoScalingDownscalingArgs{...}
+//
+//	or:
+//
+//	        nil
+type PhpAppLayerLoadBasedAutoScalingDownscalingPtrInput interface {
+	pulumi.Input
+
+	ToPhpAppLayerLoadBasedAutoScalingDownscalingPtrOutput() PhpAppLayerLoadBasedAutoScalingDownscalingPtrOutput
+	ToPhpAppLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(context.Context) PhpAppLayerLoadBasedAutoScalingDownscalingPtrOutput
+}
+
+type phpAppLayerLoadBasedAutoScalingDownscalingPtrType PhpAppLayerLoadBasedAutoScalingDownscalingArgs
+
+func PhpAppLayerLoadBasedAutoScalingDownscalingPtr(v *PhpAppLayerLoadBasedAutoScalingDownscalingArgs) PhpAppLayerLoadBasedAutoScalingDownscalingPtrInput {
+	return (*phpAppLayerLoadBasedAutoScalingDownscalingPtrType)(v)
+}
+
+func (*phpAppLayerLoadBasedAutoScalingDownscalingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PhpAppLayerLoadBasedAutoScalingDownscaling)(nil)).Elem()
+}
+
+func (i *phpAppLayerLoadBasedAutoScalingDownscalingPtrType) ToPhpAppLayerLoadBasedAutoScalingDownscalingPtrOutput() PhpAppLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return i.ToPhpAppLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(context.Background())
+}
+
+func (i *phpAppLayerLoadBasedAutoScalingDownscalingPtrType) ToPhpAppLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx context.Context) PhpAppLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PhpAppLayerLoadBasedAutoScalingDownscalingPtrOutput)
+}
+
+type PhpAppLayerLoadBasedAutoScalingDownscalingOutput struct{ *pulumi.OutputState }
+
+func (PhpAppLayerLoadBasedAutoScalingDownscalingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PhpAppLayerLoadBasedAutoScalingDownscaling)(nil)).Elem()
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingDownscalingOutput) ToPhpAppLayerLoadBasedAutoScalingDownscalingOutput() PhpAppLayerLoadBasedAutoScalingDownscalingOutput {
+	return o
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingDownscalingOutput) ToPhpAppLayerLoadBasedAutoScalingDownscalingOutputWithContext(ctx context.Context) PhpAppLayerLoadBasedAutoScalingDownscalingOutput {
+	return o
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingDownscalingOutput) ToPhpAppLayerLoadBasedAutoScalingDownscalingPtrOutput() PhpAppLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o.ToPhpAppLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(context.Background())
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingDownscalingOutput) ToPhpAppLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx context.Context) PhpAppLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PhpAppLayerLoadBasedAutoScalingDownscaling) *PhpAppLayerLoadBasedAutoScalingDownscaling {
+		return &v
+	}).(PhpAppLayerLoadBasedAutoScalingDownscalingPtrOutput)
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingDownscalingOutput) Alarms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PhpAppLayerLoadBasedAutoScalingDownscaling) []string { return v.Alarms }).(pulumi.StringArrayOutput)
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingDownscalingOutput) CpuThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v PhpAppLayerLoadBasedAutoScalingDownscaling) *float64 { return v.CpuThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingDownscalingOutput) IgnoreMetricsTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PhpAppLayerLoadBasedAutoScalingDownscaling) *int { return v.IgnoreMetricsTime }).(pulumi.IntPtrOutput)
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingDownscalingOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PhpAppLayerLoadBasedAutoScalingDownscaling) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingDownscalingOutput) LoadThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v PhpAppLayerLoadBasedAutoScalingDownscaling) *float64 { return v.LoadThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingDownscalingOutput) MemoryThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v PhpAppLayerLoadBasedAutoScalingDownscaling) *float64 { return v.MemoryThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingDownscalingOutput) ThresholdsWaitTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PhpAppLayerLoadBasedAutoScalingDownscaling) *int { return v.ThresholdsWaitTime }).(pulumi.IntPtrOutput)
+}
+
+type PhpAppLayerLoadBasedAutoScalingDownscalingPtrOutput struct{ *pulumi.OutputState }
+
+func (PhpAppLayerLoadBasedAutoScalingDownscalingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PhpAppLayerLoadBasedAutoScalingDownscaling)(nil)).Elem()
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingDownscalingPtrOutput) ToPhpAppLayerLoadBasedAutoScalingDownscalingPtrOutput() PhpAppLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingDownscalingPtrOutput) ToPhpAppLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx context.Context) PhpAppLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingDownscalingPtrOutput) Elem() PhpAppLayerLoadBasedAutoScalingDownscalingOutput {
+	return o.ApplyT(func(v *PhpAppLayerLoadBasedAutoScalingDownscaling) PhpAppLayerLoadBasedAutoScalingDownscaling {
+		if v != nil {
+			return *v
+		}
+		var ret PhpAppLayerLoadBasedAutoScalingDownscaling
+		return ret
+	}).(PhpAppLayerLoadBasedAutoScalingDownscalingOutput)
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingDownscalingPtrOutput) Alarms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PhpAppLayerLoadBasedAutoScalingDownscaling) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Alarms
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingDownscalingPtrOutput) CpuThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *PhpAppLayerLoadBasedAutoScalingDownscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.CpuThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingDownscalingPtrOutput) IgnoreMetricsTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PhpAppLayerLoadBasedAutoScalingDownscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IgnoreMetricsTime
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingDownscalingPtrOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PhpAppLayerLoadBasedAutoScalingDownscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceCount
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingDownscalingPtrOutput) LoadThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *PhpAppLayerLoadBasedAutoScalingDownscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.LoadThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingDownscalingPtrOutput) MemoryThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *PhpAppLayerLoadBasedAutoScalingDownscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MemoryThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingDownscalingPtrOutput) ThresholdsWaitTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PhpAppLayerLoadBasedAutoScalingDownscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ThresholdsWaitTime
+	}).(pulumi.IntPtrOutput)
+}
+
+type PhpAppLayerLoadBasedAutoScalingUpscaling struct {
+	Alarms             []string `pulumi:"alarms"`
+	CpuThreshold       *float64 `pulumi:"cpuThreshold"`
+	IgnoreMetricsTime  *int     `pulumi:"ignoreMetricsTime"`
+	InstanceCount      *int     `pulumi:"instanceCount"`
+	LoadThreshold      *float64 `pulumi:"loadThreshold"`
+	MemoryThreshold    *float64 `pulumi:"memoryThreshold"`
+	ThresholdsWaitTime *int     `pulumi:"thresholdsWaitTime"`
+}
+
+// PhpAppLayerLoadBasedAutoScalingUpscalingInput is an input type that accepts PhpAppLayerLoadBasedAutoScalingUpscalingArgs and PhpAppLayerLoadBasedAutoScalingUpscalingOutput values.
+// You can construct a concrete instance of `PhpAppLayerLoadBasedAutoScalingUpscalingInput` via:
+//
+//	PhpAppLayerLoadBasedAutoScalingUpscalingArgs{...}
+type PhpAppLayerLoadBasedAutoScalingUpscalingInput interface {
+	pulumi.Input
+
+	ToPhpAppLayerLoadBasedAutoScalingUpscalingOutput() PhpAppLayerLoadBasedAutoScalingUpscalingOutput
+	ToPhpAppLayerLoadBasedAutoScalingUpscalingOutputWithContext(context.Context) PhpAppLayerLoadBasedAutoScalingUpscalingOutput
+}
+
+type PhpAppLayerLoadBasedAutoScalingUpscalingArgs struct {
+	Alarms             pulumi.StringArrayInput `pulumi:"alarms"`
+	CpuThreshold       pulumi.Float64PtrInput  `pulumi:"cpuThreshold"`
+	IgnoreMetricsTime  pulumi.IntPtrInput      `pulumi:"ignoreMetricsTime"`
+	InstanceCount      pulumi.IntPtrInput      `pulumi:"instanceCount"`
+	LoadThreshold      pulumi.Float64PtrInput  `pulumi:"loadThreshold"`
+	MemoryThreshold    pulumi.Float64PtrInput  `pulumi:"memoryThreshold"`
+	ThresholdsWaitTime pulumi.IntPtrInput      `pulumi:"thresholdsWaitTime"`
+}
+
+func (PhpAppLayerLoadBasedAutoScalingUpscalingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PhpAppLayerLoadBasedAutoScalingUpscaling)(nil)).Elem()
+}
+
+func (i PhpAppLayerLoadBasedAutoScalingUpscalingArgs) ToPhpAppLayerLoadBasedAutoScalingUpscalingOutput() PhpAppLayerLoadBasedAutoScalingUpscalingOutput {
+	return i.ToPhpAppLayerLoadBasedAutoScalingUpscalingOutputWithContext(context.Background())
+}
+
+func (i PhpAppLayerLoadBasedAutoScalingUpscalingArgs) ToPhpAppLayerLoadBasedAutoScalingUpscalingOutputWithContext(ctx context.Context) PhpAppLayerLoadBasedAutoScalingUpscalingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PhpAppLayerLoadBasedAutoScalingUpscalingOutput)
+}
+
+func (i PhpAppLayerLoadBasedAutoScalingUpscalingArgs) ToPhpAppLayerLoadBasedAutoScalingUpscalingPtrOutput() PhpAppLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return i.ToPhpAppLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(context.Background())
+}
+
+func (i PhpAppLayerLoadBasedAutoScalingUpscalingArgs) ToPhpAppLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx context.Context) PhpAppLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PhpAppLayerLoadBasedAutoScalingUpscalingOutput).ToPhpAppLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx)
+}
+
+// PhpAppLayerLoadBasedAutoScalingUpscalingPtrInput is an input type that accepts PhpAppLayerLoadBasedAutoScalingUpscalingArgs, PhpAppLayerLoadBasedAutoScalingUpscalingPtr and PhpAppLayerLoadBasedAutoScalingUpscalingPtrOutput values.
+// You can construct a concrete instance of `PhpAppLayerLoadBasedAutoScalingUpscalingPtrInput` via:
+//
+//	        PhpAppLayerLoadBasedAutoScalingUpscalingArgs{...}
+//
+//	or:
+//
+//	        nil
+type PhpAppLayerLoadBasedAutoScalingUpscalingPtrInput interface {
+	pulumi.Input
+
+	ToPhpAppLayerLoadBasedAutoScalingUpscalingPtrOutput() PhpAppLayerLoadBasedAutoScalingUpscalingPtrOutput
+	ToPhpAppLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(context.Context) PhpAppLayerLoadBasedAutoScalingUpscalingPtrOutput
+}
+
+type phpAppLayerLoadBasedAutoScalingUpscalingPtrType PhpAppLayerLoadBasedAutoScalingUpscalingArgs
+
+func PhpAppLayerLoadBasedAutoScalingUpscalingPtr(v *PhpAppLayerLoadBasedAutoScalingUpscalingArgs) PhpAppLayerLoadBasedAutoScalingUpscalingPtrInput {
+	return (*phpAppLayerLoadBasedAutoScalingUpscalingPtrType)(v)
+}
+
+func (*phpAppLayerLoadBasedAutoScalingUpscalingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PhpAppLayerLoadBasedAutoScalingUpscaling)(nil)).Elem()
+}
+
+func (i *phpAppLayerLoadBasedAutoScalingUpscalingPtrType) ToPhpAppLayerLoadBasedAutoScalingUpscalingPtrOutput() PhpAppLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return i.ToPhpAppLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(context.Background())
+}
+
+func (i *phpAppLayerLoadBasedAutoScalingUpscalingPtrType) ToPhpAppLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx context.Context) PhpAppLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PhpAppLayerLoadBasedAutoScalingUpscalingPtrOutput)
+}
+
+type PhpAppLayerLoadBasedAutoScalingUpscalingOutput struct{ *pulumi.OutputState }
+
+func (PhpAppLayerLoadBasedAutoScalingUpscalingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PhpAppLayerLoadBasedAutoScalingUpscaling)(nil)).Elem()
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingUpscalingOutput) ToPhpAppLayerLoadBasedAutoScalingUpscalingOutput() PhpAppLayerLoadBasedAutoScalingUpscalingOutput {
+	return o
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingUpscalingOutput) ToPhpAppLayerLoadBasedAutoScalingUpscalingOutputWithContext(ctx context.Context) PhpAppLayerLoadBasedAutoScalingUpscalingOutput {
+	return o
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingUpscalingOutput) ToPhpAppLayerLoadBasedAutoScalingUpscalingPtrOutput() PhpAppLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o.ToPhpAppLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(context.Background())
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingUpscalingOutput) ToPhpAppLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx context.Context) PhpAppLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PhpAppLayerLoadBasedAutoScalingUpscaling) *PhpAppLayerLoadBasedAutoScalingUpscaling {
+		return &v
+	}).(PhpAppLayerLoadBasedAutoScalingUpscalingPtrOutput)
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingUpscalingOutput) Alarms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PhpAppLayerLoadBasedAutoScalingUpscaling) []string { return v.Alarms }).(pulumi.StringArrayOutput)
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingUpscalingOutput) CpuThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v PhpAppLayerLoadBasedAutoScalingUpscaling) *float64 { return v.CpuThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingUpscalingOutput) IgnoreMetricsTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PhpAppLayerLoadBasedAutoScalingUpscaling) *int { return v.IgnoreMetricsTime }).(pulumi.IntPtrOutput)
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingUpscalingOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PhpAppLayerLoadBasedAutoScalingUpscaling) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingUpscalingOutput) LoadThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v PhpAppLayerLoadBasedAutoScalingUpscaling) *float64 { return v.LoadThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingUpscalingOutput) MemoryThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v PhpAppLayerLoadBasedAutoScalingUpscaling) *float64 { return v.MemoryThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingUpscalingOutput) ThresholdsWaitTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PhpAppLayerLoadBasedAutoScalingUpscaling) *int { return v.ThresholdsWaitTime }).(pulumi.IntPtrOutput)
+}
+
+type PhpAppLayerLoadBasedAutoScalingUpscalingPtrOutput struct{ *pulumi.OutputState }
+
+func (PhpAppLayerLoadBasedAutoScalingUpscalingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PhpAppLayerLoadBasedAutoScalingUpscaling)(nil)).Elem()
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingUpscalingPtrOutput) ToPhpAppLayerLoadBasedAutoScalingUpscalingPtrOutput() PhpAppLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingUpscalingPtrOutput) ToPhpAppLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx context.Context) PhpAppLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingUpscalingPtrOutput) Elem() PhpAppLayerLoadBasedAutoScalingUpscalingOutput {
+	return o.ApplyT(func(v *PhpAppLayerLoadBasedAutoScalingUpscaling) PhpAppLayerLoadBasedAutoScalingUpscaling {
+		if v != nil {
+			return *v
+		}
+		var ret PhpAppLayerLoadBasedAutoScalingUpscaling
+		return ret
+	}).(PhpAppLayerLoadBasedAutoScalingUpscalingOutput)
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingUpscalingPtrOutput) Alarms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PhpAppLayerLoadBasedAutoScalingUpscaling) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Alarms
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingUpscalingPtrOutput) CpuThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *PhpAppLayerLoadBasedAutoScalingUpscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.CpuThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingUpscalingPtrOutput) IgnoreMetricsTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PhpAppLayerLoadBasedAutoScalingUpscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IgnoreMetricsTime
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingUpscalingPtrOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PhpAppLayerLoadBasedAutoScalingUpscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceCount
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingUpscalingPtrOutput) LoadThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *PhpAppLayerLoadBasedAutoScalingUpscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.LoadThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingUpscalingPtrOutput) MemoryThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *PhpAppLayerLoadBasedAutoScalingUpscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MemoryThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingUpscalingPtrOutput) ThresholdsWaitTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PhpAppLayerLoadBasedAutoScalingUpscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ThresholdsWaitTime
+	}).(pulumi.IntPtrOutput)
+}
+
 type RailsAppLayerCloudwatchConfiguration struct {
 	Enabled    *bool                                           `pulumi:"enabled"`
 	LogStreams []RailsAppLayerCloudwatchConfigurationLogStream `pulumi:"logStreams"`
@@ -5276,6 +10855,619 @@ func (o RailsAppLayerEbsVolumeArrayOutput) Index(i pulumi.IntInput) RailsAppLaye
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RailsAppLayerEbsVolume {
 		return vs[0].([]RailsAppLayerEbsVolume)[vs[1].(int)]
 	}).(RailsAppLayerEbsVolumeOutput)
+}
+
+type RailsAppLayerLoadBasedAutoScaling struct {
+	Downscaling *RailsAppLayerLoadBasedAutoScalingDownscaling `pulumi:"downscaling"`
+	Enable      *bool                                         `pulumi:"enable"`
+	Upscaling   *RailsAppLayerLoadBasedAutoScalingUpscaling   `pulumi:"upscaling"`
+}
+
+// RailsAppLayerLoadBasedAutoScalingInput is an input type that accepts RailsAppLayerLoadBasedAutoScalingArgs and RailsAppLayerLoadBasedAutoScalingOutput values.
+// You can construct a concrete instance of `RailsAppLayerLoadBasedAutoScalingInput` via:
+//
+//	RailsAppLayerLoadBasedAutoScalingArgs{...}
+type RailsAppLayerLoadBasedAutoScalingInput interface {
+	pulumi.Input
+
+	ToRailsAppLayerLoadBasedAutoScalingOutput() RailsAppLayerLoadBasedAutoScalingOutput
+	ToRailsAppLayerLoadBasedAutoScalingOutputWithContext(context.Context) RailsAppLayerLoadBasedAutoScalingOutput
+}
+
+type RailsAppLayerLoadBasedAutoScalingArgs struct {
+	Downscaling RailsAppLayerLoadBasedAutoScalingDownscalingPtrInput `pulumi:"downscaling"`
+	Enable      pulumi.BoolPtrInput                                  `pulumi:"enable"`
+	Upscaling   RailsAppLayerLoadBasedAutoScalingUpscalingPtrInput   `pulumi:"upscaling"`
+}
+
+func (RailsAppLayerLoadBasedAutoScalingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RailsAppLayerLoadBasedAutoScaling)(nil)).Elem()
+}
+
+func (i RailsAppLayerLoadBasedAutoScalingArgs) ToRailsAppLayerLoadBasedAutoScalingOutput() RailsAppLayerLoadBasedAutoScalingOutput {
+	return i.ToRailsAppLayerLoadBasedAutoScalingOutputWithContext(context.Background())
+}
+
+func (i RailsAppLayerLoadBasedAutoScalingArgs) ToRailsAppLayerLoadBasedAutoScalingOutputWithContext(ctx context.Context) RailsAppLayerLoadBasedAutoScalingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RailsAppLayerLoadBasedAutoScalingOutput)
+}
+
+func (i RailsAppLayerLoadBasedAutoScalingArgs) ToRailsAppLayerLoadBasedAutoScalingPtrOutput() RailsAppLayerLoadBasedAutoScalingPtrOutput {
+	return i.ToRailsAppLayerLoadBasedAutoScalingPtrOutputWithContext(context.Background())
+}
+
+func (i RailsAppLayerLoadBasedAutoScalingArgs) ToRailsAppLayerLoadBasedAutoScalingPtrOutputWithContext(ctx context.Context) RailsAppLayerLoadBasedAutoScalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RailsAppLayerLoadBasedAutoScalingOutput).ToRailsAppLayerLoadBasedAutoScalingPtrOutputWithContext(ctx)
+}
+
+// RailsAppLayerLoadBasedAutoScalingPtrInput is an input type that accepts RailsAppLayerLoadBasedAutoScalingArgs, RailsAppLayerLoadBasedAutoScalingPtr and RailsAppLayerLoadBasedAutoScalingPtrOutput values.
+// You can construct a concrete instance of `RailsAppLayerLoadBasedAutoScalingPtrInput` via:
+//
+//	        RailsAppLayerLoadBasedAutoScalingArgs{...}
+//
+//	or:
+//
+//	        nil
+type RailsAppLayerLoadBasedAutoScalingPtrInput interface {
+	pulumi.Input
+
+	ToRailsAppLayerLoadBasedAutoScalingPtrOutput() RailsAppLayerLoadBasedAutoScalingPtrOutput
+	ToRailsAppLayerLoadBasedAutoScalingPtrOutputWithContext(context.Context) RailsAppLayerLoadBasedAutoScalingPtrOutput
+}
+
+type railsAppLayerLoadBasedAutoScalingPtrType RailsAppLayerLoadBasedAutoScalingArgs
+
+func RailsAppLayerLoadBasedAutoScalingPtr(v *RailsAppLayerLoadBasedAutoScalingArgs) RailsAppLayerLoadBasedAutoScalingPtrInput {
+	return (*railsAppLayerLoadBasedAutoScalingPtrType)(v)
+}
+
+func (*railsAppLayerLoadBasedAutoScalingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RailsAppLayerLoadBasedAutoScaling)(nil)).Elem()
+}
+
+func (i *railsAppLayerLoadBasedAutoScalingPtrType) ToRailsAppLayerLoadBasedAutoScalingPtrOutput() RailsAppLayerLoadBasedAutoScalingPtrOutput {
+	return i.ToRailsAppLayerLoadBasedAutoScalingPtrOutputWithContext(context.Background())
+}
+
+func (i *railsAppLayerLoadBasedAutoScalingPtrType) ToRailsAppLayerLoadBasedAutoScalingPtrOutputWithContext(ctx context.Context) RailsAppLayerLoadBasedAutoScalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RailsAppLayerLoadBasedAutoScalingPtrOutput)
+}
+
+type RailsAppLayerLoadBasedAutoScalingOutput struct{ *pulumi.OutputState }
+
+func (RailsAppLayerLoadBasedAutoScalingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RailsAppLayerLoadBasedAutoScaling)(nil)).Elem()
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingOutput) ToRailsAppLayerLoadBasedAutoScalingOutput() RailsAppLayerLoadBasedAutoScalingOutput {
+	return o
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingOutput) ToRailsAppLayerLoadBasedAutoScalingOutputWithContext(ctx context.Context) RailsAppLayerLoadBasedAutoScalingOutput {
+	return o
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingOutput) ToRailsAppLayerLoadBasedAutoScalingPtrOutput() RailsAppLayerLoadBasedAutoScalingPtrOutput {
+	return o.ToRailsAppLayerLoadBasedAutoScalingPtrOutputWithContext(context.Background())
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingOutput) ToRailsAppLayerLoadBasedAutoScalingPtrOutputWithContext(ctx context.Context) RailsAppLayerLoadBasedAutoScalingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RailsAppLayerLoadBasedAutoScaling) *RailsAppLayerLoadBasedAutoScaling {
+		return &v
+	}).(RailsAppLayerLoadBasedAutoScalingPtrOutput)
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingOutput) Downscaling() RailsAppLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o.ApplyT(func(v RailsAppLayerLoadBasedAutoScaling) *RailsAppLayerLoadBasedAutoScalingDownscaling {
+		return v.Downscaling
+	}).(RailsAppLayerLoadBasedAutoScalingDownscalingPtrOutput)
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingOutput) Enable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RailsAppLayerLoadBasedAutoScaling) *bool { return v.Enable }).(pulumi.BoolPtrOutput)
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingOutput) Upscaling() RailsAppLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o.ApplyT(func(v RailsAppLayerLoadBasedAutoScaling) *RailsAppLayerLoadBasedAutoScalingUpscaling {
+		return v.Upscaling
+	}).(RailsAppLayerLoadBasedAutoScalingUpscalingPtrOutput)
+}
+
+type RailsAppLayerLoadBasedAutoScalingPtrOutput struct{ *pulumi.OutputState }
+
+func (RailsAppLayerLoadBasedAutoScalingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RailsAppLayerLoadBasedAutoScaling)(nil)).Elem()
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingPtrOutput) ToRailsAppLayerLoadBasedAutoScalingPtrOutput() RailsAppLayerLoadBasedAutoScalingPtrOutput {
+	return o
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingPtrOutput) ToRailsAppLayerLoadBasedAutoScalingPtrOutputWithContext(ctx context.Context) RailsAppLayerLoadBasedAutoScalingPtrOutput {
+	return o
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingPtrOutput) Elem() RailsAppLayerLoadBasedAutoScalingOutput {
+	return o.ApplyT(func(v *RailsAppLayerLoadBasedAutoScaling) RailsAppLayerLoadBasedAutoScaling {
+		if v != nil {
+			return *v
+		}
+		var ret RailsAppLayerLoadBasedAutoScaling
+		return ret
+	}).(RailsAppLayerLoadBasedAutoScalingOutput)
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingPtrOutput) Downscaling() RailsAppLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o.ApplyT(func(v *RailsAppLayerLoadBasedAutoScaling) *RailsAppLayerLoadBasedAutoScalingDownscaling {
+		if v == nil {
+			return nil
+		}
+		return v.Downscaling
+	}).(RailsAppLayerLoadBasedAutoScalingDownscalingPtrOutput)
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingPtrOutput) Enable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RailsAppLayerLoadBasedAutoScaling) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enable
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingPtrOutput) Upscaling() RailsAppLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o.ApplyT(func(v *RailsAppLayerLoadBasedAutoScaling) *RailsAppLayerLoadBasedAutoScalingUpscaling {
+		if v == nil {
+			return nil
+		}
+		return v.Upscaling
+	}).(RailsAppLayerLoadBasedAutoScalingUpscalingPtrOutput)
+}
+
+type RailsAppLayerLoadBasedAutoScalingDownscaling struct {
+	Alarms             []string `pulumi:"alarms"`
+	CpuThreshold       *float64 `pulumi:"cpuThreshold"`
+	IgnoreMetricsTime  *int     `pulumi:"ignoreMetricsTime"`
+	InstanceCount      *int     `pulumi:"instanceCount"`
+	LoadThreshold      *float64 `pulumi:"loadThreshold"`
+	MemoryThreshold    *float64 `pulumi:"memoryThreshold"`
+	ThresholdsWaitTime *int     `pulumi:"thresholdsWaitTime"`
+}
+
+// RailsAppLayerLoadBasedAutoScalingDownscalingInput is an input type that accepts RailsAppLayerLoadBasedAutoScalingDownscalingArgs and RailsAppLayerLoadBasedAutoScalingDownscalingOutput values.
+// You can construct a concrete instance of `RailsAppLayerLoadBasedAutoScalingDownscalingInput` via:
+//
+//	RailsAppLayerLoadBasedAutoScalingDownscalingArgs{...}
+type RailsAppLayerLoadBasedAutoScalingDownscalingInput interface {
+	pulumi.Input
+
+	ToRailsAppLayerLoadBasedAutoScalingDownscalingOutput() RailsAppLayerLoadBasedAutoScalingDownscalingOutput
+	ToRailsAppLayerLoadBasedAutoScalingDownscalingOutputWithContext(context.Context) RailsAppLayerLoadBasedAutoScalingDownscalingOutput
+}
+
+type RailsAppLayerLoadBasedAutoScalingDownscalingArgs struct {
+	Alarms             pulumi.StringArrayInput `pulumi:"alarms"`
+	CpuThreshold       pulumi.Float64PtrInput  `pulumi:"cpuThreshold"`
+	IgnoreMetricsTime  pulumi.IntPtrInput      `pulumi:"ignoreMetricsTime"`
+	InstanceCount      pulumi.IntPtrInput      `pulumi:"instanceCount"`
+	LoadThreshold      pulumi.Float64PtrInput  `pulumi:"loadThreshold"`
+	MemoryThreshold    pulumi.Float64PtrInput  `pulumi:"memoryThreshold"`
+	ThresholdsWaitTime pulumi.IntPtrInput      `pulumi:"thresholdsWaitTime"`
+}
+
+func (RailsAppLayerLoadBasedAutoScalingDownscalingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RailsAppLayerLoadBasedAutoScalingDownscaling)(nil)).Elem()
+}
+
+func (i RailsAppLayerLoadBasedAutoScalingDownscalingArgs) ToRailsAppLayerLoadBasedAutoScalingDownscalingOutput() RailsAppLayerLoadBasedAutoScalingDownscalingOutput {
+	return i.ToRailsAppLayerLoadBasedAutoScalingDownscalingOutputWithContext(context.Background())
+}
+
+func (i RailsAppLayerLoadBasedAutoScalingDownscalingArgs) ToRailsAppLayerLoadBasedAutoScalingDownscalingOutputWithContext(ctx context.Context) RailsAppLayerLoadBasedAutoScalingDownscalingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RailsAppLayerLoadBasedAutoScalingDownscalingOutput)
+}
+
+func (i RailsAppLayerLoadBasedAutoScalingDownscalingArgs) ToRailsAppLayerLoadBasedAutoScalingDownscalingPtrOutput() RailsAppLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return i.ToRailsAppLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(context.Background())
+}
+
+func (i RailsAppLayerLoadBasedAutoScalingDownscalingArgs) ToRailsAppLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx context.Context) RailsAppLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RailsAppLayerLoadBasedAutoScalingDownscalingOutput).ToRailsAppLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx)
+}
+
+// RailsAppLayerLoadBasedAutoScalingDownscalingPtrInput is an input type that accepts RailsAppLayerLoadBasedAutoScalingDownscalingArgs, RailsAppLayerLoadBasedAutoScalingDownscalingPtr and RailsAppLayerLoadBasedAutoScalingDownscalingPtrOutput values.
+// You can construct a concrete instance of `RailsAppLayerLoadBasedAutoScalingDownscalingPtrInput` via:
+//
+//	        RailsAppLayerLoadBasedAutoScalingDownscalingArgs{...}
+//
+//	or:
+//
+//	        nil
+type RailsAppLayerLoadBasedAutoScalingDownscalingPtrInput interface {
+	pulumi.Input
+
+	ToRailsAppLayerLoadBasedAutoScalingDownscalingPtrOutput() RailsAppLayerLoadBasedAutoScalingDownscalingPtrOutput
+	ToRailsAppLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(context.Context) RailsAppLayerLoadBasedAutoScalingDownscalingPtrOutput
+}
+
+type railsAppLayerLoadBasedAutoScalingDownscalingPtrType RailsAppLayerLoadBasedAutoScalingDownscalingArgs
+
+func RailsAppLayerLoadBasedAutoScalingDownscalingPtr(v *RailsAppLayerLoadBasedAutoScalingDownscalingArgs) RailsAppLayerLoadBasedAutoScalingDownscalingPtrInput {
+	return (*railsAppLayerLoadBasedAutoScalingDownscalingPtrType)(v)
+}
+
+func (*railsAppLayerLoadBasedAutoScalingDownscalingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RailsAppLayerLoadBasedAutoScalingDownscaling)(nil)).Elem()
+}
+
+func (i *railsAppLayerLoadBasedAutoScalingDownscalingPtrType) ToRailsAppLayerLoadBasedAutoScalingDownscalingPtrOutput() RailsAppLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return i.ToRailsAppLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(context.Background())
+}
+
+func (i *railsAppLayerLoadBasedAutoScalingDownscalingPtrType) ToRailsAppLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx context.Context) RailsAppLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RailsAppLayerLoadBasedAutoScalingDownscalingPtrOutput)
+}
+
+type RailsAppLayerLoadBasedAutoScalingDownscalingOutput struct{ *pulumi.OutputState }
+
+func (RailsAppLayerLoadBasedAutoScalingDownscalingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RailsAppLayerLoadBasedAutoScalingDownscaling)(nil)).Elem()
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingDownscalingOutput) ToRailsAppLayerLoadBasedAutoScalingDownscalingOutput() RailsAppLayerLoadBasedAutoScalingDownscalingOutput {
+	return o
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingDownscalingOutput) ToRailsAppLayerLoadBasedAutoScalingDownscalingOutputWithContext(ctx context.Context) RailsAppLayerLoadBasedAutoScalingDownscalingOutput {
+	return o
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingDownscalingOutput) ToRailsAppLayerLoadBasedAutoScalingDownscalingPtrOutput() RailsAppLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o.ToRailsAppLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(context.Background())
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingDownscalingOutput) ToRailsAppLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx context.Context) RailsAppLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RailsAppLayerLoadBasedAutoScalingDownscaling) *RailsAppLayerLoadBasedAutoScalingDownscaling {
+		return &v
+	}).(RailsAppLayerLoadBasedAutoScalingDownscalingPtrOutput)
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingDownscalingOutput) Alarms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RailsAppLayerLoadBasedAutoScalingDownscaling) []string { return v.Alarms }).(pulumi.StringArrayOutput)
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingDownscalingOutput) CpuThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v RailsAppLayerLoadBasedAutoScalingDownscaling) *float64 { return v.CpuThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingDownscalingOutput) IgnoreMetricsTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RailsAppLayerLoadBasedAutoScalingDownscaling) *int { return v.IgnoreMetricsTime }).(pulumi.IntPtrOutput)
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingDownscalingOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RailsAppLayerLoadBasedAutoScalingDownscaling) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingDownscalingOutput) LoadThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v RailsAppLayerLoadBasedAutoScalingDownscaling) *float64 { return v.LoadThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingDownscalingOutput) MemoryThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v RailsAppLayerLoadBasedAutoScalingDownscaling) *float64 { return v.MemoryThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingDownscalingOutput) ThresholdsWaitTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RailsAppLayerLoadBasedAutoScalingDownscaling) *int { return v.ThresholdsWaitTime }).(pulumi.IntPtrOutput)
+}
+
+type RailsAppLayerLoadBasedAutoScalingDownscalingPtrOutput struct{ *pulumi.OutputState }
+
+func (RailsAppLayerLoadBasedAutoScalingDownscalingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RailsAppLayerLoadBasedAutoScalingDownscaling)(nil)).Elem()
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingDownscalingPtrOutput) ToRailsAppLayerLoadBasedAutoScalingDownscalingPtrOutput() RailsAppLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingDownscalingPtrOutput) ToRailsAppLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx context.Context) RailsAppLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingDownscalingPtrOutput) Elem() RailsAppLayerLoadBasedAutoScalingDownscalingOutput {
+	return o.ApplyT(func(v *RailsAppLayerLoadBasedAutoScalingDownscaling) RailsAppLayerLoadBasedAutoScalingDownscaling {
+		if v != nil {
+			return *v
+		}
+		var ret RailsAppLayerLoadBasedAutoScalingDownscaling
+		return ret
+	}).(RailsAppLayerLoadBasedAutoScalingDownscalingOutput)
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingDownscalingPtrOutput) Alarms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RailsAppLayerLoadBasedAutoScalingDownscaling) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Alarms
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingDownscalingPtrOutput) CpuThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *RailsAppLayerLoadBasedAutoScalingDownscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.CpuThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingDownscalingPtrOutput) IgnoreMetricsTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RailsAppLayerLoadBasedAutoScalingDownscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IgnoreMetricsTime
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingDownscalingPtrOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RailsAppLayerLoadBasedAutoScalingDownscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceCount
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingDownscalingPtrOutput) LoadThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *RailsAppLayerLoadBasedAutoScalingDownscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.LoadThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingDownscalingPtrOutput) MemoryThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *RailsAppLayerLoadBasedAutoScalingDownscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MemoryThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingDownscalingPtrOutput) ThresholdsWaitTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RailsAppLayerLoadBasedAutoScalingDownscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ThresholdsWaitTime
+	}).(pulumi.IntPtrOutput)
+}
+
+type RailsAppLayerLoadBasedAutoScalingUpscaling struct {
+	Alarms             []string `pulumi:"alarms"`
+	CpuThreshold       *float64 `pulumi:"cpuThreshold"`
+	IgnoreMetricsTime  *int     `pulumi:"ignoreMetricsTime"`
+	InstanceCount      *int     `pulumi:"instanceCount"`
+	LoadThreshold      *float64 `pulumi:"loadThreshold"`
+	MemoryThreshold    *float64 `pulumi:"memoryThreshold"`
+	ThresholdsWaitTime *int     `pulumi:"thresholdsWaitTime"`
+}
+
+// RailsAppLayerLoadBasedAutoScalingUpscalingInput is an input type that accepts RailsAppLayerLoadBasedAutoScalingUpscalingArgs and RailsAppLayerLoadBasedAutoScalingUpscalingOutput values.
+// You can construct a concrete instance of `RailsAppLayerLoadBasedAutoScalingUpscalingInput` via:
+//
+//	RailsAppLayerLoadBasedAutoScalingUpscalingArgs{...}
+type RailsAppLayerLoadBasedAutoScalingUpscalingInput interface {
+	pulumi.Input
+
+	ToRailsAppLayerLoadBasedAutoScalingUpscalingOutput() RailsAppLayerLoadBasedAutoScalingUpscalingOutput
+	ToRailsAppLayerLoadBasedAutoScalingUpscalingOutputWithContext(context.Context) RailsAppLayerLoadBasedAutoScalingUpscalingOutput
+}
+
+type RailsAppLayerLoadBasedAutoScalingUpscalingArgs struct {
+	Alarms             pulumi.StringArrayInput `pulumi:"alarms"`
+	CpuThreshold       pulumi.Float64PtrInput  `pulumi:"cpuThreshold"`
+	IgnoreMetricsTime  pulumi.IntPtrInput      `pulumi:"ignoreMetricsTime"`
+	InstanceCount      pulumi.IntPtrInput      `pulumi:"instanceCount"`
+	LoadThreshold      pulumi.Float64PtrInput  `pulumi:"loadThreshold"`
+	MemoryThreshold    pulumi.Float64PtrInput  `pulumi:"memoryThreshold"`
+	ThresholdsWaitTime pulumi.IntPtrInput      `pulumi:"thresholdsWaitTime"`
+}
+
+func (RailsAppLayerLoadBasedAutoScalingUpscalingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RailsAppLayerLoadBasedAutoScalingUpscaling)(nil)).Elem()
+}
+
+func (i RailsAppLayerLoadBasedAutoScalingUpscalingArgs) ToRailsAppLayerLoadBasedAutoScalingUpscalingOutput() RailsAppLayerLoadBasedAutoScalingUpscalingOutput {
+	return i.ToRailsAppLayerLoadBasedAutoScalingUpscalingOutputWithContext(context.Background())
+}
+
+func (i RailsAppLayerLoadBasedAutoScalingUpscalingArgs) ToRailsAppLayerLoadBasedAutoScalingUpscalingOutputWithContext(ctx context.Context) RailsAppLayerLoadBasedAutoScalingUpscalingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RailsAppLayerLoadBasedAutoScalingUpscalingOutput)
+}
+
+func (i RailsAppLayerLoadBasedAutoScalingUpscalingArgs) ToRailsAppLayerLoadBasedAutoScalingUpscalingPtrOutput() RailsAppLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return i.ToRailsAppLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(context.Background())
+}
+
+func (i RailsAppLayerLoadBasedAutoScalingUpscalingArgs) ToRailsAppLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx context.Context) RailsAppLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RailsAppLayerLoadBasedAutoScalingUpscalingOutput).ToRailsAppLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx)
+}
+
+// RailsAppLayerLoadBasedAutoScalingUpscalingPtrInput is an input type that accepts RailsAppLayerLoadBasedAutoScalingUpscalingArgs, RailsAppLayerLoadBasedAutoScalingUpscalingPtr and RailsAppLayerLoadBasedAutoScalingUpscalingPtrOutput values.
+// You can construct a concrete instance of `RailsAppLayerLoadBasedAutoScalingUpscalingPtrInput` via:
+//
+//	        RailsAppLayerLoadBasedAutoScalingUpscalingArgs{...}
+//
+//	or:
+//
+//	        nil
+type RailsAppLayerLoadBasedAutoScalingUpscalingPtrInput interface {
+	pulumi.Input
+
+	ToRailsAppLayerLoadBasedAutoScalingUpscalingPtrOutput() RailsAppLayerLoadBasedAutoScalingUpscalingPtrOutput
+	ToRailsAppLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(context.Context) RailsAppLayerLoadBasedAutoScalingUpscalingPtrOutput
+}
+
+type railsAppLayerLoadBasedAutoScalingUpscalingPtrType RailsAppLayerLoadBasedAutoScalingUpscalingArgs
+
+func RailsAppLayerLoadBasedAutoScalingUpscalingPtr(v *RailsAppLayerLoadBasedAutoScalingUpscalingArgs) RailsAppLayerLoadBasedAutoScalingUpscalingPtrInput {
+	return (*railsAppLayerLoadBasedAutoScalingUpscalingPtrType)(v)
+}
+
+func (*railsAppLayerLoadBasedAutoScalingUpscalingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RailsAppLayerLoadBasedAutoScalingUpscaling)(nil)).Elem()
+}
+
+func (i *railsAppLayerLoadBasedAutoScalingUpscalingPtrType) ToRailsAppLayerLoadBasedAutoScalingUpscalingPtrOutput() RailsAppLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return i.ToRailsAppLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(context.Background())
+}
+
+func (i *railsAppLayerLoadBasedAutoScalingUpscalingPtrType) ToRailsAppLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx context.Context) RailsAppLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RailsAppLayerLoadBasedAutoScalingUpscalingPtrOutput)
+}
+
+type RailsAppLayerLoadBasedAutoScalingUpscalingOutput struct{ *pulumi.OutputState }
+
+func (RailsAppLayerLoadBasedAutoScalingUpscalingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RailsAppLayerLoadBasedAutoScalingUpscaling)(nil)).Elem()
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingUpscalingOutput) ToRailsAppLayerLoadBasedAutoScalingUpscalingOutput() RailsAppLayerLoadBasedAutoScalingUpscalingOutput {
+	return o
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingUpscalingOutput) ToRailsAppLayerLoadBasedAutoScalingUpscalingOutputWithContext(ctx context.Context) RailsAppLayerLoadBasedAutoScalingUpscalingOutput {
+	return o
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingUpscalingOutput) ToRailsAppLayerLoadBasedAutoScalingUpscalingPtrOutput() RailsAppLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o.ToRailsAppLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(context.Background())
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingUpscalingOutput) ToRailsAppLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx context.Context) RailsAppLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RailsAppLayerLoadBasedAutoScalingUpscaling) *RailsAppLayerLoadBasedAutoScalingUpscaling {
+		return &v
+	}).(RailsAppLayerLoadBasedAutoScalingUpscalingPtrOutput)
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingUpscalingOutput) Alarms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RailsAppLayerLoadBasedAutoScalingUpscaling) []string { return v.Alarms }).(pulumi.StringArrayOutput)
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingUpscalingOutput) CpuThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v RailsAppLayerLoadBasedAutoScalingUpscaling) *float64 { return v.CpuThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingUpscalingOutput) IgnoreMetricsTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RailsAppLayerLoadBasedAutoScalingUpscaling) *int { return v.IgnoreMetricsTime }).(pulumi.IntPtrOutput)
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingUpscalingOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RailsAppLayerLoadBasedAutoScalingUpscaling) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingUpscalingOutput) LoadThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v RailsAppLayerLoadBasedAutoScalingUpscaling) *float64 { return v.LoadThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingUpscalingOutput) MemoryThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v RailsAppLayerLoadBasedAutoScalingUpscaling) *float64 { return v.MemoryThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingUpscalingOutput) ThresholdsWaitTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RailsAppLayerLoadBasedAutoScalingUpscaling) *int { return v.ThresholdsWaitTime }).(pulumi.IntPtrOutput)
+}
+
+type RailsAppLayerLoadBasedAutoScalingUpscalingPtrOutput struct{ *pulumi.OutputState }
+
+func (RailsAppLayerLoadBasedAutoScalingUpscalingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RailsAppLayerLoadBasedAutoScalingUpscaling)(nil)).Elem()
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingUpscalingPtrOutput) ToRailsAppLayerLoadBasedAutoScalingUpscalingPtrOutput() RailsAppLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingUpscalingPtrOutput) ToRailsAppLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx context.Context) RailsAppLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingUpscalingPtrOutput) Elem() RailsAppLayerLoadBasedAutoScalingUpscalingOutput {
+	return o.ApplyT(func(v *RailsAppLayerLoadBasedAutoScalingUpscaling) RailsAppLayerLoadBasedAutoScalingUpscaling {
+		if v != nil {
+			return *v
+		}
+		var ret RailsAppLayerLoadBasedAutoScalingUpscaling
+		return ret
+	}).(RailsAppLayerLoadBasedAutoScalingUpscalingOutput)
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingUpscalingPtrOutput) Alarms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RailsAppLayerLoadBasedAutoScalingUpscaling) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Alarms
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingUpscalingPtrOutput) CpuThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *RailsAppLayerLoadBasedAutoScalingUpscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.CpuThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingUpscalingPtrOutput) IgnoreMetricsTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RailsAppLayerLoadBasedAutoScalingUpscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IgnoreMetricsTime
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingUpscalingPtrOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RailsAppLayerLoadBasedAutoScalingUpscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceCount
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingUpscalingPtrOutput) LoadThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *RailsAppLayerLoadBasedAutoScalingUpscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.LoadThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingUpscalingPtrOutput) MemoryThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *RailsAppLayerLoadBasedAutoScalingUpscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MemoryThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingUpscalingPtrOutput) ThresholdsWaitTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RailsAppLayerLoadBasedAutoScalingUpscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ThresholdsWaitTime
+	}).(pulumi.IntPtrOutput)
 }
 
 type StackCustomCookbooksSource struct {
@@ -5872,6 +12064,619 @@ func (o StaticWebLayerEbsVolumeArrayOutput) Index(i pulumi.IntInput) StaticWebLa
 	}).(StaticWebLayerEbsVolumeOutput)
 }
 
+type StaticWebLayerLoadBasedAutoScaling struct {
+	Downscaling *StaticWebLayerLoadBasedAutoScalingDownscaling `pulumi:"downscaling"`
+	Enable      *bool                                          `pulumi:"enable"`
+	Upscaling   *StaticWebLayerLoadBasedAutoScalingUpscaling   `pulumi:"upscaling"`
+}
+
+// StaticWebLayerLoadBasedAutoScalingInput is an input type that accepts StaticWebLayerLoadBasedAutoScalingArgs and StaticWebLayerLoadBasedAutoScalingOutput values.
+// You can construct a concrete instance of `StaticWebLayerLoadBasedAutoScalingInput` via:
+//
+//	StaticWebLayerLoadBasedAutoScalingArgs{...}
+type StaticWebLayerLoadBasedAutoScalingInput interface {
+	pulumi.Input
+
+	ToStaticWebLayerLoadBasedAutoScalingOutput() StaticWebLayerLoadBasedAutoScalingOutput
+	ToStaticWebLayerLoadBasedAutoScalingOutputWithContext(context.Context) StaticWebLayerLoadBasedAutoScalingOutput
+}
+
+type StaticWebLayerLoadBasedAutoScalingArgs struct {
+	Downscaling StaticWebLayerLoadBasedAutoScalingDownscalingPtrInput `pulumi:"downscaling"`
+	Enable      pulumi.BoolPtrInput                                   `pulumi:"enable"`
+	Upscaling   StaticWebLayerLoadBasedAutoScalingUpscalingPtrInput   `pulumi:"upscaling"`
+}
+
+func (StaticWebLayerLoadBasedAutoScalingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StaticWebLayerLoadBasedAutoScaling)(nil)).Elem()
+}
+
+func (i StaticWebLayerLoadBasedAutoScalingArgs) ToStaticWebLayerLoadBasedAutoScalingOutput() StaticWebLayerLoadBasedAutoScalingOutput {
+	return i.ToStaticWebLayerLoadBasedAutoScalingOutputWithContext(context.Background())
+}
+
+func (i StaticWebLayerLoadBasedAutoScalingArgs) ToStaticWebLayerLoadBasedAutoScalingOutputWithContext(ctx context.Context) StaticWebLayerLoadBasedAutoScalingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StaticWebLayerLoadBasedAutoScalingOutput)
+}
+
+func (i StaticWebLayerLoadBasedAutoScalingArgs) ToStaticWebLayerLoadBasedAutoScalingPtrOutput() StaticWebLayerLoadBasedAutoScalingPtrOutput {
+	return i.ToStaticWebLayerLoadBasedAutoScalingPtrOutputWithContext(context.Background())
+}
+
+func (i StaticWebLayerLoadBasedAutoScalingArgs) ToStaticWebLayerLoadBasedAutoScalingPtrOutputWithContext(ctx context.Context) StaticWebLayerLoadBasedAutoScalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StaticWebLayerLoadBasedAutoScalingOutput).ToStaticWebLayerLoadBasedAutoScalingPtrOutputWithContext(ctx)
+}
+
+// StaticWebLayerLoadBasedAutoScalingPtrInput is an input type that accepts StaticWebLayerLoadBasedAutoScalingArgs, StaticWebLayerLoadBasedAutoScalingPtr and StaticWebLayerLoadBasedAutoScalingPtrOutput values.
+// You can construct a concrete instance of `StaticWebLayerLoadBasedAutoScalingPtrInput` via:
+//
+//	        StaticWebLayerLoadBasedAutoScalingArgs{...}
+//
+//	or:
+//
+//	        nil
+type StaticWebLayerLoadBasedAutoScalingPtrInput interface {
+	pulumi.Input
+
+	ToStaticWebLayerLoadBasedAutoScalingPtrOutput() StaticWebLayerLoadBasedAutoScalingPtrOutput
+	ToStaticWebLayerLoadBasedAutoScalingPtrOutputWithContext(context.Context) StaticWebLayerLoadBasedAutoScalingPtrOutput
+}
+
+type staticWebLayerLoadBasedAutoScalingPtrType StaticWebLayerLoadBasedAutoScalingArgs
+
+func StaticWebLayerLoadBasedAutoScalingPtr(v *StaticWebLayerLoadBasedAutoScalingArgs) StaticWebLayerLoadBasedAutoScalingPtrInput {
+	return (*staticWebLayerLoadBasedAutoScalingPtrType)(v)
+}
+
+func (*staticWebLayerLoadBasedAutoScalingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StaticWebLayerLoadBasedAutoScaling)(nil)).Elem()
+}
+
+func (i *staticWebLayerLoadBasedAutoScalingPtrType) ToStaticWebLayerLoadBasedAutoScalingPtrOutput() StaticWebLayerLoadBasedAutoScalingPtrOutput {
+	return i.ToStaticWebLayerLoadBasedAutoScalingPtrOutputWithContext(context.Background())
+}
+
+func (i *staticWebLayerLoadBasedAutoScalingPtrType) ToStaticWebLayerLoadBasedAutoScalingPtrOutputWithContext(ctx context.Context) StaticWebLayerLoadBasedAutoScalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StaticWebLayerLoadBasedAutoScalingPtrOutput)
+}
+
+type StaticWebLayerLoadBasedAutoScalingOutput struct{ *pulumi.OutputState }
+
+func (StaticWebLayerLoadBasedAutoScalingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StaticWebLayerLoadBasedAutoScaling)(nil)).Elem()
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingOutput) ToStaticWebLayerLoadBasedAutoScalingOutput() StaticWebLayerLoadBasedAutoScalingOutput {
+	return o
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingOutput) ToStaticWebLayerLoadBasedAutoScalingOutputWithContext(ctx context.Context) StaticWebLayerLoadBasedAutoScalingOutput {
+	return o
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingOutput) ToStaticWebLayerLoadBasedAutoScalingPtrOutput() StaticWebLayerLoadBasedAutoScalingPtrOutput {
+	return o.ToStaticWebLayerLoadBasedAutoScalingPtrOutputWithContext(context.Background())
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingOutput) ToStaticWebLayerLoadBasedAutoScalingPtrOutputWithContext(ctx context.Context) StaticWebLayerLoadBasedAutoScalingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StaticWebLayerLoadBasedAutoScaling) *StaticWebLayerLoadBasedAutoScaling {
+		return &v
+	}).(StaticWebLayerLoadBasedAutoScalingPtrOutput)
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingOutput) Downscaling() StaticWebLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o.ApplyT(func(v StaticWebLayerLoadBasedAutoScaling) *StaticWebLayerLoadBasedAutoScalingDownscaling {
+		return v.Downscaling
+	}).(StaticWebLayerLoadBasedAutoScalingDownscalingPtrOutput)
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingOutput) Enable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StaticWebLayerLoadBasedAutoScaling) *bool { return v.Enable }).(pulumi.BoolPtrOutput)
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingOutput) Upscaling() StaticWebLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o.ApplyT(func(v StaticWebLayerLoadBasedAutoScaling) *StaticWebLayerLoadBasedAutoScalingUpscaling {
+		return v.Upscaling
+	}).(StaticWebLayerLoadBasedAutoScalingUpscalingPtrOutput)
+}
+
+type StaticWebLayerLoadBasedAutoScalingPtrOutput struct{ *pulumi.OutputState }
+
+func (StaticWebLayerLoadBasedAutoScalingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StaticWebLayerLoadBasedAutoScaling)(nil)).Elem()
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingPtrOutput) ToStaticWebLayerLoadBasedAutoScalingPtrOutput() StaticWebLayerLoadBasedAutoScalingPtrOutput {
+	return o
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingPtrOutput) ToStaticWebLayerLoadBasedAutoScalingPtrOutputWithContext(ctx context.Context) StaticWebLayerLoadBasedAutoScalingPtrOutput {
+	return o
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingPtrOutput) Elem() StaticWebLayerLoadBasedAutoScalingOutput {
+	return o.ApplyT(func(v *StaticWebLayerLoadBasedAutoScaling) StaticWebLayerLoadBasedAutoScaling {
+		if v != nil {
+			return *v
+		}
+		var ret StaticWebLayerLoadBasedAutoScaling
+		return ret
+	}).(StaticWebLayerLoadBasedAutoScalingOutput)
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingPtrOutput) Downscaling() StaticWebLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o.ApplyT(func(v *StaticWebLayerLoadBasedAutoScaling) *StaticWebLayerLoadBasedAutoScalingDownscaling {
+		if v == nil {
+			return nil
+		}
+		return v.Downscaling
+	}).(StaticWebLayerLoadBasedAutoScalingDownscalingPtrOutput)
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingPtrOutput) Enable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StaticWebLayerLoadBasedAutoScaling) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enable
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingPtrOutput) Upscaling() StaticWebLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o.ApplyT(func(v *StaticWebLayerLoadBasedAutoScaling) *StaticWebLayerLoadBasedAutoScalingUpscaling {
+		if v == nil {
+			return nil
+		}
+		return v.Upscaling
+	}).(StaticWebLayerLoadBasedAutoScalingUpscalingPtrOutput)
+}
+
+type StaticWebLayerLoadBasedAutoScalingDownscaling struct {
+	Alarms             []string `pulumi:"alarms"`
+	CpuThreshold       *float64 `pulumi:"cpuThreshold"`
+	IgnoreMetricsTime  *int     `pulumi:"ignoreMetricsTime"`
+	InstanceCount      *int     `pulumi:"instanceCount"`
+	LoadThreshold      *float64 `pulumi:"loadThreshold"`
+	MemoryThreshold    *float64 `pulumi:"memoryThreshold"`
+	ThresholdsWaitTime *int     `pulumi:"thresholdsWaitTime"`
+}
+
+// StaticWebLayerLoadBasedAutoScalingDownscalingInput is an input type that accepts StaticWebLayerLoadBasedAutoScalingDownscalingArgs and StaticWebLayerLoadBasedAutoScalingDownscalingOutput values.
+// You can construct a concrete instance of `StaticWebLayerLoadBasedAutoScalingDownscalingInput` via:
+//
+//	StaticWebLayerLoadBasedAutoScalingDownscalingArgs{...}
+type StaticWebLayerLoadBasedAutoScalingDownscalingInput interface {
+	pulumi.Input
+
+	ToStaticWebLayerLoadBasedAutoScalingDownscalingOutput() StaticWebLayerLoadBasedAutoScalingDownscalingOutput
+	ToStaticWebLayerLoadBasedAutoScalingDownscalingOutputWithContext(context.Context) StaticWebLayerLoadBasedAutoScalingDownscalingOutput
+}
+
+type StaticWebLayerLoadBasedAutoScalingDownscalingArgs struct {
+	Alarms             pulumi.StringArrayInput `pulumi:"alarms"`
+	CpuThreshold       pulumi.Float64PtrInput  `pulumi:"cpuThreshold"`
+	IgnoreMetricsTime  pulumi.IntPtrInput      `pulumi:"ignoreMetricsTime"`
+	InstanceCount      pulumi.IntPtrInput      `pulumi:"instanceCount"`
+	LoadThreshold      pulumi.Float64PtrInput  `pulumi:"loadThreshold"`
+	MemoryThreshold    pulumi.Float64PtrInput  `pulumi:"memoryThreshold"`
+	ThresholdsWaitTime pulumi.IntPtrInput      `pulumi:"thresholdsWaitTime"`
+}
+
+func (StaticWebLayerLoadBasedAutoScalingDownscalingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StaticWebLayerLoadBasedAutoScalingDownscaling)(nil)).Elem()
+}
+
+func (i StaticWebLayerLoadBasedAutoScalingDownscalingArgs) ToStaticWebLayerLoadBasedAutoScalingDownscalingOutput() StaticWebLayerLoadBasedAutoScalingDownscalingOutput {
+	return i.ToStaticWebLayerLoadBasedAutoScalingDownscalingOutputWithContext(context.Background())
+}
+
+func (i StaticWebLayerLoadBasedAutoScalingDownscalingArgs) ToStaticWebLayerLoadBasedAutoScalingDownscalingOutputWithContext(ctx context.Context) StaticWebLayerLoadBasedAutoScalingDownscalingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StaticWebLayerLoadBasedAutoScalingDownscalingOutput)
+}
+
+func (i StaticWebLayerLoadBasedAutoScalingDownscalingArgs) ToStaticWebLayerLoadBasedAutoScalingDownscalingPtrOutput() StaticWebLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return i.ToStaticWebLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(context.Background())
+}
+
+func (i StaticWebLayerLoadBasedAutoScalingDownscalingArgs) ToStaticWebLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx context.Context) StaticWebLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StaticWebLayerLoadBasedAutoScalingDownscalingOutput).ToStaticWebLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx)
+}
+
+// StaticWebLayerLoadBasedAutoScalingDownscalingPtrInput is an input type that accepts StaticWebLayerLoadBasedAutoScalingDownscalingArgs, StaticWebLayerLoadBasedAutoScalingDownscalingPtr and StaticWebLayerLoadBasedAutoScalingDownscalingPtrOutput values.
+// You can construct a concrete instance of `StaticWebLayerLoadBasedAutoScalingDownscalingPtrInput` via:
+//
+//	        StaticWebLayerLoadBasedAutoScalingDownscalingArgs{...}
+//
+//	or:
+//
+//	        nil
+type StaticWebLayerLoadBasedAutoScalingDownscalingPtrInput interface {
+	pulumi.Input
+
+	ToStaticWebLayerLoadBasedAutoScalingDownscalingPtrOutput() StaticWebLayerLoadBasedAutoScalingDownscalingPtrOutput
+	ToStaticWebLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(context.Context) StaticWebLayerLoadBasedAutoScalingDownscalingPtrOutput
+}
+
+type staticWebLayerLoadBasedAutoScalingDownscalingPtrType StaticWebLayerLoadBasedAutoScalingDownscalingArgs
+
+func StaticWebLayerLoadBasedAutoScalingDownscalingPtr(v *StaticWebLayerLoadBasedAutoScalingDownscalingArgs) StaticWebLayerLoadBasedAutoScalingDownscalingPtrInput {
+	return (*staticWebLayerLoadBasedAutoScalingDownscalingPtrType)(v)
+}
+
+func (*staticWebLayerLoadBasedAutoScalingDownscalingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StaticWebLayerLoadBasedAutoScalingDownscaling)(nil)).Elem()
+}
+
+func (i *staticWebLayerLoadBasedAutoScalingDownscalingPtrType) ToStaticWebLayerLoadBasedAutoScalingDownscalingPtrOutput() StaticWebLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return i.ToStaticWebLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(context.Background())
+}
+
+func (i *staticWebLayerLoadBasedAutoScalingDownscalingPtrType) ToStaticWebLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx context.Context) StaticWebLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StaticWebLayerLoadBasedAutoScalingDownscalingPtrOutput)
+}
+
+type StaticWebLayerLoadBasedAutoScalingDownscalingOutput struct{ *pulumi.OutputState }
+
+func (StaticWebLayerLoadBasedAutoScalingDownscalingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StaticWebLayerLoadBasedAutoScalingDownscaling)(nil)).Elem()
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingDownscalingOutput) ToStaticWebLayerLoadBasedAutoScalingDownscalingOutput() StaticWebLayerLoadBasedAutoScalingDownscalingOutput {
+	return o
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingDownscalingOutput) ToStaticWebLayerLoadBasedAutoScalingDownscalingOutputWithContext(ctx context.Context) StaticWebLayerLoadBasedAutoScalingDownscalingOutput {
+	return o
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingDownscalingOutput) ToStaticWebLayerLoadBasedAutoScalingDownscalingPtrOutput() StaticWebLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o.ToStaticWebLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(context.Background())
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingDownscalingOutput) ToStaticWebLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx context.Context) StaticWebLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StaticWebLayerLoadBasedAutoScalingDownscaling) *StaticWebLayerLoadBasedAutoScalingDownscaling {
+		return &v
+	}).(StaticWebLayerLoadBasedAutoScalingDownscalingPtrOutput)
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingDownscalingOutput) Alarms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StaticWebLayerLoadBasedAutoScalingDownscaling) []string { return v.Alarms }).(pulumi.StringArrayOutput)
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingDownscalingOutput) CpuThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v StaticWebLayerLoadBasedAutoScalingDownscaling) *float64 { return v.CpuThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingDownscalingOutput) IgnoreMetricsTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StaticWebLayerLoadBasedAutoScalingDownscaling) *int { return v.IgnoreMetricsTime }).(pulumi.IntPtrOutput)
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingDownscalingOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StaticWebLayerLoadBasedAutoScalingDownscaling) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingDownscalingOutput) LoadThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v StaticWebLayerLoadBasedAutoScalingDownscaling) *float64 { return v.LoadThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingDownscalingOutput) MemoryThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v StaticWebLayerLoadBasedAutoScalingDownscaling) *float64 { return v.MemoryThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingDownscalingOutput) ThresholdsWaitTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StaticWebLayerLoadBasedAutoScalingDownscaling) *int { return v.ThresholdsWaitTime }).(pulumi.IntPtrOutput)
+}
+
+type StaticWebLayerLoadBasedAutoScalingDownscalingPtrOutput struct{ *pulumi.OutputState }
+
+func (StaticWebLayerLoadBasedAutoScalingDownscalingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StaticWebLayerLoadBasedAutoScalingDownscaling)(nil)).Elem()
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingDownscalingPtrOutput) ToStaticWebLayerLoadBasedAutoScalingDownscalingPtrOutput() StaticWebLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingDownscalingPtrOutput) ToStaticWebLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx context.Context) StaticWebLayerLoadBasedAutoScalingDownscalingPtrOutput {
+	return o
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingDownscalingPtrOutput) Elem() StaticWebLayerLoadBasedAutoScalingDownscalingOutput {
+	return o.ApplyT(func(v *StaticWebLayerLoadBasedAutoScalingDownscaling) StaticWebLayerLoadBasedAutoScalingDownscaling {
+		if v != nil {
+			return *v
+		}
+		var ret StaticWebLayerLoadBasedAutoScalingDownscaling
+		return ret
+	}).(StaticWebLayerLoadBasedAutoScalingDownscalingOutput)
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingDownscalingPtrOutput) Alarms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StaticWebLayerLoadBasedAutoScalingDownscaling) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Alarms
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingDownscalingPtrOutput) CpuThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *StaticWebLayerLoadBasedAutoScalingDownscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.CpuThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingDownscalingPtrOutput) IgnoreMetricsTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *StaticWebLayerLoadBasedAutoScalingDownscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IgnoreMetricsTime
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingDownscalingPtrOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *StaticWebLayerLoadBasedAutoScalingDownscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceCount
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingDownscalingPtrOutput) LoadThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *StaticWebLayerLoadBasedAutoScalingDownscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.LoadThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingDownscalingPtrOutput) MemoryThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *StaticWebLayerLoadBasedAutoScalingDownscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MemoryThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingDownscalingPtrOutput) ThresholdsWaitTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *StaticWebLayerLoadBasedAutoScalingDownscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ThresholdsWaitTime
+	}).(pulumi.IntPtrOutput)
+}
+
+type StaticWebLayerLoadBasedAutoScalingUpscaling struct {
+	Alarms             []string `pulumi:"alarms"`
+	CpuThreshold       *float64 `pulumi:"cpuThreshold"`
+	IgnoreMetricsTime  *int     `pulumi:"ignoreMetricsTime"`
+	InstanceCount      *int     `pulumi:"instanceCount"`
+	LoadThreshold      *float64 `pulumi:"loadThreshold"`
+	MemoryThreshold    *float64 `pulumi:"memoryThreshold"`
+	ThresholdsWaitTime *int     `pulumi:"thresholdsWaitTime"`
+}
+
+// StaticWebLayerLoadBasedAutoScalingUpscalingInput is an input type that accepts StaticWebLayerLoadBasedAutoScalingUpscalingArgs and StaticWebLayerLoadBasedAutoScalingUpscalingOutput values.
+// You can construct a concrete instance of `StaticWebLayerLoadBasedAutoScalingUpscalingInput` via:
+//
+//	StaticWebLayerLoadBasedAutoScalingUpscalingArgs{...}
+type StaticWebLayerLoadBasedAutoScalingUpscalingInput interface {
+	pulumi.Input
+
+	ToStaticWebLayerLoadBasedAutoScalingUpscalingOutput() StaticWebLayerLoadBasedAutoScalingUpscalingOutput
+	ToStaticWebLayerLoadBasedAutoScalingUpscalingOutputWithContext(context.Context) StaticWebLayerLoadBasedAutoScalingUpscalingOutput
+}
+
+type StaticWebLayerLoadBasedAutoScalingUpscalingArgs struct {
+	Alarms             pulumi.StringArrayInput `pulumi:"alarms"`
+	CpuThreshold       pulumi.Float64PtrInput  `pulumi:"cpuThreshold"`
+	IgnoreMetricsTime  pulumi.IntPtrInput      `pulumi:"ignoreMetricsTime"`
+	InstanceCount      pulumi.IntPtrInput      `pulumi:"instanceCount"`
+	LoadThreshold      pulumi.Float64PtrInput  `pulumi:"loadThreshold"`
+	MemoryThreshold    pulumi.Float64PtrInput  `pulumi:"memoryThreshold"`
+	ThresholdsWaitTime pulumi.IntPtrInput      `pulumi:"thresholdsWaitTime"`
+}
+
+func (StaticWebLayerLoadBasedAutoScalingUpscalingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StaticWebLayerLoadBasedAutoScalingUpscaling)(nil)).Elem()
+}
+
+func (i StaticWebLayerLoadBasedAutoScalingUpscalingArgs) ToStaticWebLayerLoadBasedAutoScalingUpscalingOutput() StaticWebLayerLoadBasedAutoScalingUpscalingOutput {
+	return i.ToStaticWebLayerLoadBasedAutoScalingUpscalingOutputWithContext(context.Background())
+}
+
+func (i StaticWebLayerLoadBasedAutoScalingUpscalingArgs) ToStaticWebLayerLoadBasedAutoScalingUpscalingOutputWithContext(ctx context.Context) StaticWebLayerLoadBasedAutoScalingUpscalingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StaticWebLayerLoadBasedAutoScalingUpscalingOutput)
+}
+
+func (i StaticWebLayerLoadBasedAutoScalingUpscalingArgs) ToStaticWebLayerLoadBasedAutoScalingUpscalingPtrOutput() StaticWebLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return i.ToStaticWebLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(context.Background())
+}
+
+func (i StaticWebLayerLoadBasedAutoScalingUpscalingArgs) ToStaticWebLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx context.Context) StaticWebLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StaticWebLayerLoadBasedAutoScalingUpscalingOutput).ToStaticWebLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx)
+}
+
+// StaticWebLayerLoadBasedAutoScalingUpscalingPtrInput is an input type that accepts StaticWebLayerLoadBasedAutoScalingUpscalingArgs, StaticWebLayerLoadBasedAutoScalingUpscalingPtr and StaticWebLayerLoadBasedAutoScalingUpscalingPtrOutput values.
+// You can construct a concrete instance of `StaticWebLayerLoadBasedAutoScalingUpscalingPtrInput` via:
+//
+//	        StaticWebLayerLoadBasedAutoScalingUpscalingArgs{...}
+//
+//	or:
+//
+//	        nil
+type StaticWebLayerLoadBasedAutoScalingUpscalingPtrInput interface {
+	pulumi.Input
+
+	ToStaticWebLayerLoadBasedAutoScalingUpscalingPtrOutput() StaticWebLayerLoadBasedAutoScalingUpscalingPtrOutput
+	ToStaticWebLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(context.Context) StaticWebLayerLoadBasedAutoScalingUpscalingPtrOutput
+}
+
+type staticWebLayerLoadBasedAutoScalingUpscalingPtrType StaticWebLayerLoadBasedAutoScalingUpscalingArgs
+
+func StaticWebLayerLoadBasedAutoScalingUpscalingPtr(v *StaticWebLayerLoadBasedAutoScalingUpscalingArgs) StaticWebLayerLoadBasedAutoScalingUpscalingPtrInput {
+	return (*staticWebLayerLoadBasedAutoScalingUpscalingPtrType)(v)
+}
+
+func (*staticWebLayerLoadBasedAutoScalingUpscalingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StaticWebLayerLoadBasedAutoScalingUpscaling)(nil)).Elem()
+}
+
+func (i *staticWebLayerLoadBasedAutoScalingUpscalingPtrType) ToStaticWebLayerLoadBasedAutoScalingUpscalingPtrOutput() StaticWebLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return i.ToStaticWebLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(context.Background())
+}
+
+func (i *staticWebLayerLoadBasedAutoScalingUpscalingPtrType) ToStaticWebLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx context.Context) StaticWebLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StaticWebLayerLoadBasedAutoScalingUpscalingPtrOutput)
+}
+
+type StaticWebLayerLoadBasedAutoScalingUpscalingOutput struct{ *pulumi.OutputState }
+
+func (StaticWebLayerLoadBasedAutoScalingUpscalingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StaticWebLayerLoadBasedAutoScalingUpscaling)(nil)).Elem()
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingUpscalingOutput) ToStaticWebLayerLoadBasedAutoScalingUpscalingOutput() StaticWebLayerLoadBasedAutoScalingUpscalingOutput {
+	return o
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingUpscalingOutput) ToStaticWebLayerLoadBasedAutoScalingUpscalingOutputWithContext(ctx context.Context) StaticWebLayerLoadBasedAutoScalingUpscalingOutput {
+	return o
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingUpscalingOutput) ToStaticWebLayerLoadBasedAutoScalingUpscalingPtrOutput() StaticWebLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o.ToStaticWebLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(context.Background())
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingUpscalingOutput) ToStaticWebLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx context.Context) StaticWebLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StaticWebLayerLoadBasedAutoScalingUpscaling) *StaticWebLayerLoadBasedAutoScalingUpscaling {
+		return &v
+	}).(StaticWebLayerLoadBasedAutoScalingUpscalingPtrOutput)
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingUpscalingOutput) Alarms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StaticWebLayerLoadBasedAutoScalingUpscaling) []string { return v.Alarms }).(pulumi.StringArrayOutput)
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingUpscalingOutput) CpuThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v StaticWebLayerLoadBasedAutoScalingUpscaling) *float64 { return v.CpuThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingUpscalingOutput) IgnoreMetricsTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StaticWebLayerLoadBasedAutoScalingUpscaling) *int { return v.IgnoreMetricsTime }).(pulumi.IntPtrOutput)
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingUpscalingOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StaticWebLayerLoadBasedAutoScalingUpscaling) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingUpscalingOutput) LoadThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v StaticWebLayerLoadBasedAutoScalingUpscaling) *float64 { return v.LoadThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingUpscalingOutput) MemoryThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v StaticWebLayerLoadBasedAutoScalingUpscaling) *float64 { return v.MemoryThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingUpscalingOutput) ThresholdsWaitTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StaticWebLayerLoadBasedAutoScalingUpscaling) *int { return v.ThresholdsWaitTime }).(pulumi.IntPtrOutput)
+}
+
+type StaticWebLayerLoadBasedAutoScalingUpscalingPtrOutput struct{ *pulumi.OutputState }
+
+func (StaticWebLayerLoadBasedAutoScalingUpscalingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StaticWebLayerLoadBasedAutoScalingUpscaling)(nil)).Elem()
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingUpscalingPtrOutput) ToStaticWebLayerLoadBasedAutoScalingUpscalingPtrOutput() StaticWebLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingUpscalingPtrOutput) ToStaticWebLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx context.Context) StaticWebLayerLoadBasedAutoScalingUpscalingPtrOutput {
+	return o
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingUpscalingPtrOutput) Elem() StaticWebLayerLoadBasedAutoScalingUpscalingOutput {
+	return o.ApplyT(func(v *StaticWebLayerLoadBasedAutoScalingUpscaling) StaticWebLayerLoadBasedAutoScalingUpscaling {
+		if v != nil {
+			return *v
+		}
+		var ret StaticWebLayerLoadBasedAutoScalingUpscaling
+		return ret
+	}).(StaticWebLayerLoadBasedAutoScalingUpscalingOutput)
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingUpscalingPtrOutput) Alarms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StaticWebLayerLoadBasedAutoScalingUpscaling) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Alarms
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingUpscalingPtrOutput) CpuThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *StaticWebLayerLoadBasedAutoScalingUpscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.CpuThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingUpscalingPtrOutput) IgnoreMetricsTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *StaticWebLayerLoadBasedAutoScalingUpscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IgnoreMetricsTime
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingUpscalingPtrOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *StaticWebLayerLoadBasedAutoScalingUpscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceCount
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingUpscalingPtrOutput) LoadThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *StaticWebLayerLoadBasedAutoScalingUpscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.LoadThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingUpscalingPtrOutput) MemoryThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *StaticWebLayerLoadBasedAutoScalingUpscaling) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MemoryThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingUpscalingPtrOutput) ThresholdsWaitTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *StaticWebLayerLoadBasedAutoScalingUpscaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ThresholdsWaitTime
+	}).(pulumi.IntPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationAppSourceInput)(nil)).Elem(), ApplicationAppSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationAppSourceArrayInput)(nil)).Elem(), ApplicationAppSourceArray{})
@@ -5885,24 +12690,48 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomLayerCloudwatchConfigurationLogStreamArrayInput)(nil)).Elem(), CustomLayerCloudwatchConfigurationLogStreamArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomLayerEbsVolumeInput)(nil)).Elem(), CustomLayerEbsVolumeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomLayerEbsVolumeArrayInput)(nil)).Elem(), CustomLayerEbsVolumeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomLayerLoadBasedAutoScalingInput)(nil)).Elem(), CustomLayerLoadBasedAutoScalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomLayerLoadBasedAutoScalingPtrInput)(nil)).Elem(), CustomLayerLoadBasedAutoScalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomLayerLoadBasedAutoScalingDownscalingInput)(nil)).Elem(), CustomLayerLoadBasedAutoScalingDownscalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomLayerLoadBasedAutoScalingDownscalingPtrInput)(nil)).Elem(), CustomLayerLoadBasedAutoScalingDownscalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomLayerLoadBasedAutoScalingUpscalingInput)(nil)).Elem(), CustomLayerLoadBasedAutoScalingUpscalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomLayerLoadBasedAutoScalingUpscalingPtrInput)(nil)).Elem(), CustomLayerLoadBasedAutoScalingUpscalingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EcsClusterLayerCloudwatchConfigurationInput)(nil)).Elem(), EcsClusterLayerCloudwatchConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EcsClusterLayerCloudwatchConfigurationPtrInput)(nil)).Elem(), EcsClusterLayerCloudwatchConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EcsClusterLayerCloudwatchConfigurationLogStreamInput)(nil)).Elem(), EcsClusterLayerCloudwatchConfigurationLogStreamArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EcsClusterLayerCloudwatchConfigurationLogStreamArrayInput)(nil)).Elem(), EcsClusterLayerCloudwatchConfigurationLogStreamArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EcsClusterLayerEbsVolumeInput)(nil)).Elem(), EcsClusterLayerEbsVolumeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EcsClusterLayerEbsVolumeArrayInput)(nil)).Elem(), EcsClusterLayerEbsVolumeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EcsClusterLayerLoadBasedAutoScalingInput)(nil)).Elem(), EcsClusterLayerLoadBasedAutoScalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EcsClusterLayerLoadBasedAutoScalingPtrInput)(nil)).Elem(), EcsClusterLayerLoadBasedAutoScalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EcsClusterLayerLoadBasedAutoScalingDownscalingInput)(nil)).Elem(), EcsClusterLayerLoadBasedAutoScalingDownscalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EcsClusterLayerLoadBasedAutoScalingDownscalingPtrInput)(nil)).Elem(), EcsClusterLayerLoadBasedAutoScalingDownscalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EcsClusterLayerLoadBasedAutoScalingUpscalingInput)(nil)).Elem(), EcsClusterLayerLoadBasedAutoScalingUpscalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EcsClusterLayerLoadBasedAutoScalingUpscalingPtrInput)(nil)).Elem(), EcsClusterLayerLoadBasedAutoScalingUpscalingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GangliaLayerCloudwatchConfigurationInput)(nil)).Elem(), GangliaLayerCloudwatchConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GangliaLayerCloudwatchConfigurationPtrInput)(nil)).Elem(), GangliaLayerCloudwatchConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GangliaLayerCloudwatchConfigurationLogStreamInput)(nil)).Elem(), GangliaLayerCloudwatchConfigurationLogStreamArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GangliaLayerCloudwatchConfigurationLogStreamArrayInput)(nil)).Elem(), GangliaLayerCloudwatchConfigurationLogStreamArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GangliaLayerEbsVolumeInput)(nil)).Elem(), GangliaLayerEbsVolumeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GangliaLayerEbsVolumeArrayInput)(nil)).Elem(), GangliaLayerEbsVolumeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GangliaLayerLoadBasedAutoScalingInput)(nil)).Elem(), GangliaLayerLoadBasedAutoScalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GangliaLayerLoadBasedAutoScalingPtrInput)(nil)).Elem(), GangliaLayerLoadBasedAutoScalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GangliaLayerLoadBasedAutoScalingDownscalingInput)(nil)).Elem(), GangliaLayerLoadBasedAutoScalingDownscalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GangliaLayerLoadBasedAutoScalingDownscalingPtrInput)(nil)).Elem(), GangliaLayerLoadBasedAutoScalingDownscalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GangliaLayerLoadBasedAutoScalingUpscalingInput)(nil)).Elem(), GangliaLayerLoadBasedAutoScalingUpscalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GangliaLayerLoadBasedAutoScalingUpscalingPtrInput)(nil)).Elem(), GangliaLayerLoadBasedAutoScalingUpscalingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HaproxyLayerCloudwatchConfigurationInput)(nil)).Elem(), HaproxyLayerCloudwatchConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HaproxyLayerCloudwatchConfigurationPtrInput)(nil)).Elem(), HaproxyLayerCloudwatchConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HaproxyLayerCloudwatchConfigurationLogStreamInput)(nil)).Elem(), HaproxyLayerCloudwatchConfigurationLogStreamArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HaproxyLayerCloudwatchConfigurationLogStreamArrayInput)(nil)).Elem(), HaproxyLayerCloudwatchConfigurationLogStreamArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HaproxyLayerEbsVolumeInput)(nil)).Elem(), HaproxyLayerEbsVolumeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HaproxyLayerEbsVolumeArrayInput)(nil)).Elem(), HaproxyLayerEbsVolumeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HaproxyLayerLoadBasedAutoScalingInput)(nil)).Elem(), HaproxyLayerLoadBasedAutoScalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HaproxyLayerLoadBasedAutoScalingPtrInput)(nil)).Elem(), HaproxyLayerLoadBasedAutoScalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HaproxyLayerLoadBasedAutoScalingDownscalingInput)(nil)).Elem(), HaproxyLayerLoadBasedAutoScalingDownscalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HaproxyLayerLoadBasedAutoScalingDownscalingPtrInput)(nil)).Elem(), HaproxyLayerLoadBasedAutoScalingDownscalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HaproxyLayerLoadBasedAutoScalingUpscalingInput)(nil)).Elem(), HaproxyLayerLoadBasedAutoScalingUpscalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HaproxyLayerLoadBasedAutoScalingUpscalingPtrInput)(nil)).Elem(), HaproxyLayerLoadBasedAutoScalingUpscalingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceEbsBlockDeviceInput)(nil)).Elem(), InstanceEbsBlockDeviceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceEbsBlockDeviceArrayInput)(nil)).Elem(), InstanceEbsBlockDeviceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceEphemeralBlockDeviceInput)(nil)).Elem(), InstanceEphemeralBlockDeviceArgs{})
@@ -5915,36 +12744,72 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JavaAppLayerCloudwatchConfigurationLogStreamArrayInput)(nil)).Elem(), JavaAppLayerCloudwatchConfigurationLogStreamArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JavaAppLayerEbsVolumeInput)(nil)).Elem(), JavaAppLayerEbsVolumeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JavaAppLayerEbsVolumeArrayInput)(nil)).Elem(), JavaAppLayerEbsVolumeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JavaAppLayerLoadBasedAutoScalingInput)(nil)).Elem(), JavaAppLayerLoadBasedAutoScalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JavaAppLayerLoadBasedAutoScalingPtrInput)(nil)).Elem(), JavaAppLayerLoadBasedAutoScalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JavaAppLayerLoadBasedAutoScalingDownscalingInput)(nil)).Elem(), JavaAppLayerLoadBasedAutoScalingDownscalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JavaAppLayerLoadBasedAutoScalingDownscalingPtrInput)(nil)).Elem(), JavaAppLayerLoadBasedAutoScalingDownscalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JavaAppLayerLoadBasedAutoScalingUpscalingInput)(nil)).Elem(), JavaAppLayerLoadBasedAutoScalingUpscalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JavaAppLayerLoadBasedAutoScalingUpscalingPtrInput)(nil)).Elem(), JavaAppLayerLoadBasedAutoScalingUpscalingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemcachedLayerCloudwatchConfigurationInput)(nil)).Elem(), MemcachedLayerCloudwatchConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemcachedLayerCloudwatchConfigurationPtrInput)(nil)).Elem(), MemcachedLayerCloudwatchConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemcachedLayerCloudwatchConfigurationLogStreamInput)(nil)).Elem(), MemcachedLayerCloudwatchConfigurationLogStreamArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemcachedLayerCloudwatchConfigurationLogStreamArrayInput)(nil)).Elem(), MemcachedLayerCloudwatchConfigurationLogStreamArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemcachedLayerEbsVolumeInput)(nil)).Elem(), MemcachedLayerEbsVolumeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemcachedLayerEbsVolumeArrayInput)(nil)).Elem(), MemcachedLayerEbsVolumeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemcachedLayerLoadBasedAutoScalingInput)(nil)).Elem(), MemcachedLayerLoadBasedAutoScalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemcachedLayerLoadBasedAutoScalingPtrInput)(nil)).Elem(), MemcachedLayerLoadBasedAutoScalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemcachedLayerLoadBasedAutoScalingDownscalingInput)(nil)).Elem(), MemcachedLayerLoadBasedAutoScalingDownscalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemcachedLayerLoadBasedAutoScalingDownscalingPtrInput)(nil)).Elem(), MemcachedLayerLoadBasedAutoScalingDownscalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemcachedLayerLoadBasedAutoScalingUpscalingInput)(nil)).Elem(), MemcachedLayerLoadBasedAutoScalingUpscalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemcachedLayerLoadBasedAutoScalingUpscalingPtrInput)(nil)).Elem(), MemcachedLayerLoadBasedAutoScalingUpscalingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MysqlLayerCloudwatchConfigurationInput)(nil)).Elem(), MysqlLayerCloudwatchConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MysqlLayerCloudwatchConfigurationPtrInput)(nil)).Elem(), MysqlLayerCloudwatchConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MysqlLayerCloudwatchConfigurationLogStreamInput)(nil)).Elem(), MysqlLayerCloudwatchConfigurationLogStreamArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MysqlLayerCloudwatchConfigurationLogStreamArrayInput)(nil)).Elem(), MysqlLayerCloudwatchConfigurationLogStreamArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MysqlLayerEbsVolumeInput)(nil)).Elem(), MysqlLayerEbsVolumeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MysqlLayerEbsVolumeArrayInput)(nil)).Elem(), MysqlLayerEbsVolumeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MysqlLayerLoadBasedAutoScalingInput)(nil)).Elem(), MysqlLayerLoadBasedAutoScalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MysqlLayerLoadBasedAutoScalingPtrInput)(nil)).Elem(), MysqlLayerLoadBasedAutoScalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MysqlLayerLoadBasedAutoScalingDownscalingInput)(nil)).Elem(), MysqlLayerLoadBasedAutoScalingDownscalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MysqlLayerLoadBasedAutoScalingDownscalingPtrInput)(nil)).Elem(), MysqlLayerLoadBasedAutoScalingDownscalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MysqlLayerLoadBasedAutoScalingUpscalingInput)(nil)).Elem(), MysqlLayerLoadBasedAutoScalingUpscalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MysqlLayerLoadBasedAutoScalingUpscalingPtrInput)(nil)).Elem(), MysqlLayerLoadBasedAutoScalingUpscalingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NodejsAppLayerCloudwatchConfigurationInput)(nil)).Elem(), NodejsAppLayerCloudwatchConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NodejsAppLayerCloudwatchConfigurationPtrInput)(nil)).Elem(), NodejsAppLayerCloudwatchConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NodejsAppLayerCloudwatchConfigurationLogStreamInput)(nil)).Elem(), NodejsAppLayerCloudwatchConfigurationLogStreamArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NodejsAppLayerCloudwatchConfigurationLogStreamArrayInput)(nil)).Elem(), NodejsAppLayerCloudwatchConfigurationLogStreamArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NodejsAppLayerEbsVolumeInput)(nil)).Elem(), NodejsAppLayerEbsVolumeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NodejsAppLayerEbsVolumeArrayInput)(nil)).Elem(), NodejsAppLayerEbsVolumeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NodejsAppLayerLoadBasedAutoScalingInput)(nil)).Elem(), NodejsAppLayerLoadBasedAutoScalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NodejsAppLayerLoadBasedAutoScalingPtrInput)(nil)).Elem(), NodejsAppLayerLoadBasedAutoScalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NodejsAppLayerLoadBasedAutoScalingDownscalingInput)(nil)).Elem(), NodejsAppLayerLoadBasedAutoScalingDownscalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NodejsAppLayerLoadBasedAutoScalingDownscalingPtrInput)(nil)).Elem(), NodejsAppLayerLoadBasedAutoScalingDownscalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NodejsAppLayerLoadBasedAutoScalingUpscalingInput)(nil)).Elem(), NodejsAppLayerLoadBasedAutoScalingUpscalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NodejsAppLayerLoadBasedAutoScalingUpscalingPtrInput)(nil)).Elem(), NodejsAppLayerLoadBasedAutoScalingUpscalingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PhpAppLayerCloudwatchConfigurationInput)(nil)).Elem(), PhpAppLayerCloudwatchConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PhpAppLayerCloudwatchConfigurationPtrInput)(nil)).Elem(), PhpAppLayerCloudwatchConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PhpAppLayerCloudwatchConfigurationLogStreamInput)(nil)).Elem(), PhpAppLayerCloudwatchConfigurationLogStreamArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PhpAppLayerCloudwatchConfigurationLogStreamArrayInput)(nil)).Elem(), PhpAppLayerCloudwatchConfigurationLogStreamArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PhpAppLayerEbsVolumeInput)(nil)).Elem(), PhpAppLayerEbsVolumeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PhpAppLayerEbsVolumeArrayInput)(nil)).Elem(), PhpAppLayerEbsVolumeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PhpAppLayerLoadBasedAutoScalingInput)(nil)).Elem(), PhpAppLayerLoadBasedAutoScalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PhpAppLayerLoadBasedAutoScalingPtrInput)(nil)).Elem(), PhpAppLayerLoadBasedAutoScalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PhpAppLayerLoadBasedAutoScalingDownscalingInput)(nil)).Elem(), PhpAppLayerLoadBasedAutoScalingDownscalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PhpAppLayerLoadBasedAutoScalingDownscalingPtrInput)(nil)).Elem(), PhpAppLayerLoadBasedAutoScalingDownscalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PhpAppLayerLoadBasedAutoScalingUpscalingInput)(nil)).Elem(), PhpAppLayerLoadBasedAutoScalingUpscalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PhpAppLayerLoadBasedAutoScalingUpscalingPtrInput)(nil)).Elem(), PhpAppLayerLoadBasedAutoScalingUpscalingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RailsAppLayerCloudwatchConfigurationInput)(nil)).Elem(), RailsAppLayerCloudwatchConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RailsAppLayerCloudwatchConfigurationPtrInput)(nil)).Elem(), RailsAppLayerCloudwatchConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RailsAppLayerCloudwatchConfigurationLogStreamInput)(nil)).Elem(), RailsAppLayerCloudwatchConfigurationLogStreamArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RailsAppLayerCloudwatchConfigurationLogStreamArrayInput)(nil)).Elem(), RailsAppLayerCloudwatchConfigurationLogStreamArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RailsAppLayerEbsVolumeInput)(nil)).Elem(), RailsAppLayerEbsVolumeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RailsAppLayerEbsVolumeArrayInput)(nil)).Elem(), RailsAppLayerEbsVolumeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RailsAppLayerLoadBasedAutoScalingInput)(nil)).Elem(), RailsAppLayerLoadBasedAutoScalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RailsAppLayerLoadBasedAutoScalingPtrInput)(nil)).Elem(), RailsAppLayerLoadBasedAutoScalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RailsAppLayerLoadBasedAutoScalingDownscalingInput)(nil)).Elem(), RailsAppLayerLoadBasedAutoScalingDownscalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RailsAppLayerLoadBasedAutoScalingDownscalingPtrInput)(nil)).Elem(), RailsAppLayerLoadBasedAutoScalingDownscalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RailsAppLayerLoadBasedAutoScalingUpscalingInput)(nil)).Elem(), RailsAppLayerLoadBasedAutoScalingUpscalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RailsAppLayerLoadBasedAutoScalingUpscalingPtrInput)(nil)).Elem(), RailsAppLayerLoadBasedAutoScalingUpscalingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackCustomCookbooksSourceInput)(nil)).Elem(), StackCustomCookbooksSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackCustomCookbooksSourceArrayInput)(nil)).Elem(), StackCustomCookbooksSourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StaticWebLayerCloudwatchConfigurationInput)(nil)).Elem(), StaticWebLayerCloudwatchConfigurationArgs{})
@@ -5953,6 +12818,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StaticWebLayerCloudwatchConfigurationLogStreamArrayInput)(nil)).Elem(), StaticWebLayerCloudwatchConfigurationLogStreamArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StaticWebLayerEbsVolumeInput)(nil)).Elem(), StaticWebLayerEbsVolumeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StaticWebLayerEbsVolumeArrayInput)(nil)).Elem(), StaticWebLayerEbsVolumeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StaticWebLayerLoadBasedAutoScalingInput)(nil)).Elem(), StaticWebLayerLoadBasedAutoScalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StaticWebLayerLoadBasedAutoScalingPtrInput)(nil)).Elem(), StaticWebLayerLoadBasedAutoScalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StaticWebLayerLoadBasedAutoScalingDownscalingInput)(nil)).Elem(), StaticWebLayerLoadBasedAutoScalingDownscalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StaticWebLayerLoadBasedAutoScalingDownscalingPtrInput)(nil)).Elem(), StaticWebLayerLoadBasedAutoScalingDownscalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StaticWebLayerLoadBasedAutoScalingUpscalingInput)(nil)).Elem(), StaticWebLayerLoadBasedAutoScalingUpscalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StaticWebLayerLoadBasedAutoScalingUpscalingPtrInput)(nil)).Elem(), StaticWebLayerLoadBasedAutoScalingUpscalingArgs{})
 	pulumi.RegisterOutputType(ApplicationAppSourceOutput{})
 	pulumi.RegisterOutputType(ApplicationAppSourceArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationEnvironmentOutput{})
@@ -5965,24 +12836,48 @@ func init() {
 	pulumi.RegisterOutputType(CustomLayerCloudwatchConfigurationLogStreamArrayOutput{})
 	pulumi.RegisterOutputType(CustomLayerEbsVolumeOutput{})
 	pulumi.RegisterOutputType(CustomLayerEbsVolumeArrayOutput{})
+	pulumi.RegisterOutputType(CustomLayerLoadBasedAutoScalingOutput{})
+	pulumi.RegisterOutputType(CustomLayerLoadBasedAutoScalingPtrOutput{})
+	pulumi.RegisterOutputType(CustomLayerLoadBasedAutoScalingDownscalingOutput{})
+	pulumi.RegisterOutputType(CustomLayerLoadBasedAutoScalingDownscalingPtrOutput{})
+	pulumi.RegisterOutputType(CustomLayerLoadBasedAutoScalingUpscalingOutput{})
+	pulumi.RegisterOutputType(CustomLayerLoadBasedAutoScalingUpscalingPtrOutput{})
 	pulumi.RegisterOutputType(EcsClusterLayerCloudwatchConfigurationOutput{})
 	pulumi.RegisterOutputType(EcsClusterLayerCloudwatchConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(EcsClusterLayerCloudwatchConfigurationLogStreamOutput{})
 	pulumi.RegisterOutputType(EcsClusterLayerCloudwatchConfigurationLogStreamArrayOutput{})
 	pulumi.RegisterOutputType(EcsClusterLayerEbsVolumeOutput{})
 	pulumi.RegisterOutputType(EcsClusterLayerEbsVolumeArrayOutput{})
+	pulumi.RegisterOutputType(EcsClusterLayerLoadBasedAutoScalingOutput{})
+	pulumi.RegisterOutputType(EcsClusterLayerLoadBasedAutoScalingPtrOutput{})
+	pulumi.RegisterOutputType(EcsClusterLayerLoadBasedAutoScalingDownscalingOutput{})
+	pulumi.RegisterOutputType(EcsClusterLayerLoadBasedAutoScalingDownscalingPtrOutput{})
+	pulumi.RegisterOutputType(EcsClusterLayerLoadBasedAutoScalingUpscalingOutput{})
+	pulumi.RegisterOutputType(EcsClusterLayerLoadBasedAutoScalingUpscalingPtrOutput{})
 	pulumi.RegisterOutputType(GangliaLayerCloudwatchConfigurationOutput{})
 	pulumi.RegisterOutputType(GangliaLayerCloudwatchConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(GangliaLayerCloudwatchConfigurationLogStreamOutput{})
 	pulumi.RegisterOutputType(GangliaLayerCloudwatchConfigurationLogStreamArrayOutput{})
 	pulumi.RegisterOutputType(GangliaLayerEbsVolumeOutput{})
 	pulumi.RegisterOutputType(GangliaLayerEbsVolumeArrayOutput{})
+	pulumi.RegisterOutputType(GangliaLayerLoadBasedAutoScalingOutput{})
+	pulumi.RegisterOutputType(GangliaLayerLoadBasedAutoScalingPtrOutput{})
+	pulumi.RegisterOutputType(GangliaLayerLoadBasedAutoScalingDownscalingOutput{})
+	pulumi.RegisterOutputType(GangliaLayerLoadBasedAutoScalingDownscalingPtrOutput{})
+	pulumi.RegisterOutputType(GangliaLayerLoadBasedAutoScalingUpscalingOutput{})
+	pulumi.RegisterOutputType(GangliaLayerLoadBasedAutoScalingUpscalingPtrOutput{})
 	pulumi.RegisterOutputType(HaproxyLayerCloudwatchConfigurationOutput{})
 	pulumi.RegisterOutputType(HaproxyLayerCloudwatchConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(HaproxyLayerCloudwatchConfigurationLogStreamOutput{})
 	pulumi.RegisterOutputType(HaproxyLayerCloudwatchConfigurationLogStreamArrayOutput{})
 	pulumi.RegisterOutputType(HaproxyLayerEbsVolumeOutput{})
 	pulumi.RegisterOutputType(HaproxyLayerEbsVolumeArrayOutput{})
+	pulumi.RegisterOutputType(HaproxyLayerLoadBasedAutoScalingOutput{})
+	pulumi.RegisterOutputType(HaproxyLayerLoadBasedAutoScalingPtrOutput{})
+	pulumi.RegisterOutputType(HaproxyLayerLoadBasedAutoScalingDownscalingOutput{})
+	pulumi.RegisterOutputType(HaproxyLayerLoadBasedAutoScalingDownscalingPtrOutput{})
+	pulumi.RegisterOutputType(HaproxyLayerLoadBasedAutoScalingUpscalingOutput{})
+	pulumi.RegisterOutputType(HaproxyLayerLoadBasedAutoScalingUpscalingPtrOutput{})
 	pulumi.RegisterOutputType(InstanceEbsBlockDeviceOutput{})
 	pulumi.RegisterOutputType(InstanceEbsBlockDeviceArrayOutput{})
 	pulumi.RegisterOutputType(InstanceEphemeralBlockDeviceOutput{})
@@ -5995,36 +12890,72 @@ func init() {
 	pulumi.RegisterOutputType(JavaAppLayerCloudwatchConfigurationLogStreamArrayOutput{})
 	pulumi.RegisterOutputType(JavaAppLayerEbsVolumeOutput{})
 	pulumi.RegisterOutputType(JavaAppLayerEbsVolumeArrayOutput{})
+	pulumi.RegisterOutputType(JavaAppLayerLoadBasedAutoScalingOutput{})
+	pulumi.RegisterOutputType(JavaAppLayerLoadBasedAutoScalingPtrOutput{})
+	pulumi.RegisterOutputType(JavaAppLayerLoadBasedAutoScalingDownscalingOutput{})
+	pulumi.RegisterOutputType(JavaAppLayerLoadBasedAutoScalingDownscalingPtrOutput{})
+	pulumi.RegisterOutputType(JavaAppLayerLoadBasedAutoScalingUpscalingOutput{})
+	pulumi.RegisterOutputType(JavaAppLayerLoadBasedAutoScalingUpscalingPtrOutput{})
 	pulumi.RegisterOutputType(MemcachedLayerCloudwatchConfigurationOutput{})
 	pulumi.RegisterOutputType(MemcachedLayerCloudwatchConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(MemcachedLayerCloudwatchConfigurationLogStreamOutput{})
 	pulumi.RegisterOutputType(MemcachedLayerCloudwatchConfigurationLogStreamArrayOutput{})
 	pulumi.RegisterOutputType(MemcachedLayerEbsVolumeOutput{})
 	pulumi.RegisterOutputType(MemcachedLayerEbsVolumeArrayOutput{})
+	pulumi.RegisterOutputType(MemcachedLayerLoadBasedAutoScalingOutput{})
+	pulumi.RegisterOutputType(MemcachedLayerLoadBasedAutoScalingPtrOutput{})
+	pulumi.RegisterOutputType(MemcachedLayerLoadBasedAutoScalingDownscalingOutput{})
+	pulumi.RegisterOutputType(MemcachedLayerLoadBasedAutoScalingDownscalingPtrOutput{})
+	pulumi.RegisterOutputType(MemcachedLayerLoadBasedAutoScalingUpscalingOutput{})
+	pulumi.RegisterOutputType(MemcachedLayerLoadBasedAutoScalingUpscalingPtrOutput{})
 	pulumi.RegisterOutputType(MysqlLayerCloudwatchConfigurationOutput{})
 	pulumi.RegisterOutputType(MysqlLayerCloudwatchConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(MysqlLayerCloudwatchConfigurationLogStreamOutput{})
 	pulumi.RegisterOutputType(MysqlLayerCloudwatchConfigurationLogStreamArrayOutput{})
 	pulumi.RegisterOutputType(MysqlLayerEbsVolumeOutput{})
 	pulumi.RegisterOutputType(MysqlLayerEbsVolumeArrayOutput{})
+	pulumi.RegisterOutputType(MysqlLayerLoadBasedAutoScalingOutput{})
+	pulumi.RegisterOutputType(MysqlLayerLoadBasedAutoScalingPtrOutput{})
+	pulumi.RegisterOutputType(MysqlLayerLoadBasedAutoScalingDownscalingOutput{})
+	pulumi.RegisterOutputType(MysqlLayerLoadBasedAutoScalingDownscalingPtrOutput{})
+	pulumi.RegisterOutputType(MysqlLayerLoadBasedAutoScalingUpscalingOutput{})
+	pulumi.RegisterOutputType(MysqlLayerLoadBasedAutoScalingUpscalingPtrOutput{})
 	pulumi.RegisterOutputType(NodejsAppLayerCloudwatchConfigurationOutput{})
 	pulumi.RegisterOutputType(NodejsAppLayerCloudwatchConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(NodejsAppLayerCloudwatchConfigurationLogStreamOutput{})
 	pulumi.RegisterOutputType(NodejsAppLayerCloudwatchConfigurationLogStreamArrayOutput{})
 	pulumi.RegisterOutputType(NodejsAppLayerEbsVolumeOutput{})
 	pulumi.RegisterOutputType(NodejsAppLayerEbsVolumeArrayOutput{})
+	pulumi.RegisterOutputType(NodejsAppLayerLoadBasedAutoScalingOutput{})
+	pulumi.RegisterOutputType(NodejsAppLayerLoadBasedAutoScalingPtrOutput{})
+	pulumi.RegisterOutputType(NodejsAppLayerLoadBasedAutoScalingDownscalingOutput{})
+	pulumi.RegisterOutputType(NodejsAppLayerLoadBasedAutoScalingDownscalingPtrOutput{})
+	pulumi.RegisterOutputType(NodejsAppLayerLoadBasedAutoScalingUpscalingOutput{})
+	pulumi.RegisterOutputType(NodejsAppLayerLoadBasedAutoScalingUpscalingPtrOutput{})
 	pulumi.RegisterOutputType(PhpAppLayerCloudwatchConfigurationOutput{})
 	pulumi.RegisterOutputType(PhpAppLayerCloudwatchConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(PhpAppLayerCloudwatchConfigurationLogStreamOutput{})
 	pulumi.RegisterOutputType(PhpAppLayerCloudwatchConfigurationLogStreamArrayOutput{})
 	pulumi.RegisterOutputType(PhpAppLayerEbsVolumeOutput{})
 	pulumi.RegisterOutputType(PhpAppLayerEbsVolumeArrayOutput{})
+	pulumi.RegisterOutputType(PhpAppLayerLoadBasedAutoScalingOutput{})
+	pulumi.RegisterOutputType(PhpAppLayerLoadBasedAutoScalingPtrOutput{})
+	pulumi.RegisterOutputType(PhpAppLayerLoadBasedAutoScalingDownscalingOutput{})
+	pulumi.RegisterOutputType(PhpAppLayerLoadBasedAutoScalingDownscalingPtrOutput{})
+	pulumi.RegisterOutputType(PhpAppLayerLoadBasedAutoScalingUpscalingOutput{})
+	pulumi.RegisterOutputType(PhpAppLayerLoadBasedAutoScalingUpscalingPtrOutput{})
 	pulumi.RegisterOutputType(RailsAppLayerCloudwatchConfigurationOutput{})
 	pulumi.RegisterOutputType(RailsAppLayerCloudwatchConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RailsAppLayerCloudwatchConfigurationLogStreamOutput{})
 	pulumi.RegisterOutputType(RailsAppLayerCloudwatchConfigurationLogStreamArrayOutput{})
 	pulumi.RegisterOutputType(RailsAppLayerEbsVolumeOutput{})
 	pulumi.RegisterOutputType(RailsAppLayerEbsVolumeArrayOutput{})
+	pulumi.RegisterOutputType(RailsAppLayerLoadBasedAutoScalingOutput{})
+	pulumi.RegisterOutputType(RailsAppLayerLoadBasedAutoScalingPtrOutput{})
+	pulumi.RegisterOutputType(RailsAppLayerLoadBasedAutoScalingDownscalingOutput{})
+	pulumi.RegisterOutputType(RailsAppLayerLoadBasedAutoScalingDownscalingPtrOutput{})
+	pulumi.RegisterOutputType(RailsAppLayerLoadBasedAutoScalingUpscalingOutput{})
+	pulumi.RegisterOutputType(RailsAppLayerLoadBasedAutoScalingUpscalingPtrOutput{})
 	pulumi.RegisterOutputType(StackCustomCookbooksSourceOutput{})
 	pulumi.RegisterOutputType(StackCustomCookbooksSourceArrayOutput{})
 	pulumi.RegisterOutputType(StaticWebLayerCloudwatchConfigurationOutput{})
@@ -6033,4 +12964,10 @@ func init() {
 	pulumi.RegisterOutputType(StaticWebLayerCloudwatchConfigurationLogStreamArrayOutput{})
 	pulumi.RegisterOutputType(StaticWebLayerEbsVolumeOutput{})
 	pulumi.RegisterOutputType(StaticWebLayerEbsVolumeArrayOutput{})
+	pulumi.RegisterOutputType(StaticWebLayerLoadBasedAutoScalingOutput{})
+	pulumi.RegisterOutputType(StaticWebLayerLoadBasedAutoScalingPtrOutput{})
+	pulumi.RegisterOutputType(StaticWebLayerLoadBasedAutoScalingDownscalingOutput{})
+	pulumi.RegisterOutputType(StaticWebLayerLoadBasedAutoScalingDownscalingPtrOutput{})
+	pulumi.RegisterOutputType(StaticWebLayerLoadBasedAutoScalingUpscalingOutput{})
+	pulumi.RegisterOutputType(StaticWebLayerLoadBasedAutoScalingUpscalingPtrOutput{})
 }

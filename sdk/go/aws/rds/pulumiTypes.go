@@ -2158,6 +2158,106 @@ func (o ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput) SessionPinningFilt
 	}).(pulumi.StringArrayOutput)
 }
 
+type ReservedInstanceRecurringCharge struct {
+	RecurringChargeAmount    *int    `pulumi:"recurringChargeAmount"`
+	RecurringChargeFrequency *string `pulumi:"recurringChargeFrequency"`
+}
+
+// ReservedInstanceRecurringChargeInput is an input type that accepts ReservedInstanceRecurringChargeArgs and ReservedInstanceRecurringChargeOutput values.
+// You can construct a concrete instance of `ReservedInstanceRecurringChargeInput` via:
+//
+//	ReservedInstanceRecurringChargeArgs{...}
+type ReservedInstanceRecurringChargeInput interface {
+	pulumi.Input
+
+	ToReservedInstanceRecurringChargeOutput() ReservedInstanceRecurringChargeOutput
+	ToReservedInstanceRecurringChargeOutputWithContext(context.Context) ReservedInstanceRecurringChargeOutput
+}
+
+type ReservedInstanceRecurringChargeArgs struct {
+	RecurringChargeAmount    pulumi.IntPtrInput    `pulumi:"recurringChargeAmount"`
+	RecurringChargeFrequency pulumi.StringPtrInput `pulumi:"recurringChargeFrequency"`
+}
+
+func (ReservedInstanceRecurringChargeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReservedInstanceRecurringCharge)(nil)).Elem()
+}
+
+func (i ReservedInstanceRecurringChargeArgs) ToReservedInstanceRecurringChargeOutput() ReservedInstanceRecurringChargeOutput {
+	return i.ToReservedInstanceRecurringChargeOutputWithContext(context.Background())
+}
+
+func (i ReservedInstanceRecurringChargeArgs) ToReservedInstanceRecurringChargeOutputWithContext(ctx context.Context) ReservedInstanceRecurringChargeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReservedInstanceRecurringChargeOutput)
+}
+
+// ReservedInstanceRecurringChargeArrayInput is an input type that accepts ReservedInstanceRecurringChargeArray and ReservedInstanceRecurringChargeArrayOutput values.
+// You can construct a concrete instance of `ReservedInstanceRecurringChargeArrayInput` via:
+//
+//	ReservedInstanceRecurringChargeArray{ ReservedInstanceRecurringChargeArgs{...} }
+type ReservedInstanceRecurringChargeArrayInput interface {
+	pulumi.Input
+
+	ToReservedInstanceRecurringChargeArrayOutput() ReservedInstanceRecurringChargeArrayOutput
+	ToReservedInstanceRecurringChargeArrayOutputWithContext(context.Context) ReservedInstanceRecurringChargeArrayOutput
+}
+
+type ReservedInstanceRecurringChargeArray []ReservedInstanceRecurringChargeInput
+
+func (ReservedInstanceRecurringChargeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReservedInstanceRecurringCharge)(nil)).Elem()
+}
+
+func (i ReservedInstanceRecurringChargeArray) ToReservedInstanceRecurringChargeArrayOutput() ReservedInstanceRecurringChargeArrayOutput {
+	return i.ToReservedInstanceRecurringChargeArrayOutputWithContext(context.Background())
+}
+
+func (i ReservedInstanceRecurringChargeArray) ToReservedInstanceRecurringChargeArrayOutputWithContext(ctx context.Context) ReservedInstanceRecurringChargeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReservedInstanceRecurringChargeArrayOutput)
+}
+
+type ReservedInstanceRecurringChargeOutput struct{ *pulumi.OutputState }
+
+func (ReservedInstanceRecurringChargeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReservedInstanceRecurringCharge)(nil)).Elem()
+}
+
+func (o ReservedInstanceRecurringChargeOutput) ToReservedInstanceRecurringChargeOutput() ReservedInstanceRecurringChargeOutput {
+	return o
+}
+
+func (o ReservedInstanceRecurringChargeOutput) ToReservedInstanceRecurringChargeOutputWithContext(ctx context.Context) ReservedInstanceRecurringChargeOutput {
+	return o
+}
+
+func (o ReservedInstanceRecurringChargeOutput) RecurringChargeAmount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ReservedInstanceRecurringCharge) *int { return v.RecurringChargeAmount }).(pulumi.IntPtrOutput)
+}
+
+func (o ReservedInstanceRecurringChargeOutput) RecurringChargeFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReservedInstanceRecurringCharge) *string { return v.RecurringChargeFrequency }).(pulumi.StringPtrOutput)
+}
+
+type ReservedInstanceRecurringChargeArrayOutput struct{ *pulumi.OutputState }
+
+func (ReservedInstanceRecurringChargeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReservedInstanceRecurringCharge)(nil)).Elem()
+}
+
+func (o ReservedInstanceRecurringChargeArrayOutput) ToReservedInstanceRecurringChargeArrayOutput() ReservedInstanceRecurringChargeArrayOutput {
+	return o
+}
+
+func (o ReservedInstanceRecurringChargeArrayOutput) ToReservedInstanceRecurringChargeArrayOutputWithContext(ctx context.Context) ReservedInstanceRecurringChargeArrayOutput {
+	return o
+}
+
+func (o ReservedInstanceRecurringChargeArrayOutput) Index(i pulumi.IntInput) ReservedInstanceRecurringChargeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReservedInstanceRecurringCharge {
+		return vs[0].([]ReservedInstanceRecurringCharge)[vs[1].(int)]
+	}).(ReservedInstanceRecurringChargeOutput)
+}
+
 type SecurityGroupIngress struct {
 	// The CIDR block to accept
 	Cidr *string `pulumi:"cidr"`
@@ -2530,6 +2630,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProxyAuthArrayInput)(nil)).Elem(), ProxyAuthArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProxyDefaultTargetGroupConnectionPoolConfigInput)(nil)).Elem(), ProxyDefaultTargetGroupConnectionPoolConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProxyDefaultTargetGroupConnectionPoolConfigPtrInput)(nil)).Elem(), ProxyDefaultTargetGroupConnectionPoolConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReservedInstanceRecurringChargeInput)(nil)).Elem(), ReservedInstanceRecurringChargeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReservedInstanceRecurringChargeArrayInput)(nil)).Elem(), ReservedInstanceRecurringChargeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupIngressInput)(nil)).Elem(), SecurityGroupIngressArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupIngressArrayInput)(nil)).Elem(), SecurityGroupIngressArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEngineVersionFilterInput)(nil)).Elem(), GetEngineVersionFilterArgs{})
@@ -2562,6 +2664,8 @@ func init() {
 	pulumi.RegisterOutputType(ProxyAuthArrayOutput{})
 	pulumi.RegisterOutputType(ProxyDefaultTargetGroupConnectionPoolConfigOutput{})
 	pulumi.RegisterOutputType(ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput{})
+	pulumi.RegisterOutputType(ReservedInstanceRecurringChargeOutput{})
+	pulumi.RegisterOutputType(ReservedInstanceRecurringChargeArrayOutput{})
 	pulumi.RegisterOutputType(SecurityGroupIngressOutput{})
 	pulumi.RegisterOutputType(SecurityGroupIngressArrayOutput{})
 	pulumi.RegisterOutputType(GetEngineVersionFilterOutput{})

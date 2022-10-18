@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:codepipeline/customActionType:CustomActionType":
+		r = &CustomActionType{}
 	case "aws:codepipeline/pipeline:Pipeline":
 		r = &Pipeline{}
 	case "aws:codepipeline/webhook:Webhook":
@@ -38,6 +40,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"aws",
+		"codepipeline/customActionType",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"codepipeline/pipeline",

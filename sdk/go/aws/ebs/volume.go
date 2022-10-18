@@ -43,7 +43,7 @@ import (
 //
 // ```
 //
-// > **NOTE**: At least one of `size` or `snapshotId` is required when specifying an EBS volume
+// > **NOTE:** At least one of `size` or `snapshotId` is required when specifying an EBS volume
 //
 // ## Import
 //

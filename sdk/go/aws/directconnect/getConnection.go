@@ -73,6 +73,8 @@ type LookupConnectionResult struct {
 	ProviderName string `pulumi:"providerName"`
 	// Map of tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// The VLAN ID.
+	VlanId string `pulumi:"vlanId"`
 }
 
 func LookupConnectionOutput(ctx *pulumi.Context, args LookupConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupConnectionResultOutput {
@@ -157,6 +159,11 @@ func (o LookupConnectionResultOutput) ProviderName() pulumi.StringOutput {
 // Map of tags for the resource.
 func (o LookupConnectionResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupConnectionResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The VLAN ID.
+func (o LookupConnectionResultOutput) VlanId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConnectionResult) string { return v.VlanId }).(pulumi.StringOutput)
 }
 
 func init() {

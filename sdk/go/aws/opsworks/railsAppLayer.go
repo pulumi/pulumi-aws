@@ -74,7 +74,8 @@ type RailsAppLayer struct {
 	// Whether to install OS and package updates on each instance when it boots.
 	InstallUpdatesOnBoot pulumi.BoolPtrOutput `pulumi:"installUpdatesOnBoot"`
 	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-	InstanceShutdownTimeout pulumi.IntPtrOutput `pulumi:"instanceShutdownTimeout"`
+	InstanceShutdownTimeout pulumi.IntPtrOutput                     `pulumi:"instanceShutdownTimeout"`
+	LoadBasedAutoScaling    RailsAppLayerLoadBasedAutoScalingOutput `pulumi:"loadBasedAutoScaling"`
 	// Whether OpsWorks should manage bundler. On by default.
 	ManageBundler pulumi.BoolPtrOutput `pulumi:"manageBundler"`
 	// A human-readable name for the layer.
@@ -162,7 +163,8 @@ type railsAppLayerState struct {
 	// Whether to install OS and package updates on each instance when it boots.
 	InstallUpdatesOnBoot *bool `pulumi:"installUpdatesOnBoot"`
 	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-	InstanceShutdownTimeout *int `pulumi:"instanceShutdownTimeout"`
+	InstanceShutdownTimeout *int                               `pulumi:"instanceShutdownTimeout"`
+	LoadBasedAutoScaling    *RailsAppLayerLoadBasedAutoScaling `pulumi:"loadBasedAutoScaling"`
 	// Whether OpsWorks should manage bundler. On by default.
 	ManageBundler *bool `pulumi:"manageBundler"`
 	// A human-readable name for the layer.
@@ -220,6 +222,7 @@ type RailsAppLayerState struct {
 	InstallUpdatesOnBoot pulumi.BoolPtrInput
 	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
 	InstanceShutdownTimeout pulumi.IntPtrInput
+	LoadBasedAutoScaling    RailsAppLayerLoadBasedAutoScalingPtrInput
 	// Whether OpsWorks should manage bundler. On by default.
 	ManageBundler pulumi.BoolPtrInput
 	// A human-readable name for the layer.
@@ -278,7 +281,8 @@ type railsAppLayerArgs struct {
 	// Whether to install OS and package updates on each instance when it boots.
 	InstallUpdatesOnBoot *bool `pulumi:"installUpdatesOnBoot"`
 	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-	InstanceShutdownTimeout *int `pulumi:"instanceShutdownTimeout"`
+	InstanceShutdownTimeout *int                               `pulumi:"instanceShutdownTimeout"`
+	LoadBasedAutoScaling    *RailsAppLayerLoadBasedAutoScaling `pulumi:"loadBasedAutoScaling"`
 	// Whether OpsWorks should manage bundler. On by default.
 	ManageBundler *bool `pulumi:"manageBundler"`
 	// A human-readable name for the layer.
@@ -333,6 +337,7 @@ type RailsAppLayerArgs struct {
 	InstallUpdatesOnBoot pulumi.BoolPtrInput
 	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
 	InstanceShutdownTimeout pulumi.IntPtrInput
+	LoadBasedAutoScaling    RailsAppLayerLoadBasedAutoScalingPtrInput
 	// Whether OpsWorks should manage bundler. On by default.
 	ManageBundler pulumi.BoolPtrInput
 	// A human-readable name for the layer.
@@ -532,6 +537,10 @@ func (o RailsAppLayerOutput) InstallUpdatesOnBoot() pulumi.BoolPtrOutput {
 // The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
 func (o RailsAppLayerOutput) InstanceShutdownTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RailsAppLayer) pulumi.IntPtrOutput { return v.InstanceShutdownTimeout }).(pulumi.IntPtrOutput)
+}
+
+func (o RailsAppLayerOutput) LoadBasedAutoScaling() RailsAppLayerLoadBasedAutoScalingOutput {
+	return o.ApplyT(func(v *RailsAppLayer) RailsAppLayerLoadBasedAutoScalingOutput { return v.LoadBasedAutoScaling }).(RailsAppLayerLoadBasedAutoScalingOutput)
 }
 
 // Whether OpsWorks should manage bundler. On by default.

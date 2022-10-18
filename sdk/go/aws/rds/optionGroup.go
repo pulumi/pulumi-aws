@@ -69,7 +69,7 @@ import (
 //
 // ```
 //
-// > **Note**: Any modifications to the `rds.OptionGroup` are set to happen immediately as we default to applying immediately.
+// > **Note:** Any modifications to the `rds.OptionGroup` are set to happen immediately as we default to applying immediately.
 //
 // > **WARNING:** You can perform a destroy on a `rds.OptionGroup`, as long as it is not associated with any Amazon RDS resource. An option group can be associated with a DB instance, a manual DB snapshot, or an automated DB snapshot.
 //

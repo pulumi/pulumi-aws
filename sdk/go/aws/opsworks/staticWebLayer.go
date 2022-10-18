@@ -79,7 +79,8 @@ type StaticWebLayer struct {
 	// Whether to install OS and package updates on each instance when it boots.
 	InstallUpdatesOnBoot pulumi.BoolPtrOutput `pulumi:"installUpdatesOnBoot"`
 	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-	InstanceShutdownTimeout pulumi.IntPtrOutput `pulumi:"instanceShutdownTimeout"`
+	InstanceShutdownTimeout pulumi.IntPtrOutput                      `pulumi:"instanceShutdownTimeout"`
+	LoadBasedAutoScaling    StaticWebLayerLoadBasedAutoScalingOutput `pulumi:"loadBasedAutoScaling"`
 	// A human-readable name for the layer.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// ID of the stack the layer will belong to.
@@ -154,7 +155,8 @@ type staticWebLayerState struct {
 	// Whether to install OS and package updates on each instance when it boots.
 	InstallUpdatesOnBoot *bool `pulumi:"installUpdatesOnBoot"`
 	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-	InstanceShutdownTimeout *int `pulumi:"instanceShutdownTimeout"`
+	InstanceShutdownTimeout *int                                `pulumi:"instanceShutdownTimeout"`
+	LoadBasedAutoScaling    *StaticWebLayerLoadBasedAutoScaling `pulumi:"loadBasedAutoScaling"`
 	// A human-readable name for the layer.
 	Name *string `pulumi:"name"`
 	// ID of the stack the layer will belong to.
@@ -199,6 +201,7 @@ type StaticWebLayerState struct {
 	InstallUpdatesOnBoot pulumi.BoolPtrInput
 	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
 	InstanceShutdownTimeout pulumi.IntPtrInput
+	LoadBasedAutoScaling    StaticWebLayerLoadBasedAutoScalingPtrInput
 	// A human-readable name for the layer.
 	Name pulumi.StringPtrInput
 	// ID of the stack the layer will belong to.
@@ -244,7 +247,8 @@ type staticWebLayerArgs struct {
 	// Whether to install OS and package updates on each instance when it boots.
 	InstallUpdatesOnBoot *bool `pulumi:"installUpdatesOnBoot"`
 	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-	InstanceShutdownTimeout *int `pulumi:"instanceShutdownTimeout"`
+	InstanceShutdownTimeout *int                                `pulumi:"instanceShutdownTimeout"`
+	LoadBasedAutoScaling    *StaticWebLayerLoadBasedAutoScaling `pulumi:"loadBasedAutoScaling"`
 	// A human-readable name for the layer.
 	Name *string `pulumi:"name"`
 	// ID of the stack the layer will belong to.
@@ -286,6 +290,7 @@ type StaticWebLayerArgs struct {
 	InstallUpdatesOnBoot pulumi.BoolPtrInput
 	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
 	InstanceShutdownTimeout pulumi.IntPtrInput
+	LoadBasedAutoScaling    StaticWebLayerLoadBasedAutoScalingPtrInput
 	// A human-readable name for the layer.
 	Name pulumi.StringPtrInput
 	// ID of the stack the layer will belong to.
@@ -468,6 +473,10 @@ func (o StaticWebLayerOutput) InstallUpdatesOnBoot() pulumi.BoolPtrOutput {
 // The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
 func (o StaticWebLayerOutput) InstanceShutdownTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *StaticWebLayer) pulumi.IntPtrOutput { return v.InstanceShutdownTimeout }).(pulumi.IntPtrOutput)
+}
+
+func (o StaticWebLayerOutput) LoadBasedAutoScaling() StaticWebLayerLoadBasedAutoScalingOutput {
+	return o.ApplyT(func(v *StaticWebLayer) StaticWebLayerLoadBasedAutoScalingOutput { return v.LoadBasedAutoScaling }).(StaticWebLayerLoadBasedAutoScalingOutput)
 }
 
 // A human-readable name for the layer.

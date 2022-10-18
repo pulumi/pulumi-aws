@@ -10,6 +10,663 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type CustomActionTypeConfigurationProperty struct {
+	// The description of the action configuration property.
+	Description *string `pulumi:"description"`
+	// Whether the configuration property is a key.
+	Key bool `pulumi:"key"`
+	// The name of the action configuration property.
+	Name string `pulumi:"name"`
+	// Indicates that the property will be used in conjunction with PollForJobs.
+	Queryable *bool `pulumi:"queryable"`
+	// Whether the configuration property is a required value.
+	Required bool `pulumi:"required"`
+	// Whether the configuration property is secret.
+	Secret bool `pulumi:"secret"`
+	// The type of the configuration property. Valid values: `String`, `Number`, `Boolean`
+	Type *string `pulumi:"type"`
+}
+
+// CustomActionTypeConfigurationPropertyInput is an input type that accepts CustomActionTypeConfigurationPropertyArgs and CustomActionTypeConfigurationPropertyOutput values.
+// You can construct a concrete instance of `CustomActionTypeConfigurationPropertyInput` via:
+//
+//	CustomActionTypeConfigurationPropertyArgs{...}
+type CustomActionTypeConfigurationPropertyInput interface {
+	pulumi.Input
+
+	ToCustomActionTypeConfigurationPropertyOutput() CustomActionTypeConfigurationPropertyOutput
+	ToCustomActionTypeConfigurationPropertyOutputWithContext(context.Context) CustomActionTypeConfigurationPropertyOutput
+}
+
+type CustomActionTypeConfigurationPropertyArgs struct {
+	// The description of the action configuration property.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Whether the configuration property is a key.
+	Key pulumi.BoolInput `pulumi:"key"`
+	// The name of the action configuration property.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Indicates that the property will be used in conjunction with PollForJobs.
+	Queryable pulumi.BoolPtrInput `pulumi:"queryable"`
+	// Whether the configuration property is a required value.
+	Required pulumi.BoolInput `pulumi:"required"`
+	// Whether the configuration property is secret.
+	Secret pulumi.BoolInput `pulumi:"secret"`
+	// The type of the configuration property. Valid values: `String`, `Number`, `Boolean`
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (CustomActionTypeConfigurationPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomActionTypeConfigurationProperty)(nil)).Elem()
+}
+
+func (i CustomActionTypeConfigurationPropertyArgs) ToCustomActionTypeConfigurationPropertyOutput() CustomActionTypeConfigurationPropertyOutput {
+	return i.ToCustomActionTypeConfigurationPropertyOutputWithContext(context.Background())
+}
+
+func (i CustomActionTypeConfigurationPropertyArgs) ToCustomActionTypeConfigurationPropertyOutputWithContext(ctx context.Context) CustomActionTypeConfigurationPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomActionTypeConfigurationPropertyOutput)
+}
+
+// CustomActionTypeConfigurationPropertyArrayInput is an input type that accepts CustomActionTypeConfigurationPropertyArray and CustomActionTypeConfigurationPropertyArrayOutput values.
+// You can construct a concrete instance of `CustomActionTypeConfigurationPropertyArrayInput` via:
+//
+//	CustomActionTypeConfigurationPropertyArray{ CustomActionTypeConfigurationPropertyArgs{...} }
+type CustomActionTypeConfigurationPropertyArrayInput interface {
+	pulumi.Input
+
+	ToCustomActionTypeConfigurationPropertyArrayOutput() CustomActionTypeConfigurationPropertyArrayOutput
+	ToCustomActionTypeConfigurationPropertyArrayOutputWithContext(context.Context) CustomActionTypeConfigurationPropertyArrayOutput
+}
+
+type CustomActionTypeConfigurationPropertyArray []CustomActionTypeConfigurationPropertyInput
+
+func (CustomActionTypeConfigurationPropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomActionTypeConfigurationProperty)(nil)).Elem()
+}
+
+func (i CustomActionTypeConfigurationPropertyArray) ToCustomActionTypeConfigurationPropertyArrayOutput() CustomActionTypeConfigurationPropertyArrayOutput {
+	return i.ToCustomActionTypeConfigurationPropertyArrayOutputWithContext(context.Background())
+}
+
+func (i CustomActionTypeConfigurationPropertyArray) ToCustomActionTypeConfigurationPropertyArrayOutputWithContext(ctx context.Context) CustomActionTypeConfigurationPropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomActionTypeConfigurationPropertyArrayOutput)
+}
+
+type CustomActionTypeConfigurationPropertyOutput struct{ *pulumi.OutputState }
+
+func (CustomActionTypeConfigurationPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomActionTypeConfigurationProperty)(nil)).Elem()
+}
+
+func (o CustomActionTypeConfigurationPropertyOutput) ToCustomActionTypeConfigurationPropertyOutput() CustomActionTypeConfigurationPropertyOutput {
+	return o
+}
+
+func (o CustomActionTypeConfigurationPropertyOutput) ToCustomActionTypeConfigurationPropertyOutputWithContext(ctx context.Context) CustomActionTypeConfigurationPropertyOutput {
+	return o
+}
+
+// The description of the action configuration property.
+func (o CustomActionTypeConfigurationPropertyOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomActionTypeConfigurationProperty) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Whether the configuration property is a key.
+func (o CustomActionTypeConfigurationPropertyOutput) Key() pulumi.BoolOutput {
+	return o.ApplyT(func(v CustomActionTypeConfigurationProperty) bool { return v.Key }).(pulumi.BoolOutput)
+}
+
+// The name of the action configuration property.
+func (o CustomActionTypeConfigurationPropertyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomActionTypeConfigurationProperty) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Indicates that the property will be used in conjunction with PollForJobs.
+func (o CustomActionTypeConfigurationPropertyOutput) Queryable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CustomActionTypeConfigurationProperty) *bool { return v.Queryable }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the configuration property is a required value.
+func (o CustomActionTypeConfigurationPropertyOutput) Required() pulumi.BoolOutput {
+	return o.ApplyT(func(v CustomActionTypeConfigurationProperty) bool { return v.Required }).(pulumi.BoolOutput)
+}
+
+// Whether the configuration property is secret.
+func (o CustomActionTypeConfigurationPropertyOutput) Secret() pulumi.BoolOutput {
+	return o.ApplyT(func(v CustomActionTypeConfigurationProperty) bool { return v.Secret }).(pulumi.BoolOutput)
+}
+
+// The type of the configuration property. Valid values: `String`, `Number`, `Boolean`
+func (o CustomActionTypeConfigurationPropertyOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomActionTypeConfigurationProperty) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type CustomActionTypeConfigurationPropertyArrayOutput struct{ *pulumi.OutputState }
+
+func (CustomActionTypeConfigurationPropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomActionTypeConfigurationProperty)(nil)).Elem()
+}
+
+func (o CustomActionTypeConfigurationPropertyArrayOutput) ToCustomActionTypeConfigurationPropertyArrayOutput() CustomActionTypeConfigurationPropertyArrayOutput {
+	return o
+}
+
+func (o CustomActionTypeConfigurationPropertyArrayOutput) ToCustomActionTypeConfigurationPropertyArrayOutputWithContext(ctx context.Context) CustomActionTypeConfigurationPropertyArrayOutput {
+	return o
+}
+
+func (o CustomActionTypeConfigurationPropertyArrayOutput) Index(i pulumi.IntInput) CustomActionTypeConfigurationPropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CustomActionTypeConfigurationProperty {
+		return vs[0].([]CustomActionTypeConfigurationProperty)[vs[1].(int)]
+	}).(CustomActionTypeConfigurationPropertyOutput)
+}
+
+type CustomActionTypeInputArtifactDetails struct {
+	// The maximum number of artifacts allowed for the action type. Min: 0, Max: 5
+	MaximumCount int `pulumi:"maximumCount"`
+	// The minimum number of artifacts allowed for the action type. Min: 0, Max: 5
+	MinimumCount int `pulumi:"minimumCount"`
+}
+
+// CustomActionTypeInputArtifactDetailsInput is an input type that accepts CustomActionTypeInputArtifactDetailsArgs and CustomActionTypeInputArtifactDetailsOutput values.
+// You can construct a concrete instance of `CustomActionTypeInputArtifactDetailsInput` via:
+//
+//	CustomActionTypeInputArtifactDetailsArgs{...}
+type CustomActionTypeInputArtifactDetailsInput interface {
+	pulumi.Input
+
+	ToCustomActionTypeInputArtifactDetailsOutput() CustomActionTypeInputArtifactDetailsOutput
+	ToCustomActionTypeInputArtifactDetailsOutputWithContext(context.Context) CustomActionTypeInputArtifactDetailsOutput
+}
+
+type CustomActionTypeInputArtifactDetailsArgs struct {
+	// The maximum number of artifacts allowed for the action type. Min: 0, Max: 5
+	MaximumCount pulumi.IntInput `pulumi:"maximumCount"`
+	// The minimum number of artifacts allowed for the action type. Min: 0, Max: 5
+	MinimumCount pulumi.IntInput `pulumi:"minimumCount"`
+}
+
+func (CustomActionTypeInputArtifactDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomActionTypeInputArtifactDetails)(nil)).Elem()
+}
+
+func (i CustomActionTypeInputArtifactDetailsArgs) ToCustomActionTypeInputArtifactDetailsOutput() CustomActionTypeInputArtifactDetailsOutput {
+	return i.ToCustomActionTypeInputArtifactDetailsOutputWithContext(context.Background())
+}
+
+func (i CustomActionTypeInputArtifactDetailsArgs) ToCustomActionTypeInputArtifactDetailsOutputWithContext(ctx context.Context) CustomActionTypeInputArtifactDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomActionTypeInputArtifactDetailsOutput)
+}
+
+func (i CustomActionTypeInputArtifactDetailsArgs) ToCustomActionTypeInputArtifactDetailsPtrOutput() CustomActionTypeInputArtifactDetailsPtrOutput {
+	return i.ToCustomActionTypeInputArtifactDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i CustomActionTypeInputArtifactDetailsArgs) ToCustomActionTypeInputArtifactDetailsPtrOutputWithContext(ctx context.Context) CustomActionTypeInputArtifactDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomActionTypeInputArtifactDetailsOutput).ToCustomActionTypeInputArtifactDetailsPtrOutputWithContext(ctx)
+}
+
+// CustomActionTypeInputArtifactDetailsPtrInput is an input type that accepts CustomActionTypeInputArtifactDetailsArgs, CustomActionTypeInputArtifactDetailsPtr and CustomActionTypeInputArtifactDetailsPtrOutput values.
+// You can construct a concrete instance of `CustomActionTypeInputArtifactDetailsPtrInput` via:
+//
+//	        CustomActionTypeInputArtifactDetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type CustomActionTypeInputArtifactDetailsPtrInput interface {
+	pulumi.Input
+
+	ToCustomActionTypeInputArtifactDetailsPtrOutput() CustomActionTypeInputArtifactDetailsPtrOutput
+	ToCustomActionTypeInputArtifactDetailsPtrOutputWithContext(context.Context) CustomActionTypeInputArtifactDetailsPtrOutput
+}
+
+type customActionTypeInputArtifactDetailsPtrType CustomActionTypeInputArtifactDetailsArgs
+
+func CustomActionTypeInputArtifactDetailsPtr(v *CustomActionTypeInputArtifactDetailsArgs) CustomActionTypeInputArtifactDetailsPtrInput {
+	return (*customActionTypeInputArtifactDetailsPtrType)(v)
+}
+
+func (*customActionTypeInputArtifactDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomActionTypeInputArtifactDetails)(nil)).Elem()
+}
+
+func (i *customActionTypeInputArtifactDetailsPtrType) ToCustomActionTypeInputArtifactDetailsPtrOutput() CustomActionTypeInputArtifactDetailsPtrOutput {
+	return i.ToCustomActionTypeInputArtifactDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *customActionTypeInputArtifactDetailsPtrType) ToCustomActionTypeInputArtifactDetailsPtrOutputWithContext(ctx context.Context) CustomActionTypeInputArtifactDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomActionTypeInputArtifactDetailsPtrOutput)
+}
+
+type CustomActionTypeInputArtifactDetailsOutput struct{ *pulumi.OutputState }
+
+func (CustomActionTypeInputArtifactDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomActionTypeInputArtifactDetails)(nil)).Elem()
+}
+
+func (o CustomActionTypeInputArtifactDetailsOutput) ToCustomActionTypeInputArtifactDetailsOutput() CustomActionTypeInputArtifactDetailsOutput {
+	return o
+}
+
+func (o CustomActionTypeInputArtifactDetailsOutput) ToCustomActionTypeInputArtifactDetailsOutputWithContext(ctx context.Context) CustomActionTypeInputArtifactDetailsOutput {
+	return o
+}
+
+func (o CustomActionTypeInputArtifactDetailsOutput) ToCustomActionTypeInputArtifactDetailsPtrOutput() CustomActionTypeInputArtifactDetailsPtrOutput {
+	return o.ToCustomActionTypeInputArtifactDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o CustomActionTypeInputArtifactDetailsOutput) ToCustomActionTypeInputArtifactDetailsPtrOutputWithContext(ctx context.Context) CustomActionTypeInputArtifactDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomActionTypeInputArtifactDetails) *CustomActionTypeInputArtifactDetails {
+		return &v
+	}).(CustomActionTypeInputArtifactDetailsPtrOutput)
+}
+
+// The maximum number of artifacts allowed for the action type. Min: 0, Max: 5
+func (o CustomActionTypeInputArtifactDetailsOutput) MaximumCount() pulumi.IntOutput {
+	return o.ApplyT(func(v CustomActionTypeInputArtifactDetails) int { return v.MaximumCount }).(pulumi.IntOutput)
+}
+
+// The minimum number of artifacts allowed for the action type. Min: 0, Max: 5
+func (o CustomActionTypeInputArtifactDetailsOutput) MinimumCount() pulumi.IntOutput {
+	return o.ApplyT(func(v CustomActionTypeInputArtifactDetails) int { return v.MinimumCount }).(pulumi.IntOutput)
+}
+
+type CustomActionTypeInputArtifactDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (CustomActionTypeInputArtifactDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomActionTypeInputArtifactDetails)(nil)).Elem()
+}
+
+func (o CustomActionTypeInputArtifactDetailsPtrOutput) ToCustomActionTypeInputArtifactDetailsPtrOutput() CustomActionTypeInputArtifactDetailsPtrOutput {
+	return o
+}
+
+func (o CustomActionTypeInputArtifactDetailsPtrOutput) ToCustomActionTypeInputArtifactDetailsPtrOutputWithContext(ctx context.Context) CustomActionTypeInputArtifactDetailsPtrOutput {
+	return o
+}
+
+func (o CustomActionTypeInputArtifactDetailsPtrOutput) Elem() CustomActionTypeInputArtifactDetailsOutput {
+	return o.ApplyT(func(v *CustomActionTypeInputArtifactDetails) CustomActionTypeInputArtifactDetails {
+		if v != nil {
+			return *v
+		}
+		var ret CustomActionTypeInputArtifactDetails
+		return ret
+	}).(CustomActionTypeInputArtifactDetailsOutput)
+}
+
+// The maximum number of artifacts allowed for the action type. Min: 0, Max: 5
+func (o CustomActionTypeInputArtifactDetailsPtrOutput) MaximumCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CustomActionTypeInputArtifactDetails) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaximumCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minimum number of artifacts allowed for the action type. Min: 0, Max: 5
+func (o CustomActionTypeInputArtifactDetailsPtrOutput) MinimumCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CustomActionTypeInputArtifactDetails) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MinimumCount
+	}).(pulumi.IntPtrOutput)
+}
+
+type CustomActionTypeOutputArtifactDetails struct {
+	// The maximum number of artifacts allowed for the action type. Min: 0, Max: 5
+	MaximumCount int `pulumi:"maximumCount"`
+	// The minimum number of artifacts allowed for the action type. Min: 0, Max: 5
+	MinimumCount int `pulumi:"minimumCount"`
+}
+
+// CustomActionTypeOutputArtifactDetailsInput is an input type that accepts CustomActionTypeOutputArtifactDetailsArgs and CustomActionTypeOutputArtifactDetailsOutput values.
+// You can construct a concrete instance of `CustomActionTypeOutputArtifactDetailsInput` via:
+//
+//	CustomActionTypeOutputArtifactDetailsArgs{...}
+type CustomActionTypeOutputArtifactDetailsInput interface {
+	pulumi.Input
+
+	ToCustomActionTypeOutputArtifactDetailsOutput() CustomActionTypeOutputArtifactDetailsOutput
+	ToCustomActionTypeOutputArtifactDetailsOutputWithContext(context.Context) CustomActionTypeOutputArtifactDetailsOutput
+}
+
+type CustomActionTypeOutputArtifactDetailsArgs struct {
+	// The maximum number of artifacts allowed for the action type. Min: 0, Max: 5
+	MaximumCount pulumi.IntInput `pulumi:"maximumCount"`
+	// The minimum number of artifacts allowed for the action type. Min: 0, Max: 5
+	MinimumCount pulumi.IntInput `pulumi:"minimumCount"`
+}
+
+func (CustomActionTypeOutputArtifactDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomActionTypeOutputArtifactDetails)(nil)).Elem()
+}
+
+func (i CustomActionTypeOutputArtifactDetailsArgs) ToCustomActionTypeOutputArtifactDetailsOutput() CustomActionTypeOutputArtifactDetailsOutput {
+	return i.ToCustomActionTypeOutputArtifactDetailsOutputWithContext(context.Background())
+}
+
+func (i CustomActionTypeOutputArtifactDetailsArgs) ToCustomActionTypeOutputArtifactDetailsOutputWithContext(ctx context.Context) CustomActionTypeOutputArtifactDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomActionTypeOutputArtifactDetailsOutput)
+}
+
+func (i CustomActionTypeOutputArtifactDetailsArgs) ToCustomActionTypeOutputArtifactDetailsPtrOutput() CustomActionTypeOutputArtifactDetailsPtrOutput {
+	return i.ToCustomActionTypeOutputArtifactDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i CustomActionTypeOutputArtifactDetailsArgs) ToCustomActionTypeOutputArtifactDetailsPtrOutputWithContext(ctx context.Context) CustomActionTypeOutputArtifactDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomActionTypeOutputArtifactDetailsOutput).ToCustomActionTypeOutputArtifactDetailsPtrOutputWithContext(ctx)
+}
+
+// CustomActionTypeOutputArtifactDetailsPtrInput is an input type that accepts CustomActionTypeOutputArtifactDetailsArgs, CustomActionTypeOutputArtifactDetailsPtr and CustomActionTypeOutputArtifactDetailsPtrOutput values.
+// You can construct a concrete instance of `CustomActionTypeOutputArtifactDetailsPtrInput` via:
+//
+//	        CustomActionTypeOutputArtifactDetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type CustomActionTypeOutputArtifactDetailsPtrInput interface {
+	pulumi.Input
+
+	ToCustomActionTypeOutputArtifactDetailsPtrOutput() CustomActionTypeOutputArtifactDetailsPtrOutput
+	ToCustomActionTypeOutputArtifactDetailsPtrOutputWithContext(context.Context) CustomActionTypeOutputArtifactDetailsPtrOutput
+}
+
+type customActionTypeOutputArtifactDetailsPtrType CustomActionTypeOutputArtifactDetailsArgs
+
+func CustomActionTypeOutputArtifactDetailsPtr(v *CustomActionTypeOutputArtifactDetailsArgs) CustomActionTypeOutputArtifactDetailsPtrInput {
+	return (*customActionTypeOutputArtifactDetailsPtrType)(v)
+}
+
+func (*customActionTypeOutputArtifactDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomActionTypeOutputArtifactDetails)(nil)).Elem()
+}
+
+func (i *customActionTypeOutputArtifactDetailsPtrType) ToCustomActionTypeOutputArtifactDetailsPtrOutput() CustomActionTypeOutputArtifactDetailsPtrOutput {
+	return i.ToCustomActionTypeOutputArtifactDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *customActionTypeOutputArtifactDetailsPtrType) ToCustomActionTypeOutputArtifactDetailsPtrOutputWithContext(ctx context.Context) CustomActionTypeOutputArtifactDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomActionTypeOutputArtifactDetailsPtrOutput)
+}
+
+type CustomActionTypeOutputArtifactDetailsOutput struct{ *pulumi.OutputState }
+
+func (CustomActionTypeOutputArtifactDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomActionTypeOutputArtifactDetails)(nil)).Elem()
+}
+
+func (o CustomActionTypeOutputArtifactDetailsOutput) ToCustomActionTypeOutputArtifactDetailsOutput() CustomActionTypeOutputArtifactDetailsOutput {
+	return o
+}
+
+func (o CustomActionTypeOutputArtifactDetailsOutput) ToCustomActionTypeOutputArtifactDetailsOutputWithContext(ctx context.Context) CustomActionTypeOutputArtifactDetailsOutput {
+	return o
+}
+
+func (o CustomActionTypeOutputArtifactDetailsOutput) ToCustomActionTypeOutputArtifactDetailsPtrOutput() CustomActionTypeOutputArtifactDetailsPtrOutput {
+	return o.ToCustomActionTypeOutputArtifactDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o CustomActionTypeOutputArtifactDetailsOutput) ToCustomActionTypeOutputArtifactDetailsPtrOutputWithContext(ctx context.Context) CustomActionTypeOutputArtifactDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomActionTypeOutputArtifactDetails) *CustomActionTypeOutputArtifactDetails {
+		return &v
+	}).(CustomActionTypeOutputArtifactDetailsPtrOutput)
+}
+
+// The maximum number of artifacts allowed for the action type. Min: 0, Max: 5
+func (o CustomActionTypeOutputArtifactDetailsOutput) MaximumCount() pulumi.IntOutput {
+	return o.ApplyT(func(v CustomActionTypeOutputArtifactDetails) int { return v.MaximumCount }).(pulumi.IntOutput)
+}
+
+// The minimum number of artifacts allowed for the action type. Min: 0, Max: 5
+func (o CustomActionTypeOutputArtifactDetailsOutput) MinimumCount() pulumi.IntOutput {
+	return o.ApplyT(func(v CustomActionTypeOutputArtifactDetails) int { return v.MinimumCount }).(pulumi.IntOutput)
+}
+
+type CustomActionTypeOutputArtifactDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (CustomActionTypeOutputArtifactDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomActionTypeOutputArtifactDetails)(nil)).Elem()
+}
+
+func (o CustomActionTypeOutputArtifactDetailsPtrOutput) ToCustomActionTypeOutputArtifactDetailsPtrOutput() CustomActionTypeOutputArtifactDetailsPtrOutput {
+	return o
+}
+
+func (o CustomActionTypeOutputArtifactDetailsPtrOutput) ToCustomActionTypeOutputArtifactDetailsPtrOutputWithContext(ctx context.Context) CustomActionTypeOutputArtifactDetailsPtrOutput {
+	return o
+}
+
+func (o CustomActionTypeOutputArtifactDetailsPtrOutput) Elem() CustomActionTypeOutputArtifactDetailsOutput {
+	return o.ApplyT(func(v *CustomActionTypeOutputArtifactDetails) CustomActionTypeOutputArtifactDetails {
+		if v != nil {
+			return *v
+		}
+		var ret CustomActionTypeOutputArtifactDetails
+		return ret
+	}).(CustomActionTypeOutputArtifactDetailsOutput)
+}
+
+// The maximum number of artifacts allowed for the action type. Min: 0, Max: 5
+func (o CustomActionTypeOutputArtifactDetailsPtrOutput) MaximumCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CustomActionTypeOutputArtifactDetails) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaximumCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minimum number of artifacts allowed for the action type. Min: 0, Max: 5
+func (o CustomActionTypeOutputArtifactDetailsPtrOutput) MinimumCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CustomActionTypeOutputArtifactDetails) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MinimumCount
+	}).(pulumi.IntPtrOutput)
+}
+
+type CustomActionTypeSettings struct {
+	// The URL returned to the AWS CodePipeline console that provides a deep link to the resources of the external system.
+	EntityUrlTemplate *string `pulumi:"entityUrlTemplate"`
+	// The URL returned to the AWS CodePipeline console that contains a link to the top-level landing page for the external system.
+	ExecutionUrlTemplate *string `pulumi:"executionUrlTemplate"`
+	// The URL returned to the AWS CodePipeline console that contains a link to the page where customers can update or change the configuration of the external action.
+	RevisionUrlTemplate *string `pulumi:"revisionUrlTemplate"`
+	// The URL of a sign-up page where users can sign up for an external service and perform initial configuration of the action provided by that service.
+	ThirdPartyConfigurationUrl *string `pulumi:"thirdPartyConfigurationUrl"`
+}
+
+// CustomActionTypeSettingsInput is an input type that accepts CustomActionTypeSettingsArgs and CustomActionTypeSettingsOutput values.
+// You can construct a concrete instance of `CustomActionTypeSettingsInput` via:
+//
+//	CustomActionTypeSettingsArgs{...}
+type CustomActionTypeSettingsInput interface {
+	pulumi.Input
+
+	ToCustomActionTypeSettingsOutput() CustomActionTypeSettingsOutput
+	ToCustomActionTypeSettingsOutputWithContext(context.Context) CustomActionTypeSettingsOutput
+}
+
+type CustomActionTypeSettingsArgs struct {
+	// The URL returned to the AWS CodePipeline console that provides a deep link to the resources of the external system.
+	EntityUrlTemplate pulumi.StringPtrInput `pulumi:"entityUrlTemplate"`
+	// The URL returned to the AWS CodePipeline console that contains a link to the top-level landing page for the external system.
+	ExecutionUrlTemplate pulumi.StringPtrInput `pulumi:"executionUrlTemplate"`
+	// The URL returned to the AWS CodePipeline console that contains a link to the page where customers can update or change the configuration of the external action.
+	RevisionUrlTemplate pulumi.StringPtrInput `pulumi:"revisionUrlTemplate"`
+	// The URL of a sign-up page where users can sign up for an external service and perform initial configuration of the action provided by that service.
+	ThirdPartyConfigurationUrl pulumi.StringPtrInput `pulumi:"thirdPartyConfigurationUrl"`
+}
+
+func (CustomActionTypeSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomActionTypeSettings)(nil)).Elem()
+}
+
+func (i CustomActionTypeSettingsArgs) ToCustomActionTypeSettingsOutput() CustomActionTypeSettingsOutput {
+	return i.ToCustomActionTypeSettingsOutputWithContext(context.Background())
+}
+
+func (i CustomActionTypeSettingsArgs) ToCustomActionTypeSettingsOutputWithContext(ctx context.Context) CustomActionTypeSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomActionTypeSettingsOutput)
+}
+
+func (i CustomActionTypeSettingsArgs) ToCustomActionTypeSettingsPtrOutput() CustomActionTypeSettingsPtrOutput {
+	return i.ToCustomActionTypeSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i CustomActionTypeSettingsArgs) ToCustomActionTypeSettingsPtrOutputWithContext(ctx context.Context) CustomActionTypeSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomActionTypeSettingsOutput).ToCustomActionTypeSettingsPtrOutputWithContext(ctx)
+}
+
+// CustomActionTypeSettingsPtrInput is an input type that accepts CustomActionTypeSettingsArgs, CustomActionTypeSettingsPtr and CustomActionTypeSettingsPtrOutput values.
+// You can construct a concrete instance of `CustomActionTypeSettingsPtrInput` via:
+//
+//	        CustomActionTypeSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type CustomActionTypeSettingsPtrInput interface {
+	pulumi.Input
+
+	ToCustomActionTypeSettingsPtrOutput() CustomActionTypeSettingsPtrOutput
+	ToCustomActionTypeSettingsPtrOutputWithContext(context.Context) CustomActionTypeSettingsPtrOutput
+}
+
+type customActionTypeSettingsPtrType CustomActionTypeSettingsArgs
+
+func CustomActionTypeSettingsPtr(v *CustomActionTypeSettingsArgs) CustomActionTypeSettingsPtrInput {
+	return (*customActionTypeSettingsPtrType)(v)
+}
+
+func (*customActionTypeSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomActionTypeSettings)(nil)).Elem()
+}
+
+func (i *customActionTypeSettingsPtrType) ToCustomActionTypeSettingsPtrOutput() CustomActionTypeSettingsPtrOutput {
+	return i.ToCustomActionTypeSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *customActionTypeSettingsPtrType) ToCustomActionTypeSettingsPtrOutputWithContext(ctx context.Context) CustomActionTypeSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomActionTypeSettingsPtrOutput)
+}
+
+type CustomActionTypeSettingsOutput struct{ *pulumi.OutputState }
+
+func (CustomActionTypeSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomActionTypeSettings)(nil)).Elem()
+}
+
+func (o CustomActionTypeSettingsOutput) ToCustomActionTypeSettingsOutput() CustomActionTypeSettingsOutput {
+	return o
+}
+
+func (o CustomActionTypeSettingsOutput) ToCustomActionTypeSettingsOutputWithContext(ctx context.Context) CustomActionTypeSettingsOutput {
+	return o
+}
+
+func (o CustomActionTypeSettingsOutput) ToCustomActionTypeSettingsPtrOutput() CustomActionTypeSettingsPtrOutput {
+	return o.ToCustomActionTypeSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o CustomActionTypeSettingsOutput) ToCustomActionTypeSettingsPtrOutputWithContext(ctx context.Context) CustomActionTypeSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomActionTypeSettings) *CustomActionTypeSettings {
+		return &v
+	}).(CustomActionTypeSettingsPtrOutput)
+}
+
+// The URL returned to the AWS CodePipeline console that provides a deep link to the resources of the external system.
+func (o CustomActionTypeSettingsOutput) EntityUrlTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomActionTypeSettings) *string { return v.EntityUrlTemplate }).(pulumi.StringPtrOutput)
+}
+
+// The URL returned to the AWS CodePipeline console that contains a link to the top-level landing page for the external system.
+func (o CustomActionTypeSettingsOutput) ExecutionUrlTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomActionTypeSettings) *string { return v.ExecutionUrlTemplate }).(pulumi.StringPtrOutput)
+}
+
+// The URL returned to the AWS CodePipeline console that contains a link to the page where customers can update or change the configuration of the external action.
+func (o CustomActionTypeSettingsOutput) RevisionUrlTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomActionTypeSettings) *string { return v.RevisionUrlTemplate }).(pulumi.StringPtrOutput)
+}
+
+// The URL of a sign-up page where users can sign up for an external service and perform initial configuration of the action provided by that service.
+func (o CustomActionTypeSettingsOutput) ThirdPartyConfigurationUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomActionTypeSettings) *string { return v.ThirdPartyConfigurationUrl }).(pulumi.StringPtrOutput)
+}
+
+type CustomActionTypeSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (CustomActionTypeSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomActionTypeSettings)(nil)).Elem()
+}
+
+func (o CustomActionTypeSettingsPtrOutput) ToCustomActionTypeSettingsPtrOutput() CustomActionTypeSettingsPtrOutput {
+	return o
+}
+
+func (o CustomActionTypeSettingsPtrOutput) ToCustomActionTypeSettingsPtrOutputWithContext(ctx context.Context) CustomActionTypeSettingsPtrOutput {
+	return o
+}
+
+func (o CustomActionTypeSettingsPtrOutput) Elem() CustomActionTypeSettingsOutput {
+	return o.ApplyT(func(v *CustomActionTypeSettings) CustomActionTypeSettings {
+		if v != nil {
+			return *v
+		}
+		var ret CustomActionTypeSettings
+		return ret
+	}).(CustomActionTypeSettingsOutput)
+}
+
+// The URL returned to the AWS CodePipeline console that provides a deep link to the resources of the external system.
+func (o CustomActionTypeSettingsPtrOutput) EntityUrlTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomActionTypeSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EntityUrlTemplate
+	}).(pulumi.StringPtrOutput)
+}
+
+// The URL returned to the AWS CodePipeline console that contains a link to the top-level landing page for the external system.
+func (o CustomActionTypeSettingsPtrOutput) ExecutionUrlTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomActionTypeSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExecutionUrlTemplate
+	}).(pulumi.StringPtrOutput)
+}
+
+// The URL returned to the AWS CodePipeline console that contains a link to the page where customers can update or change the configuration of the external action.
+func (o CustomActionTypeSettingsPtrOutput) RevisionUrlTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomActionTypeSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RevisionUrlTemplate
+	}).(pulumi.StringPtrOutput)
+}
+
+// The URL of a sign-up page where users can sign up for an external service and perform initial configuration of the action provided by that service.
+func (o CustomActionTypeSettingsPtrOutput) ThirdPartyConfigurationUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomActionTypeSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ThirdPartyConfigurationUrl
+	}).(pulumi.StringPtrOutput)
+}
+
 type PipelineArtifactStore struct {
 	// The encryption key block AWS CodePipeline uses to encrypt the data in the artifact store, such as an AWS Key Management Service (AWS KMS) key. If you don't specify a key, AWS CodePipeline uses the default key for Amazon Simple Storage Service (Amazon S3). An `encryptionKey` block is documented below.
 	EncryptionKey *PipelineArtifactStoreEncryptionKey `pulumi:"encryptionKey"`
@@ -855,6 +1512,14 @@ func (o WebhookFilterArrayOutput) Index(i pulumi.IntInput) WebhookFilterOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomActionTypeConfigurationPropertyInput)(nil)).Elem(), CustomActionTypeConfigurationPropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomActionTypeConfigurationPropertyArrayInput)(nil)).Elem(), CustomActionTypeConfigurationPropertyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomActionTypeInputArtifactDetailsInput)(nil)).Elem(), CustomActionTypeInputArtifactDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomActionTypeInputArtifactDetailsPtrInput)(nil)).Elem(), CustomActionTypeInputArtifactDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomActionTypeOutputArtifactDetailsInput)(nil)).Elem(), CustomActionTypeOutputArtifactDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomActionTypeOutputArtifactDetailsPtrInput)(nil)).Elem(), CustomActionTypeOutputArtifactDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomActionTypeSettingsInput)(nil)).Elem(), CustomActionTypeSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomActionTypeSettingsPtrInput)(nil)).Elem(), CustomActionTypeSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineArtifactStoreInput)(nil)).Elem(), PipelineArtifactStoreArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineArtifactStoreArrayInput)(nil)).Elem(), PipelineArtifactStoreArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineArtifactStoreEncryptionKeyInput)(nil)).Elem(), PipelineArtifactStoreEncryptionKeyArgs{})
@@ -867,6 +1532,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebhookAuthenticationConfigurationPtrInput)(nil)).Elem(), WebhookAuthenticationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebhookFilterInput)(nil)).Elem(), WebhookFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebhookFilterArrayInput)(nil)).Elem(), WebhookFilterArray{})
+	pulumi.RegisterOutputType(CustomActionTypeConfigurationPropertyOutput{})
+	pulumi.RegisterOutputType(CustomActionTypeConfigurationPropertyArrayOutput{})
+	pulumi.RegisterOutputType(CustomActionTypeInputArtifactDetailsOutput{})
+	pulumi.RegisterOutputType(CustomActionTypeInputArtifactDetailsPtrOutput{})
+	pulumi.RegisterOutputType(CustomActionTypeOutputArtifactDetailsOutput{})
+	pulumi.RegisterOutputType(CustomActionTypeOutputArtifactDetailsPtrOutput{})
+	pulumi.RegisterOutputType(CustomActionTypeSettingsOutput{})
+	pulumi.RegisterOutputType(CustomActionTypeSettingsPtrOutput{})
 	pulumi.RegisterOutputType(PipelineArtifactStoreOutput{})
 	pulumi.RegisterOutputType(PipelineArtifactStoreArrayOutput{})
 	pulumi.RegisterOutputType(PipelineArtifactStoreEncryptionKeyOutput{})

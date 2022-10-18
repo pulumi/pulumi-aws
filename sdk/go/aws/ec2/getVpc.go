@@ -57,9 +57,11 @@ type LookupVpcResult struct {
 	// Whether or not the VPC has DNS hostname support
 	EnableDnsHostnames bool `pulumi:"enableDnsHostnames"`
 	// Whether or not the VPC has DNS support
-	EnableDnsSupport bool           `pulumi:"enableDnsSupport"`
-	Filters          []GetVpcFilter `pulumi:"filters"`
-	Id               string         `pulumi:"id"`
+	EnableDnsSupport bool `pulumi:"enableDnsSupport"`
+	// Whether Network Address Usage metrics are enabled for your VPC
+	EnableNetworkAddressUsageMetrics bool           `pulumi:"enableNetworkAddressUsageMetrics"`
+	Filters                          []GetVpcFilter `pulumi:"filters"`
+	Id                               string         `pulumi:"id"`
 	// Allowed tenancy of instances launched into the
 	// selected VPC. May be any of `"default"`, `"dedicated"`, or `"host"`.
 	InstanceTenancy string `pulumi:"instanceTenancy"`
@@ -159,6 +161,11 @@ func (o LookupVpcResultOutput) EnableDnsHostnames() pulumi.BoolOutput {
 // Whether or not the VPC has DNS support
 func (o LookupVpcResultOutput) EnableDnsSupport() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupVpcResult) bool { return v.EnableDnsSupport }).(pulumi.BoolOutput)
+}
+
+// Whether Network Address Usage metrics are enabled for your VPC
+func (o LookupVpcResultOutput) EnableNetworkAddressUsageMetrics() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupVpcResult) bool { return v.EnableNetworkAddressUsageMetrics }).(pulumi.BoolOutput)
 }
 
 func (o LookupVpcResultOutput) Filters() GetVpcFilterArrayOutput {

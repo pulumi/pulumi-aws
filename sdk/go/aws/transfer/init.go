@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Server{}
 	case "aws:transfer/sshKey:SshKey":
 		r = &SshKey{}
+	case "aws:transfer/tag:Tag":
+		r = &Tag{}
 	case "aws:transfer/user:User":
 		r = &User{}
 	case "aws:transfer/workflow:Workflow":
@@ -57,6 +59,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"transfer/sshKey",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"transfer/tag",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

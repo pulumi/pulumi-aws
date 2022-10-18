@@ -15,8 +15,8 @@ import (
 // `egress` group rule, which can be added to external Security Groups.
 //
 // > **NOTE on Security Groups and Security Group Rules:** This provider currently
-// provides both a standalone Security Group Rule resource (a single `ingress` or
-// `egress` rule), and a Security Group resource with `ingress` and `egress` rules
+// provides both a standalone Security Group Rule resource (one or many `ingress` or
+// `egress` rules), and a Security Group resource with `ingress` and `egress` rules
 // defined in-line. At this time you cannot use a Security Group with in-line rules
 // in conjunction with any Security Group Rule resources. Doing so will cause
 // a conflict of rule settings and will overwrite rules.

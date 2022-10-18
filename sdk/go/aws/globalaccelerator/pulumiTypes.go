@@ -186,7 +186,7 @@ func (o AcceleratorAttributesPtrOutput) FlowLogsS3Prefix() pulumi.StringPtrOutpu
 }
 
 type AcceleratorIpSet struct {
-	// A list of IP addresses in the IP address set.
+	// The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
 	IpAddresses []string `pulumi:"ipAddresses"`
 	// The type of IP addresses included in this IP set.
 	IpFamily *string `pulumi:"ipFamily"`
@@ -204,7 +204,7 @@ type AcceleratorIpSetInput interface {
 }
 
 type AcceleratorIpSetArgs struct {
-	// A list of IP addresses in the IP address set.
+	// The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
 	IpAddresses pulumi.StringArrayInput `pulumi:"ipAddresses"`
 	// The type of IP addresses included in this IP set.
 	IpFamily pulumi.StringPtrInput `pulumi:"ipFamily"`
@@ -261,7 +261,7 @@ func (o AcceleratorIpSetOutput) ToAcceleratorIpSetOutputWithContext(ctx context.
 	return o
 }
 
-// A list of IP addresses in the IP address set.
+// The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
 func (o AcceleratorIpSetOutput) IpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AcceleratorIpSet) []string { return v.IpAddresses }).(pulumi.StringArrayOutput)
 }

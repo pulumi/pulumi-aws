@@ -74,6 +74,8 @@ type Connection struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// The VLAN ID.
+	VlanId pulumi.StringOutput `pulumi:"vlanId"`
 }
 
 // NewConnection registers a new resource with the given unique name, arguments, and options.
@@ -133,6 +135,8 @@ type connectionState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
+	// The VLAN ID.
+	VlanId *string `pulumi:"vlanId"`
 }
 
 type ConnectionState struct {
@@ -158,6 +162,8 @@ type ConnectionState struct {
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
+	// The VLAN ID.
+	VlanId pulumi.StringPtrInput
 }
 
 func (ConnectionState) ElementType() reflect.Type {
@@ -331,6 +337,11 @@ func (o ConnectionOutput) Tags() pulumi.StringMapOutput {
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ConnectionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
+}
+
+// The VLAN ID.
+func (o ConnectionOutput) VlanId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.VlanId }).(pulumi.StringOutput)
 }
 
 type ConnectionArrayOutput struct{ *pulumi.OutputState }

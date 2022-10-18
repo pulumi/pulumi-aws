@@ -37,6 +37,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ObjectLambdaAccessPoint{}
 	case "aws:s3control/objectLambdaAccessPointPolicy:ObjectLambdaAccessPointPolicy":
 		r = &ObjectLambdaAccessPointPolicy{}
+	case "aws:s3control/storageLensConfiguration:StorageLensConfiguration":
+		r = &StorageLensConfiguration{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -88,6 +90,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"s3control/objectLambdaAccessPointPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"s3control/storageLensConfiguration",
 		&module{version},
 	)
 }
