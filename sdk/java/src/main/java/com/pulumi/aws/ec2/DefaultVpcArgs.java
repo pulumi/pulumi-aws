@@ -77,6 +77,13 @@ public final class DefaultVpcArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.enableDnsSupport);
     }
 
+    @Import(name="enableNetworkAddressUsageMetrics")
+    private @Nullable Output<Boolean> enableNetworkAddressUsageMetrics;
+
+    public Optional<Output<Boolean>> enableNetworkAddressUsageMetrics() {
+        return Optional.ofNullable(this.enableNetworkAddressUsageMetrics);
+    }
+
     /**
      * Whether destroying the resource deletes the default VPC. Default: `false`
      * 
@@ -135,6 +142,7 @@ public final class DefaultVpcArgs extends com.pulumi.resources.ResourceArgs {
         this.enableClassiclinkDnsSupport = $.enableClassiclinkDnsSupport;
         this.enableDnsHostnames = $.enableDnsHostnames;
         this.enableDnsSupport = $.enableDnsSupport;
+        this.enableNetworkAddressUsageMetrics = $.enableNetworkAddressUsageMetrics;
         this.forceDestroy = $.forceDestroy;
         this.ipv6CidrBlock = $.ipv6CidrBlock;
         this.ipv6CidrBlockNetworkBorderGroup = $.ipv6CidrBlockNetworkBorderGroup;
@@ -236,6 +244,15 @@ public final class DefaultVpcArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder enableDnsSupport(Boolean enableDnsSupport) {
             return enableDnsSupport(Output.of(enableDnsSupport));
+        }
+
+        public Builder enableNetworkAddressUsageMetrics(@Nullable Output<Boolean> enableNetworkAddressUsageMetrics) {
+            $.enableNetworkAddressUsageMetrics = enableNetworkAddressUsageMetrics;
+            return this;
+        }
+
+        public Builder enableNetworkAddressUsageMetrics(Boolean enableNetworkAddressUsageMetrics) {
+            return enableNetworkAddressUsageMetrics(Output.of(enableNetworkAddressUsageMetrics));
         }
 
         /**

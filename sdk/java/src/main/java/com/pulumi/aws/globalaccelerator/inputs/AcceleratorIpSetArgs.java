@@ -17,14 +17,14 @@ public final class AcceleratorIpSetArgs extends com.pulumi.resources.ResourceArg
     public static final AcceleratorIpSetArgs Empty = new AcceleratorIpSetArgs();
 
     /**
-     * A list of IP addresses in the IP address set.
+     * The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
      * 
      */
     @Import(name="ipAddresses")
     private @Nullable Output<List<String>> ipAddresses;
 
     /**
-     * @return A list of IP addresses in the IP address set.
+     * @return The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
      * 
      */
     public Optional<Output<List<String>>> ipAddresses() {
@@ -72,7 +72,7 @@ public final class AcceleratorIpSetArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param ipAddresses A list of IP addresses in the IP address set.
+         * @param ipAddresses The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class AcceleratorIpSetArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param ipAddresses A list of IP addresses in the IP address set.
+         * @param ipAddresses The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class AcceleratorIpSetArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param ipAddresses A list of IP addresses in the IP address set.
+         * @param ipAddresses The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
          * 
          * @return builder
          * 

@@ -12,7 +12,7 @@ namespace Pulumi.Aws.ElastiCache
     public static class GetUser
     {
         /// <summary>
-        /// Use this data source to get information about an Elasticache User.
+        /// Use this data source to get information about an ElastiCache User.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -39,7 +39,7 @@ namespace Pulumi.Aws.ElastiCache
             => Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("aws:elasticache/getUser:getUser", args ?? new GetUserArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to get information about an Elasticache User.
+        /// Use this data source to get information about an ElastiCache User.
         /// 
         /// {{% examples %}}
         /// ## Example Usage

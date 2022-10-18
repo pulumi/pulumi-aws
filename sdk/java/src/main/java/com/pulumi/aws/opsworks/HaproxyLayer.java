@@ -8,6 +8,7 @@ import com.pulumi.aws.opsworks.HaproxyLayerArgs;
 import com.pulumi.aws.opsworks.inputs.HaproxyLayerState;
 import com.pulumi.aws.opsworks.outputs.HaproxyLayerCloudwatchConfiguration;
 import com.pulumi.aws.opsworks.outputs.HaproxyLayerEbsVolume;
+import com.pulumi.aws.opsworks.outputs.HaproxyLayerLoadBasedAutoScaling;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -288,6 +289,12 @@ public class HaproxyLayer extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Integer>> instanceShutdownTimeout() {
         return Codegen.optional(this.instanceShutdownTimeout);
+    }
+    @Export(name="loadBasedAutoScaling", type=HaproxyLayerLoadBasedAutoScaling.class, parameters={})
+    private Output<HaproxyLayerLoadBasedAutoScaling> loadBasedAutoScaling;
+
+    public Output<HaproxyLayerLoadBasedAutoScaling> loadBasedAutoScaling() {
+        return this.loadBasedAutoScaling;
     }
     /**
      * A human-readable name for the layer.

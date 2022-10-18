@@ -16,8 +16,6 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const config = new pulumi.Config();
- * const subnetId = config.requireObject("subnetId");
  * const default = aws.ec2.getNatGateway({
  *     subnetId: aws_subnet["public"].id,
  * });

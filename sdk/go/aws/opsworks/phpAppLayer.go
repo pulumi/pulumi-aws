@@ -80,7 +80,8 @@ type PhpAppLayer struct {
 	// Whether to install OS and package updates on each instance when it boots.
 	InstallUpdatesOnBoot pulumi.BoolPtrOutput `pulumi:"installUpdatesOnBoot"`
 	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-	InstanceShutdownTimeout pulumi.IntPtrOutput `pulumi:"instanceShutdownTimeout"`
+	InstanceShutdownTimeout pulumi.IntPtrOutput                   `pulumi:"instanceShutdownTimeout"`
+	LoadBasedAutoScaling    PhpAppLayerLoadBasedAutoScalingOutput `pulumi:"loadBasedAutoScaling"`
 	// A human-readable name for the layer.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// ID of the stack the layer will belong to.
@@ -156,7 +157,8 @@ type phpAppLayerState struct {
 	// Whether to install OS and package updates on each instance when it boots.
 	InstallUpdatesOnBoot *bool `pulumi:"installUpdatesOnBoot"`
 	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-	InstanceShutdownTimeout *int `pulumi:"instanceShutdownTimeout"`
+	InstanceShutdownTimeout *int                             `pulumi:"instanceShutdownTimeout"`
+	LoadBasedAutoScaling    *PhpAppLayerLoadBasedAutoScaling `pulumi:"loadBasedAutoScaling"`
 	// A human-readable name for the layer.
 	Name *string `pulumi:"name"`
 	// ID of the stack the layer will belong to.
@@ -202,6 +204,7 @@ type PhpAppLayerState struct {
 	InstallUpdatesOnBoot pulumi.BoolPtrInput
 	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
 	InstanceShutdownTimeout pulumi.IntPtrInput
+	LoadBasedAutoScaling    PhpAppLayerLoadBasedAutoScalingPtrInput
 	// A human-readable name for the layer.
 	Name pulumi.StringPtrInput
 	// ID of the stack the layer will belong to.
@@ -248,7 +251,8 @@ type phpAppLayerArgs struct {
 	// Whether to install OS and package updates on each instance when it boots.
 	InstallUpdatesOnBoot *bool `pulumi:"installUpdatesOnBoot"`
 	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-	InstanceShutdownTimeout *int `pulumi:"instanceShutdownTimeout"`
+	InstanceShutdownTimeout *int                             `pulumi:"instanceShutdownTimeout"`
+	LoadBasedAutoScaling    *PhpAppLayerLoadBasedAutoScaling `pulumi:"loadBasedAutoScaling"`
 	// A human-readable name for the layer.
 	Name *string `pulumi:"name"`
 	// ID of the stack the layer will belong to.
@@ -291,6 +295,7 @@ type PhpAppLayerArgs struct {
 	InstallUpdatesOnBoot pulumi.BoolPtrInput
 	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
 	InstanceShutdownTimeout pulumi.IntPtrInput
+	LoadBasedAutoScaling    PhpAppLayerLoadBasedAutoScalingPtrInput
 	// A human-readable name for the layer.
 	Name pulumi.StringPtrInput
 	// ID of the stack the layer will belong to.
@@ -472,6 +477,10 @@ func (o PhpAppLayerOutput) InstallUpdatesOnBoot() pulumi.BoolPtrOutput {
 // The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
 func (o PhpAppLayerOutput) InstanceShutdownTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PhpAppLayer) pulumi.IntPtrOutput { return v.InstanceShutdownTimeout }).(pulumi.IntPtrOutput)
+}
+
+func (o PhpAppLayerOutput) LoadBasedAutoScaling() PhpAppLayerLoadBasedAutoScalingOutput {
+	return o.ApplyT(func(v *PhpAppLayer) PhpAppLayerLoadBasedAutoScalingOutput { return v.LoadBasedAutoScaling }).(PhpAppLayerLoadBasedAutoScalingOutput)
 }
 
 // A human-readable name for the layer.

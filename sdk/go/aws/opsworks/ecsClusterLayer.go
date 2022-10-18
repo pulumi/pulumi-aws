@@ -73,7 +73,8 @@ type EcsClusterLayer struct {
 	// Whether to install OS and package updates on each instance when it boots.
 	InstallUpdatesOnBoot pulumi.BoolPtrOutput `pulumi:"installUpdatesOnBoot"`
 	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-	InstanceShutdownTimeout pulumi.IntPtrOutput `pulumi:"instanceShutdownTimeout"`
+	InstanceShutdownTimeout pulumi.IntPtrOutput                       `pulumi:"instanceShutdownTimeout"`
+	LoadBasedAutoScaling    EcsClusterLayerLoadBasedAutoScalingOutput `pulumi:"loadBasedAutoScaling"`
 	// A human-readable name for the layer.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// ID of the stack the layer will belong to.
@@ -153,7 +154,8 @@ type ecsClusterLayerState struct {
 	// Whether to install OS and package updates on each instance when it boots.
 	InstallUpdatesOnBoot *bool `pulumi:"installUpdatesOnBoot"`
 	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-	InstanceShutdownTimeout *int `pulumi:"instanceShutdownTimeout"`
+	InstanceShutdownTimeout *int                                 `pulumi:"instanceShutdownTimeout"`
+	LoadBasedAutoScaling    *EcsClusterLayerLoadBasedAutoScaling `pulumi:"loadBasedAutoScaling"`
 	// A human-readable name for the layer.
 	Name *string `pulumi:"name"`
 	// ID of the stack the layer will belong to.
@@ -200,6 +202,7 @@ type EcsClusterLayerState struct {
 	InstallUpdatesOnBoot pulumi.BoolPtrInput
 	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
 	InstanceShutdownTimeout pulumi.IntPtrInput
+	LoadBasedAutoScaling    EcsClusterLayerLoadBasedAutoScalingPtrInput
 	// A human-readable name for the layer.
 	Name pulumi.StringPtrInput
 	// ID of the stack the layer will belong to.
@@ -247,7 +250,8 @@ type ecsClusterLayerArgs struct {
 	// Whether to install OS and package updates on each instance when it boots.
 	InstallUpdatesOnBoot *bool `pulumi:"installUpdatesOnBoot"`
 	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-	InstanceShutdownTimeout *int `pulumi:"instanceShutdownTimeout"`
+	InstanceShutdownTimeout *int                                 `pulumi:"instanceShutdownTimeout"`
+	LoadBasedAutoScaling    *EcsClusterLayerLoadBasedAutoScaling `pulumi:"loadBasedAutoScaling"`
 	// A human-readable name for the layer.
 	Name *string `pulumi:"name"`
 	// ID of the stack the layer will belong to.
@@ -292,6 +296,7 @@ type EcsClusterLayerArgs struct {
 	InstallUpdatesOnBoot pulumi.BoolPtrInput
 	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
 	InstanceShutdownTimeout pulumi.IntPtrInput
+	LoadBasedAutoScaling    EcsClusterLayerLoadBasedAutoScalingPtrInput
 	// A human-readable name for the layer.
 	Name pulumi.StringPtrInput
 	// ID of the stack the layer will belong to.
@@ -480,6 +485,10 @@ func (o EcsClusterLayerOutput) InstallUpdatesOnBoot() pulumi.BoolPtrOutput {
 // The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
 func (o EcsClusterLayerOutput) InstanceShutdownTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EcsClusterLayer) pulumi.IntPtrOutput { return v.InstanceShutdownTimeout }).(pulumi.IntPtrOutput)
+}
+
+func (o EcsClusterLayerOutput) LoadBasedAutoScaling() EcsClusterLayerLoadBasedAutoScalingOutput {
+	return o.ApplyT(func(v *EcsClusterLayer) EcsClusterLayerLoadBasedAutoScalingOutput { return v.LoadBasedAutoScaling }).(EcsClusterLayerLoadBasedAutoScalingOutput)
 }
 
 // A human-readable name for the layer.

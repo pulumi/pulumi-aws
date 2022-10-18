@@ -92,6 +92,10 @@ export interface GetVpcResult {
      * Whether or not the VPC has DNS support
      */
     readonly enableDnsSupport: boolean;
+    /**
+     * Whether Network Address Usage metrics are enabled for your VPC
+     */
+    readonly enableNetworkAddressUsageMetrics: boolean;
     readonly filters?: outputs.ec2.GetVpcFilter[];
     readonly id: string;
     /**

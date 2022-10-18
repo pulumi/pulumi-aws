@@ -109,6 +109,7 @@ export class PhpAppLayer extends pulumi.CustomResource {
      * The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
      */
     public readonly instanceShutdownTimeout!: pulumi.Output<number | undefined>;
+    public readonly loadBasedAutoScaling!: pulumi.Output<outputs.opsworks.PhpAppLayerLoadBasedAutoScaling>;
     /**
      * A human-readable name for the layer.
      */
@@ -165,6 +166,7 @@ export class PhpAppLayer extends pulumi.CustomResource {
             resourceInputs["elasticLoadBalancer"] = state ? state.elasticLoadBalancer : undefined;
             resourceInputs["installUpdatesOnBoot"] = state ? state.installUpdatesOnBoot : undefined;
             resourceInputs["instanceShutdownTimeout"] = state ? state.instanceShutdownTimeout : undefined;
+            resourceInputs["loadBasedAutoScaling"] = state ? state.loadBasedAutoScaling : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["stackId"] = state ? state.stackId : undefined;
             resourceInputs["systemPackages"] = state ? state.systemPackages : undefined;
@@ -193,6 +195,7 @@ export class PhpAppLayer extends pulumi.CustomResource {
             resourceInputs["elasticLoadBalancer"] = args ? args.elasticLoadBalancer : undefined;
             resourceInputs["installUpdatesOnBoot"] = args ? args.installUpdatesOnBoot : undefined;
             resourceInputs["instanceShutdownTimeout"] = args ? args.instanceShutdownTimeout : undefined;
+            resourceInputs["loadBasedAutoScaling"] = args ? args.loadBasedAutoScaling : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["stackId"] = args ? args.stackId : undefined;
             resourceInputs["systemPackages"] = args ? args.systemPackages : undefined;
@@ -264,6 +267,7 @@ export interface PhpAppLayerState {
      * The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
      */
     instanceShutdownTimeout?: pulumi.Input<number>;
+    loadBasedAutoScaling?: pulumi.Input<inputs.opsworks.PhpAppLayerLoadBasedAutoScaling>;
     /**
      * A human-readable name for the layer.
      */
@@ -344,6 +348,7 @@ export interface PhpAppLayerArgs {
      * The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
      */
     instanceShutdownTimeout?: pulumi.Input<number>;
+    loadBasedAutoScaling?: pulumi.Input<inputs.opsworks.PhpAppLayerLoadBasedAutoScaling>;
     /**
      * A human-readable name for the layer.
      */

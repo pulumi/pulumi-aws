@@ -1633,6 +1633,2705 @@ func (o ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTr
 	}).(pulumi.StringPtrOutput)
 }
 
+type StorageLensConfigurationStorageLensConfiguration struct {
+	// The account-level configurations of the S3 Storage Lens configuration. See Account Level below for more details.
+	AccountLevel StorageLensConfigurationStorageLensConfigurationAccountLevel `pulumi:"accountLevel"`
+	// The Amazon Web Services organization for the S3 Storage Lens configuration. See AWS Org below for more details.
+	AwsOrg *StorageLensConfigurationStorageLensConfigurationAwsOrg `pulumi:"awsOrg"`
+	// Properties of S3 Storage Lens metrics export including the destination, schema and format. See Data Export below for more details.
+	DataExport *StorageLensConfigurationStorageLensConfigurationDataExport `pulumi:"dataExport"`
+	// Whether the S3 Storage Lens configuration is enabled.
+	Enabled bool `pulumi:"enabled"`
+	// What is excluded in this configuration. Conflicts with `include`. See Exclude below for more details.
+	Exclude *StorageLensConfigurationStorageLensConfigurationExclude `pulumi:"exclude"`
+	// What is included in this configuration. Conflicts with `exclude`. See Include below for more details.
+	Include *StorageLensConfigurationStorageLensConfigurationInclude `pulumi:"include"`
+}
+
+// StorageLensConfigurationStorageLensConfigurationInput is an input type that accepts StorageLensConfigurationStorageLensConfigurationArgs and StorageLensConfigurationStorageLensConfigurationOutput values.
+// You can construct a concrete instance of `StorageLensConfigurationStorageLensConfigurationInput` via:
+//
+//	StorageLensConfigurationStorageLensConfigurationArgs{...}
+type StorageLensConfigurationStorageLensConfigurationInput interface {
+	pulumi.Input
+
+	ToStorageLensConfigurationStorageLensConfigurationOutput() StorageLensConfigurationStorageLensConfigurationOutput
+	ToStorageLensConfigurationStorageLensConfigurationOutputWithContext(context.Context) StorageLensConfigurationStorageLensConfigurationOutput
+}
+
+type StorageLensConfigurationStorageLensConfigurationArgs struct {
+	// The account-level configurations of the S3 Storage Lens configuration. See Account Level below for more details.
+	AccountLevel StorageLensConfigurationStorageLensConfigurationAccountLevelInput `pulumi:"accountLevel"`
+	// The Amazon Web Services organization for the S3 Storage Lens configuration. See AWS Org below for more details.
+	AwsOrg StorageLensConfigurationStorageLensConfigurationAwsOrgPtrInput `pulumi:"awsOrg"`
+	// Properties of S3 Storage Lens metrics export including the destination, schema and format. See Data Export below for more details.
+	DataExport StorageLensConfigurationStorageLensConfigurationDataExportPtrInput `pulumi:"dataExport"`
+	// Whether the S3 Storage Lens configuration is enabled.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// What is excluded in this configuration. Conflicts with `include`. See Exclude below for more details.
+	Exclude StorageLensConfigurationStorageLensConfigurationExcludePtrInput `pulumi:"exclude"`
+	// What is included in this configuration. Conflicts with `exclude`. See Include below for more details.
+	Include StorageLensConfigurationStorageLensConfigurationIncludePtrInput `pulumi:"include"`
+}
+
+func (StorageLensConfigurationStorageLensConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensConfigurationStorageLensConfiguration)(nil)).Elem()
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationArgs) ToStorageLensConfigurationStorageLensConfigurationOutput() StorageLensConfigurationStorageLensConfigurationOutput {
+	return i.ToStorageLensConfigurationStorageLensConfigurationOutputWithContext(context.Background())
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationArgs) ToStorageLensConfigurationStorageLensConfigurationOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationOutput)
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationArgs) ToStorageLensConfigurationStorageLensConfigurationPtrOutput() StorageLensConfigurationStorageLensConfigurationPtrOutput {
+	return i.ToStorageLensConfigurationStorageLensConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationArgs) ToStorageLensConfigurationStorageLensConfigurationPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationOutput).ToStorageLensConfigurationStorageLensConfigurationPtrOutputWithContext(ctx)
+}
+
+// StorageLensConfigurationStorageLensConfigurationPtrInput is an input type that accepts StorageLensConfigurationStorageLensConfigurationArgs, StorageLensConfigurationStorageLensConfigurationPtr and StorageLensConfigurationStorageLensConfigurationPtrOutput values.
+// You can construct a concrete instance of `StorageLensConfigurationStorageLensConfigurationPtrInput` via:
+//
+//	        StorageLensConfigurationStorageLensConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type StorageLensConfigurationStorageLensConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToStorageLensConfigurationStorageLensConfigurationPtrOutput() StorageLensConfigurationStorageLensConfigurationPtrOutput
+	ToStorageLensConfigurationStorageLensConfigurationPtrOutputWithContext(context.Context) StorageLensConfigurationStorageLensConfigurationPtrOutput
+}
+
+type storageLensConfigurationStorageLensConfigurationPtrType StorageLensConfigurationStorageLensConfigurationArgs
+
+func StorageLensConfigurationStorageLensConfigurationPtr(v *StorageLensConfigurationStorageLensConfigurationArgs) StorageLensConfigurationStorageLensConfigurationPtrInput {
+	return (*storageLensConfigurationStorageLensConfigurationPtrType)(v)
+}
+
+func (*storageLensConfigurationStorageLensConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensConfigurationStorageLensConfiguration)(nil)).Elem()
+}
+
+func (i *storageLensConfigurationStorageLensConfigurationPtrType) ToStorageLensConfigurationStorageLensConfigurationPtrOutput() StorageLensConfigurationStorageLensConfigurationPtrOutput {
+	return i.ToStorageLensConfigurationStorageLensConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *storageLensConfigurationStorageLensConfigurationPtrType) ToStorageLensConfigurationStorageLensConfigurationPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationPtrOutput)
+}
+
+type StorageLensConfigurationStorageLensConfigurationOutput struct{ *pulumi.OutputState }
+
+func (StorageLensConfigurationStorageLensConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensConfigurationStorageLensConfiguration)(nil)).Elem()
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationOutput) ToStorageLensConfigurationStorageLensConfigurationOutput() StorageLensConfigurationStorageLensConfigurationOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationOutput) ToStorageLensConfigurationStorageLensConfigurationOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationOutput) ToStorageLensConfigurationStorageLensConfigurationPtrOutput() StorageLensConfigurationStorageLensConfigurationPtrOutput {
+	return o.ToStorageLensConfigurationStorageLensConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationOutput) ToStorageLensConfigurationStorageLensConfigurationPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageLensConfigurationStorageLensConfiguration) *StorageLensConfigurationStorageLensConfiguration {
+		return &v
+	}).(StorageLensConfigurationStorageLensConfigurationPtrOutput)
+}
+
+// The account-level configurations of the S3 Storage Lens configuration. See Account Level below for more details.
+func (o StorageLensConfigurationStorageLensConfigurationOutput) AccountLevel() StorageLensConfigurationStorageLensConfigurationAccountLevelOutput {
+	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfiguration) StorageLensConfigurationStorageLensConfigurationAccountLevel {
+		return v.AccountLevel
+	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelOutput)
+}
+
+// The Amazon Web Services organization for the S3 Storage Lens configuration. See AWS Org below for more details.
+func (o StorageLensConfigurationStorageLensConfigurationOutput) AwsOrg() StorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutput {
+	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfiguration) *StorageLensConfigurationStorageLensConfigurationAwsOrg {
+		return v.AwsOrg
+	}).(StorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutput)
+}
+
+// Properties of S3 Storage Lens metrics export including the destination, schema and format. See Data Export below for more details.
+func (o StorageLensConfigurationStorageLensConfigurationOutput) DataExport() StorageLensConfigurationStorageLensConfigurationDataExportPtrOutput {
+	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfiguration) *StorageLensConfigurationStorageLensConfigurationDataExport {
+		return v.DataExport
+	}).(StorageLensConfigurationStorageLensConfigurationDataExportPtrOutput)
+}
+
+// Whether the S3 Storage Lens configuration is enabled.
+func (o StorageLensConfigurationStorageLensConfigurationOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfiguration) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// What is excluded in this configuration. Conflicts with `include`. See Exclude below for more details.
+func (o StorageLensConfigurationStorageLensConfigurationOutput) Exclude() StorageLensConfigurationStorageLensConfigurationExcludePtrOutput {
+	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfiguration) *StorageLensConfigurationStorageLensConfigurationExclude {
+		return v.Exclude
+	}).(StorageLensConfigurationStorageLensConfigurationExcludePtrOutput)
+}
+
+// What is included in this configuration. Conflicts with `exclude`. See Include below for more details.
+func (o StorageLensConfigurationStorageLensConfigurationOutput) Include() StorageLensConfigurationStorageLensConfigurationIncludePtrOutput {
+	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfiguration) *StorageLensConfigurationStorageLensConfigurationInclude {
+		return v.Include
+	}).(StorageLensConfigurationStorageLensConfigurationIncludePtrOutput)
+}
+
+type StorageLensConfigurationStorageLensConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageLensConfigurationStorageLensConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensConfigurationStorageLensConfiguration)(nil)).Elem()
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationPtrOutput) ToStorageLensConfigurationStorageLensConfigurationPtrOutput() StorageLensConfigurationStorageLensConfigurationPtrOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationPtrOutput) ToStorageLensConfigurationStorageLensConfigurationPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationPtrOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationPtrOutput) Elem() StorageLensConfigurationStorageLensConfigurationOutput {
+	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfiguration) StorageLensConfigurationStorageLensConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret StorageLensConfigurationStorageLensConfiguration
+		return ret
+	}).(StorageLensConfigurationStorageLensConfigurationOutput)
+}
+
+// The account-level configurations of the S3 Storage Lens configuration. See Account Level below for more details.
+func (o StorageLensConfigurationStorageLensConfigurationPtrOutput) AccountLevel() StorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutput {
+	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfiguration) *StorageLensConfigurationStorageLensConfigurationAccountLevel {
+		if v == nil {
+			return nil
+		}
+		return &v.AccountLevel
+	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutput)
+}
+
+// The Amazon Web Services organization for the S3 Storage Lens configuration. See AWS Org below for more details.
+func (o StorageLensConfigurationStorageLensConfigurationPtrOutput) AwsOrg() StorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutput {
+	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfiguration) *StorageLensConfigurationStorageLensConfigurationAwsOrg {
+		if v == nil {
+			return nil
+		}
+		return v.AwsOrg
+	}).(StorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutput)
+}
+
+// Properties of S3 Storage Lens metrics export including the destination, schema and format. See Data Export below for more details.
+func (o StorageLensConfigurationStorageLensConfigurationPtrOutput) DataExport() StorageLensConfigurationStorageLensConfigurationDataExportPtrOutput {
+	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfiguration) *StorageLensConfigurationStorageLensConfigurationDataExport {
+		if v == nil {
+			return nil
+		}
+		return v.DataExport
+	}).(StorageLensConfigurationStorageLensConfigurationDataExportPtrOutput)
+}
+
+// Whether the S3 Storage Lens configuration is enabled.
+func (o StorageLensConfigurationStorageLensConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// What is excluded in this configuration. Conflicts with `include`. See Exclude below for more details.
+func (o StorageLensConfigurationStorageLensConfigurationPtrOutput) Exclude() StorageLensConfigurationStorageLensConfigurationExcludePtrOutput {
+	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfiguration) *StorageLensConfigurationStorageLensConfigurationExclude {
+		if v == nil {
+			return nil
+		}
+		return v.Exclude
+	}).(StorageLensConfigurationStorageLensConfigurationExcludePtrOutput)
+}
+
+// What is included in this configuration. Conflicts with `exclude`. See Include below for more details.
+func (o StorageLensConfigurationStorageLensConfigurationPtrOutput) Include() StorageLensConfigurationStorageLensConfigurationIncludePtrOutput {
+	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfiguration) *StorageLensConfigurationStorageLensConfigurationInclude {
+		if v == nil {
+			return nil
+		}
+		return v.Include
+	}).(StorageLensConfigurationStorageLensConfigurationIncludePtrOutput)
+}
+
+type StorageLensConfigurationStorageLensConfigurationAccountLevel struct {
+	// S3 Storage Lens activity metrics. See Activity Metrics below for more details.
+	ActivityMetrics *StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics `pulumi:"activityMetrics"`
+	// S3 Storage Lens bucket-level configuration. See Bucket Level below for more details.
+	BucketLevel StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel `pulumi:"bucketLevel"`
+}
+
+// StorageLensConfigurationStorageLensConfigurationAccountLevelInput is an input type that accepts StorageLensConfigurationStorageLensConfigurationAccountLevelArgs and StorageLensConfigurationStorageLensConfigurationAccountLevelOutput values.
+// You can construct a concrete instance of `StorageLensConfigurationStorageLensConfigurationAccountLevelInput` via:
+//
+//	StorageLensConfigurationStorageLensConfigurationAccountLevelArgs{...}
+type StorageLensConfigurationStorageLensConfigurationAccountLevelInput interface {
+	pulumi.Input
+
+	ToStorageLensConfigurationStorageLensConfigurationAccountLevelOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelOutput
+	ToStorageLensConfigurationStorageLensConfigurationAccountLevelOutputWithContext(context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelOutput
+}
+
+type StorageLensConfigurationStorageLensConfigurationAccountLevelArgs struct {
+	// S3 Storage Lens activity metrics. See Activity Metrics below for more details.
+	ActivityMetrics StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrInput `pulumi:"activityMetrics"`
+	// S3 Storage Lens bucket-level configuration. See Bucket Level below for more details.
+	BucketLevel StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelInput `pulumi:"bucketLevel"`
+}
+
+func (StorageLensConfigurationStorageLensConfigurationAccountLevelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationAccountLevel)(nil)).Elem()
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationAccountLevelArgs) ToStorageLensConfigurationStorageLensConfigurationAccountLevelOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelOutput {
+	return i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelOutputWithContext(context.Background())
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationAccountLevelArgs) ToStorageLensConfigurationStorageLensConfigurationAccountLevelOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationAccountLevelOutput)
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationAccountLevelArgs) ToStorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutput {
+	return i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutputWithContext(context.Background())
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationAccountLevelArgs) ToStorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationAccountLevelOutput).ToStorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutputWithContext(ctx)
+}
+
+// StorageLensConfigurationStorageLensConfigurationAccountLevelPtrInput is an input type that accepts StorageLensConfigurationStorageLensConfigurationAccountLevelArgs, StorageLensConfigurationStorageLensConfigurationAccountLevelPtr and StorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutput values.
+// You can construct a concrete instance of `StorageLensConfigurationStorageLensConfigurationAccountLevelPtrInput` via:
+//
+//	        StorageLensConfigurationStorageLensConfigurationAccountLevelArgs{...}
+//
+//	or:
+//
+//	        nil
+type StorageLensConfigurationStorageLensConfigurationAccountLevelPtrInput interface {
+	pulumi.Input
+
+	ToStorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutput
+	ToStorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutputWithContext(context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutput
+}
+
+type storageLensConfigurationStorageLensConfigurationAccountLevelPtrType StorageLensConfigurationStorageLensConfigurationAccountLevelArgs
+
+func StorageLensConfigurationStorageLensConfigurationAccountLevelPtr(v *StorageLensConfigurationStorageLensConfigurationAccountLevelArgs) StorageLensConfigurationStorageLensConfigurationAccountLevelPtrInput {
+	return (*storageLensConfigurationStorageLensConfigurationAccountLevelPtrType)(v)
+}
+
+func (*storageLensConfigurationStorageLensConfigurationAccountLevelPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensConfigurationStorageLensConfigurationAccountLevel)(nil)).Elem()
+}
+
+func (i *storageLensConfigurationStorageLensConfigurationAccountLevelPtrType) ToStorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutput {
+	return i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutputWithContext(context.Background())
+}
+
+func (i *storageLensConfigurationStorageLensConfigurationAccountLevelPtrType) ToStorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutput)
+}
+
+type StorageLensConfigurationStorageLensConfigurationAccountLevelOutput struct{ *pulumi.OutputState }
+
+func (StorageLensConfigurationStorageLensConfigurationAccountLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationAccountLevel)(nil)).Elem()
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelOutput) ToStorageLensConfigurationStorageLensConfigurationAccountLevelOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelOutput) ToStorageLensConfigurationStorageLensConfigurationAccountLevelOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelOutput) ToStorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutput {
+	return o.ToStorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutputWithContext(context.Background())
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelOutput) ToStorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageLensConfigurationStorageLensConfigurationAccountLevel) *StorageLensConfigurationStorageLensConfigurationAccountLevel {
+		return &v
+	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutput)
+}
+
+// S3 Storage Lens activity metrics. See Activity Metrics below for more details.
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelOutput) ActivityMetrics() StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrOutput {
+	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationAccountLevel) *StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics {
+		return v.ActivityMetrics
+	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrOutput)
+}
+
+// S3 Storage Lens bucket-level configuration. See Bucket Level below for more details.
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelOutput) BucketLevel() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelOutput {
+	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationAccountLevel) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel {
+		return v.BucketLevel
+	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelOutput)
+}
+
+type StorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensConfigurationStorageLensConfigurationAccountLevel)(nil)).Elem()
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutput) ToStorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutput) ToStorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutput) Elem() StorageLensConfigurationStorageLensConfigurationAccountLevelOutput {
+	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationAccountLevel) StorageLensConfigurationStorageLensConfigurationAccountLevel {
+		if v != nil {
+			return *v
+		}
+		var ret StorageLensConfigurationStorageLensConfigurationAccountLevel
+		return ret
+	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelOutput)
+}
+
+// S3 Storage Lens activity metrics. See Activity Metrics below for more details.
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutput) ActivityMetrics() StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrOutput {
+	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationAccountLevel) *StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics {
+		if v == nil {
+			return nil
+		}
+		return v.ActivityMetrics
+	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrOutput)
+}
+
+// S3 Storage Lens bucket-level configuration. See Bucket Level below for more details.
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutput) BucketLevel() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrOutput {
+	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationAccountLevel) *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel {
+		if v == nil {
+			return nil
+		}
+		return &v.BucketLevel
+	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrOutput)
+}
+
+type StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics struct {
+	// Whether the activity metrics are enabled.
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsInput is an input type that accepts StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsArgs and StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsOutput values.
+// You can construct a concrete instance of `StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsInput` via:
+//
+//	StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsArgs{...}
+type StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsInput interface {
+	pulumi.Input
+
+	ToStorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsOutput
+	ToStorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsOutputWithContext(context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsOutput
+}
+
+type StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsArgs struct {
+	// Whether the activity metrics are enabled.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics)(nil)).Elem()
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsArgs) ToStorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsOutput {
+	return i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsOutputWithContext(context.Background())
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsArgs) ToStorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsOutput)
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsArgs) ToStorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrOutput {
+	return i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrOutputWithContext(context.Background())
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsArgs) ToStorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsOutput).ToStorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrOutputWithContext(ctx)
+}
+
+// StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrInput is an input type that accepts StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsArgs, StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtr and StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrOutput values.
+// You can construct a concrete instance of `StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrInput` via:
+//
+//	        StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsArgs{...}
+//
+//	or:
+//
+//	        nil
+type StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrInput interface {
+	pulumi.Input
+
+	ToStorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrOutput
+	ToStorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrOutputWithContext(context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrOutput
+}
+
+type storageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrType StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsArgs
+
+func StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtr(v *StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsArgs) StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrInput {
+	return (*storageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrType)(v)
+}
+
+func (*storageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics)(nil)).Elem()
+}
+
+func (i *storageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrType) ToStorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrOutput {
+	return i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrOutputWithContext(context.Background())
+}
+
+func (i *storageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrType) ToStorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrOutput)
+}
+
+type StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsOutput struct{ *pulumi.OutputState }
+
+func (StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics)(nil)).Elem()
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsOutput) ToStorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsOutput) ToStorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsOutput) ToStorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrOutput {
+	return o.ToStorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrOutputWithContext(context.Background())
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsOutput) ToStorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics) *StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics {
+		return &v
+	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrOutput)
+}
+
+// Whether the activity metrics are enabled.
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics) *bool {
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics)(nil)).Elem()
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrOutput) ToStorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrOutput) ToStorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrOutput) Elem() StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsOutput {
+	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics) StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics {
+		if v != nil {
+			return *v
+		}
+		var ret StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics
+		return ret
+	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsOutput)
+}
+
+// Whether the activity metrics are enabled.
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel struct {
+	// S3 Storage Lens activity metrics. See Activity Metrics above for more details.
+	ActivityMetrics *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics `pulumi:"activityMetrics"`
+	// Prefix-level metrics for S3 Storage Lens. See Prefix Level below for more details.
+	PrefixLevel *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel `pulumi:"prefixLevel"`
+}
+
+// StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelInput is an input type that accepts StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArgs and StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelOutput values.
+// You can construct a concrete instance of `StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelInput` via:
+//
+//	StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArgs{...}
+type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelInput interface {
+	pulumi.Input
+
+	ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelOutput
+	ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelOutputWithContext(context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelOutput
+}
+
+type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArgs struct {
+	// S3 Storage Lens activity metrics. See Activity Metrics above for more details.
+	ActivityMetrics StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrInput `pulumi:"activityMetrics"`
+	// Prefix-level metrics for S3 Storage Lens. See Prefix Level below for more details.
+	PrefixLevel StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrInput `pulumi:"prefixLevel"`
+}
+
+func (StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel)(nil)).Elem()
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArgs) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelOutput {
+	return i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelOutputWithContext(context.Background())
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArgs) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelOutput)
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArgs) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrOutput {
+	return i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrOutputWithContext(context.Background())
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArgs) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelOutput).ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrOutputWithContext(ctx)
+}
+
+// StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrInput is an input type that accepts StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArgs, StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtr and StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrOutput values.
+// You can construct a concrete instance of `StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrInput` via:
+//
+//	        StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArgs{...}
+//
+//	or:
+//
+//	        nil
+type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrInput interface {
+	pulumi.Input
+
+	ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrOutput
+	ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrOutputWithContext(context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrOutput
+}
+
+type storageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrType StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArgs
+
+func StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtr(v *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArgs) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrInput {
+	return (*storageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrType)(v)
+}
+
+func (*storageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel)(nil)).Elem()
+}
+
+func (i *storageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrType) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrOutput {
+	return i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrOutputWithContext(context.Background())
+}
+
+func (i *storageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrType) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrOutput)
+}
+
+type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelOutput struct{ *pulumi.OutputState }
+
+func (StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel)(nil)).Elem()
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelOutput) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelOutput) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelOutput) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrOutput {
+	return o.ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrOutputWithContext(context.Background())
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelOutput) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel) *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel {
+		return &v
+	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrOutput)
+}
+
+// S3 Storage Lens activity metrics. See Activity Metrics above for more details.
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelOutput) ActivityMetrics() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrOutput {
+	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel) *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics {
+		return v.ActivityMetrics
+	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrOutput)
+}
+
+// Prefix-level metrics for S3 Storage Lens. See Prefix Level below for more details.
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelOutput) PrefixLevel() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrOutput {
+	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel) *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel {
+		return v.PrefixLevel
+	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrOutput)
+}
+
+type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel)(nil)).Elem()
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrOutput) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrOutput) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrOutput) Elem() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelOutput {
+	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel {
+		if v != nil {
+			return *v
+		}
+		var ret StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel
+		return ret
+	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelOutput)
+}
+
+// S3 Storage Lens activity metrics. See Activity Metrics above for more details.
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrOutput) ActivityMetrics() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrOutput {
+	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel) *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics {
+		if v == nil {
+			return nil
+		}
+		return v.ActivityMetrics
+	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrOutput)
+}
+
+// Prefix-level metrics for S3 Storage Lens. See Prefix Level below for more details.
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrOutput) PrefixLevel() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrOutput {
+	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel) *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel {
+		if v == nil {
+			return nil
+		}
+		return v.PrefixLevel
+	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrOutput)
+}
+
+type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics struct {
+	// Whether the activity metrics are enabled.
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsInput is an input type that accepts StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsArgs and StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsOutput values.
+// You can construct a concrete instance of `StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsInput` via:
+//
+//	StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsArgs{...}
+type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsInput interface {
+	pulumi.Input
+
+	ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsOutput
+	ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsOutputWithContext(context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsOutput
+}
+
+type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsArgs struct {
+	// Whether the activity metrics are enabled.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics)(nil)).Elem()
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsArgs) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsOutput {
+	return i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsOutputWithContext(context.Background())
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsArgs) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsOutput)
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsArgs) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrOutput {
+	return i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrOutputWithContext(context.Background())
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsArgs) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsOutput).ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrOutputWithContext(ctx)
+}
+
+// StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrInput is an input type that accepts StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsArgs, StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtr and StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrOutput values.
+// You can construct a concrete instance of `StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrInput` via:
+//
+//	        StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsArgs{...}
+//
+//	or:
+//
+//	        nil
+type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrInput interface {
+	pulumi.Input
+
+	ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrOutput
+	ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrOutputWithContext(context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrOutput
+}
+
+type storageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrType StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsArgs
+
+func StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtr(v *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsArgs) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrInput {
+	return (*storageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrType)(v)
+}
+
+func (*storageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics)(nil)).Elem()
+}
+
+func (i *storageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrType) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrOutput {
+	return i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrOutputWithContext(context.Background())
+}
+
+func (i *storageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrType) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrOutput)
+}
+
+type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsOutput struct{ *pulumi.OutputState }
+
+func (StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics)(nil)).Elem()
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsOutput) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsOutput) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsOutput) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrOutput {
+	return o.ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrOutputWithContext(context.Background())
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsOutput) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics) *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics {
+		return &v
+	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrOutput)
+}
+
+// Whether the activity metrics are enabled.
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics) *bool {
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics)(nil)).Elem()
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrOutput) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrOutput) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrOutput) Elem() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsOutput {
+	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics {
+		if v != nil {
+			return *v
+		}
+		var ret StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics
+		return ret
+	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsOutput)
+}
+
+// Whether the activity metrics are enabled.
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel struct {
+	// Prefix-level storage metrics for S3 Storage Lens. See Prefix Level Storage Metrics below for more details.
+	StorageMetrics StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics `pulumi:"storageMetrics"`
+}
+
+// StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelInput is an input type that accepts StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelArgs and StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelOutput values.
+// You can construct a concrete instance of `StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelInput` via:
+//
+//	StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelArgs{...}
+type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelInput interface {
+	pulumi.Input
+
+	ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelOutput
+	ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelOutputWithContext(context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelOutput
+}
+
+type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelArgs struct {
+	// Prefix-level storage metrics for S3 Storage Lens. See Prefix Level Storage Metrics below for more details.
+	StorageMetrics StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsInput `pulumi:"storageMetrics"`
+}
+
+func (StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel)(nil)).Elem()
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelArgs) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelOutput {
+	return i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelOutputWithContext(context.Background())
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelArgs) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelOutput)
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelArgs) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrOutput {
+	return i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrOutputWithContext(context.Background())
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelArgs) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelOutput).ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrOutputWithContext(ctx)
+}
+
+// StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrInput is an input type that accepts StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelArgs, StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtr and StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrOutput values.
+// You can construct a concrete instance of `StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrInput` via:
+//
+//	        StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelArgs{...}
+//
+//	or:
+//
+//	        nil
+type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrInput interface {
+	pulumi.Input
+
+	ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrOutput
+	ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrOutputWithContext(context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrOutput
+}
+
+type storageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrType StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelArgs
+
+func StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtr(v *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelArgs) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrInput {
+	return (*storageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrType)(v)
+}
+
+func (*storageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel)(nil)).Elem()
+}
+
+func (i *storageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrType) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrOutput {
+	return i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrOutputWithContext(context.Background())
+}
+
+func (i *storageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrType) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrOutput)
+}
+
+type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelOutput struct{ *pulumi.OutputState }
+
+func (StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel)(nil)).Elem()
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelOutput) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelOutput) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelOutput) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrOutput {
+	return o.ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrOutputWithContext(context.Background())
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelOutput) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel) *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel {
+		return &v
+	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrOutput)
+}
+
+// Prefix-level storage metrics for S3 Storage Lens. See Prefix Level Storage Metrics below for more details.
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelOutput) StorageMetrics() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsOutput {
+	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics {
+		return v.StorageMetrics
+	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsOutput)
+}
+
+type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel)(nil)).Elem()
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrOutput) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrOutput) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrOutput) Elem() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelOutput {
+	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel {
+		if v != nil {
+			return *v
+		}
+		var ret StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel
+		return ret
+	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelOutput)
+}
+
+// Prefix-level storage metrics for S3 Storage Lens. See Prefix Level Storage Metrics below for more details.
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrOutput) StorageMetrics() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrOutput {
+	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel) *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics {
+		if v == nil {
+			return nil
+		}
+		return &v.StorageMetrics
+	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrOutput)
+}
+
+type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics struct {
+	// Whether prefix-level storage metrics are enabled.
+	Enabled *bool `pulumi:"enabled"`
+	// Selection criteria. See Selection Criteria below for more details.
+	SelectionCriteria *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria `pulumi:"selectionCriteria"`
+}
+
+// StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsInput is an input type that accepts StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsArgs and StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsOutput values.
+// You can construct a concrete instance of `StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsInput` via:
+//
+//	StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsArgs{...}
+type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsInput interface {
+	pulumi.Input
+
+	ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsOutput
+	ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsOutputWithContext(context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsOutput
+}
+
+type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsArgs struct {
+	// Whether prefix-level storage metrics are enabled.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Selection criteria. See Selection Criteria below for more details.
+	SelectionCriteria StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrInput `pulumi:"selectionCriteria"`
+}
+
+func (StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics)(nil)).Elem()
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsArgs) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsOutput {
+	return i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsOutputWithContext(context.Background())
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsArgs) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsOutput)
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsArgs) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrOutput {
+	return i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrOutputWithContext(context.Background())
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsArgs) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsOutput).ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrOutputWithContext(ctx)
+}
+
+// StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrInput is an input type that accepts StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsArgs, StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtr and StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrOutput values.
+// You can construct a concrete instance of `StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrInput` via:
+//
+//	        StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsArgs{...}
+//
+//	or:
+//
+//	        nil
+type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrInput interface {
+	pulumi.Input
+
+	ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrOutput
+	ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrOutputWithContext(context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrOutput
+}
+
+type storageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrType StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsArgs
+
+func StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtr(v *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsArgs) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrInput {
+	return (*storageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrType)(v)
+}
+
+func (*storageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics)(nil)).Elem()
+}
+
+func (i *storageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrType) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrOutput {
+	return i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrOutputWithContext(context.Background())
+}
+
+func (i *storageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrType) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrOutput)
+}
+
+type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsOutput struct{ *pulumi.OutputState }
+
+func (StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics)(nil)).Elem()
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsOutput) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsOutput) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsOutput) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrOutput {
+	return o.ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrOutputWithContext(context.Background())
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsOutput) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics) *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics {
+		return &v
+	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrOutput)
+}
+
+// Whether prefix-level storage metrics are enabled.
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics) *bool {
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Selection criteria. See Selection Criteria below for more details.
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsOutput) SelectionCriteria() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrOutput {
+	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics) *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria {
+		return v.SelectionCriteria
+	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrOutput)
+}
+
+type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics)(nil)).Elem()
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrOutput) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrOutput) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrOutput) Elem() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsOutput {
+	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics {
+		if v != nil {
+			return *v
+		}
+		var ret StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics
+		return ret
+	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsOutput)
+}
+
+// Whether prefix-level storage metrics are enabled.
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Selection criteria. See Selection Criteria below for more details.
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrOutput) SelectionCriteria() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrOutput {
+	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics) *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria {
+		if v == nil {
+			return nil
+		}
+		return v.SelectionCriteria
+	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrOutput)
+}
+
+type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria struct {
+	// The delimiter of the selection criteria being used.
+	Delimiter *string `pulumi:"delimiter"`
+	// The max depth of the selection criteria.
+	MaxDepth *int `pulumi:"maxDepth"`
+	// The minimum number of storage bytes percentage whose metrics will be selected.
+	MinStorageBytesPercentage *float64 `pulumi:"minStorageBytesPercentage"`
+}
+
+// StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaInput is an input type that accepts StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaArgs and StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaOutput values.
+// You can construct a concrete instance of `StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaInput` via:
+//
+//	StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaArgs{...}
+type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaInput interface {
+	pulumi.Input
+
+	ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaOutput
+	ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaOutputWithContext(context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaOutput
+}
+
+type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaArgs struct {
+	// The delimiter of the selection criteria being used.
+	Delimiter pulumi.StringPtrInput `pulumi:"delimiter"`
+	// The max depth of the selection criteria.
+	MaxDepth pulumi.IntPtrInput `pulumi:"maxDepth"`
+	// The minimum number of storage bytes percentage whose metrics will be selected.
+	MinStorageBytesPercentage pulumi.Float64PtrInput `pulumi:"minStorageBytesPercentage"`
+}
+
+func (StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria)(nil)).Elem()
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaArgs) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaOutput {
+	return i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaOutputWithContext(context.Background())
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaArgs) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaOutput)
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaArgs) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrOutput {
+	return i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaArgs) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaOutput).ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrOutputWithContext(ctx)
+}
+
+// StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrInput is an input type that accepts StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaArgs, StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtr and StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrOutput values.
+// You can construct a concrete instance of `StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrInput` via:
+//
+//	        StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaArgs{...}
+//
+//	or:
+//
+//	        nil
+type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrInput interface {
+	pulumi.Input
+
+	ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrOutput
+	ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrOutputWithContext(context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrOutput
+}
+
+type storageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrType StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaArgs
+
+func StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtr(v *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaArgs) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrInput {
+	return (*storageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrType)(v)
+}
+
+func (*storageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria)(nil)).Elem()
+}
+
+func (i *storageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrType) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrOutput {
+	return i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i *storageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrType) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrOutput)
+}
+
+type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaOutput struct{ *pulumi.OutputState }
+
+func (StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria)(nil)).Elem()
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaOutput) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaOutput) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaOutput) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrOutput {
+	return o.ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaOutput) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria) *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria {
+		return &v
+	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrOutput)
+}
+
+// The delimiter of the selection criteria being used.
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaOutput) Delimiter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria) *string {
+		return v.Delimiter
+	}).(pulumi.StringPtrOutput)
+}
+
+// The max depth of the selection criteria.
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaOutput) MaxDepth() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria) *int {
+		return v.MaxDepth
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minimum number of storage bytes percentage whose metrics will be selected.
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaOutput) MinStorageBytesPercentage() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria) *float64 {
+		return v.MinStorageBytesPercentage
+	}).(pulumi.Float64PtrOutput)
+}
+
+type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria)(nil)).Elem()
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrOutput) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrOutput) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrOutput) Elem() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaOutput {
+	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria {
+		if v != nil {
+			return *v
+		}
+		var ret StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria
+		return ret
+	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaOutput)
+}
+
+// The delimiter of the selection criteria being used.
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrOutput) Delimiter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delimiter
+	}).(pulumi.StringPtrOutput)
+}
+
+// The max depth of the selection criteria.
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrOutput) MaxDepth() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxDepth
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minimum number of storage bytes percentage whose metrics will be selected.
+func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrOutput) MinStorageBytesPercentage() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MinStorageBytesPercentage
+	}).(pulumi.Float64PtrOutput)
+}
+
+type StorageLensConfigurationStorageLensConfigurationAwsOrg struct {
+	// The Amazon Resource Name (ARN) of the Amazon Web Services organization.
+	Arn string `pulumi:"arn"`
+}
+
+// StorageLensConfigurationStorageLensConfigurationAwsOrgInput is an input type that accepts StorageLensConfigurationStorageLensConfigurationAwsOrgArgs and StorageLensConfigurationStorageLensConfigurationAwsOrgOutput values.
+// You can construct a concrete instance of `StorageLensConfigurationStorageLensConfigurationAwsOrgInput` via:
+//
+//	StorageLensConfigurationStorageLensConfigurationAwsOrgArgs{...}
+type StorageLensConfigurationStorageLensConfigurationAwsOrgInput interface {
+	pulumi.Input
+
+	ToStorageLensConfigurationStorageLensConfigurationAwsOrgOutput() StorageLensConfigurationStorageLensConfigurationAwsOrgOutput
+	ToStorageLensConfigurationStorageLensConfigurationAwsOrgOutputWithContext(context.Context) StorageLensConfigurationStorageLensConfigurationAwsOrgOutput
+}
+
+type StorageLensConfigurationStorageLensConfigurationAwsOrgArgs struct {
+	// The Amazon Resource Name (ARN) of the Amazon Web Services organization.
+	Arn pulumi.StringInput `pulumi:"arn"`
+}
+
+func (StorageLensConfigurationStorageLensConfigurationAwsOrgArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationAwsOrg)(nil)).Elem()
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationAwsOrgArgs) ToStorageLensConfigurationStorageLensConfigurationAwsOrgOutput() StorageLensConfigurationStorageLensConfigurationAwsOrgOutput {
+	return i.ToStorageLensConfigurationStorageLensConfigurationAwsOrgOutputWithContext(context.Background())
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationAwsOrgArgs) ToStorageLensConfigurationStorageLensConfigurationAwsOrgOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAwsOrgOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationAwsOrgOutput)
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationAwsOrgArgs) ToStorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutput() StorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutput {
+	return i.ToStorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutputWithContext(context.Background())
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationAwsOrgArgs) ToStorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationAwsOrgOutput).ToStorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutputWithContext(ctx)
+}
+
+// StorageLensConfigurationStorageLensConfigurationAwsOrgPtrInput is an input type that accepts StorageLensConfigurationStorageLensConfigurationAwsOrgArgs, StorageLensConfigurationStorageLensConfigurationAwsOrgPtr and StorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutput values.
+// You can construct a concrete instance of `StorageLensConfigurationStorageLensConfigurationAwsOrgPtrInput` via:
+//
+//	        StorageLensConfigurationStorageLensConfigurationAwsOrgArgs{...}
+//
+//	or:
+//
+//	        nil
+type StorageLensConfigurationStorageLensConfigurationAwsOrgPtrInput interface {
+	pulumi.Input
+
+	ToStorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutput() StorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutput
+	ToStorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutputWithContext(context.Context) StorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutput
+}
+
+type storageLensConfigurationStorageLensConfigurationAwsOrgPtrType StorageLensConfigurationStorageLensConfigurationAwsOrgArgs
+
+func StorageLensConfigurationStorageLensConfigurationAwsOrgPtr(v *StorageLensConfigurationStorageLensConfigurationAwsOrgArgs) StorageLensConfigurationStorageLensConfigurationAwsOrgPtrInput {
+	return (*storageLensConfigurationStorageLensConfigurationAwsOrgPtrType)(v)
+}
+
+func (*storageLensConfigurationStorageLensConfigurationAwsOrgPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensConfigurationStorageLensConfigurationAwsOrg)(nil)).Elem()
+}
+
+func (i *storageLensConfigurationStorageLensConfigurationAwsOrgPtrType) ToStorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutput() StorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutput {
+	return i.ToStorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutputWithContext(context.Background())
+}
+
+func (i *storageLensConfigurationStorageLensConfigurationAwsOrgPtrType) ToStorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutput)
+}
+
+type StorageLensConfigurationStorageLensConfigurationAwsOrgOutput struct{ *pulumi.OutputState }
+
+func (StorageLensConfigurationStorageLensConfigurationAwsOrgOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationAwsOrg)(nil)).Elem()
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationAwsOrgOutput) ToStorageLensConfigurationStorageLensConfigurationAwsOrgOutput() StorageLensConfigurationStorageLensConfigurationAwsOrgOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationAwsOrgOutput) ToStorageLensConfigurationStorageLensConfigurationAwsOrgOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAwsOrgOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationAwsOrgOutput) ToStorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutput() StorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutput {
+	return o.ToStorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutputWithContext(context.Background())
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationAwsOrgOutput) ToStorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageLensConfigurationStorageLensConfigurationAwsOrg) *StorageLensConfigurationStorageLensConfigurationAwsOrg {
+		return &v
+	}).(StorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Amazon Web Services organization.
+func (o StorageLensConfigurationStorageLensConfigurationAwsOrgOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationAwsOrg) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+type StorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensConfigurationStorageLensConfigurationAwsOrg)(nil)).Elem()
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutput) ToStorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutput() StorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutput) ToStorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutput) Elem() StorageLensConfigurationStorageLensConfigurationAwsOrgOutput {
+	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationAwsOrg) StorageLensConfigurationStorageLensConfigurationAwsOrg {
+		if v != nil {
+			return *v
+		}
+		var ret StorageLensConfigurationStorageLensConfigurationAwsOrg
+		return ret
+	}).(StorageLensConfigurationStorageLensConfigurationAwsOrgOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Amazon Web Services organization.
+func (o StorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationAwsOrg) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+type StorageLensConfigurationStorageLensConfigurationDataExport struct {
+	// Amazon CloudWatch publishing for S3 Storage Lens metrics. See Cloud Watch Metrics below for more details.
+	CloudWatchMetrics *StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics `pulumi:"cloudWatchMetrics"`
+	// The bucket where the S3 Storage Lens metrics export will be located. See S3 Bucket Destination below for more details.
+	S3BucketDestination *StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination `pulumi:"s3BucketDestination"`
+}
+
+// StorageLensConfigurationStorageLensConfigurationDataExportInput is an input type that accepts StorageLensConfigurationStorageLensConfigurationDataExportArgs and StorageLensConfigurationStorageLensConfigurationDataExportOutput values.
+// You can construct a concrete instance of `StorageLensConfigurationStorageLensConfigurationDataExportInput` via:
+//
+//	StorageLensConfigurationStorageLensConfigurationDataExportArgs{...}
+type StorageLensConfigurationStorageLensConfigurationDataExportInput interface {
+	pulumi.Input
+
+	ToStorageLensConfigurationStorageLensConfigurationDataExportOutput() StorageLensConfigurationStorageLensConfigurationDataExportOutput
+	ToStorageLensConfigurationStorageLensConfigurationDataExportOutputWithContext(context.Context) StorageLensConfigurationStorageLensConfigurationDataExportOutput
+}
+
+type StorageLensConfigurationStorageLensConfigurationDataExportArgs struct {
+	// Amazon CloudWatch publishing for S3 Storage Lens metrics. See Cloud Watch Metrics below for more details.
+	CloudWatchMetrics StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrInput `pulumi:"cloudWatchMetrics"`
+	// The bucket where the S3 Storage Lens metrics export will be located. See S3 Bucket Destination below for more details.
+	S3BucketDestination StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrInput `pulumi:"s3BucketDestination"`
+}
+
+func (StorageLensConfigurationStorageLensConfigurationDataExportArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationDataExport)(nil)).Elem()
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationDataExportArgs) ToStorageLensConfigurationStorageLensConfigurationDataExportOutput() StorageLensConfigurationStorageLensConfigurationDataExportOutput {
+	return i.ToStorageLensConfigurationStorageLensConfigurationDataExportOutputWithContext(context.Background())
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationDataExportArgs) ToStorageLensConfigurationStorageLensConfigurationDataExportOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationDataExportOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationDataExportOutput)
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationDataExportArgs) ToStorageLensConfigurationStorageLensConfigurationDataExportPtrOutput() StorageLensConfigurationStorageLensConfigurationDataExportPtrOutput {
+	return i.ToStorageLensConfigurationStorageLensConfigurationDataExportPtrOutputWithContext(context.Background())
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationDataExportArgs) ToStorageLensConfigurationStorageLensConfigurationDataExportPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationDataExportPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationDataExportOutput).ToStorageLensConfigurationStorageLensConfigurationDataExportPtrOutputWithContext(ctx)
+}
+
+// StorageLensConfigurationStorageLensConfigurationDataExportPtrInput is an input type that accepts StorageLensConfigurationStorageLensConfigurationDataExportArgs, StorageLensConfigurationStorageLensConfigurationDataExportPtr and StorageLensConfigurationStorageLensConfigurationDataExportPtrOutput values.
+// You can construct a concrete instance of `StorageLensConfigurationStorageLensConfigurationDataExportPtrInput` via:
+//
+//	        StorageLensConfigurationStorageLensConfigurationDataExportArgs{...}
+//
+//	or:
+//
+//	        nil
+type StorageLensConfigurationStorageLensConfigurationDataExportPtrInput interface {
+	pulumi.Input
+
+	ToStorageLensConfigurationStorageLensConfigurationDataExportPtrOutput() StorageLensConfigurationStorageLensConfigurationDataExportPtrOutput
+	ToStorageLensConfigurationStorageLensConfigurationDataExportPtrOutputWithContext(context.Context) StorageLensConfigurationStorageLensConfigurationDataExportPtrOutput
+}
+
+type storageLensConfigurationStorageLensConfigurationDataExportPtrType StorageLensConfigurationStorageLensConfigurationDataExportArgs
+
+func StorageLensConfigurationStorageLensConfigurationDataExportPtr(v *StorageLensConfigurationStorageLensConfigurationDataExportArgs) StorageLensConfigurationStorageLensConfigurationDataExportPtrInput {
+	return (*storageLensConfigurationStorageLensConfigurationDataExportPtrType)(v)
+}
+
+func (*storageLensConfigurationStorageLensConfigurationDataExportPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensConfigurationStorageLensConfigurationDataExport)(nil)).Elem()
+}
+
+func (i *storageLensConfigurationStorageLensConfigurationDataExportPtrType) ToStorageLensConfigurationStorageLensConfigurationDataExportPtrOutput() StorageLensConfigurationStorageLensConfigurationDataExportPtrOutput {
+	return i.ToStorageLensConfigurationStorageLensConfigurationDataExportPtrOutputWithContext(context.Background())
+}
+
+func (i *storageLensConfigurationStorageLensConfigurationDataExportPtrType) ToStorageLensConfigurationStorageLensConfigurationDataExportPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationDataExportPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationDataExportPtrOutput)
+}
+
+type StorageLensConfigurationStorageLensConfigurationDataExportOutput struct{ *pulumi.OutputState }
+
+func (StorageLensConfigurationStorageLensConfigurationDataExportOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationDataExport)(nil)).Elem()
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationDataExportOutput) ToStorageLensConfigurationStorageLensConfigurationDataExportOutput() StorageLensConfigurationStorageLensConfigurationDataExportOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationDataExportOutput) ToStorageLensConfigurationStorageLensConfigurationDataExportOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationDataExportOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationDataExportOutput) ToStorageLensConfigurationStorageLensConfigurationDataExportPtrOutput() StorageLensConfigurationStorageLensConfigurationDataExportPtrOutput {
+	return o.ToStorageLensConfigurationStorageLensConfigurationDataExportPtrOutputWithContext(context.Background())
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationDataExportOutput) ToStorageLensConfigurationStorageLensConfigurationDataExportPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationDataExportPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageLensConfigurationStorageLensConfigurationDataExport) *StorageLensConfigurationStorageLensConfigurationDataExport {
+		return &v
+	}).(StorageLensConfigurationStorageLensConfigurationDataExportPtrOutput)
+}
+
+// Amazon CloudWatch publishing for S3 Storage Lens metrics. See Cloud Watch Metrics below for more details.
+func (o StorageLensConfigurationStorageLensConfigurationDataExportOutput) CloudWatchMetrics() StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrOutput {
+	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationDataExport) *StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics {
+		return v.CloudWatchMetrics
+	}).(StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrOutput)
+}
+
+// The bucket where the S3 Storage Lens metrics export will be located. See S3 Bucket Destination below for more details.
+func (o StorageLensConfigurationStorageLensConfigurationDataExportOutput) S3BucketDestination() StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutput {
+	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationDataExport) *StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination {
+		return v.S3BucketDestination
+	}).(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutput)
+}
+
+type StorageLensConfigurationStorageLensConfigurationDataExportPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageLensConfigurationStorageLensConfigurationDataExportPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensConfigurationStorageLensConfigurationDataExport)(nil)).Elem()
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationDataExportPtrOutput) ToStorageLensConfigurationStorageLensConfigurationDataExportPtrOutput() StorageLensConfigurationStorageLensConfigurationDataExportPtrOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationDataExportPtrOutput) ToStorageLensConfigurationStorageLensConfigurationDataExportPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationDataExportPtrOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationDataExportPtrOutput) Elem() StorageLensConfigurationStorageLensConfigurationDataExportOutput {
+	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationDataExport) StorageLensConfigurationStorageLensConfigurationDataExport {
+		if v != nil {
+			return *v
+		}
+		var ret StorageLensConfigurationStorageLensConfigurationDataExport
+		return ret
+	}).(StorageLensConfigurationStorageLensConfigurationDataExportOutput)
+}
+
+// Amazon CloudWatch publishing for S3 Storage Lens metrics. See Cloud Watch Metrics below for more details.
+func (o StorageLensConfigurationStorageLensConfigurationDataExportPtrOutput) CloudWatchMetrics() StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrOutput {
+	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationDataExport) *StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics {
+		if v == nil {
+			return nil
+		}
+		return v.CloudWatchMetrics
+	}).(StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrOutput)
+}
+
+// The bucket where the S3 Storage Lens metrics export will be located. See S3 Bucket Destination below for more details.
+func (o StorageLensConfigurationStorageLensConfigurationDataExportPtrOutput) S3BucketDestination() StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutput {
+	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationDataExport) *StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination {
+		if v == nil {
+			return nil
+		}
+		return v.S3BucketDestination
+	}).(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutput)
+}
+
+type StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics struct {
+	// Whether CloudWatch publishing for S3 Storage Lens metrics is enabled.
+	Enabled bool `pulumi:"enabled"`
+}
+
+// StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsInput is an input type that accepts StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsArgs and StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsOutput values.
+// You can construct a concrete instance of `StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsInput` via:
+//
+//	StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsArgs{...}
+type StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsInput interface {
+	pulumi.Input
+
+	ToStorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsOutput() StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsOutput
+	ToStorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsOutputWithContext(context.Context) StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsOutput
+}
+
+type StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsArgs struct {
+	// Whether CloudWatch publishing for S3 Storage Lens metrics is enabled.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics)(nil)).Elem()
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsArgs) ToStorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsOutput() StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsOutput {
+	return i.ToStorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsOutputWithContext(context.Background())
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsArgs) ToStorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsOutput)
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsArgs) ToStorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrOutput() StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrOutput {
+	return i.ToStorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrOutputWithContext(context.Background())
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsArgs) ToStorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsOutput).ToStorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrOutputWithContext(ctx)
+}
+
+// StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrInput is an input type that accepts StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsArgs, StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtr and StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrOutput values.
+// You can construct a concrete instance of `StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrInput` via:
+//
+//	        StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsArgs{...}
+//
+//	or:
+//
+//	        nil
+type StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrInput interface {
+	pulumi.Input
+
+	ToStorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrOutput() StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrOutput
+	ToStorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrOutputWithContext(context.Context) StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrOutput
+}
+
+type storageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrType StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsArgs
+
+func StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtr(v *StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsArgs) StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrInput {
+	return (*storageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrType)(v)
+}
+
+func (*storageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics)(nil)).Elem()
+}
+
+func (i *storageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrType) ToStorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrOutput() StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrOutput {
+	return i.ToStorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrOutputWithContext(context.Background())
+}
+
+func (i *storageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrType) ToStorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrOutput)
+}
+
+type StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsOutput struct{ *pulumi.OutputState }
+
+func (StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics)(nil)).Elem()
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsOutput) ToStorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsOutput() StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsOutput) ToStorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsOutput) ToStorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrOutput() StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrOutput {
+	return o.ToStorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrOutputWithContext(context.Background())
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsOutput) ToStorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics) *StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics {
+		return &v
+	}).(StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrOutput)
+}
+
+// Whether CloudWatch publishing for S3 Storage Lens metrics is enabled.
+func (o StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics) bool {
+		return v.Enabled
+	}).(pulumi.BoolOutput)
+}
+
+type StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics)(nil)).Elem()
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrOutput) ToStorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrOutput() StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrOutput) ToStorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrOutput) Elem() StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsOutput {
+	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics) StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics {
+		if v != nil {
+			return *v
+		}
+		var ret StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics
+		return ret
+	}).(StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsOutput)
+}
+
+// Whether CloudWatch publishing for S3 Storage Lens metrics is enabled.
+func (o StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination struct {
+	// The account ID of the owner of the S3 Storage Lens metrics export bucket.
+	AccountId string `pulumi:"accountId"`
+	// The Amazon Resource Name (ARN) of the bucket.
+	Arn string `pulumi:"arn"`
+	// Encryption of the metrics exports in this bucket. See Encryption below for more details.
+	Encryption *StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption `pulumi:"encryption"`
+	// The export format. Valid values: `CSV`, `Parquet`.
+	Format string `pulumi:"format"`
+	// The schema version of the export file. Valid values: `V_1`.
+	OutputSchemaVersion string `pulumi:"outputSchemaVersion"`
+	// The prefix of the destination bucket where the metrics export will be delivered.
+	Prefix *string `pulumi:"prefix"`
+}
+
+// StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationInput is an input type that accepts StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs and StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationOutput values.
+// You can construct a concrete instance of `StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationInput` via:
+//
+//	StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs{...}
+type StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationInput interface {
+	pulumi.Input
+
+	ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationOutput() StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationOutput
+	ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationOutputWithContext(context.Context) StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationOutput
+}
+
+type StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs struct {
+	// The account ID of the owner of the S3 Storage Lens metrics export bucket.
+	AccountId pulumi.StringInput `pulumi:"accountId"`
+	// The Amazon Resource Name (ARN) of the bucket.
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// Encryption of the metrics exports in this bucket. See Encryption below for more details.
+	Encryption StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrInput `pulumi:"encryption"`
+	// The export format. Valid values: `CSV`, `Parquet`.
+	Format pulumi.StringInput `pulumi:"format"`
+	// The schema version of the export file. Valid values: `V_1`.
+	OutputSchemaVersion pulumi.StringInput `pulumi:"outputSchemaVersion"`
+	// The prefix of the destination bucket where the metrics export will be delivered.
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+}
+
+func (StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination)(nil)).Elem()
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs) ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationOutput() StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationOutput {
+	return i.ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationOutputWithContext(context.Background())
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs) ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationOutput)
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs) ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutput() StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutput {
+	return i.ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs) ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationOutput).ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutputWithContext(ctx)
+}
+
+// StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrInput is an input type that accepts StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs, StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtr and StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutput values.
+// You can construct a concrete instance of `StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrInput` via:
+//
+//	        StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs{...}
+//
+//	or:
+//
+//	        nil
+type StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrInput interface {
+	pulumi.Input
+
+	ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutput() StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutput
+	ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutputWithContext(context.Context) StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutput
+}
+
+type storageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrType StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs
+
+func StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtr(v *StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs) StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrInput {
+	return (*storageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrType)(v)
+}
+
+func (*storageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination)(nil)).Elem()
+}
+
+func (i *storageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrType) ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutput() StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutput {
+	return i.ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *storageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrType) ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutput)
+}
+
+type StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationOutput struct{ *pulumi.OutputState }
+
+func (StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination)(nil)).Elem()
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationOutput) ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationOutput() StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationOutput) ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationOutput) ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutput() StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutput {
+	return o.ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutputWithContext(context.Background())
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationOutput) ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination) *StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination {
+		return &v
+	}).(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutput)
+}
+
+// The account ID of the owner of the S3 Storage Lens metrics export bucket.
+func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination) string {
+		return v.AccountId
+	}).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of the bucket.
+func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination) string {
+		return v.Arn
+	}).(pulumi.StringOutput)
+}
+
+// Encryption of the metrics exports in this bucket. See Encryption below for more details.
+func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationOutput) Encryption() StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrOutput {
+	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination) *StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption {
+		return v.Encryption
+	}).(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrOutput)
+}
+
+// The export format. Valid values: `CSV`, `Parquet`.
+func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationOutput) Format() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination) string {
+		return v.Format
+	}).(pulumi.StringOutput)
+}
+
+// The schema version of the export file. Valid values: `V_1`.
+func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationOutput) OutputSchemaVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination) string {
+		return v.OutputSchemaVersion
+	}).(pulumi.StringOutput)
+}
+
+// The prefix of the destination bucket where the metrics export will be delivered.
+func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination) *string {
+		return v.Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
+type StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination)(nil)).Elem()
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutput) ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutput() StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutput) ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutput) Elem() StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationOutput {
+	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination) StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination {
+		if v != nil {
+			return *v
+		}
+		var ret StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination
+		return ret
+	}).(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationOutput)
+}
+
+// The account ID of the owner of the S3 Storage Lens metrics export bucket.
+func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AccountId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the bucket.
+func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Encryption of the metrics exports in this bucket. See Encryption below for more details.
+func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutput) Encryption() StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrOutput {
+	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination) *StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption {
+		if v == nil {
+			return nil
+		}
+		return v.Encryption
+	}).(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrOutput)
+}
+
+// The export format. Valid values: `CSV`, `Parquet`.
+func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Format
+	}).(pulumi.StringPtrOutput)
+}
+
+// The schema version of the export file. Valid values: `V_1`.
+func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutput) OutputSchemaVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OutputSchemaVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The prefix of the destination bucket where the metrics export will be delivered.
+func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
+type StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption struct {
+	// SSE-KMS encryption. See SSE KMS below for more details.
+	SseKms *StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms `pulumi:"sseKms"`
+	// SSE-S3 encryption. An empty configuration block `{}` should be used.
+	SseS3s []StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3 `pulumi:"sseS3s"`
+}
+
+// StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionInput is an input type that accepts StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs and StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionOutput values.
+// You can construct a concrete instance of `StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionInput` via:
+//
+//	StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs{...}
+type StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionInput interface {
+	pulumi.Input
+
+	ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionOutput() StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionOutput
+	ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionOutputWithContext(context.Context) StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionOutput
+}
+
+type StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs struct {
+	// SSE-KMS encryption. See SSE KMS below for more details.
+	SseKms StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrInput `pulumi:"sseKms"`
+	// SSE-S3 encryption. An empty configuration block `{}` should be used.
+	SseS3s StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3ArrayInput `pulumi:"sseS3s"`
+}
+
+func (StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption)(nil)).Elem()
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs) ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionOutput() StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionOutput {
+	return i.ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionOutputWithContext(context.Background())
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs) ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionOutput)
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs) ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrOutput() StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrOutput {
+	return i.ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs) ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionOutput).ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrOutputWithContext(ctx)
+}
+
+// StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrInput is an input type that accepts StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs, StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtr and StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrOutput values.
+// You can construct a concrete instance of `StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrInput` via:
+//
+//	        StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs{...}
+//
+//	or:
+//
+//	        nil
+type StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrInput interface {
+	pulumi.Input
+
+	ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrOutput() StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrOutput
+	ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrOutputWithContext(context.Context) StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrOutput
+}
+
+type storageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrType StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs
+
+func StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtr(v *StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs) StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrInput {
+	return (*storageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrType)(v)
+}
+
+func (*storageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption)(nil)).Elem()
+}
+
+func (i *storageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrType) ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrOutput() StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrOutput {
+	return i.ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i *storageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrType) ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrOutput)
+}
+
+type StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionOutput struct{ *pulumi.OutputState }
+
+func (StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption)(nil)).Elem()
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionOutput) ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionOutput() StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionOutput) ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionOutput) ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrOutput() StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrOutput {
+	return o.ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionOutput) ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption) *StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption {
+		return &v
+	}).(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrOutput)
+}
+
+// SSE-KMS encryption. See SSE KMS below for more details.
+func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionOutput) SseKms() StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrOutput {
+	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption) *StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms {
+		return v.SseKms
+	}).(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrOutput)
+}
+
+// SSE-S3 encryption. An empty configuration block `{}` should be used.
+func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionOutput) SseS3s() StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3ArrayOutput {
+	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption) []StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3 {
+		return v.SseS3s
+	}).(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3ArrayOutput)
+}
+
+type StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption)(nil)).Elem()
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrOutput) ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrOutput() StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrOutput) ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrOutput) Elem() StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionOutput {
+	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption) StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption {
+		if v != nil {
+			return *v
+		}
+		var ret StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption
+		return ret
+	}).(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionOutput)
+}
+
+// SSE-KMS encryption. See SSE KMS below for more details.
+func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrOutput) SseKms() StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrOutput {
+	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption) *StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms {
+		if v == nil {
+			return nil
+		}
+		return v.SseKms
+	}).(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrOutput)
+}
+
+// SSE-S3 encryption. An empty configuration block `{}` should be used.
+func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrOutput) SseS3s() StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3ArrayOutput {
+	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption) []StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3 {
+		if v == nil {
+			return nil
+		}
+		return v.SseS3s
+	}).(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3ArrayOutput)
+}
+
+type StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms struct {
+	// KMS key ARN.
+	KeyId string `pulumi:"keyId"`
+}
+
+// StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsInput is an input type that accepts StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsArgs and StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsOutput values.
+// You can construct a concrete instance of `StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsInput` via:
+//
+//	StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsArgs{...}
+type StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsInput interface {
+	pulumi.Input
+
+	ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsOutput() StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsOutput
+	ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsOutputWithContext(context.Context) StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsOutput
+}
+
+type StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsArgs struct {
+	// KMS key ARN.
+	KeyId pulumi.StringInput `pulumi:"keyId"`
+}
+
+func (StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms)(nil)).Elem()
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsArgs) ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsOutput() StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsOutput {
+	return i.ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsOutputWithContext(context.Background())
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsArgs) ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsOutput)
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsArgs) ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrOutput() StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrOutput {
+	return i.ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrOutputWithContext(context.Background())
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsArgs) ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsOutput).ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrOutputWithContext(ctx)
+}
+
+// StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrInput is an input type that accepts StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsArgs, StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtr and StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrOutput values.
+// You can construct a concrete instance of `StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrInput` via:
+//
+//	        StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsArgs{...}
+//
+//	or:
+//
+//	        nil
+type StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrInput interface {
+	pulumi.Input
+
+	ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrOutput() StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrOutput
+	ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrOutputWithContext(context.Context) StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrOutput
+}
+
+type storageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrType StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsArgs
+
+func StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtr(v *StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsArgs) StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrInput {
+	return (*storageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrType)(v)
+}
+
+func (*storageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms)(nil)).Elem()
+}
+
+func (i *storageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrType) ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrOutput() StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrOutput {
+	return i.ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrOutputWithContext(context.Background())
+}
+
+func (i *storageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrType) ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrOutput)
+}
+
+type StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsOutput struct{ *pulumi.OutputState }
+
+func (StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms)(nil)).Elem()
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsOutput) ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsOutput() StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsOutput) ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsOutput) ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrOutput() StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrOutput {
+	return o.ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrOutputWithContext(context.Background())
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsOutput) ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms) *StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms {
+		return &v
+	}).(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrOutput)
+}
+
+// KMS key ARN.
+func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsOutput) KeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms) string {
+		return v.KeyId
+	}).(pulumi.StringOutput)
+}
+
+type StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms)(nil)).Elem()
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrOutput) ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrOutput() StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrOutput) ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrOutput) Elem() StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsOutput {
+	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms) StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms {
+		if v != nil {
+			return *v
+		}
+		var ret StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms
+		return ret
+	}).(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsOutput)
+}
+
+// KMS key ARN.
+func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrOutput) KeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+type StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3 struct {
+}
+
+// StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Input is an input type that accepts StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Args and StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Output values.
+// You can construct a concrete instance of `StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Input` via:
+//
+//	StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Args{...}
+type StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Input interface {
+	pulumi.Input
+
+	ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Output() StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Output
+	ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3OutputWithContext(context.Context) StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Output
+}
+
+type StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Args struct {
+}
+
+func (StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3)(nil)).Elem()
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Args) ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Output() StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Output {
+	return i.ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3OutputWithContext(context.Background())
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Args) ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3OutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Output {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Output)
+}
+
+// StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3ArrayInput is an input type that accepts StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Array and StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3ArrayOutput values.
+// You can construct a concrete instance of `StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3ArrayInput` via:
+//
+//	StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Array{ StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Args{...} }
+type StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3ArrayInput interface {
+	pulumi.Input
+
+	ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3ArrayOutput() StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3ArrayOutput
+	ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3ArrayOutputWithContext(context.Context) StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3ArrayOutput
+}
+
+type StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Array []StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Input
+
+func (StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Array) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3)(nil)).Elem()
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Array) ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3ArrayOutput() StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3ArrayOutput {
+	return i.ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3ArrayOutputWithContext(context.Background())
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Array) ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3ArrayOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3ArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3ArrayOutput)
+}
+
+type StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Output struct{ *pulumi.OutputState }
+
+func (StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3)(nil)).Elem()
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Output) ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Output() StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Output {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Output) ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3OutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Output {
+	return o
+}
+
+type StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3ArrayOutput struct{ *pulumi.OutputState }
+
+func (StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3ArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3)(nil)).Elem()
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3ArrayOutput) ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3ArrayOutput() StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3ArrayOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3ArrayOutput) ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3ArrayOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3ArrayOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3ArrayOutput) Index(i pulumi.IntInput) StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Output {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3 {
+		return vs[0].([]StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3)[vs[1].(int)]
+	}).(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Output)
+}
+
+type StorageLensConfigurationStorageLensConfigurationExclude struct {
+	// List of S3 bucket ARNs.
+	Buckets []string `pulumi:"buckets"`
+	// List of AWS Regions.
+	Regions []string `pulumi:"regions"`
+}
+
+// StorageLensConfigurationStorageLensConfigurationExcludeInput is an input type that accepts StorageLensConfigurationStorageLensConfigurationExcludeArgs and StorageLensConfigurationStorageLensConfigurationExcludeOutput values.
+// You can construct a concrete instance of `StorageLensConfigurationStorageLensConfigurationExcludeInput` via:
+//
+//	StorageLensConfigurationStorageLensConfigurationExcludeArgs{...}
+type StorageLensConfigurationStorageLensConfigurationExcludeInput interface {
+	pulumi.Input
+
+	ToStorageLensConfigurationStorageLensConfigurationExcludeOutput() StorageLensConfigurationStorageLensConfigurationExcludeOutput
+	ToStorageLensConfigurationStorageLensConfigurationExcludeOutputWithContext(context.Context) StorageLensConfigurationStorageLensConfigurationExcludeOutput
+}
+
+type StorageLensConfigurationStorageLensConfigurationExcludeArgs struct {
+	// List of S3 bucket ARNs.
+	Buckets pulumi.StringArrayInput `pulumi:"buckets"`
+	// List of AWS Regions.
+	Regions pulumi.StringArrayInput `pulumi:"regions"`
+}
+
+func (StorageLensConfigurationStorageLensConfigurationExcludeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationExclude)(nil)).Elem()
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationExcludeArgs) ToStorageLensConfigurationStorageLensConfigurationExcludeOutput() StorageLensConfigurationStorageLensConfigurationExcludeOutput {
+	return i.ToStorageLensConfigurationStorageLensConfigurationExcludeOutputWithContext(context.Background())
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationExcludeArgs) ToStorageLensConfigurationStorageLensConfigurationExcludeOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationExcludeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationExcludeOutput)
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationExcludeArgs) ToStorageLensConfigurationStorageLensConfigurationExcludePtrOutput() StorageLensConfigurationStorageLensConfigurationExcludePtrOutput {
+	return i.ToStorageLensConfigurationStorageLensConfigurationExcludePtrOutputWithContext(context.Background())
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationExcludeArgs) ToStorageLensConfigurationStorageLensConfigurationExcludePtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationExcludePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationExcludeOutput).ToStorageLensConfigurationStorageLensConfigurationExcludePtrOutputWithContext(ctx)
+}
+
+// StorageLensConfigurationStorageLensConfigurationExcludePtrInput is an input type that accepts StorageLensConfigurationStorageLensConfigurationExcludeArgs, StorageLensConfigurationStorageLensConfigurationExcludePtr and StorageLensConfigurationStorageLensConfigurationExcludePtrOutput values.
+// You can construct a concrete instance of `StorageLensConfigurationStorageLensConfigurationExcludePtrInput` via:
+//
+//	        StorageLensConfigurationStorageLensConfigurationExcludeArgs{...}
+//
+//	or:
+//
+//	        nil
+type StorageLensConfigurationStorageLensConfigurationExcludePtrInput interface {
+	pulumi.Input
+
+	ToStorageLensConfigurationStorageLensConfigurationExcludePtrOutput() StorageLensConfigurationStorageLensConfigurationExcludePtrOutput
+	ToStorageLensConfigurationStorageLensConfigurationExcludePtrOutputWithContext(context.Context) StorageLensConfigurationStorageLensConfigurationExcludePtrOutput
+}
+
+type storageLensConfigurationStorageLensConfigurationExcludePtrType StorageLensConfigurationStorageLensConfigurationExcludeArgs
+
+func StorageLensConfigurationStorageLensConfigurationExcludePtr(v *StorageLensConfigurationStorageLensConfigurationExcludeArgs) StorageLensConfigurationStorageLensConfigurationExcludePtrInput {
+	return (*storageLensConfigurationStorageLensConfigurationExcludePtrType)(v)
+}
+
+func (*storageLensConfigurationStorageLensConfigurationExcludePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensConfigurationStorageLensConfigurationExclude)(nil)).Elem()
+}
+
+func (i *storageLensConfigurationStorageLensConfigurationExcludePtrType) ToStorageLensConfigurationStorageLensConfigurationExcludePtrOutput() StorageLensConfigurationStorageLensConfigurationExcludePtrOutput {
+	return i.ToStorageLensConfigurationStorageLensConfigurationExcludePtrOutputWithContext(context.Background())
+}
+
+func (i *storageLensConfigurationStorageLensConfigurationExcludePtrType) ToStorageLensConfigurationStorageLensConfigurationExcludePtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationExcludePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationExcludePtrOutput)
+}
+
+type StorageLensConfigurationStorageLensConfigurationExcludeOutput struct{ *pulumi.OutputState }
+
+func (StorageLensConfigurationStorageLensConfigurationExcludeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationExclude)(nil)).Elem()
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationExcludeOutput) ToStorageLensConfigurationStorageLensConfigurationExcludeOutput() StorageLensConfigurationStorageLensConfigurationExcludeOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationExcludeOutput) ToStorageLensConfigurationStorageLensConfigurationExcludeOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationExcludeOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationExcludeOutput) ToStorageLensConfigurationStorageLensConfigurationExcludePtrOutput() StorageLensConfigurationStorageLensConfigurationExcludePtrOutput {
+	return o.ToStorageLensConfigurationStorageLensConfigurationExcludePtrOutputWithContext(context.Background())
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationExcludeOutput) ToStorageLensConfigurationStorageLensConfigurationExcludePtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationExcludePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageLensConfigurationStorageLensConfigurationExclude) *StorageLensConfigurationStorageLensConfigurationExclude {
+		return &v
+	}).(StorageLensConfigurationStorageLensConfigurationExcludePtrOutput)
+}
+
+// List of S3 bucket ARNs.
+func (o StorageLensConfigurationStorageLensConfigurationExcludeOutput) Buckets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationExclude) []string { return v.Buckets }).(pulumi.StringArrayOutput)
+}
+
+// List of AWS Regions.
+func (o StorageLensConfigurationStorageLensConfigurationExcludeOutput) Regions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationExclude) []string { return v.Regions }).(pulumi.StringArrayOutput)
+}
+
+type StorageLensConfigurationStorageLensConfigurationExcludePtrOutput struct{ *pulumi.OutputState }
+
+func (StorageLensConfigurationStorageLensConfigurationExcludePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensConfigurationStorageLensConfigurationExclude)(nil)).Elem()
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationExcludePtrOutput) ToStorageLensConfigurationStorageLensConfigurationExcludePtrOutput() StorageLensConfigurationStorageLensConfigurationExcludePtrOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationExcludePtrOutput) ToStorageLensConfigurationStorageLensConfigurationExcludePtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationExcludePtrOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationExcludePtrOutput) Elem() StorageLensConfigurationStorageLensConfigurationExcludeOutput {
+	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationExclude) StorageLensConfigurationStorageLensConfigurationExclude {
+		if v != nil {
+			return *v
+		}
+		var ret StorageLensConfigurationStorageLensConfigurationExclude
+		return ret
+	}).(StorageLensConfigurationStorageLensConfigurationExcludeOutput)
+}
+
+// List of S3 bucket ARNs.
+func (o StorageLensConfigurationStorageLensConfigurationExcludePtrOutput) Buckets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationExclude) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Buckets
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of AWS Regions.
+func (o StorageLensConfigurationStorageLensConfigurationExcludePtrOutput) Regions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationExclude) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Regions
+	}).(pulumi.StringArrayOutput)
+}
+
+type StorageLensConfigurationStorageLensConfigurationInclude struct {
+	// List of S3 bucket ARNs.
+	Buckets []string `pulumi:"buckets"`
+	// List of AWS Regions.
+	Regions []string `pulumi:"regions"`
+}
+
+// StorageLensConfigurationStorageLensConfigurationIncludeInput is an input type that accepts StorageLensConfigurationStorageLensConfigurationIncludeArgs and StorageLensConfigurationStorageLensConfigurationIncludeOutput values.
+// You can construct a concrete instance of `StorageLensConfigurationStorageLensConfigurationIncludeInput` via:
+//
+//	StorageLensConfigurationStorageLensConfigurationIncludeArgs{...}
+type StorageLensConfigurationStorageLensConfigurationIncludeInput interface {
+	pulumi.Input
+
+	ToStorageLensConfigurationStorageLensConfigurationIncludeOutput() StorageLensConfigurationStorageLensConfigurationIncludeOutput
+	ToStorageLensConfigurationStorageLensConfigurationIncludeOutputWithContext(context.Context) StorageLensConfigurationStorageLensConfigurationIncludeOutput
+}
+
+type StorageLensConfigurationStorageLensConfigurationIncludeArgs struct {
+	// List of S3 bucket ARNs.
+	Buckets pulumi.StringArrayInput `pulumi:"buckets"`
+	// List of AWS Regions.
+	Regions pulumi.StringArrayInput `pulumi:"regions"`
+}
+
+func (StorageLensConfigurationStorageLensConfigurationIncludeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationInclude)(nil)).Elem()
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationIncludeArgs) ToStorageLensConfigurationStorageLensConfigurationIncludeOutput() StorageLensConfigurationStorageLensConfigurationIncludeOutput {
+	return i.ToStorageLensConfigurationStorageLensConfigurationIncludeOutputWithContext(context.Background())
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationIncludeArgs) ToStorageLensConfigurationStorageLensConfigurationIncludeOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationIncludeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationIncludeOutput)
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationIncludeArgs) ToStorageLensConfigurationStorageLensConfigurationIncludePtrOutput() StorageLensConfigurationStorageLensConfigurationIncludePtrOutput {
+	return i.ToStorageLensConfigurationStorageLensConfigurationIncludePtrOutputWithContext(context.Background())
+}
+
+func (i StorageLensConfigurationStorageLensConfigurationIncludeArgs) ToStorageLensConfigurationStorageLensConfigurationIncludePtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationIncludePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationIncludeOutput).ToStorageLensConfigurationStorageLensConfigurationIncludePtrOutputWithContext(ctx)
+}
+
+// StorageLensConfigurationStorageLensConfigurationIncludePtrInput is an input type that accepts StorageLensConfigurationStorageLensConfigurationIncludeArgs, StorageLensConfigurationStorageLensConfigurationIncludePtr and StorageLensConfigurationStorageLensConfigurationIncludePtrOutput values.
+// You can construct a concrete instance of `StorageLensConfigurationStorageLensConfigurationIncludePtrInput` via:
+//
+//	        StorageLensConfigurationStorageLensConfigurationIncludeArgs{...}
+//
+//	or:
+//
+//	        nil
+type StorageLensConfigurationStorageLensConfigurationIncludePtrInput interface {
+	pulumi.Input
+
+	ToStorageLensConfigurationStorageLensConfigurationIncludePtrOutput() StorageLensConfigurationStorageLensConfigurationIncludePtrOutput
+	ToStorageLensConfigurationStorageLensConfigurationIncludePtrOutputWithContext(context.Context) StorageLensConfigurationStorageLensConfigurationIncludePtrOutput
+}
+
+type storageLensConfigurationStorageLensConfigurationIncludePtrType StorageLensConfigurationStorageLensConfigurationIncludeArgs
+
+func StorageLensConfigurationStorageLensConfigurationIncludePtr(v *StorageLensConfigurationStorageLensConfigurationIncludeArgs) StorageLensConfigurationStorageLensConfigurationIncludePtrInput {
+	return (*storageLensConfigurationStorageLensConfigurationIncludePtrType)(v)
+}
+
+func (*storageLensConfigurationStorageLensConfigurationIncludePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensConfigurationStorageLensConfigurationInclude)(nil)).Elem()
+}
+
+func (i *storageLensConfigurationStorageLensConfigurationIncludePtrType) ToStorageLensConfigurationStorageLensConfigurationIncludePtrOutput() StorageLensConfigurationStorageLensConfigurationIncludePtrOutput {
+	return i.ToStorageLensConfigurationStorageLensConfigurationIncludePtrOutputWithContext(context.Background())
+}
+
+func (i *storageLensConfigurationStorageLensConfigurationIncludePtrType) ToStorageLensConfigurationStorageLensConfigurationIncludePtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationIncludePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationIncludePtrOutput)
+}
+
+type StorageLensConfigurationStorageLensConfigurationIncludeOutput struct{ *pulumi.OutputState }
+
+func (StorageLensConfigurationStorageLensConfigurationIncludeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationInclude)(nil)).Elem()
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationIncludeOutput) ToStorageLensConfigurationStorageLensConfigurationIncludeOutput() StorageLensConfigurationStorageLensConfigurationIncludeOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationIncludeOutput) ToStorageLensConfigurationStorageLensConfigurationIncludeOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationIncludeOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationIncludeOutput) ToStorageLensConfigurationStorageLensConfigurationIncludePtrOutput() StorageLensConfigurationStorageLensConfigurationIncludePtrOutput {
+	return o.ToStorageLensConfigurationStorageLensConfigurationIncludePtrOutputWithContext(context.Background())
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationIncludeOutput) ToStorageLensConfigurationStorageLensConfigurationIncludePtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationIncludePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageLensConfigurationStorageLensConfigurationInclude) *StorageLensConfigurationStorageLensConfigurationInclude {
+		return &v
+	}).(StorageLensConfigurationStorageLensConfigurationIncludePtrOutput)
+}
+
+// List of S3 bucket ARNs.
+func (o StorageLensConfigurationStorageLensConfigurationIncludeOutput) Buckets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationInclude) []string { return v.Buckets }).(pulumi.StringArrayOutput)
+}
+
+// List of AWS Regions.
+func (o StorageLensConfigurationStorageLensConfigurationIncludeOutput) Regions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationInclude) []string { return v.Regions }).(pulumi.StringArrayOutput)
+}
+
+type StorageLensConfigurationStorageLensConfigurationIncludePtrOutput struct{ *pulumi.OutputState }
+
+func (StorageLensConfigurationStorageLensConfigurationIncludePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensConfigurationStorageLensConfigurationInclude)(nil)).Elem()
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationIncludePtrOutput) ToStorageLensConfigurationStorageLensConfigurationIncludePtrOutput() StorageLensConfigurationStorageLensConfigurationIncludePtrOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationIncludePtrOutput) ToStorageLensConfigurationStorageLensConfigurationIncludePtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationIncludePtrOutput {
+	return o
+}
+
+func (o StorageLensConfigurationStorageLensConfigurationIncludePtrOutput) Elem() StorageLensConfigurationStorageLensConfigurationIncludeOutput {
+	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationInclude) StorageLensConfigurationStorageLensConfigurationInclude {
+		if v != nil {
+			return *v
+		}
+		var ret StorageLensConfigurationStorageLensConfigurationInclude
+		return ret
+	}).(StorageLensConfigurationStorageLensConfigurationIncludeOutput)
+}
+
+// List of S3 bucket ARNs.
+func (o StorageLensConfigurationStorageLensConfigurationIncludePtrOutput) Buckets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationInclude) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Buckets
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of AWS Regions.
+func (o StorageLensConfigurationStorageLensConfigurationIncludePtrOutput) Regions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationInclude) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Regions
+	}).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationRuleInput)(nil)).Elem(), BucketLifecycleConfigurationRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationRuleArrayInput)(nil)).Elem(), BucketLifecycleConfigurationRuleArray{})
@@ -1656,6 +4355,40 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ObjectLambdaAccessPointConfigurationTransformationConfigurationArrayInput)(nil)).Elem(), ObjectLambdaAccessPointConfigurationTransformationConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationInput)(nil)).Elem(), ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaInput)(nil)).Elem(), ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationInput)(nil)).Elem(), StorageLensConfigurationStorageLensConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationPtrInput)(nil)).Elem(), StorageLensConfigurationStorageLensConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationAccountLevelInput)(nil)).Elem(), StorageLensConfigurationStorageLensConfigurationAccountLevelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationAccountLevelPtrInput)(nil)).Elem(), StorageLensConfigurationStorageLensConfigurationAccountLevelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsInput)(nil)).Elem(), StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrInput)(nil)).Elem(), StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelInput)(nil)).Elem(), StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrInput)(nil)).Elem(), StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsInput)(nil)).Elem(), StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrInput)(nil)).Elem(), StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelInput)(nil)).Elem(), StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrInput)(nil)).Elem(), StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsInput)(nil)).Elem(), StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrInput)(nil)).Elem(), StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaInput)(nil)).Elem(), StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrInput)(nil)).Elem(), StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationAwsOrgInput)(nil)).Elem(), StorageLensConfigurationStorageLensConfigurationAwsOrgArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationAwsOrgPtrInput)(nil)).Elem(), StorageLensConfigurationStorageLensConfigurationAwsOrgArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationDataExportInput)(nil)).Elem(), StorageLensConfigurationStorageLensConfigurationDataExportArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationDataExportPtrInput)(nil)).Elem(), StorageLensConfigurationStorageLensConfigurationDataExportArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsInput)(nil)).Elem(), StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrInput)(nil)).Elem(), StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationInput)(nil)).Elem(), StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrInput)(nil)).Elem(), StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionInput)(nil)).Elem(), StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrInput)(nil)).Elem(), StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsInput)(nil)).Elem(), StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrInput)(nil)).Elem(), StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Input)(nil)).Elem(), StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3ArrayInput)(nil)).Elem(), StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Array{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationExcludeInput)(nil)).Elem(), StorageLensConfigurationStorageLensConfigurationExcludeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationExcludePtrInput)(nil)).Elem(), StorageLensConfigurationStorageLensConfigurationExcludeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationIncludeInput)(nil)).Elem(), StorageLensConfigurationStorageLensConfigurationIncludeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationIncludePtrInput)(nil)).Elem(), StorageLensConfigurationStorageLensConfigurationIncludeArgs{})
 	pulumi.RegisterOutputType(BucketLifecycleConfigurationRuleOutput{})
 	pulumi.RegisterOutputType(BucketLifecycleConfigurationRuleArrayOutput{})
 	pulumi.RegisterOutputType(BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadOutput{})
@@ -1678,4 +4411,38 @@ func init() {
 	pulumi.RegisterOutputType(ObjectLambdaAccessPointConfigurationTransformationConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationOutput{})
 	pulumi.RegisterOutputType(ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaOutput{})
+	pulumi.RegisterOutputType(StorageLensConfigurationStorageLensConfigurationOutput{})
+	pulumi.RegisterOutputType(StorageLensConfigurationStorageLensConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(StorageLensConfigurationStorageLensConfigurationAccountLevelOutput{})
+	pulumi.RegisterOutputType(StorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutput{})
+	pulumi.RegisterOutputType(StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsOutput{})
+	pulumi.RegisterOutputType(StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrOutput{})
+	pulumi.RegisterOutputType(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelOutput{})
+	pulumi.RegisterOutputType(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrOutput{})
+	pulumi.RegisterOutputType(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsOutput{})
+	pulumi.RegisterOutputType(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrOutput{})
+	pulumi.RegisterOutputType(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelOutput{})
+	pulumi.RegisterOutputType(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrOutput{})
+	pulumi.RegisterOutputType(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsOutput{})
+	pulumi.RegisterOutputType(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrOutput{})
+	pulumi.RegisterOutputType(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaOutput{})
+	pulumi.RegisterOutputType(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrOutput{})
+	pulumi.RegisterOutputType(StorageLensConfigurationStorageLensConfigurationAwsOrgOutput{})
+	pulumi.RegisterOutputType(StorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutput{})
+	pulumi.RegisterOutputType(StorageLensConfigurationStorageLensConfigurationDataExportOutput{})
+	pulumi.RegisterOutputType(StorageLensConfigurationStorageLensConfigurationDataExportPtrOutput{})
+	pulumi.RegisterOutputType(StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsOutput{})
+	pulumi.RegisterOutputType(StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrOutput{})
+	pulumi.RegisterOutputType(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationOutput{})
+	pulumi.RegisterOutputType(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutput{})
+	pulumi.RegisterOutputType(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionOutput{})
+	pulumi.RegisterOutputType(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrOutput{})
+	pulumi.RegisterOutputType(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsOutput{})
+	pulumi.RegisterOutputType(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrOutput{})
+	pulumi.RegisterOutputType(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Output{})
+	pulumi.RegisterOutputType(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3ArrayOutput{})
+	pulumi.RegisterOutputType(StorageLensConfigurationStorageLensConfigurationExcludeOutput{})
+	pulumi.RegisterOutputType(StorageLensConfigurationStorageLensConfigurationExcludePtrOutput{})
+	pulumi.RegisterOutputType(StorageLensConfigurationStorageLensConfigurationIncludeOutput{})
+	pulumi.RegisterOutputType(StorageLensConfigurationStorageLensConfigurationIncludePtrOutput{})
 }

@@ -79,6 +79,9 @@ namespace Pulumi.Aws.Ec2
         [Output("enableDnsSupport")]
         public Output<bool?> EnableDnsSupport { get; private set; } = null!;
 
+        [Output("enableNetworkAddressUsageMetrics")]
+        public Output<bool?> EnableNetworkAddressUsageMetrics { get; private set; } = null!;
+
         [Output("existingDefaultVpc")]
         public Output<bool> ExistingDefaultVpc { get; private set; } = null!;
 
@@ -182,6 +185,9 @@ namespace Pulumi.Aws.Ec2
         [Input("enableDnsSupport")]
         public Input<bool>? EnableDnsSupport { get; set; }
 
+        [Input("enableNetworkAddressUsageMetrics")]
+        public Input<bool>? EnableNetworkAddressUsageMetrics { get; set; }
+
         /// <summary>
         /// Whether destroying the resource deletes the default VPC. Default: `false`
         /// </summary>
@@ -251,6 +257,9 @@ namespace Pulumi.Aws.Ec2
 
         [Input("enableDnsSupport")]
         public Input<bool>? EnableDnsSupport { get; set; }
+
+        [Input("enableNetworkAddressUsageMetrics")]
+        public Input<bool>? EnableNetworkAddressUsageMetrics { get; set; }
 
         [Input("existingDefaultVpc")]
         public Input<bool>? ExistingDefaultVpc { get; set; }

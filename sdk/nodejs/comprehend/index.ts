@@ -5,16 +5,23 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { DocumentClassifierArgs, DocumentClassifierState } from "./documentClassifier";
+export type DocumentClassifier = import("./documentClassifier").DocumentClassifier;
+export const DocumentClassifier: typeof import("./documentClassifier").DocumentClassifier = null as any;
+
 export { EntityRecognizerArgs, EntityRecognizerState } from "./entityRecognizer";
 export type EntityRecognizer = import("./entityRecognizer").EntityRecognizer;
 export const EntityRecognizer: typeof import("./entityRecognizer").EntityRecognizer = null as any;
 
+utilities.lazyLoad(exports, ["DocumentClassifier"], () => require("./documentClassifier"));
 utilities.lazyLoad(exports, ["EntityRecognizer"], () => require("./entityRecognizer"));
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:comprehend/documentClassifier:DocumentClassifier":
+                return new DocumentClassifier(name, <any>undefined, { urn })
             case "aws:comprehend/entityRecognizer:EntityRecognizer":
                 return new EntityRecognizer(name, <any>undefined, { urn })
             default:
@@ -22,4 +29,5 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "comprehend/documentClassifier", _module)
 pulumi.runtime.registerResourceModule("aws", "comprehend/entityRecognizer", _module)

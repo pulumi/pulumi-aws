@@ -35,8 +35,10 @@ import (
 //				return err
 //			}
 //			_, err = ec2transitgateway.NewConnectPeer(ctx, "exampleConnectPeer", &ec2transitgateway.ConnectPeerArgs{
-//				PeerAddress:                pulumi.String("10.1.2.3"),
-//				InsideCidrBlocks:           pulumi.StringArray("169.254.100.0/29"),
+//				PeerAddress: pulumi.String("10.1.2.3"),
+//				InsideCidrBlocks: pulumi.StringArray{
+//					pulumi.String("169.254.100.0/29"),
+//				},
 //				TransitGatewayAttachmentId: exampleConnect.ID(),
 //			})
 //			if err != nil {

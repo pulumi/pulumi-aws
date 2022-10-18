@@ -21,6 +21,10 @@ export { SshKeyArgs, SshKeyState } from "./sshKey";
 export type SshKey = import("./sshKey").SshKey;
 export const SshKey: typeof import("./sshKey").SshKey = null as any;
 
+export { TagArgs, TagState } from "./tag";
+export type Tag = import("./tag").Tag;
+export const Tag: typeof import("./tag").Tag = null as any;
+
 export { UserArgs, UserState } from "./user";
 export type User = import("./user").User;
 export const User: typeof import("./user").User = null as any;
@@ -33,6 +37,7 @@ utilities.lazyLoad(exports, ["Access"], () => require("./access"));
 utilities.lazyLoad(exports, ["getServer","getServerOutput"], () => require("./getServer"));
 utilities.lazyLoad(exports, ["Server"], () => require("./server"));
 utilities.lazyLoad(exports, ["SshKey"], () => require("./sshKey"));
+utilities.lazyLoad(exports, ["Tag"], () => require("./tag"));
 utilities.lazyLoad(exports, ["User"], () => require("./user"));
 utilities.lazyLoad(exports, ["Workflow"], () => require("./workflow"));
 
@@ -46,6 +51,8 @@ const _module = {
                 return new Server(name, <any>undefined, { urn })
             case "aws:transfer/sshKey:SshKey":
                 return new SshKey(name, <any>undefined, { urn })
+            case "aws:transfer/tag:Tag":
+                return new Tag(name, <any>undefined, { urn })
             case "aws:transfer/user:User":
                 return new User(name, <any>undefined, { urn })
             case "aws:transfer/workflow:Workflow":
@@ -58,5 +65,6 @@ const _module = {
 pulumi.runtime.registerResourceModule("aws", "transfer/access", _module)
 pulumi.runtime.registerResourceModule("aws", "transfer/server", _module)
 pulumi.runtime.registerResourceModule("aws", "transfer/sshKey", _module)
+pulumi.runtime.registerResourceModule("aws", "transfer/tag", _module)
 pulumi.runtime.registerResourceModule("aws", "transfer/user", _module)
 pulumi.runtime.registerResourceModule("aws", "transfer/workflow", _module)

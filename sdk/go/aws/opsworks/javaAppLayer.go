@@ -80,7 +80,8 @@ type JavaAppLayer struct {
 	// Keyword for the type of JVM to use. Defaults to `openjdk`.
 	JvmType pulumi.StringPtrOutput `pulumi:"jvmType"`
 	// Version of JVM to use. Defaults to "7".
-	JvmVersion pulumi.StringPtrOutput `pulumi:"jvmVersion"`
+	JvmVersion           pulumi.StringPtrOutput                 `pulumi:"jvmVersion"`
+	LoadBasedAutoScaling JavaAppLayerLoadBasedAutoScalingOutput `pulumi:"loadBasedAutoScaling"`
 	// A human-readable name for the layer.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// ID of the stack the layer will belong to.
@@ -166,7 +167,8 @@ type javaAppLayerState struct {
 	// Keyword for the type of JVM to use. Defaults to `openjdk`.
 	JvmType *string `pulumi:"jvmType"`
 	// Version of JVM to use. Defaults to "7".
-	JvmVersion *string `pulumi:"jvmVersion"`
+	JvmVersion           *string                           `pulumi:"jvmVersion"`
+	LoadBasedAutoScaling *JavaAppLayerLoadBasedAutoScaling `pulumi:"loadBasedAutoScaling"`
 	// A human-readable name for the layer.
 	Name *string `pulumi:"name"`
 	// ID of the stack the layer will belong to.
@@ -221,7 +223,8 @@ type JavaAppLayerState struct {
 	// Keyword for the type of JVM to use. Defaults to `openjdk`.
 	JvmType pulumi.StringPtrInput
 	// Version of JVM to use. Defaults to "7".
-	JvmVersion pulumi.StringPtrInput
+	JvmVersion           pulumi.StringPtrInput
+	LoadBasedAutoScaling JavaAppLayerLoadBasedAutoScalingPtrInput
 	// A human-readable name for the layer.
 	Name pulumi.StringPtrInput
 	// ID of the stack the layer will belong to.
@@ -278,7 +281,8 @@ type javaAppLayerArgs struct {
 	// Keyword for the type of JVM to use. Defaults to `openjdk`.
 	JvmType *string `pulumi:"jvmType"`
 	// Version of JVM to use. Defaults to "7".
-	JvmVersion *string `pulumi:"jvmVersion"`
+	JvmVersion           *string                           `pulumi:"jvmVersion"`
+	LoadBasedAutoScaling *JavaAppLayerLoadBasedAutoScaling `pulumi:"loadBasedAutoScaling"`
 	// A human-readable name for the layer.
 	Name *string `pulumi:"name"`
 	// ID of the stack the layer will belong to.
@@ -330,7 +334,8 @@ type JavaAppLayerArgs struct {
 	// Keyword for the type of JVM to use. Defaults to `openjdk`.
 	JvmType pulumi.StringPtrInput
 	// Version of JVM to use. Defaults to "7".
-	JvmVersion pulumi.StringPtrInput
+	JvmVersion           pulumi.StringPtrInput
+	LoadBasedAutoScaling JavaAppLayerLoadBasedAutoScalingPtrInput
 	// A human-readable name for the layer.
 	Name pulumi.StringPtrInput
 	// ID of the stack the layer will belong to.
@@ -537,6 +542,10 @@ func (o JavaAppLayerOutput) JvmType() pulumi.StringPtrOutput {
 // Version of JVM to use. Defaults to "7".
 func (o JavaAppLayerOutput) JvmVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JavaAppLayer) pulumi.StringPtrOutput { return v.JvmVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o JavaAppLayerOutput) LoadBasedAutoScaling() JavaAppLayerLoadBasedAutoScalingOutput {
+	return o.ApplyT(func(v *JavaAppLayer) JavaAppLayerLoadBasedAutoScalingOutput { return v.LoadBasedAutoScaling }).(JavaAppLayerLoadBasedAutoScalingOutput)
 }
 
 // A human-readable name for the layer.

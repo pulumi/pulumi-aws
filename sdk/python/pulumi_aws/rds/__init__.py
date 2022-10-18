@@ -22,6 +22,7 @@ from .get_event_categories import *
 from .get_instance import *
 from .get_orderable_db_instance import *
 from .get_proxy import *
+from .get_reserved_instance_offering import *
 from .get_snapshot import *
 from .get_subnet_group import *
 from .global_cluster import *
@@ -33,6 +34,7 @@ from .proxy import *
 from .proxy_default_target_group import *
 from .proxy_endpoint import *
 from .proxy_target import *
+from .reserved_instance import *
 from .role_association import *
 from .security_group import *
 from .snapshot import *

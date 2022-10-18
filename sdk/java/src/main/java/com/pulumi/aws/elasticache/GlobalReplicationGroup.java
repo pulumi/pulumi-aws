@@ -70,14 +70,36 @@ public class GlobalReplicationGroup extends com.pulumi.resources.CustomResource 
         return this.authTokenEnabled;
     }
     /**
-     * The instance class used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+     * Specifies whether read-only replicas will be automatically promoted to read/write primary if the existing primary fails.
+     * When creating, by default the Global Replication Group inherits the automatic failover setting of the primary replication group.
+     * 
+     */
+    @Export(name="automaticFailoverEnabled", type=Boolean.class, parameters={})
+    private Output<Boolean> automaticFailoverEnabled;
+
+    /**
+     * @return Specifies whether read-only replicas will be automatically promoted to read/write primary if the existing primary fails.
+     * When creating, by default the Global Replication Group inherits the automatic failover setting of the primary replication group.
+     * 
+     */
+    public Output<Boolean> automaticFailoverEnabled() {
+        return this.automaticFailoverEnabled;
+    }
+    /**
+     * The instance class used.
+     * See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html)
+     * and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+     * When creating, by default the Global Replication Group inherits the node type of the primary replication group.
      * 
      */
     @Export(name="cacheNodeType", type=String.class, parameters={})
     private Output<String> cacheNodeType;
 
     /**
-     * @return The instance class used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+     * @return The instance class used.
+     * See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html)
+     * and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+     * When creating, by default the Global Replication Group inherits the node type of the primary replication group.
      * 
      */
     public Output<String> cacheNodeType() {

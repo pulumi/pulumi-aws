@@ -7,13 +7,13 @@ require (
 	github.com/hashicorp/terraform-provider-aws v1.60.1-0.20220923175450-ca71523cdc36
 )
 
-replace github.com/hashicorp/terraform-provider-aws => github.com/pulumi/terraform-provider-aws v1.38.1-0.20221012132008-10b16ea5e764
+replace github.com/hashicorp/terraform-provider-aws => github.com/pulumi/terraform-provider-aws v1.38.1-0.20221018102234-4da7991d3c2a
 
 require (
 	github.com/ProtonMail/go-crypto v0.0.0-20210428141323-04723f9f07d7 // indirect
 	github.com/agext/levenshtein v1.2.2 // indirect
 	github.com/apparentlymart/go-textseg/v13 v13.0.0 // indirect
-	github.com/aws/aws-sdk-go v1.44.110 // indirect
+	github.com/aws/aws-sdk-go v1.44.114 // indirect
 	github.com/aws/aws-sdk-go-v2 v1.16.16 // indirect
 	github.com/aws/aws-sdk-go-v2/config v1.15.4 // indirect
 	github.com/aws/aws-sdk-go-v2/credentials v1.12.0 // indirect
@@ -27,10 +27,12 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/identitystore v1.15.5 // indirect
 	github.com/aws/aws-sdk-go-v2/service/inspector2 v1.8.1 // indirect
 	github.com/aws/aws-sdk-go-v2/service/internal/presigned-url v1.9.4 // indirect
+	github.com/aws/aws-sdk-go-v2/service/internal/s3shared v1.13.17 // indirect
 	github.com/aws/aws-sdk-go-v2/service/kendra v1.35.0 // indirect
 	github.com/aws/aws-sdk-go-v2/service/medialive v1.23.1 // indirect
 	github.com/aws/aws-sdk-go-v2/service/rolesanywhere v1.0.10 // indirect
 	github.com/aws/aws-sdk-go-v2/service/route53domains v1.12.17 // indirect
+	github.com/aws/aws-sdk-go-v2/service/s3control v1.24.0 // indirect
 	github.com/aws/aws-sdk-go-v2/service/sesv2 v1.13.18 // indirect
 	github.com/aws/aws-sdk-go-v2/service/sso v1.11.4 // indirect
 	github.com/aws/aws-sdk-go-v2/service/sts v1.16.4 // indirect

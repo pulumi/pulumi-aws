@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.networkmanager.Link("example", {
  *     globalNetworkId: aws_networkmanager_global_network.example.id,
- *     siteId: aws_networkmanager_global_site.example.id,
+ *     siteId: aws_networkmanager_site.example.id,
  *     bandwidth: {
  *         uploadSpeed: 10,
  *         downloadSpeed: 50,

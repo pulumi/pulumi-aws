@@ -8,6 +8,7 @@ import com.pulumi.aws.opsworks.RailsAppLayerArgs;
 import com.pulumi.aws.opsworks.inputs.RailsAppLayerState;
 import com.pulumi.aws.opsworks.outputs.RailsAppLayerCloudwatchConfiguration;
 import com.pulumi.aws.opsworks.outputs.RailsAppLayerEbsVolume;
+import com.pulumi.aws.opsworks.outputs.RailsAppLayerLoadBasedAutoScaling;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -287,6 +288,12 @@ public class RailsAppLayer extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Integer>> instanceShutdownTimeout() {
         return Codegen.optional(this.instanceShutdownTimeout);
+    }
+    @Export(name="loadBasedAutoScaling", type=RailsAppLayerLoadBasedAutoScaling.class, parameters={})
+    private Output<RailsAppLayerLoadBasedAutoScaling> loadBasedAutoScaling;
+
+    public Output<RailsAppLayerLoadBasedAutoScaling> loadBasedAutoScaling() {
+        return this.loadBasedAutoScaling;
     }
     /**
      * Whether OpsWorks should manage bundler. On by default.

@@ -33,7 +33,7 @@ type Group struct {
 	ExternalIds GroupExternalIdArrayOutput `pulumi:"externalIds"`
 	// The identifier of the newly created group in the identity store.
 	GroupId pulumi.StringOutput `pulumi:"groupId"`
-	// The globally unique identifier for the identity store..
+	// The globally unique identifier for the identity store.
 	IdentityStoreId pulumi.StringOutput `pulumi:"identityStoreId"`
 }
 
@@ -80,7 +80,7 @@ type groupState struct {
 	ExternalIds []GroupExternalId `pulumi:"externalIds"`
 	// The identifier of the newly created group in the identity store.
 	GroupId *string `pulumi:"groupId"`
-	// The globally unique identifier for the identity store..
+	// The globally unique identifier for the identity store.
 	IdentityStoreId *string `pulumi:"identityStoreId"`
 }
 
@@ -93,7 +93,7 @@ type GroupState struct {
 	ExternalIds GroupExternalIdArrayInput
 	// The identifier of the newly created group in the identity store.
 	GroupId pulumi.StringPtrInput
-	// The globally unique identifier for the identity store..
+	// The globally unique identifier for the identity store.
 	IdentityStoreId pulumi.StringPtrInput
 }
 
@@ -106,7 +106,7 @@ type groupArgs struct {
 	Description *string `pulumi:"description"`
 	// A string containing the name of the group. This value is commonly displayed when the group is referenced.
 	DisplayName string `pulumi:"displayName"`
-	// The globally unique identifier for the identity store..
+	// The globally unique identifier for the identity store.
 	IdentityStoreId string `pulumi:"identityStoreId"`
 }
 
@@ -116,7 +116,7 @@ type GroupArgs struct {
 	Description pulumi.StringPtrInput
 	// A string containing the name of the group. This value is commonly displayed when the group is referenced.
 	DisplayName pulumi.StringInput
-	// The globally unique identifier for the identity store..
+	// The globally unique identifier for the identity store.
 	IdentityStoreId pulumi.StringInput
 }
 
@@ -227,7 +227,7 @@ func (o GroupOutput) GroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.GroupId }).(pulumi.StringOutput)
 }
 
-// The globally unique identifier for the identity store..
+// The globally unique identifier for the identity store.
 func (o GroupOutput) IdentityStoreId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.IdentityStoreId }).(pulumi.StringOutput)
 }

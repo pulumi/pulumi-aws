@@ -16,6 +16,8 @@ class GlobalReplicationGroupArgs:
     def __init__(__self__, *,
                  global_replication_group_id_suffix: pulumi.Input[str],
                  primary_replication_group_id: pulumi.Input[str],
+                 automatic_failover_enabled: Optional[pulumi.Input[bool]] = None,
+                 cache_node_type: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  global_replication_group_description: Optional[pulumi.Input[str]] = None,
                  parameter_group_name: Optional[pulumi.Input[str]] = None):
@@ -23,6 +25,12 @@ class GlobalReplicationGroupArgs:
         The set of arguments for constructing a GlobalReplicationGroup resource.
         :param pulumi.Input[str] global_replication_group_id_suffix: The suffix name of a Global Datastore. If `global_replication_group_id_suffix` is changed, creates a new resource.
         :param pulumi.Input[str] primary_replication_group_id: The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primary_replication_group_id` is changed, creates a new resource.
+        :param pulumi.Input[bool] automatic_failover_enabled: Specifies whether read-only replicas will be automatically promoted to read/write primary if the existing primary fails.
+               When creating, by default the Global Replication Group inherits the automatic failover setting of the primary replication group.
+        :param pulumi.Input[str] cache_node_type: The instance class used.
+               See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html)
+               and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+               When creating, by default the Global Replication Group inherits the node type of the primary replication group.
         :param pulumi.Input[str] engine_version: Redis version to use for the Global Replication Group.
                When creating, by default the Global Replication Group inherits the version of the primary replication group.
                If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
@@ -38,6 +46,10 @@ class GlobalReplicationGroupArgs:
         """
         pulumi.set(__self__, "global_replication_group_id_suffix", global_replication_group_id_suffix)
         pulumi.set(__self__, "primary_replication_group_id", primary_replication_group_id)
+        if automatic_failover_enabled is not None:
+            pulumi.set(__self__, "automatic_failover_enabled", automatic_failover_enabled)
+        if cache_node_type is not None:
+            pulumi.set(__self__, "cache_node_type", cache_node_type)
         if engine_version is not None:
             pulumi.set(__self__, "engine_version", engine_version)
         if global_replication_group_description is not None:
@@ -68,6 +80,34 @@ class GlobalReplicationGroupArgs:
     @primary_replication_group_id.setter
     def primary_replication_group_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "primary_replication_group_id", value)
+
+    @property
+    @pulumi.getter(name="automaticFailoverEnabled")
+    def automatic_failover_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether read-only replicas will be automatically promoted to read/write primary if the existing primary fails.
+        When creating, by default the Global Replication Group inherits the automatic failover setting of the primary replication group.
+        """
+        return pulumi.get(self, "automatic_failover_enabled")
+
+    @automatic_failover_enabled.setter
+    def automatic_failover_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "automatic_failover_enabled", value)
+
+    @property
+    @pulumi.getter(name="cacheNodeType")
+    def cache_node_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The instance class used.
+        See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html)
+        and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+        When creating, by default the Global Replication Group inherits the node type of the primary replication group.
+        """
+        return pulumi.get(self, "cache_node_type")
+
+    @cache_node_type.setter
+    def cache_node_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cache_node_type", value)
 
     @property
     @pulumi.getter(name="engineVersion")
@@ -121,6 +161,7 @@ class _GlobalReplicationGroupState:
                  arn: Optional[pulumi.Input[str]] = None,
                  at_rest_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  auth_token_enabled: Optional[pulumi.Input[bool]] = None,
+                 automatic_failover_enabled: Optional[pulumi.Input[bool]] = None,
                  cache_node_type: Optional[pulumi.Input[str]] = None,
                  cluster_enabled: Optional[pulumi.Input[bool]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
@@ -137,7 +178,12 @@ class _GlobalReplicationGroupState:
         :param pulumi.Input[str] arn: The ARN of the ElastiCache Global Replication Group.
         :param pulumi.Input[bool] at_rest_encryption_enabled: A flag that indicate whether the encryption at rest is enabled.
         :param pulumi.Input[bool] auth_token_enabled: A flag that indicate whether AuthToken (password) is enabled.
-        :param pulumi.Input[str] cache_node_type: The instance class used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+        :param pulumi.Input[bool] automatic_failover_enabled: Specifies whether read-only replicas will be automatically promoted to read/write primary if the existing primary fails.
+               When creating, by default the Global Replication Group inherits the automatic failover setting of the primary replication group.
+        :param pulumi.Input[str] cache_node_type: The instance class used.
+               See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html)
+               and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+               When creating, by default the Global Replication Group inherits the node type of the primary replication group.
         :param pulumi.Input[bool] cluster_enabled: Indicates whether the Global Datastore is cluster enabled.
         :param pulumi.Input[str] engine: The name of the cache engine to be used for the clusters in this global replication group.
         :param pulumi.Input[str] engine_version: Redis version to use for the Global Replication Group.
@@ -164,6 +210,8 @@ class _GlobalReplicationGroupState:
             pulumi.set(__self__, "at_rest_encryption_enabled", at_rest_encryption_enabled)
         if auth_token_enabled is not None:
             pulumi.set(__self__, "auth_token_enabled", auth_token_enabled)
+        if automatic_failover_enabled is not None:
+            pulumi.set(__self__, "automatic_failover_enabled", automatic_failover_enabled)
         if cache_node_type is not None:
             pulumi.set(__self__, "cache_node_type", cache_node_type)
         if cluster_enabled is not None:
@@ -224,10 +272,26 @@ class _GlobalReplicationGroupState:
         pulumi.set(self, "auth_token_enabled", value)
 
     @property
+    @pulumi.getter(name="automaticFailoverEnabled")
+    def automatic_failover_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether read-only replicas will be automatically promoted to read/write primary if the existing primary fails.
+        When creating, by default the Global Replication Group inherits the automatic failover setting of the primary replication group.
+        """
+        return pulumi.get(self, "automatic_failover_enabled")
+
+    @automatic_failover_enabled.setter
+    def automatic_failover_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "automatic_failover_enabled", value)
+
+    @property
     @pulumi.getter(name="cacheNodeType")
     def cache_node_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The instance class used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+        The instance class used.
+        See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html)
+        and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+        When creating, by default the Global Replication Group inherits the node type of the primary replication group.
         """
         return pulumi.get(self, "cache_node_type")
 
@@ -370,6 +434,8 @@ class GlobalReplicationGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 automatic_failover_enabled: Optional[pulumi.Input[bool]] = None,
+                 cache_node_type: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  global_replication_group_description: Optional[pulumi.Input[str]] = None,
                  global_replication_group_id_suffix: Optional[pulumi.Input[str]] = None,
@@ -387,6 +453,12 @@ class GlobalReplicationGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] automatic_failover_enabled: Specifies whether read-only replicas will be automatically promoted to read/write primary if the existing primary fails.
+               When creating, by default the Global Replication Group inherits the automatic failover setting of the primary replication group.
+        :param pulumi.Input[str] cache_node_type: The instance class used.
+               See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html)
+               and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+               When creating, by default the Global Replication Group inherits the node type of the primary replication group.
         :param pulumi.Input[str] engine_version: Redis version to use for the Global Replication Group.
                When creating, by default the Global Replication Group inherits the version of the primary replication group.
                If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
@@ -432,6 +504,8 @@ class GlobalReplicationGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 automatic_failover_enabled: Optional[pulumi.Input[bool]] = None,
+                 cache_node_type: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  global_replication_group_description: Optional[pulumi.Input[str]] = None,
                  global_replication_group_id_suffix: Optional[pulumi.Input[str]] = None,
@@ -446,6 +520,8 @@ class GlobalReplicationGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = GlobalReplicationGroupArgs.__new__(GlobalReplicationGroupArgs)
 
+            __props__.__dict__["automatic_failover_enabled"] = automatic_failover_enabled
+            __props__.__dict__["cache_node_type"] = cache_node_type
             __props__.__dict__["engine_version"] = engine_version
             __props__.__dict__["global_replication_group_description"] = global_replication_group_description
             if global_replication_group_id_suffix is None and not opts.urn:
@@ -458,7 +534,6 @@ class GlobalReplicationGroup(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["at_rest_encryption_enabled"] = None
             __props__.__dict__["auth_token_enabled"] = None
-            __props__.__dict__["cache_node_type"] = None
             __props__.__dict__["cluster_enabled"] = None
             __props__.__dict__["engine"] = None
             __props__.__dict__["engine_version_actual"] = None
@@ -477,6 +552,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             at_rest_encryption_enabled: Optional[pulumi.Input[bool]] = None,
             auth_token_enabled: Optional[pulumi.Input[bool]] = None,
+            automatic_failover_enabled: Optional[pulumi.Input[bool]] = None,
             cache_node_type: Optional[pulumi.Input[str]] = None,
             cluster_enabled: Optional[pulumi.Input[bool]] = None,
             engine: Optional[pulumi.Input[str]] = None,
@@ -498,7 +574,12 @@ class GlobalReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN of the ElastiCache Global Replication Group.
         :param pulumi.Input[bool] at_rest_encryption_enabled: A flag that indicate whether the encryption at rest is enabled.
         :param pulumi.Input[bool] auth_token_enabled: A flag that indicate whether AuthToken (password) is enabled.
-        :param pulumi.Input[str] cache_node_type: The instance class used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+        :param pulumi.Input[bool] automatic_failover_enabled: Specifies whether read-only replicas will be automatically promoted to read/write primary if the existing primary fails.
+               When creating, by default the Global Replication Group inherits the automatic failover setting of the primary replication group.
+        :param pulumi.Input[str] cache_node_type: The instance class used.
+               See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html)
+               and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+               When creating, by default the Global Replication Group inherits the node type of the primary replication group.
         :param pulumi.Input[bool] cluster_enabled: Indicates whether the Global Datastore is cluster enabled.
         :param pulumi.Input[str] engine: The name of the cache engine to be used for the clusters in this global replication group.
         :param pulumi.Input[str] engine_version: Redis version to use for the Global Replication Group.
@@ -526,6 +607,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["at_rest_encryption_enabled"] = at_rest_encryption_enabled
         __props__.__dict__["auth_token_enabled"] = auth_token_enabled
+        __props__.__dict__["automatic_failover_enabled"] = automatic_failover_enabled
         __props__.__dict__["cache_node_type"] = cache_node_type
         __props__.__dict__["cluster_enabled"] = cluster_enabled
         __props__.__dict__["engine"] = engine
@@ -564,10 +646,22 @@ class GlobalReplicationGroup(pulumi.CustomResource):
         return pulumi.get(self, "auth_token_enabled")
 
     @property
+    @pulumi.getter(name="automaticFailoverEnabled")
+    def automatic_failover_enabled(self) -> pulumi.Output[bool]:
+        """
+        Specifies whether read-only replicas will be automatically promoted to read/write primary if the existing primary fails.
+        When creating, by default the Global Replication Group inherits the automatic failover setting of the primary replication group.
+        """
+        return pulumi.get(self, "automatic_failover_enabled")
+
+    @property
     @pulumi.getter(name="cacheNodeType")
     def cache_node_type(self) -> pulumi.Output[str]:
         """
-        The instance class used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+        The instance class used.
+        See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html)
+        and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+        When creating, by default the Global Replication Group inherits the node type of the primary replication group.
         """
         return pulumi.get(self, "cache_node_type")
 

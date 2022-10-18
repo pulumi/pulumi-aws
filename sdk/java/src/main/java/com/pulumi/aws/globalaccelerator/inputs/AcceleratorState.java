@@ -94,6 +94,21 @@ public final class AcceleratorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+     * 
+     */
+    @Import(name="ipAddresses")
+    private @Nullable Output<List<String>> ipAddresses;
+
+    /**
+     * @return The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+     * 
+     */
+    public Optional<Output<List<String>>> ipAddresses() {
+        return Optional.ofNullable(this.ipAddresses);
+    }
+
+    /**
      * IP address set associated with the accelerator.
      * 
      */
@@ -161,6 +176,7 @@ public final class AcceleratorState extends com.pulumi.resources.ResourceArgs {
         this.enabled = $.enabled;
         this.hostedZoneId = $.hostedZoneId;
         this.ipAddressType = $.ipAddressType;
+        this.ipAddresses = $.ipAddresses;
         this.ipSets = $.ipSets;
         this.name = $.name;
         this.tags = $.tags;
@@ -282,6 +298,37 @@ public final class AcceleratorState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder ipAddressType(String ipAddressType) {
             return ipAddressType(Output.of(ipAddressType));
+        }
+
+        /**
+         * @param ipAddresses The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipAddresses(@Nullable Output<List<String>> ipAddresses) {
+            $.ipAddresses = ipAddresses;
+            return this;
+        }
+
+        /**
+         * @param ipAddresses The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipAddresses(List<String> ipAddresses) {
+            return ipAddresses(Output.of(ipAddresses));
+        }
+
+        /**
+         * @param ipAddresses The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipAddresses(String... ipAddresses) {
+            return ipAddresses(List.of(ipAddresses));
         }
 
         /**

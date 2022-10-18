@@ -115,7 +115,7 @@ def get_user(access_string: Optional[str] = None,
              user_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserResult:
     """
-    Use this data source to get information about an Elasticache User.
+    Use this data source to get information about an ElastiCache User.
 
     ## Example Usage
 
@@ -160,7 +160,7 @@ def get_user_output(access_string: Optional[pulumi.Input[Optional[str]]] = None,
                     user_name: Optional[pulumi.Input[Optional[str]]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
     """
-    Use this data source to get information about an Elasticache User.
+    Use this data source to get information about an ElastiCache User.
 
     ## Example Usage
 

@@ -10,6 +10,731 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type DocumentClassifierInputDataConfig struct {
+	// List of training datasets produced by Amazon SageMaker Ground Truth.
+	// Used if `dataFormat` is `AUGMENTED_MANIFEST`.
+	// See the `augmentedManifests` Configuration Block section below.
+	AugmentedManifests []DocumentClassifierInputDataConfigAugmentedManifest `pulumi:"augmentedManifests"`
+	// The format for the training data.
+	// One of `COMPREHEND_CSV` or `AUGMENTED_MANIFEST`.
+	DataFormat *string `pulumi:"dataFormat"`
+	// Delimiter between labels when training a multi-label classifier.
+	// Valid values are `|`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `*`, `-`, `_`, `+`, `=`, `\`, `:`, `;`, `>`, `?`, `/`, `<space>`, and `<tab>`.
+	// Default is `|`.
+	LabelDelimiter *string `pulumi:"labelDelimiter"`
+	// Destination path for the output documents.
+	// The full path to the output file will be returned in `outputS3Uri`.
+	S3Uri     *string `pulumi:"s3Uri"`
+	TestS3Uri *string `pulumi:"testS3Uri"`
+}
+
+// DocumentClassifierInputDataConfigInput is an input type that accepts DocumentClassifierInputDataConfigArgs and DocumentClassifierInputDataConfigOutput values.
+// You can construct a concrete instance of `DocumentClassifierInputDataConfigInput` via:
+//
+//	DocumentClassifierInputDataConfigArgs{...}
+type DocumentClassifierInputDataConfigInput interface {
+	pulumi.Input
+
+	ToDocumentClassifierInputDataConfigOutput() DocumentClassifierInputDataConfigOutput
+	ToDocumentClassifierInputDataConfigOutputWithContext(context.Context) DocumentClassifierInputDataConfigOutput
+}
+
+type DocumentClassifierInputDataConfigArgs struct {
+	// List of training datasets produced by Amazon SageMaker Ground Truth.
+	// Used if `dataFormat` is `AUGMENTED_MANIFEST`.
+	// See the `augmentedManifests` Configuration Block section below.
+	AugmentedManifests DocumentClassifierInputDataConfigAugmentedManifestArrayInput `pulumi:"augmentedManifests"`
+	// The format for the training data.
+	// One of `COMPREHEND_CSV` or `AUGMENTED_MANIFEST`.
+	DataFormat pulumi.StringPtrInput `pulumi:"dataFormat"`
+	// Delimiter between labels when training a multi-label classifier.
+	// Valid values are `|`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `*`, `-`, `_`, `+`, `=`, `\`, `:`, `;`, `>`, `?`, `/`, `<space>`, and `<tab>`.
+	// Default is `|`.
+	LabelDelimiter pulumi.StringPtrInput `pulumi:"labelDelimiter"`
+	// Destination path for the output documents.
+	// The full path to the output file will be returned in `outputS3Uri`.
+	S3Uri     pulumi.StringPtrInput `pulumi:"s3Uri"`
+	TestS3Uri pulumi.StringPtrInput `pulumi:"testS3Uri"`
+}
+
+func (DocumentClassifierInputDataConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DocumentClassifierInputDataConfig)(nil)).Elem()
+}
+
+func (i DocumentClassifierInputDataConfigArgs) ToDocumentClassifierInputDataConfigOutput() DocumentClassifierInputDataConfigOutput {
+	return i.ToDocumentClassifierInputDataConfigOutputWithContext(context.Background())
+}
+
+func (i DocumentClassifierInputDataConfigArgs) ToDocumentClassifierInputDataConfigOutputWithContext(ctx context.Context) DocumentClassifierInputDataConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DocumentClassifierInputDataConfigOutput)
+}
+
+func (i DocumentClassifierInputDataConfigArgs) ToDocumentClassifierInputDataConfigPtrOutput() DocumentClassifierInputDataConfigPtrOutput {
+	return i.ToDocumentClassifierInputDataConfigPtrOutputWithContext(context.Background())
+}
+
+func (i DocumentClassifierInputDataConfigArgs) ToDocumentClassifierInputDataConfigPtrOutputWithContext(ctx context.Context) DocumentClassifierInputDataConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DocumentClassifierInputDataConfigOutput).ToDocumentClassifierInputDataConfigPtrOutputWithContext(ctx)
+}
+
+// DocumentClassifierInputDataConfigPtrInput is an input type that accepts DocumentClassifierInputDataConfigArgs, DocumentClassifierInputDataConfigPtr and DocumentClassifierInputDataConfigPtrOutput values.
+// You can construct a concrete instance of `DocumentClassifierInputDataConfigPtrInput` via:
+//
+//	        DocumentClassifierInputDataConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type DocumentClassifierInputDataConfigPtrInput interface {
+	pulumi.Input
+
+	ToDocumentClassifierInputDataConfigPtrOutput() DocumentClassifierInputDataConfigPtrOutput
+	ToDocumentClassifierInputDataConfigPtrOutputWithContext(context.Context) DocumentClassifierInputDataConfigPtrOutput
+}
+
+type documentClassifierInputDataConfigPtrType DocumentClassifierInputDataConfigArgs
+
+func DocumentClassifierInputDataConfigPtr(v *DocumentClassifierInputDataConfigArgs) DocumentClassifierInputDataConfigPtrInput {
+	return (*documentClassifierInputDataConfigPtrType)(v)
+}
+
+func (*documentClassifierInputDataConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DocumentClassifierInputDataConfig)(nil)).Elem()
+}
+
+func (i *documentClassifierInputDataConfigPtrType) ToDocumentClassifierInputDataConfigPtrOutput() DocumentClassifierInputDataConfigPtrOutput {
+	return i.ToDocumentClassifierInputDataConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *documentClassifierInputDataConfigPtrType) ToDocumentClassifierInputDataConfigPtrOutputWithContext(ctx context.Context) DocumentClassifierInputDataConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DocumentClassifierInputDataConfigPtrOutput)
+}
+
+type DocumentClassifierInputDataConfigOutput struct{ *pulumi.OutputState }
+
+func (DocumentClassifierInputDataConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DocumentClassifierInputDataConfig)(nil)).Elem()
+}
+
+func (o DocumentClassifierInputDataConfigOutput) ToDocumentClassifierInputDataConfigOutput() DocumentClassifierInputDataConfigOutput {
+	return o
+}
+
+func (o DocumentClassifierInputDataConfigOutput) ToDocumentClassifierInputDataConfigOutputWithContext(ctx context.Context) DocumentClassifierInputDataConfigOutput {
+	return o
+}
+
+func (o DocumentClassifierInputDataConfigOutput) ToDocumentClassifierInputDataConfigPtrOutput() DocumentClassifierInputDataConfigPtrOutput {
+	return o.ToDocumentClassifierInputDataConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DocumentClassifierInputDataConfigOutput) ToDocumentClassifierInputDataConfigPtrOutputWithContext(ctx context.Context) DocumentClassifierInputDataConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DocumentClassifierInputDataConfig) *DocumentClassifierInputDataConfig {
+		return &v
+	}).(DocumentClassifierInputDataConfigPtrOutput)
+}
+
+// List of training datasets produced by Amazon SageMaker Ground Truth.
+// Used if `dataFormat` is `AUGMENTED_MANIFEST`.
+// See the `augmentedManifests` Configuration Block section below.
+func (o DocumentClassifierInputDataConfigOutput) AugmentedManifests() DocumentClassifierInputDataConfigAugmentedManifestArrayOutput {
+	return o.ApplyT(func(v DocumentClassifierInputDataConfig) []DocumentClassifierInputDataConfigAugmentedManifest {
+		return v.AugmentedManifests
+	}).(DocumentClassifierInputDataConfigAugmentedManifestArrayOutput)
+}
+
+// The format for the training data.
+// One of `COMPREHEND_CSV` or `AUGMENTED_MANIFEST`.
+func (o DocumentClassifierInputDataConfigOutput) DataFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DocumentClassifierInputDataConfig) *string { return v.DataFormat }).(pulumi.StringPtrOutput)
+}
+
+// Delimiter between labels when training a multi-label classifier.
+// Valid values are `|`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `*`, `-`, `_`, `+`, `=`, `\`, `:`, `;`, `>`, `?`, `/`, `<space>`, and `<tab>`.
+// Default is `|`.
+func (o DocumentClassifierInputDataConfigOutput) LabelDelimiter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DocumentClassifierInputDataConfig) *string { return v.LabelDelimiter }).(pulumi.StringPtrOutput)
+}
+
+// Destination path for the output documents.
+// The full path to the output file will be returned in `outputS3Uri`.
+func (o DocumentClassifierInputDataConfigOutput) S3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DocumentClassifierInputDataConfig) *string { return v.S3Uri }).(pulumi.StringPtrOutput)
+}
+
+func (o DocumentClassifierInputDataConfigOutput) TestS3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DocumentClassifierInputDataConfig) *string { return v.TestS3Uri }).(pulumi.StringPtrOutput)
+}
+
+type DocumentClassifierInputDataConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DocumentClassifierInputDataConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DocumentClassifierInputDataConfig)(nil)).Elem()
+}
+
+func (o DocumentClassifierInputDataConfigPtrOutput) ToDocumentClassifierInputDataConfigPtrOutput() DocumentClassifierInputDataConfigPtrOutput {
+	return o
+}
+
+func (o DocumentClassifierInputDataConfigPtrOutput) ToDocumentClassifierInputDataConfigPtrOutputWithContext(ctx context.Context) DocumentClassifierInputDataConfigPtrOutput {
+	return o
+}
+
+func (o DocumentClassifierInputDataConfigPtrOutput) Elem() DocumentClassifierInputDataConfigOutput {
+	return o.ApplyT(func(v *DocumentClassifierInputDataConfig) DocumentClassifierInputDataConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DocumentClassifierInputDataConfig
+		return ret
+	}).(DocumentClassifierInputDataConfigOutput)
+}
+
+// List of training datasets produced by Amazon SageMaker Ground Truth.
+// Used if `dataFormat` is `AUGMENTED_MANIFEST`.
+// See the `augmentedManifests` Configuration Block section below.
+func (o DocumentClassifierInputDataConfigPtrOutput) AugmentedManifests() DocumentClassifierInputDataConfigAugmentedManifestArrayOutput {
+	return o.ApplyT(func(v *DocumentClassifierInputDataConfig) []DocumentClassifierInputDataConfigAugmentedManifest {
+		if v == nil {
+			return nil
+		}
+		return v.AugmentedManifests
+	}).(DocumentClassifierInputDataConfigAugmentedManifestArrayOutput)
+}
+
+// The format for the training data.
+// One of `COMPREHEND_CSV` or `AUGMENTED_MANIFEST`.
+func (o DocumentClassifierInputDataConfigPtrOutput) DataFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DocumentClassifierInputDataConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+// Delimiter between labels when training a multi-label classifier.
+// Valid values are `|`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `*`, `-`, `_`, `+`, `=`, `\`, `:`, `;`, `>`, `?`, `/`, `<space>`, and `<tab>`.
+// Default is `|`.
+func (o DocumentClassifierInputDataConfigPtrOutput) LabelDelimiter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DocumentClassifierInputDataConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LabelDelimiter
+	}).(pulumi.StringPtrOutput)
+}
+
+// Destination path for the output documents.
+// The full path to the output file will be returned in `outputS3Uri`.
+func (o DocumentClassifierInputDataConfigPtrOutput) S3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DocumentClassifierInputDataConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DocumentClassifierInputDataConfigPtrOutput) TestS3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DocumentClassifierInputDataConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TestS3Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+type DocumentClassifierInputDataConfigAugmentedManifest struct {
+	// Location of annotation files.
+	AnnotationDataS3Uri *string `pulumi:"annotationDataS3Uri"`
+	// The JSON attribute that contains the annotations for the training documents.
+	AttributeNames []string `pulumi:"attributeNames"`
+	// Type of augmented manifest.
+	// One of `PLAIN_TEXT_DOCUMENT` or `SEMI_STRUCTURED_DOCUMENT`.
+	DocumentType *string `pulumi:"documentType"`
+	// Destination path for the output documents.
+	// The full path to the output file will be returned in `outputS3Uri`.
+	S3Uri string `pulumi:"s3Uri"`
+	// Location of source PDF files.
+	SourceDocumentsS3Uri *string `pulumi:"sourceDocumentsS3Uri"`
+	// Purpose of data in augmented manifest.
+	// One of `TRAIN` or `TEST`.
+	Split *string `pulumi:"split"`
+}
+
+// DocumentClassifierInputDataConfigAugmentedManifestInput is an input type that accepts DocumentClassifierInputDataConfigAugmentedManifestArgs and DocumentClassifierInputDataConfigAugmentedManifestOutput values.
+// You can construct a concrete instance of `DocumentClassifierInputDataConfigAugmentedManifestInput` via:
+//
+//	DocumentClassifierInputDataConfigAugmentedManifestArgs{...}
+type DocumentClassifierInputDataConfigAugmentedManifestInput interface {
+	pulumi.Input
+
+	ToDocumentClassifierInputDataConfigAugmentedManifestOutput() DocumentClassifierInputDataConfigAugmentedManifestOutput
+	ToDocumentClassifierInputDataConfigAugmentedManifestOutputWithContext(context.Context) DocumentClassifierInputDataConfigAugmentedManifestOutput
+}
+
+type DocumentClassifierInputDataConfigAugmentedManifestArgs struct {
+	// Location of annotation files.
+	AnnotationDataS3Uri pulumi.StringPtrInput `pulumi:"annotationDataS3Uri"`
+	// The JSON attribute that contains the annotations for the training documents.
+	AttributeNames pulumi.StringArrayInput `pulumi:"attributeNames"`
+	// Type of augmented manifest.
+	// One of `PLAIN_TEXT_DOCUMENT` or `SEMI_STRUCTURED_DOCUMENT`.
+	DocumentType pulumi.StringPtrInput `pulumi:"documentType"`
+	// Destination path for the output documents.
+	// The full path to the output file will be returned in `outputS3Uri`.
+	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
+	// Location of source PDF files.
+	SourceDocumentsS3Uri pulumi.StringPtrInput `pulumi:"sourceDocumentsS3Uri"`
+	// Purpose of data in augmented manifest.
+	// One of `TRAIN` or `TEST`.
+	Split pulumi.StringPtrInput `pulumi:"split"`
+}
+
+func (DocumentClassifierInputDataConfigAugmentedManifestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DocumentClassifierInputDataConfigAugmentedManifest)(nil)).Elem()
+}
+
+func (i DocumentClassifierInputDataConfigAugmentedManifestArgs) ToDocumentClassifierInputDataConfigAugmentedManifestOutput() DocumentClassifierInputDataConfigAugmentedManifestOutput {
+	return i.ToDocumentClassifierInputDataConfigAugmentedManifestOutputWithContext(context.Background())
+}
+
+func (i DocumentClassifierInputDataConfigAugmentedManifestArgs) ToDocumentClassifierInputDataConfigAugmentedManifestOutputWithContext(ctx context.Context) DocumentClassifierInputDataConfigAugmentedManifestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DocumentClassifierInputDataConfigAugmentedManifestOutput)
+}
+
+// DocumentClassifierInputDataConfigAugmentedManifestArrayInput is an input type that accepts DocumentClassifierInputDataConfigAugmentedManifestArray and DocumentClassifierInputDataConfigAugmentedManifestArrayOutput values.
+// You can construct a concrete instance of `DocumentClassifierInputDataConfigAugmentedManifestArrayInput` via:
+//
+//	DocumentClassifierInputDataConfigAugmentedManifestArray{ DocumentClassifierInputDataConfigAugmentedManifestArgs{...} }
+type DocumentClassifierInputDataConfigAugmentedManifestArrayInput interface {
+	pulumi.Input
+
+	ToDocumentClassifierInputDataConfigAugmentedManifestArrayOutput() DocumentClassifierInputDataConfigAugmentedManifestArrayOutput
+	ToDocumentClassifierInputDataConfigAugmentedManifestArrayOutputWithContext(context.Context) DocumentClassifierInputDataConfigAugmentedManifestArrayOutput
+}
+
+type DocumentClassifierInputDataConfigAugmentedManifestArray []DocumentClassifierInputDataConfigAugmentedManifestInput
+
+func (DocumentClassifierInputDataConfigAugmentedManifestArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DocumentClassifierInputDataConfigAugmentedManifest)(nil)).Elem()
+}
+
+func (i DocumentClassifierInputDataConfigAugmentedManifestArray) ToDocumentClassifierInputDataConfigAugmentedManifestArrayOutput() DocumentClassifierInputDataConfigAugmentedManifestArrayOutput {
+	return i.ToDocumentClassifierInputDataConfigAugmentedManifestArrayOutputWithContext(context.Background())
+}
+
+func (i DocumentClassifierInputDataConfigAugmentedManifestArray) ToDocumentClassifierInputDataConfigAugmentedManifestArrayOutputWithContext(ctx context.Context) DocumentClassifierInputDataConfigAugmentedManifestArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DocumentClassifierInputDataConfigAugmentedManifestArrayOutput)
+}
+
+type DocumentClassifierInputDataConfigAugmentedManifestOutput struct{ *pulumi.OutputState }
+
+func (DocumentClassifierInputDataConfigAugmentedManifestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DocumentClassifierInputDataConfigAugmentedManifest)(nil)).Elem()
+}
+
+func (o DocumentClassifierInputDataConfigAugmentedManifestOutput) ToDocumentClassifierInputDataConfigAugmentedManifestOutput() DocumentClassifierInputDataConfigAugmentedManifestOutput {
+	return o
+}
+
+func (o DocumentClassifierInputDataConfigAugmentedManifestOutput) ToDocumentClassifierInputDataConfigAugmentedManifestOutputWithContext(ctx context.Context) DocumentClassifierInputDataConfigAugmentedManifestOutput {
+	return o
+}
+
+// Location of annotation files.
+func (o DocumentClassifierInputDataConfigAugmentedManifestOutput) AnnotationDataS3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DocumentClassifierInputDataConfigAugmentedManifest) *string { return v.AnnotationDataS3Uri }).(pulumi.StringPtrOutput)
+}
+
+// The JSON attribute that contains the annotations for the training documents.
+func (o DocumentClassifierInputDataConfigAugmentedManifestOutput) AttributeNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DocumentClassifierInputDataConfigAugmentedManifest) []string { return v.AttributeNames }).(pulumi.StringArrayOutput)
+}
+
+// Type of augmented manifest.
+// One of `PLAIN_TEXT_DOCUMENT` or `SEMI_STRUCTURED_DOCUMENT`.
+func (o DocumentClassifierInputDataConfigAugmentedManifestOutput) DocumentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DocumentClassifierInputDataConfigAugmentedManifest) *string { return v.DocumentType }).(pulumi.StringPtrOutput)
+}
+
+// Destination path for the output documents.
+// The full path to the output file will be returned in `outputS3Uri`.
+func (o DocumentClassifierInputDataConfigAugmentedManifestOutput) S3Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v DocumentClassifierInputDataConfigAugmentedManifest) string { return v.S3Uri }).(pulumi.StringOutput)
+}
+
+// Location of source PDF files.
+func (o DocumentClassifierInputDataConfigAugmentedManifestOutput) SourceDocumentsS3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DocumentClassifierInputDataConfigAugmentedManifest) *string { return v.SourceDocumentsS3Uri }).(pulumi.StringPtrOutput)
+}
+
+// Purpose of data in augmented manifest.
+// One of `TRAIN` or `TEST`.
+func (o DocumentClassifierInputDataConfigAugmentedManifestOutput) Split() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DocumentClassifierInputDataConfigAugmentedManifest) *string { return v.Split }).(pulumi.StringPtrOutput)
+}
+
+type DocumentClassifierInputDataConfigAugmentedManifestArrayOutput struct{ *pulumi.OutputState }
+
+func (DocumentClassifierInputDataConfigAugmentedManifestArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DocumentClassifierInputDataConfigAugmentedManifest)(nil)).Elem()
+}
+
+func (o DocumentClassifierInputDataConfigAugmentedManifestArrayOutput) ToDocumentClassifierInputDataConfigAugmentedManifestArrayOutput() DocumentClassifierInputDataConfigAugmentedManifestArrayOutput {
+	return o
+}
+
+func (o DocumentClassifierInputDataConfigAugmentedManifestArrayOutput) ToDocumentClassifierInputDataConfigAugmentedManifestArrayOutputWithContext(ctx context.Context) DocumentClassifierInputDataConfigAugmentedManifestArrayOutput {
+	return o
+}
+
+func (o DocumentClassifierInputDataConfigAugmentedManifestArrayOutput) Index(i pulumi.IntInput) DocumentClassifierInputDataConfigAugmentedManifestOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DocumentClassifierInputDataConfigAugmentedManifest {
+		return vs[0].([]DocumentClassifierInputDataConfigAugmentedManifest)[vs[1].(int)]
+	}).(DocumentClassifierInputDataConfigAugmentedManifestOutput)
+}
+
+type DocumentClassifierOutputDataConfig struct {
+	// KMS Key used to encrypt the output documents.
+	// Can be a KMS Key ID, a KMS Key ARN, a KMS Alias name, or a KMS Alias ARN.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// Full path for the output documents.
+	OutputS3Uri *string `pulumi:"outputS3Uri"`
+	// Destination path for the output documents.
+	// The full path to the output file will be returned in `outputS3Uri`.
+	S3Uri string `pulumi:"s3Uri"`
+}
+
+// DocumentClassifierOutputDataConfigInput is an input type that accepts DocumentClassifierOutputDataConfigArgs and DocumentClassifierOutputDataConfigOutput values.
+// You can construct a concrete instance of `DocumentClassifierOutputDataConfigInput` via:
+//
+//	DocumentClassifierOutputDataConfigArgs{...}
+type DocumentClassifierOutputDataConfigInput interface {
+	pulumi.Input
+
+	ToDocumentClassifierOutputDataConfigOutput() DocumentClassifierOutputDataConfigOutput
+	ToDocumentClassifierOutputDataConfigOutputWithContext(context.Context) DocumentClassifierOutputDataConfigOutput
+}
+
+type DocumentClassifierOutputDataConfigArgs struct {
+	// KMS Key used to encrypt the output documents.
+	// Can be a KMS Key ID, a KMS Key ARN, a KMS Alias name, or a KMS Alias ARN.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// Full path for the output documents.
+	OutputS3Uri pulumi.StringPtrInput `pulumi:"outputS3Uri"`
+	// Destination path for the output documents.
+	// The full path to the output file will be returned in `outputS3Uri`.
+	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
+}
+
+func (DocumentClassifierOutputDataConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DocumentClassifierOutputDataConfig)(nil)).Elem()
+}
+
+func (i DocumentClassifierOutputDataConfigArgs) ToDocumentClassifierOutputDataConfigOutput() DocumentClassifierOutputDataConfigOutput {
+	return i.ToDocumentClassifierOutputDataConfigOutputWithContext(context.Background())
+}
+
+func (i DocumentClassifierOutputDataConfigArgs) ToDocumentClassifierOutputDataConfigOutputWithContext(ctx context.Context) DocumentClassifierOutputDataConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DocumentClassifierOutputDataConfigOutput)
+}
+
+func (i DocumentClassifierOutputDataConfigArgs) ToDocumentClassifierOutputDataConfigPtrOutput() DocumentClassifierOutputDataConfigPtrOutput {
+	return i.ToDocumentClassifierOutputDataConfigPtrOutputWithContext(context.Background())
+}
+
+func (i DocumentClassifierOutputDataConfigArgs) ToDocumentClassifierOutputDataConfigPtrOutputWithContext(ctx context.Context) DocumentClassifierOutputDataConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DocumentClassifierOutputDataConfigOutput).ToDocumentClassifierOutputDataConfigPtrOutputWithContext(ctx)
+}
+
+// DocumentClassifierOutputDataConfigPtrInput is an input type that accepts DocumentClassifierOutputDataConfigArgs, DocumentClassifierOutputDataConfigPtr and DocumentClassifierOutputDataConfigPtrOutput values.
+// You can construct a concrete instance of `DocumentClassifierOutputDataConfigPtrInput` via:
+//
+//	        DocumentClassifierOutputDataConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type DocumentClassifierOutputDataConfigPtrInput interface {
+	pulumi.Input
+
+	ToDocumentClassifierOutputDataConfigPtrOutput() DocumentClassifierOutputDataConfigPtrOutput
+	ToDocumentClassifierOutputDataConfigPtrOutputWithContext(context.Context) DocumentClassifierOutputDataConfigPtrOutput
+}
+
+type documentClassifierOutputDataConfigPtrType DocumentClassifierOutputDataConfigArgs
+
+func DocumentClassifierOutputDataConfigPtr(v *DocumentClassifierOutputDataConfigArgs) DocumentClassifierOutputDataConfigPtrInput {
+	return (*documentClassifierOutputDataConfigPtrType)(v)
+}
+
+func (*documentClassifierOutputDataConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DocumentClassifierOutputDataConfig)(nil)).Elem()
+}
+
+func (i *documentClassifierOutputDataConfigPtrType) ToDocumentClassifierOutputDataConfigPtrOutput() DocumentClassifierOutputDataConfigPtrOutput {
+	return i.ToDocumentClassifierOutputDataConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *documentClassifierOutputDataConfigPtrType) ToDocumentClassifierOutputDataConfigPtrOutputWithContext(ctx context.Context) DocumentClassifierOutputDataConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DocumentClassifierOutputDataConfigPtrOutput)
+}
+
+type DocumentClassifierOutputDataConfigOutput struct{ *pulumi.OutputState }
+
+func (DocumentClassifierOutputDataConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DocumentClassifierOutputDataConfig)(nil)).Elem()
+}
+
+func (o DocumentClassifierOutputDataConfigOutput) ToDocumentClassifierOutputDataConfigOutput() DocumentClassifierOutputDataConfigOutput {
+	return o
+}
+
+func (o DocumentClassifierOutputDataConfigOutput) ToDocumentClassifierOutputDataConfigOutputWithContext(ctx context.Context) DocumentClassifierOutputDataConfigOutput {
+	return o
+}
+
+func (o DocumentClassifierOutputDataConfigOutput) ToDocumentClassifierOutputDataConfigPtrOutput() DocumentClassifierOutputDataConfigPtrOutput {
+	return o.ToDocumentClassifierOutputDataConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DocumentClassifierOutputDataConfigOutput) ToDocumentClassifierOutputDataConfigPtrOutputWithContext(ctx context.Context) DocumentClassifierOutputDataConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DocumentClassifierOutputDataConfig) *DocumentClassifierOutputDataConfig {
+		return &v
+	}).(DocumentClassifierOutputDataConfigPtrOutput)
+}
+
+// KMS Key used to encrypt the output documents.
+// Can be a KMS Key ID, a KMS Key ARN, a KMS Alias name, or a KMS Alias ARN.
+func (o DocumentClassifierOutputDataConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DocumentClassifierOutputDataConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// Full path for the output documents.
+func (o DocumentClassifierOutputDataConfigOutput) OutputS3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DocumentClassifierOutputDataConfig) *string { return v.OutputS3Uri }).(pulumi.StringPtrOutput)
+}
+
+// Destination path for the output documents.
+// The full path to the output file will be returned in `outputS3Uri`.
+func (o DocumentClassifierOutputDataConfigOutput) S3Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v DocumentClassifierOutputDataConfig) string { return v.S3Uri }).(pulumi.StringOutput)
+}
+
+type DocumentClassifierOutputDataConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DocumentClassifierOutputDataConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DocumentClassifierOutputDataConfig)(nil)).Elem()
+}
+
+func (o DocumentClassifierOutputDataConfigPtrOutput) ToDocumentClassifierOutputDataConfigPtrOutput() DocumentClassifierOutputDataConfigPtrOutput {
+	return o
+}
+
+func (o DocumentClassifierOutputDataConfigPtrOutput) ToDocumentClassifierOutputDataConfigPtrOutputWithContext(ctx context.Context) DocumentClassifierOutputDataConfigPtrOutput {
+	return o
+}
+
+func (o DocumentClassifierOutputDataConfigPtrOutput) Elem() DocumentClassifierOutputDataConfigOutput {
+	return o.ApplyT(func(v *DocumentClassifierOutputDataConfig) DocumentClassifierOutputDataConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DocumentClassifierOutputDataConfig
+		return ret
+	}).(DocumentClassifierOutputDataConfigOutput)
+}
+
+// KMS Key used to encrypt the output documents.
+// Can be a KMS Key ID, a KMS Key ARN, a KMS Alias name, or a KMS Alias ARN.
+func (o DocumentClassifierOutputDataConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DocumentClassifierOutputDataConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Full path for the output documents.
+func (o DocumentClassifierOutputDataConfigPtrOutput) OutputS3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DocumentClassifierOutputDataConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OutputS3Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+// Destination path for the output documents.
+// The full path to the output file will be returned in `outputS3Uri`.
+func (o DocumentClassifierOutputDataConfigPtrOutput) S3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DocumentClassifierOutputDataConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+type DocumentClassifierVpcConfig struct {
+	// List of security group IDs.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// List of VPC subnets.
+	Subnets []string `pulumi:"subnets"`
+}
+
+// DocumentClassifierVpcConfigInput is an input type that accepts DocumentClassifierVpcConfigArgs and DocumentClassifierVpcConfigOutput values.
+// You can construct a concrete instance of `DocumentClassifierVpcConfigInput` via:
+//
+//	DocumentClassifierVpcConfigArgs{...}
+type DocumentClassifierVpcConfigInput interface {
+	pulumi.Input
+
+	ToDocumentClassifierVpcConfigOutput() DocumentClassifierVpcConfigOutput
+	ToDocumentClassifierVpcConfigOutputWithContext(context.Context) DocumentClassifierVpcConfigOutput
+}
+
+type DocumentClassifierVpcConfigArgs struct {
+	// List of security group IDs.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// List of VPC subnets.
+	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
+}
+
+func (DocumentClassifierVpcConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DocumentClassifierVpcConfig)(nil)).Elem()
+}
+
+func (i DocumentClassifierVpcConfigArgs) ToDocumentClassifierVpcConfigOutput() DocumentClassifierVpcConfigOutput {
+	return i.ToDocumentClassifierVpcConfigOutputWithContext(context.Background())
+}
+
+func (i DocumentClassifierVpcConfigArgs) ToDocumentClassifierVpcConfigOutputWithContext(ctx context.Context) DocumentClassifierVpcConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DocumentClassifierVpcConfigOutput)
+}
+
+func (i DocumentClassifierVpcConfigArgs) ToDocumentClassifierVpcConfigPtrOutput() DocumentClassifierVpcConfigPtrOutput {
+	return i.ToDocumentClassifierVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i DocumentClassifierVpcConfigArgs) ToDocumentClassifierVpcConfigPtrOutputWithContext(ctx context.Context) DocumentClassifierVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DocumentClassifierVpcConfigOutput).ToDocumentClassifierVpcConfigPtrOutputWithContext(ctx)
+}
+
+// DocumentClassifierVpcConfigPtrInput is an input type that accepts DocumentClassifierVpcConfigArgs, DocumentClassifierVpcConfigPtr and DocumentClassifierVpcConfigPtrOutput values.
+// You can construct a concrete instance of `DocumentClassifierVpcConfigPtrInput` via:
+//
+//	        DocumentClassifierVpcConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type DocumentClassifierVpcConfigPtrInput interface {
+	pulumi.Input
+
+	ToDocumentClassifierVpcConfigPtrOutput() DocumentClassifierVpcConfigPtrOutput
+	ToDocumentClassifierVpcConfigPtrOutputWithContext(context.Context) DocumentClassifierVpcConfigPtrOutput
+}
+
+type documentClassifierVpcConfigPtrType DocumentClassifierVpcConfigArgs
+
+func DocumentClassifierVpcConfigPtr(v *DocumentClassifierVpcConfigArgs) DocumentClassifierVpcConfigPtrInput {
+	return (*documentClassifierVpcConfigPtrType)(v)
+}
+
+func (*documentClassifierVpcConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DocumentClassifierVpcConfig)(nil)).Elem()
+}
+
+func (i *documentClassifierVpcConfigPtrType) ToDocumentClassifierVpcConfigPtrOutput() DocumentClassifierVpcConfigPtrOutput {
+	return i.ToDocumentClassifierVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *documentClassifierVpcConfigPtrType) ToDocumentClassifierVpcConfigPtrOutputWithContext(ctx context.Context) DocumentClassifierVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DocumentClassifierVpcConfigPtrOutput)
+}
+
+type DocumentClassifierVpcConfigOutput struct{ *pulumi.OutputState }
+
+func (DocumentClassifierVpcConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DocumentClassifierVpcConfig)(nil)).Elem()
+}
+
+func (o DocumentClassifierVpcConfigOutput) ToDocumentClassifierVpcConfigOutput() DocumentClassifierVpcConfigOutput {
+	return o
+}
+
+func (o DocumentClassifierVpcConfigOutput) ToDocumentClassifierVpcConfigOutputWithContext(ctx context.Context) DocumentClassifierVpcConfigOutput {
+	return o
+}
+
+func (o DocumentClassifierVpcConfigOutput) ToDocumentClassifierVpcConfigPtrOutput() DocumentClassifierVpcConfigPtrOutput {
+	return o.ToDocumentClassifierVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DocumentClassifierVpcConfigOutput) ToDocumentClassifierVpcConfigPtrOutputWithContext(ctx context.Context) DocumentClassifierVpcConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DocumentClassifierVpcConfig) *DocumentClassifierVpcConfig {
+		return &v
+	}).(DocumentClassifierVpcConfigPtrOutput)
+}
+
+// List of security group IDs.
+func (o DocumentClassifierVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DocumentClassifierVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+// List of VPC subnets.
+func (o DocumentClassifierVpcConfigOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DocumentClassifierVpcConfig) []string { return v.Subnets }).(pulumi.StringArrayOutput)
+}
+
+type DocumentClassifierVpcConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DocumentClassifierVpcConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DocumentClassifierVpcConfig)(nil)).Elem()
+}
+
+func (o DocumentClassifierVpcConfigPtrOutput) ToDocumentClassifierVpcConfigPtrOutput() DocumentClassifierVpcConfigPtrOutput {
+	return o
+}
+
+func (o DocumentClassifierVpcConfigPtrOutput) ToDocumentClassifierVpcConfigPtrOutputWithContext(ctx context.Context) DocumentClassifierVpcConfigPtrOutput {
+	return o
+}
+
+func (o DocumentClassifierVpcConfigPtrOutput) Elem() DocumentClassifierVpcConfigOutput {
+	return o.ApplyT(func(v *DocumentClassifierVpcConfig) DocumentClassifierVpcConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DocumentClassifierVpcConfig
+		return ret
+	}).(DocumentClassifierVpcConfigOutput)
+}
+
+// List of security group IDs.
+func (o DocumentClassifierVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DocumentClassifierVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of VPC subnets.
+func (o DocumentClassifierVpcConfigPtrOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DocumentClassifierVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Subnets
+	}).(pulumi.StringArrayOutput)
+}
+
 type EntityRecognizerInputDataConfig struct {
 	// Specifies location of the document annotation data.
 	// See the `annotations` Configuration Block section below.
@@ -1163,6 +1888,14 @@ func (o EntityRecognizerVpcConfigPtrOutput) Subnets() pulumi.StringArrayOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DocumentClassifierInputDataConfigInput)(nil)).Elem(), DocumentClassifierInputDataConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DocumentClassifierInputDataConfigPtrInput)(nil)).Elem(), DocumentClassifierInputDataConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DocumentClassifierInputDataConfigAugmentedManifestInput)(nil)).Elem(), DocumentClassifierInputDataConfigAugmentedManifestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DocumentClassifierInputDataConfigAugmentedManifestArrayInput)(nil)).Elem(), DocumentClassifierInputDataConfigAugmentedManifestArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DocumentClassifierOutputDataConfigInput)(nil)).Elem(), DocumentClassifierOutputDataConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DocumentClassifierOutputDataConfigPtrInput)(nil)).Elem(), DocumentClassifierOutputDataConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DocumentClassifierVpcConfigInput)(nil)).Elem(), DocumentClassifierVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DocumentClassifierVpcConfigPtrInput)(nil)).Elem(), DocumentClassifierVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EntityRecognizerInputDataConfigInput)(nil)).Elem(), EntityRecognizerInputDataConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EntityRecognizerInputDataConfigPtrInput)(nil)).Elem(), EntityRecognizerInputDataConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EntityRecognizerInputDataConfigAnnotationsInput)(nil)).Elem(), EntityRecognizerInputDataConfigAnnotationsArgs{})
@@ -1177,6 +1910,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EntityRecognizerInputDataConfigEntityTypeArrayInput)(nil)).Elem(), EntityRecognizerInputDataConfigEntityTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EntityRecognizerVpcConfigInput)(nil)).Elem(), EntityRecognizerVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EntityRecognizerVpcConfigPtrInput)(nil)).Elem(), EntityRecognizerVpcConfigArgs{})
+	pulumi.RegisterOutputType(DocumentClassifierInputDataConfigOutput{})
+	pulumi.RegisterOutputType(DocumentClassifierInputDataConfigPtrOutput{})
+	pulumi.RegisterOutputType(DocumentClassifierInputDataConfigAugmentedManifestOutput{})
+	pulumi.RegisterOutputType(DocumentClassifierInputDataConfigAugmentedManifestArrayOutput{})
+	pulumi.RegisterOutputType(DocumentClassifierOutputDataConfigOutput{})
+	pulumi.RegisterOutputType(DocumentClassifierOutputDataConfigPtrOutput{})
+	pulumi.RegisterOutputType(DocumentClassifierVpcConfigOutput{})
+	pulumi.RegisterOutputType(DocumentClassifierVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(EntityRecognizerInputDataConfigOutput{})
 	pulumi.RegisterOutputType(EntityRecognizerInputDataConfigPtrOutput{})
 	pulumi.RegisterOutputType(EntityRecognizerInputDataConfigAnnotationsOutput{})

@@ -5,6 +5,7 @@ package com.pulumi.aws.opsworks.inputs;
 
 import com.pulumi.aws.opsworks.inputs.HaproxyLayerCloudwatchConfigurationArgs;
 import com.pulumi.aws.opsworks.inputs.HaproxyLayerEbsVolumeArgs;
+import com.pulumi.aws.opsworks.inputs.HaproxyLayerLoadBasedAutoScalingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -273,6 +274,13 @@ public final class HaproxyLayerState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.instanceShutdownTimeout);
     }
 
+    @Import(name="loadBasedAutoScaling")
+    private @Nullable Output<HaproxyLayerLoadBasedAutoScalingArgs> loadBasedAutoScaling;
+
+    public Optional<Output<HaproxyLayerLoadBasedAutoScalingArgs>> loadBasedAutoScaling() {
+        return Optional.ofNullable(this.loadBasedAutoScaling);
+    }
+
     /**
      * A human-readable name for the layer.
      * 
@@ -446,6 +454,7 @@ public final class HaproxyLayerState extends com.pulumi.resources.ResourceArgs {
         this.healthcheckUrl = $.healthcheckUrl;
         this.installUpdatesOnBoot = $.installUpdatesOnBoot;
         this.instanceShutdownTimeout = $.instanceShutdownTimeout;
+        this.loadBasedAutoScaling = $.loadBasedAutoScaling;
         this.name = $.name;
         this.stackId = $.stackId;
         this.statsEnabled = $.statsEnabled;
@@ -862,6 +871,15 @@ public final class HaproxyLayerState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder instanceShutdownTimeout(Integer instanceShutdownTimeout) {
             return instanceShutdownTimeout(Output.of(instanceShutdownTimeout));
+        }
+
+        public Builder loadBasedAutoScaling(@Nullable Output<HaproxyLayerLoadBasedAutoScalingArgs> loadBasedAutoScaling) {
+            $.loadBasedAutoScaling = loadBasedAutoScaling;
+            return this;
+        }
+
+        public Builder loadBasedAutoScaling(HaproxyLayerLoadBasedAutoScalingArgs loadBasedAutoScaling) {
+            return loadBasedAutoScaling(Output.of(loadBasedAutoScaling));
         }
 
         /**

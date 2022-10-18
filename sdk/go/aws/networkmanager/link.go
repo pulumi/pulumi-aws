@@ -29,7 +29,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkmanager.NewLink(ctx, "example", &networkmanager.LinkArgs{
 //				GlobalNetworkId: pulumi.Any(aws_networkmanager_global_network.Example.Id),
-//				SiteId:          pulumi.Any(aws_networkmanager_global_site.Example.Id),
+//				SiteId:          pulumi.Any(aws_networkmanager_site.Example.Id),
 //				Bandwidth: &networkmanager.LinkBandwidthArgs{
 //					UploadSpeed:   pulumi.Int(10),
 //					DownloadSpeed: pulumi.Int(50),

@@ -170,6 +170,8 @@ type UserPool struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// Configuration block for user attribute update settings. Detailed below.
+	UserAttributeUpdateSettings UserPoolUserAttributeUpdateSettingsPtrOutput `pulumi:"userAttributeUpdateSettings"`
 	// Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
 	UserPoolAddOns UserPoolUserPoolAddOnsPtrOutput `pulumi:"userPoolAddOns"`
 	// Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
@@ -261,6 +263,8 @@ type userPoolState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
+	// Configuration block for user attribute update settings. Detailed below.
+	UserAttributeUpdateSettings *UserPoolUserAttributeUpdateSettings `pulumi:"userAttributeUpdateSettings"`
 	// Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
 	UserPoolAddOns *UserPoolUserPoolAddOns `pulumi:"userPoolAddOns"`
 	// Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
@@ -324,6 +328,8 @@ type UserPoolState struct {
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
+	// Configuration block for user attribute update settings. Detailed below.
+	UserAttributeUpdateSettings UserPoolUserAttributeUpdateSettingsPtrInput
 	// Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
 	UserPoolAddOns UserPoolUserPoolAddOnsPtrInput
 	// Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
@@ -375,6 +381,8 @@ type userPoolArgs struct {
 	SoftwareTokenMfaConfiguration *UserPoolSoftwareTokenMfaConfiguration `pulumi:"softwareTokenMfaConfiguration"`
 	// Map of tags to assign to the User Pool. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// Configuration block for user attribute update settings. Detailed below.
+	UserAttributeUpdateSettings *UserPoolUserAttributeUpdateSettings `pulumi:"userAttributeUpdateSettings"`
 	// Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
 	UserPoolAddOns *UserPoolUserPoolAddOns `pulumi:"userPoolAddOns"`
 	// Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
@@ -423,6 +431,8 @@ type UserPoolArgs struct {
 	SoftwareTokenMfaConfiguration UserPoolSoftwareTokenMfaConfigurationPtrInput
 	// Map of tags to assign to the User Pool. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// Configuration block for user attribute update settings. Detailed below.
+	UserAttributeUpdateSettings UserPoolUserAttributeUpdateSettingsPtrInput
 	// Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
 	UserPoolAddOns UserPoolUserPoolAddOnsPtrInput
 	// Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
@@ -650,6 +660,11 @@ func (o UserPoolOutput) Tags() pulumi.StringMapOutput {
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o UserPoolOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *UserPool) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
+}
+
+// Configuration block for user attribute update settings. Detailed below.
+func (o UserPoolOutput) UserAttributeUpdateSettings() UserPoolUserAttributeUpdateSettingsPtrOutput {
+	return o.ApplyT(func(v *UserPool) UserPoolUserAttributeUpdateSettingsPtrOutput { return v.UserAttributeUpdateSettings }).(UserPoolUserAttributeUpdateSettingsPtrOutput)
 }
 
 // Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.

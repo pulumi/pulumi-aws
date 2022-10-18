@@ -63,10 +63,10 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * EKS Clusters can be imported using the `name`, e.g.
+ * EKS Clusters can be imported using the `id`, e.g.
  * 
  * ```sh
- *  $ pulumi import aws:emrcontainers/virtualCluster:VirtualCluster example
+ *  $ pulumi import aws:emrcontainers/virtualCluster:VirtualCluster example a1b2c3d4e5f6g7h8i9j10k11l
  * ```
  * 
  */

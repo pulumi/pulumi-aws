@@ -78,14 +78,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The globally unique identifier for the identity store..
+     * The globally unique identifier for the identity store.
      * 
      */
     @Import(name="identityStoreId")
     private @Nullable Output<String> identityStoreId;
 
     /**
-     * @return The globally unique identifier for the identity store..
+     * @return The globally unique identifier for the identity store.
      * 
      */
     public Optional<Output<String>> identityStoreId() {
@@ -215,7 +215,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param identityStoreId The globally unique identifier for the identity store..
+         * @param identityStoreId The globally unique identifier for the identity store.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param identityStoreId The globally unique identifier for the identity store..
+         * @param identityStoreId The globally unique identifier for the identity store.
          * 
          * @return builder
          * 

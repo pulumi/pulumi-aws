@@ -34,6 +34,9 @@ import (
 //				},
 //				Enabled:       pulumi.Bool(true),
 //				IpAddressType: pulumi.String("IPV4"),
+//				IpAddresses: pulumi.StringArray{
+//					pulumi.String("1.2.3.4"),
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -68,6 +71,8 @@ type Accelerator struct {
 	HostedZoneId pulumi.StringOutput  `pulumi:"hostedZoneId"`
 	// The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
 	IpAddressType pulumi.StringPtrOutput `pulumi:"ipAddressType"`
+	// The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+	IpAddresses pulumi.StringArrayOutput `pulumi:"ipAddresses"`
 	// IP address set associated with the accelerator.
 	IpSets AcceleratorIpSetArrayOutput `pulumi:"ipSets"`
 	// The name of the accelerator.
@@ -119,6 +124,8 @@ type acceleratorState struct {
 	HostedZoneId *string `pulumi:"hostedZoneId"`
 	// The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
 	IpAddressType *string `pulumi:"ipAddressType"`
+	// The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+	IpAddresses []string `pulumi:"ipAddresses"`
 	// IP address set associated with the accelerator.
 	IpSets []AcceleratorIpSet `pulumi:"ipSets"`
 	// The name of the accelerator.
@@ -142,6 +149,8 @@ type AcceleratorState struct {
 	HostedZoneId pulumi.StringPtrInput
 	// The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
 	IpAddressType pulumi.StringPtrInput
+	// The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+	IpAddresses pulumi.StringArrayInput
 	// IP address set associated with the accelerator.
 	IpSets AcceleratorIpSetArrayInput
 	// The name of the accelerator.
@@ -163,6 +172,8 @@ type acceleratorArgs struct {
 	Enabled *bool `pulumi:"enabled"`
 	// The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
 	IpAddressType *string `pulumi:"ipAddressType"`
+	// The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+	IpAddresses []string `pulumi:"ipAddresses"`
 	// The name of the accelerator.
 	Name *string `pulumi:"name"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -177,6 +188,8 @@ type AcceleratorArgs struct {
 	Enabled pulumi.BoolPtrInput
 	// The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
 	IpAddressType pulumi.StringPtrInput
+	// The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+	IpAddresses pulumi.StringArrayInput
 	// The name of the accelerator.
 	Name pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -295,6 +308,11 @@ func (o AcceleratorOutput) HostedZoneId() pulumi.StringOutput {
 // The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
 func (o AcceleratorOutput) IpAddressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Accelerator) pulumi.StringPtrOutput { return v.IpAddressType }).(pulumi.StringPtrOutput)
+}
+
+// The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+func (o AcceleratorOutput) IpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Accelerator) pulumi.StringArrayOutput { return v.IpAddresses }).(pulumi.StringArrayOutput)
 }
 
 // IP address set associated with the accelerator.

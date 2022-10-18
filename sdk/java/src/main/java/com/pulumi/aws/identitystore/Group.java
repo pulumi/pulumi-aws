@@ -87,14 +87,14 @@ public class Group extends com.pulumi.resources.CustomResource {
         return this.groupId;
     }
     /**
-     * The globally unique identifier for the identity store..
+     * The globally unique identifier for the identity store.
      * 
      */
     @Export(name="identityStoreId", type=String.class, parameters={})
     private Output<String> identityStoreId;
 
     /**
-     * @return The globally unique identifier for the identity store..
+     * @return The globally unique identifier for the identity store.
      * 
      */
     public Output<String> identityStoreId() {

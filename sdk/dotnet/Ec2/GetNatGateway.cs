@@ -25,8 +25,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var config = new Config();
-        ///     var subnetId = config.RequireObject&lt;dynamic&gt;("subnetId");
         ///     var @default = Aws.Ec2.GetNatGateway.Invoke(new()
         ///     {
         ///         SubnetId = aws_subnet.Public.Id,
@@ -75,8 +73,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var config = new Config();
-        ///     var subnetId = config.RequireObject&lt;dynamic&gt;("subnetId");
         ///     var @default = Aws.Ec2.GetNatGateway.Invoke(new()
         ///     {
         ///         SubnetId = aws_subnet.Public.Id,

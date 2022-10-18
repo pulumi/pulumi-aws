@@ -34,6 +34,7 @@ class MysqlLayerArgs:
                  elastic_load_balancer: Optional[pulumi.Input[str]] = None,
                  install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
                  instance_shutdown_timeout: Optional[pulumi.Input[int]] = None,
+                 load_based_auto_scaling: Optional[pulumi.Input['MysqlLayerLoadBasedAutoScalingArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  root_password: Optional[pulumi.Input[str]] = None,
                  root_password_on_all_instances: Optional[pulumi.Input[bool]] = None,
@@ -96,6 +97,8 @@ class MysqlLayerArgs:
             pulumi.set(__self__, "install_updates_on_boot", install_updates_on_boot)
         if instance_shutdown_timeout is not None:
             pulumi.set(__self__, "instance_shutdown_timeout", instance_shutdown_timeout)
+        if load_based_auto_scaling is not None:
+            pulumi.set(__self__, "load_based_auto_scaling", load_based_auto_scaling)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if root_password is not None:
@@ -308,6 +311,15 @@ class MysqlLayerArgs:
         pulumi.set(self, "instance_shutdown_timeout", value)
 
     @property
+    @pulumi.getter(name="loadBasedAutoScaling")
+    def load_based_auto_scaling(self) -> Optional[pulumi.Input['MysqlLayerLoadBasedAutoScalingArgs']]:
+        return pulumi.get(self, "load_based_auto_scaling")
+
+    @load_based_auto_scaling.setter
+    def load_based_auto_scaling(self, value: Optional[pulumi.Input['MysqlLayerLoadBasedAutoScalingArgs']]):
+        pulumi.set(self, "load_based_auto_scaling", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -401,6 +413,7 @@ class _MysqlLayerState:
                  elastic_load_balancer: Optional[pulumi.Input[str]] = None,
                  install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
                  instance_shutdown_timeout: Optional[pulumi.Input[int]] = None,
+                 load_based_auto_scaling: Optional[pulumi.Input['MysqlLayerLoadBasedAutoScalingArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  root_password: Optional[pulumi.Input[str]] = None,
                  root_password_on_all_instances: Optional[pulumi.Input[bool]] = None,
@@ -468,6 +481,8 @@ class _MysqlLayerState:
             pulumi.set(__self__, "install_updates_on_boot", install_updates_on_boot)
         if instance_shutdown_timeout is not None:
             pulumi.set(__self__, "instance_shutdown_timeout", instance_shutdown_timeout)
+        if load_based_auto_scaling is not None:
+            pulumi.set(__self__, "load_based_auto_scaling", load_based_auto_scaling)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if root_password is not None:
@@ -684,6 +699,15 @@ class _MysqlLayerState:
         pulumi.set(self, "instance_shutdown_timeout", value)
 
     @property
+    @pulumi.getter(name="loadBasedAutoScaling")
+    def load_based_auto_scaling(self) -> Optional[pulumi.Input['MysqlLayerLoadBasedAutoScalingArgs']]:
+        return pulumi.get(self, "load_based_auto_scaling")
+
+    @load_based_auto_scaling.setter
+    def load_based_auto_scaling(self, value: Optional[pulumi.Input['MysqlLayerLoadBasedAutoScalingArgs']]):
+        pulumi.set(self, "load_based_auto_scaling", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -802,6 +826,7 @@ class MysqlLayer(pulumi.CustomResource):
                  elastic_load_balancer: Optional[pulumi.Input[str]] = None,
                  install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
                  instance_shutdown_timeout: Optional[pulumi.Input[int]] = None,
+                 load_based_auto_scaling: Optional[pulumi.Input[pulumi.InputType['MysqlLayerLoadBasedAutoScalingArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  root_password: Optional[pulumi.Input[str]] = None,
                  root_password_on_all_instances: Optional[pulumi.Input[bool]] = None,
@@ -893,6 +918,7 @@ class MysqlLayer(pulumi.CustomResource):
                  elastic_load_balancer: Optional[pulumi.Input[str]] = None,
                  install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
                  instance_shutdown_timeout: Optional[pulumi.Input[int]] = None,
+                 load_based_auto_scaling: Optional[pulumi.Input[pulumi.InputType['MysqlLayerLoadBasedAutoScalingArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  root_password: Optional[pulumi.Input[str]] = None,
                  root_password_on_all_instances: Optional[pulumi.Input[bool]] = None,
@@ -926,6 +952,7 @@ class MysqlLayer(pulumi.CustomResource):
             __props__.__dict__["elastic_load_balancer"] = elastic_load_balancer
             __props__.__dict__["install_updates_on_boot"] = install_updates_on_boot
             __props__.__dict__["instance_shutdown_timeout"] = instance_shutdown_timeout
+            __props__.__dict__["load_based_auto_scaling"] = load_based_auto_scaling
             __props__.__dict__["name"] = name
             __props__.__dict__["root_password"] = root_password
             __props__.__dict__["root_password_on_all_instances"] = root_password_on_all_instances
@@ -965,6 +992,7 @@ class MysqlLayer(pulumi.CustomResource):
             elastic_load_balancer: Optional[pulumi.Input[str]] = None,
             install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
             instance_shutdown_timeout: Optional[pulumi.Input[int]] = None,
+            load_based_auto_scaling: Optional[pulumi.Input[pulumi.InputType['MysqlLayerLoadBasedAutoScalingArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             root_password: Optional[pulumi.Input[str]] = None,
             root_password_on_all_instances: Optional[pulumi.Input[bool]] = None,
@@ -1023,6 +1051,7 @@ class MysqlLayer(pulumi.CustomResource):
         __props__.__dict__["elastic_load_balancer"] = elastic_load_balancer
         __props__.__dict__["install_updates_on_boot"] = install_updates_on_boot
         __props__.__dict__["instance_shutdown_timeout"] = instance_shutdown_timeout
+        __props__.__dict__["load_based_auto_scaling"] = load_based_auto_scaling
         __props__.__dict__["name"] = name
         __props__.__dict__["root_password"] = root_password
         __props__.__dict__["root_password_on_all_instances"] = root_password_on_all_instances
@@ -1158,6 +1187,11 @@ class MysqlLayer(pulumi.CustomResource):
         The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
         """
         return pulumi.get(self, "instance_shutdown_timeout")
+
+    @property
+    @pulumi.getter(name="loadBasedAutoScaling")
+    def load_based_auto_scaling(self) -> pulumi.Output['outputs.MysqlLayerLoadBasedAutoScaling']:
+        return pulumi.get(self, "load_based_auto_scaling")
 
     @property
     @pulumi.getter

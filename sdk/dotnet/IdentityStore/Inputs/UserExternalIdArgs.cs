@@ -16,7 +16,7 @@ namespace Pulumi.Aws.IdentityStore.Inputs
         /// The identifier issued to this resource by an external identity provider.
         /// </summary>
         [Input("id")]
-        public Input<bool>? Id { get; set; }
+        public Input<string>? Id { get; set; }
 
         /// <summary>
         /// The issuer for an external identifier.

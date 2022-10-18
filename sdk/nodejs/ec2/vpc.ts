@@ -143,9 +143,13 @@ export class Vpc extends pulumi.CustomResource {
      */
     public readonly enableDnsHostnames!: pulumi.Output<boolean>;
     /**
-     * A boolean flag to enable/disable DNS support in the VPC. Defaults true.
+     * A boolean flag to enable/disable DNS support in the VPC. Defaults to true.
      */
     public readonly enableDnsSupport!: pulumi.Output<boolean | undefined>;
+    /**
+     * Indicates whether Network Address Usage metrics are enabled for your VPC. Defaults to false.
+     */
+    public readonly enableNetworkAddressUsageMetrics!: pulumi.Output<boolean>;
     /**
      * A tenancy option for instances launched into the VPC. Default is `default`, which ensures that EC2 instances launched in this VPC use the EC2 instance tenancy attribute specified when the EC2 instance is launched. The only other option is `dedicated`, which ensures that EC2 instances launched in this VPC are run on dedicated tenancy instances regardless of the tenancy attribute specified at launch. This has a dedicated per region fee of $2 per hour, plus an hourly per instance usage fee.
      */
@@ -221,6 +225,7 @@ export class Vpc extends pulumi.CustomResource {
             resourceInputs["enableClassiclinkDnsSupport"] = state ? state.enableClassiclinkDnsSupport : undefined;
             resourceInputs["enableDnsHostnames"] = state ? state.enableDnsHostnames : undefined;
             resourceInputs["enableDnsSupport"] = state ? state.enableDnsSupport : undefined;
+            resourceInputs["enableNetworkAddressUsageMetrics"] = state ? state.enableNetworkAddressUsageMetrics : undefined;
             resourceInputs["instanceTenancy"] = state ? state.instanceTenancy : undefined;
             resourceInputs["ipv4IpamPoolId"] = state ? state.ipv4IpamPoolId : undefined;
             resourceInputs["ipv4NetmaskLength"] = state ? state.ipv4NetmaskLength : undefined;
@@ -241,6 +246,7 @@ export class Vpc extends pulumi.CustomResource {
             resourceInputs["enableClassiclinkDnsSupport"] = args ? args.enableClassiclinkDnsSupport : undefined;
             resourceInputs["enableDnsHostnames"] = args ? args.enableDnsHostnames : undefined;
             resourceInputs["enableDnsSupport"] = args ? args.enableDnsSupport : undefined;
+            resourceInputs["enableNetworkAddressUsageMetrics"] = args ? args.enableNetworkAddressUsageMetrics : undefined;
             resourceInputs["instanceTenancy"] = args ? args.instanceTenancy : undefined;
             resourceInputs["ipv4IpamPoolId"] = args ? args.ipv4IpamPoolId : undefined;
             resourceInputs["ipv4NetmaskLength"] = args ? args.ipv4NetmaskLength : undefined;
@@ -313,9 +319,13 @@ export interface VpcState {
      */
     enableDnsHostnames?: pulumi.Input<boolean>;
     /**
-     * A boolean flag to enable/disable DNS support in the VPC. Defaults true.
+     * A boolean flag to enable/disable DNS support in the VPC. Defaults to true.
      */
     enableDnsSupport?: pulumi.Input<boolean>;
+    /**
+     * Indicates whether Network Address Usage metrics are enabled for your VPC. Defaults to false.
+     */
+    enableNetworkAddressUsageMetrics?: pulumi.Input<boolean>;
     /**
      * A tenancy option for instances launched into the VPC. Default is `default`, which ensures that EC2 instances launched in this VPC use the EC2 instance tenancy attribute specified when the EC2 instance is launched. The only other option is `dedicated`, which ensures that EC2 instances launched in this VPC are run on dedicated tenancy instances regardless of the tenancy attribute specified at launch. This has a dedicated per region fee of $2 per hour, plus an hourly per instance usage fee.
      */
@@ -400,9 +410,13 @@ export interface VpcArgs {
      */
     enableDnsHostnames?: pulumi.Input<boolean>;
     /**
-     * A boolean flag to enable/disable DNS support in the VPC. Defaults true.
+     * A boolean flag to enable/disable DNS support in the VPC. Defaults to true.
      */
     enableDnsSupport?: pulumi.Input<boolean>;
+    /**
+     * Indicates whether Network Address Usage metrics are enabled for your VPC. Defaults to false.
+     */
+    enableNetworkAddressUsageMetrics?: pulumi.Input<boolean>;
     /**
      * A tenancy option for instances launched into the VPC. Default is `default`, which ensures that EC2 instances launched in this VPC use the EC2 instance tenancy attribute specified when the EC2 instance is launched. The only other option is `dedicated`, which ensures that EC2 instances launched in this VPC are run on dedicated tenancy instances regardless of the tenancy attribute specified at launch. This has a dedicated per region fee of $2 per hour, plus an hourly per instance usage fee.
      */

@@ -270,6 +270,7 @@ __all__ = [
     'GetVpcFilterArgs',
     'GetVpcIamPoolCidrsFilterArgs',
     'GetVpcIamPoolFilterArgs',
+    'GetVpcIamPoolsFilterArgs',
     'GetVpcPeeringConnectionFilterArgs',
     'GetVpcPeeringConnectionsFilterArgs',
     'GetVpcsFilterArgs',
@@ -16714,6 +16715,33 @@ class GetVpcIamPoolCidrsFilterArgs:
 
 @pulumi.input_type
 class GetVpcIamPoolFilterArgs:
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: str):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Sequence[str]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class GetVpcIamPoolsFilterArgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):

@@ -8,6 +8,7 @@ import com.pulumi.aws.opsworks.JavaAppLayerArgs;
 import com.pulumi.aws.opsworks.inputs.JavaAppLayerState;
 import com.pulumi.aws.opsworks.outputs.JavaAppLayerCloudwatchConfiguration;
 import com.pulumi.aws.opsworks.outputs.JavaAppLayerEbsVolume;
+import com.pulumi.aws.opsworks.outputs.JavaAppLayerLoadBasedAutoScaling;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -329,6 +330,12 @@ public class JavaAppLayer extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> jvmVersion() {
         return Codegen.optional(this.jvmVersion);
+    }
+    @Export(name="loadBasedAutoScaling", type=JavaAppLayerLoadBasedAutoScaling.class, parameters={})
+    private Output<JavaAppLayerLoadBasedAutoScaling> loadBasedAutoScaling;
+
+    public Output<JavaAppLayerLoadBasedAutoScaling> loadBasedAutoScaling() {
+        return this.loadBasedAutoScaling;
     }
     /**
      * A human-readable name for the layer.

@@ -215,6 +215,20 @@ public class Connection extends com.pulumi.resources.CustomResource {
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
+    /**
+     * The VLAN ID.
+     * 
+     */
+    @Export(name="vlanId", type=String.class, parameters={})
+    private Output<String> vlanId;
+
+    /**
+     * @return The VLAN ID.
+     * 
+     */
+    public Output<String> vlanId() {
+        return this.vlanId;
+    }
 
     /**
      *

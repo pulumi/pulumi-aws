@@ -80,7 +80,7 @@ type Route struct {
 
 	// The ID of the Client VPN endpoint.
 	ClientVpnEndpointId pulumi.StringOutput `pulumi:"clientVpnEndpointId"`
-	// A brief description of the authorization rule.
+	// A brief description of the route.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The IPv4 address range, in CIDR notation, of the route destination.
 	DestinationCidrBlock pulumi.StringOutput `pulumi:"destinationCidrBlock"`
@@ -132,7 +132,7 @@ func GetRoute(ctx *pulumi.Context,
 type routeState struct {
 	// The ID of the Client VPN endpoint.
 	ClientVpnEndpointId *string `pulumi:"clientVpnEndpointId"`
-	// A brief description of the authorization rule.
+	// A brief description of the route.
 	Description *string `pulumi:"description"`
 	// The IPv4 address range, in CIDR notation, of the route destination.
 	DestinationCidrBlock *string `pulumi:"destinationCidrBlock"`
@@ -147,7 +147,7 @@ type routeState struct {
 type RouteState struct {
 	// The ID of the Client VPN endpoint.
 	ClientVpnEndpointId pulumi.StringPtrInput
-	// A brief description of the authorization rule.
+	// A brief description of the route.
 	Description pulumi.StringPtrInput
 	// The IPv4 address range, in CIDR notation, of the route destination.
 	DestinationCidrBlock pulumi.StringPtrInput
@@ -166,7 +166,7 @@ func (RouteState) ElementType() reflect.Type {
 type routeArgs struct {
 	// The ID of the Client VPN endpoint.
 	ClientVpnEndpointId string `pulumi:"clientVpnEndpointId"`
-	// A brief description of the authorization rule.
+	// A brief description of the route.
 	Description *string `pulumi:"description"`
 	// The IPv4 address range, in CIDR notation, of the route destination.
 	DestinationCidrBlock string `pulumi:"destinationCidrBlock"`
@@ -178,7 +178,7 @@ type routeArgs struct {
 type RouteArgs struct {
 	// The ID of the Client VPN endpoint.
 	ClientVpnEndpointId pulumi.StringInput
-	// A brief description of the authorization rule.
+	// A brief description of the route.
 	Description pulumi.StringPtrInput
 	// The IPv4 address range, in CIDR notation, of the route destination.
 	DestinationCidrBlock pulumi.StringInput
@@ -278,7 +278,7 @@ func (o RouteOutput) ClientVpnEndpointId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.ClientVpnEndpointId }).(pulumi.StringOutput)
 }
 
-// A brief description of the authorization rule.
+// A brief description of the route.
 func (o RouteOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }

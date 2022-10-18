@@ -23,6 +23,23 @@ __all__ = [
     'ObjectLambdaAccessPointConfigurationTransformationConfiguration',
     'ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformation',
     'ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambda',
+    'StorageLensConfigurationStorageLensConfiguration',
+    'StorageLensConfigurationStorageLensConfigurationAccountLevel',
+    'StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics',
+    'StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel',
+    'StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics',
+    'StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel',
+    'StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics',
+    'StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria',
+    'StorageLensConfigurationStorageLensConfigurationAwsOrg',
+    'StorageLensConfigurationStorageLensConfigurationDataExport',
+    'StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics',
+    'StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination',
+    'StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption',
+    'StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms',
+    'StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3',
+    'StorageLensConfigurationStorageLensConfigurationExclude',
+    'StorageLensConfigurationStorageLensConfigurationInclude',
 ]
 
 @pulumi.output_type
@@ -583,5 +600,718 @@ class ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTran
         Additional JSON that provides supplemental data to the Lambda function used to transform objects.
         """
         return pulumi.get(self, "function_payload")
+
+
+@pulumi.output_type
+class StorageLensConfigurationStorageLensConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountLevel":
+            suggest = "account_level"
+        elif key == "awsOrg":
+            suggest = "aws_org"
+        elif key == "dataExport":
+            suggest = "data_export"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageLensConfigurationStorageLensConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageLensConfigurationStorageLensConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageLensConfigurationStorageLensConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 account_level: 'outputs.StorageLensConfigurationStorageLensConfigurationAccountLevel',
+                 enabled: bool,
+                 aws_org: Optional['outputs.StorageLensConfigurationStorageLensConfigurationAwsOrg'] = None,
+                 data_export: Optional['outputs.StorageLensConfigurationStorageLensConfigurationDataExport'] = None,
+                 exclude: Optional['outputs.StorageLensConfigurationStorageLensConfigurationExclude'] = None,
+                 include: Optional['outputs.StorageLensConfigurationStorageLensConfigurationInclude'] = None):
+        """
+        :param 'StorageLensConfigurationStorageLensConfigurationAccountLevelArgs' account_level: The account-level configurations of the S3 Storage Lens configuration. See Account Level below for more details.
+        :param bool enabled: Whether the S3 Storage Lens configuration is enabled.
+        :param 'StorageLensConfigurationStorageLensConfigurationAwsOrgArgs' aws_org: The Amazon Web Services organization for the S3 Storage Lens configuration. See AWS Org below for more details.
+        :param 'StorageLensConfigurationStorageLensConfigurationDataExportArgs' data_export: Properties of S3 Storage Lens metrics export including the destination, schema and format. See Data Export below for more details.
+        :param 'StorageLensConfigurationStorageLensConfigurationExcludeArgs' exclude: What is excluded in this configuration. Conflicts with `include`. See Exclude below for more details.
+        :param 'StorageLensConfigurationStorageLensConfigurationIncludeArgs' include: What is included in this configuration. Conflicts with `exclude`. See Include below for more details.
+        """
+        pulumi.set(__self__, "account_level", account_level)
+        pulumi.set(__self__, "enabled", enabled)
+        if aws_org is not None:
+            pulumi.set(__self__, "aws_org", aws_org)
+        if data_export is not None:
+            pulumi.set(__self__, "data_export", data_export)
+        if exclude is not None:
+            pulumi.set(__self__, "exclude", exclude)
+        if include is not None:
+            pulumi.set(__self__, "include", include)
+
+    @property
+    @pulumi.getter(name="accountLevel")
+    def account_level(self) -> 'outputs.StorageLensConfigurationStorageLensConfigurationAccountLevel':
+        """
+        The account-level configurations of the S3 Storage Lens configuration. See Account Level below for more details.
+        """
+        return pulumi.get(self, "account_level")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Whether the S3 Storage Lens configuration is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="awsOrg")
+    def aws_org(self) -> Optional['outputs.StorageLensConfigurationStorageLensConfigurationAwsOrg']:
+        """
+        The Amazon Web Services organization for the S3 Storage Lens configuration. See AWS Org below for more details.
+        """
+        return pulumi.get(self, "aws_org")
+
+    @property
+    @pulumi.getter(name="dataExport")
+    def data_export(self) -> Optional['outputs.StorageLensConfigurationStorageLensConfigurationDataExport']:
+        """
+        Properties of S3 Storage Lens metrics export including the destination, schema and format. See Data Export below for more details.
+        """
+        return pulumi.get(self, "data_export")
+
+    @property
+    @pulumi.getter
+    def exclude(self) -> Optional['outputs.StorageLensConfigurationStorageLensConfigurationExclude']:
+        """
+        What is excluded in this configuration. Conflicts with `include`. See Exclude below for more details.
+        """
+        return pulumi.get(self, "exclude")
+
+    @property
+    @pulumi.getter
+    def include(self) -> Optional['outputs.StorageLensConfigurationStorageLensConfigurationInclude']:
+        """
+        What is included in this configuration. Conflicts with `exclude`. See Include below for more details.
+        """
+        return pulumi.get(self, "include")
+
+
+@pulumi.output_type
+class StorageLensConfigurationStorageLensConfigurationAccountLevel(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketLevel":
+            suggest = "bucket_level"
+        elif key == "activityMetrics":
+            suggest = "activity_metrics"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageLensConfigurationStorageLensConfigurationAccountLevel. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageLensConfigurationStorageLensConfigurationAccountLevel.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageLensConfigurationStorageLensConfigurationAccountLevel.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket_level: 'outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel',
+                 activity_metrics: Optional['outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics'] = None):
+        """
+        :param 'StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArgs' bucket_level: S3 Storage Lens bucket-level configuration. See Bucket Level below for more details.
+        :param 'StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsArgs' activity_metrics: S3 Storage Lens activity metrics. See Activity Metrics below for more details.
+        """
+        pulumi.set(__self__, "bucket_level", bucket_level)
+        if activity_metrics is not None:
+            pulumi.set(__self__, "activity_metrics", activity_metrics)
+
+    @property
+    @pulumi.getter(name="bucketLevel")
+    def bucket_level(self) -> 'outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel':
+        """
+        S3 Storage Lens bucket-level configuration. See Bucket Level below for more details.
+        """
+        return pulumi.get(self, "bucket_level")
+
+    @property
+    @pulumi.getter(name="activityMetrics")
+    def activity_metrics(self) -> Optional['outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics']:
+        """
+        S3 Storage Lens activity metrics. See Activity Metrics below for more details.
+        """
+        return pulumi.get(self, "activity_metrics")
+
+
+@pulumi.output_type
+class StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics(dict):
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None):
+        """
+        :param bool enabled: Whether the activity metrics are enabled.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Whether the activity metrics are enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "activityMetrics":
+            suggest = "activity_metrics"
+        elif key == "prefixLevel":
+            suggest = "prefix_level"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 activity_metrics: Optional['outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics'] = None,
+                 prefix_level: Optional['outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel'] = None):
+        """
+        :param 'StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsArgs' activity_metrics: S3 Storage Lens activity metrics. See Activity Metrics above for more details.
+        :param 'StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelArgs' prefix_level: Prefix-level metrics for S3 Storage Lens. See Prefix Level below for more details.
+        """
+        if activity_metrics is not None:
+            pulumi.set(__self__, "activity_metrics", activity_metrics)
+        if prefix_level is not None:
+            pulumi.set(__self__, "prefix_level", prefix_level)
+
+    @property
+    @pulumi.getter(name="activityMetrics")
+    def activity_metrics(self) -> Optional['outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics']:
+        """
+        S3 Storage Lens activity metrics. See Activity Metrics above for more details.
+        """
+        return pulumi.get(self, "activity_metrics")
+
+    @property
+    @pulumi.getter(name="prefixLevel")
+    def prefix_level(self) -> Optional['outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel']:
+        """
+        Prefix-level metrics for S3 Storage Lens. See Prefix Level below for more details.
+        """
+        return pulumi.get(self, "prefix_level")
+
+
+@pulumi.output_type
+class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics(dict):
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None):
+        """
+        :param bool enabled: Whether the activity metrics are enabled.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Whether the activity metrics are enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageMetrics":
+            suggest = "storage_metrics"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 storage_metrics: 'outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics'):
+        """
+        :param 'StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsArgs' storage_metrics: Prefix-level storage metrics for S3 Storage Lens. See Prefix Level Storage Metrics below for more details.
+        """
+        pulumi.set(__self__, "storage_metrics", storage_metrics)
+
+    @property
+    @pulumi.getter(name="storageMetrics")
+    def storage_metrics(self) -> 'outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics':
+        """
+        Prefix-level storage metrics for S3 Storage Lens. See Prefix Level Storage Metrics below for more details.
+        """
+        return pulumi.get(self, "storage_metrics")
+
+
+@pulumi.output_type
+class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "selectionCriteria":
+            suggest = "selection_criteria"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 selection_criteria: Optional['outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria'] = None):
+        """
+        :param bool enabled: Whether prefix-level storage metrics are enabled.
+        :param 'StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaArgs' selection_criteria: Selection criteria. See Selection Criteria below for more details.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if selection_criteria is not None:
+            pulumi.set(__self__, "selection_criteria", selection_criteria)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Whether prefix-level storage metrics are enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="selectionCriteria")
+    def selection_criteria(self) -> Optional['outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria']:
+        """
+        Selection criteria. See Selection Criteria below for more details.
+        """
+        return pulumi.get(self, "selection_criteria")
+
+
+@pulumi.output_type
+class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxDepth":
+            suggest = "max_depth"
+        elif key == "minStorageBytesPercentage":
+            suggest = "min_storage_bytes_percentage"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 delimiter: Optional[str] = None,
+                 max_depth: Optional[int] = None,
+                 min_storage_bytes_percentage: Optional[float] = None):
+        """
+        :param str delimiter: The delimiter of the selection criteria being used.
+        :param int max_depth: The max depth of the selection criteria.
+        :param float min_storage_bytes_percentage: The minimum number of storage bytes percentage whose metrics will be selected.
+        """
+        if delimiter is not None:
+            pulumi.set(__self__, "delimiter", delimiter)
+        if max_depth is not None:
+            pulumi.set(__self__, "max_depth", max_depth)
+        if min_storage_bytes_percentage is not None:
+            pulumi.set(__self__, "min_storage_bytes_percentage", min_storage_bytes_percentage)
+
+    @property
+    @pulumi.getter
+    def delimiter(self) -> Optional[str]:
+        """
+        The delimiter of the selection criteria being used.
+        """
+        return pulumi.get(self, "delimiter")
+
+    @property
+    @pulumi.getter(name="maxDepth")
+    def max_depth(self) -> Optional[int]:
+        """
+        The max depth of the selection criteria.
+        """
+        return pulumi.get(self, "max_depth")
+
+    @property
+    @pulumi.getter(name="minStorageBytesPercentage")
+    def min_storage_bytes_percentage(self) -> Optional[float]:
+        """
+        The minimum number of storage bytes percentage whose metrics will be selected.
+        """
+        return pulumi.get(self, "min_storage_bytes_percentage")
+
+
+@pulumi.output_type
+class StorageLensConfigurationStorageLensConfigurationAwsOrg(dict):
+    def __init__(__self__, *,
+                 arn: str):
+        """
+        :param str arn: The Amazon Resource Name (ARN) of the Amazon Web Services organization.
+        """
+        pulumi.set(__self__, "arn", arn)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the Amazon Web Services organization.
+        """
+        return pulumi.get(self, "arn")
+
+
+@pulumi.output_type
+class StorageLensConfigurationStorageLensConfigurationDataExport(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudWatchMetrics":
+            suggest = "cloud_watch_metrics"
+        elif key == "s3BucketDestination":
+            suggest = "s3_bucket_destination"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageLensConfigurationStorageLensConfigurationDataExport. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageLensConfigurationStorageLensConfigurationDataExport.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageLensConfigurationStorageLensConfigurationDataExport.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloud_watch_metrics: Optional['outputs.StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics'] = None,
+                 s3_bucket_destination: Optional['outputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination'] = None):
+        """
+        :param 'StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsArgs' cloud_watch_metrics: Amazon CloudWatch publishing for S3 Storage Lens metrics. See Cloud Watch Metrics below for more details.
+        :param 'StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs' s3_bucket_destination: The bucket where the S3 Storage Lens metrics export will be located. See S3 Bucket Destination below for more details.
+        """
+        if cloud_watch_metrics is not None:
+            pulumi.set(__self__, "cloud_watch_metrics", cloud_watch_metrics)
+        if s3_bucket_destination is not None:
+            pulumi.set(__self__, "s3_bucket_destination", s3_bucket_destination)
+
+    @property
+    @pulumi.getter(name="cloudWatchMetrics")
+    def cloud_watch_metrics(self) -> Optional['outputs.StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics']:
+        """
+        Amazon CloudWatch publishing for S3 Storage Lens metrics. See Cloud Watch Metrics below for more details.
+        """
+        return pulumi.get(self, "cloud_watch_metrics")
+
+    @property
+    @pulumi.getter(name="s3BucketDestination")
+    def s3_bucket_destination(self) -> Optional['outputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination']:
+        """
+        The bucket where the S3 Storage Lens metrics export will be located. See S3 Bucket Destination below for more details.
+        """
+        return pulumi.get(self, "s3_bucket_destination")
+
+
+@pulumi.output_type
+class StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics(dict):
+    def __init__(__self__, *,
+                 enabled: bool):
+        """
+        :param bool enabled: Whether CloudWatch publishing for S3 Storage Lens metrics is enabled.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Whether CloudWatch publishing for S3 Storage Lens metrics is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountId":
+            suggest = "account_id"
+        elif key == "outputSchemaVersion":
+            suggest = "output_schema_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 account_id: str,
+                 arn: str,
+                 format: str,
+                 output_schema_version: str,
+                 encryption: Optional['outputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption'] = None,
+                 prefix: Optional[str] = None):
+        """
+        :param str account_id: The account ID of the owner of the S3 Storage Lens metrics export bucket.
+        :param str arn: The Amazon Resource Name (ARN) of the bucket.
+        :param str format: The export format. Valid values: `CSV`, `Parquet`.
+        :param str output_schema_version: The schema version of the export file. Valid values: `V_1`.
+        :param 'StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs' encryption: Encryption of the metrics exports in this bucket. See Encryption below for more details.
+        :param str prefix: The prefix of the destination bucket where the metrics export will be delivered.
+        """
+        pulumi.set(__self__, "account_id", account_id)
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "format", format)
+        pulumi.set(__self__, "output_schema_version", output_schema_version)
+        if encryption is not None:
+            pulumi.set(__self__, "encryption", encryption)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> str:
+        """
+        The account ID of the owner of the S3 Storage Lens metrics export bucket.
+        """
+        return pulumi.get(self, "account_id")
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the bucket.
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def format(self) -> str:
+        """
+        The export format. Valid values: `CSV`, `Parquet`.
+        """
+        return pulumi.get(self, "format")
+
+    @property
+    @pulumi.getter(name="outputSchemaVersion")
+    def output_schema_version(self) -> str:
+        """
+        The schema version of the export file. Valid values: `V_1`.
+        """
+        return pulumi.get(self, "output_schema_version")
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> Optional['outputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption']:
+        """
+        Encryption of the metrics exports in this bucket. See Encryption below for more details.
+        """
+        return pulumi.get(self, "encryption")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[str]:
+        """
+        The prefix of the destination bucket where the metrics export will be delivered.
+        """
+        return pulumi.get(self, "prefix")
+
+
+@pulumi.output_type
+class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sseKms":
+            suggest = "sse_kms"
+        elif key == "sseS3s":
+            suggest = "sse_s3s"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 sse_kms: Optional['outputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms'] = None,
+                 sse_s3s: Optional[Sequence['outputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3']] = None):
+        """
+        :param 'StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsArgs' sse_kms: SSE-KMS encryption. See SSE KMS below for more details.
+        :param Sequence['StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Args'] sse_s3s: SSE-S3 encryption. An empty configuration block `{}` should be used.
+        """
+        if sse_kms is not None:
+            pulumi.set(__self__, "sse_kms", sse_kms)
+        if sse_s3s is not None:
+            pulumi.set(__self__, "sse_s3s", sse_s3s)
+
+    @property
+    @pulumi.getter(name="sseKms")
+    def sse_kms(self) -> Optional['outputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms']:
+        """
+        SSE-KMS encryption. See SSE KMS below for more details.
+        """
+        return pulumi.get(self, "sse_kms")
+
+    @property
+    @pulumi.getter(name="sseS3s")
+    def sse_s3s(self) -> Optional[Sequence['outputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3']]:
+        """
+        SSE-S3 encryption. An empty configuration block `{}` should be used.
+        """
+        return pulumi.get(self, "sse_s3s")
+
+
+@pulumi.output_type
+class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyId":
+            suggest = "key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_id: str):
+        """
+        :param str key_id: KMS key ARN.
+        """
+        pulumi.set(__self__, "key_id", key_id)
+
+    @property
+    @pulumi.getter(name="keyId")
+    def key_id(self) -> str:
+        """
+        KMS key ARN.
+        """
+        return pulumi.get(self, "key_id")
+
+
+@pulumi.output_type
+class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class StorageLensConfigurationStorageLensConfigurationExclude(dict):
+    def __init__(__self__, *,
+                 buckets: Optional[Sequence[str]] = None,
+                 regions: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] buckets: List of S3 bucket ARNs.
+        :param Sequence[str] regions: List of AWS Regions.
+        """
+        if buckets is not None:
+            pulumi.set(__self__, "buckets", buckets)
+        if regions is not None:
+            pulumi.set(__self__, "regions", regions)
+
+    @property
+    @pulumi.getter
+    def buckets(self) -> Optional[Sequence[str]]:
+        """
+        List of S3 bucket ARNs.
+        """
+        return pulumi.get(self, "buckets")
+
+    @property
+    @pulumi.getter
+    def regions(self) -> Optional[Sequence[str]]:
+        """
+        List of AWS Regions.
+        """
+        return pulumi.get(self, "regions")
+
+
+@pulumi.output_type
+class StorageLensConfigurationStorageLensConfigurationInclude(dict):
+    def __init__(__self__, *,
+                 buckets: Optional[Sequence[str]] = None,
+                 regions: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] buckets: List of S3 bucket ARNs.
+        :param Sequence[str] regions: List of AWS Regions.
+        """
+        if buckets is not None:
+            pulumi.set(__self__, "buckets", buckets)
+        if regions is not None:
+            pulumi.set(__self__, "regions", regions)
+
+    @property
+    @pulumi.getter
+    def buckets(self) -> Optional[Sequence[str]]:
+        """
+        List of S3 bucket ARNs.
+        """
+        return pulumi.get(self, "buckets")
+
+    @property
+    @pulumi.getter
+    def regions(self) -> Optional[Sequence[str]]:
+        """
+        List of AWS Regions.
+        """
+        return pulumi.get(self, "regions")
 
 

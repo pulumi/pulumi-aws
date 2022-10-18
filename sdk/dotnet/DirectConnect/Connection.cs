@@ -107,6 +107,12 @@ namespace Pulumi.Aws.DirectConnect
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
+        /// <summary>
+        /// The VLAN ID.
+        /// </summary>
+        [Output("vlanId")]
+        public Output<string> VlanId { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Connection resource with the given unique name, arguments, and options.
@@ -274,6 +280,12 @@ namespace Pulumi.Aws.DirectConnect
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
+
+        /// <summary>
+        /// The VLAN ID.
+        /// </summary>
+        [Input("vlanId")]
+        public Input<string>? VlanId { get; set; }
 
         public ConnectionState()
         {

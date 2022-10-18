@@ -15,6 +15,7 @@ import com.pulumi.aws.cognito.outputs.UserPoolPasswordPolicy;
 import com.pulumi.aws.cognito.outputs.UserPoolSchema;
 import com.pulumi.aws.cognito.outputs.UserPoolSmsConfiguration;
 import com.pulumi.aws.cognito.outputs.UserPoolSoftwareTokenMfaConfiguration;
+import com.pulumi.aws.cognito.outputs.UserPoolUserAttributeUpdateSettings;
 import com.pulumi.aws.cognito.outputs.UserPoolUserPoolAddOns;
 import com.pulumi.aws.cognito.outputs.UserPoolUsernameConfiguration;
 import com.pulumi.aws.cognito.outputs.UserPoolVerificationMessageTemplate;
@@ -513,6 +514,20 @@ public class UserPool extends com.pulumi.resources.CustomResource {
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
+    }
+    /**
+     * Configuration block for user attribute update settings. Detailed below.
+     * 
+     */
+    @Export(name="userAttributeUpdateSettings", type=UserPoolUserAttributeUpdateSettings.class, parameters={})
+    private Output</* @Nullable */ UserPoolUserAttributeUpdateSettings> userAttributeUpdateSettings;
+
+    /**
+     * @return Configuration block for user attribute update settings. Detailed below.
+     * 
+     */
+    public Output<Optional<UserPoolUserAttributeUpdateSettings>> userAttributeUpdateSettings() {
+        return Codegen.optional(this.userAttributeUpdateSettings);
     }
     /**
      * Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.

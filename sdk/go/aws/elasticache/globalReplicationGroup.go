@@ -29,7 +29,13 @@ type GlobalReplicationGroup struct {
 	AtRestEncryptionEnabled pulumi.BoolOutput `pulumi:"atRestEncryptionEnabled"`
 	// A flag that indicate whether AuthToken (password) is enabled.
 	AuthTokenEnabled pulumi.BoolOutput `pulumi:"authTokenEnabled"`
-	// The instance class used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+	// Specifies whether read-only replicas will be automatically promoted to read/write primary if the existing primary fails.
+	// When creating, by default the Global Replication Group inherits the automatic failover setting of the primary replication group.
+	AutomaticFailoverEnabled pulumi.BoolOutput `pulumi:"automaticFailoverEnabled"`
+	// The instance class used.
+	// See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html)
+	// and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+	// When creating, by default the Global Replication Group inherits the node type of the primary replication group.
 	CacheNodeType pulumi.StringOutput `pulumi:"cacheNodeType"`
 	// Indicates whether the Global Datastore is cluster enabled.
 	ClusterEnabled pulumi.BoolOutput `pulumi:"clusterEnabled"`
@@ -103,7 +109,13 @@ type globalReplicationGroupState struct {
 	AtRestEncryptionEnabled *bool `pulumi:"atRestEncryptionEnabled"`
 	// A flag that indicate whether AuthToken (password) is enabled.
 	AuthTokenEnabled *bool `pulumi:"authTokenEnabled"`
-	// The instance class used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+	// Specifies whether read-only replicas will be automatically promoted to read/write primary if the existing primary fails.
+	// When creating, by default the Global Replication Group inherits the automatic failover setting of the primary replication group.
+	AutomaticFailoverEnabled *bool `pulumi:"automaticFailoverEnabled"`
+	// The instance class used.
+	// See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html)
+	// and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+	// When creating, by default the Global Replication Group inherits the node type of the primary replication group.
 	CacheNodeType *string `pulumi:"cacheNodeType"`
 	// Indicates whether the Global Datastore is cluster enabled.
 	ClusterEnabled *bool `pulumi:"clusterEnabled"`
@@ -143,7 +155,13 @@ type GlobalReplicationGroupState struct {
 	AtRestEncryptionEnabled pulumi.BoolPtrInput
 	// A flag that indicate whether AuthToken (password) is enabled.
 	AuthTokenEnabled pulumi.BoolPtrInput
-	// The instance class used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+	// Specifies whether read-only replicas will be automatically promoted to read/write primary if the existing primary fails.
+	// When creating, by default the Global Replication Group inherits the automatic failover setting of the primary replication group.
+	AutomaticFailoverEnabled pulumi.BoolPtrInput
+	// The instance class used.
+	// See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html)
+	// and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+	// When creating, by default the Global Replication Group inherits the node type of the primary replication group.
 	CacheNodeType pulumi.StringPtrInput
 	// Indicates whether the Global Datastore is cluster enabled.
 	ClusterEnabled pulumi.BoolPtrInput
@@ -181,6 +199,14 @@ func (GlobalReplicationGroupState) ElementType() reflect.Type {
 }
 
 type globalReplicationGroupArgs struct {
+	// Specifies whether read-only replicas will be automatically promoted to read/write primary if the existing primary fails.
+	// When creating, by default the Global Replication Group inherits the automatic failover setting of the primary replication group.
+	AutomaticFailoverEnabled *bool `pulumi:"automaticFailoverEnabled"`
+	// The instance class used.
+	// See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html)
+	// and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+	// When creating, by default the Global Replication Group inherits the node type of the primary replication group.
+	CacheNodeType *string `pulumi:"cacheNodeType"`
 	// Redis version to use for the Global Replication Group.
 	// When creating, by default the Global Replication Group inherits the version of the primary replication group.
 	// If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
@@ -204,6 +230,14 @@ type globalReplicationGroupArgs struct {
 
 // The set of arguments for constructing a GlobalReplicationGroup resource.
 type GlobalReplicationGroupArgs struct {
+	// Specifies whether read-only replicas will be automatically promoted to read/write primary if the existing primary fails.
+	// When creating, by default the Global Replication Group inherits the automatic failover setting of the primary replication group.
+	AutomaticFailoverEnabled pulumi.BoolPtrInput
+	// The instance class used.
+	// See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html)
+	// and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+	// When creating, by default the Global Replication Group inherits the node type of the primary replication group.
+	CacheNodeType pulumi.StringPtrInput
 	// Redis version to use for the Global Replication Group.
 	// When creating, by default the Global Replication Group inherits the version of the primary replication group.
 	// If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
@@ -327,7 +361,16 @@ func (o GlobalReplicationGroupOutput) AuthTokenEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.BoolOutput { return v.AuthTokenEnabled }).(pulumi.BoolOutput)
 }
 
-// The instance class used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+// Specifies whether read-only replicas will be automatically promoted to read/write primary if the existing primary fails.
+// When creating, by default the Global Replication Group inherits the automatic failover setting of the primary replication group.
+func (o GlobalReplicationGroupOutput) AutomaticFailoverEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.BoolOutput { return v.AutomaticFailoverEnabled }).(pulumi.BoolOutput)
+}
+
+// The instance class used.
+// See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html)
+// and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+// When creating, by default the Global Replication Group inherits the node type of the primary replication group.
 func (o GlobalReplicationGroupOutput) CacheNodeType() pulumi.StringOutput {
 	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.StringOutput { return v.CacheNodeType }).(pulumi.StringOutput)
 }

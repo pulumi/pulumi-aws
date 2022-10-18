@@ -13,5 +13,6 @@ from .multi_region_access_point import *
 from .multi_region_access_point_policy import *
 from .object_lambda_access_point import *
 from .object_lambda_access_point_policy import *
+from .storage_lens_configuration import *
 from ._inputs import *
 from . import outputs

@@ -9,6 +9,7 @@ from .access import *
 from .get_server import *
 from .server import *
 from .ssh_key import *
+from .tag import *
 from .user import *
 from .workflow import *
 from ._inputs import *

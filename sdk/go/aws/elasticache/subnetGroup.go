@@ -81,7 +81,7 @@ type SubnetGroup struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Description for the cache subnet group. Defaults to "Managed by Pulumi".
 	Description pulumi.StringOutput `pulumi:"description"`
-	// Name for the cache subnet group. Elasticache converts this name to lowercase.
+	// Name for the cache subnet group. ElastiCache converts this name to lowercase.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// List of VPC Subnet IDs for the cache subnet group
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
@@ -129,7 +129,7 @@ type subnetGroupState struct {
 	Arn *string `pulumi:"arn"`
 	// Description for the cache subnet group. Defaults to "Managed by Pulumi".
 	Description *string `pulumi:"description"`
-	// Name for the cache subnet group. Elasticache converts this name to lowercase.
+	// Name for the cache subnet group. ElastiCache converts this name to lowercase.
 	Name *string `pulumi:"name"`
 	// List of VPC Subnet IDs for the cache subnet group
 	SubnetIds []string `pulumi:"subnetIds"`
@@ -143,7 +143,7 @@ type SubnetGroupState struct {
 	Arn pulumi.StringPtrInput
 	// Description for the cache subnet group. Defaults to "Managed by Pulumi".
 	Description pulumi.StringPtrInput
-	// Name for the cache subnet group. Elasticache converts this name to lowercase.
+	// Name for the cache subnet group. ElastiCache converts this name to lowercase.
 	Name pulumi.StringPtrInput
 	// List of VPC Subnet IDs for the cache subnet group
 	SubnetIds pulumi.StringArrayInput
@@ -160,7 +160,7 @@ func (SubnetGroupState) ElementType() reflect.Type {
 type subnetGroupArgs struct {
 	// Description for the cache subnet group. Defaults to "Managed by Pulumi".
 	Description *string `pulumi:"description"`
-	// Name for the cache subnet group. Elasticache converts this name to lowercase.
+	// Name for the cache subnet group. ElastiCache converts this name to lowercase.
 	Name *string `pulumi:"name"`
 	// List of VPC Subnet IDs for the cache subnet group
 	SubnetIds []string `pulumi:"subnetIds"`
@@ -172,7 +172,7 @@ type subnetGroupArgs struct {
 type SubnetGroupArgs struct {
 	// Description for the cache subnet group. Defaults to "Managed by Pulumi".
 	Description pulumi.StringPtrInput
-	// Name for the cache subnet group. Elasticache converts this name to lowercase.
+	// Name for the cache subnet group. ElastiCache converts this name to lowercase.
 	Name pulumi.StringPtrInput
 	// List of VPC Subnet IDs for the cache subnet group
 	SubnetIds pulumi.StringArrayInput
@@ -276,7 +276,7 @@ func (o SubnetGroupOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// Name for the cache subnet group. Elasticache converts this name to lowercase.
+// Name for the cache subnet group. ElastiCache converts this name to lowercase.
 func (o SubnetGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

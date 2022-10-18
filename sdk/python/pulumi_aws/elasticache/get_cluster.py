@@ -313,7 +313,7 @@ def get_cluster(cluster_id: Optional[str] = None,
                 tags: Optional[Mapping[str, str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
-    Use this data source to get information about an Elasticache Cluster
+    Use this data source to get information about an ElastiCache Cluster
 
     ## Example Usage
 
@@ -365,7 +365,7 @@ def get_cluster_output(cluster_id: Optional[pulumi.Input[str]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
     """
-    Use this data source to get information about an Elasticache Cluster
+    Use this data source to get information about an ElastiCache Cluster
 
     ## Example Usage
 

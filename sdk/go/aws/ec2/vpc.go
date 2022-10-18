@@ -167,8 +167,10 @@ type Vpc struct {
 	EnableClassiclinkDnsSupport pulumi.BoolOutput `pulumi:"enableClassiclinkDnsSupport"`
 	// A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
 	EnableDnsHostnames pulumi.BoolOutput `pulumi:"enableDnsHostnames"`
-	// A boolean flag to enable/disable DNS support in the VPC. Defaults true.
+	// A boolean flag to enable/disable DNS support in the VPC. Defaults to true.
 	EnableDnsSupport pulumi.BoolPtrOutput `pulumi:"enableDnsSupport"`
+	// Indicates whether Network Address Usage metrics are enabled for your VPC. Defaults to false.
+	EnableNetworkAddressUsageMetrics pulumi.BoolOutput `pulumi:"enableNetworkAddressUsageMetrics"`
 	// A tenancy option for instances launched into the VPC. Default is `default`, which ensures that EC2 instances launched in this VPC use the EC2 instance tenancy attribute specified when the EC2 instance is launched. The only other option is `dedicated`, which ensures that EC2 instances launched in this VPC are run on dedicated tenancy instances regardless of the tenancy attribute specified at launch. This has a dedicated per region fee of $2 per hour, plus an hourly per instance usage fee.
 	InstanceTenancy pulumi.StringPtrOutput `pulumi:"instanceTenancy"`
 	// The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
@@ -252,8 +254,10 @@ type vpcState struct {
 	EnableClassiclinkDnsSupport *bool `pulumi:"enableClassiclinkDnsSupport"`
 	// A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
 	EnableDnsHostnames *bool `pulumi:"enableDnsHostnames"`
-	// A boolean flag to enable/disable DNS support in the VPC. Defaults true.
+	// A boolean flag to enable/disable DNS support in the VPC. Defaults to true.
 	EnableDnsSupport *bool `pulumi:"enableDnsSupport"`
+	// Indicates whether Network Address Usage metrics are enabled for your VPC. Defaults to false.
+	EnableNetworkAddressUsageMetrics *bool `pulumi:"enableNetworkAddressUsageMetrics"`
 	// A tenancy option for instances launched into the VPC. Default is `default`, which ensures that EC2 instances launched in this VPC use the EC2 instance tenancy attribute specified when the EC2 instance is launched. The only other option is `dedicated`, which ensures that EC2 instances launched in this VPC are run on dedicated tenancy instances regardless of the tenancy attribute specified at launch. This has a dedicated per region fee of $2 per hour, plus an hourly per instance usage fee.
 	InstanceTenancy *string `pulumi:"instanceTenancy"`
 	// The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
@@ -309,8 +313,10 @@ type VpcState struct {
 	EnableClassiclinkDnsSupport pulumi.BoolPtrInput
 	// A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
 	EnableDnsHostnames pulumi.BoolPtrInput
-	// A boolean flag to enable/disable DNS support in the VPC. Defaults true.
+	// A boolean flag to enable/disable DNS support in the VPC. Defaults to true.
 	EnableDnsSupport pulumi.BoolPtrInput
+	// Indicates whether Network Address Usage metrics are enabled for your VPC. Defaults to false.
+	EnableNetworkAddressUsageMetrics pulumi.BoolPtrInput
 	// A tenancy option for instances launched into the VPC. Default is `default`, which ensures that EC2 instances launched in this VPC use the EC2 instance tenancy attribute specified when the EC2 instance is launched. The only other option is `dedicated`, which ensures that EC2 instances launched in this VPC are run on dedicated tenancy instances regardless of the tenancy attribute specified at launch. This has a dedicated per region fee of $2 per hour, plus an hourly per instance usage fee.
 	InstanceTenancy pulumi.StringPtrInput
 	// The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
@@ -361,8 +367,10 @@ type vpcArgs struct {
 	EnableClassiclinkDnsSupport *bool `pulumi:"enableClassiclinkDnsSupport"`
 	// A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
 	EnableDnsHostnames *bool `pulumi:"enableDnsHostnames"`
-	// A boolean flag to enable/disable DNS support in the VPC. Defaults true.
+	// A boolean flag to enable/disable DNS support in the VPC. Defaults to true.
 	EnableDnsSupport *bool `pulumi:"enableDnsSupport"`
+	// Indicates whether Network Address Usage metrics are enabled for your VPC. Defaults to false.
+	EnableNetworkAddressUsageMetrics *bool `pulumi:"enableNetworkAddressUsageMetrics"`
 	// A tenancy option for instances launched into the VPC. Default is `default`, which ensures that EC2 instances launched in this VPC use the EC2 instance tenancy attribute specified when the EC2 instance is launched. The only other option is `dedicated`, which ensures that EC2 instances launched in this VPC are run on dedicated tenancy instances regardless of the tenancy attribute specified at launch. This has a dedicated per region fee of $2 per hour, plus an hourly per instance usage fee.
 	InstanceTenancy *string `pulumi:"instanceTenancy"`
 	// The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
@@ -400,8 +408,10 @@ type VpcArgs struct {
 	EnableClassiclinkDnsSupport pulumi.BoolPtrInput
 	// A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
 	EnableDnsHostnames pulumi.BoolPtrInput
-	// A boolean flag to enable/disable DNS support in the VPC. Defaults true.
+	// A boolean flag to enable/disable DNS support in the VPC. Defaults to true.
 	EnableDnsSupport pulumi.BoolPtrInput
+	// Indicates whether Network Address Usage metrics are enabled for your VPC. Defaults to false.
+	EnableNetworkAddressUsageMetrics pulumi.BoolPtrInput
 	// A tenancy option for instances launched into the VPC. Default is `default`, which ensures that EC2 instances launched in this VPC use the EC2 instance tenancy attribute specified when the EC2 instance is launched. The only other option is `dedicated`, which ensures that EC2 instances launched in this VPC are run on dedicated tenancy instances regardless of the tenancy attribute specified at launch. This has a dedicated per region fee of $2 per hour, plus an hourly per instance usage fee.
 	InstanceTenancy pulumi.StringPtrInput
 	// The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
@@ -563,9 +573,14 @@ func (o VpcOutput) EnableDnsHostnames() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Vpc) pulumi.BoolOutput { return v.EnableDnsHostnames }).(pulumi.BoolOutput)
 }
 
-// A boolean flag to enable/disable DNS support in the VPC. Defaults true.
+// A boolean flag to enable/disable DNS support in the VPC. Defaults to true.
 func (o VpcOutput) EnableDnsSupport() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Vpc) pulumi.BoolPtrOutput { return v.EnableDnsSupport }).(pulumi.BoolPtrOutput)
+}
+
+// Indicates whether Network Address Usage metrics are enabled for your VPC. Defaults to false.
+func (o VpcOutput) EnableNetworkAddressUsageMetrics() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Vpc) pulumi.BoolOutput { return v.EnableNetworkAddressUsageMetrics }).(pulumi.BoolOutput)
 }
 
 // A tenancy option for instances launched into the VPC. Default is `default`, which ensures that EC2 instances launched in this VPC use the EC2 instance tenancy attribute specified when the EC2 instance is launched. The only other option is `dedicated`, which ensures that EC2 instances launched in this VPC are run on dedicated tenancy instances regardless of the tenancy attribute specified at launch. This has a dedicated per region fee of $2 per hour, plus an hourly per instance usage fee.

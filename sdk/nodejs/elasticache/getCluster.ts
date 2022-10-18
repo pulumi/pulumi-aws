@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to get information about an Elasticache Cluster
+ * Use this data source to get information about an ElastiCache Cluster
  *
  * ## Example Usage
  *

@@ -81,6 +81,10 @@ export interface GetConnectionResult {
      * Map of tags for the resource.
      */
     readonly tags: {[key: string]: string};
+    /**
+     * The VLAN ID.
+     */
+    readonly vlanId: string;
 }
 
 export function getConnectionOutput(args: GetConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionResult> {

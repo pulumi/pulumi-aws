@@ -5,6 +5,7 @@ package com.pulumi.aws.opsworks;
 
 import com.pulumi.aws.opsworks.inputs.StaticWebLayerCloudwatchConfigurationArgs;
 import com.pulumi.aws.opsworks.inputs.StaticWebLayerEbsVolumeArgs;
+import com.pulumi.aws.opsworks.inputs.StaticWebLayerLoadBasedAutoScalingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -220,6 +221,13 @@ public final class StaticWebLayerArgs extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.instanceShutdownTimeout);
     }
 
+    @Import(name="loadBasedAutoScaling")
+    private @Nullable Output<StaticWebLayerLoadBasedAutoScalingArgs> loadBasedAutoScaling;
+
+    public Optional<Output<StaticWebLayerLoadBasedAutoScalingArgs>> loadBasedAutoScaling() {
+        return Optional.ofNullable(this.loadBasedAutoScaling);
+    }
+
     /**
      * A human-readable name for the layer.
      * 
@@ -315,6 +323,7 @@ public final class StaticWebLayerArgs extends com.pulumi.resources.ResourceArgs 
         this.elasticLoadBalancer = $.elasticLoadBalancer;
         this.installUpdatesOnBoot = $.installUpdatesOnBoot;
         this.instanceShutdownTimeout = $.instanceShutdownTimeout;
+        this.loadBasedAutoScaling = $.loadBasedAutoScaling;
         this.name = $.name;
         this.stackId = $.stackId;
         this.systemPackages = $.systemPackages;
@@ -651,6 +660,15 @@ public final class StaticWebLayerArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder instanceShutdownTimeout(Integer instanceShutdownTimeout) {
             return instanceShutdownTimeout(Output.of(instanceShutdownTimeout));
+        }
+
+        public Builder loadBasedAutoScaling(@Nullable Output<StaticWebLayerLoadBasedAutoScalingArgs> loadBasedAutoScaling) {
+            $.loadBasedAutoScaling = loadBasedAutoScaling;
+            return this;
+        }
+
+        public Builder loadBasedAutoScaling(StaticWebLayerLoadBasedAutoScalingArgs loadBasedAutoScaling) {
+            return loadBasedAutoScaling(Output.of(loadBasedAutoScaling));
         }
 
         /**

@@ -184,9 +184,17 @@ public class NetworkInterface extends com.pulumi.resources.CustomResource {
     public Output<Integer> ipv6AddressCount() {
         return this.ipv6AddressCount;
     }
+    /**
+     * Whether `ipv6_address_list` is allowed and controls the IPs to assign to the ENI and `ipv6_addresses` and `ipv6_address_count` become read-only. Default false.
+     * 
+     */
     @Export(name="ipv6AddressListEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> ipv6AddressListEnabled;
 
+    /**
+     * @return Whether `ipv6_address_list` is allowed and controls the IPs to assign to the ENI and `ipv6_addresses` and `ipv6_address_count` become read-only. Default false.
+     * 
+     */
     public Output<Optional<Boolean>> ipv6AddressListEnabled() {
         return Codegen.optional(this.ipv6AddressListEnabled);
     }

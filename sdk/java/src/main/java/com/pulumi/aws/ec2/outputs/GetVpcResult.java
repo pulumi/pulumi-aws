@@ -38,6 +38,11 @@ public final class GetVpcResult {
      * 
      */
     private Boolean enableDnsSupport;
+    /**
+     * @return Whether Network Address Usage metrics are enabled for your VPC
+     * 
+     */
+    private Boolean enableNetworkAddressUsageMetrics;
     private @Nullable List<GetVpcFilter> filters;
     private String id;
     /**
@@ -111,6 +116,13 @@ public final class GetVpcResult {
     public Boolean enableDnsSupport() {
         return this.enableDnsSupport;
     }
+    /**
+     * @return Whether Network Address Usage metrics are enabled for your VPC
+     * 
+     */
+    public Boolean enableNetworkAddressUsageMetrics() {
+        return this.enableNetworkAddressUsageMetrics;
+    }
     public List<GetVpcFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
     }
@@ -180,6 +192,7 @@ public final class GetVpcResult {
         private String dhcpOptionsId;
         private Boolean enableDnsHostnames;
         private Boolean enableDnsSupport;
+        private Boolean enableNetworkAddressUsageMetrics;
         private @Nullable List<GetVpcFilter> filters;
         private String id;
         private String instanceTenancy;
@@ -199,6 +212,7 @@ public final class GetVpcResult {
     	      this.dhcpOptionsId = defaults.dhcpOptionsId;
     	      this.enableDnsHostnames = defaults.enableDnsHostnames;
     	      this.enableDnsSupport = defaults.enableDnsSupport;
+    	      this.enableNetworkAddressUsageMetrics = defaults.enableNetworkAddressUsageMetrics;
     	      this.filters = defaults.filters;
     	      this.id = defaults.id;
     	      this.instanceTenancy = defaults.instanceTenancy;
@@ -246,6 +260,11 @@ public final class GetVpcResult {
         @CustomType.Setter
         public Builder enableDnsSupport(Boolean enableDnsSupport) {
             this.enableDnsSupport = Objects.requireNonNull(enableDnsSupport);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder enableNetworkAddressUsageMetrics(Boolean enableNetworkAddressUsageMetrics) {
+            this.enableNetworkAddressUsageMetrics = Objects.requireNonNull(enableNetworkAddressUsageMetrics);
             return this;
         }
         @CustomType.Setter
@@ -305,6 +324,7 @@ public final class GetVpcResult {
             o.dhcpOptionsId = dhcpOptionsId;
             o.enableDnsHostnames = enableDnsHostnames;
             o.enableDnsSupport = enableDnsSupport;
+            o.enableNetworkAddressUsageMetrics = enableNetworkAddressUsageMetrics;
             o.filters = filters;
             o.id = id;
             o.instanceTenancy = instanceTenancy;

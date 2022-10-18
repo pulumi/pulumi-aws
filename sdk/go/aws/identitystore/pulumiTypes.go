@@ -563,7 +563,7 @@ func (o UserEmailsPtrOutput) Value() pulumi.StringPtrOutput {
 
 type UserExternalId struct {
 	// The identifier issued to this resource by an external identity provider.
-	Id *bool `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// The issuer for an external identifier.
 	Issuer *string `pulumi:"issuer"`
 }
@@ -581,7 +581,7 @@ type UserExternalIdInput interface {
 
 type UserExternalIdArgs struct {
 	// The identifier issued to this resource by an external identity provider.
-	Id pulumi.BoolPtrInput `pulumi:"id"`
+	Id pulumi.StringPtrInput `pulumi:"id"`
 	// The issuer for an external identifier.
 	Issuer pulumi.StringPtrInput `pulumi:"issuer"`
 }
@@ -638,8 +638,8 @@ func (o UserExternalIdOutput) ToUserExternalIdOutputWithContext(ctx context.Cont
 }
 
 // The identifier issued to this resource by an external identity provider.
-func (o UserExternalIdOutput) Id() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v UserExternalId) *bool { return v.Id }).(pulumi.BoolPtrOutput)
+func (o UserExternalIdOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserExternalId) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // The issuer for an external identifier.
@@ -1927,7 +1927,7 @@ func (o GetUserEmailArrayOutput) Index(i pulumi.IntInput) GetUserEmailOutput {
 
 type GetUserExternalId struct {
 	// The identifier issued to this resource by an external identity provider.
-	Id bool `pulumi:"id"`
+	Id string `pulumi:"id"`
 	// The issuer for an external identifier.
 	Issuer string `pulumi:"issuer"`
 }
@@ -1945,7 +1945,7 @@ type GetUserExternalIdInput interface {
 
 type GetUserExternalIdArgs struct {
 	// The identifier issued to this resource by an external identity provider.
-	Id pulumi.BoolInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 	// The issuer for an external identifier.
 	Issuer pulumi.StringInput `pulumi:"issuer"`
 }
@@ -2002,8 +2002,8 @@ func (o GetUserExternalIdOutput) ToGetUserExternalIdOutputWithContext(ctx contex
 }
 
 // The identifier issued to this resource by an external identity provider.
-func (o GetUserExternalIdOutput) Id() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetUserExternalId) bool { return v.Id }).(pulumi.BoolOutput)
+func (o GetUserExternalIdOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserExternalId) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // The issuer for an external identifier.

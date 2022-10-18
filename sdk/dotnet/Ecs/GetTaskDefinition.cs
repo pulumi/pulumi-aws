@@ -15,7 +15,6 @@ namespace Pulumi.Aws.Ecs
         /// The ECS task definition data source allows access to details of
         /// a specific AWS ECS task definition.
         /// 
-        /// 
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}
@@ -72,7 +71,6 @@ namespace Pulumi.Aws.Ecs
         /// <summary>
         /// The ECS task definition data source allows access to details of
         /// a specific AWS ECS task definition.
-        /// 
         /// 
         /// {{% examples %}}
         /// ## Example Usage

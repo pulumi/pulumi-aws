@@ -156,6 +156,10 @@ namespace Pulumi.Aws.DirectConnect
         /// Map of tags for the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
+        /// <summary>
+        /// The VLAN ID.
+        /// </summary>
+        public readonly string VlanId;
 
         [OutputConstructor]
         private GetConnectionResult(
@@ -175,7 +179,9 @@ namespace Pulumi.Aws.DirectConnect
 
             string providerName,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string> tags,
+
+            string vlanId)
         {
             Arn = arn;
             AwsDevice = awsDevice;
@@ -186,6 +192,7 @@ namespace Pulumi.Aws.DirectConnect
             OwnerAccountId = ownerAccountId;
             ProviderName = providerName;
             Tags = tags;
+            VlanId = vlanId;
         }
     }
 }

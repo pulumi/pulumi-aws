@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Rds
     /// });
     /// ```
     /// 
-    /// &gt; **Note**: Any modifications to the `aws.rds.OptionGroup` are set to happen immediately as we default to applying immediately.
+    /// &gt; **Note:** Any modifications to the `aws.rds.OptionGroup` are set to happen immediately as we default to applying immediately.
     /// 
     /// &gt; **WARNING:** You can perform a destroy on a `aws.rds.OptionGroup`, as long as it is not associated with any Amazon RDS resource. An option group can be associated with a DB instance, a manual DB snapshot, or an automated DB snapshot.
     /// 

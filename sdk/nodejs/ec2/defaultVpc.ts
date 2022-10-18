@@ -76,6 +76,7 @@ export class DefaultVpc extends pulumi.CustomResource {
     public readonly enableClassiclinkDnsSupport!: pulumi.Output<boolean>;
     public readonly enableDnsHostnames!: pulumi.Output<boolean | undefined>;
     public readonly enableDnsSupport!: pulumi.Output<boolean | undefined>;
+    public readonly enableNetworkAddressUsageMetrics!: pulumi.Output<boolean | undefined>;
     public /*out*/ readonly existingDefaultVpc!: pulumi.Output<boolean>;
     /**
      * Whether destroying the resource deletes the default VPC. Default: `false`
@@ -119,6 +120,7 @@ export class DefaultVpc extends pulumi.CustomResource {
             resourceInputs["enableClassiclinkDnsSupport"] = state ? state.enableClassiclinkDnsSupport : undefined;
             resourceInputs["enableDnsHostnames"] = state ? state.enableDnsHostnames : undefined;
             resourceInputs["enableDnsSupport"] = state ? state.enableDnsSupport : undefined;
+            resourceInputs["enableNetworkAddressUsageMetrics"] = state ? state.enableNetworkAddressUsageMetrics : undefined;
             resourceInputs["existingDefaultVpc"] = state ? state.existingDefaultVpc : undefined;
             resourceInputs["forceDestroy"] = state ? state.forceDestroy : undefined;
             resourceInputs["instanceTenancy"] = state ? state.instanceTenancy : undefined;
@@ -138,6 +140,7 @@ export class DefaultVpc extends pulumi.CustomResource {
             resourceInputs["enableClassiclinkDnsSupport"] = args ? args.enableClassiclinkDnsSupport : undefined;
             resourceInputs["enableDnsHostnames"] = args ? args.enableDnsHostnames : undefined;
             resourceInputs["enableDnsSupport"] = args ? args.enableDnsSupport : undefined;
+            resourceInputs["enableNetworkAddressUsageMetrics"] = args ? args.enableNetworkAddressUsageMetrics : undefined;
             resourceInputs["forceDestroy"] = args ? args.forceDestroy : undefined;
             resourceInputs["ipv6CidrBlock"] = args ? args.ipv6CidrBlock : undefined;
             resourceInputs["ipv6CidrBlockNetworkBorderGroup"] = args ? args.ipv6CidrBlockNetworkBorderGroup : undefined;
@@ -186,6 +189,7 @@ export interface DefaultVpcState {
     enableClassiclinkDnsSupport?: pulumi.Input<boolean>;
     enableDnsHostnames?: pulumi.Input<boolean>;
     enableDnsSupport?: pulumi.Input<boolean>;
+    enableNetworkAddressUsageMetrics?: pulumi.Input<boolean>;
     existingDefaultVpc?: pulumi.Input<boolean>;
     /**
      * Whether destroying the resource deletes the default VPC. Default: `false`
@@ -221,6 +225,7 @@ export interface DefaultVpcArgs {
     enableClassiclinkDnsSupport?: pulumi.Input<boolean>;
     enableDnsHostnames?: pulumi.Input<boolean>;
     enableDnsSupport?: pulumi.Input<boolean>;
+    enableNetworkAddressUsageMetrics?: pulumi.Input<boolean>;
     /**
      * Whether destroying the resource deletes the default VPC. Default: `false`
      */

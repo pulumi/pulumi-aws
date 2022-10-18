@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to get information about an Elasticache User.
+ * Use this data source to get information about an ElastiCache User.
  *
  * ## Example Usage
  *

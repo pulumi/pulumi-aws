@@ -75,7 +75,8 @@ type HaproxyLayer struct {
 	// Whether to install OS and package updates on each instance when it boots.
 	InstallUpdatesOnBoot pulumi.BoolPtrOutput `pulumi:"installUpdatesOnBoot"`
 	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-	InstanceShutdownTimeout pulumi.IntPtrOutput `pulumi:"instanceShutdownTimeout"`
+	InstanceShutdownTimeout pulumi.IntPtrOutput                    `pulumi:"instanceShutdownTimeout"`
+	LoadBasedAutoScaling    HaproxyLayerLoadBasedAutoScalingOutput `pulumi:"loadBasedAutoScaling"`
 	// A human-readable name for the layer.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// ID of the stack the layer will belong to.
@@ -166,7 +167,8 @@ type haproxyLayerState struct {
 	// Whether to install OS and package updates on each instance when it boots.
 	InstallUpdatesOnBoot *bool `pulumi:"installUpdatesOnBoot"`
 	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-	InstanceShutdownTimeout *int `pulumi:"instanceShutdownTimeout"`
+	InstanceShutdownTimeout *int                              `pulumi:"instanceShutdownTimeout"`
+	LoadBasedAutoScaling    *HaproxyLayerLoadBasedAutoScaling `pulumi:"loadBasedAutoScaling"`
 	// A human-readable name for the layer.
 	Name *string `pulumi:"name"`
 	// ID of the stack the layer will belong to.
@@ -224,6 +226,7 @@ type HaproxyLayerState struct {
 	InstallUpdatesOnBoot pulumi.BoolPtrInput
 	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
 	InstanceShutdownTimeout pulumi.IntPtrInput
+	LoadBasedAutoScaling    HaproxyLayerLoadBasedAutoScalingPtrInput
 	// A human-readable name for the layer.
 	Name pulumi.StringPtrInput
 	// ID of the stack the layer will belong to.
@@ -282,7 +285,8 @@ type haproxyLayerArgs struct {
 	// Whether to install OS and package updates on each instance when it boots.
 	InstallUpdatesOnBoot *bool `pulumi:"installUpdatesOnBoot"`
 	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-	InstanceShutdownTimeout *int `pulumi:"instanceShutdownTimeout"`
+	InstanceShutdownTimeout *int                              `pulumi:"instanceShutdownTimeout"`
+	LoadBasedAutoScaling    *HaproxyLayerLoadBasedAutoScaling `pulumi:"loadBasedAutoScaling"`
 	// A human-readable name for the layer.
 	Name *string `pulumi:"name"`
 	// ID of the stack the layer will belong to.
@@ -337,6 +341,7 @@ type HaproxyLayerArgs struct {
 	InstallUpdatesOnBoot pulumi.BoolPtrInput
 	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
 	InstanceShutdownTimeout pulumi.IntPtrInput
+	LoadBasedAutoScaling    HaproxyLayerLoadBasedAutoScalingPtrInput
 	// A human-readable name for the layer.
 	Name pulumi.StringPtrInput
 	// ID of the stack the layer will belong to.
@@ -536,6 +541,10 @@ func (o HaproxyLayerOutput) InstallUpdatesOnBoot() pulumi.BoolPtrOutput {
 // The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
 func (o HaproxyLayerOutput) InstanceShutdownTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *HaproxyLayer) pulumi.IntPtrOutput { return v.InstanceShutdownTimeout }).(pulumi.IntPtrOutput)
+}
+
+func (o HaproxyLayerOutput) LoadBasedAutoScaling() HaproxyLayerLoadBasedAutoScalingOutput {
+	return o.ApplyT(func(v *HaproxyLayer) HaproxyLayerLoadBasedAutoScalingOutput { return v.LoadBasedAutoScaling }).(HaproxyLayerLoadBasedAutoScalingOutput)
 }
 
 // A human-readable name for the layer.

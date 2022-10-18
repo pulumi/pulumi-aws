@@ -12,7 +12,7 @@ namespace Pulumi.Aws.ElastiCache
     public static class GetReplicationGroup
     {
         /// <summary>
-        /// Use this data source to get information about an Elasticache Replication Group.
+        /// Use this data source to get information about an ElastiCache Replication Group.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -39,7 +39,7 @@ namespace Pulumi.Aws.ElastiCache
             => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationGroupResult>("aws:elasticache/getReplicationGroup:getReplicationGroup", args ?? new GetReplicationGroupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to get information about an Elasticache Replication Group.
+        /// Use this data source to get information about an ElastiCache Replication Group.
         /// 
         /// {{% examples %}}
         /// ## Example Usage

@@ -34,6 +34,7 @@ class NodejsAppLayerArgs:
                  elastic_load_balancer: Optional[pulumi.Input[str]] = None,
                  install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
                  instance_shutdown_timeout: Optional[pulumi.Input[int]] = None,
+                 load_based_auto_scaling: Optional[pulumi.Input['NodejsAppLayerLoadBasedAutoScalingArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  nodejs_version: Optional[pulumi.Input[str]] = None,
                  system_packages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -94,6 +95,8 @@ class NodejsAppLayerArgs:
             pulumi.set(__self__, "install_updates_on_boot", install_updates_on_boot)
         if instance_shutdown_timeout is not None:
             pulumi.set(__self__, "instance_shutdown_timeout", instance_shutdown_timeout)
+        if load_based_auto_scaling is not None:
+            pulumi.set(__self__, "load_based_auto_scaling", load_based_auto_scaling)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if nodejs_version is not None:
@@ -304,6 +307,15 @@ class NodejsAppLayerArgs:
         pulumi.set(self, "instance_shutdown_timeout", value)
 
     @property
+    @pulumi.getter(name="loadBasedAutoScaling")
+    def load_based_auto_scaling(self) -> Optional[pulumi.Input['NodejsAppLayerLoadBasedAutoScalingArgs']]:
+        return pulumi.get(self, "load_based_auto_scaling")
+
+    @load_based_auto_scaling.setter
+    def load_based_auto_scaling(self, value: Optional[pulumi.Input['NodejsAppLayerLoadBasedAutoScalingArgs']]):
+        pulumi.set(self, "load_based_auto_scaling", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -385,6 +397,7 @@ class _NodejsAppLayerState:
                  elastic_load_balancer: Optional[pulumi.Input[str]] = None,
                  install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
                  instance_shutdown_timeout: Optional[pulumi.Input[int]] = None,
+                 load_based_auto_scaling: Optional[pulumi.Input['NodejsAppLayerLoadBasedAutoScalingArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  nodejs_version: Optional[pulumi.Input[str]] = None,
                  stack_id: Optional[pulumi.Input[str]] = None,
@@ -450,6 +463,8 @@ class _NodejsAppLayerState:
             pulumi.set(__self__, "install_updates_on_boot", install_updates_on_boot)
         if instance_shutdown_timeout is not None:
             pulumi.set(__self__, "instance_shutdown_timeout", instance_shutdown_timeout)
+        if load_based_auto_scaling is not None:
+            pulumi.set(__self__, "load_based_auto_scaling", load_based_auto_scaling)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if nodejs_version is not None:
@@ -664,6 +679,15 @@ class _NodejsAppLayerState:
         pulumi.set(self, "instance_shutdown_timeout", value)
 
     @property
+    @pulumi.getter(name="loadBasedAutoScaling")
+    def load_based_auto_scaling(self) -> Optional[pulumi.Input['NodejsAppLayerLoadBasedAutoScalingArgs']]:
+        return pulumi.get(self, "load_based_auto_scaling")
+
+    @load_based_auto_scaling.setter
+    def load_based_auto_scaling(self, value: Optional[pulumi.Input['NodejsAppLayerLoadBasedAutoScalingArgs']]):
+        pulumi.set(self, "load_based_auto_scaling", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -770,6 +794,7 @@ class NodejsAppLayer(pulumi.CustomResource):
                  elastic_load_balancer: Optional[pulumi.Input[str]] = None,
                  install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
                  instance_shutdown_timeout: Optional[pulumi.Input[int]] = None,
+                 load_based_auto_scaling: Optional[pulumi.Input[pulumi.InputType['NodejsAppLayerLoadBasedAutoScalingArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  nodejs_version: Optional[pulumi.Input[str]] = None,
                  stack_id: Optional[pulumi.Input[str]] = None,
@@ -859,6 +884,7 @@ class NodejsAppLayer(pulumi.CustomResource):
                  elastic_load_balancer: Optional[pulumi.Input[str]] = None,
                  install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
                  instance_shutdown_timeout: Optional[pulumi.Input[int]] = None,
+                 load_based_auto_scaling: Optional[pulumi.Input[pulumi.InputType['NodejsAppLayerLoadBasedAutoScalingArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  nodejs_version: Optional[pulumi.Input[str]] = None,
                  stack_id: Optional[pulumi.Input[str]] = None,
@@ -891,6 +917,7 @@ class NodejsAppLayer(pulumi.CustomResource):
             __props__.__dict__["elastic_load_balancer"] = elastic_load_balancer
             __props__.__dict__["install_updates_on_boot"] = install_updates_on_boot
             __props__.__dict__["instance_shutdown_timeout"] = instance_shutdown_timeout
+            __props__.__dict__["load_based_auto_scaling"] = load_based_auto_scaling
             __props__.__dict__["name"] = name
             __props__.__dict__["nodejs_version"] = nodejs_version
             if stack_id is None and not opts.urn:
@@ -929,6 +956,7 @@ class NodejsAppLayer(pulumi.CustomResource):
             elastic_load_balancer: Optional[pulumi.Input[str]] = None,
             install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
             instance_shutdown_timeout: Optional[pulumi.Input[int]] = None,
+            load_based_auto_scaling: Optional[pulumi.Input[pulumi.InputType['NodejsAppLayerLoadBasedAutoScalingArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             nodejs_version: Optional[pulumi.Input[str]] = None,
             stack_id: Optional[pulumi.Input[str]] = None,
@@ -985,6 +1013,7 @@ class NodejsAppLayer(pulumi.CustomResource):
         __props__.__dict__["elastic_load_balancer"] = elastic_load_balancer
         __props__.__dict__["install_updates_on_boot"] = install_updates_on_boot
         __props__.__dict__["instance_shutdown_timeout"] = instance_shutdown_timeout
+        __props__.__dict__["load_based_auto_scaling"] = load_based_auto_scaling
         __props__.__dict__["name"] = name
         __props__.__dict__["nodejs_version"] = nodejs_version
         __props__.__dict__["stack_id"] = stack_id
@@ -1119,6 +1148,11 @@ class NodejsAppLayer(pulumi.CustomResource):
         The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
         """
         return pulumi.get(self, "instance_shutdown_timeout")
+
+    @property
+    @pulumi.getter(name="loadBasedAutoScaling")
+    def load_based_auto_scaling(self) -> pulumi.Output['outputs.NodejsAppLayerLoadBasedAutoScaling']:
+        return pulumi.get(self, "load_based_auto_scaling")
 
     @property
     @pulumi.getter

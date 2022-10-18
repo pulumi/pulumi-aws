@@ -24,6 +24,7 @@ __all__ = [
     'ParameterGroupParameterArgs',
     'ProxyAuthArgs',
     'ProxyDefaultTargetGroupConnectionPoolConfigArgs',
+    'ReservedInstanceRecurringChargeArgs',
     'SecurityGroupIngressArgs',
     'GetEngineVersionFilterArgs',
 ]
@@ -941,6 +942,35 @@ class ProxyDefaultTargetGroupConnectionPoolConfigArgs:
     @session_pinning_filters.setter
     def session_pinning_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "session_pinning_filters", value)
+
+
+@pulumi.input_type
+class ReservedInstanceRecurringChargeArgs:
+    def __init__(__self__, *,
+                 recurring_charge_amount: Optional[pulumi.Input[int]] = None,
+                 recurring_charge_frequency: Optional[pulumi.Input[str]] = None):
+        if recurring_charge_amount is not None:
+            pulumi.set(__self__, "recurring_charge_amount", recurring_charge_amount)
+        if recurring_charge_frequency is not None:
+            pulumi.set(__self__, "recurring_charge_frequency", recurring_charge_frequency)
+
+    @property
+    @pulumi.getter(name="recurringChargeAmount")
+    def recurring_charge_amount(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "recurring_charge_amount")
+
+    @recurring_charge_amount.setter
+    def recurring_charge_amount(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "recurring_charge_amount", value)
+
+    @property
+    @pulumi.getter(name="recurringChargeFrequency")
+    def recurring_charge_frequency(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "recurring_charge_frequency")
+
+    @recurring_charge_frequency.setter
+    def recurring_charge_frequency(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "recurring_charge_frequency", value)
 
 
 @pulumi.input_type

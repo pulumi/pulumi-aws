@@ -110,9 +110,17 @@ public final class NetworkInterfaceArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.ipv6AddressCount);
     }
 
+    /**
+     * Whether `ipv6_address_list` is allowed and controls the IPs to assign to the ENI and `ipv6_addresses` and `ipv6_address_count` become read-only. Default false.
+     * 
+     */
     @Import(name="ipv6AddressListEnabled")
     private @Nullable Output<Boolean> ipv6AddressListEnabled;
 
+    /**
+     * @return Whether `ipv6_address_list` is allowed and controls the IPs to assign to the ENI and `ipv6_addresses` and `ipv6_address_count` become read-only. Default false.
+     * 
+     */
     public Optional<Output<Boolean>> ipv6AddressListEnabled() {
         return Optional.ofNullable(this.ipv6AddressListEnabled);
     }
@@ -493,11 +501,23 @@ public final class NetworkInterfaceArgs extends com.pulumi.resources.ResourceArg
             return ipv6AddressCount(Output.of(ipv6AddressCount));
         }
 
+        /**
+         * @param ipv6AddressListEnabled Whether `ipv6_address_list` is allowed and controls the IPs to assign to the ENI and `ipv6_addresses` and `ipv6_address_count` become read-only. Default false.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipv6AddressListEnabled(@Nullable Output<Boolean> ipv6AddressListEnabled) {
             $.ipv6AddressListEnabled = ipv6AddressListEnabled;
             return this;
         }
 
+        /**
+         * @param ipv6AddressListEnabled Whether `ipv6_address_list` is allowed and controls the IPs to assign to the ENI and `ipv6_addresses` and `ipv6_address_count` become read-only. Default false.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipv6AddressListEnabled(Boolean ipv6AddressListEnabled) {
             return ipv6AddressListEnabled(Output.of(ipv6AddressListEnabled));
         }

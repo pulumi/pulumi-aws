@@ -53298,6 +53298,353 @@ func (o GetVpcIamPoolFilterArrayOutput) Index(i pulumi.IntInput) GetVpcIamPoolFi
 	}).(GetVpcIamPoolFilterOutput)
 }
 
+type GetVpcIamPoolsFilter struct {
+	Name   string   `pulumi:"name"`
+	Values []string `pulumi:"values"`
+}
+
+// GetVpcIamPoolsFilterInput is an input type that accepts GetVpcIamPoolsFilterArgs and GetVpcIamPoolsFilterOutput values.
+// You can construct a concrete instance of `GetVpcIamPoolsFilterInput` via:
+//
+//	GetVpcIamPoolsFilterArgs{...}
+type GetVpcIamPoolsFilterInput interface {
+	pulumi.Input
+
+	ToGetVpcIamPoolsFilterOutput() GetVpcIamPoolsFilterOutput
+	ToGetVpcIamPoolsFilterOutputWithContext(context.Context) GetVpcIamPoolsFilterOutput
+}
+
+type GetVpcIamPoolsFilterArgs struct {
+	Name   pulumi.StringInput      `pulumi:"name"`
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetVpcIamPoolsFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpcIamPoolsFilter)(nil)).Elem()
+}
+
+func (i GetVpcIamPoolsFilterArgs) ToGetVpcIamPoolsFilterOutput() GetVpcIamPoolsFilterOutput {
+	return i.ToGetVpcIamPoolsFilterOutputWithContext(context.Background())
+}
+
+func (i GetVpcIamPoolsFilterArgs) ToGetVpcIamPoolsFilterOutputWithContext(ctx context.Context) GetVpcIamPoolsFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpcIamPoolsFilterOutput)
+}
+
+// GetVpcIamPoolsFilterArrayInput is an input type that accepts GetVpcIamPoolsFilterArray and GetVpcIamPoolsFilterArrayOutput values.
+// You can construct a concrete instance of `GetVpcIamPoolsFilterArrayInput` via:
+//
+//	GetVpcIamPoolsFilterArray{ GetVpcIamPoolsFilterArgs{...} }
+type GetVpcIamPoolsFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetVpcIamPoolsFilterArrayOutput() GetVpcIamPoolsFilterArrayOutput
+	ToGetVpcIamPoolsFilterArrayOutputWithContext(context.Context) GetVpcIamPoolsFilterArrayOutput
+}
+
+type GetVpcIamPoolsFilterArray []GetVpcIamPoolsFilterInput
+
+func (GetVpcIamPoolsFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpcIamPoolsFilter)(nil)).Elem()
+}
+
+func (i GetVpcIamPoolsFilterArray) ToGetVpcIamPoolsFilterArrayOutput() GetVpcIamPoolsFilterArrayOutput {
+	return i.ToGetVpcIamPoolsFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetVpcIamPoolsFilterArray) ToGetVpcIamPoolsFilterArrayOutputWithContext(ctx context.Context) GetVpcIamPoolsFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpcIamPoolsFilterArrayOutput)
+}
+
+type GetVpcIamPoolsFilterOutput struct{ *pulumi.OutputState }
+
+func (GetVpcIamPoolsFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpcIamPoolsFilter)(nil)).Elem()
+}
+
+func (o GetVpcIamPoolsFilterOutput) ToGetVpcIamPoolsFilterOutput() GetVpcIamPoolsFilterOutput {
+	return o
+}
+
+func (o GetVpcIamPoolsFilterOutput) ToGetVpcIamPoolsFilterOutputWithContext(ctx context.Context) GetVpcIamPoolsFilterOutput {
+	return o
+}
+
+func (o GetVpcIamPoolsFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcIamPoolsFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetVpcIamPoolsFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetVpcIamPoolsFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetVpcIamPoolsFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVpcIamPoolsFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpcIamPoolsFilter)(nil)).Elem()
+}
+
+func (o GetVpcIamPoolsFilterArrayOutput) ToGetVpcIamPoolsFilterArrayOutput() GetVpcIamPoolsFilterArrayOutput {
+	return o
+}
+
+func (o GetVpcIamPoolsFilterArrayOutput) ToGetVpcIamPoolsFilterArrayOutputWithContext(ctx context.Context) GetVpcIamPoolsFilterArrayOutput {
+	return o
+}
+
+func (o GetVpcIamPoolsFilterArrayOutput) Index(i pulumi.IntInput) GetVpcIamPoolsFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVpcIamPoolsFilter {
+		return vs[0].([]GetVpcIamPoolsFilter)[vs[1].(int)]
+	}).(GetVpcIamPoolsFilterOutput)
+}
+
+type GetVpcIamPoolsIpamPool struct {
+	// IP protocol assigned to this pool.
+	AddressFamily string `pulumi:"addressFamily"`
+	// A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is 10.0.0.0/8 and you enter 16 here, new allocations will default to 10.0.0.0/16.
+	AllocationDefaultNetmaskLength int `pulumi:"allocationDefaultNetmaskLength"`
+	// The maximum netmask length that will be required for CIDR allocations in this pool.
+	AllocationMaxNetmaskLength int `pulumi:"allocationMaxNetmaskLength"`
+	// The minimum netmask length that will be required for CIDR allocations in this pool.
+	AllocationMinNetmaskLength int `pulumi:"allocationMinNetmaskLength"`
+	// Tags that are required to create resources in using this pool.
+	AllocationResourceTags map[string]string `pulumi:"allocationResourceTags"`
+	// ARN of the pool
+	Arn string `pulumi:"arn"`
+	// If enabled, IPAM will continuously look for resources within the CIDR range of this pool and automatically import them as allocations into your IPAM.
+	AutoImport bool `pulumi:"autoImport"`
+	// Limits which service in AWS that the pool can be used in. "ec2", for example, allows users to use space for Elastic IP addresses and VPCs.
+	AwsService string `pulumi:"awsService"`
+	// Description for the IPAM pool.
+	Description string `pulumi:"description"`
+	// ID of the IPAM pool.
+	Id         *string `pulumi:"id"`
+	IpamPoolId string  `pulumi:"ipamPoolId"`
+	// ID of the scope the pool belongs to.
+	IpamScopeId   string `pulumi:"ipamScopeId"`
+	IpamScopeType string `pulumi:"ipamScopeType"`
+	// Locale is the Region where your pool is available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region.
+	Locale    string `pulumi:"locale"`
+	PoolDepth int    `pulumi:"poolDepth"`
+	// Defines whether or not IPv6 pool space is publicly ∂advertisable over the internet.
+	PubliclyAdvertisable bool `pulumi:"publiclyAdvertisable"`
+	// ID of the source IPAM pool.
+	SourceIpamPoolId string `pulumi:"sourceIpamPoolId"`
+	State            string `pulumi:"state"`
+	// Map of tags to assigned to the resource.
+	Tags map[string]string `pulumi:"tags"`
+}
+
+// GetVpcIamPoolsIpamPoolInput is an input type that accepts GetVpcIamPoolsIpamPoolArgs and GetVpcIamPoolsIpamPoolOutput values.
+// You can construct a concrete instance of `GetVpcIamPoolsIpamPoolInput` via:
+//
+//	GetVpcIamPoolsIpamPoolArgs{...}
+type GetVpcIamPoolsIpamPoolInput interface {
+	pulumi.Input
+
+	ToGetVpcIamPoolsIpamPoolOutput() GetVpcIamPoolsIpamPoolOutput
+	ToGetVpcIamPoolsIpamPoolOutputWithContext(context.Context) GetVpcIamPoolsIpamPoolOutput
+}
+
+type GetVpcIamPoolsIpamPoolArgs struct {
+	// IP protocol assigned to this pool.
+	AddressFamily pulumi.StringInput `pulumi:"addressFamily"`
+	// A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is 10.0.0.0/8 and you enter 16 here, new allocations will default to 10.0.0.0/16.
+	AllocationDefaultNetmaskLength pulumi.IntInput `pulumi:"allocationDefaultNetmaskLength"`
+	// The maximum netmask length that will be required for CIDR allocations in this pool.
+	AllocationMaxNetmaskLength pulumi.IntInput `pulumi:"allocationMaxNetmaskLength"`
+	// The minimum netmask length that will be required for CIDR allocations in this pool.
+	AllocationMinNetmaskLength pulumi.IntInput `pulumi:"allocationMinNetmaskLength"`
+	// Tags that are required to create resources in using this pool.
+	AllocationResourceTags pulumi.StringMapInput `pulumi:"allocationResourceTags"`
+	// ARN of the pool
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// If enabled, IPAM will continuously look for resources within the CIDR range of this pool and automatically import them as allocations into your IPAM.
+	AutoImport pulumi.BoolInput `pulumi:"autoImport"`
+	// Limits which service in AWS that the pool can be used in. "ec2", for example, allows users to use space for Elastic IP addresses and VPCs.
+	AwsService pulumi.StringInput `pulumi:"awsService"`
+	// Description for the IPAM pool.
+	Description pulumi.StringInput `pulumi:"description"`
+	// ID of the IPAM pool.
+	Id         pulumi.StringPtrInput `pulumi:"id"`
+	IpamPoolId pulumi.StringInput    `pulumi:"ipamPoolId"`
+	// ID of the scope the pool belongs to.
+	IpamScopeId   pulumi.StringInput `pulumi:"ipamScopeId"`
+	IpamScopeType pulumi.StringInput `pulumi:"ipamScopeType"`
+	// Locale is the Region where your pool is available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region.
+	Locale    pulumi.StringInput `pulumi:"locale"`
+	PoolDepth pulumi.IntInput    `pulumi:"poolDepth"`
+	// Defines whether or not IPv6 pool space is publicly ∂advertisable over the internet.
+	PubliclyAdvertisable pulumi.BoolInput `pulumi:"publiclyAdvertisable"`
+	// ID of the source IPAM pool.
+	SourceIpamPoolId pulumi.StringInput `pulumi:"sourceIpamPoolId"`
+	State            pulumi.StringInput `pulumi:"state"`
+	// Map of tags to assigned to the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (GetVpcIamPoolsIpamPoolArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpcIamPoolsIpamPool)(nil)).Elem()
+}
+
+func (i GetVpcIamPoolsIpamPoolArgs) ToGetVpcIamPoolsIpamPoolOutput() GetVpcIamPoolsIpamPoolOutput {
+	return i.ToGetVpcIamPoolsIpamPoolOutputWithContext(context.Background())
+}
+
+func (i GetVpcIamPoolsIpamPoolArgs) ToGetVpcIamPoolsIpamPoolOutputWithContext(ctx context.Context) GetVpcIamPoolsIpamPoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpcIamPoolsIpamPoolOutput)
+}
+
+// GetVpcIamPoolsIpamPoolArrayInput is an input type that accepts GetVpcIamPoolsIpamPoolArray and GetVpcIamPoolsIpamPoolArrayOutput values.
+// You can construct a concrete instance of `GetVpcIamPoolsIpamPoolArrayInput` via:
+//
+//	GetVpcIamPoolsIpamPoolArray{ GetVpcIamPoolsIpamPoolArgs{...} }
+type GetVpcIamPoolsIpamPoolArrayInput interface {
+	pulumi.Input
+
+	ToGetVpcIamPoolsIpamPoolArrayOutput() GetVpcIamPoolsIpamPoolArrayOutput
+	ToGetVpcIamPoolsIpamPoolArrayOutputWithContext(context.Context) GetVpcIamPoolsIpamPoolArrayOutput
+}
+
+type GetVpcIamPoolsIpamPoolArray []GetVpcIamPoolsIpamPoolInput
+
+func (GetVpcIamPoolsIpamPoolArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpcIamPoolsIpamPool)(nil)).Elem()
+}
+
+func (i GetVpcIamPoolsIpamPoolArray) ToGetVpcIamPoolsIpamPoolArrayOutput() GetVpcIamPoolsIpamPoolArrayOutput {
+	return i.ToGetVpcIamPoolsIpamPoolArrayOutputWithContext(context.Background())
+}
+
+func (i GetVpcIamPoolsIpamPoolArray) ToGetVpcIamPoolsIpamPoolArrayOutputWithContext(ctx context.Context) GetVpcIamPoolsIpamPoolArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpcIamPoolsIpamPoolArrayOutput)
+}
+
+type GetVpcIamPoolsIpamPoolOutput struct{ *pulumi.OutputState }
+
+func (GetVpcIamPoolsIpamPoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpcIamPoolsIpamPool)(nil)).Elem()
+}
+
+func (o GetVpcIamPoolsIpamPoolOutput) ToGetVpcIamPoolsIpamPoolOutput() GetVpcIamPoolsIpamPoolOutput {
+	return o
+}
+
+func (o GetVpcIamPoolsIpamPoolOutput) ToGetVpcIamPoolsIpamPoolOutputWithContext(ctx context.Context) GetVpcIamPoolsIpamPoolOutput {
+	return o
+}
+
+// IP protocol assigned to this pool.
+func (o GetVpcIamPoolsIpamPoolOutput) AddressFamily() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcIamPoolsIpamPool) string { return v.AddressFamily }).(pulumi.StringOutput)
+}
+
+// A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is 10.0.0.0/8 and you enter 16 here, new allocations will default to 10.0.0.0/16.
+func (o GetVpcIamPoolsIpamPoolOutput) AllocationDefaultNetmaskLength() pulumi.IntOutput {
+	return o.ApplyT(func(v GetVpcIamPoolsIpamPool) int { return v.AllocationDefaultNetmaskLength }).(pulumi.IntOutput)
+}
+
+// The maximum netmask length that will be required for CIDR allocations in this pool.
+func (o GetVpcIamPoolsIpamPoolOutput) AllocationMaxNetmaskLength() pulumi.IntOutput {
+	return o.ApplyT(func(v GetVpcIamPoolsIpamPool) int { return v.AllocationMaxNetmaskLength }).(pulumi.IntOutput)
+}
+
+// The minimum netmask length that will be required for CIDR allocations in this pool.
+func (o GetVpcIamPoolsIpamPoolOutput) AllocationMinNetmaskLength() pulumi.IntOutput {
+	return o.ApplyT(func(v GetVpcIamPoolsIpamPool) int { return v.AllocationMinNetmaskLength }).(pulumi.IntOutput)
+}
+
+// Tags that are required to create resources in using this pool.
+func (o GetVpcIamPoolsIpamPoolOutput) AllocationResourceTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetVpcIamPoolsIpamPool) map[string]string { return v.AllocationResourceTags }).(pulumi.StringMapOutput)
+}
+
+// ARN of the pool
+func (o GetVpcIamPoolsIpamPoolOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcIamPoolsIpamPool) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// If enabled, IPAM will continuously look for resources within the CIDR range of this pool and automatically import them as allocations into your IPAM.
+func (o GetVpcIamPoolsIpamPoolOutput) AutoImport() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetVpcIamPoolsIpamPool) bool { return v.AutoImport }).(pulumi.BoolOutput)
+}
+
+// Limits which service in AWS that the pool can be used in. "ec2", for example, allows users to use space for Elastic IP addresses and VPCs.
+func (o GetVpcIamPoolsIpamPoolOutput) AwsService() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcIamPoolsIpamPool) string { return v.AwsService }).(pulumi.StringOutput)
+}
+
+// Description for the IPAM pool.
+func (o GetVpcIamPoolsIpamPoolOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcIamPoolsIpamPool) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// ID of the IPAM pool.
+func (o GetVpcIamPoolsIpamPoolOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVpcIamPoolsIpamPool) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o GetVpcIamPoolsIpamPoolOutput) IpamPoolId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcIamPoolsIpamPool) string { return v.IpamPoolId }).(pulumi.StringOutput)
+}
+
+// ID of the scope the pool belongs to.
+func (o GetVpcIamPoolsIpamPoolOutput) IpamScopeId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcIamPoolsIpamPool) string { return v.IpamScopeId }).(pulumi.StringOutput)
+}
+
+func (o GetVpcIamPoolsIpamPoolOutput) IpamScopeType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcIamPoolsIpamPool) string { return v.IpamScopeType }).(pulumi.StringOutput)
+}
+
+// Locale is the Region where your pool is available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region.
+func (o GetVpcIamPoolsIpamPoolOutput) Locale() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcIamPoolsIpamPool) string { return v.Locale }).(pulumi.StringOutput)
+}
+
+func (o GetVpcIamPoolsIpamPoolOutput) PoolDepth() pulumi.IntOutput {
+	return o.ApplyT(func(v GetVpcIamPoolsIpamPool) int { return v.PoolDepth }).(pulumi.IntOutput)
+}
+
+// Defines whether or not IPv6 pool space is publicly ∂advertisable over the internet.
+func (o GetVpcIamPoolsIpamPoolOutput) PubliclyAdvertisable() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetVpcIamPoolsIpamPool) bool { return v.PubliclyAdvertisable }).(pulumi.BoolOutput)
+}
+
+// ID of the source IPAM pool.
+func (o GetVpcIamPoolsIpamPoolOutput) SourceIpamPoolId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcIamPoolsIpamPool) string { return v.SourceIpamPoolId }).(pulumi.StringOutput)
+}
+
+func (o GetVpcIamPoolsIpamPoolOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcIamPoolsIpamPool) string { return v.State }).(pulumi.StringOutput)
+}
+
+// Map of tags to assigned to the resource.
+func (o GetVpcIamPoolsIpamPoolOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetVpcIamPoolsIpamPool) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+type GetVpcIamPoolsIpamPoolArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVpcIamPoolsIpamPoolArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpcIamPoolsIpamPool)(nil)).Elem()
+}
+
+func (o GetVpcIamPoolsIpamPoolArrayOutput) ToGetVpcIamPoolsIpamPoolArrayOutput() GetVpcIamPoolsIpamPoolArrayOutput {
+	return o
+}
+
+func (o GetVpcIamPoolsIpamPoolArrayOutput) ToGetVpcIamPoolsIpamPoolArrayOutputWithContext(ctx context.Context) GetVpcIamPoolsIpamPoolArrayOutput {
+	return o
+}
+
+func (o GetVpcIamPoolsIpamPoolArrayOutput) Index(i pulumi.IntInput) GetVpcIamPoolsIpamPoolOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVpcIamPoolsIpamPool {
+		return vs[0].([]GetVpcIamPoolsIpamPool)[vs[1].(int)]
+	}).(GetVpcIamPoolsIpamPoolOutput)
+}
+
 type GetVpcPeeringConnectionCidrBlockSet struct {
 	// Primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
 	CidrBlock string `pulumi:"cidrBlock"`
@@ -54734,6 +55081,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcIamPoolCidrsIpamPoolCidrArrayInput)(nil)).Elem(), GetVpcIamPoolCidrsIpamPoolCidrArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcIamPoolFilterInput)(nil)).Elem(), GetVpcIamPoolFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcIamPoolFilterArrayInput)(nil)).Elem(), GetVpcIamPoolFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcIamPoolsFilterInput)(nil)).Elem(), GetVpcIamPoolsFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcIamPoolsFilterArrayInput)(nil)).Elem(), GetVpcIamPoolsFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcIamPoolsIpamPoolInput)(nil)).Elem(), GetVpcIamPoolsIpamPoolArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcIamPoolsIpamPoolArrayInput)(nil)).Elem(), GetVpcIamPoolsIpamPoolArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcPeeringConnectionCidrBlockSetInput)(nil)).Elem(), GetVpcPeeringConnectionCidrBlockSetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcPeeringConnectionCidrBlockSetArrayInput)(nil)).Elem(), GetVpcPeeringConnectionCidrBlockSetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcPeeringConnectionFilterInput)(nil)).Elem(), GetVpcPeeringConnectionFilterArgs{})
@@ -55539,6 +55890,10 @@ func init() {
 	pulumi.RegisterOutputType(GetVpcIamPoolCidrsIpamPoolCidrArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcIamPoolFilterOutput{})
 	pulumi.RegisterOutputType(GetVpcIamPoolFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetVpcIamPoolsFilterOutput{})
+	pulumi.RegisterOutputType(GetVpcIamPoolsFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetVpcIamPoolsIpamPoolOutput{})
+	pulumi.RegisterOutputType(GetVpcIamPoolsIpamPoolArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcPeeringConnectionCidrBlockSetOutput{})
 	pulumi.RegisterOutputType(GetVpcPeeringConnectionCidrBlockSetArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcPeeringConnectionFilterOutput{})

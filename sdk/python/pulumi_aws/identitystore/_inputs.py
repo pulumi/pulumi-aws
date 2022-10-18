@@ -255,10 +255,10 @@ class UserEmailsArgs:
 @pulumi.input_type
 class UserExternalIdArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[bool]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
                  issuer: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[bool] id: The identifier issued to this resource by an external identity provider.
+        :param pulumi.Input[str] id: The identifier issued to this resource by an external identity provider.
         :param pulumi.Input[str] issuer: The issuer for an external identifier.
         """
         if id is not None:
@@ -268,14 +268,14 @@ class UserExternalIdArgs:
 
     @property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[bool]]:
+    def id(self) -> Optional[pulumi.Input[str]]:
         """
         The identifier issued to this resource by an external identity provider.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[bool]]):
+    def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
     @property

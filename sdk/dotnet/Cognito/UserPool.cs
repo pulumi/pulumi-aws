@@ -253,6 +253,12 @@ namespace Pulumi.Aws.Cognito
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration block for user attribute update settings. Detailed below.
+        /// </summary>
+        [Output("userAttributeUpdateSettings")]
+        public Output<Outputs.UserPoolUserAttributeUpdateSettings?> UserAttributeUpdateSettings { get; private set; } = null!;
+
+        /// <summary>
         /// Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
         /// </summary>
         [Output("userPoolAddOns")]
@@ -453,6 +459,12 @@ namespace Pulumi.Aws.Cognito
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Configuration block for user attribute update settings. Detailed below.
+        /// </summary>
+        [Input("userAttributeUpdateSettings")]
+        public Input<Inputs.UserPoolUserAttributeUpdateSettingsArgs>? UserAttributeUpdateSettings { get; set; }
 
         /// <summary>
         /// Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
@@ -677,6 +689,12 @@ namespace Pulumi.Aws.Cognito
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
+
+        /// <summary>
+        /// Configuration block for user attribute update settings. Detailed below.
+        /// </summary>
+        [Input("userAttributeUpdateSettings")]
+        public Input<Inputs.UserPoolUserAttributeUpdateSettingsGetArgs>? UserAttributeUpdateSettings { get; set; }
 
         /// <summary>
         /// Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.

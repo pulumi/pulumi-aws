@@ -22,7 +22,7 @@ class SubnetGroupArgs:
         The set of arguments for constructing a SubnetGroup resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: List of VPC Subnet IDs for the cache subnet group
         :param pulumi.Input[str] description: Description for the cache subnet group. Defaults to "Managed by Pulumi".
-        :param pulumi.Input[str] name: Name for the cache subnet group. Elasticache converts this name to lowercase.
+        :param pulumi.Input[str] name: Name for the cache subnet group. ElastiCache converts this name to lowercase.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "subnet_ids", subnet_ids)
@@ -63,7 +63,7 @@ class SubnetGroupArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name for the cache subnet group. Elasticache converts this name to lowercase.
+        Name for the cache subnet group. ElastiCache converts this name to lowercase.
         """
         return pulumi.get(self, "name")
 
@@ -96,7 +96,7 @@ class _SubnetGroupState:
         """
         Input properties used for looking up and filtering SubnetGroup resources.
         :param pulumi.Input[str] description: Description for the cache subnet group. Defaults to "Managed by Pulumi".
-        :param pulumi.Input[str] name: Name for the cache subnet group. Elasticache converts this name to lowercase.
+        :param pulumi.Input[str] name: Name for the cache subnet group. ElastiCache converts this name to lowercase.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: List of VPC Subnet IDs for the cache subnet group
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -141,7 +141,7 @@ class _SubnetGroupState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name for the cache subnet group. Elasticache converts this name to lowercase.
+        Name for the cache subnet group. ElastiCache converts this name to lowercase.
         """
         return pulumi.get(self, "name")
 
@@ -235,7 +235,7 @@ class SubnetGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description for the cache subnet group. Defaults to "Managed by Pulumi".
-        :param pulumi.Input[str] name: Name for the cache subnet group. Elasticache converts this name to lowercase.
+        :param pulumi.Input[str] name: Name for the cache subnet group. ElastiCache converts this name to lowercase.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: List of VPC Subnet IDs for the cache subnet group
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -343,7 +343,7 @@ class SubnetGroup(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description for the cache subnet group. Defaults to "Managed by Pulumi".
-        :param pulumi.Input[str] name: Name for the cache subnet group. Elasticache converts this name to lowercase.
+        :param pulumi.Input[str] name: Name for the cache subnet group. ElastiCache converts this name to lowercase.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: List of VPC Subnet IDs for the cache subnet group
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -377,7 +377,7 @@ class SubnetGroup(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name for the cache subnet group. Elasticache converts this name to lowercase.
+        Name for the cache subnet group. ElastiCache converts this name to lowercase.
         """
         return pulumi.get(self, "name")
 

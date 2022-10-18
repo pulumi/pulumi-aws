@@ -19,6 +19,7 @@ class AcceleratorArgs:
                  attributes: Optional[pulumi.Input['AcceleratorAttributesArgs']] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
+                 ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -26,6 +27,7 @@ class AcceleratorArgs:
         :param pulumi.Input['AcceleratorAttributesArgs'] attributes: The attributes of the accelerator. Fields documented below.
         :param pulumi.Input[bool] enabled: Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
         :param pulumi.Input[str] ip_address_type: The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_addresses: The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
         :param pulumi.Input[str] name: The name of the accelerator.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -35,6 +37,8 @@ class AcceleratorArgs:
             pulumi.set(__self__, "enabled", enabled)
         if ip_address_type is not None:
             pulumi.set(__self__, "ip_address_type", ip_address_type)
+        if ip_addresses is not None:
+            pulumi.set(__self__, "ip_addresses", ip_addresses)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
@@ -77,6 +81,18 @@ class AcceleratorArgs:
         pulumi.set(self, "ip_address_type", value)
 
     @property
+    @pulumi.getter(name="ipAddresses")
+    def ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+        """
+        return pulumi.get(self, "ip_addresses")
+
+    @ip_addresses.setter
+    def ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "ip_addresses", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -109,6 +125,7 @@ class _AcceleratorState:
                  enabled: Optional[pulumi.Input[bool]] = None,
                  hosted_zone_id: Optional[pulumi.Input[str]] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
+                 ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ip_sets: Optional[pulumi.Input[Sequence[pulumi.Input['AcceleratorIpSetArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -122,6 +139,7 @@ class _AcceleratorState:
                is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
         :param pulumi.Input[bool] enabled: Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
         :param pulumi.Input[str] ip_address_type: The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_addresses: The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
         :param pulumi.Input[Sequence[pulumi.Input['AcceleratorIpSetArgs']]] ip_sets: IP address set associated with the accelerator.
         :param pulumi.Input[str] name: The name of the accelerator.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -137,6 +155,8 @@ class _AcceleratorState:
             pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
         if ip_address_type is not None:
             pulumi.set(__self__, "ip_address_type", ip_address_type)
+        if ip_addresses is not None:
+            pulumi.set(__self__, "ip_addresses", ip_addresses)
         if ip_sets is not None:
             pulumi.set(__self__, "ip_sets", ip_sets)
         if name is not None:
@@ -207,6 +227,18 @@ class _AcceleratorState:
         pulumi.set(self, "ip_address_type", value)
 
     @property
+    @pulumi.getter(name="ipAddresses")
+    def ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+        """
+        return pulumi.get(self, "ip_addresses")
+
+    @ip_addresses.setter
+    def ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "ip_addresses", value)
+
+    @property
     @pulumi.getter(name="ipSets")
     def ip_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AcceleratorIpSetArgs']]]]:
         """
@@ -263,6 +295,7 @@ class Accelerator(pulumi.CustomResource):
                  attributes: Optional[pulumi.Input[pulumi.InputType['AcceleratorAttributesArgs']]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
+                 ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -282,7 +315,8 @@ class Accelerator(pulumi.CustomResource):
                 flow_logs_s3_prefix="flow-logs/",
             ),
             enabled=True,
-            ip_address_type="IPV4")
+            ip_address_type="IPV4",
+            ip_addresses=["1.2.3.4"])
         ```
 
         ## Import
@@ -298,6 +332,7 @@ class Accelerator(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AcceleratorAttributesArgs']] attributes: The attributes of the accelerator. Fields documented below.
         :param pulumi.Input[bool] enabled: Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
         :param pulumi.Input[str] ip_address_type: The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_addresses: The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
         :param pulumi.Input[str] name: The name of the accelerator.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -323,7 +358,8 @@ class Accelerator(pulumi.CustomResource):
                 flow_logs_s3_prefix="flow-logs/",
             ),
             enabled=True,
-            ip_address_type="IPV4")
+            ip_address_type="IPV4",
+            ip_addresses=["1.2.3.4"])
         ```
 
         ## Import
@@ -352,6 +388,7 @@ class Accelerator(pulumi.CustomResource):
                  attributes: Optional[pulumi.Input[pulumi.InputType['AcceleratorAttributesArgs']]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
+                 ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -366,6 +403,7 @@ class Accelerator(pulumi.CustomResource):
             __props__.__dict__["attributes"] = attributes
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["ip_address_type"] = ip_address_type
+            __props__.__dict__["ip_addresses"] = ip_addresses
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["dns_name"] = None
@@ -387,6 +425,7 @@ class Accelerator(pulumi.CustomResource):
             enabled: Optional[pulumi.Input[bool]] = None,
             hosted_zone_id: Optional[pulumi.Input[str]] = None,
             ip_address_type: Optional[pulumi.Input[str]] = None,
+            ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             ip_sets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AcceleratorIpSetArgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -405,6 +444,7 @@ class Accelerator(pulumi.CustomResource):
                is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
         :param pulumi.Input[bool] enabled: Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
         :param pulumi.Input[str] ip_address_type: The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_addresses: The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AcceleratorIpSetArgs']]]] ip_sets: IP address set associated with the accelerator.
         :param pulumi.Input[str] name: The name of the accelerator.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -419,6 +459,7 @@ class Accelerator(pulumi.CustomResource):
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["hosted_zone_id"] = hosted_zone_id
         __props__.__dict__["ip_address_type"] = ip_address_type
+        __props__.__dict__["ip_addresses"] = ip_addresses
         __props__.__dict__["ip_sets"] = ip_sets
         __props__.__dict__["name"] = name
         __props__.__dict__["tags"] = tags
@@ -464,6 +505,14 @@ class Accelerator(pulumi.CustomResource):
         The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
         """
         return pulumi.get(self, "ip_address_type")
+
+    @property
+    @pulumi.getter(name="ipAddresses")
+    def ip_addresses(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+        """
+        return pulumi.get(self, "ip_addresses")
 
     @property
     @pulumi.getter(name="ipSets")

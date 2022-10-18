@@ -83,6 +83,8 @@ type CustomLayer struct {
 	InstallUpdatesOnBoot pulumi.BoolPtrOutput `pulumi:"installUpdatesOnBoot"`
 	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
 	InstanceShutdownTimeout pulumi.IntPtrOutput `pulumi:"instanceShutdownTimeout"`
+	// Load-based auto scaling configuration. See Load Based AutoScaling
+	LoadBasedAutoScaling CustomLayerLoadBasedAutoScalingOutput `pulumi:"loadBasedAutoScaling"`
 	// A human-readable name for the layer.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A short, machine-readable name for the layer, which will be used to identify it in the Chef node JSON.
@@ -165,6 +167,8 @@ type customLayerState struct {
 	InstallUpdatesOnBoot *bool `pulumi:"installUpdatesOnBoot"`
 	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
 	InstanceShutdownTimeout *int `pulumi:"instanceShutdownTimeout"`
+	// Load-based auto scaling configuration. See Load Based AutoScaling
+	LoadBasedAutoScaling *CustomLayerLoadBasedAutoScaling `pulumi:"loadBasedAutoScaling"`
 	// A human-readable name for the layer.
 	Name *string `pulumi:"name"`
 	// A short, machine-readable name for the layer, which will be used to identify it in the Chef node JSON.
@@ -213,6 +217,8 @@ type CustomLayerState struct {
 	InstallUpdatesOnBoot pulumi.BoolPtrInput
 	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
 	InstanceShutdownTimeout pulumi.IntPtrInput
+	// Load-based auto scaling configuration. See Load Based AutoScaling
+	LoadBasedAutoScaling CustomLayerLoadBasedAutoScalingPtrInput
 	// A human-readable name for the layer.
 	Name pulumi.StringPtrInput
 	// A short, machine-readable name for the layer, which will be used to identify it in the Chef node JSON.
@@ -263,6 +269,8 @@ type customLayerArgs struct {
 	InstallUpdatesOnBoot *bool `pulumi:"installUpdatesOnBoot"`
 	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
 	InstanceShutdownTimeout *int `pulumi:"instanceShutdownTimeout"`
+	// Load-based auto scaling configuration. See Load Based AutoScaling
+	LoadBasedAutoScaling *CustomLayerLoadBasedAutoScaling `pulumi:"loadBasedAutoScaling"`
 	// A human-readable name for the layer.
 	Name *string `pulumi:"name"`
 	// A short, machine-readable name for the layer, which will be used to identify it in the Chef node JSON.
@@ -308,6 +316,8 @@ type CustomLayerArgs struct {
 	InstallUpdatesOnBoot pulumi.BoolPtrInput
 	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
 	InstanceShutdownTimeout pulumi.IntPtrInput
+	// Load-based auto scaling configuration. See Load Based AutoScaling
+	LoadBasedAutoScaling CustomLayerLoadBasedAutoScalingPtrInput
 	// A human-readable name for the layer.
 	Name pulumi.StringPtrInput
 	// A short, machine-readable name for the layer, which will be used to identify it in the Chef node JSON.
@@ -492,6 +502,11 @@ func (o CustomLayerOutput) InstallUpdatesOnBoot() pulumi.BoolPtrOutput {
 // The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
 func (o CustomLayerOutput) InstanceShutdownTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CustomLayer) pulumi.IntPtrOutput { return v.InstanceShutdownTimeout }).(pulumi.IntPtrOutput)
+}
+
+// Load-based auto scaling configuration. See Load Based AutoScaling
+func (o CustomLayerOutput) LoadBasedAutoScaling() CustomLayerLoadBasedAutoScalingOutput {
+	return o.ApplyT(func(v *CustomLayer) CustomLayerLoadBasedAutoScalingOutput { return v.LoadBasedAutoScaling }).(CustomLayerLoadBasedAutoScalingOutput)
 }
 
 // A human-readable name for the layer.

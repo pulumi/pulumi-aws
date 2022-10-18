@@ -8,6 +8,7 @@ import com.pulumi.aws.opsworks.MysqlLayerArgs;
 import com.pulumi.aws.opsworks.inputs.MysqlLayerState;
 import com.pulumi.aws.opsworks.outputs.MysqlLayerCloudwatchConfiguration;
 import com.pulumi.aws.opsworks.outputs.MysqlLayerEbsVolume;
+import com.pulumi.aws.opsworks.outputs.MysqlLayerLoadBasedAutoScaling;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -259,6 +260,12 @@ public class MysqlLayer extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Integer>> instanceShutdownTimeout() {
         return Codegen.optional(this.instanceShutdownTimeout);
+    }
+    @Export(name="loadBasedAutoScaling", type=MysqlLayerLoadBasedAutoScaling.class, parameters={})
+    private Output<MysqlLayerLoadBasedAutoScaling> loadBasedAutoScaling;
+
+    public Output<MysqlLayerLoadBasedAutoScaling> loadBasedAutoScaling() {
+        return this.loadBasedAutoScaling;
     }
     /**
      * A human-readable name for the layer.

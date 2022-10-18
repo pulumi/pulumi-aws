@@ -20,6 +20,7 @@ class VpcArgs:
                  enable_classiclink_dns_support: Optional[pulumi.Input[bool]] = None,
                  enable_dns_hostnames: Optional[pulumi.Input[bool]] = None,
                  enable_dns_support: Optional[pulumi.Input[bool]] = None,
+                 enable_network_address_usage_metrics: Optional[pulumi.Input[bool]] = None,
                  instance_tenancy: Optional[pulumi.Input[str]] = None,
                  ipv4_ipam_pool_id: Optional[pulumi.Input[str]] = None,
                  ipv4_netmask_length: Optional[pulumi.Input[int]] = None,
@@ -38,7 +39,8 @@ class VpcArgs:
         :param pulumi.Input[bool] enable_classiclink_dns_support: A boolean flag to enable/disable ClassicLink DNS Support for the VPC.
                Only valid in regions and accounts that support EC2 Classic.
         :param pulumi.Input[bool] enable_dns_hostnames: A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
-        :param pulumi.Input[bool] enable_dns_support: A boolean flag to enable/disable DNS support in the VPC. Defaults true.
+        :param pulumi.Input[bool] enable_dns_support: A boolean flag to enable/disable DNS support in the VPC. Defaults to true.
+        :param pulumi.Input[bool] enable_network_address_usage_metrics: Indicates whether Network Address Usage metrics are enabled for your VPC. Defaults to false.
         :param pulumi.Input[str] instance_tenancy: A tenancy option for instances launched into the VPC. Default is `default`, which ensures that EC2 instances launched in this VPC use the EC2 instance tenancy attribute specified when the EC2 instance is launched. The only other option is `dedicated`, which ensures that EC2 instances launched in this VPC are run on dedicated tenancy instances regardless of the tenancy attribute specified at launch. This has a dedicated per region fee of $2 per hour, plus an hourly per instance usage fee.
         :param pulumi.Input[str] ipv4_ipam_pool_id: The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
         :param pulumi.Input[int] ipv4_netmask_length: The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4_ipam_pool_id`.
@@ -66,6 +68,8 @@ class VpcArgs:
             pulumi.set(__self__, "enable_dns_hostnames", enable_dns_hostnames)
         if enable_dns_support is not None:
             pulumi.set(__self__, "enable_dns_support", enable_dns_support)
+        if enable_network_address_usage_metrics is not None:
+            pulumi.set(__self__, "enable_network_address_usage_metrics", enable_network_address_usage_metrics)
         if instance_tenancy is not None:
             pulumi.set(__self__, "instance_tenancy", instance_tenancy)
         if ipv4_ipam_pool_id is not None:
@@ -150,13 +154,25 @@ class VpcArgs:
     @pulumi.getter(name="enableDnsSupport")
     def enable_dns_support(self) -> Optional[pulumi.Input[bool]]:
         """
-        A boolean flag to enable/disable DNS support in the VPC. Defaults true.
+        A boolean flag to enable/disable DNS support in the VPC. Defaults to true.
         """
         return pulumi.get(self, "enable_dns_support")
 
     @enable_dns_support.setter
     def enable_dns_support(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_dns_support", value)
+
+    @property
+    @pulumi.getter(name="enableNetworkAddressUsageMetrics")
+    def enable_network_address_usage_metrics(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether Network Address Usage metrics are enabled for your VPC. Defaults to false.
+        """
+        return pulumi.get(self, "enable_network_address_usage_metrics")
+
+    @enable_network_address_usage_metrics.setter
+    def enable_network_address_usage_metrics(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_network_address_usage_metrics", value)
 
     @property
     @pulumi.getter(name="instanceTenancy")
@@ -269,6 +285,7 @@ class _VpcState:
                  enable_classiclink_dns_support: Optional[pulumi.Input[bool]] = None,
                  enable_dns_hostnames: Optional[pulumi.Input[bool]] = None,
                  enable_dns_support: Optional[pulumi.Input[bool]] = None,
+                 enable_network_address_usage_metrics: Optional[pulumi.Input[bool]] = None,
                  instance_tenancy: Optional[pulumi.Input[str]] = None,
                  ipv4_ipam_pool_id: Optional[pulumi.Input[str]] = None,
                  ipv4_netmask_length: Optional[pulumi.Input[int]] = None,
@@ -295,7 +312,8 @@ class _VpcState:
         :param pulumi.Input[bool] enable_classiclink_dns_support: A boolean flag to enable/disable ClassicLink DNS Support for the VPC.
                Only valid in regions and accounts that support EC2 Classic.
         :param pulumi.Input[bool] enable_dns_hostnames: A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
-        :param pulumi.Input[bool] enable_dns_support: A boolean flag to enable/disable DNS support in the VPC. Defaults true.
+        :param pulumi.Input[bool] enable_dns_support: A boolean flag to enable/disable DNS support in the VPC. Defaults to true.
+        :param pulumi.Input[bool] enable_network_address_usage_metrics: Indicates whether Network Address Usage metrics are enabled for your VPC. Defaults to false.
         :param pulumi.Input[str] instance_tenancy: A tenancy option for instances launched into the VPC. Default is `default`, which ensures that EC2 instances launched in this VPC use the EC2 instance tenancy attribute specified when the EC2 instance is launched. The only other option is `dedicated`, which ensures that EC2 instances launched in this VPC are run on dedicated tenancy instances regardless of the tenancy attribute specified at launch. This has a dedicated per region fee of $2 per hour, plus an hourly per instance usage fee.
         :param pulumi.Input[str] ipv4_ipam_pool_id: The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
         :param pulumi.Input[int] ipv4_netmask_length: The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4_ipam_pool_id`.
@@ -339,6 +357,8 @@ class _VpcState:
             pulumi.set(__self__, "enable_dns_hostnames", enable_dns_hostnames)
         if enable_dns_support is not None:
             pulumi.set(__self__, "enable_dns_support", enable_dns_support)
+        if enable_network_address_usage_metrics is not None:
+            pulumi.set(__self__, "enable_network_address_usage_metrics", enable_network_address_usage_metrics)
         if instance_tenancy is not None:
             pulumi.set(__self__, "instance_tenancy", instance_tenancy)
         if ipv4_ipam_pool_id is not None:
@@ -488,13 +508,25 @@ class _VpcState:
     @pulumi.getter(name="enableDnsSupport")
     def enable_dns_support(self) -> Optional[pulumi.Input[bool]]:
         """
-        A boolean flag to enable/disable DNS support in the VPC. Defaults true.
+        A boolean flag to enable/disable DNS support in the VPC. Defaults to true.
         """
         return pulumi.get(self, "enable_dns_support")
 
     @enable_dns_support.setter
     def enable_dns_support(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_dns_support", value)
+
+    @property
+    @pulumi.getter(name="enableNetworkAddressUsageMetrics")
+    def enable_network_address_usage_metrics(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether Network Address Usage metrics are enabled for your VPC. Defaults to false.
+        """
+        return pulumi.get(self, "enable_network_address_usage_metrics")
+
+    @enable_network_address_usage_metrics.setter
+    def enable_network_address_usage_metrics(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_network_address_usage_metrics", value)
 
     @property
     @pulumi.getter(name="instanceTenancy")
@@ -654,6 +686,7 @@ class Vpc(pulumi.CustomResource):
                  enable_classiclink_dns_support: Optional[pulumi.Input[bool]] = None,
                  enable_dns_hostnames: Optional[pulumi.Input[bool]] = None,
                  enable_dns_support: Optional[pulumi.Input[bool]] = None,
+                 enable_network_address_usage_metrics: Optional[pulumi.Input[bool]] = None,
                  instance_tenancy: Optional[pulumi.Input[str]] = None,
                  ipv4_ipam_pool_id: Optional[pulumi.Input[str]] = None,
                  ipv4_netmask_length: Optional[pulumi.Input[int]] = None,
@@ -732,7 +765,8 @@ class Vpc(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_classiclink_dns_support: A boolean flag to enable/disable ClassicLink DNS Support for the VPC.
                Only valid in regions and accounts that support EC2 Classic.
         :param pulumi.Input[bool] enable_dns_hostnames: A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
-        :param pulumi.Input[bool] enable_dns_support: A boolean flag to enable/disable DNS support in the VPC. Defaults true.
+        :param pulumi.Input[bool] enable_dns_support: A boolean flag to enable/disable DNS support in the VPC. Defaults to true.
+        :param pulumi.Input[bool] enable_network_address_usage_metrics: Indicates whether Network Address Usage metrics are enabled for your VPC. Defaults to false.
         :param pulumi.Input[str] instance_tenancy: A tenancy option for instances launched into the VPC. Default is `default`, which ensures that EC2 instances launched in this VPC use the EC2 instance tenancy attribute specified when the EC2 instance is launched. The only other option is `dedicated`, which ensures that EC2 instances launched in this VPC are run on dedicated tenancy instances regardless of the tenancy attribute specified at launch. This has a dedicated per region fee of $2 per hour, plus an hourly per instance usage fee.
         :param pulumi.Input[str] ipv4_ipam_pool_id: The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
         :param pulumi.Input[int] ipv4_netmask_length: The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4_ipam_pool_id`.
@@ -828,6 +862,7 @@ class Vpc(pulumi.CustomResource):
                  enable_classiclink_dns_support: Optional[pulumi.Input[bool]] = None,
                  enable_dns_hostnames: Optional[pulumi.Input[bool]] = None,
                  enable_dns_support: Optional[pulumi.Input[bool]] = None,
+                 enable_network_address_usage_metrics: Optional[pulumi.Input[bool]] = None,
                  instance_tenancy: Optional[pulumi.Input[str]] = None,
                  ipv4_ipam_pool_id: Optional[pulumi.Input[str]] = None,
                  ipv4_netmask_length: Optional[pulumi.Input[int]] = None,
@@ -857,6 +892,7 @@ class Vpc(pulumi.CustomResource):
             __props__.__dict__["enable_classiclink_dns_support"] = enable_classiclink_dns_support
             __props__.__dict__["enable_dns_hostnames"] = enable_dns_hostnames
             __props__.__dict__["enable_dns_support"] = enable_dns_support
+            __props__.__dict__["enable_network_address_usage_metrics"] = enable_network_address_usage_metrics
             __props__.__dict__["instance_tenancy"] = instance_tenancy
             __props__.__dict__["ipv4_ipam_pool_id"] = ipv4_ipam_pool_id
             __props__.__dict__["ipv4_netmask_length"] = ipv4_netmask_length
@@ -895,6 +931,7 @@ class Vpc(pulumi.CustomResource):
             enable_classiclink_dns_support: Optional[pulumi.Input[bool]] = None,
             enable_dns_hostnames: Optional[pulumi.Input[bool]] = None,
             enable_dns_support: Optional[pulumi.Input[bool]] = None,
+            enable_network_address_usage_metrics: Optional[pulumi.Input[bool]] = None,
             instance_tenancy: Optional[pulumi.Input[str]] = None,
             ipv4_ipam_pool_id: Optional[pulumi.Input[str]] = None,
             ipv4_netmask_length: Optional[pulumi.Input[int]] = None,
@@ -926,7 +963,8 @@ class Vpc(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_classiclink_dns_support: A boolean flag to enable/disable ClassicLink DNS Support for the VPC.
                Only valid in regions and accounts that support EC2 Classic.
         :param pulumi.Input[bool] enable_dns_hostnames: A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
-        :param pulumi.Input[bool] enable_dns_support: A boolean flag to enable/disable DNS support in the VPC. Defaults true.
+        :param pulumi.Input[bool] enable_dns_support: A boolean flag to enable/disable DNS support in the VPC. Defaults to true.
+        :param pulumi.Input[bool] enable_network_address_usage_metrics: Indicates whether Network Address Usage metrics are enabled for your VPC. Defaults to false.
         :param pulumi.Input[str] instance_tenancy: A tenancy option for instances launched into the VPC. Default is `default`, which ensures that EC2 instances launched in this VPC use the EC2 instance tenancy attribute specified when the EC2 instance is launched. The only other option is `dedicated`, which ensures that EC2 instances launched in this VPC are run on dedicated tenancy instances regardless of the tenancy attribute specified at launch. This has a dedicated per region fee of $2 per hour, plus an hourly per instance usage fee.
         :param pulumi.Input[str] ipv4_ipam_pool_id: The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
         :param pulumi.Input[int] ipv4_netmask_length: The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4_ipam_pool_id`.
@@ -957,6 +995,7 @@ class Vpc(pulumi.CustomResource):
         __props__.__dict__["enable_classiclink_dns_support"] = enable_classiclink_dns_support
         __props__.__dict__["enable_dns_hostnames"] = enable_dns_hostnames
         __props__.__dict__["enable_dns_support"] = enable_dns_support
+        __props__.__dict__["enable_network_address_usage_metrics"] = enable_network_address_usage_metrics
         __props__.__dict__["instance_tenancy"] = instance_tenancy
         __props__.__dict__["ipv4_ipam_pool_id"] = ipv4_ipam_pool_id
         __props__.__dict__["ipv4_netmask_length"] = ipv4_netmask_length
@@ -1055,9 +1094,17 @@ class Vpc(pulumi.CustomResource):
     @pulumi.getter(name="enableDnsSupport")
     def enable_dns_support(self) -> pulumi.Output[Optional[bool]]:
         """
-        A boolean flag to enable/disable DNS support in the VPC. Defaults true.
+        A boolean flag to enable/disable DNS support in the VPC. Defaults to true.
         """
         return pulumi.get(self, "enable_dns_support")
+
+    @property
+    @pulumi.getter(name="enableNetworkAddressUsageMetrics")
+    def enable_network_address_usage_metrics(self) -> pulumi.Output[bool]:
+        """
+        Indicates whether Network Address Usage metrics are enabled for your VPC. Defaults to false.
+        """
+        return pulumi.get(self, "enable_network_address_usage_metrics")
 
     @property
     @pulumi.getter(name="instanceTenancy")

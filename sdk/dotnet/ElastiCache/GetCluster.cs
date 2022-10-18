@@ -12,7 +12,7 @@ namespace Pulumi.Aws.ElastiCache
     public static class GetCluster
     {
         /// <summary>
-        /// Use this data source to get information about an Elasticache Cluster
+        /// Use this data source to get information about an ElastiCache Cluster
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -39,7 +39,7 @@ namespace Pulumi.Aws.ElastiCache
             => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("aws:elasticache/getCluster:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to get information about an Elasticache Cluster
+        /// Use this data source to get information about an ElastiCache Cluster
         /// 
         /// {{% examples %}}
         /// ## Example Usage

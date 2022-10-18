@@ -5,6 +5,7 @@ package com.pulumi.aws.opsworks.inputs;
 
 import com.pulumi.aws.opsworks.inputs.RailsAppLayerCloudwatchConfigurationArgs;
 import com.pulumi.aws.opsworks.inputs.RailsAppLayerEbsVolumeArgs;
+import com.pulumi.aws.opsworks.inputs.RailsAppLayerLoadBasedAutoScalingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -273,6 +274,13 @@ public final class RailsAppLayerState extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.instanceShutdownTimeout);
     }
 
+    @Import(name="loadBasedAutoScaling")
+    private @Nullable Output<RailsAppLayerLoadBasedAutoScalingArgs> loadBasedAutoScaling;
+
+    public Optional<Output<RailsAppLayerLoadBasedAutoScalingArgs>> loadBasedAutoScaling() {
+        return Optional.ofNullable(this.loadBasedAutoScaling);
+    }
+
     /**
      * Whether OpsWorks should manage bundler. On by default.
      * 
@@ -446,6 +454,7 @@ public final class RailsAppLayerState extends com.pulumi.resources.ResourceArgs 
         this.elasticLoadBalancer = $.elasticLoadBalancer;
         this.installUpdatesOnBoot = $.installUpdatesOnBoot;
         this.instanceShutdownTimeout = $.instanceShutdownTimeout;
+        this.loadBasedAutoScaling = $.loadBasedAutoScaling;
         this.manageBundler = $.manageBundler;
         this.name = $.name;
         this.passengerVersion = $.passengerVersion;
@@ -862,6 +871,15 @@ public final class RailsAppLayerState extends com.pulumi.resources.ResourceArgs 
          */
         public Builder instanceShutdownTimeout(Integer instanceShutdownTimeout) {
             return instanceShutdownTimeout(Output.of(instanceShutdownTimeout));
+        }
+
+        public Builder loadBasedAutoScaling(@Nullable Output<RailsAppLayerLoadBasedAutoScalingArgs> loadBasedAutoScaling) {
+            $.loadBasedAutoScaling = loadBasedAutoScaling;
+            return this;
+        }
+
+        public Builder loadBasedAutoScaling(RailsAppLayerLoadBasedAutoScalingArgs loadBasedAutoScaling) {
+            return loadBasedAutoScaling(Output.of(loadBasedAutoScaling));
         }
 
         /**

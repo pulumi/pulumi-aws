@@ -116,6 +116,10 @@ export class CustomLayer extends pulumi.CustomResource {
      */
     public readonly instanceShutdownTimeout!: pulumi.Output<number | undefined>;
     /**
+     * Load-based auto scaling configuration. See Load Based AutoScaling
+     */
+    public readonly loadBasedAutoScaling!: pulumi.Output<outputs.opsworks.CustomLayerLoadBasedAutoScaling>;
+    /**
      * A human-readable name for the layer.
      */
     public readonly name!: pulumi.Output<string>;
@@ -175,6 +179,7 @@ export class CustomLayer extends pulumi.CustomResource {
             resourceInputs["elasticLoadBalancer"] = state ? state.elasticLoadBalancer : undefined;
             resourceInputs["installUpdatesOnBoot"] = state ? state.installUpdatesOnBoot : undefined;
             resourceInputs["instanceShutdownTimeout"] = state ? state.instanceShutdownTimeout : undefined;
+            resourceInputs["loadBasedAutoScaling"] = state ? state.loadBasedAutoScaling : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["shortName"] = state ? state.shortName : undefined;
             resourceInputs["stackId"] = state ? state.stackId : undefined;
@@ -207,6 +212,7 @@ export class CustomLayer extends pulumi.CustomResource {
             resourceInputs["elasticLoadBalancer"] = args ? args.elasticLoadBalancer : undefined;
             resourceInputs["installUpdatesOnBoot"] = args ? args.installUpdatesOnBoot : undefined;
             resourceInputs["instanceShutdownTimeout"] = args ? args.instanceShutdownTimeout : undefined;
+            resourceInputs["loadBasedAutoScaling"] = args ? args.loadBasedAutoScaling : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["shortName"] = args ? args.shortName : undefined;
             resourceInputs["stackId"] = args ? args.stackId : undefined;
@@ -282,6 +288,10 @@ export interface CustomLayerState {
      * The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
      */
     instanceShutdownTimeout?: pulumi.Input<number>;
+    /**
+     * Load-based auto scaling configuration. See Load Based AutoScaling
+     */
+    loadBasedAutoScaling?: pulumi.Input<inputs.opsworks.CustomLayerLoadBasedAutoScaling>;
     /**
      * A human-readable name for the layer.
      */
@@ -369,6 +379,10 @@ export interface CustomLayerArgs {
      * The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
      */
     instanceShutdownTimeout?: pulumi.Input<number>;
+    /**
+     * Load-based auto scaling configuration. See Load Based AutoScaling
+     */
+    loadBasedAutoScaling?: pulumi.Input<inputs.opsworks.CustomLayerLoadBasedAutoScaling>;
     /**
      * A human-readable name for the layer.
      */

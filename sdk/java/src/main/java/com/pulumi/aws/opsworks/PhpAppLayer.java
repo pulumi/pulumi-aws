@@ -8,6 +8,7 @@ import com.pulumi.aws.opsworks.PhpAppLayerArgs;
 import com.pulumi.aws.opsworks.inputs.PhpAppLayerState;
 import com.pulumi.aws.opsworks.outputs.PhpAppLayerCloudwatchConfiguration;
 import com.pulumi.aws.opsworks.outputs.PhpAppLayerEbsVolume;
+import com.pulumi.aws.opsworks.outputs.PhpAppLayerLoadBasedAutoScaling;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -267,6 +268,12 @@ public class PhpAppLayer extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Integer>> instanceShutdownTimeout() {
         return Codegen.optional(this.instanceShutdownTimeout);
+    }
+    @Export(name="loadBasedAutoScaling", type=PhpAppLayerLoadBasedAutoScaling.class, parameters={})
+    private Output<PhpAppLayerLoadBasedAutoScaling> loadBasedAutoScaling;
+
+    public Output<PhpAppLayerLoadBasedAutoScaling> loadBasedAutoScaling() {
+        return this.loadBasedAutoScaling;
     }
     /**
      * A human-readable name for the layer.

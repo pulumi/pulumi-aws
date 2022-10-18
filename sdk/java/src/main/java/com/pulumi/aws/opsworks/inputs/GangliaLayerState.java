@@ -5,6 +5,7 @@ package com.pulumi.aws.opsworks.inputs;
 
 import com.pulumi.aws.opsworks.inputs.GangliaLayerCloudwatchConfigurationArgs;
 import com.pulumi.aws.opsworks.inputs.GangliaLayerEbsVolumeArgs;
+import com.pulumi.aws.opsworks.inputs.GangliaLayerLoadBasedAutoScalingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -243,6 +244,13 @@ public final class GangliaLayerState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.instanceShutdownTimeout);
     }
 
+    @Import(name="loadBasedAutoScaling")
+    private @Nullable Output<GangliaLayerLoadBasedAutoScalingArgs> loadBasedAutoScaling;
+
+    public Optional<Output<GangliaLayerLoadBasedAutoScalingArgs>> loadBasedAutoScaling() {
+        return Optional.ofNullable(this.loadBasedAutoScaling);
+    }
+
     /**
      * A human-readable name for the layer.
      * 
@@ -399,6 +407,7 @@ public final class GangliaLayerState extends com.pulumi.resources.ResourceArgs {
         this.elasticLoadBalancer = $.elasticLoadBalancer;
         this.installUpdatesOnBoot = $.installUpdatesOnBoot;
         this.instanceShutdownTimeout = $.instanceShutdownTimeout;
+        this.loadBasedAutoScaling = $.loadBasedAutoScaling;
         this.name = $.name;
         this.password = $.password;
         this.stackId = $.stackId;
@@ -772,6 +781,15 @@ public final class GangliaLayerState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder instanceShutdownTimeout(Integer instanceShutdownTimeout) {
             return instanceShutdownTimeout(Output.of(instanceShutdownTimeout));
+        }
+
+        public Builder loadBasedAutoScaling(@Nullable Output<GangliaLayerLoadBasedAutoScalingArgs> loadBasedAutoScaling) {
+            $.loadBasedAutoScaling = loadBasedAutoScaling;
+            return this;
+        }
+
+        public Builder loadBasedAutoScaling(GangliaLayerLoadBasedAutoScalingArgs loadBasedAutoScaling) {
+            return loadBasedAutoScaling(Output.of(loadBasedAutoScaling));
         }
 
         /**

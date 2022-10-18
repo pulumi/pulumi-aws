@@ -104,6 +104,7 @@ export class GangliaLayer extends pulumi.CustomResource {
      * The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
      */
     public readonly instanceShutdownTimeout!: pulumi.Output<number | undefined>;
+    public readonly loadBasedAutoScaling!: pulumi.Output<outputs.opsworks.GangliaLayerLoadBasedAutoScaling>;
     /**
      * A human-readable name for the layer.
      */
@@ -172,6 +173,7 @@ export class GangliaLayer extends pulumi.CustomResource {
             resourceInputs["elasticLoadBalancer"] = state ? state.elasticLoadBalancer : undefined;
             resourceInputs["installUpdatesOnBoot"] = state ? state.installUpdatesOnBoot : undefined;
             resourceInputs["instanceShutdownTimeout"] = state ? state.instanceShutdownTimeout : undefined;
+            resourceInputs["loadBasedAutoScaling"] = state ? state.loadBasedAutoScaling : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["password"] = state ? state.password : undefined;
             resourceInputs["stackId"] = state ? state.stackId : undefined;
@@ -206,6 +208,7 @@ export class GangliaLayer extends pulumi.CustomResource {
             resourceInputs["elasticLoadBalancer"] = args ? args.elasticLoadBalancer : undefined;
             resourceInputs["installUpdatesOnBoot"] = args ? args.installUpdatesOnBoot : undefined;
             resourceInputs["instanceShutdownTimeout"] = args ? args.instanceShutdownTimeout : undefined;
+            resourceInputs["loadBasedAutoScaling"] = args ? args.loadBasedAutoScaling : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["password"] = args ? args.password : undefined;
             resourceInputs["stackId"] = args ? args.stackId : undefined;
@@ -280,6 +283,7 @@ export interface GangliaLayerState {
      * The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
      */
     instanceShutdownTimeout?: pulumi.Input<number>;
+    loadBasedAutoScaling?: pulumi.Input<inputs.opsworks.GangliaLayerLoadBasedAutoScaling>;
     /**
      * A human-readable name for the layer.
      */
@@ -372,6 +376,7 @@ export interface GangliaLayerArgs {
      * The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
      */
     instanceShutdownTimeout?: pulumi.Input<number>;
+    loadBasedAutoScaling?: pulumi.Input<inputs.opsworks.GangliaLayerLoadBasedAutoScaling>;
     /**
      * A human-readable name for the layer.
      */

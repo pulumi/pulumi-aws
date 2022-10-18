@@ -21,7 +21,7 @@ class GetConnectionResult:
     """
     A collection of values returned by getConnection.
     """
-    def __init__(__self__, arn=None, aws_device=None, bandwidth=None, id=None, location=None, name=None, owner_account_id=None, provider_name=None, tags=None):
+    def __init__(__self__, arn=None, aws_device=None, bandwidth=None, id=None, location=None, name=None, owner_account_id=None, provider_name=None, tags=None, vlan_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -49,6 +49,9 @@ class GetConnectionResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if vlan_id and not isinstance(vlan_id, str):
+            raise TypeError("Expected argument 'vlan_id' to be a str")
+        pulumi.set(__self__, "vlan_id", vlan_id)
 
     @property
     @pulumi.getter
@@ -119,6 +122,14 @@ class GetConnectionResult:
         """
         return pulumi.get(self, "tags")
 
+    @property
+    @pulumi.getter(name="vlanId")
+    def vlan_id(self) -> str:
+        """
+        The VLAN ID.
+        """
+        return pulumi.get(self, "vlan_id")
+
 
 class AwaitableGetConnectionResult(GetConnectionResult):
     # pylint: disable=using-constant-test
@@ -134,7 +145,8 @@ class AwaitableGetConnectionResult(GetConnectionResult):
             name=self.name,
             owner_account_id=self.owner_account_id,
             provider_name=self.provider_name,
-            tags=self.tags)
+            tags=self.tags,
+            vlan_id=self.vlan_id)
 
 
 def get_connection(name: Optional[str] = None,
@@ -171,7 +183,8 @@ def get_connection(name: Optional[str] = None,
         name=__ret__.name,
         owner_account_id=__ret__.owner_account_id,
         provider_name=__ret__.provider_name,
-        tags=__ret__.tags)
+        tags=__ret__.tags,
+        vlan_id=__ret__.vlan_id)
 
 
 @_utilities.lift_output_func(get_connection)

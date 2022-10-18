@@ -22,7 +22,6 @@ namespace Pulumi.Aws.Route53
         /// 
         /// The following example shows how to get a Hosted Zone from its name and from this data how to create a Record Set.
         /// 
-        /// 
         /// ```csharp
         /// using System.Collections.Generic;
         /// using Pulumi;
@@ -66,7 +65,6 @@ namespace Pulumi.Aws.Route53
         /// {{% example %}}
         /// 
         /// The following example shows how to get a Hosted Zone from its name and from this data how to create a Record Set.
-        /// 
         /// 
         /// ```csharp
         /// using System.Collections.Generic;

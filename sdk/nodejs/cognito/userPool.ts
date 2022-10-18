@@ -201,6 +201,10 @@ export class UserPool extends pulumi.CustomResource {
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
+     * Configuration block for user attribute update settings. Detailed below.
+     */
+    public readonly userAttributeUpdateSettings!: pulumi.Output<outputs.cognito.UserPoolUserAttributeUpdateSettings | undefined>;
+    /**
      * Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
      */
     public readonly userPoolAddOns!: pulumi.Output<outputs.cognito.UserPoolUserPoolAddOns | undefined>;
@@ -256,6 +260,7 @@ export class UserPool extends pulumi.CustomResource {
             resourceInputs["softwareTokenMfaConfiguration"] = state ? state.softwareTokenMfaConfiguration : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["userAttributeUpdateSettings"] = state ? state.userAttributeUpdateSettings : undefined;
             resourceInputs["userPoolAddOns"] = state ? state.userPoolAddOns : undefined;
             resourceInputs["usernameAttributes"] = state ? state.usernameAttributes : undefined;
             resourceInputs["usernameConfiguration"] = state ? state.usernameConfiguration : undefined;
@@ -280,6 +285,7 @@ export class UserPool extends pulumi.CustomResource {
             resourceInputs["smsVerificationMessage"] = args ? args.smsVerificationMessage : undefined;
             resourceInputs["softwareTokenMfaConfiguration"] = args ? args.softwareTokenMfaConfiguration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["userAttributeUpdateSettings"] = args ? args.userAttributeUpdateSettings : undefined;
             resourceInputs["userPoolAddOns"] = args ? args.userPoolAddOns : undefined;
             resourceInputs["usernameAttributes"] = args ? args.usernameAttributes : undefined;
             resourceInputs["usernameConfiguration"] = args ? args.usernameConfiguration : undefined;
@@ -407,6 +413,10 @@ export interface UserPoolState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * Configuration block for user attribute update settings. Detailed below.
+     */
+    userAttributeUpdateSettings?: pulumi.Input<inputs.cognito.UserPoolUserAttributeUpdateSettings>;
+    /**
      * Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
      */
     userPoolAddOns?: pulumi.Input<inputs.cognito.UserPoolUserPoolAddOns>;
@@ -500,6 +510,10 @@ export interface UserPoolArgs {
      * Map of tags to assign to the User Pool. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Configuration block for user attribute update settings. Detailed below.
+     */
+    userAttributeUpdateSettings?: pulumi.Input<inputs.cognito.UserPoolUserAttributeUpdateSettings>;
     /**
      * Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
      */

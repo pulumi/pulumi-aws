@@ -787,7 +787,7 @@ func (o DomainNameMutualTlsAuthenticationPtrOutput) TruststoreVersion() pulumi.S
 }
 
 type IntegrationResponseParameter struct {
-	// Key-value map. The key of ths map identifies the location of the request parameter to change, and how to change it. The corresponding value specifies the new data for the parameter.
+	// Key-value map. The key of this map identifies the location of the request parameter to change, and how to change it. The corresponding value specifies the new data for the parameter.
 	// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
 	Mappings map[string]string `pulumi:"mappings"`
 	// HTTP status code in the range 200-599.
@@ -806,7 +806,7 @@ type IntegrationResponseParameterInput interface {
 }
 
 type IntegrationResponseParameterArgs struct {
-	// Key-value map. The key of ths map identifies the location of the request parameter to change, and how to change it. The corresponding value specifies the new data for the parameter.
+	// Key-value map. The key of this map identifies the location of the request parameter to change, and how to change it. The corresponding value specifies the new data for the parameter.
 	// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
 	Mappings pulumi.StringMapInput `pulumi:"mappings"`
 	// HTTP status code in the range 200-599.
@@ -864,7 +864,7 @@ func (o IntegrationResponseParameterOutput) ToIntegrationResponseParameterOutput
 	return o
 }
 
-// Key-value map. The key of ths map identifies the location of the request parameter to change, and how to change it. The corresponding value specifies the new data for the parameter.
+// Key-value map. The key of this map identifies the location of the request parameter to change, and how to change it. The corresponding value specifies the new data for the parameter.
 // See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
 func (o IntegrationResponseParameterOutput) Mappings() pulumi.StringMapOutput {
 	return o.ApplyT(func(v IntegrationResponseParameter) map[string]string { return v.Mappings }).(pulumi.StringMapOutput)

@@ -76,6 +76,7 @@ def get_subscribed_rule_group(metric_name: Optional[str] = None,
 
     by_name = aws.waf.get_subscribed_rule_group(name="F5 Bot Detection Signatures For AWS WAF")
     by_metric_name = aws.waf.get_subscribed_rule_group(metric_name="F5BotDetectionSignatures")
+    # ...
     acl = aws.waf.WebAcl("acl", rules=[
         aws.waf.WebAclRuleArgs(
             priority=1,
@@ -121,6 +122,7 @@ def get_subscribed_rule_group_output(metric_name: Optional[pulumi.Input[Optional
 
     by_name = aws.waf.get_subscribed_rule_group(name="F5 Bot Detection Signatures For AWS WAF")
     by_metric_name = aws.waf.get_subscribed_rule_group(metric_name="F5BotDetectionSignatures")
+    # ...
     acl = aws.waf.WebAcl("acl", rules=[
         aws.waf.WebAclRuleArgs(
             priority=1,

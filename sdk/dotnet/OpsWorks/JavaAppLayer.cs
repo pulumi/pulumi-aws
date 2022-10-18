@@ -152,6 +152,9 @@ namespace Pulumi.Aws.OpsWorks
         [Output("jvmVersion")]
         public Output<string?> JvmVersion { get; private set; } = null!;
 
+        [Output("loadBasedAutoScaling")]
+        public Output<Outputs.JavaAppLayerLoadBasedAutoScaling> LoadBasedAutoScaling { get; private set; } = null!;
+
         /// <summary>
         /// A human-readable name for the layer.
         /// </summary>
@@ -385,6 +388,9 @@ namespace Pulumi.Aws.OpsWorks
         [Input("jvmVersion")]
         public Input<string>? JvmVersion { get; set; }
 
+        [Input("loadBasedAutoScaling")]
+        public Input<Inputs.JavaAppLayerLoadBasedAutoScalingArgs>? LoadBasedAutoScaling { get; set; }
+
         /// <summary>
         /// A human-readable name for the layer.
         /// </summary>
@@ -591,6 +597,9 @@ namespace Pulumi.Aws.OpsWorks
         /// </summary>
         [Input("jvmVersion")]
         public Input<string>? JvmVersion { get; set; }
+
+        [Input("loadBasedAutoScaling")]
+        public Input<Inputs.JavaAppLayerLoadBasedAutoScalingGetArgs>? LoadBasedAutoScaling { get; set; }
 
         /// <summary>
         /// A human-readable name for the layer.

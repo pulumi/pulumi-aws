@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['WorkspaceArgs', 'Workspace']
 
@@ -15,14 +17,18 @@ __all__ = ['WorkspaceArgs', 'Workspace']
 class WorkspaceArgs:
     def __init__(__self__, *,
                  alias: Optional[pulumi.Input[str]] = None,
+                 logging_configuration: Optional[pulumi.Input['WorkspaceLoggingConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Workspace resource.
         :param pulumi.Input[str] alias: The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
+        :param pulumi.Input['WorkspaceLoggingConfigurationArgs'] logging_configuration: Logging configuration for the workspace. See Logging Configuration below for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if alias is not None:
             pulumi.set(__self__, "alias", alias)
+        if logging_configuration is not None:
+            pulumi.set(__self__, "logging_configuration", logging_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -37,6 +43,18 @@ class WorkspaceArgs:
     @alias.setter
     def alias(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "alias", value)
+
+    @property
+    @pulumi.getter(name="loggingConfiguration")
+    def logging_configuration(self) -> Optional[pulumi.Input['WorkspaceLoggingConfigurationArgs']]:
+        """
+        Logging configuration for the workspace. See Logging Configuration below for details.
+        """
+        return pulumi.get(self, "logging_configuration")
+
+    @logging_configuration.setter
+    def logging_configuration(self, value: Optional[pulumi.Input['WorkspaceLoggingConfigurationArgs']]):
+        pulumi.set(self, "logging_configuration", value)
 
     @property
     @pulumi.getter
@@ -56,6 +74,7 @@ class _WorkspaceState:
     def __init__(__self__, *,
                  alias: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
+                 logging_configuration: Optional[pulumi.Input['WorkspaceLoggingConfigurationArgs']] = None,
                  prometheus_endpoint: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -63,6 +82,7 @@ class _WorkspaceState:
         Input properties used for looking up and filtering Workspace resources.
         :param pulumi.Input[str] alias: The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the workspace.
+        :param pulumi.Input['WorkspaceLoggingConfigurationArgs'] logging_configuration: Logging configuration for the workspace. See Logging Configuration below for details.
         :param pulumi.Input[str] prometheus_endpoint: Prometheus endpoint available for this workspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -71,6 +91,8 @@ class _WorkspaceState:
             pulumi.set(__self__, "alias", alias)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if logging_configuration is not None:
+            pulumi.set(__self__, "logging_configuration", logging_configuration)
         if prometheus_endpoint is not None:
             pulumi.set(__self__, "prometheus_endpoint", prometheus_endpoint)
         if tags is not None:
@@ -101,6 +123,18 @@ class _WorkspaceState:
     @arn.setter
     def arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="loggingConfiguration")
+    def logging_configuration(self) -> Optional[pulumi.Input['WorkspaceLoggingConfigurationArgs']]:
+        """
+        Logging configuration for the workspace. See Logging Configuration below for details.
+        """
+        return pulumi.get(self, "logging_configuration")
+
+    @logging_configuration.setter
+    def logging_configuration(self, value: Optional[pulumi.Input['WorkspaceLoggingConfigurationArgs']]):
+        pulumi.set(self, "logging_configuration", value)
 
     @property
     @pulumi.getter(name="prometheusEndpoint")
@@ -145,12 +179,11 @@ class Workspace(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alias: Optional[pulumi.Input[str]] = None,
+                 logging_configuration: Optional[pulumi.Input[pulumi.InputType['WorkspaceLoggingConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Manages an Amazon Managed Service for Prometheus (AMP) Workspace.
-
-        > **NOTE:** This AWS functionality is in Preview and may change before General Availability release. Backwards compatibility is not guaranteed between provider releases.
 
         ## Example Usage
 
@@ -158,12 +191,22 @@ class Workspace(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        demo = aws.amp.Workspace("demo",
-            alias="prometheus-test",
+        example = aws.amp.Workspace("example",
+            alias="example",
             tags={
                 "Environment": "production",
-                "Owner": "abhi",
             })
+        ```
+        ### CloudWatch Logging
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
+        example_workspace = aws.amp.Workspace("exampleWorkspace", logging_configuration=aws.amp.WorkspaceLoggingConfigurationArgs(
+            log_group_arn=example_log_group.arn.apply(lambda arn: f"{arn}:*"),
+        ))
         ```
 
         ## Import
@@ -177,6 +220,7 @@ class Workspace(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alias: The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
+        :param pulumi.Input[pulumi.InputType['WorkspaceLoggingConfigurationArgs']] logging_configuration: Logging configuration for the workspace. See Logging Configuration below for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -188,20 +232,28 @@ class Workspace(pulumi.CustomResource):
         """
         Manages an Amazon Managed Service for Prometheus (AMP) Workspace.
 
-        > **NOTE:** This AWS functionality is in Preview and may change before General Availability release. Backwards compatibility is not guaranteed between provider releases.
-
         ## Example Usage
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        demo = aws.amp.Workspace("demo",
-            alias="prometheus-test",
+        example = aws.amp.Workspace("example",
+            alias="example",
             tags={
                 "Environment": "production",
-                "Owner": "abhi",
             })
+        ```
+        ### CloudWatch Logging
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
+        example_workspace = aws.amp.Workspace("exampleWorkspace", logging_configuration=aws.amp.WorkspaceLoggingConfigurationArgs(
+            log_group_arn=example_log_group.arn.apply(lambda arn: f"{arn}:*"),
+        ))
         ```
 
         ## Import
@@ -228,6 +280,7 @@ class Workspace(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alias: Optional[pulumi.Input[str]] = None,
+                 logging_configuration: Optional[pulumi.Input[pulumi.InputType['WorkspaceLoggingConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -239,6 +292,7 @@ class Workspace(pulumi.CustomResource):
             __props__ = WorkspaceArgs.__new__(WorkspaceArgs)
 
             __props__.__dict__["alias"] = alias
+            __props__.__dict__["logging_configuration"] = logging_configuration
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["prometheus_endpoint"] = None
@@ -255,6 +309,7 @@ class Workspace(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             alias: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
+            logging_configuration: Optional[pulumi.Input[pulumi.InputType['WorkspaceLoggingConfigurationArgs']]] = None,
             prometheus_endpoint: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Workspace':
@@ -267,6 +322,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alias: The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the workspace.
+        :param pulumi.Input[pulumi.InputType['WorkspaceLoggingConfigurationArgs']] logging_configuration: Logging configuration for the workspace. See Logging Configuration below for details.
         :param pulumi.Input[str] prometheus_endpoint: Prometheus endpoint available for this workspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -277,6 +333,7 @@ class Workspace(pulumi.CustomResource):
 
         __props__.__dict__["alias"] = alias
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["logging_configuration"] = logging_configuration
         __props__.__dict__["prometheus_endpoint"] = prometheus_endpoint
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -297,6 +354,14 @@ class Workspace(pulumi.CustomResource):
         Amazon Resource Name (ARN) of the workspace.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="loggingConfiguration")
+    def logging_configuration(self) -> pulumi.Output[Optional['outputs.WorkspaceLoggingConfiguration']]:
+        """
+        Logging configuration for the workspace. See Logging Configuration below for details.
+        """
+        return pulumi.get(self, "logging_configuration")
 
     @property
     @pulumi.getter(name="prometheusEndpoint")

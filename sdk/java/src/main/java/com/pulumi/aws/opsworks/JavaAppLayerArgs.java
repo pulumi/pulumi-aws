@@ -5,6 +5,7 @@ package com.pulumi.aws.opsworks;
 
 import com.pulumi.aws.opsworks.inputs.JavaAppLayerCloudwatchConfigurationArgs;
 import com.pulumi.aws.opsworks.inputs.JavaAppLayerEbsVolumeArgs;
+import com.pulumi.aws.opsworks.inputs.JavaAppLayerLoadBasedAutoScalingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -303,6 +304,13 @@ public final class JavaAppLayerArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.jvmVersion);
     }
 
+    @Import(name="loadBasedAutoScaling")
+    private @Nullable Output<JavaAppLayerLoadBasedAutoScalingArgs> loadBasedAutoScaling;
+
+    public Optional<Output<JavaAppLayerLoadBasedAutoScalingArgs>> loadBasedAutoScaling() {
+        return Optional.ofNullable(this.loadBasedAutoScaling);
+    }
+
     /**
      * A human-readable name for the layer.
      * 
@@ -403,6 +411,7 @@ public final class JavaAppLayerArgs extends com.pulumi.resources.ResourceArgs {
         this.jvmOptions = $.jvmOptions;
         this.jvmType = $.jvmType;
         this.jvmVersion = $.jvmVersion;
+        this.loadBasedAutoScaling = $.loadBasedAutoScaling;
         this.name = $.name;
         this.stackId = $.stackId;
         this.systemPackages = $.systemPackages;
@@ -856,6 +865,15 @@ public final class JavaAppLayerArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder jvmVersion(String jvmVersion) {
             return jvmVersion(Output.of(jvmVersion));
+        }
+
+        public Builder loadBasedAutoScaling(@Nullable Output<JavaAppLayerLoadBasedAutoScalingArgs> loadBasedAutoScaling) {
+            $.loadBasedAutoScaling = loadBasedAutoScaling;
+            return this;
+        }
+
+        public Builder loadBasedAutoScaling(JavaAppLayerLoadBasedAutoScalingArgs loadBasedAutoScaling) {
+            return loadBasedAutoScaling(Output.of(loadBasedAutoScaling));
         }
 
         /**

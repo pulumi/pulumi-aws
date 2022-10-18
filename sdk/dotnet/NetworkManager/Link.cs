@@ -24,7 +24,7 @@ namespace Pulumi.Aws.NetworkManager
     ///     var example = new Aws.NetworkManager.Link("example", new()
     ///     {
     ///         GlobalNetworkId = aws_networkmanager_global_network.Example.Id,
-    ///         SiteId = aws_networkmanager_global_site.Example.Id,
+    ///         SiteId = aws_networkmanager_site.Example.Id,
     ///         Bandwidth = new Aws.NetworkManager.Inputs.LinkBandwidthArgs
     ///         {
     ///             UploadSpeed = 10,

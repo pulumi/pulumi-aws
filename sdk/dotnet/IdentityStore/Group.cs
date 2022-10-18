@@ -48,7 +48,7 @@ namespace Pulumi.Aws.IdentityStore
         public Output<string> GroupId { get; private set; } = null!;
 
         /// <summary>
-        /// The globally unique identifier for the identity store..
+        /// The globally unique identifier for the identity store.
         /// </summary>
         [Output("identityStoreId")]
         public Output<string> IdentityStoreId { get; private set; } = null!;
@@ -112,7 +112,7 @@ namespace Pulumi.Aws.IdentityStore
         public Input<string> DisplayName { get; set; } = null!;
 
         /// <summary>
-        /// The globally unique identifier for the identity store..
+        /// The globally unique identifier for the identity store.
         /// </summary>
         [Input("identityStoreId", required: true)]
         public Input<string> IdentityStoreId { get; set; } = null!;
@@ -156,7 +156,7 @@ namespace Pulumi.Aws.IdentityStore
         public Input<string>? GroupId { get; set; }
 
         /// <summary>
-        /// The globally unique identifier for the identity store..
+        /// The globally unique identifier for the identity store.
         /// </summary>
         [Input("identityStoreId")]
         public Input<string>? IdentityStoreId { get; set; }

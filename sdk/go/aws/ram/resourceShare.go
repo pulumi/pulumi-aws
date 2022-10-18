@@ -43,7 +43,7 @@ import (
 //
 // ## Import
 //
-// Resource shares can be imported using the `id`, e.g.,
+// Resource shares can be imported using the `arn` of the resource share, e.g.,
 //
 // ```sh
 //

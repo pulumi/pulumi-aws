@@ -78,7 +78,7 @@ class AcceleratorIpSetArgs:
                  ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ip_family: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_addresses: A list of IP addresses in the IP address set.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_addresses: The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
         :param pulumi.Input[str] ip_family: The type of IP addresses included in this IP set.
         """
         if ip_addresses is not None:
@@ -90,7 +90,7 @@ class AcceleratorIpSetArgs:
     @pulumi.getter(name="ipAddresses")
     def ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of IP addresses in the IP address set.
+        The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
         """
         return pulumi.get(self, "ip_addresses")
 

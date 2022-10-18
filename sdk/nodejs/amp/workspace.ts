@@ -2,12 +2,13 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Manages an Amazon Managed Service for Prometheus (AMP) Workspace.
- *
- * > **NOTE:** This AWS functionality is in Preview and may change before General Availability release. Backwards compatibility is not guaranteed between provider releases.
  *
  * ## Example Usage
  *
@@ -15,11 +16,23 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const demo = new aws.amp.Workspace("demo", {
- *     alias: "prometheus-test",
+ * const example = new aws.amp.Workspace("example", {
+ *     alias: "example",
  *     tags: {
  *         Environment: "production",
- *         Owner: "abhi",
+ *     },
+ * });
+ * ```
+ * ### CloudWatch Logging
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleLogGroup = new aws.cloudwatch.LogGroup("example", {});
+ * const exampleWorkspace = new aws.amp.Workspace("example", {
+ *     loggingConfiguration: {
+ *         logGroupArn: pulumi.interpolate`${exampleLogGroup.arn}:*`,
  *     },
  * });
  * ```
@@ -69,6 +82,10 @@ export class Workspace extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * Logging configuration for the workspace. See Logging Configuration below for details.
+     */
+    public readonly loggingConfiguration!: pulumi.Output<outputs.amp.WorkspaceLoggingConfiguration | undefined>;
+    /**
      * Prometheus endpoint available for this workspace.
      */
     public /*out*/ readonly prometheusEndpoint!: pulumi.Output<string>;
@@ -96,12 +113,14 @@ export class Workspace extends pulumi.CustomResource {
             const state = argsOrState as WorkspaceState | undefined;
             resourceInputs["alias"] = state ? state.alias : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["loggingConfiguration"] = state ? state.loggingConfiguration : undefined;
             resourceInputs["prometheusEndpoint"] = state ? state.prometheusEndpoint : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as WorkspaceArgs | undefined;
             resourceInputs["alias"] = args ? args.alias : undefined;
+            resourceInputs["loggingConfiguration"] = args ? args.loggingConfiguration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["prometheusEndpoint"] = undefined /*out*/;
@@ -125,6 +144,10 @@ export interface WorkspaceState {
      */
     arn?: pulumi.Input<string>;
     /**
+     * Logging configuration for the workspace. See Logging Configuration below for details.
+     */
+    loggingConfiguration?: pulumi.Input<inputs.amp.WorkspaceLoggingConfiguration>;
+    /**
      * Prometheus endpoint available for this workspace.
      */
     prometheusEndpoint?: pulumi.Input<string>;
@@ -146,6 +169,10 @@ export interface WorkspaceArgs {
      * The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
      */
     alias?: pulumi.Input<string>;
+    /**
+     * Logging configuration for the workspace. See Logging Configuration below for details.
+     */
+    loggingConfiguration?: pulumi.Input<inputs.amp.WorkspaceLoggingConfiguration>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

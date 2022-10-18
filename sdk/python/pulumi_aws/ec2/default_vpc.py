@@ -19,6 +19,7 @@ class DefaultVpcArgs:
                  enable_classiclink_dns_support: Optional[pulumi.Input[bool]] = None,
                  enable_dns_hostnames: Optional[pulumi.Input[bool]] = None,
                  enable_dns_support: Optional[pulumi.Input[bool]] = None,
+                 enable_network_address_usage_metrics: Optional[pulumi.Input[bool]] = None,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
                  ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
                  ipv6_cidr_block_network_border_group: Optional[pulumi.Input[str]] = None,
@@ -45,6 +46,8 @@ class DefaultVpcArgs:
             pulumi.set(__self__, "enable_dns_hostnames", enable_dns_hostnames)
         if enable_dns_support is not None:
             pulumi.set(__self__, "enable_dns_support", enable_dns_support)
+        if enable_network_address_usage_metrics is not None:
+            pulumi.set(__self__, "enable_network_address_usage_metrics", enable_network_address_usage_metrics)
         if force_destroy is not None:
             pulumi.set(__self__, "force_destroy", force_destroy)
         if ipv6_cidr_block is not None:
@@ -102,6 +105,15 @@ class DefaultVpcArgs:
     @enable_dns_support.setter
     def enable_dns_support(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_dns_support", value)
+
+    @property
+    @pulumi.getter(name="enableNetworkAddressUsageMetrics")
+    def enable_network_address_usage_metrics(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enable_network_address_usage_metrics")
+
+    @enable_network_address_usage_metrics.setter
+    def enable_network_address_usage_metrics(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_network_address_usage_metrics", value)
 
     @property
     @pulumi.getter(name="forceDestroy")
@@ -175,6 +187,7 @@ class _DefaultVpcState:
                  enable_classiclink_dns_support: Optional[pulumi.Input[bool]] = None,
                  enable_dns_hostnames: Optional[pulumi.Input[bool]] = None,
                  enable_dns_support: Optional[pulumi.Input[bool]] = None,
+                 enable_network_address_usage_metrics: Optional[pulumi.Input[bool]] = None,
                  existing_default_vpc: Optional[pulumi.Input[bool]] = None,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
                  instance_tenancy: Optional[pulumi.Input[str]] = None,
@@ -221,6 +234,8 @@ class _DefaultVpcState:
             pulumi.set(__self__, "enable_dns_hostnames", enable_dns_hostnames)
         if enable_dns_support is not None:
             pulumi.set(__self__, "enable_dns_support", enable_dns_support)
+        if enable_network_address_usage_metrics is not None:
+            pulumi.set(__self__, "enable_network_address_usage_metrics", enable_network_address_usage_metrics)
         if existing_default_vpc is not None:
             pulumi.set(__self__, "existing_default_vpc", existing_default_vpc)
         if force_destroy is not None:
@@ -349,6 +364,15 @@ class _DefaultVpcState:
         pulumi.set(self, "enable_dns_support", value)
 
     @property
+    @pulumi.getter(name="enableNetworkAddressUsageMetrics")
+    def enable_network_address_usage_metrics(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enable_network_address_usage_metrics")
+
+    @enable_network_address_usage_metrics.setter
+    def enable_network_address_usage_metrics(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_network_address_usage_metrics", value)
+
+    @property
     @pulumi.getter(name="existingDefaultVpc")
     def existing_default_vpc(self) -> Optional[pulumi.Input[bool]]:
         return pulumi.get(self, "existing_default_vpc")
@@ -473,6 +497,7 @@ class DefaultVpc(pulumi.CustomResource):
                  enable_classiclink_dns_support: Optional[pulumi.Input[bool]] = None,
                  enable_dns_hostnames: Optional[pulumi.Input[bool]] = None,
                  enable_dns_support: Optional[pulumi.Input[bool]] = None,
+                 enable_network_address_usage_metrics: Optional[pulumi.Input[bool]] = None,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
                  ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
                  ipv6_cidr_block_network_border_group: Optional[pulumi.Input[str]] = None,
@@ -554,6 +579,7 @@ class DefaultVpc(pulumi.CustomResource):
                  enable_classiclink_dns_support: Optional[pulumi.Input[bool]] = None,
                  enable_dns_hostnames: Optional[pulumi.Input[bool]] = None,
                  enable_dns_support: Optional[pulumi.Input[bool]] = None,
+                 enable_network_address_usage_metrics: Optional[pulumi.Input[bool]] = None,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
                  ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
                  ipv6_cidr_block_network_border_group: Optional[pulumi.Input[str]] = None,
@@ -580,6 +606,7 @@ class DefaultVpc(pulumi.CustomResource):
             __props__.__dict__["enable_classiclink_dns_support"] = enable_classiclink_dns_support
             __props__.__dict__["enable_dns_hostnames"] = enable_dns_hostnames
             __props__.__dict__["enable_dns_support"] = enable_dns_support
+            __props__.__dict__["enable_network_address_usage_metrics"] = enable_network_address_usage_metrics
             __props__.__dict__["force_destroy"] = force_destroy
             __props__.__dict__["ipv6_cidr_block"] = ipv6_cidr_block
             __props__.__dict__["ipv6_cidr_block_network_border_group"] = ipv6_cidr_block_network_border_group
@@ -619,6 +646,7 @@ class DefaultVpc(pulumi.CustomResource):
             enable_classiclink_dns_support: Optional[pulumi.Input[bool]] = None,
             enable_dns_hostnames: Optional[pulumi.Input[bool]] = None,
             enable_dns_support: Optional[pulumi.Input[bool]] = None,
+            enable_network_address_usage_metrics: Optional[pulumi.Input[bool]] = None,
             existing_default_vpc: Optional[pulumi.Input[bool]] = None,
             force_destroy: Optional[pulumi.Input[bool]] = None,
             instance_tenancy: Optional[pulumi.Input[str]] = None,
@@ -657,6 +685,7 @@ class DefaultVpc(pulumi.CustomResource):
         __props__.__dict__["enable_classiclink_dns_support"] = enable_classiclink_dns_support
         __props__.__dict__["enable_dns_hostnames"] = enable_dns_hostnames
         __props__.__dict__["enable_dns_support"] = enable_dns_support
+        __props__.__dict__["enable_network_address_usage_metrics"] = enable_network_address_usage_metrics
         __props__.__dict__["existing_default_vpc"] = existing_default_vpc
         __props__.__dict__["force_destroy"] = force_destroy
         __props__.__dict__["instance_tenancy"] = instance_tenancy
@@ -728,6 +757,11 @@ class DefaultVpc(pulumi.CustomResource):
     @pulumi.getter(name="enableDnsSupport")
     def enable_dns_support(self) -> pulumi.Output[Optional[bool]]:
         return pulumi.get(self, "enable_dns_support")
+
+    @property
+    @pulumi.getter(name="enableNetworkAddressUsageMetrics")
+    def enable_network_address_usage_metrics(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "enable_network_address_usage_metrics")
 
     @property
     @pulumi.getter(name="existingDefaultVpc")

@@ -185,6 +185,7 @@ const (
 	securityhubMod              = "SecurityHub"              // SecurityHub
 	serverlessRepositoryMod     = "ServerlessRepository"     // ServerlessRepository
 	sesMod                      = "Ses"                      // Simple Email Service (SES)
+	sesV2Mod                    = "SesV2"                    // Simple Email Service V2 (SES)
 	signerMod                   = "Signer"                   // Signer
 	s3Mod                       = "S3"                       // Simple Storage (S3)
 	s3ControlMod                = "S3Control"                // S3 Control
@@ -1056,8 +1057,9 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsResource(codecommitMod, "ApprovalRuleTemplateAssociation"),
 			},
 			// CodePipeline
-			"aws_codepipeline":         {Tok: awsResource(codepipelineMod, "Pipeline")},
-			"aws_codepipeline_webhook": {Tok: awsResource(codepipelineMod, "Webhook")},
+			"aws_codepipeline":                    {Tok: awsResource(codepipelineMod, "Pipeline")},
+			"aws_codepipeline_custom_action_type": {Tok: awsResource(codepipelineMod, "CustomActionType")},
+			"aws_codepipeline_webhook":            {Tok: awsResource(codepipelineMod, "Webhook")},
 
 			// Cognito
 			"aws_cognito_identity_pool":                        {Tok: awsResource(cognitoMod, "IdentityPool")},
@@ -1075,7 +1077,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_cognito_risk_configuration":                   {Tok: awsResource(cognitoMod, "RiskConfiguration")},
 
 			// Comprehend
-			"aws_comprehend_entity_recognizer": {Tok: awsResource(comprehendMod, "EntityRecognizer")},
+			"aws_comprehend_document_classifier": {Tok: awsResource(comprehendMod, "DocumentClassifier")},
+			"aws_comprehend_entity_recognizer":   {Tok: awsResource(comprehendMod, "EntityRecognizer")},
 
 			// Connect
 			"aws_connect_contact_flow":                {Tok: awsResource(connectMod, "ContactFlow")},
@@ -2078,6 +2081,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_inspector_resource_group":      {Tok: awsResource(inspectorMod, "ResourceGroup")},
 
 			// Inspector V2
+			"aws_inspector2_delegated_admin_account":    {Tok: awsResource(inspector2Mod, "DelegatedAdminAccount")},
 			"aws_inspector2_organization_configuration": {Tok: awsResource(inspector2Mod, "OrganizationConfiguration")},
 
 			// IOT
@@ -2481,6 +2485,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_rds_global_cluster":           {Tok: awsResource(rdsMod, "GlobalCluster")},
 			"aws_rds_cluster_role_association": {Tok: awsResource(rdsMod, "ClusterRoleAssociation")},
 			"aws_rds_cluster_activity_stream":  {Tok: awsResource(rdsMod, "ClusterActivityStream")},
+			"aws_rds_reserved_instance":        {Tok: awsResource(rdsMod, "ReservedInstance")},
 			"aws_db_cluster_snapshot":          {Tok: awsResource(rdsMod, "ClusterSnapshot")},
 			"aws_db_event_subscription":        {Tok: awsResource(rdsMod, "EventSubscription")},
 			"aws_db_instance": {
@@ -2759,6 +2764,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ses_receipt_rule_set":             {Tok: awsResource(sesMod, "ReceiptRuleSet")},
 			"aws_ses_event_destination":            {Tok: awsResource(sesMod, "EventDestination")},
 			"aws_ses_template":                     {Tok: awsResource(sesMod, "Template")},
+
+			"aws_sesv2_configuration_set": {Tok: awsResource(sesV2Mod, "ConfigurationSet")},
 
 			// Shield
 			"aws_shield_protection":                          {Tok: awsResource(shieldMod, "Protection")},
@@ -3047,6 +3054,14 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_s3control_multi_region_access_point_policy":  {Tok: awsResource(s3ControlMod, "MultiRegionAccessPointPolicy")},
 			"aws_s3control_object_lambda_access_point":        {Tok: awsResource(s3ControlMod, "ObjectLambdaAccessPoint")},
 			"aws_s3control_object_lambda_access_point_policy": {Tok: awsResource(s3ControlMod, "ObjectLambdaAccessPointPolicy")},
+			"aws_s3control_storage_lens_configuration": {
+				Tok: awsResource(s3ControlMod, "StorageLensConfiguration"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"storage_lens_configuration": {
+						CSharpName: "StorageLensConfigurationDetail",
+					},
+				},
+			},
 			// S3 Outposts
 			"aws_s3outposts_endpoint": {Tok: awsResource(s3OutpostsMod, "Endpoint")},
 			// Systems Manager (SSM)
@@ -3200,6 +3215,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_transfer_user":     {Tok: awsResource(transferMod, "User")},
 			"aws_transfer_access":   {Tok: awsResource(transferMod, "Access")},
 			"aws_transfer_workflow": {Tok: awsResource(transferMod, "Workflow")},
+			"aws_transfer_tag":      {Tok: awsResource(transferMod, "Tag")},
 			// TimestreamWrite
 			"aws_timestreamwrite_database": {Tok: awsResource(timestreamWriteMod, "Database")},
 			"aws_timestreamwrite_table":    {Tok: awsResource(timestreamWriteMod, "Table")},
@@ -4814,6 +4830,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ec2_transit_gateway_route_tables": {Tok: awsDataSource(ec2Mod, "getTransitGatewayRouteTables")},
 			"aws_ec2_instance_types":               {Tok: awsDataSource(ec2Mod, "getInstanceTypes")},
 			"aws_vpc_ipam_pool":                    {Tok: awsDataSource(ec2Mod, "getVpcIamPool")},
+			"aws_vpc_ipam_pools":                   {Tok: awsDataSource(ec2Mod, "getVpcIamPools")},
 			"aws_vpc_ipam_pool_cidrs":              {Tok: awsDataSource(ec2Mod, "getVpcIamPoolCidrs")},
 			"aws_vpc_ipam_preview_next_cidr":       {Tok: awsDataSource(ec2Mod, "getIpamPreviewNextCidr")},
 			"aws_eips":                             {Tok: awsDataSource(ec2Mod, "getEips")},
@@ -5038,16 +5055,17 @@ func Provider() tfbridge.ProviderInfo {
 			// Pricing
 			"aws_pricing_product": {Tok: awsDataSource(pricingMod, "getProduct")},
 			// RDS
-			"aws_rds_cluster":               {Tok: awsDataSource(rdsMod, "getCluster")},
-			"aws_db_cluster_snapshot":       {Tok: awsDataSource(rdsMod, "getClusterSnapshot")},
-			"aws_db_event_categories":       {Tok: awsDataSource(rdsMod, "getEventCategories")},
-			"aws_db_instance":               {Tok: awsDataSource(rdsMod, "getInstance")},
-			"aws_db_snapshot":               {Tok: awsDataSource(rdsMod, "getSnapshot")},
-			"aws_db_subnet_group":           {Tok: awsDataSource(rdsMod, "getSubnetGroup")},
-			"aws_rds_orderable_db_instance": {Tok: awsDataSource(rdsMod, "getOrderableDbInstance")},
-			"aws_rds_engine_version":        {Tok: awsDataSource(rdsMod, "getEngineVersion")},
-			"aws_rds_certificate":           {Tok: awsDataSource(rdsMod, "getCertificate")},
-			"aws_db_proxy":                  {Tok: awsDataSource(rdsMod, "getProxy")},
+			"aws_rds_cluster":                    {Tok: awsDataSource(rdsMod, "getCluster")},
+			"aws_db_cluster_snapshot":            {Tok: awsDataSource(rdsMod, "getClusterSnapshot")},
+			"aws_db_event_categories":            {Tok: awsDataSource(rdsMod, "getEventCategories")},
+			"aws_db_instance":                    {Tok: awsDataSource(rdsMod, "getInstance")},
+			"aws_db_snapshot":                    {Tok: awsDataSource(rdsMod, "getSnapshot")},
+			"aws_db_subnet_group":                {Tok: awsDataSource(rdsMod, "getSubnetGroup")},
+			"aws_rds_orderable_db_instance":      {Tok: awsDataSource(rdsMod, "getOrderableDbInstance")},
+			"aws_rds_engine_version":             {Tok: awsDataSource(rdsMod, "getEngineVersion")},
+			"aws_rds_certificate":                {Tok: awsDataSource(rdsMod, "getCertificate")},
+			"aws_rds_reserved_instance_offering": {Tok: awsDataSource(rdsMod, "getReservedInstanceOffering")},
+			"aws_db_proxy":                       {Tok: awsDataSource(rdsMod, "getProxy")},
 			// Ram
 			"aws_ram_resource_share": {Tok: awsDataSource(ramMod, "getResourceShare")},
 			// RedShift

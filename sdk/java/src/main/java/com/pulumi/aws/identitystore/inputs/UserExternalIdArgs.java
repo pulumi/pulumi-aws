@@ -5,7 +5,6 @@ package com.pulumi.aws.identitystore.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -21,13 +20,13 @@ public final class UserExternalIdArgs extends com.pulumi.resources.ResourceArgs 
      * 
      */
     @Import(name="id")
-    private @Nullable Output<Boolean> id;
+    private @Nullable Output<String> id;
 
     /**
      * @return The identifier issued to this resource by an external identity provider.
      * 
      */
-    public Optional<Output<Boolean>> id() {
+    public Optional<Output<String>> id() {
         return Optional.ofNullable(this.id);
     }
 
@@ -77,7 +76,7 @@ public final class UserExternalIdArgs extends com.pulumi.resources.ResourceArgs 
          * @return builder
          * 
          */
-        public Builder id(@Nullable Output<Boolean> id) {
+        public Builder id(@Nullable Output<String> id) {
             $.id = id;
             return this;
         }
@@ -88,7 +87,7 @@ public final class UserExternalIdArgs extends com.pulumi.resources.ResourceArgs 
          * @return builder
          * 
          */
-        public Builder id(Boolean id) {
+        public Builder id(String id) {
             return id(Output.of(id));
         }
 

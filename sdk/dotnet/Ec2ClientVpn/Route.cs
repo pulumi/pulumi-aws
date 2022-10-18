@@ -75,7 +75,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public Output<string> ClientVpnEndpointId { get; private set; } = null!;
 
         /// <summary>
-        /// A brief description of the authorization rule.
+        /// A brief description of the route.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -157,7 +157,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public Input<string> ClientVpnEndpointId { get; set; } = null!;
 
         /// <summary>
-        /// A brief description of the authorization rule.
+        /// A brief description of the route.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -189,7 +189,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public Input<string>? ClientVpnEndpointId { get; set; }
 
         /// <summary>
-        /// A brief description of the authorization rule.
+        /// A brief description of the route.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }

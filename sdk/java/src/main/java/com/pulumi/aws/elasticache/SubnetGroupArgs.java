@@ -34,14 +34,14 @@ public final class SubnetGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name for the cache subnet group. Elasticache converts this name to lowercase.
+     * Name for the cache subnet group. ElastiCache converts this name to lowercase.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name for the cache subnet group. Elasticache converts this name to lowercase.
+     * @return Name for the cache subnet group. ElastiCache converts this name to lowercase.
      * 
      */
     public Optional<Output<String>> name() {
@@ -127,7 +127,7 @@ public final class SubnetGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name for the cache subnet group. Elasticache converts this name to lowercase.
+         * @param name Name for the cache subnet group. ElastiCache converts this name to lowercase.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class SubnetGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name for the cache subnet group. Elasticache converts this name to lowercase.
+         * @param name Name for the cache subnet group. ElastiCache converts this name to lowercase.
          * 
          * @return builder
          * 

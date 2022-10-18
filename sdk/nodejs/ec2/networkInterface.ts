@@ -107,6 +107,9 @@ export class NetworkInterface extends pulumi.CustomResource {
      * Number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
      */
     public readonly ipv6AddressCount!: pulumi.Output<number>;
+    /**
+     * Whether `ipv6AddressList` is allowed and controls the IPs to assign to the ENI and `ipv6Addresses` and `ipv6AddressCount` become read-only. Default false.
+     */
     public readonly ipv6AddressListEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * List of private IPs to assign to the ENI in sequential order.
@@ -280,6 +283,9 @@ export interface NetworkInterfaceState {
      * Number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
      */
     ipv6AddressCount?: pulumi.Input<number>;
+    /**
+     * Whether `ipv6AddressList` is allowed and controls the IPs to assign to the ENI and `ipv6Addresses` and `ipv6AddressCount` become read-only. Default false.
+     */
     ipv6AddressListEnabled?: pulumi.Input<boolean>;
     /**
      * List of private IPs to assign to the ENI in sequential order.
@@ -374,6 +380,9 @@ export interface NetworkInterfaceArgs {
      * Number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
      */
     ipv6AddressCount?: pulumi.Input<number>;
+    /**
+     * Whether `ipv6AddressList` is allowed and controls the IPs to assign to the ENI and `ipv6Addresses` and `ipv6AddressCount` become read-only. Default false.
+     */
     ipv6AddressListEnabled?: pulumi.Input<boolean>;
     /**
      * List of private IPs to assign to the ENI in sequential order.

@@ -10,6 +10,10 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'CustomActionTypeConfigurationPropertyArgs',
+    'CustomActionTypeInputArtifactDetailsArgs',
+    'CustomActionTypeOutputArtifactDetailsArgs',
+    'CustomActionTypeSettingsArgs',
     'PipelineArtifactStoreArgs',
     'PipelineArtifactStoreEncryptionKeyArgs',
     'PipelineStageArgs',
@@ -17,6 +21,266 @@ __all__ = [
     'WebhookAuthenticationConfigurationArgs',
     'WebhookFilterArgs',
 ]
+
+@pulumi.input_type
+class CustomActionTypeConfigurationPropertyArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[bool],
+                 name: pulumi.Input[str],
+                 required: pulumi.Input[bool],
+                 secret: pulumi.Input[bool],
+                 description: Optional[pulumi.Input[str]] = None,
+                 queryable: Optional[pulumi.Input[bool]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] key: Whether the configuration property is a key.
+        :param pulumi.Input[str] name: The name of the action configuration property.
+        :param pulumi.Input[bool] required: Whether the configuration property is a required value.
+        :param pulumi.Input[bool] secret: Whether the configuration property is secret.
+        :param pulumi.Input[str] description: The description of the action configuration property.
+        :param pulumi.Input[bool] queryable: Indicates that the property will be used in conjunction with PollForJobs.
+        :param pulumi.Input[str] type: The type of the configuration property. Valid values: `String`, `Number`, `Boolean`
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "required", required)
+        pulumi.set(__self__, "secret", secret)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if queryable is not None:
+            pulumi.set(__self__, "queryable", queryable)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[bool]:
+        """
+        Whether the configuration property is a key.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the action configuration property.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def required(self) -> pulumi.Input[bool]:
+        """
+        Whether the configuration property is a required value.
+        """
+        return pulumi.get(self, "required")
+
+    @required.setter
+    def required(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "required", value)
+
+    @property
+    @pulumi.getter
+    def secret(self) -> pulumi.Input[bool]:
+        """
+        Whether the configuration property is secret.
+        """
+        return pulumi.get(self, "secret")
+
+    @secret.setter
+    def secret(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "secret", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the action configuration property.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def queryable(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates that the property will be used in conjunction with PollForJobs.
+        """
+        return pulumi.get(self, "queryable")
+
+    @queryable.setter
+    def queryable(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "queryable", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of the configuration property. Valid values: `String`, `Number`, `Boolean`
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class CustomActionTypeInputArtifactDetailsArgs:
+    def __init__(__self__, *,
+                 maximum_count: pulumi.Input[int],
+                 minimum_count: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] maximum_count: The maximum number of artifacts allowed for the action type. Min: 0, Max: 5
+        :param pulumi.Input[int] minimum_count: The minimum number of artifacts allowed for the action type. Min: 0, Max: 5
+        """
+        pulumi.set(__self__, "maximum_count", maximum_count)
+        pulumi.set(__self__, "minimum_count", minimum_count)
+
+    @property
+    @pulumi.getter(name="maximumCount")
+    def maximum_count(self) -> pulumi.Input[int]:
+        """
+        The maximum number of artifacts allowed for the action type. Min: 0, Max: 5
+        """
+        return pulumi.get(self, "maximum_count")
+
+    @maximum_count.setter
+    def maximum_count(self, value: pulumi.Input[int]):
+        pulumi.set(self, "maximum_count", value)
+
+    @property
+    @pulumi.getter(name="minimumCount")
+    def minimum_count(self) -> pulumi.Input[int]:
+        """
+        The minimum number of artifacts allowed for the action type. Min: 0, Max: 5
+        """
+        return pulumi.get(self, "minimum_count")
+
+    @minimum_count.setter
+    def minimum_count(self, value: pulumi.Input[int]):
+        pulumi.set(self, "minimum_count", value)
+
+
+@pulumi.input_type
+class CustomActionTypeOutputArtifactDetailsArgs:
+    def __init__(__self__, *,
+                 maximum_count: pulumi.Input[int],
+                 minimum_count: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] maximum_count: The maximum number of artifacts allowed for the action type. Min: 0, Max: 5
+        :param pulumi.Input[int] minimum_count: The minimum number of artifacts allowed for the action type. Min: 0, Max: 5
+        """
+        pulumi.set(__self__, "maximum_count", maximum_count)
+        pulumi.set(__self__, "minimum_count", minimum_count)
+
+    @property
+    @pulumi.getter(name="maximumCount")
+    def maximum_count(self) -> pulumi.Input[int]:
+        """
+        The maximum number of artifacts allowed for the action type. Min: 0, Max: 5
+        """
+        return pulumi.get(self, "maximum_count")
+
+    @maximum_count.setter
+    def maximum_count(self, value: pulumi.Input[int]):
+        pulumi.set(self, "maximum_count", value)
+
+    @property
+    @pulumi.getter(name="minimumCount")
+    def minimum_count(self) -> pulumi.Input[int]:
+        """
+        The minimum number of artifacts allowed for the action type. Min: 0, Max: 5
+        """
+        return pulumi.get(self, "minimum_count")
+
+    @minimum_count.setter
+    def minimum_count(self, value: pulumi.Input[int]):
+        pulumi.set(self, "minimum_count", value)
+
+
+@pulumi.input_type
+class CustomActionTypeSettingsArgs:
+    def __init__(__self__, *,
+                 entity_url_template: Optional[pulumi.Input[str]] = None,
+                 execution_url_template: Optional[pulumi.Input[str]] = None,
+                 revision_url_template: Optional[pulumi.Input[str]] = None,
+                 third_party_configuration_url: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] entity_url_template: The URL returned to the AWS CodePipeline console that provides a deep link to the resources of the external system.
+        :param pulumi.Input[str] execution_url_template: The URL returned to the AWS CodePipeline console that contains a link to the top-level landing page for the external system.
+        :param pulumi.Input[str] revision_url_template: The URL returned to the AWS CodePipeline console that contains a link to the page where customers can update or change the configuration of the external action.
+        :param pulumi.Input[str] third_party_configuration_url: The URL of a sign-up page where users can sign up for an external service and perform initial configuration of the action provided by that service.
+        """
+        if entity_url_template is not None:
+            pulumi.set(__self__, "entity_url_template", entity_url_template)
+        if execution_url_template is not None:
+            pulumi.set(__self__, "execution_url_template", execution_url_template)
+        if revision_url_template is not None:
+            pulumi.set(__self__, "revision_url_template", revision_url_template)
+        if third_party_configuration_url is not None:
+            pulumi.set(__self__, "third_party_configuration_url", third_party_configuration_url)
+
+    @property
+    @pulumi.getter(name="entityUrlTemplate")
+    def entity_url_template(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL returned to the AWS CodePipeline console that provides a deep link to the resources of the external system.
+        """
+        return pulumi.get(self, "entity_url_template")
+
+    @entity_url_template.setter
+    def entity_url_template(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "entity_url_template", value)
+
+    @property
+    @pulumi.getter(name="executionUrlTemplate")
+    def execution_url_template(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL returned to the AWS CodePipeline console that contains a link to the top-level landing page for the external system.
+        """
+        return pulumi.get(self, "execution_url_template")
+
+    @execution_url_template.setter
+    def execution_url_template(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "execution_url_template", value)
+
+    @property
+    @pulumi.getter(name="revisionUrlTemplate")
+    def revision_url_template(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL returned to the AWS CodePipeline console that contains a link to the page where customers can update or change the configuration of the external action.
+        """
+        return pulumi.get(self, "revision_url_template")
+
+    @revision_url_template.setter
+    def revision_url_template(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "revision_url_template", value)
+
+    @property
+    @pulumi.getter(name="thirdPartyConfigurationUrl")
+    def third_party_configuration_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL of a sign-up page where users can sign up for an external service and perform initial configuration of the action provided by that service.
+        """
+        return pulumi.get(self, "third_party_configuration_url")
+
+    @third_party_configuration_url.setter
+    def third_party_configuration_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "third_party_configuration_url", value)
+
 
 @pulumi.input_type
 class PipelineArtifactStoreArgs:

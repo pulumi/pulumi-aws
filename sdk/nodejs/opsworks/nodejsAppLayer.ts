@@ -101,6 +101,7 @@ export class NodejsAppLayer extends pulumi.CustomResource {
      * The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
      */
     public readonly instanceShutdownTimeout!: pulumi.Output<number | undefined>;
+    public readonly loadBasedAutoScaling!: pulumi.Output<outputs.opsworks.NodejsAppLayerLoadBasedAutoScaling>;
     /**
      * A human-readable name for the layer.
      */
@@ -161,6 +162,7 @@ export class NodejsAppLayer extends pulumi.CustomResource {
             resourceInputs["elasticLoadBalancer"] = state ? state.elasticLoadBalancer : undefined;
             resourceInputs["installUpdatesOnBoot"] = state ? state.installUpdatesOnBoot : undefined;
             resourceInputs["instanceShutdownTimeout"] = state ? state.instanceShutdownTimeout : undefined;
+            resourceInputs["loadBasedAutoScaling"] = state ? state.loadBasedAutoScaling : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["nodejsVersion"] = state ? state.nodejsVersion : undefined;
             resourceInputs["stackId"] = state ? state.stackId : undefined;
@@ -190,6 +192,7 @@ export class NodejsAppLayer extends pulumi.CustomResource {
             resourceInputs["elasticLoadBalancer"] = args ? args.elasticLoadBalancer : undefined;
             resourceInputs["installUpdatesOnBoot"] = args ? args.installUpdatesOnBoot : undefined;
             resourceInputs["instanceShutdownTimeout"] = args ? args.instanceShutdownTimeout : undefined;
+            resourceInputs["loadBasedAutoScaling"] = args ? args.loadBasedAutoScaling : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["nodejsVersion"] = args ? args.nodejsVersion : undefined;
             resourceInputs["stackId"] = args ? args.stackId : undefined;
@@ -262,6 +265,7 @@ export interface NodejsAppLayerState {
      * The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
      */
     instanceShutdownTimeout?: pulumi.Input<number>;
+    loadBasedAutoScaling?: pulumi.Input<inputs.opsworks.NodejsAppLayerLoadBasedAutoScaling>;
     /**
      * A human-readable name for the layer.
      */
@@ -346,6 +350,7 @@ export interface NodejsAppLayerArgs {
      * The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
      */
     instanceShutdownTimeout?: pulumi.Input<number>;
+    loadBasedAutoScaling?: pulumi.Input<inputs.opsworks.NodejsAppLayerLoadBasedAutoScaling>;
     /**
      * A human-readable name for the layer.
      */

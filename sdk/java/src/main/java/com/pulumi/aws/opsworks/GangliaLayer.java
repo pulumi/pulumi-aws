@@ -8,6 +8,7 @@ import com.pulumi.aws.opsworks.GangliaLayerArgs;
 import com.pulumi.aws.opsworks.inputs.GangliaLayerState;
 import com.pulumi.aws.opsworks.outputs.GangliaLayerCloudwatchConfiguration;
 import com.pulumi.aws.opsworks.outputs.GangliaLayerEbsVolume;
+import com.pulumi.aws.opsworks.outputs.GangliaLayerLoadBasedAutoScaling;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -260,6 +261,12 @@ public class GangliaLayer extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Integer>> instanceShutdownTimeout() {
         return Codegen.optional(this.instanceShutdownTimeout);
+    }
+    @Export(name="loadBasedAutoScaling", type=GangliaLayerLoadBasedAutoScaling.class, parameters={})
+    private Output<GangliaLayerLoadBasedAutoScaling> loadBasedAutoScaling;
+
+    public Output<GangliaLayerLoadBasedAutoScaling> loadBasedAutoScaling() {
+        return this.loadBasedAutoScaling;
     }
     /**
      * A human-readable name for the layer.

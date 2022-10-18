@@ -164,8 +164,6 @@ def get_nat_gateway(filters: Optional[Sequence[pulumi.InputType['GetNatGatewayFi
     import pulumi
     import pulumi_aws as aws
 
-    config = pulumi.Config()
-    subnet_id = config.require_object("subnetId")
     default = aws.ec2.get_nat_gateway(subnet_id=aws_subnet["public"]["id"])
     ```
 
@@ -231,8 +229,6 @@ def get_nat_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[pulu
     import pulumi
     import pulumi_aws as aws
 
-    config = pulumi.Config()
-    subnet_id = config.require_object("subnetId")
     default = aws.ec2.get_nat_gateway(subnet_id=aws_subnet["public"]["id"])
     ```
 
