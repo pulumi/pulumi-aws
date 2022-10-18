@@ -62,14 +62,37 @@ public final class GlobalReplicationGroupState extends com.pulumi.resources.Reso
     }
 
     /**
-     * The instance class used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+     * Specifies whether read-only replicas will be automatically promoted to read/write primary if the existing primary fails.
+     * When creating, by default the Global Replication Group inherits the automatic failover setting of the primary replication group.
+     * 
+     */
+    @Import(name="automaticFailoverEnabled")
+    private @Nullable Output<Boolean> automaticFailoverEnabled;
+
+    /**
+     * @return Specifies whether read-only replicas will be automatically promoted to read/write primary if the existing primary fails.
+     * When creating, by default the Global Replication Group inherits the automatic failover setting of the primary replication group.
+     * 
+     */
+    public Optional<Output<Boolean>> automaticFailoverEnabled() {
+        return Optional.ofNullable(this.automaticFailoverEnabled);
+    }
+
+    /**
+     * The instance class used.
+     * See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html)
+     * and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+     * When creating, by default the Global Replication Group inherits the node type of the primary replication group.
      * 
      */
     @Import(name="cacheNodeType")
     private @Nullable Output<String> cacheNodeType;
 
     /**
-     * @return The instance class used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+     * @return The instance class used.
+     * See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html)
+     * and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+     * When creating, by default the Global Replication Group inherits the node type of the primary replication group.
      * 
      */
     public Optional<Output<String>> cacheNodeType() {
@@ -250,6 +273,7 @@ public final class GlobalReplicationGroupState extends com.pulumi.resources.Reso
         this.arn = $.arn;
         this.atRestEncryptionEnabled = $.atRestEncryptionEnabled;
         this.authTokenEnabled = $.authTokenEnabled;
+        this.automaticFailoverEnabled = $.automaticFailoverEnabled;
         this.cacheNodeType = $.cacheNodeType;
         this.clusterEnabled = $.clusterEnabled;
         this.engine = $.engine;
@@ -345,7 +369,33 @@ public final class GlobalReplicationGroupState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param cacheNodeType The instance class used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+         * @param automaticFailoverEnabled Specifies whether read-only replicas will be automatically promoted to read/write primary if the existing primary fails.
+         * When creating, by default the Global Replication Group inherits the automatic failover setting of the primary replication group.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder automaticFailoverEnabled(@Nullable Output<Boolean> automaticFailoverEnabled) {
+            $.automaticFailoverEnabled = automaticFailoverEnabled;
+            return this;
+        }
+
+        /**
+         * @param automaticFailoverEnabled Specifies whether read-only replicas will be automatically promoted to read/write primary if the existing primary fails.
+         * When creating, by default the Global Replication Group inherits the automatic failover setting of the primary replication group.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder automaticFailoverEnabled(Boolean automaticFailoverEnabled) {
+            return automaticFailoverEnabled(Output.of(automaticFailoverEnabled));
+        }
+
+        /**
+         * @param cacheNodeType The instance class used.
+         * See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html)
+         * and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+         * When creating, by default the Global Replication Group inherits the node type of the primary replication group.
          * 
          * @return builder
          * 
@@ -356,7 +406,10 @@ public final class GlobalReplicationGroupState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param cacheNodeType The instance class used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+         * @param cacheNodeType The instance class used.
+         * See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html)
+         * and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+         * When creating, by default the Global Replication Group inherits the node type of the primary replication group.
          * 
          * @return builder
          * 

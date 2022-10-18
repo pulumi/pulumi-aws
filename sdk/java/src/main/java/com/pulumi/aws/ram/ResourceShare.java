@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Resource shares can be imported using the `id`, e.g.,
+ * Resource shares can be imported using the `arn` of the resource share, e.g.,
  * 
  * ```sh
  *  $ pulumi import aws:ram/resourceShare:ResourceShare example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12

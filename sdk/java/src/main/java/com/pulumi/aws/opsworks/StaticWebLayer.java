@@ -8,6 +8,7 @@ import com.pulumi.aws.opsworks.StaticWebLayerArgs;
 import com.pulumi.aws.opsworks.inputs.StaticWebLayerState;
 import com.pulumi.aws.opsworks.outputs.StaticWebLayerCloudwatchConfiguration;
 import com.pulumi.aws.opsworks.outputs.StaticWebLayerEbsVolume;
+import com.pulumi.aws.opsworks.outputs.StaticWebLayerLoadBasedAutoScaling;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -259,6 +260,12 @@ public class StaticWebLayer extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Integer>> instanceShutdownTimeout() {
         return Codegen.optional(this.instanceShutdownTimeout);
+    }
+    @Export(name="loadBasedAutoScaling", type=StaticWebLayerLoadBasedAutoScaling.class, parameters={})
+    private Output<StaticWebLayerLoadBasedAutoScaling> loadBasedAutoScaling;
+
+    public Output<StaticWebLayerLoadBasedAutoScaling> loadBasedAutoScaling() {
+        return this.loadBasedAutoScaling;
     }
     /**
      * A human-readable name for the layer.

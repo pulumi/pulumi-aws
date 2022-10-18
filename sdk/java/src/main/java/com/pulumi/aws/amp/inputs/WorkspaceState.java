@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.amp.inputs;
 
+import com.pulumi.aws.amp.inputs.WorkspaceLoggingConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -44,6 +45,21 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
+    }
+
+    /**
+     * Logging configuration for the workspace. See Logging Configuration below for details.
+     * 
+     */
+    @Import(name="loggingConfiguration")
+    private @Nullable Output<WorkspaceLoggingConfigurationArgs> loggingConfiguration;
+
+    /**
+     * @return Logging configuration for the workspace. See Logging Configuration below for details.
+     * 
+     */
+    public Optional<Output<WorkspaceLoggingConfigurationArgs>> loggingConfiguration() {
+        return Optional.ofNullable(this.loggingConfiguration);
     }
 
     /**
@@ -96,6 +112,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
     private WorkspaceState(WorkspaceState $) {
         this.alias = $.alias;
         this.arn = $.arn;
+        this.loggingConfiguration = $.loggingConfiguration;
         this.prometheusEndpoint = $.prometheusEndpoint;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -159,6 +176,27 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
+        }
+
+        /**
+         * @param loggingConfiguration Logging configuration for the workspace. See Logging Configuration below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder loggingConfiguration(@Nullable Output<WorkspaceLoggingConfigurationArgs> loggingConfiguration) {
+            $.loggingConfiguration = loggingConfiguration;
+            return this;
+        }
+
+        /**
+         * @param loggingConfiguration Logging configuration for the workspace. See Logging Configuration below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder loggingConfiguration(WorkspaceLoggingConfigurationArgs loggingConfiguration) {
+            return loggingConfiguration(Output.of(loggingConfiguration));
         }
 
         /**

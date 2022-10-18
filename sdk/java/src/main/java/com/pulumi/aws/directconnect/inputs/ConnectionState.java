@@ -182,6 +182,21 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tagsAll);
     }
 
+    /**
+     * The VLAN ID.
+     * 
+     */
+    @Import(name="vlanId")
+    private @Nullable Output<String> vlanId;
+
+    /**
+     * @return The VLAN ID.
+     * 
+     */
+    public Optional<Output<String>> vlanId() {
+        return Optional.ofNullable(this.vlanId);
+    }
+
     private ConnectionState() {}
 
     private ConnectionState(ConnectionState $) {
@@ -196,6 +211,7 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
         this.providerName = $.providerName;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
+        this.vlanId = $.vlanId;
     }
 
     public static Builder builder() {
@@ -445,6 +461,27 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
+        }
+
+        /**
+         * @param vlanId The VLAN ID.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder vlanId(@Nullable Output<String> vlanId) {
+            $.vlanId = vlanId;
+            return this;
+        }
+
+        /**
+         * @param vlanId The VLAN ID.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder vlanId(String vlanId) {
+            return vlanId(Output.of(vlanId));
         }
 
         public ConnectionState build() {

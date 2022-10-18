@@ -12,6 +12,7 @@ import com.pulumi.aws.cognito.inputs.UserPoolPasswordPolicyArgs;
 import com.pulumi.aws.cognito.inputs.UserPoolSchemaArgs;
 import com.pulumi.aws.cognito.inputs.UserPoolSmsConfigurationArgs;
 import com.pulumi.aws.cognito.inputs.UserPoolSoftwareTokenMfaConfigurationArgs;
+import com.pulumi.aws.cognito.inputs.UserPoolUserAttributeUpdateSettingsArgs;
 import com.pulumi.aws.cognito.inputs.UserPoolUserPoolAddOnsArgs;
 import com.pulumi.aws.cognito.inputs.UserPoolUsernameConfigurationArgs;
 import com.pulumi.aws.cognito.inputs.UserPoolVerificationMessageTemplateArgs;
@@ -421,6 +422,21 @@ public final class UserPoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Configuration block for user attribute update settings. Detailed below.
+     * 
+     */
+    @Import(name="userAttributeUpdateSettings")
+    private @Nullable Output<UserPoolUserAttributeUpdateSettingsArgs> userAttributeUpdateSettings;
+
+    /**
+     * @return Configuration block for user attribute update settings. Detailed below.
+     * 
+     */
+    public Optional<Output<UserPoolUserAttributeUpdateSettingsArgs>> userAttributeUpdateSettings() {
+        return Optional.ofNullable(this.userAttributeUpdateSettings);
+    }
+
+    /**
      * Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
      * 
      */
@@ -509,6 +525,7 @@ public final class UserPoolState extends com.pulumi.resources.ResourceArgs {
         this.softwareTokenMfaConfiguration = $.softwareTokenMfaConfiguration;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
+        this.userAttributeUpdateSettings = $.userAttributeUpdateSettings;
         this.userPoolAddOns = $.userPoolAddOns;
         this.usernameAttributes = $.usernameAttributes;
         this.usernameConfiguration = $.usernameConfiguration;
@@ -1107,6 +1124,27 @@ public final class UserPoolState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
+        }
+
+        /**
+         * @param userAttributeUpdateSettings Configuration block for user attribute update settings. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userAttributeUpdateSettings(@Nullable Output<UserPoolUserAttributeUpdateSettingsArgs> userAttributeUpdateSettings) {
+            $.userAttributeUpdateSettings = userAttributeUpdateSettings;
+            return this;
+        }
+
+        /**
+         * @param userAttributeUpdateSettings Configuration block for user attribute update settings. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userAttributeUpdateSettings(UserPoolUserAttributeUpdateSettingsArgs userAttributeUpdateSettings) {
+            return userAttributeUpdateSettings(Output.of(userAttributeUpdateSettings));
         }
 
         /**

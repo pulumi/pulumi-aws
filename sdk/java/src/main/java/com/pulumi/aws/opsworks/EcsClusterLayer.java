@@ -8,6 +8,7 @@ import com.pulumi.aws.opsworks.EcsClusterLayerArgs;
 import com.pulumi.aws.opsworks.inputs.EcsClusterLayerState;
 import com.pulumi.aws.opsworks.outputs.EcsClusterLayerCloudwatchConfiguration;
 import com.pulumi.aws.opsworks.outputs.EcsClusterLayerEbsVolume;
+import com.pulumi.aws.opsworks.outputs.EcsClusterLayerLoadBasedAutoScaling;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -274,6 +275,12 @@ public class EcsClusterLayer extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Integer>> instanceShutdownTimeout() {
         return Codegen.optional(this.instanceShutdownTimeout);
+    }
+    @Export(name="loadBasedAutoScaling", type=EcsClusterLayerLoadBasedAutoScaling.class, parameters={})
+    private Output<EcsClusterLayerLoadBasedAutoScaling> loadBasedAutoScaling;
+
+    public Output<EcsClusterLayerLoadBasedAutoScaling> loadBasedAutoScaling() {
+        return this.loadBasedAutoScaling;
     }
     /**
      * A human-readable name for the layer.

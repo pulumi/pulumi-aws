@@ -20,6 +20,8 @@ import com.pulumi.aws.rds.inputs.GetOrderableDbInstanceArgs;
 import com.pulumi.aws.rds.inputs.GetOrderableDbInstancePlainArgs;
 import com.pulumi.aws.rds.inputs.GetProxyArgs;
 import com.pulumi.aws.rds.inputs.GetProxyPlainArgs;
+import com.pulumi.aws.rds.inputs.GetReservedInstanceOfferingArgs;
+import com.pulumi.aws.rds.inputs.GetReservedInstanceOfferingPlainArgs;
 import com.pulumi.aws.rds.inputs.GetSnapshotArgs;
 import com.pulumi.aws.rds.inputs.GetSnapshotPlainArgs;
 import com.pulumi.aws.rds.inputs.GetSubnetGroupArgs;
@@ -32,6 +34,7 @@ import com.pulumi.aws.rds.outputs.GetEventCategoriesResult;
 import com.pulumi.aws.rds.outputs.GetInstanceResult;
 import com.pulumi.aws.rds.outputs.GetOrderableDbInstanceResult;
 import com.pulumi.aws.rds.outputs.GetProxyResult;
+import com.pulumi.aws.rds.outputs.GetReservedInstanceOfferingResult;
 import com.pulumi.aws.rds.outputs.GetSnapshotResult;
 import com.pulumi.aws.rds.outputs.GetSubnetGroupResult;
 import com.pulumi.core.Output;
@@ -1950,6 +1953,170 @@ public final class RdsFunctions {
      */
     public static CompletableFuture<GetProxyResult> getProxyPlain(GetProxyPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:rds/getProxy:getProxy", TypeShape.of(GetProxyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Information about a single RDS Reserved Instance Offering.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetReservedInstanceOfferingArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = RdsFunctions.getReservedInstanceOffering(GetReservedInstanceOfferingArgs.builder()
+     *             .dbInstanceClass(&#34;db.t2.micro&#34;)
+     *             .duration(31536000)
+     *             .multiAz(false)
+     *             .offeringType(&#34;All Upfront&#34;)
+     *             .productDescription(&#34;mysql&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetReservedInstanceOfferingResult> getReservedInstanceOffering(GetReservedInstanceOfferingArgs args) {
+        return getReservedInstanceOffering(args, InvokeOptions.Empty);
+    }
+    /**
+     * Information about a single RDS Reserved Instance Offering.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetReservedInstanceOfferingArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = RdsFunctions.getReservedInstanceOffering(GetReservedInstanceOfferingArgs.builder()
+     *             .dbInstanceClass(&#34;db.t2.micro&#34;)
+     *             .duration(31536000)
+     *             .multiAz(false)
+     *             .offeringType(&#34;All Upfront&#34;)
+     *             .productDescription(&#34;mysql&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetReservedInstanceOfferingResult> getReservedInstanceOfferingPlain(GetReservedInstanceOfferingPlainArgs args) {
+        return getReservedInstanceOfferingPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Information about a single RDS Reserved Instance Offering.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetReservedInstanceOfferingArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = RdsFunctions.getReservedInstanceOffering(GetReservedInstanceOfferingArgs.builder()
+     *             .dbInstanceClass(&#34;db.t2.micro&#34;)
+     *             .duration(31536000)
+     *             .multiAz(false)
+     *             .offeringType(&#34;All Upfront&#34;)
+     *             .productDescription(&#34;mysql&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetReservedInstanceOfferingResult> getReservedInstanceOffering(GetReservedInstanceOfferingArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:rds/getReservedInstanceOffering:getReservedInstanceOffering", TypeShape.of(GetReservedInstanceOfferingResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Information about a single RDS Reserved Instance Offering.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetReservedInstanceOfferingArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = RdsFunctions.getReservedInstanceOffering(GetReservedInstanceOfferingArgs.builder()
+     *             .dbInstanceClass(&#34;db.t2.micro&#34;)
+     *             .duration(31536000)
+     *             .multiAz(false)
+     *             .offeringType(&#34;All Upfront&#34;)
+     *             .productDescription(&#34;mysql&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetReservedInstanceOfferingResult> getReservedInstanceOfferingPlain(GetReservedInstanceOfferingPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:rds/getReservedInstanceOffering:getReservedInstanceOffering", TypeShape.of(GetReservedInstanceOfferingResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get information about a DB Snapshot for use when provisioning DB instances

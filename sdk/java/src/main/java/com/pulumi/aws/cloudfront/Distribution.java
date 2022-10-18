@@ -95,7 +95,7 @@ import javax.annotation.Nullable;
  *         var s3Distribution = new Distribution(&#34;s3Distribution&#34;, DistributionArgs.builder()        
  *             .origins(DistributionOriginArgs.builder()
  *                 .domainName(bucketV2.bucketRegionalDomainName())
- *                 .originId(s3OriginId)
+ *                 .originId(locals.s3_origin_id())
  *                 .s3OriginConfig(DistributionOriginS3OriginConfigArgs.builder()
  *                     .originAccessIdentity(&#34;origin-access-identity/cloudfront/ABCDEFG1234567&#34;)
  *                     .build())

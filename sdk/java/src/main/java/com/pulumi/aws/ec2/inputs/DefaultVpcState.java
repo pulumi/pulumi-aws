@@ -127,6 +127,13 @@ public final class DefaultVpcState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.enableDnsSupport);
     }
 
+    @Import(name="enableNetworkAddressUsageMetrics")
+    private @Nullable Output<Boolean> enableNetworkAddressUsageMetrics;
+
+    public Optional<Output<Boolean>> enableNetworkAddressUsageMetrics() {
+        return Optional.ofNullable(this.enableNetworkAddressUsageMetrics);
+    }
+
     @Import(name="existingDefaultVpc")
     private @Nullable Output<Boolean> existingDefaultVpc;
 
@@ -241,6 +248,7 @@ public final class DefaultVpcState extends com.pulumi.resources.ResourceArgs {
         this.enableClassiclinkDnsSupport = $.enableClassiclinkDnsSupport;
         this.enableDnsHostnames = $.enableDnsHostnames;
         this.enableDnsSupport = $.enableDnsSupport;
+        this.enableNetworkAddressUsageMetrics = $.enableNetworkAddressUsageMetrics;
         this.existingDefaultVpc = $.existingDefaultVpc;
         this.forceDestroy = $.forceDestroy;
         this.instanceTenancy = $.instanceTenancy;
@@ -414,6 +422,15 @@ public final class DefaultVpcState extends com.pulumi.resources.ResourceArgs {
 
         public Builder enableDnsSupport(Boolean enableDnsSupport) {
             return enableDnsSupport(Output.of(enableDnsSupport));
+        }
+
+        public Builder enableNetworkAddressUsageMetrics(@Nullable Output<Boolean> enableNetworkAddressUsageMetrics) {
+            $.enableNetworkAddressUsageMetrics = enableNetworkAddressUsageMetrics;
+            return this;
+        }
+
+        public Builder enableNetworkAddressUsageMetrics(Boolean enableNetworkAddressUsageMetrics) {
+            return enableNetworkAddressUsageMetrics(Output.of(enableNetworkAddressUsageMetrics));
         }
 
         public Builder existingDefaultVpc(@Nullable Output<Boolean> existingDefaultVpc) {

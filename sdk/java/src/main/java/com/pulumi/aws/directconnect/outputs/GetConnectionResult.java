@@ -51,6 +51,11 @@ public final class GetConnectionResult {
      * 
      */
     private Map<String,String> tags;
+    /**
+     * @return The VLAN ID.
+     * 
+     */
+    private String vlanId;
 
     private GetConnectionResult() {}
     /**
@@ -112,6 +117,13 @@ public final class GetConnectionResult {
     public Map<String,String> tags() {
         return this.tags;
     }
+    /**
+     * @return The VLAN ID.
+     * 
+     */
+    public String vlanId() {
+        return this.vlanId;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -131,6 +143,7 @@ public final class GetConnectionResult {
         private String ownerAccountId;
         private String providerName;
         private Map<String,String> tags;
+        private String vlanId;
         public Builder() {}
         public Builder(GetConnectionResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -143,6 +156,7 @@ public final class GetConnectionResult {
     	      this.ownerAccountId = defaults.ownerAccountId;
     	      this.providerName = defaults.providerName;
     	      this.tags = defaults.tags;
+    	      this.vlanId = defaults.vlanId;
         }
 
         @CustomType.Setter
@@ -190,6 +204,11 @@ public final class GetConnectionResult {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
+        public Builder vlanId(String vlanId) {
+            this.vlanId = Objects.requireNonNull(vlanId);
+            return this;
+        }
         public GetConnectionResult build() {
             final var o = new GetConnectionResult();
             o.arn = arn;
@@ -201,6 +220,7 @@ public final class GetConnectionResult {
             o.ownerAccountId = ownerAccountId;
             o.providerName = providerName;
             o.tags = tags;
+            o.vlanId = vlanId;
             return o;
         }
     }

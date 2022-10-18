@@ -101,14 +101,14 @@ public class SubnetGroup extends com.pulumi.resources.CustomResource {
         return this.description;
     }
     /**
-     * Name for the cache subnet group. Elasticache converts this name to lowercase.
+     * Name for the cache subnet group. ElastiCache converts this name to lowercase.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return Name for the cache subnet group. Elasticache converts this name to lowercase.
+     * @return Name for the cache subnet group. ElastiCache converts this name to lowercase.
      * 
      */
     public Output<String> name() {

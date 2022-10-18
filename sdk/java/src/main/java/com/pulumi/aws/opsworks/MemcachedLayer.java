@@ -8,6 +8,7 @@ import com.pulumi.aws.opsworks.MemcachedLayerArgs;
 import com.pulumi.aws.opsworks.inputs.MemcachedLayerState;
 import com.pulumi.aws.opsworks.outputs.MemcachedLayerCloudwatchConfiguration;
 import com.pulumi.aws.opsworks.outputs.MemcachedLayerEbsVolume;
+import com.pulumi.aws.opsworks.outputs.MemcachedLayerLoadBasedAutoScaling;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -273,6 +274,12 @@ public class MemcachedLayer extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Integer>> instanceShutdownTimeout() {
         return Codegen.optional(this.instanceShutdownTimeout);
+    }
+    @Export(name="loadBasedAutoScaling", type=MemcachedLayerLoadBasedAutoScaling.class, parameters={})
+    private Output<MemcachedLayerLoadBasedAutoScaling> loadBasedAutoScaling;
+
+    public Output<MemcachedLayerLoadBasedAutoScaling> loadBasedAutoScaling() {
+        return this.loadBasedAutoScaling;
     }
     /**
      * A human-readable name for the layer.

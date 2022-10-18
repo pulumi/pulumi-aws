@@ -5,6 +5,7 @@ package com.pulumi.aws.opsworks;
 
 import com.pulumi.aws.opsworks.inputs.MysqlLayerCloudwatchConfigurationArgs;
 import com.pulumi.aws.opsworks.inputs.MysqlLayerEbsVolumeArgs;
+import com.pulumi.aws.opsworks.inputs.MysqlLayerLoadBasedAutoScalingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -228,6 +229,13 @@ public final class MysqlLayerArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.instanceShutdownTimeout);
     }
 
+    @Import(name="loadBasedAutoScaling")
+    private @Nullable Output<MysqlLayerLoadBasedAutoScalingArgs> loadBasedAutoScaling;
+
+    public Optional<Output<MysqlLayerLoadBasedAutoScalingArgs>> loadBasedAutoScaling() {
+        return Optional.ofNullable(this.loadBasedAutoScaling);
+    }
+
     /**
      * A human-readable name for the layer.
      * 
@@ -353,6 +361,7 @@ public final class MysqlLayerArgs extends com.pulumi.resources.ResourceArgs {
         this.elasticLoadBalancer = $.elasticLoadBalancer;
         this.installUpdatesOnBoot = $.installUpdatesOnBoot;
         this.instanceShutdownTimeout = $.instanceShutdownTimeout;
+        this.loadBasedAutoScaling = $.loadBasedAutoScaling;
         this.name = $.name;
         this.rootPassword = $.rootPassword;
         this.rootPasswordOnAllInstances = $.rootPasswordOnAllInstances;
@@ -703,6 +712,15 @@ public final class MysqlLayerArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder instanceShutdownTimeout(Integer instanceShutdownTimeout) {
             return instanceShutdownTimeout(Output.of(instanceShutdownTimeout));
+        }
+
+        public Builder loadBasedAutoScaling(@Nullable Output<MysqlLayerLoadBasedAutoScalingArgs> loadBasedAutoScaling) {
+            $.loadBasedAutoScaling = loadBasedAutoScaling;
+            return this;
+        }
+
+        public Builder loadBasedAutoScaling(MysqlLayerLoadBasedAutoScalingArgs loadBasedAutoScaling) {
+            return loadBasedAutoScaling(Output.of(loadBasedAutoScaling));
         }
 
         /**

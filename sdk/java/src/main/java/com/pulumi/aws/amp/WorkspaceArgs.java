@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.amp;
 
+import com.pulumi.aws.amp.inputs.WorkspaceLoggingConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -32,6 +33,21 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Logging configuration for the workspace. See Logging Configuration below for details.
+     * 
+     */
+    @Import(name="loggingConfiguration")
+    private @Nullable Output<WorkspaceLoggingConfigurationArgs> loggingConfiguration;
+
+    /**
+     * @return Logging configuration for the workspace. See Logging Configuration below for details.
+     * 
+     */
+    public Optional<Output<WorkspaceLoggingConfigurationArgs>> loggingConfiguration() {
+        return Optional.ofNullable(this.loggingConfiguration);
+    }
+
+    /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -50,6 +66,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
 
     private WorkspaceArgs(WorkspaceArgs $) {
         this.alias = $.alias;
+        this.loggingConfiguration = $.loggingConfiguration;
         this.tags = $.tags;
     }
 
@@ -90,6 +107,27 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder alias(String alias) {
             return alias(Output.of(alias));
+        }
+
+        /**
+         * @param loggingConfiguration Logging configuration for the workspace. See Logging Configuration below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder loggingConfiguration(@Nullable Output<WorkspaceLoggingConfigurationArgs> loggingConfiguration) {
+            $.loggingConfiguration = loggingConfiguration;
+            return this;
+        }
+
+        /**
+         * @param loggingConfiguration Logging configuration for the workspace. See Logging Configuration below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder loggingConfiguration(WorkspaceLoggingConfigurationArgs loggingConfiguration) {
+            return loggingConfiguration(Output.of(loggingConfiguration));
         }
 
         /**

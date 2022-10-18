@@ -53,6 +53,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .enabled(true)
  *             .ipAddressType(&#34;IPV4&#34;)
+ *             .ipAddresses(&#34;1.2.3.4&#34;)
  *             .build());
  * 
  *     }
@@ -137,6 +138,20 @@ public class Accelerator extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> ipAddressType() {
         return Codegen.optional(this.ipAddressType);
+    }
+    /**
+     * The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+     * 
+     */
+    @Export(name="ipAddresses", type=List.class, parameters={String.class})
+    private Output</* @Nullable */ List<String>> ipAddresses;
+
+    /**
+     * @return The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+     * 
+     */
+    public Output<Optional<List<String>>> ipAddresses() {
+        return Codegen.optional(this.ipAddresses);
     }
     /**
      * IP address set associated with the accelerator.

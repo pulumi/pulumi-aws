@@ -6,6 +6,7 @@ package com.pulumi.aws.amp;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.amp.WorkspaceArgs;
 import com.pulumi.aws.amp.inputs.WorkspaceState;
+import com.pulumi.aws.amp.outputs.WorkspaceLoggingConfiguration;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -17,8 +18,6 @@ import javax.annotation.Nullable;
 
 /**
  * Manages an Amazon Managed Service for Prometheus (AMP) Workspace.
- * 
- * &gt; **NOTE:** This AWS functionality is in Preview and may change before General Availability release. Backwards compatibility is not guaranteed between provider releases.
  * 
  * ## Example Usage
  * ```java
@@ -42,12 +41,44 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var demo = new Workspace(&#34;demo&#34;, WorkspaceArgs.builder()        
- *             .alias(&#34;prometheus-test&#34;)
- *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Environment&#34;, &#34;production&#34;),
- *                 Map.entry(&#34;Owner&#34;, &#34;abhi&#34;)
- *             ))
+ *         var example = new Workspace(&#34;example&#34;, WorkspaceArgs.builder()        
+ *             .alias(&#34;example&#34;)
+ *             .tags(Map.of(&#34;Environment&#34;, &#34;production&#34;))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### CloudWatch Logging
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cloudwatch.LogGroup;
+ * import com.pulumi.aws.amp.Workspace;
+ * import com.pulumi.aws.amp.WorkspaceArgs;
+ * import com.pulumi.aws.amp.inputs.WorkspaceLoggingConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleLogGroup = new LogGroup(&#34;exampleLogGroup&#34;);
+ * 
+ *         var exampleWorkspace = new Workspace(&#34;exampleWorkspace&#34;, WorkspaceArgs.builder()        
+ *             .loggingConfiguration(WorkspaceLoggingConfigurationArgs.builder()
+ *                 .logGroupArn(exampleLogGroup.arn().applyValue(arn -&gt; String.format(&#34;%s:*&#34;, arn)))
+ *                 .build())
  *             .build());
  * 
  *     }
@@ -92,6 +123,20 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      */
     public Output<String> arn() {
         return this.arn;
+    }
+    /**
+     * Logging configuration for the workspace. See Logging Configuration below for details.
+     * 
+     */
+    @Export(name="loggingConfiguration", type=WorkspaceLoggingConfiguration.class, parameters={})
+    private Output</* @Nullable */ WorkspaceLoggingConfiguration> loggingConfiguration;
+
+    /**
+     * @return Logging configuration for the workspace. See Logging Configuration below for details.
+     * 
+     */
+    public Output<Optional<WorkspaceLoggingConfiguration>> loggingConfiguration() {
+        return Codegen.optional(this.loggingConfiguration);
     }
     /**
      * Prometheus endpoint available for this workspace.

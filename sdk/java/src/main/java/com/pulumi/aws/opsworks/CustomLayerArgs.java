@@ -5,6 +5,7 @@ package com.pulumi.aws.opsworks;
 
 import com.pulumi.aws.opsworks.inputs.CustomLayerCloudwatchConfigurationArgs;
 import com.pulumi.aws.opsworks.inputs.CustomLayerEbsVolumeArgs;
+import com.pulumi.aws.opsworks.inputs.CustomLayerLoadBasedAutoScalingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -237,6 +238,21 @@ public final class CustomLayerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Load-based auto scaling configuration. See Load Based AutoScaling
+     * 
+     */
+    @Import(name="loadBasedAutoScaling")
+    private @Nullable Output<CustomLayerLoadBasedAutoScalingArgs> loadBasedAutoScaling;
+
+    /**
+     * @return Load-based auto scaling configuration. See Load Based AutoScaling
+     * 
+     */
+    public Optional<Output<CustomLayerLoadBasedAutoScalingArgs>> loadBasedAutoScaling() {
+        return Optional.ofNullable(this.loadBasedAutoScaling);
+    }
+
+    /**
      * A human-readable name for the layer.
      * 
      */
@@ -346,6 +362,7 @@ public final class CustomLayerArgs extends com.pulumi.resources.ResourceArgs {
         this.elasticLoadBalancer = $.elasticLoadBalancer;
         this.installUpdatesOnBoot = $.installUpdatesOnBoot;
         this.instanceShutdownTimeout = $.instanceShutdownTimeout;
+        this.loadBasedAutoScaling = $.loadBasedAutoScaling;
         this.name = $.name;
         this.shortName = $.shortName;
         this.stackId = $.stackId;
@@ -707,6 +724,27 @@ public final class CustomLayerArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder instanceShutdownTimeout(Integer instanceShutdownTimeout) {
             return instanceShutdownTimeout(Output.of(instanceShutdownTimeout));
+        }
+
+        /**
+         * @param loadBasedAutoScaling Load-based auto scaling configuration. See Load Based AutoScaling
+         * 
+         * @return builder
+         * 
+         */
+        public Builder loadBasedAutoScaling(@Nullable Output<CustomLayerLoadBasedAutoScalingArgs> loadBasedAutoScaling) {
+            $.loadBasedAutoScaling = loadBasedAutoScaling;
+            return this;
+        }
+
+        /**
+         * @param loadBasedAutoScaling Load-based auto scaling configuration. See Load Based AutoScaling
+         * 
+         * @return builder
+         * 
+         */
+        public Builder loadBasedAutoScaling(CustomLayerLoadBasedAutoScalingArgs loadBasedAutoScaling) {
+            return loadBasedAutoScaling(Output.of(loadBasedAutoScaling));
         }
 
         /**

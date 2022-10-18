@@ -5,6 +5,7 @@ package com.pulumi.aws.opsworks;
 
 import com.pulumi.aws.opsworks.inputs.EcsClusterLayerCloudwatchConfigurationArgs;
 import com.pulumi.aws.opsworks.inputs.EcsClusterLayerEbsVolumeArgs;
+import com.pulumi.aws.opsworks.inputs.EcsClusterLayerLoadBasedAutoScalingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -243,6 +244,13 @@ public final class EcsClusterLayerArgs extends com.pulumi.resources.ResourceArgs
         return Optional.ofNullable(this.instanceShutdownTimeout);
     }
 
+    @Import(name="loadBasedAutoScaling")
+    private @Nullable Output<EcsClusterLayerLoadBasedAutoScalingArgs> loadBasedAutoScaling;
+
+    public Optional<Output<EcsClusterLayerLoadBasedAutoScalingArgs>> loadBasedAutoScaling() {
+        return Optional.ofNullable(this.loadBasedAutoScaling);
+    }
+
     /**
      * A human-readable name for the layer.
      * 
@@ -339,6 +347,7 @@ public final class EcsClusterLayerArgs extends com.pulumi.resources.ResourceArgs
         this.elasticLoadBalancer = $.elasticLoadBalancer;
         this.installUpdatesOnBoot = $.installUpdatesOnBoot;
         this.instanceShutdownTimeout = $.instanceShutdownTimeout;
+        this.loadBasedAutoScaling = $.loadBasedAutoScaling;
         this.name = $.name;
         this.stackId = $.stackId;
         this.systemPackages = $.systemPackages;
@@ -708,6 +717,15 @@ public final class EcsClusterLayerArgs extends com.pulumi.resources.ResourceArgs
          */
         public Builder instanceShutdownTimeout(Integer instanceShutdownTimeout) {
             return instanceShutdownTimeout(Output.of(instanceShutdownTimeout));
+        }
+
+        public Builder loadBasedAutoScaling(@Nullable Output<EcsClusterLayerLoadBasedAutoScalingArgs> loadBasedAutoScaling) {
+            $.loadBasedAutoScaling = loadBasedAutoScaling;
+            return this;
+        }
+
+        public Builder loadBasedAutoScaling(EcsClusterLayerLoadBasedAutoScalingArgs loadBasedAutoScaling) {
+            return loadBasedAutoScaling(Output.of(loadBasedAutoScaling));
         }
 
         /**

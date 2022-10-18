@@ -31,14 +31,14 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A brief description of the authorization rule.
+     * A brief description of the route.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A brief description of the authorization rule.
+     * @return A brief description of the route.
      * 
      */
     public Optional<Output<String>> description() {
@@ -156,7 +156,7 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A brief description of the authorization rule.
+         * @param description A brief description of the route.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A brief description of the authorization rule.
+         * @param description A brief description of the route.
          * 
          * @return builder
          * 

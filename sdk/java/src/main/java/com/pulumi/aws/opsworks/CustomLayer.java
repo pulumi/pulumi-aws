@@ -8,6 +8,7 @@ import com.pulumi.aws.opsworks.CustomLayerArgs;
 import com.pulumi.aws.opsworks.inputs.CustomLayerState;
 import com.pulumi.aws.opsworks.outputs.CustomLayerCloudwatchConfiguration;
 import com.pulumi.aws.opsworks.outputs.CustomLayerEbsVolume;
+import com.pulumi.aws.opsworks.outputs.CustomLayerLoadBasedAutoScaling;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -276,6 +277,20 @@ public class CustomLayer extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Integer>> instanceShutdownTimeout() {
         return Codegen.optional(this.instanceShutdownTimeout);
+    }
+    /**
+     * Load-based auto scaling configuration. See Load Based AutoScaling
+     * 
+     */
+    @Export(name="loadBasedAutoScaling", type=CustomLayerLoadBasedAutoScaling.class, parameters={})
+    private Output<CustomLayerLoadBasedAutoScaling> loadBasedAutoScaling;
+
+    /**
+     * @return Load-based auto scaling configuration. See Load Based AutoScaling
+     * 
+     */
+    public Output<CustomLayerLoadBasedAutoScaling> loadBasedAutoScaling() {
+        return this.loadBasedAutoScaling;
     }
     /**
      * A human-readable name for the layer.

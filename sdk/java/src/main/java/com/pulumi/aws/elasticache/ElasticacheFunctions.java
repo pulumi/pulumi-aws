@@ -21,7 +21,7 @@ import java.util.concurrent.CompletableFuture;
 
 public final class ElasticacheFunctions {
     /**
-     * Use this data source to get information about an Elasticache Cluster
+     * Use this data source to get information about an ElastiCache Cluster
      * 
      * ## Example Usage
      * ```java
@@ -58,7 +58,7 @@ public final class ElasticacheFunctions {
         return getCluster(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get information about an Elasticache Cluster
+     * Use this data source to get information about an ElastiCache Cluster
      * 
      * ## Example Usage
      * ```java
@@ -95,7 +95,7 @@ public final class ElasticacheFunctions {
         return getClusterPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get information about an Elasticache Cluster
+     * Use this data source to get information about an ElastiCache Cluster
      * 
      * ## Example Usage
      * ```java
@@ -132,7 +132,7 @@ public final class ElasticacheFunctions {
         return Deployment.getInstance().invoke("aws:elasticache/getCluster:getCluster", TypeShape.of(GetClusterResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get information about an Elasticache Cluster
+     * Use this data source to get information about an ElastiCache Cluster
      * 
      * ## Example Usage
      * ```java
@@ -169,7 +169,7 @@ public final class ElasticacheFunctions {
         return Deployment.getInstance().invokeAsync("aws:elasticache/getCluster:getCluster", TypeShape.of(GetClusterResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get information about an Elasticache Replication Group.
+     * Use this data source to get information about an ElastiCache Replication Group.
      * 
      * ## Example Usage
      * ```java
@@ -206,7 +206,7 @@ public final class ElasticacheFunctions {
         return getReplicationGroup(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get information about an Elasticache Replication Group.
+     * Use this data source to get information about an ElastiCache Replication Group.
      * 
      * ## Example Usage
      * ```java
@@ -243,7 +243,7 @@ public final class ElasticacheFunctions {
         return getReplicationGroupPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get information about an Elasticache Replication Group.
+     * Use this data source to get information about an ElastiCache Replication Group.
      * 
      * ## Example Usage
      * ```java
@@ -280,7 +280,7 @@ public final class ElasticacheFunctions {
         return Deployment.getInstance().invoke("aws:elasticache/getReplicationGroup:getReplicationGroup", TypeShape.of(GetReplicationGroupResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get information about an Elasticache Replication Group.
+     * Use this data source to get information about an ElastiCache Replication Group.
      * 
      * ## Example Usage
      * ```java
@@ -317,7 +317,7 @@ public final class ElasticacheFunctions {
         return Deployment.getInstance().invokeAsync("aws:elasticache/getReplicationGroup:getReplicationGroup", TypeShape.of(GetReplicationGroupResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get information about an Elasticache User.
+     * Use this data source to get information about an ElastiCache User.
      * 
      * ## Example Usage
      * ```java
@@ -354,7 +354,7 @@ public final class ElasticacheFunctions {
         return getUser(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get information about an Elasticache User.
+     * Use this data source to get information about an ElastiCache User.
      * 
      * ## Example Usage
      * ```java
@@ -391,7 +391,7 @@ public final class ElasticacheFunctions {
         return getUserPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get information about an Elasticache User.
+     * Use this data source to get information about an ElastiCache User.
      * 
      * ## Example Usage
      * ```java
@@ -428,7 +428,7 @@ public final class ElasticacheFunctions {
         return Deployment.getInstance().invoke("aws:elasticache/getUser:getUser", TypeShape.of(GetUserResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get information about an Elasticache User.
+     * Use this data source to get information about an ElastiCache User.
      * 
      * ## Example Usage
      * ```java

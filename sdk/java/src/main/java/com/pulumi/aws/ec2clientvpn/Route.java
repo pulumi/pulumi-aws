@@ -100,14 +100,14 @@ public class Route extends com.pulumi.resources.CustomResource {
         return this.clientVpnEndpointId;
     }
     /**
-     * A brief description of the authorization rule.
+     * A brief description of the route.
      * 
      */
     @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return A brief description of the authorization rule.
+     * @return A brief description of the route.
      * 
      */
     public Output<Optional<String>> description() {

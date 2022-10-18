@@ -5,6 +5,7 @@ package com.pulumi.aws.opsworks;
 
 import com.pulumi.aws.opsworks.inputs.PhpAppLayerCloudwatchConfigurationArgs;
 import com.pulumi.aws.opsworks.inputs.PhpAppLayerEbsVolumeArgs;
+import com.pulumi.aws.opsworks.inputs.PhpAppLayerLoadBasedAutoScalingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -228,6 +229,13 @@ public final class PhpAppLayerArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.instanceShutdownTimeout);
     }
 
+    @Import(name="loadBasedAutoScaling")
+    private @Nullable Output<PhpAppLayerLoadBasedAutoScalingArgs> loadBasedAutoScaling;
+
+    public Optional<Output<PhpAppLayerLoadBasedAutoScalingArgs>> loadBasedAutoScaling() {
+        return Optional.ofNullable(this.loadBasedAutoScaling);
+    }
+
     /**
      * A human-readable name for the layer.
      * 
@@ -323,6 +331,7 @@ public final class PhpAppLayerArgs extends com.pulumi.resources.ResourceArgs {
         this.elasticLoadBalancer = $.elasticLoadBalancer;
         this.installUpdatesOnBoot = $.installUpdatesOnBoot;
         this.instanceShutdownTimeout = $.instanceShutdownTimeout;
+        this.loadBasedAutoScaling = $.loadBasedAutoScaling;
         this.name = $.name;
         this.stackId = $.stackId;
         this.systemPackages = $.systemPackages;
@@ -671,6 +680,15 @@ public final class PhpAppLayerArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder instanceShutdownTimeout(Integer instanceShutdownTimeout) {
             return instanceShutdownTimeout(Output.of(instanceShutdownTimeout));
+        }
+
+        public Builder loadBasedAutoScaling(@Nullable Output<PhpAppLayerLoadBasedAutoScalingArgs> loadBasedAutoScaling) {
+            $.loadBasedAutoScaling = loadBasedAutoScaling;
+            return this;
+        }
+
+        public Builder loadBasedAutoScaling(PhpAppLayerLoadBasedAutoScalingArgs loadBasedAutoScaling) {
+            return loadBasedAutoScaling(Output.of(loadBasedAutoScaling));
         }
 
         /**

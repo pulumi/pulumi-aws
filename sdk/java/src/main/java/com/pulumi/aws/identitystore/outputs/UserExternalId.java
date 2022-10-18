@@ -4,7 +4,6 @@
 package com.pulumi.aws.identitystore.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,7 +15,7 @@ public final class UserExternalId {
      * @return The identifier issued to this resource by an external identity provider.
      * 
      */
-    private @Nullable Boolean id;
+    private @Nullable String id;
     /**
      * @return The issuer for an external identifier.
      * 
@@ -28,7 +27,7 @@ public final class UserExternalId {
      * @return The identifier issued to this resource by an external identity provider.
      * 
      */
-    public Optional<Boolean> id() {
+    public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
     /**
@@ -48,7 +47,7 @@ public final class UserExternalId {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable Boolean id;
+        private @Nullable String id;
         private @Nullable String issuer;
         public Builder() {}
         public Builder(UserExternalId defaults) {
@@ -58,7 +57,7 @@ public final class UserExternalId {
         }
 
         @CustomType.Setter
-        public Builder id(@Nullable Boolean id) {
+        public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }

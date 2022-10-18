@@ -57,10 +57,10 @@ import javax.annotation.Nullable;
  *         for (var i = 0; i &lt; 3; i++) {
  *             new Record(&#34;exampleAmazonsesDkimRecord-&#34; + i, RecordArgs.builder()            
  *                 .zoneId(&#34;ABCDEFGHIJ123&#34;)
- *                 .name(exampleDomainDkim.dkimTokens()[range.value()].applyValue(dkimTokens -&gt; String.format(&#34;%s._domainkey&#34;, dkimTokens)))
+ *                 .name(exampleDomainDkim.dkimTokens().applyValue(dkimTokens -&gt; String.format(&#34;%s._domainkey&#34;, dkimTokens[range.value()])))
  *                 .type(&#34;CNAME&#34;)
  *                 .ttl(&#34;600&#34;)
- *                 .records(exampleDomainDkim.dkimTokens()[range.value()].applyValue(dkimTokens -&gt; String.format(&#34;%s.dkim.amazonses.com&#34;, dkimTokens)))
+ *                 .records(exampleDomainDkim.dkimTokens().applyValue(dkimTokens -&gt; String.format(&#34;%s.dkim.amazonses.com&#34;, dkimTokens[range.value()])))
  *                 .build());
  * 
  *         
