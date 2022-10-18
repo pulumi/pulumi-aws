@@ -25,6 +25,7 @@ __all__ = [
     'ParameterGroupParameter',
     'ProxyAuth',
     'ProxyDefaultTargetGroupConnectionPoolConfig',
+    'ReservedInstanceRecurringCharge',
     'SecurityGroupIngress',
     'GetEngineVersionFilterResult',
     'GetProxyAuthResult',
@@ -999,6 +1000,46 @@ class ProxyDefaultTargetGroupConnectionPoolConfig(dict):
         Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection. Including an item in the list exempts that class of SQL operations from the pinning behavior. Currently, the only allowed value is `EXCLUDE_VARIABLE_SETS`.
         """
         return pulumi.get(self, "session_pinning_filters")
+
+
+@pulumi.output_type
+class ReservedInstanceRecurringCharge(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "recurringChargeAmount":
+            suggest = "recurring_charge_amount"
+        elif key == "recurringChargeFrequency":
+            suggest = "recurring_charge_frequency"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReservedInstanceRecurringCharge. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReservedInstanceRecurringCharge.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReservedInstanceRecurringCharge.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 recurring_charge_amount: Optional[int] = None,
+                 recurring_charge_frequency: Optional[str] = None):
+        if recurring_charge_amount is not None:
+            pulumi.set(__self__, "recurring_charge_amount", recurring_charge_amount)
+        if recurring_charge_frequency is not None:
+            pulumi.set(__self__, "recurring_charge_frequency", recurring_charge_frequency)
+
+    @property
+    @pulumi.getter(name="recurringChargeAmount")
+    def recurring_charge_amount(self) -> Optional[int]:
+        return pulumi.get(self, "recurring_charge_amount")
+
+    @property
+    @pulumi.getter(name="recurringChargeFrequency")
+    def recurring_charge_frequency(self) -> Optional[str]:
+        return pulumi.get(self, "recurring_charge_frequency")
 
 
 @pulumi.output_type

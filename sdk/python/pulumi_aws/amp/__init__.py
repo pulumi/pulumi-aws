@@ -9,3 +9,5 @@ from .alert_manager_definition import *
 from .get_workspace import *
 from .rule_group_namespace import *
 from .workspace import *
+from ._inputs import *
+from . import outputs

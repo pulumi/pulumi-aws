@@ -409,6 +409,8 @@ __all__ = [
     'GetVpcIamPoolCidrsFilterResult',
     'GetVpcIamPoolCidrsIpamPoolCidrResult',
     'GetVpcIamPoolFilterResult',
+    'GetVpcIamPoolsFilterResult',
+    'GetVpcIamPoolsIpamPoolResult',
     'GetVpcPeeringConnectionCidrBlockSetResult',
     'GetVpcPeeringConnectionFilterResult',
     'GetVpcPeeringConnectionPeerCidrBlockSetResult',
@@ -21464,6 +21466,226 @@ class GetVpcIamPoolFilterResult(dict):
     @pulumi.getter
     def values(self) -> Sequence[str]:
         return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetVpcIamPoolsFilterResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetVpcIamPoolsIpamPoolResult(dict):
+    def __init__(__self__, *,
+                 address_family: str,
+                 allocation_default_netmask_length: int,
+                 allocation_max_netmask_length: int,
+                 allocation_min_netmask_length: int,
+                 allocation_resource_tags: Mapping[str, str],
+                 arn: str,
+                 auto_import: bool,
+                 aws_service: str,
+                 description: str,
+                 ipam_pool_id: str,
+                 ipam_scope_id: str,
+                 ipam_scope_type: str,
+                 locale: str,
+                 pool_depth: int,
+                 publicly_advertisable: bool,
+                 source_ipam_pool_id: str,
+                 state: str,
+                 tags: Mapping[str, str],
+                 id: Optional[str] = None):
+        """
+        :param str address_family: IP protocol assigned to this pool.
+        :param int allocation_default_netmask_length: A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is 10.0.0.0/8 and you enter 16 here, new allocations will default to 10.0.0.0/16.
+        :param int allocation_max_netmask_length: The maximum netmask length that will be required for CIDR allocations in this pool.
+        :param int allocation_min_netmask_length: The minimum netmask length that will be required for CIDR allocations in this pool.
+        :param Mapping[str, str] allocation_resource_tags: Tags that are required to create resources in using this pool.
+        :param str arn: ARN of the pool
+        :param bool auto_import: If enabled, IPAM will continuously look for resources within the CIDR range of this pool and automatically import them as allocations into your IPAM.
+        :param str aws_service: Limits which service in AWS that the pool can be used in. "ec2", for example, allows users to use space for Elastic IP addresses and VPCs.
+        :param str description: Description for the IPAM pool.
+        :param str ipam_scope_id: ID of the scope the pool belongs to.
+        :param str locale: Locale is the Region where your pool is available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region.
+        :param bool publicly_advertisable: Defines whether or not IPv6 pool space is publicly ∂advertisable over the internet.
+        :param str source_ipam_pool_id: ID of the source IPAM pool.
+        :param Mapping[str, str] tags: Map of tags to assigned to the resource.
+        :param str id: ID of the IPAM pool.
+        """
+        pulumi.set(__self__, "address_family", address_family)
+        pulumi.set(__self__, "allocation_default_netmask_length", allocation_default_netmask_length)
+        pulumi.set(__self__, "allocation_max_netmask_length", allocation_max_netmask_length)
+        pulumi.set(__self__, "allocation_min_netmask_length", allocation_min_netmask_length)
+        pulumi.set(__self__, "allocation_resource_tags", allocation_resource_tags)
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "auto_import", auto_import)
+        pulumi.set(__self__, "aws_service", aws_service)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "ipam_pool_id", ipam_pool_id)
+        pulumi.set(__self__, "ipam_scope_id", ipam_scope_id)
+        pulumi.set(__self__, "ipam_scope_type", ipam_scope_type)
+        pulumi.set(__self__, "locale", locale)
+        pulumi.set(__self__, "pool_depth", pool_depth)
+        pulumi.set(__self__, "publicly_advertisable", publicly_advertisable)
+        pulumi.set(__self__, "source_ipam_pool_id", source_ipam_pool_id)
+        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "tags", tags)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter(name="addressFamily")
+    def address_family(self) -> str:
+        """
+        IP protocol assigned to this pool.
+        """
+        return pulumi.get(self, "address_family")
+
+    @property
+    @pulumi.getter(name="allocationDefaultNetmaskLength")
+    def allocation_default_netmask_length(self) -> int:
+        """
+        A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is 10.0.0.0/8 and you enter 16 here, new allocations will default to 10.0.0.0/16.
+        """
+        return pulumi.get(self, "allocation_default_netmask_length")
+
+    @property
+    @pulumi.getter(name="allocationMaxNetmaskLength")
+    def allocation_max_netmask_length(self) -> int:
+        """
+        The maximum netmask length that will be required for CIDR allocations in this pool.
+        """
+        return pulumi.get(self, "allocation_max_netmask_length")
+
+    @property
+    @pulumi.getter(name="allocationMinNetmaskLength")
+    def allocation_min_netmask_length(self) -> int:
+        """
+        The minimum netmask length that will be required for CIDR allocations in this pool.
+        """
+        return pulumi.get(self, "allocation_min_netmask_length")
+
+    @property
+    @pulumi.getter(name="allocationResourceTags")
+    def allocation_resource_tags(self) -> Mapping[str, str]:
+        """
+        Tags that are required to create resources in using this pool.
+        """
+        return pulumi.get(self, "allocation_resource_tags")
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        ARN of the pool
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="autoImport")
+    def auto_import(self) -> bool:
+        """
+        If enabled, IPAM will continuously look for resources within the CIDR range of this pool and automatically import them as allocations into your IPAM.
+        """
+        return pulumi.get(self, "auto_import")
+
+    @property
+    @pulumi.getter(name="awsService")
+    def aws_service(self) -> str:
+        """
+        Limits which service in AWS that the pool can be used in. "ec2", for example, allows users to use space for Elastic IP addresses and VPCs.
+        """
+        return pulumi.get(self, "aws_service")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Description for the IPAM pool.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="ipamPoolId")
+    def ipam_pool_id(self) -> str:
+        return pulumi.get(self, "ipam_pool_id")
+
+    @property
+    @pulumi.getter(name="ipamScopeId")
+    def ipam_scope_id(self) -> str:
+        """
+        ID of the scope the pool belongs to.
+        """
+        return pulumi.get(self, "ipam_scope_id")
+
+    @property
+    @pulumi.getter(name="ipamScopeType")
+    def ipam_scope_type(self) -> str:
+        return pulumi.get(self, "ipam_scope_type")
+
+    @property
+    @pulumi.getter
+    def locale(self) -> str:
+        """
+        Locale is the Region where your pool is available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region.
+        """
+        return pulumi.get(self, "locale")
+
+    @property
+    @pulumi.getter(name="poolDepth")
+    def pool_depth(self) -> int:
+        return pulumi.get(self, "pool_depth")
+
+    @property
+    @pulumi.getter(name="publiclyAdvertisable")
+    def publicly_advertisable(self) -> bool:
+        """
+        Defines whether or not IPv6 pool space is publicly ∂advertisable over the internet.
+        """
+        return pulumi.get(self, "publicly_advertisable")
+
+    @property
+    @pulumi.getter(name="sourceIpamPoolId")
+    def source_ipam_pool_id(self) -> str:
+        """
+        ID of the source IPAM pool.
+        """
+        return pulumi.get(self, "source_ipam_pool_id")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
+        """
+        Map of tags to assigned to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        ID of the IPAM pool.
+        """
+        return pulumi.get(self, "id")
 
 
 @pulumi.output_type

@@ -79,6 +79,7 @@ from .get_vpc_endpoint import *
 from .get_vpc_endpoint_service import *
 from .get_vpc_iam_pool import *
 from .get_vpc_iam_pool_cidrs import *
+from .get_vpc_iam_pools import *
 from .get_vpc_peering_connection import *
 from .get_vpc_peering_connections import *
 from .get_vpcs import *

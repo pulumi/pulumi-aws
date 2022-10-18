@@ -335,6 +335,8 @@ if typing.TYPE_CHECKING:
     servicequotas = __servicequotas
     import pulumi_aws.ses as __ses
     ses = __ses
+    import pulumi_aws.sesv2 as __sesv2
+    sesv2 = __sesv2
     import pulumi_aws.sfn as __sfn
     sfn = __sfn
     import pulumi_aws.shield as __shield
@@ -529,6 +531,7 @@ else:
     servicediscovery = _utilities.lazy_import('pulumi_aws.servicediscovery')
     servicequotas = _utilities.lazy_import('pulumi_aws.servicequotas')
     ses = _utilities.lazy_import('pulumi_aws.ses')
+    sesv2 = _utilities.lazy_import('pulumi_aws.sesv2')
     sfn = _utilities.lazy_import('pulumi_aws.sfn')
     shield = _utilities.lazy_import('pulumi_aws.shield')
     signer = _utilities.lazy_import('pulumi_aws.signer')
@@ -2275,6 +2278,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "codepipeline/customActionType",
+  "fqn": "pulumi_aws.codepipeline",
+  "classes": {
+   "aws:codepipeline/customActionType:CustomActionType": "CustomActionType"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "codepipeline/pipeline",
   "fqn": "pulumi_aws.codepipeline",
   "classes": {
@@ -2415,6 +2426,14 @@ _utilities.register(
   "fqn": "pulumi_aws.cognito",
   "classes": {
    "aws:cognito/userPoolUICustomization:UserPoolUICustomization": "UserPoolUICustomization"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "comprehend/documentClassifier",
+  "fqn": "pulumi_aws.comprehend",
+  "classes": {
+   "aws:comprehend/documentClassifier:DocumentClassifier": "DocumentClassifier"
   }
  },
  {
@@ -5491,6 +5510,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "inspector2/delegatedAdminAccount",
+  "fqn": "pulumi_aws.inspector2",
+  "classes": {
+   "aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount": "DelegatedAdminAccount"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "inspector2/organizationConfiguration",
   "fqn": "pulumi_aws.inspector2",
   "classes": {
@@ -7131,6 +7158,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "rds/reservedInstance",
+  "fqn": "pulumi_aws.rds",
+  "classes": {
+   "aws:rds/reservedInstance:ReservedInstance": "ReservedInstance"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "rds/roleAssociation",
   "fqn": "pulumi_aws.rds",
   "classes": {
@@ -7883,6 +7918,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "s3control/storageLensConfiguration",
+  "fqn": "pulumi_aws.s3control",
+  "classes": {
+   "aws:s3control/storageLensConfiguration:StorageLensConfiguration": "StorageLensConfiguration"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "s3outposts/endpoint",
   "fqn": "pulumi_aws.s3outposts",
   "classes": {
@@ -8499,6 +8542,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "sesv2/configurationSet",
+  "fqn": "pulumi_aws.sesv2",
+  "classes": {
+   "aws:sesv2/configurationSet:ConfigurationSet": "ConfigurationSet"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "sfn/activity",
   "fqn": "pulumi_aws.sfn",
   "classes": {
@@ -8935,6 +8986,14 @@ _utilities.register(
   "fqn": "pulumi_aws.transfer",
   "classes": {
    "aws:transfer/sshKey:SshKey": "SshKey"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "transfer/tag",
+  "fqn": "pulumi_aws.transfer",
+  "classes": {
+   "aws:transfer/tag:Tag": "Tag"
   }
  },
  {

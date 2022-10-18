@@ -35,6 +35,7 @@ class CustomLayerArgs:
                  elastic_load_balancer: Optional[pulumi.Input[str]] = None,
                  install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
                  instance_shutdown_timeout: Optional[pulumi.Input[int]] = None,
+                 load_based_auto_scaling: Optional[pulumi.Input['CustomLayerLoadBasedAutoScalingArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  system_packages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -55,6 +56,7 @@ class CustomLayerArgs:
         :param pulumi.Input[str] elastic_load_balancer: Name of an Elastic Load Balancer to attach to this layer
         :param pulumi.Input[bool] install_updates_on_boot: Whether to install OS and package updates on each instance when it boots.
         :param pulumi.Input[int] instance_shutdown_timeout: The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
+        :param pulumi.Input['CustomLayerLoadBasedAutoScalingArgs'] load_based_auto_scaling: Load-based auto scaling configuration. See Load Based AutoScaling
         :param pulumi.Input[str] name: A human-readable name for the layer.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] system_packages: Names of a set of system packages to install on the layer's instances.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -96,6 +98,8 @@ class CustomLayerArgs:
             pulumi.set(__self__, "install_updates_on_boot", install_updates_on_boot)
         if instance_shutdown_timeout is not None:
             pulumi.set(__self__, "instance_shutdown_timeout", instance_shutdown_timeout)
+        if load_based_auto_scaling is not None:
+            pulumi.set(__self__, "load_based_auto_scaling", load_based_auto_scaling)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if system_packages is not None:
@@ -319,6 +323,18 @@ class CustomLayerArgs:
         pulumi.set(self, "instance_shutdown_timeout", value)
 
     @property
+    @pulumi.getter(name="loadBasedAutoScaling")
+    def load_based_auto_scaling(self) -> Optional[pulumi.Input['CustomLayerLoadBasedAutoScalingArgs']]:
+        """
+        Load-based auto scaling configuration. See Load Based AutoScaling
+        """
+        return pulumi.get(self, "load_based_auto_scaling")
+
+    @load_based_auto_scaling.setter
+    def load_based_auto_scaling(self, value: Optional[pulumi.Input['CustomLayerLoadBasedAutoScalingArgs']]):
+        pulumi.set(self, "load_based_auto_scaling", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -388,6 +404,7 @@ class _CustomLayerState:
                  elastic_load_balancer: Optional[pulumi.Input[str]] = None,
                  install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
                  instance_shutdown_timeout: Optional[pulumi.Input[int]] = None,
+                 load_based_auto_scaling: Optional[pulumi.Input['CustomLayerLoadBasedAutoScalingArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  short_name: Optional[pulumi.Input[str]] = None,
                  stack_id: Optional[pulumi.Input[str]] = None,
@@ -410,6 +427,7 @@ class _CustomLayerState:
         :param pulumi.Input[str] elastic_load_balancer: Name of an Elastic Load Balancer to attach to this layer
         :param pulumi.Input[bool] install_updates_on_boot: Whether to install OS and package updates on each instance when it boots.
         :param pulumi.Input[int] instance_shutdown_timeout: The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
+        :param pulumi.Input['CustomLayerLoadBasedAutoScalingArgs'] load_based_auto_scaling: Load-based auto scaling configuration. See Load Based AutoScaling
         :param pulumi.Input[str] name: A human-readable name for the layer.
         :param pulumi.Input[str] short_name: A short, machine-readable name for the layer, which will be used to identify it in the Chef node JSON.
         :param pulumi.Input[str] stack_id: ID of the stack the layer will belong to.
@@ -454,6 +472,8 @@ class _CustomLayerState:
             pulumi.set(__self__, "install_updates_on_boot", install_updates_on_boot)
         if instance_shutdown_timeout is not None:
             pulumi.set(__self__, "instance_shutdown_timeout", instance_shutdown_timeout)
+        if load_based_auto_scaling is not None:
+            pulumi.set(__self__, "load_based_auto_scaling", load_based_auto_scaling)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if short_name is not None:
@@ -671,6 +691,18 @@ class _CustomLayerState:
         pulumi.set(self, "instance_shutdown_timeout", value)
 
     @property
+    @pulumi.getter(name="loadBasedAutoScaling")
+    def load_based_auto_scaling(self) -> Optional[pulumi.Input['CustomLayerLoadBasedAutoScalingArgs']]:
+        """
+        Load-based auto scaling configuration. See Load Based AutoScaling
+        """
+        return pulumi.get(self, "load_based_auto_scaling")
+
+    @load_based_auto_scaling.setter
+    def load_based_auto_scaling(self, value: Optional[pulumi.Input['CustomLayerLoadBasedAutoScalingArgs']]):
+        pulumi.set(self, "load_based_auto_scaling", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -777,6 +809,7 @@ class CustomLayer(pulumi.CustomResource):
                  elastic_load_balancer: Optional[pulumi.Input[str]] = None,
                  install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
                  instance_shutdown_timeout: Optional[pulumi.Input[int]] = None,
+                 load_based_auto_scaling: Optional[pulumi.Input[pulumi.InputType['CustomLayerLoadBasedAutoScalingArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  short_name: Optional[pulumi.Input[str]] = None,
                  stack_id: Optional[pulumi.Input[str]] = None,
@@ -820,6 +853,7 @@ class CustomLayer(pulumi.CustomResource):
         :param pulumi.Input[str] elastic_load_balancer: Name of an Elastic Load Balancer to attach to this layer
         :param pulumi.Input[bool] install_updates_on_boot: Whether to install OS and package updates on each instance when it boots.
         :param pulumi.Input[int] instance_shutdown_timeout: The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
+        :param pulumi.Input[pulumi.InputType['CustomLayerLoadBasedAutoScalingArgs']] load_based_auto_scaling: Load-based auto scaling configuration. See Load Based AutoScaling
         :param pulumi.Input[str] name: A human-readable name for the layer.
         :param pulumi.Input[str] short_name: A short, machine-readable name for the layer, which will be used to identify it in the Chef node JSON.
         :param pulumi.Input[str] stack_id: ID of the stack the layer will belong to.
@@ -887,6 +921,7 @@ class CustomLayer(pulumi.CustomResource):
                  elastic_load_balancer: Optional[pulumi.Input[str]] = None,
                  install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
                  instance_shutdown_timeout: Optional[pulumi.Input[int]] = None,
+                 load_based_auto_scaling: Optional[pulumi.Input[pulumi.InputType['CustomLayerLoadBasedAutoScalingArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  short_name: Optional[pulumi.Input[str]] = None,
                  stack_id: Optional[pulumi.Input[str]] = None,
@@ -919,6 +954,7 @@ class CustomLayer(pulumi.CustomResource):
             __props__.__dict__["elastic_load_balancer"] = elastic_load_balancer
             __props__.__dict__["install_updates_on_boot"] = install_updates_on_boot
             __props__.__dict__["instance_shutdown_timeout"] = instance_shutdown_timeout
+            __props__.__dict__["load_based_auto_scaling"] = load_based_auto_scaling
             __props__.__dict__["name"] = name
             if short_name is None and not opts.urn:
                 raise TypeError("Missing required property 'short_name'")
@@ -959,6 +995,7 @@ class CustomLayer(pulumi.CustomResource):
             elastic_load_balancer: Optional[pulumi.Input[str]] = None,
             install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
             instance_shutdown_timeout: Optional[pulumi.Input[int]] = None,
+            load_based_auto_scaling: Optional[pulumi.Input[pulumi.InputType['CustomLayerLoadBasedAutoScalingArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             short_name: Optional[pulumi.Input[str]] = None,
             stack_id: Optional[pulumi.Input[str]] = None,
@@ -986,6 +1023,7 @@ class CustomLayer(pulumi.CustomResource):
         :param pulumi.Input[str] elastic_load_balancer: Name of an Elastic Load Balancer to attach to this layer
         :param pulumi.Input[bool] install_updates_on_boot: Whether to install OS and package updates on each instance when it boots.
         :param pulumi.Input[int] instance_shutdown_timeout: The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
+        :param pulumi.Input[pulumi.InputType['CustomLayerLoadBasedAutoScalingArgs']] load_based_auto_scaling: Load-based auto scaling configuration. See Load Based AutoScaling
         :param pulumi.Input[str] name: A human-readable name for the layer.
         :param pulumi.Input[str] short_name: A short, machine-readable name for the layer, which will be used to identify it in the Chef node JSON.
         :param pulumi.Input[str] stack_id: ID of the stack the layer will belong to.
@@ -1016,6 +1054,7 @@ class CustomLayer(pulumi.CustomResource):
         __props__.__dict__["elastic_load_balancer"] = elastic_load_balancer
         __props__.__dict__["install_updates_on_boot"] = install_updates_on_boot
         __props__.__dict__["instance_shutdown_timeout"] = instance_shutdown_timeout
+        __props__.__dict__["load_based_auto_scaling"] = load_based_auto_scaling
         __props__.__dict__["name"] = name
         __props__.__dict__["short_name"] = short_name
         __props__.__dict__["stack_id"] = stack_id
@@ -1153,6 +1192,14 @@ class CustomLayer(pulumi.CustomResource):
         The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
         """
         return pulumi.get(self, "instance_shutdown_timeout")
+
+    @property
+    @pulumi.getter(name="loadBasedAutoScaling")
+    def load_based_auto_scaling(self) -> pulumi.Output['outputs.CustomLayerLoadBasedAutoScaling']:
+        """
+        Load-based auto scaling configuration. See Load Based AutoScaling
+        """
+        return pulumi.get(self, "load_based_auto_scaling")
 
     @property
     @pulumi.getter

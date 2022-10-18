@@ -10,6 +10,10 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'DocumentClassifierInputDataConfigArgs',
+    'DocumentClassifierInputDataConfigAugmentedManifestArgs',
+    'DocumentClassifierOutputDataConfigArgs',
+    'DocumentClassifierVpcConfigArgs',
     'EntityRecognizerInputDataConfigArgs',
     'EntityRecognizerInputDataConfigAnnotationsArgs',
     'EntityRecognizerInputDataConfigAugmentedManifestArgs',
@@ -18,6 +22,303 @@ __all__ = [
     'EntityRecognizerInputDataConfigEntityTypeArgs',
     'EntityRecognizerVpcConfigArgs',
 ]
+
+@pulumi.input_type
+class DocumentClassifierInputDataConfigArgs:
+    def __init__(__self__, *,
+                 augmented_manifests: Optional[pulumi.Input[Sequence[pulumi.Input['DocumentClassifierInputDataConfigAugmentedManifestArgs']]]] = None,
+                 data_format: Optional[pulumi.Input[str]] = None,
+                 label_delimiter: Optional[pulumi.Input[str]] = None,
+                 s3_uri: Optional[pulumi.Input[str]] = None,
+                 test_s3_uri: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['DocumentClassifierInputDataConfigAugmentedManifestArgs']]] augmented_manifests: List of training datasets produced by Amazon SageMaker Ground Truth.
+               Used if `data_format` is `AUGMENTED_MANIFEST`.
+               See the `augmented_manifests` Configuration Block section below.
+        :param pulumi.Input[str] data_format: The format for the training data.
+               One of `COMPREHEND_CSV` or `AUGMENTED_MANIFEST`.
+        :param pulumi.Input[str] label_delimiter: Delimiter between labels when training a multi-label classifier.
+               Valid values are `|`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `*`, `-`, `_`, `+`, `=`, `\\`, `:`, `;`, `>`, `?`, `/`, `<space>`, and `<tab>`.
+               Default is `|`.
+        :param pulumi.Input[str] s3_uri: Destination path for the output documents.
+               The full path to the output file will be returned in `output_s3_uri`.
+        """
+        if augmented_manifests is not None:
+            pulumi.set(__self__, "augmented_manifests", augmented_manifests)
+        if data_format is not None:
+            pulumi.set(__self__, "data_format", data_format)
+        if label_delimiter is not None:
+            pulumi.set(__self__, "label_delimiter", label_delimiter)
+        if s3_uri is not None:
+            pulumi.set(__self__, "s3_uri", s3_uri)
+        if test_s3_uri is not None:
+            pulumi.set(__self__, "test_s3_uri", test_s3_uri)
+
+    @property
+    @pulumi.getter(name="augmentedManifests")
+    def augmented_manifests(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DocumentClassifierInputDataConfigAugmentedManifestArgs']]]]:
+        """
+        List of training datasets produced by Amazon SageMaker Ground Truth.
+        Used if `data_format` is `AUGMENTED_MANIFEST`.
+        See the `augmented_manifests` Configuration Block section below.
+        """
+        return pulumi.get(self, "augmented_manifests")
+
+    @augmented_manifests.setter
+    def augmented_manifests(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DocumentClassifierInputDataConfigAugmentedManifestArgs']]]]):
+        pulumi.set(self, "augmented_manifests", value)
+
+    @property
+    @pulumi.getter(name="dataFormat")
+    def data_format(self) -> Optional[pulumi.Input[str]]:
+        """
+        The format for the training data.
+        One of `COMPREHEND_CSV` or `AUGMENTED_MANIFEST`.
+        """
+        return pulumi.get(self, "data_format")
+
+    @data_format.setter
+    def data_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_format", value)
+
+    @property
+    @pulumi.getter(name="labelDelimiter")
+    def label_delimiter(self) -> Optional[pulumi.Input[str]]:
+        """
+        Delimiter between labels when training a multi-label classifier.
+        Valid values are `|`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `*`, `-`, `_`, `+`, `=`, `\\`, `:`, `;`, `>`, `?`, `/`, `<space>`, and `<tab>`.
+        Default is `|`.
+        """
+        return pulumi.get(self, "label_delimiter")
+
+    @label_delimiter.setter
+    def label_delimiter(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "label_delimiter", value)
+
+    @property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        Destination path for the output documents.
+        The full path to the output file will be returned in `output_s3_uri`.
+        """
+        return pulumi.get(self, "s3_uri")
+
+    @s3_uri.setter
+    def s3_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "s3_uri", value)
+
+    @property
+    @pulumi.getter(name="testS3Uri")
+    def test_s3_uri(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "test_s3_uri")
+
+    @test_s3_uri.setter
+    def test_s3_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "test_s3_uri", value)
+
+
+@pulumi.input_type
+class DocumentClassifierInputDataConfigAugmentedManifestArgs:
+    def __init__(__self__, *,
+                 attribute_names: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 s3_uri: pulumi.Input[str],
+                 annotation_data_s3_uri: Optional[pulumi.Input[str]] = None,
+                 document_type: Optional[pulumi.Input[str]] = None,
+                 source_documents_s3_uri: Optional[pulumi.Input[str]] = None,
+                 split: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] attribute_names: The JSON attribute that contains the annotations for the training documents.
+        :param pulumi.Input[str] s3_uri: Destination path for the output documents.
+               The full path to the output file will be returned in `output_s3_uri`.
+        :param pulumi.Input[str] annotation_data_s3_uri: Location of annotation files.
+        :param pulumi.Input[str] document_type: Type of augmented manifest.
+               One of `PLAIN_TEXT_DOCUMENT` or `SEMI_STRUCTURED_DOCUMENT`.
+        :param pulumi.Input[str] source_documents_s3_uri: Location of source PDF files.
+        :param pulumi.Input[str] split: Purpose of data in augmented manifest.
+               One of `TRAIN` or `TEST`.
+        """
+        pulumi.set(__self__, "attribute_names", attribute_names)
+        pulumi.set(__self__, "s3_uri", s3_uri)
+        if annotation_data_s3_uri is not None:
+            pulumi.set(__self__, "annotation_data_s3_uri", annotation_data_s3_uri)
+        if document_type is not None:
+            pulumi.set(__self__, "document_type", document_type)
+        if source_documents_s3_uri is not None:
+            pulumi.set(__self__, "source_documents_s3_uri", source_documents_s3_uri)
+        if split is not None:
+            pulumi.set(__self__, "split", split)
+
+    @property
+    @pulumi.getter(name="attributeNames")
+    def attribute_names(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The JSON attribute that contains the annotations for the training documents.
+        """
+        return pulumi.get(self, "attribute_names")
+
+    @attribute_names.setter
+    def attribute_names(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "attribute_names", value)
+
+    @property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> pulumi.Input[str]:
+        """
+        Destination path for the output documents.
+        The full path to the output file will be returned in `output_s3_uri`.
+        """
+        return pulumi.get(self, "s3_uri")
+
+    @s3_uri.setter
+    def s3_uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "s3_uri", value)
+
+    @property
+    @pulumi.getter(name="annotationDataS3Uri")
+    def annotation_data_s3_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        Location of annotation files.
+        """
+        return pulumi.get(self, "annotation_data_s3_uri")
+
+    @annotation_data_s3_uri.setter
+    def annotation_data_s3_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "annotation_data_s3_uri", value)
+
+    @property
+    @pulumi.getter(name="documentType")
+    def document_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of augmented manifest.
+        One of `PLAIN_TEXT_DOCUMENT` or `SEMI_STRUCTURED_DOCUMENT`.
+        """
+        return pulumi.get(self, "document_type")
+
+    @document_type.setter
+    def document_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "document_type", value)
+
+    @property
+    @pulumi.getter(name="sourceDocumentsS3Uri")
+    def source_documents_s3_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        Location of source PDF files.
+        """
+        return pulumi.get(self, "source_documents_s3_uri")
+
+    @source_documents_s3_uri.setter
+    def source_documents_s3_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_documents_s3_uri", value)
+
+    @property
+    @pulumi.getter
+    def split(self) -> Optional[pulumi.Input[str]]:
+        """
+        Purpose of data in augmented manifest.
+        One of `TRAIN` or `TEST`.
+        """
+        return pulumi.get(self, "split")
+
+    @split.setter
+    def split(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "split", value)
+
+
+@pulumi.input_type
+class DocumentClassifierOutputDataConfigArgs:
+    def __init__(__self__, *,
+                 s3_uri: pulumi.Input[str],
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
+                 output_s3_uri: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] s3_uri: Destination path for the output documents.
+               The full path to the output file will be returned in `output_s3_uri`.
+        :param pulumi.Input[str] kms_key_id: KMS Key used to encrypt the output documents.
+               Can be a KMS Key ID, a KMS Key ARN, a KMS Alias name, or a KMS Alias ARN.
+        :param pulumi.Input[str] output_s3_uri: Full path for the output documents.
+        """
+        pulumi.set(__self__, "s3_uri", s3_uri)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if output_s3_uri is not None:
+            pulumi.set(__self__, "output_s3_uri", output_s3_uri)
+
+    @property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> pulumi.Input[str]:
+        """
+        Destination path for the output documents.
+        The full path to the output file will be returned in `output_s3_uri`.
+        """
+        return pulumi.get(self, "s3_uri")
+
+    @s3_uri.setter
+    def s3_uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "s3_uri", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        KMS Key used to encrypt the output documents.
+        Can be a KMS Key ID, a KMS Key ARN, a KMS Alias name, or a KMS Alias ARN.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_id", value)
+
+    @property
+    @pulumi.getter(name="outputS3Uri")
+    def output_s3_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        Full path for the output documents.
+        """
+        return pulumi.get(self, "output_s3_uri")
+
+    @output_s3_uri.setter
+    def output_s3_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "output_s3_uri", value)
+
+
+@pulumi.input_type
+class DocumentClassifierVpcConfigArgs:
+    def __init__(__self__, *,
+                 security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 subnets: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: List of security group IDs.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: List of VPC subnets.
+        """
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnets", subnets)
+
+    @property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        List of security group IDs.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @security_group_ids.setter
+    def security_group_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "security_group_ids", value)
+
+    @property
+    @pulumi.getter
+    def subnets(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        List of VPC subnets.
+        """
+        return pulumi.get(self, "subnets")
+
+    @subnets.setter
+    def subnets(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "subnets", value)
+
 
 @pulumi.input_type
 class EntityRecognizerInputDataConfigArgs:

@@ -17,40 +17,73 @@ __all__ = [
     'CustomLayerCloudwatchConfiguration',
     'CustomLayerCloudwatchConfigurationLogStream',
     'CustomLayerEbsVolume',
+    'CustomLayerLoadBasedAutoScaling',
+    'CustomLayerLoadBasedAutoScalingDownscaling',
+    'CustomLayerLoadBasedAutoScalingUpscaling',
     'EcsClusterLayerCloudwatchConfiguration',
     'EcsClusterLayerCloudwatchConfigurationLogStream',
     'EcsClusterLayerEbsVolume',
+    'EcsClusterLayerLoadBasedAutoScaling',
+    'EcsClusterLayerLoadBasedAutoScalingDownscaling',
+    'EcsClusterLayerLoadBasedAutoScalingUpscaling',
     'GangliaLayerCloudwatchConfiguration',
     'GangliaLayerCloudwatchConfigurationLogStream',
     'GangliaLayerEbsVolume',
+    'GangliaLayerLoadBasedAutoScaling',
+    'GangliaLayerLoadBasedAutoScalingDownscaling',
+    'GangliaLayerLoadBasedAutoScalingUpscaling',
     'HaproxyLayerCloudwatchConfiguration',
     'HaproxyLayerCloudwatchConfigurationLogStream',
     'HaproxyLayerEbsVolume',
+    'HaproxyLayerLoadBasedAutoScaling',
+    'HaproxyLayerLoadBasedAutoScalingDownscaling',
+    'HaproxyLayerLoadBasedAutoScalingUpscaling',
     'InstanceEbsBlockDevice',
     'InstanceEphemeralBlockDevice',
     'InstanceRootBlockDevice',
     'JavaAppLayerCloudwatchConfiguration',
     'JavaAppLayerCloudwatchConfigurationLogStream',
     'JavaAppLayerEbsVolume',
+    'JavaAppLayerLoadBasedAutoScaling',
+    'JavaAppLayerLoadBasedAutoScalingDownscaling',
+    'JavaAppLayerLoadBasedAutoScalingUpscaling',
     'MemcachedLayerCloudwatchConfiguration',
     'MemcachedLayerCloudwatchConfigurationLogStream',
     'MemcachedLayerEbsVolume',
+    'MemcachedLayerLoadBasedAutoScaling',
+    'MemcachedLayerLoadBasedAutoScalingDownscaling',
+    'MemcachedLayerLoadBasedAutoScalingUpscaling',
     'MysqlLayerCloudwatchConfiguration',
     'MysqlLayerCloudwatchConfigurationLogStream',
     'MysqlLayerEbsVolume',
+    'MysqlLayerLoadBasedAutoScaling',
+    'MysqlLayerLoadBasedAutoScalingDownscaling',
+    'MysqlLayerLoadBasedAutoScalingUpscaling',
     'NodejsAppLayerCloudwatchConfiguration',
     'NodejsAppLayerCloudwatchConfigurationLogStream',
     'NodejsAppLayerEbsVolume',
+    'NodejsAppLayerLoadBasedAutoScaling',
+    'NodejsAppLayerLoadBasedAutoScalingDownscaling',
+    'NodejsAppLayerLoadBasedAutoScalingUpscaling',
     'PhpAppLayerCloudwatchConfiguration',
     'PhpAppLayerCloudwatchConfigurationLogStream',
     'PhpAppLayerEbsVolume',
+    'PhpAppLayerLoadBasedAutoScaling',
+    'PhpAppLayerLoadBasedAutoScalingDownscaling',
+    'PhpAppLayerLoadBasedAutoScalingUpscaling',
     'RailsAppLayerCloudwatchConfiguration',
     'RailsAppLayerCloudwatchConfigurationLogStream',
     'RailsAppLayerEbsVolume',
+    'RailsAppLayerLoadBasedAutoScaling',
+    'RailsAppLayerLoadBasedAutoScalingDownscaling',
+    'RailsAppLayerLoadBasedAutoScalingUpscaling',
     'StackCustomCookbooksSource',
     'StaticWebLayerCloudwatchConfiguration',
     'StaticWebLayerCloudwatchConfigurationLogStream',
     'StaticWebLayerEbsVolume',
+    'StaticWebLayerLoadBasedAutoScaling',
+    'StaticWebLayerLoadBasedAutoScalingDownscaling',
+    'StaticWebLayerLoadBasedAutoScalingUpscaling',
 ]
 
 @pulumi.output_type
@@ -571,6 +604,285 @@ class CustomLayerEbsVolume(dict):
 
 
 @pulumi.output_type
+class CustomLayerLoadBasedAutoScaling(dict):
+    def __init__(__self__, *,
+                 downscaling: Optional['outputs.CustomLayerLoadBasedAutoScalingDownscaling'] = None,
+                 enable: Optional[bool] = None,
+                 upscaling: Optional['outputs.CustomLayerLoadBasedAutoScalingUpscaling'] = None):
+        """
+        :param 'CustomLayerLoadBasedAutoScalingDownscalingArgs' downscaling: The downscaling settings, as defined below, used for load-based autoscaling
+        :param bool enable: Whether load-based auto scaling is enabled for the layer.
+        :param 'CustomLayerLoadBasedAutoScalingUpscalingArgs' upscaling: The upscaling settings, as defined below, used for load-based autoscaling
+        """
+        if downscaling is not None:
+            pulumi.set(__self__, "downscaling", downscaling)
+        if enable is not None:
+            pulumi.set(__self__, "enable", enable)
+        if upscaling is not None:
+            pulumi.set(__self__, "upscaling", upscaling)
+
+    @property
+    @pulumi.getter
+    def downscaling(self) -> Optional['outputs.CustomLayerLoadBasedAutoScalingDownscaling']:
+        """
+        The downscaling settings, as defined below, used for load-based autoscaling
+        """
+        return pulumi.get(self, "downscaling")
+
+    @property
+    @pulumi.getter
+    def enable(self) -> Optional[bool]:
+        """
+        Whether load-based auto scaling is enabled for the layer.
+        """
+        return pulumi.get(self, "enable")
+
+    @property
+    @pulumi.getter
+    def upscaling(self) -> Optional['outputs.CustomLayerLoadBasedAutoScalingUpscaling']:
+        """
+        The upscaling settings, as defined below, used for load-based autoscaling
+        """
+        return pulumi.get(self, "upscaling")
+
+
+@pulumi.output_type
+class CustomLayerLoadBasedAutoScalingDownscaling(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cpuThreshold":
+            suggest = "cpu_threshold"
+        elif key == "ignoreMetricsTime":
+            suggest = "ignore_metrics_time"
+        elif key == "instanceCount":
+            suggest = "instance_count"
+        elif key == "loadThreshold":
+            suggest = "load_threshold"
+        elif key == "memoryThreshold":
+            suggest = "memory_threshold"
+        elif key == "thresholdsWaitTime":
+            suggest = "thresholds_wait_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomLayerLoadBasedAutoScalingDownscaling. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomLayerLoadBasedAutoScalingDownscaling.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomLayerLoadBasedAutoScalingDownscaling.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alarms: Optional[Sequence[str]] = None,
+                 cpu_threshold: Optional[float] = None,
+                 ignore_metrics_time: Optional[int] = None,
+                 instance_count: Optional[int] = None,
+                 load_threshold: Optional[float] = None,
+                 memory_threshold: Optional[float] = None,
+                 thresholds_wait_time: Optional[int] = None):
+        """
+        :param Sequence[str] alarms: Custom Cloudwatch auto scaling alarms, to be used as thresholds. This parameter takes a list of up to five alarm names, which are case sensitive and must be in the same region as the stack.
+        :param float cpu_threshold: The CPU utilization threshold, as a percent of the available CPU. A value of -1 disables the threshold.
+        :param int ignore_metrics_time: The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks Stacks should ignore metrics and suppress additional scaling events.
+        :param int instance_count: The number of instances to add or remove when the load exceeds a threshold.
+        :param float load_threshold: The load threshold. A value of -1 disables the threshold.
+        :param float memory_threshold: The memory utilization threshold, as a percent of the available memory. A value of -1 disables the threshold.
+        :param int thresholds_wait_time: The amount of time, in minutes, that the load must exceed a threshold before more instances are added or removed.
+        """
+        if alarms is not None:
+            pulumi.set(__self__, "alarms", alarms)
+        if cpu_threshold is not None:
+            pulumi.set(__self__, "cpu_threshold", cpu_threshold)
+        if ignore_metrics_time is not None:
+            pulumi.set(__self__, "ignore_metrics_time", ignore_metrics_time)
+        if instance_count is not None:
+            pulumi.set(__self__, "instance_count", instance_count)
+        if load_threshold is not None:
+            pulumi.set(__self__, "load_threshold", load_threshold)
+        if memory_threshold is not None:
+            pulumi.set(__self__, "memory_threshold", memory_threshold)
+        if thresholds_wait_time is not None:
+            pulumi.set(__self__, "thresholds_wait_time", thresholds_wait_time)
+
+    @property
+    @pulumi.getter
+    def alarms(self) -> Optional[Sequence[str]]:
+        """
+        Custom Cloudwatch auto scaling alarms, to be used as thresholds. This parameter takes a list of up to five alarm names, which are case sensitive and must be in the same region as the stack.
+        """
+        return pulumi.get(self, "alarms")
+
+    @property
+    @pulumi.getter(name="cpuThreshold")
+    def cpu_threshold(self) -> Optional[float]:
+        """
+        The CPU utilization threshold, as a percent of the available CPU. A value of -1 disables the threshold.
+        """
+        return pulumi.get(self, "cpu_threshold")
+
+    @property
+    @pulumi.getter(name="ignoreMetricsTime")
+    def ignore_metrics_time(self) -> Optional[int]:
+        """
+        The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks Stacks should ignore metrics and suppress additional scaling events.
+        """
+        return pulumi.get(self, "ignore_metrics_time")
+
+    @property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> Optional[int]:
+        """
+        The number of instances to add or remove when the load exceeds a threshold.
+        """
+        return pulumi.get(self, "instance_count")
+
+    @property
+    @pulumi.getter(name="loadThreshold")
+    def load_threshold(self) -> Optional[float]:
+        """
+        The load threshold. A value of -1 disables the threshold.
+        """
+        return pulumi.get(self, "load_threshold")
+
+    @property
+    @pulumi.getter(name="memoryThreshold")
+    def memory_threshold(self) -> Optional[float]:
+        """
+        The memory utilization threshold, as a percent of the available memory. A value of -1 disables the threshold.
+        """
+        return pulumi.get(self, "memory_threshold")
+
+    @property
+    @pulumi.getter(name="thresholdsWaitTime")
+    def thresholds_wait_time(self) -> Optional[int]:
+        """
+        The amount of time, in minutes, that the load must exceed a threshold before more instances are added or removed.
+        """
+        return pulumi.get(self, "thresholds_wait_time")
+
+
+@pulumi.output_type
+class CustomLayerLoadBasedAutoScalingUpscaling(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cpuThreshold":
+            suggest = "cpu_threshold"
+        elif key == "ignoreMetricsTime":
+            suggest = "ignore_metrics_time"
+        elif key == "instanceCount":
+            suggest = "instance_count"
+        elif key == "loadThreshold":
+            suggest = "load_threshold"
+        elif key == "memoryThreshold":
+            suggest = "memory_threshold"
+        elif key == "thresholdsWaitTime":
+            suggest = "thresholds_wait_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomLayerLoadBasedAutoScalingUpscaling. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomLayerLoadBasedAutoScalingUpscaling.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomLayerLoadBasedAutoScalingUpscaling.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alarms: Optional[Sequence[str]] = None,
+                 cpu_threshold: Optional[float] = None,
+                 ignore_metrics_time: Optional[int] = None,
+                 instance_count: Optional[int] = None,
+                 load_threshold: Optional[float] = None,
+                 memory_threshold: Optional[float] = None,
+                 thresholds_wait_time: Optional[int] = None):
+        """
+        :param Sequence[str] alarms: Custom Cloudwatch auto scaling alarms, to be used as thresholds. This parameter takes a list of up to five alarm names, which are case sensitive and must be in the same region as the stack.
+        :param float cpu_threshold: The CPU utilization threshold, as a percent of the available CPU. A value of -1 disables the threshold.
+        :param int ignore_metrics_time: The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks Stacks should ignore metrics and suppress additional scaling events.
+        :param int instance_count: The number of instances to add or remove when the load exceeds a threshold.
+        :param float load_threshold: The load threshold. A value of -1 disables the threshold.
+        :param float memory_threshold: The memory utilization threshold, as a percent of the available memory. A value of -1 disables the threshold.
+        :param int thresholds_wait_time: The amount of time, in minutes, that the load must exceed a threshold before more instances are added or removed.
+        """
+        if alarms is not None:
+            pulumi.set(__self__, "alarms", alarms)
+        if cpu_threshold is not None:
+            pulumi.set(__self__, "cpu_threshold", cpu_threshold)
+        if ignore_metrics_time is not None:
+            pulumi.set(__self__, "ignore_metrics_time", ignore_metrics_time)
+        if instance_count is not None:
+            pulumi.set(__self__, "instance_count", instance_count)
+        if load_threshold is not None:
+            pulumi.set(__self__, "load_threshold", load_threshold)
+        if memory_threshold is not None:
+            pulumi.set(__self__, "memory_threshold", memory_threshold)
+        if thresholds_wait_time is not None:
+            pulumi.set(__self__, "thresholds_wait_time", thresholds_wait_time)
+
+    @property
+    @pulumi.getter
+    def alarms(self) -> Optional[Sequence[str]]:
+        """
+        Custom Cloudwatch auto scaling alarms, to be used as thresholds. This parameter takes a list of up to five alarm names, which are case sensitive and must be in the same region as the stack.
+        """
+        return pulumi.get(self, "alarms")
+
+    @property
+    @pulumi.getter(name="cpuThreshold")
+    def cpu_threshold(self) -> Optional[float]:
+        """
+        The CPU utilization threshold, as a percent of the available CPU. A value of -1 disables the threshold.
+        """
+        return pulumi.get(self, "cpu_threshold")
+
+    @property
+    @pulumi.getter(name="ignoreMetricsTime")
+    def ignore_metrics_time(self) -> Optional[int]:
+        """
+        The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks Stacks should ignore metrics and suppress additional scaling events.
+        """
+        return pulumi.get(self, "ignore_metrics_time")
+
+    @property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> Optional[int]:
+        """
+        The number of instances to add or remove when the load exceeds a threshold.
+        """
+        return pulumi.get(self, "instance_count")
+
+    @property
+    @pulumi.getter(name="loadThreshold")
+    def load_threshold(self) -> Optional[float]:
+        """
+        The load threshold. A value of -1 disables the threshold.
+        """
+        return pulumi.get(self, "load_threshold")
+
+    @property
+    @pulumi.getter(name="memoryThreshold")
+    def memory_threshold(self) -> Optional[float]:
+        """
+        The memory utilization threshold, as a percent of the available memory. A value of -1 disables the threshold.
+        """
+        return pulumi.get(self, "memory_threshold")
+
+    @property
+    @pulumi.getter(name="thresholdsWaitTime")
+    def thresholds_wait_time(self) -> Optional[int]:
+        """
+        The amount of time, in minutes, that the load must exceed a threshold before more instances are added or removed.
+        """
+        return pulumi.get(self, "thresholds_wait_time")
+
+
+@pulumi.output_type
 class EcsClusterLayerCloudwatchConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -835,6 +1147,211 @@ class EcsClusterLayerEbsVolume(dict):
         The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class EcsClusterLayerLoadBasedAutoScaling(dict):
+    def __init__(__self__, *,
+                 downscaling: Optional['outputs.EcsClusterLayerLoadBasedAutoScalingDownscaling'] = None,
+                 enable: Optional[bool] = None,
+                 upscaling: Optional['outputs.EcsClusterLayerLoadBasedAutoScalingUpscaling'] = None):
+        if downscaling is not None:
+            pulumi.set(__self__, "downscaling", downscaling)
+        if enable is not None:
+            pulumi.set(__self__, "enable", enable)
+        if upscaling is not None:
+            pulumi.set(__self__, "upscaling", upscaling)
+
+    @property
+    @pulumi.getter
+    def downscaling(self) -> Optional['outputs.EcsClusterLayerLoadBasedAutoScalingDownscaling']:
+        return pulumi.get(self, "downscaling")
+
+    @property
+    @pulumi.getter
+    def enable(self) -> Optional[bool]:
+        return pulumi.get(self, "enable")
+
+    @property
+    @pulumi.getter
+    def upscaling(self) -> Optional['outputs.EcsClusterLayerLoadBasedAutoScalingUpscaling']:
+        return pulumi.get(self, "upscaling")
+
+
+@pulumi.output_type
+class EcsClusterLayerLoadBasedAutoScalingDownscaling(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cpuThreshold":
+            suggest = "cpu_threshold"
+        elif key == "ignoreMetricsTime":
+            suggest = "ignore_metrics_time"
+        elif key == "instanceCount":
+            suggest = "instance_count"
+        elif key == "loadThreshold":
+            suggest = "load_threshold"
+        elif key == "memoryThreshold":
+            suggest = "memory_threshold"
+        elif key == "thresholdsWaitTime":
+            suggest = "thresholds_wait_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EcsClusterLayerLoadBasedAutoScalingDownscaling. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EcsClusterLayerLoadBasedAutoScalingDownscaling.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EcsClusterLayerLoadBasedAutoScalingDownscaling.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alarms: Optional[Sequence[str]] = None,
+                 cpu_threshold: Optional[float] = None,
+                 ignore_metrics_time: Optional[int] = None,
+                 instance_count: Optional[int] = None,
+                 load_threshold: Optional[float] = None,
+                 memory_threshold: Optional[float] = None,
+                 thresholds_wait_time: Optional[int] = None):
+        if alarms is not None:
+            pulumi.set(__self__, "alarms", alarms)
+        if cpu_threshold is not None:
+            pulumi.set(__self__, "cpu_threshold", cpu_threshold)
+        if ignore_metrics_time is not None:
+            pulumi.set(__self__, "ignore_metrics_time", ignore_metrics_time)
+        if instance_count is not None:
+            pulumi.set(__self__, "instance_count", instance_count)
+        if load_threshold is not None:
+            pulumi.set(__self__, "load_threshold", load_threshold)
+        if memory_threshold is not None:
+            pulumi.set(__self__, "memory_threshold", memory_threshold)
+        if thresholds_wait_time is not None:
+            pulumi.set(__self__, "thresholds_wait_time", thresholds_wait_time)
+
+    @property
+    @pulumi.getter
+    def alarms(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "alarms")
+
+    @property
+    @pulumi.getter(name="cpuThreshold")
+    def cpu_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "cpu_threshold")
+
+    @property
+    @pulumi.getter(name="ignoreMetricsTime")
+    def ignore_metrics_time(self) -> Optional[int]:
+        return pulumi.get(self, "ignore_metrics_time")
+
+    @property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> Optional[int]:
+        return pulumi.get(self, "instance_count")
+
+    @property
+    @pulumi.getter(name="loadThreshold")
+    def load_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "load_threshold")
+
+    @property
+    @pulumi.getter(name="memoryThreshold")
+    def memory_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "memory_threshold")
+
+    @property
+    @pulumi.getter(name="thresholdsWaitTime")
+    def thresholds_wait_time(self) -> Optional[int]:
+        return pulumi.get(self, "thresholds_wait_time")
+
+
+@pulumi.output_type
+class EcsClusterLayerLoadBasedAutoScalingUpscaling(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cpuThreshold":
+            suggest = "cpu_threshold"
+        elif key == "ignoreMetricsTime":
+            suggest = "ignore_metrics_time"
+        elif key == "instanceCount":
+            suggest = "instance_count"
+        elif key == "loadThreshold":
+            suggest = "load_threshold"
+        elif key == "memoryThreshold":
+            suggest = "memory_threshold"
+        elif key == "thresholdsWaitTime":
+            suggest = "thresholds_wait_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EcsClusterLayerLoadBasedAutoScalingUpscaling. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EcsClusterLayerLoadBasedAutoScalingUpscaling.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EcsClusterLayerLoadBasedAutoScalingUpscaling.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alarms: Optional[Sequence[str]] = None,
+                 cpu_threshold: Optional[float] = None,
+                 ignore_metrics_time: Optional[int] = None,
+                 instance_count: Optional[int] = None,
+                 load_threshold: Optional[float] = None,
+                 memory_threshold: Optional[float] = None,
+                 thresholds_wait_time: Optional[int] = None):
+        if alarms is not None:
+            pulumi.set(__self__, "alarms", alarms)
+        if cpu_threshold is not None:
+            pulumi.set(__self__, "cpu_threshold", cpu_threshold)
+        if ignore_metrics_time is not None:
+            pulumi.set(__self__, "ignore_metrics_time", ignore_metrics_time)
+        if instance_count is not None:
+            pulumi.set(__self__, "instance_count", instance_count)
+        if load_threshold is not None:
+            pulumi.set(__self__, "load_threshold", load_threshold)
+        if memory_threshold is not None:
+            pulumi.set(__self__, "memory_threshold", memory_threshold)
+        if thresholds_wait_time is not None:
+            pulumi.set(__self__, "thresholds_wait_time", thresholds_wait_time)
+
+    @property
+    @pulumi.getter
+    def alarms(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "alarms")
+
+    @property
+    @pulumi.getter(name="cpuThreshold")
+    def cpu_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "cpu_threshold")
+
+    @property
+    @pulumi.getter(name="ignoreMetricsTime")
+    def ignore_metrics_time(self) -> Optional[int]:
+        return pulumi.get(self, "ignore_metrics_time")
+
+    @property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> Optional[int]:
+        return pulumi.get(self, "instance_count")
+
+    @property
+    @pulumi.getter(name="loadThreshold")
+    def load_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "load_threshold")
+
+    @property
+    @pulumi.getter(name="memoryThreshold")
+    def memory_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "memory_threshold")
+
+    @property
+    @pulumi.getter(name="thresholdsWaitTime")
+    def thresholds_wait_time(self) -> Optional[int]:
+        return pulumi.get(self, "thresholds_wait_time")
 
 
 @pulumi.output_type
@@ -1105,6 +1622,211 @@ class GangliaLayerEbsVolume(dict):
 
 
 @pulumi.output_type
+class GangliaLayerLoadBasedAutoScaling(dict):
+    def __init__(__self__, *,
+                 downscaling: Optional['outputs.GangliaLayerLoadBasedAutoScalingDownscaling'] = None,
+                 enable: Optional[bool] = None,
+                 upscaling: Optional['outputs.GangliaLayerLoadBasedAutoScalingUpscaling'] = None):
+        if downscaling is not None:
+            pulumi.set(__self__, "downscaling", downscaling)
+        if enable is not None:
+            pulumi.set(__self__, "enable", enable)
+        if upscaling is not None:
+            pulumi.set(__self__, "upscaling", upscaling)
+
+    @property
+    @pulumi.getter
+    def downscaling(self) -> Optional['outputs.GangliaLayerLoadBasedAutoScalingDownscaling']:
+        return pulumi.get(self, "downscaling")
+
+    @property
+    @pulumi.getter
+    def enable(self) -> Optional[bool]:
+        return pulumi.get(self, "enable")
+
+    @property
+    @pulumi.getter
+    def upscaling(self) -> Optional['outputs.GangliaLayerLoadBasedAutoScalingUpscaling']:
+        return pulumi.get(self, "upscaling")
+
+
+@pulumi.output_type
+class GangliaLayerLoadBasedAutoScalingDownscaling(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cpuThreshold":
+            suggest = "cpu_threshold"
+        elif key == "ignoreMetricsTime":
+            suggest = "ignore_metrics_time"
+        elif key == "instanceCount":
+            suggest = "instance_count"
+        elif key == "loadThreshold":
+            suggest = "load_threshold"
+        elif key == "memoryThreshold":
+            suggest = "memory_threshold"
+        elif key == "thresholdsWaitTime":
+            suggest = "thresholds_wait_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GangliaLayerLoadBasedAutoScalingDownscaling. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GangliaLayerLoadBasedAutoScalingDownscaling.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GangliaLayerLoadBasedAutoScalingDownscaling.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alarms: Optional[Sequence[str]] = None,
+                 cpu_threshold: Optional[float] = None,
+                 ignore_metrics_time: Optional[int] = None,
+                 instance_count: Optional[int] = None,
+                 load_threshold: Optional[float] = None,
+                 memory_threshold: Optional[float] = None,
+                 thresholds_wait_time: Optional[int] = None):
+        if alarms is not None:
+            pulumi.set(__self__, "alarms", alarms)
+        if cpu_threshold is not None:
+            pulumi.set(__self__, "cpu_threshold", cpu_threshold)
+        if ignore_metrics_time is not None:
+            pulumi.set(__self__, "ignore_metrics_time", ignore_metrics_time)
+        if instance_count is not None:
+            pulumi.set(__self__, "instance_count", instance_count)
+        if load_threshold is not None:
+            pulumi.set(__self__, "load_threshold", load_threshold)
+        if memory_threshold is not None:
+            pulumi.set(__self__, "memory_threshold", memory_threshold)
+        if thresholds_wait_time is not None:
+            pulumi.set(__self__, "thresholds_wait_time", thresholds_wait_time)
+
+    @property
+    @pulumi.getter
+    def alarms(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "alarms")
+
+    @property
+    @pulumi.getter(name="cpuThreshold")
+    def cpu_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "cpu_threshold")
+
+    @property
+    @pulumi.getter(name="ignoreMetricsTime")
+    def ignore_metrics_time(self) -> Optional[int]:
+        return pulumi.get(self, "ignore_metrics_time")
+
+    @property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> Optional[int]:
+        return pulumi.get(self, "instance_count")
+
+    @property
+    @pulumi.getter(name="loadThreshold")
+    def load_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "load_threshold")
+
+    @property
+    @pulumi.getter(name="memoryThreshold")
+    def memory_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "memory_threshold")
+
+    @property
+    @pulumi.getter(name="thresholdsWaitTime")
+    def thresholds_wait_time(self) -> Optional[int]:
+        return pulumi.get(self, "thresholds_wait_time")
+
+
+@pulumi.output_type
+class GangliaLayerLoadBasedAutoScalingUpscaling(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cpuThreshold":
+            suggest = "cpu_threshold"
+        elif key == "ignoreMetricsTime":
+            suggest = "ignore_metrics_time"
+        elif key == "instanceCount":
+            suggest = "instance_count"
+        elif key == "loadThreshold":
+            suggest = "load_threshold"
+        elif key == "memoryThreshold":
+            suggest = "memory_threshold"
+        elif key == "thresholdsWaitTime":
+            suggest = "thresholds_wait_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GangliaLayerLoadBasedAutoScalingUpscaling. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GangliaLayerLoadBasedAutoScalingUpscaling.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GangliaLayerLoadBasedAutoScalingUpscaling.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alarms: Optional[Sequence[str]] = None,
+                 cpu_threshold: Optional[float] = None,
+                 ignore_metrics_time: Optional[int] = None,
+                 instance_count: Optional[int] = None,
+                 load_threshold: Optional[float] = None,
+                 memory_threshold: Optional[float] = None,
+                 thresholds_wait_time: Optional[int] = None):
+        if alarms is not None:
+            pulumi.set(__self__, "alarms", alarms)
+        if cpu_threshold is not None:
+            pulumi.set(__self__, "cpu_threshold", cpu_threshold)
+        if ignore_metrics_time is not None:
+            pulumi.set(__self__, "ignore_metrics_time", ignore_metrics_time)
+        if instance_count is not None:
+            pulumi.set(__self__, "instance_count", instance_count)
+        if load_threshold is not None:
+            pulumi.set(__self__, "load_threshold", load_threshold)
+        if memory_threshold is not None:
+            pulumi.set(__self__, "memory_threshold", memory_threshold)
+        if thresholds_wait_time is not None:
+            pulumi.set(__self__, "thresholds_wait_time", thresholds_wait_time)
+
+    @property
+    @pulumi.getter
+    def alarms(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "alarms")
+
+    @property
+    @pulumi.getter(name="cpuThreshold")
+    def cpu_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "cpu_threshold")
+
+    @property
+    @pulumi.getter(name="ignoreMetricsTime")
+    def ignore_metrics_time(self) -> Optional[int]:
+        return pulumi.get(self, "ignore_metrics_time")
+
+    @property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> Optional[int]:
+        return pulumi.get(self, "instance_count")
+
+    @property
+    @pulumi.getter(name="loadThreshold")
+    def load_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "load_threshold")
+
+    @property
+    @pulumi.getter(name="memoryThreshold")
+    def memory_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "memory_threshold")
+
+    @property
+    @pulumi.getter(name="thresholdsWaitTime")
+    def thresholds_wait_time(self) -> Optional[int]:
+        return pulumi.get(self, "thresholds_wait_time")
+
+
+@pulumi.output_type
 class HaproxyLayerCloudwatchConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1369,6 +2091,211 @@ class HaproxyLayerEbsVolume(dict):
         The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class HaproxyLayerLoadBasedAutoScaling(dict):
+    def __init__(__self__, *,
+                 downscaling: Optional['outputs.HaproxyLayerLoadBasedAutoScalingDownscaling'] = None,
+                 enable: Optional[bool] = None,
+                 upscaling: Optional['outputs.HaproxyLayerLoadBasedAutoScalingUpscaling'] = None):
+        if downscaling is not None:
+            pulumi.set(__self__, "downscaling", downscaling)
+        if enable is not None:
+            pulumi.set(__self__, "enable", enable)
+        if upscaling is not None:
+            pulumi.set(__self__, "upscaling", upscaling)
+
+    @property
+    @pulumi.getter
+    def downscaling(self) -> Optional['outputs.HaproxyLayerLoadBasedAutoScalingDownscaling']:
+        return pulumi.get(self, "downscaling")
+
+    @property
+    @pulumi.getter
+    def enable(self) -> Optional[bool]:
+        return pulumi.get(self, "enable")
+
+    @property
+    @pulumi.getter
+    def upscaling(self) -> Optional['outputs.HaproxyLayerLoadBasedAutoScalingUpscaling']:
+        return pulumi.get(self, "upscaling")
+
+
+@pulumi.output_type
+class HaproxyLayerLoadBasedAutoScalingDownscaling(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cpuThreshold":
+            suggest = "cpu_threshold"
+        elif key == "ignoreMetricsTime":
+            suggest = "ignore_metrics_time"
+        elif key == "instanceCount":
+            suggest = "instance_count"
+        elif key == "loadThreshold":
+            suggest = "load_threshold"
+        elif key == "memoryThreshold":
+            suggest = "memory_threshold"
+        elif key == "thresholdsWaitTime":
+            suggest = "thresholds_wait_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HaproxyLayerLoadBasedAutoScalingDownscaling. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HaproxyLayerLoadBasedAutoScalingDownscaling.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HaproxyLayerLoadBasedAutoScalingDownscaling.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alarms: Optional[Sequence[str]] = None,
+                 cpu_threshold: Optional[float] = None,
+                 ignore_metrics_time: Optional[int] = None,
+                 instance_count: Optional[int] = None,
+                 load_threshold: Optional[float] = None,
+                 memory_threshold: Optional[float] = None,
+                 thresholds_wait_time: Optional[int] = None):
+        if alarms is not None:
+            pulumi.set(__self__, "alarms", alarms)
+        if cpu_threshold is not None:
+            pulumi.set(__self__, "cpu_threshold", cpu_threshold)
+        if ignore_metrics_time is not None:
+            pulumi.set(__self__, "ignore_metrics_time", ignore_metrics_time)
+        if instance_count is not None:
+            pulumi.set(__self__, "instance_count", instance_count)
+        if load_threshold is not None:
+            pulumi.set(__self__, "load_threshold", load_threshold)
+        if memory_threshold is not None:
+            pulumi.set(__self__, "memory_threshold", memory_threshold)
+        if thresholds_wait_time is not None:
+            pulumi.set(__self__, "thresholds_wait_time", thresholds_wait_time)
+
+    @property
+    @pulumi.getter
+    def alarms(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "alarms")
+
+    @property
+    @pulumi.getter(name="cpuThreshold")
+    def cpu_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "cpu_threshold")
+
+    @property
+    @pulumi.getter(name="ignoreMetricsTime")
+    def ignore_metrics_time(self) -> Optional[int]:
+        return pulumi.get(self, "ignore_metrics_time")
+
+    @property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> Optional[int]:
+        return pulumi.get(self, "instance_count")
+
+    @property
+    @pulumi.getter(name="loadThreshold")
+    def load_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "load_threshold")
+
+    @property
+    @pulumi.getter(name="memoryThreshold")
+    def memory_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "memory_threshold")
+
+    @property
+    @pulumi.getter(name="thresholdsWaitTime")
+    def thresholds_wait_time(self) -> Optional[int]:
+        return pulumi.get(self, "thresholds_wait_time")
+
+
+@pulumi.output_type
+class HaproxyLayerLoadBasedAutoScalingUpscaling(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cpuThreshold":
+            suggest = "cpu_threshold"
+        elif key == "ignoreMetricsTime":
+            suggest = "ignore_metrics_time"
+        elif key == "instanceCount":
+            suggest = "instance_count"
+        elif key == "loadThreshold":
+            suggest = "load_threshold"
+        elif key == "memoryThreshold":
+            suggest = "memory_threshold"
+        elif key == "thresholdsWaitTime":
+            suggest = "thresholds_wait_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HaproxyLayerLoadBasedAutoScalingUpscaling. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HaproxyLayerLoadBasedAutoScalingUpscaling.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HaproxyLayerLoadBasedAutoScalingUpscaling.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alarms: Optional[Sequence[str]] = None,
+                 cpu_threshold: Optional[float] = None,
+                 ignore_metrics_time: Optional[int] = None,
+                 instance_count: Optional[int] = None,
+                 load_threshold: Optional[float] = None,
+                 memory_threshold: Optional[float] = None,
+                 thresholds_wait_time: Optional[int] = None):
+        if alarms is not None:
+            pulumi.set(__self__, "alarms", alarms)
+        if cpu_threshold is not None:
+            pulumi.set(__self__, "cpu_threshold", cpu_threshold)
+        if ignore_metrics_time is not None:
+            pulumi.set(__self__, "ignore_metrics_time", ignore_metrics_time)
+        if instance_count is not None:
+            pulumi.set(__self__, "instance_count", instance_count)
+        if load_threshold is not None:
+            pulumi.set(__self__, "load_threshold", load_threshold)
+        if memory_threshold is not None:
+            pulumi.set(__self__, "memory_threshold", memory_threshold)
+        if thresholds_wait_time is not None:
+            pulumi.set(__self__, "thresholds_wait_time", thresholds_wait_time)
+
+    @property
+    @pulumi.getter
+    def alarms(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "alarms")
+
+    @property
+    @pulumi.getter(name="cpuThreshold")
+    def cpu_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "cpu_threshold")
+
+    @property
+    @pulumi.getter(name="ignoreMetricsTime")
+    def ignore_metrics_time(self) -> Optional[int]:
+        return pulumi.get(self, "ignore_metrics_time")
+
+    @property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> Optional[int]:
+        return pulumi.get(self, "instance_count")
+
+    @property
+    @pulumi.getter(name="loadThreshold")
+    def load_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "load_threshold")
+
+    @property
+    @pulumi.getter(name="memoryThreshold")
+    def memory_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "memory_threshold")
+
+    @property
+    @pulumi.getter(name="thresholdsWaitTime")
+    def thresholds_wait_time(self) -> Optional[int]:
+        return pulumi.get(self, "thresholds_wait_time")
 
 
 @pulumi.output_type
@@ -1812,6 +2739,211 @@ class JavaAppLayerEbsVolume(dict):
 
 
 @pulumi.output_type
+class JavaAppLayerLoadBasedAutoScaling(dict):
+    def __init__(__self__, *,
+                 downscaling: Optional['outputs.JavaAppLayerLoadBasedAutoScalingDownscaling'] = None,
+                 enable: Optional[bool] = None,
+                 upscaling: Optional['outputs.JavaAppLayerLoadBasedAutoScalingUpscaling'] = None):
+        if downscaling is not None:
+            pulumi.set(__self__, "downscaling", downscaling)
+        if enable is not None:
+            pulumi.set(__self__, "enable", enable)
+        if upscaling is not None:
+            pulumi.set(__self__, "upscaling", upscaling)
+
+    @property
+    @pulumi.getter
+    def downscaling(self) -> Optional['outputs.JavaAppLayerLoadBasedAutoScalingDownscaling']:
+        return pulumi.get(self, "downscaling")
+
+    @property
+    @pulumi.getter
+    def enable(self) -> Optional[bool]:
+        return pulumi.get(self, "enable")
+
+    @property
+    @pulumi.getter
+    def upscaling(self) -> Optional['outputs.JavaAppLayerLoadBasedAutoScalingUpscaling']:
+        return pulumi.get(self, "upscaling")
+
+
+@pulumi.output_type
+class JavaAppLayerLoadBasedAutoScalingDownscaling(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cpuThreshold":
+            suggest = "cpu_threshold"
+        elif key == "ignoreMetricsTime":
+            suggest = "ignore_metrics_time"
+        elif key == "instanceCount":
+            suggest = "instance_count"
+        elif key == "loadThreshold":
+            suggest = "load_threshold"
+        elif key == "memoryThreshold":
+            suggest = "memory_threshold"
+        elif key == "thresholdsWaitTime":
+            suggest = "thresholds_wait_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JavaAppLayerLoadBasedAutoScalingDownscaling. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JavaAppLayerLoadBasedAutoScalingDownscaling.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JavaAppLayerLoadBasedAutoScalingDownscaling.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alarms: Optional[Sequence[str]] = None,
+                 cpu_threshold: Optional[float] = None,
+                 ignore_metrics_time: Optional[int] = None,
+                 instance_count: Optional[int] = None,
+                 load_threshold: Optional[float] = None,
+                 memory_threshold: Optional[float] = None,
+                 thresholds_wait_time: Optional[int] = None):
+        if alarms is not None:
+            pulumi.set(__self__, "alarms", alarms)
+        if cpu_threshold is not None:
+            pulumi.set(__self__, "cpu_threshold", cpu_threshold)
+        if ignore_metrics_time is not None:
+            pulumi.set(__self__, "ignore_metrics_time", ignore_metrics_time)
+        if instance_count is not None:
+            pulumi.set(__self__, "instance_count", instance_count)
+        if load_threshold is not None:
+            pulumi.set(__self__, "load_threshold", load_threshold)
+        if memory_threshold is not None:
+            pulumi.set(__self__, "memory_threshold", memory_threshold)
+        if thresholds_wait_time is not None:
+            pulumi.set(__self__, "thresholds_wait_time", thresholds_wait_time)
+
+    @property
+    @pulumi.getter
+    def alarms(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "alarms")
+
+    @property
+    @pulumi.getter(name="cpuThreshold")
+    def cpu_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "cpu_threshold")
+
+    @property
+    @pulumi.getter(name="ignoreMetricsTime")
+    def ignore_metrics_time(self) -> Optional[int]:
+        return pulumi.get(self, "ignore_metrics_time")
+
+    @property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> Optional[int]:
+        return pulumi.get(self, "instance_count")
+
+    @property
+    @pulumi.getter(name="loadThreshold")
+    def load_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "load_threshold")
+
+    @property
+    @pulumi.getter(name="memoryThreshold")
+    def memory_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "memory_threshold")
+
+    @property
+    @pulumi.getter(name="thresholdsWaitTime")
+    def thresholds_wait_time(self) -> Optional[int]:
+        return pulumi.get(self, "thresholds_wait_time")
+
+
+@pulumi.output_type
+class JavaAppLayerLoadBasedAutoScalingUpscaling(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cpuThreshold":
+            suggest = "cpu_threshold"
+        elif key == "ignoreMetricsTime":
+            suggest = "ignore_metrics_time"
+        elif key == "instanceCount":
+            suggest = "instance_count"
+        elif key == "loadThreshold":
+            suggest = "load_threshold"
+        elif key == "memoryThreshold":
+            suggest = "memory_threshold"
+        elif key == "thresholdsWaitTime":
+            suggest = "thresholds_wait_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JavaAppLayerLoadBasedAutoScalingUpscaling. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JavaAppLayerLoadBasedAutoScalingUpscaling.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JavaAppLayerLoadBasedAutoScalingUpscaling.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alarms: Optional[Sequence[str]] = None,
+                 cpu_threshold: Optional[float] = None,
+                 ignore_metrics_time: Optional[int] = None,
+                 instance_count: Optional[int] = None,
+                 load_threshold: Optional[float] = None,
+                 memory_threshold: Optional[float] = None,
+                 thresholds_wait_time: Optional[int] = None):
+        if alarms is not None:
+            pulumi.set(__self__, "alarms", alarms)
+        if cpu_threshold is not None:
+            pulumi.set(__self__, "cpu_threshold", cpu_threshold)
+        if ignore_metrics_time is not None:
+            pulumi.set(__self__, "ignore_metrics_time", ignore_metrics_time)
+        if instance_count is not None:
+            pulumi.set(__self__, "instance_count", instance_count)
+        if load_threshold is not None:
+            pulumi.set(__self__, "load_threshold", load_threshold)
+        if memory_threshold is not None:
+            pulumi.set(__self__, "memory_threshold", memory_threshold)
+        if thresholds_wait_time is not None:
+            pulumi.set(__self__, "thresholds_wait_time", thresholds_wait_time)
+
+    @property
+    @pulumi.getter
+    def alarms(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "alarms")
+
+    @property
+    @pulumi.getter(name="cpuThreshold")
+    def cpu_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "cpu_threshold")
+
+    @property
+    @pulumi.getter(name="ignoreMetricsTime")
+    def ignore_metrics_time(self) -> Optional[int]:
+        return pulumi.get(self, "ignore_metrics_time")
+
+    @property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> Optional[int]:
+        return pulumi.get(self, "instance_count")
+
+    @property
+    @pulumi.getter(name="loadThreshold")
+    def load_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "load_threshold")
+
+    @property
+    @pulumi.getter(name="memoryThreshold")
+    def memory_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "memory_threshold")
+
+    @property
+    @pulumi.getter(name="thresholdsWaitTime")
+    def thresholds_wait_time(self) -> Optional[int]:
+        return pulumi.get(self, "thresholds_wait_time")
+
+
+@pulumi.output_type
 class MemcachedLayerCloudwatchConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2076,6 +3208,211 @@ class MemcachedLayerEbsVolume(dict):
         The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class MemcachedLayerLoadBasedAutoScaling(dict):
+    def __init__(__self__, *,
+                 downscaling: Optional['outputs.MemcachedLayerLoadBasedAutoScalingDownscaling'] = None,
+                 enable: Optional[bool] = None,
+                 upscaling: Optional['outputs.MemcachedLayerLoadBasedAutoScalingUpscaling'] = None):
+        if downscaling is not None:
+            pulumi.set(__self__, "downscaling", downscaling)
+        if enable is not None:
+            pulumi.set(__self__, "enable", enable)
+        if upscaling is not None:
+            pulumi.set(__self__, "upscaling", upscaling)
+
+    @property
+    @pulumi.getter
+    def downscaling(self) -> Optional['outputs.MemcachedLayerLoadBasedAutoScalingDownscaling']:
+        return pulumi.get(self, "downscaling")
+
+    @property
+    @pulumi.getter
+    def enable(self) -> Optional[bool]:
+        return pulumi.get(self, "enable")
+
+    @property
+    @pulumi.getter
+    def upscaling(self) -> Optional['outputs.MemcachedLayerLoadBasedAutoScalingUpscaling']:
+        return pulumi.get(self, "upscaling")
+
+
+@pulumi.output_type
+class MemcachedLayerLoadBasedAutoScalingDownscaling(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cpuThreshold":
+            suggest = "cpu_threshold"
+        elif key == "ignoreMetricsTime":
+            suggest = "ignore_metrics_time"
+        elif key == "instanceCount":
+            suggest = "instance_count"
+        elif key == "loadThreshold":
+            suggest = "load_threshold"
+        elif key == "memoryThreshold":
+            suggest = "memory_threshold"
+        elif key == "thresholdsWaitTime":
+            suggest = "thresholds_wait_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MemcachedLayerLoadBasedAutoScalingDownscaling. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MemcachedLayerLoadBasedAutoScalingDownscaling.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MemcachedLayerLoadBasedAutoScalingDownscaling.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alarms: Optional[Sequence[str]] = None,
+                 cpu_threshold: Optional[float] = None,
+                 ignore_metrics_time: Optional[int] = None,
+                 instance_count: Optional[int] = None,
+                 load_threshold: Optional[float] = None,
+                 memory_threshold: Optional[float] = None,
+                 thresholds_wait_time: Optional[int] = None):
+        if alarms is not None:
+            pulumi.set(__self__, "alarms", alarms)
+        if cpu_threshold is not None:
+            pulumi.set(__self__, "cpu_threshold", cpu_threshold)
+        if ignore_metrics_time is not None:
+            pulumi.set(__self__, "ignore_metrics_time", ignore_metrics_time)
+        if instance_count is not None:
+            pulumi.set(__self__, "instance_count", instance_count)
+        if load_threshold is not None:
+            pulumi.set(__self__, "load_threshold", load_threshold)
+        if memory_threshold is not None:
+            pulumi.set(__self__, "memory_threshold", memory_threshold)
+        if thresholds_wait_time is not None:
+            pulumi.set(__self__, "thresholds_wait_time", thresholds_wait_time)
+
+    @property
+    @pulumi.getter
+    def alarms(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "alarms")
+
+    @property
+    @pulumi.getter(name="cpuThreshold")
+    def cpu_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "cpu_threshold")
+
+    @property
+    @pulumi.getter(name="ignoreMetricsTime")
+    def ignore_metrics_time(self) -> Optional[int]:
+        return pulumi.get(self, "ignore_metrics_time")
+
+    @property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> Optional[int]:
+        return pulumi.get(self, "instance_count")
+
+    @property
+    @pulumi.getter(name="loadThreshold")
+    def load_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "load_threshold")
+
+    @property
+    @pulumi.getter(name="memoryThreshold")
+    def memory_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "memory_threshold")
+
+    @property
+    @pulumi.getter(name="thresholdsWaitTime")
+    def thresholds_wait_time(self) -> Optional[int]:
+        return pulumi.get(self, "thresholds_wait_time")
+
+
+@pulumi.output_type
+class MemcachedLayerLoadBasedAutoScalingUpscaling(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cpuThreshold":
+            suggest = "cpu_threshold"
+        elif key == "ignoreMetricsTime":
+            suggest = "ignore_metrics_time"
+        elif key == "instanceCount":
+            suggest = "instance_count"
+        elif key == "loadThreshold":
+            suggest = "load_threshold"
+        elif key == "memoryThreshold":
+            suggest = "memory_threshold"
+        elif key == "thresholdsWaitTime":
+            suggest = "thresholds_wait_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MemcachedLayerLoadBasedAutoScalingUpscaling. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MemcachedLayerLoadBasedAutoScalingUpscaling.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MemcachedLayerLoadBasedAutoScalingUpscaling.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alarms: Optional[Sequence[str]] = None,
+                 cpu_threshold: Optional[float] = None,
+                 ignore_metrics_time: Optional[int] = None,
+                 instance_count: Optional[int] = None,
+                 load_threshold: Optional[float] = None,
+                 memory_threshold: Optional[float] = None,
+                 thresholds_wait_time: Optional[int] = None):
+        if alarms is not None:
+            pulumi.set(__self__, "alarms", alarms)
+        if cpu_threshold is not None:
+            pulumi.set(__self__, "cpu_threshold", cpu_threshold)
+        if ignore_metrics_time is not None:
+            pulumi.set(__self__, "ignore_metrics_time", ignore_metrics_time)
+        if instance_count is not None:
+            pulumi.set(__self__, "instance_count", instance_count)
+        if load_threshold is not None:
+            pulumi.set(__self__, "load_threshold", load_threshold)
+        if memory_threshold is not None:
+            pulumi.set(__self__, "memory_threshold", memory_threshold)
+        if thresholds_wait_time is not None:
+            pulumi.set(__self__, "thresholds_wait_time", thresholds_wait_time)
+
+    @property
+    @pulumi.getter
+    def alarms(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "alarms")
+
+    @property
+    @pulumi.getter(name="cpuThreshold")
+    def cpu_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "cpu_threshold")
+
+    @property
+    @pulumi.getter(name="ignoreMetricsTime")
+    def ignore_metrics_time(self) -> Optional[int]:
+        return pulumi.get(self, "ignore_metrics_time")
+
+    @property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> Optional[int]:
+        return pulumi.get(self, "instance_count")
+
+    @property
+    @pulumi.getter(name="loadThreshold")
+    def load_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "load_threshold")
+
+    @property
+    @pulumi.getter(name="memoryThreshold")
+    def memory_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "memory_threshold")
+
+    @property
+    @pulumi.getter(name="thresholdsWaitTime")
+    def thresholds_wait_time(self) -> Optional[int]:
+        return pulumi.get(self, "thresholds_wait_time")
 
 
 @pulumi.output_type
@@ -2346,6 +3683,211 @@ class MysqlLayerEbsVolume(dict):
 
 
 @pulumi.output_type
+class MysqlLayerLoadBasedAutoScaling(dict):
+    def __init__(__self__, *,
+                 downscaling: Optional['outputs.MysqlLayerLoadBasedAutoScalingDownscaling'] = None,
+                 enable: Optional[bool] = None,
+                 upscaling: Optional['outputs.MysqlLayerLoadBasedAutoScalingUpscaling'] = None):
+        if downscaling is not None:
+            pulumi.set(__self__, "downscaling", downscaling)
+        if enable is not None:
+            pulumi.set(__self__, "enable", enable)
+        if upscaling is not None:
+            pulumi.set(__self__, "upscaling", upscaling)
+
+    @property
+    @pulumi.getter
+    def downscaling(self) -> Optional['outputs.MysqlLayerLoadBasedAutoScalingDownscaling']:
+        return pulumi.get(self, "downscaling")
+
+    @property
+    @pulumi.getter
+    def enable(self) -> Optional[bool]:
+        return pulumi.get(self, "enable")
+
+    @property
+    @pulumi.getter
+    def upscaling(self) -> Optional['outputs.MysqlLayerLoadBasedAutoScalingUpscaling']:
+        return pulumi.get(self, "upscaling")
+
+
+@pulumi.output_type
+class MysqlLayerLoadBasedAutoScalingDownscaling(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cpuThreshold":
+            suggest = "cpu_threshold"
+        elif key == "ignoreMetricsTime":
+            suggest = "ignore_metrics_time"
+        elif key == "instanceCount":
+            suggest = "instance_count"
+        elif key == "loadThreshold":
+            suggest = "load_threshold"
+        elif key == "memoryThreshold":
+            suggest = "memory_threshold"
+        elif key == "thresholdsWaitTime":
+            suggest = "thresholds_wait_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MysqlLayerLoadBasedAutoScalingDownscaling. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MysqlLayerLoadBasedAutoScalingDownscaling.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MysqlLayerLoadBasedAutoScalingDownscaling.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alarms: Optional[Sequence[str]] = None,
+                 cpu_threshold: Optional[float] = None,
+                 ignore_metrics_time: Optional[int] = None,
+                 instance_count: Optional[int] = None,
+                 load_threshold: Optional[float] = None,
+                 memory_threshold: Optional[float] = None,
+                 thresholds_wait_time: Optional[int] = None):
+        if alarms is not None:
+            pulumi.set(__self__, "alarms", alarms)
+        if cpu_threshold is not None:
+            pulumi.set(__self__, "cpu_threshold", cpu_threshold)
+        if ignore_metrics_time is not None:
+            pulumi.set(__self__, "ignore_metrics_time", ignore_metrics_time)
+        if instance_count is not None:
+            pulumi.set(__self__, "instance_count", instance_count)
+        if load_threshold is not None:
+            pulumi.set(__self__, "load_threshold", load_threshold)
+        if memory_threshold is not None:
+            pulumi.set(__self__, "memory_threshold", memory_threshold)
+        if thresholds_wait_time is not None:
+            pulumi.set(__self__, "thresholds_wait_time", thresholds_wait_time)
+
+    @property
+    @pulumi.getter
+    def alarms(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "alarms")
+
+    @property
+    @pulumi.getter(name="cpuThreshold")
+    def cpu_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "cpu_threshold")
+
+    @property
+    @pulumi.getter(name="ignoreMetricsTime")
+    def ignore_metrics_time(self) -> Optional[int]:
+        return pulumi.get(self, "ignore_metrics_time")
+
+    @property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> Optional[int]:
+        return pulumi.get(self, "instance_count")
+
+    @property
+    @pulumi.getter(name="loadThreshold")
+    def load_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "load_threshold")
+
+    @property
+    @pulumi.getter(name="memoryThreshold")
+    def memory_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "memory_threshold")
+
+    @property
+    @pulumi.getter(name="thresholdsWaitTime")
+    def thresholds_wait_time(self) -> Optional[int]:
+        return pulumi.get(self, "thresholds_wait_time")
+
+
+@pulumi.output_type
+class MysqlLayerLoadBasedAutoScalingUpscaling(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cpuThreshold":
+            suggest = "cpu_threshold"
+        elif key == "ignoreMetricsTime":
+            suggest = "ignore_metrics_time"
+        elif key == "instanceCount":
+            suggest = "instance_count"
+        elif key == "loadThreshold":
+            suggest = "load_threshold"
+        elif key == "memoryThreshold":
+            suggest = "memory_threshold"
+        elif key == "thresholdsWaitTime":
+            suggest = "thresholds_wait_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MysqlLayerLoadBasedAutoScalingUpscaling. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MysqlLayerLoadBasedAutoScalingUpscaling.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MysqlLayerLoadBasedAutoScalingUpscaling.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alarms: Optional[Sequence[str]] = None,
+                 cpu_threshold: Optional[float] = None,
+                 ignore_metrics_time: Optional[int] = None,
+                 instance_count: Optional[int] = None,
+                 load_threshold: Optional[float] = None,
+                 memory_threshold: Optional[float] = None,
+                 thresholds_wait_time: Optional[int] = None):
+        if alarms is not None:
+            pulumi.set(__self__, "alarms", alarms)
+        if cpu_threshold is not None:
+            pulumi.set(__self__, "cpu_threshold", cpu_threshold)
+        if ignore_metrics_time is not None:
+            pulumi.set(__self__, "ignore_metrics_time", ignore_metrics_time)
+        if instance_count is not None:
+            pulumi.set(__self__, "instance_count", instance_count)
+        if load_threshold is not None:
+            pulumi.set(__self__, "load_threshold", load_threshold)
+        if memory_threshold is not None:
+            pulumi.set(__self__, "memory_threshold", memory_threshold)
+        if thresholds_wait_time is not None:
+            pulumi.set(__self__, "thresholds_wait_time", thresholds_wait_time)
+
+    @property
+    @pulumi.getter
+    def alarms(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "alarms")
+
+    @property
+    @pulumi.getter(name="cpuThreshold")
+    def cpu_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "cpu_threshold")
+
+    @property
+    @pulumi.getter(name="ignoreMetricsTime")
+    def ignore_metrics_time(self) -> Optional[int]:
+        return pulumi.get(self, "ignore_metrics_time")
+
+    @property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> Optional[int]:
+        return pulumi.get(self, "instance_count")
+
+    @property
+    @pulumi.getter(name="loadThreshold")
+    def load_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "load_threshold")
+
+    @property
+    @pulumi.getter(name="memoryThreshold")
+    def memory_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "memory_threshold")
+
+    @property
+    @pulumi.getter(name="thresholdsWaitTime")
+    def thresholds_wait_time(self) -> Optional[int]:
+        return pulumi.get(self, "thresholds_wait_time")
+
+
+@pulumi.output_type
 class NodejsAppLayerCloudwatchConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2610,6 +4152,211 @@ class NodejsAppLayerEbsVolume(dict):
         The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class NodejsAppLayerLoadBasedAutoScaling(dict):
+    def __init__(__self__, *,
+                 downscaling: Optional['outputs.NodejsAppLayerLoadBasedAutoScalingDownscaling'] = None,
+                 enable: Optional[bool] = None,
+                 upscaling: Optional['outputs.NodejsAppLayerLoadBasedAutoScalingUpscaling'] = None):
+        if downscaling is not None:
+            pulumi.set(__self__, "downscaling", downscaling)
+        if enable is not None:
+            pulumi.set(__self__, "enable", enable)
+        if upscaling is not None:
+            pulumi.set(__self__, "upscaling", upscaling)
+
+    @property
+    @pulumi.getter
+    def downscaling(self) -> Optional['outputs.NodejsAppLayerLoadBasedAutoScalingDownscaling']:
+        return pulumi.get(self, "downscaling")
+
+    @property
+    @pulumi.getter
+    def enable(self) -> Optional[bool]:
+        return pulumi.get(self, "enable")
+
+    @property
+    @pulumi.getter
+    def upscaling(self) -> Optional['outputs.NodejsAppLayerLoadBasedAutoScalingUpscaling']:
+        return pulumi.get(self, "upscaling")
+
+
+@pulumi.output_type
+class NodejsAppLayerLoadBasedAutoScalingDownscaling(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cpuThreshold":
+            suggest = "cpu_threshold"
+        elif key == "ignoreMetricsTime":
+            suggest = "ignore_metrics_time"
+        elif key == "instanceCount":
+            suggest = "instance_count"
+        elif key == "loadThreshold":
+            suggest = "load_threshold"
+        elif key == "memoryThreshold":
+            suggest = "memory_threshold"
+        elif key == "thresholdsWaitTime":
+            suggest = "thresholds_wait_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NodejsAppLayerLoadBasedAutoScalingDownscaling. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NodejsAppLayerLoadBasedAutoScalingDownscaling.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NodejsAppLayerLoadBasedAutoScalingDownscaling.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alarms: Optional[Sequence[str]] = None,
+                 cpu_threshold: Optional[float] = None,
+                 ignore_metrics_time: Optional[int] = None,
+                 instance_count: Optional[int] = None,
+                 load_threshold: Optional[float] = None,
+                 memory_threshold: Optional[float] = None,
+                 thresholds_wait_time: Optional[int] = None):
+        if alarms is not None:
+            pulumi.set(__self__, "alarms", alarms)
+        if cpu_threshold is not None:
+            pulumi.set(__self__, "cpu_threshold", cpu_threshold)
+        if ignore_metrics_time is not None:
+            pulumi.set(__self__, "ignore_metrics_time", ignore_metrics_time)
+        if instance_count is not None:
+            pulumi.set(__self__, "instance_count", instance_count)
+        if load_threshold is not None:
+            pulumi.set(__self__, "load_threshold", load_threshold)
+        if memory_threshold is not None:
+            pulumi.set(__self__, "memory_threshold", memory_threshold)
+        if thresholds_wait_time is not None:
+            pulumi.set(__self__, "thresholds_wait_time", thresholds_wait_time)
+
+    @property
+    @pulumi.getter
+    def alarms(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "alarms")
+
+    @property
+    @pulumi.getter(name="cpuThreshold")
+    def cpu_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "cpu_threshold")
+
+    @property
+    @pulumi.getter(name="ignoreMetricsTime")
+    def ignore_metrics_time(self) -> Optional[int]:
+        return pulumi.get(self, "ignore_metrics_time")
+
+    @property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> Optional[int]:
+        return pulumi.get(self, "instance_count")
+
+    @property
+    @pulumi.getter(name="loadThreshold")
+    def load_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "load_threshold")
+
+    @property
+    @pulumi.getter(name="memoryThreshold")
+    def memory_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "memory_threshold")
+
+    @property
+    @pulumi.getter(name="thresholdsWaitTime")
+    def thresholds_wait_time(self) -> Optional[int]:
+        return pulumi.get(self, "thresholds_wait_time")
+
+
+@pulumi.output_type
+class NodejsAppLayerLoadBasedAutoScalingUpscaling(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cpuThreshold":
+            suggest = "cpu_threshold"
+        elif key == "ignoreMetricsTime":
+            suggest = "ignore_metrics_time"
+        elif key == "instanceCount":
+            suggest = "instance_count"
+        elif key == "loadThreshold":
+            suggest = "load_threshold"
+        elif key == "memoryThreshold":
+            suggest = "memory_threshold"
+        elif key == "thresholdsWaitTime":
+            suggest = "thresholds_wait_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NodejsAppLayerLoadBasedAutoScalingUpscaling. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NodejsAppLayerLoadBasedAutoScalingUpscaling.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NodejsAppLayerLoadBasedAutoScalingUpscaling.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alarms: Optional[Sequence[str]] = None,
+                 cpu_threshold: Optional[float] = None,
+                 ignore_metrics_time: Optional[int] = None,
+                 instance_count: Optional[int] = None,
+                 load_threshold: Optional[float] = None,
+                 memory_threshold: Optional[float] = None,
+                 thresholds_wait_time: Optional[int] = None):
+        if alarms is not None:
+            pulumi.set(__self__, "alarms", alarms)
+        if cpu_threshold is not None:
+            pulumi.set(__self__, "cpu_threshold", cpu_threshold)
+        if ignore_metrics_time is not None:
+            pulumi.set(__self__, "ignore_metrics_time", ignore_metrics_time)
+        if instance_count is not None:
+            pulumi.set(__self__, "instance_count", instance_count)
+        if load_threshold is not None:
+            pulumi.set(__self__, "load_threshold", load_threshold)
+        if memory_threshold is not None:
+            pulumi.set(__self__, "memory_threshold", memory_threshold)
+        if thresholds_wait_time is not None:
+            pulumi.set(__self__, "thresholds_wait_time", thresholds_wait_time)
+
+    @property
+    @pulumi.getter
+    def alarms(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "alarms")
+
+    @property
+    @pulumi.getter(name="cpuThreshold")
+    def cpu_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "cpu_threshold")
+
+    @property
+    @pulumi.getter(name="ignoreMetricsTime")
+    def ignore_metrics_time(self) -> Optional[int]:
+        return pulumi.get(self, "ignore_metrics_time")
+
+    @property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> Optional[int]:
+        return pulumi.get(self, "instance_count")
+
+    @property
+    @pulumi.getter(name="loadThreshold")
+    def load_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "load_threshold")
+
+    @property
+    @pulumi.getter(name="memoryThreshold")
+    def memory_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "memory_threshold")
+
+    @property
+    @pulumi.getter(name="thresholdsWaitTime")
+    def thresholds_wait_time(self) -> Optional[int]:
+        return pulumi.get(self, "thresholds_wait_time")
 
 
 @pulumi.output_type
@@ -2880,6 +4627,211 @@ class PhpAppLayerEbsVolume(dict):
 
 
 @pulumi.output_type
+class PhpAppLayerLoadBasedAutoScaling(dict):
+    def __init__(__self__, *,
+                 downscaling: Optional['outputs.PhpAppLayerLoadBasedAutoScalingDownscaling'] = None,
+                 enable: Optional[bool] = None,
+                 upscaling: Optional['outputs.PhpAppLayerLoadBasedAutoScalingUpscaling'] = None):
+        if downscaling is not None:
+            pulumi.set(__self__, "downscaling", downscaling)
+        if enable is not None:
+            pulumi.set(__self__, "enable", enable)
+        if upscaling is not None:
+            pulumi.set(__self__, "upscaling", upscaling)
+
+    @property
+    @pulumi.getter
+    def downscaling(self) -> Optional['outputs.PhpAppLayerLoadBasedAutoScalingDownscaling']:
+        return pulumi.get(self, "downscaling")
+
+    @property
+    @pulumi.getter
+    def enable(self) -> Optional[bool]:
+        return pulumi.get(self, "enable")
+
+    @property
+    @pulumi.getter
+    def upscaling(self) -> Optional['outputs.PhpAppLayerLoadBasedAutoScalingUpscaling']:
+        return pulumi.get(self, "upscaling")
+
+
+@pulumi.output_type
+class PhpAppLayerLoadBasedAutoScalingDownscaling(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cpuThreshold":
+            suggest = "cpu_threshold"
+        elif key == "ignoreMetricsTime":
+            suggest = "ignore_metrics_time"
+        elif key == "instanceCount":
+            suggest = "instance_count"
+        elif key == "loadThreshold":
+            suggest = "load_threshold"
+        elif key == "memoryThreshold":
+            suggest = "memory_threshold"
+        elif key == "thresholdsWaitTime":
+            suggest = "thresholds_wait_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PhpAppLayerLoadBasedAutoScalingDownscaling. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PhpAppLayerLoadBasedAutoScalingDownscaling.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PhpAppLayerLoadBasedAutoScalingDownscaling.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alarms: Optional[Sequence[str]] = None,
+                 cpu_threshold: Optional[float] = None,
+                 ignore_metrics_time: Optional[int] = None,
+                 instance_count: Optional[int] = None,
+                 load_threshold: Optional[float] = None,
+                 memory_threshold: Optional[float] = None,
+                 thresholds_wait_time: Optional[int] = None):
+        if alarms is not None:
+            pulumi.set(__self__, "alarms", alarms)
+        if cpu_threshold is not None:
+            pulumi.set(__self__, "cpu_threshold", cpu_threshold)
+        if ignore_metrics_time is not None:
+            pulumi.set(__self__, "ignore_metrics_time", ignore_metrics_time)
+        if instance_count is not None:
+            pulumi.set(__self__, "instance_count", instance_count)
+        if load_threshold is not None:
+            pulumi.set(__self__, "load_threshold", load_threshold)
+        if memory_threshold is not None:
+            pulumi.set(__self__, "memory_threshold", memory_threshold)
+        if thresholds_wait_time is not None:
+            pulumi.set(__self__, "thresholds_wait_time", thresholds_wait_time)
+
+    @property
+    @pulumi.getter
+    def alarms(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "alarms")
+
+    @property
+    @pulumi.getter(name="cpuThreshold")
+    def cpu_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "cpu_threshold")
+
+    @property
+    @pulumi.getter(name="ignoreMetricsTime")
+    def ignore_metrics_time(self) -> Optional[int]:
+        return pulumi.get(self, "ignore_metrics_time")
+
+    @property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> Optional[int]:
+        return pulumi.get(self, "instance_count")
+
+    @property
+    @pulumi.getter(name="loadThreshold")
+    def load_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "load_threshold")
+
+    @property
+    @pulumi.getter(name="memoryThreshold")
+    def memory_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "memory_threshold")
+
+    @property
+    @pulumi.getter(name="thresholdsWaitTime")
+    def thresholds_wait_time(self) -> Optional[int]:
+        return pulumi.get(self, "thresholds_wait_time")
+
+
+@pulumi.output_type
+class PhpAppLayerLoadBasedAutoScalingUpscaling(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cpuThreshold":
+            suggest = "cpu_threshold"
+        elif key == "ignoreMetricsTime":
+            suggest = "ignore_metrics_time"
+        elif key == "instanceCount":
+            suggest = "instance_count"
+        elif key == "loadThreshold":
+            suggest = "load_threshold"
+        elif key == "memoryThreshold":
+            suggest = "memory_threshold"
+        elif key == "thresholdsWaitTime":
+            suggest = "thresholds_wait_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PhpAppLayerLoadBasedAutoScalingUpscaling. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PhpAppLayerLoadBasedAutoScalingUpscaling.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PhpAppLayerLoadBasedAutoScalingUpscaling.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alarms: Optional[Sequence[str]] = None,
+                 cpu_threshold: Optional[float] = None,
+                 ignore_metrics_time: Optional[int] = None,
+                 instance_count: Optional[int] = None,
+                 load_threshold: Optional[float] = None,
+                 memory_threshold: Optional[float] = None,
+                 thresholds_wait_time: Optional[int] = None):
+        if alarms is not None:
+            pulumi.set(__self__, "alarms", alarms)
+        if cpu_threshold is not None:
+            pulumi.set(__self__, "cpu_threshold", cpu_threshold)
+        if ignore_metrics_time is not None:
+            pulumi.set(__self__, "ignore_metrics_time", ignore_metrics_time)
+        if instance_count is not None:
+            pulumi.set(__self__, "instance_count", instance_count)
+        if load_threshold is not None:
+            pulumi.set(__self__, "load_threshold", load_threshold)
+        if memory_threshold is not None:
+            pulumi.set(__self__, "memory_threshold", memory_threshold)
+        if thresholds_wait_time is not None:
+            pulumi.set(__self__, "thresholds_wait_time", thresholds_wait_time)
+
+    @property
+    @pulumi.getter
+    def alarms(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "alarms")
+
+    @property
+    @pulumi.getter(name="cpuThreshold")
+    def cpu_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "cpu_threshold")
+
+    @property
+    @pulumi.getter(name="ignoreMetricsTime")
+    def ignore_metrics_time(self) -> Optional[int]:
+        return pulumi.get(self, "ignore_metrics_time")
+
+    @property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> Optional[int]:
+        return pulumi.get(self, "instance_count")
+
+    @property
+    @pulumi.getter(name="loadThreshold")
+    def load_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "load_threshold")
+
+    @property
+    @pulumi.getter(name="memoryThreshold")
+    def memory_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "memory_threshold")
+
+    @property
+    @pulumi.getter(name="thresholdsWaitTime")
+    def thresholds_wait_time(self) -> Optional[int]:
+        return pulumi.get(self, "thresholds_wait_time")
+
+
+@pulumi.output_type
 class RailsAppLayerCloudwatchConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -3144,6 +5096,211 @@ class RailsAppLayerEbsVolume(dict):
         The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class RailsAppLayerLoadBasedAutoScaling(dict):
+    def __init__(__self__, *,
+                 downscaling: Optional['outputs.RailsAppLayerLoadBasedAutoScalingDownscaling'] = None,
+                 enable: Optional[bool] = None,
+                 upscaling: Optional['outputs.RailsAppLayerLoadBasedAutoScalingUpscaling'] = None):
+        if downscaling is not None:
+            pulumi.set(__self__, "downscaling", downscaling)
+        if enable is not None:
+            pulumi.set(__self__, "enable", enable)
+        if upscaling is not None:
+            pulumi.set(__self__, "upscaling", upscaling)
+
+    @property
+    @pulumi.getter
+    def downscaling(self) -> Optional['outputs.RailsAppLayerLoadBasedAutoScalingDownscaling']:
+        return pulumi.get(self, "downscaling")
+
+    @property
+    @pulumi.getter
+    def enable(self) -> Optional[bool]:
+        return pulumi.get(self, "enable")
+
+    @property
+    @pulumi.getter
+    def upscaling(self) -> Optional['outputs.RailsAppLayerLoadBasedAutoScalingUpscaling']:
+        return pulumi.get(self, "upscaling")
+
+
+@pulumi.output_type
+class RailsAppLayerLoadBasedAutoScalingDownscaling(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cpuThreshold":
+            suggest = "cpu_threshold"
+        elif key == "ignoreMetricsTime":
+            suggest = "ignore_metrics_time"
+        elif key == "instanceCount":
+            suggest = "instance_count"
+        elif key == "loadThreshold":
+            suggest = "load_threshold"
+        elif key == "memoryThreshold":
+            suggest = "memory_threshold"
+        elif key == "thresholdsWaitTime":
+            suggest = "thresholds_wait_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RailsAppLayerLoadBasedAutoScalingDownscaling. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RailsAppLayerLoadBasedAutoScalingDownscaling.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RailsAppLayerLoadBasedAutoScalingDownscaling.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alarms: Optional[Sequence[str]] = None,
+                 cpu_threshold: Optional[float] = None,
+                 ignore_metrics_time: Optional[int] = None,
+                 instance_count: Optional[int] = None,
+                 load_threshold: Optional[float] = None,
+                 memory_threshold: Optional[float] = None,
+                 thresholds_wait_time: Optional[int] = None):
+        if alarms is not None:
+            pulumi.set(__self__, "alarms", alarms)
+        if cpu_threshold is not None:
+            pulumi.set(__self__, "cpu_threshold", cpu_threshold)
+        if ignore_metrics_time is not None:
+            pulumi.set(__self__, "ignore_metrics_time", ignore_metrics_time)
+        if instance_count is not None:
+            pulumi.set(__self__, "instance_count", instance_count)
+        if load_threshold is not None:
+            pulumi.set(__self__, "load_threshold", load_threshold)
+        if memory_threshold is not None:
+            pulumi.set(__self__, "memory_threshold", memory_threshold)
+        if thresholds_wait_time is not None:
+            pulumi.set(__self__, "thresholds_wait_time", thresholds_wait_time)
+
+    @property
+    @pulumi.getter
+    def alarms(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "alarms")
+
+    @property
+    @pulumi.getter(name="cpuThreshold")
+    def cpu_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "cpu_threshold")
+
+    @property
+    @pulumi.getter(name="ignoreMetricsTime")
+    def ignore_metrics_time(self) -> Optional[int]:
+        return pulumi.get(self, "ignore_metrics_time")
+
+    @property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> Optional[int]:
+        return pulumi.get(self, "instance_count")
+
+    @property
+    @pulumi.getter(name="loadThreshold")
+    def load_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "load_threshold")
+
+    @property
+    @pulumi.getter(name="memoryThreshold")
+    def memory_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "memory_threshold")
+
+    @property
+    @pulumi.getter(name="thresholdsWaitTime")
+    def thresholds_wait_time(self) -> Optional[int]:
+        return pulumi.get(self, "thresholds_wait_time")
+
+
+@pulumi.output_type
+class RailsAppLayerLoadBasedAutoScalingUpscaling(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cpuThreshold":
+            suggest = "cpu_threshold"
+        elif key == "ignoreMetricsTime":
+            suggest = "ignore_metrics_time"
+        elif key == "instanceCount":
+            suggest = "instance_count"
+        elif key == "loadThreshold":
+            suggest = "load_threshold"
+        elif key == "memoryThreshold":
+            suggest = "memory_threshold"
+        elif key == "thresholdsWaitTime":
+            suggest = "thresholds_wait_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RailsAppLayerLoadBasedAutoScalingUpscaling. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RailsAppLayerLoadBasedAutoScalingUpscaling.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RailsAppLayerLoadBasedAutoScalingUpscaling.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alarms: Optional[Sequence[str]] = None,
+                 cpu_threshold: Optional[float] = None,
+                 ignore_metrics_time: Optional[int] = None,
+                 instance_count: Optional[int] = None,
+                 load_threshold: Optional[float] = None,
+                 memory_threshold: Optional[float] = None,
+                 thresholds_wait_time: Optional[int] = None):
+        if alarms is not None:
+            pulumi.set(__self__, "alarms", alarms)
+        if cpu_threshold is not None:
+            pulumi.set(__self__, "cpu_threshold", cpu_threshold)
+        if ignore_metrics_time is not None:
+            pulumi.set(__self__, "ignore_metrics_time", ignore_metrics_time)
+        if instance_count is not None:
+            pulumi.set(__self__, "instance_count", instance_count)
+        if load_threshold is not None:
+            pulumi.set(__self__, "load_threshold", load_threshold)
+        if memory_threshold is not None:
+            pulumi.set(__self__, "memory_threshold", memory_threshold)
+        if thresholds_wait_time is not None:
+            pulumi.set(__self__, "thresholds_wait_time", thresholds_wait_time)
+
+    @property
+    @pulumi.getter
+    def alarms(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "alarms")
+
+    @property
+    @pulumi.getter(name="cpuThreshold")
+    def cpu_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "cpu_threshold")
+
+    @property
+    @pulumi.getter(name="ignoreMetricsTime")
+    def ignore_metrics_time(self) -> Optional[int]:
+        return pulumi.get(self, "ignore_metrics_time")
+
+    @property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> Optional[int]:
+        return pulumi.get(self, "instance_count")
+
+    @property
+    @pulumi.getter(name="loadThreshold")
+    def load_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "load_threshold")
+
+    @property
+    @pulumi.getter(name="memoryThreshold")
+    def memory_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "memory_threshold")
+
+    @property
+    @pulumi.getter(name="thresholdsWaitTime")
+    def thresholds_wait_time(self) -> Optional[int]:
+        return pulumi.get(self, "thresholds_wait_time")
 
 
 @pulumi.output_type
@@ -3505,5 +5662,210 @@ class StaticWebLayerEbsVolume(dict):
         The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class StaticWebLayerLoadBasedAutoScaling(dict):
+    def __init__(__self__, *,
+                 downscaling: Optional['outputs.StaticWebLayerLoadBasedAutoScalingDownscaling'] = None,
+                 enable: Optional[bool] = None,
+                 upscaling: Optional['outputs.StaticWebLayerLoadBasedAutoScalingUpscaling'] = None):
+        if downscaling is not None:
+            pulumi.set(__self__, "downscaling", downscaling)
+        if enable is not None:
+            pulumi.set(__self__, "enable", enable)
+        if upscaling is not None:
+            pulumi.set(__self__, "upscaling", upscaling)
+
+    @property
+    @pulumi.getter
+    def downscaling(self) -> Optional['outputs.StaticWebLayerLoadBasedAutoScalingDownscaling']:
+        return pulumi.get(self, "downscaling")
+
+    @property
+    @pulumi.getter
+    def enable(self) -> Optional[bool]:
+        return pulumi.get(self, "enable")
+
+    @property
+    @pulumi.getter
+    def upscaling(self) -> Optional['outputs.StaticWebLayerLoadBasedAutoScalingUpscaling']:
+        return pulumi.get(self, "upscaling")
+
+
+@pulumi.output_type
+class StaticWebLayerLoadBasedAutoScalingDownscaling(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cpuThreshold":
+            suggest = "cpu_threshold"
+        elif key == "ignoreMetricsTime":
+            suggest = "ignore_metrics_time"
+        elif key == "instanceCount":
+            suggest = "instance_count"
+        elif key == "loadThreshold":
+            suggest = "load_threshold"
+        elif key == "memoryThreshold":
+            suggest = "memory_threshold"
+        elif key == "thresholdsWaitTime":
+            suggest = "thresholds_wait_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StaticWebLayerLoadBasedAutoScalingDownscaling. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StaticWebLayerLoadBasedAutoScalingDownscaling.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StaticWebLayerLoadBasedAutoScalingDownscaling.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alarms: Optional[Sequence[str]] = None,
+                 cpu_threshold: Optional[float] = None,
+                 ignore_metrics_time: Optional[int] = None,
+                 instance_count: Optional[int] = None,
+                 load_threshold: Optional[float] = None,
+                 memory_threshold: Optional[float] = None,
+                 thresholds_wait_time: Optional[int] = None):
+        if alarms is not None:
+            pulumi.set(__self__, "alarms", alarms)
+        if cpu_threshold is not None:
+            pulumi.set(__self__, "cpu_threshold", cpu_threshold)
+        if ignore_metrics_time is not None:
+            pulumi.set(__self__, "ignore_metrics_time", ignore_metrics_time)
+        if instance_count is not None:
+            pulumi.set(__self__, "instance_count", instance_count)
+        if load_threshold is not None:
+            pulumi.set(__self__, "load_threshold", load_threshold)
+        if memory_threshold is not None:
+            pulumi.set(__self__, "memory_threshold", memory_threshold)
+        if thresholds_wait_time is not None:
+            pulumi.set(__self__, "thresholds_wait_time", thresholds_wait_time)
+
+    @property
+    @pulumi.getter
+    def alarms(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "alarms")
+
+    @property
+    @pulumi.getter(name="cpuThreshold")
+    def cpu_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "cpu_threshold")
+
+    @property
+    @pulumi.getter(name="ignoreMetricsTime")
+    def ignore_metrics_time(self) -> Optional[int]:
+        return pulumi.get(self, "ignore_metrics_time")
+
+    @property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> Optional[int]:
+        return pulumi.get(self, "instance_count")
+
+    @property
+    @pulumi.getter(name="loadThreshold")
+    def load_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "load_threshold")
+
+    @property
+    @pulumi.getter(name="memoryThreshold")
+    def memory_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "memory_threshold")
+
+    @property
+    @pulumi.getter(name="thresholdsWaitTime")
+    def thresholds_wait_time(self) -> Optional[int]:
+        return pulumi.get(self, "thresholds_wait_time")
+
+
+@pulumi.output_type
+class StaticWebLayerLoadBasedAutoScalingUpscaling(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cpuThreshold":
+            suggest = "cpu_threshold"
+        elif key == "ignoreMetricsTime":
+            suggest = "ignore_metrics_time"
+        elif key == "instanceCount":
+            suggest = "instance_count"
+        elif key == "loadThreshold":
+            suggest = "load_threshold"
+        elif key == "memoryThreshold":
+            suggest = "memory_threshold"
+        elif key == "thresholdsWaitTime":
+            suggest = "thresholds_wait_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StaticWebLayerLoadBasedAutoScalingUpscaling. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StaticWebLayerLoadBasedAutoScalingUpscaling.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StaticWebLayerLoadBasedAutoScalingUpscaling.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alarms: Optional[Sequence[str]] = None,
+                 cpu_threshold: Optional[float] = None,
+                 ignore_metrics_time: Optional[int] = None,
+                 instance_count: Optional[int] = None,
+                 load_threshold: Optional[float] = None,
+                 memory_threshold: Optional[float] = None,
+                 thresholds_wait_time: Optional[int] = None):
+        if alarms is not None:
+            pulumi.set(__self__, "alarms", alarms)
+        if cpu_threshold is not None:
+            pulumi.set(__self__, "cpu_threshold", cpu_threshold)
+        if ignore_metrics_time is not None:
+            pulumi.set(__self__, "ignore_metrics_time", ignore_metrics_time)
+        if instance_count is not None:
+            pulumi.set(__self__, "instance_count", instance_count)
+        if load_threshold is not None:
+            pulumi.set(__self__, "load_threshold", load_threshold)
+        if memory_threshold is not None:
+            pulumi.set(__self__, "memory_threshold", memory_threshold)
+        if thresholds_wait_time is not None:
+            pulumi.set(__self__, "thresholds_wait_time", thresholds_wait_time)
+
+    @property
+    @pulumi.getter
+    def alarms(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "alarms")
+
+    @property
+    @pulumi.getter(name="cpuThreshold")
+    def cpu_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "cpu_threshold")
+
+    @property
+    @pulumi.getter(name="ignoreMetricsTime")
+    def ignore_metrics_time(self) -> Optional[int]:
+        return pulumi.get(self, "ignore_metrics_time")
+
+    @property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> Optional[int]:
+        return pulumi.get(self, "instance_count")
+
+    @property
+    @pulumi.getter(name="loadThreshold")
+    def load_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "load_threshold")
+
+    @property
+    @pulumi.getter(name="memoryThreshold")
+    def memory_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "memory_threshold")
+
+    @property
+    @pulumi.getter(name="thresholdsWaitTime")
+    def thresholds_wait_time(self) -> Optional[int]:
+        return pulumi.get(self, "thresholds_wait_time")
 
 

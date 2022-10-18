@@ -36,6 +36,7 @@ class RailsAppLayerArgs:
                  elastic_load_balancer: Optional[pulumi.Input[str]] = None,
                  install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
                  instance_shutdown_timeout: Optional[pulumi.Input[int]] = None,
+                 load_based_auto_scaling: Optional[pulumi.Input['RailsAppLayerLoadBasedAutoScalingArgs']] = None,
                  manage_bundler: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  passenger_version: Optional[pulumi.Input[str]] = None,
@@ -108,6 +109,8 @@ class RailsAppLayerArgs:
             pulumi.set(__self__, "install_updates_on_boot", install_updates_on_boot)
         if instance_shutdown_timeout is not None:
             pulumi.set(__self__, "instance_shutdown_timeout", instance_shutdown_timeout)
+        if load_based_auto_scaling is not None:
+            pulumi.set(__self__, "load_based_auto_scaling", load_based_auto_scaling)
         if manage_bundler is not None:
             pulumi.set(__self__, "manage_bundler", manage_bundler)
         if name is not None:
@@ -348,6 +351,15 @@ class RailsAppLayerArgs:
         pulumi.set(self, "instance_shutdown_timeout", value)
 
     @property
+    @pulumi.getter(name="loadBasedAutoScaling")
+    def load_based_auto_scaling(self) -> Optional[pulumi.Input['RailsAppLayerLoadBasedAutoScalingArgs']]:
+        return pulumi.get(self, "load_based_auto_scaling")
+
+    @load_based_auto_scaling.setter
+    def load_based_auto_scaling(self, value: Optional[pulumi.Input['RailsAppLayerLoadBasedAutoScalingArgs']]):
+        pulumi.set(self, "load_based_auto_scaling", value)
+
+    @property
     @pulumi.getter(name="manageBundler")
     def manage_bundler(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -467,6 +479,7 @@ class _RailsAppLayerState:
                  elastic_load_balancer: Optional[pulumi.Input[str]] = None,
                  install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
                  instance_shutdown_timeout: Optional[pulumi.Input[int]] = None,
+                 load_based_auto_scaling: Optional[pulumi.Input['RailsAppLayerLoadBasedAutoScalingArgs']] = None,
                  manage_bundler: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  passenger_version: Optional[pulumi.Input[str]] = None,
@@ -544,6 +557,8 @@ class _RailsAppLayerState:
             pulumi.set(__self__, "install_updates_on_boot", install_updates_on_boot)
         if instance_shutdown_timeout is not None:
             pulumi.set(__self__, "instance_shutdown_timeout", instance_shutdown_timeout)
+        if load_based_auto_scaling is not None:
+            pulumi.set(__self__, "load_based_auto_scaling", load_based_auto_scaling)
         if manage_bundler is not None:
             pulumi.set(__self__, "manage_bundler", manage_bundler)
         if name is not None:
@@ -788,6 +803,15 @@ class _RailsAppLayerState:
         pulumi.set(self, "instance_shutdown_timeout", value)
 
     @property
+    @pulumi.getter(name="loadBasedAutoScaling")
+    def load_based_auto_scaling(self) -> Optional[pulumi.Input['RailsAppLayerLoadBasedAutoScalingArgs']]:
+        return pulumi.get(self, "load_based_auto_scaling")
+
+    @load_based_auto_scaling.setter
+    def load_based_auto_scaling(self, value: Optional[pulumi.Input['RailsAppLayerLoadBasedAutoScalingArgs']]):
+        pulumi.set(self, "load_based_auto_scaling", value)
+
+    @property
     @pulumi.getter(name="manageBundler")
     def manage_bundler(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -932,6 +956,7 @@ class RailsAppLayer(pulumi.CustomResource):
                  elastic_load_balancer: Optional[pulumi.Input[str]] = None,
                  install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
                  instance_shutdown_timeout: Optional[pulumi.Input[int]] = None,
+                 load_based_auto_scaling: Optional[pulumi.Input[pulumi.InputType['RailsAppLayerLoadBasedAutoScalingArgs']]] = None,
                  manage_bundler: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  passenger_version: Optional[pulumi.Input[str]] = None,
@@ -1031,6 +1056,7 @@ class RailsAppLayer(pulumi.CustomResource):
                  elastic_load_balancer: Optional[pulumi.Input[str]] = None,
                  install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
                  instance_shutdown_timeout: Optional[pulumi.Input[int]] = None,
+                 load_based_auto_scaling: Optional[pulumi.Input[pulumi.InputType['RailsAppLayerLoadBasedAutoScalingArgs']]] = None,
                  manage_bundler: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  passenger_version: Optional[pulumi.Input[str]] = None,
@@ -1068,6 +1094,7 @@ class RailsAppLayer(pulumi.CustomResource):
             __props__.__dict__["elastic_load_balancer"] = elastic_load_balancer
             __props__.__dict__["install_updates_on_boot"] = install_updates_on_boot
             __props__.__dict__["instance_shutdown_timeout"] = instance_shutdown_timeout
+            __props__.__dict__["load_based_auto_scaling"] = load_based_auto_scaling
             __props__.__dict__["manage_bundler"] = manage_bundler
             __props__.__dict__["name"] = name
             __props__.__dict__["passenger_version"] = passenger_version
@@ -1111,6 +1138,7 @@ class RailsAppLayer(pulumi.CustomResource):
             elastic_load_balancer: Optional[pulumi.Input[str]] = None,
             install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
             instance_shutdown_timeout: Optional[pulumi.Input[int]] = None,
+            load_based_auto_scaling: Optional[pulumi.Input[pulumi.InputType['RailsAppLayerLoadBasedAutoScalingArgs']]] = None,
             manage_bundler: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             passenger_version: Optional[pulumi.Input[str]] = None,
@@ -1177,6 +1205,7 @@ class RailsAppLayer(pulumi.CustomResource):
         __props__.__dict__["elastic_load_balancer"] = elastic_load_balancer
         __props__.__dict__["install_updates_on_boot"] = install_updates_on_boot
         __props__.__dict__["instance_shutdown_timeout"] = instance_shutdown_timeout
+        __props__.__dict__["load_based_auto_scaling"] = load_based_auto_scaling
         __props__.__dict__["manage_bundler"] = manage_bundler
         __props__.__dict__["name"] = name
         __props__.__dict__["passenger_version"] = passenger_version
@@ -1330,6 +1359,11 @@ class RailsAppLayer(pulumi.CustomResource):
         The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
         """
         return pulumi.get(self, "instance_shutdown_timeout")
+
+    @property
+    @pulumi.getter(name="loadBasedAutoScaling")
+    def load_based_auto_scaling(self) -> pulumi.Output['outputs.RailsAppLayerLoadBasedAutoScaling']:
+        return pulumi.get(self, "load_based_auto_scaling")
 
     @property
     @pulumi.getter(name="manageBundler")

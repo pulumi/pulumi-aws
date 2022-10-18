@@ -44,6 +44,7 @@ __all__ = [
     'UserPoolSchemaStringAttributeConstraints',
     'UserPoolSmsConfiguration',
     'UserPoolSoftwareTokenMfaConfiguration',
+    'UserPoolUserAttributeUpdateSettings',
     'UserPoolUserPoolAddOns',
     'UserPoolUsernameConfiguration',
     'UserPoolVerificationMessageTemplate',
@@ -2115,6 +2116,41 @@ class UserPoolSoftwareTokenMfaConfiguration(dict):
         Boolean whether to enable software token Multi-Factor (MFA) tokens, such as Time-based One-Time Password (TOTP). To disable software token MFA When `sms_configuration` is not present, the `mfa_configuration` argument must be set to `OFF` and the `software_token_mfa_configuration` configuration block must be fully removed.
         """
         return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class UserPoolUserAttributeUpdateSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "attributesRequireVerificationBeforeUpdates":
+            suggest = "attributes_require_verification_before_updates"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserPoolUserAttributeUpdateSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserPoolUserAttributeUpdateSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserPoolUserAttributeUpdateSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 attributes_require_verification_before_updates: Sequence[str]):
+        """
+        :param Sequence[str] attributes_require_verification_before_updates: A list of attributes requiring verification before update. If set, the provided value(s) must also be set in `auto_verified_attributes`. Valid values: `email`, `phone_number`.
+        """
+        pulumi.set(__self__, "attributes_require_verification_before_updates", attributes_require_verification_before_updates)
+
+    @property
+    @pulumi.getter(name="attributesRequireVerificationBeforeUpdates")
+    def attributes_require_verification_before_updates(self) -> Sequence[str]:
+        """
+        A list of attributes requiring verification before update. If set, the provided value(s) must also be set in `auto_verified_attributes`. Valid values: `email`, `phone_number`.
+        """
+        return pulumi.get(self, "attributes_require_verification_before_updates")
 
 
 @pulumi.output_type

@@ -37,6 +37,7 @@ class HaproxyLayerArgs:
                  healthcheck_url: Optional[pulumi.Input[str]] = None,
                  install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
                  instance_shutdown_timeout: Optional[pulumi.Input[int]] = None,
+                 load_based_auto_scaling: Optional[pulumi.Input['HaproxyLayerLoadBasedAutoScalingArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  stats_enabled: Optional[pulumi.Input[bool]] = None,
                  stats_url: Optional[pulumi.Input[str]] = None,
@@ -109,6 +110,8 @@ class HaproxyLayerArgs:
             pulumi.set(__self__, "install_updates_on_boot", install_updates_on_boot)
         if instance_shutdown_timeout is not None:
             pulumi.set(__self__, "instance_shutdown_timeout", instance_shutdown_timeout)
+        if load_based_auto_scaling is not None:
+            pulumi.set(__self__, "load_based_auto_scaling", load_based_auto_scaling)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if stats_enabled is not None:
@@ -359,6 +362,15 @@ class HaproxyLayerArgs:
         pulumi.set(self, "instance_shutdown_timeout", value)
 
     @property
+    @pulumi.getter(name="loadBasedAutoScaling")
+    def load_based_auto_scaling(self) -> Optional[pulumi.Input['HaproxyLayerLoadBasedAutoScalingArgs']]:
+        return pulumi.get(self, "load_based_auto_scaling")
+
+    @load_based_auto_scaling.setter
+    def load_based_auto_scaling(self, value: Optional[pulumi.Input['HaproxyLayerLoadBasedAutoScalingArgs']]):
+        pulumi.set(self, "load_based_auto_scaling", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -466,6 +478,7 @@ class _HaproxyLayerState:
                  healthcheck_url: Optional[pulumi.Input[str]] = None,
                  install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
                  instance_shutdown_timeout: Optional[pulumi.Input[int]] = None,
+                 load_based_auto_scaling: Optional[pulumi.Input['HaproxyLayerLoadBasedAutoScalingArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  stack_id: Optional[pulumi.Input[str]] = None,
                  stats_enabled: Optional[pulumi.Input[bool]] = None,
@@ -543,6 +556,8 @@ class _HaproxyLayerState:
             pulumi.set(__self__, "install_updates_on_boot", install_updates_on_boot)
         if instance_shutdown_timeout is not None:
             pulumi.set(__self__, "instance_shutdown_timeout", instance_shutdown_timeout)
+        if load_based_auto_scaling is not None:
+            pulumi.set(__self__, "load_based_auto_scaling", load_based_auto_scaling)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if stack_id is not None:
@@ -787,6 +802,15 @@ class _HaproxyLayerState:
         pulumi.set(self, "instance_shutdown_timeout", value)
 
     @property
+    @pulumi.getter(name="loadBasedAutoScaling")
+    def load_based_auto_scaling(self) -> Optional[pulumi.Input['HaproxyLayerLoadBasedAutoScalingArgs']]:
+        return pulumi.get(self, "load_based_auto_scaling")
+
+    @load_based_auto_scaling.setter
+    def load_based_auto_scaling(self, value: Optional[pulumi.Input['HaproxyLayerLoadBasedAutoScalingArgs']]):
+        pulumi.set(self, "load_based_auto_scaling", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -931,6 +955,7 @@ class HaproxyLayer(pulumi.CustomResource):
                  healthcheck_url: Optional[pulumi.Input[str]] = None,
                  install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
                  instance_shutdown_timeout: Optional[pulumi.Input[int]] = None,
+                 load_based_auto_scaling: Optional[pulumi.Input[pulumi.InputType['HaproxyLayerLoadBasedAutoScalingArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  stack_id: Optional[pulumi.Input[str]] = None,
                  stats_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1034,6 +1059,7 @@ class HaproxyLayer(pulumi.CustomResource):
                  healthcheck_url: Optional[pulumi.Input[str]] = None,
                  install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
                  instance_shutdown_timeout: Optional[pulumi.Input[int]] = None,
+                 load_based_auto_scaling: Optional[pulumi.Input[pulumi.InputType['HaproxyLayerLoadBasedAutoScalingArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  stack_id: Optional[pulumi.Input[str]] = None,
                  stats_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1071,6 +1097,7 @@ class HaproxyLayer(pulumi.CustomResource):
             __props__.__dict__["healthcheck_url"] = healthcheck_url
             __props__.__dict__["install_updates_on_boot"] = install_updates_on_boot
             __props__.__dict__["instance_shutdown_timeout"] = instance_shutdown_timeout
+            __props__.__dict__["load_based_auto_scaling"] = load_based_auto_scaling
             __props__.__dict__["name"] = name
             if stack_id is None and not opts.urn:
                 raise TypeError("Missing required property 'stack_id'")
@@ -1116,6 +1143,7 @@ class HaproxyLayer(pulumi.CustomResource):
             healthcheck_url: Optional[pulumi.Input[str]] = None,
             install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
             instance_shutdown_timeout: Optional[pulumi.Input[int]] = None,
+            load_based_auto_scaling: Optional[pulumi.Input[pulumi.InputType['HaproxyLayerLoadBasedAutoScalingArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             stack_id: Optional[pulumi.Input[str]] = None,
             stats_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1182,6 +1210,7 @@ class HaproxyLayer(pulumi.CustomResource):
         __props__.__dict__["healthcheck_url"] = healthcheck_url
         __props__.__dict__["install_updates_on_boot"] = install_updates_on_boot
         __props__.__dict__["instance_shutdown_timeout"] = instance_shutdown_timeout
+        __props__.__dict__["load_based_auto_scaling"] = load_based_auto_scaling
         __props__.__dict__["name"] = name
         __props__.__dict__["stack_id"] = stack_id
         __props__.__dict__["stats_enabled"] = stats_enabled
@@ -1335,6 +1364,11 @@ class HaproxyLayer(pulumi.CustomResource):
         The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
         """
         return pulumi.get(self, "instance_shutdown_timeout")
+
+    @property
+    @pulumi.getter(name="loadBasedAutoScaling")
+    def load_based_auto_scaling(self) -> pulumi.Output['outputs.HaproxyLayerLoadBasedAutoScaling']:
+        return pulumi.get(self, "load_based_auto_scaling")
 
     @property
     @pulumi.getter

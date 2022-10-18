@@ -45,6 +45,7 @@ class NetworkInterfaceArgs:
         :param pulumi.Input[int] ipv4_prefix_count: Number of IPv4 prefixes that AWS automatically assigns to the network interface.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv4_prefixes: One or more IPv4 prefixes assigned to the network interface.
         :param pulumi.Input[int] ipv6_address_count: Number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6_addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
+        :param pulumi.Input[bool] ipv6_address_list_enabled: Whether `ipv6_address_list` is allowed and controls the IPs to assign to the ENI and `ipv6_addresses` and `ipv6_address_count` become read-only. Default false.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_address_lists: List of private IPs to assign to the ENI in sequential order.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_addresses: One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Addresses are assigned without regard to order. You can't use this option if you're specifying `ipv6_address_count`.
         :param pulumi.Input[int] ipv6_prefix_count: Number of IPv6 prefixes that AWS automatically assigns to the network interface.
@@ -184,6 +185,9 @@ class NetworkInterfaceArgs:
     @property
     @pulumi.getter(name="ipv6AddressListEnabled")
     def ipv6_address_list_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether `ipv6_address_list` is allowed and controls the IPs to assign to the ENI and `ipv6_addresses` and `ipv6_address_count` become read-only. Default false.
+        """
         return pulumi.get(self, "ipv6_address_list_enabled")
 
     @ipv6_address_list_enabled.setter
@@ -370,6 +374,7 @@ class _NetworkInterfaceState:
         :param pulumi.Input[int] ipv4_prefix_count: Number of IPv4 prefixes that AWS automatically assigns to the network interface.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv4_prefixes: One or more IPv4 prefixes assigned to the network interface.
         :param pulumi.Input[int] ipv6_address_count: Number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6_addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
+        :param pulumi.Input[bool] ipv6_address_list_enabled: Whether `ipv6_address_list` is allowed and controls the IPs to assign to the ENI and `ipv6_addresses` and `ipv6_address_count` become read-only. Default false.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_address_lists: List of private IPs to assign to the ENI in sequential order.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_addresses: One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Addresses are assigned without regard to order. You can't use this option if you're specifying `ipv6_address_count`.
         :param pulumi.Input[int] ipv6_prefix_count: Number of IPv6 prefixes that AWS automatically assigns to the network interface.
@@ -526,6 +531,9 @@ class _NetworkInterfaceState:
     @property
     @pulumi.getter(name="ipv6AddressListEnabled")
     def ipv6_address_list_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether `ipv6_address_list` is allowed and controls the IPs to assign to the ENI and `ipv6_addresses` and `ipv6_address_count` become read-only. Default false.
+        """
         return pulumi.get(self, "ipv6_address_list_enabled")
 
     @ipv6_address_list_enabled.setter
@@ -817,6 +825,7 @@ class NetworkInterface(pulumi.CustomResource):
         :param pulumi.Input[int] ipv4_prefix_count: Number of IPv4 prefixes that AWS automatically assigns to the network interface.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv4_prefixes: One or more IPv4 prefixes assigned to the network interface.
         :param pulumi.Input[int] ipv6_address_count: Number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6_addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
+        :param pulumi.Input[bool] ipv6_address_list_enabled: Whether `ipv6_address_list` is allowed and controls the IPs to assign to the ENI and `ipv6_addresses` and `ipv6_address_count` become read-only. Default false.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_address_lists: List of private IPs to assign to the ENI in sequential order.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_addresses: One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Addresses are assigned without regard to order. You can't use this option if you're specifying `ipv6_address_count`.
         :param pulumi.Input[int] ipv6_prefix_count: Number of IPv6 prefixes that AWS automatically assigns to the network interface.
@@ -1001,6 +1010,7 @@ class NetworkInterface(pulumi.CustomResource):
         :param pulumi.Input[int] ipv4_prefix_count: Number of IPv4 prefixes that AWS automatically assigns to the network interface.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv4_prefixes: One or more IPv4 prefixes assigned to the network interface.
         :param pulumi.Input[int] ipv6_address_count: Number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6_addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
+        :param pulumi.Input[bool] ipv6_address_list_enabled: Whether `ipv6_address_list` is allowed and controls the IPs to assign to the ENI and `ipv6_addresses` and `ipv6_address_count` become read-only. Default false.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_address_lists: List of private IPs to assign to the ENI in sequential order.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_addresses: One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Addresses are assigned without regard to order. You can't use this option if you're specifying `ipv6_address_count`.
         :param pulumi.Input[int] ipv6_prefix_count: Number of IPv6 prefixes that AWS automatically assigns to the network interface.
@@ -1108,6 +1118,9 @@ class NetworkInterface(pulumi.CustomResource):
     @property
     @pulumi.getter(name="ipv6AddressListEnabled")
     def ipv6_address_list_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether `ipv6_address_list` is allowed and controls the IPs to assign to the ENI and `ipv6_addresses` and `ipv6_address_count` become read-only. Default false.
+        """
         return pulumi.get(self, "ipv6_address_list_enabled")
 
     @property

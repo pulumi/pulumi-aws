@@ -228,10 +228,10 @@ class UserEmails(dict):
 @pulumi.output_type
 class UserExternalId(dict):
     def __init__(__self__, *,
-                 id: Optional[bool] = None,
+                 id: Optional[str] = None,
                  issuer: Optional[str] = None):
         """
-        :param bool id: The identifier issued to this resource by an external identity provider.
+        :param str id: The identifier issued to this resource by an external identity provider.
         :param str issuer: The issuer for an external identifier.
         """
         if id is not None:
@@ -241,7 +241,7 @@ class UserExternalId(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> Optional[bool]:
+    def id(self) -> Optional[str]:
         """
         The identifier issued to this resource by an external identity provider.
         """
@@ -657,10 +657,10 @@ class GetUserEmailResult(dict):
 @pulumi.output_type
 class GetUserExternalIdResult(dict):
     def __init__(__self__, *,
-                 id: bool,
+                 id: str,
                  issuer: str):
         """
-        :param bool id: The identifier issued to this resource by an external identity provider.
+        :param str id: The identifier issued to this resource by an external identity provider.
         :param str issuer: The issuer for an external identifier.
         """
         pulumi.set(__self__, "id", id)
@@ -668,7 +668,7 @@ class GetUserExternalIdResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> bool:
+    def id(self) -> str:
         """
         The identifier issued to this resource by an external identity provider.
         """

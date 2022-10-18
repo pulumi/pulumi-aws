@@ -23,7 +23,7 @@ class GetVpcResult:
     """
     A collection of values returned by getVpc.
     """
-    def __init__(__self__, arn=None, cidr_block=None, cidr_block_associations=None, default=None, dhcp_options_id=None, enable_dns_hostnames=None, enable_dns_support=None, filters=None, id=None, instance_tenancy=None, ipv6_association_id=None, ipv6_cidr_block=None, main_route_table_id=None, owner_id=None, state=None, tags=None):
+    def __init__(__self__, arn=None, cidr_block=None, cidr_block_associations=None, default=None, dhcp_options_id=None, enable_dns_hostnames=None, enable_dns_support=None, enable_network_address_usage_metrics=None, filters=None, id=None, instance_tenancy=None, ipv6_association_id=None, ipv6_cidr_block=None, main_route_table_id=None, owner_id=None, state=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -45,6 +45,9 @@ class GetVpcResult:
         if enable_dns_support and not isinstance(enable_dns_support, bool):
             raise TypeError("Expected argument 'enable_dns_support' to be a bool")
         pulumi.set(__self__, "enable_dns_support", enable_dns_support)
+        if enable_network_address_usage_metrics and not isinstance(enable_network_address_usage_metrics, bool):
+            raise TypeError("Expected argument 'enable_network_address_usage_metrics' to be a bool")
+        pulumi.set(__self__, "enable_network_address_usage_metrics", enable_network_address_usage_metrics)
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         pulumi.set(__self__, "filters", filters)
@@ -119,6 +122,14 @@ class GetVpcResult:
         Whether or not the VPC has DNS support
         """
         return pulumi.get(self, "enable_dns_support")
+
+    @property
+    @pulumi.getter(name="enableNetworkAddressUsageMetrics")
+    def enable_network_address_usage_metrics(self) -> bool:
+        """
+        Whether Network Address Usage metrics are enabled for your VPC
+        """
+        return pulumi.get(self, "enable_network_address_usage_metrics")
 
     @property
     @pulumi.getter
@@ -198,6 +209,7 @@ class AwaitableGetVpcResult(GetVpcResult):
             dhcp_options_id=self.dhcp_options_id,
             enable_dns_hostnames=self.enable_dns_hostnames,
             enable_dns_support=self.enable_dns_support,
+            enable_network_address_usage_metrics=self.enable_network_address_usage_metrics,
             filters=self.filters,
             id=self.id,
             instance_tenancy=self.instance_tenancy,
@@ -255,6 +267,7 @@ def get_vpc(cidr_block: Optional[str] = None,
         dhcp_options_id=__ret__.dhcp_options_id,
         enable_dns_hostnames=__ret__.enable_dns_hostnames,
         enable_dns_support=__ret__.enable_dns_support,
+        enable_network_address_usage_metrics=__ret__.enable_network_address_usage_metrics,
         filters=__ret__.filters,
         id=__ret__.id,
         instance_tenancy=__ret__.instance_tenancy,

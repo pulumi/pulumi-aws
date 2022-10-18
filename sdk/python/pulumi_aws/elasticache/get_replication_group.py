@@ -293,7 +293,7 @@ class AwaitableGetReplicationGroupResult(GetReplicationGroupResult):
 def get_replication_group(replication_group_id: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReplicationGroupResult:
     """
-    Use this data source to get information about an Elasticache Replication Group.
+    Use this data source to get information about an ElastiCache Replication Group.
 
     ## Example Usage
 
@@ -340,7 +340,7 @@ def get_replication_group(replication_group_id: Optional[str] = None,
 def get_replication_group_output(replication_group_id: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicationGroupResult]:
     """
-    Use this data source to get information about an Elasticache Replication Group.
+    Use this data source to get information about an ElastiCache Replication Group.
 
     ## Example Usage
 

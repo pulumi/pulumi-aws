@@ -23,7 +23,7 @@ class RouteArgs:
         :param pulumi.Input[str] client_vpn_endpoint_id: The ID of the Client VPN endpoint.
         :param pulumi.Input[str] destination_cidr_block: The IPv4 address range, in CIDR notation, of the route destination.
         :param pulumi.Input[str] target_vpc_subnet_id: The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
-        :param pulumi.Input[str] description: A brief description of the authorization rule.
+        :param pulumi.Input[str] description: A brief description of the route.
         """
         pulumi.set(__self__, "client_vpn_endpoint_id", client_vpn_endpoint_id)
         pulumi.set(__self__, "destination_cidr_block", destination_cidr_block)
@@ -71,7 +71,7 @@ class RouteArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        A brief description of the authorization rule.
+        A brief description of the route.
         """
         return pulumi.get(self, "description")
 
@@ -92,7 +92,7 @@ class _RouteState:
         """
         Input properties used for looking up and filtering Route resources.
         :param pulumi.Input[str] client_vpn_endpoint_id: The ID of the Client VPN endpoint.
-        :param pulumi.Input[str] description: A brief description of the authorization rule.
+        :param pulumi.Input[str] description: A brief description of the route.
         :param pulumi.Input[str] destination_cidr_block: The IPv4 address range, in CIDR notation, of the route destination.
         :param pulumi.Input[str] origin: Indicates how the Client VPN route was added. Will be `add-route` for routes created by this resource.
         :param pulumi.Input[str] target_vpc_subnet_id: The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
@@ -127,7 +127,7 @@ class _RouteState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        A brief description of the authorization rule.
+        A brief description of the route.
         """
         return pulumi.get(self, "description")
 
@@ -235,7 +235,7 @@ class Route(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] client_vpn_endpoint_id: The ID of the Client VPN endpoint.
-        :param pulumi.Input[str] description: A brief description of the authorization rule.
+        :param pulumi.Input[str] description: A brief description of the route.
         :param pulumi.Input[str] destination_cidr_block: The IPv4 address range, in CIDR notation, of the route destination.
         :param pulumi.Input[str] target_vpc_subnet_id: The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
         """
@@ -347,7 +347,7 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] client_vpn_endpoint_id: The ID of the Client VPN endpoint.
-        :param pulumi.Input[str] description: A brief description of the authorization rule.
+        :param pulumi.Input[str] description: A brief description of the route.
         :param pulumi.Input[str] destination_cidr_block: The IPv4 address range, in CIDR notation, of the route destination.
         :param pulumi.Input[str] origin: Indicates how the Client VPN route was added. Will be `add-route` for routes created by this resource.
         :param pulumi.Input[str] target_vpc_subnet_id: The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
@@ -377,7 +377,7 @@ class Route(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        A brief description of the authorization rule.
+        A brief description of the route.
         """
         return pulumi.get(self, "description")
 

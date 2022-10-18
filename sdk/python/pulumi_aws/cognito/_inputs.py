@@ -43,6 +43,7 @@ __all__ = [
     'UserPoolSchemaStringAttributeConstraintsArgs',
     'UserPoolSmsConfigurationArgs',
     'UserPoolSoftwareTokenMfaConfigurationArgs',
+    'UserPoolUserAttributeUpdateSettingsArgs',
     'UserPoolUserPoolAddOnsArgs',
     'UserPoolUsernameConfigurationArgs',
     'UserPoolVerificationMessageTemplateArgs',
@@ -1889,6 +1890,28 @@ class UserPoolSoftwareTokenMfaConfigurationArgs:
     @enabled.setter
     def enabled(self, value: pulumi.Input[bool]):
         pulumi.set(self, "enabled", value)
+
+
+@pulumi.input_type
+class UserPoolUserAttributeUpdateSettingsArgs:
+    def __init__(__self__, *,
+                 attributes_require_verification_before_updates: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] attributes_require_verification_before_updates: A list of attributes requiring verification before update. If set, the provided value(s) must also be set in `auto_verified_attributes`. Valid values: `email`, `phone_number`.
+        """
+        pulumi.set(__self__, "attributes_require_verification_before_updates", attributes_require_verification_before_updates)
+
+    @property
+    @pulumi.getter(name="attributesRequireVerificationBeforeUpdates")
+    def attributes_require_verification_before_updates(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of attributes requiring verification before update. If set, the provided value(s) must also be set in `auto_verified_attributes`. Valid values: `email`, `phone_number`.
+        """
+        return pulumi.get(self, "attributes_require_verification_before_updates")
+
+    @attributes_require_verification_before_updates.setter
+    def attributes_require_verification_before_updates(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "attributes_require_verification_before_updates", value)
 
 
 @pulumi.input_type

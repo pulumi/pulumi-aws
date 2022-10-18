@@ -39,6 +39,7 @@ class JavaAppLayerArgs:
                  jvm_options: Optional[pulumi.Input[str]] = None,
                  jvm_type: Optional[pulumi.Input[str]] = None,
                  jvm_version: Optional[pulumi.Input[str]] = None,
+                 load_based_auto_scaling: Optional[pulumi.Input['JavaAppLayerLoadBasedAutoScalingArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  system_packages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -112,6 +113,8 @@ class JavaAppLayerArgs:
             pulumi.set(__self__, "jvm_type", jvm_type)
         if jvm_version is not None:
             pulumi.set(__self__, "jvm_version", jvm_version)
+        if load_based_auto_scaling is not None:
+            pulumi.set(__self__, "load_based_auto_scaling", load_based_auto_scaling)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if system_packages is not None:
@@ -380,6 +383,15 @@ class JavaAppLayerArgs:
         pulumi.set(self, "jvm_version", value)
 
     @property
+    @pulumi.getter(name="loadBasedAutoScaling")
+    def load_based_auto_scaling(self) -> Optional[pulumi.Input['JavaAppLayerLoadBasedAutoScalingArgs']]:
+        return pulumi.get(self, "load_based_auto_scaling")
+
+    @load_based_auto_scaling.setter
+    def load_based_auto_scaling(self, value: Optional[pulumi.Input['JavaAppLayerLoadBasedAutoScalingArgs']]):
+        pulumi.set(self, "load_based_auto_scaling", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -454,6 +466,7 @@ class _JavaAppLayerState:
                  jvm_options: Optional[pulumi.Input[str]] = None,
                  jvm_type: Optional[pulumi.Input[str]] = None,
                  jvm_version: Optional[pulumi.Input[str]] = None,
+                 load_based_auto_scaling: Optional[pulumi.Input['JavaAppLayerLoadBasedAutoScalingArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  stack_id: Optional[pulumi.Input[str]] = None,
                  system_packages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -532,6 +545,8 @@ class _JavaAppLayerState:
             pulumi.set(__self__, "jvm_type", jvm_type)
         if jvm_version is not None:
             pulumi.set(__self__, "jvm_version", jvm_version)
+        if load_based_auto_scaling is not None:
+            pulumi.set(__self__, "load_based_auto_scaling", load_based_auto_scaling)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if stack_id is not None:
@@ -804,6 +819,15 @@ class _JavaAppLayerState:
         pulumi.set(self, "jvm_version", value)
 
     @property
+    @pulumi.getter(name="loadBasedAutoScaling")
+    def load_based_auto_scaling(self) -> Optional[pulumi.Input['JavaAppLayerLoadBasedAutoScalingArgs']]:
+        return pulumi.get(self, "load_based_auto_scaling")
+
+    @load_based_auto_scaling.setter
+    def load_based_auto_scaling(self, value: Optional[pulumi.Input['JavaAppLayerLoadBasedAutoScalingArgs']]):
+        pulumi.set(self, "load_based_auto_scaling", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -903,6 +927,7 @@ class JavaAppLayer(pulumi.CustomResource):
                  jvm_options: Optional[pulumi.Input[str]] = None,
                  jvm_type: Optional[pulumi.Input[str]] = None,
                  jvm_version: Optional[pulumi.Input[str]] = None,
+                 load_based_auto_scaling: Optional[pulumi.Input[pulumi.InputType['JavaAppLayerLoadBasedAutoScalingArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  stack_id: Optional[pulumi.Input[str]] = None,
                  system_packages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1000,6 +1025,7 @@ class JavaAppLayer(pulumi.CustomResource):
                  jvm_options: Optional[pulumi.Input[str]] = None,
                  jvm_type: Optional[pulumi.Input[str]] = None,
                  jvm_version: Optional[pulumi.Input[str]] = None,
+                 load_based_auto_scaling: Optional[pulumi.Input[pulumi.InputType['JavaAppLayerLoadBasedAutoScalingArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  stack_id: Optional[pulumi.Input[str]] = None,
                  system_packages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1036,6 +1062,7 @@ class JavaAppLayer(pulumi.CustomResource):
             __props__.__dict__["jvm_options"] = jvm_options
             __props__.__dict__["jvm_type"] = jvm_type
             __props__.__dict__["jvm_version"] = jvm_version
+            __props__.__dict__["load_based_auto_scaling"] = load_based_auto_scaling
             __props__.__dict__["name"] = name
             if stack_id is None and not opts.urn:
                 raise TypeError("Missing required property 'stack_id'")
@@ -1078,6 +1105,7 @@ class JavaAppLayer(pulumi.CustomResource):
             jvm_options: Optional[pulumi.Input[str]] = None,
             jvm_type: Optional[pulumi.Input[str]] = None,
             jvm_version: Optional[pulumi.Input[str]] = None,
+            load_based_auto_scaling: Optional[pulumi.Input[pulumi.InputType['JavaAppLayerLoadBasedAutoScalingArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             stack_id: Optional[pulumi.Input[str]] = None,
             system_packages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1142,6 +1170,7 @@ class JavaAppLayer(pulumi.CustomResource):
         __props__.__dict__["jvm_options"] = jvm_options
         __props__.__dict__["jvm_type"] = jvm_type
         __props__.__dict__["jvm_version"] = jvm_version
+        __props__.__dict__["load_based_auto_scaling"] = load_based_auto_scaling
         __props__.__dict__["name"] = name
         __props__.__dict__["stack_id"] = stack_id
         __props__.__dict__["system_packages"] = system_packages
@@ -1315,6 +1344,11 @@ class JavaAppLayer(pulumi.CustomResource):
         Version of JVM to use. Defaults to "7".
         """
         return pulumi.get(self, "jvm_version")
+
+    @property
+    @pulumi.getter(name="loadBasedAutoScaling")
+    def load_based_auto_scaling(self) -> pulumi.Output['outputs.JavaAppLayerLoadBasedAutoScaling']:
+        return pulumi.get(self, "load_based_auto_scaling")
 
     @property
     @pulumi.getter
