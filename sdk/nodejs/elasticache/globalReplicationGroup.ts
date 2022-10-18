@@ -54,9 +54,17 @@ export class GlobalReplicationGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly authTokenEnabled!: pulumi.Output<boolean>;
     /**
-     * The instance class used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+     * Specifies whether read-only replicas will be automatically promoted to read/write primary if the existing primary fails.
+     * When creating, by default the Global Replication Group inherits the automatic failover setting of the primary replication group.
      */
-    public /*out*/ readonly cacheNodeType!: pulumi.Output<string>;
+    public readonly automaticFailoverEnabled!: pulumi.Output<boolean>;
+    /**
+     * The instance class used.
+     * See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html)
+     * and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+     * When creating, by default the Global Replication Group inherits the node type of the primary replication group.
+     */
+    public readonly cacheNodeType!: pulumi.Output<string>;
     /**
      * Indicates whether the Global Datastore is cluster enabled.
      */
@@ -123,6 +131,7 @@ export class GlobalReplicationGroup extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["atRestEncryptionEnabled"] = state ? state.atRestEncryptionEnabled : undefined;
             resourceInputs["authTokenEnabled"] = state ? state.authTokenEnabled : undefined;
+            resourceInputs["automaticFailoverEnabled"] = state ? state.automaticFailoverEnabled : undefined;
             resourceInputs["cacheNodeType"] = state ? state.cacheNodeType : undefined;
             resourceInputs["clusterEnabled"] = state ? state.clusterEnabled : undefined;
             resourceInputs["engine"] = state ? state.engine : undefined;
@@ -142,6 +151,8 @@ export class GlobalReplicationGroup extends pulumi.CustomResource {
             if ((!args || args.primaryReplicationGroupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'primaryReplicationGroupId'");
             }
+            resourceInputs["automaticFailoverEnabled"] = args ? args.automaticFailoverEnabled : undefined;
+            resourceInputs["cacheNodeType"] = args ? args.cacheNodeType : undefined;
             resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
             resourceInputs["globalReplicationGroupDescription"] = args ? args.globalReplicationGroupDescription : undefined;
             resourceInputs["globalReplicationGroupIdSuffix"] = args ? args.globalReplicationGroupIdSuffix : undefined;
@@ -150,7 +161,6 @@ export class GlobalReplicationGroup extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["atRestEncryptionEnabled"] = undefined /*out*/;
             resourceInputs["authTokenEnabled"] = undefined /*out*/;
-            resourceInputs["cacheNodeType"] = undefined /*out*/;
             resourceInputs["clusterEnabled"] = undefined /*out*/;
             resourceInputs["engine"] = undefined /*out*/;
             resourceInputs["engineVersionActual"] = undefined /*out*/;
@@ -179,7 +189,15 @@ export interface GlobalReplicationGroupState {
      */
     authTokenEnabled?: pulumi.Input<boolean>;
     /**
-     * The instance class used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+     * Specifies whether read-only replicas will be automatically promoted to read/write primary if the existing primary fails.
+     * When creating, by default the Global Replication Group inherits the automatic failover setting of the primary replication group.
+     */
+    automaticFailoverEnabled?: pulumi.Input<boolean>;
+    /**
+     * The instance class used.
+     * See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html)
+     * and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+     * When creating, by default the Global Replication Group inherits the node type of the primary replication group.
      */
     cacheNodeType?: pulumi.Input<string>;
     /**
@@ -237,6 +255,18 @@ export interface GlobalReplicationGroupState {
  * The set of arguments for constructing a GlobalReplicationGroup resource.
  */
 export interface GlobalReplicationGroupArgs {
+    /**
+     * Specifies whether read-only replicas will be automatically promoted to read/write primary if the existing primary fails.
+     * When creating, by default the Global Replication Group inherits the automatic failover setting of the primary replication group.
+     */
+    automaticFailoverEnabled?: pulumi.Input<boolean>;
+    /**
+     * The instance class used.
+     * See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html)
+     * and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+     * When creating, by default the Global Replication Group inherits the node type of the primary replication group.
+     */
+    cacheNodeType?: pulumi.Input<string>;
     /**
      * Redis version to use for the Global Replication Group.
      * When creating, by default the Global Replication Group inherits the version of the primary replication group.

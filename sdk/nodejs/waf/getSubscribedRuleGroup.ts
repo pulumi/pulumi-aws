@@ -13,26 +13,25 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const byName = pulumi.output(aws.waf.getSubscribedRuleGroup({
+ * const byName = aws.waf.getSubscribedRuleGroup({
  *     name: "F5 Bot Detection Signatures For AWS WAF",
- * }));
- * const byMetricName = pulumi.output(aws.waf.getSubscribedRuleGroup({
- *     metricName: "F5BotDetectionSignatures",
- * }));
- * const acl = new aws.waf.WebAcl("acl", {
- *     rules: [
- *         {
- *             priority: 1,
- *             ruleId: byName.id,
- *             type: "GROUP",
- *         },
- *         {
- *             priority: 2,
- *             ruleId: byMetricName.id,
- *             type: "GROUP",
- *         },
- *     ],
  * });
+ * const byMetricName = aws.waf.getSubscribedRuleGroup({
+ *     metricName: "F5BotDetectionSignatures",
+ * });
+ * // ...
+ * const acl = new aws.waf.WebAcl("acl", {rules: [
+ *     {
+ *         priority: 1,
+ *         ruleId: byName.then(byName => byName.id),
+ *         type: "GROUP",
+ *     },
+ *     {
+ *         priority: 2,
+ *         ruleId: byMetricName.then(byMetricName => byMetricName.id),
+ *         type: "GROUP",
+ *     },
+ * ]});
  * ```
  */
 export function getSubscribedRuleGroup(args?: GetSubscribedRuleGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscribedRuleGroupResult> {

@@ -99,6 +99,10 @@ export class Connection extends pulumi.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * The VLAN ID.
+     */
+    public /*out*/ readonly vlanId!: pulumi.Output<string>;
 
     /**
      * Create a Connection resource with the given unique name, arguments, and options.
@@ -124,6 +128,7 @@ export class Connection extends pulumi.CustomResource {
             resourceInputs["providerName"] = state ? state.providerName : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["vlanId"] = state ? state.vlanId : undefined;
         } else {
             const args = argsOrState as ConnectionArgs | undefined;
             if ((!args || args.bandwidth === undefined) && !opts.urn) {
@@ -143,6 +148,7 @@ export class Connection extends pulumi.CustomResource {
             resourceInputs["jumboFrameCapable"] = undefined /*out*/;
             resourceInputs["ownerAccountId"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["vlanId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Connection.__pulumiType, name, resourceInputs, opts);
@@ -197,6 +203,10 @@ export interface ConnectionState {
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The VLAN ID.
+     */
+    vlanId?: pulumi.Input<string>;
 }
 
 /**

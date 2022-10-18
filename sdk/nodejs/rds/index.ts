@@ -71,6 +71,10 @@ export { GetProxyArgs, GetProxyResult, GetProxyOutputArgs } from "./getProxy";
 export const getProxy: typeof import("./getProxy").getProxy = null as any;
 export const getProxyOutput: typeof import("./getProxy").getProxyOutput = null as any;
 
+export { GetReservedInstanceOfferingArgs, GetReservedInstanceOfferingResult, GetReservedInstanceOfferingOutputArgs } from "./getReservedInstanceOffering";
+export const getReservedInstanceOffering: typeof import("./getReservedInstanceOffering").getReservedInstanceOffering = null as any;
+export const getReservedInstanceOfferingOutput: typeof import("./getReservedInstanceOffering").getReservedInstanceOfferingOutput = null as any;
+
 export { GetSnapshotArgs, GetSnapshotResult, GetSnapshotOutputArgs } from "./getSnapshot";
 export const getSnapshot: typeof import("./getSnapshot").getSnapshot = null as any;
 export const getSnapshotOutput: typeof import("./getSnapshot").getSnapshotOutput = null as any;
@@ -116,6 +120,10 @@ export { ProxyTargetArgs, ProxyTargetState } from "./proxyTarget";
 export type ProxyTarget = import("./proxyTarget").ProxyTarget;
 export const ProxyTarget: typeof import("./proxyTarget").ProxyTarget = null as any;
 
+export { ReservedInstanceArgs, ReservedInstanceState } from "./reservedInstance";
+export type ReservedInstance = import("./reservedInstance").ReservedInstance;
+export const ReservedInstance: typeof import("./reservedInstance").ReservedInstance = null as any;
+
 export { RoleAssociationArgs, RoleAssociationState } from "./roleAssociation";
 export type RoleAssociation = import("./roleAssociation").RoleAssociation;
 export const RoleAssociation: typeof import("./roleAssociation").RoleAssociation = null as any;
@@ -153,6 +161,7 @@ utilities.lazyLoad(exports, ["getEventCategories","getEventCategoriesOutput"], (
 utilities.lazyLoad(exports, ["getInstance","getInstanceOutput"], () => require("./getInstance"));
 utilities.lazyLoad(exports, ["getOrderableDbInstance","getOrderableDbInstanceOutput"], () => require("./getOrderableDbInstance"));
 utilities.lazyLoad(exports, ["getProxy","getProxyOutput"], () => require("./getProxy"));
+utilities.lazyLoad(exports, ["getReservedInstanceOffering","getReservedInstanceOfferingOutput"], () => require("./getReservedInstanceOffering"));
 utilities.lazyLoad(exports, ["getSnapshot","getSnapshotOutput"], () => require("./getSnapshot"));
 utilities.lazyLoad(exports, ["getSubnetGroup","getSubnetGroupOutput"], () => require("./getSubnetGroup"));
 utilities.lazyLoad(exports, ["GlobalCluster"], () => require("./globalCluster"));
@@ -164,6 +173,7 @@ utilities.lazyLoad(exports, ["Proxy"], () => require("./proxy"));
 utilities.lazyLoad(exports, ["ProxyDefaultTargetGroup"], () => require("./proxyDefaultTargetGroup"));
 utilities.lazyLoad(exports, ["ProxyEndpoint"], () => require("./proxyEndpoint"));
 utilities.lazyLoad(exports, ["ProxyTarget"], () => require("./proxyTarget"));
+utilities.lazyLoad(exports, ["ReservedInstance"], () => require("./reservedInstance"));
 utilities.lazyLoad(exports, ["RoleAssociation"], () => require("./roleAssociation"));
 utilities.lazyLoad(exports, ["SecurityGroup"], () => require("./securityGroup"));
 utilities.lazyLoad(exports, ["Snapshot"], () => require("./snapshot"));
@@ -211,6 +221,8 @@ const _module = {
                 return new ProxyEndpoint(name, <any>undefined, { urn })
             case "aws:rds/proxyTarget:ProxyTarget":
                 return new ProxyTarget(name, <any>undefined, { urn })
+            case "aws:rds/reservedInstance:ReservedInstance":
+                return new ReservedInstance(name, <any>undefined, { urn })
             case "aws:rds/roleAssociation:RoleAssociation":
                 return new RoleAssociation(name, <any>undefined, { urn })
             case "aws:rds/securityGroup:SecurityGroup":
@@ -243,6 +255,7 @@ pulumi.runtime.registerResourceModule("aws", "rds/proxy", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/proxyDefaultTargetGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/proxyEndpoint", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/proxyTarget", _module)
+pulumi.runtime.registerResourceModule("aws", "rds/reservedInstance", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/roleAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/securityGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/snapshot", _module)

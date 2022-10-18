@@ -21,10 +21,10 @@ import * as utilities from "../utilities";
  * for (const range = {value: 0}; range.value < 3; range.value++) {
  *     exampleAmazonsesDkimRecord.push(new aws.route53.Record(`exampleAmazonsesDkimRecord-${range.value}`, {
  *         zoneId: "ABCDEFGHIJ123",
- *         name: exampleDomainDkim.dkimTokens[range.value].apply(dkimTokens => `${dkimTokens}._domainkey`),
+ *         name: pulumi.interpolate`${exampleDomainDkim.dkimTokens}._domainkey`,
  *         type: "CNAME",
  *         ttl: 600,
- *         records: [exampleDomainDkim.dkimTokens[range.value].apply(dkimTokens => `${dkimTokens}.dkim.amazonses.com`)],
+ *         records: [pulumi.interpolate`${exampleDomainDkim.dkimTokens}.dkim.amazonses.com`],
  *     }));
  * }
  * ```

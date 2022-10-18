@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { CustomActionTypeArgs, CustomActionTypeState } from "./customActionType";
+export type CustomActionType = import("./customActionType").CustomActionType;
+export const CustomActionType: typeof import("./customActionType").CustomActionType = null as any;
+
 export { PipelineArgs, PipelineState } from "./pipeline";
 export type Pipeline = import("./pipeline").Pipeline;
 export const Pipeline: typeof import("./pipeline").Pipeline = null as any;
@@ -13,6 +17,7 @@ export { WebhookArgs, WebhookState } from "./webhook";
 export type Webhook = import("./webhook").Webhook;
 export const Webhook: typeof import("./webhook").Webhook = null as any;
 
+utilities.lazyLoad(exports, ["CustomActionType"], () => require("./customActionType"));
 utilities.lazyLoad(exports, ["Pipeline"], () => require("./pipeline"));
 utilities.lazyLoad(exports, ["Webhook"], () => require("./webhook"));
 
@@ -20,6 +25,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:codepipeline/customActionType:CustomActionType":
+                return new CustomActionType(name, <any>undefined, { urn })
             case "aws:codepipeline/pipeline:Pipeline":
                 return new Pipeline(name, <any>undefined, { urn })
             case "aws:codepipeline/webhook:Webhook":
@@ -29,5 +36,6 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "codepipeline/customActionType", _module)
 pulumi.runtime.registerResourceModule("aws", "codepipeline/pipeline", _module)
 pulumi.runtime.registerResourceModule("aws", "codepipeline/webhook", _module)

@@ -39,7 +39,7 @@ import * as utilities from "../utilities";
  * const s3Distribution = new aws.cloudfront.Distribution("s3Distribution", {
  *     origins: [{
  *         domainName: bucketV2.bucketRegionalDomainName,
- *         originId: s3OriginId,
+ *         originId: locals.s3_origin_id,
  *         s3OriginConfig: {
  *             originAccessIdentity: "origin-access-identity/cloudfront/ABCDEFG1234567",
  *         },

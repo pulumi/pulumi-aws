@@ -37,6 +37,10 @@ export { ObjectLambdaAccessPointPolicyArgs, ObjectLambdaAccessPointPolicyState }
 export type ObjectLambdaAccessPointPolicy = import("./objectLambdaAccessPointPolicy").ObjectLambdaAccessPointPolicy;
 export const ObjectLambdaAccessPointPolicy: typeof import("./objectLambdaAccessPointPolicy").ObjectLambdaAccessPointPolicy = null as any;
 
+export { StorageLensConfigurationArgs, StorageLensConfigurationState } from "./storageLensConfiguration";
+export type StorageLensConfiguration = import("./storageLensConfiguration").StorageLensConfiguration;
+export const StorageLensConfiguration: typeof import("./storageLensConfiguration").StorageLensConfiguration = null as any;
+
 utilities.lazyLoad(exports, ["AccessPointPolicy"], () => require("./accessPointPolicy"));
 utilities.lazyLoad(exports, ["Bucket"], () => require("./bucket"));
 utilities.lazyLoad(exports, ["BucketLifecycleConfiguration"], () => require("./bucketLifecycleConfiguration"));
@@ -45,6 +49,7 @@ utilities.lazyLoad(exports, ["MultiRegionAccessPoint"], () => require("./multiRe
 utilities.lazyLoad(exports, ["MultiRegionAccessPointPolicy"], () => require("./multiRegionAccessPointPolicy"));
 utilities.lazyLoad(exports, ["ObjectLambdaAccessPoint"], () => require("./objectLambdaAccessPoint"));
 utilities.lazyLoad(exports, ["ObjectLambdaAccessPointPolicy"], () => require("./objectLambdaAccessPointPolicy"));
+utilities.lazyLoad(exports, ["StorageLensConfiguration"], () => require("./storageLensConfiguration"));
 
 const _module = {
     version: utilities.getVersion(),
@@ -66,6 +71,8 @@ const _module = {
                 return new ObjectLambdaAccessPoint(name, <any>undefined, { urn })
             case "aws:s3control/objectLambdaAccessPointPolicy:ObjectLambdaAccessPointPolicy":
                 return new ObjectLambdaAccessPointPolicy(name, <any>undefined, { urn })
+            case "aws:s3control/storageLensConfiguration:StorageLensConfiguration":
+                return new StorageLensConfiguration(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -79,3 +86,4 @@ pulumi.runtime.registerResourceModule("aws", "s3control/multiRegionAccessPoint",
 pulumi.runtime.registerResourceModule("aws", "s3control/multiRegionAccessPointPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "s3control/objectLambdaAccessPoint", _module)
 pulumi.runtime.registerResourceModule("aws", "s3control/objectLambdaAccessPointPolicy", _module)
+pulumi.runtime.registerResourceModule("aws", "s3control/storageLensConfiguration", _module)

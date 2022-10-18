@@ -78,7 +78,7 @@ export class Route extends pulumi.CustomResource {
      */
     public readonly clientVpnEndpointId!: pulumi.Output<string>;
     /**
-     * A brief description of the authorization rule.
+     * A brief description of the route.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
@@ -149,7 +149,7 @@ export interface RouteState {
      */
     clientVpnEndpointId?: pulumi.Input<string>;
     /**
-     * A brief description of the authorization rule.
+     * A brief description of the route.
      */
     description?: pulumi.Input<string>;
     /**
@@ -179,7 +179,7 @@ export interface RouteArgs {
      */
     clientVpnEndpointId: pulumi.Input<string>;
     /**
-     * A brief description of the authorization rule.
+     * A brief description of the route.
      */
     description?: pulumi.Input<string>;
     /**

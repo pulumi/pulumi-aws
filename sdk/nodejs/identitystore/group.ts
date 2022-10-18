@@ -63,7 +63,7 @@ export class Group extends pulumi.CustomResource {
      */
     public /*out*/ readonly groupId!: pulumi.Output<string>;
     /**
-     * The globally unique identifier for the identity store..
+     * The globally unique identifier for the identity store.
      */
     public readonly identityStoreId!: pulumi.Output<string>;
 
@@ -125,7 +125,7 @@ export interface GroupState {
      */
     groupId?: pulumi.Input<string>;
     /**
-     * The globally unique identifier for the identity store..
+     * The globally unique identifier for the identity store.
      */
     identityStoreId?: pulumi.Input<string>;
 }
@@ -143,7 +143,7 @@ export interface GroupArgs {
      */
     displayName: pulumi.Input<string>;
     /**
-     * The globally unique identifier for the identity store..
+     * The globally unique identifier for the identity store.
      */
     identityStoreId: pulumi.Input<string>;
 }

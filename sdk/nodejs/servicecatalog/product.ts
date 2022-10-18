@@ -15,6 +15,23 @@ import * as utilities from "../utilities";
  * > A "provisioning artifact" is also referred to as a "version." A "distributor" is also referred to as a "vendor."
  *
  * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.servicecatalog.Product("example", {
+ *     owner: "example-owner",
+ *     provisioningArtifactParameters: {
+ *         templateUrl: "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/temp1.json",
+ *     },
+ *     tags: {
+ *         foo: "bar",
+ *     },
+ *     type: "CLOUD_FORMATION_TEMPLATE",
+ * });
+ * ```
  *
  * ## Import
  *

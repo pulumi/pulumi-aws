@@ -255,6 +255,7 @@ import * as servicecatalog from "./servicecatalog";
 import * as servicediscovery from "./servicediscovery";
 import * as servicequotas from "./servicequotas";
 import * as ses from "./ses";
+import * as sesv2 from "./sesv2";
 import * as sfn from "./sfn";
 import * as shield from "./shield";
 import * as signer from "./signer";
@@ -432,6 +433,7 @@ export {
     servicediscovery,
     servicequotas,
     ses,
+    sesv2,
     sfn,
     shield,
     signer,

@@ -109,6 +109,7 @@ export class RailsAppLayer extends pulumi.CustomResource {
      * The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
      */
     public readonly instanceShutdownTimeout!: pulumi.Output<number | undefined>;
+    public readonly loadBasedAutoScaling!: pulumi.Output<outputs.opsworks.RailsAppLayerLoadBasedAutoScaling>;
     /**
      * Whether OpsWorks should manage bundler. On by default.
      */
@@ -183,6 +184,7 @@ export class RailsAppLayer extends pulumi.CustomResource {
             resourceInputs["elasticLoadBalancer"] = state ? state.elasticLoadBalancer : undefined;
             resourceInputs["installUpdatesOnBoot"] = state ? state.installUpdatesOnBoot : undefined;
             resourceInputs["instanceShutdownTimeout"] = state ? state.instanceShutdownTimeout : undefined;
+            resourceInputs["loadBasedAutoScaling"] = state ? state.loadBasedAutoScaling : undefined;
             resourceInputs["manageBundler"] = state ? state.manageBundler : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["passengerVersion"] = state ? state.passengerVersion : undefined;
@@ -217,6 +219,7 @@ export class RailsAppLayer extends pulumi.CustomResource {
             resourceInputs["elasticLoadBalancer"] = args ? args.elasticLoadBalancer : undefined;
             resourceInputs["installUpdatesOnBoot"] = args ? args.installUpdatesOnBoot : undefined;
             resourceInputs["instanceShutdownTimeout"] = args ? args.instanceShutdownTimeout : undefined;
+            resourceInputs["loadBasedAutoScaling"] = args ? args.loadBasedAutoScaling : undefined;
             resourceInputs["manageBundler"] = args ? args.manageBundler : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["passengerVersion"] = args ? args.passengerVersion : undefined;
@@ -300,6 +303,7 @@ export interface RailsAppLayerState {
      * The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
      */
     instanceShutdownTimeout?: pulumi.Input<number>;
+    loadBasedAutoScaling?: pulumi.Input<inputs.opsworks.RailsAppLayerLoadBasedAutoScaling>;
     /**
      * Whether OpsWorks should manage bundler. On by default.
      */
@@ -404,6 +408,7 @@ export interface RailsAppLayerArgs {
      * The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
      */
     instanceShutdownTimeout?: pulumi.Input<number>;
+    loadBasedAutoScaling?: pulumi.Input<inputs.opsworks.RailsAppLayerLoadBasedAutoScaling>;
     /**
      * Whether OpsWorks should manage bundler. On by default.
      */

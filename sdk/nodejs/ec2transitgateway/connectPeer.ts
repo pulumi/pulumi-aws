@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleConnectPeer = new aws.ec2transitgateway.ConnectPeer("exampleConnectPeer", {
  *     peerAddress: "10.1.2.3",
- *     insideCidrBlocks: "169.254.100.0/29",
+ *     insideCidrBlocks: ["169.254.100.0/29"],
  *     transitGatewayAttachmentId: exampleConnect.id,
  * });
  * ```

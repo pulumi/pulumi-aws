@@ -24,6 +24,7 @@ import * as utilities from "../utilities";
  *     },
  *     enabled: true,
  *     ipAddressType: "IPV4",
+ *     ipAddresses: ["1.2.3.4"],
  * });
  * ```
  *
@@ -84,6 +85,10 @@ export class Accelerator extends pulumi.CustomResource {
      */
     public readonly ipAddressType!: pulumi.Output<string | undefined>;
     /**
+     * The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+     */
+    public readonly ipAddresses!: pulumi.Output<string[] | undefined>;
+    /**
      * IP address set associated with the accelerator.
      */
     public /*out*/ readonly ipSets!: pulumi.Output<outputs.globalaccelerator.AcceleratorIpSet[]>;
@@ -118,6 +123,7 @@ export class Accelerator extends pulumi.CustomResource {
             resourceInputs["enabled"] = state ? state.enabled : undefined;
             resourceInputs["hostedZoneId"] = state ? state.hostedZoneId : undefined;
             resourceInputs["ipAddressType"] = state ? state.ipAddressType : undefined;
+            resourceInputs["ipAddresses"] = state ? state.ipAddresses : undefined;
             resourceInputs["ipSets"] = state ? state.ipSets : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -127,6 +133,7 @@ export class Accelerator extends pulumi.CustomResource {
             resourceInputs["attributes"] = args ? args.attributes : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
+            resourceInputs["ipAddresses"] = args ? args.ipAddresses : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["dnsName"] = undefined /*out*/;
@@ -164,6 +171,10 @@ export interface AcceleratorState {
      */
     ipAddressType?: pulumi.Input<string>;
     /**
+     * The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+     */
+    ipAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * IP address set associated with the accelerator.
      */
     ipSets?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.AcceleratorIpSet>[]>;
@@ -197,6 +208,10 @@ export interface AcceleratorArgs {
      * The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
      */
     ipAddressType?: pulumi.Input<string>;
+    /**
+     * The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+     */
+    ipAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the accelerator.
      */

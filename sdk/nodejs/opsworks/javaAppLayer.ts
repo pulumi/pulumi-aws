@@ -121,6 +121,7 @@ export class JavaAppLayer extends pulumi.CustomResource {
      * Version of JVM to use. Defaults to "7".
      */
     public readonly jvmVersion!: pulumi.Output<string | undefined>;
+    public readonly loadBasedAutoScaling!: pulumi.Output<outputs.opsworks.JavaAppLayerLoadBasedAutoScaling>;
     /**
      * A human-readable name for the layer.
      */
@@ -182,6 +183,7 @@ export class JavaAppLayer extends pulumi.CustomResource {
             resourceInputs["jvmOptions"] = state ? state.jvmOptions : undefined;
             resourceInputs["jvmType"] = state ? state.jvmType : undefined;
             resourceInputs["jvmVersion"] = state ? state.jvmVersion : undefined;
+            resourceInputs["loadBasedAutoScaling"] = state ? state.loadBasedAutoScaling : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["stackId"] = state ? state.stackId : undefined;
             resourceInputs["systemPackages"] = state ? state.systemPackages : undefined;
@@ -215,6 +217,7 @@ export class JavaAppLayer extends pulumi.CustomResource {
             resourceInputs["jvmOptions"] = args ? args.jvmOptions : undefined;
             resourceInputs["jvmType"] = args ? args.jvmType : undefined;
             resourceInputs["jvmVersion"] = args ? args.jvmVersion : undefined;
+            resourceInputs["loadBasedAutoScaling"] = args ? args.loadBasedAutoScaling : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["stackId"] = args ? args.stackId : undefined;
             resourceInputs["systemPackages"] = args ? args.systemPackages : undefined;
@@ -306,6 +309,7 @@ export interface JavaAppLayerState {
      * Version of JVM to use. Defaults to "7".
      */
     jvmVersion?: pulumi.Input<string>;
+    loadBasedAutoScaling?: pulumi.Input<inputs.opsworks.JavaAppLayerLoadBasedAutoScaling>;
     /**
      * A human-readable name for the layer.
      */
@@ -406,6 +410,7 @@ export interface JavaAppLayerArgs {
      * Version of JVM to use. Defaults to "7".
      */
     jvmVersion?: pulumi.Input<string>;
+    loadBasedAutoScaling?: pulumi.Input<inputs.opsworks.JavaAppLayerLoadBasedAutoScaling>;
     /**
      * A human-readable name for the layer.
      */

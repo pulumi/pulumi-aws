@@ -76,7 +76,7 @@ export class SubnetGroup extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string>;
     /**
-     * Name for the cache subnet group. Elasticache converts this name to lowercase.
+     * Name for the cache subnet group. ElastiCache converts this name to lowercase.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -138,7 +138,7 @@ export interface SubnetGroupState {
      */
     description?: pulumi.Input<string>;
     /**
-     * Name for the cache subnet group. Elasticache converts this name to lowercase.
+     * Name for the cache subnet group. ElastiCache converts this name to lowercase.
      */
     name?: pulumi.Input<string>;
     /**
@@ -164,7 +164,7 @@ export interface SubnetGroupArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * Name for the cache subnet group. Elasticache converts this name to lowercase.
+     * Name for the cache subnet group. ElastiCache converts this name to lowercase.
      */
     name?: pulumi.Input<string>;
     /**
