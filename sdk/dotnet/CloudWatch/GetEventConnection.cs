@@ -16,7 +16,6 @@ namespace Pulumi.Aws.CloudWatch
         /// 
         /// &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
         /// 
-        /// 
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}
@@ -45,7 +44,6 @@ namespace Pulumi.Aws.CloudWatch
         /// Use this data source to retrieve information about an EventBridge connection.
         /// 
         /// &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
-        /// 
         /// 
         /// {{% examples %}}
         /// ## Example Usage

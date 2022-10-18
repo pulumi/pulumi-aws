@@ -30,7 +30,10 @@ namespace Pulumi.Aws.Ec2TransitGateway
     ///     var exampleConnectPeer = new Aws.Ec2TransitGateway.ConnectPeer("exampleConnectPeer", new()
     ///     {
     ///         PeerAddress = "10.1.2.3",
-    ///         InsideCidrBlocks = "169.254.100.0/29",
+    ///         InsideCidrBlocks = new[]
+    ///         {
+    ///             "169.254.100.0/29",
+    ///         },
     ///         TransitGatewayAttachmentId = exampleConnect.Id,
     ///     });
     /// 

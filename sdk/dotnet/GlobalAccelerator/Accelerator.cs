@@ -31,6 +31,10 @@ namespace Pulumi.Aws.GlobalAccelerator
     ///         },
     ///         Enabled = true,
     ///         IpAddressType = "IPV4",
+    ///         IpAddresses = new[]
+    ///         {
+    ///             "1.2.3.4",
+    ///         },
     ///     });
     /// 
     /// });
@@ -76,6 +80,12 @@ namespace Pulumi.Aws.GlobalAccelerator
         /// </summary>
         [Output("ipAddressType")]
         public Output<string?> IpAddressType { get; private set; } = null!;
+
+        /// <summary>
+        /// The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+        /// </summary>
+        [Output("ipAddresses")]
+        public Output<ImmutableArray<string>> IpAddresses { get; private set; } = null!;
 
         /// <summary>
         /// IP address set associated with the accelerator.
@@ -165,6 +175,18 @@ namespace Pulumi.Aws.GlobalAccelerator
         [Input("ipAddressType")]
         public Input<string>? IpAddressType { get; set; }
 
+        [Input("ipAddresses")]
+        private InputList<string>? _ipAddresses;
+
+        /// <summary>
+        /// The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+        /// </summary>
+        public InputList<string> IpAddresses
+        {
+            get => _ipAddresses ?? (_ipAddresses = new InputList<string>());
+            set => _ipAddresses = value;
+        }
+
         /// <summary>
         /// The name of the accelerator.
         /// </summary>
@@ -220,6 +242,18 @@ namespace Pulumi.Aws.GlobalAccelerator
         /// </summary>
         [Input("ipAddressType")]
         public Input<string>? IpAddressType { get; set; }
+
+        [Input("ipAddresses")]
+        private InputList<string>? _ipAddresses;
+
+        /// <summary>
+        /// The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+        /// </summary>
+        public InputList<string> IpAddresses
+        {
+            get => _ipAddresses ?? (_ipAddresses = new InputList<string>());
+            set => _ipAddresses = value;
+        }
 
         [Input("ipSets")]
         private InputList<Inputs.AcceleratorIpSetGetArgs>? _ipSets;

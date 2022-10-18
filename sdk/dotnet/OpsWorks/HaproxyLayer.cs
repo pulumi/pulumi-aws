@@ -135,6 +135,9 @@ namespace Pulumi.Aws.OpsWorks
         [Output("instanceShutdownTimeout")]
         public Output<int?> InstanceShutdownTimeout { get; private set; } = null!;
 
+        [Output("loadBasedAutoScaling")]
+        public Output<Outputs.HaproxyLayerLoadBasedAutoScaling> LoadBasedAutoScaling { get; private set; } = null!;
+
         /// <summary>
         /// A human-readable name for the layer.
         /// </summary>
@@ -374,6 +377,9 @@ namespace Pulumi.Aws.OpsWorks
         [Input("instanceShutdownTimeout")]
         public Input<int>? InstanceShutdownTimeout { get; set; }
 
+        [Input("loadBasedAutoScaling")]
+        public Input<Inputs.HaproxyLayerLoadBasedAutoScalingArgs>? LoadBasedAutoScaling { get; set; }
+
         /// <summary>
         /// A human-readable name for the layer.
         /// </summary>
@@ -586,6 +592,9 @@ namespace Pulumi.Aws.OpsWorks
         /// </summary>
         [Input("instanceShutdownTimeout")]
         public Input<int>? InstanceShutdownTimeout { get; set; }
+
+        [Input("loadBasedAutoScaling")]
+        public Input<Inputs.HaproxyLayerLoadBasedAutoScalingGetArgs>? LoadBasedAutoScaling { get; set; }
 
         /// <summary>
         /// A human-readable name for the layer.

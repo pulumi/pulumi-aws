@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Ebs
     /// });
     /// ```
     /// 
-    /// &gt; **NOTE**: At least one of `size` or `snapshot_id` is required when specifying an EBS volume
+    /// &gt; **NOTE:** At least one of `size` or `snapshot_id` is required when specifying an EBS volume
     /// 
     /// ## Import
     /// 

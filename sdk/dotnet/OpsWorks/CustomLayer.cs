@@ -135,6 +135,12 @@ namespace Pulumi.Aws.OpsWorks
         public Output<int?> InstanceShutdownTimeout { get; private set; } = null!;
 
         /// <summary>
+        /// Load-based auto scaling configuration. See Load Based AutoScaling
+        /// </summary>
+        [Output("loadBasedAutoScaling")]
+        public Output<Outputs.CustomLayerLoadBasedAutoScaling> LoadBasedAutoScaling { get; private set; } = null!;
+
+        /// <summary>
         /// A human-readable name for the layer.
         /// </summary>
         [Output("name")]
@@ -347,6 +353,12 @@ namespace Pulumi.Aws.OpsWorks
         public Input<int>? InstanceShutdownTimeout { get; set; }
 
         /// <summary>
+        /// Load-based auto scaling configuration. See Load Based AutoScaling
+        /// </summary>
+        [Input("loadBasedAutoScaling")]
+        public Input<Inputs.CustomLayerLoadBasedAutoScalingArgs>? LoadBasedAutoScaling { get; set; }
+
+        /// <summary>
         /// A human-readable name for the layer.
         /// </summary>
         [Input("name")]
@@ -531,6 +543,12 @@ namespace Pulumi.Aws.OpsWorks
         /// </summary>
         [Input("instanceShutdownTimeout")]
         public Input<int>? InstanceShutdownTimeout { get; set; }
+
+        /// <summary>
+        /// Load-based auto scaling configuration. See Load Based AutoScaling
+        /// </summary>
+        [Input("loadBasedAutoScaling")]
+        public Input<Inputs.CustomLayerLoadBasedAutoScalingGetArgs>? LoadBasedAutoScaling { get; set; }
 
         /// <summary>
         /// A human-readable name for the layer.

@@ -134,6 +134,9 @@ namespace Pulumi.Aws.OpsWorks
         [Output("instanceShutdownTimeout")]
         public Output<int?> InstanceShutdownTimeout { get; private set; } = null!;
 
+        [Output("loadBasedAutoScaling")]
+        public Output<Outputs.RailsAppLayerLoadBasedAutoScaling> LoadBasedAutoScaling { get; private set; } = null!;
+
         /// <summary>
         /// Whether OpsWorks should manage bundler. On by default.
         /// </summary>
@@ -373,6 +376,9 @@ namespace Pulumi.Aws.OpsWorks
         [Input("instanceShutdownTimeout")]
         public Input<int>? InstanceShutdownTimeout { get; set; }
 
+        [Input("loadBasedAutoScaling")]
+        public Input<Inputs.RailsAppLayerLoadBasedAutoScalingArgs>? LoadBasedAutoScaling { get; set; }
+
         /// <summary>
         /// Whether OpsWorks should manage bundler. On by default.
         /// </summary>
@@ -585,6 +591,9 @@ namespace Pulumi.Aws.OpsWorks
         /// </summary>
         [Input("instanceShutdownTimeout")]
         public Input<int>? InstanceShutdownTimeout { get; set; }
+
+        [Input("loadBasedAutoScaling")]
+        public Input<Inputs.RailsAppLayerLoadBasedAutoScalingGetArgs>? LoadBasedAutoScaling { get; set; }
 
         /// <summary>
         /// Whether OpsWorks should manage bundler. On by default.

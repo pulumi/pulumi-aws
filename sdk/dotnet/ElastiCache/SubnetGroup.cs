@@ -77,7 +77,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Name for the cache subnet group. Elasticache converts this name to lowercase.
+        /// Name for the cache subnet group. ElastiCache converts this name to lowercase.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -153,7 +153,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Name for the cache subnet group. Elasticache converts this name to lowercase.
+        /// Name for the cache subnet group. ElastiCache converts this name to lowercase.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -201,7 +201,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Name for the cache subnet group. Elasticache converts this name to lowercase.
+        /// Name for the cache subnet group. ElastiCache converts this name to lowercase.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

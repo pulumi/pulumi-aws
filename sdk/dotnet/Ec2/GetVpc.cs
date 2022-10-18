@@ -186,6 +186,10 @@ namespace Pulumi.Aws.Ec2
         /// Whether or not the VPC has DNS support
         /// </summary>
         public readonly bool EnableDnsSupport;
+        /// <summary>
+        /// Whether Network Address Usage metrics are enabled for your VPC
+        /// </summary>
+        public readonly bool EnableNetworkAddressUsageMetrics;
         public readonly ImmutableArray<Outputs.GetVpcFilterResult> Filters;
         public readonly string Id;
         /// <summary>
@@ -231,6 +235,8 @@ namespace Pulumi.Aws.Ec2
 
             bool enableDnsSupport,
 
+            bool enableNetworkAddressUsageMetrics,
+
             ImmutableArray<Outputs.GetVpcFilterResult> filters,
 
             string id,
@@ -256,6 +262,7 @@ namespace Pulumi.Aws.Ec2
             DhcpOptionsId = dhcpOptionsId;
             EnableDnsHostnames = enableDnsHostnames;
             EnableDnsSupport = enableDnsSupport;
+            EnableNetworkAddressUsageMetrics = enableNetworkAddressUsageMetrics;
             Filters = filters;
             Id = id;
             InstanceTenancy = instanceTenancy;

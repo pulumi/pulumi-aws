@@ -16,7 +16,7 @@ namespace Pulumi.Aws.IdentityStore.Outputs
         /// <summary>
         /// The identifier issued to this resource by an external identity provider.
         /// </summary>
-        public readonly bool? Id;
+        public readonly string? Id;
         /// <summary>
         /// The issuer for an external identifier.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.Aws.IdentityStore.Outputs
 
         [OutputConstructor]
         private UserExternalId(
-            bool? id,
+            string? id,
 
             string? issuer)
         {

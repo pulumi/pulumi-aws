@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Amp
     /// <summary>
     /// Manages an Amazon Managed Service for Prometheus (AMP) Workspace.
     /// 
-    /// &gt; **NOTE:** This AWS functionality is in Preview and may change before General Availability release. Backwards compatibility is not guaranteed between provider releases.
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -23,13 +21,33 @@ namespace Pulumi.Aws.Amp
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var demo = new Aws.Amp.Workspace("demo", new()
+    ///     var example = new Aws.Amp.Workspace("example", new()
     ///     {
-    ///         Alias = "prometheus-test",
+    ///         Alias = "example",
     ///         Tags = 
     ///         {
     ///             { "Environment", "production" },
-    ///             { "Owner", "abhi" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### CloudWatch Logging
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup");
+    /// 
+    ///     var exampleWorkspace = new Aws.Amp.Workspace("exampleWorkspace", new()
+    ///     {
+    ///         LoggingConfiguration = new Aws.Amp.Inputs.WorkspaceLoggingConfigurationArgs
+    ///         {
+    ///             LogGroupArn = exampleLogGroup.Arn.Apply(arn =&gt; $"{arn}:*"),
     ///         },
     ///     });
     /// 
@@ -58,6 +76,12 @@ namespace Pulumi.Aws.Amp
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
+        /// Logging configuration for the workspace. See Logging Configuration below for details.
+        /// </summary>
+        [Output("loggingConfiguration")]
+        public Output<Outputs.WorkspaceLoggingConfiguration?> LoggingConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Prometheus endpoint available for this workspace.
@@ -129,6 +153,12 @@ namespace Pulumi.Aws.Amp
         [Input("alias")]
         public Input<string>? Alias { get; set; }
 
+        /// <summary>
+        /// Logging configuration for the workspace. See Logging Configuration below for details.
+        /// </summary>
+        [Input("loggingConfiguration")]
+        public Input<Inputs.WorkspaceLoggingConfigurationArgs>? LoggingConfiguration { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -160,6 +190,12 @@ namespace Pulumi.Aws.Amp
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// Logging configuration for the workspace. See Logging Configuration below for details.
+        /// </summary>
+        [Input("loggingConfiguration")]
+        public Input<Inputs.WorkspaceLoggingConfigurationGetArgs>? LoggingConfiguration { get; set; }
 
         /// <summary>
         /// Prometheus endpoint available for this workspace.

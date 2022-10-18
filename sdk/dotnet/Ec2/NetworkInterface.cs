@@ -114,6 +114,9 @@ namespace Pulumi.Aws.Ec2
         [Output("ipv6AddressCount")]
         public Output<int> Ipv6AddressCount { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether `ipv6_address_list` is allowed and controls the IPs to assign to the ENI and `ipv6_addresses` and `ipv6_address_count` become read-only. Default false.
+        /// </summary>
         [Output("ipv6AddressListEnabled")]
         public Output<bool?> Ipv6AddressListEnabled { get; private set; } = null!;
 
@@ -310,6 +313,9 @@ namespace Pulumi.Aws.Ec2
         [Input("ipv6AddressCount")]
         public Input<int>? Ipv6AddressCount { get; set; }
 
+        /// <summary>
+        /// Whether `ipv6_address_list` is allowed and controls the IPs to assign to the ENI and `ipv6_addresses` and `ipv6_address_count` become read-only. Default false.
+        /// </summary>
         [Input("ipv6AddressListEnabled")]
         public Input<bool>? Ipv6AddressListEnabled { get; set; }
 
@@ -492,6 +498,9 @@ namespace Pulumi.Aws.Ec2
         [Input("ipv6AddressCount")]
         public Input<int>? Ipv6AddressCount { get; set; }
 
+        /// <summary>
+        /// Whether `ipv6_address_list` is allowed and controls the IPs to assign to the ENI and `ipv6_addresses` and `ipv6_address_count` become read-only. Default false.
+        /// </summary>
         [Input("ipv6AddressListEnabled")]
         public Input<bool>? Ipv6AddressListEnabled { get; set; }
 
