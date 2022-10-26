@@ -267,8 +267,8 @@ github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZb
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/pquerna/otp v1.3.0 h1:oJV/SkzR33anKXwQU3Of42rL4wbrffP4uvUf1SvS5Xs=
 github.com/prometheus/client_model v0.0.0-20190812154241-14fe0d1b01d4/go.mod h1:xMI15A0UPsDsEKsMN9yxemIoYk6Tm2C1GtYGdfGttqA=
-github.com/pulumi/terraform-provider-aws v1.38.1-0.20221026085606-c10af684c5b7 h1:ajlucIY4ul2O8Agopg5PCMxHzvQhFMMgxfHVkbSeQyI=
-github.com/pulumi/terraform-provider-aws v1.38.1-0.20221026085606-c10af684c5b7/go.mod h1:KbyE0up/H6h0Eyj9PKji7XCYs34WsFJdraE0jycnfrU=
+github.com/pulumi/terraform-provider-aws v1.38.1-0.20221026192341-60af2e29cb04 h1:hsmNLYUb0byPsV3vGmPje4LFz4DByrpNfbBVMGMvpbg=
+github.com/pulumi/terraform-provider-aws v1.38.1-0.20221026192341-60af2e29cb04/go.mod h1:KbyE0up/H6h0Eyj9PKji7XCYs34WsFJdraE0jycnfrU=
 github.com/rogpeppe/fastuuid v1.2.0/go.mod h1:jVj6XXZzXRy/MSR5jhDC/2q6DgLz+nrA6LYCDYWNEvQ=
 github.com/sebdah/goldie v1.0.0/go.mod h1:jXP4hmWywNEwZzhMuv2ccnqTSFpuq8iyQhtQdkkZBH4=
 github.com/sergi/go-diff v1.1.0/go.mod h1:STckp+ISIX8hZLjrqAeVduY0gWCT9IjLuqbuNXdaHfM=
