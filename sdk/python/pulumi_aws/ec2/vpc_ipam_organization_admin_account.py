@@ -124,6 +124,18 @@ class VpcIpamOrganizationAdminAccount(pulumi.CustomResource):
         """
         Enables the IPAM Service and promotes a delegated administrator.
 
+        ## Example Usage
+
+        Basic usage:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        delegated = aws.get_caller_identity()
+        example = aws.ec2.VpcIpamOrganizationAdminAccount("example", delegated_admin_account_id=delegated.account_id)
+        ```
+
         ## Import
 
         IPAMs can be imported using the `delegate account id`, e.g.
@@ -143,6 +155,18 @@ class VpcIpamOrganizationAdminAccount(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Enables the IPAM Service and promotes a delegated administrator.
+
+        ## Example Usage
+
+        Basic usage:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        delegated = aws.get_caller_identity()
+        example = aws.ec2.VpcIpamOrganizationAdminAccount("example", delegated_admin_account_id=delegated.account_id)
+        ```
 
         ## Import
 

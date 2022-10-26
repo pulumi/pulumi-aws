@@ -201,6 +201,51 @@ class StorageLensConfiguration(pulumi.CustomResource):
         """
         Provides a resource to manage an S3 Storage Lens configuration.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_caller_identity()
+        example = aws.s3control.StorageLensConfiguration("example",
+            config_id="example-1",
+            storage_lens_configuration=aws.s3control.StorageLensConfigurationStorageLensConfigurationArgs(
+                enabled=True,
+                account_level=aws.s3control.StorageLensConfigurationStorageLensConfigurationAccountLevelArgs(
+                    activity_metrics=aws.s3control.StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsArgs(
+                        enabled=True,
+                    ),
+                    bucket_level=aws.s3control.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArgs(
+                        activity_metrics=aws.s3control.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsArgs(
+                            enabled=True,
+                        ),
+                    ),
+                ),
+                data_export=aws.s3control.StorageLensConfigurationStorageLensConfigurationDataExportArgs(
+                    cloud_watch_metrics=aws.s3control.StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsArgs(
+                        enabled=True,
+                    ),
+                    s3_bucket_destination=aws.s3control.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs(
+                        account_id=current.account_id,
+                        arn=aws_s3_bucket["target"]["arn"],
+                        format="CSV",
+                        output_schema_version="V_1",
+                        encryption=aws.s3control.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs(
+                            sse_s3s=[aws.s3control.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Args()],
+                        ),
+                    ),
+                ),
+                exclude=aws.s3control.StorageLensConfigurationStorageLensConfigurationExcludeArgs(
+                    buckets=[
+                        aws_s3_bucket["b1"]["arn"],
+                        aws_s3_bucket["b2"]["arn"],
+                    ],
+                    regions=["us-east-2"],
+                ),
+            ))
+        ```
+
         ## Import
 
         S3 Storage Lens configurations can be imported using the `account_id` and `config_id`, separated by a colon (`:`), e.g.
@@ -223,6 +268,51 @@ class StorageLensConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to manage an S3 Storage Lens configuration.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_caller_identity()
+        example = aws.s3control.StorageLensConfiguration("example",
+            config_id="example-1",
+            storage_lens_configuration=aws.s3control.StorageLensConfigurationStorageLensConfigurationArgs(
+                enabled=True,
+                account_level=aws.s3control.StorageLensConfigurationStorageLensConfigurationAccountLevelArgs(
+                    activity_metrics=aws.s3control.StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsArgs(
+                        enabled=True,
+                    ),
+                    bucket_level=aws.s3control.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArgs(
+                        activity_metrics=aws.s3control.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsArgs(
+                            enabled=True,
+                        ),
+                    ),
+                ),
+                data_export=aws.s3control.StorageLensConfigurationStorageLensConfigurationDataExportArgs(
+                    cloud_watch_metrics=aws.s3control.StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsArgs(
+                        enabled=True,
+                    ),
+                    s3_bucket_destination=aws.s3control.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs(
+                        account_id=current.account_id,
+                        arn=aws_s3_bucket["target"]["arn"],
+                        format="CSV",
+                        output_schema_version="V_1",
+                        encryption=aws.s3control.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs(
+                            sse_s3s=[aws.s3control.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Args()],
+                        ),
+                    ),
+                ),
+                exclude=aws.s3control.StorageLensConfigurationStorageLensConfigurationExcludeArgs(
+                    buckets=[
+                        aws_s3_bucket["b1"]["arn"],
+                        aws_s3_bucket["b2"]["arn"],
+                    ],
+                    regions=["us-east-2"],
+                ),
+            ))
+        ```
 
         ## Import
 

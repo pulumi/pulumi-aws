@@ -83,6 +83,15 @@ class DelegatedAdminAccount(pulumi.CustomResource):
                  __props__=None):
         """
         ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_caller_identity()
+        example = aws.inspector2.DelegatedAdminAccount("example", account_id=current.account_id)
+        ```
 
         ## Import
 
@@ -104,6 +113,15 @@ class DelegatedAdminAccount(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_caller_identity()
+        example = aws.inspector2.DelegatedAdminAccount("example", account_id=current.account_id)
+        ```
 
         ## Import
 

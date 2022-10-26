@@ -619,6 +619,23 @@ class VpcEndpoint(pulumi.CustomResource):
             security_group_ids=[aws_security_group["sg1"]["id"]],
             private_dns_enabled=True)
         ```
+        ### Gateway Load Balancer Endpoint Type
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_caller_identity()
+        example_vpc_endpoint_service = aws.ec2.VpcEndpointService("exampleVpcEndpointService",
+            acceptance_required=False,
+            allowed_principals=[current.arn],
+            gateway_load_balancer_arns=[aws_lb["example"]["arn"]])
+        example_vpc_endpoint = aws.ec2.VpcEndpoint("exampleVpcEndpoint",
+            service_name=example_vpc_endpoint_service.service_name,
+            subnet_ids=[aws_subnet["example"]["id"]],
+            vpc_endpoint_type=example_vpc_endpoint_service.service_type,
+            vpc_id=aws_vpc["example"]["id"])
+        ```
 
         ## Import
 
@@ -688,6 +705,23 @@ class VpcEndpoint(pulumi.CustomResource):
             vpc_endpoint_type="Interface",
             security_group_ids=[aws_security_group["sg1"]["id"]],
             private_dns_enabled=True)
+        ```
+        ### Gateway Load Balancer Endpoint Type
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_caller_identity()
+        example_vpc_endpoint_service = aws.ec2.VpcEndpointService("exampleVpcEndpointService",
+            acceptance_required=False,
+            allowed_principals=[current.arn],
+            gateway_load_balancer_arns=[aws_lb["example"]["arn"]])
+        example_vpc_endpoint = aws.ec2.VpcEndpoint("exampleVpcEndpoint",
+            service_name=example_vpc_endpoint_service.service_name,
+            subnet_ids=[aws_subnet["example"]["id"]],
+            vpc_endpoint_type=example_vpc_endpoint_service.service_type,
+            vpc_id=aws_vpc["example"]["id"])
         ```
 
         ## Import

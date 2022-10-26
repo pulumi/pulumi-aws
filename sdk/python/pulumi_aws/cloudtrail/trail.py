@@ -618,7 +618,55 @@ class Trail(pulumi.CustomResource):
         > **Tip:** For an organization trail, this resource must be in the master account of the organization.
 
         ## Example Usage
+        ### Basic
 
+        Enable CloudTrail to capture all compatible management events in region.
+        For capturing events from services like IAM, `include_global_service_events` must be enabled.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_caller_identity()
+        bucket_v2 = aws.s3.BucketV2("bucketV2")
+        foo_bucket_v2 = aws.s3.BucketV2("fooBucketV2", force_destroy=True)
+        foo_bucket_policy = aws.s3.BucketPolicy("fooBucketPolicy",
+            bucket=foo_bucket_v2.id,
+            policy=pulumi.Output.all(foo_bucket_v2.arn, foo_bucket_v2.arn).apply(lambda fooBucketV2Arn, fooBucketV2Arn1: f\"\"\"{{
+            "Version": "2012-10-17",
+            "Statement": [
+                {{
+                    "Sid": "AWSCloudTrailAclCheck",
+                    "Effect": "Allow",
+                    "Principal": {{
+                      "Service": "cloudtrail.amazonaws.com"
+                    }},
+                    "Action": "s3:GetBucketAcl",
+                    "Resource": "{foo_bucket_v2_arn}"
+                }},
+                {{
+                    "Sid": "AWSCloudTrailWrite",
+                    "Effect": "Allow",
+                    "Principal": {{
+                      "Service": "cloudtrail.amazonaws.com"
+                    }},
+                    "Action": "s3:PutObject",
+                    "Resource": "{foo_bucket_v2_arn1}/prefix/AWSLogs/{current.account_id}/*",
+                    "Condition": {{
+                        "StringEquals": {{
+                            "s3:x-amz-acl": "bucket-owner-full-control"
+                        }}
+                    }}
+                }}
+            ]
+        }}
+        }}
+        \"\"\"))
+        foobar = aws.cloudtrail.Trail("foobar",
+            s3_bucket_name=bucket_v2.id,
+            s3_key_prefix="prefix",
+            include_global_service_events=False)
+        ```
         ### Data Event Logging
 
         CloudTrail can log [Data Events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) for certain services such as S3 objects and Lambda function invocations. Additional information about data event configuration can be found in the following links:
@@ -809,7 +857,55 @@ class Trail(pulumi.CustomResource):
         > **Tip:** For an organization trail, this resource must be in the master account of the organization.
 
         ## Example Usage
+        ### Basic
 
+        Enable CloudTrail to capture all compatible management events in region.
+        For capturing events from services like IAM, `include_global_service_events` must be enabled.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_caller_identity()
+        bucket_v2 = aws.s3.BucketV2("bucketV2")
+        foo_bucket_v2 = aws.s3.BucketV2("fooBucketV2", force_destroy=True)
+        foo_bucket_policy = aws.s3.BucketPolicy("fooBucketPolicy",
+            bucket=foo_bucket_v2.id,
+            policy=pulumi.Output.all(foo_bucket_v2.arn, foo_bucket_v2.arn).apply(lambda fooBucketV2Arn, fooBucketV2Arn1: f\"\"\"{{
+            "Version": "2012-10-17",
+            "Statement": [
+                {{
+                    "Sid": "AWSCloudTrailAclCheck",
+                    "Effect": "Allow",
+                    "Principal": {{
+                      "Service": "cloudtrail.amazonaws.com"
+                    }},
+                    "Action": "s3:GetBucketAcl",
+                    "Resource": "{foo_bucket_v2_arn}"
+                }},
+                {{
+                    "Sid": "AWSCloudTrailWrite",
+                    "Effect": "Allow",
+                    "Principal": {{
+                      "Service": "cloudtrail.amazonaws.com"
+                    }},
+                    "Action": "s3:PutObject",
+                    "Resource": "{foo_bucket_v2_arn1}/prefix/AWSLogs/{current.account_id}/*",
+                    "Condition": {{
+                        "StringEquals": {{
+                            "s3:x-amz-acl": "bucket-owner-full-control"
+                        }}
+                    }}
+                }}
+            ]
+        }}
+        }}
+        \"\"\"))
+        foobar = aws.cloudtrail.Trail("foobar",
+            s3_bucket_name=bucket_v2.id,
+            s3_key_prefix="prefix",
+            include_global_service_events=False)
+        ```
         ### Data Event Logging
 
         CloudTrail can log [Data Events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) for certain services such as S3 objects and Lambda function invocations. Additional information about data event configuration can be found in the following links:

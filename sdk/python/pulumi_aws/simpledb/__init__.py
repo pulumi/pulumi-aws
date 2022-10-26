@@ -5,9 +5,4 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
-from .accelerator import *
-from .endpoint_group import *
-from .get_accelerator import *
-from .listener import *
-from ._inputs import *
-from . import outputs
+from .domain import *

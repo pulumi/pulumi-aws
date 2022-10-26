@@ -15,6 +15,8 @@ __all__ = [
     'EndpointGroupEndpointConfiguration',
     'EndpointGroupPortOverride',
     'ListenerPortRange',
+    'GetAcceleratorAttributeResult',
+    'GetAcceleratorIpSetResult',
 ]
 
 @pulumi.output_type
@@ -291,5 +293,50 @@ class ListenerPortRange(dict):
         The last port in the range of ports, inclusive.
         """
         return pulumi.get(self, "to_port")
+
+
+@pulumi.output_type
+class GetAcceleratorAttributeResult(dict):
+    def __init__(__self__, *,
+                 flow_logs_enabled: bool,
+                 flow_logs_s3_bucket: str,
+                 flow_logs_s3_prefix: str):
+        pulumi.set(__self__, "flow_logs_enabled", flow_logs_enabled)
+        pulumi.set(__self__, "flow_logs_s3_bucket", flow_logs_s3_bucket)
+        pulumi.set(__self__, "flow_logs_s3_prefix", flow_logs_s3_prefix)
+
+    @property
+    @pulumi.getter(name="flowLogsEnabled")
+    def flow_logs_enabled(self) -> bool:
+        return pulumi.get(self, "flow_logs_enabled")
+
+    @property
+    @pulumi.getter(name="flowLogsS3Bucket")
+    def flow_logs_s3_bucket(self) -> str:
+        return pulumi.get(self, "flow_logs_s3_bucket")
+
+    @property
+    @pulumi.getter(name="flowLogsS3Prefix")
+    def flow_logs_s3_prefix(self) -> str:
+        return pulumi.get(self, "flow_logs_s3_prefix")
+
+
+@pulumi.output_type
+class GetAcceleratorIpSetResult(dict):
+    def __init__(__self__, *,
+                 ip_addresses: Sequence[str],
+                 ip_family: str):
+        pulumi.set(__self__, "ip_addresses", ip_addresses)
+        pulumi.set(__self__, "ip_family", ip_family)
+
+    @property
+    @pulumi.getter(name="ipAddresses")
+    def ip_addresses(self) -> Sequence[str]:
+        return pulumi.get(self, "ip_addresses")
+
+    @property
+    @pulumi.getter(name="ipFamily")
+    def ip_family(self) -> str:
+        return pulumi.get(self, "ip_family")
 
 
