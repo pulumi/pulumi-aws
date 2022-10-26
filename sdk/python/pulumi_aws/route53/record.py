@@ -614,7 +614,7 @@ class Record(pulumi.CustomResource):
          $ pulumi import aws:route53/record:Record myrecord Z4KAPRWWNC7JR_dev.example.com_NS
         ```
 
-         If the record also contains a delegated set identifier, it can be appended
+         If the record also contains a set identifier, it should be appended
 
         ```sh
          $ pulumi import aws:route53/record:Record myrecord Z4KAPRWWNC7JR_dev.example.com_NS_dev
@@ -750,7 +750,7 @@ class Record(pulumi.CustomResource):
          $ pulumi import aws:route53/record:Record myrecord Z4KAPRWWNC7JR_dev.example.com_NS
         ```
 
-         If the record also contains a delegated set identifier, it can be appended
+         If the record also contains a set identifier, it should be appended
 
         ```sh
          $ pulumi import aws:route53/record:Record myrecord Z4KAPRWWNC7JR_dev.example.com_NS_dev

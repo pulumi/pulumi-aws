@@ -142,24 +142,6 @@ def get_mesh(mesh_owner: Optional[str] = None,
     """
     The App Mesh Mesh data source allows details of an App Mesh Mesh to be retrieved by its name and optionally the mesh_owner.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    simple = aws.appmesh.get_mesh(name="simpleapp")
-    ```
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.get_caller_identity()
-    simple = aws.appmesh.get_mesh(name="simpleapp",
-        mesh_owner=current.account_id)
-    ```
-
 
     :param str mesh_owner: AWS account ID of the service mesh's owner.
     :param str name: Name of the service mesh.
@@ -191,24 +173,6 @@ def get_mesh_output(mesh_owner: Optional[pulumi.Input[Optional[str]]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMeshResult]:
     """
     The App Mesh Mesh data source allows details of an App Mesh Mesh to be retrieved by its name and optionally the mesh_owner.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    simple = aws.appmesh.get_mesh(name="simpleapp")
-    ```
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.get_caller_identity()
-    simple = aws.appmesh.get_mesh(name="simpleapp",
-        mesh_owner=current.account_id)
-    ```
 
 
     :param str mesh_owner: AWS account ID of the service mesh's owner.

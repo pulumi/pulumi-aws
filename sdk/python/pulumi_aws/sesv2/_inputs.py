@@ -123,7 +123,7 @@ class ConfigurationSetSuppressionOptionsArgs:
     def __init__(__self__, *,
                  suppressed_reasons: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] suppressed_reasons: A list that contains the reasons that email addresses are automatically added to the suppression list for your account. Valid vales: `BOUNCE`, `COMPLAINT`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] suppressed_reasons: A list that contains the reasons that email addresses are automatically added to the suppression list for your account. Valid values: `BOUNCE`, `COMPLAINT`.
         """
         if suppressed_reasons is not None:
             pulumi.set(__self__, "suppressed_reasons", suppressed_reasons)
@@ -132,7 +132,7 @@ class ConfigurationSetSuppressionOptionsArgs:
     @pulumi.getter(name="suppressedReasons")
     def suppressed_reasons(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list that contains the reasons that email addresses are automatically added to the suppression list for your account. Valid vales: `BOUNCE`, `COMPLAINT`.
+        A list that contains the reasons that email addresses are automatically added to the suppression list for your account. Valid values: `BOUNCE`, `COMPLAINT`.
         """
         return pulumi.get(self, "suppressed_reasons")
 

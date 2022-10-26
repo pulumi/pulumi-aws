@@ -667,36 +667,6 @@ class Domain(pulumi.CustomResource):
                 "Domain": "TestDomain",
             })
         ```
-        ### Access Policy
-
-        > See also: [`opensearch.DomainPolicy` resource](https://www.terraform.io/docs/providers/aws/r/opensearch_domain_policy.html)
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        config = pulumi.Config()
-        domain = config.get("domain")
-        if domain is None:
-            domain = "tf-test"
-        current_region = aws.get_region()
-        current_caller_identity = aws.get_caller_identity()
-        example = aws.opensearch.Domain("example", access_policies=f\"\"\"{{
-          "Version": "2012-10-17",
-          "Statement": [
-            {{
-              "Action": "es:*",
-              "Principal": "*",
-              "Effect": "Allow",
-              "Resource": "arn:aws:es:{current_region.name}:{current_caller_identity.account_id}:domain/{domain}/*",
-              "Condition": {{
-                "IpAddress": {{"aws:SourceIp": ["66.193.100.22/32"]}}
-              }}
-            }}
-          ]
-        }}
-        \"\"\")
-        ```
         ### Log publishing to CloudWatch Logs
 
         ```python
@@ -729,69 +699,6 @@ class Domain(pulumi.CustomResource):
             cloudwatch_log_group_arn=example_log_group.arn,
             log_type="INDEX_SLOW_LOGS",
         )])
-        ```
-        ### VPC based OpenSearch
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        config = pulumi.Config()
-        vpc = config.require_object("vpc")
-        domain = config.get("domain")
-        if domain is None:
-            domain = "tf-test"
-        example_vpc = aws.ec2.get_vpc(tags={
-            "Name": vpc,
-        })
-        example_subnet_ids = aws.ec2.get_subnet_ids(vpc_id=example_vpc.id,
-            tags={
-                "Tier": "private",
-            })
-        current_region = aws.get_region()
-        current_caller_identity = aws.get_caller_identity()
-        example_security_group = aws.ec2.SecurityGroup("exampleSecurityGroup",
-            description="Managed by Terraform",
-            vpc_id=example_vpc.id,
-            ingress=[aws.ec2.SecurityGroupIngressArgs(
-                from_port=443,
-                to_port=443,
-                protocol="tcp",
-                cidr_blocks=[example_vpc.cidr_block],
-            )])
-        example_service_linked_role = aws.iam.ServiceLinkedRole("exampleServiceLinkedRole", aws_service_name="opensearchservice.amazonaws.com")
-        example_domain = aws.opensearch.Domain("exampleDomain",
-            engine_version="OpenSearch_1.0",
-            cluster_config=aws.opensearch.DomainClusterConfigArgs(
-                instance_type="m4.large.search",
-                zone_awareness_enabled=True,
-            ),
-            vpc_options=aws.opensearch.DomainVpcOptionsArgs(
-                subnet_ids=[
-                    example_subnet_ids.ids[0],
-                    example_subnet_ids.ids[1],
-                ],
-                security_group_ids=[example_security_group.id],
-            ),
-            advanced_options={
-                "rest.action.multi.allow_explicit_index": "true",
-            },
-            access_policies=f\"\"\"{{
-        	"Version": "2012-10-17",
-        	"Statement": [
-        		{{
-        			"Action": "es:*",
-        			"Principal": "*",
-        			"Effect": "Allow",
-        			"Resource": "arn:aws:es:{current_region.name}:{current_caller_identity.account_id}:domain/{domain}/*"
-        		}}
-        	]
-        }}
-        \"\"\",
-            tags={
-                "Domain": "TestDomain",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[example_service_linked_role]))
         ```
         ### Enabling fine-grained access control on an existing domain
 
@@ -937,36 +844,6 @@ class Domain(pulumi.CustomResource):
                 "Domain": "TestDomain",
             })
         ```
-        ### Access Policy
-
-        > See also: [`opensearch.DomainPolicy` resource](https://www.terraform.io/docs/providers/aws/r/opensearch_domain_policy.html)
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        config = pulumi.Config()
-        domain = config.get("domain")
-        if domain is None:
-            domain = "tf-test"
-        current_region = aws.get_region()
-        current_caller_identity = aws.get_caller_identity()
-        example = aws.opensearch.Domain("example", access_policies=f\"\"\"{{
-          "Version": "2012-10-17",
-          "Statement": [
-            {{
-              "Action": "es:*",
-              "Principal": "*",
-              "Effect": "Allow",
-              "Resource": "arn:aws:es:{current_region.name}:{current_caller_identity.account_id}:domain/{domain}/*",
-              "Condition": {{
-                "IpAddress": {{"aws:SourceIp": ["66.193.100.22/32"]}}
-              }}
-            }}
-          ]
-        }}
-        \"\"\")
-        ```
         ### Log publishing to CloudWatch Logs
 
         ```python
@@ -999,69 +876,6 @@ class Domain(pulumi.CustomResource):
             cloudwatch_log_group_arn=example_log_group.arn,
             log_type="INDEX_SLOW_LOGS",
         )])
-        ```
-        ### VPC based OpenSearch
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        config = pulumi.Config()
-        vpc = config.require_object("vpc")
-        domain = config.get("domain")
-        if domain is None:
-            domain = "tf-test"
-        example_vpc = aws.ec2.get_vpc(tags={
-            "Name": vpc,
-        })
-        example_subnet_ids = aws.ec2.get_subnet_ids(vpc_id=example_vpc.id,
-            tags={
-                "Tier": "private",
-            })
-        current_region = aws.get_region()
-        current_caller_identity = aws.get_caller_identity()
-        example_security_group = aws.ec2.SecurityGroup("exampleSecurityGroup",
-            description="Managed by Terraform",
-            vpc_id=example_vpc.id,
-            ingress=[aws.ec2.SecurityGroupIngressArgs(
-                from_port=443,
-                to_port=443,
-                protocol="tcp",
-                cidr_blocks=[example_vpc.cidr_block],
-            )])
-        example_service_linked_role = aws.iam.ServiceLinkedRole("exampleServiceLinkedRole", aws_service_name="opensearchservice.amazonaws.com")
-        example_domain = aws.opensearch.Domain("exampleDomain",
-            engine_version="OpenSearch_1.0",
-            cluster_config=aws.opensearch.DomainClusterConfigArgs(
-                instance_type="m4.large.search",
-                zone_awareness_enabled=True,
-            ),
-            vpc_options=aws.opensearch.DomainVpcOptionsArgs(
-                subnet_ids=[
-                    example_subnet_ids.ids[0],
-                    example_subnet_ids.ids[1],
-                ],
-                security_group_ids=[example_security_group.id],
-            ),
-            advanced_options={
-                "rest.action.multi.allow_explicit_index": "true",
-            },
-            access_policies=f\"\"\"{{
-        	"Version": "2012-10-17",
-        	"Statement": [
-        		{{
-        			"Action": "es:*",
-        			"Principal": "*",
-        			"Effect": "Allow",
-        			"Resource": "arn:aws:es:{current_region.name}:{current_caller_identity.account_id}:domain/{domain}/*"
-        		}}
-        	]
-        }}
-        \"\"\",
-            tags={
-                "Domain": "TestDomain",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[example_service_linked_role]))
         ```
         ### Enabling fine-grained access control on an existing domain
 

@@ -13,7 +13,6 @@ from .get_autoscaling_groups import *
 from .get_availability_zone import *
 from .get_availability_zones import *
 from .get_billing_service_account import *
-from .get_caller_identity import *
 from .get_canonical_user_id import *
 from .get_default_tags import *
 from .get_elastic_ip import *
@@ -343,8 +342,6 @@ if typing.TYPE_CHECKING:
     shield = __shield
     import pulumi_aws.signer as __signer
     signer = __signer
-    import pulumi_aws.simpledb as __simpledb
-    simpledb = __simpledb
     import pulumi_aws.sns as __sns
     sns = __sns
     import pulumi_aws.sqs as __sqs
@@ -535,7 +532,6 @@ else:
     sfn = _utilities.lazy_import('pulumi_aws.sfn')
     shield = _utilities.lazy_import('pulumi_aws.shield')
     signer = _utilities.lazy_import('pulumi_aws.signer')
-    simpledb = _utilities.lazy_import('pulumi_aws.simpledb')
     sns = _utilities.lazy_import('pulumi_aws.sns')
     sqs = _utilities.lazy_import('pulumi_aws.sqs')
     ssm = _utilities.lazy_import('pulumi_aws.ssm')
@@ -6054,6 +6050,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "lightsail/certificate",
+  "fqn": "pulumi_aws.lightsail",
+  "classes": {
+   "aws:lightsail/certificate:Certificate": "Certificate"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "lightsail/containerService",
   "fqn": "pulumi_aws.lightsail",
   "classes": {
@@ -6086,6 +6090,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "lightsail/domainEntry",
+  "fqn": "pulumi_aws.lightsail",
+  "classes": {
+   "aws:lightsail/domainEntry:DomainEntry": "DomainEntry"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "lightsail/instance",
   "fqn": "pulumi_aws.lightsail",
   "classes": {
@@ -6106,6 +6118,22 @@ _utilities.register(
   "fqn": "pulumi_aws.lightsail",
   "classes": {
    "aws:lightsail/keyPair:KeyPair": "KeyPair"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "lightsail/lb",
+  "fqn": "pulumi_aws.lightsail",
+  "classes": {
+   "aws:lightsail/lb:Lb": "Lb"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "lightsail/lbAttachment",
+  "fqn": "pulumi_aws.lightsail",
+  "classes": {
+   "aws:lightsail/lbAttachment:LbAttachment": "LbAttachment"
   }
  },
  {
@@ -8550,6 +8578,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "sesv2/dedicatedIpPool",
+  "fqn": "pulumi_aws.sesv2",
+  "classes": {
+   "aws:sesv2/dedicatedIpPool:DedicatedIpPool": "DedicatedIpPool"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "sfn/activity",
   "fqn": "pulumi_aws.sfn",
   "classes": {
@@ -8610,14 +8646,6 @@ _utilities.register(
   "fqn": "pulumi_aws.signer",
   "classes": {
    "aws:signer/signingProfilePermission:SigningProfilePermission": "SigningProfilePermission"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "simpledb/domain",
-  "fqn": "pulumi_aws.simpledb",
-  "classes": {
-   "aws:simpledb/domain:Domain": "Domain"
   }
  },
  {

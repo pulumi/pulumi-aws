@@ -330,7 +330,8 @@ class StackAccessEndpointArgs:
                  endpoint_type: pulumi.Input[str],
                  vpce_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] endpoint_type: Type of the interface endpoint. See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
+        :param pulumi.Input[str] endpoint_type: Type of the interface endpoint.
+               See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
         :param pulumi.Input[str] vpce_id: ID of the VPC in which the interface endpoint is used.
         """
         pulumi.set(__self__, "endpoint_type", endpoint_type)
@@ -341,7 +342,8 @@ class StackAccessEndpointArgs:
     @pulumi.getter(name="endpointType")
     def endpoint_type(self) -> pulumi.Input[str]:
         """
-        Type of the interface endpoint. See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
+        Type of the interface endpoint.
+        See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
         """
         return pulumi.get(self, "endpoint_type")
 
@@ -365,25 +367,38 @@ class StackAccessEndpointArgs:
 @pulumi.input_type
 class StackApplicationSettingsArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[bool]] = None,
+                 enabled: pulumi.Input[bool],
                  settings_group: Optional[pulumi.Input[str]] = None):
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+        """
+        :param pulumi.Input[bool] enabled: Whether application settings should be persisted.
+        :param pulumi.Input[str] settings_group: Name of the settings group.
+               Required when `enabled` is `true`.
+               Can be up to 100 characters.
+        """
+        pulumi.set(__self__, "enabled", enabled)
         if settings_group is not None:
             pulumi.set(__self__, "settings_group", settings_group)
 
     @property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[bool]]:
+    def enabled(self) -> pulumi.Input[bool]:
+        """
+        Whether application settings should be persisted.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[bool]]):
+    def enabled(self, value: pulumi.Input[bool]):
         pulumi.set(self, "enabled", value)
 
     @property
     @pulumi.getter(name="settingsGroup")
     def settings_group(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the settings group.
+        Required when `enabled` is `true`.
+        Can be up to 100 characters.
+        """
         return pulumi.get(self, "settings_group")
 
     @settings_group.setter
@@ -398,7 +413,8 @@ class StackStorageConnectorArgs:
                  domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_identifier: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] connector_type: Type of storage connector. Valid values are: `HOMEFOLDERS`, `GOOGLE_DRIVE`, `ONE_DRIVE`.
+        :param pulumi.Input[str] connector_type: Type of storage connector.
+               Valid values are `HOMEFOLDERS`, `GOOGLE_DRIVE`, or `ONE_DRIVE`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] domains: Names of the domains for the account.
         :param pulumi.Input[str] resource_identifier: ARN of the storage connector.
         """
@@ -412,7 +428,8 @@ class StackStorageConnectorArgs:
     @pulumi.getter(name="connectorType")
     def connector_type(self) -> pulumi.Input[str]:
         """
-        Type of storage connector. Valid values are: `HOMEFOLDERS`, `GOOGLE_DRIVE`, `ONE_DRIVE`.
+        Type of storage connector.
+        Valid values are `HOMEFOLDERS`, `GOOGLE_DRIVE`, or `ONE_DRIVE`.
         """
         return pulumi.get(self, "connector_type")
 
@@ -451,8 +468,10 @@ class StackUserSettingArgs:
                  action: pulumi.Input[str],
                  permission: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] action: Action that is enabled or disabled. Valid values are: `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`,  `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, `PRINTING_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, `DOMAIN_SMART_CARD_SIGNIN`.
-        :param pulumi.Input[str] permission: Whether the action is enabled or disabled. Valid values are: `ENABLED`, `DISABLED`.
+        :param pulumi.Input[str] action: Action that is enabled or disabled.
+               Valid values are `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`,  `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, `PRINTING_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, or `DOMAIN_SMART_CARD_SIGNIN`.
+        :param pulumi.Input[str] permission: Whether the action is enabled or disabled.
+               Valid values are `ENABLED` or `DISABLED`.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "permission", permission)
@@ -461,7 +480,8 @@ class StackUserSettingArgs:
     @pulumi.getter
     def action(self) -> pulumi.Input[str]:
         """
-        Action that is enabled or disabled. Valid values are: `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`,  `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, `PRINTING_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, `DOMAIN_SMART_CARD_SIGNIN`.
+        Action that is enabled or disabled.
+        Valid values are `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`,  `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, `PRINTING_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, or `DOMAIN_SMART_CARD_SIGNIN`.
         """
         return pulumi.get(self, "action")
 
@@ -473,7 +493,8 @@ class StackUserSettingArgs:
     @pulumi.getter
     def permission(self) -> pulumi.Input[str]:
         """
-        Whether the action is enabled or disabled. Valid values are: `ENABLED`, `DISABLED`.
+        Whether the action is enabled or disabled.
+        Valid values are `ENABLED` or `DISABLED`.
         """
         return pulumi.get(self, "permission")
 

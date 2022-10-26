@@ -23,7 +23,8 @@ class AppMonitorArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a AppMonitor resource.
-        :param pulumi.Input[str] domain: configuration data for the app monitor. See app_monitor_configuration below.
+        :param pulumi.Input[str] domain: The top-level internet domain name for which your application has administrative authority.
+        :param pulumi.Input['AppMonitorAppMonitorConfigurationArgs'] app_monitor_configuration: configuration data for the app monitor. See app_monitor_configuration below.
         :param pulumi.Input[bool] cw_log_enabled: Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
         :param pulumi.Input[str] name: The name of the log stream.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -42,7 +43,7 @@ class AppMonitorArgs:
     @pulumi.getter
     def domain(self) -> pulumi.Input[str]:
         """
-        configuration data for the app monitor. See app_monitor_configuration below.
+        The top-level internet domain name for which your application has administrative authority.
         """
         return pulumi.get(self, "domain")
 
@@ -53,6 +54,9 @@ class AppMonitorArgs:
     @property
     @pulumi.getter(name="appMonitorConfiguration")
     def app_monitor_configuration(self) -> Optional[pulumi.Input['AppMonitorAppMonitorConfigurationArgs']]:
+        """
+        configuration data for the app monitor. See app_monitor_configuration below.
+        """
         return pulumi.get(self, "app_monitor_configuration")
 
     @app_monitor_configuration.setter
@@ -100,6 +104,7 @@ class AppMonitorArgs:
 class _AppMonitorState:
     def __init__(__self__, *,
                  app_monitor_configuration: Optional[pulumi.Input['AppMonitorAppMonitorConfigurationArgs']] = None,
+                 app_monitor_id: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  cw_log_enabled: Optional[pulumi.Input[bool]] = None,
                  cw_log_group: Optional[pulumi.Input[str]] = None,
@@ -109,16 +114,20 @@ class _AppMonitorState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering AppMonitor resources.
+        :param pulumi.Input['AppMonitorAppMonitorConfigurationArgs'] app_monitor_configuration: configuration data for the app monitor. See app_monitor_configuration below.
+        :param pulumi.Input[str] app_monitor_id: The unique ID of the app monitor. Useful for JS templates.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) specifying the app monitor.
         :param pulumi.Input[bool] cw_log_enabled: Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
         :param pulumi.Input[str] cw_log_group: The name of the log group where the copies are stored.
-        :param pulumi.Input[str] domain: configuration data for the app monitor. See app_monitor_configuration below.
+        :param pulumi.Input[str] domain: The top-level internet domain name for which your application has administrative authority.
         :param pulumi.Input[str] name: The name of the log stream.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if app_monitor_configuration is not None:
             pulumi.set(__self__, "app_monitor_configuration", app_monitor_configuration)
+        if app_monitor_id is not None:
+            pulumi.set(__self__, "app_monitor_id", app_monitor_id)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if cw_log_enabled is not None:
@@ -137,11 +146,26 @@ class _AppMonitorState:
     @property
     @pulumi.getter(name="appMonitorConfiguration")
     def app_monitor_configuration(self) -> Optional[pulumi.Input['AppMonitorAppMonitorConfigurationArgs']]:
+        """
+        configuration data for the app monitor. See app_monitor_configuration below.
+        """
         return pulumi.get(self, "app_monitor_configuration")
 
     @app_monitor_configuration.setter
     def app_monitor_configuration(self, value: Optional[pulumi.Input['AppMonitorAppMonitorConfigurationArgs']]):
         pulumi.set(self, "app_monitor_configuration", value)
+
+    @property
+    @pulumi.getter(name="appMonitorId")
+    def app_monitor_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unique ID of the app monitor. Useful for JS templates.
+        """
+        return pulumi.get(self, "app_monitor_id")
+
+    @app_monitor_id.setter
+    def app_monitor_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_monitor_id", value)
 
     @property
     @pulumi.getter
@@ -183,7 +207,7 @@ class _AppMonitorState:
     @pulumi.getter
     def domain(self) -> Optional[pulumi.Input[str]]:
         """
-        configuration data for the app monitor. See app_monitor_configuration below.
+        The top-level internet domain name for which your application has administrative authority.
         """
         return pulumi.get(self, "domain")
 
@@ -261,8 +285,9 @@ class AppMonitor(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['AppMonitorAppMonitorConfigurationArgs']] app_monitor_configuration: configuration data for the app monitor. See app_monitor_configuration below.
         :param pulumi.Input[bool] cw_log_enabled: Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
-        :param pulumi.Input[str] domain: configuration data for the app monitor. See app_monitor_configuration below.
+        :param pulumi.Input[str] domain: The top-level internet domain name for which your application has administrative authority.
         :param pulumi.Input[str] name: The name of the log stream.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -328,6 +353,7 @@ class AppMonitor(pulumi.CustomResource):
             __props__.__dict__["domain"] = domain
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["app_monitor_id"] = None
             __props__.__dict__["arn"] = None
             __props__.__dict__["cw_log_group"] = None
             __props__.__dict__["tags_all"] = None
@@ -342,6 +368,7 @@ class AppMonitor(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             app_monitor_configuration: Optional[pulumi.Input[pulumi.InputType['AppMonitorAppMonitorConfigurationArgs']]] = None,
+            app_monitor_id: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             cw_log_enabled: Optional[pulumi.Input[bool]] = None,
             cw_log_group: Optional[pulumi.Input[str]] = None,
@@ -356,10 +383,12 @@ class AppMonitor(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['AppMonitorAppMonitorConfigurationArgs']] app_monitor_configuration: configuration data for the app monitor. See app_monitor_configuration below.
+        :param pulumi.Input[str] app_monitor_id: The unique ID of the app monitor. Useful for JS templates.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) specifying the app monitor.
         :param pulumi.Input[bool] cw_log_enabled: Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
         :param pulumi.Input[str] cw_log_group: The name of the log group where the copies are stored.
-        :param pulumi.Input[str] domain: configuration data for the app monitor. See app_monitor_configuration below.
+        :param pulumi.Input[str] domain: The top-level internet domain name for which your application has administrative authority.
         :param pulumi.Input[str] name: The name of the log stream.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -369,6 +398,7 @@ class AppMonitor(pulumi.CustomResource):
         __props__ = _AppMonitorState.__new__(_AppMonitorState)
 
         __props__.__dict__["app_monitor_configuration"] = app_monitor_configuration
+        __props__.__dict__["app_monitor_id"] = app_monitor_id
         __props__.__dict__["arn"] = arn
         __props__.__dict__["cw_log_enabled"] = cw_log_enabled
         __props__.__dict__["cw_log_group"] = cw_log_group
@@ -381,7 +411,18 @@ class AppMonitor(pulumi.CustomResource):
     @property
     @pulumi.getter(name="appMonitorConfiguration")
     def app_monitor_configuration(self) -> pulumi.Output['outputs.AppMonitorAppMonitorConfiguration']:
+        """
+        configuration data for the app monitor. See app_monitor_configuration below.
+        """
         return pulumi.get(self, "app_monitor_configuration")
+
+    @property
+    @pulumi.getter(name="appMonitorId")
+    def app_monitor_id(self) -> pulumi.Output[str]:
+        """
+        The unique ID of the app monitor. Useful for JS templates.
+        """
+        return pulumi.get(self, "app_monitor_id")
 
     @property
     @pulumi.getter
@@ -411,7 +452,7 @@ class AppMonitor(pulumi.CustomResource):
     @pulumi.getter
     def domain(self) -> pulumi.Output[str]:
         """
-        configuration data for the app monitor. See app_monitor_configuration below.
+        The top-level internet domain name for which your application has administrative authority.
         """
         return pulumi.get(self, "domain")
 

@@ -10,13 +10,75 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'CertificateDomainValidationOptionArgs',
     'ContainerServiceDeploymentVersionContainerArgs',
     'ContainerServiceDeploymentVersionPublicEndpointArgs',
     'ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs',
+    'ContainerServicePrivateRegistryAccessArgs',
+    'ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs',
     'ContainerServicePublicDomainNamesArgs',
     'ContainerServicePublicDomainNamesCertificateArgs',
     'InstancePublicPortsPortInfoArgs',
 ]
+
+@pulumi.input_type
+class CertificateDomainValidationOptionArgs:
+    def __init__(__self__, *,
+                 domain_name: Optional[pulumi.Input[str]] = None,
+                 resource_record_name: Optional[pulumi.Input[str]] = None,
+                 resource_record_type: Optional[pulumi.Input[str]] = None,
+                 resource_record_value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] domain_name: A domain name for which the certificate should be issued.
+        """
+        if domain_name is not None:
+            pulumi.set(__self__, "domain_name", domain_name)
+        if resource_record_name is not None:
+            pulumi.set(__self__, "resource_record_name", resource_record_name)
+        if resource_record_type is not None:
+            pulumi.set(__self__, "resource_record_type", resource_record_type)
+        if resource_record_value is not None:
+            pulumi.set(__self__, "resource_record_value", resource_record_value)
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A domain name for which the certificate should be issued.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @domain_name.setter
+    def domain_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain_name", value)
+
+    @property
+    @pulumi.getter(name="resourceRecordName")
+    def resource_record_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "resource_record_name")
+
+    @resource_record_name.setter
+    def resource_record_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_record_name", value)
+
+    @property
+    @pulumi.getter(name="resourceRecordType")
+    def resource_record_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "resource_record_type")
+
+    @resource_record_type.setter
+    def resource_record_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_record_type", value)
+
+    @property
+    @pulumi.getter(name="resourceRecordValue")
+    def resource_record_value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "resource_record_value")
+
+    @resource_record_value.setter
+    def resource_record_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_record_value", value)
+
 
 @pulumi.input_type
 class ContainerServiceDeploymentVersionContainerArgs:
@@ -256,6 +318,64 @@ class ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs:
     @unhealthy_threshold.setter
     def unhealthy_threshold(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "unhealthy_threshold", value)
+
+
+@pulumi.input_type
+class ContainerServicePrivateRegistryAccessArgs:
+    def __init__(__self__, *,
+                 ecr_image_puller_role: Optional[pulumi.Input['ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs']] = None):
+        """
+        :param pulumi.Input['ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs'] ecr_image_puller_role: Describes a request to configure an Amazon Lightsail container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See ECR Image Puller Role below for more details.
+        """
+        if ecr_image_puller_role is not None:
+            pulumi.set(__self__, "ecr_image_puller_role", ecr_image_puller_role)
+
+    @property
+    @pulumi.getter(name="ecrImagePullerRole")
+    def ecr_image_puller_role(self) -> Optional[pulumi.Input['ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs']]:
+        """
+        Describes a request to configure an Amazon Lightsail container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See ECR Image Puller Role below for more details.
+        """
+        return pulumi.get(self, "ecr_image_puller_role")
+
+    @ecr_image_puller_role.setter
+    def ecr_image_puller_role(self, value: Optional[pulumi.Input['ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs']]):
+        pulumi.set(self, "ecr_image_puller_role", value)
+
+
+@pulumi.input_type
+class ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs:
+    def __init__(__self__, *,
+                 is_active: Optional[pulumi.Input[bool]] = None,
+                 principal_arn: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] is_active: A Boolean value that indicates whether to activate the role. The default is `false`.
+        """
+        if is_active is not None:
+            pulumi.set(__self__, "is_active", is_active)
+        if principal_arn is not None:
+            pulumi.set(__self__, "principal_arn", principal_arn)
+
+    @property
+    @pulumi.getter(name="isActive")
+    def is_active(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A Boolean value that indicates whether to activate the role. The default is `false`.
+        """
+        return pulumi.get(self, "is_active")
+
+    @is_active.setter
+    def is_active(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_active", value)
+
+    @property
+    @pulumi.getter(name="principalArn")
+    def principal_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "principal_arn")
+
+    @principal_arn.setter
+    def principal_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "principal_arn", value)
 
 
 @pulumi.input_type

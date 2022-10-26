@@ -152,26 +152,6 @@ def get_virtual_service(mesh_name: Optional[str] = None,
     """
     The App Mesh Virtual Service data source allows details of an App Mesh Virtual Service to be retrieved by its name, mesh_name, and optionally the mesh_owner.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.appmesh.get_virtual_service(mesh_name="example-mesh",
-        name="example.mesh.local")
-    ```
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.get_caller_identity()
-    test = aws.appmesh.get_virtual_service(name="example.mesh.local",
-        mesh_name="example-mesh",
-        mesh_owner=current.account_id)
-    ```
-
 
     :param str mesh_name: Name of the service mesh in which the virtual service exists.
     :param str mesh_owner: AWS account ID of the service mesh's owner.
@@ -207,26 +187,6 @@ def get_virtual_service_output(mesh_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualServiceResult]:
     """
     The App Mesh Virtual Service data source allows details of an App Mesh Virtual Service to be retrieved by its name, mesh_name, and optionally the mesh_owner.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.appmesh.get_virtual_service(mesh_name="example-mesh",
-        name="example.mesh.local")
-    ```
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.get_caller_identity()
-    test = aws.appmesh.get_virtual_service(name="example.mesh.local",
-        mesh_name="example-mesh",
-        mesh_owner=current.account_id)
-    ```
 
 
     :param str mesh_name: Name of the service mesh in which the virtual service exists.

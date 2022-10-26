@@ -418,7 +418,8 @@ class StackAccessEndpoint(dict):
                  endpoint_type: str,
                  vpce_id: Optional[str] = None):
         """
-        :param str endpoint_type: Type of the interface endpoint. See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
+        :param str endpoint_type: Type of the interface endpoint.
+               See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
         :param str vpce_id: ID of the VPC in which the interface endpoint is used.
         """
         pulumi.set(__self__, "endpoint_type", endpoint_type)
@@ -429,7 +430,8 @@ class StackAccessEndpoint(dict):
     @pulumi.getter(name="endpointType")
     def endpoint_type(self) -> str:
         """
-        Type of the interface endpoint. See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
+        Type of the interface endpoint.
+        See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
         """
         return pulumi.get(self, "endpoint_type")
 
@@ -462,21 +464,34 @@ class StackApplicationSettings(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 enabled: Optional[bool] = None,
+                 enabled: bool,
                  settings_group: Optional[str] = None):
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+        """
+        :param bool enabled: Whether application settings should be persisted.
+        :param str settings_group: Name of the settings group.
+               Required when `enabled` is `true`.
+               Can be up to 100 characters.
+        """
+        pulumi.set(__self__, "enabled", enabled)
         if settings_group is not None:
             pulumi.set(__self__, "settings_group", settings_group)
 
     @property
     @pulumi.getter
-    def enabled(self) -> Optional[bool]:
+    def enabled(self) -> bool:
+        """
+        Whether application settings should be persisted.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="settingsGroup")
     def settings_group(self) -> Optional[str]:
+        """
+        Name of the settings group.
+        Required when `enabled` is `true`.
+        Can be up to 100 characters.
+        """
         return pulumi.get(self, "settings_group")
 
 
@@ -506,7 +521,8 @@ class StackStorageConnector(dict):
                  domains: Optional[Sequence[str]] = None,
                  resource_identifier: Optional[str] = None):
         """
-        :param str connector_type: Type of storage connector. Valid values are: `HOMEFOLDERS`, `GOOGLE_DRIVE`, `ONE_DRIVE`.
+        :param str connector_type: Type of storage connector.
+               Valid values are `HOMEFOLDERS`, `GOOGLE_DRIVE`, or `ONE_DRIVE`.
         :param Sequence[str] domains: Names of the domains for the account.
         :param str resource_identifier: ARN of the storage connector.
         """
@@ -520,7 +536,8 @@ class StackStorageConnector(dict):
     @pulumi.getter(name="connectorType")
     def connector_type(self) -> str:
         """
-        Type of storage connector. Valid values are: `HOMEFOLDERS`, `GOOGLE_DRIVE`, `ONE_DRIVE`.
+        Type of storage connector.
+        Valid values are `HOMEFOLDERS`, `GOOGLE_DRIVE`, or `ONE_DRIVE`.
         """
         return pulumi.get(self, "connector_type")
 
@@ -547,8 +564,10 @@ class StackUserSetting(dict):
                  action: str,
                  permission: str):
         """
-        :param str action: Action that is enabled or disabled. Valid values are: `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`,  `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, `PRINTING_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, `DOMAIN_SMART_CARD_SIGNIN`.
-        :param str permission: Whether the action is enabled or disabled. Valid values are: `ENABLED`, `DISABLED`.
+        :param str action: Action that is enabled or disabled.
+               Valid values are `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`,  `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, `PRINTING_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, or `DOMAIN_SMART_CARD_SIGNIN`.
+        :param str permission: Whether the action is enabled or disabled.
+               Valid values are `ENABLED` or `DISABLED`.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "permission", permission)
@@ -557,7 +576,8 @@ class StackUserSetting(dict):
     @pulumi.getter
     def action(self) -> str:
         """
-        Action that is enabled or disabled. Valid values are: `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`,  `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, `PRINTING_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, `DOMAIN_SMART_CARD_SIGNIN`.
+        Action that is enabled or disabled.
+        Valid values are `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`,  `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, `PRINTING_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, or `DOMAIN_SMART_CARD_SIGNIN`.
         """
         return pulumi.get(self, "action")
 
@@ -565,7 +585,8 @@ class StackUserSetting(dict):
     @pulumi.getter
     def permission(self) -> str:
         """
-        Whether the action is enabled or disabled. Valid values are: `ENABLED`, `DISABLED`.
+        Whether the action is enabled or disabled.
+        Valid values are `ENABLED` or `DISABLED`.
         """
         return pulumi.get(self, "permission")
 

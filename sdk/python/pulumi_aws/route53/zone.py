@@ -128,6 +128,7 @@ class _ZoneState:
                  force_destroy: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 primary_name_server: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpcs: Optional[pulumi.Input[Sequence[pulumi.Input['ZoneVpcArgs']]]] = None,
@@ -141,6 +142,7 @@ class _ZoneState:
         :param pulumi.Input[str] name: This is the name of the hosted zone.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] name_servers: A list of name servers in associated (or default) delegation set.
                Find more about delegation sets in [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/actions-on-reusable-delegation-sets.html).
+        :param pulumi.Input[str] primary_name_server: The Route 53 name server that created the SOA record.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the zone. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input['ZoneVpcArgs']]] vpcs: Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any `route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
@@ -160,6 +162,8 @@ class _ZoneState:
             pulumi.set(__self__, "name", name)
         if name_servers is not None:
             pulumi.set(__self__, "name_servers", name_servers)
+        if primary_name_server is not None:
+            pulumi.set(__self__, "primary_name_server", primary_name_server)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -241,6 +245,18 @@ class _ZoneState:
     @name_servers.setter
     def name_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "name_servers", value)
+
+    @property
+    @pulumi.getter(name="primaryNameServer")
+    def primary_name_server(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Route 53 name server that created the SOA record.
+        """
+        return pulumi.get(self, "primary_name_server")
+
+    @primary_name_server.setter
+    def primary_name_server(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_name_server", value)
 
     @property
     @pulumi.getter
@@ -470,6 +486,7 @@ class Zone(pulumi.CustomResource):
             __props__.__dict__["vpcs"] = vpcs
             __props__.__dict__["arn"] = None
             __props__.__dict__["name_servers"] = None
+            __props__.__dict__["primary_name_server"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["zone_id"] = None
         super(Zone, __self__).__init__(
@@ -488,6 +505,7 @@ class Zone(pulumi.CustomResource):
             force_destroy: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            primary_name_server: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             vpcs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ZoneVpcArgs']]]]] = None,
@@ -506,6 +524,7 @@ class Zone(pulumi.CustomResource):
         :param pulumi.Input[str] name: This is the name of the hosted zone.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] name_servers: A list of name servers in associated (or default) delegation set.
                Find more about delegation sets in [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/actions-on-reusable-delegation-sets.html).
+        :param pulumi.Input[str] primary_name_server: The Route 53 name server that created the SOA record.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the zone. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ZoneVpcArgs']]]] vpcs: Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any `route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
@@ -521,6 +540,7 @@ class Zone(pulumi.CustomResource):
         __props__.__dict__["force_destroy"] = force_destroy
         __props__.__dict__["name"] = name
         __props__.__dict__["name_servers"] = name_servers
+        __props__.__dict__["primary_name_server"] = primary_name_server
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["vpcs"] = vpcs
@@ -575,6 +595,14 @@ class Zone(pulumi.CustomResource):
         Find more about delegation sets in [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/actions-on-reusable-delegation-sets.html).
         """
         return pulumi.get(self, "name_servers")
+
+    @property
+    @pulumi.getter(name="primaryNameServer")
+    def primary_name_server(self) -> pulumi.Output[str]:
+        """
+        The Route 53 name server that created the SOA record.
+        """
+        return pulumi.get(self, "primary_name_server")
 
     @property
     @pulumi.getter

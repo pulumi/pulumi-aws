@@ -11,13 +11,82 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'CertificateDomainValidationOption',
     'ContainerServiceDeploymentVersionContainer',
     'ContainerServiceDeploymentVersionPublicEndpoint',
     'ContainerServiceDeploymentVersionPublicEndpointHealthCheck',
+    'ContainerServicePrivateRegistryAccess',
+    'ContainerServicePrivateRegistryAccessEcrImagePullerRole',
     'ContainerServicePublicDomainNames',
     'ContainerServicePublicDomainNamesCertificate',
     'InstancePublicPortsPortInfo',
 ]
+
+@pulumi.output_type
+class CertificateDomainValidationOption(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "domainName":
+            suggest = "domain_name"
+        elif key == "resourceRecordName":
+            suggest = "resource_record_name"
+        elif key == "resourceRecordType":
+            suggest = "resource_record_type"
+        elif key == "resourceRecordValue":
+            suggest = "resource_record_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CertificateDomainValidationOption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CertificateDomainValidationOption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CertificateDomainValidationOption.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 domain_name: Optional[str] = None,
+                 resource_record_name: Optional[str] = None,
+                 resource_record_type: Optional[str] = None,
+                 resource_record_value: Optional[str] = None):
+        """
+        :param str domain_name: A domain name for which the certificate should be issued.
+        """
+        if domain_name is not None:
+            pulumi.set(__self__, "domain_name", domain_name)
+        if resource_record_name is not None:
+            pulumi.set(__self__, "resource_record_name", resource_record_name)
+        if resource_record_type is not None:
+            pulumi.set(__self__, "resource_record_type", resource_record_type)
+        if resource_record_value is not None:
+            pulumi.set(__self__, "resource_record_value", resource_record_value)
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> Optional[str]:
+        """
+        A domain name for which the certificate should be issued.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @property
+    @pulumi.getter(name="resourceRecordName")
+    def resource_record_name(self) -> Optional[str]:
+        return pulumi.get(self, "resource_record_name")
+
+    @property
+    @pulumi.getter(name="resourceRecordType")
+    def resource_record_type(self) -> Optional[str]:
+        return pulumi.get(self, "resource_record_type")
+
+    @property
+    @pulumi.getter(name="resourceRecordValue")
+    def resource_record_value(self) -> Optional[str]:
+        return pulumi.get(self, "resource_record_value")
+
 
 @pulumi.output_type
 class ContainerServiceDeploymentVersionContainer(dict):
@@ -264,6 +333,88 @@ class ContainerServiceDeploymentVersionPublicEndpointHealthCheck(dict):
         The number of consecutive health checks failures required before moving the container to the Unhealthy state. Defaults to 2.
         """
         return pulumi.get(self, "unhealthy_threshold")
+
+
+@pulumi.output_type
+class ContainerServicePrivateRegistryAccess(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ecrImagePullerRole":
+            suggest = "ecr_image_puller_role"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerServicePrivateRegistryAccess. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerServicePrivateRegistryAccess.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerServicePrivateRegistryAccess.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ecr_image_puller_role: Optional['outputs.ContainerServicePrivateRegistryAccessEcrImagePullerRole'] = None):
+        """
+        :param 'ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs' ecr_image_puller_role: Describes a request to configure an Amazon Lightsail container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See ECR Image Puller Role below for more details.
+        """
+        if ecr_image_puller_role is not None:
+            pulumi.set(__self__, "ecr_image_puller_role", ecr_image_puller_role)
+
+    @property
+    @pulumi.getter(name="ecrImagePullerRole")
+    def ecr_image_puller_role(self) -> Optional['outputs.ContainerServicePrivateRegistryAccessEcrImagePullerRole']:
+        """
+        Describes a request to configure an Amazon Lightsail container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See ECR Image Puller Role below for more details.
+        """
+        return pulumi.get(self, "ecr_image_puller_role")
+
+
+@pulumi.output_type
+class ContainerServicePrivateRegistryAccessEcrImagePullerRole(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isActive":
+            suggest = "is_active"
+        elif key == "principalArn":
+            suggest = "principal_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerServicePrivateRegistryAccessEcrImagePullerRole. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerServicePrivateRegistryAccessEcrImagePullerRole.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerServicePrivateRegistryAccessEcrImagePullerRole.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 is_active: Optional[bool] = None,
+                 principal_arn: Optional[str] = None):
+        """
+        :param bool is_active: A Boolean value that indicates whether to activate the role. The default is `false`.
+        """
+        if is_active is not None:
+            pulumi.set(__self__, "is_active", is_active)
+        if principal_arn is not None:
+            pulumi.set(__self__, "principal_arn", principal_arn)
+
+    @property
+    @pulumi.getter(name="isActive")
+    def is_active(self) -> Optional[bool]:
+        """
+        A Boolean value that indicates whether to activate the role. The default is `false`.
+        """
+        return pulumi.get(self, "is_active")
+
+    @property
+    @pulumi.getter(name="principalArn")
+    def principal_arn(self) -> Optional[str]:
+        return pulumi.get(self, "principal_arn")
 
 
 @pulumi.output_type
