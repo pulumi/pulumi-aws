@@ -43,6 +43,66 @@ import (
 //	}
 //
 // ```
+// ### Create protection group for arbitrary number of resources
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/shield"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			currentRegion, err := aws.GetRegion(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleEip, err := ec2.NewEip(ctx, "exampleEip", &ec2.EipArgs{
+//				Vpc: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleProtection, err := shield.NewProtection(ctx, "exampleProtection", &shield.ProtectionArgs{
+//				ResourceArn: exampleEip.ID().ApplyT(func(id string) (string, error) {
+//					return fmt.Sprintf("arn:aws:ec2:%v:%v:eip-allocation/%v", currentRegion.Name, currentCallerIdentity.AccountId, id), nil
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = shield.NewProtectionGroup(ctx, "exampleProtectionGroup", &shield.ProtectionGroupArgs{
+//				ProtectionGroupId: pulumi.String("example"),
+//				Aggregation:       pulumi.String("MEAN"),
+//				Pattern:           pulumi.String("ARBITRARY"),
+//				Members: pulumi.StringArray{
+//					exampleEip.ID().ApplyT(func(id string) (string, error) {
+//						return fmt.Sprintf("arn:aws:ec2:%v:%v:eip-allocation/%v", currentRegion.Name, currentCallerIdentity.AccountId, id), nil
+//					}).(pulumi.StringOutput),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleProtection,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 // ### Create protection group for a type of resource
 //
 // ```go
