@@ -83,13 +83,15 @@ namespace Pulumi.Aws.AppStream
     public partial class Stack : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See below.
+        /// Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
+        /// See `access_endpoints` below.
         /// </summary>
         [Output("accessEndpoints")]
         public Output<ImmutableArray<Outputs.StackAccessEndpoint>> AccessEndpoints { get; private set; } = null!;
 
         /// <summary>
         /// Settings for application settings persistence.
+        /// See `application_settings` below.
         /// </summary>
         [Output("applicationSettings")]
         public Output<Outputs.StackApplicationSettings> ApplicationSettings { get; private set; } = null!;
@@ -143,7 +145,8 @@ namespace Pulumi.Aws.AppStream
         public Output<string> RedirectUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for the storage connectors to enable. See below.
+        /// Configuration block for the storage connectors to enable.
+        /// See `storage_connectors` below.
         /// </summary>
         [Output("storageConnectors")]
         public Output<ImmutableArray<Outputs.StackStorageConnector>> StorageConnectors { get; private set; } = null!;
@@ -155,7 +158,8 @@ namespace Pulumi.Aws.AppStream
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled. See below.
+        /// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+        /// See `user_settings` below.
         /// </summary>
         [Output("userSettings")]
         public Output<ImmutableArray<Outputs.StackUserSetting>> UserSettings { get; private set; } = null!;
@@ -210,7 +214,8 @@ namespace Pulumi.Aws.AppStream
         private InputList<Inputs.StackAccessEndpointArgs>? _accessEndpoints;
 
         /// <summary>
-        /// Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See below.
+        /// Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
+        /// See `access_endpoints` below.
         /// </summary>
         public InputList<Inputs.StackAccessEndpointArgs> AccessEndpoints
         {
@@ -220,6 +225,7 @@ namespace Pulumi.Aws.AppStream
 
         /// <summary>
         /// Settings for application settings persistence.
+        /// See `application_settings` below.
         /// </summary>
         [Input("applicationSettings")]
         public Input<Inputs.StackApplicationSettingsArgs>? ApplicationSettings { get; set; }
@@ -270,7 +276,8 @@ namespace Pulumi.Aws.AppStream
         private InputList<Inputs.StackStorageConnectorArgs>? _storageConnectors;
 
         /// <summary>
-        /// Configuration block for the storage connectors to enable. See below.
+        /// Configuration block for the storage connectors to enable.
+        /// See `storage_connectors` below.
         /// </summary>
         public InputList<Inputs.StackStorageConnectorArgs> StorageConnectors
         {
@@ -290,7 +297,8 @@ namespace Pulumi.Aws.AppStream
         private InputList<Inputs.StackUserSettingArgs>? _userSettings;
 
         /// <summary>
-        /// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled. See below.
+        /// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+        /// See `user_settings` below.
         /// </summary>
         public InputList<Inputs.StackUserSettingArgs> UserSettings
         {
@@ -310,7 +318,8 @@ namespace Pulumi.Aws.AppStream
         private InputList<Inputs.StackAccessEndpointGetArgs>? _accessEndpoints;
 
         /// <summary>
-        /// Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See below.
+        /// Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
+        /// See `access_endpoints` below.
         /// </summary>
         public InputList<Inputs.StackAccessEndpointGetArgs> AccessEndpoints
         {
@@ -320,6 +329,7 @@ namespace Pulumi.Aws.AppStream
 
         /// <summary>
         /// Settings for application settings persistence.
+        /// See `application_settings` below.
         /// </summary>
         [Input("applicationSettings")]
         public Input<Inputs.StackApplicationSettingsGetArgs>? ApplicationSettings { get; set; }
@@ -382,7 +392,8 @@ namespace Pulumi.Aws.AppStream
         private InputList<Inputs.StackStorageConnectorGetArgs>? _storageConnectors;
 
         /// <summary>
-        /// Configuration block for the storage connectors to enable. See below.
+        /// Configuration block for the storage connectors to enable.
+        /// See `storage_connectors` below.
         /// </summary>
         public InputList<Inputs.StackStorageConnectorGetArgs> StorageConnectors
         {
@@ -410,7 +421,8 @@ namespace Pulumi.Aws.AppStream
         private InputList<Inputs.StackUserSettingGetArgs>? _userSettings;
 
         /// <summary>
-        /// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled. See below.
+        /// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+        /// See `user_settings` below.
         /// </summary>
         public InputList<Inputs.StackUserSettingGetArgs> UserSettings
         {

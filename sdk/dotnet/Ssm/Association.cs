@@ -95,6 +95,35 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// });
     /// ```
+    /// ### Create an association with a specific schedule
+    /// 
+    /// This example shows how to schedule an association in various ways.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Ssm.Association("example", new()
+    ///     {
+    ///         ScheduleExpression = "cron(0 2 ? * SUN *)",
+    ///         Targets = new[]
+    ///         {
+    ///             new Aws.Ssm.Inputs.AssociationTargetArgs
+    ///             {
+    ///                 Key = "InstanceIds",
+    ///                 Values = new[]
+    ///                 {
+    ///                     aws_instance.Example.Id,
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -186,7 +215,7 @@ namespace Pulumi.Aws.Ssm
         public Output<ImmutableDictionary<string, string>> Parameters { get; private set; } = null!;
 
         /// <summary>
-        /// A cron expression when the association will be applied to the target(s).
+        /// A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
         /// </summary>
         [Output("scheduleExpression")]
         public Output<string?> ScheduleExpression { get; private set; } = null!;
@@ -322,7 +351,7 @@ namespace Pulumi.Aws.Ssm
         }
 
         /// <summary>
-        /// A cron expression when the association will be applied to the target(s).
+        /// A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
         /// </summary>
         [Input("scheduleExpression")]
         public Input<string>? ScheduleExpression { get; set; }
@@ -438,7 +467,7 @@ namespace Pulumi.Aws.Ssm
         }
 
         /// <summary>
-        /// A cron expression when the association will be applied to the target(s).
+        /// A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
         /// </summary>
         [Input("scheduleExpression")]
         public Input<string>? ScheduleExpression { get; set; }

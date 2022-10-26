@@ -14,7 +14,8 @@ namespace Pulumi.Aws.AppStream.Outputs
     public sealed class StackStorageConnector
     {
         /// <summary>
-        /// Type of storage connector. Valid values are: `HOMEFOLDERS`, `GOOGLE_DRIVE`, `ONE_DRIVE`.
+        /// Type of storage connector.
+        /// Valid values are `HOMEFOLDERS`, `GOOGLE_DRIVE`, or `ONE_DRIVE`.
         /// </summary>
         public readonly string ConnectorType;
         /// <summary>

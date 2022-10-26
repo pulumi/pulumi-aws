@@ -136,6 +136,12 @@ namespace Pulumi.Aws.Route53
         public Output<ImmutableArray<string>> NameServers { get; private set; } = null!;
 
         /// <summary>
+        /// The Route 53 name server that created the SOA record.
+        /// </summary>
+        [Output("primaryNameServer")]
+        public Output<string> PrimaryNameServer { get; private set; } = null!;
+
+        /// <summary>
         /// A mapping of tags to assign to the zone. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
@@ -304,6 +310,12 @@ namespace Pulumi.Aws.Route53
             get => _nameServers ?? (_nameServers = new InputList<string>());
             set => _nameServers = value;
         }
+
+        /// <summary>
+        /// The Route 53 name server that created the SOA record.
+        /// </summary>
+        [Input("primaryNameServer")]
+        public Input<string>? PrimaryNameServer { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

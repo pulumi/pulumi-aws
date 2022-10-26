@@ -13,7 +13,8 @@ namespace Pulumi.Aws.AppStream.Inputs
     public sealed class StackStorageConnectorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Type of storage connector. Valid values are: `HOMEFOLDERS`, `GOOGLE_DRIVE`, `ONE_DRIVE`.
+        /// Type of storage connector.
+        /// Valid values are `HOMEFOLDERS`, `GOOGLE_DRIVE`, or `ONE_DRIVE`.
         /// </summary>
         [Input("connectorType", required: true)]
         public Input<string> ConnectorType { get; set; } = null!;

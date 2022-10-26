@@ -57,6 +57,9 @@ namespace Pulumi.Aws.ElastiCache
     [AwsResourceType("aws:elasticache/userGroup:UserGroup")]
     public partial class UserGroup : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN that identifies the user group.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -130,6 +133,9 @@ namespace Pulumi.Aws.ElastiCache
 
     public sealed class UserGroupArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN that identifies the user group.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
@@ -173,6 +179,9 @@ namespace Pulumi.Aws.ElastiCache
 
     public sealed class UserGroupState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN that identifies the user group.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 

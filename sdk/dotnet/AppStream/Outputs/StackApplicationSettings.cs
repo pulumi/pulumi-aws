@@ -13,12 +13,20 @@ namespace Pulumi.Aws.AppStream.Outputs
     [OutputType]
     public sealed class StackApplicationSettings
     {
-        public readonly bool? Enabled;
+        /// <summary>
+        /// Whether application settings should be persisted.
+        /// </summary>
+        public readonly bool Enabled;
+        /// <summary>
+        /// Name of the settings group.
+        /// Required when `enabled` is `true`.
+        /// Can be up to 100 characters.
+        /// </summary>
         public readonly string? SettingsGroup;
 
         [OutputConstructor]
         private StackApplicationSettings(
-            bool? enabled,
+            bool enabled,
 
             string? settingsGroup)
         {

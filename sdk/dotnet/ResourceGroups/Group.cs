@@ -62,6 +62,12 @@ namespace Pulumi.Aws.ResourceGroups
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
+        /// </summary>
+        [Output("configurations")]
+        public Output<ImmutableArray<Outputs.GroupConfiguration>> Configurations { get; private set; } = null!;
+
+        /// <summary>
         /// A description of the resource group.
         /// </summary>
         [Output("description")]
@@ -77,7 +83,7 @@ namespace Pulumi.Aws.ResourceGroups
         /// A `resource_query` block. Resource queries are documented below.
         /// </summary>
         [Output("resourceQuery")]
-        public Output<Outputs.GroupResourceQuery> ResourceQuery { get; private set; } = null!;
+        public Output<Outputs.GroupResourceQuery?> ResourceQuery { get; private set; } = null!;
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -99,7 +105,7 @@ namespace Pulumi.Aws.ResourceGroups
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Group(string name, GroupArgs args, CustomResourceOptions? options = null)
+        public Group(string name, GroupArgs? args = null, CustomResourceOptions? options = null)
             : base("aws:resourcegroups/group:Group", name, args ?? new GroupArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -137,6 +143,18 @@ namespace Pulumi.Aws.ResourceGroups
 
     public sealed class GroupArgs : global::Pulumi.ResourceArgs
     {
+        [Input("configurations")]
+        private InputList<Inputs.GroupConfigurationArgs>? _configurations;
+
+        /// <summary>
+        /// A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
+        /// </summary>
+        public InputList<Inputs.GroupConfigurationArgs> Configurations
+        {
+            get => _configurations ?? (_configurations = new InputList<Inputs.GroupConfigurationArgs>());
+            set => _configurations = value;
+        }
+
         /// <summary>
         /// A description of the resource group.
         /// </summary>
@@ -152,8 +170,8 @@ namespace Pulumi.Aws.ResourceGroups
         /// <summary>
         /// A `resource_query` block. Resource queries are documented below.
         /// </summary>
-        [Input("resourceQuery", required: true)]
-        public Input<Inputs.GroupResourceQueryArgs> ResourceQuery { get; set; } = null!;
+        [Input("resourceQuery")]
+        public Input<Inputs.GroupResourceQueryArgs>? ResourceQuery { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -180,6 +198,18 @@ namespace Pulumi.Aws.ResourceGroups
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        [Input("configurations")]
+        private InputList<Inputs.GroupConfigurationGetArgs>? _configurations;
+
+        /// <summary>
+        /// A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
+        /// </summary>
+        public InputList<Inputs.GroupConfigurationGetArgs> Configurations
+        {
+            get => _configurations ?? (_configurations = new InputList<Inputs.GroupConfigurationGetArgs>());
+            set => _configurations = value;
+        }
 
         /// <summary>
         /// A description of the resource group.

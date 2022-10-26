@@ -324,7 +324,7 @@ namespace Pulumi.Aws.Ssm
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Defines the operating system the patch baseline applies to. Supported operating systems include `WINDOWS`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `SUSE`, `UBUNTU`, `CENTOS`, and `REDHAT_ENTERPRISE_LINUX`. The Default value is `WINDOWS`.
+        /// Defines the operating system the patch baseline applies to. Supported operating systems are `AMAZON_LINUX`, `AMAZON_LINUX_2`, `UBUNTU`, `REDHAT_ENTERPRISE_LINUX`, `SUSE`, `CENTOS`, `ORACLE_LINUX`, `DEBIAN`, `MACOS`, `RASPBIAN` and `ROCKY_LINUX`. The Default value is `WINDOWS`.
         /// </summary>
         [Output("operatingSystem")]
         public Output<string?> OperatingSystem { get; private set; } = null!;
@@ -466,7 +466,7 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Defines the operating system the patch baseline applies to. Supported operating systems include `WINDOWS`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `SUSE`, `UBUNTU`, `CENTOS`, and `REDHAT_ENTERPRISE_LINUX`. The Default value is `WINDOWS`.
+        /// Defines the operating system the patch baseline applies to. Supported operating systems are `AMAZON_LINUX`, `AMAZON_LINUX_2`, `UBUNTU`, `REDHAT_ENTERPRISE_LINUX`, `SUSE`, `CENTOS`, `ORACLE_LINUX`, `DEBIAN`, `MACOS`, `RASPBIAN` and `ROCKY_LINUX`. The Default value is `WINDOWS`.
         /// </summary>
         [Input("operatingSystem")]
         public Input<string>? OperatingSystem { get; set; }
@@ -588,7 +588,7 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Defines the operating system the patch baseline applies to. Supported operating systems include `WINDOWS`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `SUSE`, `UBUNTU`, `CENTOS`, and `REDHAT_ENTERPRISE_LINUX`. The Default value is `WINDOWS`.
+        /// Defines the operating system the patch baseline applies to. Supported operating systems are `AMAZON_LINUX`, `AMAZON_LINUX_2`, `UBUNTU`, `REDHAT_ENTERPRISE_LINUX`, `SUSE`, `CENTOS`, `ORACLE_LINUX`, `DEBIAN`, `MACOS`, `RASPBIAN` and `ROCKY_LINUX`. The Default value is `WINDOWS`.
         /// </summary>
         [Input("operatingSystem")]
         public Input<string>? OperatingSystem { get; set; }
