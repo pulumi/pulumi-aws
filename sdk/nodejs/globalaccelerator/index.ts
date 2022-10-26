@@ -13,12 +13,17 @@ export { EndpointGroupArgs, EndpointGroupState } from "./endpointGroup";
 export type EndpointGroup = import("./endpointGroup").EndpointGroup;
 export const EndpointGroup: typeof import("./endpointGroup").EndpointGroup = null as any;
 
+export { GetAcceleratorArgs, GetAcceleratorResult, GetAcceleratorOutputArgs } from "./getAccelerator";
+export const getAccelerator: typeof import("./getAccelerator").getAccelerator = null as any;
+export const getAcceleratorOutput: typeof import("./getAccelerator").getAcceleratorOutput = null as any;
+
 export { ListenerArgs, ListenerState } from "./listener";
 export type Listener = import("./listener").Listener;
 export const Listener: typeof import("./listener").Listener = null as any;
 
 utilities.lazyLoad(exports, ["Accelerator"], () => require("./accelerator"));
 utilities.lazyLoad(exports, ["EndpointGroup"], () => require("./endpointGroup"));
+utilities.lazyLoad(exports, ["getAccelerator","getAcceleratorOutput"], () => require("./getAccelerator"));
 utilities.lazyLoad(exports, ["Listener"], () => require("./listener"));
 
 const _module = {

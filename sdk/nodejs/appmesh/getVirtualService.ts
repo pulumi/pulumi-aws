@@ -9,6 +9,30 @@ import * as utilities from "../utilities";
 
 /**
  * The App Mesh Virtual Service data source allows details of an App Mesh Virtual Service to be retrieved by its name, mesh_name, and optionally the mesh_owner.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = pulumi.output(aws.appmesh.getVirtualService({
+ *     meshName: "example-mesh",
+ *     name: "example.mesh.local",
+ * }));
+ * ```
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const current = aws.getCallerIdentity({});
+ * const test = current.then(current => aws.appmesh.getVirtualService({
+ *     name: "example.mesh.local",
+ *     meshName: "example-mesh",
+ *     meshOwner: current.accountId,
+ * }));
+ * ```
  */
 export function getVirtualService(args: GetVirtualServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualServiceResult> {
     if (!opts) {
