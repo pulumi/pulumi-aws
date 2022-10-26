@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { CertificateArgs, CertificateState } from "./certificate";
+export type Certificate = import("./certificate").Certificate;
+export const Certificate: typeof import("./certificate").Certificate = null as any;
+
 export { ContainerServiceArgs, ContainerServiceState } from "./containerService";
 export type ContainerService = import("./containerService").ContainerService;
 export const ContainerService: typeof import("./containerService").ContainerService = null as any;
@@ -21,6 +25,10 @@ export { DomainArgs, DomainState } from "./domain";
 export type Domain = import("./domain").Domain;
 export const Domain: typeof import("./domain").Domain = null as any;
 
+export { DomainEntryArgs, DomainEntryState } from "./domainEntry";
+export type DomainEntry = import("./domainEntry").DomainEntry;
+export const DomainEntry: typeof import("./domainEntry").DomainEntry = null as any;
+
 export { InstanceArgs, InstanceState } from "./instance";
 export type Instance = import("./instance").Instance;
 export const Instance: typeof import("./instance").Instance = null as any;
@@ -33,6 +41,14 @@ export { KeyPairArgs, KeyPairState } from "./keyPair";
 export type KeyPair = import("./keyPair").KeyPair;
 export const KeyPair: typeof import("./keyPair").KeyPair = null as any;
 
+export { LbArgs, LbState } from "./lb";
+export type Lb = import("./lb").Lb;
+export const Lb: typeof import("./lb").Lb = null as any;
+
+export { LbAttachmentArgs, LbAttachmentState } from "./lbAttachment";
+export type LbAttachment = import("./lbAttachment").LbAttachment;
+export const LbAttachment: typeof import("./lbAttachment").LbAttachment = null as any;
+
 export { StaticIpArgs, StaticIpState } from "./staticIp";
 export type StaticIp = import("./staticIp").StaticIp;
 export const StaticIp: typeof import("./staticIp").StaticIp = null as any;
@@ -41,13 +57,17 @@ export { StaticIpAttachmentArgs, StaticIpAttachmentState } from "./staticIpAttac
 export type StaticIpAttachment = import("./staticIpAttachment").StaticIpAttachment;
 export const StaticIpAttachment: typeof import("./staticIpAttachment").StaticIpAttachment = null as any;
 
+utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
 utilities.lazyLoad(exports, ["ContainerService"], () => require("./containerService"));
 utilities.lazyLoad(exports, ["ContainerServiceDeploymentVersion"], () => require("./containerServiceDeploymentVersion"));
 utilities.lazyLoad(exports, ["Database"], () => require("./database"));
 utilities.lazyLoad(exports, ["Domain"], () => require("./domain"));
+utilities.lazyLoad(exports, ["DomainEntry"], () => require("./domainEntry"));
 utilities.lazyLoad(exports, ["Instance"], () => require("./instance"));
 utilities.lazyLoad(exports, ["InstancePublicPorts"], () => require("./instancePublicPorts"));
 utilities.lazyLoad(exports, ["KeyPair"], () => require("./keyPair"));
+utilities.lazyLoad(exports, ["Lb"], () => require("./lb"));
+utilities.lazyLoad(exports, ["LbAttachment"], () => require("./lbAttachment"));
 utilities.lazyLoad(exports, ["StaticIp"], () => require("./staticIp"));
 utilities.lazyLoad(exports, ["StaticIpAttachment"], () => require("./staticIpAttachment"));
 
@@ -55,6 +75,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:lightsail/certificate:Certificate":
+                return new Certificate(name, <any>undefined, { urn })
             case "aws:lightsail/containerService:ContainerService":
                 return new ContainerService(name, <any>undefined, { urn })
             case "aws:lightsail/containerServiceDeploymentVersion:ContainerServiceDeploymentVersion":
@@ -63,12 +85,18 @@ const _module = {
                 return new Database(name, <any>undefined, { urn })
             case "aws:lightsail/domain:Domain":
                 return new Domain(name, <any>undefined, { urn })
+            case "aws:lightsail/domainEntry:DomainEntry":
+                return new DomainEntry(name, <any>undefined, { urn })
             case "aws:lightsail/instance:Instance":
                 return new Instance(name, <any>undefined, { urn })
             case "aws:lightsail/instancePublicPorts:InstancePublicPorts":
                 return new InstancePublicPorts(name, <any>undefined, { urn })
             case "aws:lightsail/keyPair:KeyPair":
                 return new KeyPair(name, <any>undefined, { urn })
+            case "aws:lightsail/lb:Lb":
+                return new Lb(name, <any>undefined, { urn })
+            case "aws:lightsail/lbAttachment:LbAttachment":
+                return new LbAttachment(name, <any>undefined, { urn })
             case "aws:lightsail/staticIp:StaticIp":
                 return new StaticIp(name, <any>undefined, { urn })
             case "aws:lightsail/staticIpAttachment:StaticIpAttachment":
@@ -78,12 +106,16 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "lightsail/certificate", _module)
 pulumi.runtime.registerResourceModule("aws", "lightsail/containerService", _module)
 pulumi.runtime.registerResourceModule("aws", "lightsail/containerServiceDeploymentVersion", _module)
 pulumi.runtime.registerResourceModule("aws", "lightsail/database", _module)
 pulumi.runtime.registerResourceModule("aws", "lightsail/domain", _module)
+pulumi.runtime.registerResourceModule("aws", "lightsail/domainEntry", _module)
 pulumi.runtime.registerResourceModule("aws", "lightsail/instance", _module)
 pulumi.runtime.registerResourceModule("aws", "lightsail/instancePublicPorts", _module)
 pulumi.runtime.registerResourceModule("aws", "lightsail/keyPair", _module)
+pulumi.runtime.registerResourceModule("aws", "lightsail/lb", _module)
+pulumi.runtime.registerResourceModule("aws", "lightsail/lbAttachment", _module)
 pulumi.runtime.registerResourceModule("aws", "lightsail/staticIp", _module)
 pulumi.runtime.registerResourceModule("aws", "lightsail/staticIpAttachment", _module)

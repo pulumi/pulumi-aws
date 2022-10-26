@@ -34,9 +34,6 @@ export const getAvailabilityZonesOutput: typeof import("./getAvailabilityZones")
 export { GetBillingServiceAccountResult } from "./getBillingServiceAccount";
 export const getBillingServiceAccount: typeof import("./getBillingServiceAccount").getBillingServiceAccount = null as any;
 
-export { GetCallerIdentityResult } from "./getCallerIdentity";
-export const getCallerIdentity: typeof import("./getCallerIdentity").getCallerIdentity = null as any;
-
 export { GetCanonicalUserIdResult } from "./getCanonicalUserId";
 export const getCanonicalUserId: typeof import("./getCanonicalUserId").getCanonicalUserId = null as any;
 
@@ -85,7 +82,6 @@ utilities.lazyLoad(exports, ["getAutoscalingGroups","getAutoscalingGroupsOutput"
 utilities.lazyLoad(exports, ["getAvailabilityZone","getAvailabilityZoneOutput"], () => require("./getAvailabilityZone"));
 utilities.lazyLoad(exports, ["getAvailabilityZones","getAvailabilityZonesOutput"], () => require("./getAvailabilityZones"));
 utilities.lazyLoad(exports, ["getBillingServiceAccount"], () => require("./getBillingServiceAccount"));
-utilities.lazyLoad(exports, ["getCallerIdentity"], () => require("./getCallerIdentity"));
 utilities.lazyLoad(exports, ["getCanonicalUserId"], () => require("./getCanonicalUserId"));
 utilities.lazyLoad(exports, ["getDefaultTags","getDefaultTagsOutput"], () => require("./getDefaultTags"));
 utilities.lazyLoad(exports, ["getElasticIp","getElasticIpOutput"], () => require("./getElasticIp"));
@@ -259,7 +255,6 @@ import * as sesv2 from "./sesv2";
 import * as sfn from "./sfn";
 import * as shield from "./shield";
 import * as signer from "./signer";
-import * as simpledb from "./simpledb";
 import * as sns from "./sns";
 import * as sqs from "./sqs";
 import * as ssm from "./ssm";
@@ -437,7 +432,6 @@ export {
     sfn,
     shield,
     signer,
-    simpledb,
     sns,
     sqs,
     ssm,

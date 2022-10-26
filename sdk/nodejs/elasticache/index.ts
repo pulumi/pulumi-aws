@@ -17,6 +17,10 @@ export { GetReplicationGroupArgs, GetReplicationGroupResult, GetReplicationGroup
 export const getReplicationGroup: typeof import("./getReplicationGroup").getReplicationGroup = null as any;
 export const getReplicationGroupOutput: typeof import("./getReplicationGroup").getReplicationGroupOutput = null as any;
 
+export { GetSubnetGroupArgs, GetSubnetGroupResult, GetSubnetGroupOutputArgs } from "./getSubnetGroup";
+export const getSubnetGroup: typeof import("./getSubnetGroup").getSubnetGroup = null as any;
+export const getSubnetGroupOutput: typeof import("./getSubnetGroup").getSubnetGroupOutput = null as any;
+
 export { GetUserArgs, GetUserResult, GetUserOutputArgs } from "./getUser";
 export const getUser: typeof import("./getUser").getUser = null as any;
 export const getUserOutput: typeof import("./getUser").getUserOutput = null as any;
@@ -56,6 +60,7 @@ export const UserGroupAssociation: typeof import("./userGroupAssociation").UserG
 utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
 utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
 utilities.lazyLoad(exports, ["getReplicationGroup","getReplicationGroupOutput"], () => require("./getReplicationGroup"));
+utilities.lazyLoad(exports, ["getSubnetGroup","getSubnetGroupOutput"], () => require("./getSubnetGroup"));
 utilities.lazyLoad(exports, ["getUser","getUserOutput"], () => require("./getUser"));
 utilities.lazyLoad(exports, ["GlobalReplicationGroup"], () => require("./globalReplicationGroup"));
 utilities.lazyLoad(exports, ["ParameterGroup"], () => require("./parameterGroup"));

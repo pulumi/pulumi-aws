@@ -52,6 +52,22 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * ### Create an association with a specific schedule
+ *
+ * This example shows how to schedule an association in various ways.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.ssm.Association("example", {
+ *     scheduleExpression: "cron(0 2 ? * SUN *)",
+ *     targets: [{
+ *         key: "InstanceIds",
+ *         values: [aws_instance.example.id],
+ *     }],
+ * });
+ * ```
  *
  * ## Import
  *
@@ -144,7 +160,7 @@ export class Association extends pulumi.CustomResource {
      */
     public readonly parameters!: pulumi.Output<{[key: string]: string}>;
     /**
-     * A cron expression when the association will be applied to the target(s).
+     * A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
      */
     public readonly scheduleExpression!: pulumi.Output<string | undefined>;
     /**
@@ -268,7 +284,7 @@ export interface AssociationState {
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A cron expression when the association will be applied to the target(s).
+     * A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
      */
     scheduleExpression?: pulumi.Input<string>;
     /**
@@ -332,7 +348,7 @@ export interface AssociationArgs {
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A cron expression when the association will be applied to the target(s).
+     * A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
      */
     scheduleExpression?: pulumi.Input<string>;
     /**

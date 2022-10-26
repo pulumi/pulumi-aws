@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 import {InstanceProfile} from "../iam";
 
 /**
- * Provides a resource to create a new launch configuration, used for autoscaling groups.
- *
  * ## Example Usage
  *
  * ```typescript

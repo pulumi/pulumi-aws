@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Provides an SNS platform application resource
  *
  * ## Example Usage
- * ### Apple Push Notification Service (APNS)
+ * ### Apple Push Notification Service (APNS) using certificate-based authentication
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -18,6 +18,20 @@ import * as utilities from "../utilities";
  *     platform: "APNS",
  *     platformCredential: "<APNS PRIVATE KEY>",
  *     platformPrincipal: "<APNS CERTIFICATE>",
+ * });
+ * ```
+ * ### Apple Push Notification Service (APNS) using token-based authentication
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const apnsApplication = new aws.sns.PlatformApplication("apns_application", {
+ *     applePlatformBundleId: "<APPLE BUNDLE ID>",
+ *     applePlatformTeamId: "<APPLE TEAM ID>",
+ *     platform: "APNS",
+ *     platformCredential: "<APNS SIGNING KEY>",
+ *     platformPrincipal: "<APNS SIGNING KEY ID>",
  * });
  * ```
  * ### Google Cloud Messaging (GCM)
@@ -68,6 +82,14 @@ export class PlatformApplication extends pulumi.CustomResource {
         return obj['__pulumiType'] === PlatformApplication.__pulumiType;
     }
 
+    /**
+     * The bundle identifier that's assigned to your iOS app. May only include alphanumeric characters, hyphens (-), and periods (.).
+     */
+    public readonly applePlatformBundleId!: pulumi.Output<string | undefined>;
+    /**
+     * The identifier that's assigned to your Apple developer account team. Must be 10 alphanumeric characters.
+     */
+    public readonly applePlatformTeamId!: pulumi.Output<string | undefined>;
     /**
      * The ARN of the SNS platform application
      */
@@ -130,6 +152,8 @@ export class PlatformApplication extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PlatformApplicationState | undefined;
+            resourceInputs["applePlatformBundleId"] = state ? state.applePlatformBundleId : undefined;
+            resourceInputs["applePlatformTeamId"] = state ? state.applePlatformTeamId : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["eventDeliveryFailureTopicArn"] = state ? state.eventDeliveryFailureTopicArn : undefined;
             resourceInputs["eventEndpointCreatedTopicArn"] = state ? state.eventEndpointCreatedTopicArn : undefined;
@@ -150,6 +174,8 @@ export class PlatformApplication extends pulumi.CustomResource {
             if ((!args || args.platformCredential === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'platformCredential'");
             }
+            resourceInputs["applePlatformBundleId"] = args ? args.applePlatformBundleId : undefined;
+            resourceInputs["applePlatformTeamId"] = args ? args.applePlatformTeamId : undefined;
             resourceInputs["eventDeliveryFailureTopicArn"] = args ? args.eventDeliveryFailureTopicArn : undefined;
             resourceInputs["eventEndpointCreatedTopicArn"] = args ? args.eventEndpointCreatedTopicArn : undefined;
             resourceInputs["eventEndpointDeletedTopicArn"] = args ? args.eventEndpointDeletedTopicArn : undefined;
@@ -172,6 +198,14 @@ export class PlatformApplication extends pulumi.CustomResource {
  * Input properties used for looking up and filtering PlatformApplication resources.
  */
 export interface PlatformApplicationState {
+    /**
+     * The bundle identifier that's assigned to your iOS app. May only include alphanumeric characters, hyphens (-), and periods (.).
+     */
+    applePlatformBundleId?: pulumi.Input<string>;
+    /**
+     * The identifier that's assigned to your Apple developer account team. Must be 10 alphanumeric characters.
+     */
+    applePlatformTeamId?: pulumi.Input<string>;
     /**
      * The ARN of the SNS platform application
      */
@@ -226,6 +260,14 @@ export interface PlatformApplicationState {
  * The set of arguments for constructing a PlatformApplication resource.
  */
 export interface PlatformApplicationArgs {
+    /**
+     * The bundle identifier that's assigned to your iOS app. May only include alphanumeric characters, hyphens (-), and periods (.).
+     */
+    applePlatformBundleId?: pulumi.Input<string>;
+    /**
+     * The identifier that's assigned to your Apple developer account team. Must be 10 alphanumeric characters.
+     */
+    applePlatformTeamId?: pulumi.Input<string>;
     /**
      * The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
      */

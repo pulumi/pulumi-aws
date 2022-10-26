@@ -29,34 +29,6 @@ import {PolicyDocument} from "../iam";
  *     },
  * });
  * ```
- * ### Access Policy
- *
- * > See also: `aws.elasticsearch.DomainPolicy` resource
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const config = new pulumi.Config();
- * const domain = config.get("domain") || "tf-test";
- * const currentRegion = aws.getRegion({});
- * const currentCallerIdentity = aws.getCallerIdentity({});
- * const example = new aws.elasticsearch.Domain("example", {accessPolicies: Promise.all([currentRegion, currentCallerIdentity]).then(([currentRegion, currentCallerIdentity]) => `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": "es:*",
- *       "Principal": "*",
- *       "Effect": "Allow",
- *       "Resource": "arn:aws:es:${currentRegion.name}:${currentCallerIdentity.accountId}:domain/${domain}/*",
- *       "Condition": {
- *         "IpAddress": {"aws:SourceIp": ["66.193.100.22/32"]}
- *       }
- *     }
- *   ]
- * }
- * `)});
- * ```
  * ### Log Publishing to CloudWatch Logs
  *
  * ```typescript
@@ -90,74 +62,6 @@ import {PolicyDocument} from "../iam";
  *     cloudwatchLogGroupArn: exampleLogGroup.arn,
  *     logType: "INDEX_SLOW_LOGS",
  * }]});
- * ```
- * ### VPC based ES
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const config = new pulumi.Config();
- * const vpc = config.requireObject("vpc");
- * const domain = config.get("domain") || "tf-test";
- * const selectedVpc = aws.ec2.getVpc({
- *     tags: {
- *         Name: vpc,
- *     },
- * });
- * const selectedSubnetIds = selectedVpc.then(selectedVpc => aws.ec2.getSubnetIds({
- *     vpcId: selectedVpc.id,
- *     tags: {
- *         Tier: "private",
- *     },
- * }));
- * const currentRegion = aws.getRegion({});
- * const currentCallerIdentity = aws.getCallerIdentity({});
- * const esSecurityGroup = new aws.ec2.SecurityGroup("esSecurityGroup", {
- *     description: "Managed by Pulumi",
- *     vpcId: selectedVpc.then(selectedVpc => selectedVpc.id),
- *     ingress: [{
- *         fromPort: 443,
- *         toPort: 443,
- *         protocol: "tcp",
- *         cidrBlocks: [selectedVpc.then(selectedVpc => selectedVpc.cidrBlock)],
- *     }],
- * });
- * const esServiceLinkedRole = new aws.iam.ServiceLinkedRole("esServiceLinkedRole", {awsServiceName: "es.amazonaws.com"});
- * const esDomain = new aws.elasticsearch.Domain("esDomain", {
- *     elasticsearchVersion: "6.3",
- *     clusterConfig: {
- *         instanceType: "m4.large.elasticsearch",
- *         zoneAwarenessEnabled: true,
- *     },
- *     vpcOptions: {
- *         subnetIds: [
- *             selectedSubnetIds.then(selectedSubnetIds => selectedSubnetIds.ids?[0]),
- *             selectedSubnetIds.then(selectedSubnetIds => selectedSubnetIds.ids?[1]),
- *         ],
- *         securityGroupIds: [esSecurityGroup.id],
- *     },
- *     advancedOptions: {
- *         "rest.action.multi.allow_explicit_index": "true",
- *     },
- *     accessPolicies: Promise.all([currentRegion, currentCallerIdentity]).then(([currentRegion, currentCallerIdentity]) => `{
- * 	"Version": "2012-10-17",
- * 	"Statement": [
- * 		{
- * 			"Action": "es:*",
- * 			"Principal": "*",
- * 			"Effect": "Allow",
- * 			"Resource": "arn:aws:es:${currentRegion.name}:${currentCallerIdentity.accountId}:domain/${domain}/*"
- * 		}
- * 	]
- * }
- * `),
- *     tags: {
- *         Domain: "TestDomain",
- *     },
- * }, {
- *     dependsOn: [esServiceLinkedRole],
- * });
  * ```
  *
  * ## Import
