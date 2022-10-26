@@ -30,6 +30,47 @@ namespace Pulumi.Aws.Xray
     /// 
     /// });
     /// ```
+    /// ### With KMS Key
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Aws.GetCallerIdentity.Invoke();
+    /// 
+    ///     var exampleKey = new Aws.Kms.Key("exampleKey", new()
+    ///     {
+    ///         Description = "Some Key",
+    ///         DeletionWindowInDays = 7,
+    ///         Policy = @$"{{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Id"": ""kms-tf-1"",
+    ///   ""Statement"": [
+    ///     {{
+    ///       ""Sid"": ""Enable IAM User Permissions"",
+    ///       ""Effect"": ""Allow"",
+    ///       ""Principal"": {{
+    ///         ""AWS"": ""arn:aws:iam::{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root""
+    ///       }},
+    ///       ""Action"": ""kms:*"",
+    ///       ""Resource"": ""*""
+    ///     }}
+    ///   ]
+    /// }}
+    /// ",
+    ///     });
+    /// 
+    ///     var exampleEncryptionConfig = new Aws.Xray.EncryptionConfig("exampleEncryptionConfig", new()
+    ///     {
+    ///         Type = "KMS",
+    ///         KeyId = exampleKey.Arn,
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 

@@ -12,6 +12,27 @@ namespace Pulumi.Aws.Ec2
     /// <summary>
     /// Enables the IPAM Service and promotes a delegated administrator.
     /// 
+    /// ## Example Usage
+    /// 
+    /// Basic usage:
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var delegated = Aws.GetCallerIdentity.Invoke();
+    /// 
+    ///     var example = new Aws.Ec2.VpcIpamOrganizationAdminAccount("example", new()
+    ///     {
+    ///         DelegatedAdminAccountId = delegated.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// IPAMs can be imported using the `delegate account id`, e.g.

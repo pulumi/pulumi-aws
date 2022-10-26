@@ -14,6 +14,43 @@ namespace Pulumi.Aws.Shield
     /// The resource can be an Amazon CloudFront distribution, Elastic Load Balancing load balancer, AWS Global Accelerator accelerator, Elastic IP Address, or an Amazon Route 53 hosted zone.
     /// 
     /// ## Example Usage
+    /// ### Create protection
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var available = Aws.GetAvailabilityZones.Invoke();
+    /// 
+    ///     var currentRegion = Aws.GetRegion.Invoke();
+    /// 
+    ///     var currentCallerIdentity = Aws.GetCallerIdentity.Invoke();
+    /// 
+    ///     var exampleEip = new Aws.Ec2.Eip("exampleEip", new()
+    ///     {
+    ///         Vpc = true,
+    ///     });
+    /// 
+    ///     var exampleProtection = new Aws.Shield.Protection("exampleProtection", new()
+    ///     {
+    ///         ResourceArn = Output.Tuple(currentRegion.Apply(getRegionResult =&gt; getRegionResult), currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult), exampleEip.Id).Apply(values =&gt;
+    ///         {
+    ///             var currentRegion = values.Item1;
+    ///             var currentCallerIdentity = values.Item2;
+    ///             var id = values.Item3;
+    ///             return $"arn:aws:ec2:{currentRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:eip-allocation/{id}";
+    ///         }),
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "Dev" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 
