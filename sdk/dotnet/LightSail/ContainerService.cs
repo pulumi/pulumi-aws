@@ -70,6 +70,51 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// });
     /// ```
+    /// ### Private Registry Access
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // ... other configuration ...
+    ///     var defaultContainerService = new Aws.LightSail.ContainerService("defaultContainerService", new()
+    ///     {
+    ///         PrivateRegistryAccess = new Aws.LightSail.Inputs.ContainerServicePrivateRegistryAccessArgs
+    ///         {
+    ///             EcrImagePullerRole = new Aws.LightSail.Inputs.ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs
+    ///             {
+    ///                 IsActive = true,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var defaultRepositoryPolicy = new Aws.Ecr.RepositoryPolicy("defaultRepositoryPolicy", new()
+    ///     {
+    ///         Repository = aws_ecr_repository.Default.Name,
+    ///         Policy = defaultContainerService.PrivateRegistryAccess.Apply(privateRegistryAccess =&gt; @$"{{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {{
+    ///       ""Sid"": ""AllowLightsailPull"",
+    ///       ""Effect"": ""Allow"",
+    ///       ""Principal"": {{
+    ///         ""AWS"": ""{privateRegistryAccess.EcrImagePullerRole?.PrincipalArn}""
+    ///       }},
+    ///       ""Action"": [
+    ///         ""ecr:BatchGetImage"",
+    ///         ""ecr:GetDownloadUrlForLayer""
+    ///       ]
+    ///     }}
+    ///   ]
+    /// }}
+    /// "),
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -136,6 +181,12 @@ namespace Pulumi.Aws.LightSail
         /// </summary>
         [Output("privateDomainName")]
         public Output<string> PrivateDomainName { get; private set; } = null!;
+
+        /// <summary>
+        /// An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See Private Registry Access below for more details.
+        /// </summary>
+        [Output("privateRegistryAccess")]
+        public Output<Outputs.ContainerServicePrivateRegistryAccess> PrivateRegistryAccess { get; private set; } = null!;
 
         /// <summary>
         /// The public domain names to use with the container service, such as example.com
@@ -247,6 +298,12 @@ namespace Pulumi.Aws.LightSail
         public Input<string> Power { get; set; } = null!;
 
         /// <summary>
+        /// An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See Private Registry Access below for more details.
+        /// </summary>
+        [Input("privateRegistryAccess")]
+        public Input<Inputs.ContainerServicePrivateRegistryAccessArgs>? PrivateRegistryAccess { get; set; }
+
+        /// <summary>
         /// The public domain names to use with the container service, such as example.com
         /// and www.example.com. You can specify up to four public domain names for a container service. The domain names that you
         /// specify are used when you create a deployment with a container configured as the public endpoint of your container
@@ -333,6 +390,12 @@ namespace Pulumi.Aws.LightSail
         /// </summary>
         [Input("privateDomainName")]
         public Input<string>? PrivateDomainName { get; set; }
+
+        /// <summary>
+        /// An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See Private Registry Access below for more details.
+        /// </summary>
+        [Input("privateRegistryAccess")]
+        public Input<Inputs.ContainerServicePrivateRegistryAccessGetArgs>? PrivateRegistryAccess { get; set; }
 
         /// <summary>
         /// The public domain names to use with the container service, such as example.com

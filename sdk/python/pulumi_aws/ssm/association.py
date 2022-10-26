@@ -43,7 +43,7 @@ class AssociationArgs:
         :param pulumi.Input[str] name: The name of the SSM document to apply.
         :param pulumi.Input['AssociationOutputLocationArgs'] output_location: An output location block. Output Location is documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A block of arbitrary string parameters to pass to the SSM document.
-        :param pulumi.Input[str] schedule_expression: A cron expression when the association will be applied to the target(s).
+        :param pulumi.Input[str] schedule_expression: A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
         :param pulumi.Input[Sequence[pulumi.Input['AssociationTargetArgs']]] targets: A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
         :param pulumi.Input[int] wait_for_success_timeout_seconds: The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
         """
@@ -215,7 +215,7 @@ class AssociationArgs:
     @pulumi.getter(name="scheduleExpression")
     def schedule_expression(self) -> Optional[pulumi.Input[str]]:
         """
-        A cron expression when the association will be applied to the target(s).
+        A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
         """
         return pulumi.get(self, "schedule_expression")
 
@@ -282,7 +282,7 @@ class _AssociationState:
         :param pulumi.Input[str] name: The name of the SSM document to apply.
         :param pulumi.Input['AssociationOutputLocationArgs'] output_location: An output location block. Output Location is documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A block of arbitrary string parameters to pass to the SSM document.
-        :param pulumi.Input[str] schedule_expression: A cron expression when the association will be applied to the target(s).
+        :param pulumi.Input[str] schedule_expression: A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
         :param pulumi.Input[Sequence[pulumi.Input['AssociationTargetArgs']]] targets: A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
         :param pulumi.Input[int] wait_for_success_timeout_seconds: The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
         """
@@ -482,7 +482,7 @@ class _AssociationState:
     @pulumi.getter(name="scheduleExpression")
     def schedule_expression(self) -> Optional[pulumi.Input[str]]:
         """
-        A cron expression when the association will be applied to the target(s).
+        A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
         """
         return pulumi.get(self, "schedule_expression")
 
@@ -576,6 +576,21 @@ class Association(pulumi.CustomResource):
             values=["Development"],
         )])
         ```
+        ### Create an association with a specific schedule
+
+        This example shows how to schedule an association in various ways.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ssm.Association("example",
+            schedule_expression="cron(0 2 ? * SUN *)",
+            targets=[aws.ssm.AssociationTargetArgs(
+                key="InstanceIds",
+                values=[aws_instance["example"]["id"]],
+            )])
+        ```
 
         ## Import
 
@@ -598,7 +613,7 @@ class Association(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the SSM document to apply.
         :param pulumi.Input[pulumi.InputType['AssociationOutputLocationArgs']] output_location: An output location block. Output Location is documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A block of arbitrary string parameters to pass to the SSM document.
-        :param pulumi.Input[str] schedule_expression: A cron expression when the association will be applied to the target(s).
+        :param pulumi.Input[str] schedule_expression: A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssociationTargetArgs']]]] targets: A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
         :param pulumi.Input[int] wait_for_success_timeout_seconds: The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
         """
@@ -648,6 +663,21 @@ class Association(pulumi.CustomResource):
             key="tag:Environment",
             values=["Development"],
         )])
+        ```
+        ### Create an association with a specific schedule
+
+        This example shows how to schedule an association in various ways.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ssm.Association("example",
+            schedule_expression="cron(0 2 ? * SUN *)",
+            targets=[aws.ssm.AssociationTargetArgs(
+                key="InstanceIds",
+                values=[aws_instance["example"]["id"]],
+            )])
         ```
 
         ## Import
@@ -761,7 +791,7 @@ class Association(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the SSM document to apply.
         :param pulumi.Input[pulumi.InputType['AssociationOutputLocationArgs']] output_location: An output location block. Output Location is documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A block of arbitrary string parameters to pass to the SSM document.
-        :param pulumi.Input[str] schedule_expression: A cron expression when the association will be applied to the target(s).
+        :param pulumi.Input[str] schedule_expression: A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssociationTargetArgs']]]] targets: A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
         :param pulumi.Input[int] wait_for_success_timeout_seconds: The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
         """
@@ -895,7 +925,7 @@ class Association(pulumi.CustomResource):
     @pulumi.getter(name="scheduleExpression")
     def schedule_expression(self) -> pulumi.Output[Optional[str]]:
         """
-        A cron expression when the association will be applied to the target(s).
+        A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
         """
         return pulumi.get(self, "schedule_expression")
 

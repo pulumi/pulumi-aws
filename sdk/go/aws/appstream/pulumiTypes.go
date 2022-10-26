@@ -1091,7 +1091,8 @@ func (o ImageBuilderVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 }
 
 type StackAccessEndpoint struct {
-	// Type of the interface endpoint. See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
+	// Type of the interface endpoint.
+	// See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
 	EndpointType string `pulumi:"endpointType"`
 	// ID of the VPC in which the interface endpoint is used.
 	VpceId *string `pulumi:"vpceId"`
@@ -1109,7 +1110,8 @@ type StackAccessEndpointInput interface {
 }
 
 type StackAccessEndpointArgs struct {
-	// Type of the interface endpoint. See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
+	// Type of the interface endpoint.
+	// See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
 	EndpointType pulumi.StringInput `pulumi:"endpointType"`
 	// ID of the VPC in which the interface endpoint is used.
 	VpceId pulumi.StringPtrInput `pulumi:"vpceId"`
@@ -1166,7 +1168,8 @@ func (o StackAccessEndpointOutput) ToStackAccessEndpointOutputWithContext(ctx co
 	return o
 }
 
-// Type of the interface endpoint. See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
+// Type of the interface endpoint.
+// See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
 func (o StackAccessEndpointOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v StackAccessEndpoint) string { return v.EndpointType }).(pulumi.StringOutput)
 }
@@ -1197,7 +1200,11 @@ func (o StackAccessEndpointArrayOutput) Index(i pulumi.IntInput) StackAccessEndp
 }
 
 type StackApplicationSettings struct {
-	Enabled       *bool   `pulumi:"enabled"`
+	// Whether application settings should be persisted.
+	Enabled bool `pulumi:"enabled"`
+	// Name of the settings group.
+	// Required when `enabled` is `true`.
+	// Can be up to 100 characters.
 	SettingsGroup *string `pulumi:"settingsGroup"`
 }
 
@@ -1213,7 +1220,11 @@ type StackApplicationSettingsInput interface {
 }
 
 type StackApplicationSettingsArgs struct {
-	Enabled       pulumi.BoolPtrInput   `pulumi:"enabled"`
+	// Whether application settings should be persisted.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Name of the settings group.
+	// Required when `enabled` is `true`.
+	// Can be up to 100 characters.
 	SettingsGroup pulumi.StringPtrInput `pulumi:"settingsGroup"`
 }
 
@@ -1294,10 +1305,14 @@ func (o StackApplicationSettingsOutput) ToStackApplicationSettingsPtrOutputWithC
 	}).(StackApplicationSettingsPtrOutput)
 }
 
-func (o StackApplicationSettingsOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StackApplicationSettings) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+// Whether application settings should be persisted.
+func (o StackApplicationSettingsOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v StackApplicationSettings) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// Name of the settings group.
+// Required when `enabled` is `true`.
+// Can be up to 100 characters.
 func (o StackApplicationSettingsOutput) SettingsGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StackApplicationSettings) *string { return v.SettingsGroup }).(pulumi.StringPtrOutput)
 }
@@ -1326,15 +1341,19 @@ func (o StackApplicationSettingsPtrOutput) Elem() StackApplicationSettingsOutput
 	}).(StackApplicationSettingsOutput)
 }
 
+// Whether application settings should be persisted.
 func (o StackApplicationSettingsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StackApplicationSettings) *bool {
 		if v == nil {
 			return nil
 		}
-		return v.Enabled
+		return &v.Enabled
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Name of the settings group.
+// Required when `enabled` is `true`.
+// Can be up to 100 characters.
 func (o StackApplicationSettingsPtrOutput) SettingsGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StackApplicationSettings) *string {
 		if v == nil {
@@ -1345,7 +1364,8 @@ func (o StackApplicationSettingsPtrOutput) SettingsGroup() pulumi.StringPtrOutpu
 }
 
 type StackStorageConnector struct {
-	// Type of storage connector. Valid values are: `HOMEFOLDERS`, `GOOGLE_DRIVE`, `ONE_DRIVE`.
+	// Type of storage connector.
+	// Valid values are `HOMEFOLDERS`, `GOOGLE_DRIVE`, or `ONE_DRIVE`.
 	ConnectorType string `pulumi:"connectorType"`
 	// Names of the domains for the account.
 	Domains []string `pulumi:"domains"`
@@ -1365,7 +1385,8 @@ type StackStorageConnectorInput interface {
 }
 
 type StackStorageConnectorArgs struct {
-	// Type of storage connector. Valid values are: `HOMEFOLDERS`, `GOOGLE_DRIVE`, `ONE_DRIVE`.
+	// Type of storage connector.
+	// Valid values are `HOMEFOLDERS`, `GOOGLE_DRIVE`, or `ONE_DRIVE`.
 	ConnectorType pulumi.StringInput `pulumi:"connectorType"`
 	// Names of the domains for the account.
 	Domains pulumi.StringArrayInput `pulumi:"domains"`
@@ -1424,7 +1445,8 @@ func (o StackStorageConnectorOutput) ToStackStorageConnectorOutputWithContext(ct
 	return o
 }
 
-// Type of storage connector. Valid values are: `HOMEFOLDERS`, `GOOGLE_DRIVE`, `ONE_DRIVE`.
+// Type of storage connector.
+// Valid values are `HOMEFOLDERS`, `GOOGLE_DRIVE`, or `ONE_DRIVE`.
 func (o StackStorageConnectorOutput) ConnectorType() pulumi.StringOutput {
 	return o.ApplyT(func(v StackStorageConnector) string { return v.ConnectorType }).(pulumi.StringOutput)
 }
@@ -1460,9 +1482,11 @@ func (o StackStorageConnectorArrayOutput) Index(i pulumi.IntInput) StackStorageC
 }
 
 type StackUserSetting struct {
-	// Action that is enabled or disabled. Valid values are: `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`,  `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, `PRINTING_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, `DOMAIN_SMART_CARD_SIGNIN`.
+	// Action that is enabled or disabled.
+	// Valid values are `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`,  `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, `PRINTING_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, or `DOMAIN_SMART_CARD_SIGNIN`.
 	Action string `pulumi:"action"`
-	// Whether the action is enabled or disabled. Valid values are: `ENABLED`, `DISABLED`.
+	// Whether the action is enabled or disabled.
+	// Valid values are `ENABLED` or `DISABLED`.
 	Permission string `pulumi:"permission"`
 }
 
@@ -1478,9 +1502,11 @@ type StackUserSettingInput interface {
 }
 
 type StackUserSettingArgs struct {
-	// Action that is enabled or disabled. Valid values are: `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`,  `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, `PRINTING_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, `DOMAIN_SMART_CARD_SIGNIN`.
+	// Action that is enabled or disabled.
+	// Valid values are `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`,  `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, `PRINTING_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, or `DOMAIN_SMART_CARD_SIGNIN`.
 	Action pulumi.StringInput `pulumi:"action"`
-	// Whether the action is enabled or disabled. Valid values are: `ENABLED`, `DISABLED`.
+	// Whether the action is enabled or disabled.
+	// Valid values are `ENABLED` or `DISABLED`.
 	Permission pulumi.StringInput `pulumi:"permission"`
 }
 
@@ -1535,12 +1561,14 @@ func (o StackUserSettingOutput) ToStackUserSettingOutputWithContext(ctx context.
 	return o
 }
 
-// Action that is enabled or disabled. Valid values are: `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`,  `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, `PRINTING_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, `DOMAIN_SMART_CARD_SIGNIN`.
+// Action that is enabled or disabled.
+// Valid values are `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`,  `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, `PRINTING_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, or `DOMAIN_SMART_CARD_SIGNIN`.
 func (o StackUserSettingOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v StackUserSetting) string { return v.Action }).(pulumi.StringOutput)
 }
 
-// Whether the action is enabled or disabled. Valid values are: `ENABLED`, `DISABLED`.
+// Whether the action is enabled or disabled.
+// Valid values are `ENABLED` or `DISABLED`.
 func (o StackUserSettingOutput) Permission() pulumi.StringOutput {
 	return o.ApplyT(func(v StackUserSetting) string { return v.Permission }).(pulumi.StringOutput)
 }

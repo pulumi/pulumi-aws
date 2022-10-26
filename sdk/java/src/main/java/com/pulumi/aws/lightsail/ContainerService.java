@@ -6,6 +6,7 @@ package com.pulumi.aws.lightsail;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.lightsail.ContainerServiceArgs;
 import com.pulumi.aws.lightsail.inputs.ContainerServiceState;
+import com.pulumi.aws.lightsail.outputs.ContainerServicePrivateRegistryAccess;
 import com.pulumi.aws.lightsail.outputs.ContainerServicePublicDomainNames;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -92,6 +93,65 @@ import javax.annotation.Nullable;
  *                     .domainNames(&#34;www.example.com&#34;)
  *                     .build())
  *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Private Registry Access
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lightsail.ContainerService;
+ * import com.pulumi.aws.lightsail.ContainerServiceArgs;
+ * import com.pulumi.aws.lightsail.inputs.ContainerServicePrivateRegistryAccessArgs;
+ * import com.pulumi.aws.lightsail.inputs.ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs;
+ * import com.pulumi.aws.ecr.RepositoryPolicy;
+ * import com.pulumi.aws.ecr.RepositoryPolicyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var defaultContainerService = new ContainerService(&#34;defaultContainerService&#34;, ContainerServiceArgs.builder()        
+ *             .privateRegistryAccess(ContainerServicePrivateRegistryAccessArgs.builder()
+ *                 .ecrImagePullerRole(ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs.builder()
+ *                     .isActive(true)
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         var defaultRepositoryPolicy = new RepositoryPolicy(&#34;defaultRepositoryPolicy&#34;, RepositoryPolicyArgs.builder()        
+ *             .repository(aws_ecr_repository.default().name())
+ *             .policy(defaultContainerService.privateRegistryAccess().applyValue(privateRegistryAccess -&gt; &#34;&#34;&#34;
+ * {
+ *   &#34;Version&#34;: &#34;2012-10-17&#34;,
+ *   &#34;Statement&#34;: [
+ *     {
+ *       &#34;Sid&#34;: &#34;AllowLightsailPull&#34;,
+ *       &#34;Effect&#34;: &#34;Allow&#34;,
+ *       &#34;Principal&#34;: {
+ *         &#34;AWS&#34;: &#34;%s&#34;
+ *       },
+ *       &#34;Action&#34;: [
+ *         &#34;ecr:BatchGetImage&#34;,
+ *         &#34;ecr:GetDownloadUrlForLayer&#34;
+ *       ]
+ *     }
+ *   ]
+ * }
+ * &#34;, privateRegistryAccess.ecrImagePullerRole().principalArn())))
  *             .build());
  * 
  *     }
@@ -232,6 +292,20 @@ public class ContainerService extends com.pulumi.resources.CustomResource {
      */
     public Output<String> privateDomainName() {
         return this.privateDomainName;
+    }
+    /**
+     * An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See Private Registry Access below for more details.
+     * 
+     */
+    @Export(name="privateRegistryAccess", type=ContainerServicePrivateRegistryAccess.class, parameters={})
+    private Output<ContainerServicePrivateRegistryAccess> privateRegistryAccess;
+
+    /**
+     * @return An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See Private Registry Access below for more details.
+     * 
+     */
+    public Output<ContainerServicePrivateRegistryAccess> privateRegistryAccess() {
+        return this.privateRegistryAccess;
     }
     /**
      * The public domain names to use with the container service, such as example.com

@@ -15,6 +15,7 @@ __all__ = [
     'ConfigurationSetSendingOptions',
     'ConfigurationSetSuppressionOptions',
     'ConfigurationSetTrackingOptions',
+    'GetDedicatedIpPoolDedicatedIpResult',
 ]
 
 @pulumi.output_type
@@ -175,7 +176,7 @@ class ConfigurationSetSuppressionOptions(dict):
     def __init__(__self__, *,
                  suppressed_reasons: Optional[Sequence[str]] = None):
         """
-        :param Sequence[str] suppressed_reasons: A list that contains the reasons that email addresses are automatically added to the suppression list for your account. Valid vales: `BOUNCE`, `COMPLAINT`.
+        :param Sequence[str] suppressed_reasons: A list that contains the reasons that email addresses are automatically added to the suppression list for your account. Valid values: `BOUNCE`, `COMPLAINT`.
         """
         if suppressed_reasons is not None:
             pulumi.set(__self__, "suppressed_reasons", suppressed_reasons)
@@ -184,7 +185,7 @@ class ConfigurationSetSuppressionOptions(dict):
     @pulumi.getter(name="suppressedReasons")
     def suppressed_reasons(self) -> Optional[Sequence[str]]:
         """
-        A list that contains the reasons that email addresses are automatically added to the suppression list for your account. Valid vales: `BOUNCE`, `COMPLAINT`.
+        A list that contains the reasons that email addresses are automatically added to the suppression list for your account. Valid values: `BOUNCE`, `COMPLAINT`.
         """
         return pulumi.get(self, "suppressed_reasons")
 
@@ -222,5 +223,45 @@ class ConfigurationSetTrackingOptions(dict):
         The domain to use for tracking open and click events.
         """
         return pulumi.get(self, "custom_redirect_domain")
+
+
+@pulumi.output_type
+class GetDedicatedIpPoolDedicatedIpResult(dict):
+    def __init__(__self__, *,
+                 ip: str,
+                 warmup_percentage: int,
+                 warmup_status: str):
+        """
+        :param str ip: IPv4 address.
+        :param int warmup_percentage: Indicates how complete the dedicated IP warm-up process is. When this value equals `1`, the address has completed the warm-up process and is ready for use.
+        :param str warmup_status: The warm-up status of a dedicated IP address. Valid values: `IN_PROGRESS`, `DONE`.
+        """
+        pulumi.set(__self__, "ip", ip)
+        pulumi.set(__self__, "warmup_percentage", warmup_percentage)
+        pulumi.set(__self__, "warmup_status", warmup_status)
+
+    @property
+    @pulumi.getter
+    def ip(self) -> str:
+        """
+        IPv4 address.
+        """
+        return pulumi.get(self, "ip")
+
+    @property
+    @pulumi.getter(name="warmupPercentage")
+    def warmup_percentage(self) -> int:
+        """
+        Indicates how complete the dedicated IP warm-up process is. When this value equals `1`, the address has completed the warm-up process and is ready for use.
+        """
+        return pulumi.get(self, "warmup_percentage")
+
+    @property
+    @pulumi.getter(name="warmupStatus")
+    def warmup_status(self) -> str:
+        """
+        The warm-up status of a dedicated IP address. Valid values: `IN_PROGRESS`, `DONE`.
+        """
+        return pulumi.get(self, "warmup_status")
 
 

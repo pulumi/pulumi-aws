@@ -12,9 +12,17 @@ namespace Pulumi.Aws.AppStream.Inputs
 
     public sealed class StackApplicationSettingsGetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
+        /// <summary>
+        /// Whether application settings should be persisted.
+        /// </summary>
+        [Input("enabled", required: true)]
+        public Input<bool> Enabled { get; set; } = null!;
 
+        /// <summary>
+        /// Name of the settings group.
+        /// Required when `enabled` is `true`.
+        /// Can be up to 100 characters.
+        /// </summary>
         [Input("settingsGroup")]
         public Input<string>? SettingsGroup { get; set; }
 

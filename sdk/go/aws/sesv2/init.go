@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:sesv2/configurationSet:ConfigurationSet":
 		r = &ConfigurationSet{}
+	case "aws:sesv2/dedicatedIpPool:DedicatedIpPool":
+		r = &DedicatedIpPool{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -39,6 +41,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"sesv2/configurationSet",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"sesv2/dedicatedIpPool",
 		&module{version},
 	)
 }

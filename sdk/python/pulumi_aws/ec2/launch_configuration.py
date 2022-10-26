@@ -754,8 +754,6 @@ class LaunchConfiguration(pulumi.CustomResource):
                  vpc_classic_link_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides a resource to create a new launch configuration, used for autoscaling groups.
-
         ## Example Usage
 
         ```python
@@ -956,8 +954,6 @@ class LaunchConfiguration(pulumi.CustomResource):
                  args: LaunchConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource to create a new launch configuration, used for autoscaling groups.
-
         ## Example Usage
 
         ```python

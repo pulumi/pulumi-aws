@@ -632,7 +632,7 @@ public final class MemorydbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.memorydb.MemorydbFunctions;
-     * import com.pulumi.aws.memorydb.inputs.GetSubnetGroupArgs;
+     * import com.pulumi.aws.elasticache.inputs.GetSubnetGroupArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -669,7 +669,7 @@ public final class MemorydbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.memorydb.MemorydbFunctions;
-     * import com.pulumi.aws.memorydb.inputs.GetSubnetGroupArgs;
+     * import com.pulumi.aws.elasticache.inputs.GetSubnetGroupArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -706,7 +706,7 @@ public final class MemorydbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.memorydb.MemorydbFunctions;
-     * import com.pulumi.aws.memorydb.inputs.GetSubnetGroupArgs;
+     * import com.pulumi.aws.elasticache.inputs.GetSubnetGroupArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -743,7 +743,7 @@ public final class MemorydbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.memorydb.MemorydbFunctions;
-     * import com.pulumi.aws.memorydb.inputs.GetSubnetGroupArgs;
+     * import com.pulumi.aws.elasticache.inputs.GetSubnetGroupArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;

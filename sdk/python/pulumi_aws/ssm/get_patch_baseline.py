@@ -237,7 +237,7 @@ def get_patch_baseline(default_baseline: Optional[bool] = None,
 
     :param bool default_baseline: Filters the results against the baselines default_baseline field.
     :param str name_prefix: Filter results by the baseline name prefix.
-    :param str operating_system: Specified OS for the baseline.
+    :param str operating_system: Specified OS for the baseline. Valid values: `AMAZON_LINUX`, `AMAZON_LINUX_2`, `UBUNTU`, `REDHAT_ENTERPRISE_LINUX`, `SUSE`, `CENTOS`, `ORACLE_LINUX`, `DEBIAN`, `MACOS`, `RASPBIAN` and `ROCKY_LINUX`.
     :param str owner: Owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
     """
     __args__ = dict()
@@ -303,7 +303,7 @@ def get_patch_baseline_output(default_baseline: Optional[pulumi.Input[Optional[b
 
     :param bool default_baseline: Filters the results against the baselines default_baseline field.
     :param str name_prefix: Filter results by the baseline name prefix.
-    :param str operating_system: Specified OS for the baseline.
+    :param str operating_system: Specified OS for the baseline. Valid values: `AMAZON_LINUX`, `AMAZON_LINUX_2`, `UBUNTU`, `REDHAT_ENTERPRISE_LINUX`, `SUSE`, `CENTOS`, `ORACLE_LINUX`, `DEBIAN`, `MACOS`, `RASPBIAN` and `ROCKY_LINUX`.
     :param str owner: Owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
     """
     ...

@@ -9,7 +9,17 @@ export { ConfigurationSetArgs, ConfigurationSetState } from "./configurationSet"
 export type ConfigurationSet = import("./configurationSet").ConfigurationSet;
 export const ConfigurationSet: typeof import("./configurationSet").ConfigurationSet = null as any;
 
+export { DedicatedIpPoolArgs, DedicatedIpPoolState } from "./dedicatedIpPool";
+export type DedicatedIpPool = import("./dedicatedIpPool").DedicatedIpPool;
+export const DedicatedIpPool: typeof import("./dedicatedIpPool").DedicatedIpPool = null as any;
+
+export { GetDedicatedIpPoolArgs, GetDedicatedIpPoolResult, GetDedicatedIpPoolOutputArgs } from "./getDedicatedIpPool";
+export const getDedicatedIpPool: typeof import("./getDedicatedIpPool").getDedicatedIpPool = null as any;
+export const getDedicatedIpPoolOutput: typeof import("./getDedicatedIpPool").getDedicatedIpPoolOutput = null as any;
+
 utilities.lazyLoad(exports, ["ConfigurationSet"], () => require("./configurationSet"));
+utilities.lazyLoad(exports, ["DedicatedIpPool"], () => require("./dedicatedIpPool"));
+utilities.lazyLoad(exports, ["getDedicatedIpPool","getDedicatedIpPoolOutput"], () => require("./getDedicatedIpPool"));
 
 const _module = {
     version: utilities.getVersion(),
@@ -17,9 +27,12 @@ const _module = {
         switch (type) {
             case "aws:sesv2/configurationSet:ConfigurationSet":
                 return new ConfigurationSet(name, <any>undefined, { urn })
+            case "aws:sesv2/dedicatedIpPool:DedicatedIpPool":
+                return new DedicatedIpPool(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("aws", "sesv2/configurationSet", _module)
+pulumi.runtime.registerResourceModule("aws", "sesv2/dedicatedIpPool", _module)

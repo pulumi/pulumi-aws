@@ -57,7 +57,14 @@ export class AppMonitor extends pulumi.CustomResource {
         return obj['__pulumiType'] === AppMonitor.__pulumiType;
     }
 
+    /**
+     * configuration data for the app monitor. See appMonitorConfiguration below.
+     */
     public readonly appMonitorConfiguration!: pulumi.Output<outputs.rum.AppMonitorAppMonitorConfiguration>;
+    /**
+     * The unique ID of the app monitor. Useful for JS templates.
+     */
+    public /*out*/ readonly appMonitorId!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) specifying the app monitor.
      */
@@ -71,7 +78,7 @@ export class AppMonitor extends pulumi.CustomResource {
      */
     public /*out*/ readonly cwLogGroup!: pulumi.Output<string>;
     /**
-     * configuration data for the app monitor. See appMonitorConfiguration below.
+     * The top-level internet domain name for which your application has administrative authority.
      */
     public readonly domain!: pulumi.Output<string>;
     /**
@@ -101,6 +108,7 @@ export class AppMonitor extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as AppMonitorState | undefined;
             resourceInputs["appMonitorConfiguration"] = state ? state.appMonitorConfiguration : undefined;
+            resourceInputs["appMonitorId"] = state ? state.appMonitorId : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["cwLogEnabled"] = state ? state.cwLogEnabled : undefined;
             resourceInputs["cwLogGroup"] = state ? state.cwLogGroup : undefined;
@@ -118,6 +126,7 @@ export class AppMonitor extends pulumi.CustomResource {
             resourceInputs["domain"] = args ? args.domain : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["appMonitorId"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["cwLogGroup"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
@@ -131,7 +140,14 @@ export class AppMonitor extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AppMonitor resources.
  */
 export interface AppMonitorState {
+    /**
+     * configuration data for the app monitor. See appMonitorConfiguration below.
+     */
     appMonitorConfiguration?: pulumi.Input<inputs.rum.AppMonitorAppMonitorConfiguration>;
+    /**
+     * The unique ID of the app monitor. Useful for JS templates.
+     */
+    appMonitorId?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) specifying the app monitor.
      */
@@ -145,7 +161,7 @@ export interface AppMonitorState {
      */
     cwLogGroup?: pulumi.Input<string>;
     /**
-     * configuration data for the app monitor. See appMonitorConfiguration below.
+     * The top-level internet domain name for which your application has administrative authority.
      */
     domain?: pulumi.Input<string>;
     /**
@@ -166,13 +182,16 @@ export interface AppMonitorState {
  * The set of arguments for constructing a AppMonitor resource.
  */
 export interface AppMonitorArgs {
+    /**
+     * configuration data for the app monitor. See appMonitorConfiguration below.
+     */
     appMonitorConfiguration?: pulumi.Input<inputs.rum.AppMonitorAppMonitorConfiguration>;
     /**
      * Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
      */
     cwLogEnabled?: pulumi.Input<boolean>;
     /**
-     * configuration data for the app monitor. See appMonitorConfiguration below.
+     * The top-level internet domain name for which your application has administrative authority.
      */
     domain: pulumi.Input<string>;
     /**

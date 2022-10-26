@@ -110,6 +110,10 @@ export interface GetZoneResult {
      * List of DNS name servers for the Hosted Zone.
      */
     readonly nameServers: string[];
+    /**
+     * The Route 53 name server that created the SOA record.
+     */
+    readonly primaryNameServer: string;
     readonly privateZone?: boolean;
     /**
      * The number of Record Set in the Hosted Zone.

@@ -23,6 +23,7 @@ class UserGroupArgs:
         The set of arguments for constructing a UserGroup resource.
         :param pulumi.Input[str] engine: The current supported value is `REDIS`.
         :param pulumi.Input[str] user_group_id: The ID of the user group.
+        :param pulumi.Input[str] arn: The ARN that identifies the user group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_ids: The list of user IDs that belong to the user group.
         """
         pulumi.set(__self__, "engine", engine)
@@ -61,6 +62,9 @@ class UserGroupArgs:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN that identifies the user group.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -100,6 +104,7 @@ class _UserGroupState:
                  user_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering UserGroup resources.
+        :param pulumi.Input[str] arn: The ARN that identifies the user group.
         :param pulumi.Input[str] engine: The current supported value is `REDIS`.
         :param pulumi.Input[str] user_group_id: The ID of the user group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_ids: The list of user IDs that belong to the user group.
@@ -120,6 +125,9 @@ class _UserGroupState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN that identifies the user group.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -223,6 +231,7 @@ class UserGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN that identifies the user group.
         :param pulumi.Input[str] engine: The current supported value is `REDIS`.
         :param pulumi.Input[str] user_group_id: The ID of the user group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_ids: The list of user IDs that belong to the user group.
@@ -324,6 +333,7 @@ class UserGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN that identifies the user group.
         :param pulumi.Input[str] engine: The current supported value is `REDIS`.
         :param pulumi.Input[str] user_group_id: The ID of the user group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_ids: The list of user IDs that belong to the user group.
@@ -343,6 +353,9 @@ class UserGroup(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN that identifies the user group.
+        """
         return pulumi.get(self, "arn")
 
     @property

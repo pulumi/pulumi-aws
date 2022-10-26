@@ -87,7 +87,7 @@ export class MaintenanceWindow extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The schedule of the Maintenance Window in the form of a [cron](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-cron.html) or rate expression.
+     * The schedule of the Maintenance Window in the form of a [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html).
      */
     public readonly schedule!: pulumi.Output<string>;
     /**
@@ -200,7 +200,7 @@ export interface MaintenanceWindowState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The schedule of the Maintenance Window in the form of a [cron](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-cron.html) or rate expression.
+     * The schedule of the Maintenance Window in the form of a [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html).
      */
     schedule?: pulumi.Input<string>;
     /**
@@ -258,7 +258,7 @@ export interface MaintenanceWindowArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The schedule of the Maintenance Window in the form of a [cron](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-cron.html) or rate expression.
+     * The schedule of the Maintenance Window in the form of a [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html).
      */
     schedule: pulumi.Input<string>;
     /**

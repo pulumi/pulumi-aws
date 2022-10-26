@@ -51,6 +51,11 @@ public final class GetZoneResult {
      * 
      */
     private List<String> nameServers;
+    /**
+     * @return The Route 53 name server that created the SOA record.
+     * 
+     */
+    private String primaryNameServer;
     private @Nullable Boolean privateZone;
     /**
      * @return The number of Record Set in the Hosted Zone.
@@ -114,6 +119,13 @@ public final class GetZoneResult {
     public List<String> nameServers() {
         return this.nameServers;
     }
+    /**
+     * @return The Route 53 name server that created the SOA record.
+     * 
+     */
+    public String primaryNameServer() {
+        return this.primaryNameServer;
+    }
     public Optional<Boolean> privateZone() {
         return Optional.ofNullable(this.privateZone);
     }
@@ -151,6 +163,7 @@ public final class GetZoneResult {
         private String linkedServicePrincipal;
         private String name;
         private List<String> nameServers;
+        private String primaryNameServer;
         private @Nullable Boolean privateZone;
         private Integer resourceRecordSetCount;
         private Map<String,String> tags;
@@ -167,6 +180,7 @@ public final class GetZoneResult {
     	      this.linkedServicePrincipal = defaults.linkedServicePrincipal;
     	      this.name = defaults.name;
     	      this.nameServers = defaults.nameServers;
+    	      this.primaryNameServer = defaults.primaryNameServer;
     	      this.privateZone = defaults.privateZone;
     	      this.resourceRecordSetCount = defaults.resourceRecordSetCount;
     	      this.tags = defaults.tags;
@@ -218,6 +232,11 @@ public final class GetZoneResult {
             return nameServers(List.of(nameServers));
         }
         @CustomType.Setter
+        public Builder primaryNameServer(String primaryNameServer) {
+            this.primaryNameServer = Objects.requireNonNull(primaryNameServer);
+            return this;
+        }
+        @CustomType.Setter
         public Builder privateZone(@Nullable Boolean privateZone) {
             this.privateZone = privateZone;
             return this;
@@ -252,6 +271,7 @@ public final class GetZoneResult {
             o.linkedServicePrincipal = linkedServicePrincipal;
             o.name = name;
             o.nameServers = nameServers;
+            o.primaryNameServer = primaryNameServer;
             o.privateZone = privateZone;
             o.resourceRecordSetCount = resourceRecordSetCount;
             o.tags = tags;

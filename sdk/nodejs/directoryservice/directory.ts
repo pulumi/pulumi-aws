@@ -173,7 +173,7 @@ export class Directory extends pulumi.CustomResource {
      */
     public /*out*/ readonly dnsIpAddresses!: pulumi.Output<string[]>;
     /**
-     * The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise` (applies to MicrosoftAD type only).
+     * The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.
      */
     public readonly edition!: pulumi.Output<string>;
     /**
@@ -197,11 +197,11 @@ export class Directory extends pulumi.CustomResource {
      */
     public readonly shortName!: pulumi.Output<string>;
     /**
-     * The size of the directory (`Small` or `Large` are accepted values).
+     * (For `SimpleAD` and `ADConnector` types) The size of the directory (`Small` or `Large` are accepted values). `Large` by default.
      */
     public readonly size!: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -307,7 +307,7 @@ export interface DirectoryState {
      */
     dnsIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise` (applies to MicrosoftAD type only).
+     * The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.
      */
     edition?: pulumi.Input<string>;
     /**
@@ -331,11 +331,11 @@ export interface DirectoryState {
      */
     shortName?: pulumi.Input<string>;
     /**
-     * The size of the directory (`Small` or `Large` are accepted values).
+     * (For `SimpleAD` and `ADConnector` types) The size of the directory (`Small` or `Large` are accepted values). `Large` by default.
      */
     size?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -373,7 +373,7 @@ export interface DirectoryArgs {
      */
     desiredNumberOfDomainControllers?: pulumi.Input<number>;
     /**
-     * The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise` (applies to MicrosoftAD type only).
+     * The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.
      */
     edition?: pulumi.Input<string>;
     /**
@@ -393,11 +393,11 @@ export interface DirectoryArgs {
      */
     shortName?: pulumi.Input<string>;
     /**
-     * The size of the directory (`Small` or `Large` are accepted values).
+     * (For `SimpleAD` and `ADConnector` types) The size of the directory (`Small` or `Large` are accepted values). `Large` by default.
      */
     size?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

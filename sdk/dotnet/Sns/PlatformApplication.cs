@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Sns
     /// Provides an SNS platform application resource
     /// 
     /// ## Example Usage
-    /// ### Apple Push Notification Service (APNS)
+    /// ### Apple Push Notification Service (APNS) using certificate-based authentication
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -27,6 +27,26 @@ namespace Pulumi.Aws.Sns
     ///         Platform = "APNS",
     ///         PlatformCredential = "&lt;APNS PRIVATE KEY&gt;",
     ///         PlatformPrincipal = "&lt;APNS CERTIFICATE&gt;",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Apple Push Notification Service (APNS) using token-based authentication
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var apnsApplication = new Aws.Sns.PlatformApplication("apnsApplication", new()
+    ///     {
+    ///         ApplePlatformBundleId = "&lt;APPLE BUNDLE ID&gt;",
+    ///         ApplePlatformTeamId = "&lt;APPLE TEAM ID&gt;",
+    ///         Platform = "APNS",
+    ///         PlatformCredential = "&lt;APNS SIGNING KEY&gt;",
+    ///         PlatformPrincipal = "&lt;APNS SIGNING KEY ID&gt;",
     ///     });
     /// 
     /// });
@@ -60,6 +80,18 @@ namespace Pulumi.Aws.Sns
     [AwsResourceType("aws:sns/platformApplication:PlatformApplication")]
     public partial class PlatformApplication : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The bundle identifier that's assigned to your iOS app. May only include alphanumeric characters, hyphens (-), and periods (.).
+        /// </summary>
+        [Output("applePlatformBundleId")]
+        public Output<string?> ApplePlatformBundleId { get; private set; } = null!;
+
+        /// <summary>
+        /// The identifier that's assigned to your Apple developer account team. Must be 10 alphanumeric characters.
+        /// </summary>
+        [Output("applePlatformTeamId")]
+        public Output<string?> ApplePlatformTeamId { get; private set; } = null!;
+
         /// <summary>
         /// The ARN of the SNS platform application
         /// </summary>
@@ -179,6 +211,18 @@ namespace Pulumi.Aws.Sns
     public sealed class PlatformApplicationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The bundle identifier that's assigned to your iOS app. May only include alphanumeric characters, hyphens (-), and periods (.).
+        /// </summary>
+        [Input("applePlatformBundleId")]
+        public Input<string>? ApplePlatformBundleId { get; set; }
+
+        /// <summary>
+        /// The identifier that's assigned to your Apple developer account team. Must be 10 alphanumeric characters.
+        /// </summary>
+        [Input("applePlatformTeamId")]
+        public Input<string>? ApplePlatformTeamId { get; set; }
+
+        /// <summary>
         /// The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
         /// </summary>
         [Input("eventDeliveryFailureTopicArn")]
@@ -252,6 +296,18 @@ namespace Pulumi.Aws.Sns
 
     public sealed class PlatformApplicationState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The bundle identifier that's assigned to your iOS app. May only include alphanumeric characters, hyphens (-), and periods (.).
+        /// </summary>
+        [Input("applePlatformBundleId")]
+        public Input<string>? ApplePlatformBundleId { get; set; }
+
+        /// <summary>
+        /// The identifier that's assigned to your Apple developer account team. Must be 10 alphanumeric characters.
+        /// </summary>
+        [Input("applePlatformTeamId")]
+        public Input<string>? ApplePlatformTeamId { get; set; }
+
         /// <summary>
         /// The ARN of the SNS platform application
         /// </summary>

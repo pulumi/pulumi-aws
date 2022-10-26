@@ -130,7 +130,7 @@ namespace Pulumi.Aws.Ssm
         public string? NamePrefix { get; set; }
 
         /// <summary>
-        /// Specified OS for the baseline.
+        /// Specified OS for the baseline. Valid values: `AMAZON_LINUX`, `AMAZON_LINUX_2`, `UBUNTU`, `REDHAT_ENTERPRISE_LINUX`, `SUSE`, `CENTOS`, `ORACLE_LINUX`, `DEBIAN`, `MACOS`, `RASPBIAN` and `ROCKY_LINUX`.
         /// </summary>
         [Input("operatingSystem")]
         public string? OperatingSystem { get; set; }
@@ -162,7 +162,7 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? NamePrefix { get; set; }
 
         /// <summary>
-        /// Specified OS for the baseline.
+        /// Specified OS for the baseline. Valid values: `AMAZON_LINUX`, `AMAZON_LINUX_2`, `UBUNTU`, `REDHAT_ENTERPRISE_LINUX`, `SUSE`, `CENTOS`, `ORACLE_LINUX`, `DEBIAN`, `MACOS`, `RASPBIAN` and `ROCKY_LINUX`.
         /// </summary>
         [Input("operatingSystem")]
         public Input<string>? OperatingSystem { get; set; }

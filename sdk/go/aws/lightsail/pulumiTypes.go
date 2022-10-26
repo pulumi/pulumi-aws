@@ -10,6 +10,121 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type CertificateDomainValidationOption struct {
+	// A domain name for which the certificate should be issued.
+	DomainName          *string `pulumi:"domainName"`
+	ResourceRecordName  *string `pulumi:"resourceRecordName"`
+	ResourceRecordType  *string `pulumi:"resourceRecordType"`
+	ResourceRecordValue *string `pulumi:"resourceRecordValue"`
+}
+
+// CertificateDomainValidationOptionInput is an input type that accepts CertificateDomainValidationOptionArgs and CertificateDomainValidationOptionOutput values.
+// You can construct a concrete instance of `CertificateDomainValidationOptionInput` via:
+//
+//	CertificateDomainValidationOptionArgs{...}
+type CertificateDomainValidationOptionInput interface {
+	pulumi.Input
+
+	ToCertificateDomainValidationOptionOutput() CertificateDomainValidationOptionOutput
+	ToCertificateDomainValidationOptionOutputWithContext(context.Context) CertificateDomainValidationOptionOutput
+}
+
+type CertificateDomainValidationOptionArgs struct {
+	// A domain name for which the certificate should be issued.
+	DomainName          pulumi.StringPtrInput `pulumi:"domainName"`
+	ResourceRecordName  pulumi.StringPtrInput `pulumi:"resourceRecordName"`
+	ResourceRecordType  pulumi.StringPtrInput `pulumi:"resourceRecordType"`
+	ResourceRecordValue pulumi.StringPtrInput `pulumi:"resourceRecordValue"`
+}
+
+func (CertificateDomainValidationOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateDomainValidationOption)(nil)).Elem()
+}
+
+func (i CertificateDomainValidationOptionArgs) ToCertificateDomainValidationOptionOutput() CertificateDomainValidationOptionOutput {
+	return i.ToCertificateDomainValidationOptionOutputWithContext(context.Background())
+}
+
+func (i CertificateDomainValidationOptionArgs) ToCertificateDomainValidationOptionOutputWithContext(ctx context.Context) CertificateDomainValidationOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateDomainValidationOptionOutput)
+}
+
+// CertificateDomainValidationOptionArrayInput is an input type that accepts CertificateDomainValidationOptionArray and CertificateDomainValidationOptionArrayOutput values.
+// You can construct a concrete instance of `CertificateDomainValidationOptionArrayInput` via:
+//
+//	CertificateDomainValidationOptionArray{ CertificateDomainValidationOptionArgs{...} }
+type CertificateDomainValidationOptionArrayInput interface {
+	pulumi.Input
+
+	ToCertificateDomainValidationOptionArrayOutput() CertificateDomainValidationOptionArrayOutput
+	ToCertificateDomainValidationOptionArrayOutputWithContext(context.Context) CertificateDomainValidationOptionArrayOutput
+}
+
+type CertificateDomainValidationOptionArray []CertificateDomainValidationOptionInput
+
+func (CertificateDomainValidationOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertificateDomainValidationOption)(nil)).Elem()
+}
+
+func (i CertificateDomainValidationOptionArray) ToCertificateDomainValidationOptionArrayOutput() CertificateDomainValidationOptionArrayOutput {
+	return i.ToCertificateDomainValidationOptionArrayOutputWithContext(context.Background())
+}
+
+func (i CertificateDomainValidationOptionArray) ToCertificateDomainValidationOptionArrayOutputWithContext(ctx context.Context) CertificateDomainValidationOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateDomainValidationOptionArrayOutput)
+}
+
+type CertificateDomainValidationOptionOutput struct{ *pulumi.OutputState }
+
+func (CertificateDomainValidationOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateDomainValidationOption)(nil)).Elem()
+}
+
+func (o CertificateDomainValidationOptionOutput) ToCertificateDomainValidationOptionOutput() CertificateDomainValidationOptionOutput {
+	return o
+}
+
+func (o CertificateDomainValidationOptionOutput) ToCertificateDomainValidationOptionOutputWithContext(ctx context.Context) CertificateDomainValidationOptionOutput {
+	return o
+}
+
+// A domain name for which the certificate should be issued.
+func (o CertificateDomainValidationOptionOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateDomainValidationOption) *string { return v.DomainName }).(pulumi.StringPtrOutput)
+}
+
+func (o CertificateDomainValidationOptionOutput) ResourceRecordName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateDomainValidationOption) *string { return v.ResourceRecordName }).(pulumi.StringPtrOutput)
+}
+
+func (o CertificateDomainValidationOptionOutput) ResourceRecordType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateDomainValidationOption) *string { return v.ResourceRecordType }).(pulumi.StringPtrOutput)
+}
+
+func (o CertificateDomainValidationOptionOutput) ResourceRecordValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateDomainValidationOption) *string { return v.ResourceRecordValue }).(pulumi.StringPtrOutput)
+}
+
+type CertificateDomainValidationOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (CertificateDomainValidationOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertificateDomainValidationOption)(nil)).Elem()
+}
+
+func (o CertificateDomainValidationOptionArrayOutput) ToCertificateDomainValidationOptionArrayOutput() CertificateDomainValidationOptionArrayOutput {
+	return o
+}
+
+func (o CertificateDomainValidationOptionArrayOutput) ToCertificateDomainValidationOptionArrayOutputWithContext(ctx context.Context) CertificateDomainValidationOptionArrayOutput {
+	return o
+}
+
+func (o CertificateDomainValidationOptionArrayOutput) Index(i pulumi.IntInput) CertificateDomainValidationOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CertificateDomainValidationOption {
+		return vs[0].([]CertificateDomainValidationOption)[vs[1].(int)]
+	}).(CertificateDomainValidationOptionOutput)
+}
+
 type ContainerServiceDeploymentVersionContainer struct {
 	// The launch command for the container. A list of string.
 	Commands []string `pulumi:"commands"`
@@ -552,6 +667,297 @@ func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput) Unh
 	}).(pulumi.IntPtrOutput)
 }
 
+type ContainerServicePrivateRegistryAccess struct {
+	// Describes a request to configure an Amazon Lightsail container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See ECR Image Puller Role below for more details.
+	EcrImagePullerRole *ContainerServicePrivateRegistryAccessEcrImagePullerRole `pulumi:"ecrImagePullerRole"`
+}
+
+// ContainerServicePrivateRegistryAccessInput is an input type that accepts ContainerServicePrivateRegistryAccessArgs and ContainerServicePrivateRegistryAccessOutput values.
+// You can construct a concrete instance of `ContainerServicePrivateRegistryAccessInput` via:
+//
+//	ContainerServicePrivateRegistryAccessArgs{...}
+type ContainerServicePrivateRegistryAccessInput interface {
+	pulumi.Input
+
+	ToContainerServicePrivateRegistryAccessOutput() ContainerServicePrivateRegistryAccessOutput
+	ToContainerServicePrivateRegistryAccessOutputWithContext(context.Context) ContainerServicePrivateRegistryAccessOutput
+}
+
+type ContainerServicePrivateRegistryAccessArgs struct {
+	// Describes a request to configure an Amazon Lightsail container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See ECR Image Puller Role below for more details.
+	EcrImagePullerRole ContainerServicePrivateRegistryAccessEcrImagePullerRolePtrInput `pulumi:"ecrImagePullerRole"`
+}
+
+func (ContainerServicePrivateRegistryAccessArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerServicePrivateRegistryAccess)(nil)).Elem()
+}
+
+func (i ContainerServicePrivateRegistryAccessArgs) ToContainerServicePrivateRegistryAccessOutput() ContainerServicePrivateRegistryAccessOutput {
+	return i.ToContainerServicePrivateRegistryAccessOutputWithContext(context.Background())
+}
+
+func (i ContainerServicePrivateRegistryAccessArgs) ToContainerServicePrivateRegistryAccessOutputWithContext(ctx context.Context) ContainerServicePrivateRegistryAccessOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerServicePrivateRegistryAccessOutput)
+}
+
+func (i ContainerServicePrivateRegistryAccessArgs) ToContainerServicePrivateRegistryAccessPtrOutput() ContainerServicePrivateRegistryAccessPtrOutput {
+	return i.ToContainerServicePrivateRegistryAccessPtrOutputWithContext(context.Background())
+}
+
+func (i ContainerServicePrivateRegistryAccessArgs) ToContainerServicePrivateRegistryAccessPtrOutputWithContext(ctx context.Context) ContainerServicePrivateRegistryAccessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerServicePrivateRegistryAccessOutput).ToContainerServicePrivateRegistryAccessPtrOutputWithContext(ctx)
+}
+
+// ContainerServicePrivateRegistryAccessPtrInput is an input type that accepts ContainerServicePrivateRegistryAccessArgs, ContainerServicePrivateRegistryAccessPtr and ContainerServicePrivateRegistryAccessPtrOutput values.
+// You can construct a concrete instance of `ContainerServicePrivateRegistryAccessPtrInput` via:
+//
+//	        ContainerServicePrivateRegistryAccessArgs{...}
+//
+//	or:
+//
+//	        nil
+type ContainerServicePrivateRegistryAccessPtrInput interface {
+	pulumi.Input
+
+	ToContainerServicePrivateRegistryAccessPtrOutput() ContainerServicePrivateRegistryAccessPtrOutput
+	ToContainerServicePrivateRegistryAccessPtrOutputWithContext(context.Context) ContainerServicePrivateRegistryAccessPtrOutput
+}
+
+type containerServicePrivateRegistryAccessPtrType ContainerServicePrivateRegistryAccessArgs
+
+func ContainerServicePrivateRegistryAccessPtr(v *ContainerServicePrivateRegistryAccessArgs) ContainerServicePrivateRegistryAccessPtrInput {
+	return (*containerServicePrivateRegistryAccessPtrType)(v)
+}
+
+func (*containerServicePrivateRegistryAccessPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerServicePrivateRegistryAccess)(nil)).Elem()
+}
+
+func (i *containerServicePrivateRegistryAccessPtrType) ToContainerServicePrivateRegistryAccessPtrOutput() ContainerServicePrivateRegistryAccessPtrOutput {
+	return i.ToContainerServicePrivateRegistryAccessPtrOutputWithContext(context.Background())
+}
+
+func (i *containerServicePrivateRegistryAccessPtrType) ToContainerServicePrivateRegistryAccessPtrOutputWithContext(ctx context.Context) ContainerServicePrivateRegistryAccessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerServicePrivateRegistryAccessPtrOutput)
+}
+
+type ContainerServicePrivateRegistryAccessOutput struct{ *pulumi.OutputState }
+
+func (ContainerServicePrivateRegistryAccessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerServicePrivateRegistryAccess)(nil)).Elem()
+}
+
+func (o ContainerServicePrivateRegistryAccessOutput) ToContainerServicePrivateRegistryAccessOutput() ContainerServicePrivateRegistryAccessOutput {
+	return o
+}
+
+func (o ContainerServicePrivateRegistryAccessOutput) ToContainerServicePrivateRegistryAccessOutputWithContext(ctx context.Context) ContainerServicePrivateRegistryAccessOutput {
+	return o
+}
+
+func (o ContainerServicePrivateRegistryAccessOutput) ToContainerServicePrivateRegistryAccessPtrOutput() ContainerServicePrivateRegistryAccessPtrOutput {
+	return o.ToContainerServicePrivateRegistryAccessPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerServicePrivateRegistryAccessOutput) ToContainerServicePrivateRegistryAccessPtrOutputWithContext(ctx context.Context) ContainerServicePrivateRegistryAccessPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServicePrivateRegistryAccess) *ContainerServicePrivateRegistryAccess {
+		return &v
+	}).(ContainerServicePrivateRegistryAccessPtrOutput)
+}
+
+// Describes a request to configure an Amazon Lightsail container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See ECR Image Puller Role below for more details.
+func (o ContainerServicePrivateRegistryAccessOutput) EcrImagePullerRole() ContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutput {
+	return o.ApplyT(func(v ContainerServicePrivateRegistryAccess) *ContainerServicePrivateRegistryAccessEcrImagePullerRole {
+		return v.EcrImagePullerRole
+	}).(ContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutput)
+}
+
+type ContainerServicePrivateRegistryAccessPtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerServicePrivateRegistryAccessPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerServicePrivateRegistryAccess)(nil)).Elem()
+}
+
+func (o ContainerServicePrivateRegistryAccessPtrOutput) ToContainerServicePrivateRegistryAccessPtrOutput() ContainerServicePrivateRegistryAccessPtrOutput {
+	return o
+}
+
+func (o ContainerServicePrivateRegistryAccessPtrOutput) ToContainerServicePrivateRegistryAccessPtrOutputWithContext(ctx context.Context) ContainerServicePrivateRegistryAccessPtrOutput {
+	return o
+}
+
+func (o ContainerServicePrivateRegistryAccessPtrOutput) Elem() ContainerServicePrivateRegistryAccessOutput {
+	return o.ApplyT(func(v *ContainerServicePrivateRegistryAccess) ContainerServicePrivateRegistryAccess {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServicePrivateRegistryAccess
+		return ret
+	}).(ContainerServicePrivateRegistryAccessOutput)
+}
+
+// Describes a request to configure an Amazon Lightsail container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See ECR Image Puller Role below for more details.
+func (o ContainerServicePrivateRegistryAccessPtrOutput) EcrImagePullerRole() ContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutput {
+	return o.ApplyT(func(v *ContainerServicePrivateRegistryAccess) *ContainerServicePrivateRegistryAccessEcrImagePullerRole {
+		if v == nil {
+			return nil
+		}
+		return v.EcrImagePullerRole
+	}).(ContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutput)
+}
+
+type ContainerServicePrivateRegistryAccessEcrImagePullerRole struct {
+	// A Boolean value that indicates whether to activate the role. The default is `false`.
+	IsActive     *bool   `pulumi:"isActive"`
+	PrincipalArn *string `pulumi:"principalArn"`
+}
+
+// ContainerServicePrivateRegistryAccessEcrImagePullerRoleInput is an input type that accepts ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs and ContainerServicePrivateRegistryAccessEcrImagePullerRoleOutput values.
+// You can construct a concrete instance of `ContainerServicePrivateRegistryAccessEcrImagePullerRoleInput` via:
+//
+//	ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs{...}
+type ContainerServicePrivateRegistryAccessEcrImagePullerRoleInput interface {
+	pulumi.Input
+
+	ToContainerServicePrivateRegistryAccessEcrImagePullerRoleOutput() ContainerServicePrivateRegistryAccessEcrImagePullerRoleOutput
+	ToContainerServicePrivateRegistryAccessEcrImagePullerRoleOutputWithContext(context.Context) ContainerServicePrivateRegistryAccessEcrImagePullerRoleOutput
+}
+
+type ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs struct {
+	// A Boolean value that indicates whether to activate the role. The default is `false`.
+	IsActive     pulumi.BoolPtrInput   `pulumi:"isActive"`
+	PrincipalArn pulumi.StringPtrInput `pulumi:"principalArn"`
+}
+
+func (ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerServicePrivateRegistryAccessEcrImagePullerRole)(nil)).Elem()
+}
+
+func (i ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs) ToContainerServicePrivateRegistryAccessEcrImagePullerRoleOutput() ContainerServicePrivateRegistryAccessEcrImagePullerRoleOutput {
+	return i.ToContainerServicePrivateRegistryAccessEcrImagePullerRoleOutputWithContext(context.Background())
+}
+
+func (i ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs) ToContainerServicePrivateRegistryAccessEcrImagePullerRoleOutputWithContext(ctx context.Context) ContainerServicePrivateRegistryAccessEcrImagePullerRoleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerServicePrivateRegistryAccessEcrImagePullerRoleOutput)
+}
+
+func (i ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs) ToContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutput() ContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutput {
+	return i.ToContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutputWithContext(context.Background())
+}
+
+func (i ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs) ToContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutputWithContext(ctx context.Context) ContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerServicePrivateRegistryAccessEcrImagePullerRoleOutput).ToContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutputWithContext(ctx)
+}
+
+// ContainerServicePrivateRegistryAccessEcrImagePullerRolePtrInput is an input type that accepts ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs, ContainerServicePrivateRegistryAccessEcrImagePullerRolePtr and ContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutput values.
+// You can construct a concrete instance of `ContainerServicePrivateRegistryAccessEcrImagePullerRolePtrInput` via:
+//
+//	        ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs{...}
+//
+//	or:
+//
+//	        nil
+type ContainerServicePrivateRegistryAccessEcrImagePullerRolePtrInput interface {
+	pulumi.Input
+
+	ToContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutput() ContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutput
+	ToContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutputWithContext(context.Context) ContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutput
+}
+
+type containerServicePrivateRegistryAccessEcrImagePullerRolePtrType ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs
+
+func ContainerServicePrivateRegistryAccessEcrImagePullerRolePtr(v *ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs) ContainerServicePrivateRegistryAccessEcrImagePullerRolePtrInput {
+	return (*containerServicePrivateRegistryAccessEcrImagePullerRolePtrType)(v)
+}
+
+func (*containerServicePrivateRegistryAccessEcrImagePullerRolePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerServicePrivateRegistryAccessEcrImagePullerRole)(nil)).Elem()
+}
+
+func (i *containerServicePrivateRegistryAccessEcrImagePullerRolePtrType) ToContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutput() ContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutput {
+	return i.ToContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutputWithContext(context.Background())
+}
+
+func (i *containerServicePrivateRegistryAccessEcrImagePullerRolePtrType) ToContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutputWithContext(ctx context.Context) ContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutput)
+}
+
+type ContainerServicePrivateRegistryAccessEcrImagePullerRoleOutput struct{ *pulumi.OutputState }
+
+func (ContainerServicePrivateRegistryAccessEcrImagePullerRoleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerServicePrivateRegistryAccessEcrImagePullerRole)(nil)).Elem()
+}
+
+func (o ContainerServicePrivateRegistryAccessEcrImagePullerRoleOutput) ToContainerServicePrivateRegistryAccessEcrImagePullerRoleOutput() ContainerServicePrivateRegistryAccessEcrImagePullerRoleOutput {
+	return o
+}
+
+func (o ContainerServicePrivateRegistryAccessEcrImagePullerRoleOutput) ToContainerServicePrivateRegistryAccessEcrImagePullerRoleOutputWithContext(ctx context.Context) ContainerServicePrivateRegistryAccessEcrImagePullerRoleOutput {
+	return o
+}
+
+func (o ContainerServicePrivateRegistryAccessEcrImagePullerRoleOutput) ToContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutput() ContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutput {
+	return o.ToContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutputWithContext(context.Background())
+}
+
+func (o ContainerServicePrivateRegistryAccessEcrImagePullerRoleOutput) ToContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutputWithContext(ctx context.Context) ContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServicePrivateRegistryAccessEcrImagePullerRole) *ContainerServicePrivateRegistryAccessEcrImagePullerRole {
+		return &v
+	}).(ContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutput)
+}
+
+// A Boolean value that indicates whether to activate the role. The default is `false`.
+func (o ContainerServicePrivateRegistryAccessEcrImagePullerRoleOutput) IsActive() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ContainerServicePrivateRegistryAccessEcrImagePullerRole) *bool { return v.IsActive }).(pulumi.BoolPtrOutput)
+}
+
+func (o ContainerServicePrivateRegistryAccessEcrImagePullerRoleOutput) PrincipalArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerServicePrivateRegistryAccessEcrImagePullerRole) *string { return v.PrincipalArn }).(pulumi.StringPtrOutput)
+}
+
+type ContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerServicePrivateRegistryAccessEcrImagePullerRole)(nil)).Elem()
+}
+
+func (o ContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutput) ToContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutput() ContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutput {
+	return o
+}
+
+func (o ContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutput) ToContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutputWithContext(ctx context.Context) ContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutput {
+	return o
+}
+
+func (o ContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutput) Elem() ContainerServicePrivateRegistryAccessEcrImagePullerRoleOutput {
+	return o.ApplyT(func(v *ContainerServicePrivateRegistryAccessEcrImagePullerRole) ContainerServicePrivateRegistryAccessEcrImagePullerRole {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServicePrivateRegistryAccessEcrImagePullerRole
+		return ret
+	}).(ContainerServicePrivateRegistryAccessEcrImagePullerRoleOutput)
+}
+
+// A Boolean value that indicates whether to activate the role. The default is `false`.
+func (o ContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutput) IsActive() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ContainerServicePrivateRegistryAccessEcrImagePullerRole) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsActive
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o ContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutput) PrincipalArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerServicePrivateRegistryAccessEcrImagePullerRole) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type ContainerServicePublicDomainNames struct {
 	Certificates []ContainerServicePublicDomainNamesCertificate `pulumi:"certificates"`
 }
@@ -912,24 +1318,36 @@ func (o InstancePublicPortsPortInfoArrayOutput) Index(i pulumi.IntInput) Instanc
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateDomainValidationOptionInput)(nil)).Elem(), CertificateDomainValidationOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateDomainValidationOptionArrayInput)(nil)).Elem(), CertificateDomainValidationOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerServiceDeploymentVersionContainerInput)(nil)).Elem(), ContainerServiceDeploymentVersionContainerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerServiceDeploymentVersionContainerArrayInput)(nil)).Elem(), ContainerServiceDeploymentVersionContainerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerServiceDeploymentVersionPublicEndpointInput)(nil)).Elem(), ContainerServiceDeploymentVersionPublicEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerServiceDeploymentVersionPublicEndpointPtrInput)(nil)).Elem(), ContainerServiceDeploymentVersionPublicEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerServiceDeploymentVersionPublicEndpointHealthCheckInput)(nil)).Elem(), ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrInput)(nil)).Elem(), ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerServicePrivateRegistryAccessInput)(nil)).Elem(), ContainerServicePrivateRegistryAccessArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerServicePrivateRegistryAccessPtrInput)(nil)).Elem(), ContainerServicePrivateRegistryAccessArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerServicePrivateRegistryAccessEcrImagePullerRoleInput)(nil)).Elem(), ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerServicePrivateRegistryAccessEcrImagePullerRolePtrInput)(nil)).Elem(), ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerServicePublicDomainNamesInput)(nil)).Elem(), ContainerServicePublicDomainNamesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerServicePublicDomainNamesPtrInput)(nil)).Elem(), ContainerServicePublicDomainNamesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerServicePublicDomainNamesCertificateInput)(nil)).Elem(), ContainerServicePublicDomainNamesCertificateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerServicePublicDomainNamesCertificateArrayInput)(nil)).Elem(), ContainerServicePublicDomainNamesCertificateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstancePublicPortsPortInfoInput)(nil)).Elem(), InstancePublicPortsPortInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstancePublicPortsPortInfoArrayInput)(nil)).Elem(), InstancePublicPortsPortInfoArray{})
+	pulumi.RegisterOutputType(CertificateDomainValidationOptionOutput{})
+	pulumi.RegisterOutputType(CertificateDomainValidationOptionArrayOutput{})
 	pulumi.RegisterOutputType(ContainerServiceDeploymentVersionContainerOutput{})
 	pulumi.RegisterOutputType(ContainerServiceDeploymentVersionContainerArrayOutput{})
 	pulumi.RegisterOutputType(ContainerServiceDeploymentVersionPublicEndpointOutput{})
 	pulumi.RegisterOutputType(ContainerServiceDeploymentVersionPublicEndpointPtrOutput{})
 	pulumi.RegisterOutputType(ContainerServiceDeploymentVersionPublicEndpointHealthCheckOutput{})
 	pulumi.RegisterOutputType(ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput{})
+	pulumi.RegisterOutputType(ContainerServicePrivateRegistryAccessOutput{})
+	pulumi.RegisterOutputType(ContainerServicePrivateRegistryAccessPtrOutput{})
+	pulumi.RegisterOutputType(ContainerServicePrivateRegistryAccessEcrImagePullerRoleOutput{})
+	pulumi.RegisterOutputType(ContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutput{})
 	pulumi.RegisterOutputType(ContainerServicePublicDomainNamesOutput{})
 	pulumi.RegisterOutputType(ContainerServicePublicDomainNamesPtrOutput{})
 	pulumi.RegisterOutputType(ContainerServicePublicDomainNamesCertificateOutput{})

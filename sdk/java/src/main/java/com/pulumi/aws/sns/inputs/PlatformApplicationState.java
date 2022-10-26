@@ -16,6 +16,36 @@ public final class PlatformApplicationState extends com.pulumi.resources.Resourc
     public static final PlatformApplicationState Empty = new PlatformApplicationState();
 
     /**
+     * The bundle identifier that&#39;s assigned to your iOS app. May only include alphanumeric characters, hyphens (-), and periods (.).
+     * 
+     */
+    @Import(name="applePlatformBundleId")
+    private @Nullable Output<String> applePlatformBundleId;
+
+    /**
+     * @return The bundle identifier that&#39;s assigned to your iOS app. May only include alphanumeric characters, hyphens (-), and periods (.).
+     * 
+     */
+    public Optional<Output<String>> applePlatformBundleId() {
+        return Optional.ofNullable(this.applePlatformBundleId);
+    }
+
+    /**
+     * The identifier that&#39;s assigned to your Apple developer account team. Must be 10 alphanumeric characters.
+     * 
+     */
+    @Import(name="applePlatformTeamId")
+    private @Nullable Output<String> applePlatformTeamId;
+
+    /**
+     * @return The identifier that&#39;s assigned to your Apple developer account team. Must be 10 alphanumeric characters.
+     * 
+     */
+    public Optional<Output<String>> applePlatformTeamId() {
+        return Optional.ofNullable(this.applePlatformTeamId);
+    }
+
+    /**
      * The ARN of the SNS platform application
      * 
      */
@@ -198,6 +228,8 @@ public final class PlatformApplicationState extends com.pulumi.resources.Resourc
     private PlatformApplicationState() {}
 
     private PlatformApplicationState(PlatformApplicationState $) {
+        this.applePlatformBundleId = $.applePlatformBundleId;
+        this.applePlatformTeamId = $.applePlatformTeamId;
         this.arn = $.arn;
         this.eventDeliveryFailureTopicArn = $.eventDeliveryFailureTopicArn;
         this.eventEndpointCreatedTopicArn = $.eventEndpointCreatedTopicArn;
@@ -228,6 +260,48 @@ public final class PlatformApplicationState extends com.pulumi.resources.Resourc
 
         public Builder(PlatformApplicationState defaults) {
             $ = new PlatformApplicationState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param applePlatformBundleId The bundle identifier that&#39;s assigned to your iOS app. May only include alphanumeric characters, hyphens (-), and periods (.).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder applePlatformBundleId(@Nullable Output<String> applePlatformBundleId) {
+            $.applePlatformBundleId = applePlatformBundleId;
+            return this;
+        }
+
+        /**
+         * @param applePlatformBundleId The bundle identifier that&#39;s assigned to your iOS app. May only include alphanumeric characters, hyphens (-), and periods (.).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder applePlatformBundleId(String applePlatformBundleId) {
+            return applePlatformBundleId(Output.of(applePlatformBundleId));
+        }
+
+        /**
+         * @param applePlatformTeamId The identifier that&#39;s assigned to your Apple developer account team. Must be 10 alphanumeric characters.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder applePlatformTeamId(@Nullable Output<String> applePlatformTeamId) {
+            $.applePlatformTeamId = applePlatformTeamId;
+            return this;
+        }
+
+        /**
+         * @param applePlatformTeamId The identifier that&#39;s assigned to your Apple developer account team. Must be 10 alphanumeric characters.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder applePlatformTeamId(String applePlatformTeamId) {
+            return applePlatformTeamId(Output.of(applePlatformTeamId));
         }
 
         /**

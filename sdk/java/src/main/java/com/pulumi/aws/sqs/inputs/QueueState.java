@@ -258,17 +258,9 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.redrivePolicy);
     }
 
-    /**
-     * Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. Defaults to `false`. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html).
-     * 
-     */
     @Import(name="sqsManagedSseEnabled")
     private @Nullable Output<Boolean> sqsManagedSseEnabled;
 
-    /**
-     * @return Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. Defaults to `false`. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html).
-     * 
-     */
     public Optional<Output<Boolean>> sqsManagedSseEnabled() {
         return Optional.ofNullable(this.sqsManagedSseEnabled);
     }
@@ -713,23 +705,11 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
             return redrivePolicy(Output.of(redrivePolicy));
         }
 
-        /**
-         * @param sqsManagedSseEnabled Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. Defaults to `false`. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder sqsManagedSseEnabled(@Nullable Output<Boolean> sqsManagedSseEnabled) {
             $.sqsManagedSseEnabled = sqsManagedSseEnabled;
             return this;
         }
 
-        /**
-         * @param sqsManagedSseEnabled Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. Defaults to `false`. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder sqsManagedSseEnabled(Boolean sqsManagedSseEnabled) {
             return sqsManagedSseEnabled(Output.of(sqsManagedSseEnabled));
         }

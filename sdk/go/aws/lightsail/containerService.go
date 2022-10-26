@@ -84,6 +84,66 @@ import (
 //	}
 //
 // ```
+// ### Private Registry Access
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecr"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lightsail"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			defaultContainerService, err := lightsail.NewContainerService(ctx, "defaultContainerService", &lightsail.ContainerServiceArgs{
+//				PrivateRegistryAccess: &lightsail.ContainerServicePrivateRegistryAccessArgs{
+//					EcrImagePullerRole: &lightsail.ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs{
+//						IsActive: pulumi.Bool(true),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ecr.NewRepositoryPolicy(ctx, "defaultRepositoryPolicy", &ecr.RepositoryPolicyArgs{
+//				Repository: pulumi.Any(aws_ecr_repository.Default.Name),
+//				Policy: defaultContainerService.PrivateRegistryAccess.ApplyT(func(privateRegistryAccess lightsail.ContainerServicePrivateRegistryAccess) (string, error) {
+//					return fmt.Sprintf(`{
+//	  "Version": "2012-10-17",
+//	  "Statement": [
+//	    {
+//	      "Sid": "AllowLightsailPull",
+//	      "Effect": "Allow",
+//	      "Principal": {
+//	        "AWS": "%v"
+//	      },
+//	      "Action": [
+//	        "ecr:BatchGetImage",
+//	        "ecr:GetDownloadUrlForLayer"
+//	      ]
+//	    }
+//	  ]
+//	}
+//
+// `, privateRegistryAccess.EcrImagePullerRole.PrincipalArn), nil
+//
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //
@@ -120,6 +180,8 @@ type ContainerService struct {
 	// The private domain name of the container service. The private domain name is accessible only
 	// by other resources within the default virtual private cloud (VPC) of your Lightsail account.
 	PrivateDomainName pulumi.StringOutput `pulumi:"privateDomainName"`
+	// An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See Private Registry Access below for more details.
+	PrivateRegistryAccess ContainerServicePrivateRegistryAccessOutput `pulumi:"privateRegistryAccess"`
 	// The public domain names to use with the container service, such as example.com
 	// and www.example.com. You can specify up to four public domain names for a container service. The domain names that you
 	// specify are used when you create a deployment with a container configured as the public endpoint of your container
@@ -198,6 +260,8 @@ type containerServiceState struct {
 	// The private domain name of the container service. The private domain name is accessible only
 	// by other resources within the default virtual private cloud (VPC) of your Lightsail account.
 	PrivateDomainName *string `pulumi:"privateDomainName"`
+	// An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See Private Registry Access below for more details.
+	PrivateRegistryAccess *ContainerServicePrivateRegistryAccess `pulumi:"privateRegistryAccess"`
 	// The public domain names to use with the container service, such as example.com
 	// and www.example.com. You can specify up to four public domain names for a container service. The domain names that you
 	// specify are used when you create a deployment with a container configured as the public endpoint of your container
@@ -242,6 +306,8 @@ type ContainerServiceState struct {
 	// The private domain name of the container service. The private domain name is accessible only
 	// by other resources within the default virtual private cloud (VPC) of your Lightsail account.
 	PrivateDomainName pulumi.StringPtrInput
+	// An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See Private Registry Access below for more details.
+	PrivateRegistryAccess ContainerServicePrivateRegistryAccessPtrInput
 	// The public domain names to use with the container service, such as example.com
 	// and www.example.com. You can specify up to four public domain names for a container service. The domain names that you
 	// specify are used when you create a deployment with a container configured as the public endpoint of your container
@@ -276,6 +342,8 @@ type containerServiceArgs struct {
 	// the number of vCPUs, and the monthly price of each node of the container service.
 	// Possible values: `nano`, `micro`, `small`, `medium`, `large`, `xlarge`.
 	Power string `pulumi:"power"`
+	// An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See Private Registry Access below for more details.
+	PrivateRegistryAccess *ContainerServicePrivateRegistryAccess `pulumi:"privateRegistryAccess"`
 	// The public domain names to use with the container service, such as example.com
 	// and www.example.com. You can specify up to four public domain names for a container service. The domain names that you
 	// specify are used when you create a deployment with a container configured as the public endpoint of your container
@@ -299,6 +367,8 @@ type ContainerServiceArgs struct {
 	// the number of vCPUs, and the monthly price of each node of the container service.
 	// Possible values: `nano`, `micro`, `small`, `medium`, `large`, `xlarge`.
 	Power pulumi.StringInput
+	// An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See Private Registry Access below for more details.
+	PrivateRegistryAccess ContainerServicePrivateRegistryAccessPtrInput
 	// The public domain names to use with the container service, such as example.com
 	// and www.example.com. You can specify up to four public domain names for a container service. The domain names that you
 	// specify are used when you create a deployment with a container configured as the public endpoint of your container
@@ -446,6 +516,11 @@ func (o ContainerServiceOutput) PrincipalArn() pulumi.StringOutput {
 // by other resources within the default virtual private cloud (VPC) of your Lightsail account.
 func (o ContainerServiceOutput) PrivateDomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerService) pulumi.StringOutput { return v.PrivateDomainName }).(pulumi.StringOutput)
+}
+
+// An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See Private Registry Access below for more details.
+func (o ContainerServiceOutput) PrivateRegistryAccess() ContainerServicePrivateRegistryAccessOutput {
+	return o.ApplyT(func(v *ContainerService) ContainerServicePrivateRegistryAccessOutput { return v.PrivateRegistryAccess }).(ContainerServicePrivateRegistryAccessOutput)
 }
 
 // The public domain names to use with the container service, such as example.com

@@ -140,6 +140,8 @@ type Zone struct {
 	// A list of name servers in associated (or default) delegation set.
 	// Find more about delegation sets in [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/actions-on-reusable-delegation-sets.html).
 	NameServers pulumi.StringArrayOutput `pulumi:"nameServers"`
+	// The Route 53 name server that created the SOA record.
+	PrimaryNameServer pulumi.StringOutput `pulumi:"primaryNameServer"`
 	// A mapping of tags to assign to the zone. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -195,6 +197,8 @@ type zoneState struct {
 	// A list of name servers in associated (or default) delegation set.
 	// Find more about delegation sets in [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/actions-on-reusable-delegation-sets.html).
 	NameServers []string `pulumi:"nameServers"`
+	// The Route 53 name server that created the SOA record.
+	PrimaryNameServer *string `pulumi:"primaryNameServer"`
 	// A mapping of tags to assign to the zone. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -219,6 +223,8 @@ type ZoneState struct {
 	// A list of name servers in associated (or default) delegation set.
 	// Find more about delegation sets in [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/actions-on-reusable-delegation-sets.html).
 	NameServers pulumi.StringArrayInput
+	// The Route 53 name server that created the SOA record.
+	PrimaryNameServer pulumi.StringPtrInput
 	// A mapping of tags to assign to the zone. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -380,6 +386,11 @@ func (o ZoneOutput) Name() pulumi.StringOutput {
 // Find more about delegation sets in [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/actions-on-reusable-delegation-sets.html).
 func (o ZoneOutput) NameServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Zone) pulumi.StringArrayOutput { return v.NameServers }).(pulumi.StringArrayOutput)
+}
+
+// The Route 53 name server that created the SOA record.
+func (o ZoneOutput) PrimaryNameServer() pulumi.StringOutput {
+	return o.ApplyT(func(v *Zone) pulumi.StringOutput { return v.PrimaryNameServer }).(pulumi.StringOutput)
 }
 
 // A mapping of tags to assign to the zone. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

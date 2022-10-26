@@ -16,6 +16,8 @@ class PlatformApplicationArgs:
     def __init__(__self__, *,
                  platform: pulumi.Input[str],
                  platform_credential: pulumi.Input[str],
+                 apple_platform_bundle_id: Optional[pulumi.Input[str]] = None,
+                 apple_platform_team_id: Optional[pulumi.Input[str]] = None,
                  event_delivery_failure_topic_arn: Optional[pulumi.Input[str]] = None,
                  event_endpoint_created_topic_arn: Optional[pulumi.Input[str]] = None,
                  event_endpoint_deleted_topic_arn: Optional[pulumi.Input[str]] = None,
@@ -29,6 +31,8 @@ class PlatformApplicationArgs:
         The set of arguments for constructing a PlatformApplication resource.
         :param pulumi.Input[str] platform: The platform that the app is registered with. See [Platform](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for supported platforms.
         :param pulumi.Input[str] platform_credential: Application Platform credential. See [Credential](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
+        :param pulumi.Input[str] apple_platform_bundle_id: The bundle identifier that's assigned to your iOS app. May only include alphanumeric characters, hyphens (-), and periods (.).
+        :param pulumi.Input[str] apple_platform_team_id: The identifier that's assigned to your Apple developer account team. Must be 10 alphanumeric characters.
         :param pulumi.Input[str] event_delivery_failure_topic_arn: The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
         :param pulumi.Input[str] event_endpoint_created_topic_arn: The ARN of the SNS Topic triggered when a new platform endpoint is added to your platform application.
         :param pulumi.Input[str] event_endpoint_deleted_topic_arn: The ARN of the SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
@@ -41,6 +45,10 @@ class PlatformApplicationArgs:
         """
         pulumi.set(__self__, "platform", platform)
         pulumi.set(__self__, "platform_credential", platform_credential)
+        if apple_platform_bundle_id is not None:
+            pulumi.set(__self__, "apple_platform_bundle_id", apple_platform_bundle_id)
+        if apple_platform_team_id is not None:
+            pulumi.set(__self__, "apple_platform_team_id", apple_platform_team_id)
         if event_delivery_failure_topic_arn is not None:
             pulumi.set(__self__, "event_delivery_failure_topic_arn", event_delivery_failure_topic_arn)
         if event_endpoint_created_topic_arn is not None:
@@ -83,6 +91,30 @@ class PlatformApplicationArgs:
     @platform_credential.setter
     def platform_credential(self, value: pulumi.Input[str]):
         pulumi.set(self, "platform_credential", value)
+
+    @property
+    @pulumi.getter(name="applePlatformBundleId")
+    def apple_platform_bundle_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The bundle identifier that's assigned to your iOS app. May only include alphanumeric characters, hyphens (-), and periods (.).
+        """
+        return pulumi.get(self, "apple_platform_bundle_id")
+
+    @apple_platform_bundle_id.setter
+    def apple_platform_bundle_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "apple_platform_bundle_id", value)
+
+    @property
+    @pulumi.getter(name="applePlatformTeamId")
+    def apple_platform_team_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier that's assigned to your Apple developer account team. Must be 10 alphanumeric characters.
+        """
+        return pulumi.get(self, "apple_platform_team_id")
+
+    @apple_platform_team_id.setter
+    def apple_platform_team_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "apple_platform_team_id", value)
 
     @property
     @pulumi.getter(name="eventDeliveryFailureTopicArn")
@@ -196,6 +228,8 @@ class PlatformApplicationArgs:
 @pulumi.input_type
 class _PlatformApplicationState:
     def __init__(__self__, *,
+                 apple_platform_bundle_id: Optional[pulumi.Input[str]] = None,
+                 apple_platform_team_id: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  event_delivery_failure_topic_arn: Optional[pulumi.Input[str]] = None,
                  event_endpoint_created_topic_arn: Optional[pulumi.Input[str]] = None,
@@ -210,6 +244,8 @@ class _PlatformApplicationState:
                  success_feedback_sample_rate: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering PlatformApplication resources.
+        :param pulumi.Input[str] apple_platform_bundle_id: The bundle identifier that's assigned to your iOS app. May only include alphanumeric characters, hyphens (-), and periods (.).
+        :param pulumi.Input[str] apple_platform_team_id: The identifier that's assigned to your Apple developer account team. Must be 10 alphanumeric characters.
         :param pulumi.Input[str] arn: The ARN of the SNS platform application
         :param pulumi.Input[str] event_delivery_failure_topic_arn: The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
         :param pulumi.Input[str] event_endpoint_created_topic_arn: The ARN of the SNS Topic triggered when a new platform endpoint is added to your platform application.
@@ -223,6 +259,10 @@ class _PlatformApplicationState:
         :param pulumi.Input[str] success_feedback_role_arn: The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
         :param pulumi.Input[str] success_feedback_sample_rate: The sample rate percentage (0-100) of successfully delivered messages.
         """
+        if apple_platform_bundle_id is not None:
+            pulumi.set(__self__, "apple_platform_bundle_id", apple_platform_bundle_id)
+        if apple_platform_team_id is not None:
+            pulumi.set(__self__, "apple_platform_team_id", apple_platform_team_id)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if event_delivery_failure_topic_arn is not None:
@@ -247,6 +287,30 @@ class _PlatformApplicationState:
             pulumi.set(__self__, "success_feedback_role_arn", success_feedback_role_arn)
         if success_feedback_sample_rate is not None:
             pulumi.set(__self__, "success_feedback_sample_rate", success_feedback_sample_rate)
+
+    @property
+    @pulumi.getter(name="applePlatformBundleId")
+    def apple_platform_bundle_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The bundle identifier that's assigned to your iOS app. May only include alphanumeric characters, hyphens (-), and periods (.).
+        """
+        return pulumi.get(self, "apple_platform_bundle_id")
+
+    @apple_platform_bundle_id.setter
+    def apple_platform_bundle_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "apple_platform_bundle_id", value)
+
+    @property
+    @pulumi.getter(name="applePlatformTeamId")
+    def apple_platform_team_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier that's assigned to your Apple developer account team. Must be 10 alphanumeric characters.
+        """
+        return pulumi.get(self, "apple_platform_team_id")
+
+    @apple_platform_team_id.setter
+    def apple_platform_team_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "apple_platform_team_id", value)
 
     @property
     @pulumi.getter
@@ -398,6 +462,8 @@ class PlatformApplication(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 apple_platform_bundle_id: Optional[pulumi.Input[str]] = None,
+                 apple_platform_team_id: Optional[pulumi.Input[str]] = None,
                  event_delivery_failure_topic_arn: Optional[pulumi.Input[str]] = None,
                  event_endpoint_created_topic_arn: Optional[pulumi.Input[str]] = None,
                  event_endpoint_deleted_topic_arn: Optional[pulumi.Input[str]] = None,
@@ -414,7 +480,7 @@ class PlatformApplication(pulumi.CustomResource):
         Provides an SNS platform application resource
 
         ## Example Usage
-        ### Apple Push Notification Service (APNS)
+        ### Apple Push Notification Service (APNS) using certificate-based authentication
 
         ```python
         import pulumi
@@ -424,6 +490,19 @@ class PlatformApplication(pulumi.CustomResource):
             platform="APNS",
             platform_credential="<APNS PRIVATE KEY>",
             platform_principal="<APNS CERTIFICATE>")
+        ```
+        ### Apple Push Notification Service (APNS) using token-based authentication
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        apns_application = aws.sns.PlatformApplication("apnsApplication",
+            apple_platform_bundle_id="<APPLE BUNDLE ID>",
+            apple_platform_team_id="<APPLE TEAM ID>",
+            platform="APNS",
+            platform_credential="<APNS SIGNING KEY>",
+            platform_principal="<APNS SIGNING KEY ID>")
         ```
         ### Google Cloud Messaging (GCM)
 
@@ -446,6 +525,8 @@ class PlatformApplication(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] apple_platform_bundle_id: The bundle identifier that's assigned to your iOS app. May only include alphanumeric characters, hyphens (-), and periods (.).
+        :param pulumi.Input[str] apple_platform_team_id: The identifier that's assigned to your Apple developer account team. Must be 10 alphanumeric characters.
         :param pulumi.Input[str] event_delivery_failure_topic_arn: The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
         :param pulumi.Input[str] event_endpoint_created_topic_arn: The ARN of the SNS Topic triggered when a new platform endpoint is added to your platform application.
         :param pulumi.Input[str] event_endpoint_deleted_topic_arn: The ARN of the SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
@@ -468,7 +549,7 @@ class PlatformApplication(pulumi.CustomResource):
         Provides an SNS platform application resource
 
         ## Example Usage
-        ### Apple Push Notification Service (APNS)
+        ### Apple Push Notification Service (APNS) using certificate-based authentication
 
         ```python
         import pulumi
@@ -478,6 +559,19 @@ class PlatformApplication(pulumi.CustomResource):
             platform="APNS",
             platform_credential="<APNS PRIVATE KEY>",
             platform_principal="<APNS CERTIFICATE>")
+        ```
+        ### Apple Push Notification Service (APNS) using token-based authentication
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        apns_application = aws.sns.PlatformApplication("apnsApplication",
+            apple_platform_bundle_id="<APPLE BUNDLE ID>",
+            apple_platform_team_id="<APPLE TEAM ID>",
+            platform="APNS",
+            platform_credential="<APNS SIGNING KEY>",
+            platform_principal="<APNS SIGNING KEY ID>")
         ```
         ### Google Cloud Messaging (GCM)
 
@@ -513,6 +607,8 @@ class PlatformApplication(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 apple_platform_bundle_id: Optional[pulumi.Input[str]] = None,
+                 apple_platform_team_id: Optional[pulumi.Input[str]] = None,
                  event_delivery_failure_topic_arn: Optional[pulumi.Input[str]] = None,
                  event_endpoint_created_topic_arn: Optional[pulumi.Input[str]] = None,
                  event_endpoint_deleted_topic_arn: Optional[pulumi.Input[str]] = None,
@@ -533,6 +629,8 @@ class PlatformApplication(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PlatformApplicationArgs.__new__(PlatformApplicationArgs)
 
+            __props__.__dict__["apple_platform_bundle_id"] = apple_platform_bundle_id
+            __props__.__dict__["apple_platform_team_id"] = apple_platform_team_id
             __props__.__dict__["event_delivery_failure_topic_arn"] = event_delivery_failure_topic_arn
             __props__.__dict__["event_endpoint_created_topic_arn"] = event_endpoint_created_topic_arn
             __props__.__dict__["event_endpoint_deleted_topic_arn"] = event_endpoint_deleted_topic_arn
@@ -559,6 +657,8 @@ class PlatformApplication(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            apple_platform_bundle_id: Optional[pulumi.Input[str]] = None,
+            apple_platform_team_id: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             event_delivery_failure_topic_arn: Optional[pulumi.Input[str]] = None,
             event_endpoint_created_topic_arn: Optional[pulumi.Input[str]] = None,
@@ -578,6 +678,8 @@ class PlatformApplication(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] apple_platform_bundle_id: The bundle identifier that's assigned to your iOS app. May only include alphanumeric characters, hyphens (-), and periods (.).
+        :param pulumi.Input[str] apple_platform_team_id: The identifier that's assigned to your Apple developer account team. Must be 10 alphanumeric characters.
         :param pulumi.Input[str] arn: The ARN of the SNS platform application
         :param pulumi.Input[str] event_delivery_failure_topic_arn: The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
         :param pulumi.Input[str] event_endpoint_created_topic_arn: The ARN of the SNS Topic triggered when a new platform endpoint is added to your platform application.
@@ -595,6 +697,8 @@ class PlatformApplication(pulumi.CustomResource):
 
         __props__ = _PlatformApplicationState.__new__(_PlatformApplicationState)
 
+        __props__.__dict__["apple_platform_bundle_id"] = apple_platform_bundle_id
+        __props__.__dict__["apple_platform_team_id"] = apple_platform_team_id
         __props__.__dict__["arn"] = arn
         __props__.__dict__["event_delivery_failure_topic_arn"] = event_delivery_failure_topic_arn
         __props__.__dict__["event_endpoint_created_topic_arn"] = event_endpoint_created_topic_arn
@@ -608,6 +712,22 @@ class PlatformApplication(pulumi.CustomResource):
         __props__.__dict__["success_feedback_role_arn"] = success_feedback_role_arn
         __props__.__dict__["success_feedback_sample_rate"] = success_feedback_sample_rate
         return PlatformApplication(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="applePlatformBundleId")
+    def apple_platform_bundle_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The bundle identifier that's assigned to your iOS app. May only include alphanumeric characters, hyphens (-), and periods (.).
+        """
+        return pulumi.get(self, "apple_platform_bundle_id")
+
+    @property
+    @pulumi.getter(name="applePlatformTeamId")
+    def apple_platform_team_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The identifier that's assigned to your Apple developer account team. Must be 10 alphanumeric characters.
+        """
+        return pulumi.get(self, "apple_platform_team_id")
 
     @property
     @pulumi.getter

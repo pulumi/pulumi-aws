@@ -453,19 +453,11 @@ public class Queue extends com.pulumi.resources.CustomResource {
     public Output<String> redrivePolicy() {
         return this.redrivePolicy;
     }
-    /**
-     * Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. Defaults to `false`. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html).
-     * 
-     */
     @Export(name="sqsManagedSseEnabled", type=Boolean.class, parameters={})
-    private Output</* @Nullable */ Boolean> sqsManagedSseEnabled;
+    private Output<Boolean> sqsManagedSseEnabled;
 
-    /**
-     * @return Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. Defaults to `false`. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html).
-     * 
-     */
-    public Output<Optional<Boolean>> sqsManagedSseEnabled() {
-        return Codegen.optional(this.sqsManagedSseEnabled);
+    public Output<Boolean> sqsManagedSseEnabled() {
+        return this.sqsManagedSseEnabled;
     }
     /**
      * A map of tags to assign to the queue. If configured with a provider `default_tags` configuration block) present, tags with matching keys will overwrite those defined at the provider-level.

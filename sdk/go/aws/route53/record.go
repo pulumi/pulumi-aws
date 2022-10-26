@@ -219,7 +219,7 @@ import (
 //
 // ```
 //
-//	If the record also contains a delegated set identifier, it can be appended
+//	If the record also contains a set identifier, it should be appended
 //
 // ```sh
 //

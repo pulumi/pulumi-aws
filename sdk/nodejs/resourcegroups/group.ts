@@ -75,6 +75,10 @@ export class Group extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
+     */
+    public readonly configurations!: pulumi.Output<outputs.resourcegroups.GroupConfiguration[] | undefined>;
+    /**
      * A description of the resource group.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -85,7 +89,7 @@ export class Group extends pulumi.CustomResource {
     /**
      * A `resourceQuery` block. Resource queries are documented below.
      */
-    public readonly resourceQuery!: pulumi.Output<outputs.resourcegroups.GroupResourceQuery>;
+    public readonly resourceQuery!: pulumi.Output<outputs.resourcegroups.GroupResourceQuery | undefined>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -102,13 +106,14 @@ export class Group extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: GroupArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: GroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: GroupArgs | GroupState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GroupState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["configurations"] = state ? state.configurations : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["resourceQuery"] = state ? state.resourceQuery : undefined;
@@ -116,9 +121,7 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as GroupArgs | undefined;
-            if ((!args || args.resourceQuery === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'resourceQuery'");
-            }
+            resourceInputs["configurations"] = args ? args.configurations : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceQuery"] = args ? args.resourceQuery : undefined;
@@ -139,6 +142,10 @@ export interface GroupState {
      * The ARN assigned by AWS for this resource group.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
+     */
+    configurations?: pulumi.Input<pulumi.Input<inputs.resourcegroups.GroupConfiguration>[]>;
     /**
      * A description of the resource group.
      */
@@ -166,6 +173,10 @@ export interface GroupState {
  */
 export interface GroupArgs {
     /**
+     * A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
+     */
+    configurations?: pulumi.Input<pulumi.Input<inputs.resourcegroups.GroupConfiguration>[]>;
+    /**
      * A description of the resource group.
      */
     description?: pulumi.Input<string>;
@@ -176,7 +187,7 @@ export interface GroupArgs {
     /**
      * A `resourceQuery` block. Resource queries are documented below.
      */
-    resourceQuery: pulumi.Input<inputs.resourcegroups.GroupResourceQuery>;
+    resourceQuery?: pulumi.Input<inputs.resourcegroups.GroupResourceQuery>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

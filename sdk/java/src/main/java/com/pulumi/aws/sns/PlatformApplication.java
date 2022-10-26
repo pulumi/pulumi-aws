@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
  * Provides an SNS platform application resource
  * 
  * ## Example Usage
- * ### Apple Push Notification Service (APNS)
+ * ### Apple Push Notification Service (APNS) using certificate-based authentication
  * ```java
  * package generated_program;
  * 
@@ -44,6 +44,39 @@ import javax.annotation.Nullable;
  *             .platform(&#34;APNS&#34;)
  *             .platformCredential(&#34;&lt;APNS PRIVATE KEY&gt;&#34;)
  *             .platformPrincipal(&#34;&lt;APNS CERTIFICATE&gt;&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Apple Push Notification Service (APNS) using token-based authentication
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.sns.PlatformApplication;
+ * import com.pulumi.aws.sns.PlatformApplicationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var apnsApplication = new PlatformApplication(&#34;apnsApplication&#34;, PlatformApplicationArgs.builder()        
+ *             .applePlatformBundleId(&#34;&lt;APPLE BUNDLE ID&gt;&#34;)
+ *             .applePlatformTeamId(&#34;&lt;APPLE TEAM ID&gt;&#34;)
+ *             .platform(&#34;APNS&#34;)
+ *             .platformCredential(&#34;&lt;APNS SIGNING KEY&gt;&#34;)
+ *             .platformPrincipal(&#34;&lt;APNS SIGNING KEY ID&gt;&#34;)
  *             .build());
  * 
  *     }
@@ -91,6 +124,34 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:sns/platformApplication:PlatformApplication")
 public class PlatformApplication extends com.pulumi.resources.CustomResource {
+    /**
+     * The bundle identifier that&#39;s assigned to your iOS app. May only include alphanumeric characters, hyphens (-), and periods (.).
+     * 
+     */
+    @Export(name="applePlatformBundleId", type=String.class, parameters={})
+    private Output</* @Nullable */ String> applePlatformBundleId;
+
+    /**
+     * @return The bundle identifier that&#39;s assigned to your iOS app. May only include alphanumeric characters, hyphens (-), and periods (.).
+     * 
+     */
+    public Output<Optional<String>> applePlatformBundleId() {
+        return Codegen.optional(this.applePlatformBundleId);
+    }
+    /**
+     * The identifier that&#39;s assigned to your Apple developer account team. Must be 10 alphanumeric characters.
+     * 
+     */
+    @Export(name="applePlatformTeamId", type=String.class, parameters={})
+    private Output</* @Nullable */ String> applePlatformTeamId;
+
+    /**
+     * @return The identifier that&#39;s assigned to your Apple developer account team. Must be 10 alphanumeric characters.
+     * 
+     */
+    public Output<Optional<String>> applePlatformTeamId() {
+        return Codegen.optional(this.applePlatformTeamId);
+    }
     /**
      * The ARN of the SNS platform application
      * 

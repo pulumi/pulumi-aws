@@ -118,6 +118,10 @@ export class Zone extends pulumi.CustomResource {
      */
     public /*out*/ readonly nameServers!: pulumi.Output<string[]>;
     /**
+     * The Route 53 name server that created the SOA record.
+     */
+    public /*out*/ readonly primaryNameServer!: pulumi.Output<string>;
+    /**
      * A mapping of tags to assign to the zone. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -153,6 +157,7 @@ export class Zone extends pulumi.CustomResource {
             resourceInputs["forceDestroy"] = state ? state.forceDestroy : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["nameServers"] = state ? state.nameServers : undefined;
+            resourceInputs["primaryNameServer"] = state ? state.primaryNameServer : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["vpcs"] = state ? state.vpcs : undefined;
@@ -167,6 +172,7 @@ export class Zone extends pulumi.CustomResource {
             resourceInputs["vpcs"] = args ? args.vpcs : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["nameServers"] = undefined /*out*/;
+            resourceInputs["primaryNameServer"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["zoneId"] = undefined /*out*/;
         }
@@ -204,6 +210,10 @@ export interface ZoneState {
      * Find more about delegation sets in [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/actions-on-reusable-delegation-sets.html).
      */
     nameServers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The Route 53 name server that created the SOA record.
+     */
+    primaryNameServer?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the zone. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

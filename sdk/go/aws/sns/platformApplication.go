@@ -14,7 +14,7 @@ import (
 // Provides an SNS platform application resource
 //
 // ## Example Usage
-// ### Apple Push Notification Service (APNS)
+// ### Apple Push Notification Service (APNS) using certificate-based authentication
 //
 // ```go
 // package main
@@ -32,6 +32,35 @@ import (
 //				Platform:           pulumi.String("APNS"),
 //				PlatformCredential: pulumi.String("<APNS PRIVATE KEY>"),
 //				PlatformPrincipal:  pulumi.String("<APNS CERTIFICATE>"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Apple Push Notification Service (APNS) using token-based authentication
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := sns.NewPlatformApplication(ctx, "apnsApplication", &sns.PlatformApplicationArgs{
+//				ApplePlatformBundleId: pulumi.String("<APPLE BUNDLE ID>"),
+//				ApplePlatformTeamId:   pulumi.String("<APPLE TEAM ID>"),
+//				Platform:              pulumi.String("APNS"),
+//				PlatformCredential:    pulumi.String("<APNS SIGNING KEY>"),
+//				PlatformPrincipal:     pulumi.String("<APNS SIGNING KEY ID>"),
 //			})
 //			if err != nil {
 //				return err
@@ -80,6 +109,10 @@ import (
 type PlatformApplication struct {
 	pulumi.CustomResourceState
 
+	// The bundle identifier that's assigned to your iOS app. May only include alphanumeric characters, hyphens (-), and periods (.).
+	ApplePlatformBundleId pulumi.StringPtrOutput `pulumi:"applePlatformBundleId"`
+	// The identifier that's assigned to your Apple developer account team. Must be 10 alphanumeric characters.
+	ApplePlatformTeamId pulumi.StringPtrOutput `pulumi:"applePlatformTeamId"`
 	// The ARN of the SNS platform application
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
@@ -141,6 +174,10 @@ func GetPlatformApplication(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PlatformApplication resources.
 type platformApplicationState struct {
+	// The bundle identifier that's assigned to your iOS app. May only include alphanumeric characters, hyphens (-), and periods (.).
+	ApplePlatformBundleId *string `pulumi:"applePlatformBundleId"`
+	// The identifier that's assigned to your Apple developer account team. Must be 10 alphanumeric characters.
+	ApplePlatformTeamId *string `pulumi:"applePlatformTeamId"`
 	// The ARN of the SNS platform application
 	Arn *string `pulumi:"arn"`
 	// The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
@@ -168,6 +205,10 @@ type platformApplicationState struct {
 }
 
 type PlatformApplicationState struct {
+	// The bundle identifier that's assigned to your iOS app. May only include alphanumeric characters, hyphens (-), and periods (.).
+	ApplePlatformBundleId pulumi.StringPtrInput
+	// The identifier that's assigned to your Apple developer account team. Must be 10 alphanumeric characters.
+	ApplePlatformTeamId pulumi.StringPtrInput
 	// The ARN of the SNS platform application
 	Arn pulumi.StringPtrInput
 	// The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
@@ -199,6 +240,10 @@ func (PlatformApplicationState) ElementType() reflect.Type {
 }
 
 type platformApplicationArgs struct {
+	// The bundle identifier that's assigned to your iOS app. May only include alphanumeric characters, hyphens (-), and periods (.).
+	ApplePlatformBundleId *string `pulumi:"applePlatformBundleId"`
+	// The identifier that's assigned to your Apple developer account team. Must be 10 alphanumeric characters.
+	ApplePlatformTeamId *string `pulumi:"applePlatformTeamId"`
 	// The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
 	EventDeliveryFailureTopicArn *string `pulumi:"eventDeliveryFailureTopicArn"`
 	// The ARN of the SNS Topic triggered when a new platform endpoint is added to your platform application.
@@ -225,6 +270,10 @@ type platformApplicationArgs struct {
 
 // The set of arguments for constructing a PlatformApplication resource.
 type PlatformApplicationArgs struct {
+	// The bundle identifier that's assigned to your iOS app. May only include alphanumeric characters, hyphens (-), and periods (.).
+	ApplePlatformBundleId pulumi.StringPtrInput
+	// The identifier that's assigned to your Apple developer account team. Must be 10 alphanumeric characters.
+	ApplePlatformTeamId pulumi.StringPtrInput
 	// The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
 	EventDeliveryFailureTopicArn pulumi.StringPtrInput
 	// The ARN of the SNS Topic triggered when a new platform endpoint is added to your platform application.
@@ -334,6 +383,16 @@ func (o PlatformApplicationOutput) ToPlatformApplicationOutput() PlatformApplica
 
 func (o PlatformApplicationOutput) ToPlatformApplicationOutputWithContext(ctx context.Context) PlatformApplicationOutput {
 	return o
+}
+
+// The bundle identifier that's assigned to your iOS app. May only include alphanumeric characters, hyphens (-), and periods (.).
+func (o PlatformApplicationOutput) ApplePlatformBundleId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PlatformApplication) pulumi.StringPtrOutput { return v.ApplePlatformBundleId }).(pulumi.StringPtrOutput)
+}
+
+// The identifier that's assigned to your Apple developer account team. Must be 10 alphanumeric characters.
+func (o PlatformApplicationOutput) ApplePlatformTeamId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PlatformApplication) pulumi.StringPtrOutput { return v.ApplePlatformTeamId }).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the SNS platform application

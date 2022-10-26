@@ -40,8 +40,17 @@ namespace Pulumi.Aws.Rum
     [AwsResourceType("aws:rum/appMonitor:AppMonitor")]
     public partial class AppMonitor : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// configuration data for the app monitor. See app_monitor_configuration below.
+        /// </summary>
         [Output("appMonitorConfiguration")]
         public Output<Outputs.AppMonitorAppMonitorConfiguration> AppMonitorConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// The unique ID of the app monitor. Useful for JS templates.
+        /// </summary>
+        [Output("appMonitorId")]
+        public Output<string> AppMonitorId { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) specifying the app monitor.
@@ -62,7 +71,7 @@ namespace Pulumi.Aws.Rum
         public Output<string> CwLogGroup { get; private set; } = null!;
 
         /// <summary>
-        /// configuration data for the app monitor. See app_monitor_configuration below.
+        /// The top-level internet domain name for which your application has administrative authority.
         /// </summary>
         [Output("domain")]
         public Output<string> Domain { get; private set; } = null!;
@@ -131,6 +140,9 @@ namespace Pulumi.Aws.Rum
 
     public sealed class AppMonitorArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// configuration data for the app monitor. See app_monitor_configuration below.
+        /// </summary>
         [Input("appMonitorConfiguration")]
         public Input<Inputs.AppMonitorAppMonitorConfigurationArgs>? AppMonitorConfiguration { get; set; }
 
@@ -141,7 +153,7 @@ namespace Pulumi.Aws.Rum
         public Input<bool>? CwLogEnabled { get; set; }
 
         /// <summary>
-        /// configuration data for the app monitor. See app_monitor_configuration below.
+        /// The top-level internet domain name for which your application has administrative authority.
         /// </summary>
         [Input("domain", required: true)]
         public Input<string> Domain { get; set; } = null!;
@@ -172,8 +184,17 @@ namespace Pulumi.Aws.Rum
 
     public sealed class AppMonitorState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// configuration data for the app monitor. See app_monitor_configuration below.
+        /// </summary>
         [Input("appMonitorConfiguration")]
         public Input<Inputs.AppMonitorAppMonitorConfigurationGetArgs>? AppMonitorConfiguration { get; set; }
+
+        /// <summary>
+        /// The unique ID of the app monitor. Useful for JS templates.
+        /// </summary>
+        [Input("appMonitorId")]
+        public Input<string>? AppMonitorId { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) specifying the app monitor.
@@ -194,7 +215,7 @@ namespace Pulumi.Aws.Rum
         public Input<string>? CwLogGroup { get; set; }
 
         /// <summary>
-        /// configuration data for the app monitor. See app_monitor_configuration below.
+        /// The top-level internet domain name for which your application has administrative authority.
         /// </summary>
         [Input("domain")]
         public Input<string>? Domain { get; set; }

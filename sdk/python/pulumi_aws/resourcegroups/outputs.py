@@ -8,10 +8,71 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
+    'GroupConfiguration',
+    'GroupConfigurationParameter',
     'GroupResourceQuery',
 ]
+
+@pulumi.output_type
+class GroupConfiguration(dict):
+    def __init__(__self__, *,
+                 parameters: Sequence['outputs.GroupConfigurationParameter'],
+                 type: str):
+        """
+        :param Sequence['GroupConfigurationParameterArgs'] parameters: A collection of parameters for this group configuration item. See below for details.
+        :param str type: Specifies the type of group configuration item.
+        """
+        pulumi.set(__self__, "parameters", parameters)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Sequence['outputs.GroupConfigurationParameter']:
+        """
+        A collection of parameters for this group configuration item. See below for details.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Specifies the type of group configuration item.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GroupConfigurationParameter(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: The name of the group configuration parameter.
+        :param Sequence[str] values: The value or values to be used for the specified parameter.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the group configuration parameter.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        The value or values to be used for the specified parameter.
+        """
+        return pulumi.get(self, "values")
+
 
 @pulumi.output_type
 class GroupResourceQuery(dict):

@@ -195,14 +195,14 @@ public final class AssociationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A cron expression when the association will be applied to the target(s).
+     * A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
      * 
      */
     @Import(name="scheduleExpression")
     private @Nullable Output<String> scheduleExpression;
 
     /**
-     * @return A cron expression when the association will be applied to the target(s).
+     * @return A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
      * 
      */
     public Optional<Output<String>> scheduleExpression() {
@@ -516,7 +516,7 @@ public final class AssociationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scheduleExpression A cron expression when the association will be applied to the target(s).
+         * @param scheduleExpression A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
          * 
          * @return builder
          * 
@@ -527,7 +527,7 @@ public final class AssociationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scheduleExpression A cron expression when the association will be applied to the target(s).
+         * @param scheduleExpression A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
          * 
          * @return builder
          * 

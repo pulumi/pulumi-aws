@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ConfigurationSetSuppressionOptions {
     /**
-     * @return A list that contains the reasons that email addresses are automatically added to the suppression list for your account. Valid vales: `BOUNCE`, `COMPLAINT`.
+     * @return A list that contains the reasons that email addresses are automatically added to the suppression list for your account. Valid values: `BOUNCE`, `COMPLAINT`.
      * 
      */
     private @Nullable List<String> suppressedReasons;
 
     private ConfigurationSetSuppressionOptions() {}
     /**
-     * @return A list that contains the reasons that email addresses are automatically added to the suppression list for your account. Valid vales: `BOUNCE`, `COMPLAINT`.
+     * @return A list that contains the reasons that email addresses are automatically added to the suppression list for your account. Valid values: `BOUNCE`, `COMPLAINT`.
      * 
      */
     public List<String> suppressedReasons() {

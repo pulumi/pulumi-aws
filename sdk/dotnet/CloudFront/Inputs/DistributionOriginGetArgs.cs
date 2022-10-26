@@ -41,7 +41,7 @@ namespace Pulumi.Aws.CloudFront.Inputs
         /// <summary>
         /// The CloudFront custom
         /// origin configuration information. If an S3
-        /// origin is required, use `s3_origin_config` instead.
+        /// origin is required, use `origin_access_control_id` or `s3_origin_config` instead.
         /// </summary>
         [Input("customOriginConfig")]
         public Input<Inputs.DistributionOriginCustomOriginConfigGetArgs>? CustomOriginConfig { get; set; }
@@ -54,7 +54,7 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public Input<string> DomainName { get; set; } = null!;
 
         /// <summary>
-        /// The unique identifier of an origin access control for this origin.
+        /// The unique identifier of a [CloudFront origin access control](https://www.terraform.io/docs/providers/aws/r/cloudfront_origin_access_control.html) for this origin.
         /// </summary>
         [Input("originAccessControlId")]
         public Input<string>? OriginAccessControlId { get; set; }

@@ -13,7 +13,8 @@ namespace Pulumi.Aws.AppStream.Inputs
     public sealed class StackAccessEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Type of the interface endpoint. See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
+        /// Type of the interface endpoint.
+        /// See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
         /// </summary>
         [Input("endpointType", required: true)]
         public Input<string> EndpointType { get; set; } = null!;

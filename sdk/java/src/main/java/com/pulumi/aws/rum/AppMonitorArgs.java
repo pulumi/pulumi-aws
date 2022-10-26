@@ -18,9 +18,17 @@ public final class AppMonitorArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final AppMonitorArgs Empty = new AppMonitorArgs();
 
+    /**
+     * configuration data for the app monitor. See app_monitor_configuration below.
+     * 
+     */
     @Import(name="appMonitorConfiguration")
     private @Nullable Output<AppMonitorAppMonitorConfigurationArgs> appMonitorConfiguration;
 
+    /**
+     * @return configuration data for the app monitor. See app_monitor_configuration below.
+     * 
+     */
     public Optional<Output<AppMonitorAppMonitorConfigurationArgs>> appMonitorConfiguration() {
         return Optional.ofNullable(this.appMonitorConfiguration);
     }
@@ -41,14 +49,14 @@ public final class AppMonitorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * configuration data for the app monitor. See app_monitor_configuration below.
+     * The top-level internet domain name for which your application has administrative authority.
      * 
      */
     @Import(name="domain", required=true)
     private Output<String> domain;
 
     /**
-     * @return configuration data for the app monitor. See app_monitor_configuration below.
+     * @return The top-level internet domain name for which your application has administrative authority.
      * 
      */
     public Output<String> domain() {
@@ -113,11 +121,23 @@ public final class AppMonitorArgs extends com.pulumi.resources.ResourceArgs {
             $ = new AppMonitorArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param appMonitorConfiguration configuration data for the app monitor. See app_monitor_configuration below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder appMonitorConfiguration(@Nullable Output<AppMonitorAppMonitorConfigurationArgs> appMonitorConfiguration) {
             $.appMonitorConfiguration = appMonitorConfiguration;
             return this;
         }
 
+        /**
+         * @param appMonitorConfiguration configuration data for the app monitor. See app_monitor_configuration below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder appMonitorConfiguration(AppMonitorAppMonitorConfigurationArgs appMonitorConfiguration) {
             return appMonitorConfiguration(Output.of(appMonitorConfiguration));
         }
@@ -144,7 +164,7 @@ public final class AppMonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domain configuration data for the app monitor. See app_monitor_configuration below.
+         * @param domain The top-level internet domain name for which your application has administrative authority.
          * 
          * @return builder
          * 
@@ -155,7 +175,7 @@ public final class AppMonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domain configuration data for the app monitor. See app_monitor_configuration below.
+         * @param domain The top-level internet domain name for which your application has administrative authority.
          * 
          * @return builder
          * 

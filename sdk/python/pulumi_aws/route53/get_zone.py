@@ -21,7 +21,7 @@ class GetZoneResult:
     """
     A collection of values returned by getZone.
     """
-    def __init__(__self__, arn=None, caller_reference=None, comment=None, id=None, linked_service_description=None, linked_service_principal=None, name=None, name_servers=None, private_zone=None, resource_record_set_count=None, tags=None, vpc_id=None, zone_id=None):
+    def __init__(__self__, arn=None, caller_reference=None, comment=None, id=None, linked_service_description=None, linked_service_principal=None, name=None, name_servers=None, primary_name_server=None, private_zone=None, resource_record_set_count=None, tags=None, vpc_id=None, zone_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -46,6 +46,9 @@ class GetZoneResult:
         if name_servers and not isinstance(name_servers, list):
             raise TypeError("Expected argument 'name_servers' to be a list")
         pulumi.set(__self__, "name_servers", name_servers)
+        if primary_name_server and not isinstance(primary_name_server, str):
+            raise TypeError("Expected argument 'primary_name_server' to be a str")
+        pulumi.set(__self__, "primary_name_server", primary_name_server)
         if private_zone and not isinstance(private_zone, bool):
             raise TypeError("Expected argument 'private_zone' to be a bool")
         pulumi.set(__self__, "private_zone", private_zone)
@@ -124,6 +127,14 @@ class GetZoneResult:
         return pulumi.get(self, "name_servers")
 
     @property
+    @pulumi.getter(name="primaryNameServer")
+    def primary_name_server(self) -> str:
+        """
+        The Route 53 name server that created the SOA record.
+        """
+        return pulumi.get(self, "primary_name_server")
+
+    @property
     @pulumi.getter(name="privateZone")
     def private_zone(self) -> Optional[bool]:
         return pulumi.get(self, "private_zone")
@@ -166,6 +177,7 @@ class AwaitableGetZoneResult(GetZoneResult):
             linked_service_principal=self.linked_service_principal,
             name=self.name,
             name_servers=self.name_servers,
+            primary_name_server=self.primary_name_server,
             private_zone=self.private_zone,
             resource_record_set_count=self.resource_record_set_count,
             tags=self.tags,
@@ -230,6 +242,7 @@ def get_zone(name: Optional[str] = None,
         linked_service_principal=__ret__.linked_service_principal,
         name=__ret__.name,
         name_servers=__ret__.name_servers,
+        primary_name_server=__ret__.primary_name_server,
         private_zone=__ret__.private_zone,
         resource_record_set_count=__ret__.resource_record_set_count,
         tags=__ret__.tags,

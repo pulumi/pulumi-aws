@@ -29,16 +29,20 @@ class StackArgs:
                  user_settings: Optional[pulumi.Input[Sequence[pulumi.Input['StackUserSettingArgs']]]] = None):
         """
         The set of arguments for constructing a Stack resource.
-        :param pulumi.Input[Sequence[pulumi.Input['StackAccessEndpointArgs']]] access_endpoints: Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See below.
+        :param pulumi.Input[Sequence[pulumi.Input['StackAccessEndpointArgs']]] access_endpoints: Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
+               See `access_endpoints` below.
         :param pulumi.Input['StackApplicationSettingsArgs'] application_settings: Settings for application settings persistence.
+               See `application_settings` below.
         :param pulumi.Input[str] description: Description for the AppStream stack.
         :param pulumi.Input[str] display_name: Stack name to display.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] embed_host_domains: Domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.
         :param pulumi.Input[str] feedback_url: URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed. .
         :param pulumi.Input[str] name: Unique name for the AppStream stack.
         :param pulumi.Input[str] redirect_url: URL that users are redirected to after their streaming session ends.
-        :param pulumi.Input[Sequence[pulumi.Input['StackStorageConnectorArgs']]] storage_connectors: Configuration block for the storage connectors to enable. See below.
-        :param pulumi.Input[Sequence[pulumi.Input['StackUserSettingArgs']]] user_settings: Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled. See below.
+        :param pulumi.Input[Sequence[pulumi.Input['StackStorageConnectorArgs']]] storage_connectors: Configuration block for the storage connectors to enable.
+               See `storage_connectors` below.
+        :param pulumi.Input[Sequence[pulumi.Input['StackUserSettingArgs']]] user_settings: Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+               See `user_settings` below.
         """
         if access_endpoints is not None:
             pulumi.set(__self__, "access_endpoints", access_endpoints)
@@ -67,7 +71,8 @@ class StackArgs:
     @pulumi.getter(name="accessEndpoints")
     def access_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StackAccessEndpointArgs']]]]:
         """
-        Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See below.
+        Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
+        See `access_endpoints` below.
         """
         return pulumi.get(self, "access_endpoints")
 
@@ -80,6 +85,7 @@ class StackArgs:
     def application_settings(self) -> Optional[pulumi.Input['StackApplicationSettingsArgs']]:
         """
         Settings for application settings persistence.
+        See `application_settings` below.
         """
         return pulumi.get(self, "application_settings")
 
@@ -163,7 +169,8 @@ class StackArgs:
     @pulumi.getter(name="storageConnectors")
     def storage_connectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StackStorageConnectorArgs']]]]:
         """
-        Configuration block for the storage connectors to enable. See below.
+        Configuration block for the storage connectors to enable.
+        See `storage_connectors` below.
         """
         return pulumi.get(self, "storage_connectors")
 
@@ -184,7 +191,8 @@ class StackArgs:
     @pulumi.getter(name="userSettings")
     def user_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StackUserSettingArgs']]]]:
         """
-        Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled. See below.
+        Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+        See `user_settings` below.
         """
         return pulumi.get(self, "user_settings")
 
@@ -212,8 +220,10 @@ class _StackState:
                  user_settings: Optional[pulumi.Input[Sequence[pulumi.Input['StackUserSettingArgs']]]] = None):
         """
         Input properties used for looking up and filtering Stack resources.
-        :param pulumi.Input[Sequence[pulumi.Input['StackAccessEndpointArgs']]] access_endpoints: Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See below.
+        :param pulumi.Input[Sequence[pulumi.Input['StackAccessEndpointArgs']]] access_endpoints: Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
+               See `access_endpoints` below.
         :param pulumi.Input['StackApplicationSettingsArgs'] application_settings: Settings for application settings persistence.
+               See `application_settings` below.
         :param pulumi.Input[str] arn: ARN of the appstream stack.
         :param pulumi.Input[str] created_time: Date and time, in UTC and extended RFC 3339 format, when the stack was created.
         :param pulumi.Input[str] description: Description for the AppStream stack.
@@ -222,8 +232,10 @@ class _StackState:
         :param pulumi.Input[str] feedback_url: URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed. .
         :param pulumi.Input[str] name: Unique name for the AppStream stack.
         :param pulumi.Input[str] redirect_url: URL that users are redirected to after their streaming session ends.
-        :param pulumi.Input[Sequence[pulumi.Input['StackStorageConnectorArgs']]] storage_connectors: Configuration block for the storage connectors to enable. See below.
-        :param pulumi.Input[Sequence[pulumi.Input['StackUserSettingArgs']]] user_settings: Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled. See below.
+        :param pulumi.Input[Sequence[pulumi.Input['StackStorageConnectorArgs']]] storage_connectors: Configuration block for the storage connectors to enable.
+               See `storage_connectors` below.
+        :param pulumi.Input[Sequence[pulumi.Input['StackUserSettingArgs']]] user_settings: Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+               See `user_settings` below.
         """
         if access_endpoints is not None:
             pulumi.set(__self__, "access_endpoints", access_endpoints)
@@ -258,7 +270,8 @@ class _StackState:
     @pulumi.getter(name="accessEndpoints")
     def access_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StackAccessEndpointArgs']]]]:
         """
-        Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See below.
+        Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
+        See `access_endpoints` below.
         """
         return pulumi.get(self, "access_endpoints")
 
@@ -271,6 +284,7 @@ class _StackState:
     def application_settings(self) -> Optional[pulumi.Input['StackApplicationSettingsArgs']]:
         """
         Settings for application settings persistence.
+        See `application_settings` below.
         """
         return pulumi.get(self, "application_settings")
 
@@ -378,7 +392,8 @@ class _StackState:
     @pulumi.getter(name="storageConnectors")
     def storage_connectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StackStorageConnectorArgs']]]]:
         """
-        Configuration block for the storage connectors to enable. See below.
+        Configuration block for the storage connectors to enable.
+        See `storage_connectors` below.
         """
         return pulumi.get(self, "storage_connectors")
 
@@ -408,7 +423,8 @@ class _StackState:
     @pulumi.getter(name="userSettings")
     def user_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StackUserSettingArgs']]]]:
         """
-        Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled. See below.
+        Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+        See `user_settings` below.
         """
         return pulumi.get(self, "user_settings")
 
@@ -488,16 +504,20 @@ class Stack(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackAccessEndpointArgs']]]] access_endpoints: Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackAccessEndpointArgs']]]] access_endpoints: Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
+               See `access_endpoints` below.
         :param pulumi.Input[pulumi.InputType['StackApplicationSettingsArgs']] application_settings: Settings for application settings persistence.
+               See `application_settings` below.
         :param pulumi.Input[str] description: Description for the AppStream stack.
         :param pulumi.Input[str] display_name: Stack name to display.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] embed_host_domains: Domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.
         :param pulumi.Input[str] feedback_url: URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed. .
         :param pulumi.Input[str] name: Unique name for the AppStream stack.
         :param pulumi.Input[str] redirect_url: URL that users are redirected to after their streaming session ends.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackStorageConnectorArgs']]]] storage_connectors: Configuration block for the storage connectors to enable. See below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackUserSettingArgs']]]] user_settings: Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackStorageConnectorArgs']]]] storage_connectors: Configuration block for the storage connectors to enable.
+               See `storage_connectors` below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackUserSettingArgs']]]] user_settings: Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+               See `user_settings` below.
         """
         ...
     @overload
@@ -637,8 +657,10 @@ class Stack(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackAccessEndpointArgs']]]] access_endpoints: Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackAccessEndpointArgs']]]] access_endpoints: Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
+               See `access_endpoints` below.
         :param pulumi.Input[pulumi.InputType['StackApplicationSettingsArgs']] application_settings: Settings for application settings persistence.
+               See `application_settings` below.
         :param pulumi.Input[str] arn: ARN of the appstream stack.
         :param pulumi.Input[str] created_time: Date and time, in UTC and extended RFC 3339 format, when the stack was created.
         :param pulumi.Input[str] description: Description for the AppStream stack.
@@ -647,8 +669,10 @@ class Stack(pulumi.CustomResource):
         :param pulumi.Input[str] feedback_url: URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed. .
         :param pulumi.Input[str] name: Unique name for the AppStream stack.
         :param pulumi.Input[str] redirect_url: URL that users are redirected to after their streaming session ends.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackStorageConnectorArgs']]]] storage_connectors: Configuration block for the storage connectors to enable. See below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackUserSettingArgs']]]] user_settings: Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackStorageConnectorArgs']]]] storage_connectors: Configuration block for the storage connectors to enable.
+               See `storage_connectors` below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackUserSettingArgs']]]] user_settings: Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+               See `user_settings` below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -674,7 +698,8 @@ class Stack(pulumi.CustomResource):
     @pulumi.getter(name="accessEndpoints")
     def access_endpoints(self) -> pulumi.Output[Sequence['outputs.StackAccessEndpoint']]:
         """
-        Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See below.
+        Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
+        See `access_endpoints` below.
         """
         return pulumi.get(self, "access_endpoints")
 
@@ -683,6 +708,7 @@ class Stack(pulumi.CustomResource):
     def application_settings(self) -> pulumi.Output['outputs.StackApplicationSettings']:
         """
         Settings for application settings persistence.
+        See `application_settings` below.
         """
         return pulumi.get(self, "application_settings")
 
@@ -754,7 +780,8 @@ class Stack(pulumi.CustomResource):
     @pulumi.getter(name="storageConnectors")
     def storage_connectors(self) -> pulumi.Output[Sequence['outputs.StackStorageConnector']]:
         """
-        Configuration block for the storage connectors to enable. See below.
+        Configuration block for the storage connectors to enable.
+        See `storage_connectors` below.
         """
         return pulumi.get(self, "storage_connectors")
 
@@ -772,7 +799,8 @@ class Stack(pulumi.CustomResource):
     @pulumi.getter(name="userSettings")
     def user_settings(self) -> pulumi.Output[Sequence['outputs.StackUserSetting']]:
         """
-        Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled. See below.
+        Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+        See `user_settings` below.
         """
         return pulumi.get(self, "user_settings")
 

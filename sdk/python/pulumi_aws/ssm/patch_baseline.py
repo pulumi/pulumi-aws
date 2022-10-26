@@ -37,7 +37,7 @@ class PatchBaselineArgs:
         :param pulumi.Input[str] description: The description of the patch baseline.
         :param pulumi.Input[Sequence[pulumi.Input['PatchBaselineGlobalFilterArgs']]] global_filters: A set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`.
         :param pulumi.Input[str] name: The name specified to identify the patch source.
-        :param pulumi.Input[str] operating_system: Defines the operating system the patch baseline applies to. Supported operating systems include `WINDOWS`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `SUSE`, `UBUNTU`, `CENTOS`, and `REDHAT_ENTERPRISE_LINUX`. The Default value is `WINDOWS`.
+        :param pulumi.Input[str] operating_system: Defines the operating system the patch baseline applies to. Supported operating systems are `AMAZON_LINUX`, `AMAZON_LINUX_2`, `UBUNTU`, `REDHAT_ENTERPRISE_LINUX`, `SUSE`, `CENTOS`, `ORACLE_LINUX`, `DEBIAN`, `MACOS`, `RASPBIAN` and `ROCKY_LINUX`. The Default value is `WINDOWS`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] rejected_patches: A list of rejected patches.
         :param pulumi.Input[str] rejected_patches_action: The action for Patch Manager to take on patches included in the `rejected_patches` list. Allow values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
         :param pulumi.Input[Sequence[pulumi.Input['PatchBaselineSourceArgs']]] sources: Configuration block(s) with alternate sources for patches. Applies to Linux instances only. Documented below.
@@ -156,7 +156,7 @@ class PatchBaselineArgs:
     @pulumi.getter(name="operatingSystem")
     def operating_system(self) -> Optional[pulumi.Input[str]]:
         """
-        Defines the operating system the patch baseline applies to. Supported operating systems include `WINDOWS`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `SUSE`, `UBUNTU`, `CENTOS`, and `REDHAT_ENTERPRISE_LINUX`. The Default value is `WINDOWS`.
+        Defines the operating system the patch baseline applies to. Supported operating systems are `AMAZON_LINUX`, `AMAZON_LINUX_2`, `UBUNTU`, `REDHAT_ENTERPRISE_LINUX`, `SUSE`, `CENTOS`, `ORACLE_LINUX`, `DEBIAN`, `MACOS`, `RASPBIAN` and `ROCKY_LINUX`. The Default value is `WINDOWS`.
         """
         return pulumi.get(self, "operating_system")
 
@@ -240,7 +240,7 @@ class _PatchBaselineState:
         :param pulumi.Input[str] description: The description of the patch baseline.
         :param pulumi.Input[Sequence[pulumi.Input['PatchBaselineGlobalFilterArgs']]] global_filters: A set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`.
         :param pulumi.Input[str] name: The name specified to identify the patch source.
-        :param pulumi.Input[str] operating_system: Defines the operating system the patch baseline applies to. Supported operating systems include `WINDOWS`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `SUSE`, `UBUNTU`, `CENTOS`, and `REDHAT_ENTERPRISE_LINUX`. The Default value is `WINDOWS`.
+        :param pulumi.Input[str] operating_system: Defines the operating system the patch baseline applies to. Supported operating systems are `AMAZON_LINUX`, `AMAZON_LINUX_2`, `UBUNTU`, `REDHAT_ENTERPRISE_LINUX`, `SUSE`, `CENTOS`, `ORACLE_LINUX`, `DEBIAN`, `MACOS`, `RASPBIAN` and `ROCKY_LINUX`. The Default value is `WINDOWS`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] rejected_patches: A list of rejected patches.
         :param pulumi.Input[str] rejected_patches_action: The action for Patch Manager to take on patches included in the `rejected_patches` list. Allow values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
         :param pulumi.Input[Sequence[pulumi.Input['PatchBaselineSourceArgs']]] sources: Configuration block(s) with alternate sources for patches. Applies to Linux instances only. Documented below.
@@ -376,7 +376,7 @@ class _PatchBaselineState:
     @pulumi.getter(name="operatingSystem")
     def operating_system(self) -> Optional[pulumi.Input[str]]:
         """
-        Defines the operating system the patch baseline applies to. Supported operating systems include `WINDOWS`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `SUSE`, `UBUNTU`, `CENTOS`, and `REDHAT_ENTERPRISE_LINUX`. The Default value is `WINDOWS`.
+        Defines the operating system the patch baseline applies to. Supported operating systems are `AMAZON_LINUX`, `AMAZON_LINUX_2`, `UBUNTU`, `REDHAT_ENTERPRISE_LINUX`, `SUSE`, `CENTOS`, `ORACLE_LINUX`, `DEBIAN`, `MACOS`, `RASPBIAN` and `ROCKY_LINUX`. The Default value is `WINDOWS`.
         """
         return pulumi.get(self, "operating_system")
 
@@ -642,7 +642,7 @@ class PatchBaseline(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the patch baseline.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PatchBaselineGlobalFilterArgs']]]] global_filters: A set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`.
         :param pulumi.Input[str] name: The name specified to identify the patch source.
-        :param pulumi.Input[str] operating_system: Defines the operating system the patch baseline applies to. Supported operating systems include `WINDOWS`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `SUSE`, `UBUNTU`, `CENTOS`, and `REDHAT_ENTERPRISE_LINUX`. The Default value is `WINDOWS`.
+        :param pulumi.Input[str] operating_system: Defines the operating system the patch baseline applies to. Supported operating systems are `AMAZON_LINUX`, `AMAZON_LINUX_2`, `UBUNTU`, `REDHAT_ENTERPRISE_LINUX`, `SUSE`, `CENTOS`, `ORACLE_LINUX`, `DEBIAN`, `MACOS`, `RASPBIAN` and `ROCKY_LINUX`. The Default value is `WINDOWS`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] rejected_patches: A list of rejected patches.
         :param pulumi.Input[str] rejected_patches_action: The action for Patch Manager to take on patches included in the `rejected_patches` list. Allow values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PatchBaselineSourceArgs']]]] sources: Configuration block(s) with alternate sources for patches. Applies to Linux instances only. Documented below.
@@ -913,7 +913,7 @@ class PatchBaseline(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the patch baseline.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PatchBaselineGlobalFilterArgs']]]] global_filters: A set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`.
         :param pulumi.Input[str] name: The name specified to identify the patch source.
-        :param pulumi.Input[str] operating_system: Defines the operating system the patch baseline applies to. Supported operating systems include `WINDOWS`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `SUSE`, `UBUNTU`, `CENTOS`, and `REDHAT_ENTERPRISE_LINUX`. The Default value is `WINDOWS`.
+        :param pulumi.Input[str] operating_system: Defines the operating system the patch baseline applies to. Supported operating systems are `AMAZON_LINUX`, `AMAZON_LINUX_2`, `UBUNTU`, `REDHAT_ENTERPRISE_LINUX`, `SUSE`, `CENTOS`, `ORACLE_LINUX`, `DEBIAN`, `MACOS`, `RASPBIAN` and `ROCKY_LINUX`. The Default value is `WINDOWS`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] rejected_patches: A list of rejected patches.
         :param pulumi.Input[str] rejected_patches_action: The action for Patch Manager to take on patches included in the `rejected_patches` list. Allow values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PatchBaselineSourceArgs']]]] sources: Configuration block(s) with alternate sources for patches. Applies to Linux instances only. Documented below.
@@ -1008,7 +1008,7 @@ class PatchBaseline(pulumi.CustomResource):
     @pulumi.getter(name="operatingSystem")
     def operating_system(self) -> pulumi.Output[Optional[str]]:
         """
-        Defines the operating system the patch baseline applies to. Supported operating systems include `WINDOWS`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `SUSE`, `UBUNTU`, `CENTOS`, and `REDHAT_ENTERPRISE_LINUX`. The Default value is `WINDOWS`.
+        Defines the operating system the patch baseline applies to. Supported operating systems are `AMAZON_LINUX`, `AMAZON_LINUX_2`, `UBUNTU`, `REDHAT_ENTERPRISE_LINUX`, `SUSE`, `CENTOS`, `ORACLE_LINUX`, `DEBIAN`, `MACOS`, `RASPBIAN` and `ROCKY_LINUX`. The Default value is `WINDOWS`.
         """
         return pulumi.get(self, "operating_system")
 

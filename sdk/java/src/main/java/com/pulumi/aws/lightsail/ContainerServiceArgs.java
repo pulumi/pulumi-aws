@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.lightsail;
 
+import com.pulumi.aws.lightsail.inputs.ContainerServicePrivateRegistryAccessArgs;
 import com.pulumi.aws.lightsail.inputs.ContainerServicePublicDomainNamesArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -71,6 +72,21 @@ public final class ContainerServiceArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See Private Registry Access below for more details.
+     * 
+     */
+    @Import(name="privateRegistryAccess")
+    private @Nullable Output<ContainerServicePrivateRegistryAccessArgs> privateRegistryAccess;
+
+    /**
+     * @return An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See Private Registry Access below for more details.
+     * 
+     */
+    public Optional<Output<ContainerServicePrivateRegistryAccessArgs>> privateRegistryAccess() {
+        return Optional.ofNullable(this.privateRegistryAccess);
+    }
+
+    /**
      * The public domain names to use with the container service, such as example.com
      * and www.example.com. You can specify up to four public domain names for a container service. The domain names that you
      * specify are used when you create a deployment with a container configured as the public endpoint of your container
@@ -123,6 +139,7 @@ public final class ContainerServiceArgs extends com.pulumi.resources.ResourceArg
         this.isDisabled = $.isDisabled;
         this.name = $.name;
         this.power = $.power;
+        this.privateRegistryAccess = $.privateRegistryAccess;
         this.publicDomainNames = $.publicDomainNames;
         this.scale = $.scale;
         this.tags = $.tags;
@@ -213,6 +230,27 @@ public final class ContainerServiceArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder power(String power) {
             return power(Output.of(power));
+        }
+
+        /**
+         * @param privateRegistryAccess An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See Private Registry Access below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateRegistryAccess(@Nullable Output<ContainerServicePrivateRegistryAccessArgs> privateRegistryAccess) {
+            $.privateRegistryAccess = privateRegistryAccess;
+            return this;
+        }
+
+        /**
+         * @param privateRegistryAccess An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See Private Registry Access below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateRegistryAccess(ContainerServicePrivateRegistryAccessArgs privateRegistryAccess) {
+            return privateRegistryAccess(Output.of(privateRegistryAccess));
         }
 
         /**

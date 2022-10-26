@@ -6054,6 +6054,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "lightsail/certificate",
+  "fqn": "pulumi_aws.lightsail",
+  "classes": {
+   "aws:lightsail/certificate:Certificate": "Certificate"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "lightsail/containerService",
   "fqn": "pulumi_aws.lightsail",
   "classes": {
@@ -6086,6 +6094,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "lightsail/domainEntry",
+  "fqn": "pulumi_aws.lightsail",
+  "classes": {
+   "aws:lightsail/domainEntry:DomainEntry": "DomainEntry"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "lightsail/instance",
   "fqn": "pulumi_aws.lightsail",
   "classes": {
@@ -6106,6 +6122,22 @@ _utilities.register(
   "fqn": "pulumi_aws.lightsail",
   "classes": {
    "aws:lightsail/keyPair:KeyPair": "KeyPair"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "lightsail/lb",
+  "fqn": "pulumi_aws.lightsail",
+  "classes": {
+   "aws:lightsail/lb:Lb": "Lb"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "lightsail/lbAttachment",
+  "fqn": "pulumi_aws.lightsail",
+  "classes": {
+   "aws:lightsail/lbAttachment:LbAttachment": "LbAttachment"
   }
  },
  {
@@ -8546,6 +8578,14 @@ _utilities.register(
   "fqn": "pulumi_aws.sesv2",
   "classes": {
    "aws:sesv2/configurationSet:ConfigurationSet": "ConfigurationSet"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "sesv2/dedicatedIpPool",
+  "fqn": "pulumi_aws.sesv2",
+  "classes": {
+   "aws:sesv2/dedicatedIpPool:DedicatedIpPool": "DedicatedIpPool"
   }
  },
  {

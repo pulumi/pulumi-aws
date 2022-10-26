@@ -37,7 +37,7 @@ public final class DistributionOrigin {
     /**
      * @return The CloudFront custom
      * origin configuration information. If an S3
-     * origin is required, use `s3_origin_config` instead.
+     * origin is required, use `origin_access_control_id` or `s3_origin_config` instead.
      * 
      */
     private @Nullable DistributionOriginCustomOriginConfig customOriginConfig;
@@ -48,7 +48,7 @@ public final class DistributionOrigin {
      */
     private String domainName;
     /**
-     * @return The unique identifier of an origin access control for this origin.
+     * @return The unique identifier of a [CloudFront origin access control](https://www.terraform.io/docs/providers/aws/r/cloudfront_origin_access_control.html) for this origin.
      * 
      */
     private @Nullable String originAccessControlId;
@@ -105,7 +105,7 @@ public final class DistributionOrigin {
     /**
      * @return The CloudFront custom
      * origin configuration information. If an S3
-     * origin is required, use `s3_origin_config` instead.
+     * origin is required, use `origin_access_control_id` or `s3_origin_config` instead.
      * 
      */
     public Optional<DistributionOriginCustomOriginConfig> customOriginConfig() {
@@ -120,7 +120,7 @@ public final class DistributionOrigin {
         return this.domainName;
     }
     /**
-     * @return The unique identifier of an origin access control for this origin.
+     * @return The unique identifier of a [CloudFront origin access control](https://www.terraform.io/docs/providers/aws/r/cloudfront_origin_access_control.html) for this origin.
      * 
      */
     public Optional<String> originAccessControlId() {

@@ -66,7 +66,7 @@ export interface GetPatchBaselineArgs {
      */
     namePrefix?: string;
     /**
-     * Specified OS for the baseline.
+     * Specified OS for the baseline. Valid values: `AMAZON_LINUX`, `AMAZON_LINUX_2`, `UBUNTU`, `REDHAT_ENTERPRISE_LINUX`, `SUSE`, `CENTOS`, `ORACLE_LINUX`, `DEBIAN`, `MACOS`, `RASPBIAN` and `ROCKY_LINUX`.
      */
     operatingSystem?: string;
     /**
@@ -146,7 +146,7 @@ export interface GetPatchBaselineOutputArgs {
      */
     namePrefix?: pulumi.Input<string>;
     /**
-     * Specified OS for the baseline.
+     * Specified OS for the baseline. Valid values: `AMAZON_LINUX`, `AMAZON_LINUX_2`, `UBUNTU`, `REDHAT_ENTERPRISE_LINUX`, `SUSE`, `CENTOS`, `ORACLE_LINUX`, `DEBIAN`, `MACOS`, `RASPBIAN` and `ROCKY_LINUX`.
      */
     operatingSystem?: pulumi.Input<string>;
     /**

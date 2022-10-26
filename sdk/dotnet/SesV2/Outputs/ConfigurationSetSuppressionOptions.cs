@@ -14,7 +14,7 @@ namespace Pulumi.Aws.SesV2.Outputs
     public sealed class ConfigurationSetSuppressionOptions
     {
         /// <summary>
-        /// A list that contains the reasons that email addresses are automatically added to the suppression list for your account. Valid vales: `BOUNCE`, `COMPLAINT`.
+        /// A list that contains the reasons that email addresses are automatically added to the suppression list for your account. Valid values: `BOUNCE`, `COMPLAINT`.
         /// </summary>
         public readonly ImmutableArray<string> SuppressedReasons;
 

@@ -234,6 +234,10 @@ namespace Pulumi.Aws.Route53
         /// List of DNS name servers for the Hosted Zone.
         /// </summary>
         public readonly ImmutableArray<string> NameServers;
+        /// <summary>
+        /// The Route 53 name server that created the SOA record.
+        /// </summary>
+        public readonly string PrimaryNameServer;
         public readonly bool? PrivateZone;
         /// <summary>
         /// The number of Record Set in the Hosted Zone.
@@ -261,6 +265,8 @@ namespace Pulumi.Aws.Route53
 
             ImmutableArray<string> nameServers,
 
+            string primaryNameServer,
+
             bool? privateZone,
 
             int resourceRecordSetCount,
@@ -279,6 +285,7 @@ namespace Pulumi.Aws.Route53
             LinkedServicePrincipal = linkedServicePrincipal;
             Name = name;
             NameServers = nameServers;
+            PrimaryNameServer = primaryNameServer;
             PrivateZone = privateZone;
             ResourceRecordSetCount = resourceRecordSetCount;
             Tags = tags;

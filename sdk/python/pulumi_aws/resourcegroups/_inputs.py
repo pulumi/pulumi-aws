@@ -10,8 +10,84 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'GroupConfigurationArgs',
+    'GroupConfigurationParameterArgs',
     'GroupResourceQueryArgs',
 ]
+
+@pulumi.input_type
+class GroupConfigurationArgs:
+    def __init__(__self__, *,
+                 parameters: pulumi.Input[Sequence[pulumi.Input['GroupConfigurationParameterArgs']]],
+                 type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['GroupConfigurationParameterArgs']]] parameters: A collection of parameters for this group configuration item. See below for details.
+        :param pulumi.Input[str] type: Specifies the type of group configuration item.
+        """
+        pulumi.set(__self__, "parameters", parameters)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> pulumi.Input[Sequence[pulumi.Input['GroupConfigurationParameterArgs']]]:
+        """
+        A collection of parameters for this group configuration item. See below for details.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: pulumi.Input[Sequence[pulumi.Input['GroupConfigurationParameterArgs']]]):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Specifies the type of group configuration item.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class GroupConfigurationParameterArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] name: The name of the group configuration parameter.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: The value or values to be used for the specified parameter.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the group configuration parameter.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The value or values to be used for the specified parameter.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "values", value)
+
 
 @pulumi.input_type
 class GroupResourceQueryArgs:

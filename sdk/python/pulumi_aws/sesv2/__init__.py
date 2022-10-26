@@ -6,5 +6,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .configuration_set import *
+from .dedicated_ip_pool import *
+from .get_dedicated_ip_pool import *
 from ._inputs import *
 from . import outputs

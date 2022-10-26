@@ -113,6 +113,21 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The Route 53 name server that created the SOA record.
+     * 
+     */
+    @Import(name="primaryNameServer")
+    private @Nullable Output<String> primaryNameServer;
+
+    /**
+     * @return The Route 53 name server that created the SOA record.
+     * 
+     */
+    public Optional<Output<String>> primaryNameServer() {
+        return Optional.ofNullable(this.primaryNameServer);
+    }
+
+    /**
      * A mapping of tags to assign to the zone. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -181,6 +196,7 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         this.forceDestroy = $.forceDestroy;
         this.name = $.name;
         this.nameServers = $.nameServers;
+        this.primaryNameServer = $.primaryNameServer;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
         this.vpcs = $.vpcs;
@@ -342,6 +358,27 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder nameServers(String... nameServers) {
             return nameServers(List.of(nameServers));
+        }
+
+        /**
+         * @param primaryNameServer The Route 53 name server that created the SOA record.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryNameServer(@Nullable Output<String> primaryNameServer) {
+            $.primaryNameServer = primaryNameServer;
+            return this;
+        }
+
+        /**
+         * @param primaryNameServer The Route 53 name server that created the SOA record.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryNameServer(String primaryNameServer) {
+            return primaryNameServer(Output.of(primaryNameServer));
         }
 
         /**

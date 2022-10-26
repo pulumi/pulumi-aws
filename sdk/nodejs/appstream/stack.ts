@@ -89,11 +89,13 @@ export class Stack extends pulumi.CustomResource {
     }
 
     /**
-     * Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See below.
+     * Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
+     * See `accessEndpoints` below.
      */
     public readonly accessEndpoints!: pulumi.Output<outputs.appstream.StackAccessEndpoint[]>;
     /**
      * Settings for application settings persistence.
+     * See `applicationSettings` below.
      */
     public readonly applicationSettings!: pulumi.Output<outputs.appstream.StackApplicationSettings>;
     /**
@@ -129,13 +131,15 @@ export class Stack extends pulumi.CustomResource {
      */
     public readonly redirectUrl!: pulumi.Output<string>;
     /**
-     * Configuration block for the storage connectors to enable. See below.
+     * Configuration block for the storage connectors to enable.
+     * See `storageConnectors` below.
      */
     public readonly storageConnectors!: pulumi.Output<outputs.appstream.StackStorageConnector[]>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled. See below.
+     * Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+     * See `userSettings` below.
      */
     public readonly userSettings!: pulumi.Output<outputs.appstream.StackUserSetting[]>;
 
@@ -193,11 +197,13 @@ export class Stack extends pulumi.CustomResource {
  */
 export interface StackState {
     /**
-     * Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See below.
+     * Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
+     * See `accessEndpoints` below.
      */
     accessEndpoints?: pulumi.Input<pulumi.Input<inputs.appstream.StackAccessEndpoint>[]>;
     /**
      * Settings for application settings persistence.
+     * See `applicationSettings` below.
      */
     applicationSettings?: pulumi.Input<inputs.appstream.StackApplicationSettings>;
     /**
@@ -233,13 +239,15 @@ export interface StackState {
      */
     redirectUrl?: pulumi.Input<string>;
     /**
-     * Configuration block for the storage connectors to enable. See below.
+     * Configuration block for the storage connectors to enable.
+     * See `storageConnectors` below.
      */
     storageConnectors?: pulumi.Input<pulumi.Input<inputs.appstream.StackStorageConnector>[]>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled. See below.
+     * Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+     * See `userSettings` below.
      */
     userSettings?: pulumi.Input<pulumi.Input<inputs.appstream.StackUserSetting>[]>;
 }
@@ -249,11 +257,13 @@ export interface StackState {
  */
 export interface StackArgs {
     /**
-     * Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See below.
+     * Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
+     * See `accessEndpoints` below.
      */
     accessEndpoints?: pulumi.Input<pulumi.Input<inputs.appstream.StackAccessEndpoint>[]>;
     /**
      * Settings for application settings persistence.
+     * See `applicationSettings` below.
      */
     applicationSettings?: pulumi.Input<inputs.appstream.StackApplicationSettings>;
     /**
@@ -281,12 +291,14 @@ export interface StackArgs {
      */
     redirectUrl?: pulumi.Input<string>;
     /**
-     * Configuration block for the storage connectors to enable. See below.
+     * Configuration block for the storage connectors to enable.
+     * See `storageConnectors` below.
      */
     storageConnectors?: pulumi.Input<pulumi.Input<inputs.appstream.StackStorageConnector>[]>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled. See below.
+     * Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+     * See `userSettings` below.
      */
     userSettings?: pulumi.Input<pulumi.Input<inputs.appstream.StackUserSetting>[]>;
 }

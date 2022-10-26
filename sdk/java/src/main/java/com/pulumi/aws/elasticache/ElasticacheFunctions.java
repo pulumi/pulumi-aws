@@ -8,10 +8,13 @@ import com.pulumi.aws.elasticache.inputs.GetClusterArgs;
 import com.pulumi.aws.elasticache.inputs.GetClusterPlainArgs;
 import com.pulumi.aws.elasticache.inputs.GetReplicationGroupArgs;
 import com.pulumi.aws.elasticache.inputs.GetReplicationGroupPlainArgs;
+import com.pulumi.aws.elasticache.inputs.GetSubnetGroupArgs;
+import com.pulumi.aws.elasticache.inputs.GetSubnetGroupPlainArgs;
 import com.pulumi.aws.elasticache.inputs.GetUserArgs;
 import com.pulumi.aws.elasticache.inputs.GetUserPlainArgs;
 import com.pulumi.aws.elasticache.outputs.GetClusterResult;
 import com.pulumi.aws.elasticache.outputs.GetReplicationGroupResult;
+import com.pulumi.aws.elasticache.outputs.GetSubnetGroupResult;
 import com.pulumi.aws.elasticache.outputs.GetUserResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
@@ -315,6 +318,154 @@ public final class ElasticacheFunctions {
      */
     public static CompletableFuture<GetReplicationGroupResult> getReplicationGroupPlain(GetReplicationGroupPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:elasticache/getReplicationGroup:getReplicationGroup", TypeShape.of(GetReplicationGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides information about a ElastiCache Subnet Group.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elasticache.ElasticacheFunctions;
+     * import com.pulumi.aws.elasticache.inputs.GetSubnetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ElasticacheFunctions.getSubnetGroup(GetSubnetGroupArgs.builder()
+     *             .name(&#34;my-subnet-group&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetSubnetGroupResult> getSubnetGroup(GetSubnetGroupArgs args) {
+        return getSubnetGroup(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides information about a ElastiCache Subnet Group.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elasticache.ElasticacheFunctions;
+     * import com.pulumi.aws.elasticache.inputs.GetSubnetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ElasticacheFunctions.getSubnetGroup(GetSubnetGroupArgs.builder()
+     *             .name(&#34;my-subnet-group&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetSubnetGroupResult> getSubnetGroupPlain(GetSubnetGroupPlainArgs args) {
+        return getSubnetGroupPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides information about a ElastiCache Subnet Group.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elasticache.ElasticacheFunctions;
+     * import com.pulumi.aws.elasticache.inputs.GetSubnetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ElasticacheFunctions.getSubnetGroup(GetSubnetGroupArgs.builder()
+     *             .name(&#34;my-subnet-group&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetSubnetGroupResult> getSubnetGroup(GetSubnetGroupArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:elasticache/getSubnetGroup:getSubnetGroup", TypeShape.of(GetSubnetGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides information about a ElastiCache Subnet Group.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elasticache.ElasticacheFunctions;
+     * import com.pulumi.aws.elasticache.inputs.GetSubnetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ElasticacheFunctions.getSubnetGroup(GetSubnetGroupArgs.builder()
+     *             .name(&#34;my-subnet-group&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetSubnetGroupResult> getSubnetGroupPlain(GetSubnetGroupPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:elasticache/getSubnetGroup:getSubnetGroup", TypeShape.of(GetSubnetGroupResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get information about an ElastiCache User.

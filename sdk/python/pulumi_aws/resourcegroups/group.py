@@ -16,36 +16,41 @@ __all__ = ['GroupArgs', 'Group']
 @pulumi.input_type
 class GroupArgs:
     def __init__(__self__, *,
-                 resource_query: pulumi.Input['GroupResourceQueryArgs'],
+                 configurations: Optional[pulumi.Input[Sequence[pulumi.Input['GroupConfigurationArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 resource_query: Optional[pulumi.Input['GroupResourceQueryArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Group resource.
-        :param pulumi.Input['GroupResourceQueryArgs'] resource_query: A `resource_query` block. Resource queries are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['GroupConfigurationArgs']]] configurations: A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
         :param pulumi.Input[str] description: A description of the resource group.
         :param pulumi.Input[str] name: The resource group's name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `aws`.
+        :param pulumi.Input['GroupResourceQueryArgs'] resource_query: A `resource_query` block. Resource queries are documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "resource_query", resource_query)
+        if configurations is not None:
+            pulumi.set(__self__, "configurations", configurations)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if resource_query is not None:
+            pulumi.set(__self__, "resource_query", resource_query)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
     @property
-    @pulumi.getter(name="resourceQuery")
-    def resource_query(self) -> pulumi.Input['GroupResourceQueryArgs']:
+    @pulumi.getter
+    def configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupConfigurationArgs']]]]:
         """
-        A `resource_query` block. Resource queries are documented below.
+        A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
         """
-        return pulumi.get(self, "resource_query")
+        return pulumi.get(self, "configurations")
 
-    @resource_query.setter
-    def resource_query(self, value: pulumi.Input['GroupResourceQueryArgs']):
-        pulumi.set(self, "resource_query", value)
+    @configurations.setter
+    def configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupConfigurationArgs']]]]):
+        pulumi.set(self, "configurations", value)
 
     @property
     @pulumi.getter
@@ -72,6 +77,18 @@ class GroupArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="resourceQuery")
+    def resource_query(self) -> Optional[pulumi.Input['GroupResourceQueryArgs']]:
+        """
+        A `resource_query` block. Resource queries are documented below.
+        """
+        return pulumi.get(self, "resource_query")
+
+    @resource_query.setter
+    def resource_query(self, value: Optional[pulumi.Input['GroupResourceQueryArgs']]):
+        pulumi.set(self, "resource_query", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -88,6 +105,7 @@ class GroupArgs:
 class _GroupState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
+                 configurations: Optional[pulumi.Input[Sequence[pulumi.Input['GroupConfigurationArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_query: Optional[pulumi.Input['GroupResourceQueryArgs']] = None,
@@ -96,6 +114,7 @@ class _GroupState:
         """
         Input properties used for looking up and filtering Group resources.
         :param pulumi.Input[str] arn: The ARN assigned by AWS for this resource group.
+        :param pulumi.Input[Sequence[pulumi.Input['GroupConfigurationArgs']]] configurations: A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
         :param pulumi.Input[str] description: A description of the resource group.
         :param pulumi.Input[str] name: The resource group's name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `aws`.
         :param pulumi.Input['GroupResourceQueryArgs'] resource_query: A `resource_query` block. Resource queries are documented below.
@@ -104,6 +123,8 @@ class _GroupState:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if configurations is not None:
+            pulumi.set(__self__, "configurations", configurations)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if name is not None:
@@ -126,6 +147,18 @@ class _GroupState:
     @arn.setter
     def arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupConfigurationArgs']]]]:
+        """
+        A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
+        """
+        return pulumi.get(self, "configurations")
+
+    @configurations.setter
+    def configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupConfigurationArgs']]]]):
+        pulumi.set(self, "configurations", value)
 
     @property
     @pulumi.getter
@@ -193,6 +226,7 @@ class Group(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupConfigurationArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_query: Optional[pulumi.Input[pulumi.InputType['GroupResourceQueryArgs']]] = None,
@@ -234,6 +268,7 @@ class Group(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupConfigurationArgs']]]] configurations: A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
         :param pulumi.Input[str] description: A description of the resource group.
         :param pulumi.Input[str] name: The resource group's name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `aws`.
         :param pulumi.Input[pulumi.InputType['GroupResourceQueryArgs']] resource_query: A `resource_query` block. Resource queries are documented below.
@@ -243,7 +278,7 @@ class Group(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: GroupArgs,
+                 args: Optional[GroupArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Resource Group.
@@ -294,6 +329,7 @@ class Group(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupConfigurationArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_query: Optional[pulumi.Input[pulumi.InputType['GroupResourceQueryArgs']]] = None,
@@ -307,10 +343,9 @@ class Group(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = GroupArgs.__new__(GroupArgs)
 
+            __props__.__dict__["configurations"] = configurations
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
-            if resource_query is None and not opts.urn:
-                raise TypeError("Missing required property 'resource_query'")
             __props__.__dict__["resource_query"] = resource_query
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
@@ -326,6 +361,7 @@ class Group(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
+            configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupConfigurationArgs']]]]] = None,
             description: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_query: Optional[pulumi.Input[pulumi.InputType['GroupResourceQueryArgs']]] = None,
@@ -339,6 +375,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN assigned by AWS for this resource group.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupConfigurationArgs']]]] configurations: A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
         :param pulumi.Input[str] description: A description of the resource group.
         :param pulumi.Input[str] name: The resource group's name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `aws`.
         :param pulumi.Input[pulumi.InputType['GroupResourceQueryArgs']] resource_query: A `resource_query` block. Resource queries are documented below.
@@ -350,6 +387,7 @@ class Group(pulumi.CustomResource):
         __props__ = _GroupState.__new__(_GroupState)
 
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["configurations"] = configurations
         __props__.__dict__["description"] = description
         __props__.__dict__["name"] = name
         __props__.__dict__["resource_query"] = resource_query
@@ -364,6 +402,14 @@ class Group(pulumi.CustomResource):
         The ARN assigned by AWS for this resource group.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def configurations(self) -> pulumi.Output[Optional[Sequence['outputs.GroupConfiguration']]]:
+        """
+        A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
+        """
+        return pulumi.get(self, "configurations")
 
     @property
     @pulumi.getter
@@ -383,7 +429,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceQuery")
-    def resource_query(self) -> pulumi.Output['outputs.GroupResourceQuery']:
+    def resource_query(self) -> pulumi.Output[Optional['outputs.GroupResourceQuery']]:
         """
         A `resource_query` block. Resource queries are documented below.
         """

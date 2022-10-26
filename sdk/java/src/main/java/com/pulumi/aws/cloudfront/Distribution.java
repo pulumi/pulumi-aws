@@ -57,7 +57,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.cloudfront.Distribution;
  * import com.pulumi.aws.cloudfront.DistributionArgs;
  * import com.pulumi.aws.cloudfront.inputs.DistributionOriginArgs;
- * import com.pulumi.aws.cloudfront.inputs.DistributionOriginS3OriginConfigArgs;
  * import com.pulumi.aws.cloudfront.inputs.DistributionLoggingConfigArgs;
  * import com.pulumi.aws.cloudfront.inputs.DistributionDefaultCacheBehaviorArgs;
  * import com.pulumi.aws.cloudfront.inputs.DistributionDefaultCacheBehaviorForwardedValuesArgs;
@@ -95,10 +94,8 @@ import javax.annotation.Nullable;
  *         var s3Distribution = new Distribution(&#34;s3Distribution&#34;, DistributionArgs.builder()        
  *             .origins(DistributionOriginArgs.builder()
  *                 .domainName(bucketV2.bucketRegionalDomainName())
+ *                 .originAccessControlId(aws_cloudfront_origin_access_control.default().id())
  *                 .originId(locals.s3_origin_id())
- *                 .s3OriginConfig(DistributionOriginS3OriginConfigArgs.builder()
- *                     .originAccessIdentity(&#34;origin-access-identity/cloudfront/ABCDEFG1234567&#34;)
- *                     .build())
  *                 .build())
  *             .enabled(true)
  *             .isIpv6Enabled(true)

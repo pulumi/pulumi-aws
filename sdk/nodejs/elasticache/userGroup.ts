@@ -63,6 +63,9 @@ export class UserGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === UserGroup.__pulumiType;
     }
 
+    /**
+     * The ARN that identifies the user group.
+     */
     public readonly arn!: pulumi.Output<string>;
     /**
      * The current supported value is `REDIS`.
@@ -122,6 +125,9 @@ export class UserGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering UserGroup resources.
  */
 export interface UserGroupState {
+    /**
+     * The ARN that identifies the user group.
+     */
     arn?: pulumi.Input<string>;
     /**
      * The current supported value is `REDIS`.
@@ -143,6 +149,9 @@ export interface UserGroupState {
  * The set of arguments for constructing a UserGroup resource.
  */
 export interface UserGroupArgs {
+    /**
+     * The ARN that identifies the user group.
+     */
     arn?: pulumi.Input<string>;
     /**
      * The current supported value is `REDIS`.

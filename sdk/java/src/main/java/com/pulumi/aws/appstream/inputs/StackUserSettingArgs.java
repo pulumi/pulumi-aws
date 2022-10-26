@@ -14,14 +14,16 @@ public final class StackUserSettingArgs extends com.pulumi.resources.ResourceArg
     public static final StackUserSettingArgs Empty = new StackUserSettingArgs();
 
     /**
-     * Action that is enabled or disabled. Valid values are: `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`,  `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, `PRINTING_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, `DOMAIN_SMART_CARD_SIGNIN`.
+     * Action that is enabled or disabled.
+     * Valid values are `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`,  `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, `PRINTING_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, or `DOMAIN_SMART_CARD_SIGNIN`.
      * 
      */
     @Import(name="action", required=true)
     private Output<String> action;
 
     /**
-     * @return Action that is enabled or disabled. Valid values are: `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`,  `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, `PRINTING_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, `DOMAIN_SMART_CARD_SIGNIN`.
+     * @return Action that is enabled or disabled.
+     * Valid values are `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`,  `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, `PRINTING_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, or `DOMAIN_SMART_CARD_SIGNIN`.
      * 
      */
     public Output<String> action() {
@@ -29,14 +31,16 @@ public final class StackUserSettingArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Whether the action is enabled or disabled. Valid values are: `ENABLED`, `DISABLED`.
+     * Whether the action is enabled or disabled.
+     * Valid values are `ENABLED` or `DISABLED`.
      * 
      */
     @Import(name="permission", required=true)
     private Output<String> permission;
 
     /**
-     * @return Whether the action is enabled or disabled. Valid values are: `ENABLED`, `DISABLED`.
+     * @return Whether the action is enabled or disabled.
+     * Valid values are `ENABLED` or `DISABLED`.
      * 
      */
     public Output<String> permission() {
@@ -69,7 +73,8 @@ public final class StackUserSettingArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param action Action that is enabled or disabled. Valid values are: `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`,  `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, `PRINTING_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, `DOMAIN_SMART_CARD_SIGNIN`.
+         * @param action Action that is enabled or disabled.
+         * Valid values are `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`,  `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, `PRINTING_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, or `DOMAIN_SMART_CARD_SIGNIN`.
          * 
          * @return builder
          * 
@@ -80,7 +85,8 @@ public final class StackUserSettingArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param action Action that is enabled or disabled. Valid values are: `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`,  `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, `PRINTING_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, `DOMAIN_SMART_CARD_SIGNIN`.
+         * @param action Action that is enabled or disabled.
+         * Valid values are `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`,  `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, `PRINTING_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, or `DOMAIN_SMART_CARD_SIGNIN`.
          * 
          * @return builder
          * 
@@ -90,7 +96,8 @@ public final class StackUserSettingArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param permission Whether the action is enabled or disabled. Valid values are: `ENABLED`, `DISABLED`.
+         * @param permission Whether the action is enabled or disabled.
+         * Valid values are `ENABLED` or `DISABLED`.
          * 
          * @return builder
          * 
@@ -101,7 +108,8 @@ public final class StackUserSettingArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param permission Whether the action is enabled or disabled. Valid values are: `ENABLED`, `DISABLED`.
+         * @param permission Whether the action is enabled or disabled.
+         * Valid values are `ENABLED` or `DISABLED`.
          * 
          * @return builder
          * 

@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:lightsail/certificate:Certificate":
+		r = &Certificate{}
 	case "aws:lightsail/containerService:ContainerService":
 		r = &ContainerService{}
 	case "aws:lightsail/containerServiceDeploymentVersion:ContainerServiceDeploymentVersion":
@@ -29,12 +31,18 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Database{}
 	case "aws:lightsail/domain:Domain":
 		r = &Domain{}
+	case "aws:lightsail/domainEntry:DomainEntry":
+		r = &DomainEntry{}
 	case "aws:lightsail/instance:Instance":
 		r = &Instance{}
 	case "aws:lightsail/instancePublicPorts:InstancePublicPorts":
 		r = &InstancePublicPorts{}
 	case "aws:lightsail/keyPair:KeyPair":
 		r = &KeyPair{}
+	case "aws:lightsail/lb:Lb":
+		r = &Lb{}
+	case "aws:lightsail/lbAttachment:LbAttachment":
+		r = &LbAttachment{}
 	case "aws:lightsail/staticIp:StaticIp":
 		r = &StaticIp{}
 	case "aws:lightsail/staticIpAttachment:StaticIpAttachment":
@@ -52,6 +60,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"aws",
+		"lightsail/certificate",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"lightsail/containerService",
@@ -74,6 +87,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"lightsail/domainEntry",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"lightsail/instance",
 		&module{version},
 	)
@@ -85,6 +103,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"lightsail/keyPair",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"lightsail/lb",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"lightsail/lbAttachment",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
