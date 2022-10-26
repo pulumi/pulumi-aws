@@ -73,7 +73,7 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
     /**
      * The CloudFront custom
      * origin configuration information. If an S3
-     * origin is required, use `s3_origin_config` instead.
+     * origin is required, use `origin_access_control_id` or `s3_origin_config` instead.
      * 
      */
     @Import(name="customOriginConfig")
@@ -82,7 +82,7 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
     /**
      * @return The CloudFront custom
      * origin configuration information. If an S3
-     * origin is required, use `s3_origin_config` instead.
+     * origin is required, use `origin_access_control_id` or `s3_origin_config` instead.
      * 
      */
     public Optional<Output<DistributionOriginCustomOriginConfigArgs>> customOriginConfig() {
@@ -107,14 +107,14 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The unique identifier of an origin access control for this origin.
+     * The unique identifier of a [CloudFront origin access control](https://www.terraform.io/docs/providers/aws/r/cloudfront_origin_access_control.html) for this origin.
      * 
      */
     @Import(name="originAccessControlId")
     private @Nullable Output<String> originAccessControlId;
 
     /**
-     * @return The unique identifier of an origin access control for this origin.
+     * @return The unique identifier of a [CloudFront origin access control](https://www.terraform.io/docs/providers/aws/r/cloudfront_origin_access_control.html) for this origin.
      * 
      */
     public Optional<Output<String>> originAccessControlId() {
@@ -306,7 +306,7 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
         /**
          * @param customOriginConfig The CloudFront custom
          * origin configuration information. If an S3
-         * origin is required, use `s3_origin_config` instead.
+         * origin is required, use `origin_access_control_id` or `s3_origin_config` instead.
          * 
          * @return builder
          * 
@@ -319,7 +319,7 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
         /**
          * @param customOriginConfig The CloudFront custom
          * origin configuration information. If an S3
-         * origin is required, use `s3_origin_config` instead.
+         * origin is required, use `origin_access_control_id` or `s3_origin_config` instead.
          * 
          * @return builder
          * 
@@ -352,7 +352,7 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param originAccessControlId The unique identifier of an origin access control for this origin.
+         * @param originAccessControlId The unique identifier of a [CloudFront origin access control](https://www.terraform.io/docs/providers/aws/r/cloudfront_origin_access_control.html) for this origin.
          * 
          * @return builder
          * 
@@ -363,7 +363,7 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param originAccessControlId The unique identifier of an origin access control for this origin.
+         * @param originAccessControlId The unique identifier of a [CloudFront origin access control](https://www.terraform.io/docs/providers/aws/r/cloudfront_origin_access_control.html) for this origin.
          * 
          * @return builder
          * 

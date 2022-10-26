@@ -10,16 +10,14 @@ import java.util.Objects;
 @CustomType
 public final class DistributionOriginS3OriginConfig {
     /**
-     * @return The [CloudFront origin access
-     * identity][5] to associate with the origin.
+     * @return The [CloudFront origin access identity](https://www.terraform.io/docs/providers/aws/r/cloudfront_origin_access_identity.html) to associate with the origin.
      * 
      */
     private String originAccessIdentity;
 
     private DistributionOriginS3OriginConfig() {}
     /**
-     * @return The [CloudFront origin access
-     * identity][5] to associate with the origin.
+     * @return The [CloudFront origin access identity](https://www.terraform.io/docs/providers/aws/r/cloudfront_origin_access_identity.html) to associate with the origin.
      * 
      */
     public String originAccessIdentity() {

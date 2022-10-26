@@ -12,7 +12,8 @@ import javax.annotation.Nullable;
 @CustomType
 public final class StackAccessEndpoint {
     /**
-     * @return Type of the interface endpoint. See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
+     * @return Type of the interface endpoint.
+     * See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
      * 
      */
     private String endpointType;
@@ -24,7 +25,8 @@ public final class StackAccessEndpoint {
 
     private StackAccessEndpoint() {}
     /**
-     * @return Type of the interface endpoint. See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
+     * @return Type of the interface endpoint.
+     * See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
      * 
      */
     public String endpointType() {

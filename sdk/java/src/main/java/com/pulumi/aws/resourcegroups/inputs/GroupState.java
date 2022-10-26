@@ -3,10 +3,12 @@
 
 package com.pulumi.aws.resourcegroups.inputs;
 
+import com.pulumi.aws.resourcegroups.inputs.GroupConfigurationArgs;
 import com.pulumi.aws.resourcegroups.inputs.GroupResourceQueryArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -30,6 +32,21 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
+    }
+
+    /**
+     * A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
+     * 
+     */
+    @Import(name="configurations")
+    private @Nullable Output<List<GroupConfigurationArgs>> configurations;
+
+    /**
+     * @return A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
+     * 
+     */
+    public Optional<Output<List<GroupConfigurationArgs>>> configurations() {
+        return Optional.ofNullable(this.configurations);
     }
 
     /**
@@ -111,6 +128,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
 
     private GroupState(GroupState $) {
         this.arn = $.arn;
+        this.configurations = $.configurations;
         this.description = $.description;
         this.name = $.name;
         this.resourceQuery = $.resourceQuery;
@@ -155,6 +173,37 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
+        }
+
+        /**
+         * @param configurations A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder configurations(@Nullable Output<List<GroupConfigurationArgs>> configurations) {
+            $.configurations = configurations;
+            return this;
+        }
+
+        /**
+         * @param configurations A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder configurations(List<GroupConfigurationArgs> configurations) {
+            return configurations(Output.of(configurations));
+        }
+
+        /**
+         * @param configurations A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder configurations(GroupConfigurationArgs... configurations) {
+            return configurations(List.of(configurations));
         }
 
         /**

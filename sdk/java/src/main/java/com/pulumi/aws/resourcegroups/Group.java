@@ -6,12 +6,14 @@ package com.pulumi.aws.resourcegroups;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.resourcegroups.GroupArgs;
 import com.pulumi.aws.resourcegroups.inputs.GroupState;
+import com.pulumi.aws.resourcegroups.outputs.GroupConfiguration;
 import com.pulumi.aws.resourcegroups.outputs.GroupResourceQuery;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -91,6 +93,20 @@ public class Group extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
+     * A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
+     * 
+     */
+    @Export(name="configurations", type=List.class, parameters={GroupConfiguration.class})
+    private Output</* @Nullable */ List<GroupConfiguration>> configurations;
+
+    /**
+     * @return A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
+     * 
+     */
+    public Output<Optional<List<GroupConfiguration>>> configurations() {
+        return Codegen.optional(this.configurations);
+    }
+    /**
      * A description of the resource group.
      * 
      */
@@ -123,14 +139,14 @@ public class Group extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="resourceQuery", type=GroupResourceQuery.class, parameters={})
-    private Output<GroupResourceQuery> resourceQuery;
+    private Output</* @Nullable */ GroupResourceQuery> resourceQuery;
 
     /**
      * @return A `resource_query` block. Resource queries are documented below.
      * 
      */
-    public Output<GroupResourceQuery> resourceQuery() {
-        return this.resourceQuery;
+    public Output<Optional<GroupResourceQuery>> resourceQuery() {
+        return Codegen.optional(this.resourceQuery);
     }
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -173,7 +189,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Group(String name, GroupArgs args) {
+    public Group(String name, @Nullable GroupArgs args) {
         this(name, args, null);
     }
     /**
@@ -182,7 +198,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Group(String name, GroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public Group(String name, @Nullable GroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:resourcegroups/group:Group", name, args == null ? GroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
     }
 

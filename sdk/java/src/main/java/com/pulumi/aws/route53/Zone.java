@@ -228,6 +228,20 @@ public class Zone extends com.pulumi.resources.CustomResource {
         return this.nameServers;
     }
     /**
+     * The Route 53 name server that created the SOA record.
+     * 
+     */
+    @Export(name="primaryNameServer", type=String.class, parameters={})
+    private Output<String> primaryNameServer;
+
+    /**
+     * @return The Route 53 name server that created the SOA record.
+     * 
+     */
+    public Output<String> primaryNameServer() {
+        return this.primaryNameServer;
+    }
+    /**
      * A mapping of tags to assign to the zone. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */

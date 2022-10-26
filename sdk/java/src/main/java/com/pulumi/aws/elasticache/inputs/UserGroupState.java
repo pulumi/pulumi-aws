@@ -17,9 +17,17 @@ public final class UserGroupState extends com.pulumi.resources.ResourceArgs {
 
     public static final UserGroupState Empty = new UserGroupState();
 
+    /**
+     * The ARN that identifies the user group.
+     * 
+     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
+    /**
+     * @return The ARN that identifies the user group.
+     * 
+     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
@@ -112,11 +120,23 @@ public final class UserGroupState extends com.pulumi.resources.ResourceArgs {
             $ = new UserGroupState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param arn The ARN that identifies the user group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
+        /**
+         * @param arn The ARN that identifies the user group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }

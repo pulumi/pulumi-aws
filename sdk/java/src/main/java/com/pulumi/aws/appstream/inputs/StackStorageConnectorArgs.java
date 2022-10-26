@@ -17,14 +17,16 @@ public final class StackStorageConnectorArgs extends com.pulumi.resources.Resour
     public static final StackStorageConnectorArgs Empty = new StackStorageConnectorArgs();
 
     /**
-     * Type of storage connector. Valid values are: `HOMEFOLDERS`, `GOOGLE_DRIVE`, `ONE_DRIVE`.
+     * Type of storage connector.
+     * Valid values are `HOMEFOLDERS`, `GOOGLE_DRIVE`, or `ONE_DRIVE`.
      * 
      */
     @Import(name="connectorType", required=true)
     private Output<String> connectorType;
 
     /**
-     * @return Type of storage connector. Valid values are: `HOMEFOLDERS`, `GOOGLE_DRIVE`, `ONE_DRIVE`.
+     * @return Type of storage connector.
+     * Valid values are `HOMEFOLDERS`, `GOOGLE_DRIVE`, or `ONE_DRIVE`.
      * 
      */
     public Output<String> connectorType() {
@@ -88,7 +90,8 @@ public final class StackStorageConnectorArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param connectorType Type of storage connector. Valid values are: `HOMEFOLDERS`, `GOOGLE_DRIVE`, `ONE_DRIVE`.
+         * @param connectorType Type of storage connector.
+         * Valid values are `HOMEFOLDERS`, `GOOGLE_DRIVE`, or `ONE_DRIVE`.
          * 
          * @return builder
          * 
@@ -99,7 +102,8 @@ public final class StackStorageConnectorArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param connectorType Type of storage connector. Valid values are: `HOMEFOLDERS`, `GOOGLE_DRIVE`, `ONE_DRIVE`.
+         * @param connectorType Type of storage connector.
+         * Valid values are `HOMEFOLDERS`, `GOOGLE_DRIVE`, or `ONE_DRIVE`.
          * 
          * @return builder
          * 

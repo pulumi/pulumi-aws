@@ -96,14 +96,16 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:appstream/stack:Stack")
 public class Stack extends com.pulumi.resources.CustomResource {
     /**
-     * Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See below.
+     * Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
+     * See `access_endpoints` below.
      * 
      */
     @Export(name="accessEndpoints", type=List.class, parameters={StackAccessEndpoint.class})
     private Output<List<StackAccessEndpoint>> accessEndpoints;
 
     /**
-     * @return Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See below.
+     * @return Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
+     * See `access_endpoints` below.
      * 
      */
     public Output<List<StackAccessEndpoint>> accessEndpoints() {
@@ -111,6 +113,7 @@ public class Stack extends com.pulumi.resources.CustomResource {
     }
     /**
      * Settings for application settings persistence.
+     * See `application_settings` below.
      * 
      */
     @Export(name="applicationSettings", type=StackApplicationSettings.class, parameters={})
@@ -118,6 +121,7 @@ public class Stack extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Settings for application settings persistence.
+     * See `application_settings` below.
      * 
      */
     public Output<StackApplicationSettings> applicationSettings() {
@@ -236,14 +240,16 @@ public class Stack extends com.pulumi.resources.CustomResource {
         return this.redirectUrl;
     }
     /**
-     * Configuration block for the storage connectors to enable. See below.
+     * Configuration block for the storage connectors to enable.
+     * See `storage_connectors` below.
      * 
      */
     @Export(name="storageConnectors", type=List.class, parameters={StackStorageConnector.class})
     private Output<List<StackStorageConnector>> storageConnectors;
 
     /**
-     * @return Configuration block for the storage connectors to enable. See below.
+     * @return Configuration block for the storage connectors to enable.
+     * See `storage_connectors` below.
      * 
      */
     public Output<List<StackStorageConnector>> storageConnectors() {
@@ -262,14 +268,16 @@ public class Stack extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled. See below.
+     * Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+     * See `user_settings` below.
      * 
      */
     @Export(name="userSettings", type=List.class, parameters={StackUserSetting.class})
     private Output<List<StackUserSetting>> userSettings;
 
     /**
-     * @return Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled. See below.
+     * @return Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+     * See `user_settings` below.
      * 
      */
     public Output<List<StackUserSetting>> userSettings() {

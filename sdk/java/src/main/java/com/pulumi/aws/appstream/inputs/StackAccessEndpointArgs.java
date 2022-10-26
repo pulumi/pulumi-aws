@@ -16,14 +16,16 @@ public final class StackAccessEndpointArgs extends com.pulumi.resources.Resource
     public static final StackAccessEndpointArgs Empty = new StackAccessEndpointArgs();
 
     /**
-     * Type of the interface endpoint. See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
+     * Type of the interface endpoint.
+     * See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
      * 
      */
     @Import(name="endpointType", required=true)
     private Output<String> endpointType;
 
     /**
-     * @return Type of the interface endpoint. See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
+     * @return Type of the interface endpoint.
+     * See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
      * 
      */
     public Output<String> endpointType() {
@@ -71,7 +73,8 @@ public final class StackAccessEndpointArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param endpointType Type of the interface endpoint. See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
+         * @param endpointType Type of the interface endpoint.
+         * See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
          * 
          * @return builder
          * 
@@ -82,7 +85,8 @@ public final class StackAccessEndpointArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param endpointType Type of the interface endpoint. See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
+         * @param endpointType Type of the interface endpoint.
+         * See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
          * 
          * @return builder
          * 

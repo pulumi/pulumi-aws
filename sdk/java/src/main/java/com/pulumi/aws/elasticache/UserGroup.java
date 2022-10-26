@@ -72,9 +72,17 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:elasticache/userGroup:UserGroup")
 public class UserGroup extends com.pulumi.resources.CustomResource {
+    /**
+     * The ARN that identifies the user group.
+     * 
+     */
     @Export(name="arn", type=String.class, parameters={})
     private Output<String> arn;
 
+    /**
+     * @return The ARN that identifies the user group.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }

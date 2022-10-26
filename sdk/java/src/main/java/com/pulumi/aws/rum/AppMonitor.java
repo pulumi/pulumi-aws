@@ -61,11 +61,33 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:rum/appMonitor:AppMonitor")
 public class AppMonitor extends com.pulumi.resources.CustomResource {
+    /**
+     * configuration data for the app monitor. See app_monitor_configuration below.
+     * 
+     */
     @Export(name="appMonitorConfiguration", type=AppMonitorAppMonitorConfiguration.class, parameters={})
     private Output<AppMonitorAppMonitorConfiguration> appMonitorConfiguration;
 
+    /**
+     * @return configuration data for the app monitor. See app_monitor_configuration below.
+     * 
+     */
     public Output<AppMonitorAppMonitorConfiguration> appMonitorConfiguration() {
         return this.appMonitorConfiguration;
+    }
+    /**
+     * The unique ID of the app monitor. Useful for JS templates.
+     * 
+     */
+    @Export(name="appMonitorId", type=String.class, parameters={})
+    private Output<String> appMonitorId;
+
+    /**
+     * @return The unique ID of the app monitor. Useful for JS templates.
+     * 
+     */
+    public Output<String> appMonitorId() {
+        return this.appMonitorId;
     }
     /**
      * The Amazon Resource Name (ARN) specifying the app monitor.
@@ -110,14 +132,14 @@ public class AppMonitor extends com.pulumi.resources.CustomResource {
         return this.cwLogGroup;
     }
     /**
-     * configuration data for the app monitor. See app_monitor_configuration below.
+     * The top-level internet domain name for which your application has administrative authority.
      * 
      */
     @Export(name="domain", type=String.class, parameters={})
     private Output<String> domain;
 
     /**
-     * @return configuration data for the app monitor. See app_monitor_configuration below.
+     * @return The top-level internet domain name for which your application has administrative authority.
      * 
      */
     public Output<String> domain() {

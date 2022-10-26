@@ -127,14 +127,14 @@ public final class PatchBaselineArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Defines the operating system the patch baseline applies to. Supported operating systems include `WINDOWS`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `SUSE`, `UBUNTU`, `CENTOS`, and `REDHAT_ENTERPRISE_LINUX`. The Default value is `WINDOWS`.
+     * Defines the operating system the patch baseline applies to. Supported operating systems are `AMAZON_LINUX`, `AMAZON_LINUX_2`, `UBUNTU`, `REDHAT_ENTERPRISE_LINUX`, `SUSE`, `CENTOS`, `ORACLE_LINUX`, `DEBIAN`, `MACOS`, `RASPBIAN` and `ROCKY_LINUX`. The Default value is `WINDOWS`.
      * 
      */
     @Import(name="operatingSystem")
     private @Nullable Output<String> operatingSystem;
 
     /**
-     * @return Defines the operating system the patch baseline applies to. Supported operating systems include `WINDOWS`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `SUSE`, `UBUNTU`, `CENTOS`, and `REDHAT_ENTERPRISE_LINUX`. The Default value is `WINDOWS`.
+     * @return Defines the operating system the patch baseline applies to. Supported operating systems are `AMAZON_LINUX`, `AMAZON_LINUX_2`, `UBUNTU`, `REDHAT_ENTERPRISE_LINUX`, `SUSE`, `CENTOS`, `ORACLE_LINUX`, `DEBIAN`, `MACOS`, `RASPBIAN` and `ROCKY_LINUX`. The Default value is `WINDOWS`.
      * 
      */
     public Optional<Output<String>> operatingSystem() {
@@ -414,7 +414,7 @@ public final class PatchBaselineArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param operatingSystem Defines the operating system the patch baseline applies to. Supported operating systems include `WINDOWS`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `SUSE`, `UBUNTU`, `CENTOS`, and `REDHAT_ENTERPRISE_LINUX`. The Default value is `WINDOWS`.
+         * @param operatingSystem Defines the operating system the patch baseline applies to. Supported operating systems are `AMAZON_LINUX`, `AMAZON_LINUX_2`, `UBUNTU`, `REDHAT_ENTERPRISE_LINUX`, `SUSE`, `CENTOS`, `ORACLE_LINUX`, `DEBIAN`, `MACOS`, `RASPBIAN` and `ROCKY_LINUX`. The Default value is `WINDOWS`.
          * 
          * @return builder
          * 
@@ -425,7 +425,7 @@ public final class PatchBaselineArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param operatingSystem Defines the operating system the patch baseline applies to. Supported operating systems include `WINDOWS`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `SUSE`, `UBUNTU`, `CENTOS`, and `REDHAT_ENTERPRISE_LINUX`. The Default value is `WINDOWS`.
+         * @param operatingSystem Defines the operating system the patch baseline applies to. Supported operating systems are `AMAZON_LINUX`, `AMAZON_LINUX_2`, `UBUNTU`, `REDHAT_ENTERPRISE_LINUX`, `SUSE`, `CENTOS`, `ORACLE_LINUX`, `DEBIAN`, `MACOS`, `RASPBIAN` and `ROCKY_LINUX`. The Default value is `WINDOWS`.
          * 
          * @return builder
          * 

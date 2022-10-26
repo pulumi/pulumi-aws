@@ -18,11 +18,34 @@ public final class AppMonitorState extends com.pulumi.resources.ResourceArgs {
 
     public static final AppMonitorState Empty = new AppMonitorState();
 
+    /**
+     * configuration data for the app monitor. See app_monitor_configuration below.
+     * 
+     */
     @Import(name="appMonitorConfiguration")
     private @Nullable Output<AppMonitorAppMonitorConfigurationArgs> appMonitorConfiguration;
 
+    /**
+     * @return configuration data for the app monitor. See app_monitor_configuration below.
+     * 
+     */
     public Optional<Output<AppMonitorAppMonitorConfigurationArgs>> appMonitorConfiguration() {
         return Optional.ofNullable(this.appMonitorConfiguration);
+    }
+
+    /**
+     * The unique ID of the app monitor. Useful for JS templates.
+     * 
+     */
+    @Import(name="appMonitorId")
+    private @Nullable Output<String> appMonitorId;
+
+    /**
+     * @return The unique ID of the app monitor. Useful for JS templates.
+     * 
+     */
+    public Optional<Output<String>> appMonitorId() {
+        return Optional.ofNullable(this.appMonitorId);
     }
 
     /**
@@ -71,14 +94,14 @@ public final class AppMonitorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * configuration data for the app monitor. See app_monitor_configuration below.
+     * The top-level internet domain name for which your application has administrative authority.
      * 
      */
     @Import(name="domain")
     private @Nullable Output<String> domain;
 
     /**
-     * @return configuration data for the app monitor. See app_monitor_configuration below.
+     * @return The top-level internet domain name for which your application has administrative authority.
      * 
      */
     public Optional<Output<String>> domain() {
@@ -134,6 +157,7 @@ public final class AppMonitorState extends com.pulumi.resources.ResourceArgs {
 
     private AppMonitorState(AppMonitorState $) {
         this.appMonitorConfiguration = $.appMonitorConfiguration;
+        this.appMonitorId = $.appMonitorId;
         this.arn = $.arn;
         this.cwLogEnabled = $.cwLogEnabled;
         this.cwLogGroup = $.cwLogGroup;
@@ -161,13 +185,46 @@ public final class AppMonitorState extends com.pulumi.resources.ResourceArgs {
             $ = new AppMonitorState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param appMonitorConfiguration configuration data for the app monitor. See app_monitor_configuration below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder appMonitorConfiguration(@Nullable Output<AppMonitorAppMonitorConfigurationArgs> appMonitorConfiguration) {
             $.appMonitorConfiguration = appMonitorConfiguration;
             return this;
         }
 
+        /**
+         * @param appMonitorConfiguration configuration data for the app monitor. See app_monitor_configuration below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder appMonitorConfiguration(AppMonitorAppMonitorConfigurationArgs appMonitorConfiguration) {
             return appMonitorConfiguration(Output.of(appMonitorConfiguration));
+        }
+
+        /**
+         * @param appMonitorId The unique ID of the app monitor. Useful for JS templates.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder appMonitorId(@Nullable Output<String> appMonitorId) {
+            $.appMonitorId = appMonitorId;
+            return this;
+        }
+
+        /**
+         * @param appMonitorId The unique ID of the app monitor. Useful for JS templates.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder appMonitorId(String appMonitorId) {
+            return appMonitorId(Output.of(appMonitorId));
         }
 
         /**
@@ -234,7 +291,7 @@ public final class AppMonitorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domain configuration data for the app monitor. See app_monitor_configuration below.
+         * @param domain The top-level internet domain name for which your application has administrative authority.
          * 
          * @return builder
          * 
@@ -245,7 +302,7 @@ public final class AppMonitorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domain configuration data for the app monitor. See app_monitor_configuration below.
+         * @param domain The top-level internet domain name for which your application has administrative authority.
          * 
          * @return builder
          * 

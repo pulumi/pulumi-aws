@@ -127,6 +127,42 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### Create an association with a specific schedule
+ * 
+ * This example shows how to schedule an association in various ways.
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ssm.Association;
+ * import com.pulumi.aws.ssm.AssociationArgs;
+ * import com.pulumi.aws.ssm.inputs.AssociationTargetArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Association(&#34;example&#34;, AssociationArgs.builder()        
+ *             .scheduleExpression(&#34;cron(0 2 ? * SUN *)&#34;)
+ *             .targets(AssociationTargetArgs.builder()
+ *                 .key(&#34;InstanceIds&#34;)
+ *                 .values(aws_instance.example().id())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 
@@ -326,14 +362,14 @@ public class Association extends com.pulumi.resources.CustomResource {
         return this.parameters;
     }
     /**
-     * A cron expression when the association will be applied to the target(s).
+     * A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
      * 
      */
     @Export(name="scheduleExpression", type=String.class, parameters={})
     private Output</* @Nullable */ String> scheduleExpression;
 
     /**
-     * @return A cron expression when the association will be applied to the target(s).
+     * @return A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
      * 
      */
     public Output<Optional<String>> scheduleExpression() {

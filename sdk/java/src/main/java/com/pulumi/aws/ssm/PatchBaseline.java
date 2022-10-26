@@ -381,14 +381,14 @@ public class PatchBaseline extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Defines the operating system the patch baseline applies to. Supported operating systems include `WINDOWS`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `SUSE`, `UBUNTU`, `CENTOS`, and `REDHAT_ENTERPRISE_LINUX`. The Default value is `WINDOWS`.
+     * Defines the operating system the patch baseline applies to. Supported operating systems are `AMAZON_LINUX`, `AMAZON_LINUX_2`, `UBUNTU`, `REDHAT_ENTERPRISE_LINUX`, `SUSE`, `CENTOS`, `ORACLE_LINUX`, `DEBIAN`, `MACOS`, `RASPBIAN` and `ROCKY_LINUX`. The Default value is `WINDOWS`.
      * 
      */
     @Export(name="operatingSystem", type=String.class, parameters={})
     private Output</* @Nullable */ String> operatingSystem;
 
     /**
-     * @return Defines the operating system the patch baseline applies to. Supported operating systems include `WINDOWS`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `SUSE`, `UBUNTU`, `CENTOS`, and `REDHAT_ENTERPRISE_LINUX`. The Default value is `WINDOWS`.
+     * @return Defines the operating system the patch baseline applies to. Supported operating systems are `AMAZON_LINUX`, `AMAZON_LINUX_2`, `UBUNTU`, `REDHAT_ENTERPRISE_LINUX`, `SUSE`, `CENTOS`, `ORACLE_LINUX`, `DEBIAN`, `MACOS`, `RASPBIAN` and `ROCKY_LINUX`. The Default value is `WINDOWS`.
      * 
      */
     public Output<Optional<String>> operatingSystem() {

@@ -124,14 +124,14 @@ public final class MaintenanceWindowArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The schedule of the Maintenance Window in the form of a [cron](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-cron.html) or rate expression.
+     * The schedule of the Maintenance Window in the form of a [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html).
      * 
      */
     @Import(name="schedule", required=true)
     private Output<String> schedule;
 
     /**
-     * @return The schedule of the Maintenance Window in the form of a [cron](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-cron.html) or rate expression.
+     * @return The schedule of the Maintenance Window in the form of a [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html).
      * 
      */
     public Output<String> schedule() {
@@ -381,7 +381,7 @@ public final class MaintenanceWindowArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param schedule The schedule of the Maintenance Window in the form of a [cron](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-cron.html) or rate expression.
+         * @param schedule The schedule of the Maintenance Window in the form of a [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html).
          * 
          * @return builder
          * 
@@ -392,7 +392,7 @@ public final class MaintenanceWindowArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param schedule The schedule of the Maintenance Window in the form of a [cron](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-cron.html) or rate expression.
+         * @param schedule The schedule of the Maintenance Window in the form of a [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html).
          * 
          * @return builder
          * 

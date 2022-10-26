@@ -17,14 +17,14 @@ public final class ConfigurationSetSuppressionOptionsArgs extends com.pulumi.res
     public static final ConfigurationSetSuppressionOptionsArgs Empty = new ConfigurationSetSuppressionOptionsArgs();
 
     /**
-     * A list that contains the reasons that email addresses are automatically added to the suppression list for your account. Valid vales: `BOUNCE`, `COMPLAINT`.
+     * A list that contains the reasons that email addresses are automatically added to the suppression list for your account. Valid values: `BOUNCE`, `COMPLAINT`.
      * 
      */
     @Import(name="suppressedReasons")
     private @Nullable Output<List<String>> suppressedReasons;
 
     /**
-     * @return A list that contains the reasons that email addresses are automatically added to the suppression list for your account. Valid vales: `BOUNCE`, `COMPLAINT`.
+     * @return A list that contains the reasons that email addresses are automatically added to the suppression list for your account. Valid values: `BOUNCE`, `COMPLAINT`.
      * 
      */
     public Optional<Output<List<String>>> suppressedReasons() {
@@ -56,7 +56,7 @@ public final class ConfigurationSetSuppressionOptionsArgs extends com.pulumi.res
         }
 
         /**
-         * @param suppressedReasons A list that contains the reasons that email addresses are automatically added to the suppression list for your account. Valid vales: `BOUNCE`, `COMPLAINT`.
+         * @param suppressedReasons A list that contains the reasons that email addresses are automatically added to the suppression list for your account. Valid values: `BOUNCE`, `COMPLAINT`.
          * 
          * @return builder
          * 
@@ -67,7 +67,7 @@ public final class ConfigurationSetSuppressionOptionsArgs extends com.pulumi.res
         }
 
         /**
-         * @param suppressedReasons A list that contains the reasons that email addresses are automatically added to the suppression list for your account. Valid vales: `BOUNCE`, `COMPLAINT`.
+         * @param suppressedReasons A list that contains the reasons that email addresses are automatically added to the suppression list for your account. Valid values: `BOUNCE`, `COMPLAINT`.
          * 
          * @return builder
          * 
@@ -77,7 +77,7 @@ public final class ConfigurationSetSuppressionOptionsArgs extends com.pulumi.res
         }
 
         /**
-         * @param suppressedReasons A list that contains the reasons that email addresses are automatically added to the suppression list for your account. Valid vales: `BOUNCE`, `COMPLAINT`.
+         * @param suppressedReasons A list that contains the reasons that email addresses are automatically added to the suppression list for your account. Valid values: `BOUNCE`, `COMPLAINT`.
          * 
          * @return builder
          * 

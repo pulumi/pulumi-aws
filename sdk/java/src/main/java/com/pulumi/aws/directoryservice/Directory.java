@@ -301,14 +301,14 @@ public class Directory extends com.pulumi.resources.CustomResource {
         return this.dnsIpAddresses;
     }
     /**
-     * The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise` (applies to MicrosoftAD type only).
+     * The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.
      * 
      */
     @Export(name="edition", type=String.class, parameters={})
     private Output<String> edition;
 
     /**
-     * @return The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise` (applies to MicrosoftAD type only).
+     * @return The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.
      * 
      */
     public Output<String> edition() {
@@ -385,28 +385,28 @@ public class Directory extends com.pulumi.resources.CustomResource {
         return this.shortName;
     }
     /**
-     * The size of the directory (`Small` or `Large` are accepted values).
+     * (For `SimpleAD` and `ADConnector` types) The size of the directory (`Small` or `Large` are accepted values). `Large` by default.
      * 
      */
     @Export(name="size", type=String.class, parameters={})
     private Output<String> size;
 
     /**
-     * @return The size of the directory (`Small` or `Large` are accepted values).
+     * @return (For `SimpleAD` and `ADConnector` types) The size of the directory (`Small` or `Large` are accepted values). `Large` by default.
      * 
      */
     public Output<String> size() {
         return this.size;
     }
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

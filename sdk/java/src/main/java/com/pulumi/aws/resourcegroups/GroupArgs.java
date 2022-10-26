@@ -3,10 +3,12 @@
 
 package com.pulumi.aws.resourcegroups;
 
+import com.pulumi.aws.resourcegroups.inputs.GroupConfigurationArgs;
 import com.pulumi.aws.resourcegroups.inputs.GroupResourceQueryArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,6 +18,21 @@ import javax.annotation.Nullable;
 public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final GroupArgs Empty = new GroupArgs();
+
+    /**
+     * A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
+     * 
+     */
+    @Import(name="configurations")
+    private @Nullable Output<List<GroupConfigurationArgs>> configurations;
+
+    /**
+     * @return A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
+     * 
+     */
+    public Optional<Output<List<GroupConfigurationArgs>>> configurations() {
+        return Optional.ofNullable(this.configurations);
+    }
 
     /**
      * A description of the resource group.
@@ -51,15 +68,15 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
      * A `resource_query` block. Resource queries are documented below.
      * 
      */
-    @Import(name="resourceQuery", required=true)
-    private Output<GroupResourceQueryArgs> resourceQuery;
+    @Import(name="resourceQuery")
+    private @Nullable Output<GroupResourceQueryArgs> resourceQuery;
 
     /**
      * @return A `resource_query` block. Resource queries are documented below.
      * 
      */
-    public Output<GroupResourceQueryArgs> resourceQuery() {
-        return this.resourceQuery;
+    public Optional<Output<GroupResourceQueryArgs>> resourceQuery() {
+        return Optional.ofNullable(this.resourceQuery);
     }
 
     /**
@@ -80,6 +97,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     private GroupArgs() {}
 
     private GroupArgs(GroupArgs $) {
+        this.configurations = $.configurations;
         this.description = $.description;
         this.name = $.name;
         this.resourceQuery = $.resourceQuery;
@@ -102,6 +120,37 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(GroupArgs defaults) {
             $ = new GroupArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param configurations A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder configurations(@Nullable Output<List<GroupConfigurationArgs>> configurations) {
+            $.configurations = configurations;
+            return this;
+        }
+
+        /**
+         * @param configurations A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder configurations(List<GroupConfigurationArgs> configurations) {
+            return configurations(Output.of(configurations));
+        }
+
+        /**
+         * @param configurations A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder configurations(GroupConfigurationArgs... configurations) {
+            return configurations(List.of(configurations));
         }
 
         /**
@@ -152,7 +201,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder resourceQuery(Output<GroupResourceQueryArgs> resourceQuery) {
+        public Builder resourceQuery(@Nullable Output<GroupResourceQueryArgs> resourceQuery) {
             $.resourceQuery = resourceQuery;
             return this;
         }
@@ -189,7 +238,6 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public GroupArgs build() {
-            $.resourceQuery = Objects.requireNonNull($.resourceQuery, "expected parameter 'resourceQuery' to be non-null");
             return $;
         }
     }

@@ -47,14 +47,14 @@ public final class GetPatchBaselineArgs extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
-     * Specified OS for the baseline.
+     * Specified OS for the baseline. Valid values: `AMAZON_LINUX`, `AMAZON_LINUX_2`, `UBUNTU`, `REDHAT_ENTERPRISE_LINUX`, `SUSE`, `CENTOS`, `ORACLE_LINUX`, `DEBIAN`, `MACOS`, `RASPBIAN` and `ROCKY_LINUX`.
      * 
      */
     @Import(name="operatingSystem")
     private @Nullable Output<String> operatingSystem;
 
     /**
-     * @return Specified OS for the baseline.
+     * @return Specified OS for the baseline. Valid values: `AMAZON_LINUX`, `AMAZON_LINUX_2`, `UBUNTU`, `REDHAT_ENTERPRISE_LINUX`, `SUSE`, `CENTOS`, `ORACLE_LINUX`, `DEBIAN`, `MACOS`, `RASPBIAN` and `ROCKY_LINUX`.
      * 
      */
     public Optional<Output<String>> operatingSystem() {
@@ -146,7 +146,7 @@ public final class GetPatchBaselineArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param operatingSystem Specified OS for the baseline.
+         * @param operatingSystem Specified OS for the baseline. Valid values: `AMAZON_LINUX`, `AMAZON_LINUX_2`, `UBUNTU`, `REDHAT_ENTERPRISE_LINUX`, `SUSE`, `CENTOS`, `ORACLE_LINUX`, `DEBIAN`, `MACOS`, `RASPBIAN` and `ROCKY_LINUX`.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class GetPatchBaselineArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param operatingSystem Specified OS for the baseline.
+         * @param operatingSystem Specified OS for the baseline. Valid values: `AMAZON_LINUX`, `AMAZON_LINUX_2`, `UBUNTU`, `REDHAT_ENTERPRISE_LINUX`, `SUSE`, `CENTOS`, `ORACLE_LINUX`, `DEBIAN`, `MACOS`, `RASPBIAN` and `ROCKY_LINUX`.
          * 
          * @return builder
          * 

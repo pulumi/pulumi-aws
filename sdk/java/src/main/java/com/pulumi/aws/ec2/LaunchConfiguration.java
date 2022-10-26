@@ -21,8 +21,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a resource to create a new launch configuration, used for autoscaling groups.
- * 
  * ## Example Usage
  * ```java
  * package generated_program;

@@ -12,13 +12,33 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class StackApplicationSettings {
-    private @Nullable Boolean enabled;
+    /**
+     * @return Whether application settings should be persisted.
+     * 
+     */
+    private Boolean enabled;
+    /**
+     * @return Name of the settings group.
+     * Required when `enabled` is `true`.
+     * Can be up to 100 characters.
+     * 
+     */
     private @Nullable String settingsGroup;
 
     private StackApplicationSettings() {}
-    public Optional<Boolean> enabled() {
-        return Optional.ofNullable(this.enabled);
+    /**
+     * @return Whether application settings should be persisted.
+     * 
+     */
+    public Boolean enabled() {
+        return this.enabled;
     }
+    /**
+     * @return Name of the settings group.
+     * Required when `enabled` is `true`.
+     * Can be up to 100 characters.
+     * 
+     */
     public Optional<String> settingsGroup() {
         return Optional.ofNullable(this.settingsGroup);
     }
@@ -32,7 +52,7 @@ public final class StackApplicationSettings {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable Boolean enabled;
+        private Boolean enabled;
         private @Nullable String settingsGroup;
         public Builder() {}
         public Builder(StackApplicationSettings defaults) {
@@ -42,8 +62,8 @@ public final class StackApplicationSettings {
         }
 
         @CustomType.Setter
-        public Builder enabled(@Nullable Boolean enabled) {
-            this.enabled = enabled;
+        public Builder enabled(Boolean enabled) {
+            this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
         @CustomType.Setter

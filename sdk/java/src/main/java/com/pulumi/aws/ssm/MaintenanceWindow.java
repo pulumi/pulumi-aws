@@ -164,14 +164,14 @@ public class MaintenanceWindow extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The schedule of the Maintenance Window in the form of a [cron](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-cron.html) or rate expression.
+     * The schedule of the Maintenance Window in the form of a [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html).
      * 
      */
     @Export(name="schedule", type=String.class, parameters={})
     private Output<String> schedule;
 
     /**
-     * @return The schedule of the Maintenance Window in the form of a [cron](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-cron.html) or rate expression.
+     * @return The schedule of the Maintenance Window in the form of a [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html).
      * 
      */
     public Output<String> schedule() {
