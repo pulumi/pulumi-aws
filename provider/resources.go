@@ -2284,9 +2284,13 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_lightsail_static_ip":                            {Tok: awsResource(lightsailMod, "StaticIp")},
 			"aws_lightsail_static_ip_attachment":                 {Tok: awsResource(lightsailMod, "StaticIpAttachment")},
 			"aws_lightsail_instance_public_ports":                {Tok: awsResource(lightsailMod, "InstancePublicPorts")},
+			"aws_lightsail_certificate":                          {Tok: awsResource(lightsailMod, "Certificate")},
 			"aws_lightsail_container_service":                    {Tok: awsResource(lightsailMod, "ContainerService")},
 			"aws_lightsail_container_service_deployment_version": {Tok: awsResource(lightsailMod, "ContainerServiceDeploymentVersion")},
 			"aws_lightsail_database":                             {Tok: awsResource(lightsailMod, "Database")},
+			"aws_lightsail_domain_entry":                         {Tok: awsResource(lightsailMod, "DomainEntry")},
+			"aws_lightsail_lb":                                   {Tok: awsResource(lightsailMod, "Lb")},
+			"aws_lightsail_lb_attachment":                        {Tok: awsResource(lightsailMod, "LbAttachment")},
 
 			// Location
 			"aws_location_map":                 {Tok: awsResource(locationMod, "Map")},
@@ -2766,6 +2770,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ses_template":                     {Tok: awsResource(sesMod, "Template")},
 
 			"aws_sesv2_configuration_set": {Tok: awsResource(sesV2Mod, "ConfigurationSet")},
+			"aws_sesv2_dedicated_ip_pool": {Tok: awsResource(sesV2Mod, "DedicatedIpPool")},
 
 			// Shield
 			"aws_shield_protection":                          {Tok: awsResource(shieldMod, "Protection")},
@@ -4926,6 +4931,7 @@ func Provider() tfbridge.ProviderInfo {
 			// ElastiCache
 			"aws_elasticache_cluster":           {Tok: awsDataSource(elasticacheMod, "getCluster")},
 			"aws_elasticache_replication_group": {Tok: awsDataSource(elasticacheMod, "getReplicationGroup")},
+			"aws_elasticache_subnet_group":      {Tok: awsDataSource(elasticacheMod, "getSubnetGroup")},
 			"aws_elasticache_user":              {Tok: awsDataSource(elasticacheMod, "getUser")},
 
 			// EMR
@@ -5285,6 +5291,9 @@ func Provider() tfbridge.ProviderInfo {
 
 			// lb mod
 			"aws_lb_hosted_zone_id": {Tok: awsDataSource(lbMod, "getHostedZoneId")},
+
+			// SES v2
+			"aws_sesv2_dedicated_ip_pool": {Tok: awsDataSource(sesV2Mod, "getDedicatedIpPool")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{
