@@ -292,7 +292,7 @@ type PatchBaseline struct {
 	GlobalFilters PatchBaselineGlobalFilterArrayOutput `pulumi:"globalFilters"`
 	// The name specified to identify the patch source.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Defines the operating system the patch baseline applies to. Supported operating systems include `WINDOWS`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `SUSE`, `UBUNTU`, `CENTOS`, and `REDHAT_ENTERPRISE_LINUX`. The Default value is `WINDOWS`.
+	// Defines the operating system the patch baseline applies to. Supported operating systems are `AMAZON_LINUX`, `AMAZON_LINUX_2`, `UBUNTU`, `REDHAT_ENTERPRISE_LINUX`, `SUSE`, `CENTOS`, `ORACLE_LINUX`, `DEBIAN`, `MACOS`, `RASPBIAN` and `ROCKY_LINUX`. The Default value is `WINDOWS`.
 	OperatingSystem pulumi.StringPtrOutput `pulumi:"operatingSystem"`
 	// A list of rejected patches.
 	RejectedPatches pulumi.StringArrayOutput `pulumi:"rejectedPatches"`
@@ -351,7 +351,7 @@ type patchBaselineState struct {
 	GlobalFilters []PatchBaselineGlobalFilter `pulumi:"globalFilters"`
 	// The name specified to identify the patch source.
 	Name *string `pulumi:"name"`
-	// Defines the operating system the patch baseline applies to. Supported operating systems include `WINDOWS`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `SUSE`, `UBUNTU`, `CENTOS`, and `REDHAT_ENTERPRISE_LINUX`. The Default value is `WINDOWS`.
+	// Defines the operating system the patch baseline applies to. Supported operating systems are `AMAZON_LINUX`, `AMAZON_LINUX_2`, `UBUNTU`, `REDHAT_ENTERPRISE_LINUX`, `SUSE`, `CENTOS`, `ORACLE_LINUX`, `DEBIAN`, `MACOS`, `RASPBIAN` and `ROCKY_LINUX`. The Default value is `WINDOWS`.
 	OperatingSystem *string `pulumi:"operatingSystem"`
 	// A list of rejected patches.
 	RejectedPatches []string `pulumi:"rejectedPatches"`
@@ -382,7 +382,7 @@ type PatchBaselineState struct {
 	GlobalFilters PatchBaselineGlobalFilterArrayInput
 	// The name specified to identify the patch source.
 	Name pulumi.StringPtrInput
-	// Defines the operating system the patch baseline applies to. Supported operating systems include `WINDOWS`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `SUSE`, `UBUNTU`, `CENTOS`, and `REDHAT_ENTERPRISE_LINUX`. The Default value is `WINDOWS`.
+	// Defines the operating system the patch baseline applies to. Supported operating systems are `AMAZON_LINUX`, `AMAZON_LINUX_2`, `UBUNTU`, `REDHAT_ENTERPRISE_LINUX`, `SUSE`, `CENTOS`, `ORACLE_LINUX`, `DEBIAN`, `MACOS`, `RASPBIAN` and `ROCKY_LINUX`. The Default value is `WINDOWS`.
 	OperatingSystem pulumi.StringPtrInput
 	// A list of rejected patches.
 	RejectedPatches pulumi.StringArrayInput
@@ -415,7 +415,7 @@ type patchBaselineArgs struct {
 	GlobalFilters []PatchBaselineGlobalFilter `pulumi:"globalFilters"`
 	// The name specified to identify the patch source.
 	Name *string `pulumi:"name"`
-	// Defines the operating system the patch baseline applies to. Supported operating systems include `WINDOWS`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `SUSE`, `UBUNTU`, `CENTOS`, and `REDHAT_ENTERPRISE_LINUX`. The Default value is `WINDOWS`.
+	// Defines the operating system the patch baseline applies to. Supported operating systems are `AMAZON_LINUX`, `AMAZON_LINUX_2`, `UBUNTU`, `REDHAT_ENTERPRISE_LINUX`, `SUSE`, `CENTOS`, `ORACLE_LINUX`, `DEBIAN`, `MACOS`, `RASPBIAN` and `ROCKY_LINUX`. The Default value is `WINDOWS`.
 	OperatingSystem *string `pulumi:"operatingSystem"`
 	// A list of rejected patches.
 	RejectedPatches []string `pulumi:"rejectedPatches"`
@@ -443,7 +443,7 @@ type PatchBaselineArgs struct {
 	GlobalFilters PatchBaselineGlobalFilterArrayInput
 	// The name specified to identify the patch source.
 	Name pulumi.StringPtrInput
-	// Defines the operating system the patch baseline applies to. Supported operating systems include `WINDOWS`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `SUSE`, `UBUNTU`, `CENTOS`, and `REDHAT_ENTERPRISE_LINUX`. The Default value is `WINDOWS`.
+	// Defines the operating system the patch baseline applies to. Supported operating systems are `AMAZON_LINUX`, `AMAZON_LINUX_2`, `UBUNTU`, `REDHAT_ENTERPRISE_LINUX`, `SUSE`, `CENTOS`, `ORACLE_LINUX`, `DEBIAN`, `MACOS`, `RASPBIAN` and `ROCKY_LINUX`. The Default value is `WINDOWS`.
 	OperatingSystem pulumi.StringPtrInput
 	// A list of rejected patches.
 	RejectedPatches pulumi.StringArrayInput
@@ -582,7 +582,7 @@ func (o PatchBaselineOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *PatchBaseline) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Defines the operating system the patch baseline applies to. Supported operating systems include `WINDOWS`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `SUSE`, `UBUNTU`, `CENTOS`, and `REDHAT_ENTERPRISE_LINUX`. The Default value is `WINDOWS`.
+// Defines the operating system the patch baseline applies to. Supported operating systems are `AMAZON_LINUX`, `AMAZON_LINUX_2`, `UBUNTU`, `REDHAT_ENTERPRISE_LINUX`, `SUSE`, `CENTOS`, `ORACLE_LINUX`, `DEBIAN`, `MACOS`, `RASPBIAN` and `ROCKY_LINUX`. The Default value is `WINDOWS`.
 func (o PatchBaselineOutput) OperatingSystem() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PatchBaseline) pulumi.StringPtrOutput { return v.OperatingSystem }).(pulumi.StringPtrOutput)
 }

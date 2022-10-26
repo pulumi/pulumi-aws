@@ -67,6 +67,7 @@ import (
 type UserGroup struct {
 	pulumi.CustomResourceState
 
+	// The ARN that identifies the user group.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The current supported value is `REDIS`.
 	Engine  pulumi.StringOutput    `pulumi:"engine"`
@@ -113,6 +114,7 @@ func GetUserGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering UserGroup resources.
 type userGroupState struct {
+	// The ARN that identifies the user group.
 	Arn *string `pulumi:"arn"`
 	// The current supported value is `REDIS`.
 	Engine  *string           `pulumi:"engine"`
@@ -125,6 +127,7 @@ type userGroupState struct {
 }
 
 type UserGroupState struct {
+	// The ARN that identifies the user group.
 	Arn pulumi.StringPtrInput
 	// The current supported value is `REDIS`.
 	Engine  pulumi.StringPtrInput
@@ -141,6 +144,7 @@ func (UserGroupState) ElementType() reflect.Type {
 }
 
 type userGroupArgs struct {
+	// The ARN that identifies the user group.
 	Arn *string `pulumi:"arn"`
 	// The current supported value is `REDIS`.
 	Engine string            `pulumi:"engine"`
@@ -153,6 +157,7 @@ type userGroupArgs struct {
 
 // The set of arguments for constructing a UserGroup resource.
 type UserGroupArgs struct {
+	// The ARN that identifies the user group.
 	Arn pulumi.StringPtrInput
 	// The current supported value is `REDIS`.
 	Engine pulumi.StringInput
@@ -250,6 +255,7 @@ func (o UserGroupOutput) ToUserGroupOutputWithContext(ctx context.Context) UserG
 	return o
 }
 
+// The ARN that identifies the user group.
 func (o UserGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

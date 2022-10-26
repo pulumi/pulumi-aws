@@ -222,7 +222,7 @@ type Directory struct {
 	DesiredNumberOfDomainControllers pulumi.IntOutput `pulumi:"desiredNumberOfDomainControllers"`
 	// A list of IP addresses of the DNS servers for the directory or connector.
 	DnsIpAddresses pulumi.StringArrayOutput `pulumi:"dnsIpAddresses"`
-	// The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise` (applies to MicrosoftAD type only).
+	// The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.
 	Edition pulumi.StringOutput `pulumi:"edition"`
 	// Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
 	EnableSso pulumi.BoolPtrOutput `pulumi:"enableSso"`
@@ -234,9 +234,9 @@ type Directory struct {
 	SecurityGroupId pulumi.StringOutput `pulumi:"securityGroupId"`
 	// The short name of the directory, such as `CORP`.
 	ShortName pulumi.StringOutput `pulumi:"shortName"`
-	// The size of the directory (`Small` or `Large` are accepted values).
+	// (For `SimpleAD` and `ADConnector` types) The size of the directory (`Small` or `Large` are accepted values). `Large` by default.
 	Size pulumi.StringOutput `pulumi:"size"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -293,7 +293,7 @@ type directoryState struct {
 	DesiredNumberOfDomainControllers *int `pulumi:"desiredNumberOfDomainControllers"`
 	// A list of IP addresses of the DNS servers for the directory or connector.
 	DnsIpAddresses []string `pulumi:"dnsIpAddresses"`
-	// The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise` (applies to MicrosoftAD type only).
+	// The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.
 	Edition *string `pulumi:"edition"`
 	// Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
 	EnableSso *bool `pulumi:"enableSso"`
@@ -305,9 +305,9 @@ type directoryState struct {
 	SecurityGroupId *string `pulumi:"securityGroupId"`
 	// The short name of the directory, such as `CORP`.
 	ShortName *string `pulumi:"shortName"`
-	// The size of the directory (`Small` or `Large` are accepted values).
+	// (For `SimpleAD` and `ADConnector` types) The size of the directory (`Small` or `Large` are accepted values). `Large` by default.
 	Size *string `pulumi:"size"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -330,7 +330,7 @@ type DirectoryState struct {
 	DesiredNumberOfDomainControllers pulumi.IntPtrInput
 	// A list of IP addresses of the DNS servers for the directory or connector.
 	DnsIpAddresses pulumi.StringArrayInput
-	// The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise` (applies to MicrosoftAD type only).
+	// The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.
 	Edition pulumi.StringPtrInput
 	// Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
 	EnableSso pulumi.BoolPtrInput
@@ -342,9 +342,9 @@ type DirectoryState struct {
 	SecurityGroupId pulumi.StringPtrInput
 	// The short name of the directory, such as `CORP`.
 	ShortName pulumi.StringPtrInput
-	// The size of the directory (`Small` or `Large` are accepted values).
+	// (For `SimpleAD` and `ADConnector` types) The size of the directory (`Small` or `Large` are accepted values). `Large` by default.
 	Size pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -367,7 +367,7 @@ type directoryArgs struct {
 	Description *string `pulumi:"description"`
 	// The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
 	DesiredNumberOfDomainControllers *int `pulumi:"desiredNumberOfDomainControllers"`
-	// The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise` (applies to MicrosoftAD type only).
+	// The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.
 	Edition *string `pulumi:"edition"`
 	// Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
 	EnableSso *bool `pulumi:"enableSso"`
@@ -377,9 +377,9 @@ type directoryArgs struct {
 	Password string `pulumi:"password"`
 	// The short name of the directory, such as `CORP`.
 	ShortName *string `pulumi:"shortName"`
-	// The size of the directory (`Small` or `Large` are accepted values).
+	// (For `SimpleAD` and `ADConnector` types) The size of the directory (`Small` or `Large` are accepted values). `Large` by default.
 	Size *string `pulumi:"size"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
 	Type *string `pulumi:"type"`
@@ -397,7 +397,7 @@ type DirectoryArgs struct {
 	Description pulumi.StringPtrInput
 	// The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
 	DesiredNumberOfDomainControllers pulumi.IntPtrInput
-	// The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise` (applies to MicrosoftAD type only).
+	// The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.
 	Edition pulumi.StringPtrInput
 	// Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
 	EnableSso pulumi.BoolPtrInput
@@ -407,9 +407,9 @@ type DirectoryArgs struct {
 	Password pulumi.StringInput
 	// The short name of the directory, such as `CORP`.
 	ShortName pulumi.StringPtrInput
-	// The size of the directory (`Small` or `Large` are accepted values).
+	// (For `SimpleAD` and `ADConnector` types) The size of the directory (`Small` or `Large` are accepted values). `Large` by default.
 	Size pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
 	Type pulumi.StringPtrInput
@@ -534,7 +534,7 @@ func (o DirectoryOutput) DnsIpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Directory) pulumi.StringArrayOutput { return v.DnsIpAddresses }).(pulumi.StringArrayOutput)
 }
 
-// The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise` (applies to MicrosoftAD type only).
+// The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.
 func (o DirectoryOutput) Edition() pulumi.StringOutput {
 	return o.ApplyT(func(v *Directory) pulumi.StringOutput { return v.Edition }).(pulumi.StringOutput)
 }
@@ -564,12 +564,12 @@ func (o DirectoryOutput) ShortName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Directory) pulumi.StringOutput { return v.ShortName }).(pulumi.StringOutput)
 }
 
-// The size of the directory (`Small` or `Large` are accepted values).
+// (For `SimpleAD` and `ADConnector` types) The size of the directory (`Small` or `Large` are accepted values). `Large` by default.
 func (o DirectoryOutput) Size() pulumi.StringOutput {
 	return o.ApplyT(func(v *Directory) pulumi.StringOutput { return v.Size }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o DirectoryOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Directory) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

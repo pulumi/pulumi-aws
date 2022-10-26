@@ -69,7 +69,7 @@ type MaintenanceWindow struct {
 	EndDate pulumi.StringPtrOutput `pulumi:"endDate"`
 	// The name of the maintenance window.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The schedule of the Maintenance Window in the form of a [cron](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-cron.html) or rate expression.
+	// The schedule of the Maintenance Window in the form of a [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html).
 	Schedule pulumi.StringOutput `pulumi:"schedule"`
 	// The number of days to wait after the date and time specified by a CRON expression before running the maintenance window.
 	ScheduleOffset pulumi.IntPtrOutput `pulumi:"scheduleOffset"`
@@ -135,7 +135,7 @@ type maintenanceWindowState struct {
 	EndDate *string `pulumi:"endDate"`
 	// The name of the maintenance window.
 	Name *string `pulumi:"name"`
-	// The schedule of the Maintenance Window in the form of a [cron](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-cron.html) or rate expression.
+	// The schedule of the Maintenance Window in the form of a [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html).
 	Schedule *string `pulumi:"schedule"`
 	// The number of days to wait after the date and time specified by a CRON expression before running the maintenance window.
 	ScheduleOffset *int `pulumi:"scheduleOffset"`
@@ -164,7 +164,7 @@ type MaintenanceWindowState struct {
 	EndDate pulumi.StringPtrInput
 	// The name of the maintenance window.
 	Name pulumi.StringPtrInput
-	// The schedule of the Maintenance Window in the form of a [cron](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-cron.html) or rate expression.
+	// The schedule of the Maintenance Window in the form of a [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html).
 	Schedule pulumi.StringPtrInput
 	// The number of days to wait after the date and time specified by a CRON expression before running the maintenance window.
 	ScheduleOffset pulumi.IntPtrInput
@@ -197,7 +197,7 @@ type maintenanceWindowArgs struct {
 	EndDate *string `pulumi:"endDate"`
 	// The name of the maintenance window.
 	Name *string `pulumi:"name"`
-	// The schedule of the Maintenance Window in the form of a [cron](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-cron.html) or rate expression.
+	// The schedule of the Maintenance Window in the form of a [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html).
 	Schedule string `pulumi:"schedule"`
 	// The number of days to wait after the date and time specified by a CRON expression before running the maintenance window.
 	ScheduleOffset *int `pulumi:"scheduleOffset"`
@@ -225,7 +225,7 @@ type MaintenanceWindowArgs struct {
 	EndDate pulumi.StringPtrInput
 	// The name of the maintenance window.
 	Name pulumi.StringPtrInput
-	// The schedule of the Maintenance Window in the form of a [cron](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-cron.html) or rate expression.
+	// The schedule of the Maintenance Window in the form of a [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html).
 	Schedule pulumi.StringInput
 	// The number of days to wait after the date and time specified by a CRON expression before running the maintenance window.
 	ScheduleOffset pulumi.IntPtrInput
@@ -359,7 +359,7 @@ func (o MaintenanceWindowOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *MaintenanceWindow) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The schedule of the Maintenance Window in the form of a [cron](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-cron.html) or rate expression.
+// The schedule of the Maintenance Window in the form of a [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html).
 func (o MaintenanceWindowOutput) Schedule() pulumi.StringOutput {
 	return o.ApplyT(func(v *MaintenanceWindow) pulumi.StringOutput { return v.Schedule }).(pulumi.StringOutput)
 }

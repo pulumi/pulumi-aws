@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -70,12 +69,14 @@ type Group struct {
 
 	// The ARN assigned by AWS for this resource group.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
+	Configurations GroupConfigurationArrayOutput `pulumi:"configurations"`
 	// A description of the resource group.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The resource group's name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `aws`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A `resourceQuery` block. Resource queries are documented below.
-	ResourceQuery GroupResourceQueryOutput `pulumi:"resourceQuery"`
+	ResourceQuery GroupResourceQueryPtrOutput `pulumi:"resourceQuery"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -86,12 +87,9 @@ type Group struct {
 func NewGroup(ctx *pulumi.Context,
 	name string, args *GroupArgs, opts ...pulumi.ResourceOption) (*Group, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &GroupArgs{}
 	}
 
-	if args.ResourceQuery == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceQuery'")
-	}
 	var resource Group
 	err := ctx.RegisterResource("aws:resourcegroups/group:Group", name, args, &resource, opts...)
 	if err != nil {
@@ -116,6 +114,8 @@ func GetGroup(ctx *pulumi.Context,
 type groupState struct {
 	// The ARN assigned by AWS for this resource group.
 	Arn *string `pulumi:"arn"`
+	// A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
+	Configurations []GroupConfiguration `pulumi:"configurations"`
 	// A description of the resource group.
 	Description *string `pulumi:"description"`
 	// The resource group's name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `aws`.
@@ -131,6 +131,8 @@ type groupState struct {
 type GroupState struct {
 	// The ARN assigned by AWS for this resource group.
 	Arn pulumi.StringPtrInput
+	// A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
+	Configurations GroupConfigurationArrayInput
 	// A description of the resource group.
 	Description pulumi.StringPtrInput
 	// The resource group's name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `aws`.
@@ -148,24 +150,28 @@ func (GroupState) ElementType() reflect.Type {
 }
 
 type groupArgs struct {
+	// A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
+	Configurations []GroupConfiguration `pulumi:"configurations"`
 	// A description of the resource group.
 	Description *string `pulumi:"description"`
 	// The resource group's name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `aws`.
 	Name *string `pulumi:"name"`
 	// A `resourceQuery` block. Resource queries are documented below.
-	ResourceQuery GroupResourceQuery `pulumi:"resourceQuery"`
+	ResourceQuery *GroupResourceQuery `pulumi:"resourceQuery"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Group resource.
 type GroupArgs struct {
+	// A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
+	Configurations GroupConfigurationArrayInput
 	// A description of the resource group.
 	Description pulumi.StringPtrInput
 	// The resource group's name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `aws`.
 	Name pulumi.StringPtrInput
 	// A `resourceQuery` block. Resource queries are documented below.
-	ResourceQuery GroupResourceQueryInput
+	ResourceQuery GroupResourceQueryPtrInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
@@ -262,6 +268,11 @@ func (o GroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
+func (o GroupOutput) Configurations() GroupConfigurationArrayOutput {
+	return o.ApplyT(func(v *Group) GroupConfigurationArrayOutput { return v.Configurations }).(GroupConfigurationArrayOutput)
+}
+
 // A description of the resource group.
 func (o GroupOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
@@ -273,8 +284,8 @@ func (o GroupOutput) Name() pulumi.StringOutput {
 }
 
 // A `resourceQuery` block. Resource queries are documented below.
-func (o GroupOutput) ResourceQuery() GroupResourceQueryOutput {
-	return o.ApplyT(func(v *Group) GroupResourceQueryOutput { return v.ResourceQuery }).(GroupResourceQueryOutput)
+func (o GroupOutput) ResourceQuery() GroupResourceQueryPtrOutput {
+	return o.ApplyT(func(v *Group) GroupResourceQueryPtrOutput { return v.ResourceQuery }).(GroupResourceQueryPtrOutput)
 }
 
 // Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

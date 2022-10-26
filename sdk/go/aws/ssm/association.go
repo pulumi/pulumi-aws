@@ -113,6 +113,41 @@ import (
 //	}
 //
 // ```
+// ### Create an association with a specific schedule
+//
+// This example shows how to schedule an association in various ways.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ssm.NewAssociation(ctx, "example", &ssm.AssociationArgs{
+//				ScheduleExpression: pulumi.String("cron(0 2 ? * SUN *)"),
+//				Targets: ssm.AssociationTargetArray{
+//					&ssm.AssociationTargetArgs{
+//						Key: pulumi.String("InstanceIds"),
+//						Values: pulumi.StringArray{
+//							pulumi.Any(aws_instance.Example.Id),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //
@@ -154,7 +189,7 @@ type Association struct {
 	OutputLocation AssociationOutputLocationPtrOutput `pulumi:"outputLocation"`
 	// A block of arbitrary string parameters to pass to the SSM document.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
-	// A cron expression when the association will be applied to the target(s).
+	// A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
 	ScheduleExpression pulumi.StringPtrOutput `pulumi:"scheduleExpression"`
 	// A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
 	Targets AssociationTargetArrayOutput `pulumi:"targets"`
@@ -219,7 +254,7 @@ type associationState struct {
 	OutputLocation *AssociationOutputLocation `pulumi:"outputLocation"`
 	// A block of arbitrary string parameters to pass to the SSM document.
 	Parameters map[string]string `pulumi:"parameters"`
-	// A cron expression when the association will be applied to the target(s).
+	// A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
 	ScheduleExpression *string `pulumi:"scheduleExpression"`
 	// A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
 	Targets []AssociationTarget `pulumi:"targets"`
@@ -256,7 +291,7 @@ type AssociationState struct {
 	OutputLocation AssociationOutputLocationPtrInput
 	// A block of arbitrary string parameters to pass to the SSM document.
 	Parameters pulumi.StringMapInput
-	// A cron expression when the association will be applied to the target(s).
+	// A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
 	ScheduleExpression pulumi.StringPtrInput
 	// A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
 	Targets AssociationTargetArrayInput
@@ -293,7 +328,7 @@ type associationArgs struct {
 	OutputLocation *AssociationOutputLocation `pulumi:"outputLocation"`
 	// A block of arbitrary string parameters to pass to the SSM document.
 	Parameters map[string]string `pulumi:"parameters"`
-	// A cron expression when the association will be applied to the target(s).
+	// A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
 	ScheduleExpression *string `pulumi:"scheduleExpression"`
 	// A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
 	Targets []AssociationTarget `pulumi:"targets"`
@@ -327,7 +362,7 @@ type AssociationArgs struct {
 	OutputLocation AssociationOutputLocationPtrInput
 	// A block of arbitrary string parameters to pass to the SSM document.
 	Parameters pulumi.StringMapInput
-	// A cron expression when the association will be applied to the target(s).
+	// A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
 	ScheduleExpression pulumi.StringPtrInput
 	// A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
 	Targets AssociationTargetArrayInput
@@ -489,7 +524,7 @@ func (o AssociationOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Association) pulumi.StringMapOutput { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
-// A cron expression when the association will be applied to the target(s).
+// A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
 func (o AssociationOutput) ScheduleExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Association) pulumi.StringPtrOutput { return v.ScheduleExpression }).(pulumi.StringPtrOutput)
 }

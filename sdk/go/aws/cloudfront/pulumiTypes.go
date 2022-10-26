@@ -3668,12 +3668,12 @@ type DistributionOrigin struct {
 	CustomHeaders []DistributionOriginCustomHeader `pulumi:"customHeaders"`
 	// The CloudFront custom
 	// origin configuration information. If an S3
-	// origin is required, use `s3OriginConfig` instead.
+	// origin is required, use `originAccessControlId` or `s3OriginConfig` instead.
 	CustomOriginConfig *DistributionOriginCustomOriginConfig `pulumi:"customOriginConfig"`
 	// The DNS domain name of either the S3 bucket, or
 	// web site of your custom origin.
 	DomainName string `pulumi:"domainName"`
-	// The unique identifier of an origin access control for this origin.
+	// The unique identifier of a [CloudFront origin access control](https://www.terraform.io/docs/providers/aws/r/cloudfront_origin_access_control.html) for this origin.
 	OriginAccessControlId *string `pulumi:"originAccessControlId"`
 	// The unique identifier of the member origin
 	OriginId string `pulumi:"originId"`
@@ -3712,12 +3712,12 @@ type DistributionOriginArgs struct {
 	CustomHeaders DistributionOriginCustomHeaderArrayInput `pulumi:"customHeaders"`
 	// The CloudFront custom
 	// origin configuration information. If an S3
-	// origin is required, use `s3OriginConfig` instead.
+	// origin is required, use `originAccessControlId` or `s3OriginConfig` instead.
 	CustomOriginConfig DistributionOriginCustomOriginConfigPtrInput `pulumi:"customOriginConfig"`
 	// The DNS domain name of either the S3 bucket, or
 	// web site of your custom origin.
 	DomainName pulumi.StringInput `pulumi:"domainName"`
-	// The unique identifier of an origin access control for this origin.
+	// The unique identifier of a [CloudFront origin access control](https://www.terraform.io/docs/providers/aws/r/cloudfront_origin_access_control.html) for this origin.
 	OriginAccessControlId pulumi.StringPtrInput `pulumi:"originAccessControlId"`
 	// The unique identifier of the member origin
 	OriginId pulumi.StringInput `pulumi:"originId"`
@@ -3804,7 +3804,7 @@ func (o DistributionOriginOutput) CustomHeaders() DistributionOriginCustomHeader
 
 // The CloudFront custom
 // origin configuration information. If an S3
-// origin is required, use `s3OriginConfig` instead.
+// origin is required, use `originAccessControlId` or `s3OriginConfig` instead.
 func (o DistributionOriginOutput) CustomOriginConfig() DistributionOriginCustomOriginConfigPtrOutput {
 	return o.ApplyT(func(v DistributionOrigin) *DistributionOriginCustomOriginConfig { return v.CustomOriginConfig }).(DistributionOriginCustomOriginConfigPtrOutput)
 }
@@ -3815,7 +3815,7 @@ func (o DistributionOriginOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionOrigin) string { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// The unique identifier of an origin access control for this origin.
+// The unique identifier of a [CloudFront origin access control](https://www.terraform.io/docs/providers/aws/r/cloudfront_origin_access_control.html) for this origin.
 func (o DistributionOriginOutput) OriginAccessControlId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionOrigin) *string { return v.OriginAccessControlId }).(pulumi.StringPtrOutput)
 }
@@ -4630,8 +4630,7 @@ func (o DistributionOriginOriginShieldPtrOutput) OriginShieldRegion() pulumi.Str
 }
 
 type DistributionOriginS3OriginConfig struct {
-	// The [CloudFront origin access
-	// identity][5] to associate with the origin.
+	// The [CloudFront origin access identity](https://www.terraform.io/docs/providers/aws/r/cloudfront_origin_access_identity.html) to associate with the origin.
 	OriginAccessIdentity string `pulumi:"originAccessIdentity"`
 }
 
@@ -4647,8 +4646,7 @@ type DistributionOriginS3OriginConfigInput interface {
 }
 
 type DistributionOriginS3OriginConfigArgs struct {
-	// The [CloudFront origin access
-	// identity][5] to associate with the origin.
+	// The [CloudFront origin access identity](https://www.terraform.io/docs/providers/aws/r/cloudfront_origin_access_identity.html) to associate with the origin.
 	OriginAccessIdentity pulumi.StringInput `pulumi:"originAccessIdentity"`
 }
 
@@ -4729,8 +4727,7 @@ func (o DistributionOriginS3OriginConfigOutput) ToDistributionOriginS3OriginConf
 	}).(DistributionOriginS3OriginConfigPtrOutput)
 }
 
-// The [CloudFront origin access
-// identity][5] to associate with the origin.
+// The [CloudFront origin access identity](https://www.terraform.io/docs/providers/aws/r/cloudfront_origin_access_identity.html) to associate with the origin.
 func (o DistributionOriginS3OriginConfigOutput) OriginAccessIdentity() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionOriginS3OriginConfig) string { return v.OriginAccessIdentity }).(pulumi.StringOutput)
 }
@@ -4759,8 +4756,7 @@ func (o DistributionOriginS3OriginConfigPtrOutput) Elem() DistributionOriginS3Or
 	}).(DistributionOriginS3OriginConfigOutput)
 }
 
-// The [CloudFront origin access
-// identity][5] to associate with the origin.
+// The [CloudFront origin access identity](https://www.terraform.io/docs/providers/aws/r/cloudfront_origin_access_identity.html) to associate with the origin.
 func (o DistributionOriginS3OriginConfigPtrOutput) OriginAccessIdentity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionOriginS3OriginConfig) *string {
 		if v == nil {

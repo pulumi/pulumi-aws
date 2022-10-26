@@ -13,65 +13,6 @@ import (
 
 // Provides a MediaStore Container Policy.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/mediastore"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			currentRegion, err := aws.GetRegion(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleContainer, err := mediastore.NewContainer(ctx, "exampleContainer", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = mediastore.NewContainerPolicy(ctx, "exampleContainerPolicy", &mediastore.ContainerPolicyArgs{
-//				ContainerName: exampleContainer.Name,
-//				Policy: exampleContainer.Name.ApplyT(func(name string) (string, error) {
-//					return fmt.Sprintf(`{
-//		"Version": "2012-10-17",
-//		"Statement": [{
-//			"Sid": "MediaStoreFullAccess",
-//			"Action": [ "mediastore:*" ],
-//			"Principal": {"AWS" : "arn:aws:iam::%v:root"},
-//			"Effect": "Allow",
-//			"Resource": "arn:aws:mediastore:%v:%v:container/%v/*",
-//			"Condition": {
-//				"Bool": { "aws:SecureTransport": "true" }
-//			}
-//		}]
-//	}
-//
-// `, currentCallerIdentity.AccountId, currentRegion.Name, currentCallerIdentity.AccountId, name), nil
-//
-//				}).(pulumi.StringOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // MediaStore Container Policy can be imported using the MediaStore Container Name, e.g.,

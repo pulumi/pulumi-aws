@@ -98,7 +98,9 @@ type LookupZoneResult struct {
 	Name                   string `pulumi:"name"`
 	// List of DNS name servers for the Hosted Zone.
 	NameServers []string `pulumi:"nameServers"`
-	PrivateZone *bool    `pulumi:"privateZone"`
+	// The Route 53 name server that created the SOA record.
+	PrimaryNameServer string `pulumi:"primaryNameServer"`
+	PrivateZone       *bool  `pulumi:"privateZone"`
 	// The number of Record Set in the Hosted Zone.
 	ResourceRecordSetCount int               `pulumi:"resourceRecordSetCount"`
 	Tags                   map[string]string `pulumi:"tags"`
@@ -191,6 +193,11 @@ func (o LookupZoneResultOutput) Name() pulumi.StringOutput {
 // List of DNS name servers for the Hosted Zone.
 func (o LookupZoneResultOutput) NameServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupZoneResult) []string { return v.NameServers }).(pulumi.StringArrayOutput)
+}
+
+// The Route 53 name server that created the SOA record.
+func (o LookupZoneResultOutput) PrimaryNameServer() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupZoneResult) string { return v.PrimaryNameServer }).(pulumi.StringOutput)
 }
 
 func (o LookupZoneResultOutput) PrivateZone() pulumi.BoolPtrOutput {

@@ -83,9 +83,11 @@ import (
 type Stack struct {
 	pulumi.CustomResourceState
 
-	// Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See below.
+	// Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
+	// See `accessEndpoints` below.
 	AccessEndpoints StackAccessEndpointArrayOutput `pulumi:"accessEndpoints"`
 	// Settings for application settings persistence.
+	// See `applicationSettings` below.
 	ApplicationSettings StackApplicationSettingsOutput `pulumi:"applicationSettings"`
 	// ARN of the appstream stack.
 	Arn pulumi.StringOutput `pulumi:"arn"`
@@ -103,11 +105,13 @@ type Stack struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// URL that users are redirected to after their streaming session ends.
 	RedirectUrl pulumi.StringOutput `pulumi:"redirectUrl"`
-	// Configuration block for the storage connectors to enable. See below.
+	// Configuration block for the storage connectors to enable.
+	// See `storageConnectors` below.
 	StorageConnectors StackStorageConnectorArrayOutput `pulumi:"storageConnectors"`
 	Tags              pulumi.StringMapOutput           `pulumi:"tags"`
 	TagsAll           pulumi.StringMapOutput           `pulumi:"tagsAll"`
-	// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled. See below.
+	// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+	// See `userSettings` below.
 	UserSettings StackUserSettingArrayOutput `pulumi:"userSettings"`
 }
 
@@ -140,9 +144,11 @@ func GetStack(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Stack resources.
 type stackState struct {
-	// Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See below.
+	// Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
+	// See `accessEndpoints` below.
 	AccessEndpoints []StackAccessEndpoint `pulumi:"accessEndpoints"`
 	// Settings for application settings persistence.
+	// See `applicationSettings` below.
 	ApplicationSettings *StackApplicationSettings `pulumi:"applicationSettings"`
 	// ARN of the appstream stack.
 	Arn *string `pulumi:"arn"`
@@ -160,18 +166,22 @@ type stackState struct {
 	Name *string `pulumi:"name"`
 	// URL that users are redirected to after their streaming session ends.
 	RedirectUrl *string `pulumi:"redirectUrl"`
-	// Configuration block for the storage connectors to enable. See below.
+	// Configuration block for the storage connectors to enable.
+	// See `storageConnectors` below.
 	StorageConnectors []StackStorageConnector `pulumi:"storageConnectors"`
 	Tags              map[string]string       `pulumi:"tags"`
 	TagsAll           map[string]string       `pulumi:"tagsAll"`
-	// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled. See below.
+	// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+	// See `userSettings` below.
 	UserSettings []StackUserSetting `pulumi:"userSettings"`
 }
 
 type StackState struct {
-	// Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See below.
+	// Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
+	// See `accessEndpoints` below.
 	AccessEndpoints StackAccessEndpointArrayInput
 	// Settings for application settings persistence.
+	// See `applicationSettings` below.
 	ApplicationSettings StackApplicationSettingsPtrInput
 	// ARN of the appstream stack.
 	Arn pulumi.StringPtrInput
@@ -189,11 +199,13 @@ type StackState struct {
 	Name pulumi.StringPtrInput
 	// URL that users are redirected to after their streaming session ends.
 	RedirectUrl pulumi.StringPtrInput
-	// Configuration block for the storage connectors to enable. See below.
+	// Configuration block for the storage connectors to enable.
+	// See `storageConnectors` below.
 	StorageConnectors StackStorageConnectorArrayInput
 	Tags              pulumi.StringMapInput
 	TagsAll           pulumi.StringMapInput
-	// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled. See below.
+	// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+	// See `userSettings` below.
 	UserSettings StackUserSettingArrayInput
 }
 
@@ -202,9 +214,11 @@ func (StackState) ElementType() reflect.Type {
 }
 
 type stackArgs struct {
-	// Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See below.
+	// Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
+	// See `accessEndpoints` below.
 	AccessEndpoints []StackAccessEndpoint `pulumi:"accessEndpoints"`
 	// Settings for application settings persistence.
+	// See `applicationSettings` below.
 	ApplicationSettings *StackApplicationSettings `pulumi:"applicationSettings"`
 	// Description for the AppStream stack.
 	Description *string `pulumi:"description"`
@@ -218,18 +232,22 @@ type stackArgs struct {
 	Name *string `pulumi:"name"`
 	// URL that users are redirected to after their streaming session ends.
 	RedirectUrl *string `pulumi:"redirectUrl"`
-	// Configuration block for the storage connectors to enable. See below.
+	// Configuration block for the storage connectors to enable.
+	// See `storageConnectors` below.
 	StorageConnectors []StackStorageConnector `pulumi:"storageConnectors"`
 	Tags              map[string]string       `pulumi:"tags"`
-	// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled. See below.
+	// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+	// See `userSettings` below.
 	UserSettings []StackUserSetting `pulumi:"userSettings"`
 }
 
 // The set of arguments for constructing a Stack resource.
 type StackArgs struct {
-	// Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See below.
+	// Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
+	// See `accessEndpoints` below.
 	AccessEndpoints StackAccessEndpointArrayInput
 	// Settings for application settings persistence.
+	// See `applicationSettings` below.
 	ApplicationSettings StackApplicationSettingsPtrInput
 	// Description for the AppStream stack.
 	Description pulumi.StringPtrInput
@@ -243,10 +261,12 @@ type StackArgs struct {
 	Name pulumi.StringPtrInput
 	// URL that users are redirected to after their streaming session ends.
 	RedirectUrl pulumi.StringPtrInput
-	// Configuration block for the storage connectors to enable. See below.
+	// Configuration block for the storage connectors to enable.
+	// See `storageConnectors` below.
 	StorageConnectors StackStorageConnectorArrayInput
 	Tags              pulumi.StringMapInput
-	// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled. See below.
+	// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+	// See `userSettings` below.
 	UserSettings StackUserSettingArrayInput
 }
 
@@ -337,12 +357,14 @@ func (o StackOutput) ToStackOutputWithContext(ctx context.Context) StackOutput {
 	return o
 }
 
-// Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See below.
+// Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
+// See `accessEndpoints` below.
 func (o StackOutput) AccessEndpoints() StackAccessEndpointArrayOutput {
 	return o.ApplyT(func(v *Stack) StackAccessEndpointArrayOutput { return v.AccessEndpoints }).(StackAccessEndpointArrayOutput)
 }
 
 // Settings for application settings persistence.
+// See `applicationSettings` below.
 func (o StackOutput) ApplicationSettings() StackApplicationSettingsOutput {
 	return o.ApplyT(func(v *Stack) StackApplicationSettingsOutput { return v.ApplicationSettings }).(StackApplicationSettingsOutput)
 }
@@ -387,7 +409,8 @@ func (o StackOutput) RedirectUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringOutput { return v.RedirectUrl }).(pulumi.StringOutput)
 }
 
-// Configuration block for the storage connectors to enable. See below.
+// Configuration block for the storage connectors to enable.
+// See `storageConnectors` below.
 func (o StackOutput) StorageConnectors() StackStorageConnectorArrayOutput {
 	return o.ApplyT(func(v *Stack) StackStorageConnectorArrayOutput { return v.StorageConnectors }).(StackStorageConnectorArrayOutput)
 }
@@ -400,7 +423,8 @@ func (o StackOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled. See below.
+// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+// See `userSettings` below.
 func (o StackOutput) UserSettings() StackUserSettingArrayOutput {
 	return o.ApplyT(func(v *Stack) StackUserSettingArrayOutput { return v.UserSettings }).(StackUserSettingArrayOutput)
 }

@@ -40,65 +40,6 @@ import (
 //	}
 //
 // ```
-// ### With KMS Key
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/xray"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetCallerIdentity(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
-//				Description:          pulumi.String("Some Key"),
-//				DeletionWindowInDays: pulumi.Int(7),
-//				Policy: pulumi.String(fmt.Sprintf(`{
-//	  "Version": "2012-10-17",
-//	  "Id": "kms-tf-1",
-//	  "Statement": [
-//	    {
-//	      "Sid": "Enable IAM User Permissions",
-//	      "Effect": "Allow",
-//	      "Principal": {
-//	        "AWS": "arn:aws:iam::%v:root"
-//	      },
-//	      "Action": "kms:*",
-//	      "Resource": "*"
-//	    }
-//	  ]
-//	}
-//
-// `, current.AccountId)),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = xray.NewEncryptionConfig(ctx, "exampleEncryptionConfig", &xray.EncryptionConfigArgs{
-//				Type:  pulumi.String("KMS"),
-//				KeyId: exampleKey.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //

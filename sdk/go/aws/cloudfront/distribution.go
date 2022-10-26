@@ -59,11 +59,9 @@ import (
 //			_, err = cloudfront.NewDistribution(ctx, "s3Distribution", &cloudfront.DistributionArgs{
 //				Origins: cloudfront.DistributionOriginArray{
 //					&cloudfront.DistributionOriginArgs{
-//						DomainName: bucketV2.BucketRegionalDomainName,
-//						OriginId:   pulumi.Any(locals.S3_origin_id),
-//						S3OriginConfig: &cloudfront.DistributionOriginS3OriginConfigArgs{
-//							OriginAccessIdentity: pulumi.String("origin-access-identity/cloudfront/ABCDEFG1234567"),
-//						},
+//						DomainName:            bucketV2.BucketRegionalDomainName,
+//						OriginAccessControlId: pulumi.Any(aws_cloudfront_origin_access_control.Default.Id),
+//						OriginId:              pulumi.Any(locals.S3_origin_id),
 //					},
 //				},
 //				Enabled:           pulumi.Bool(true),

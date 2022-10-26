@@ -460,7 +460,7 @@ func (o ConfigurationSetSendingOptionsPtrOutput) SendingEnabled() pulumi.BoolPtr
 }
 
 type ConfigurationSetSuppressionOptions struct {
-	// A list that contains the reasons that email addresses are automatically added to the suppression list for your account. Valid vales: `BOUNCE`, `COMPLAINT`.
+	// A list that contains the reasons that email addresses are automatically added to the suppression list for your account. Valid values: `BOUNCE`, `COMPLAINT`.
 	SuppressedReasons []string `pulumi:"suppressedReasons"`
 }
 
@@ -476,7 +476,7 @@ type ConfigurationSetSuppressionOptionsInput interface {
 }
 
 type ConfigurationSetSuppressionOptionsArgs struct {
-	// A list that contains the reasons that email addresses are automatically added to the suppression list for your account. Valid vales: `BOUNCE`, `COMPLAINT`.
+	// A list that contains the reasons that email addresses are automatically added to the suppression list for your account. Valid values: `BOUNCE`, `COMPLAINT`.
 	SuppressedReasons pulumi.StringArrayInput `pulumi:"suppressedReasons"`
 }
 
@@ -557,7 +557,7 @@ func (o ConfigurationSetSuppressionOptionsOutput) ToConfigurationSetSuppressionO
 	}).(ConfigurationSetSuppressionOptionsPtrOutput)
 }
 
-// A list that contains the reasons that email addresses are automatically added to the suppression list for your account. Valid vales: `BOUNCE`, `COMPLAINT`.
+// A list that contains the reasons that email addresses are automatically added to the suppression list for your account. Valid values: `BOUNCE`, `COMPLAINT`.
 func (o ConfigurationSetSuppressionOptionsOutput) SuppressedReasons() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ConfigurationSetSuppressionOptions) []string { return v.SuppressedReasons }).(pulumi.StringArrayOutput)
 }
@@ -586,7 +586,7 @@ func (o ConfigurationSetSuppressionOptionsPtrOutput) Elem() ConfigurationSetSupp
 	}).(ConfigurationSetSuppressionOptionsOutput)
 }
 
-// A list that contains the reasons that email addresses are automatically added to the suppression list for your account. Valid vales: `BOUNCE`, `COMPLAINT`.
+// A list that contains the reasons that email addresses are automatically added to the suppression list for your account. Valid values: `BOUNCE`, `COMPLAINT`.
 func (o ConfigurationSetSuppressionOptionsPtrOutput) SuppressedReasons() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ConfigurationSetSuppressionOptions) []string {
 		if v == nil {
@@ -733,6 +733,121 @@ func (o ConfigurationSetTrackingOptionsPtrOutput) CustomRedirectDomain() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetDedicatedIpPoolDedicatedIp struct {
+	// IPv4 address.
+	Ip string `pulumi:"ip"`
+	// Indicates how complete the dedicated IP warm-up process is. When this value equals `1`, the address has completed the warm-up process and is ready for use.
+	WarmupPercentage int `pulumi:"warmupPercentage"`
+	// The warm-up status of a dedicated IP address. Valid values: `IN_PROGRESS`, `DONE`.
+	WarmupStatus string `pulumi:"warmupStatus"`
+}
+
+// GetDedicatedIpPoolDedicatedIpInput is an input type that accepts GetDedicatedIpPoolDedicatedIpArgs and GetDedicatedIpPoolDedicatedIpOutput values.
+// You can construct a concrete instance of `GetDedicatedIpPoolDedicatedIpInput` via:
+//
+//	GetDedicatedIpPoolDedicatedIpArgs{...}
+type GetDedicatedIpPoolDedicatedIpInput interface {
+	pulumi.Input
+
+	ToGetDedicatedIpPoolDedicatedIpOutput() GetDedicatedIpPoolDedicatedIpOutput
+	ToGetDedicatedIpPoolDedicatedIpOutputWithContext(context.Context) GetDedicatedIpPoolDedicatedIpOutput
+}
+
+type GetDedicatedIpPoolDedicatedIpArgs struct {
+	// IPv4 address.
+	Ip pulumi.StringInput `pulumi:"ip"`
+	// Indicates how complete the dedicated IP warm-up process is. When this value equals `1`, the address has completed the warm-up process and is ready for use.
+	WarmupPercentage pulumi.IntInput `pulumi:"warmupPercentage"`
+	// The warm-up status of a dedicated IP address. Valid values: `IN_PROGRESS`, `DONE`.
+	WarmupStatus pulumi.StringInput `pulumi:"warmupStatus"`
+}
+
+func (GetDedicatedIpPoolDedicatedIpArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDedicatedIpPoolDedicatedIp)(nil)).Elem()
+}
+
+func (i GetDedicatedIpPoolDedicatedIpArgs) ToGetDedicatedIpPoolDedicatedIpOutput() GetDedicatedIpPoolDedicatedIpOutput {
+	return i.ToGetDedicatedIpPoolDedicatedIpOutputWithContext(context.Background())
+}
+
+func (i GetDedicatedIpPoolDedicatedIpArgs) ToGetDedicatedIpPoolDedicatedIpOutputWithContext(ctx context.Context) GetDedicatedIpPoolDedicatedIpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDedicatedIpPoolDedicatedIpOutput)
+}
+
+// GetDedicatedIpPoolDedicatedIpArrayInput is an input type that accepts GetDedicatedIpPoolDedicatedIpArray and GetDedicatedIpPoolDedicatedIpArrayOutput values.
+// You can construct a concrete instance of `GetDedicatedIpPoolDedicatedIpArrayInput` via:
+//
+//	GetDedicatedIpPoolDedicatedIpArray{ GetDedicatedIpPoolDedicatedIpArgs{...} }
+type GetDedicatedIpPoolDedicatedIpArrayInput interface {
+	pulumi.Input
+
+	ToGetDedicatedIpPoolDedicatedIpArrayOutput() GetDedicatedIpPoolDedicatedIpArrayOutput
+	ToGetDedicatedIpPoolDedicatedIpArrayOutputWithContext(context.Context) GetDedicatedIpPoolDedicatedIpArrayOutput
+}
+
+type GetDedicatedIpPoolDedicatedIpArray []GetDedicatedIpPoolDedicatedIpInput
+
+func (GetDedicatedIpPoolDedicatedIpArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDedicatedIpPoolDedicatedIp)(nil)).Elem()
+}
+
+func (i GetDedicatedIpPoolDedicatedIpArray) ToGetDedicatedIpPoolDedicatedIpArrayOutput() GetDedicatedIpPoolDedicatedIpArrayOutput {
+	return i.ToGetDedicatedIpPoolDedicatedIpArrayOutputWithContext(context.Background())
+}
+
+func (i GetDedicatedIpPoolDedicatedIpArray) ToGetDedicatedIpPoolDedicatedIpArrayOutputWithContext(ctx context.Context) GetDedicatedIpPoolDedicatedIpArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDedicatedIpPoolDedicatedIpArrayOutput)
+}
+
+type GetDedicatedIpPoolDedicatedIpOutput struct{ *pulumi.OutputState }
+
+func (GetDedicatedIpPoolDedicatedIpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDedicatedIpPoolDedicatedIp)(nil)).Elem()
+}
+
+func (o GetDedicatedIpPoolDedicatedIpOutput) ToGetDedicatedIpPoolDedicatedIpOutput() GetDedicatedIpPoolDedicatedIpOutput {
+	return o
+}
+
+func (o GetDedicatedIpPoolDedicatedIpOutput) ToGetDedicatedIpPoolDedicatedIpOutputWithContext(ctx context.Context) GetDedicatedIpPoolDedicatedIpOutput {
+	return o
+}
+
+// IPv4 address.
+func (o GetDedicatedIpPoolDedicatedIpOutput) Ip() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDedicatedIpPoolDedicatedIp) string { return v.Ip }).(pulumi.StringOutput)
+}
+
+// Indicates how complete the dedicated IP warm-up process is. When this value equals `1`, the address has completed the warm-up process and is ready for use.
+func (o GetDedicatedIpPoolDedicatedIpOutput) WarmupPercentage() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDedicatedIpPoolDedicatedIp) int { return v.WarmupPercentage }).(pulumi.IntOutput)
+}
+
+// The warm-up status of a dedicated IP address. Valid values: `IN_PROGRESS`, `DONE`.
+func (o GetDedicatedIpPoolDedicatedIpOutput) WarmupStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDedicatedIpPoolDedicatedIp) string { return v.WarmupStatus }).(pulumi.StringOutput)
+}
+
+type GetDedicatedIpPoolDedicatedIpArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDedicatedIpPoolDedicatedIpArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDedicatedIpPoolDedicatedIp)(nil)).Elem()
+}
+
+func (o GetDedicatedIpPoolDedicatedIpArrayOutput) ToGetDedicatedIpPoolDedicatedIpArrayOutput() GetDedicatedIpPoolDedicatedIpArrayOutput {
+	return o
+}
+
+func (o GetDedicatedIpPoolDedicatedIpArrayOutput) ToGetDedicatedIpPoolDedicatedIpArrayOutputWithContext(ctx context.Context) GetDedicatedIpPoolDedicatedIpArrayOutput {
+	return o
+}
+
+func (o GetDedicatedIpPoolDedicatedIpArrayOutput) Index(i pulumi.IntInput) GetDedicatedIpPoolDedicatedIpOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDedicatedIpPoolDedicatedIp {
+		return vs[0].([]GetDedicatedIpPoolDedicatedIp)[vs[1].(int)]
+	}).(GetDedicatedIpPoolDedicatedIpOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetDeliveryOptionsInput)(nil)).Elem(), ConfigurationSetDeliveryOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetDeliveryOptionsPtrInput)(nil)).Elem(), ConfigurationSetDeliveryOptionsArgs{})
@@ -744,6 +859,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetSuppressionOptionsPtrInput)(nil)).Elem(), ConfigurationSetSuppressionOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetTrackingOptionsInput)(nil)).Elem(), ConfigurationSetTrackingOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetTrackingOptionsPtrInput)(nil)).Elem(), ConfigurationSetTrackingOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDedicatedIpPoolDedicatedIpInput)(nil)).Elem(), GetDedicatedIpPoolDedicatedIpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDedicatedIpPoolDedicatedIpArrayInput)(nil)).Elem(), GetDedicatedIpPoolDedicatedIpArray{})
 	pulumi.RegisterOutputType(ConfigurationSetDeliveryOptionsOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetDeliveryOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetReputationOptionsOutput{})
@@ -754,4 +871,6 @@ func init() {
 	pulumi.RegisterOutputType(ConfigurationSetSuppressionOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetTrackingOptionsOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetTrackingOptionsPtrOutput{})
+	pulumi.RegisterOutputType(GetDedicatedIpPoolDedicatedIpOutput{})
+	pulumi.RegisterOutputType(GetDedicatedIpPoolDedicatedIpArrayOutput{})
 }

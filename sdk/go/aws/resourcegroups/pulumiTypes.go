@@ -10,6 +10,218 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type GroupConfiguration struct {
+	// A collection of parameters for this group configuration item. See below for details.
+	Parameters []GroupConfigurationParameter `pulumi:"parameters"`
+	// Specifies the type of group configuration item.
+	Type string `pulumi:"type"`
+}
+
+// GroupConfigurationInput is an input type that accepts GroupConfigurationArgs and GroupConfigurationOutput values.
+// You can construct a concrete instance of `GroupConfigurationInput` via:
+//
+//	GroupConfigurationArgs{...}
+type GroupConfigurationInput interface {
+	pulumi.Input
+
+	ToGroupConfigurationOutput() GroupConfigurationOutput
+	ToGroupConfigurationOutputWithContext(context.Context) GroupConfigurationOutput
+}
+
+type GroupConfigurationArgs struct {
+	// A collection of parameters for this group configuration item. See below for details.
+	Parameters GroupConfigurationParameterArrayInput `pulumi:"parameters"`
+	// Specifies the type of group configuration item.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GroupConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupConfiguration)(nil)).Elem()
+}
+
+func (i GroupConfigurationArgs) ToGroupConfigurationOutput() GroupConfigurationOutput {
+	return i.ToGroupConfigurationOutputWithContext(context.Background())
+}
+
+func (i GroupConfigurationArgs) ToGroupConfigurationOutputWithContext(ctx context.Context) GroupConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupConfigurationOutput)
+}
+
+// GroupConfigurationArrayInput is an input type that accepts GroupConfigurationArray and GroupConfigurationArrayOutput values.
+// You can construct a concrete instance of `GroupConfigurationArrayInput` via:
+//
+//	GroupConfigurationArray{ GroupConfigurationArgs{...} }
+type GroupConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGroupConfigurationArrayOutput() GroupConfigurationArrayOutput
+	ToGroupConfigurationArrayOutputWithContext(context.Context) GroupConfigurationArrayOutput
+}
+
+type GroupConfigurationArray []GroupConfigurationInput
+
+func (GroupConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupConfiguration)(nil)).Elem()
+}
+
+func (i GroupConfigurationArray) ToGroupConfigurationArrayOutput() GroupConfigurationArrayOutput {
+	return i.ToGroupConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GroupConfigurationArray) ToGroupConfigurationArrayOutputWithContext(ctx context.Context) GroupConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupConfigurationArrayOutput)
+}
+
+type GroupConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GroupConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupConfiguration)(nil)).Elem()
+}
+
+func (o GroupConfigurationOutput) ToGroupConfigurationOutput() GroupConfigurationOutput {
+	return o
+}
+
+func (o GroupConfigurationOutput) ToGroupConfigurationOutputWithContext(ctx context.Context) GroupConfigurationOutput {
+	return o
+}
+
+// A collection of parameters for this group configuration item. See below for details.
+func (o GroupConfigurationOutput) Parameters() GroupConfigurationParameterArrayOutput {
+	return o.ApplyT(func(v GroupConfiguration) []GroupConfigurationParameter { return v.Parameters }).(GroupConfigurationParameterArrayOutput)
+}
+
+// Specifies the type of group configuration item.
+func (o GroupConfigurationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GroupConfiguration) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GroupConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GroupConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupConfiguration)(nil)).Elem()
+}
+
+func (o GroupConfigurationArrayOutput) ToGroupConfigurationArrayOutput() GroupConfigurationArrayOutput {
+	return o
+}
+
+func (o GroupConfigurationArrayOutput) ToGroupConfigurationArrayOutputWithContext(ctx context.Context) GroupConfigurationArrayOutput {
+	return o
+}
+
+func (o GroupConfigurationArrayOutput) Index(i pulumi.IntInput) GroupConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupConfiguration {
+		return vs[0].([]GroupConfiguration)[vs[1].(int)]
+	}).(GroupConfigurationOutput)
+}
+
+type GroupConfigurationParameter struct {
+	// The name of the group configuration parameter.
+	Name string `pulumi:"name"`
+	// The value or values to be used for the specified parameter.
+	Values []string `pulumi:"values"`
+}
+
+// GroupConfigurationParameterInput is an input type that accepts GroupConfigurationParameterArgs and GroupConfigurationParameterOutput values.
+// You can construct a concrete instance of `GroupConfigurationParameterInput` via:
+//
+//	GroupConfigurationParameterArgs{...}
+type GroupConfigurationParameterInput interface {
+	pulumi.Input
+
+	ToGroupConfigurationParameterOutput() GroupConfigurationParameterOutput
+	ToGroupConfigurationParameterOutputWithContext(context.Context) GroupConfigurationParameterOutput
+}
+
+type GroupConfigurationParameterArgs struct {
+	// The name of the group configuration parameter.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value or values to be used for the specified parameter.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GroupConfigurationParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupConfigurationParameter)(nil)).Elem()
+}
+
+func (i GroupConfigurationParameterArgs) ToGroupConfigurationParameterOutput() GroupConfigurationParameterOutput {
+	return i.ToGroupConfigurationParameterOutputWithContext(context.Background())
+}
+
+func (i GroupConfigurationParameterArgs) ToGroupConfigurationParameterOutputWithContext(ctx context.Context) GroupConfigurationParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupConfigurationParameterOutput)
+}
+
+// GroupConfigurationParameterArrayInput is an input type that accepts GroupConfigurationParameterArray and GroupConfigurationParameterArrayOutput values.
+// You can construct a concrete instance of `GroupConfigurationParameterArrayInput` via:
+//
+//	GroupConfigurationParameterArray{ GroupConfigurationParameterArgs{...} }
+type GroupConfigurationParameterArrayInput interface {
+	pulumi.Input
+
+	ToGroupConfigurationParameterArrayOutput() GroupConfigurationParameterArrayOutput
+	ToGroupConfigurationParameterArrayOutputWithContext(context.Context) GroupConfigurationParameterArrayOutput
+}
+
+type GroupConfigurationParameterArray []GroupConfigurationParameterInput
+
+func (GroupConfigurationParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupConfigurationParameter)(nil)).Elem()
+}
+
+func (i GroupConfigurationParameterArray) ToGroupConfigurationParameterArrayOutput() GroupConfigurationParameterArrayOutput {
+	return i.ToGroupConfigurationParameterArrayOutputWithContext(context.Background())
+}
+
+func (i GroupConfigurationParameterArray) ToGroupConfigurationParameterArrayOutputWithContext(ctx context.Context) GroupConfigurationParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupConfigurationParameterArrayOutput)
+}
+
+type GroupConfigurationParameterOutput struct{ *pulumi.OutputState }
+
+func (GroupConfigurationParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupConfigurationParameter)(nil)).Elem()
+}
+
+func (o GroupConfigurationParameterOutput) ToGroupConfigurationParameterOutput() GroupConfigurationParameterOutput {
+	return o
+}
+
+func (o GroupConfigurationParameterOutput) ToGroupConfigurationParameterOutputWithContext(ctx context.Context) GroupConfigurationParameterOutput {
+	return o
+}
+
+// The name of the group configuration parameter.
+func (o GroupConfigurationParameterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GroupConfigurationParameter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The value or values to be used for the specified parameter.
+func (o GroupConfigurationParameterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GroupConfigurationParameter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GroupConfigurationParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (GroupConfigurationParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupConfigurationParameter)(nil)).Elem()
+}
+
+func (o GroupConfigurationParameterArrayOutput) ToGroupConfigurationParameterArrayOutput() GroupConfigurationParameterArrayOutput {
+	return o
+}
+
+func (o GroupConfigurationParameterArrayOutput) ToGroupConfigurationParameterArrayOutputWithContext(ctx context.Context) GroupConfigurationParameterArrayOutput {
+	return o
+}
+
+func (o GroupConfigurationParameterArrayOutput) Index(i pulumi.IntInput) GroupConfigurationParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupConfigurationParameter {
+		return vs[0].([]GroupConfigurationParameter)[vs[1].(int)]
+	}).(GroupConfigurationParameterOutput)
+}
+
 type GroupResourceQuery struct {
 	// The resource query as a JSON string.
 	Query string `pulumi:"query"`
@@ -167,8 +379,16 @@ func (o GroupResourceQueryPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupConfigurationInput)(nil)).Elem(), GroupConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupConfigurationArrayInput)(nil)).Elem(), GroupConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupConfigurationParameterInput)(nil)).Elem(), GroupConfigurationParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupConfigurationParameterArrayInput)(nil)).Elem(), GroupConfigurationParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupResourceQueryInput)(nil)).Elem(), GroupResourceQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupResourceQueryPtrInput)(nil)).Elem(), GroupResourceQueryArgs{})
+	pulumi.RegisterOutputType(GroupConfigurationOutput{})
+	pulumi.RegisterOutputType(GroupConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GroupConfigurationParameterOutput{})
+	pulumi.RegisterOutputType(GroupConfigurationParameterArrayOutput{})
 	pulumi.RegisterOutputType(GroupResourceQueryOutput{})
 	pulumi.RegisterOutputType(GroupResourceQueryPtrOutput{})
 }

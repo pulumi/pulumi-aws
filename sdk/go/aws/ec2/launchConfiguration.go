@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to create a new launch configuration, used for autoscaling groups.
-//
 // ## Example Usage
 //
 // ```go

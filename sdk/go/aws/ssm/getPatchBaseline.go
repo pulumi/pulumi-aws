@@ -85,7 +85,7 @@ type LookupPatchBaselineArgs struct {
 	DefaultBaseline *bool `pulumi:"defaultBaseline"`
 	// Filter results by the baseline name prefix.
 	NamePrefix *string `pulumi:"namePrefix"`
-	// Specified OS for the baseline.
+	// Specified OS for the baseline. Valid values: `AMAZON_LINUX`, `AMAZON_LINUX_2`, `UBUNTU`, `REDHAT_ENTERPRISE_LINUX`, `SUSE`, `CENTOS`, `ORACLE_LINUX`, `DEBIAN`, `MACOS`, `RASPBIAN` and `ROCKY_LINUX`.
 	OperatingSystem *string `pulumi:"operatingSystem"`
 	// Owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
 	Owner string `pulumi:"owner"`
@@ -140,7 +140,7 @@ type LookupPatchBaselineOutputArgs struct {
 	DefaultBaseline pulumi.BoolPtrInput `pulumi:"defaultBaseline"`
 	// Filter results by the baseline name prefix.
 	NamePrefix pulumi.StringPtrInput `pulumi:"namePrefix"`
-	// Specified OS for the baseline.
+	// Specified OS for the baseline. Valid values: `AMAZON_LINUX`, `AMAZON_LINUX_2`, `UBUNTU`, `REDHAT_ENTERPRISE_LINUX`, `SUSE`, `CENTOS`, `ORACLE_LINUX`, `DEBIAN`, `MACOS`, `RASPBIAN` and `ROCKY_LINUX`.
 	OperatingSystem pulumi.StringPtrInput `pulumi:"operatingSystem"`
 	// Owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
 	Owner pulumi.StringInput `pulumi:"owner"`
