@@ -132,6 +132,8 @@ type UserPool struct {
 	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
 	// A custom domain name that you provide to Amazon Cognito. This parameter applies only if you use a custom domain to host the sign-up and sign-in pages for your application. For example: `auth.example.com`.
 	CustomDomain pulumi.StringOutput `pulumi:"customDomain"`
+	// When active, DeletionProtection prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature. Valid values are `ACTIVE` and `INACTIVE`, Default value is `INACTIVE`.
+	DeletionProtection pulumi.StringPtrOutput `pulumi:"deletionProtection"`
 	// Configuration block for the user pool's device tracking. Detailed below.
 	DeviceConfiguration UserPoolDeviceConfigurationPtrOutput `pulumi:"deviceConfiguration"`
 	// Holds the domain prefix if the user pool has a domain associated with it.
@@ -225,6 +227,8 @@ type userPoolState struct {
 	CreationDate *string `pulumi:"creationDate"`
 	// A custom domain name that you provide to Amazon Cognito. This parameter applies only if you use a custom domain to host the sign-up and sign-in pages for your application. For example: `auth.example.com`.
 	CustomDomain *string `pulumi:"customDomain"`
+	// When active, DeletionProtection prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature. Valid values are `ACTIVE` and `INACTIVE`, Default value is `INACTIVE`.
+	DeletionProtection *string `pulumi:"deletionProtection"`
 	// Configuration block for the user pool's device tracking. Detailed below.
 	DeviceConfiguration *UserPoolDeviceConfiguration `pulumi:"deviceConfiguration"`
 	// Holds the domain prefix if the user pool has a domain associated with it.
@@ -290,6 +294,8 @@ type UserPoolState struct {
 	CreationDate pulumi.StringPtrInput
 	// A custom domain name that you provide to Amazon Cognito. This parameter applies only if you use a custom domain to host the sign-up and sign-in pages for your application. For example: `auth.example.com`.
 	CustomDomain pulumi.StringPtrInput
+	// When active, DeletionProtection prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature. Valid values are `ACTIVE` and `INACTIVE`, Default value is `INACTIVE`.
+	DeletionProtection pulumi.StringPtrInput
 	// Configuration block for the user pool's device tracking. Detailed below.
 	DeviceConfiguration UserPoolDeviceConfigurationPtrInput
 	// Holds the domain prefix if the user pool has a domain associated with it.
@@ -353,6 +359,8 @@ type userPoolArgs struct {
 	AliasAttributes []string `pulumi:"aliasAttributes"`
 	// Attributes to be auto-verified. Valid values: `email`, `phoneNumber`.
 	AutoVerifiedAttributes []string `pulumi:"autoVerifiedAttributes"`
+	// When active, DeletionProtection prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature. Valid values are `ACTIVE` and `INACTIVE`, Default value is `INACTIVE`.
+	DeletionProtection *string `pulumi:"deletionProtection"`
 	// Configuration block for the user pool's device tracking. Detailed below.
 	DeviceConfiguration *UserPoolDeviceConfiguration `pulumi:"deviceConfiguration"`
 	// Configuration block for configuring email. Detailed below.
@@ -403,6 +411,8 @@ type UserPoolArgs struct {
 	AliasAttributes pulumi.StringArrayInput
 	// Attributes to be auto-verified. Valid values: `email`, `phoneNumber`.
 	AutoVerifiedAttributes pulumi.StringArrayInput
+	// When active, DeletionProtection prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature. Valid values are `ACTIVE` and `INACTIVE`, Default value is `INACTIVE`.
+	DeletionProtection pulumi.StringPtrInput
 	// Configuration block for the user pool's device tracking. Detailed below.
 	DeviceConfiguration UserPoolDeviceConfigurationPtrInput
 	// Configuration block for configuring email. Detailed below.
@@ -563,6 +573,11 @@ func (o UserPoolOutput) CreationDate() pulumi.StringOutput {
 // A custom domain name that you provide to Amazon Cognito. This parameter applies only if you use a custom domain to host the sign-up and sign-in pages for your application. For example: `auth.example.com`.
 func (o UserPoolOutput) CustomDomain() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPool) pulumi.StringOutput { return v.CustomDomain }).(pulumi.StringOutput)
+}
+
+// When active, DeletionProtection prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature. Valid values are `ACTIVE` and `INACTIVE`, Default value is `INACTIVE`.
+func (o UserPoolOutput) DeletionProtection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPool) pulumi.StringPtrOutput { return v.DeletionProtection }).(pulumi.StringPtrOutput)
 }
 
 // Configuration block for the user pool's device tracking. Detailed below.

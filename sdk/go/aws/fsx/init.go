@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Backup{}
 	case "aws:fsx/dataRepositoryAssociation:DataRepositoryAssociation":
 		r = &DataRepositoryAssociation{}
+	case "aws:fsx/fileCache:FileCache":
+		r = &FileCache{}
 	case "aws:fsx/lustreFileSystem:LustreFileSystem":
 		r = &LustreFileSystem{}
 	case "aws:fsx/ontapFileSystem:OntapFileSystem":
@@ -62,6 +64,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"fsx/dataRepositoryAssociation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"fsx/fileCache",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

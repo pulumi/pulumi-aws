@@ -91,6 +91,43 @@ import (
 //
 // ```
 //
+// Create a budget with planned budget limits.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/budgets"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := budgets.NewBudget(ctx, "cost", &budgets.BudgetArgs{
+//				PlannedLimits: budgets.BudgetPlannedLimitArray{
+//					&budgets.BudgetPlannedLimitArgs{
+//						Amount:    pulumi.String("100"),
+//						StartTime: pulumi.String("2017-07-01_00:00"),
+//						Unit:      pulumi.String("USD"),
+//					},
+//					&budgets.BudgetPlannedLimitArgs{
+//						Amount:    pulumi.String("200"),
+//						StartTime: pulumi.String("2017-08-01_00:00"),
+//						Unit:      pulumi.String("USD"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // Create a budget for s3 with a limit of *3 GB* of storage.
 //
 // ```go
@@ -223,6 +260,8 @@ type Budget struct {
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// The ARN of the budget.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
+	AutoAdjustData BudgetAutoAdjustDataPtrOutput `pulumi:"autoAdjustData"`
 	// Whether this budget tracks monetary cost or usage.
 	BudgetType pulumi.StringOutput `pulumi:"budgetType"`
 	// Map of CostFilters key/value pairs to apply to the budget.
@@ -241,8 +280,10 @@ type Budget struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The prefix of the name of a budget. Unique within accounts.
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
-	// Object containing Budget Notifications. Can be used multiple times to define more than one budget notification
+	// Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
 	Notifications BudgetNotificationArrayOutput `pulumi:"notifications"`
+	// Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
+	PlannedLimits BudgetPlannedLimitArrayOutput `pulumi:"plannedLimits"`
 	// The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
 	TimePeriodEnd pulumi.StringPtrOutput `pulumi:"timePeriodEnd"`
 	// The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
@@ -260,12 +301,6 @@ func NewBudget(ctx *pulumi.Context,
 
 	if args.BudgetType == nil {
 		return nil, errors.New("invalid value for required argument 'BudgetType'")
-	}
-	if args.LimitAmount == nil {
-		return nil, errors.New("invalid value for required argument 'LimitAmount'")
-	}
-	if args.LimitUnit == nil {
-		return nil, errors.New("invalid value for required argument 'LimitUnit'")
 	}
 	if args.TimeUnit == nil {
 		return nil, errors.New("invalid value for required argument 'TimeUnit'")
@@ -296,6 +331,8 @@ type budgetState struct {
 	AccountId *string `pulumi:"accountId"`
 	// The ARN of the budget.
 	Arn *string `pulumi:"arn"`
+	// Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
+	AutoAdjustData *BudgetAutoAdjustData `pulumi:"autoAdjustData"`
 	// Whether this budget tracks monetary cost or usage.
 	BudgetType *string `pulumi:"budgetType"`
 	// Map of CostFilters key/value pairs to apply to the budget.
@@ -314,8 +351,10 @@ type budgetState struct {
 	Name *string `pulumi:"name"`
 	// The prefix of the name of a budget. Unique within accounts.
 	NamePrefix *string `pulumi:"namePrefix"`
-	// Object containing Budget Notifications. Can be used multiple times to define more than one budget notification
+	// Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
 	Notifications []BudgetNotification `pulumi:"notifications"`
+	// Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
+	PlannedLimits []BudgetPlannedLimit `pulumi:"plannedLimits"`
 	// The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
 	TimePeriodEnd *string `pulumi:"timePeriodEnd"`
 	// The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
@@ -329,6 +368,8 @@ type BudgetState struct {
 	AccountId pulumi.StringPtrInput
 	// The ARN of the budget.
 	Arn pulumi.StringPtrInput
+	// Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
+	AutoAdjustData BudgetAutoAdjustDataPtrInput
 	// Whether this budget tracks monetary cost or usage.
 	BudgetType pulumi.StringPtrInput
 	// Map of CostFilters key/value pairs to apply to the budget.
@@ -347,8 +388,10 @@ type BudgetState struct {
 	Name pulumi.StringPtrInput
 	// The prefix of the name of a budget. Unique within accounts.
 	NamePrefix pulumi.StringPtrInput
-	// Object containing Budget Notifications. Can be used multiple times to define more than one budget notification
+	// Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
 	Notifications BudgetNotificationArrayInput
+	// Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
+	PlannedLimits BudgetPlannedLimitArrayInput
 	// The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
 	TimePeriodEnd pulumi.StringPtrInput
 	// The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
@@ -364,6 +407,8 @@ func (BudgetState) ElementType() reflect.Type {
 type budgetArgs struct {
 	// The ID of the target account for budget. Will use current user's accountId by default if omitted.
 	AccountId *string `pulumi:"accountId"`
+	// Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
+	AutoAdjustData *BudgetAutoAdjustData `pulumi:"autoAdjustData"`
 	// Whether this budget tracks monetary cost or usage.
 	BudgetType string `pulumi:"budgetType"`
 	// Map of CostFilters key/value pairs to apply to the budget.
@@ -375,15 +420,17 @@ type budgetArgs struct {
 	// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
 	CostTypes *BudgetCostTypes `pulumi:"costTypes"`
 	// The amount of cost or usage being measured for a budget.
-	LimitAmount string `pulumi:"limitAmount"`
+	LimitAmount *string `pulumi:"limitAmount"`
 	// The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
-	LimitUnit string `pulumi:"limitUnit"`
+	LimitUnit *string `pulumi:"limitUnit"`
 	// The name of a budget. Unique within accounts.
 	Name *string `pulumi:"name"`
 	// The prefix of the name of a budget. Unique within accounts.
 	NamePrefix *string `pulumi:"namePrefix"`
-	// Object containing Budget Notifications. Can be used multiple times to define more than one budget notification
+	// Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
 	Notifications []BudgetNotification `pulumi:"notifications"`
+	// Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
+	PlannedLimits []BudgetPlannedLimit `pulumi:"plannedLimits"`
 	// The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
 	TimePeriodEnd *string `pulumi:"timePeriodEnd"`
 	// The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
@@ -396,6 +443,8 @@ type budgetArgs struct {
 type BudgetArgs struct {
 	// The ID of the target account for budget. Will use current user's accountId by default if omitted.
 	AccountId pulumi.StringPtrInput
+	// Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
+	AutoAdjustData BudgetAutoAdjustDataPtrInput
 	// Whether this budget tracks monetary cost or usage.
 	BudgetType pulumi.StringInput
 	// Map of CostFilters key/value pairs to apply to the budget.
@@ -407,15 +456,17 @@ type BudgetArgs struct {
 	// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
 	CostTypes BudgetCostTypesPtrInput
 	// The amount of cost or usage being measured for a budget.
-	LimitAmount pulumi.StringInput
+	LimitAmount pulumi.StringPtrInput
 	// The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
-	LimitUnit pulumi.StringInput
+	LimitUnit pulumi.StringPtrInput
 	// The name of a budget. Unique within accounts.
 	Name pulumi.StringPtrInput
 	// The prefix of the name of a budget. Unique within accounts.
 	NamePrefix pulumi.StringPtrInput
-	// Object containing Budget Notifications. Can be used multiple times to define more than one budget notification
+	// Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
 	Notifications BudgetNotificationArrayInput
+	// Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
+	PlannedLimits BudgetPlannedLimitArrayInput
 	// The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
 	TimePeriodEnd pulumi.StringPtrInput
 	// The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
@@ -521,6 +572,11 @@ func (o BudgetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Budget) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
+func (o BudgetOutput) AutoAdjustData() BudgetAutoAdjustDataPtrOutput {
+	return o.ApplyT(func(v *Budget) BudgetAutoAdjustDataPtrOutput { return v.AutoAdjustData }).(BudgetAutoAdjustDataPtrOutput)
+}
+
 // Whether this budget tracks monetary cost or usage.
 func (o BudgetOutput) BudgetType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Budget) pulumi.StringOutput { return v.BudgetType }).(pulumi.StringOutput)
@@ -563,9 +619,14 @@ func (o BudgetOutput) NamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *Budget) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
 }
 
-// Object containing Budget Notifications. Can be used multiple times to define more than one budget notification
+// Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
 func (o BudgetOutput) Notifications() BudgetNotificationArrayOutput {
 	return o.ApplyT(func(v *Budget) BudgetNotificationArrayOutput { return v.Notifications }).(BudgetNotificationArrayOutput)
+}
+
+// Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
+func (o BudgetOutput) PlannedLimits() BudgetPlannedLimitArrayOutput {
+	return o.ApplyT(func(v *Budget) BudgetPlannedLimitArrayOutput { return v.PlannedLimits }).(BudgetPlannedLimitArrayOutput)
 }
 
 // The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.

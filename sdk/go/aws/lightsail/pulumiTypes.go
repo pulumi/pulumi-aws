@@ -1317,6 +1317,121 @@ func (o InstancePublicPortsPortInfoArrayOutput) Index(i pulumi.IntInput) Instanc
 	}).(InstancePublicPortsPortInfoOutput)
 }
 
+type LbCertificateDomainValidationRecord struct {
+	// The domain name (e.g., example.com) for your SSL/TLS certificate.
+	DomainName          *string `pulumi:"domainName"`
+	ResourceRecordName  *string `pulumi:"resourceRecordName"`
+	ResourceRecordType  *string `pulumi:"resourceRecordType"`
+	ResourceRecordValue *string `pulumi:"resourceRecordValue"`
+}
+
+// LbCertificateDomainValidationRecordInput is an input type that accepts LbCertificateDomainValidationRecordArgs and LbCertificateDomainValidationRecordOutput values.
+// You can construct a concrete instance of `LbCertificateDomainValidationRecordInput` via:
+//
+//	LbCertificateDomainValidationRecordArgs{...}
+type LbCertificateDomainValidationRecordInput interface {
+	pulumi.Input
+
+	ToLbCertificateDomainValidationRecordOutput() LbCertificateDomainValidationRecordOutput
+	ToLbCertificateDomainValidationRecordOutputWithContext(context.Context) LbCertificateDomainValidationRecordOutput
+}
+
+type LbCertificateDomainValidationRecordArgs struct {
+	// The domain name (e.g., example.com) for your SSL/TLS certificate.
+	DomainName          pulumi.StringPtrInput `pulumi:"domainName"`
+	ResourceRecordName  pulumi.StringPtrInput `pulumi:"resourceRecordName"`
+	ResourceRecordType  pulumi.StringPtrInput `pulumi:"resourceRecordType"`
+	ResourceRecordValue pulumi.StringPtrInput `pulumi:"resourceRecordValue"`
+}
+
+func (LbCertificateDomainValidationRecordArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LbCertificateDomainValidationRecord)(nil)).Elem()
+}
+
+func (i LbCertificateDomainValidationRecordArgs) ToLbCertificateDomainValidationRecordOutput() LbCertificateDomainValidationRecordOutput {
+	return i.ToLbCertificateDomainValidationRecordOutputWithContext(context.Background())
+}
+
+func (i LbCertificateDomainValidationRecordArgs) ToLbCertificateDomainValidationRecordOutputWithContext(ctx context.Context) LbCertificateDomainValidationRecordOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LbCertificateDomainValidationRecordOutput)
+}
+
+// LbCertificateDomainValidationRecordArrayInput is an input type that accepts LbCertificateDomainValidationRecordArray and LbCertificateDomainValidationRecordArrayOutput values.
+// You can construct a concrete instance of `LbCertificateDomainValidationRecordArrayInput` via:
+//
+//	LbCertificateDomainValidationRecordArray{ LbCertificateDomainValidationRecordArgs{...} }
+type LbCertificateDomainValidationRecordArrayInput interface {
+	pulumi.Input
+
+	ToLbCertificateDomainValidationRecordArrayOutput() LbCertificateDomainValidationRecordArrayOutput
+	ToLbCertificateDomainValidationRecordArrayOutputWithContext(context.Context) LbCertificateDomainValidationRecordArrayOutput
+}
+
+type LbCertificateDomainValidationRecordArray []LbCertificateDomainValidationRecordInput
+
+func (LbCertificateDomainValidationRecordArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LbCertificateDomainValidationRecord)(nil)).Elem()
+}
+
+func (i LbCertificateDomainValidationRecordArray) ToLbCertificateDomainValidationRecordArrayOutput() LbCertificateDomainValidationRecordArrayOutput {
+	return i.ToLbCertificateDomainValidationRecordArrayOutputWithContext(context.Background())
+}
+
+func (i LbCertificateDomainValidationRecordArray) ToLbCertificateDomainValidationRecordArrayOutputWithContext(ctx context.Context) LbCertificateDomainValidationRecordArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LbCertificateDomainValidationRecordArrayOutput)
+}
+
+type LbCertificateDomainValidationRecordOutput struct{ *pulumi.OutputState }
+
+func (LbCertificateDomainValidationRecordOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LbCertificateDomainValidationRecord)(nil)).Elem()
+}
+
+func (o LbCertificateDomainValidationRecordOutput) ToLbCertificateDomainValidationRecordOutput() LbCertificateDomainValidationRecordOutput {
+	return o
+}
+
+func (o LbCertificateDomainValidationRecordOutput) ToLbCertificateDomainValidationRecordOutputWithContext(ctx context.Context) LbCertificateDomainValidationRecordOutput {
+	return o
+}
+
+// The domain name (e.g., example.com) for your SSL/TLS certificate.
+func (o LbCertificateDomainValidationRecordOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LbCertificateDomainValidationRecord) *string { return v.DomainName }).(pulumi.StringPtrOutput)
+}
+
+func (o LbCertificateDomainValidationRecordOutput) ResourceRecordName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LbCertificateDomainValidationRecord) *string { return v.ResourceRecordName }).(pulumi.StringPtrOutput)
+}
+
+func (o LbCertificateDomainValidationRecordOutput) ResourceRecordType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LbCertificateDomainValidationRecord) *string { return v.ResourceRecordType }).(pulumi.StringPtrOutput)
+}
+
+func (o LbCertificateDomainValidationRecordOutput) ResourceRecordValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LbCertificateDomainValidationRecord) *string { return v.ResourceRecordValue }).(pulumi.StringPtrOutput)
+}
+
+type LbCertificateDomainValidationRecordArrayOutput struct{ *pulumi.OutputState }
+
+func (LbCertificateDomainValidationRecordArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LbCertificateDomainValidationRecord)(nil)).Elem()
+}
+
+func (o LbCertificateDomainValidationRecordArrayOutput) ToLbCertificateDomainValidationRecordArrayOutput() LbCertificateDomainValidationRecordArrayOutput {
+	return o
+}
+
+func (o LbCertificateDomainValidationRecordArrayOutput) ToLbCertificateDomainValidationRecordArrayOutputWithContext(ctx context.Context) LbCertificateDomainValidationRecordArrayOutput {
+	return o
+}
+
+func (o LbCertificateDomainValidationRecordArrayOutput) Index(i pulumi.IntInput) LbCertificateDomainValidationRecordOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LbCertificateDomainValidationRecord {
+		return vs[0].([]LbCertificateDomainValidationRecord)[vs[1].(int)]
+	}).(LbCertificateDomainValidationRecordOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateDomainValidationOptionInput)(nil)).Elem(), CertificateDomainValidationOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateDomainValidationOptionArrayInput)(nil)).Elem(), CertificateDomainValidationOptionArray{})
@@ -1336,6 +1451,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerServicePublicDomainNamesCertificateArrayInput)(nil)).Elem(), ContainerServicePublicDomainNamesCertificateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstancePublicPortsPortInfoInput)(nil)).Elem(), InstancePublicPortsPortInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstancePublicPortsPortInfoArrayInput)(nil)).Elem(), InstancePublicPortsPortInfoArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LbCertificateDomainValidationRecordInput)(nil)).Elem(), LbCertificateDomainValidationRecordArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LbCertificateDomainValidationRecordArrayInput)(nil)).Elem(), LbCertificateDomainValidationRecordArray{})
 	pulumi.RegisterOutputType(CertificateDomainValidationOptionOutput{})
 	pulumi.RegisterOutputType(CertificateDomainValidationOptionArrayOutput{})
 	pulumi.RegisterOutputType(ContainerServiceDeploymentVersionContainerOutput{})
@@ -1354,4 +1471,6 @@ func init() {
 	pulumi.RegisterOutputType(ContainerServicePublicDomainNamesCertificateArrayOutput{})
 	pulumi.RegisterOutputType(InstancePublicPortsPortInfoOutput{})
 	pulumi.RegisterOutputType(InstancePublicPortsPortInfoArrayOutput{})
+	pulumi.RegisterOutputType(LbCertificateDomainValidationRecordOutput{})
+	pulumi.RegisterOutputType(LbCertificateDomainValidationRecordArrayOutput{})
 }

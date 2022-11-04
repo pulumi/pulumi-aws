@@ -29,6 +29,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ContainerServiceDeploymentVersion{}
 	case "aws:lightsail/database:Database":
 		r = &Database{}
+	case "aws:lightsail/disk:Disk":
+		r = &Disk{}
+	case "aws:lightsail/disk_attachment:Disk_attachment":
+		r = &Disk_attachment{}
 	case "aws:lightsail/domain:Domain":
 		r = &Domain{}
 	case "aws:lightsail/domainEntry:DomainEntry":
@@ -43,6 +47,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Lb{}
 	case "aws:lightsail/lbAttachment:LbAttachment":
 		r = &LbAttachment{}
+	case "aws:lightsail/lbCertificate:LbCertificate":
+		r = &LbCertificate{}
+	case "aws:lightsail/lbCertificateAttachment:LbCertificateAttachment":
+		r = &LbCertificateAttachment{}
+	case "aws:lightsail/lbStickinessPolicy:LbStickinessPolicy":
+		r = &LbStickinessPolicy{}
 	case "aws:lightsail/staticIp:StaticIp":
 		r = &StaticIp{}
 	case "aws:lightsail/staticIpAttachment:StaticIpAttachment":
@@ -82,6 +92,16 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"lightsail/disk",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"lightsail/disk_attachment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"lightsail/domain",
 		&module{version},
 	)
@@ -113,6 +133,21 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"lightsail/lbAttachment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"lightsail/lbCertificate",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"lightsail/lbCertificateAttachment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"lightsail/lbStickinessPolicy",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

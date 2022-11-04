@@ -61,7 +61,7 @@ import (
 //					&cloudfront.DistributionOriginArgs{
 //						DomainName:            bucketV2.BucketRegionalDomainName,
 //						OriginAccessControlId: pulumi.Any(aws_cloudfront_origin_access_control.Default.Id),
-//						OriginId:              pulumi.Any(locals.S3_origin_id),
+//						OriginId:              pulumi.String(s3OriginId),
 //					},
 //				},
 //				Enabled:           pulumi.Bool(true),

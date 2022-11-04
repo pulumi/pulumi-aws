@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:evidently/project:Project":
 		r = &Project{}
+	case "aws:evidently/segment:Segment":
+		r = &Segment{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -39,6 +41,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"evidently/project",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"evidently/segment",
 		&module{version},
 	)
 }

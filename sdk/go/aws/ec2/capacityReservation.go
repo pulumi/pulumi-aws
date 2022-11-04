@@ -78,6 +78,8 @@ type CapacityReservation struct {
 	OutpostArn pulumi.StringPtrOutput `pulumi:"outpostArn"`
 	// The ID of the AWS account that owns the Capacity Reservation.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	// The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
+	PlacementGroupArn pulumi.StringPtrOutput `pulumi:"placementGroupArn"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -150,6 +152,8 @@ type capacityReservationState struct {
 	OutpostArn *string `pulumi:"outpostArn"`
 	// The ID of the AWS account that owns the Capacity Reservation.
 	OwnerId *string `pulumi:"ownerId"`
+	// The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
+	PlacementGroupArn *string `pulumi:"placementGroupArn"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -182,6 +186,8 @@ type CapacityReservationState struct {
 	OutpostArn pulumi.StringPtrInput
 	// The ID of the AWS account that owns the Capacity Reservation.
 	OwnerId pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
+	PlacementGroupArn pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
@@ -214,6 +220,8 @@ type capacityReservationArgs struct {
 	InstanceType string `pulumi:"instanceType"`
 	// The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
 	OutpostArn *string `pulumi:"outpostArn"`
+	// The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
+	PlacementGroupArn *string `pulumi:"placementGroupArn"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
@@ -242,6 +250,8 @@ type CapacityReservationArgs struct {
 	InstanceType pulumi.StringInput
 	// The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
 	OutpostArn pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
+	PlacementGroupArn pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
@@ -393,6 +403,11 @@ func (o CapacityReservationOutput) OutpostArn() pulumi.StringPtrOutput {
 // The ID of the AWS account that owns the Capacity Reservation.
 func (o CapacityReservationOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CapacityReservation) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
+func (o CapacityReservationOutput) PlacementGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapacityReservation) pulumi.StringPtrOutput { return v.PlacementGroupArn }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

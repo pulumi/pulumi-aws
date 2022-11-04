@@ -208,7 +208,7 @@ type DefaultNetworkAcl struct {
 	Ingress DefaultNetworkAclIngressArrayOutput `pulumi:"ingress"`
 	// ID of the AWS account that owns the Default Network ACL
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// List of Subnet IDs to apply the ACL to. See the notes below on managing Subnets in the Default Network ACL
+	// List of Subnet IDs to apply the ACL to. See the notes above on Managing Subnets in the Default Network ACL
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -260,7 +260,7 @@ type defaultNetworkAclState struct {
 	Ingress []DefaultNetworkAclIngress `pulumi:"ingress"`
 	// ID of the AWS account that owns the Default Network ACL
 	OwnerId *string `pulumi:"ownerId"`
-	// List of Subnet IDs to apply the ACL to. See the notes below on managing Subnets in the Default Network ACL
+	// List of Subnet IDs to apply the ACL to. See the notes above on Managing Subnets in the Default Network ACL
 	SubnetIds []string `pulumi:"subnetIds"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -281,7 +281,7 @@ type DefaultNetworkAclState struct {
 	Ingress DefaultNetworkAclIngressArrayInput
 	// ID of the AWS account that owns the Default Network ACL
 	OwnerId pulumi.StringPtrInput
-	// List of Subnet IDs to apply the ACL to. See the notes below on managing Subnets in the Default Network ACL
+	// List of Subnet IDs to apply the ACL to. See the notes above on Managing Subnets in the Default Network ACL
 	SubnetIds pulumi.StringArrayInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -302,7 +302,7 @@ type defaultNetworkAclArgs struct {
 	Egress []DefaultNetworkAclEgress `pulumi:"egress"`
 	// Configuration block for an ingress rule. Detailed below.
 	Ingress []DefaultNetworkAclIngress `pulumi:"ingress"`
-	// List of Subnet IDs to apply the ACL to. See the notes below on managing Subnets in the Default Network ACL
+	// List of Subnet IDs to apply the ACL to. See the notes above on Managing Subnets in the Default Network ACL
 	SubnetIds []string `pulumi:"subnetIds"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -316,7 +316,7 @@ type DefaultNetworkAclArgs struct {
 	Egress DefaultNetworkAclEgressArrayInput
 	// Configuration block for an ingress rule. Detailed below.
 	Ingress DefaultNetworkAclIngressArrayInput
-	// List of Subnet IDs to apply the ACL to. See the notes below on managing Subnets in the Default Network ACL
+	// List of Subnet IDs to apply the ACL to. See the notes above on Managing Subnets in the Default Network ACL
 	SubnetIds pulumi.StringArrayInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -434,7 +434,7 @@ func (o DefaultNetworkAclOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DefaultNetworkAcl) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
 }
 
-// List of Subnet IDs to apply the ACL to. See the notes below on managing Subnets in the Default Network ACL
+// List of Subnet IDs to apply the ACL to. See the notes above on Managing Subnets in the Default Network ACL
 func (o DefaultNetworkAclOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DefaultNetworkAcl) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }

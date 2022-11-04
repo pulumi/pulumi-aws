@@ -51,12 +51,17 @@ type GlobalReplicationGroup struct {
 	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
 	// The full version number of the cache engine running on the members of this global replication group.
 	EngineVersionActual pulumi.StringOutput `pulumi:"engineVersionActual"`
+	// Set of node groups (shards) on the global replication group.
+	// Has the values:
+	GlobalNodeGroups GlobalReplicationGroupGlobalNodeGroupArrayOutput `pulumi:"globalNodeGroups"`
 	// A user-created description for the global replication group.
 	GlobalReplicationGroupDescription pulumi.StringPtrOutput `pulumi:"globalReplicationGroupDescription"`
 	// The full ID of the global replication group.
 	GlobalReplicationGroupId pulumi.StringOutput `pulumi:"globalReplicationGroupId"`
 	// The suffix name of a Global Datastore. If `globalReplicationGroupIdSuffix` is changed, creates a new resource.
 	GlobalReplicationGroupIdSuffix pulumi.StringOutput `pulumi:"globalReplicationGroupIdSuffix"`
+	// The number of node groups (shards) on the global replication group.
+	NumNodeGroups pulumi.IntOutput `pulumi:"numNodeGroups"`
 	// An ElastiCache Parameter Group to use for the Global Replication Group.
 	// Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
 	// Specifying without a major version upgrade will fail.
@@ -131,12 +136,17 @@ type globalReplicationGroupState struct {
 	EngineVersion *string `pulumi:"engineVersion"`
 	// The full version number of the cache engine running on the members of this global replication group.
 	EngineVersionActual *string `pulumi:"engineVersionActual"`
+	// Set of node groups (shards) on the global replication group.
+	// Has the values:
+	GlobalNodeGroups []GlobalReplicationGroupGlobalNodeGroup `pulumi:"globalNodeGroups"`
 	// A user-created description for the global replication group.
 	GlobalReplicationGroupDescription *string `pulumi:"globalReplicationGroupDescription"`
 	// The full ID of the global replication group.
 	GlobalReplicationGroupId *string `pulumi:"globalReplicationGroupId"`
 	// The suffix name of a Global Datastore. If `globalReplicationGroupIdSuffix` is changed, creates a new resource.
 	GlobalReplicationGroupIdSuffix *string `pulumi:"globalReplicationGroupIdSuffix"`
+	// The number of node groups (shards) on the global replication group.
+	NumNodeGroups *int `pulumi:"numNodeGroups"`
 	// An ElastiCache Parameter Group to use for the Global Replication Group.
 	// Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
 	// Specifying without a major version upgrade will fail.
@@ -177,12 +187,17 @@ type GlobalReplicationGroupState struct {
 	EngineVersion pulumi.StringPtrInput
 	// The full version number of the cache engine running on the members of this global replication group.
 	EngineVersionActual pulumi.StringPtrInput
+	// Set of node groups (shards) on the global replication group.
+	// Has the values:
+	GlobalNodeGroups GlobalReplicationGroupGlobalNodeGroupArrayInput
 	// A user-created description for the global replication group.
 	GlobalReplicationGroupDescription pulumi.StringPtrInput
 	// The full ID of the global replication group.
 	GlobalReplicationGroupId pulumi.StringPtrInput
 	// The suffix name of a Global Datastore. If `globalReplicationGroupIdSuffix` is changed, creates a new resource.
 	GlobalReplicationGroupIdSuffix pulumi.StringPtrInput
+	// The number of node groups (shards) on the global replication group.
+	NumNodeGroups pulumi.IntPtrInput
 	// An ElastiCache Parameter Group to use for the Global Replication Group.
 	// Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
 	// Specifying without a major version upgrade will fail.
@@ -219,6 +234,8 @@ type globalReplicationGroupArgs struct {
 	GlobalReplicationGroupDescription *string `pulumi:"globalReplicationGroupDescription"`
 	// The suffix name of a Global Datastore. If `globalReplicationGroupIdSuffix` is changed, creates a new resource.
 	GlobalReplicationGroupIdSuffix string `pulumi:"globalReplicationGroupIdSuffix"`
+	// The number of node groups (shards) on the global replication group.
+	NumNodeGroups *int `pulumi:"numNodeGroups"`
 	// An ElastiCache Parameter Group to use for the Global Replication Group.
 	// Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
 	// Specifying without a major version upgrade will fail.
@@ -250,6 +267,8 @@ type GlobalReplicationGroupArgs struct {
 	GlobalReplicationGroupDescription pulumi.StringPtrInput
 	// The suffix name of a Global Datastore. If `globalReplicationGroupIdSuffix` is changed, creates a new resource.
 	GlobalReplicationGroupIdSuffix pulumi.StringInput
+	// The number of node groups (shards) on the global replication group.
+	NumNodeGroups pulumi.IntPtrInput
 	// An ElastiCache Parameter Group to use for the Global Replication Group.
 	// Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
 	// Specifying without a major version upgrade will fail.
@@ -401,6 +420,14 @@ func (o GlobalReplicationGroupOutput) EngineVersionActual() pulumi.StringOutput 
 	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.StringOutput { return v.EngineVersionActual }).(pulumi.StringOutput)
 }
 
+// Set of node groups (shards) on the global replication group.
+// Has the values:
+func (o GlobalReplicationGroupOutput) GlobalNodeGroups() GlobalReplicationGroupGlobalNodeGroupArrayOutput {
+	return o.ApplyT(func(v *GlobalReplicationGroup) GlobalReplicationGroupGlobalNodeGroupArrayOutput {
+		return v.GlobalNodeGroups
+	}).(GlobalReplicationGroupGlobalNodeGroupArrayOutput)
+}
+
 // A user-created description for the global replication group.
 func (o GlobalReplicationGroupOutput) GlobalReplicationGroupDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.StringPtrOutput { return v.GlobalReplicationGroupDescription }).(pulumi.StringPtrOutput)
@@ -414,6 +441,11 @@ func (o GlobalReplicationGroupOutput) GlobalReplicationGroupId() pulumi.StringOu
 // The suffix name of a Global Datastore. If `globalReplicationGroupIdSuffix` is changed, creates a new resource.
 func (o GlobalReplicationGroupOutput) GlobalReplicationGroupIdSuffix() pulumi.StringOutput {
 	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.StringOutput { return v.GlobalReplicationGroupIdSuffix }).(pulumi.StringOutput)
+}
+
+// The number of node groups (shards) on the global replication group.
+func (o GlobalReplicationGroupOutput) NumNodeGroups() pulumi.IntOutput {
+	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.IntOutput { return v.NumNodeGroups }).(pulumi.IntOutput)
 }
 
 // An ElastiCache Parameter Group to use for the Global Replication Group.

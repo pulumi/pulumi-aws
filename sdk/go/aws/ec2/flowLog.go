@@ -11,7 +11,7 @@ import (
 )
 
 // Provides a VPC/Subnet/ENI/Transit Gateway/Transit Gateway Attachment Flow Log to capture IP traffic for a specific network
-// interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group or a S3 Bucket.
+// interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group, a S3 Bucket, or Amazon Kinesis Data Firehose
 //
 // ## Example Usage
 // ### CloudWatch Logging
@@ -78,6 +78,88 @@ import (
 //	        "logs:PutLogEvents",
 //	        "logs:DescribeLogGroups",
 //	        "logs:DescribeLogStreams"
+//	      ],
+//	      "Effect": "Allow",
+//	      "Resource": "*"
+//	    }
+//	  ]
+//	}
+//
+// `)),
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Amazon Kinesis Data Firehose logging
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "exampleLogGroup", nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
+//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//	  "Version": "2012-10-17",
+//	  "Statement": [
+//	    {
+//	      "Sid": "",
+//	      "Effect": "Allow",
+//	      "Principal": {
+//	        "Service": "delivery.logs.amazonaws.com"
+//	      },
+//	      "Action": "sts:AssumeRole"
+//	    }
+//	  ]
+//	}
+//
+// `)),
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewFlowLog(ctx, "exampleFlowLog", &ec2.FlowLogArgs{
+//				IamRoleArn:     exampleRole.Arn,
+//				LogDestination: exampleLogGroup.Arn,
+//				TrafficType:    pulumi.String("ALL"),
+//				VpcId:          pulumi.Any(aws_vpc.Example.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewRolePolicy(ctx, "exampleRolePolicy", &iam.RolePolicyArgs{
+//				Role: exampleRole.ID(),
+//				Policy: pulumi.Any(fmt.Sprintf(`{
+//	  "Version": "2012-10-17",
+//	  "Statement": [
+//	    {
+//	      "Action": [
+//	        "logs:CreateLogDelivery",
+//	        "logs:DeleteLogDelivery",
+//	        "logs:ListLogDeliveries",
+//	        "logs:GetLogDelivery",
+//	        "firehose:TagDeliveryStream"
 //	      ],
 //	      "Effect": "Allow",
 //	      "Resource": "*"
@@ -189,7 +271,7 @@ type FlowLog struct {
 	IamRoleArn pulumi.StringPtrOutput `pulumi:"iamRoleArn"`
 	// The ARN of the logging destination. Either `logDestination` or `logGroupName` must be set.
 	LogDestination pulumi.StringOutput `pulumi:"logDestination"`
-	// The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`. Default: `cloud-watch-logs`.
+	// The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
 	LogDestinationType pulumi.StringPtrOutput `pulumi:"logDestinationType"`
 	// The fields to include in the flow log record, in the order in which they should appear.
 	LogFormat pulumi.StringOutput `pulumi:"logFormat"`
@@ -257,7 +339,7 @@ type flowLogState struct {
 	IamRoleArn *string `pulumi:"iamRoleArn"`
 	// The ARN of the logging destination. Either `logDestination` or `logGroupName` must be set.
 	LogDestination *string `pulumi:"logDestination"`
-	// The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`. Default: `cloud-watch-logs`.
+	// The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
 	LogDestinationType *string `pulumi:"logDestinationType"`
 	// The fields to include in the flow log record, in the order in which they should appear.
 	LogFormat *string `pulumi:"logFormat"`
@@ -297,7 +379,7 @@ type FlowLogState struct {
 	IamRoleArn pulumi.StringPtrInput
 	// The ARN of the logging destination. Either `logDestination` or `logGroupName` must be set.
 	LogDestination pulumi.StringPtrInput
-	// The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`. Default: `cloud-watch-logs`.
+	// The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
 	LogDestinationType pulumi.StringPtrInput
 	// The fields to include in the flow log record, in the order in which they should appear.
 	LogFormat pulumi.StringPtrInput
@@ -339,7 +421,7 @@ type flowLogArgs struct {
 	IamRoleArn *string `pulumi:"iamRoleArn"`
 	// The ARN of the logging destination. Either `logDestination` or `logGroupName` must be set.
 	LogDestination *string `pulumi:"logDestination"`
-	// The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`. Default: `cloud-watch-logs`.
+	// The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
 	LogDestinationType *string `pulumi:"logDestinationType"`
 	// The fields to include in the flow log record, in the order in which they should appear.
 	LogFormat *string `pulumi:"logFormat"`
@@ -376,7 +458,7 @@ type FlowLogArgs struct {
 	IamRoleArn pulumi.StringPtrInput
 	// The ARN of the logging destination. Either `logDestination` or `logGroupName` must be set.
 	LogDestination pulumi.StringPtrInput
-	// The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`. Default: `cloud-watch-logs`.
+	// The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
 	LogDestinationType pulumi.StringPtrInput
 	// The fields to include in the flow log record, in the order in which they should appear.
 	LogFormat pulumi.StringPtrInput
@@ -515,7 +597,7 @@ func (o FlowLogOutput) LogDestination() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlowLog) pulumi.StringOutput { return v.LogDestination }).(pulumi.StringOutput)
 }
 
-// The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`. Default: `cloud-watch-logs`.
+// The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
 func (o FlowLogOutput) LogDestinationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowLog) pulumi.StringPtrOutput { return v.LogDestinationType }).(pulumi.StringPtrOutput)
 }

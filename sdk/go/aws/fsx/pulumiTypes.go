@@ -444,6 +444,618 @@ func (o DataRepositoryAssociationS3AutoImportPolicyPtrOutput) Events() pulumi.St
 	}).(pulumi.StringArrayOutput)
 }
 
+type FileCacheDataRepositoryAssociation struct {
+	AssociationId *string `pulumi:"associationId"`
+	// The path to the S3 or NFS data repository that links to the cache.
+	DataRepositoryPath string `pulumi:"dataRepositoryPath"`
+	// A list of NFS Exports that will be linked with this data repository association. The Export paths are in the format /exportpath1. To use this parameter, you must configure DataRepositoryPath as the domain name of the NFS file system. The NFS file system domain name in effect is the root of the subdirectories. Note that DataRepositorySubdirectories is not supported for S3 data repositories. Max of 500.
+	DataRepositorySubdirectories []string `pulumi:"dataRepositorySubdirectories"`
+	// The system-generated, unique ID of the cache.
+	FileCacheId *string `pulumi:"fileCacheId"`
+	// A path on the cache that points to a high-level directory (such as /ns1/) or subdirectory (such as /ns1/subdir/) that will be mapped 1-1 with DataRepositoryPath. The leading forward slash in the name is required. Two data repository associations cannot have overlapping cache paths. For example, if a data repository is associated with cache path /ns1/, then you cannot link another data repository with cache path /ns1/ns2. This path specifies where in your cache files will be exported from. This cache directory can be linked to only one data repository, and no data repository other can be linked to the directory. Note: The cache path can only be set to root (/) on an NFS DRA when DataRepositorySubdirectories is specified. If you specify root (/) as the cache path, you can create only one DRA on the cache. The cache path cannot be set to root (/) for an S3 DRA.
+	FileCachePath         string  `pulumi:"fileCachePath"`
+	FileSystemId          *string `pulumi:"fileSystemId"`
+	FileSystemPath        *string `pulumi:"fileSystemPath"`
+	ImportedFileChunkSize *int    `pulumi:"importedFileChunkSize"`
+	// - (Optional) See the `nfs` configuration block.
+	Nfs         []FileCacheDataRepositoryAssociationNf `pulumi:"nfs"`
+	ResourceArn *string                                `pulumi:"resourceArn"`
+	Tags        map[string]string                      `pulumi:"tags"`
+}
+
+// FileCacheDataRepositoryAssociationInput is an input type that accepts FileCacheDataRepositoryAssociationArgs and FileCacheDataRepositoryAssociationOutput values.
+// You can construct a concrete instance of `FileCacheDataRepositoryAssociationInput` via:
+//
+//	FileCacheDataRepositoryAssociationArgs{...}
+type FileCacheDataRepositoryAssociationInput interface {
+	pulumi.Input
+
+	ToFileCacheDataRepositoryAssociationOutput() FileCacheDataRepositoryAssociationOutput
+	ToFileCacheDataRepositoryAssociationOutputWithContext(context.Context) FileCacheDataRepositoryAssociationOutput
+}
+
+type FileCacheDataRepositoryAssociationArgs struct {
+	AssociationId pulumi.StringPtrInput `pulumi:"associationId"`
+	// The path to the S3 or NFS data repository that links to the cache.
+	DataRepositoryPath pulumi.StringInput `pulumi:"dataRepositoryPath"`
+	// A list of NFS Exports that will be linked with this data repository association. The Export paths are in the format /exportpath1. To use this parameter, you must configure DataRepositoryPath as the domain name of the NFS file system. The NFS file system domain name in effect is the root of the subdirectories. Note that DataRepositorySubdirectories is not supported for S3 data repositories. Max of 500.
+	DataRepositorySubdirectories pulumi.StringArrayInput `pulumi:"dataRepositorySubdirectories"`
+	// The system-generated, unique ID of the cache.
+	FileCacheId pulumi.StringPtrInput `pulumi:"fileCacheId"`
+	// A path on the cache that points to a high-level directory (such as /ns1/) or subdirectory (such as /ns1/subdir/) that will be mapped 1-1 with DataRepositoryPath. The leading forward slash in the name is required. Two data repository associations cannot have overlapping cache paths. For example, if a data repository is associated with cache path /ns1/, then you cannot link another data repository with cache path /ns1/ns2. This path specifies where in your cache files will be exported from. This cache directory can be linked to only one data repository, and no data repository other can be linked to the directory. Note: The cache path can only be set to root (/) on an NFS DRA when DataRepositorySubdirectories is specified. If you specify root (/) as the cache path, you can create only one DRA on the cache. The cache path cannot be set to root (/) for an S3 DRA.
+	FileCachePath         pulumi.StringInput    `pulumi:"fileCachePath"`
+	FileSystemId          pulumi.StringPtrInput `pulumi:"fileSystemId"`
+	FileSystemPath        pulumi.StringPtrInput `pulumi:"fileSystemPath"`
+	ImportedFileChunkSize pulumi.IntPtrInput    `pulumi:"importedFileChunkSize"`
+	// - (Optional) See the `nfs` configuration block.
+	Nfs         FileCacheDataRepositoryAssociationNfArrayInput `pulumi:"nfs"`
+	ResourceArn pulumi.StringPtrInput                          `pulumi:"resourceArn"`
+	Tags        pulumi.StringMapInput                          `pulumi:"tags"`
+}
+
+func (FileCacheDataRepositoryAssociationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileCacheDataRepositoryAssociation)(nil)).Elem()
+}
+
+func (i FileCacheDataRepositoryAssociationArgs) ToFileCacheDataRepositoryAssociationOutput() FileCacheDataRepositoryAssociationOutput {
+	return i.ToFileCacheDataRepositoryAssociationOutputWithContext(context.Background())
+}
+
+func (i FileCacheDataRepositoryAssociationArgs) ToFileCacheDataRepositoryAssociationOutputWithContext(ctx context.Context) FileCacheDataRepositoryAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileCacheDataRepositoryAssociationOutput)
+}
+
+// FileCacheDataRepositoryAssociationArrayInput is an input type that accepts FileCacheDataRepositoryAssociationArray and FileCacheDataRepositoryAssociationArrayOutput values.
+// You can construct a concrete instance of `FileCacheDataRepositoryAssociationArrayInput` via:
+//
+//	FileCacheDataRepositoryAssociationArray{ FileCacheDataRepositoryAssociationArgs{...} }
+type FileCacheDataRepositoryAssociationArrayInput interface {
+	pulumi.Input
+
+	ToFileCacheDataRepositoryAssociationArrayOutput() FileCacheDataRepositoryAssociationArrayOutput
+	ToFileCacheDataRepositoryAssociationArrayOutputWithContext(context.Context) FileCacheDataRepositoryAssociationArrayOutput
+}
+
+type FileCacheDataRepositoryAssociationArray []FileCacheDataRepositoryAssociationInput
+
+func (FileCacheDataRepositoryAssociationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FileCacheDataRepositoryAssociation)(nil)).Elem()
+}
+
+func (i FileCacheDataRepositoryAssociationArray) ToFileCacheDataRepositoryAssociationArrayOutput() FileCacheDataRepositoryAssociationArrayOutput {
+	return i.ToFileCacheDataRepositoryAssociationArrayOutputWithContext(context.Background())
+}
+
+func (i FileCacheDataRepositoryAssociationArray) ToFileCacheDataRepositoryAssociationArrayOutputWithContext(ctx context.Context) FileCacheDataRepositoryAssociationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileCacheDataRepositoryAssociationArrayOutput)
+}
+
+type FileCacheDataRepositoryAssociationOutput struct{ *pulumi.OutputState }
+
+func (FileCacheDataRepositoryAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileCacheDataRepositoryAssociation)(nil)).Elem()
+}
+
+func (o FileCacheDataRepositoryAssociationOutput) ToFileCacheDataRepositoryAssociationOutput() FileCacheDataRepositoryAssociationOutput {
+	return o
+}
+
+func (o FileCacheDataRepositoryAssociationOutput) ToFileCacheDataRepositoryAssociationOutputWithContext(ctx context.Context) FileCacheDataRepositoryAssociationOutput {
+	return o
+}
+
+func (o FileCacheDataRepositoryAssociationOutput) AssociationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileCacheDataRepositoryAssociation) *string { return v.AssociationId }).(pulumi.StringPtrOutput)
+}
+
+// The path to the S3 or NFS data repository that links to the cache.
+func (o FileCacheDataRepositoryAssociationOutput) DataRepositoryPath() pulumi.StringOutput {
+	return o.ApplyT(func(v FileCacheDataRepositoryAssociation) string { return v.DataRepositoryPath }).(pulumi.StringOutput)
+}
+
+// A list of NFS Exports that will be linked with this data repository association. The Export paths are in the format /exportpath1. To use this parameter, you must configure DataRepositoryPath as the domain name of the NFS file system. The NFS file system domain name in effect is the root of the subdirectories. Note that DataRepositorySubdirectories is not supported for S3 data repositories. Max of 500.
+func (o FileCacheDataRepositoryAssociationOutput) DataRepositorySubdirectories() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FileCacheDataRepositoryAssociation) []string { return v.DataRepositorySubdirectories }).(pulumi.StringArrayOutput)
+}
+
+// The system-generated, unique ID of the cache.
+func (o FileCacheDataRepositoryAssociationOutput) FileCacheId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileCacheDataRepositoryAssociation) *string { return v.FileCacheId }).(pulumi.StringPtrOutput)
+}
+
+// A path on the cache that points to a high-level directory (such as /ns1/) or subdirectory (such as /ns1/subdir/) that will be mapped 1-1 with DataRepositoryPath. The leading forward slash in the name is required. Two data repository associations cannot have overlapping cache paths. For example, if a data repository is associated with cache path /ns1/, then you cannot link another data repository with cache path /ns1/ns2. This path specifies where in your cache files will be exported from. This cache directory can be linked to only one data repository, and no data repository other can be linked to the directory. Note: The cache path can only be set to root (/) on an NFS DRA when DataRepositorySubdirectories is specified. If you specify root (/) as the cache path, you can create only one DRA on the cache. The cache path cannot be set to root (/) for an S3 DRA.
+func (o FileCacheDataRepositoryAssociationOutput) FileCachePath() pulumi.StringOutput {
+	return o.ApplyT(func(v FileCacheDataRepositoryAssociation) string { return v.FileCachePath }).(pulumi.StringOutput)
+}
+
+func (o FileCacheDataRepositoryAssociationOutput) FileSystemId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileCacheDataRepositoryAssociation) *string { return v.FileSystemId }).(pulumi.StringPtrOutput)
+}
+
+func (o FileCacheDataRepositoryAssociationOutput) FileSystemPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileCacheDataRepositoryAssociation) *string { return v.FileSystemPath }).(pulumi.StringPtrOutput)
+}
+
+func (o FileCacheDataRepositoryAssociationOutput) ImportedFileChunkSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FileCacheDataRepositoryAssociation) *int { return v.ImportedFileChunkSize }).(pulumi.IntPtrOutput)
+}
+
+// - (Optional) See the `nfs` configuration block.
+func (o FileCacheDataRepositoryAssociationOutput) Nfs() FileCacheDataRepositoryAssociationNfArrayOutput {
+	return o.ApplyT(func(v FileCacheDataRepositoryAssociation) []FileCacheDataRepositoryAssociationNf { return v.Nfs }).(FileCacheDataRepositoryAssociationNfArrayOutput)
+}
+
+func (o FileCacheDataRepositoryAssociationOutput) ResourceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileCacheDataRepositoryAssociation) *string { return v.ResourceArn }).(pulumi.StringPtrOutput)
+}
+
+func (o FileCacheDataRepositoryAssociationOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v FileCacheDataRepositoryAssociation) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+type FileCacheDataRepositoryAssociationArrayOutput struct{ *pulumi.OutputState }
+
+func (FileCacheDataRepositoryAssociationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FileCacheDataRepositoryAssociation)(nil)).Elem()
+}
+
+func (o FileCacheDataRepositoryAssociationArrayOutput) ToFileCacheDataRepositoryAssociationArrayOutput() FileCacheDataRepositoryAssociationArrayOutput {
+	return o
+}
+
+func (o FileCacheDataRepositoryAssociationArrayOutput) ToFileCacheDataRepositoryAssociationArrayOutputWithContext(ctx context.Context) FileCacheDataRepositoryAssociationArrayOutput {
+	return o
+}
+
+func (o FileCacheDataRepositoryAssociationArrayOutput) Index(i pulumi.IntInput) FileCacheDataRepositoryAssociationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FileCacheDataRepositoryAssociation {
+		return vs[0].([]FileCacheDataRepositoryAssociation)[vs[1].(int)]
+	}).(FileCacheDataRepositoryAssociationOutput)
+}
+
+type FileCacheDataRepositoryAssociationNf struct {
+	// - A list of up to 2 IP addresses of DNS servers used to resolve the NFS file system domain name. The provided IP addresses can either be the IP addresses of a DNS forwarder or resolver that the customer manages and runs inside the customer VPC, or the IP addresses of the on-premises DNS servers.
+	DnsIps []string `pulumi:"dnsIps"`
+	// - The version of the NFS (Network File System) protocol of the NFS data repository. The only supported value is NFS3, which indicates that the data repository must support the NFSv3 protocol. The only supported value is `NFS3`.
+	Version string `pulumi:"version"`
+}
+
+// FileCacheDataRepositoryAssociationNfInput is an input type that accepts FileCacheDataRepositoryAssociationNfArgs and FileCacheDataRepositoryAssociationNfOutput values.
+// You can construct a concrete instance of `FileCacheDataRepositoryAssociationNfInput` via:
+//
+//	FileCacheDataRepositoryAssociationNfArgs{...}
+type FileCacheDataRepositoryAssociationNfInput interface {
+	pulumi.Input
+
+	ToFileCacheDataRepositoryAssociationNfOutput() FileCacheDataRepositoryAssociationNfOutput
+	ToFileCacheDataRepositoryAssociationNfOutputWithContext(context.Context) FileCacheDataRepositoryAssociationNfOutput
+}
+
+type FileCacheDataRepositoryAssociationNfArgs struct {
+	// - A list of up to 2 IP addresses of DNS servers used to resolve the NFS file system domain name. The provided IP addresses can either be the IP addresses of a DNS forwarder or resolver that the customer manages and runs inside the customer VPC, or the IP addresses of the on-premises DNS servers.
+	DnsIps pulumi.StringArrayInput `pulumi:"dnsIps"`
+	// - The version of the NFS (Network File System) protocol of the NFS data repository. The only supported value is NFS3, which indicates that the data repository must support the NFSv3 protocol. The only supported value is `NFS3`.
+	Version pulumi.StringInput `pulumi:"version"`
+}
+
+func (FileCacheDataRepositoryAssociationNfArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileCacheDataRepositoryAssociationNf)(nil)).Elem()
+}
+
+func (i FileCacheDataRepositoryAssociationNfArgs) ToFileCacheDataRepositoryAssociationNfOutput() FileCacheDataRepositoryAssociationNfOutput {
+	return i.ToFileCacheDataRepositoryAssociationNfOutputWithContext(context.Background())
+}
+
+func (i FileCacheDataRepositoryAssociationNfArgs) ToFileCacheDataRepositoryAssociationNfOutputWithContext(ctx context.Context) FileCacheDataRepositoryAssociationNfOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileCacheDataRepositoryAssociationNfOutput)
+}
+
+// FileCacheDataRepositoryAssociationNfArrayInput is an input type that accepts FileCacheDataRepositoryAssociationNfArray and FileCacheDataRepositoryAssociationNfArrayOutput values.
+// You can construct a concrete instance of `FileCacheDataRepositoryAssociationNfArrayInput` via:
+//
+//	FileCacheDataRepositoryAssociationNfArray{ FileCacheDataRepositoryAssociationNfArgs{...} }
+type FileCacheDataRepositoryAssociationNfArrayInput interface {
+	pulumi.Input
+
+	ToFileCacheDataRepositoryAssociationNfArrayOutput() FileCacheDataRepositoryAssociationNfArrayOutput
+	ToFileCacheDataRepositoryAssociationNfArrayOutputWithContext(context.Context) FileCacheDataRepositoryAssociationNfArrayOutput
+}
+
+type FileCacheDataRepositoryAssociationNfArray []FileCacheDataRepositoryAssociationNfInput
+
+func (FileCacheDataRepositoryAssociationNfArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FileCacheDataRepositoryAssociationNf)(nil)).Elem()
+}
+
+func (i FileCacheDataRepositoryAssociationNfArray) ToFileCacheDataRepositoryAssociationNfArrayOutput() FileCacheDataRepositoryAssociationNfArrayOutput {
+	return i.ToFileCacheDataRepositoryAssociationNfArrayOutputWithContext(context.Background())
+}
+
+func (i FileCacheDataRepositoryAssociationNfArray) ToFileCacheDataRepositoryAssociationNfArrayOutputWithContext(ctx context.Context) FileCacheDataRepositoryAssociationNfArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileCacheDataRepositoryAssociationNfArrayOutput)
+}
+
+type FileCacheDataRepositoryAssociationNfOutput struct{ *pulumi.OutputState }
+
+func (FileCacheDataRepositoryAssociationNfOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileCacheDataRepositoryAssociationNf)(nil)).Elem()
+}
+
+func (o FileCacheDataRepositoryAssociationNfOutput) ToFileCacheDataRepositoryAssociationNfOutput() FileCacheDataRepositoryAssociationNfOutput {
+	return o
+}
+
+func (o FileCacheDataRepositoryAssociationNfOutput) ToFileCacheDataRepositoryAssociationNfOutputWithContext(ctx context.Context) FileCacheDataRepositoryAssociationNfOutput {
+	return o
+}
+
+// - A list of up to 2 IP addresses of DNS servers used to resolve the NFS file system domain name. The provided IP addresses can either be the IP addresses of a DNS forwarder or resolver that the customer manages and runs inside the customer VPC, or the IP addresses of the on-premises DNS servers.
+func (o FileCacheDataRepositoryAssociationNfOutput) DnsIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FileCacheDataRepositoryAssociationNf) []string { return v.DnsIps }).(pulumi.StringArrayOutput)
+}
+
+// - The version of the NFS (Network File System) protocol of the NFS data repository. The only supported value is NFS3, which indicates that the data repository must support the NFSv3 protocol. The only supported value is `NFS3`.
+func (o FileCacheDataRepositoryAssociationNfOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v FileCacheDataRepositoryAssociationNf) string { return v.Version }).(pulumi.StringOutput)
+}
+
+type FileCacheDataRepositoryAssociationNfArrayOutput struct{ *pulumi.OutputState }
+
+func (FileCacheDataRepositoryAssociationNfArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FileCacheDataRepositoryAssociationNf)(nil)).Elem()
+}
+
+func (o FileCacheDataRepositoryAssociationNfArrayOutput) ToFileCacheDataRepositoryAssociationNfArrayOutput() FileCacheDataRepositoryAssociationNfArrayOutput {
+	return o
+}
+
+func (o FileCacheDataRepositoryAssociationNfArrayOutput) ToFileCacheDataRepositoryAssociationNfArrayOutputWithContext(ctx context.Context) FileCacheDataRepositoryAssociationNfArrayOutput {
+	return o
+}
+
+func (o FileCacheDataRepositoryAssociationNfArrayOutput) Index(i pulumi.IntInput) FileCacheDataRepositoryAssociationNfOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FileCacheDataRepositoryAssociationNf {
+		return vs[0].([]FileCacheDataRepositoryAssociationNf)[vs[1].(int)]
+	}).(FileCacheDataRepositoryAssociationNfOutput)
+}
+
+type FileCacheLustreConfiguration struct {
+	// Specifies the cache deployment type. The only supported value is `CACHE_1`.
+	DeploymentType    string                                         `pulumi:"deploymentType"`
+	LogConfigurations []FileCacheLustreConfigurationLogConfiguration `pulumi:"logConfigurations"`
+	// The configuration for a Lustre MDT (Metadata Target) storage volume. See the `metadataConfiguration` block.
+	MetadataConfigurations []FileCacheLustreConfigurationMetadataConfiguration `pulumi:"metadataConfigurations"`
+	MountName              *string                                             `pulumi:"mountName"`
+	// Provisions the amount of read and write throughput for each 1 tebibyte (TiB) of cache storage capacity, in MB/s/TiB. The only supported value is `1000`.
+	PerUnitStorageThroughput int `pulumi:"perUnitStorageThroughput"`
+	// A recurring weekly time, in the format `D:HH:MM`. `D` is the day of the week, for which `1` represents Monday and `7` represents Sunday. `HH` is the zero-padded hour of the day (0-23), and `MM` is the zero-padded minute of the hour. For example, 1:05:00 specifies maintenance at 5 AM Monday. See the [ISO week date](https://en.wikipedia.org/wiki/ISO_week_date) for more information.
+	WeeklyMaintenanceStartTime *string `pulumi:"weeklyMaintenanceStartTime"`
+}
+
+// FileCacheLustreConfigurationInput is an input type that accepts FileCacheLustreConfigurationArgs and FileCacheLustreConfigurationOutput values.
+// You can construct a concrete instance of `FileCacheLustreConfigurationInput` via:
+//
+//	FileCacheLustreConfigurationArgs{...}
+type FileCacheLustreConfigurationInput interface {
+	pulumi.Input
+
+	ToFileCacheLustreConfigurationOutput() FileCacheLustreConfigurationOutput
+	ToFileCacheLustreConfigurationOutputWithContext(context.Context) FileCacheLustreConfigurationOutput
+}
+
+type FileCacheLustreConfigurationArgs struct {
+	// Specifies the cache deployment type. The only supported value is `CACHE_1`.
+	DeploymentType    pulumi.StringInput                                     `pulumi:"deploymentType"`
+	LogConfigurations FileCacheLustreConfigurationLogConfigurationArrayInput `pulumi:"logConfigurations"`
+	// The configuration for a Lustre MDT (Metadata Target) storage volume. See the `metadataConfiguration` block.
+	MetadataConfigurations FileCacheLustreConfigurationMetadataConfigurationArrayInput `pulumi:"metadataConfigurations"`
+	MountName              pulumi.StringPtrInput                                       `pulumi:"mountName"`
+	// Provisions the amount of read and write throughput for each 1 tebibyte (TiB) of cache storage capacity, in MB/s/TiB. The only supported value is `1000`.
+	PerUnitStorageThroughput pulumi.IntInput `pulumi:"perUnitStorageThroughput"`
+	// A recurring weekly time, in the format `D:HH:MM`. `D` is the day of the week, for which `1` represents Monday and `7` represents Sunday. `HH` is the zero-padded hour of the day (0-23), and `MM` is the zero-padded minute of the hour. For example, 1:05:00 specifies maintenance at 5 AM Monday. See the [ISO week date](https://en.wikipedia.org/wiki/ISO_week_date) for more information.
+	WeeklyMaintenanceStartTime pulumi.StringPtrInput `pulumi:"weeklyMaintenanceStartTime"`
+}
+
+func (FileCacheLustreConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileCacheLustreConfiguration)(nil)).Elem()
+}
+
+func (i FileCacheLustreConfigurationArgs) ToFileCacheLustreConfigurationOutput() FileCacheLustreConfigurationOutput {
+	return i.ToFileCacheLustreConfigurationOutputWithContext(context.Background())
+}
+
+func (i FileCacheLustreConfigurationArgs) ToFileCacheLustreConfigurationOutputWithContext(ctx context.Context) FileCacheLustreConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileCacheLustreConfigurationOutput)
+}
+
+// FileCacheLustreConfigurationArrayInput is an input type that accepts FileCacheLustreConfigurationArray and FileCacheLustreConfigurationArrayOutput values.
+// You can construct a concrete instance of `FileCacheLustreConfigurationArrayInput` via:
+//
+//	FileCacheLustreConfigurationArray{ FileCacheLustreConfigurationArgs{...} }
+type FileCacheLustreConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToFileCacheLustreConfigurationArrayOutput() FileCacheLustreConfigurationArrayOutput
+	ToFileCacheLustreConfigurationArrayOutputWithContext(context.Context) FileCacheLustreConfigurationArrayOutput
+}
+
+type FileCacheLustreConfigurationArray []FileCacheLustreConfigurationInput
+
+func (FileCacheLustreConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FileCacheLustreConfiguration)(nil)).Elem()
+}
+
+func (i FileCacheLustreConfigurationArray) ToFileCacheLustreConfigurationArrayOutput() FileCacheLustreConfigurationArrayOutput {
+	return i.ToFileCacheLustreConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i FileCacheLustreConfigurationArray) ToFileCacheLustreConfigurationArrayOutputWithContext(ctx context.Context) FileCacheLustreConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileCacheLustreConfigurationArrayOutput)
+}
+
+type FileCacheLustreConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FileCacheLustreConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileCacheLustreConfiguration)(nil)).Elem()
+}
+
+func (o FileCacheLustreConfigurationOutput) ToFileCacheLustreConfigurationOutput() FileCacheLustreConfigurationOutput {
+	return o
+}
+
+func (o FileCacheLustreConfigurationOutput) ToFileCacheLustreConfigurationOutputWithContext(ctx context.Context) FileCacheLustreConfigurationOutput {
+	return o
+}
+
+// Specifies the cache deployment type. The only supported value is `CACHE_1`.
+func (o FileCacheLustreConfigurationOutput) DeploymentType() pulumi.StringOutput {
+	return o.ApplyT(func(v FileCacheLustreConfiguration) string { return v.DeploymentType }).(pulumi.StringOutput)
+}
+
+func (o FileCacheLustreConfigurationOutput) LogConfigurations() FileCacheLustreConfigurationLogConfigurationArrayOutput {
+	return o.ApplyT(func(v FileCacheLustreConfiguration) []FileCacheLustreConfigurationLogConfiguration {
+		return v.LogConfigurations
+	}).(FileCacheLustreConfigurationLogConfigurationArrayOutput)
+}
+
+// The configuration for a Lustre MDT (Metadata Target) storage volume. See the `metadataConfiguration` block.
+func (o FileCacheLustreConfigurationOutput) MetadataConfigurations() FileCacheLustreConfigurationMetadataConfigurationArrayOutput {
+	return o.ApplyT(func(v FileCacheLustreConfiguration) []FileCacheLustreConfigurationMetadataConfiguration {
+		return v.MetadataConfigurations
+	}).(FileCacheLustreConfigurationMetadataConfigurationArrayOutput)
+}
+
+func (o FileCacheLustreConfigurationOutput) MountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileCacheLustreConfiguration) *string { return v.MountName }).(pulumi.StringPtrOutput)
+}
+
+// Provisions the amount of read and write throughput for each 1 tebibyte (TiB) of cache storage capacity, in MB/s/TiB. The only supported value is `1000`.
+func (o FileCacheLustreConfigurationOutput) PerUnitStorageThroughput() pulumi.IntOutput {
+	return o.ApplyT(func(v FileCacheLustreConfiguration) int { return v.PerUnitStorageThroughput }).(pulumi.IntOutput)
+}
+
+// A recurring weekly time, in the format `D:HH:MM`. `D` is the day of the week, for which `1` represents Monday and `7` represents Sunday. `HH` is the zero-padded hour of the day (0-23), and `MM` is the zero-padded minute of the hour. For example, 1:05:00 specifies maintenance at 5 AM Monday. See the [ISO week date](https://en.wikipedia.org/wiki/ISO_week_date) for more information.
+func (o FileCacheLustreConfigurationOutput) WeeklyMaintenanceStartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileCacheLustreConfiguration) *string { return v.WeeklyMaintenanceStartTime }).(pulumi.StringPtrOutput)
+}
+
+type FileCacheLustreConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (FileCacheLustreConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FileCacheLustreConfiguration)(nil)).Elem()
+}
+
+func (o FileCacheLustreConfigurationArrayOutput) ToFileCacheLustreConfigurationArrayOutput() FileCacheLustreConfigurationArrayOutput {
+	return o
+}
+
+func (o FileCacheLustreConfigurationArrayOutput) ToFileCacheLustreConfigurationArrayOutputWithContext(ctx context.Context) FileCacheLustreConfigurationArrayOutput {
+	return o
+}
+
+func (o FileCacheLustreConfigurationArrayOutput) Index(i pulumi.IntInput) FileCacheLustreConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FileCacheLustreConfiguration {
+		return vs[0].([]FileCacheLustreConfiguration)[vs[1].(int)]
+	}).(FileCacheLustreConfigurationOutput)
+}
+
+type FileCacheLustreConfigurationLogConfiguration struct {
+	Destination *string `pulumi:"destination"`
+	Level       *string `pulumi:"level"`
+}
+
+// FileCacheLustreConfigurationLogConfigurationInput is an input type that accepts FileCacheLustreConfigurationLogConfigurationArgs and FileCacheLustreConfigurationLogConfigurationOutput values.
+// You can construct a concrete instance of `FileCacheLustreConfigurationLogConfigurationInput` via:
+//
+//	FileCacheLustreConfigurationLogConfigurationArgs{...}
+type FileCacheLustreConfigurationLogConfigurationInput interface {
+	pulumi.Input
+
+	ToFileCacheLustreConfigurationLogConfigurationOutput() FileCacheLustreConfigurationLogConfigurationOutput
+	ToFileCacheLustreConfigurationLogConfigurationOutputWithContext(context.Context) FileCacheLustreConfigurationLogConfigurationOutput
+}
+
+type FileCacheLustreConfigurationLogConfigurationArgs struct {
+	Destination pulumi.StringPtrInput `pulumi:"destination"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+}
+
+func (FileCacheLustreConfigurationLogConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileCacheLustreConfigurationLogConfiguration)(nil)).Elem()
+}
+
+func (i FileCacheLustreConfigurationLogConfigurationArgs) ToFileCacheLustreConfigurationLogConfigurationOutput() FileCacheLustreConfigurationLogConfigurationOutput {
+	return i.ToFileCacheLustreConfigurationLogConfigurationOutputWithContext(context.Background())
+}
+
+func (i FileCacheLustreConfigurationLogConfigurationArgs) ToFileCacheLustreConfigurationLogConfigurationOutputWithContext(ctx context.Context) FileCacheLustreConfigurationLogConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileCacheLustreConfigurationLogConfigurationOutput)
+}
+
+// FileCacheLustreConfigurationLogConfigurationArrayInput is an input type that accepts FileCacheLustreConfigurationLogConfigurationArray and FileCacheLustreConfigurationLogConfigurationArrayOutput values.
+// You can construct a concrete instance of `FileCacheLustreConfigurationLogConfigurationArrayInput` via:
+//
+//	FileCacheLustreConfigurationLogConfigurationArray{ FileCacheLustreConfigurationLogConfigurationArgs{...} }
+type FileCacheLustreConfigurationLogConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToFileCacheLustreConfigurationLogConfigurationArrayOutput() FileCacheLustreConfigurationLogConfigurationArrayOutput
+	ToFileCacheLustreConfigurationLogConfigurationArrayOutputWithContext(context.Context) FileCacheLustreConfigurationLogConfigurationArrayOutput
+}
+
+type FileCacheLustreConfigurationLogConfigurationArray []FileCacheLustreConfigurationLogConfigurationInput
+
+func (FileCacheLustreConfigurationLogConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FileCacheLustreConfigurationLogConfiguration)(nil)).Elem()
+}
+
+func (i FileCacheLustreConfigurationLogConfigurationArray) ToFileCacheLustreConfigurationLogConfigurationArrayOutput() FileCacheLustreConfigurationLogConfigurationArrayOutput {
+	return i.ToFileCacheLustreConfigurationLogConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i FileCacheLustreConfigurationLogConfigurationArray) ToFileCacheLustreConfigurationLogConfigurationArrayOutputWithContext(ctx context.Context) FileCacheLustreConfigurationLogConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileCacheLustreConfigurationLogConfigurationArrayOutput)
+}
+
+type FileCacheLustreConfigurationLogConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FileCacheLustreConfigurationLogConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileCacheLustreConfigurationLogConfiguration)(nil)).Elem()
+}
+
+func (o FileCacheLustreConfigurationLogConfigurationOutput) ToFileCacheLustreConfigurationLogConfigurationOutput() FileCacheLustreConfigurationLogConfigurationOutput {
+	return o
+}
+
+func (o FileCacheLustreConfigurationLogConfigurationOutput) ToFileCacheLustreConfigurationLogConfigurationOutputWithContext(ctx context.Context) FileCacheLustreConfigurationLogConfigurationOutput {
+	return o
+}
+
+func (o FileCacheLustreConfigurationLogConfigurationOutput) Destination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileCacheLustreConfigurationLogConfiguration) *string { return v.Destination }).(pulumi.StringPtrOutput)
+}
+
+func (o FileCacheLustreConfigurationLogConfigurationOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileCacheLustreConfigurationLogConfiguration) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+type FileCacheLustreConfigurationLogConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (FileCacheLustreConfigurationLogConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FileCacheLustreConfigurationLogConfiguration)(nil)).Elem()
+}
+
+func (o FileCacheLustreConfigurationLogConfigurationArrayOutput) ToFileCacheLustreConfigurationLogConfigurationArrayOutput() FileCacheLustreConfigurationLogConfigurationArrayOutput {
+	return o
+}
+
+func (o FileCacheLustreConfigurationLogConfigurationArrayOutput) ToFileCacheLustreConfigurationLogConfigurationArrayOutputWithContext(ctx context.Context) FileCacheLustreConfigurationLogConfigurationArrayOutput {
+	return o
+}
+
+func (o FileCacheLustreConfigurationLogConfigurationArrayOutput) Index(i pulumi.IntInput) FileCacheLustreConfigurationLogConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FileCacheLustreConfigurationLogConfiguration {
+		return vs[0].([]FileCacheLustreConfigurationLogConfiguration)[vs[1].(int)]
+	}).(FileCacheLustreConfigurationLogConfigurationOutput)
+}
+
+type FileCacheLustreConfigurationMetadataConfiguration struct {
+	// The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
+	StorageCapacity int `pulumi:"storageCapacity"`
+}
+
+// FileCacheLustreConfigurationMetadataConfigurationInput is an input type that accepts FileCacheLustreConfigurationMetadataConfigurationArgs and FileCacheLustreConfigurationMetadataConfigurationOutput values.
+// You can construct a concrete instance of `FileCacheLustreConfigurationMetadataConfigurationInput` via:
+//
+//	FileCacheLustreConfigurationMetadataConfigurationArgs{...}
+type FileCacheLustreConfigurationMetadataConfigurationInput interface {
+	pulumi.Input
+
+	ToFileCacheLustreConfigurationMetadataConfigurationOutput() FileCacheLustreConfigurationMetadataConfigurationOutput
+	ToFileCacheLustreConfigurationMetadataConfigurationOutputWithContext(context.Context) FileCacheLustreConfigurationMetadataConfigurationOutput
+}
+
+type FileCacheLustreConfigurationMetadataConfigurationArgs struct {
+	// The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
+	StorageCapacity pulumi.IntInput `pulumi:"storageCapacity"`
+}
+
+func (FileCacheLustreConfigurationMetadataConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileCacheLustreConfigurationMetadataConfiguration)(nil)).Elem()
+}
+
+func (i FileCacheLustreConfigurationMetadataConfigurationArgs) ToFileCacheLustreConfigurationMetadataConfigurationOutput() FileCacheLustreConfigurationMetadataConfigurationOutput {
+	return i.ToFileCacheLustreConfigurationMetadataConfigurationOutputWithContext(context.Background())
+}
+
+func (i FileCacheLustreConfigurationMetadataConfigurationArgs) ToFileCacheLustreConfigurationMetadataConfigurationOutputWithContext(ctx context.Context) FileCacheLustreConfigurationMetadataConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileCacheLustreConfigurationMetadataConfigurationOutput)
+}
+
+// FileCacheLustreConfigurationMetadataConfigurationArrayInput is an input type that accepts FileCacheLustreConfigurationMetadataConfigurationArray and FileCacheLustreConfigurationMetadataConfigurationArrayOutput values.
+// You can construct a concrete instance of `FileCacheLustreConfigurationMetadataConfigurationArrayInput` via:
+//
+//	FileCacheLustreConfigurationMetadataConfigurationArray{ FileCacheLustreConfigurationMetadataConfigurationArgs{...} }
+type FileCacheLustreConfigurationMetadataConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToFileCacheLustreConfigurationMetadataConfigurationArrayOutput() FileCacheLustreConfigurationMetadataConfigurationArrayOutput
+	ToFileCacheLustreConfigurationMetadataConfigurationArrayOutputWithContext(context.Context) FileCacheLustreConfigurationMetadataConfigurationArrayOutput
+}
+
+type FileCacheLustreConfigurationMetadataConfigurationArray []FileCacheLustreConfigurationMetadataConfigurationInput
+
+func (FileCacheLustreConfigurationMetadataConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FileCacheLustreConfigurationMetadataConfiguration)(nil)).Elem()
+}
+
+func (i FileCacheLustreConfigurationMetadataConfigurationArray) ToFileCacheLustreConfigurationMetadataConfigurationArrayOutput() FileCacheLustreConfigurationMetadataConfigurationArrayOutput {
+	return i.ToFileCacheLustreConfigurationMetadataConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i FileCacheLustreConfigurationMetadataConfigurationArray) ToFileCacheLustreConfigurationMetadataConfigurationArrayOutputWithContext(ctx context.Context) FileCacheLustreConfigurationMetadataConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileCacheLustreConfigurationMetadataConfigurationArrayOutput)
+}
+
+type FileCacheLustreConfigurationMetadataConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FileCacheLustreConfigurationMetadataConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileCacheLustreConfigurationMetadataConfiguration)(nil)).Elem()
+}
+
+func (o FileCacheLustreConfigurationMetadataConfigurationOutput) ToFileCacheLustreConfigurationMetadataConfigurationOutput() FileCacheLustreConfigurationMetadataConfigurationOutput {
+	return o
+}
+
+func (o FileCacheLustreConfigurationMetadataConfigurationOutput) ToFileCacheLustreConfigurationMetadataConfigurationOutputWithContext(ctx context.Context) FileCacheLustreConfigurationMetadataConfigurationOutput {
+	return o
+}
+
+// The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
+func (o FileCacheLustreConfigurationMetadataConfigurationOutput) StorageCapacity() pulumi.IntOutput {
+	return o.ApplyT(func(v FileCacheLustreConfigurationMetadataConfiguration) int { return v.StorageCapacity }).(pulumi.IntOutput)
+}
+
+type FileCacheLustreConfigurationMetadataConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (FileCacheLustreConfigurationMetadataConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FileCacheLustreConfigurationMetadataConfiguration)(nil)).Elem()
+}
+
+func (o FileCacheLustreConfigurationMetadataConfigurationArrayOutput) ToFileCacheLustreConfigurationMetadataConfigurationArrayOutput() FileCacheLustreConfigurationMetadataConfigurationArrayOutput {
+	return o
+}
+
+func (o FileCacheLustreConfigurationMetadataConfigurationArrayOutput) ToFileCacheLustreConfigurationMetadataConfigurationArrayOutputWithContext(ctx context.Context) FileCacheLustreConfigurationMetadataConfigurationArrayOutput {
+	return o
+}
+
+func (o FileCacheLustreConfigurationMetadataConfigurationArrayOutput) Index(i pulumi.IntInput) FileCacheLustreConfigurationMetadataConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FileCacheLustreConfigurationMetadataConfiguration {
+		return vs[0].([]FileCacheLustreConfigurationMetadataConfiguration)[vs[1].(int)]
+	}).(FileCacheLustreConfigurationMetadataConfigurationOutput)
+}
+
 type LustreFileSystemLogConfiguration struct {
 	// The Amazon Resource Name (ARN) that specifies the destination of the logs. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. If you do not provide a destination, Amazon FSx will create and use a log stream in the CloudWatch Logs `/aws/fsx/lustre` log group.
 	Destination *string `pulumi:"destination"`
@@ -3954,6 +4566,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataRepositoryAssociationS3AutoExportPolicyPtrInput)(nil)).Elem(), DataRepositoryAssociationS3AutoExportPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataRepositoryAssociationS3AutoImportPolicyInput)(nil)).Elem(), DataRepositoryAssociationS3AutoImportPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataRepositoryAssociationS3AutoImportPolicyPtrInput)(nil)).Elem(), DataRepositoryAssociationS3AutoImportPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileCacheDataRepositoryAssociationInput)(nil)).Elem(), FileCacheDataRepositoryAssociationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileCacheDataRepositoryAssociationArrayInput)(nil)).Elem(), FileCacheDataRepositoryAssociationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileCacheDataRepositoryAssociationNfInput)(nil)).Elem(), FileCacheDataRepositoryAssociationNfArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileCacheDataRepositoryAssociationNfArrayInput)(nil)).Elem(), FileCacheDataRepositoryAssociationNfArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileCacheLustreConfigurationInput)(nil)).Elem(), FileCacheLustreConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileCacheLustreConfigurationArrayInput)(nil)).Elem(), FileCacheLustreConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileCacheLustreConfigurationLogConfigurationInput)(nil)).Elem(), FileCacheLustreConfigurationLogConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileCacheLustreConfigurationLogConfigurationArrayInput)(nil)).Elem(), FileCacheLustreConfigurationLogConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileCacheLustreConfigurationMetadataConfigurationInput)(nil)).Elem(), FileCacheLustreConfigurationMetadataConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileCacheLustreConfigurationMetadataConfigurationArrayInput)(nil)).Elem(), FileCacheLustreConfigurationMetadataConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LustreFileSystemLogConfigurationInput)(nil)).Elem(), LustreFileSystemLogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LustreFileSystemLogConfigurationPtrInput)(nil)).Elem(), LustreFileSystemLogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OntapFileSystemDiskIopsConfigurationInput)(nil)).Elem(), OntapFileSystemDiskIopsConfigurationArgs{})
@@ -4010,6 +4632,16 @@ func init() {
 	pulumi.RegisterOutputType(DataRepositoryAssociationS3AutoExportPolicyPtrOutput{})
 	pulumi.RegisterOutputType(DataRepositoryAssociationS3AutoImportPolicyOutput{})
 	pulumi.RegisterOutputType(DataRepositoryAssociationS3AutoImportPolicyPtrOutput{})
+	pulumi.RegisterOutputType(FileCacheDataRepositoryAssociationOutput{})
+	pulumi.RegisterOutputType(FileCacheDataRepositoryAssociationArrayOutput{})
+	pulumi.RegisterOutputType(FileCacheDataRepositoryAssociationNfOutput{})
+	pulumi.RegisterOutputType(FileCacheDataRepositoryAssociationNfArrayOutput{})
+	pulumi.RegisterOutputType(FileCacheLustreConfigurationOutput{})
+	pulumi.RegisterOutputType(FileCacheLustreConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(FileCacheLustreConfigurationLogConfigurationOutput{})
+	pulumi.RegisterOutputType(FileCacheLustreConfigurationLogConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(FileCacheLustreConfigurationMetadataConfigurationOutput{})
+	pulumi.RegisterOutputType(FileCacheLustreConfigurationMetadataConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(LustreFileSystemLogConfigurationOutput{})
 	pulumi.RegisterOutputType(LustreFileSystemLogConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(OntapFileSystemDiskIopsConfigurationOutput{})

@@ -4732,7 +4732,7 @@ type TargetGroupStickiness struct {
 	CookieName *string `pulumi:"cookieName"`
 	// Boolean to enable / disable `stickiness`. Default is `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// The type of sticky sessions. The only current possible values are `lbCookie`, `appCookie` for ALBs, and `sourceIp` for NLBs.
+	// The type of sticky sessions. The only current possible values are `lbCookie`, `appCookie` for ALBs, `sourceIp` for NLBs, and `sourceIpDestIp`, `sourceIpDestIpProto` for GWLBs.
 	Type string `pulumi:"type"`
 }
 
@@ -4754,7 +4754,7 @@ type TargetGroupStickinessArgs struct {
 	CookieName pulumi.StringPtrInput `pulumi:"cookieName"`
 	// Boolean to enable / disable `stickiness`. Default is `true`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// The type of sticky sessions. The only current possible values are `lbCookie`, `appCookie` for ALBs, and `sourceIp` for NLBs.
+	// The type of sticky sessions. The only current possible values are `lbCookie`, `appCookie` for ALBs, `sourceIp` for NLBs, and `sourceIpDestIp`, `sourceIpDestIpProto` for GWLBs.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -4850,7 +4850,7 @@ func (o TargetGroupStickinessOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TargetGroupStickiness) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// The type of sticky sessions. The only current possible values are `lbCookie`, `appCookie` for ALBs, and `sourceIp` for NLBs.
+// The type of sticky sessions. The only current possible values are `lbCookie`, `appCookie` for ALBs, `sourceIp` for NLBs, and `sourceIpDestIp`, `sourceIpDestIpProto` for GWLBs.
 func (o TargetGroupStickinessOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v TargetGroupStickiness) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -4909,7 +4909,7 @@ func (o TargetGroupStickinessPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The type of sticky sessions. The only current possible values are `lbCookie`, `appCookie` for ALBs, and `sourceIp` for NLBs.
+// The type of sticky sessions. The only current possible values are `lbCookie`, `appCookie` for ALBs, `sourceIp` for NLBs, and `sourceIpDestIp`, `sourceIpDestIpProto` for GWLBs.
 func (o TargetGroupStickinessPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TargetGroupStickiness) *string {
 		if v == nil {
@@ -4917,6 +4917,112 @@ func (o TargetGroupStickinessPtrOutput) Type() pulumi.StringPtrOutput {
 		}
 		return &v.Type
 	}).(pulumi.StringPtrOutput)
+}
+
+type TargetGroupTargetFailover struct {
+	// Indicates how the GWLB handles existing flows when a target is deregistered. Possible values are `rebalance` and `noRebalance`. Must match the attribute value set for `onUnhealthy`. Default: `noRebalance`.
+	OnDeregistration string `pulumi:"onDeregistration"`
+	// Indicates how the GWLB handles existing flows when a target is unhealthy. Possible values are `rebalance` and `noRebalance`. Must match the attribute value set for `onDeregistration`. Default: `noRebalance`.
+	OnUnhealthy string `pulumi:"onUnhealthy"`
+}
+
+// TargetGroupTargetFailoverInput is an input type that accepts TargetGroupTargetFailoverArgs and TargetGroupTargetFailoverOutput values.
+// You can construct a concrete instance of `TargetGroupTargetFailoverInput` via:
+//
+//	TargetGroupTargetFailoverArgs{...}
+type TargetGroupTargetFailoverInput interface {
+	pulumi.Input
+
+	ToTargetGroupTargetFailoverOutput() TargetGroupTargetFailoverOutput
+	ToTargetGroupTargetFailoverOutputWithContext(context.Context) TargetGroupTargetFailoverOutput
+}
+
+type TargetGroupTargetFailoverArgs struct {
+	// Indicates how the GWLB handles existing flows when a target is deregistered. Possible values are `rebalance` and `noRebalance`. Must match the attribute value set for `onUnhealthy`. Default: `noRebalance`.
+	OnDeregistration pulumi.StringInput `pulumi:"onDeregistration"`
+	// Indicates how the GWLB handles existing flows when a target is unhealthy. Possible values are `rebalance` and `noRebalance`. Must match the attribute value set for `onDeregistration`. Default: `noRebalance`.
+	OnUnhealthy pulumi.StringInput `pulumi:"onUnhealthy"`
+}
+
+func (TargetGroupTargetFailoverArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetGroupTargetFailover)(nil)).Elem()
+}
+
+func (i TargetGroupTargetFailoverArgs) ToTargetGroupTargetFailoverOutput() TargetGroupTargetFailoverOutput {
+	return i.ToTargetGroupTargetFailoverOutputWithContext(context.Background())
+}
+
+func (i TargetGroupTargetFailoverArgs) ToTargetGroupTargetFailoverOutputWithContext(ctx context.Context) TargetGroupTargetFailoverOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupTargetFailoverOutput)
+}
+
+// TargetGroupTargetFailoverArrayInput is an input type that accepts TargetGroupTargetFailoverArray and TargetGroupTargetFailoverArrayOutput values.
+// You can construct a concrete instance of `TargetGroupTargetFailoverArrayInput` via:
+//
+//	TargetGroupTargetFailoverArray{ TargetGroupTargetFailoverArgs{...} }
+type TargetGroupTargetFailoverArrayInput interface {
+	pulumi.Input
+
+	ToTargetGroupTargetFailoverArrayOutput() TargetGroupTargetFailoverArrayOutput
+	ToTargetGroupTargetFailoverArrayOutputWithContext(context.Context) TargetGroupTargetFailoverArrayOutput
+}
+
+type TargetGroupTargetFailoverArray []TargetGroupTargetFailoverInput
+
+func (TargetGroupTargetFailoverArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TargetGroupTargetFailover)(nil)).Elem()
+}
+
+func (i TargetGroupTargetFailoverArray) ToTargetGroupTargetFailoverArrayOutput() TargetGroupTargetFailoverArrayOutput {
+	return i.ToTargetGroupTargetFailoverArrayOutputWithContext(context.Background())
+}
+
+func (i TargetGroupTargetFailoverArray) ToTargetGroupTargetFailoverArrayOutputWithContext(ctx context.Context) TargetGroupTargetFailoverArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupTargetFailoverArrayOutput)
+}
+
+type TargetGroupTargetFailoverOutput struct{ *pulumi.OutputState }
+
+func (TargetGroupTargetFailoverOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetGroupTargetFailover)(nil)).Elem()
+}
+
+func (o TargetGroupTargetFailoverOutput) ToTargetGroupTargetFailoverOutput() TargetGroupTargetFailoverOutput {
+	return o
+}
+
+func (o TargetGroupTargetFailoverOutput) ToTargetGroupTargetFailoverOutputWithContext(ctx context.Context) TargetGroupTargetFailoverOutput {
+	return o
+}
+
+// Indicates how the GWLB handles existing flows when a target is deregistered. Possible values are `rebalance` and `noRebalance`. Must match the attribute value set for `onUnhealthy`. Default: `noRebalance`.
+func (o TargetGroupTargetFailoverOutput) OnDeregistration() pulumi.StringOutput {
+	return o.ApplyT(func(v TargetGroupTargetFailover) string { return v.OnDeregistration }).(pulumi.StringOutput)
+}
+
+// Indicates how the GWLB handles existing flows when a target is unhealthy. Possible values are `rebalance` and `noRebalance`. Must match the attribute value set for `onDeregistration`. Default: `noRebalance`.
+func (o TargetGroupTargetFailoverOutput) OnUnhealthy() pulumi.StringOutput {
+	return o.ApplyT(func(v TargetGroupTargetFailover) string { return v.OnUnhealthy }).(pulumi.StringOutput)
+}
+
+type TargetGroupTargetFailoverArrayOutput struct{ *pulumi.OutputState }
+
+func (TargetGroupTargetFailoverArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TargetGroupTargetFailover)(nil)).Elem()
+}
+
+func (o TargetGroupTargetFailoverArrayOutput) ToTargetGroupTargetFailoverArrayOutput() TargetGroupTargetFailoverArrayOutput {
+	return o
+}
+
+func (o TargetGroupTargetFailoverArrayOutput) ToTargetGroupTargetFailoverArrayOutputWithContext(ctx context.Context) TargetGroupTargetFailoverArrayOutput {
+	return o
+}
+
+func (o TargetGroupTargetFailoverArrayOutput) Index(i pulumi.IntInput) TargetGroupTargetFailoverOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TargetGroupTargetFailover {
+		return vs[0].([]TargetGroupTargetFailover)[vs[1].(int)]
+	}).(TargetGroupTargetFailoverOutput)
 }
 
 type GetListenerDefaultAction struct {
@@ -6291,6 +6397,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupHealthCheckPtrInput)(nil)).Elem(), TargetGroupHealthCheckArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupStickinessInput)(nil)).Elem(), TargetGroupStickinessArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupStickinessPtrInput)(nil)).Elem(), TargetGroupStickinessArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupTargetFailoverInput)(nil)).Elem(), TargetGroupTargetFailoverArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupTargetFailoverArrayInput)(nil)).Elem(), TargetGroupTargetFailoverArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerDefaultActionInput)(nil)).Elem(), GetListenerDefaultActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerDefaultActionArrayInput)(nil)).Elem(), GetListenerDefaultActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerDefaultActionAuthenticateCognitoInput)(nil)).Elem(), GetListenerDefaultActionAuthenticateCognitoArgs{})
@@ -6366,6 +6474,8 @@ func init() {
 	pulumi.RegisterOutputType(TargetGroupHealthCheckPtrOutput{})
 	pulumi.RegisterOutputType(TargetGroupStickinessOutput{})
 	pulumi.RegisterOutputType(TargetGroupStickinessPtrOutput{})
+	pulumi.RegisterOutputType(TargetGroupTargetFailoverOutput{})
+	pulumi.RegisterOutputType(TargetGroupTargetFailoverArrayOutput{})
 	pulumi.RegisterOutputType(GetListenerDefaultActionOutput{})
 	pulumi.RegisterOutputType(GetListenerDefaultActionArrayOutput{})
 	pulumi.RegisterOutputType(GetListenerDefaultActionAuthenticateCognitoOutput{})

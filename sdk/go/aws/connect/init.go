@@ -35,6 +35,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &InstanceStorageConfig{}
 	case "aws:connect/lambdaFunctionAssociation:LambdaFunctionAssociation":
 		r = &LambdaFunctionAssociation{}
+	case "aws:connect/phoneNumber:PhoneNumber":
+		r = &PhoneNumber{}
 	case "aws:connect/queue:Queue":
 		r = &Queue{}
 	case "aws:connect/quickConnect:QuickConnect":
@@ -97,6 +99,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"connect/lambdaFunctionAssociation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"connect/phoneNumber",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

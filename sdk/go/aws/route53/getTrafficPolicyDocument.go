@@ -78,6 +78,99 @@ import (
 //	}
 //
 // ```
+// ### Complex Example
+//
+// The following example showcases the use of nested rules within the traffic policy document and introduces the `geoproximity` rule type.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleTrafficPolicyDocument, err := route53.GetTrafficPolicyDocument(ctx, &route53.GetTrafficPolicyDocumentArgs{
+//				RecordType: pulumi.StringRef("A"),
+//				StartRule:  pulumi.StringRef("geoproximity_rule"),
+//				Endpoints: []route53.GetTrafficPolicyDocumentEndpoint{
+//					route53.GetTrafficPolicyDocumentEndpoint{
+//						Id:    "na_endpoint_a",
+//						Type:  pulumi.StringRef("elastic-load-balancer"),
+//						Value: pulumi.StringRef("elb-111111.us-west-1.elb.amazonaws.com"),
+//					},
+//					route53.GetTrafficPolicyDocumentEndpoint{
+//						Id:    "na_endpoint_b",
+//						Type:  pulumi.StringRef("elastic-load-balancer"),
+//						Value: pulumi.StringRef("elb-222222.us-west-1.elb.amazonaws.com"),
+//					},
+//					route53.GetTrafficPolicyDocumentEndpoint{
+//						Id:    "eu_endpoint",
+//						Type:  pulumi.StringRef("elastic-load-balancer"),
+//						Value: pulumi.StringRef("elb-333333.eu-west-1.elb.amazonaws.com"),
+//					},
+//					route53.GetTrafficPolicyDocumentEndpoint{
+//						Id:    "ap_endpoint",
+//						Type:  pulumi.StringRef("elastic-load-balancer"),
+//						Value: pulumi.StringRef("elb-444444.ap-northeast-2.elb.amazonaws.com"),
+//					},
+//				},
+//				Rules: []route53.GetTrafficPolicyDocumentRule{
+//					route53.GetTrafficPolicyDocumentRule{
+//						Id:   "na_rule",
+//						Type: pulumi.StringRef("failover"),
+//						Primary: route53.GetTrafficPolicyDocumentRulePrimary{
+//							EndpointReference: pulumi.StringRef("na_endpoint_a"),
+//						},
+//						Secondary: route53.GetTrafficPolicyDocumentRuleSecondary{
+//							EndpointReference: pulumi.StringRef("na_endpoint_b"),
+//						},
+//					},
+//					route53.GetTrafficPolicyDocumentRule{
+//						Id:   "geoproximity_rule",
+//						Type: pulumi.StringRef("geoproximity"),
+//						GeoProximityLocations: []route53.GetTrafficPolicyDocumentRuleGeoProximityLocation{
+//							route53.GetTrafficPolicyDocumentRuleGeoProximityLocation{
+//								Region:               pulumi.StringRef("aws:route53:us-west-1"),
+//								Bias:                 pulumi.StringRef("10"),
+//								EvaluateTargetHealth: pulumi.BoolRef(true),
+//								RuleReference:        pulumi.StringRef("na_rule"),
+//							},
+//							route53.GetTrafficPolicyDocumentRuleGeoProximityLocation{
+//								Region:               pulumi.StringRef("aws:route53:eu-west-1"),
+//								Bias:                 pulumi.StringRef("10"),
+//								EvaluateTargetHealth: pulumi.BoolRef(true),
+//								EndpointReference:    pulumi.StringRef("eu_endpoint"),
+//							},
+//							route53.GetTrafficPolicyDocumentRuleGeoProximityLocation{
+//								Region:               pulumi.StringRef("aws:route53:ap-northeast-2"),
+//								Bias:                 pulumi.StringRef("0"),
+//								EvaluateTargetHealth: pulumi.BoolRef(true),
+//								EndpointReference:    pulumi.StringRef("ap_endpoint"),
+//							},
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = route53.NewTrafficPolicy(ctx, "exampleTrafficPolicy", &route53.TrafficPolicyArgs{
+//				Comment:  pulumi.String("example comment"),
+//				Document: pulumi.String(exampleTrafficPolicyDocument.Json),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetTrafficPolicyDocument(ctx *pulumi.Context, args *GetTrafficPolicyDocumentArgs, opts ...pulumi.InvokeOption) (*GetTrafficPolicyDocumentResult, error) {
 	var rv GetTrafficPolicyDocumentResult
 	err := ctx.Invoke("aws:route53/getTrafficPolicyDocument:getTrafficPolicyDocument", args, &rv, opts...)

@@ -37,6 +37,32 @@ import (
 //	}
 //
 // ```
+// ### Managed Pool
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sesv2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := sesv2.NewDedicatedIpPool(ctx, "example", &sesv2.DedicatedIpPoolArgs{
+//				PoolName:    pulumi.String("my-managed-pool"),
+//				ScalingMode: pulumi.String("MANAGED"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //
@@ -53,9 +79,11 @@ type DedicatedIpPool struct {
 	// ARN of the Dedicated IP Pool.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Name of the dedicated IP pool.
-	PoolName pulumi.StringOutput    `pulumi:"poolName"`
-	Tags     pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll  pulumi.StringMapOutput `pulumi:"tagsAll"`
+	PoolName pulumi.StringOutput `pulumi:"poolName"`
+	// IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
+	ScalingMode pulumi.StringOutput    `pulumi:"scalingMode"`
+	Tags        pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll     pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewDedicatedIpPool registers a new resource with the given unique name, arguments, and options.
@@ -93,9 +121,11 @@ type dedicatedIpPoolState struct {
 	// ARN of the Dedicated IP Pool.
 	Arn *string `pulumi:"arn"`
 	// Name of the dedicated IP pool.
-	PoolName *string           `pulumi:"poolName"`
-	Tags     map[string]string `pulumi:"tags"`
-	TagsAll  map[string]string `pulumi:"tagsAll"`
+	PoolName *string `pulumi:"poolName"`
+	// IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
+	ScalingMode *string           `pulumi:"scalingMode"`
+	Tags        map[string]string `pulumi:"tags"`
+	TagsAll     map[string]string `pulumi:"tagsAll"`
 }
 
 type DedicatedIpPoolState struct {
@@ -103,8 +133,10 @@ type DedicatedIpPoolState struct {
 	Arn pulumi.StringPtrInput
 	// Name of the dedicated IP pool.
 	PoolName pulumi.StringPtrInput
-	Tags     pulumi.StringMapInput
-	TagsAll  pulumi.StringMapInput
+	// IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
+	ScalingMode pulumi.StringPtrInput
+	Tags        pulumi.StringMapInput
+	TagsAll     pulumi.StringMapInput
 }
 
 func (DedicatedIpPoolState) ElementType() reflect.Type {
@@ -113,17 +145,21 @@ func (DedicatedIpPoolState) ElementType() reflect.Type {
 
 type dedicatedIpPoolArgs struct {
 	// Name of the dedicated IP pool.
-	PoolName string            `pulumi:"poolName"`
-	Tags     map[string]string `pulumi:"tags"`
-	TagsAll  map[string]string `pulumi:"tagsAll"`
+	PoolName string `pulumi:"poolName"`
+	// IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
+	ScalingMode *string           `pulumi:"scalingMode"`
+	Tags        map[string]string `pulumi:"tags"`
+	TagsAll     map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a DedicatedIpPool resource.
 type DedicatedIpPoolArgs struct {
 	// Name of the dedicated IP pool.
 	PoolName pulumi.StringInput
-	Tags     pulumi.StringMapInput
-	TagsAll  pulumi.StringMapInput
+	// IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
+	ScalingMode pulumi.StringPtrInput
+	Tags        pulumi.StringMapInput
+	TagsAll     pulumi.StringMapInput
 }
 
 func (DedicatedIpPoolArgs) ElementType() reflect.Type {
@@ -221,6 +257,11 @@ func (o DedicatedIpPoolOutput) Arn() pulumi.StringOutput {
 // Name of the dedicated IP pool.
 func (o DedicatedIpPoolOutput) PoolName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DedicatedIpPool) pulumi.StringOutput { return v.PoolName }).(pulumi.StringOutput)
+}
+
+// IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
+func (o DedicatedIpPoolOutput) ScalingMode() pulumi.StringOutput {
+	return o.ApplyT(func(v *DedicatedIpPool) pulumi.StringOutput { return v.ScalingMode }).(pulumi.StringOutput)
 }
 
 func (o DedicatedIpPoolOutput) Tags() pulumi.StringMapOutput {

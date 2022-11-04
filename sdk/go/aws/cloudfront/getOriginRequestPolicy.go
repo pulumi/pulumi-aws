@@ -11,8 +11,7 @@ import (
 )
 
 // ## Example Usage
-//
-// The following example below creates a CloudFront origin request policy.
+// ### Basic Usage
 //
 // ```go
 // package main
@@ -28,6 +27,33 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudfront.LookupOriginRequestPolicy(ctx, &cloudfront.LookupOriginRequestPolicyArgs{
 //				Name: pulumi.StringRef("example-policy"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### AWS-Managed Policies
+//
+// AWS managed origin request policy names are prefixed with `Managed-`:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cloudfront.LookupOriginRequestPolicy(ctx, &cloudfront.LookupOriginRequestPolicyArgs{
+//				Name: pulumi.StringRef("Managed-UserAgentRefererHeaders"),
 //			}, nil)
 //			if err != nil {
 //				return err

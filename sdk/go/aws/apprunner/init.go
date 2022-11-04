@@ -33,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Service{}
 	case "aws:apprunner/vpcConnector:VpcConnector":
 		r = &VpcConnector{}
+	case "aws:apprunner/vpcIngressConnection:VpcIngressConnection":
+		r = &VpcIngressConnection{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -74,6 +76,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"apprunner/vpcConnector",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"apprunner/vpcIngressConnection",
 		&module{version},
 	)
 }

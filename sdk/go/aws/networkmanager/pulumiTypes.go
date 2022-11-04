@@ -1277,7 +1277,7 @@ func (o GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArrayOutput) Index(i
 
 type GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation struct {
 	// ASN of the Core Network Edge in an AWS Region. By default, the ASN will be a single integer automatically assigned from `asnRanges`
-	Asn *int `pulumi:"asn"`
+	Asn *string `pulumi:"asn"`
 	// The local CIDR blocks for this Core Network Edge for AWS Transit Gateway Connect attachments. By default, this CIDR block will be one or more optional IPv4 and IPv6 CIDR prefixes auto-assigned from `insideCidrBlocks`.
 	InsideCidrBlocks []string `pulumi:"insideCidrBlocks"`
 	Location         string   `pulumi:"location"`
@@ -1296,7 +1296,7 @@ type GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationInput inter
 
 type GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs struct {
 	// ASN of the Core Network Edge in an AWS Region. By default, the ASN will be a single integer automatically assigned from `asnRanges`
-	Asn pulumi.IntPtrInput `pulumi:"asn"`
+	Asn pulumi.StringPtrInput `pulumi:"asn"`
 	// The local CIDR blocks for this Core Network Edge for AWS Transit Gateway Connect attachments. By default, this CIDR block will be one or more optional IPv4 and IPv6 CIDR prefixes auto-assigned from `insideCidrBlocks`.
 	InsideCidrBlocks pulumi.StringArrayInput `pulumi:"insideCidrBlocks"`
 	Location         pulumi.StringInput      `pulumi:"location"`
@@ -1354,8 +1354,8 @@ func (o GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationOutput) 
 }
 
 // ASN of the Core Network Edge in an AWS Region. By default, the ASN will be a single integer automatically assigned from `asnRanges`
-func (o GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationOutput) Asn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation) *int { return v.Asn }).(pulumi.IntPtrOutput)
+func (o GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationOutput) Asn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation) *string { return v.Asn }).(pulumi.StringPtrOutput)
 }
 
 // The local CIDR blocks for this Core Network Edge for AWS Transit Gateway Connect attachments. By default, this CIDR block will be one or more optional IPv4 and IPv6 CIDR prefixes auto-assigned from `insideCidrBlocks`.

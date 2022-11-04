@@ -33,7 +33,7 @@ type ComputeEnvironmentComputeResources struct {
 	MaxVcpus int `pulumi:"maxVcpus"`
 	// The minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	MinVcpus *int `pulumi:"minVcpus"`
-	// A list of EC2 security group that are associated with instances launched in the compute environment.
+	// A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	SpotIamFleetRole *string `pulumi:"spotIamFleetRole"`
@@ -79,7 +79,7 @@ type ComputeEnvironmentComputeResourcesArgs struct {
 	MaxVcpus pulumi.IntInput `pulumi:"maxVcpus"`
 	// The minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	MinVcpus pulumi.IntPtrInput `pulumi:"minVcpus"`
-	// A list of EC2 security group that are associated with instances launched in the compute environment.
+	// A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
 	// The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	SpotIamFleetRole pulumi.StringPtrInput `pulumi:"spotIamFleetRole"`
@@ -227,7 +227,7 @@ func (o ComputeEnvironmentComputeResourcesOutput) MinVcpus() pulumi.IntPtrOutput
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) *int { return v.MinVcpus }).(pulumi.IntPtrOutput)
 }
 
-// A list of EC2 security group that are associated with instances launched in the compute environment.
+// A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
 func (o ComputeEnvironmentComputeResourcesOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
@@ -386,7 +386,7 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) MinVcpus() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
-// A list of EC2 security group that are associated with instances launched in the compute environment.
+// A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
 func (o ComputeEnvironmentComputeResourcesPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) []string {
 		if v == nil {
@@ -764,6 +764,162 @@ func (o ComputeEnvironmentComputeResourcesLaunchTemplatePtrOutput) Version() pul
 			return nil
 		}
 		return v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
+type ComputeEnvironmentEksConfiguration struct {
+	// The Amazon Resource Name (ARN) of the Amazon EKS cluster.
+	EksClusterArn string `pulumi:"eksClusterArn"`
+	// The namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace.
+	KubernetesNamespace string `pulumi:"kubernetesNamespace"`
+}
+
+// ComputeEnvironmentEksConfigurationInput is an input type that accepts ComputeEnvironmentEksConfigurationArgs and ComputeEnvironmentEksConfigurationOutput values.
+// You can construct a concrete instance of `ComputeEnvironmentEksConfigurationInput` via:
+//
+//	ComputeEnvironmentEksConfigurationArgs{...}
+type ComputeEnvironmentEksConfigurationInput interface {
+	pulumi.Input
+
+	ToComputeEnvironmentEksConfigurationOutput() ComputeEnvironmentEksConfigurationOutput
+	ToComputeEnvironmentEksConfigurationOutputWithContext(context.Context) ComputeEnvironmentEksConfigurationOutput
+}
+
+type ComputeEnvironmentEksConfigurationArgs struct {
+	// The Amazon Resource Name (ARN) of the Amazon EKS cluster.
+	EksClusterArn pulumi.StringInput `pulumi:"eksClusterArn"`
+	// The namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace.
+	KubernetesNamespace pulumi.StringInput `pulumi:"kubernetesNamespace"`
+}
+
+func (ComputeEnvironmentEksConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeEnvironmentEksConfiguration)(nil)).Elem()
+}
+
+func (i ComputeEnvironmentEksConfigurationArgs) ToComputeEnvironmentEksConfigurationOutput() ComputeEnvironmentEksConfigurationOutput {
+	return i.ToComputeEnvironmentEksConfigurationOutputWithContext(context.Background())
+}
+
+func (i ComputeEnvironmentEksConfigurationArgs) ToComputeEnvironmentEksConfigurationOutputWithContext(ctx context.Context) ComputeEnvironmentEksConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeEnvironmentEksConfigurationOutput)
+}
+
+func (i ComputeEnvironmentEksConfigurationArgs) ToComputeEnvironmentEksConfigurationPtrOutput() ComputeEnvironmentEksConfigurationPtrOutput {
+	return i.ToComputeEnvironmentEksConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ComputeEnvironmentEksConfigurationArgs) ToComputeEnvironmentEksConfigurationPtrOutputWithContext(ctx context.Context) ComputeEnvironmentEksConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeEnvironmentEksConfigurationOutput).ToComputeEnvironmentEksConfigurationPtrOutputWithContext(ctx)
+}
+
+// ComputeEnvironmentEksConfigurationPtrInput is an input type that accepts ComputeEnvironmentEksConfigurationArgs, ComputeEnvironmentEksConfigurationPtr and ComputeEnvironmentEksConfigurationPtrOutput values.
+// You can construct a concrete instance of `ComputeEnvironmentEksConfigurationPtrInput` via:
+//
+//	        ComputeEnvironmentEksConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ComputeEnvironmentEksConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToComputeEnvironmentEksConfigurationPtrOutput() ComputeEnvironmentEksConfigurationPtrOutput
+	ToComputeEnvironmentEksConfigurationPtrOutputWithContext(context.Context) ComputeEnvironmentEksConfigurationPtrOutput
+}
+
+type computeEnvironmentEksConfigurationPtrType ComputeEnvironmentEksConfigurationArgs
+
+func ComputeEnvironmentEksConfigurationPtr(v *ComputeEnvironmentEksConfigurationArgs) ComputeEnvironmentEksConfigurationPtrInput {
+	return (*computeEnvironmentEksConfigurationPtrType)(v)
+}
+
+func (*computeEnvironmentEksConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeEnvironmentEksConfiguration)(nil)).Elem()
+}
+
+func (i *computeEnvironmentEksConfigurationPtrType) ToComputeEnvironmentEksConfigurationPtrOutput() ComputeEnvironmentEksConfigurationPtrOutput {
+	return i.ToComputeEnvironmentEksConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *computeEnvironmentEksConfigurationPtrType) ToComputeEnvironmentEksConfigurationPtrOutputWithContext(ctx context.Context) ComputeEnvironmentEksConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeEnvironmentEksConfigurationPtrOutput)
+}
+
+type ComputeEnvironmentEksConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ComputeEnvironmentEksConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeEnvironmentEksConfiguration)(nil)).Elem()
+}
+
+func (o ComputeEnvironmentEksConfigurationOutput) ToComputeEnvironmentEksConfigurationOutput() ComputeEnvironmentEksConfigurationOutput {
+	return o
+}
+
+func (o ComputeEnvironmentEksConfigurationOutput) ToComputeEnvironmentEksConfigurationOutputWithContext(ctx context.Context) ComputeEnvironmentEksConfigurationOutput {
+	return o
+}
+
+func (o ComputeEnvironmentEksConfigurationOutput) ToComputeEnvironmentEksConfigurationPtrOutput() ComputeEnvironmentEksConfigurationPtrOutput {
+	return o.ToComputeEnvironmentEksConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ComputeEnvironmentEksConfigurationOutput) ToComputeEnvironmentEksConfigurationPtrOutputWithContext(ctx context.Context) ComputeEnvironmentEksConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeEnvironmentEksConfiguration) *ComputeEnvironmentEksConfiguration {
+		return &v
+	}).(ComputeEnvironmentEksConfigurationPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Amazon EKS cluster.
+func (o ComputeEnvironmentEksConfigurationOutput) EksClusterArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ComputeEnvironmentEksConfiguration) string { return v.EksClusterArn }).(pulumi.StringOutput)
+}
+
+// The namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace.
+func (o ComputeEnvironmentEksConfigurationOutput) KubernetesNamespace() pulumi.StringOutput {
+	return o.ApplyT(func(v ComputeEnvironmentEksConfiguration) string { return v.KubernetesNamespace }).(pulumi.StringOutput)
+}
+
+type ComputeEnvironmentEksConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ComputeEnvironmentEksConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeEnvironmentEksConfiguration)(nil)).Elem()
+}
+
+func (o ComputeEnvironmentEksConfigurationPtrOutput) ToComputeEnvironmentEksConfigurationPtrOutput() ComputeEnvironmentEksConfigurationPtrOutput {
+	return o
+}
+
+func (o ComputeEnvironmentEksConfigurationPtrOutput) ToComputeEnvironmentEksConfigurationPtrOutputWithContext(ctx context.Context) ComputeEnvironmentEksConfigurationPtrOutput {
+	return o
+}
+
+func (o ComputeEnvironmentEksConfigurationPtrOutput) Elem() ComputeEnvironmentEksConfigurationOutput {
+	return o.ApplyT(func(v *ComputeEnvironmentEksConfiguration) ComputeEnvironmentEksConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ComputeEnvironmentEksConfiguration
+		return ret
+	}).(ComputeEnvironmentEksConfigurationOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Amazon EKS cluster.
+func (o ComputeEnvironmentEksConfigurationPtrOutput) EksClusterArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeEnvironmentEksConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EksClusterArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace.
+func (o ComputeEnvironmentEksConfigurationPtrOutput) KubernetesNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeEnvironmentEksConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KubernetesNamespace
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1792,6 +1948,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentComputeResourcesEc2ConfigurationPtrInput)(nil)).Elem(), ComputeEnvironmentComputeResourcesEc2ConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentComputeResourcesLaunchTemplateInput)(nil)).Elem(), ComputeEnvironmentComputeResourcesLaunchTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentComputeResourcesLaunchTemplatePtrInput)(nil)).Elem(), ComputeEnvironmentComputeResourcesLaunchTemplateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentEksConfigurationInput)(nil)).Elem(), ComputeEnvironmentEksConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentEksConfigurationPtrInput)(nil)).Elem(), ComputeEnvironmentEksConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionRetryStrategyInput)(nil)).Elem(), JobDefinitionRetryStrategyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionRetryStrategyPtrInput)(nil)).Elem(), JobDefinitionRetryStrategyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionRetryStrategyEvaluateOnExitInput)(nil)).Elem(), JobDefinitionRetryStrategyEvaluateOnExitArgs{})
@@ -1814,6 +1972,8 @@ func init() {
 	pulumi.RegisterOutputType(ComputeEnvironmentComputeResourcesEc2ConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ComputeEnvironmentComputeResourcesLaunchTemplateOutput{})
 	pulumi.RegisterOutputType(ComputeEnvironmentComputeResourcesLaunchTemplatePtrOutput{})
+	pulumi.RegisterOutputType(ComputeEnvironmentEksConfigurationOutput{})
+	pulumi.RegisterOutputType(ComputeEnvironmentEksConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionRetryStrategyOutput{})
 	pulumi.RegisterOutputType(JobDefinitionRetryStrategyPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionRetryStrategyEvaluateOnExitOutput{})

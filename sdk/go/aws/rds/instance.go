@@ -194,8 +194,7 @@ type Instance struct {
 	// The canonical hosted zone ID of the DB instance (to be used
 	// in a Route 53 Alias record).
 	HostedZoneId pulumi.StringOutput `pulumi:"hostedZoneId"`
-	// Specifies whether or
-	// mappings of AWS Identity and Access Management (IAM) accounts to database
+	// Specifies whether mappings of AWS Identity and Access Management (IAM) accounts to database
 	// accounts is enabled.
 	IamDatabaseAuthenticationEnabled pulumi.BoolPtrOutput `pulumi:"iamDatabaseAuthenticationEnabled"`
 	// The name of the RDS instance,
@@ -449,8 +448,7 @@ type instanceState struct {
 	// The canonical hosted zone ID of the DB instance (to be used
 	// in a Route 53 Alias record).
 	HostedZoneId *string `pulumi:"hostedZoneId"`
-	// Specifies whether or
-	// mappings of AWS Identity and Access Management (IAM) accounts to database
+	// Specifies whether mappings of AWS Identity and Access Management (IAM) accounts to database
 	// accounts is enabled.
 	IamDatabaseAuthenticationEnabled *bool `pulumi:"iamDatabaseAuthenticationEnabled"`
 	// The name of the RDS instance,
@@ -673,8 +671,7 @@ type InstanceState struct {
 	// The canonical hosted zone ID of the DB instance (to be used
 	// in a Route 53 Alias record).
 	HostedZoneId pulumi.StringPtrInput
-	// Specifies whether or
-	// mappings of AWS Identity and Access Management (IAM) accounts to database
+	// Specifies whether mappings of AWS Identity and Access Management (IAM) accounts to database
 	// accounts is enabled.
 	IamDatabaseAuthenticationEnabled pulumi.BoolPtrInput
 	// The name of the RDS instance,
@@ -890,8 +887,7 @@ type instanceArgs struct {
 	// when this DB instance is deleted. Must be provided if `skipFinalSnapshot` is
 	// set to `false`. The value must begin with a letter, only contain alphanumeric characters and hyphens, and not end with a hyphen or contain two consecutive hyphens. Must not be provided when deleting a read replica.
 	FinalSnapshotIdentifier *string `pulumi:"finalSnapshotIdentifier"`
-	// Specifies whether or
-	// mappings of AWS Identity and Access Management (IAM) accounts to database
+	// Specifies whether mappings of AWS Identity and Access Management (IAM) accounts to database
 	// accounts is enabled.
 	IamDatabaseAuthenticationEnabled *bool `pulumi:"iamDatabaseAuthenticationEnabled"`
 	// The name of the RDS instance,
@@ -1095,8 +1091,7 @@ type InstanceArgs struct {
 	// when this DB instance is deleted. Must be provided if `skipFinalSnapshot` is
 	// set to `false`. The value must begin with a letter, only contain alphanumeric characters and hyphens, and not end with a hyphen or contain two consecutive hyphens. Must not be provided when deleting a read replica.
 	FinalSnapshotIdentifier pulumi.StringPtrInput
-	// Specifies whether or
-	// mappings of AWS Identity and Access Management (IAM) accounts to database
+	// Specifies whether mappings of AWS Identity and Access Management (IAM) accounts to database
 	// accounts is enabled.
 	IamDatabaseAuthenticationEnabled pulumi.BoolPtrInput
 	// The name of the RDS instance,
@@ -1477,8 +1472,7 @@ func (o InstanceOutput) HostedZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.HostedZoneId }).(pulumi.StringOutput)
 }
 
-// Specifies whether or
-// mappings of AWS Identity and Access Management (IAM) accounts to database
+// Specifies whether mappings of AWS Identity and Access Management (IAM) accounts to database
 // accounts is enabled.
 func (o InstanceOutput) IamDatabaseAuthenticationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Instance) pulumi.BoolPtrOutput { return v.IamDatabaseAuthenticationEnabled }).(pulumi.BoolPtrOutput)

@@ -14,6 +14,7 @@ import (
 // Provides a AWS Transfer Workflow resource.
 //
 // ## Example Usage
+// ### Basic single step example
 //
 // ```go
 // package main
@@ -35,6 +36,54 @@ import (
 //							SourceFileLocation: pulumi.Any(original.File),
 //						},
 //						Type: pulumi.String("DELETE"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Multistep example
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/transfer"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := transfer.NewWorkflow(ctx, "example", &transfer.WorkflowArgs{
+//				Steps: transfer.WorkflowStepArray{
+//					&transfer.WorkflowStepArgs{
+//						CustomStepDetails: &transfer.WorkflowStepCustomStepDetailsArgs{
+//							Name:               pulumi.String("example"),
+//							SourceFileLocation: pulumi.Any(original.File),
+//							Target:             pulumi.Any(aws_lambda_function.Example.Arn),
+//							TimeoutSeconds:     pulumi.Int(60),
+//						},
+//						Type: pulumi.String("CUSTOM"),
+//					},
+//					&transfer.WorkflowStepArgs{
+//						TagStepDetails: &transfer.WorkflowStepTagStepDetailsArgs{
+//							Name:               pulumi.String("example"),
+//							SourceFileLocation: pulumi.Any(original.File),
+//							Tags: transfer.WorkflowStepTagStepDetailsTagArray{
+//								&transfer.WorkflowStepTagStepDetailsTagArgs{
+//									Key:   pulumi.String("Name"),
+//									Value: pulumi.String("Hello World"),
+//								},
+//							},
+//						},
+//						Type: pulumi.String("TAG"),
 //					},
 //				},
 //			})

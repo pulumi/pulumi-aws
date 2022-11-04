@@ -97,6 +97,8 @@ type LookupCertificateAuthorityResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Type of the certificate authority.
 	Type string `pulumi:"type"`
+	// Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly.
+	UsageMode string `pulumi:"usageMode"`
 }
 
 func LookupCertificateAuthorityOutput(ctx *pulumi.Context, args LookupCertificateAuthorityOutputArgs, opts ...pulumi.InvokeOption) LookupCertificateAuthorityResultOutput {
@@ -216,6 +218,11 @@ func (o LookupCertificateAuthorityResultOutput) Tags() pulumi.StringMapOutput {
 // Type of the certificate authority.
 func (o LookupCertificateAuthorityResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateAuthorityResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly.
+func (o LookupCertificateAuthorityResultOutput) UsageMode() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateAuthorityResult) string { return v.UsageMode }).(pulumi.StringOutput)
 }
 
 func init() {
