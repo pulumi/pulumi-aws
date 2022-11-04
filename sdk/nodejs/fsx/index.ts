@@ -13,6 +13,10 @@ export { DataRepositoryAssociationArgs, DataRepositoryAssociationState } from ".
 export type DataRepositoryAssociation = import("./dataRepositoryAssociation").DataRepositoryAssociation;
 export const DataRepositoryAssociation: typeof import("./dataRepositoryAssociation").DataRepositoryAssociation = null as any;
 
+export { FileCacheArgs, FileCacheState } from "./fileCache";
+export type FileCache = import("./fileCache").FileCache;
+export const FileCache: typeof import("./fileCache").FileCache = null as any;
+
 export { GetOpenZfsSnapshotArgs, GetOpenZfsSnapshotResult, GetOpenZfsSnapshotOutputArgs } from "./getOpenZfsSnapshot";
 export const getOpenZfsSnapshot: typeof import("./getOpenZfsSnapshot").getOpenZfsSnapshot = null as any;
 export const getOpenZfsSnapshotOutput: typeof import("./getOpenZfsSnapshot").getOpenZfsSnapshotOutput = null as any;
@@ -51,6 +55,7 @@ export const WindowsFileSystem: typeof import("./windowsFileSystem").WindowsFile
 
 utilities.lazyLoad(exports, ["Backup"], () => require("./backup"));
 utilities.lazyLoad(exports, ["DataRepositoryAssociation"], () => require("./dataRepositoryAssociation"));
+utilities.lazyLoad(exports, ["FileCache"], () => require("./fileCache"));
 utilities.lazyLoad(exports, ["getOpenZfsSnapshot","getOpenZfsSnapshotOutput"], () => require("./getOpenZfsSnapshot"));
 utilities.lazyLoad(exports, ["LustreFileSystem"], () => require("./lustreFileSystem"));
 utilities.lazyLoad(exports, ["OntapFileSystem"], () => require("./ontapFileSystem"));
@@ -69,6 +74,8 @@ const _module = {
                 return new Backup(name, <any>undefined, { urn })
             case "aws:fsx/dataRepositoryAssociation:DataRepositoryAssociation":
                 return new DataRepositoryAssociation(name, <any>undefined, { urn })
+            case "aws:fsx/fileCache:FileCache":
+                return new FileCache(name, <any>undefined, { urn })
             case "aws:fsx/lustreFileSystem:LustreFileSystem":
                 return new LustreFileSystem(name, <any>undefined, { urn })
             case "aws:fsx/ontapFileSystem:OntapFileSystem":
@@ -92,6 +99,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "fsx/backup", _module)
 pulumi.runtime.registerResourceModule("aws", "fsx/dataRepositoryAssociation", _module)
+pulumi.runtime.registerResourceModule("aws", "fsx/fileCache", _module)
 pulumi.runtime.registerResourceModule("aws", "fsx/lustreFileSystem", _module)
 pulumi.runtime.registerResourceModule("aws", "fsx/ontapFileSystem", _module)
 pulumi.runtime.registerResourceModule("aws", "fsx/ontapStorageVirtualMachine", _module)

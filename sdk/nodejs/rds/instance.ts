@@ -240,8 +240,7 @@ export class Instance extends pulumi.CustomResource {
      */
     public /*out*/ readonly hostedZoneId!: pulumi.Output<string>;
     /**
-     * Specifies whether or
-     * mappings of AWS Identity and Access Management (IAM) accounts to database
+     * Specifies whether mappings of AWS Identity and Access Management (IAM) accounts to database
      * accounts is enabled.
      */
     public readonly iamDatabaseAuthenticationEnabled!: pulumi.Output<boolean | undefined>;
@@ -760,8 +759,7 @@ export interface InstanceState {
      */
     hostedZoneId?: pulumi.Input<string>;
     /**
-     * Specifies whether or
-     * mappings of AWS Identity and Access Management (IAM) accounts to database
+     * Specifies whether mappings of AWS Identity and Access Management (IAM) accounts to database
      * accounts is enabled.
      */
     iamDatabaseAuthenticationEnabled?: pulumi.Input<boolean>;
@@ -1100,8 +1098,7 @@ export interface InstanceArgs {
      */
     finalSnapshotIdentifier?: pulumi.Input<string>;
     /**
-     * Specifies whether or
-     * mappings of AWS Identity and Access Management (IAM) accounts to database
+     * Specifies whether mappings of AWS Identity and Access Management (IAM) accounts to database
      * accounts is enabled.
      */
     iamDatabaseAuthenticationEnabled?: pulumi.Input<boolean>;

@@ -9,11 +9,16 @@ export { DelegatedAdminAccountArgs, DelegatedAdminAccountState } from "./delegat
 export type DelegatedAdminAccount = import("./delegatedAdminAccount").DelegatedAdminAccount;
 export const DelegatedAdminAccount: typeof import("./delegatedAdminAccount").DelegatedAdminAccount = null as any;
 
+export { EnablerArgs, EnablerState } from "./enabler";
+export type Enabler = import("./enabler").Enabler;
+export const Enabler: typeof import("./enabler").Enabler = null as any;
+
 export { OrganizationConfigurationArgs, OrganizationConfigurationState } from "./organizationConfiguration";
 export type OrganizationConfiguration = import("./organizationConfiguration").OrganizationConfiguration;
 export const OrganizationConfiguration: typeof import("./organizationConfiguration").OrganizationConfiguration = null as any;
 
 utilities.lazyLoad(exports, ["DelegatedAdminAccount"], () => require("./delegatedAdminAccount"));
+utilities.lazyLoad(exports, ["Enabler"], () => require("./enabler"));
 utilities.lazyLoad(exports, ["OrganizationConfiguration"], () => require("./organizationConfiguration"));
 
 const _module = {
@@ -22,6 +27,8 @@ const _module = {
         switch (type) {
             case "aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount":
                 return new DelegatedAdminAccount(name, <any>undefined, { urn })
+            case "aws:inspector2/enabler:Enabler":
+                return new Enabler(name, <any>undefined, { urn })
             case "aws:inspector2/organizationConfiguration:OrganizationConfiguration":
                 return new OrganizationConfiguration(name, <any>undefined, { urn })
             default:
@@ -30,4 +37,5 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("aws", "inspector2/delegatedAdminAccount", _module)
+pulumi.runtime.registerResourceModule("aws", "inspector2/enabler", _module)
 pulumi.runtime.registerResourceModule("aws", "inspector2/organizationConfiguration", _module)

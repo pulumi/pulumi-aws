@@ -116,6 +116,10 @@ export class AmiCopy extends pulumi.CustomResource {
     public /*out*/ readonly imageOwnerAlias!: pulumi.Output<string>;
     public /*out*/ readonly imageType!: pulumi.Output<string>;
     /**
+     * If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
+     */
+    public /*out*/ readonly imdsSupport!: pulumi.Output<string>;
+    /**
      * ID of the kernel image (AKI) that will be used as the paravirtual
      * kernel in created instances.
      */
@@ -204,6 +208,7 @@ export class AmiCopy extends pulumi.CustomResource {
             resourceInputs["imageLocation"] = state ? state.imageLocation : undefined;
             resourceInputs["imageOwnerAlias"] = state ? state.imageOwnerAlias : undefined;
             resourceInputs["imageType"] = state ? state.imageType : undefined;
+            resourceInputs["imdsSupport"] = state ? state.imdsSupport : undefined;
             resourceInputs["kernelId"] = state ? state.kernelId : undefined;
             resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
             resourceInputs["manageEbsSnapshots"] = state ? state.manageEbsSnapshots : undefined;
@@ -250,6 +255,7 @@ export class AmiCopy extends pulumi.CustomResource {
             resourceInputs["imageLocation"] = undefined /*out*/;
             resourceInputs["imageOwnerAlias"] = undefined /*out*/;
             resourceInputs["imageType"] = undefined /*out*/;
+            resourceInputs["imdsSupport"] = undefined /*out*/;
             resourceInputs["kernelId"] = undefined /*out*/;
             resourceInputs["manageEbsSnapshots"] = undefined /*out*/;
             resourceInputs["ownerId"] = undefined /*out*/;
@@ -325,6 +331,10 @@ export interface AmiCopyState {
     imageLocation?: pulumi.Input<string>;
     imageOwnerAlias?: pulumi.Input<string>;
     imageType?: pulumi.Input<string>;
+    /**
+     * If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
+     */
+    imdsSupport?: pulumi.Input<string>;
     /**
      * ID of the kernel image (AKI) that will be used as the paravirtual
      * kernel in created instances.

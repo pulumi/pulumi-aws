@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Use this data source to retrieve information about a CloudFront cache policy.
  *
  * ## Example Usage
+ * ### Basic Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -18,6 +19,18 @@ import * as utilities from "../utilities";
  *
  * const example = pulumi.output(aws.cloudfront.getResponseHeadersPolicy({
  *     name: "example-policy",
+ * }));
+ * ```
+ * ### AWS-Managed Policies
+ *
+ * AWS managed response header policy names are prefixed with `Managed-`:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = pulumi.output(aws.cloudfront.getResponseHeadersPolicy({
+ *     name: "Managed-SimpleCORS",
  * }));
  * ```
  */

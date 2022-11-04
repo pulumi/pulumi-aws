@@ -120,6 +120,10 @@ export class Domain extends pulumi.CustomResource {
      */
     public readonly appNetworkAccessType!: pulumi.Output<string | undefined>;
     /**
+     * The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
+     */
+    public readonly appSecurityGroupManagement!: pulumi.Output<string | undefined>;
+    /**
      * The Amazon Resource Name (ARN) assigned by AWS to this Domain.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
@@ -136,6 +140,10 @@ export class Domain extends pulumi.CustomResource {
      */
     public readonly domainName!: pulumi.Output<string>;
     /**
+     * The domain settings. See Domain Settings below.
+     */
+    public readonly domainSettings!: pulumi.Output<outputs.sagemaker.DomainDomainSettings | undefined>;
+    /**
      * The ID of the Amazon Elastic File System (EFS) managed by this Domain.
      */
     public /*out*/ readonly homeEfsFileSystemId!: pulumi.Output<string>;
@@ -148,6 +156,10 @@ export class Domain extends pulumi.CustomResource {
      */
     public readonly retentionPolicy!: pulumi.Output<outputs.sagemaker.DomainRetentionPolicy | undefined>;
     /**
+     * The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
+     */
+    public /*out*/ readonly securityGroupIdForDomainBoundary!: pulumi.Output<string>;
+    /**
      * The SSO managed application instance ID.
      */
     public /*out*/ readonly singleSignOnManagedApplicationInstanceId!: pulumi.Output<string>;
@@ -156,7 +168,7 @@ export class Domain extends pulumi.CustomResource {
      */
     public readonly subnetIds!: pulumi.Output<string[]>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -186,13 +198,16 @@ export class Domain extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as DomainState | undefined;
             resourceInputs["appNetworkAccessType"] = state ? state.appNetworkAccessType : undefined;
+            resourceInputs["appSecurityGroupManagement"] = state ? state.appSecurityGroupManagement : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["authMode"] = state ? state.authMode : undefined;
             resourceInputs["defaultUserSettings"] = state ? state.defaultUserSettings : undefined;
             resourceInputs["domainName"] = state ? state.domainName : undefined;
+            resourceInputs["domainSettings"] = state ? state.domainSettings : undefined;
             resourceInputs["homeEfsFileSystemId"] = state ? state.homeEfsFileSystemId : undefined;
             resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
             resourceInputs["retentionPolicy"] = state ? state.retentionPolicy : undefined;
+            resourceInputs["securityGroupIdForDomainBoundary"] = state ? state.securityGroupIdForDomainBoundary : undefined;
             resourceInputs["singleSignOnManagedApplicationInstanceId"] = state ? state.singleSignOnManagedApplicationInstanceId : undefined;
             resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -217,9 +232,11 @@ export class Domain extends pulumi.CustomResource {
                 throw new Error("Missing required property 'vpcId'");
             }
             resourceInputs["appNetworkAccessType"] = args ? args.appNetworkAccessType : undefined;
+            resourceInputs["appSecurityGroupManagement"] = args ? args.appSecurityGroupManagement : undefined;
             resourceInputs["authMode"] = args ? args.authMode : undefined;
             resourceInputs["defaultUserSettings"] = args ? args.defaultUserSettings : undefined;
             resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["domainSettings"] = args ? args.domainSettings : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["retentionPolicy"] = args ? args.retentionPolicy : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
@@ -227,6 +244,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["vpcId"] = args ? args.vpcId : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["homeEfsFileSystemId"] = undefined /*out*/;
+            resourceInputs["securityGroupIdForDomainBoundary"] = undefined /*out*/;
             resourceInputs["singleSignOnManagedApplicationInstanceId"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["url"] = undefined /*out*/;
@@ -245,6 +263,10 @@ export interface DomainState {
      */
     appNetworkAccessType?: pulumi.Input<string>;
     /**
+     * The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
+     */
+    appSecurityGroupManagement?: pulumi.Input<string>;
+    /**
      * The Amazon Resource Name (ARN) assigned by AWS to this Domain.
      */
     arn?: pulumi.Input<string>;
@@ -261,6 +283,10 @@ export interface DomainState {
      */
     domainName?: pulumi.Input<string>;
     /**
+     * The domain settings. See Domain Settings below.
+     */
+    domainSettings?: pulumi.Input<inputs.sagemaker.DomainDomainSettings>;
+    /**
      * The ID of the Amazon Elastic File System (EFS) managed by this Domain.
      */
     homeEfsFileSystemId?: pulumi.Input<string>;
@@ -273,6 +299,10 @@ export interface DomainState {
      */
     retentionPolicy?: pulumi.Input<inputs.sagemaker.DomainRetentionPolicy>;
     /**
+     * The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
+     */
+    securityGroupIdForDomainBoundary?: pulumi.Input<string>;
+    /**
      * The SSO managed application instance ID.
      */
     singleSignOnManagedApplicationInstanceId?: pulumi.Input<string>;
@@ -281,7 +311,7 @@ export interface DomainState {
      */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -307,6 +337,10 @@ export interface DomainArgs {
      */
     appNetworkAccessType?: pulumi.Input<string>;
     /**
+     * The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
+     */
+    appSecurityGroupManagement?: pulumi.Input<string>;
+    /**
      * The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
      */
     authMode: pulumi.Input<string>;
@@ -318,6 +352,10 @@ export interface DomainArgs {
      * The domain name.
      */
     domainName: pulumi.Input<string>;
+    /**
+     * The domain settings. See Domain Settings below.
+     */
+    domainSettings?: pulumi.Input<inputs.sagemaker.DomainDomainSettings>;
     /**
      * The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
      */
@@ -331,7 +369,7 @@ export interface DomainArgs {
      */
     subnetIds: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

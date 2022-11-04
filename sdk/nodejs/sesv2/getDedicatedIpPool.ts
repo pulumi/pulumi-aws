@@ -64,6 +64,10 @@ export interface GetDedicatedIpPoolResult {
     readonly id: string;
     readonly poolName: string;
     /**
+     * (Optional) IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`.
+     */
+    readonly scalingMode: string;
+    /**
      * A map of tags attached to the pool.
      */
     readonly tags: {[key: string]: string};

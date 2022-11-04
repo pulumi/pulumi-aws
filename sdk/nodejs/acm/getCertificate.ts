@@ -76,7 +76,7 @@ export interface GetCertificateArgs {
      */
     tags?: {[key: string]: string};
     /**
-     * List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED` and `IMPORTED`.
+     * List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED`, `PRIVATE`, and `IMPORTED`.
      */
     types?: string[];
 }
@@ -147,7 +147,7 @@ export interface GetCertificateOutputArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED` and `IMPORTED`.
+     * List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED`, `PRIVATE`, and `IMPORTED`.
      */
     types?: pulumi.Input<pulumi.Input<string>[]>;
 }

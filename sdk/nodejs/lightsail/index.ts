@@ -21,6 +21,14 @@ export { DatabaseArgs, DatabaseState } from "./database";
 export type Database = import("./database").Database;
 export const Database: typeof import("./database").Database = null as any;
 
+export { DiskArgs, DiskState } from "./disk";
+export type Disk = import("./disk").Disk;
+export const Disk: typeof import("./disk").Disk = null as any;
+
+export { Disk_attachmentArgs, Disk_attachmentState } from "./disk_attachment";
+export type Disk_attachment = import("./disk_attachment").Disk_attachment;
+export const Disk_attachment: typeof import("./disk_attachment").Disk_attachment = null as any;
+
 export { DomainArgs, DomainState } from "./domain";
 export type Domain = import("./domain").Domain;
 export const Domain: typeof import("./domain").Domain = null as any;
@@ -49,6 +57,18 @@ export { LbAttachmentArgs, LbAttachmentState } from "./lbAttachment";
 export type LbAttachment = import("./lbAttachment").LbAttachment;
 export const LbAttachment: typeof import("./lbAttachment").LbAttachment = null as any;
 
+export { LbCertificateArgs, LbCertificateState } from "./lbCertificate";
+export type LbCertificate = import("./lbCertificate").LbCertificate;
+export const LbCertificate: typeof import("./lbCertificate").LbCertificate = null as any;
+
+export { LbCertificateAttachmentArgs, LbCertificateAttachmentState } from "./lbCertificateAttachment";
+export type LbCertificateAttachment = import("./lbCertificateAttachment").LbCertificateAttachment;
+export const LbCertificateAttachment: typeof import("./lbCertificateAttachment").LbCertificateAttachment = null as any;
+
+export { LbStickinessPolicyArgs, LbStickinessPolicyState } from "./lbStickinessPolicy";
+export type LbStickinessPolicy = import("./lbStickinessPolicy").LbStickinessPolicy;
+export const LbStickinessPolicy: typeof import("./lbStickinessPolicy").LbStickinessPolicy = null as any;
+
 export { StaticIpArgs, StaticIpState } from "./staticIp";
 export type StaticIp = import("./staticIp").StaticIp;
 export const StaticIp: typeof import("./staticIp").StaticIp = null as any;
@@ -61,6 +81,8 @@ utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
 utilities.lazyLoad(exports, ["ContainerService"], () => require("./containerService"));
 utilities.lazyLoad(exports, ["ContainerServiceDeploymentVersion"], () => require("./containerServiceDeploymentVersion"));
 utilities.lazyLoad(exports, ["Database"], () => require("./database"));
+utilities.lazyLoad(exports, ["Disk"], () => require("./disk"));
+utilities.lazyLoad(exports, ["Disk_attachment"], () => require("./disk_attachment"));
 utilities.lazyLoad(exports, ["Domain"], () => require("./domain"));
 utilities.lazyLoad(exports, ["DomainEntry"], () => require("./domainEntry"));
 utilities.lazyLoad(exports, ["Instance"], () => require("./instance"));
@@ -68,6 +90,9 @@ utilities.lazyLoad(exports, ["InstancePublicPorts"], () => require("./instancePu
 utilities.lazyLoad(exports, ["KeyPair"], () => require("./keyPair"));
 utilities.lazyLoad(exports, ["Lb"], () => require("./lb"));
 utilities.lazyLoad(exports, ["LbAttachment"], () => require("./lbAttachment"));
+utilities.lazyLoad(exports, ["LbCertificate"], () => require("./lbCertificate"));
+utilities.lazyLoad(exports, ["LbCertificateAttachment"], () => require("./lbCertificateAttachment"));
+utilities.lazyLoad(exports, ["LbStickinessPolicy"], () => require("./lbStickinessPolicy"));
 utilities.lazyLoad(exports, ["StaticIp"], () => require("./staticIp"));
 utilities.lazyLoad(exports, ["StaticIpAttachment"], () => require("./staticIpAttachment"));
 
@@ -83,6 +108,10 @@ const _module = {
                 return new ContainerServiceDeploymentVersion(name, <any>undefined, { urn })
             case "aws:lightsail/database:Database":
                 return new Database(name, <any>undefined, { urn })
+            case "aws:lightsail/disk:Disk":
+                return new Disk(name, <any>undefined, { urn })
+            case "aws:lightsail/disk_attachment:Disk_attachment":
+                return new Disk_attachment(name, <any>undefined, { urn })
             case "aws:lightsail/domain:Domain":
                 return new Domain(name, <any>undefined, { urn })
             case "aws:lightsail/domainEntry:DomainEntry":
@@ -97,6 +126,12 @@ const _module = {
                 return new Lb(name, <any>undefined, { urn })
             case "aws:lightsail/lbAttachment:LbAttachment":
                 return new LbAttachment(name, <any>undefined, { urn })
+            case "aws:lightsail/lbCertificate:LbCertificate":
+                return new LbCertificate(name, <any>undefined, { urn })
+            case "aws:lightsail/lbCertificateAttachment:LbCertificateAttachment":
+                return new LbCertificateAttachment(name, <any>undefined, { urn })
+            case "aws:lightsail/lbStickinessPolicy:LbStickinessPolicy":
+                return new LbStickinessPolicy(name, <any>undefined, { urn })
             case "aws:lightsail/staticIp:StaticIp":
                 return new StaticIp(name, <any>undefined, { urn })
             case "aws:lightsail/staticIpAttachment:StaticIpAttachment":
@@ -110,6 +145,8 @@ pulumi.runtime.registerResourceModule("aws", "lightsail/certificate", _module)
 pulumi.runtime.registerResourceModule("aws", "lightsail/containerService", _module)
 pulumi.runtime.registerResourceModule("aws", "lightsail/containerServiceDeploymentVersion", _module)
 pulumi.runtime.registerResourceModule("aws", "lightsail/database", _module)
+pulumi.runtime.registerResourceModule("aws", "lightsail/disk", _module)
+pulumi.runtime.registerResourceModule("aws", "lightsail/disk_attachment", _module)
 pulumi.runtime.registerResourceModule("aws", "lightsail/domain", _module)
 pulumi.runtime.registerResourceModule("aws", "lightsail/domainEntry", _module)
 pulumi.runtime.registerResourceModule("aws", "lightsail/instance", _module)
@@ -117,5 +154,8 @@ pulumi.runtime.registerResourceModule("aws", "lightsail/instancePublicPorts", _m
 pulumi.runtime.registerResourceModule("aws", "lightsail/keyPair", _module)
 pulumi.runtime.registerResourceModule("aws", "lightsail/lb", _module)
 pulumi.runtime.registerResourceModule("aws", "lightsail/lbAttachment", _module)
+pulumi.runtime.registerResourceModule("aws", "lightsail/lbCertificate", _module)
+pulumi.runtime.registerResourceModule("aws", "lightsail/lbCertificateAttachment", _module)
+pulumi.runtime.registerResourceModule("aws", "lightsail/lbStickinessPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "lightsail/staticIp", _module)
 pulumi.runtime.registerResourceModule("aws", "lightsail/staticIpAttachment", _module)

@@ -125,6 +125,10 @@ export class UserPool extends pulumi.CustomResource {
      */
     public /*out*/ readonly customDomain!: pulumi.Output<string>;
     /**
+     * When active, DeletionProtection prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature. Valid values are `ACTIVE` and `INACTIVE`, Default value is `INACTIVE`.
+     */
+    public readonly deletionProtection!: pulumi.Output<string | undefined>;
+    /**
      * Configuration block for the user pool's device tracking. Detailed below.
      */
     public readonly deviceConfiguration!: pulumi.Output<outputs.cognito.UserPoolDeviceConfiguration | undefined>;
@@ -241,6 +245,7 @@ export class UserPool extends pulumi.CustomResource {
             resourceInputs["autoVerifiedAttributes"] = state ? state.autoVerifiedAttributes : undefined;
             resourceInputs["creationDate"] = state ? state.creationDate : undefined;
             resourceInputs["customDomain"] = state ? state.customDomain : undefined;
+            resourceInputs["deletionProtection"] = state ? state.deletionProtection : undefined;
             resourceInputs["deviceConfiguration"] = state ? state.deviceConfiguration : undefined;
             resourceInputs["domain"] = state ? state.domain : undefined;
             resourceInputs["emailConfiguration"] = state ? state.emailConfiguration : undefined;
@@ -271,6 +276,7 @@ export class UserPool extends pulumi.CustomResource {
             resourceInputs["adminCreateUserConfig"] = args ? args.adminCreateUserConfig : undefined;
             resourceInputs["aliasAttributes"] = args ? args.aliasAttributes : undefined;
             resourceInputs["autoVerifiedAttributes"] = args ? args.autoVerifiedAttributes : undefined;
+            resourceInputs["deletionProtection"] = args ? args.deletionProtection : undefined;
             resourceInputs["deviceConfiguration"] = args ? args.deviceConfiguration : undefined;
             resourceInputs["emailConfiguration"] = args ? args.emailConfiguration : undefined;
             resourceInputs["emailVerificationMessage"] = args ? args.emailVerificationMessage : undefined;
@@ -336,6 +342,10 @@ export interface UserPoolState {
      * A custom domain name that you provide to Amazon Cognito. This parameter applies only if you use a custom domain to host the sign-up and sign-in pages for your application. For example: `auth.example.com`.
      */
     customDomain?: pulumi.Input<string>;
+    /**
+     * When active, DeletionProtection prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature. Valid values are `ACTIVE` and `INACTIVE`, Default value is `INACTIVE`.
+     */
+    deletionProtection?: pulumi.Input<string>;
     /**
      * Configuration block for the user pool's device tracking. Detailed below.
      */
@@ -454,6 +464,10 @@ export interface UserPoolArgs {
      * Attributes to be auto-verified. Valid values: `email`, `phoneNumber`.
      */
     autoVerifiedAttributes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * When active, DeletionProtection prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature. Valid values are `ACTIVE` and `INACTIVE`, Default value is `INACTIVE`.
+     */
+    deletionProtection?: pulumi.Input<string>;
     /**
      * Configuration block for the user pool's device tracking. Detailed below.
      */

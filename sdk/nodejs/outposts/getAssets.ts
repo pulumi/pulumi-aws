@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * Information about hardware assets in an Outpost.
  *
  * ## Example Usage
+ * ### Basic
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -15,6 +16,28 @@ import * as utilities from "../utilities";
  *
  * const example = aws.outposts.getAssets({
  *     arn: data.aws_outposts_outpost.example.arn,
+ * });
+ * ```
+ * ### With Host ID Filter
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.outposts.getAssets({
+ *     arn: data.aws_outposts_outpost.example.arn,
+ *     hostIdFilters: ["h-x38g5n0yd2a0ueb61"],
+ * });
+ * ```
+ * ### With Status ID Filter
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.outposts.getAssets({
+ *     arn: data.aws_outposts_outpost.example.arn,
+ *     statusIdFilters: ["ACTIVE"],
  * });
  * ```
  */
@@ -26,6 +49,8 @@ export function getAssets(args: GetAssetsArgs, opts?: pulumi.InvokeOptions): Pro
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:outposts/getAssets:getAssets", {
         "arn": args.arn,
+        "hostIdFilters": args.hostIdFilters,
+        "statusIdFilters": args.statusIdFilters,
     }, opts);
 }
 
@@ -37,6 +62,14 @@ export interface GetAssetsArgs {
      * Outpost ARN.
      */
     arn: string;
+    /**
+     * Filters by list of Host IDs of a Dedicated Host.
+     */
+    hostIdFilters?: string[];
+    /**
+     * Filters by list of state status. Valid values: "ACTIVE", "RETIRING".
+     */
+    statusIdFilters?: string[];
 }
 
 /**
@@ -45,13 +78,15 @@ export interface GetAssetsArgs {
 export interface GetAssetsResult {
     readonly arn: string;
     /**
-     * List of all the subnet ids found. This data source will fail if none are found.
+     * List of all the asset ids found. This data source will fail if none are found.
      */
     readonly assetIds: string[];
+    readonly hostIdFilters?: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly statusIdFilters?: string[];
 }
 
 export function getAssetsOutput(args: GetAssetsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssetsResult> {
@@ -66,4 +101,12 @@ export interface GetAssetsOutputArgs {
      * Outpost ARN.
      */
     arn: pulumi.Input<string>;
+    /**
+     * Filters by list of Host IDs of a Dedicated Host.
+     */
+    hostIdFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Filters by list of state status. Valid values: "ACTIVE", "RETIRING".
+     */
+    statusIdFilters?: pulumi.Input<pulumi.Input<string>[]>;
 }

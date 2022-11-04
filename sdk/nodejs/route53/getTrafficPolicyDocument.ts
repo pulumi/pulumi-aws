@@ -50,6 +50,81 @@ import * as utilities from "../utilities";
  *     document: exampleTrafficPolicyDocument.then(exampleTrafficPolicyDocument => exampleTrafficPolicyDocument.json),
  * });
  * ```
+ * ### Complex Example
+ *
+ * The following example showcases the use of nested rules within the traffic policy document and introduces the `geoproximity` rule type.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleTrafficPolicyDocument = aws.route53.getTrafficPolicyDocument({
+ *     recordType: "A",
+ *     startRule: "geoproximity_rule",
+ *     endpoints: [
+ *         {
+ *             id: "na_endpoint_a",
+ *             type: "elastic-load-balancer",
+ *             value: "elb-111111.us-west-1.elb.amazonaws.com",
+ *         },
+ *         {
+ *             id: "na_endpoint_b",
+ *             type: "elastic-load-balancer",
+ *             value: "elb-222222.us-west-1.elb.amazonaws.com",
+ *         },
+ *         {
+ *             id: "eu_endpoint",
+ *             type: "elastic-load-balancer",
+ *             value: "elb-333333.eu-west-1.elb.amazonaws.com",
+ *         },
+ *         {
+ *             id: "ap_endpoint",
+ *             type: "elastic-load-balancer",
+ *             value: "elb-444444.ap-northeast-2.elb.amazonaws.com",
+ *         },
+ *     ],
+ *     rules: [
+ *         {
+ *             id: "na_rule",
+ *             type: "failover",
+ *             primary: {
+ *                 endpointReference: "na_endpoint_a",
+ *             },
+ *             secondary: {
+ *                 endpointReference: "na_endpoint_b",
+ *             },
+ *         },
+ *         {
+ *             id: "geoproximity_rule",
+ *             type: "geoproximity",
+ *             geoProximityLocations: [
+ *                 {
+ *                     region: "aws:route53:us-west-1",
+ *                     bias: "10",
+ *                     evaluateTargetHealth: true,
+ *                     ruleReference: "na_rule",
+ *                 },
+ *                 {
+ *                     region: "aws:route53:eu-west-1",
+ *                     bias: "10",
+ *                     evaluateTargetHealth: true,
+ *                     endpointReference: "eu_endpoint",
+ *                 },
+ *                 {
+ *                     region: "aws:route53:ap-northeast-2",
+ *                     bias: "0",
+ *                     evaluateTargetHealth: true,
+ *                     endpointReference: "ap_endpoint",
+ *                 },
+ *             ],
+ *         },
+ *     ],
+ * });
+ * const exampleTrafficPolicy = new aws.route53.TrafficPolicy("exampleTrafficPolicy", {
+ *     comment: "example comment",
+ *     document: exampleTrafficPolicyDocument.then(exampleTrafficPolicyDocument => exampleTrafficPolicyDocument.json),
+ * });
+ * ```
  */
 export function getTrafficPolicyDocument(args?: GetTrafficPolicyDocumentArgs, opts?: pulumi.InvokeOptions): Promise<GetTrafficPolicyDocumentResult> {
     args = args || {};

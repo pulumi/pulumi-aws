@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a VPC/Subnet/ENI/Transit Gateway/Transit Gateway Attachment Flow Log to capture IP traffic for a specific network
- * interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group or a S3 Bucket.
+ * interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group, a S3 Bucket, or Amazon Kinesis Data Firehose
  *
  * ## Example Usage
  * ### CloudWatch Logging
@@ -51,6 +51,54 @@ import * as utilities from "../utilities";
  *         "logs:PutLogEvents",
  *         "logs:DescribeLogGroups",
  *         "logs:DescribeLogStreams"
+ *       ],
+ *       "Effect": "Allow",
+ *       "Resource": "*"
+ *     }
+ *   ]
+ * }
+ * `,
+ * });
+ * ```
+ * ### Amazon Kinesis Data Firehose logging
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {});
+ * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Sid": "",
+ *       "Effect": "Allow",
+ *       "Principal": {
+ *         "Service": "delivery.logs.amazonaws.com"
+ *       },
+ *       "Action": "sts:AssumeRole"
+ *     }
+ *   ]
+ * }
+ * `});
+ * const exampleFlowLog = new aws.ec2.FlowLog("exampleFlowLog", {
+ *     iamRoleArn: exampleRole.arn,
+ *     logDestination: exampleLogGroup.arn,
+ *     trafficType: "ALL",
+ *     vpcId: aws_vpc.example.id,
+ * });
+ * const exampleRolePolicy = new aws.iam.RolePolicy("exampleRolePolicy", {
+ *     role: exampleRole.id,
+ *     policy: `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Action": [
+ *         "logs:CreateLogDelivery",
+ *         "logs:DeleteLogDelivery",
+ *         "logs:ListLogDeliveries",
+ *         "logs:GetLogDelivery",
+ *         "firehose:TagDeliveryStream"
  *       ],
  *       "Effect": "Allow",
  *       "Resource": "*"
@@ -150,7 +198,7 @@ export class FlowLog extends pulumi.CustomResource {
      */
     public readonly logDestination!: pulumi.Output<string>;
     /**
-     * The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`. Default: `cloud-watch-logs`.
+     * The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
      */
     public readonly logDestinationType!: pulumi.Output<string | undefined>;
     /**
@@ -277,7 +325,7 @@ export interface FlowLogState {
      */
     logDestination?: pulumi.Input<string>;
     /**
-     * The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`. Default: `cloud-watch-logs`.
+     * The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
      */
     logDestinationType?: pulumi.Input<string>;
     /**
@@ -348,7 +396,7 @@ export interface FlowLogArgs {
      */
     logDestination?: pulumi.Input<string>;
     /**
-     * The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`. Default: `cloud-watch-logs`.
+     * The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
      */
     logDestinationType?: pulumi.Input<string>;
     /**

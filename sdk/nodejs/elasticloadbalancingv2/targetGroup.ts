@@ -180,6 +180,10 @@ export class TargetGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
+     * Target failover block. Only applicable for Gateway Load Balancer target groups. See targetFailover for more information.
+     */
+    public readonly targetFailovers!: pulumi.Output<outputs.elasticloadbalancingv2.TargetGroupTargetFailover[]>;
+    /**
      * Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
      */
     public readonly targetType!: pulumi.Output<string | undefined>;
@@ -223,6 +227,7 @@ export class TargetGroup extends pulumi.CustomResource {
             resourceInputs["stickiness"] = state ? state.stickiness : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["targetFailovers"] = state ? state.targetFailovers : undefined;
             resourceInputs["targetType"] = state ? state.targetType : undefined;
             resourceInputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
@@ -243,6 +248,7 @@ export class TargetGroup extends pulumi.CustomResource {
             resourceInputs["slowStart"] = args ? args.slowStart : undefined;
             resourceInputs["stickiness"] = args ? args.stickiness : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetFailovers"] = args ? args.targetFailovers : undefined;
             resourceInputs["targetType"] = args ? args.targetType : undefined;
             resourceInputs["vpcId"] = args ? args.vpcId : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -335,6 +341,10 @@ export interface TargetGroupState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * Target failover block. Only applicable for Gateway Load Balancer target groups. See targetFailover for more information.
+     */
+    targetFailovers?: pulumi.Input<pulumi.Input<inputs.elasticloadbalancingv2.TargetGroupTargetFailover>[]>;
+    /**
      * Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
      */
     targetType?: pulumi.Input<string>;
@@ -412,6 +422,10 @@ export interface TargetGroupArgs {
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Target failover block. Only applicable for Gateway Load Balancer target groups. See targetFailover for more information.
+     */
+    targetFailovers?: pulumi.Input<pulumi.Input<inputs.elasticloadbalancingv2.TargetGroupTargetFailover>[]>;
     /**
      * Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
      */

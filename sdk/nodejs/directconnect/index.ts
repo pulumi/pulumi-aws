@@ -48,6 +48,10 @@ export const getLocationOutput: typeof import("./getLocation").getLocationOutput
 export { GetLocationsResult } from "./getLocations";
 export const getLocations: typeof import("./getLocations").getLocations = null as any;
 
+export { GetRouterConfigurationArgs, GetRouterConfigurationResult, GetRouterConfigurationOutputArgs } from "./getRouterConfiguration";
+export const getRouterConfiguration: typeof import("./getRouterConfiguration").getRouterConfiguration = null as any;
+export const getRouterConfigurationOutput: typeof import("./getRouterConfiguration").getRouterConfigurationOutput = null as any;
+
 export { HostedConnectionArgs, HostedConnectionState } from "./hostedConnection";
 export type HostedConnection = import("./hostedConnection").HostedConnection;
 export const HostedConnection: typeof import("./hostedConnection").HostedConnection = null as any;
@@ -103,6 +107,7 @@ utilities.lazyLoad(exports, ["getConnection","getConnectionOutput"], () => requi
 utilities.lazyLoad(exports, ["getGateway","getGatewayOutput"], () => require("./getGateway"));
 utilities.lazyLoad(exports, ["getLocation","getLocationOutput"], () => require("./getLocation"));
 utilities.lazyLoad(exports, ["getLocations"], () => require("./getLocations"));
+utilities.lazyLoad(exports, ["getRouterConfiguration","getRouterConfigurationOutput"], () => require("./getRouterConfiguration"));
 utilities.lazyLoad(exports, ["HostedConnection"], () => require("./hostedConnection"));
 utilities.lazyLoad(exports, ["HostedPrivateVirtualInterface"], () => require("./hostedPrivateVirtualInterface"));
 utilities.lazyLoad(exports, ["HostedPrivateVirtualInterfaceAccepter"], () => require("./hostedPrivateVirtualInterfaceAccepter"));

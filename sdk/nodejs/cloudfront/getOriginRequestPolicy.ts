@@ -9,8 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * ## Example Usage
- *
- * The following example below creates a CloudFront origin request policy.
+ * ### Basic Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -18,6 +17,18 @@ import * as utilities from "../utilities";
  *
  * const example = pulumi.output(aws.cloudfront.getOriginRequestPolicy({
  *     name: "example-policy",
+ * }));
+ * ```
+ * ### AWS-Managed Policies
+ *
+ * AWS managed origin request policy names are prefixed with `Managed-`:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const uaReferer = pulumi.output(aws.cloudfront.getOriginRequestPolicy({
+ *     name: "Managed-UserAgentRefererHeaders",
  * }));
  * ```
  */

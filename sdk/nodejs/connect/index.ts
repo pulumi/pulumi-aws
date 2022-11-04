@@ -37,6 +37,10 @@ export { GetInstanceArgs, GetInstanceResult, GetInstanceOutputArgs } from "./get
 export const getInstance: typeof import("./getInstance").getInstance = null as any;
 export const getInstanceOutput: typeof import("./getInstance").getInstanceOutput = null as any;
 
+export { GetInstanceStorageConfigArgs, GetInstanceStorageConfigResult, GetInstanceStorageConfigOutputArgs } from "./getInstanceStorageConfig";
+export const getInstanceStorageConfig: typeof import("./getInstanceStorageConfig").getInstanceStorageConfig = null as any;
+export const getInstanceStorageConfigOutput: typeof import("./getInstanceStorageConfig").getInstanceStorageConfigOutput = null as any;
+
 export { GetLambdaFunctionAssociationArgs, GetLambdaFunctionAssociationResult, GetLambdaFunctionAssociationOutputArgs } from "./getLambdaFunctionAssociation";
 export const getLambdaFunctionAssociation: typeof import("./getLambdaFunctionAssociation").getLambdaFunctionAssociation = null as any;
 export const getLambdaFunctionAssociationOutput: typeof import("./getLambdaFunctionAssociation").getLambdaFunctionAssociationOutput = null as any;
@@ -85,6 +89,10 @@ export { LambdaFunctionAssociationArgs, LambdaFunctionAssociationState } from ".
 export type LambdaFunctionAssociation = import("./lambdaFunctionAssociation").LambdaFunctionAssociation;
 export const LambdaFunctionAssociation: typeof import("./lambdaFunctionAssociation").LambdaFunctionAssociation = null as any;
 
+export { PhoneNumberArgs, PhoneNumberState } from "./phoneNumber";
+export type PhoneNumber = import("./phoneNumber").PhoneNumber;
+export const PhoneNumber: typeof import("./phoneNumber").PhoneNumber = null as any;
+
 export { QueueArgs, QueueState } from "./queue";
 export type Queue = import("./queue").Queue;
 export const Queue: typeof import("./queue").Queue = null as any;
@@ -125,6 +133,7 @@ utilities.lazyLoad(exports, ["getContactFlow","getContactFlowOutput"], () => req
 utilities.lazyLoad(exports, ["getContactFlowModule","getContactFlowModuleOutput"], () => require("./getContactFlowModule"));
 utilities.lazyLoad(exports, ["getHoursOfOperation","getHoursOfOperationOutput"], () => require("./getHoursOfOperation"));
 utilities.lazyLoad(exports, ["getInstance","getInstanceOutput"], () => require("./getInstance"));
+utilities.lazyLoad(exports, ["getInstanceStorageConfig","getInstanceStorageConfigOutput"], () => require("./getInstanceStorageConfig"));
 utilities.lazyLoad(exports, ["getLambdaFunctionAssociation","getLambdaFunctionAssociationOutput"], () => require("./getLambdaFunctionAssociation"));
 utilities.lazyLoad(exports, ["getPrompt","getPromptOutput"], () => require("./getPrompt"));
 utilities.lazyLoad(exports, ["getQueue","getQueueOutput"], () => require("./getQueue"));
@@ -137,6 +146,7 @@ utilities.lazyLoad(exports, ["HoursOfOperation"], () => require("./hoursOfOperat
 utilities.lazyLoad(exports, ["Instance"], () => require("./instance"));
 utilities.lazyLoad(exports, ["InstanceStorageConfig"], () => require("./instanceStorageConfig"));
 utilities.lazyLoad(exports, ["LambdaFunctionAssociation"], () => require("./lambdaFunctionAssociation"));
+utilities.lazyLoad(exports, ["PhoneNumber"], () => require("./phoneNumber"));
 utilities.lazyLoad(exports, ["Queue"], () => require("./queue"));
 utilities.lazyLoad(exports, ["QuickConnect"], () => require("./quickConnect"));
 utilities.lazyLoad(exports, ["RoutingProfile"], () => require("./routingProfile"));
@@ -164,6 +174,8 @@ const _module = {
                 return new InstanceStorageConfig(name, <any>undefined, { urn })
             case "aws:connect/lambdaFunctionAssociation:LambdaFunctionAssociation":
                 return new LambdaFunctionAssociation(name, <any>undefined, { urn })
+            case "aws:connect/phoneNumber:PhoneNumber":
+                return new PhoneNumber(name, <any>undefined, { urn })
             case "aws:connect/queue:Queue":
                 return new Queue(name, <any>undefined, { urn })
             case "aws:connect/quickConnect:QuickConnect":
@@ -192,6 +204,7 @@ pulumi.runtime.registerResourceModule("aws", "connect/hoursOfOperation", _module
 pulumi.runtime.registerResourceModule("aws", "connect/instance", _module)
 pulumi.runtime.registerResourceModule("aws", "connect/instanceStorageConfig", _module)
 pulumi.runtime.registerResourceModule("aws", "connect/lambdaFunctionAssociation", _module)
+pulumi.runtime.registerResourceModule("aws", "connect/phoneNumber", _module)
 pulumi.runtime.registerResourceModule("aws", "connect/queue", _module)
 pulumi.runtime.registerResourceModule("aws", "connect/quickConnect", _module)
 pulumi.runtime.registerResourceModule("aws", "connect/routingProfile", _module)

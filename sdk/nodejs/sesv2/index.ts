@@ -9,16 +9,31 @@ export { ConfigurationSetArgs, ConfigurationSetState } from "./configurationSet"
 export type ConfigurationSet = import("./configurationSet").ConfigurationSet;
 export const ConfigurationSet: typeof import("./configurationSet").ConfigurationSet = null as any;
 
+export { DedicatedIpAssignmentArgs, DedicatedIpAssignmentState } from "./dedicatedIpAssignment";
+export type DedicatedIpAssignment = import("./dedicatedIpAssignment").DedicatedIpAssignment;
+export const DedicatedIpAssignment: typeof import("./dedicatedIpAssignment").DedicatedIpAssignment = null as any;
+
 export { DedicatedIpPoolArgs, DedicatedIpPoolState } from "./dedicatedIpPool";
 export type DedicatedIpPool = import("./dedicatedIpPool").DedicatedIpPool;
 export const DedicatedIpPool: typeof import("./dedicatedIpPool").DedicatedIpPool = null as any;
+
+export { EmailIdentityArgs, EmailIdentityState } from "./emailIdentity";
+export type EmailIdentity = import("./emailIdentity").EmailIdentity;
+export const EmailIdentity: typeof import("./emailIdentity").EmailIdentity = null as any;
+
+export { EmailIdentityFeedbackAttributesArgs, EmailIdentityFeedbackAttributesState } from "./emailIdentityFeedbackAttributes";
+export type EmailIdentityFeedbackAttributes = import("./emailIdentityFeedbackAttributes").EmailIdentityFeedbackAttributes;
+export const EmailIdentityFeedbackAttributes: typeof import("./emailIdentityFeedbackAttributes").EmailIdentityFeedbackAttributes = null as any;
 
 export { GetDedicatedIpPoolArgs, GetDedicatedIpPoolResult, GetDedicatedIpPoolOutputArgs } from "./getDedicatedIpPool";
 export const getDedicatedIpPool: typeof import("./getDedicatedIpPool").getDedicatedIpPool = null as any;
 export const getDedicatedIpPoolOutput: typeof import("./getDedicatedIpPool").getDedicatedIpPoolOutput = null as any;
 
 utilities.lazyLoad(exports, ["ConfigurationSet"], () => require("./configurationSet"));
+utilities.lazyLoad(exports, ["DedicatedIpAssignment"], () => require("./dedicatedIpAssignment"));
 utilities.lazyLoad(exports, ["DedicatedIpPool"], () => require("./dedicatedIpPool"));
+utilities.lazyLoad(exports, ["EmailIdentity"], () => require("./emailIdentity"));
+utilities.lazyLoad(exports, ["EmailIdentityFeedbackAttributes"], () => require("./emailIdentityFeedbackAttributes"));
 utilities.lazyLoad(exports, ["getDedicatedIpPool","getDedicatedIpPoolOutput"], () => require("./getDedicatedIpPool"));
 
 const _module = {
@@ -27,12 +42,21 @@ const _module = {
         switch (type) {
             case "aws:sesv2/configurationSet:ConfigurationSet":
                 return new ConfigurationSet(name, <any>undefined, { urn })
+            case "aws:sesv2/dedicatedIpAssignment:DedicatedIpAssignment":
+                return new DedicatedIpAssignment(name, <any>undefined, { urn })
             case "aws:sesv2/dedicatedIpPool:DedicatedIpPool":
                 return new DedicatedIpPool(name, <any>undefined, { urn })
+            case "aws:sesv2/emailIdentity:EmailIdentity":
+                return new EmailIdentity(name, <any>undefined, { urn })
+            case "aws:sesv2/emailIdentityFeedbackAttributes:EmailIdentityFeedbackAttributes":
+                return new EmailIdentityFeedbackAttributes(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("aws", "sesv2/configurationSet", _module)
+pulumi.runtime.registerResourceModule("aws", "sesv2/dedicatedIpAssignment", _module)
 pulumi.runtime.registerResourceModule("aws", "sesv2/dedicatedIpPool", _module)
+pulumi.runtime.registerResourceModule("aws", "sesv2/emailIdentity", _module)
+pulumi.runtime.registerResourceModule("aws", "sesv2/emailIdentityFeedbackAttributes", _module)
