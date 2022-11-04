@@ -58,6 +58,11 @@ public final class TaskOptions {
      */
     private @Nullable String preserveDevices;
     /**
+     * @return Determines which components of the SMB security descriptor are copied from source to destination objects. This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. Valid values: `NONE`, `OWNER_DACL`, `OWNER_DACL_SACL`.
+     * 
+     */
+    private @Nullable String securityDescriptorCopyFlags;
+    /**
      * @return Determines whether tasks should be queued before executing the tasks. Valid values: `ENABLED`, `DISABLED`. Default `ENABLED`.
      * 
      */
@@ -143,6 +148,13 @@ public final class TaskOptions {
         return Optional.ofNullable(this.preserveDevices);
     }
     /**
+     * @return Determines which components of the SMB security descriptor are copied from source to destination objects. This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. Valid values: `NONE`, `OWNER_DACL`, `OWNER_DACL_SACL`.
+     * 
+     */
+    public Optional<String> securityDescriptorCopyFlags() {
+        return Optional.ofNullable(this.securityDescriptorCopyFlags);
+    }
+    /**
      * @return Determines whether tasks should be queued before executing the tasks. Valid values: `ENABLED`, `DISABLED`. Default `ENABLED`.
      * 
      */
@@ -189,6 +201,7 @@ public final class TaskOptions {
         private @Nullable String posixPermissions;
         private @Nullable String preserveDeletedFiles;
         private @Nullable String preserveDevices;
+        private @Nullable String securityDescriptorCopyFlags;
         private @Nullable String taskQueueing;
         private @Nullable String transferMode;
         private @Nullable String uid;
@@ -205,6 +218,7 @@ public final class TaskOptions {
     	      this.posixPermissions = defaults.posixPermissions;
     	      this.preserveDeletedFiles = defaults.preserveDeletedFiles;
     	      this.preserveDevices = defaults.preserveDevices;
+    	      this.securityDescriptorCopyFlags = defaults.securityDescriptorCopyFlags;
     	      this.taskQueueing = defaults.taskQueueing;
     	      this.transferMode = defaults.transferMode;
     	      this.uid = defaults.uid;
@@ -257,6 +271,11 @@ public final class TaskOptions {
             return this;
         }
         @CustomType.Setter
+        public Builder securityDescriptorCopyFlags(@Nullable String securityDescriptorCopyFlags) {
+            this.securityDescriptorCopyFlags = securityDescriptorCopyFlags;
+            return this;
+        }
+        @CustomType.Setter
         public Builder taskQueueing(@Nullable String taskQueueing) {
             this.taskQueueing = taskQueueing;
             return this;
@@ -287,6 +306,7 @@ public final class TaskOptions {
             o.posixPermissions = posixPermissions;
             o.preserveDeletedFiles = preserveDeletedFiles;
             o.preserveDevices = preserveDevices;
+            o.securityDescriptorCopyFlags = securityDescriptorCopyFlags;
             o.taskQueueing = taskQueueing;
             o.transferMode = transferMode;
             o.uid = uid;

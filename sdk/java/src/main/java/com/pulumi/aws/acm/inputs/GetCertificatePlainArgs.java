@@ -97,14 +97,14 @@ public final class GetCertificatePlainArgs extends com.pulumi.resources.InvokeAr
     }
 
     /**
-     * List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED` and `IMPORTED`.
+     * List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED`, `PRIVATE`, and `IMPORTED`.
      * 
      */
     @Import(name="types")
     private @Nullable List<String> types;
 
     /**
-     * @return List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED` and `IMPORTED`.
+     * @return List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED`, `PRIVATE`, and `IMPORTED`.
      * 
      */
     public Optional<List<String>> types() {
@@ -220,7 +220,7 @@ public final class GetCertificatePlainArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param types List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED` and `IMPORTED`.
+         * @param types List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED`, `PRIVATE`, and `IMPORTED`.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class GetCertificatePlainArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param types List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED` and `IMPORTED`.
+         * @param types List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED`, `PRIVATE`, and `IMPORTED`.
          * 
          * @return builder
          * 

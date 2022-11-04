@@ -4,6 +4,7 @@
 package com.pulumi.aws.batch.inputs;
 
 import com.pulumi.aws.batch.inputs.ComputeEnvironmentComputeResourcesArgs;
+import com.pulumi.aws.batch.inputs.ComputeEnvironmentEksConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -90,6 +91,21 @@ public final class ComputeEnvironmentState extends com.pulumi.resources.Resource
      */
     public Optional<Output<String>> ecsClusterArn() {
         return Optional.ofNullable(this.ecsClusterArn);
+    }
+
+    /**
+     * Details for the Amazon EKS cluster that supports the compute environment. See details below.
+     * 
+     */
+    @Import(name="eksConfiguration")
+    private @Nullable Output<ComputeEnvironmentEksConfigurationArgs> eksConfiguration;
+
+    /**
+     * @return Details for the Amazon EKS cluster that supports the compute environment. See details below.
+     * 
+     */
+    public Optional<Output<ComputeEnvironmentEksConfigurationArgs>> eksConfiguration() {
+        return Optional.ofNullable(this.eksConfiguration);
     }
 
     /**
@@ -205,6 +221,7 @@ public final class ComputeEnvironmentState extends com.pulumi.resources.Resource
         this.computeEnvironmentNamePrefix = $.computeEnvironmentNamePrefix;
         this.computeResources = $.computeResources;
         this.ecsClusterArn = $.ecsClusterArn;
+        this.eksConfiguration = $.eksConfiguration;
         this.serviceRole = $.serviceRole;
         this.state = $.state;
         this.status = $.status;
@@ -335,6 +352,27 @@ public final class ComputeEnvironmentState extends com.pulumi.resources.Resource
          */
         public Builder ecsClusterArn(String ecsClusterArn) {
             return ecsClusterArn(Output.of(ecsClusterArn));
+        }
+
+        /**
+         * @param eksConfiguration Details for the Amazon EKS cluster that supports the compute environment. See details below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder eksConfiguration(@Nullable Output<ComputeEnvironmentEksConfigurationArgs> eksConfiguration) {
+            $.eksConfiguration = eksConfiguration;
+            return this;
+        }
+
+        /**
+         * @param eksConfiguration Details for the Amazon EKS cluster that supports the compute environment. See details below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder eksConfiguration(ComputeEnvironmentEksConfigurationArgs eksConfiguration) {
+            return eksConfiguration(Output.of(eksConfiguration));
         }
 
         /**

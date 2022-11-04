@@ -66,6 +66,7 @@ public final class OutpostsFunctions {
      * Information about hardware assets in an Outpost.
      * 
      * ## Example Usage
+     * ### Basic
      * ```java
      * package generated_program;
      * 
@@ -89,6 +90,66 @@ public final class OutpostsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
      *             .arn(data.aws_outposts_outpost().example().arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### With Host ID Filter
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetAssetsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
+     *             .arn(data.aws_outposts_outpost().example().arn())
+     *             .hostIdFilters(&#34;h-x38g5n0yd2a0ueb61&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### With Status ID Filter
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetAssetsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
+     *             .arn(data.aws_outposts_outpost().example().arn())
+     *             .statusIdFilters(&#34;ACTIVE&#34;)
      *             .build());
      * 
      *     }
@@ -103,6 +164,7 @@ public final class OutpostsFunctions {
      * Information about hardware assets in an Outpost.
      * 
      * ## Example Usage
+     * ### Basic
      * ```java
      * package generated_program;
      * 
@@ -126,6 +188,66 @@ public final class OutpostsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
      *             .arn(data.aws_outposts_outpost().example().arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### With Host ID Filter
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetAssetsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
+     *             .arn(data.aws_outposts_outpost().example().arn())
+     *             .hostIdFilters(&#34;h-x38g5n0yd2a0ueb61&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### With Status ID Filter
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetAssetsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
+     *             .arn(data.aws_outposts_outpost().example().arn())
+     *             .statusIdFilters(&#34;ACTIVE&#34;)
      *             .build());
      * 
      *     }
@@ -140,6 +262,7 @@ public final class OutpostsFunctions {
      * Information about hardware assets in an Outpost.
      * 
      * ## Example Usage
+     * ### Basic
      * ```java
      * package generated_program;
      * 
@@ -168,15 +291,7 @@ public final class OutpostsFunctions {
      *     }
      * }
      * ```
-     * 
-     */
-    public static Output<GetAssetsResult> getAssets(GetAssetsArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:outposts/getAssets:getAssets", TypeShape.of(GetAssetsResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Information about hardware assets in an Outpost.
-     * 
-     * ## Example Usage
+     * ### With Host ID Filter
      * ```java
      * package generated_program;
      * 
@@ -200,6 +315,135 @@ public final class OutpostsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
      *             .arn(data.aws_outposts_outpost().example().arn())
+     *             .hostIdFilters(&#34;h-x38g5n0yd2a0ueb61&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### With Status ID Filter
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetAssetsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
+     *             .arn(data.aws_outposts_outpost().example().arn())
+     *             .statusIdFilters(&#34;ACTIVE&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetAssetsResult> getAssets(GetAssetsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:outposts/getAssets:getAssets", TypeShape.of(GetAssetsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Information about hardware assets in an Outpost.
+     * 
+     * ## Example Usage
+     * ### Basic
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetAssetsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
+     *             .arn(data.aws_outposts_outpost().example().arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### With Host ID Filter
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetAssetsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
+     *             .arn(data.aws_outposts_outpost().example().arn())
+     *             .hostIdFilters(&#34;h-x38g5n0yd2a0ueb61&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### With Status ID Filter
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetAssetsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
+     *             .arn(data.aws_outposts_outpost().example().arn())
+     *             .statusIdFilters(&#34;ACTIVE&#34;)
      *             .build());
      * 
      *     }

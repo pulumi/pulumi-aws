@@ -95,14 +95,14 @@ public final class DefaultNetworkAclState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * List of Subnet IDs to apply the ACL to. See the notes below on managing Subnets in the Default Network ACL
+     * List of Subnet IDs to apply the ACL to. See the notes above on Managing Subnets in the Default Network ACL
      * 
      */
     @Import(name="subnetIds")
     private @Nullable Output<List<String>> subnetIds;
 
     /**
-     * @return List of Subnet IDs to apply the ACL to. See the notes below on managing Subnets in the Default Network ACL
+     * @return List of Subnet IDs to apply the ACL to. See the notes above on Managing Subnets in the Default Network ACL
      * 
      */
     public Optional<Output<List<String>>> subnetIds() {
@@ -312,7 +312,7 @@ public final class DefaultNetworkAclState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param subnetIds List of Subnet IDs to apply the ACL to. See the notes below on managing Subnets in the Default Network ACL
+         * @param subnetIds List of Subnet IDs to apply the ACL to. See the notes above on Managing Subnets in the Default Network ACL
          * 
          * @return builder
          * 
@@ -323,7 +323,7 @@ public final class DefaultNetworkAclState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param subnetIds List of Subnet IDs to apply the ACL to. See the notes below on managing Subnets in the Default Network ACL
+         * @param subnetIds List of Subnet IDs to apply the ACL to. See the notes above on Managing Subnets in the Default Network ACL
          * 
          * @return builder
          * 
@@ -333,7 +333,7 @@ public final class DefaultNetworkAclState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param subnetIds List of Subnet IDs to apply the ACL to. See the notes below on managing Subnets in the Default Network ACL
+         * @param subnetIds List of Subnet IDs to apply the ACL to. See the notes above on Managing Subnets in the Default Network ACL
          * 
          * @return builder
          * 

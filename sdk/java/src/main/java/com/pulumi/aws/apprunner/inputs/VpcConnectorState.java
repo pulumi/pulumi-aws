@@ -85,6 +85,13 @@ public final class VpcConnectorState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tags);
     }
 
+    @Import(name="tagsAll")
+    private @Nullable Output<Map<String,String>> tagsAll;
+
+    public Optional<Output<Map<String,String>>> tagsAll() {
+        return Optional.ofNullable(this.tagsAll);
+    }
+
     /**
      * Name for the VPC connector.
      * 
@@ -123,6 +130,7 @@ public final class VpcConnectorState extends com.pulumi.resources.ResourceArgs {
         this.status = $.status;
         this.subnets = $.subnets;
         this.tags = $.tags;
+        this.tagsAll = $.tagsAll;
         this.vpcConnectorName = $.vpcConnectorName;
         this.vpcConnectorRevision = $.vpcConnectorRevision;
     }
@@ -256,6 +264,15 @@ public final class VpcConnectorState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
+            $.tagsAll = tagsAll;
+            return this;
+        }
+
+        public Builder tagsAll(Map<String,String> tagsAll) {
+            return tagsAll(Output.of(tagsAll));
         }
 
         /**

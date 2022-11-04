@@ -567,8 +567,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return this.hostedZoneId;
     }
     /**
-     * Specifies whether or
-     * mappings of AWS Identity and Access Management (IAM) accounts to database
+     * Specifies whether mappings of AWS Identity and Access Management (IAM) accounts to database
      * accounts is enabled.
      * 
      */
@@ -576,8 +575,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ Boolean> iamDatabaseAuthenticationEnabled;
 
     /**
-     * @return Specifies whether or
-     * mappings of AWS Identity and Access Management (IAM) accounts to database
+     * @return Specifies whether mappings of AWS Identity and Access Management (IAM) accounts to database
      * accounts is enabled.
      * 
      */

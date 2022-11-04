@@ -14,6 +14,8 @@ import com.pulumi.aws.connect.inputs.GetHoursOfOperationArgs;
 import com.pulumi.aws.connect.inputs.GetHoursOfOperationPlainArgs;
 import com.pulumi.aws.connect.inputs.GetInstanceArgs;
 import com.pulumi.aws.connect.inputs.GetInstancePlainArgs;
+import com.pulumi.aws.connect.inputs.GetInstanceStorageConfigArgs;
+import com.pulumi.aws.connect.inputs.GetInstanceStorageConfigPlainArgs;
 import com.pulumi.aws.connect.inputs.GetLambdaFunctionAssociationArgs;
 import com.pulumi.aws.connect.inputs.GetLambdaFunctionAssociationPlainArgs;
 import com.pulumi.aws.connect.inputs.GetPromptArgs;
@@ -35,6 +37,7 @@ import com.pulumi.aws.connect.outputs.GetContactFlowModuleResult;
 import com.pulumi.aws.connect.outputs.GetContactFlowResult;
 import com.pulumi.aws.connect.outputs.GetHoursOfOperationResult;
 import com.pulumi.aws.connect.outputs.GetInstanceResult;
+import com.pulumi.aws.connect.outputs.GetInstanceStorageConfigResult;
 import com.pulumi.aws.connect.outputs.GetLambdaFunctionAssociationResult;
 import com.pulumi.aws.connect.outputs.GetPromptResult;
 import com.pulumi.aws.connect.outputs.GetQueueResult;
@@ -1483,6 +1486,162 @@ public final class ConnectFunctions {
      */
     public static CompletableFuture<GetInstanceResult> getInstancePlain(GetInstancePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:connect/getInstance:getInstance", TypeShape.of(GetInstanceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about a specific Amazon Connect Instance Storage Config.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetInstanceStorageConfigArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConnectFunctions.getInstanceStorageConfig(GetInstanceStorageConfigArgs.builder()
+     *             .associationId(&#34;1234567890123456789012345678901234567890123456789012345678901234&#34;)
+     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+     *             .resourceType(&#34;CONTACT_TRACE_RECORDS&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetInstanceStorageConfigResult> getInstanceStorageConfig(GetInstanceStorageConfigArgs args) {
+        return getInstanceStorageConfig(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about a specific Amazon Connect Instance Storage Config.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetInstanceStorageConfigArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConnectFunctions.getInstanceStorageConfig(GetInstanceStorageConfigArgs.builder()
+     *             .associationId(&#34;1234567890123456789012345678901234567890123456789012345678901234&#34;)
+     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+     *             .resourceType(&#34;CONTACT_TRACE_RECORDS&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetInstanceStorageConfigResult> getInstanceStorageConfigPlain(GetInstanceStorageConfigPlainArgs args) {
+        return getInstanceStorageConfigPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about a specific Amazon Connect Instance Storage Config.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetInstanceStorageConfigArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConnectFunctions.getInstanceStorageConfig(GetInstanceStorageConfigArgs.builder()
+     *             .associationId(&#34;1234567890123456789012345678901234567890123456789012345678901234&#34;)
+     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+     *             .resourceType(&#34;CONTACT_TRACE_RECORDS&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetInstanceStorageConfigResult> getInstanceStorageConfig(GetInstanceStorageConfigArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:connect/getInstanceStorageConfig:getInstanceStorageConfig", TypeShape.of(GetInstanceStorageConfigResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about a specific Amazon Connect Instance Storage Config.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetInstanceStorageConfigArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConnectFunctions.getInstanceStorageConfig(GetInstanceStorageConfigArgs.builder()
+     *             .associationId(&#34;1234567890123456789012345678901234567890123456789012345678901234&#34;)
+     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+     *             .resourceType(&#34;CONTACT_TRACE_RECORDS&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetInstanceStorageConfigResult> getInstanceStorageConfigPlain(GetInstanceStorageConfigPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:connect/getInstanceStorageConfig:getInstanceStorageConfig", TypeShape.of(GetInstanceStorageConfigResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Provides details about a specific Connect Lambda Function Association.

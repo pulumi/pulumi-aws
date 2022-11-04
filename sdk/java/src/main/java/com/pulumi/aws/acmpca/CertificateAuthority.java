@@ -63,6 +63,44 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### Short-lived certificate
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.acmpca.CertificateAuthority;
+ * import com.pulumi.aws.acmpca.CertificateAuthorityArgs;
+ * import com.pulumi.aws.acmpca.inputs.CertificateAuthorityCertificateAuthorityConfigurationArgs;
+ * import com.pulumi.aws.acmpca.inputs.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new CertificateAuthority(&#34;example&#34;, CertificateAuthorityArgs.builder()        
+ *             .certificateAuthorityConfiguration(CertificateAuthorityCertificateAuthorityConfigurationArgs.builder()
+ *                 .keyAlgorithm(&#34;RSA_4096&#34;)
+ *                 .signingAlgorithm(&#34;SHA512WITHRSA&#34;)
+ *                 .subject(CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs.builder()
+ *                     .commonName(&#34;example.com&#34;)
+ *                     .build())
+ *                 .build())
+ *             .usageMode(&#34;SHORT_LIVED_CERTIFICATE&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * ### Enable Certificate Revocation List
  * ```java
  * package generated_program;
@@ -367,6 +405,20 @@ public class CertificateAuthority extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> type() {
         return Codegen.optional(this.type);
+    }
+    /**
+     * Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
+     * 
+     */
+    @Export(name="usageMode", type=String.class, parameters={})
+    private Output<String> usageMode;
+
+    /**
+     * @return Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
+     * 
+     */
+    public Output<String> usageMode() {
+        return this.usageMode;
     }
 
     /**

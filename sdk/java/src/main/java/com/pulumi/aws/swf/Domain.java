@@ -109,14 +109,14 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="namePrefix", type=String.class, parameters={})
-    private Output</* @Nullable */ String> namePrefix;
+    private Output<String> namePrefix;
 
     /**
      * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    public Output<Optional<String>> namePrefix() {
-        return Codegen.optional(this.namePrefix);
+    public Output<String> namePrefix() {
+        return this.namePrefix;
     }
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

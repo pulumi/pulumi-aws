@@ -233,6 +233,20 @@ public class CapacityReservation extends com.pulumi.resources.CustomResource {
         return this.ownerId;
     }
     /**
+     * The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
+     * 
+     */
+    @Export(name="placementGroupArn", type=String.class, parameters={})
+    private Output</* @Nullable */ String> placementGroupArn;
+
+    /**
+     * @return The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
+     * 
+     */
+    public Output<Optional<String>> placementGroupArn() {
+        return Codegen.optional(this.placementGroupArn);
+    }
+    /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */

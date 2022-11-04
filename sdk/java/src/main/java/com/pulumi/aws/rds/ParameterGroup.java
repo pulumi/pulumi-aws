@@ -18,46 +18,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.rds.ParameterGroup;
- * import com.pulumi.aws.rds.ParameterGroupArgs;
- * import com.pulumi.aws.rds.inputs.ParameterGroupParameterArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var default_ = new ParameterGroup(&#34;default&#34;, ParameterGroupArgs.builder()        
- *             .family(&#34;mysql5.6&#34;)
- *             .parameters(            
- *                 ParameterGroupParameterArgs.builder()
- *                     .name(&#34;character_set_server&#34;)
- *                     .value(&#34;utf8&#34;)
- *                     .build(),
- *                 ParameterGroupParameterArgs.builder()
- *                     .name(&#34;character_set_client&#34;)
- *                     .value(&#34;utf8&#34;)
- *                     .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * DB Parameter groups can be imported using the `name`, e.g.,

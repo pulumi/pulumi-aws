@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
 
 /**
  * Provides a VPC/Subnet/ENI/Transit Gateway/Transit Gateway Attachment Flow Log to capture IP traffic for a specific network
- * interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group or a S3 Bucket.
+ * interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group, a S3 Bucket, or Amazon Kinesis Data Firehose
  * 
  * ## Example Usage
  * ### CloudWatch Logging
@@ -89,6 +89,85 @@ import javax.annotation.Nullable;
  *         &#34;logs:PutLogEvents&#34;,
  *         &#34;logs:DescribeLogGroups&#34;,
  *         &#34;logs:DescribeLogStreams&#34;
+ *       ],
+ *       &#34;Effect&#34;: &#34;Allow&#34;,
+ *       &#34;Resource&#34;: &#34;*&#34;
+ *     }
+ *   ]
+ * }
+ *             &#34;&#34;&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Amazon Kinesis Data Firehose logging
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cloudwatch.LogGroup;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.ec2.FlowLog;
+ * import com.pulumi.aws.ec2.FlowLogArgs;
+ * import com.pulumi.aws.iam.RolePolicy;
+ * import com.pulumi.aws.iam.RolePolicyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleLogGroup = new LogGroup(&#34;exampleLogGroup&#34;);
+ * 
+ *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
+ *             .assumeRolePolicy(&#34;&#34;&#34;
+ * {
+ *   &#34;Version&#34;: &#34;2012-10-17&#34;,
+ *   &#34;Statement&#34;: [
+ *     {
+ *       &#34;Sid&#34;: &#34;&#34;,
+ *       &#34;Effect&#34;: &#34;Allow&#34;,
+ *       &#34;Principal&#34;: {
+ *         &#34;Service&#34;: &#34;delivery.logs.amazonaws.com&#34;
+ *       },
+ *       &#34;Action&#34;: &#34;sts:AssumeRole&#34;
+ *     }
+ *   ]
+ * }
+ *             &#34;&#34;&#34;)
+ *             .build());
+ * 
+ *         var exampleFlowLog = new FlowLog(&#34;exampleFlowLog&#34;, FlowLogArgs.builder()        
+ *             .iamRoleArn(exampleRole.arn())
+ *             .logDestination(exampleLogGroup.arn())
+ *             .trafficType(&#34;ALL&#34;)
+ *             .vpcId(aws_vpc.example().id())
+ *             .build());
+ * 
+ *         var exampleRolePolicy = new RolePolicy(&#34;exampleRolePolicy&#34;, RolePolicyArgs.builder()        
+ *             .role(exampleRole.id())
+ *             .policy(&#34;&#34;&#34;
+ * {
+ *   &#34;Version&#34;: &#34;2012-10-17&#34;,
+ *   &#34;Statement&#34;: [
+ *     {
+ *       &#34;Action&#34;: [
+ *         &#34;logs:CreateLogDelivery&#34;,
+ *         &#34;logs:DeleteLogDelivery&#34;,
+ *         &#34;logs:ListLogDeliveries&#34;,
+ *         &#34;logs:GetLogDelivery&#34;,
+ *         &#34;firehose:TagDeliveryStream&#34;
  *       ],
  *       &#34;Effect&#34;: &#34;Allow&#34;,
  *       &#34;Resource&#34;: &#34;*&#34;
@@ -259,14 +338,14 @@ public class FlowLog extends com.pulumi.resources.CustomResource {
         return this.logDestination;
     }
     /**
-     * The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`. Default: `cloud-watch-logs`.
+     * The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
      * 
      */
     @Export(name="logDestinationType", type=String.class, parameters={})
     private Output</* @Nullable */ String> logDestinationType;
 
     /**
-     * @return The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`. Default: `cloud-watch-logs`.
+     * @return The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
      * 
      */
     public Output<Optional<String>> logDestinationType() {

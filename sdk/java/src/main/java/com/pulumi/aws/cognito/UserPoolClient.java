@@ -299,6 +299,20 @@ public class UserPoolClient extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.analyticsConfiguration);
     }
     /**
+     * Amazon Cognito creates a session token for each API request in an authentication flow. AuthSessionValidity is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires. Valid values between `3` and `15`. Default value is `3`.
+     * 
+     */
+    @Export(name="authSessionValidity", type=Integer.class, parameters={})
+    private Output</* @Nullable */ Integer> authSessionValidity;
+
+    /**
+     * @return Amazon Cognito creates a session token for each API request in an authentication flow. AuthSessionValidity is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires. Valid values between `3` and `15`. Default value is `3`.
+     * 
+     */
+    public Output<Optional<Integer>> authSessionValidity() {
+        return Codegen.optional(this.authSessionValidity);
+    }
+    /**
      * List of allowed callback URLs for the identity providers.
      * 
      */

@@ -6,12 +6,15 @@ package com.pulumi.aws.elasticache;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.elasticache.GlobalReplicationGroupArgs;
 import com.pulumi.aws.elasticache.inputs.GlobalReplicationGroupState;
+import com.pulumi.aws.elasticache.outputs.GlobalReplicationGroupGlobalNodeGroup;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -174,6 +177,22 @@ public class GlobalReplicationGroup extends com.pulumi.resources.CustomResource 
         return this.engineVersionActual;
     }
     /**
+     * Set of node groups (shards) on the global replication group.
+     * Has the values:
+     * 
+     */
+    @Export(name="globalNodeGroups", type=List.class, parameters={GlobalReplicationGroupGlobalNodeGroup.class})
+    private Output<List<GlobalReplicationGroupGlobalNodeGroup>> globalNodeGroups;
+
+    /**
+     * @return Set of node groups (shards) on the global replication group.
+     * Has the values:
+     * 
+     */
+    public Output<List<GlobalReplicationGroupGlobalNodeGroup>> globalNodeGroups() {
+        return this.globalNodeGroups;
+    }
+    /**
      * A user-created description for the global replication group.
      * 
      */
@@ -214,6 +233,20 @@ public class GlobalReplicationGroup extends com.pulumi.resources.CustomResource 
      */
     public Output<String> globalReplicationGroupIdSuffix() {
         return this.globalReplicationGroupIdSuffix;
+    }
+    /**
+     * The number of node groups (shards) on the global replication group.
+     * 
+     */
+    @Export(name="numNodeGroups", type=Integer.class, parameters={})
+    private Output<Integer> numNodeGroups;
+
+    /**
+     * @return The number of node groups (shards) on the global replication group.
+     * 
+     */
+    public Output<Integer> numNodeGroups() {
+        return this.numNodeGroups;
     }
     /**
      * An ElastiCache Parameter Group to use for the Global Replication Group.

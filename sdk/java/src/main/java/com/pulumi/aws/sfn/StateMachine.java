@@ -224,19 +224,25 @@ public class StateMachine extends com.pulumi.resources.CustomResource {
     public Output<StateMachineLoggingConfiguration> loggingConfiguration() {
         return this.loggingConfiguration;
     }
-    /**
-     * The name of the state machine. To enable logging with CloudWatch Logs, the name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`.
-     * 
-     */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
-    /**
-     * @return The name of the state machine. To enable logging with CloudWatch Logs, the name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`.
-     * 
-     */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     * 
+     */
+    @Export(name="namePrefix", type=String.class, parameters={})
+    private Output<String> namePrefix;
+
+    /**
+     * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     * 
+     */
+    public Output<String> namePrefix() {
+        return this.namePrefix;
     }
     /**
      * The Amazon Resource Name (ARN) of the IAM role to use for this state machine.

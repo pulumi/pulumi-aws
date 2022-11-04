@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.sagemaker.DomainArgs;
 import com.pulumi.aws.sagemaker.inputs.DomainState;
 import com.pulumi.aws.sagemaker.outputs.DomainDefaultUserSettings;
+import com.pulumi.aws.sagemaker.outputs.DomainDomainSettings;
 import com.pulumi.aws.sagemaker.outputs.DomainRetentionPolicy;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -174,6 +175,20 @@ public class Domain extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.appNetworkAccessType);
     }
     /**
+     * The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
+     * 
+     */
+    @Export(name="appSecurityGroupManagement", type=String.class, parameters={})
+    private Output</* @Nullable */ String> appSecurityGroupManagement;
+
+    /**
+     * @return The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
+     * 
+     */
+    public Output<Optional<String>> appSecurityGroupManagement() {
+        return Codegen.optional(this.appSecurityGroupManagement);
+    }
+    /**
      * The Amazon Resource Name (ARN) assigned by AWS to this Domain.
      * 
      */
@@ -230,6 +245,20 @@ public class Domain extends com.pulumi.resources.CustomResource {
         return this.domainName;
     }
     /**
+     * The domain settings. See Domain Settings below.
+     * 
+     */
+    @Export(name="domainSettings", type=DomainDomainSettings.class, parameters={})
+    private Output</* @Nullable */ DomainDomainSettings> domainSettings;
+
+    /**
+     * @return The domain settings. See Domain Settings below.
+     * 
+     */
+    public Output<Optional<DomainDomainSettings>> domainSettings() {
+        return Codegen.optional(this.domainSettings);
+    }
+    /**
      * The ID of the Amazon Elastic File System (EFS) managed by this Domain.
      * 
      */
@@ -272,6 +301,20 @@ public class Domain extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.retentionPolicy);
     }
     /**
+     * The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
+     * 
+     */
+    @Export(name="securityGroupIdForDomainBoundary", type=String.class, parameters={})
+    private Output<String> securityGroupIdForDomainBoundary;
+
+    /**
+     * @return The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
+     * 
+     */
+    public Output<String> securityGroupIdForDomainBoundary() {
+        return this.securityGroupIdForDomainBoundary;
+    }
+    /**
      * The SSO managed application instance ID.
      * 
      */
@@ -300,14 +343,14 @@ public class Domain extends com.pulumi.resources.CustomResource {
         return this.subnetIds;
     }
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

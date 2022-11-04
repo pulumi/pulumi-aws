@@ -16,14 +16,14 @@ public final class ServiceNetworkConfigurationEgressConfigurationArgs extends co
     public static final ServiceNetworkConfigurationEgressConfigurationArgs Empty = new ServiceNetworkConfigurationEgressConfigurationArgs();
 
     /**
-     * Type of egress configuration.Set to DEFAULT for access to resources hosted on public networks.Set to VPC to associate your service to a custom VPC specified by VpcConnectorArn.
+     * The type of egress configuration. Valid values are: `DEFAULT` and `VPC`.
      * 
      */
     @Import(name="egressType")
     private @Nullable Output<String> egressType;
 
     /**
-     * @return Type of egress configuration.Set to DEFAULT for access to resources hosted on public networks.Set to VPC to associate your service to a custom VPC specified by VpcConnectorArn.
+     * @return The type of egress configuration. Valid values are: `DEFAULT` and `VPC`.
      * 
      */
     public Optional<Output<String>> egressType() {
@@ -31,14 +31,14 @@ public final class ServiceNetworkConfigurationEgressConfigurationArgs extends co
     }
 
     /**
-     * ARN of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when EgressType = VPC.
+     * The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
      * 
      */
     @Import(name="vpcConnectorArn")
     private @Nullable Output<String> vpcConnectorArn;
 
     /**
-     * @return ARN of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when EgressType = VPC.
+     * @return The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
      * 
      */
     public Optional<Output<String>> vpcConnectorArn() {
@@ -71,7 +71,7 @@ public final class ServiceNetworkConfigurationEgressConfigurationArgs extends co
         }
 
         /**
-         * @param egressType Type of egress configuration.Set to DEFAULT for access to resources hosted on public networks.Set to VPC to associate your service to a custom VPC specified by VpcConnectorArn.
+         * @param egressType The type of egress configuration. Valid values are: `DEFAULT` and `VPC`.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class ServiceNetworkConfigurationEgressConfigurationArgs extends co
         }
 
         /**
-         * @param egressType Type of egress configuration.Set to DEFAULT for access to resources hosted on public networks.Set to VPC to associate your service to a custom VPC specified by VpcConnectorArn.
+         * @param egressType The type of egress configuration. Valid values are: `DEFAULT` and `VPC`.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class ServiceNetworkConfigurationEgressConfigurationArgs extends co
         }
 
         /**
-         * @param vpcConnectorArn ARN of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when EgressType = VPC.
+         * @param vpcConnectorArn The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class ServiceNetworkConfigurationEgressConfigurationArgs extends co
         }
 
         /**
-         * @param vpcConnectorArn ARN of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when EgressType = VPC.
+         * @param vpcConnectorArn The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
          * 
          * @return builder
          * 

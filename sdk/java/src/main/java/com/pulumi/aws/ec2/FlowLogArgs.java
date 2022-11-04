@@ -79,14 +79,14 @@ public final class FlowLogArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`. Default: `cloud-watch-logs`.
+     * The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
      * 
      */
     @Import(name="logDestinationType")
     private @Nullable Output<String> logDestinationType;
 
     /**
-     * @return The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`. Default: `cloud-watch-logs`.
+     * @return The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
      * 
      */
     public Optional<Output<String>> logDestinationType() {
@@ -364,7 +364,7 @@ public final class FlowLogArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logDestinationType The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`. Default: `cloud-watch-logs`.
+         * @param logDestinationType The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
          * 
          * @return builder
          * 
@@ -375,7 +375,7 @@ public final class FlowLogArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logDestinationType The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`. Default: `cloud-watch-logs`.
+         * @param logDestinationType The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
          * 
          * @return builder
          * 

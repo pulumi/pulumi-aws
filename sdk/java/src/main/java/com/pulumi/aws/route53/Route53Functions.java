@@ -1526,6 +1526,100 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * ### Complex Example
+     * 
+     * The following example showcases the use of nested rules within the traffic policy document and introduces the `geoproximity` rule type.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentArgs;
+     * import com.pulumi.aws.route53.TrafficPolicy;
+     * import com.pulumi.aws.route53.TrafficPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleTrafficPolicyDocument = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
+     *             .recordType(&#34;A&#34;)
+     *             .startRule(&#34;geoproximity_rule&#34;)
+     *             .endpoints(            
+     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
+     *                     .id(&#34;na_endpoint_a&#34;)
+     *                     .type(&#34;elastic-load-balancer&#34;)
+     *                     .value(&#34;elb-111111.us-west-1.elb.amazonaws.com&#34;)
+     *                     .build(),
+     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
+     *                     .id(&#34;na_endpoint_b&#34;)
+     *                     .type(&#34;elastic-load-balancer&#34;)
+     *                     .value(&#34;elb-222222.us-west-1.elb.amazonaws.com&#34;)
+     *                     .build(),
+     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
+     *                     .id(&#34;eu_endpoint&#34;)
+     *                     .type(&#34;elastic-load-balancer&#34;)
+     *                     .value(&#34;elb-333333.eu-west-1.elb.amazonaws.com&#34;)
+     *                     .build(),
+     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
+     *                     .id(&#34;ap_endpoint&#34;)
+     *                     .type(&#34;elastic-load-balancer&#34;)
+     *                     .value(&#34;elb-444444.ap-northeast-2.elb.amazonaws.com&#34;)
+     *                     .build())
+     *             .rules(            
+     *                 GetTrafficPolicyDocumentRuleArgs.builder()
+     *                     .id(&#34;na_rule&#34;)
+     *                     .type(&#34;failover&#34;)
+     *                     .primary(GetTrafficPolicyDocumentRulePrimaryArgs.builder()
+     *                         .endpointReference(&#34;na_endpoint_a&#34;)
+     *                         .build())
+     *                     .secondary(GetTrafficPolicyDocumentRuleSecondaryArgs.builder()
+     *                         .endpointReference(&#34;na_endpoint_b&#34;)
+     *                         .build())
+     *                     .build(),
+     *                 GetTrafficPolicyDocumentRuleArgs.builder()
+     *                     .id(&#34;geoproximity_rule&#34;)
+     *                     .type(&#34;geoproximity&#34;)
+     *                     .geoProximityLocations(                    
+     *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
+     *                             .region(&#34;aws:route53:us-west-1&#34;)
+     *                             .bias(10)
+     *                             .evaluateTargetHealth(true)
+     *                             .ruleReference(&#34;na_rule&#34;)
+     *                             .build(),
+     *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
+     *                             .region(&#34;aws:route53:eu-west-1&#34;)
+     *                             .bias(10)
+     *                             .evaluateTargetHealth(true)
+     *                             .endpointReference(&#34;eu_endpoint&#34;)
+     *                             .build(),
+     *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
+     *                             .region(&#34;aws:route53:ap-northeast-2&#34;)
+     *                             .bias(0)
+     *                             .evaluateTargetHealth(true)
+     *                             .endpointReference(&#34;ap_endpoint&#34;)
+     *                             .build())
+     *                     .build())
+     *             .build());
+     * 
+     *         var exampleTrafficPolicy = new TrafficPolicy(&#34;exampleTrafficPolicy&#34;, TrafficPolicyArgs.builder()        
+     *             .comment(&#34;example comment&#34;)
+     *             .document(exampleTrafficPolicyDocument.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static Output<GetTrafficPolicyDocumentResult> getTrafficPolicyDocument() {
@@ -1588,6 +1682,100 @@ public final class Route53Functions {
      *                     .endpointReference(&#34;site_down_banner&#34;)
      *                     .build())
      *                 .build())
+     *             .build());
+     * 
+     *         var exampleTrafficPolicy = new TrafficPolicy(&#34;exampleTrafficPolicy&#34;, TrafficPolicyArgs.builder()        
+     *             .comment(&#34;example comment&#34;)
+     *             .document(exampleTrafficPolicyDocument.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Complex Example
+     * 
+     * The following example showcases the use of nested rules within the traffic policy document and introduces the `geoproximity` rule type.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentArgs;
+     * import com.pulumi.aws.route53.TrafficPolicy;
+     * import com.pulumi.aws.route53.TrafficPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleTrafficPolicyDocument = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
+     *             .recordType(&#34;A&#34;)
+     *             .startRule(&#34;geoproximity_rule&#34;)
+     *             .endpoints(            
+     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
+     *                     .id(&#34;na_endpoint_a&#34;)
+     *                     .type(&#34;elastic-load-balancer&#34;)
+     *                     .value(&#34;elb-111111.us-west-1.elb.amazonaws.com&#34;)
+     *                     .build(),
+     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
+     *                     .id(&#34;na_endpoint_b&#34;)
+     *                     .type(&#34;elastic-load-balancer&#34;)
+     *                     .value(&#34;elb-222222.us-west-1.elb.amazonaws.com&#34;)
+     *                     .build(),
+     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
+     *                     .id(&#34;eu_endpoint&#34;)
+     *                     .type(&#34;elastic-load-balancer&#34;)
+     *                     .value(&#34;elb-333333.eu-west-1.elb.amazonaws.com&#34;)
+     *                     .build(),
+     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
+     *                     .id(&#34;ap_endpoint&#34;)
+     *                     .type(&#34;elastic-load-balancer&#34;)
+     *                     .value(&#34;elb-444444.ap-northeast-2.elb.amazonaws.com&#34;)
+     *                     .build())
+     *             .rules(            
+     *                 GetTrafficPolicyDocumentRuleArgs.builder()
+     *                     .id(&#34;na_rule&#34;)
+     *                     .type(&#34;failover&#34;)
+     *                     .primary(GetTrafficPolicyDocumentRulePrimaryArgs.builder()
+     *                         .endpointReference(&#34;na_endpoint_a&#34;)
+     *                         .build())
+     *                     .secondary(GetTrafficPolicyDocumentRuleSecondaryArgs.builder()
+     *                         .endpointReference(&#34;na_endpoint_b&#34;)
+     *                         .build())
+     *                     .build(),
+     *                 GetTrafficPolicyDocumentRuleArgs.builder()
+     *                     .id(&#34;geoproximity_rule&#34;)
+     *                     .type(&#34;geoproximity&#34;)
+     *                     .geoProximityLocations(                    
+     *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
+     *                             .region(&#34;aws:route53:us-west-1&#34;)
+     *                             .bias(10)
+     *                             .evaluateTargetHealth(true)
+     *                             .ruleReference(&#34;na_rule&#34;)
+     *                             .build(),
+     *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
+     *                             .region(&#34;aws:route53:eu-west-1&#34;)
+     *                             .bias(10)
+     *                             .evaluateTargetHealth(true)
+     *                             .endpointReference(&#34;eu_endpoint&#34;)
+     *                             .build(),
+     *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
+     *                             .region(&#34;aws:route53:ap-northeast-2&#34;)
+     *                             .bias(0)
+     *                             .evaluateTargetHealth(true)
+     *                             .endpointReference(&#34;ap_endpoint&#34;)
+     *                             .build())
+     *                     .build())
      *             .build());
      * 
      *         var exampleTrafficPolicy = new TrafficPolicy(&#34;exampleTrafficPolicy&#34;, TrafficPolicyArgs.builder()        
@@ -1670,6 +1858,100 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * ### Complex Example
+     * 
+     * The following example showcases the use of nested rules within the traffic policy document and introduces the `geoproximity` rule type.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentArgs;
+     * import com.pulumi.aws.route53.TrafficPolicy;
+     * import com.pulumi.aws.route53.TrafficPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleTrafficPolicyDocument = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
+     *             .recordType(&#34;A&#34;)
+     *             .startRule(&#34;geoproximity_rule&#34;)
+     *             .endpoints(            
+     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
+     *                     .id(&#34;na_endpoint_a&#34;)
+     *                     .type(&#34;elastic-load-balancer&#34;)
+     *                     .value(&#34;elb-111111.us-west-1.elb.amazonaws.com&#34;)
+     *                     .build(),
+     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
+     *                     .id(&#34;na_endpoint_b&#34;)
+     *                     .type(&#34;elastic-load-balancer&#34;)
+     *                     .value(&#34;elb-222222.us-west-1.elb.amazonaws.com&#34;)
+     *                     .build(),
+     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
+     *                     .id(&#34;eu_endpoint&#34;)
+     *                     .type(&#34;elastic-load-balancer&#34;)
+     *                     .value(&#34;elb-333333.eu-west-1.elb.amazonaws.com&#34;)
+     *                     .build(),
+     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
+     *                     .id(&#34;ap_endpoint&#34;)
+     *                     .type(&#34;elastic-load-balancer&#34;)
+     *                     .value(&#34;elb-444444.ap-northeast-2.elb.amazonaws.com&#34;)
+     *                     .build())
+     *             .rules(            
+     *                 GetTrafficPolicyDocumentRuleArgs.builder()
+     *                     .id(&#34;na_rule&#34;)
+     *                     .type(&#34;failover&#34;)
+     *                     .primary(GetTrafficPolicyDocumentRulePrimaryArgs.builder()
+     *                         .endpointReference(&#34;na_endpoint_a&#34;)
+     *                         .build())
+     *                     .secondary(GetTrafficPolicyDocumentRuleSecondaryArgs.builder()
+     *                         .endpointReference(&#34;na_endpoint_b&#34;)
+     *                         .build())
+     *                     .build(),
+     *                 GetTrafficPolicyDocumentRuleArgs.builder()
+     *                     .id(&#34;geoproximity_rule&#34;)
+     *                     .type(&#34;geoproximity&#34;)
+     *                     .geoProximityLocations(                    
+     *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
+     *                             .region(&#34;aws:route53:us-west-1&#34;)
+     *                             .bias(10)
+     *                             .evaluateTargetHealth(true)
+     *                             .ruleReference(&#34;na_rule&#34;)
+     *                             .build(),
+     *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
+     *                             .region(&#34;aws:route53:eu-west-1&#34;)
+     *                             .bias(10)
+     *                             .evaluateTargetHealth(true)
+     *                             .endpointReference(&#34;eu_endpoint&#34;)
+     *                             .build(),
+     *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
+     *                             .region(&#34;aws:route53:ap-northeast-2&#34;)
+     *                             .bias(0)
+     *                             .evaluateTargetHealth(true)
+     *                             .endpointReference(&#34;ap_endpoint&#34;)
+     *                             .build())
+     *                     .build())
+     *             .build());
+     * 
+     *         var exampleTrafficPolicy = new TrafficPolicy(&#34;exampleTrafficPolicy&#34;, TrafficPolicyArgs.builder()        
+     *             .comment(&#34;example comment&#34;)
+     *             .document(exampleTrafficPolicyDocument.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static Output<GetTrafficPolicyDocumentResult> getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs args) {
@@ -1732,6 +2014,100 @@ public final class Route53Functions {
      *                     .endpointReference(&#34;site_down_banner&#34;)
      *                     .build())
      *                 .build())
+     *             .build());
+     * 
+     *         var exampleTrafficPolicy = new TrafficPolicy(&#34;exampleTrafficPolicy&#34;, TrafficPolicyArgs.builder()        
+     *             .comment(&#34;example comment&#34;)
+     *             .document(exampleTrafficPolicyDocument.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Complex Example
+     * 
+     * The following example showcases the use of nested rules within the traffic policy document and introduces the `geoproximity` rule type.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentArgs;
+     * import com.pulumi.aws.route53.TrafficPolicy;
+     * import com.pulumi.aws.route53.TrafficPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleTrafficPolicyDocument = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
+     *             .recordType(&#34;A&#34;)
+     *             .startRule(&#34;geoproximity_rule&#34;)
+     *             .endpoints(            
+     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
+     *                     .id(&#34;na_endpoint_a&#34;)
+     *                     .type(&#34;elastic-load-balancer&#34;)
+     *                     .value(&#34;elb-111111.us-west-1.elb.amazonaws.com&#34;)
+     *                     .build(),
+     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
+     *                     .id(&#34;na_endpoint_b&#34;)
+     *                     .type(&#34;elastic-load-balancer&#34;)
+     *                     .value(&#34;elb-222222.us-west-1.elb.amazonaws.com&#34;)
+     *                     .build(),
+     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
+     *                     .id(&#34;eu_endpoint&#34;)
+     *                     .type(&#34;elastic-load-balancer&#34;)
+     *                     .value(&#34;elb-333333.eu-west-1.elb.amazonaws.com&#34;)
+     *                     .build(),
+     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
+     *                     .id(&#34;ap_endpoint&#34;)
+     *                     .type(&#34;elastic-load-balancer&#34;)
+     *                     .value(&#34;elb-444444.ap-northeast-2.elb.amazonaws.com&#34;)
+     *                     .build())
+     *             .rules(            
+     *                 GetTrafficPolicyDocumentRuleArgs.builder()
+     *                     .id(&#34;na_rule&#34;)
+     *                     .type(&#34;failover&#34;)
+     *                     .primary(GetTrafficPolicyDocumentRulePrimaryArgs.builder()
+     *                         .endpointReference(&#34;na_endpoint_a&#34;)
+     *                         .build())
+     *                     .secondary(GetTrafficPolicyDocumentRuleSecondaryArgs.builder()
+     *                         .endpointReference(&#34;na_endpoint_b&#34;)
+     *                         .build())
+     *                     .build(),
+     *                 GetTrafficPolicyDocumentRuleArgs.builder()
+     *                     .id(&#34;geoproximity_rule&#34;)
+     *                     .type(&#34;geoproximity&#34;)
+     *                     .geoProximityLocations(                    
+     *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
+     *                             .region(&#34;aws:route53:us-west-1&#34;)
+     *                             .bias(10)
+     *                             .evaluateTargetHealth(true)
+     *                             .ruleReference(&#34;na_rule&#34;)
+     *                             .build(),
+     *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
+     *                             .region(&#34;aws:route53:eu-west-1&#34;)
+     *                             .bias(10)
+     *                             .evaluateTargetHealth(true)
+     *                             .endpointReference(&#34;eu_endpoint&#34;)
+     *                             .build(),
+     *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
+     *                             .region(&#34;aws:route53:ap-northeast-2&#34;)
+     *                             .bias(0)
+     *                             .evaluateTargetHealth(true)
+     *                             .endpointReference(&#34;ap_endpoint&#34;)
+     *                             .build())
+     *                     .build())
      *             .build());
      * 
      *         var exampleTrafficPolicy = new TrafficPolicy(&#34;exampleTrafficPolicy&#34;, TrafficPolicyArgs.builder()        
@@ -1814,6 +2190,100 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * ### Complex Example
+     * 
+     * The following example showcases the use of nested rules within the traffic policy document and introduces the `geoproximity` rule type.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentArgs;
+     * import com.pulumi.aws.route53.TrafficPolicy;
+     * import com.pulumi.aws.route53.TrafficPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleTrafficPolicyDocument = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
+     *             .recordType(&#34;A&#34;)
+     *             .startRule(&#34;geoproximity_rule&#34;)
+     *             .endpoints(            
+     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
+     *                     .id(&#34;na_endpoint_a&#34;)
+     *                     .type(&#34;elastic-load-balancer&#34;)
+     *                     .value(&#34;elb-111111.us-west-1.elb.amazonaws.com&#34;)
+     *                     .build(),
+     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
+     *                     .id(&#34;na_endpoint_b&#34;)
+     *                     .type(&#34;elastic-load-balancer&#34;)
+     *                     .value(&#34;elb-222222.us-west-1.elb.amazonaws.com&#34;)
+     *                     .build(),
+     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
+     *                     .id(&#34;eu_endpoint&#34;)
+     *                     .type(&#34;elastic-load-balancer&#34;)
+     *                     .value(&#34;elb-333333.eu-west-1.elb.amazonaws.com&#34;)
+     *                     .build(),
+     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
+     *                     .id(&#34;ap_endpoint&#34;)
+     *                     .type(&#34;elastic-load-balancer&#34;)
+     *                     .value(&#34;elb-444444.ap-northeast-2.elb.amazonaws.com&#34;)
+     *                     .build())
+     *             .rules(            
+     *                 GetTrafficPolicyDocumentRuleArgs.builder()
+     *                     .id(&#34;na_rule&#34;)
+     *                     .type(&#34;failover&#34;)
+     *                     .primary(GetTrafficPolicyDocumentRulePrimaryArgs.builder()
+     *                         .endpointReference(&#34;na_endpoint_a&#34;)
+     *                         .build())
+     *                     .secondary(GetTrafficPolicyDocumentRuleSecondaryArgs.builder()
+     *                         .endpointReference(&#34;na_endpoint_b&#34;)
+     *                         .build())
+     *                     .build(),
+     *                 GetTrafficPolicyDocumentRuleArgs.builder()
+     *                     .id(&#34;geoproximity_rule&#34;)
+     *                     .type(&#34;geoproximity&#34;)
+     *                     .geoProximityLocations(                    
+     *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
+     *                             .region(&#34;aws:route53:us-west-1&#34;)
+     *                             .bias(10)
+     *                             .evaluateTargetHealth(true)
+     *                             .ruleReference(&#34;na_rule&#34;)
+     *                             .build(),
+     *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
+     *                             .region(&#34;aws:route53:eu-west-1&#34;)
+     *                             .bias(10)
+     *                             .evaluateTargetHealth(true)
+     *                             .endpointReference(&#34;eu_endpoint&#34;)
+     *                             .build(),
+     *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
+     *                             .region(&#34;aws:route53:ap-northeast-2&#34;)
+     *                             .bias(0)
+     *                             .evaluateTargetHealth(true)
+     *                             .endpointReference(&#34;ap_endpoint&#34;)
+     *                             .build())
+     *                     .build())
+     *             .build());
+     * 
+     *         var exampleTrafficPolicy = new TrafficPolicy(&#34;exampleTrafficPolicy&#34;, TrafficPolicyArgs.builder()        
+     *             .comment(&#34;example comment&#34;)
+     *             .document(exampleTrafficPolicyDocument.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static Output<GetTrafficPolicyDocumentResult> getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs args, InvokeOptions options) {
@@ -1876,6 +2346,100 @@ public final class Route53Functions {
      *                     .endpointReference(&#34;site_down_banner&#34;)
      *                     .build())
      *                 .build())
+     *             .build());
+     * 
+     *         var exampleTrafficPolicy = new TrafficPolicy(&#34;exampleTrafficPolicy&#34;, TrafficPolicyArgs.builder()        
+     *             .comment(&#34;example comment&#34;)
+     *             .document(exampleTrafficPolicyDocument.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Complex Example
+     * 
+     * The following example showcases the use of nested rules within the traffic policy document and introduces the `geoproximity` rule type.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentArgs;
+     * import com.pulumi.aws.route53.TrafficPolicy;
+     * import com.pulumi.aws.route53.TrafficPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleTrafficPolicyDocument = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
+     *             .recordType(&#34;A&#34;)
+     *             .startRule(&#34;geoproximity_rule&#34;)
+     *             .endpoints(            
+     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
+     *                     .id(&#34;na_endpoint_a&#34;)
+     *                     .type(&#34;elastic-load-balancer&#34;)
+     *                     .value(&#34;elb-111111.us-west-1.elb.amazonaws.com&#34;)
+     *                     .build(),
+     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
+     *                     .id(&#34;na_endpoint_b&#34;)
+     *                     .type(&#34;elastic-load-balancer&#34;)
+     *                     .value(&#34;elb-222222.us-west-1.elb.amazonaws.com&#34;)
+     *                     .build(),
+     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
+     *                     .id(&#34;eu_endpoint&#34;)
+     *                     .type(&#34;elastic-load-balancer&#34;)
+     *                     .value(&#34;elb-333333.eu-west-1.elb.amazonaws.com&#34;)
+     *                     .build(),
+     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
+     *                     .id(&#34;ap_endpoint&#34;)
+     *                     .type(&#34;elastic-load-balancer&#34;)
+     *                     .value(&#34;elb-444444.ap-northeast-2.elb.amazonaws.com&#34;)
+     *                     .build())
+     *             .rules(            
+     *                 GetTrafficPolicyDocumentRuleArgs.builder()
+     *                     .id(&#34;na_rule&#34;)
+     *                     .type(&#34;failover&#34;)
+     *                     .primary(GetTrafficPolicyDocumentRulePrimaryArgs.builder()
+     *                         .endpointReference(&#34;na_endpoint_a&#34;)
+     *                         .build())
+     *                     .secondary(GetTrafficPolicyDocumentRuleSecondaryArgs.builder()
+     *                         .endpointReference(&#34;na_endpoint_b&#34;)
+     *                         .build())
+     *                     .build(),
+     *                 GetTrafficPolicyDocumentRuleArgs.builder()
+     *                     .id(&#34;geoproximity_rule&#34;)
+     *                     .type(&#34;geoproximity&#34;)
+     *                     .geoProximityLocations(                    
+     *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
+     *                             .region(&#34;aws:route53:us-west-1&#34;)
+     *                             .bias(10)
+     *                             .evaluateTargetHealth(true)
+     *                             .ruleReference(&#34;na_rule&#34;)
+     *                             .build(),
+     *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
+     *                             .region(&#34;aws:route53:eu-west-1&#34;)
+     *                             .bias(10)
+     *                             .evaluateTargetHealth(true)
+     *                             .endpointReference(&#34;eu_endpoint&#34;)
+     *                             .build(),
+     *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
+     *                             .region(&#34;aws:route53:ap-northeast-2&#34;)
+     *                             .bias(0)
+     *                             .evaluateTargetHealth(true)
+     *                             .endpointReference(&#34;ap_endpoint&#34;)
+     *                             .build())
+     *                     .build())
      *             .build());
      * 
      *         var exampleTrafficPolicy = new TrafficPolicy(&#34;exampleTrafficPolicy&#34;, TrafficPolicyArgs.builder()        

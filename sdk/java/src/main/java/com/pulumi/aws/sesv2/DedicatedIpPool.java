@@ -46,6 +46,36 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### Managed Pool
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.sesv2.DedicatedIpPool;
+ * import com.pulumi.aws.sesv2.DedicatedIpPoolArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new DedicatedIpPool(&#34;example&#34;, DedicatedIpPoolArgs.builder()        
+ *             .poolName(&#34;my-managed-pool&#34;)
+ *             .scalingMode(&#34;MANAGED&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 
@@ -85,6 +115,20 @@ public class DedicatedIpPool extends com.pulumi.resources.CustomResource {
      */
     public Output<String> poolName() {
         return this.poolName;
+    }
+    /**
+     * IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
+     * 
+     */
+    @Export(name="scalingMode", type=String.class, parameters={})
+    private Output<String> scalingMode;
+
+    /**
+     * @return IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
+     * 
+     */
+    public Output<String> scalingMode() {
+        return this.scalingMode;
     }
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;

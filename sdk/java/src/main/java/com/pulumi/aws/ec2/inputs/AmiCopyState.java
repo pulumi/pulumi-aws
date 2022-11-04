@@ -215,6 +215,21 @@ public final class AmiCopyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
+     * 
+     */
+    @Import(name="imdsSupport")
+    private @Nullable Output<String> imdsSupport;
+
+    /**
+     * @return If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
+     * 
+     */
+    public Optional<Output<String>> imdsSupport() {
+        return Optional.ofNullable(this.imdsSupport);
+    }
+
+    /**
      * ID of the kernel image (AKI) that will be used as the paravirtual
      * kernel in created instances.
      * 
@@ -470,6 +485,7 @@ public final class AmiCopyState extends com.pulumi.resources.ResourceArgs {
         this.imageLocation = $.imageLocation;
         this.imageOwnerAlias = $.imageOwnerAlias;
         this.imageType = $.imageType;
+        this.imdsSupport = $.imdsSupport;
         this.kernelId = $.kernelId;
         this.kmsKeyId = $.kmsKeyId;
         this.manageEbsSnapshots = $.manageEbsSnapshots;
@@ -795,6 +811,27 @@ public final class AmiCopyState extends com.pulumi.resources.ResourceArgs {
 
         public Builder imageType(String imageType) {
             return imageType(Output.of(imageType));
+        }
+
+        /**
+         * @param imdsSupport If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder imdsSupport(@Nullable Output<String> imdsSupport) {
+            $.imdsSupport = imdsSupport;
+            return this;
+        }
+
+        /**
+         * @param imdsSupport If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder imdsSupport(String imdsSupport) {
+            return imdsSupport(Output.of(imdsSupport));
         }
 
         /**

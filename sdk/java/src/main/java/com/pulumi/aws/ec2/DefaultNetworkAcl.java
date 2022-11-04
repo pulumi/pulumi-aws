@@ -187,14 +187,14 @@ public class DefaultNetworkAcl extends com.pulumi.resources.CustomResource {
         return this.ownerId;
     }
     /**
-     * List of Subnet IDs to apply the ACL to. See the notes below on managing Subnets in the Default Network ACL
+     * List of Subnet IDs to apply the ACL to. See the notes above on Managing Subnets in the Default Network ACL
      * 
      */
     @Export(name="subnetIds", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> subnetIds;
 
     /**
-     * @return List of Subnet IDs to apply the ACL to. See the notes below on managing Subnets in the Default Network ACL
+     * @return List of Subnet IDs to apply the ACL to. See the notes above on Managing Subnets in the Default Network ACL
      * 
      */
     public Output<Optional<List<String>>> subnetIds() {

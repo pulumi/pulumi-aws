@@ -20,14 +20,18 @@ public final class PatchBaselineApprovalRuleArgs extends com.pulumi.resources.Re
     public static final PatchBaselineApprovalRuleArgs Empty = new PatchBaselineApprovalRuleArgs();
 
     /**
-     * The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 100. Conflicts with `approve_until_date`
+     * The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline.
+     * Valid Range: 0 to 100.
+     * Conflicts with `approve_until_date`.
      * 
      */
     @Import(name="approveAfterDays")
     private @Nullable Output<Integer> approveAfterDays;
 
     /**
-     * @return The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 100. Conflicts with `approve_until_date`
+     * @return The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline.
+     * Valid Range: 0 to 100.
+     * Conflicts with `approve_until_date`.
      * 
      */
     public Optional<Output<Integer>> approveAfterDays() {
@@ -35,14 +39,20 @@ public final class PatchBaselineApprovalRuleArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approve_after_days`
+     * The cutoff date for auto approval of released patches.
+     * Any patches released on or before this date are installed automatically.
+     * Date is formatted as `YYYY-MM-DD`.
+     * Conflicts with `approve_after_days`
      * 
      */
     @Import(name="approveUntilDate")
     private @Nullable Output<String> approveUntilDate;
 
     /**
-     * @return The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approve_after_days`
+     * @return The cutoff date for auto approval of released patches.
+     * Any patches released on or before this date are installed automatically.
+     * Date is formatted as `YYYY-MM-DD`.
+     * Conflicts with `approve_after_days`
      * 
      */
     public Optional<Output<String>> approveUntilDate() {
@@ -50,14 +60,18 @@ public final class PatchBaselineApprovalRuleArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Defines the compliance level for patches approved by this rule. Valid compliance levels include the following: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
+     * The compliance level for patches approved by this rule.
+     * Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, and `UNSPECIFIED`.
+     * The default value is `UNSPECIFIED`.
      * 
      */
     @Import(name="complianceLevel")
     private @Nullable Output<String> complianceLevel;
 
     /**
-     * @return Defines the compliance level for patches approved by this rule. Valid compliance levels include the following: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
+     * @return The compliance level for patches approved by this rule.
+     * Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, and `UNSPECIFIED`.
+     * The default value is `UNSPECIFIED`.
      * 
      */
     public Optional<Output<String>> complianceLevel() {
@@ -65,14 +79,18 @@ public final class PatchBaselineApprovalRuleArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Boolean enabling the application of non-security updates. The default value is &#39;false&#39;. Valid for Linux instances only.
+     * Boolean enabling the application of non-security updates.
+     * The default value is `false`.
+     * Valid for Linux instances only.
      * 
      */
     @Import(name="enableNonSecurity")
     private @Nullable Output<Boolean> enableNonSecurity;
 
     /**
-     * @return Boolean enabling the application of non-security updates. The default value is &#39;false&#39;. Valid for Linux instances only.
+     * @return Boolean enabling the application of non-security updates.
+     * The default value is `false`.
+     * Valid for Linux instances only.
      * 
      */
     public Optional<Output<Boolean>> enableNonSecurity() {
@@ -80,14 +98,20 @@ public final class PatchBaselineApprovalRuleArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The patch filter group that defines the criteria for the rule. Up to 5 patch filters can be specified per approval rule using Key/Value pairs. Valid combinations of these Keys and the `operating_system` value can be found in the [SSM DescribePatchProperties API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html). Valid Values are exact values for the patch property given as the key, or a wildcard `*`, which matches all values.
+     * The patch filter group that defines the criteria for the rule.
+     * Up to 5 patch filters can be specified per approval rule using Key/Value pairs.
+     * Valid combinations of these Keys and the `operating_system` value can be found in the [SSM DescribePatchProperties API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html).
+     * Valid Values are exact values for the patch property given as the key, or a wildcard `*`, which matches all values.
      * 
      */
     @Import(name="patchFilters", required=true)
     private Output<List<PatchBaselineApprovalRulePatchFilterArgs>> patchFilters;
 
     /**
-     * @return The patch filter group that defines the criteria for the rule. Up to 5 patch filters can be specified per approval rule using Key/Value pairs. Valid combinations of these Keys and the `operating_system` value can be found in the [SSM DescribePatchProperties API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html). Valid Values are exact values for the patch property given as the key, or a wildcard `*`, which matches all values.
+     * @return The patch filter group that defines the criteria for the rule.
+     * Up to 5 patch filters can be specified per approval rule using Key/Value pairs.
+     * Valid combinations of these Keys and the `operating_system` value can be found in the [SSM DescribePatchProperties API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html).
+     * Valid Values are exact values for the patch property given as the key, or a wildcard `*`, which matches all values.
      * 
      */
     public Output<List<PatchBaselineApprovalRulePatchFilterArgs>> patchFilters() {
@@ -123,7 +147,9 @@ public final class PatchBaselineApprovalRuleArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param approveAfterDays The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 100. Conflicts with `approve_until_date`
+         * @param approveAfterDays The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline.
+         * Valid Range: 0 to 100.
+         * Conflicts with `approve_until_date`.
          * 
          * @return builder
          * 
@@ -134,7 +160,9 @@ public final class PatchBaselineApprovalRuleArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param approveAfterDays The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 100. Conflicts with `approve_until_date`
+         * @param approveAfterDays The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline.
+         * Valid Range: 0 to 100.
+         * Conflicts with `approve_until_date`.
          * 
          * @return builder
          * 
@@ -144,7 +172,10 @@ public final class PatchBaselineApprovalRuleArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param approveUntilDate The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approve_after_days`
+         * @param approveUntilDate The cutoff date for auto approval of released patches.
+         * Any patches released on or before this date are installed automatically.
+         * Date is formatted as `YYYY-MM-DD`.
+         * Conflicts with `approve_after_days`
          * 
          * @return builder
          * 
@@ -155,7 +186,10 @@ public final class PatchBaselineApprovalRuleArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param approveUntilDate The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approve_after_days`
+         * @param approveUntilDate The cutoff date for auto approval of released patches.
+         * Any patches released on or before this date are installed automatically.
+         * Date is formatted as `YYYY-MM-DD`.
+         * Conflicts with `approve_after_days`
          * 
          * @return builder
          * 
@@ -165,7 +199,9 @@ public final class PatchBaselineApprovalRuleArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param complianceLevel Defines the compliance level for patches approved by this rule. Valid compliance levels include the following: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
+         * @param complianceLevel The compliance level for patches approved by this rule.
+         * Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, and `UNSPECIFIED`.
+         * The default value is `UNSPECIFIED`.
          * 
          * @return builder
          * 
@@ -176,7 +212,9 @@ public final class PatchBaselineApprovalRuleArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param complianceLevel Defines the compliance level for patches approved by this rule. Valid compliance levels include the following: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
+         * @param complianceLevel The compliance level for patches approved by this rule.
+         * Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, and `UNSPECIFIED`.
+         * The default value is `UNSPECIFIED`.
          * 
          * @return builder
          * 
@@ -186,7 +224,9 @@ public final class PatchBaselineApprovalRuleArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param enableNonSecurity Boolean enabling the application of non-security updates. The default value is &#39;false&#39;. Valid for Linux instances only.
+         * @param enableNonSecurity Boolean enabling the application of non-security updates.
+         * The default value is `false`.
+         * Valid for Linux instances only.
          * 
          * @return builder
          * 
@@ -197,7 +237,9 @@ public final class PatchBaselineApprovalRuleArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param enableNonSecurity Boolean enabling the application of non-security updates. The default value is &#39;false&#39;. Valid for Linux instances only.
+         * @param enableNonSecurity Boolean enabling the application of non-security updates.
+         * The default value is `false`.
+         * Valid for Linux instances only.
          * 
          * @return builder
          * 
@@ -207,7 +249,10 @@ public final class PatchBaselineApprovalRuleArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param patchFilters The patch filter group that defines the criteria for the rule. Up to 5 patch filters can be specified per approval rule using Key/Value pairs. Valid combinations of these Keys and the `operating_system` value can be found in the [SSM DescribePatchProperties API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html). Valid Values are exact values for the patch property given as the key, or a wildcard `*`, which matches all values.
+         * @param patchFilters The patch filter group that defines the criteria for the rule.
+         * Up to 5 patch filters can be specified per approval rule using Key/Value pairs.
+         * Valid combinations of these Keys and the `operating_system` value can be found in the [SSM DescribePatchProperties API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html).
+         * Valid Values are exact values for the patch property given as the key, or a wildcard `*`, which matches all values.
          * 
          * @return builder
          * 
@@ -218,7 +263,10 @@ public final class PatchBaselineApprovalRuleArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param patchFilters The patch filter group that defines the criteria for the rule. Up to 5 patch filters can be specified per approval rule using Key/Value pairs. Valid combinations of these Keys and the `operating_system` value can be found in the [SSM DescribePatchProperties API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html). Valid Values are exact values for the patch property given as the key, or a wildcard `*`, which matches all values.
+         * @param patchFilters The patch filter group that defines the criteria for the rule.
+         * Up to 5 patch filters can be specified per approval rule using Key/Value pairs.
+         * Valid combinations of these Keys and the `operating_system` value can be found in the [SSM DescribePatchProperties API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html).
+         * Valid Values are exact values for the patch property given as the key, or a wildcard `*`, which matches all values.
          * 
          * @return builder
          * 
@@ -228,7 +276,10 @@ public final class PatchBaselineApprovalRuleArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param patchFilters The patch filter group that defines the criteria for the rule. Up to 5 patch filters can be specified per approval rule using Key/Value pairs. Valid combinations of these Keys and the `operating_system` value can be found in the [SSM DescribePatchProperties API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html). Valid Values are exact values for the patch property given as the key, or a wildcard `*`, which matches all values.
+         * @param patchFilters The patch filter group that defines the criteria for the rule.
+         * Up to 5 patch filters can be specified per approval rule using Key/Value pairs.
+         * Valid combinations of these Keys and the `operating_system` value can be found in the [SSM DescribePatchProperties API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html).
+         * Valid Values are exact values for the patch property given as the key, or a wildcard `*`, which matches all values.
          * 
          * @return builder
          * 

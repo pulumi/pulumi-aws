@@ -6,6 +6,7 @@ package com.pulumi.aws.elasticache;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -112,6 +113,21 @@ public final class GlobalReplicationGroupArgs extends com.pulumi.resources.Resou
     }
 
     /**
+     * The number of node groups (shards) on the global replication group.
+     * 
+     */
+    @Import(name="numNodeGroups")
+    private @Nullable Output<Integer> numNodeGroups;
+
+    /**
+     * @return The number of node groups (shards) on the global replication group.
+     * 
+     */
+    public Optional<Output<Integer>> numNodeGroups() {
+        return Optional.ofNullable(this.numNodeGroups);
+    }
+
+    /**
      * An ElastiCache Parameter Group to use for the Global Replication Group.
      * Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
      * Specifying without a major version upgrade will fail.
@@ -155,6 +171,7 @@ public final class GlobalReplicationGroupArgs extends com.pulumi.resources.Resou
         this.engineVersion = $.engineVersion;
         this.globalReplicationGroupDescription = $.globalReplicationGroupDescription;
         this.globalReplicationGroupIdSuffix = $.globalReplicationGroupIdSuffix;
+        this.numNodeGroups = $.numNodeGroups;
         this.parameterGroupName = $.parameterGroupName;
         this.primaryReplicationGroupId = $.primaryReplicationGroupId;
     }
@@ -300,6 +317,27 @@ public final class GlobalReplicationGroupArgs extends com.pulumi.resources.Resou
          */
         public Builder globalReplicationGroupIdSuffix(String globalReplicationGroupIdSuffix) {
             return globalReplicationGroupIdSuffix(Output.of(globalReplicationGroupIdSuffix));
+        }
+
+        /**
+         * @param numNodeGroups The number of node groups (shards) on the global replication group.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder numNodeGroups(@Nullable Output<Integer> numNodeGroups) {
+            $.numNodeGroups = numNodeGroups;
+            return this;
+        }
+
+        /**
+         * @param numNodeGroups The number of node groups (shards) on the global replication group.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder numNodeGroups(Integer numNodeGroups) {
+            return numNodeGroups(Output.of(numNodeGroups));
         }
 
         /**

@@ -3,8 +3,10 @@
 
 package com.pulumi.aws.sagemaker.outputs;
 
+import com.pulumi.aws.sagemaker.outputs.UserProfileUserSettingsCanvasAppSettings;
 import com.pulumi.aws.sagemaker.outputs.UserProfileUserSettingsJupyterServerAppSettings;
 import com.pulumi.aws.sagemaker.outputs.UserProfileUserSettingsKernelGatewayAppSettings;
+import com.pulumi.aws.sagemaker.outputs.UserProfileUserSettingsRSessionAppSettings;
 import com.pulumi.aws.sagemaker.outputs.UserProfileUserSettingsSharingSettings;
 import com.pulumi.aws.sagemaker.outputs.UserProfileUserSettingsTensorBoardAppSettings;
 import com.pulumi.core.annotations.CustomType;
@@ -16,6 +18,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class UserProfileUserSettings {
+    /**
+     * @return The Canvas app settings. See Canvas App Settings below.
+     * 
+     */
+    private @Nullable UserProfileUserSettingsCanvasAppSettings canvasAppSettings;
     /**
      * @return The execution role ARN for the user.
      * 
@@ -31,6 +38,11 @@ public final class UserProfileUserSettings {
      * 
      */
     private @Nullable UserProfileUserSettingsKernelGatewayAppSettings kernelGatewayAppSettings;
+    /**
+     * @return The RSession app settings. See RSession App Settings below.
+     * 
+     */
+    private @Nullable UserProfileUserSettingsRSessionAppSettings rSessionAppSettings;
     /**
      * @return The security groups.
      * 
@@ -48,6 +60,13 @@ public final class UserProfileUserSettings {
     private @Nullable UserProfileUserSettingsTensorBoardAppSettings tensorBoardAppSettings;
 
     private UserProfileUserSettings() {}
+    /**
+     * @return The Canvas app settings. See Canvas App Settings below.
+     * 
+     */
+    public Optional<UserProfileUserSettingsCanvasAppSettings> canvasAppSettings() {
+        return Optional.ofNullable(this.canvasAppSettings);
+    }
     /**
      * @return The execution role ARN for the user.
      * 
@@ -68,6 +87,13 @@ public final class UserProfileUserSettings {
      */
     public Optional<UserProfileUserSettingsKernelGatewayAppSettings> kernelGatewayAppSettings() {
         return Optional.ofNullable(this.kernelGatewayAppSettings);
+    }
+    /**
+     * @return The RSession app settings. See RSession App Settings below.
+     * 
+     */
+    public Optional<UserProfileUserSettingsRSessionAppSettings> rSessionAppSettings() {
+        return Optional.ofNullable(this.rSessionAppSettings);
     }
     /**
      * @return The security groups.
@@ -100,23 +126,32 @@ public final class UserProfileUserSettings {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable UserProfileUserSettingsCanvasAppSettings canvasAppSettings;
         private String executionRole;
         private @Nullable UserProfileUserSettingsJupyterServerAppSettings jupyterServerAppSettings;
         private @Nullable UserProfileUserSettingsKernelGatewayAppSettings kernelGatewayAppSettings;
+        private @Nullable UserProfileUserSettingsRSessionAppSettings rSessionAppSettings;
         private @Nullable List<String> securityGroups;
         private @Nullable UserProfileUserSettingsSharingSettings sharingSettings;
         private @Nullable UserProfileUserSettingsTensorBoardAppSettings tensorBoardAppSettings;
         public Builder() {}
         public Builder(UserProfileUserSettings defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.canvasAppSettings = defaults.canvasAppSettings;
     	      this.executionRole = defaults.executionRole;
     	      this.jupyterServerAppSettings = defaults.jupyterServerAppSettings;
     	      this.kernelGatewayAppSettings = defaults.kernelGatewayAppSettings;
+    	      this.rSessionAppSettings = defaults.rSessionAppSettings;
     	      this.securityGroups = defaults.securityGroups;
     	      this.sharingSettings = defaults.sharingSettings;
     	      this.tensorBoardAppSettings = defaults.tensorBoardAppSettings;
         }
 
+        @CustomType.Setter
+        public Builder canvasAppSettings(@Nullable UserProfileUserSettingsCanvasAppSettings canvasAppSettings) {
+            this.canvasAppSettings = canvasAppSettings;
+            return this;
+        }
         @CustomType.Setter
         public Builder executionRole(String executionRole) {
             this.executionRole = Objects.requireNonNull(executionRole);
@@ -130,6 +165,11 @@ public final class UserProfileUserSettings {
         @CustomType.Setter
         public Builder kernelGatewayAppSettings(@Nullable UserProfileUserSettingsKernelGatewayAppSettings kernelGatewayAppSettings) {
             this.kernelGatewayAppSettings = kernelGatewayAppSettings;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder rSessionAppSettings(@Nullable UserProfileUserSettingsRSessionAppSettings rSessionAppSettings) {
+            this.rSessionAppSettings = rSessionAppSettings;
             return this;
         }
         @CustomType.Setter
@@ -152,9 +192,11 @@ public final class UserProfileUserSettings {
         }
         public UserProfileUserSettings build() {
             final var o = new UserProfileUserSettings();
+            o.canvasAppSettings = canvasAppSettings;
             o.executionRole = executionRole;
             o.jupyterServerAppSettings = jupyterServerAppSettings;
             o.kernelGatewayAppSettings = kernelGatewayAppSettings;
+            o.rSessionAppSettings = rSessionAppSettings;
             o.securityGroups = securityGroups;
             o.sharingSettings = sharingSettings;
             o.tensorBoardAppSettings = tensorBoardAppSettings;

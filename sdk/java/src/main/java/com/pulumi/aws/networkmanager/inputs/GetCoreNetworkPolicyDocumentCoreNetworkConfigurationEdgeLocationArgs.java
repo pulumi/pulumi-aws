@@ -5,7 +5,6 @@ package com.pulumi.aws.networkmanager.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -22,13 +21,13 @@ public final class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocat
      * 
      */
     @Import(name="asn")
-    private @Nullable Output<Integer> asn;
+    private @Nullable Output<String> asn;
 
     /**
      * @return ASN of the Core Network Edge in an AWS Region. By default, the ASN will be a single integer automatically assigned from `asn_ranges`
      * 
      */
-    public Optional<Output<Integer>> asn() {
+    public Optional<Output<String>> asn() {
         return Optional.ofNullable(this.asn);
     }
 
@@ -86,7 +85,7 @@ public final class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocat
          * @return builder
          * 
          */
-        public Builder asn(@Nullable Output<Integer> asn) {
+        public Builder asn(@Nullable Output<String> asn) {
             $.asn = asn;
             return this;
         }
@@ -97,7 +96,7 @@ public final class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocat
          * @return builder
          * 
          */
-        public Builder asn(Integer asn) {
+        public Builder asn(String asn) {
             return asn(Output.of(asn));
         }
 

@@ -76,6 +76,11 @@ public final class GetCertificateAuthorityResult {
      * 
      */
     private String type;
+    /**
+     * @return Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly.
+     * 
+     */
+    private String usageMode;
 
     private GetCertificateAuthorityResult() {}
     public String arn() {
@@ -166,6 +171,13 @@ public final class GetCertificateAuthorityResult {
     public String type() {
         return this.type;
     }
+    /**
+     * @return Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly.
+     * 
+     */
+    public String usageMode() {
+        return this.usageMode;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -188,6 +200,7 @@ public final class GetCertificateAuthorityResult {
         private String status;
         private Map<String,String> tags;
         private String type;
+        private String usageMode;
         public Builder() {}
         public Builder(GetCertificateAuthorityResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -203,6 +216,7 @@ public final class GetCertificateAuthorityResult {
     	      this.status = defaults.status;
     	      this.tags = defaults.tags;
     	      this.type = defaults.type;
+    	      this.usageMode = defaults.usageMode;
         }
 
         @CustomType.Setter
@@ -268,6 +282,11 @@ public final class GetCertificateAuthorityResult {
             this.type = Objects.requireNonNull(type);
             return this;
         }
+        @CustomType.Setter
+        public Builder usageMode(String usageMode) {
+            this.usageMode = Objects.requireNonNull(usageMode);
+            return this;
+        }
         public GetCertificateAuthorityResult build() {
             final var o = new GetCertificateAuthorityResult();
             o.arn = arn;
@@ -282,6 +301,7 @@ public final class GetCertificateAuthorityResult {
             o.status = status;
             o.tags = tags;
             o.type = type;
+            o.usageMode = usageMode;
             return o;
         }
     }

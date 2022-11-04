@@ -250,6 +250,20 @@ public class UserPool extends com.pulumi.resources.CustomResource {
         return this.customDomain;
     }
     /**
+     * When active, DeletionProtection prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature. Valid values are `ACTIVE` and `INACTIVE`, Default value is `INACTIVE`.
+     * 
+     */
+    @Export(name="deletionProtection", type=String.class, parameters={})
+    private Output</* @Nullable */ String> deletionProtection;
+
+    /**
+     * @return When active, DeletionProtection prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature. Valid values are `ACTIVE` and `INACTIVE`, Default value is `INACTIVE`.
+     * 
+     */
+    public Output<Optional<String>> deletionProtection() {
+        return Codegen.optional(this.deletionProtection);
+    }
+    /**
      * Configuration block for the user pool&#39;s device tracking. Detailed below.
      * 
      */

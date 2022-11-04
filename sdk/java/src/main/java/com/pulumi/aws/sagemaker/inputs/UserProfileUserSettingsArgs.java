@@ -3,8 +3,10 @@
 
 package com.pulumi.aws.sagemaker.inputs;
 
+import com.pulumi.aws.sagemaker.inputs.UserProfileUserSettingsCanvasAppSettingsArgs;
 import com.pulumi.aws.sagemaker.inputs.UserProfileUserSettingsJupyterServerAppSettingsArgs;
 import com.pulumi.aws.sagemaker.inputs.UserProfileUserSettingsKernelGatewayAppSettingsArgs;
+import com.pulumi.aws.sagemaker.inputs.UserProfileUserSettingsRSessionAppSettingsArgs;
 import com.pulumi.aws.sagemaker.inputs.UserProfileUserSettingsSharingSettingsArgs;
 import com.pulumi.aws.sagemaker.inputs.UserProfileUserSettingsTensorBoardAppSettingsArgs;
 import com.pulumi.core.Output;
@@ -19,6 +21,21 @@ import javax.annotation.Nullable;
 public final class UserProfileUserSettingsArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final UserProfileUserSettingsArgs Empty = new UserProfileUserSettingsArgs();
+
+    /**
+     * The Canvas app settings. See Canvas App Settings below.
+     * 
+     */
+    @Import(name="canvasAppSettings")
+    private @Nullable Output<UserProfileUserSettingsCanvasAppSettingsArgs> canvasAppSettings;
+
+    /**
+     * @return The Canvas app settings. See Canvas App Settings below.
+     * 
+     */
+    public Optional<Output<UserProfileUserSettingsCanvasAppSettingsArgs>> canvasAppSettings() {
+        return Optional.ofNullable(this.canvasAppSettings);
+    }
 
     /**
      * The execution role ARN for the user.
@@ -63,6 +80,21 @@ public final class UserProfileUserSettingsArgs extends com.pulumi.resources.Reso
      */
     public Optional<Output<UserProfileUserSettingsKernelGatewayAppSettingsArgs>> kernelGatewayAppSettings() {
         return Optional.ofNullable(this.kernelGatewayAppSettings);
+    }
+
+    /**
+     * The RSession app settings. See RSession App Settings below.
+     * 
+     */
+    @Import(name="rSessionAppSettings")
+    private @Nullable Output<UserProfileUserSettingsRSessionAppSettingsArgs> rSessionAppSettings;
+
+    /**
+     * @return The RSession app settings. See RSession App Settings below.
+     * 
+     */
+    public Optional<Output<UserProfileUserSettingsRSessionAppSettingsArgs>> rSessionAppSettings() {
+        return Optional.ofNullable(this.rSessionAppSettings);
     }
 
     /**
@@ -113,9 +145,11 @@ public final class UserProfileUserSettingsArgs extends com.pulumi.resources.Reso
     private UserProfileUserSettingsArgs() {}
 
     private UserProfileUserSettingsArgs(UserProfileUserSettingsArgs $) {
+        this.canvasAppSettings = $.canvasAppSettings;
         this.executionRole = $.executionRole;
         this.jupyterServerAppSettings = $.jupyterServerAppSettings;
         this.kernelGatewayAppSettings = $.kernelGatewayAppSettings;
+        this.rSessionAppSettings = $.rSessionAppSettings;
         this.securityGroups = $.securityGroups;
         this.sharingSettings = $.sharingSettings;
         this.tensorBoardAppSettings = $.tensorBoardAppSettings;
@@ -137,6 +171,27 @@ public final class UserProfileUserSettingsArgs extends com.pulumi.resources.Reso
 
         public Builder(UserProfileUserSettingsArgs defaults) {
             $ = new UserProfileUserSettingsArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param canvasAppSettings The Canvas app settings. See Canvas App Settings below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder canvasAppSettings(@Nullable Output<UserProfileUserSettingsCanvasAppSettingsArgs> canvasAppSettings) {
+            $.canvasAppSettings = canvasAppSettings;
+            return this;
+        }
+
+        /**
+         * @param canvasAppSettings The Canvas app settings. See Canvas App Settings below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder canvasAppSettings(UserProfileUserSettingsCanvasAppSettingsArgs canvasAppSettings) {
+            return canvasAppSettings(Output.of(canvasAppSettings));
         }
 
         /**
@@ -200,6 +255,27 @@ public final class UserProfileUserSettingsArgs extends com.pulumi.resources.Reso
          */
         public Builder kernelGatewayAppSettings(UserProfileUserSettingsKernelGatewayAppSettingsArgs kernelGatewayAppSettings) {
             return kernelGatewayAppSettings(Output.of(kernelGatewayAppSettings));
+        }
+
+        /**
+         * @param rSessionAppSettings The RSession app settings. See RSession App Settings below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rSessionAppSettings(@Nullable Output<UserProfileUserSettingsRSessionAppSettingsArgs> rSessionAppSettings) {
+            $.rSessionAppSettings = rSessionAppSettings;
+            return this;
+        }
+
+        /**
+         * @param rSessionAppSettings The RSession app settings. See RSession App Settings below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rSessionAppSettings(UserProfileUserSettingsRSessionAppSettingsArgs rSessionAppSettings) {
+            return rSessionAppSettings(Output.of(rSessionAppSettings));
         }
 
         /**

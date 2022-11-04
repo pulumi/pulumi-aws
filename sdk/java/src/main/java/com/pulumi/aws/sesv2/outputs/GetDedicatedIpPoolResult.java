@@ -29,6 +29,11 @@ public final class GetDedicatedIpPoolResult {
     private String id;
     private String poolName;
     /**
+     * @return (Optional) IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`.
+     * 
+     */
+    private String scalingMode;
+    /**
      * @return A map of tags attached to the pool.
      * 
      */
@@ -60,6 +65,13 @@ public final class GetDedicatedIpPoolResult {
         return this.poolName;
     }
     /**
+     * @return (Optional) IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`.
+     * 
+     */
+    public String scalingMode() {
+        return this.scalingMode;
+    }
+    /**
      * @return A map of tags attached to the pool.
      * 
      */
@@ -80,6 +92,7 @@ public final class GetDedicatedIpPoolResult {
         private List<GetDedicatedIpPoolDedicatedIp> dedicatedIps;
         private String id;
         private String poolName;
+        private String scalingMode;
         private Map<String,String> tags;
         public Builder() {}
         public Builder(GetDedicatedIpPoolResult defaults) {
@@ -88,6 +101,7 @@ public final class GetDedicatedIpPoolResult {
     	      this.dedicatedIps = defaults.dedicatedIps;
     	      this.id = defaults.id;
     	      this.poolName = defaults.poolName;
+    	      this.scalingMode = defaults.scalingMode;
     	      this.tags = defaults.tags;
         }
 
@@ -115,6 +129,11 @@ public final class GetDedicatedIpPoolResult {
             return this;
         }
         @CustomType.Setter
+        public Builder scalingMode(String scalingMode) {
+            this.scalingMode = Objects.requireNonNull(scalingMode);
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
@@ -125,6 +144,7 @@ public final class GetDedicatedIpPoolResult {
             o.dedicatedIps = dedicatedIps;
             o.id = id;
             o.poolName = poolName;
+            o.scalingMode = scalingMode;
             o.tags = tags;
             return o;
         }

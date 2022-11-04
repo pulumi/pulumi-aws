@@ -492,8 +492,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether or
-     * mappings of AWS Identity and Access Management (IAM) accounts to database
+     * Specifies whether mappings of AWS Identity and Access Management (IAM) accounts to database
      * accounts is enabled.
      * 
      */
@@ -501,8 +500,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<Boolean> iamDatabaseAuthenticationEnabled;
 
     /**
-     * @return Specifies whether or
-     * mappings of AWS Identity and Access Management (IAM) accounts to database
+     * @return Specifies whether mappings of AWS Identity and Access Management (IAM) accounts to database
      * accounts is enabled.
      * 
      */
@@ -1947,8 +1945,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param iamDatabaseAuthenticationEnabled Specifies whether or
-         * mappings of AWS Identity and Access Management (IAM) accounts to database
+         * @param iamDatabaseAuthenticationEnabled Specifies whether mappings of AWS Identity and Access Management (IAM) accounts to database
          * accounts is enabled.
          * 
          * @return builder
@@ -1960,8 +1957,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param iamDatabaseAuthenticationEnabled Specifies whether or
-         * mappings of AWS Identity and Access Management (IAM) accounts to database
+         * @param iamDatabaseAuthenticationEnabled Specifies whether mappings of AWS Identity and Access Management (IAM) accounts to database
          * accounts is enabled.
          * 
          * @return builder

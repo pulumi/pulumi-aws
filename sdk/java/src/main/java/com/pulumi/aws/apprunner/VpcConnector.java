@@ -128,6 +128,12 @@ public class VpcConnector extends com.pulumi.resources.CustomResource {
     public Output<Map<String,String>> tags() {
         return this.tags;
     }
+    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    private Output<Map<String,String>> tagsAll;
+
+    public Output<Map<String,String>> tagsAll() {
+        return this.tagsAll;
+    }
     /**
      * Name for the VPC connector.
      * 

@@ -6,9 +6,11 @@ package com.pulumi.aws.budgets;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.budgets.BudgetArgs;
 import com.pulumi.aws.budgets.inputs.BudgetState;
+import com.pulumi.aws.budgets.outputs.BudgetAutoAdjustData;
 import com.pulumi.aws.budgets.outputs.BudgetCostFilter;
 import com.pulumi.aws.budgets.outputs.BudgetCostTypes;
 import com.pulumi.aws.budgets.outputs.BudgetNotification;
+import com.pulumi.aws.budgets.outputs.BudgetPlannedLimit;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -96,6 +98,47 @@ import javax.annotation.Nullable;
  *             .budgetType(&#34;COST&#34;)
  *             .limitAmount(&#34;100&#34;)
  *             .limitUnit(&#34;USD&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * Create a budget with planned budget limits.
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.budgets.Budget;
+ * import com.pulumi.aws.budgets.BudgetArgs;
+ * import com.pulumi.aws.budgets.inputs.BudgetPlannedLimitArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var cost = new Budget(&#34;cost&#34;, BudgetArgs.builder()        
+ *             .plannedLimits(            
+ *                 BudgetPlannedLimitArgs.builder()
+ *                     .amount(&#34;100&#34;)
+ *                     .startTime(&#34;2017-07-01_00:00&#34;)
+ *                     .unit(&#34;USD&#34;)
+ *                     .build(),
+ *                 BudgetPlannedLimitArgs.builder()
+ *                     .amount(&#34;200&#34;)
+ *                     .startTime(&#34;2017-08-01_00:00&#34;)
+ *                     .unit(&#34;USD&#34;)
+ *                     .build())
  *             .build());
  * 
  *     }
@@ -269,6 +312,20 @@ public class Budget extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
+     * Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
+     * 
+     */
+    @Export(name="autoAdjustData", type=BudgetAutoAdjustData.class, parameters={})
+    private Output</* @Nullable */ BudgetAutoAdjustData> autoAdjustData;
+
+    /**
+     * @return Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
+     * 
+     */
+    public Output<Optional<BudgetAutoAdjustData>> autoAdjustData() {
+        return Codegen.optional(this.autoAdjustData);
+    }
+    /**
      * Whether this budget tracks monetary cost or usage.
      * 
      */
@@ -385,18 +442,32 @@ public class Budget extends com.pulumi.resources.CustomResource {
         return this.namePrefix;
     }
     /**
-     * Object containing Budget Notifications. Can be used multiple times to define more than one budget notification
+     * Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
      * 
      */
     @Export(name="notifications", type=List.class, parameters={BudgetNotification.class})
     private Output</* @Nullable */ List<BudgetNotification>> notifications;
 
     /**
-     * @return Object containing Budget Notifications. Can be used multiple times to define more than one budget notification
+     * @return Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
      * 
      */
     public Output<Optional<List<BudgetNotification>>> notifications() {
         return Codegen.optional(this.notifications);
+    }
+    /**
+     * Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
+     * 
+     */
+    @Export(name="plannedLimits", type=List.class, parameters={BudgetPlannedLimit.class})
+    private Output</* @Nullable */ List<BudgetPlannedLimit>> plannedLimits;
+
+    /**
+     * @return Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
+     * 
+     */
+    public Output<Optional<List<BudgetPlannedLimit>>> plannedLimits() {
+        return Codegen.optional(this.plannedLimits);
     }
     /**
      * The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.

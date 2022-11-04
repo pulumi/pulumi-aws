@@ -3,10 +3,13 @@
 
 package com.pulumi.aws.elasticache.inputs;
 
+import com.pulumi.aws.elasticache.inputs.GlobalReplicationGroupGlobalNodeGroupArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -172,6 +175,23 @@ public final class GlobalReplicationGroupState extends com.pulumi.resources.Reso
     }
 
     /**
+     * Set of node groups (shards) on the global replication group.
+     * Has the values:
+     * 
+     */
+    @Import(name="globalNodeGroups")
+    private @Nullable Output<List<GlobalReplicationGroupGlobalNodeGroupArgs>> globalNodeGroups;
+
+    /**
+     * @return Set of node groups (shards) on the global replication group.
+     * Has the values:
+     * 
+     */
+    public Optional<Output<List<GlobalReplicationGroupGlobalNodeGroupArgs>>> globalNodeGroups() {
+        return Optional.ofNullable(this.globalNodeGroups);
+    }
+
+    /**
      * A user-created description for the global replication group.
      * 
      */
@@ -214,6 +234,21 @@ public final class GlobalReplicationGroupState extends com.pulumi.resources.Reso
      */
     public Optional<Output<String>> globalReplicationGroupIdSuffix() {
         return Optional.ofNullable(this.globalReplicationGroupIdSuffix);
+    }
+
+    /**
+     * The number of node groups (shards) on the global replication group.
+     * 
+     */
+    @Import(name="numNodeGroups")
+    private @Nullable Output<Integer> numNodeGroups;
+
+    /**
+     * @return The number of node groups (shards) on the global replication group.
+     * 
+     */
+    public Optional<Output<Integer>> numNodeGroups() {
+        return Optional.ofNullable(this.numNodeGroups);
     }
 
     /**
@@ -279,9 +314,11 @@ public final class GlobalReplicationGroupState extends com.pulumi.resources.Reso
         this.engine = $.engine;
         this.engineVersion = $.engineVersion;
         this.engineVersionActual = $.engineVersionActual;
+        this.globalNodeGroups = $.globalNodeGroups;
         this.globalReplicationGroupDescription = $.globalReplicationGroupDescription;
         this.globalReplicationGroupId = $.globalReplicationGroupId;
         this.globalReplicationGroupIdSuffix = $.globalReplicationGroupIdSuffix;
+        this.numNodeGroups = $.numNodeGroups;
         this.parameterGroupName = $.parameterGroupName;
         this.primaryReplicationGroupId = $.primaryReplicationGroupId;
         this.transitEncryptionEnabled = $.transitEncryptionEnabled;
@@ -515,6 +552,40 @@ public final class GlobalReplicationGroupState extends com.pulumi.resources.Reso
         }
 
         /**
+         * @param globalNodeGroups Set of node groups (shards) on the global replication group.
+         * Has the values:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder globalNodeGroups(@Nullable Output<List<GlobalReplicationGroupGlobalNodeGroupArgs>> globalNodeGroups) {
+            $.globalNodeGroups = globalNodeGroups;
+            return this;
+        }
+
+        /**
+         * @param globalNodeGroups Set of node groups (shards) on the global replication group.
+         * Has the values:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder globalNodeGroups(List<GlobalReplicationGroupGlobalNodeGroupArgs> globalNodeGroups) {
+            return globalNodeGroups(Output.of(globalNodeGroups));
+        }
+
+        /**
+         * @param globalNodeGroups Set of node groups (shards) on the global replication group.
+         * Has the values:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder globalNodeGroups(GlobalReplicationGroupGlobalNodeGroupArgs... globalNodeGroups) {
+            return globalNodeGroups(List.of(globalNodeGroups));
+        }
+
+        /**
          * @param globalReplicationGroupDescription A user-created description for the global replication group.
          * 
          * @return builder
@@ -575,6 +646,27 @@ public final class GlobalReplicationGroupState extends com.pulumi.resources.Reso
          */
         public Builder globalReplicationGroupIdSuffix(String globalReplicationGroupIdSuffix) {
             return globalReplicationGroupIdSuffix(Output.of(globalReplicationGroupIdSuffix));
+        }
+
+        /**
+         * @param numNodeGroups The number of node groups (shards) on the global replication group.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder numNodeGroups(@Nullable Output<Integer> numNodeGroups) {
+            $.numNodeGroups = numNodeGroups;
+            return this;
+        }
+
+        /**
+         * @param numNodeGroups The number of node groups (shards) on the global replication group.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder numNodeGroups(Integer numNodeGroups) {
+            return numNodeGroups(Output.of(numNodeGroups));
         }
 
         /**

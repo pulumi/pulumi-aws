@@ -8,6 +8,7 @@ import com.pulumi.aws.elasticloadbalancingv2.TargetGroupArgs;
 import com.pulumi.aws.elasticloadbalancingv2.inputs.TargetGroupState;
 import com.pulumi.aws.elasticloadbalancingv2.outputs.TargetGroupHealthCheck;
 import com.pulumi.aws.elasticloadbalancingv2.outputs.TargetGroupStickiness;
+import com.pulumi.aws.elasticloadbalancingv2.outputs.TargetGroupTargetFailover;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -15,6 +16,7 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -442,6 +444,20 @@ public class TargetGroup extends com.pulumi.resources.CustomResource {
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
+    }
+    /**
+     * Target failover block. Only applicable for Gateway Load Balancer target groups. See target_failover for more information.
+     * 
+     */
+    @Export(name="targetFailovers", type=List.class, parameters={TargetGroupTargetFailover.class})
+    private Output<List<TargetGroupTargetFailover>> targetFailovers;
+
+    /**
+     * @return Target failover block. Only applicable for Gateway Load Balancer target groups. See target_failover for more information.
+     * 
+     */
+    public Output<List<TargetGroupTargetFailover>> targetFailovers() {
+        return this.targetFailovers;
     }
     /**
      * Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.

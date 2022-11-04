@@ -4,6 +4,7 @@
 package com.pulumi.aws.apprunner.outputs;
 
 import com.pulumi.aws.apprunner.outputs.ServiceNetworkConfigurationEgressConfiguration;
+import com.pulumi.aws.apprunner.outputs.ServiceNetworkConfigurationIngressConfiguration;
 import com.pulumi.core.annotations.CustomType;
 import java.util.Objects;
 import java.util.Optional;
@@ -12,18 +13,30 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ServiceNetworkConfiguration {
     /**
-     * @return Network configuration settings for outbound message traffic.
+     * @return Network configuration settings for outbound message traffic. See Egress Configuration below for more details.
      * 
      */
     private @Nullable ServiceNetworkConfigurationEgressConfiguration egressConfiguration;
+    /**
+     * @return Network configuration settings for inbound network traffic. See Ingress Configuration below for more details.
+     * 
+     */
+    private @Nullable ServiceNetworkConfigurationIngressConfiguration ingressConfiguration;
 
     private ServiceNetworkConfiguration() {}
     /**
-     * @return Network configuration settings for outbound message traffic.
+     * @return Network configuration settings for outbound message traffic. See Egress Configuration below for more details.
      * 
      */
     public Optional<ServiceNetworkConfigurationEgressConfiguration> egressConfiguration() {
         return Optional.ofNullable(this.egressConfiguration);
+    }
+    /**
+     * @return Network configuration settings for inbound network traffic. See Ingress Configuration below for more details.
+     * 
+     */
+    public Optional<ServiceNetworkConfigurationIngressConfiguration> ingressConfiguration() {
+        return Optional.ofNullable(this.ingressConfiguration);
     }
 
     public static Builder builder() {
@@ -36,10 +49,12 @@ public final class ServiceNetworkConfiguration {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable ServiceNetworkConfigurationEgressConfiguration egressConfiguration;
+        private @Nullable ServiceNetworkConfigurationIngressConfiguration ingressConfiguration;
         public Builder() {}
         public Builder(ServiceNetworkConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.egressConfiguration = defaults.egressConfiguration;
+    	      this.ingressConfiguration = defaults.ingressConfiguration;
         }
 
         @CustomType.Setter
@@ -47,9 +62,15 @@ public final class ServiceNetworkConfiguration {
             this.egressConfiguration = egressConfiguration;
             return this;
         }
+        @CustomType.Setter
+        public Builder ingressConfiguration(@Nullable ServiceNetworkConfigurationIngressConfiguration ingressConfiguration) {
+            this.ingressConfiguration = ingressConfiguration;
+            return this;
+        }
         public ServiceNetworkConfiguration build() {
             final var o = new ServiceNetworkConfiguration();
             o.egressConfiguration = egressConfiguration;
+            o.ingressConfiguration = ingressConfiguration;
             return o;
         }
     }
