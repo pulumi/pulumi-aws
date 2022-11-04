@@ -15,8 +15,7 @@ namespace Pulumi.Aws.CloudFront
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}
-        /// 
-        /// The following example below creates a CloudFront origin request policy.
+        /// ### Basic Usage
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -33,6 +32,26 @@ namespace Pulumi.Aws.CloudFront
         /// });
         /// ```
         /// {{% /example %}}
+        /// {{% example %}}
+        /// ### AWS-Managed Policies
+        /// 
+        /// AWS managed origin request policy names are prefixed with `Managed-`:
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var uaReferer = Aws.CloudFront.GetOriginRequestPolicy.Invoke(new()
+        ///     {
+        ///         Name = "Managed-UserAgentRefererHeaders",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetOriginRequestPolicyResult> InvokeAsync(GetOriginRequestPolicyArgs? args = null, InvokeOptions? options = null)
@@ -42,8 +61,7 @@ namespace Pulumi.Aws.CloudFront
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}
-        /// 
-        /// The following example below creates a CloudFront origin request policy.
+        /// ### Basic Usage
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -55,6 +73,26 @@ namespace Pulumi.Aws.CloudFront
         ///     var example = Aws.CloudFront.GetOriginRequestPolicy.Invoke(new()
         ///     {
         ///         Name = "example-policy",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### AWS-Managed Policies
+        /// 
+        /// AWS managed origin request policy names are prefixed with `Managed-`:
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var uaReferer = Aws.CloudFront.GetOriginRequestPolicy.Invoke(new()
+        ///     {
+        ///         Name = "Managed-UserAgentRefererHeaders",
         ///     });
         /// 
         /// });

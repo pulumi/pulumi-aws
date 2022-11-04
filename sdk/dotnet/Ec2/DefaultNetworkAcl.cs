@@ -195,7 +195,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> OwnerId { get; private set; } = null!;
 
         /// <summary>
-        /// List of Subnet IDs to apply the ACL to. See the notes below on managing Subnets in the Default Network ACL
+        /// List of Subnet IDs to apply the ACL to. See the notes above on Managing Subnets in the Default Network ACL
         /// </summary>
         [Output("subnetIds")]
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
@@ -298,7 +298,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _subnetIds;
 
         /// <summary>
-        /// List of Subnet IDs to apply the ACL to. See the notes below on managing Subnets in the Default Network ACL
+        /// List of Subnet IDs to apply the ACL to. See the notes above on Managing Subnets in the Default Network ACL
         /// </summary>
         public InputList<string> SubnetIds
         {
@@ -372,7 +372,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _subnetIds;
 
         /// <summary>
-        /// List of Subnet IDs to apply the ACL to. See the notes below on managing Subnets in the Default Network ACL
+        /// List of Subnet IDs to apply the ACL to. See the notes above on Managing Subnets in the Default Network ACL
         /// </summary>
         public InputList<string> SubnetIds
         {

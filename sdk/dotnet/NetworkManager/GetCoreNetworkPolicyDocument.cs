@@ -81,12 +81,12 @@ namespace Pulumi.Aws.NetworkManager
         ///                 {
         ///                     new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationInputArgs
         ///                     {
-        ///                         Asn = 64512,
+        ///                         Asn = "64512",
         ///                         Location = "us-east-1",
         ///                     },
         ///                     new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationInputArgs
         ///                     {
-        ///                         Asn = 64513,
+        ///                         Asn = "64513",
         ///                         Location = "eu-central-1",
         ///                     },
         ///                 },
@@ -212,12 +212,12 @@ namespace Pulumi.Aws.NetworkManager
         ///                 {
         ///                     new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationInputArgs
         ///                     {
-        ///                         Asn = 64512,
+        ///                         Asn = "64512",
         ///                         Location = "us-east-1",
         ///                     },
         ///                     new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationInputArgs
         ///                     {
-        ///                         Asn = 64513,
+        ///                         Asn = "64513",
         ///                         Location = "eu-central-1",
         ///                     },
         ///                 },

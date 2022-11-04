@@ -17,6 +17,7 @@ namespace Pulumi.Aws.CloudFront
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}
+        /// ### Basic Usage
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -33,6 +34,26 @@ namespace Pulumi.Aws.CloudFront
         /// });
         /// ```
         /// {{% /example %}}
+        /// {{% example %}}
+        /// ### AWS-Managed Policies
+        /// 
+        /// AWS managed cache policy names are prefixed with `Managed-`:
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.CloudFront.GetCachePolicy.Invoke(new()
+        ///     {
+        ///         Name = "Managed-CachingOptimized",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetCachePolicyResult> InvokeAsync(GetCachePolicyArgs? args = null, InvokeOptions? options = null)
@@ -44,6 +65,7 @@ namespace Pulumi.Aws.CloudFront
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}
+        /// ### Basic Usage
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -55,6 +77,26 @@ namespace Pulumi.Aws.CloudFront
         ///     var example = Aws.CloudFront.GetCachePolicy.Invoke(new()
         ///     {
         ///         Name = "example-policy",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### AWS-Managed Policies
+        /// 
+        /// AWS managed cache policy names are prefixed with `Managed-`:
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.CloudFront.GetCachePolicy.Invoke(new()
+        ///     {
+        ///         Name = "Managed-CachingOptimized",
         ///     });
         /// 
         /// });

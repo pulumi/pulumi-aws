@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     public sealed class DomainDefaultUserSettings
     {
         /// <summary>
+        /// The Canvas app settings. See Canvas App Settings below.
+        /// </summary>
+        public readonly Outputs.DomainDefaultUserSettingsCanvasAppSettings? CanvasAppSettings;
+        /// <summary>
         /// The execution role ARN for the user.
         /// </summary>
         public readonly string ExecutionRole;
@@ -25,6 +29,10 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// The kernel gateway app settings. See Kernel Gateway App Settings below.
         /// </summary>
         public readonly Outputs.DomainDefaultUserSettingsKernelGatewayAppSettings? KernelGatewayAppSettings;
+        /// <summary>
+        /// The RSession app settings. See RSession App Settings below.
+        /// </summary>
+        public readonly Outputs.DomainDefaultUserSettingsRSessionAppSettings? RSessionAppSettings;
         /// <summary>
         /// A list of security group IDs that will be attached to the user.
         /// </summary>
@@ -40,11 +48,15 @@ namespace Pulumi.Aws.Sagemaker.Outputs
 
         [OutputConstructor]
         private DomainDefaultUserSettings(
+            Outputs.DomainDefaultUserSettingsCanvasAppSettings? canvasAppSettings,
+
             string executionRole,
 
             Outputs.DomainDefaultUserSettingsJupyterServerAppSettings? jupyterServerAppSettings,
 
             Outputs.DomainDefaultUserSettingsKernelGatewayAppSettings? kernelGatewayAppSettings,
+
+            Outputs.DomainDefaultUserSettingsRSessionAppSettings? rSessionAppSettings,
 
             ImmutableArray<string> securityGroups,
 
@@ -52,9 +64,11 @@ namespace Pulumi.Aws.Sagemaker.Outputs
 
             Outputs.DomainDefaultUserSettingsTensorBoardAppSettings? tensorBoardAppSettings)
         {
+            CanvasAppSettings = canvasAppSettings;
             ExecutionRole = executionRole;
             JupyterServerAppSettings = jupyterServerAppSettings;
             KernelGatewayAppSettings = kernelGatewayAppSettings;
+            RSessionAppSettings = rSessionAppSettings;
             SecurityGroups = securityGroups;
             SharingSettings = sharingSettings;
             TensorBoardAppSettings = tensorBoardAppSettings;

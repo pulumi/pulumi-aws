@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Alb.Inputs
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// The type of sticky sessions. The only current possible values are `lb_cookie`, `app_cookie` for ALBs, and `source_ip` for NLBs.
+        /// The type of sticky sessions. The only current possible values are `lb_cookie`, `app_cookie` for ALBs, `source_ip` for NLBs, and `source_ip_dest_ip`, `source_ip_dest_ip_proto` for GWLBs.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

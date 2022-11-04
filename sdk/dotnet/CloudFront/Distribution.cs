@@ -57,7 +57,7 @@ namespace Pulumi.Aws.CloudFront
     ///             {
     ///                 DomainName = bucketV2.BucketRegionalDomainName,
     ///                 OriginAccessControlId = aws_cloudfront_origin_access_control.Default.Id,
-    ///                 OriginId = locals.S3_origin_id,
+    ///                 OriginId = s3OriginId,
     ///             },
     ///         },
     ///         Enabled = true,

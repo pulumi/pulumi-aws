@@ -10,36 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Rds
 {
     /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var @default = new Aws.Rds.ParameterGroup("default", new()
-    ///     {
-    ///         Family = "mysql5.6",
-    ///         Parameters = new[]
-    ///         {
-    ///             new Aws.Rds.Inputs.ParameterGroupParameterArgs
-    ///             {
-    ///                 Name = "character_set_server",
-    ///                 Value = "utf8",
-    ///             },
-    ///             new Aws.Rds.Inputs.ParameterGroupParameterArgs
-    ///             {
-    ///                 Name = "character_set_client",
-    ///                 Value = "utf8",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// DB Parameter groups can be imported using the `name`, e.g.,

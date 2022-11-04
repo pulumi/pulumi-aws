@@ -135,6 +135,10 @@ namespace Pulumi.Aws.SesV2
         public readonly string Id;
         public readonly string PoolName;
         /// <summary>
+        /// (Optional) IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`.
+        /// </summary>
+        public readonly string ScalingMode;
+        /// <summary>
         /// A map of tags attached to the pool.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
@@ -149,12 +153,15 @@ namespace Pulumi.Aws.SesV2
 
             string poolName,
 
+            string scalingMode,
+
             ImmutableDictionary<string, string> tags)
         {
             Arn = arn;
             DedicatedIps = dedicatedIps;
             Id = id;
             PoolName = poolName;
+            ScalingMode = scalingMode;
             Tags = tags;
         }
     }

@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Batch.Outputs
         /// </summary>
         public readonly int? MinVcpus;
         /// <summary>
-        /// A list of EC2 security group that are associated with instances launched in the compute environment.
+        /// A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
         /// <summary>

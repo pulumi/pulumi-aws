@@ -13,10 +13,16 @@ namespace Pulumi.Aws.AppRunner.Inputs
     public sealed class ServiceNetworkConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Network configuration settings for outbound message traffic.
+        /// Network configuration settings for outbound message traffic. See Egress Configuration below for more details.
         /// </summary>
         [Input("egressConfiguration")]
         public Input<Inputs.ServiceNetworkConfigurationEgressConfigurationGetArgs>? EgressConfiguration { get; set; }
+
+        /// <summary>
+        /// Network configuration settings for inbound network traffic. See Ingress Configuration below for more details.
+        /// </summary>
+        [Input("ingressConfiguration")]
+        public Input<Inputs.ServiceNetworkConfigurationIngressConfigurationGetArgs>? IngressConfiguration { get; set; }
 
         public ServiceNetworkConfigurationGetArgs()
         {

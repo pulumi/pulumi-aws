@@ -50,6 +50,10 @@ namespace Pulumi.Aws.DataSync.Outputs
         /// </summary>
         public readonly string? PreserveDevices;
         /// <summary>
+        /// Determines which components of the SMB security descriptor are copied from source to destination objects. This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. Valid values: `NONE`, `OWNER_DACL`, `OWNER_DACL_SACL`.
+        /// </summary>
+        public readonly string? SecurityDescriptorCopyFlags;
+        /// <summary>
         /// Determines whether tasks should be queued before executing the tasks. Valid values: `ENABLED`, `DISABLED`. Default `ENABLED`.
         /// </summary>
         public readonly string? TaskQueueing;
@@ -86,6 +90,8 @@ namespace Pulumi.Aws.DataSync.Outputs
 
             string? preserveDevices,
 
+            string? securityDescriptorCopyFlags,
+
             string? taskQueueing,
 
             string? transferMode,
@@ -103,6 +109,7 @@ namespace Pulumi.Aws.DataSync.Outputs
             PosixPermissions = posixPermissions;
             PreserveDeletedFiles = preserveDeletedFiles;
             PreserveDevices = preserveDevices;
+            SecurityDescriptorCopyFlags = securityDescriptorCopyFlags;
             TaskQueueing = taskQueueing;
             TransferMode = transferMode;
             Uid = uid;

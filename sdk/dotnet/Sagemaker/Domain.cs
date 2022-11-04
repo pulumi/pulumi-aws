@@ -150,6 +150,12 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string?> AppNetworkAccessType { get; private set; } = null!;
 
         /// <summary>
+        /// The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
+        /// </summary>
+        [Output("appSecurityGroupManagement")]
+        public Output<string?> AppSecurityGroupManagement { get; private set; } = null!;
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this Domain.
         /// </summary>
         [Output("arn")]
@@ -174,6 +180,12 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> DomainName { get; private set; } = null!;
 
         /// <summary>
+        /// The domain settings. See Domain Settings below.
+        /// </summary>
+        [Output("domainSettings")]
+        public Output<Outputs.DomainDomainSettings?> DomainSettings { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the Amazon Elastic File System (EFS) managed by this Domain.
         /// </summary>
         [Output("homeEfsFileSystemId")]
@@ -192,6 +204,12 @@ namespace Pulumi.Aws.Sagemaker
         public Output<Outputs.DomainRetentionPolicy?> RetentionPolicy { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
+        /// </summary>
+        [Output("securityGroupIdForDomainBoundary")]
+        public Output<string> SecurityGroupIdForDomainBoundary { get; private set; } = null!;
+
+        /// <summary>
         /// The SSO managed application instance ID.
         /// </summary>
         [Output("singleSignOnManagedApplicationInstanceId")]
@@ -204,7 +222,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -280,6 +298,12 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? AppNetworkAccessType { get; set; }
 
         /// <summary>
+        /// The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
+        /// </summary>
+        [Input("appSecurityGroupManagement")]
+        public Input<string>? AppSecurityGroupManagement { get; set; }
+
+        /// <summary>
         /// The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
         /// </summary>
         [Input("authMode", required: true)]
@@ -296,6 +320,12 @@ namespace Pulumi.Aws.Sagemaker
         /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
+
+        /// <summary>
+        /// The domain settings. See Domain Settings below.
+        /// </summary>
+        [Input("domainSettings")]
+        public Input<Inputs.DomainDomainSettingsArgs>? DomainSettings { get; set; }
 
         /// <summary>
         /// The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
@@ -325,7 +355,7 @@ namespace Pulumi.Aws.Sagemaker
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -354,6 +384,12 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? AppNetworkAccessType { get; set; }
 
         /// <summary>
+        /// The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
+        /// </summary>
+        [Input("appSecurityGroupManagement")]
+        public Input<string>? AppSecurityGroupManagement { get; set; }
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this Domain.
         /// </summary>
         [Input("arn")]
@@ -378,6 +414,12 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? DomainName { get; set; }
 
         /// <summary>
+        /// The domain settings. See Domain Settings below.
+        /// </summary>
+        [Input("domainSettings")]
+        public Input<Inputs.DomainDomainSettingsGetArgs>? DomainSettings { get; set; }
+
+        /// <summary>
         /// The ID of the Amazon Elastic File System (EFS) managed by this Domain.
         /// </summary>
         [Input("homeEfsFileSystemId")]
@@ -394,6 +436,12 @@ namespace Pulumi.Aws.Sagemaker
         /// </summary>
         [Input("retentionPolicy")]
         public Input<Inputs.DomainRetentionPolicyGetArgs>? RetentionPolicy { get; set; }
+
+        /// <summary>
+        /// The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
+        /// </summary>
+        [Input("securityGroupIdForDomainBoundary")]
+        public Input<string>? SecurityGroupIdForDomainBoundary { get; set; }
 
         /// <summary>
         /// The SSO managed application instance ID.
@@ -417,7 +465,7 @@ namespace Pulumi.Aws.Sagemaker
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

@@ -173,7 +173,7 @@ namespace Pulumi.Aws.Acm
         private List<string>? _types;
 
         /// <summary>
-        /// List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED` and `IMPORTED`.
+        /// List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED`, `PRIVATE`, and `IMPORTED`.
         /// </summary>
         public List<string> Types
         {
@@ -243,7 +243,7 @@ namespace Pulumi.Aws.Acm
         private InputList<string>? _types;
 
         /// <summary>
-        /// List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED` and `IMPORTED`.
+        /// List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED`, `PRIVATE`, and `IMPORTED`.
         /// </summary>
         public InputList<string> Types
         {

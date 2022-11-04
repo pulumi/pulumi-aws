@@ -13,6 +13,12 @@ namespace Pulumi.Aws.Sagemaker.Inputs
     public sealed class DomainDefaultUserSettingsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The Canvas app settings. See Canvas App Settings below.
+        /// </summary>
+        [Input("canvasAppSettings")]
+        public Input<Inputs.DomainDefaultUserSettingsCanvasAppSettingsGetArgs>? CanvasAppSettings { get; set; }
+
+        /// <summary>
         /// The execution role ARN for the user.
         /// </summary>
         [Input("executionRole", required: true)]
@@ -29,6 +35,12 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         /// </summary>
         [Input("kernelGatewayAppSettings")]
         public Input<Inputs.DomainDefaultUserSettingsKernelGatewayAppSettingsGetArgs>? KernelGatewayAppSettings { get; set; }
+
+        /// <summary>
+        /// The RSession app settings. See RSession App Settings below.
+        /// </summary>
+        [Input("rSessionAppSettings")]
+        public Input<Inputs.DomainDefaultUserSettingsRSessionAppSettingsGetArgs>? RSessionAppSettings { get; set; }
 
         [Input("securityGroups")]
         private InputList<string>? _securityGroups;
