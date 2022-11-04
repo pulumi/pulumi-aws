@@ -123,7 +123,19 @@ class AwaitableGetOriginAccessIdentityResult(GetOriginAccessIdentityResult):
 def get_origin_access_identity(id: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOriginAccessIdentityResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to retrieve information for an Amazon CloudFront origin access identity.
+
+    ## Example Usage
+
+    The following example below creates a CloudFront origin access identity.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.cloudfront.get_origin_access_identity(id="EDFDVBD632BHDS5")
+    ```
+
 
     :param str id: The identifier for the distribution. For example: `EDFDVBD632BHDS5`.
     """
@@ -146,7 +158,19 @@ def get_origin_access_identity(id: Optional[str] = None,
 def get_origin_access_identity_output(id: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOriginAccessIdentityResult]:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to retrieve information for an Amazon CloudFront origin access identity.
+
+    ## Example Usage
+
+    The following example below creates a CloudFront origin access identity.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.cloudfront.get_origin_access_identity(id="EDFDVBD632BHDS5")
+    ```
+
 
     :param str id: The identifier for the distribution. For example: `EDFDVBD632BHDS5`.
     """

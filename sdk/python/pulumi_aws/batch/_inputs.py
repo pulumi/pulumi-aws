@@ -13,6 +13,7 @@ __all__ = [
     'ComputeEnvironmentComputeResourcesArgs',
     'ComputeEnvironmentComputeResourcesEc2ConfigurationArgs',
     'ComputeEnvironmentComputeResourcesLaunchTemplateArgs',
+    'ComputeEnvironmentEksConfigurationArgs',
     'JobDefinitionRetryStrategyArgs',
     'JobDefinitionRetryStrategyEvaluateOnExitArgs',
     'JobDefinitionTimeoutArgs',
@@ -24,7 +25,6 @@ __all__ = [
 class ComputeEnvironmentComputeResourcesArgs:
     def __init__(__self__, *,
                  max_vcpus: pulumi.Input[int],
-                 security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  subnets: pulumi.Input[Sequence[pulumi.Input[str]]],
                  type: pulumi.Input[str],
                  allocation_strategy: Optional[pulumi.Input[str]] = None,
@@ -37,11 +37,11 @@ class ComputeEnvironmentComputeResourcesArgs:
                  instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  launch_template: Optional[pulumi.Input['ComputeEnvironmentComputeResourcesLaunchTemplateArgs']] = None,
                  min_vcpus: Optional[pulumi.Input[int]] = None,
+                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  spot_iam_fleet_role: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[int] max_vcpus: The maximum number of EC2 vCPUs that an environment can reach.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of EC2 security group that are associated with instances launched in the compute environment.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: A list of VPC subnets into which the compute resources are launched.
         :param pulumi.Input[str] type: The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
         :param pulumi.Input[str] allocation_strategy: The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. Valid items are `BEST_FIT_PROGRESSIVE`, `SPOT_CAPACITY_OPTIMIZED` or `BEST_FIT`. Defaults to `BEST_FIT`. See [AWS docs](https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html) for details. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
@@ -54,11 +54,11 @@ class ComputeEnvironmentComputeResourcesArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_types: A list of instance types that may be launched. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         :param pulumi.Input['ComputeEnvironmentComputeResourcesLaunchTemplateArgs'] launch_template: The launch template to use for your compute resources. See details below. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         :param pulumi.Input[int] min_vcpus: The minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
         :param pulumi.Input[str] spot_iam_fleet_role: The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         """
         pulumi.set(__self__, "max_vcpus", max_vcpus)
-        pulumi.set(__self__, "security_group_ids", security_group_ids)
         pulumi.set(__self__, "subnets", subnets)
         pulumi.set(__self__, "type", type)
         if allocation_strategy is not None:
@@ -81,6 +81,8 @@ class ComputeEnvironmentComputeResourcesArgs:
             pulumi.set(__self__, "launch_template", launch_template)
         if min_vcpus is not None:
             pulumi.set(__self__, "min_vcpus", min_vcpus)
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
         if spot_iam_fleet_role is not None:
             pulumi.set(__self__, "spot_iam_fleet_role", spot_iam_fleet_role)
         if tags is not None:
@@ -97,18 +99,6 @@ class ComputeEnvironmentComputeResourcesArgs:
     @max_vcpus.setter
     def max_vcpus(self, value: pulumi.Input[int]):
         pulumi.set(self, "max_vcpus", value)
-
-    @property
-    @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        A list of EC2 security group that are associated with instances launched in the compute environment.
-        """
-        return pulumi.get(self, "security_group_ids")
-
-    @security_group_ids.setter
-    def security_group_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "security_group_ids", value)
 
     @property
     @pulumi.getter
@@ -255,6 +245,18 @@ class ComputeEnvironmentComputeResourcesArgs:
         pulumi.set(self, "min_vcpus", value)
 
     @property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @security_group_ids.setter
+    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "security_group_ids", value)
+
+    @property
     @pulumi.getter(name="spotIamFleetRole")
     def spot_iam_fleet_role(self) -> Optional[pulumi.Input[str]]:
         """
@@ -371,6 +373,43 @@ class ComputeEnvironmentComputeResourcesLaunchTemplateArgs:
     @version.setter
     def version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "version", value)
+
+
+@pulumi.input_type
+class ComputeEnvironmentEksConfigurationArgs:
+    def __init__(__self__, *,
+                 eks_cluster_arn: pulumi.Input[str],
+                 kubernetes_namespace: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] eks_cluster_arn: The Amazon Resource Name (ARN) of the Amazon EKS cluster.
+        :param pulumi.Input[str] kubernetes_namespace: The namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace.
+        """
+        pulumi.set(__self__, "eks_cluster_arn", eks_cluster_arn)
+        pulumi.set(__self__, "kubernetes_namespace", kubernetes_namespace)
+
+    @property
+    @pulumi.getter(name="eksClusterArn")
+    def eks_cluster_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the Amazon EKS cluster.
+        """
+        return pulumi.get(self, "eks_cluster_arn")
+
+    @eks_cluster_arn.setter
+    def eks_cluster_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "eks_cluster_arn", value)
+
+    @property
+    @pulumi.getter(name="kubernetesNamespace")
+    def kubernetes_namespace(self) -> pulumi.Input[str]:
+        """
+        The namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace.
+        """
+        return pulumi.get(self, "kubernetes_namespace")
+
+    @kubernetes_namespace.setter
+    def kubernetes_namespace(self, value: pulumi.Input[str]):
+        pulumi.set(self, "kubernetes_namespace", value)
 
 
 @pulumi.input_type

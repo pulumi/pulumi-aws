@@ -176,6 +176,14 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
             device_index=0)
         ```
 
+        ## Import
+
+        Elastic network interface (ENI) Attachments can be imported using its Attachment ID e.g.,
+
+        ```sh
+         $ pulumi import aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment secondary_nic eni-attach-0a33842b4ec347c4c
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] device_index: Network interface index (int).
@@ -201,6 +209,14 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
             instance_id=aws_instance["test"]["id"],
             network_interface_id=aws_network_interface["test"]["id"],
             device_index=0)
+        ```
+
+        ## Import
+
+        Elastic network interface (ENI) Attachments can be imported using its Attachment ID e.g.,
+
+        ```sh
+         $ pulumi import aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment secondary_nic eni-attach-0a33842b4ec347c4c
         ```
 
         :param str resource_name: The name of the resource.

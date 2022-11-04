@@ -18,6 +18,7 @@ from .hosted_zone_dns_sec import *
 from .key_signing_key import *
 from .query_log import *
 from .record import *
+from .resolver_config import *
 from .resolver_dns_sec_config import *
 from .resolver_endpoint import *
 from .resolver_firewall_config import *

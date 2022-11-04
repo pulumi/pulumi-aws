@@ -184,7 +184,7 @@ def get_certificate(domain: Optional[str] = None,
            `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
            are returned.
     :param Mapping[str, str] tags: Mapping of tags for the resource.
-    :param Sequence[str] types: List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED` and `IMPORTED`.
+    :param Sequence[str] types: List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED`, `PRIVATE`, and `IMPORTED`.
     """
     __args__ = dict()
     __args__['domain'] = domain
@@ -246,6 +246,6 @@ def get_certificate_output(domain: Optional[pulumi.Input[str]] = None,
            `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
            are returned.
     :param Mapping[str, str] tags: Mapping of tags for the resource.
-    :param Sequence[str] types: List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED` and `IMPORTED`.
+    :param Sequence[str] types: List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED`, `PRIVATE`, and `IMPORTED`.
     """
     ...

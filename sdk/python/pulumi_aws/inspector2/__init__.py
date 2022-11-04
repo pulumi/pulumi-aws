@@ -6,6 +6,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .delegated_admin_account import *
+from .enabler import *
 from .organization_configuration import *
 from ._inputs import *
 from . import outputs

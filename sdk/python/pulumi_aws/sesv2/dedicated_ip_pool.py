@@ -15,13 +15,17 @@ __all__ = ['DedicatedIpPoolArgs', 'DedicatedIpPool']
 class DedicatedIpPoolArgs:
     def __init__(__self__, *,
                  pool_name: pulumi.Input[str],
+                 scaling_mode: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a DedicatedIpPool resource.
         :param pulumi.Input[str] pool_name: Name of the dedicated IP pool.
+        :param pulumi.Input[str] scaling_mode: IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
         """
         pulumi.set(__self__, "pool_name", pool_name)
+        if scaling_mode is not None:
+            pulumi.set(__self__, "scaling_mode", scaling_mode)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -38,6 +42,18 @@ class DedicatedIpPoolArgs:
     @pool_name.setter
     def pool_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "pool_name", value)
+
+    @property
+    @pulumi.getter(name="scalingMode")
+    def scaling_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
+        """
+        return pulumi.get(self, "scaling_mode")
+
+    @scaling_mode.setter
+    def scaling_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scaling_mode", value)
 
     @property
     @pulumi.getter
@@ -63,17 +79,21 @@ class _DedicatedIpPoolState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  pool_name: Optional[pulumi.Input[str]] = None,
+                 scaling_mode: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering DedicatedIpPool resources.
         :param pulumi.Input[str] arn: ARN of the Dedicated IP Pool.
         :param pulumi.Input[str] pool_name: Name of the dedicated IP pool.
+        :param pulumi.Input[str] scaling_mode: IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if pool_name is not None:
             pulumi.set(__self__, "pool_name", pool_name)
+        if scaling_mode is not None:
+            pulumi.set(__self__, "scaling_mode", scaling_mode)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -104,6 +124,18 @@ class _DedicatedIpPoolState:
         pulumi.set(self, "pool_name", value)
 
     @property
+    @pulumi.getter(name="scalingMode")
+    def scaling_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
+        """
+        return pulumi.get(self, "scaling_mode")
+
+    @scaling_mode.setter
+    def scaling_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scaling_mode", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "tags")
@@ -128,6 +160,7 @@ class DedicatedIpPool(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  pool_name: Optional[pulumi.Input[str]] = None,
+                 scaling_mode: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -141,6 +174,16 @@ class DedicatedIpPool(pulumi.CustomResource):
 
         example = aws.sesv2.DedicatedIpPool("example", pool_name="my-pool")
         ```
+        ### Managed Pool
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.sesv2.DedicatedIpPool("example",
+            pool_name="my-managed-pool",
+            scaling_mode="MANAGED")
+        ```
 
         ## Import
 
@@ -153,6 +196,7 @@ class DedicatedIpPool(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] pool_name: Name of the dedicated IP pool.
+        :param pulumi.Input[str] scaling_mode: IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
         """
         ...
     @overload
@@ -169,6 +213,16 @@ class DedicatedIpPool(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sesv2.DedicatedIpPool("example", pool_name="my-pool")
+        ```
+        ### Managed Pool
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.sesv2.DedicatedIpPool("example",
+            pool_name="my-managed-pool",
+            scaling_mode="MANAGED")
         ```
 
         ## Import
@@ -195,6 +249,7 @@ class DedicatedIpPool(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  pool_name: Optional[pulumi.Input[str]] = None,
+                 scaling_mode: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -209,6 +264,7 @@ class DedicatedIpPool(pulumi.CustomResource):
             if pool_name is None and not opts.urn:
                 raise TypeError("Missing required property 'pool_name'")
             __props__.__dict__["pool_name"] = pool_name
+            __props__.__dict__["scaling_mode"] = scaling_mode
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
@@ -224,6 +280,7 @@ class DedicatedIpPool(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             pool_name: Optional[pulumi.Input[str]] = None,
+            scaling_mode: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'DedicatedIpPool':
         """
@@ -235,6 +292,7 @@ class DedicatedIpPool(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the Dedicated IP Pool.
         :param pulumi.Input[str] pool_name: Name of the dedicated IP pool.
+        :param pulumi.Input[str] scaling_mode: IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -242,6 +300,7 @@ class DedicatedIpPool(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = arn
         __props__.__dict__["pool_name"] = pool_name
+        __props__.__dict__["scaling_mode"] = scaling_mode
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         return DedicatedIpPool(resource_name, opts=opts, __props__=__props__)
@@ -261,6 +320,14 @@ class DedicatedIpPool(pulumi.CustomResource):
         Name of the dedicated IP pool.
         """
         return pulumi.get(self, "pool_name")
+
+    @property
+    @pulumi.getter(name="scalingMode")
+    def scaling_mode(self) -> pulumi.Output[str]:
+        """
+        IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
+        """
+        return pulumi.get(self, "scaling_mode")
 
     @property
     @pulumi.getter

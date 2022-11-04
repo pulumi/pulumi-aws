@@ -23,7 +23,7 @@ class GetCertificateAuthorityResult:
     """
     A collection of values returned by getCertificateAuthority.
     """
-    def __init__(__self__, arn=None, certificate=None, certificate_chain=None, certificate_signing_request=None, id=None, not_after=None, not_before=None, revocation_configurations=None, serial=None, status=None, tags=None, type=None):
+    def __init__(__self__, arn=None, certificate=None, certificate_chain=None, certificate_signing_request=None, id=None, not_after=None, not_before=None, revocation_configurations=None, serial=None, status=None, tags=None, type=None, usage_mode=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -60,6 +60,9 @@ class GetCertificateAuthorityResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if usage_mode and not isinstance(usage_mode, str):
+            raise TypeError("Expected argument 'usage_mode' to be a str")
+        pulumi.set(__self__, "usage_mode", usage_mode)
 
     @property
     @pulumi.getter
@@ -162,6 +165,14 @@ class GetCertificateAuthorityResult:
         """
         return pulumi.get(self, "type")
 
+    @property
+    @pulumi.getter(name="usageMode")
+    def usage_mode(self) -> str:
+        """
+        Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly.
+        """
+        return pulumi.get(self, "usage_mode")
+
 
 class AwaitableGetCertificateAuthorityResult(GetCertificateAuthorityResult):
     # pylint: disable=using-constant-test
@@ -180,7 +191,8 @@ class AwaitableGetCertificateAuthorityResult(GetCertificateAuthorityResult):
             serial=self.serial,
             status=self.status,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            usage_mode=self.usage_mode)
 
 
 def get_certificate_authority(arn: Optional[str] = None,
@@ -231,7 +243,8 @@ def get_certificate_authority(arn: Optional[str] = None,
         serial=__ret__.serial,
         status=__ret__.status,
         tags=__ret__.tags,
-        type=__ret__.type)
+        type=__ret__.type,
+        usage_mode=__ret__.usage_mode)
 
 
 @_utilities.lift_output_func(get_certificate_authority)

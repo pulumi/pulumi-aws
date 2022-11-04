@@ -22,6 +22,7 @@ __all__ = [
     'InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig',
     'InstanceStorageConfigStorageConfigS3Config',
     'InstanceStorageConfigStorageConfigS3ConfigEncryptionConfig',
+    'PhoneNumberStatus',
     'QueueOutboundCallerConfig',
     'QuickConnectQuickConnectConfig',
     'QuickConnectQuickConnectConfigPhoneConfig',
@@ -48,6 +49,13 @@ __all__ = [
     'GetHoursOfOperationConfigResult',
     'GetHoursOfOperationConfigEndTimeResult',
     'GetHoursOfOperationConfigStartTimeResult',
+    'GetInstanceStorageConfigStorageConfigResult',
+    'GetInstanceStorageConfigStorageConfigKinesisFirehoseConfigResult',
+    'GetInstanceStorageConfigStorageConfigKinesisStreamConfigResult',
+    'GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigResult',
+    'GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigResult',
+    'GetInstanceStorageConfigStorageConfigS3ConfigResult',
+    'GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfigResult',
     'GetQueueOutboundCallerConfigResult',
     'GetQuickConnectQuickConnectConfigResult',
     'GetQuickConnectQuickConnectConfigPhoneConfigResult',
@@ -609,6 +617,37 @@ class InstanceStorageConfigStorageConfigS3ConfigEncryptionConfig(dict):
         The full ARN of the encryption key. Be sure to provide the full ARN of the encryption key, not just the ID.
         """
         return pulumi.get(self, "key_id")
+
+
+@pulumi.output_type
+class PhoneNumberStatus(dict):
+    def __init__(__self__, *,
+                 message: Optional[str] = None,
+                 status: Optional[str] = None):
+        """
+        :param str message: The status message.
+        :param str status: The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
+        """
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[str]:
+        """
+        The status message.
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type
@@ -1981,6 +2020,242 @@ class GetHoursOfOperationConfigStartTimeResult(dict):
         Minute of opening.
         """
         return pulumi.get(self, "minutes")
+
+
+@pulumi.output_type
+class GetInstanceStorageConfigStorageConfigResult(dict):
+    def __init__(__self__, *,
+                 kinesis_firehose_configs: Sequence['outputs.GetInstanceStorageConfigStorageConfigKinesisFirehoseConfigResult'],
+                 kinesis_stream_configs: Sequence['outputs.GetInstanceStorageConfigStorageConfigKinesisStreamConfigResult'],
+                 kinesis_video_stream_configs: Sequence['outputs.GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigResult'],
+                 s3_configs: Sequence['outputs.GetInstanceStorageConfigStorageConfigS3ConfigResult'],
+                 storage_type: str):
+        """
+        :param Sequence['GetInstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs'] kinesis_firehose_configs: A block that specifies the configuration of the Kinesis Firehose delivery stream. Documented below.
+        :param Sequence['GetInstanceStorageConfigStorageConfigKinesisStreamConfigArgs'] kinesis_stream_configs: A block that specifies the configuration of the Kinesis data stream. Documented below.
+        :param Sequence['GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs'] kinesis_video_stream_configs: A block that specifies the configuration of the Kinesis video stream. Documented below.
+        :param Sequence['GetInstanceStorageConfigStorageConfigS3ConfigArgs'] s3_configs: A block that specifies the configuration of S3 Bucket. Documented below.
+        :param str storage_type: A valid storage type. Valid Values: `S3` | `KINESIS_VIDEO_STREAM` | `KINESIS_STREAM` | `KINESIS_FIREHOSE`.
+        """
+        pulumi.set(__self__, "kinesis_firehose_configs", kinesis_firehose_configs)
+        pulumi.set(__self__, "kinesis_stream_configs", kinesis_stream_configs)
+        pulumi.set(__self__, "kinesis_video_stream_configs", kinesis_video_stream_configs)
+        pulumi.set(__self__, "s3_configs", s3_configs)
+        pulumi.set(__self__, "storage_type", storage_type)
+
+    @property
+    @pulumi.getter(name="kinesisFirehoseConfigs")
+    def kinesis_firehose_configs(self) -> Sequence['outputs.GetInstanceStorageConfigStorageConfigKinesisFirehoseConfigResult']:
+        """
+        A block that specifies the configuration of the Kinesis Firehose delivery stream. Documented below.
+        """
+        return pulumi.get(self, "kinesis_firehose_configs")
+
+    @property
+    @pulumi.getter(name="kinesisStreamConfigs")
+    def kinesis_stream_configs(self) -> Sequence['outputs.GetInstanceStorageConfigStorageConfigKinesisStreamConfigResult']:
+        """
+        A block that specifies the configuration of the Kinesis data stream. Documented below.
+        """
+        return pulumi.get(self, "kinesis_stream_configs")
+
+    @property
+    @pulumi.getter(name="kinesisVideoStreamConfigs")
+    def kinesis_video_stream_configs(self) -> Sequence['outputs.GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigResult']:
+        """
+        A block that specifies the configuration of the Kinesis video stream. Documented below.
+        """
+        return pulumi.get(self, "kinesis_video_stream_configs")
+
+    @property
+    @pulumi.getter(name="s3Configs")
+    def s3_configs(self) -> Sequence['outputs.GetInstanceStorageConfigStorageConfigS3ConfigResult']:
+        """
+        A block that specifies the configuration of S3 Bucket. Documented below.
+        """
+        return pulumi.get(self, "s3_configs")
+
+    @property
+    @pulumi.getter(name="storageType")
+    def storage_type(self) -> str:
+        """
+        A valid storage type. Valid Values: `S3` | `KINESIS_VIDEO_STREAM` | `KINESIS_STREAM` | `KINESIS_FIREHOSE`.
+        """
+        return pulumi.get(self, "storage_type")
+
+
+@pulumi.output_type
+class GetInstanceStorageConfigStorageConfigKinesisFirehoseConfigResult(dict):
+    def __init__(__self__, *,
+                 firehose_arn: str):
+        """
+        :param str firehose_arn: The Amazon Resource Name (ARN) of the delivery stream.
+        """
+        pulumi.set(__self__, "firehose_arn", firehose_arn)
+
+    @property
+    @pulumi.getter(name="firehoseArn")
+    def firehose_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the delivery stream.
+        """
+        return pulumi.get(self, "firehose_arn")
+
+
+@pulumi.output_type
+class GetInstanceStorageConfigStorageConfigKinesisStreamConfigResult(dict):
+    def __init__(__self__, *,
+                 stream_arn: str):
+        """
+        :param str stream_arn: The Amazon Resource Name (ARN) of the data stream.
+        """
+        pulumi.set(__self__, "stream_arn", stream_arn)
+
+    @property
+    @pulumi.getter(name="streamArn")
+    def stream_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the data stream.
+        """
+        return pulumi.get(self, "stream_arn")
+
+
+@pulumi.output_type
+class GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigResult(dict):
+    def __init__(__self__, *,
+                 encryption_configs: Sequence['outputs.GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigResult'],
+                 prefix: str,
+                 retention_period_hours: int):
+        """
+        :param Sequence['GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArgs'] encryption_configs: The encryption configuration. Documented below.
+        :param str prefix: The prefix of the video stream. Minimum length of `1`. Maximum length of `128`. When read from the state, the value returned is `<prefix>-connect-<connect_instance_alias>-contact-` since the API appends additional details to the `prefix`.
+        :param int retention_period_hours: The number of hours to retain the data in a data store associated with the stream. Minimum value of `0`. Maximum value of `87600`. A value of `0` indicates that the stream does not persist data.
+        """
+        pulumi.set(__self__, "encryption_configs", encryption_configs)
+        pulumi.set(__self__, "prefix", prefix)
+        pulumi.set(__self__, "retention_period_hours", retention_period_hours)
+
+    @property
+    @pulumi.getter(name="encryptionConfigs")
+    def encryption_configs(self) -> Sequence['outputs.GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigResult']:
+        """
+        The encryption configuration. Documented below.
+        """
+        return pulumi.get(self, "encryption_configs")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> str:
+        """
+        The prefix of the video stream. Minimum length of `1`. Maximum length of `128`. When read from the state, the value returned is `<prefix>-connect-<connect_instance_alias>-contact-` since the API appends additional details to the `prefix`.
+        """
+        return pulumi.get(self, "prefix")
+
+    @property
+    @pulumi.getter(name="retentionPeriodHours")
+    def retention_period_hours(self) -> int:
+        """
+        The number of hours to retain the data in a data store associated with the stream. Minimum value of `0`. Maximum value of `87600`. A value of `0` indicates that the stream does not persist data.
+        """
+        return pulumi.get(self, "retention_period_hours")
+
+
+@pulumi.output_type
+class GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigResult(dict):
+    def __init__(__self__, *,
+                 encryption_type: str,
+                 key_id: str):
+        """
+        :param str encryption_type: The type of encryption. Valid Values: `KMS`.
+        :param str key_id: The full ARN of the encryption key. Be sure to provide the full ARN of the encryption key, not just the ID.
+        """
+        pulumi.set(__self__, "encryption_type", encryption_type)
+        pulumi.set(__self__, "key_id", key_id)
+
+    @property
+    @pulumi.getter(name="encryptionType")
+    def encryption_type(self) -> str:
+        """
+        The type of encryption. Valid Values: `KMS`.
+        """
+        return pulumi.get(self, "encryption_type")
+
+    @property
+    @pulumi.getter(name="keyId")
+    def key_id(self) -> str:
+        """
+        The full ARN of the encryption key. Be sure to provide the full ARN of the encryption key, not just the ID.
+        """
+        return pulumi.get(self, "key_id")
+
+
+@pulumi.output_type
+class GetInstanceStorageConfigStorageConfigS3ConfigResult(dict):
+    def __init__(__self__, *,
+                 bucket_name: str,
+                 bucket_prefix: str,
+                 encryption_configs: Sequence['outputs.GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfigResult']):
+        """
+        :param str bucket_name: The S3 bucket name.
+        :param str bucket_prefix: The S3 bucket prefix.
+        :param Sequence['GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs'] encryption_configs: The encryption configuration. Documented below.
+        """
+        pulumi.set(__self__, "bucket_name", bucket_name)
+        pulumi.set(__self__, "bucket_prefix", bucket_prefix)
+        pulumi.set(__self__, "encryption_configs", encryption_configs)
+
+    @property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> str:
+        """
+        The S3 bucket name.
+        """
+        return pulumi.get(self, "bucket_name")
+
+    @property
+    @pulumi.getter(name="bucketPrefix")
+    def bucket_prefix(self) -> str:
+        """
+        The S3 bucket prefix.
+        """
+        return pulumi.get(self, "bucket_prefix")
+
+    @property
+    @pulumi.getter(name="encryptionConfigs")
+    def encryption_configs(self) -> Sequence['outputs.GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfigResult']:
+        """
+        The encryption configuration. Documented below.
+        """
+        return pulumi.get(self, "encryption_configs")
+
+
+@pulumi.output_type
+class GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfigResult(dict):
+    def __init__(__self__, *,
+                 encryption_type: str,
+                 key_id: str):
+        """
+        :param str encryption_type: The type of encryption. Valid Values: `KMS`.
+        :param str key_id: The full ARN of the encryption key. Be sure to provide the full ARN of the encryption key, not just the ID.
+        """
+        pulumi.set(__self__, "encryption_type", encryption_type)
+        pulumi.set(__self__, "key_id", key_id)
+
+    @property
+    @pulumi.getter(name="encryptionType")
+    def encryption_type(self) -> str:
+        """
+        The type of encryption. Valid Values: `KMS`.
+        """
+        return pulumi.get(self, "encryption_type")
+
+    @property
+    @pulumi.getter(name="keyId")
+    def key_id(self) -> str:
+        """
+        The full ARN of the encryption key. Be sure to provide the full ARN of the encryption key, not just the ID.
+        """
+        return pulumi.get(self, "key_id")
 
 
 @pulumi.output_type

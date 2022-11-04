@@ -22,6 +22,7 @@ class UserPoolClientArgs:
                  allowed_oauth_flows_user_pool_client: Optional[pulumi.Input[bool]] = None,
                  allowed_oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  analytics_configuration: Optional[pulumi.Input['UserPoolClientAnalyticsConfigurationArgs']] = None,
+                 auth_session_validity: Optional[pulumi.Input[int]] = None,
                  callback_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_redirect_uri: Optional[pulumi.Input[str]] = None,
                  enable_propagate_additional_user_context_data: Optional[pulumi.Input[bool]] = None,
@@ -45,6 +46,7 @@ class UserPoolClientArgs:
         :param pulumi.Input[bool] allowed_oauth_flows_user_pool_client: Whether the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_oauth_scopes: List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).
         :param pulumi.Input['UserPoolClientAnalyticsConfigurationArgs'] analytics_configuration: Configuration block for Amazon Pinpoint analytics for collecting metrics for this user pool. Detailed below.
+        :param pulumi.Input[int] auth_session_validity: Amazon Cognito creates a session token for each API request in an authentication flow. AuthSessionValidity is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires. Valid values between `3` and `15`. Default value is `3`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] callback_urls: List of allowed callback URLs for the identity providers.
         :param pulumi.Input[str] default_redirect_uri: Default redirect URI. Must be in the list of callback URLs.
         :param pulumi.Input[bool] enable_propagate_additional_user_context_data: Activates the propagation of additional user context data.
@@ -72,6 +74,8 @@ class UserPoolClientArgs:
             pulumi.set(__self__, "allowed_oauth_scopes", allowed_oauth_scopes)
         if analytics_configuration is not None:
             pulumi.set(__self__, "analytics_configuration", analytics_configuration)
+        if auth_session_validity is not None:
+            pulumi.set(__self__, "auth_session_validity", auth_session_validity)
         if callback_urls is not None:
             pulumi.set(__self__, "callback_urls", callback_urls)
         if default_redirect_uri is not None:
@@ -174,6 +178,18 @@ class UserPoolClientArgs:
     @analytics_configuration.setter
     def analytics_configuration(self, value: Optional[pulumi.Input['UserPoolClientAnalyticsConfigurationArgs']]):
         pulumi.set(self, "analytics_configuration", value)
+
+    @property
+    @pulumi.getter(name="authSessionValidity")
+    def auth_session_validity(self) -> Optional[pulumi.Input[int]]:
+        """
+        Amazon Cognito creates a session token for each API request in an authentication flow. AuthSessionValidity is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires. Valid values between `3` and `15`. Default value is `3`.
+        """
+        return pulumi.get(self, "auth_session_validity")
+
+    @auth_session_validity.setter
+    def auth_session_validity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "auth_session_validity", value)
 
     @property
     @pulumi.getter(name="callbackUrls")
@@ -364,6 +380,7 @@ class _UserPoolClientState:
                  allowed_oauth_flows_user_pool_client: Optional[pulumi.Input[bool]] = None,
                  allowed_oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  analytics_configuration: Optional[pulumi.Input['UserPoolClientAnalyticsConfigurationArgs']] = None,
+                 auth_session_validity: Optional[pulumi.Input[int]] = None,
                  callback_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  client_secret: Optional[pulumi.Input[str]] = None,
                  default_redirect_uri: Optional[pulumi.Input[str]] = None,
@@ -388,6 +405,7 @@ class _UserPoolClientState:
         :param pulumi.Input[bool] allowed_oauth_flows_user_pool_client: Whether the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_oauth_scopes: List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).
         :param pulumi.Input['UserPoolClientAnalyticsConfigurationArgs'] analytics_configuration: Configuration block for Amazon Pinpoint analytics for collecting metrics for this user pool. Detailed below.
+        :param pulumi.Input[int] auth_session_validity: Amazon Cognito creates a session token for each API request in an authentication flow. AuthSessionValidity is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires. Valid values between `3` and `15`. Default value is `3`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] callback_urls: List of allowed callback URLs for the identity providers.
         :param pulumi.Input[str] client_secret: Client secret of the user pool client.
         :param pulumi.Input[str] default_redirect_uri: Default redirect URI. Must be in the list of callback URLs.
@@ -416,6 +434,8 @@ class _UserPoolClientState:
             pulumi.set(__self__, "allowed_oauth_scopes", allowed_oauth_scopes)
         if analytics_configuration is not None:
             pulumi.set(__self__, "analytics_configuration", analytics_configuration)
+        if auth_session_validity is not None:
+            pulumi.set(__self__, "auth_session_validity", auth_session_validity)
         if callback_urls is not None:
             pulumi.set(__self__, "callback_urls", callback_urls)
         if client_secret is not None:
@@ -510,6 +530,18 @@ class _UserPoolClientState:
     @analytics_configuration.setter
     def analytics_configuration(self, value: Optional[pulumi.Input['UserPoolClientAnalyticsConfigurationArgs']]):
         pulumi.set(self, "analytics_configuration", value)
+
+    @property
+    @pulumi.getter(name="authSessionValidity")
+    def auth_session_validity(self) -> Optional[pulumi.Input[int]]:
+        """
+        Amazon Cognito creates a session token for each API request in an authentication flow. AuthSessionValidity is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires. Valid values between `3` and `15`. Default value is `3`.
+        """
+        return pulumi.get(self, "auth_session_validity")
+
+    @auth_session_validity.setter
+    def auth_session_validity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "auth_session_validity", value)
 
     @property
     @pulumi.getter(name="callbackUrls")
@@ -726,6 +758,7 @@ class UserPoolClient(pulumi.CustomResource):
                  allowed_oauth_flows_user_pool_client: Optional[pulumi.Input[bool]] = None,
                  allowed_oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  analytics_configuration: Optional[pulumi.Input[pulumi.InputType['UserPoolClientAnalyticsConfigurationArgs']]] = None,
+                 auth_session_validity: Optional[pulumi.Input[int]] = None,
                  callback_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_redirect_uri: Optional[pulumi.Input[str]] = None,
                  enable_propagate_additional_user_context_data: Optional[pulumi.Input[bool]] = None,
@@ -853,6 +886,7 @@ class UserPoolClient(pulumi.CustomResource):
         :param pulumi.Input[bool] allowed_oauth_flows_user_pool_client: Whether the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_oauth_scopes: List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).
         :param pulumi.Input[pulumi.InputType['UserPoolClientAnalyticsConfigurationArgs']] analytics_configuration: Configuration block for Amazon Pinpoint analytics for collecting metrics for this user pool. Detailed below.
+        :param pulumi.Input[int] auth_session_validity: Amazon Cognito creates a session token for each API request in an authentication flow. AuthSessionValidity is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires. Valid values between `3` and `15`. Default value is `3`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] callback_urls: List of allowed callback URLs for the identity providers.
         :param pulumi.Input[str] default_redirect_uri: Default redirect URI. Must be in the list of callback URLs.
         :param pulumi.Input[bool] enable_propagate_additional_user_context_data: Activates the propagation of additional user context data.
@@ -999,6 +1033,7 @@ class UserPoolClient(pulumi.CustomResource):
                  allowed_oauth_flows_user_pool_client: Optional[pulumi.Input[bool]] = None,
                  allowed_oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  analytics_configuration: Optional[pulumi.Input[pulumi.InputType['UserPoolClientAnalyticsConfigurationArgs']]] = None,
+                 auth_session_validity: Optional[pulumi.Input[int]] = None,
                  callback_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_redirect_uri: Optional[pulumi.Input[str]] = None,
                  enable_propagate_additional_user_context_data: Optional[pulumi.Input[bool]] = None,
@@ -1029,6 +1064,7 @@ class UserPoolClient(pulumi.CustomResource):
             __props__.__dict__["allowed_oauth_flows_user_pool_client"] = allowed_oauth_flows_user_pool_client
             __props__.__dict__["allowed_oauth_scopes"] = allowed_oauth_scopes
             __props__.__dict__["analytics_configuration"] = analytics_configuration
+            __props__.__dict__["auth_session_validity"] = auth_session_validity
             __props__.__dict__["callback_urls"] = callback_urls
             __props__.__dict__["default_redirect_uri"] = default_redirect_uri
             __props__.__dict__["enable_propagate_additional_user_context_data"] = enable_propagate_additional_user_context_data
@@ -1063,6 +1099,7 @@ class UserPoolClient(pulumi.CustomResource):
             allowed_oauth_flows_user_pool_client: Optional[pulumi.Input[bool]] = None,
             allowed_oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             analytics_configuration: Optional[pulumi.Input[pulumi.InputType['UserPoolClientAnalyticsConfigurationArgs']]] = None,
+            auth_session_validity: Optional[pulumi.Input[int]] = None,
             callback_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             client_secret: Optional[pulumi.Input[str]] = None,
             default_redirect_uri: Optional[pulumi.Input[str]] = None,
@@ -1092,6 +1129,7 @@ class UserPoolClient(pulumi.CustomResource):
         :param pulumi.Input[bool] allowed_oauth_flows_user_pool_client: Whether the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_oauth_scopes: List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).
         :param pulumi.Input[pulumi.InputType['UserPoolClientAnalyticsConfigurationArgs']] analytics_configuration: Configuration block for Amazon Pinpoint analytics for collecting metrics for this user pool. Detailed below.
+        :param pulumi.Input[int] auth_session_validity: Amazon Cognito creates a session token for each API request in an authentication flow. AuthSessionValidity is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires. Valid values between `3` and `15`. Default value is `3`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] callback_urls: List of allowed callback URLs for the identity providers.
         :param pulumi.Input[str] client_secret: Client secret of the user pool client.
         :param pulumi.Input[str] default_redirect_uri: Default redirect URI. Must be in the list of callback URLs.
@@ -1119,6 +1157,7 @@ class UserPoolClient(pulumi.CustomResource):
         __props__.__dict__["allowed_oauth_flows_user_pool_client"] = allowed_oauth_flows_user_pool_client
         __props__.__dict__["allowed_oauth_scopes"] = allowed_oauth_scopes
         __props__.__dict__["analytics_configuration"] = analytics_configuration
+        __props__.__dict__["auth_session_validity"] = auth_session_validity
         __props__.__dict__["callback_urls"] = callback_urls
         __props__.__dict__["client_secret"] = client_secret
         __props__.__dict__["default_redirect_uri"] = default_redirect_uri
@@ -1177,6 +1216,14 @@ class UserPoolClient(pulumi.CustomResource):
         Configuration block for Amazon Pinpoint analytics for collecting metrics for this user pool. Detailed below.
         """
         return pulumi.get(self, "analytics_configuration")
+
+    @property
+    @pulumi.getter(name="authSessionValidity")
+    def auth_session_validity(self) -> pulumi.Output[Optional[int]]:
+        """
+        Amazon Cognito creates a session token for each API request in an authentication flow. AuthSessionValidity is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires. Valid values between `3` and `15`. Default value is `3`.
+        """
+        return pulumi.get(self, "auth_session_validity")
 
     @property
     @pulumi.getter(name="callbackUrls")

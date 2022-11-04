@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['GlobalReplicationGroupArgs', 'GlobalReplicationGroup']
 
@@ -20,6 +22,7 @@ class GlobalReplicationGroupArgs:
                  cache_node_type: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  global_replication_group_description: Optional[pulumi.Input[str]] = None,
+                 num_node_groups: Optional[pulumi.Input[int]] = None,
                  parameter_group_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a GlobalReplicationGroup resource.
@@ -39,6 +42,7 @@ class GlobalReplicationGroupArgs:
                or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
                The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
         :param pulumi.Input[str] global_replication_group_description: A user-created description for the global replication group.
+        :param pulumi.Input[int] num_node_groups: The number of node groups (shards) on the global replication group.
         :param pulumi.Input[str] parameter_group_name: An ElastiCache Parameter Group to use for the Global Replication Group.
                Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
                Specifying without a major version upgrade will fail.
@@ -54,6 +58,8 @@ class GlobalReplicationGroupArgs:
             pulumi.set(__self__, "engine_version", engine_version)
         if global_replication_group_description is not None:
             pulumi.set(__self__, "global_replication_group_description", global_replication_group_description)
+        if num_node_groups is not None:
+            pulumi.set(__self__, "num_node_groups", num_node_groups)
         if parameter_group_name is not None:
             pulumi.set(__self__, "parameter_group_name", parameter_group_name)
 
@@ -140,6 +146,18 @@ class GlobalReplicationGroupArgs:
         pulumi.set(self, "global_replication_group_description", value)
 
     @property
+    @pulumi.getter(name="numNodeGroups")
+    def num_node_groups(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of node groups (shards) on the global replication group.
+        """
+        return pulumi.get(self, "num_node_groups")
+
+    @num_node_groups.setter
+    def num_node_groups(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "num_node_groups", value)
+
+    @property
     @pulumi.getter(name="parameterGroupName")
     def parameter_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -167,9 +185,11 @@ class _GlobalReplicationGroupState:
                  engine: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  engine_version_actual: Optional[pulumi.Input[str]] = None,
+                 global_node_groups: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalReplicationGroupGlobalNodeGroupArgs']]]] = None,
                  global_replication_group_description: Optional[pulumi.Input[str]] = None,
                  global_replication_group_id: Optional[pulumi.Input[str]] = None,
                  global_replication_group_id_suffix: Optional[pulumi.Input[str]] = None,
+                 num_node_groups: Optional[pulumi.Input[int]] = None,
                  parameter_group_name: Optional[pulumi.Input[str]] = None,
                  primary_replication_group_id: Optional[pulumi.Input[str]] = None,
                  transit_encryption_enabled: Optional[pulumi.Input[bool]] = None):
@@ -194,9 +214,12 @@ class _GlobalReplicationGroupState:
                or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
                The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
         :param pulumi.Input[str] engine_version_actual: The full version number of the cache engine running on the members of this global replication group.
+        :param pulumi.Input[Sequence[pulumi.Input['GlobalReplicationGroupGlobalNodeGroupArgs']]] global_node_groups: Set of node groups (shards) on the global replication group.
+               Has the values:
         :param pulumi.Input[str] global_replication_group_description: A user-created description for the global replication group.
         :param pulumi.Input[str] global_replication_group_id: The full ID of the global replication group.
         :param pulumi.Input[str] global_replication_group_id_suffix: The suffix name of a Global Datastore. If `global_replication_group_id_suffix` is changed, creates a new resource.
+        :param pulumi.Input[int] num_node_groups: The number of node groups (shards) on the global replication group.
         :param pulumi.Input[str] parameter_group_name: An ElastiCache Parameter Group to use for the Global Replication Group.
                Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
                Specifying without a major version upgrade will fail.
@@ -222,12 +245,16 @@ class _GlobalReplicationGroupState:
             pulumi.set(__self__, "engine_version", engine_version)
         if engine_version_actual is not None:
             pulumi.set(__self__, "engine_version_actual", engine_version_actual)
+        if global_node_groups is not None:
+            pulumi.set(__self__, "global_node_groups", global_node_groups)
         if global_replication_group_description is not None:
             pulumi.set(__self__, "global_replication_group_description", global_replication_group_description)
         if global_replication_group_id is not None:
             pulumi.set(__self__, "global_replication_group_id", global_replication_group_id)
         if global_replication_group_id_suffix is not None:
             pulumi.set(__self__, "global_replication_group_id_suffix", global_replication_group_id_suffix)
+        if num_node_groups is not None:
+            pulumi.set(__self__, "num_node_groups", num_node_groups)
         if parameter_group_name is not None:
             pulumi.set(__self__, "parameter_group_name", parameter_group_name)
         if primary_replication_group_id is not None:
@@ -354,6 +381,19 @@ class _GlobalReplicationGroupState:
         pulumi.set(self, "engine_version_actual", value)
 
     @property
+    @pulumi.getter(name="globalNodeGroups")
+    def global_node_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GlobalReplicationGroupGlobalNodeGroupArgs']]]]:
+        """
+        Set of node groups (shards) on the global replication group.
+        Has the values:
+        """
+        return pulumi.get(self, "global_node_groups")
+
+    @global_node_groups.setter
+    def global_node_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalReplicationGroupGlobalNodeGroupArgs']]]]):
+        pulumi.set(self, "global_node_groups", value)
+
+    @property
     @pulumi.getter(name="globalReplicationGroupDescription")
     def global_replication_group_description(self) -> Optional[pulumi.Input[str]]:
         """
@@ -388,6 +428,18 @@ class _GlobalReplicationGroupState:
     @global_replication_group_id_suffix.setter
     def global_replication_group_id_suffix(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "global_replication_group_id_suffix", value)
+
+    @property
+    @pulumi.getter(name="numNodeGroups")
+    def num_node_groups(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of node groups (shards) on the global replication group.
+        """
+        return pulumi.get(self, "num_node_groups")
+
+    @num_node_groups.setter
+    def num_node_groups(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "num_node_groups", value)
 
     @property
     @pulumi.getter(name="parameterGroupName")
@@ -439,6 +491,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
                  engine_version: Optional[pulumi.Input[str]] = None,
                  global_replication_group_description: Optional[pulumi.Input[str]] = None,
                  global_replication_group_id_suffix: Optional[pulumi.Input[str]] = None,
+                 num_node_groups: Optional[pulumi.Input[int]] = None,
                  parameter_group_name: Optional[pulumi.Input[str]] = None,
                  primary_replication_group_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -468,6 +521,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
                The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
         :param pulumi.Input[str] global_replication_group_description: A user-created description for the global replication group.
         :param pulumi.Input[str] global_replication_group_id_suffix: The suffix name of a Global Datastore. If `global_replication_group_id_suffix` is changed, creates a new resource.
+        :param pulumi.Input[int] num_node_groups: The number of node groups (shards) on the global replication group.
         :param pulumi.Input[str] parameter_group_name: An ElastiCache Parameter Group to use for the Global Replication Group.
                Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
                Specifying without a major version upgrade will fail.
@@ -509,6 +563,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
                  engine_version: Optional[pulumi.Input[str]] = None,
                  global_replication_group_description: Optional[pulumi.Input[str]] = None,
                  global_replication_group_id_suffix: Optional[pulumi.Input[str]] = None,
+                 num_node_groups: Optional[pulumi.Input[int]] = None,
                  parameter_group_name: Optional[pulumi.Input[str]] = None,
                  primary_replication_group_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -527,6 +582,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
             if global_replication_group_id_suffix is None and not opts.urn:
                 raise TypeError("Missing required property 'global_replication_group_id_suffix'")
             __props__.__dict__["global_replication_group_id_suffix"] = global_replication_group_id_suffix
+            __props__.__dict__["num_node_groups"] = num_node_groups
             __props__.__dict__["parameter_group_name"] = parameter_group_name
             if primary_replication_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'primary_replication_group_id'")
@@ -537,6 +593,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
             __props__.__dict__["cluster_enabled"] = None
             __props__.__dict__["engine"] = None
             __props__.__dict__["engine_version_actual"] = None
+            __props__.__dict__["global_node_groups"] = None
             __props__.__dict__["global_replication_group_id"] = None
             __props__.__dict__["transit_encryption_enabled"] = None
         super(GlobalReplicationGroup, __self__).__init__(
@@ -558,9 +615,11 @@ class GlobalReplicationGroup(pulumi.CustomResource):
             engine: Optional[pulumi.Input[str]] = None,
             engine_version: Optional[pulumi.Input[str]] = None,
             engine_version_actual: Optional[pulumi.Input[str]] = None,
+            global_node_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GlobalReplicationGroupGlobalNodeGroupArgs']]]]] = None,
             global_replication_group_description: Optional[pulumi.Input[str]] = None,
             global_replication_group_id: Optional[pulumi.Input[str]] = None,
             global_replication_group_id_suffix: Optional[pulumi.Input[str]] = None,
+            num_node_groups: Optional[pulumi.Input[int]] = None,
             parameter_group_name: Optional[pulumi.Input[str]] = None,
             primary_replication_group_id: Optional[pulumi.Input[str]] = None,
             transit_encryption_enabled: Optional[pulumi.Input[bool]] = None) -> 'GlobalReplicationGroup':
@@ -590,9 +649,12 @@ class GlobalReplicationGroup(pulumi.CustomResource):
                or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
                The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
         :param pulumi.Input[str] engine_version_actual: The full version number of the cache engine running on the members of this global replication group.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GlobalReplicationGroupGlobalNodeGroupArgs']]]] global_node_groups: Set of node groups (shards) on the global replication group.
+               Has the values:
         :param pulumi.Input[str] global_replication_group_description: A user-created description for the global replication group.
         :param pulumi.Input[str] global_replication_group_id: The full ID of the global replication group.
         :param pulumi.Input[str] global_replication_group_id_suffix: The suffix name of a Global Datastore. If `global_replication_group_id_suffix` is changed, creates a new resource.
+        :param pulumi.Input[int] num_node_groups: The number of node groups (shards) on the global replication group.
         :param pulumi.Input[str] parameter_group_name: An ElastiCache Parameter Group to use for the Global Replication Group.
                Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
                Specifying without a major version upgrade will fail.
@@ -613,9 +675,11 @@ class GlobalReplicationGroup(pulumi.CustomResource):
         __props__.__dict__["engine"] = engine
         __props__.__dict__["engine_version"] = engine_version
         __props__.__dict__["engine_version_actual"] = engine_version_actual
+        __props__.__dict__["global_node_groups"] = global_node_groups
         __props__.__dict__["global_replication_group_description"] = global_replication_group_description
         __props__.__dict__["global_replication_group_id"] = global_replication_group_id
         __props__.__dict__["global_replication_group_id_suffix"] = global_replication_group_id_suffix
+        __props__.__dict__["num_node_groups"] = num_node_groups
         __props__.__dict__["parameter_group_name"] = parameter_group_name
         __props__.__dict__["primary_replication_group_id"] = primary_replication_group_id
         __props__.__dict__["transit_encryption_enabled"] = transit_encryption_enabled
@@ -704,6 +768,15 @@ class GlobalReplicationGroup(pulumi.CustomResource):
         return pulumi.get(self, "engine_version_actual")
 
     @property
+    @pulumi.getter(name="globalNodeGroups")
+    def global_node_groups(self) -> pulumi.Output[Sequence['outputs.GlobalReplicationGroupGlobalNodeGroup']]:
+        """
+        Set of node groups (shards) on the global replication group.
+        Has the values:
+        """
+        return pulumi.get(self, "global_node_groups")
+
+    @property
     @pulumi.getter(name="globalReplicationGroupDescription")
     def global_replication_group_description(self) -> pulumi.Output[Optional[str]]:
         """
@@ -726,6 +799,14 @@ class GlobalReplicationGroup(pulumi.CustomResource):
         The suffix name of a Global Datastore. If `global_replication_group_id_suffix` is changed, creates a new resource.
         """
         return pulumi.get(self, "global_replication_group_id_suffix")
+
+    @property
+    @pulumi.getter(name="numNodeGroups")
+    def num_node_groups(self) -> pulumi.Output[int]:
+        """
+        The number of node groups (shards) on the global replication group.
+        """
+        return pulumi.get(self, "num_node_groups")
 
     @property
     @pulumi.getter(name="parameterGroupName")

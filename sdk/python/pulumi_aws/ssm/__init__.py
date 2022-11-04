@@ -8,6 +8,7 @@ import typing
 from ._enums import *
 from .activation import *
 from .association import *
+from .default_patch_baseline import *
 from .document import *
 from .get_document import *
 from .get_instances import *

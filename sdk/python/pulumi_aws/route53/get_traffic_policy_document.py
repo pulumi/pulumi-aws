@@ -159,6 +159,78 @@ def get_traffic_policy_document(endpoints: Optional[Sequence[pulumi.InputType['G
         comment="example comment",
         document=example_traffic_policy_document.json)
     ```
+    ### Complex Example
+
+    The following example showcases the use of nested rules within the traffic policy document and introduces the `geoproximity` rule type.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example_traffic_policy_document = aws.route53.get_traffic_policy_document(record_type="A",
+        start_rule="geoproximity_rule",
+        endpoints=[
+            aws.route53.GetTrafficPolicyDocumentEndpointArgs(
+                id="na_endpoint_a",
+                type="elastic-load-balancer",
+                value="elb-111111.us-west-1.elb.amazonaws.com",
+            ),
+            aws.route53.GetTrafficPolicyDocumentEndpointArgs(
+                id="na_endpoint_b",
+                type="elastic-load-balancer",
+                value="elb-222222.us-west-1.elb.amazonaws.com",
+            ),
+            aws.route53.GetTrafficPolicyDocumentEndpointArgs(
+                id="eu_endpoint",
+                type="elastic-load-balancer",
+                value="elb-333333.eu-west-1.elb.amazonaws.com",
+            ),
+            aws.route53.GetTrafficPolicyDocumentEndpointArgs(
+                id="ap_endpoint",
+                type="elastic-load-balancer",
+                value="elb-444444.ap-northeast-2.elb.amazonaws.com",
+            ),
+        ],
+        rules=[
+            aws.route53.GetTrafficPolicyDocumentRuleArgs(
+                id="na_rule",
+                type="failover",
+                primary=aws.route53.GetTrafficPolicyDocumentRulePrimaryArgs(
+                    endpoint_reference="na_endpoint_a",
+                ),
+                secondary=aws.route53.GetTrafficPolicyDocumentRuleSecondaryArgs(
+                    endpoint_reference="na_endpoint_b",
+                ),
+            ),
+            aws.route53.GetTrafficPolicyDocumentRuleArgs(
+                id="geoproximity_rule",
+                type="geoproximity",
+                geo_proximity_locations=[
+                    aws.route53.GetTrafficPolicyDocumentRuleGeoProximityLocationArgs(
+                        region="aws:route53:us-west-1",
+                        bias="10",
+                        evaluate_target_health=True,
+                        rule_reference="na_rule",
+                    ),
+                    aws.route53.GetTrafficPolicyDocumentRuleGeoProximityLocationArgs(
+                        region="aws:route53:eu-west-1",
+                        bias="10",
+                        evaluate_target_health=True,
+                        endpoint_reference="eu_endpoint",
+                    ),
+                    aws.route53.GetTrafficPolicyDocumentRuleGeoProximityLocationArgs(
+                        region="aws:route53:ap-northeast-2",
+                        bias="0",
+                        evaluate_target_health=True,
+                        endpoint_reference="ap_endpoint",
+                    ),
+                ],
+            ),
+        ])
+    example_traffic_policy = aws.route53.TrafficPolicy("exampleTrafficPolicy",
+        comment="example comment",
+        document=example_traffic_policy_document.json)
+    ```
 
 
     :param Sequence[pulumi.InputType['GetTrafficPolicyDocumentEndpointArgs']] endpoints: Configuration block for the definitions of the endpoints that you want to use in this traffic policy. See below
@@ -233,6 +305,78 @@ def get_traffic_policy_document_output(endpoints: Optional[pulumi.Input[Optional
                 endpoint_reference="site_down_banner",
             ),
         )])
+    example_traffic_policy = aws.route53.TrafficPolicy("exampleTrafficPolicy",
+        comment="example comment",
+        document=example_traffic_policy_document.json)
+    ```
+    ### Complex Example
+
+    The following example showcases the use of nested rules within the traffic policy document and introduces the `geoproximity` rule type.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example_traffic_policy_document = aws.route53.get_traffic_policy_document(record_type="A",
+        start_rule="geoproximity_rule",
+        endpoints=[
+            aws.route53.GetTrafficPolicyDocumentEndpointArgs(
+                id="na_endpoint_a",
+                type="elastic-load-balancer",
+                value="elb-111111.us-west-1.elb.amazonaws.com",
+            ),
+            aws.route53.GetTrafficPolicyDocumentEndpointArgs(
+                id="na_endpoint_b",
+                type="elastic-load-balancer",
+                value="elb-222222.us-west-1.elb.amazonaws.com",
+            ),
+            aws.route53.GetTrafficPolicyDocumentEndpointArgs(
+                id="eu_endpoint",
+                type="elastic-load-balancer",
+                value="elb-333333.eu-west-1.elb.amazonaws.com",
+            ),
+            aws.route53.GetTrafficPolicyDocumentEndpointArgs(
+                id="ap_endpoint",
+                type="elastic-load-balancer",
+                value="elb-444444.ap-northeast-2.elb.amazonaws.com",
+            ),
+        ],
+        rules=[
+            aws.route53.GetTrafficPolicyDocumentRuleArgs(
+                id="na_rule",
+                type="failover",
+                primary=aws.route53.GetTrafficPolicyDocumentRulePrimaryArgs(
+                    endpoint_reference="na_endpoint_a",
+                ),
+                secondary=aws.route53.GetTrafficPolicyDocumentRuleSecondaryArgs(
+                    endpoint_reference="na_endpoint_b",
+                ),
+            ),
+            aws.route53.GetTrafficPolicyDocumentRuleArgs(
+                id="geoproximity_rule",
+                type="geoproximity",
+                geo_proximity_locations=[
+                    aws.route53.GetTrafficPolicyDocumentRuleGeoProximityLocationArgs(
+                        region="aws:route53:us-west-1",
+                        bias="10",
+                        evaluate_target_health=True,
+                        rule_reference="na_rule",
+                    ),
+                    aws.route53.GetTrafficPolicyDocumentRuleGeoProximityLocationArgs(
+                        region="aws:route53:eu-west-1",
+                        bias="10",
+                        evaluate_target_health=True,
+                        endpoint_reference="eu_endpoint",
+                    ),
+                    aws.route53.GetTrafficPolicyDocumentRuleGeoProximityLocationArgs(
+                        region="aws:route53:ap-northeast-2",
+                        bias="0",
+                        evaluate_target_health=True,
+                        endpoint_reference="ap_endpoint",
+                    ),
+                ],
+            ),
+        ])
     example_traffic_policy = aws.route53.TrafficPolicy("exampleTrafficPolicy",
         comment="example comment",
         document=example_traffic_policy_document.json)

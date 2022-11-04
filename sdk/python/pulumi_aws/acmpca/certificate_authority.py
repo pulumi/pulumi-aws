@@ -21,7 +21,8 @@ class CertificateAuthorityArgs:
                  permanent_deletion_time_in_days: Optional[pulumi.Input[int]] = None,
                  revocation_configuration: Optional[pulumi.Input['CertificateAuthorityRevocationConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 type: Optional[pulumi.Input[str]] = None):
+                 type: Optional[pulumi.Input[str]] = None,
+                 usage_mode: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a CertificateAuthority resource.
         :param pulumi.Input['CertificateAuthorityCertificateAuthorityConfigurationArgs'] certificate_authority_configuration: Nested argument containing algorithms and certificate subject information. Defined below.
@@ -30,6 +31,7 @@ class CertificateAuthorityArgs:
         :param pulumi.Input['CertificateAuthorityRevocationConfigurationArgs'] revocation_configuration: Nested argument containing revocation configuration. Defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] type: Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
+        :param pulumi.Input[str] usage_mode: Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
         """
         pulumi.set(__self__, "certificate_authority_configuration", certificate_authority_configuration)
         if enabled is not None:
@@ -42,6 +44,8 @@ class CertificateAuthorityArgs:
             pulumi.set(__self__, "tags", tags)
         if type is not None:
             pulumi.set(__self__, "type", type)
+        if usage_mode is not None:
+            pulumi.set(__self__, "usage_mode", usage_mode)
 
     @property
     @pulumi.getter(name="certificateAuthorityConfiguration")
@@ -115,6 +119,18 @@ class CertificateAuthorityArgs:
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
 
+    @property
+    @pulumi.getter(name="usageMode")
+    def usage_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
+        """
+        return pulumi.get(self, "usage_mode")
+
+    @usage_mode.setter
+    def usage_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "usage_mode", value)
+
 
 @pulumi.input_type
 class _CertificateAuthorityState:
@@ -133,7 +149,8 @@ class _CertificateAuthorityState:
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 type: Optional[pulumi.Input[str]] = None):
+                 type: Optional[pulumi.Input[str]] = None,
+                 usage_mode: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering CertificateAuthority resources.
         :param pulumi.Input[str] arn: ARN of the certificate authority.
@@ -151,6 +168,7 @@ class _CertificateAuthorityState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
+        :param pulumi.Input[str] usage_mode: Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -185,6 +203,8 @@ class _CertificateAuthorityState:
             pulumi.set(__self__, "tags_all", tags_all)
         if type is not None:
             pulumi.set(__self__, "type", type)
+        if usage_mode is not None:
+            pulumi.set(__self__, "usage_mode", usage_mode)
 
     @property
     @pulumi.getter
@@ -366,6 +386,18 @@ class _CertificateAuthorityState:
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
 
+    @property
+    @pulumi.getter(name="usageMode")
+    def usage_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
+        """
+        return pulumi.get(self, "usage_mode")
+
+    @usage_mode.setter
+    def usage_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "usage_mode", value)
+
 
 class CertificateAuthority(pulumi.CustomResource):
     @overload
@@ -378,6 +410,7 @@ class CertificateAuthority(pulumi.CustomResource):
                  revocation_configuration: Optional[pulumi.Input[pulumi.InputType['CertificateAuthorityRevocationConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
+                 usage_mode: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Provides a resource to manage AWS Certificate Manager Private Certificate Authorities (ACM PCA Certificate Authorities).
@@ -400,6 +433,22 @@ class CertificateAuthority(pulumi.CustomResource):
                 ),
             ),
             permanent_deletion_time_in_days=7)
+        ```
+        ### Short-lived certificate
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.acmpca.CertificateAuthority("example",
+            certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs(
+                key_algorithm="RSA_4096",
+                signing_algorithm="SHA512WITHRSA",
+                subject=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs(
+                    common_name="example.com",
+                ),
+            ),
+            usage_mode="SHORT_LIVED_CERTIFICATE")
         ```
         ### Enable Certificate Revocation List
 
@@ -462,6 +511,7 @@ class CertificateAuthority(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['CertificateAuthorityRevocationConfigurationArgs']] revocation_configuration: Nested argument containing revocation configuration. Defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] type: Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
+        :param pulumi.Input[str] usage_mode: Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
         """
         ...
     @overload
@@ -490,6 +540,22 @@ class CertificateAuthority(pulumi.CustomResource):
                 ),
             ),
             permanent_deletion_time_in_days=7)
+        ```
+        ### Short-lived certificate
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.acmpca.CertificateAuthority("example",
+            certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs(
+                key_algorithm="RSA_4096",
+                signing_algorithm="SHA512WITHRSA",
+                subject=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs(
+                    common_name="example.com",
+                ),
+            ),
+            usage_mode="SHORT_LIVED_CERTIFICATE")
         ```
         ### Enable Certificate Revocation List
 
@@ -565,6 +631,7 @@ class CertificateAuthority(pulumi.CustomResource):
                  revocation_configuration: Optional[pulumi.Input[pulumi.InputType['CertificateAuthorityRevocationConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
+                 usage_mode: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -582,6 +649,7 @@ class CertificateAuthority(pulumi.CustomResource):
             __props__.__dict__["revocation_configuration"] = revocation_configuration
             __props__.__dict__["tags"] = tags
             __props__.__dict__["type"] = type
+            __props__.__dict__["usage_mode"] = usage_mode
             __props__.__dict__["arn"] = None
             __props__.__dict__["certificate"] = None
             __props__.__dict__["certificate_chain"] = None
@@ -615,7 +683,8 @@ class CertificateAuthority(pulumi.CustomResource):
             status: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            type: Optional[pulumi.Input[str]] = None) -> 'CertificateAuthority':
+            type: Optional[pulumi.Input[str]] = None,
+            usage_mode: Optional[pulumi.Input[str]] = None) -> 'CertificateAuthority':
         """
         Get an existing CertificateAuthority resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -638,6 +707,7 @@ class CertificateAuthority(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
+        :param pulumi.Input[str] usage_mode: Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -658,6 +728,7 @@ class CertificateAuthority(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["type"] = type
+        __props__.__dict__["usage_mode"] = usage_mode
         return CertificateAuthority(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -779,4 +850,12 @@ class CertificateAuthority(pulumi.CustomResource):
         Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="usageMode")
+    def usage_mode(self) -> pulumi.Output[str]:
+        """
+        Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
+        """
+        return pulumi.get(self, "usage_mode")
 

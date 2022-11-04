@@ -11,5 +11,6 @@ from .custom_domain_association import *
 from .observability_configuration import *
 from .service import *
 from .vpc_connector import *
+from .vpc_ingress_connection import *
 from ._inputs import *
 from . import outputs

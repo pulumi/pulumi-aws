@@ -15,6 +15,7 @@ __all__ = [
     'ConfigurationSetSendingOptionsArgs',
     'ConfigurationSetSuppressionOptionsArgs',
     'ConfigurationSetTrackingOptionsArgs',
+    'EmailIdentityDkimSigningAttributesArgs',
 ]
 
 @pulumi.input_type
@@ -161,5 +162,140 @@ class ConfigurationSetTrackingOptionsArgs:
     @custom_redirect_domain.setter
     def custom_redirect_domain(self, value: pulumi.Input[str]):
         pulumi.set(self, "custom_redirect_domain", value)
+
+
+@pulumi.input_type
+class EmailIdentityDkimSigningAttributesArgs:
+    def __init__(__self__, *,
+                 current_signing_key_length: Optional[pulumi.Input[str]] = None,
+                 domain_signing_private_key: Optional[pulumi.Input[str]] = None,
+                 domain_signing_selector: Optional[pulumi.Input[str]] = None,
+                 last_key_generation_timestamp: Optional[pulumi.Input[str]] = None,
+                 next_signing_key_length: Optional[pulumi.Input[str]] = None,
+                 signing_attributes_origin: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 tokens: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] current_signing_key_length: [Easy DKIM] The key length of the DKIM key pair in use.
+        :param pulumi.Input[str] domain_signing_private_key: [Bring Your Own DKIM] A private key that's used to generate a DKIM signature. The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding.
+        :param pulumi.Input[str] domain_signing_selector: [Bring Your Own DKIM] A string that's used to identify a public key in the DNS configuration for a domain.
+        :param pulumi.Input[str] last_key_generation_timestamp: [Easy DKIM] The last time a key pair was generated for this identity.
+        :param pulumi.Input[str] next_signing_key_length: [Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day. Valid values: `RSA_1024_BIT`, `RSA_2048_BIT`.
+        :param pulumi.Input[str] signing_attributes_origin: A string that indicates how DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
+        :param pulumi.Input[str] status: Describes whether or not Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tokens: If you used Easy DKIM to configure DKIM authentication for the domain, then this object contains a set of unique strings that you use to create a set of CNAME records that you add to the DNS configuration for your domain. When Amazon SES detects these records in the DNS configuration for your domain, the DKIM authentication process is complete. If you configured DKIM authentication for the domain by providing your own public-private key pair, then this object contains the selector for the public key.
+        """
+        if current_signing_key_length is not None:
+            pulumi.set(__self__, "current_signing_key_length", current_signing_key_length)
+        if domain_signing_private_key is not None:
+            pulumi.set(__self__, "domain_signing_private_key", domain_signing_private_key)
+        if domain_signing_selector is not None:
+            pulumi.set(__self__, "domain_signing_selector", domain_signing_selector)
+        if last_key_generation_timestamp is not None:
+            pulumi.set(__self__, "last_key_generation_timestamp", last_key_generation_timestamp)
+        if next_signing_key_length is not None:
+            pulumi.set(__self__, "next_signing_key_length", next_signing_key_length)
+        if signing_attributes_origin is not None:
+            pulumi.set(__self__, "signing_attributes_origin", signing_attributes_origin)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if tokens is not None:
+            pulumi.set(__self__, "tokens", tokens)
+
+    @property
+    @pulumi.getter(name="currentSigningKeyLength")
+    def current_signing_key_length(self) -> Optional[pulumi.Input[str]]:
+        """
+        [Easy DKIM] The key length of the DKIM key pair in use.
+        """
+        return pulumi.get(self, "current_signing_key_length")
+
+    @current_signing_key_length.setter
+    def current_signing_key_length(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "current_signing_key_length", value)
+
+    @property
+    @pulumi.getter(name="domainSigningPrivateKey")
+    def domain_signing_private_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        [Bring Your Own DKIM] A private key that's used to generate a DKIM signature. The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding.
+        """
+        return pulumi.get(self, "domain_signing_private_key")
+
+    @domain_signing_private_key.setter
+    def domain_signing_private_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain_signing_private_key", value)
+
+    @property
+    @pulumi.getter(name="domainSigningSelector")
+    def domain_signing_selector(self) -> Optional[pulumi.Input[str]]:
+        """
+        [Bring Your Own DKIM] A string that's used to identify a public key in the DNS configuration for a domain.
+        """
+        return pulumi.get(self, "domain_signing_selector")
+
+    @domain_signing_selector.setter
+    def domain_signing_selector(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain_signing_selector", value)
+
+    @property
+    @pulumi.getter(name="lastKeyGenerationTimestamp")
+    def last_key_generation_timestamp(self) -> Optional[pulumi.Input[str]]:
+        """
+        [Easy DKIM] The last time a key pair was generated for this identity.
+        """
+        return pulumi.get(self, "last_key_generation_timestamp")
+
+    @last_key_generation_timestamp.setter
+    def last_key_generation_timestamp(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_key_generation_timestamp", value)
+
+    @property
+    @pulumi.getter(name="nextSigningKeyLength")
+    def next_signing_key_length(self) -> Optional[pulumi.Input[str]]:
+        """
+        [Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day. Valid values: `RSA_1024_BIT`, `RSA_2048_BIT`.
+        """
+        return pulumi.get(self, "next_signing_key_length")
+
+    @next_signing_key_length.setter
+    def next_signing_key_length(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "next_signing_key_length", value)
+
+    @property
+    @pulumi.getter(name="signingAttributesOrigin")
+    def signing_attributes_origin(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that indicates how DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
+        """
+        return pulumi.get(self, "signing_attributes_origin")
+
+    @signing_attributes_origin.setter
+    def signing_attributes_origin(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "signing_attributes_origin", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Describes whether or not Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter
+    def tokens(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        If you used Easy DKIM to configure DKIM authentication for the domain, then this object contains a set of unique strings that you use to create a set of CNAME records that you add to the DNS configuration for your domain. When Amazon SES detects these records in the DNS configuration for your domain, the DKIM authentication process is complete. If you configured DKIM authentication for the domain by providing your own public-private key pair, then this object contains the selector for the public key.
+        """
+        return pulumi.get(self, "tokens")
+
+    @tokens.setter
+    def tokens(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "tokens", value)
 
 

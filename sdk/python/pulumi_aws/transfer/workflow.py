@@ -202,6 +202,7 @@ class Workflow(pulumi.CustomResource):
         Provides a AWS Transfer Workflow resource.
 
         ## Example Usage
+        ### Basic single step example
 
         ```python
         import pulumi
@@ -214,6 +215,35 @@ class Workflow(pulumi.CustomResource):
             ),
             type="DELETE",
         )])
+        ```
+        ### Multistep example
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.transfer.Workflow("example", steps=[
+            aws.transfer.WorkflowStepArgs(
+                custom_step_details=aws.transfer.WorkflowStepCustomStepDetailsArgs(
+                    name="example",
+                    source_file_location=original["file"],
+                    target=aws_lambda_function["example"]["arn"],
+                    timeout_seconds=60,
+                ),
+                type="CUSTOM",
+            ),
+            aws.transfer.WorkflowStepArgs(
+                tag_step_details=aws.transfer.WorkflowStepTagStepDetailsArgs(
+                    name="example",
+                    source_file_location=original["file"],
+                    tags=[aws.transfer.WorkflowStepTagStepDetailsTagArgs(
+                        key="Name",
+                        value="Hello World",
+                    )],
+                ),
+                type="TAG",
+            ),
+        ])
         ```
 
         ## Import
@@ -241,6 +271,7 @@ class Workflow(pulumi.CustomResource):
         Provides a AWS Transfer Workflow resource.
 
         ## Example Usage
+        ### Basic single step example
 
         ```python
         import pulumi
@@ -253,6 +284,35 @@ class Workflow(pulumi.CustomResource):
             ),
             type="DELETE",
         )])
+        ```
+        ### Multistep example
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.transfer.Workflow("example", steps=[
+            aws.transfer.WorkflowStepArgs(
+                custom_step_details=aws.transfer.WorkflowStepCustomStepDetailsArgs(
+                    name="example",
+                    source_file_location=original["file"],
+                    target=aws_lambda_function["example"]["arn"],
+                    timeout_seconds=60,
+                ),
+                type="CUSTOM",
+            ),
+            aws.transfer.WorkflowStepArgs(
+                tag_step_details=aws.transfer.WorkflowStepTagStepDetailsArgs(
+                    name="example",
+                    source_file_location=original["file"],
+                    tags=[aws.transfer.WorkflowStepTagStepDetailsTagArgs(
+                        key="Name",
+                        value="Hello World",
+                    )],
+                ),
+                type="TAG",
+            ),
+        ])
         ```
 
         ## Import

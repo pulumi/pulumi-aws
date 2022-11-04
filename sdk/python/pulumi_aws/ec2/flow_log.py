@@ -36,7 +36,7 @@ class FlowLogArgs:
         :param pulumi.Input[str] eni_id: Elastic Network Interface ID to attach to
         :param pulumi.Input[str] iam_role_arn: The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
         :param pulumi.Input[str] log_destination: The ARN of the logging destination. Either `log_destination` or `log_group_name` must be set.
-        :param pulumi.Input[str] log_destination_type: The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`. Default: `cloud-watch-logs`.
+        :param pulumi.Input[str] log_destination_type: The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
         :param pulumi.Input[str] log_format: The fields to include in the flow log record, in the order in which they should appear.
         :param pulumi.Input[str] log_group_name: *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
         :param pulumi.Input[int] max_aggregation_interval: The maximum interval of time
@@ -134,7 +134,7 @@ class FlowLogArgs:
     @pulumi.getter(name="logDestinationType")
     def log_destination_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`. Default: `cloud-watch-logs`.
+        The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
         """
         return pulumi.get(self, "log_destination_type")
 
@@ -280,7 +280,7 @@ class _FlowLogState:
         :param pulumi.Input[str] eni_id: Elastic Network Interface ID to attach to
         :param pulumi.Input[str] iam_role_arn: The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
         :param pulumi.Input[str] log_destination: The ARN of the logging destination. Either `log_destination` or `log_group_name` must be set.
-        :param pulumi.Input[str] log_destination_type: The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`. Default: `cloud-watch-logs`.
+        :param pulumi.Input[str] log_destination_type: The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
         :param pulumi.Input[str] log_format: The fields to include in the flow log record, in the order in which they should appear.
         :param pulumi.Input[str] log_group_name: *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
         :param pulumi.Input[int] max_aggregation_interval: The maximum interval of time
@@ -395,7 +395,7 @@ class _FlowLogState:
     @pulumi.getter(name="logDestinationType")
     def log_destination_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`. Default: `cloud-watch-logs`.
+        The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
         """
         return pulumi.get(self, "log_destination_type")
 
@@ -549,7 +549,7 @@ class FlowLog(pulumi.CustomResource):
                  __props__=None):
         """
         Provides a VPC/Subnet/ENI/Transit Gateway/Transit Gateway Attachment Flow Log to capture IP traffic for a specific network
-        interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group or a S3 Bucket.
+        interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group, a S3 Bucket, or Amazon Kinesis Data Firehose
 
         ## Example Usage
         ### CloudWatch Logging
@@ -590,6 +590,52 @@ class FlowLog(pulumi.CustomResource):
                 "logs:PutLogEvents",
                 "logs:DescribeLogGroups",
                 "logs:DescribeLogStreams"
+              ],
+              "Effect": "Allow",
+              "Resource": "*"
+            }
+          ]
+        }
+        \"\"\")
+        ```
+        ### Amazon Kinesis Data Firehose logging
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
+        example_role = aws.iam.Role("exampleRole", assume_role_policy=\"\"\"{
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Sid": "",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "delivery.logs.amazonaws.com"
+              },
+              "Action": "sts:AssumeRole"
+            }
+          ]
+        }
+        \"\"\")
+        example_flow_log = aws.ec2.FlowLog("exampleFlowLog",
+            iam_role_arn=example_role.arn,
+            log_destination=example_log_group.arn,
+            traffic_type="ALL",
+            vpc_id=aws_vpc["example"]["id"])
+        example_role_policy = aws.iam.RolePolicy("exampleRolePolicy",
+            role=example_role.id,
+            policy=\"\"\"{
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Action": [
+                "logs:CreateLogDelivery",
+                "logs:DeleteLogDelivery",
+                "logs:ListLogDeliveries",
+                "logs:GetLogDelivery",
+                "firehose:TagDeliveryStream"
               ],
               "Effect": "Allow",
               "Resource": "*"
@@ -643,7 +689,7 @@ class FlowLog(pulumi.CustomResource):
         :param pulumi.Input[str] eni_id: Elastic Network Interface ID to attach to
         :param pulumi.Input[str] iam_role_arn: The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
         :param pulumi.Input[str] log_destination: The ARN of the logging destination. Either `log_destination` or `log_group_name` must be set.
-        :param pulumi.Input[str] log_destination_type: The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`. Default: `cloud-watch-logs`.
+        :param pulumi.Input[str] log_destination_type: The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
         :param pulumi.Input[str] log_format: The fields to include in the flow log record, in the order in which they should appear.
         :param pulumi.Input[str] log_group_name: *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
         :param pulumi.Input[int] max_aggregation_interval: The maximum interval of time
@@ -665,7 +711,7 @@ class FlowLog(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a VPC/Subnet/ENI/Transit Gateway/Transit Gateway Attachment Flow Log to capture IP traffic for a specific network
-        interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group or a S3 Bucket.
+        interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group, a S3 Bucket, or Amazon Kinesis Data Firehose
 
         ## Example Usage
         ### CloudWatch Logging
@@ -706,6 +752,52 @@ class FlowLog(pulumi.CustomResource):
                 "logs:PutLogEvents",
                 "logs:DescribeLogGroups",
                 "logs:DescribeLogStreams"
+              ],
+              "Effect": "Allow",
+              "Resource": "*"
+            }
+          ]
+        }
+        \"\"\")
+        ```
+        ### Amazon Kinesis Data Firehose logging
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
+        example_role = aws.iam.Role("exampleRole", assume_role_policy=\"\"\"{
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Sid": "",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "delivery.logs.amazonaws.com"
+              },
+              "Action": "sts:AssumeRole"
+            }
+          ]
+        }
+        \"\"\")
+        example_flow_log = aws.ec2.FlowLog("exampleFlowLog",
+            iam_role_arn=example_role.arn,
+            log_destination=example_log_group.arn,
+            traffic_type="ALL",
+            vpc_id=aws_vpc["example"]["id"])
+        example_role_policy = aws.iam.RolePolicy("exampleRolePolicy",
+            role=example_role.id,
+            policy=\"\"\"{
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Action": [
+                "logs:CreateLogDelivery",
+                "logs:DeleteLogDelivery",
+                "logs:ListLogDeliveries",
+                "logs:GetLogDelivery",
+                "firehose:TagDeliveryStream"
               ],
               "Effect": "Allow",
               "Resource": "*"
@@ -848,7 +940,7 @@ class FlowLog(pulumi.CustomResource):
         :param pulumi.Input[str] eni_id: Elastic Network Interface ID to attach to
         :param pulumi.Input[str] iam_role_arn: The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
         :param pulumi.Input[str] log_destination: The ARN of the logging destination. Either `log_destination` or `log_group_name` must be set.
-        :param pulumi.Input[str] log_destination_type: The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`. Default: `cloud-watch-logs`.
+        :param pulumi.Input[str] log_destination_type: The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
         :param pulumi.Input[str] log_format: The fields to include in the flow log record, in the order in which they should appear.
         :param pulumi.Input[str] log_group_name: *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
         :param pulumi.Input[int] max_aggregation_interval: The maximum interval of time
@@ -929,7 +1021,7 @@ class FlowLog(pulumi.CustomResource):
     @pulumi.getter(name="logDestinationType")
     def log_destination_type(self) -> pulumi.Output[Optional[str]]:
         """
-        The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`. Default: `cloud-watch-logs`.
+        The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
         """
         return pulumi.get(self, "log_destination_type")
 

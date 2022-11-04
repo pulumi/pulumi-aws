@@ -21,6 +21,7 @@ __all__ = [
     'InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArgs',
     'InstanceStorageConfigStorageConfigS3ConfigArgs',
     'InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs',
+    'PhoneNumberStatusArgs',
     'QueueOutboundCallerConfigArgs',
     'QuickConnectQuickConnectConfigArgs',
     'QuickConnectQuickConnectConfigPhoneConfigArgs',
@@ -517,6 +518,45 @@ class InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs:
     @key_id.setter
     def key_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "key_id", value)
+
+
+@pulumi.input_type
+class PhoneNumberStatusArgs:
+    def __init__(__self__, *,
+                 message: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] message: The status message.
+        :param pulumi.Input[str] status: The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
+        """
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[pulumi.Input[str]]:
+        """
+        The status message.
+        """
+        return pulumi.get(self, "message")
+
+    @message.setter
+    def message(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "message", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
 
 
 @pulumi.input_type

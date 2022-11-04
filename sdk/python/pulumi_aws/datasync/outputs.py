@@ -447,6 +447,8 @@ class TaskOptions(dict):
             suggest = "preserve_deleted_files"
         elif key == "preserveDevices":
             suggest = "preserve_devices"
+        elif key == "securityDescriptorCopyFlags":
+            suggest = "security_descriptor_copy_flags"
         elif key == "taskQueueing":
             suggest = "task_queueing"
         elif key == "transferMode":
@@ -475,6 +477,7 @@ class TaskOptions(dict):
                  posix_permissions: Optional[str] = None,
                  preserve_deleted_files: Optional[str] = None,
                  preserve_devices: Optional[str] = None,
+                 security_descriptor_copy_flags: Optional[str] = None,
                  task_queueing: Optional[str] = None,
                  transfer_mode: Optional[str] = None,
                  uid: Optional[str] = None,
@@ -489,6 +492,7 @@ class TaskOptions(dict):
         :param str posix_permissions: Determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file. Valid values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
         :param str preserve_deleted_files: Whether files deleted in the source should be removed or preserved in the destination file system. Valid values: `PRESERVE`, `REMOVE`. Default: `PRESERVE`.
         :param str preserve_devices: Whether the DataSync Task should preserve the metadata of block and character devices in the source files system, and recreate the files with that device name and metadata on the destination. The DataSync Task can’t sync the actual contents of such devices, because many of the devices are non-terminal and don’t return an end of file (EOF) marker. Valid values: `NONE`, `PRESERVE`. Default: `NONE` (ignore special devices).
+        :param str security_descriptor_copy_flags: Determines which components of the SMB security descriptor are copied from source to destination objects. This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. Valid values: `NONE`, `OWNER_DACL`, `OWNER_DACL_SACL`.
         :param str task_queueing: Determines whether tasks should be queued before executing the tasks. Valid values: `ENABLED`, `DISABLED`. Default `ENABLED`.
         :param str transfer_mode: Determines whether DataSync transfers only the data and metadata that differ between the source and the destination location, or whether DataSync transfers all the content from the source, without comparing to the destination location. Valid values: `CHANGED`, `ALL`. Default: `CHANGED`
         :param str uid: User identifier of the file's owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).
@@ -512,6 +516,8 @@ class TaskOptions(dict):
             pulumi.set(__self__, "preserve_deleted_files", preserve_deleted_files)
         if preserve_devices is not None:
             pulumi.set(__self__, "preserve_devices", preserve_devices)
+        if security_descriptor_copy_flags is not None:
+            pulumi.set(__self__, "security_descriptor_copy_flags", security_descriptor_copy_flags)
         if task_queueing is not None:
             pulumi.set(__self__, "task_queueing", task_queueing)
         if transfer_mode is not None:
@@ -592,6 +598,14 @@ class TaskOptions(dict):
         Whether the DataSync Task should preserve the metadata of block and character devices in the source files system, and recreate the files with that device name and metadata on the destination. The DataSync Task can’t sync the actual contents of such devices, because many of the devices are non-terminal and don’t return an end of file (EOF) marker. Valid values: `NONE`, `PRESERVE`. Default: `NONE` (ignore special devices).
         """
         return pulumi.get(self, "preserve_devices")
+
+    @property
+    @pulumi.getter(name="securityDescriptorCopyFlags")
+    def security_descriptor_copy_flags(self) -> Optional[str]:
+        """
+        Determines which components of the SMB security descriptor are copied from source to destination objects. This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. Valid values: `NONE`, `OWNER_DACL`, `OWNER_DACL_SACL`.
+        """
+        return pulumi.get(self, "security_descriptor_copy_flags")
 
     @property
     @pulumi.getter(name="taskQueueing")
