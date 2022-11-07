@@ -1081,21 +1081,29 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_comprehend_entity_recognizer":   {Tok: awsResource(comprehendMod, "EntityRecognizer")},
 
 			// Connect
-			"aws_connect_contact_flow":                {Tok: awsResource(connectMod, "ContactFlow")},
-			"aws_connect_instance":                    {Tok: awsResource(connectMod, "Instance")},
 			"aws_connect_bot_association":             {Tok: awsResource(connectMod, "BotAssociation")},
-			"aws_connect_hours_of_operation":          {Tok: awsResource(connectMod, "HoursOfOperation")},
-			"aws_connect_lambda_function_association": {Tok: awsResource(connectMod, "LambdaFunctionAssociation")},
 			"aws_connect_contact_flow_module":         {Tok: awsResource(connectMod, "ContactFlowModule")},
-			"aws_connect_quick_connect":               {Tok: awsResource(connectMod, "QuickConnect")},
-			"aws_connect_queue":                       {Tok: awsResource(connectMod, "Queue")},
-			"aws_connect_security_profile":            {Tok: awsResource(connectMod, "SecurityProfile")},
-			"aws_connect_routing_profile":             {Tok: awsResource(connectMod, "RoutingProfile")},
-			"aws_connect_user_hierarchy_structure":    {Tok: awsResource(connectMod, "UserHierarchyStructure")},
-			"aws_connect_user_hierarchy_group":        {Tok: awsResource(connectMod, "UserHierarchyGroup")},
-			"aws_connect_user":                        {Tok: awsResource(connectMod, "User")},
-			"aws_connect_vocabulary":                  {Tok: awsResource(connectMod, "Vocabulary")},
+			"aws_connect_contact_flow":                {Tok: awsResource(connectMod, "ContactFlow")},
+			"aws_connect_hours_of_operation":          {Tok: awsResource(connectMod, "HoursOfOperation")},
 			"aws_connect_instance_storage_config":     {Tok: awsResource(connectMod, "InstanceStorageConfig")},
+			"aws_connect_instance":                    {Tok: awsResource(connectMod, "Instance")},
+			"aws_connect_lambda_function_association": {Tok: awsResource(connectMod, "LambdaFunctionAssociation")},
+			"aws_connect_phone_number": {
+				Tok: awsResource(connectMod, "PhoneNumber"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"phone_number": {
+						CSharpName: "PhoneNumberValue",
+					},
+				},
+			},
+			"aws_connect_queue":                    {Tok: awsResource(connectMod, "Queue")},
+			"aws_connect_quick_connect":            {Tok: awsResource(connectMod, "QuickConnect")},
+			"aws_connect_routing_profile":          {Tok: awsResource(connectMod, "RoutingProfile")},
+			"aws_connect_security_profile":         {Tok: awsResource(connectMod, "SecurityProfile")},
+			"aws_connect_user_hierarchy_group":     {Tok: awsResource(connectMod, "UserHierarchyGroup")},
+			"aws_connect_user_hierarchy_structure": {Tok: awsResource(connectMod, "UserHierarchyStructure")},
+			"aws_connect_user":                     {Tok: awsResource(connectMod, "User")},
+			"aws_connect_vocabulary":               {Tok: awsResource(connectMod, "Vocabulary")},
 
 			// Config
 			"aws_config_aggregate_authorization":       {Tok: awsResource(cfgMod, "AggregateAuthorization")},
@@ -1790,18 +1798,20 @@ func Provider() tfbridge.ProviderInfo {
 
 			// Cloudwatch Evidently
 			"aws_evidently_project": {Tok: awsResource(evidentlyMod, "Project")},
+			"aws_evidently_segment": {Tok: awsResource(evidentlyMod, "Segment")},
 
 			// FSX
-			"aws_fsx_lustre_file_system":            {Tok: awsResource(fsxMod, "LustreFileSystem")},
-			"aws_fsx_windows_file_system":           {Tok: awsResource(fsxMod, "WindowsFileSystem")},
 			"aws_fsx_backup":                        {Tok: awsResource(fsxMod, "Backup")},
+			"aws_fsx_data_repository_association":   {Tok: awsResource(fsxMod, "DataRepositoryAssociation")},
+			"aws_fsx_file_cache":                    {Tok: awsResource(fsxMod, "FileCache")},
+			"aws_fsx_lustre_file_system":            {Tok: awsResource(fsxMod, "LustreFileSystem")},
 			"aws_fsx_ontap_file_system":             {Tok: awsResource(fsxMod, "OntapFileSystem")},
 			"aws_fsx_ontap_storage_virtual_machine": {Tok: awsResource(fsxMod, "OntapStorageVirtualMachine")},
 			"aws_fsx_ontap_volume":                  {Tok: awsResource(fsxMod, "OntapVolume")},
 			"aws_fsx_openzfs_file_system":           {Tok: awsResource(fsxMod, "OpenZfsFileSystem")},
 			"aws_fsx_openzfs_snapshot":              {Tok: awsResource(fsxMod, "OpenZfsSnapshot")},
 			"aws_fsx_openzfs_volume":                {Tok: awsResource(fsxMod, "OpenZfsVolume")},
-			"aws_fsx_data_repository_association":   {Tok: awsResource(fsxMod, "DataRepositoryAssociation")},
+			"aws_fsx_windows_file_system":           {Tok: awsResource(fsxMod, "WindowsFileSystem")},
 
 			// GameLift
 			"aws_gamelift_alias":              {Tok: awsResource(gameliftMod, "Alias")},
@@ -2082,6 +2092,7 @@ func Provider() tfbridge.ProviderInfo {
 
 			// Inspector V2
 			"aws_inspector2_delegated_admin_account":    {Tok: awsResource(inspector2Mod, "DelegatedAdminAccount")},
+			"aws_inspector2_enabler":                    {Tok: awsResource(inspector2Mod, "Enabler")},
 			"aws_inspector2_organization_configuration": {Tok: awsResource(inspector2Mod, "OrganizationConfiguration")},
 
 			// IOT
@@ -2278,19 +2289,24 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_licensemanager_license_configuration": {Tok: awsResource(licensemanagerMod, "LicenseConfiguration")},
 
 			// LightSail
+			"aws_lightsail_certificate":                          {Tok: awsResource(lightsailMod, "Certificate")},
+			"aws_lightsail_container_service_deployment_version": {Tok: awsResource(lightsailMod, "ContainerServiceDeploymentVersion")},
+			"aws_lightsail_container_service":                    {Tok: awsResource(lightsailMod, "ContainerService")},
+			"aws_lightsail_database":                             {Tok: awsResource(lightsailMod, "Database")},
+			"aws_lightsail_disk_attachment":                      {Tok: awsResource(lightsailMod, "Disk_attachment")},
+			"aws_lightsail_disk":                                 {Tok: awsResource(lightsailMod, "Disk")},
+			"aws_lightsail_domain_entry":                         {Tok: awsResource(lightsailMod, "DomainEntry")},
 			"aws_lightsail_domain":                               {Tok: awsResource(lightsailMod, "Domain")},
+			"aws_lightsail_instance_public_ports":                {Tok: awsResource(lightsailMod, "InstancePublicPorts")},
 			"aws_lightsail_instance":                             {Tok: awsResource(lightsailMod, "Instance")},
 			"aws_lightsail_key_pair":                             {Tok: awsResource(lightsailMod, "KeyPair")},
-			"aws_lightsail_static_ip":                            {Tok: awsResource(lightsailMod, "StaticIp")},
-			"aws_lightsail_static_ip_attachment":                 {Tok: awsResource(lightsailMod, "StaticIpAttachment")},
-			"aws_lightsail_instance_public_ports":                {Tok: awsResource(lightsailMod, "InstancePublicPorts")},
-			"aws_lightsail_certificate":                          {Tok: awsResource(lightsailMod, "Certificate")},
-			"aws_lightsail_container_service":                    {Tok: awsResource(lightsailMod, "ContainerService")},
-			"aws_lightsail_container_service_deployment_version": {Tok: awsResource(lightsailMod, "ContainerServiceDeploymentVersion")},
-			"aws_lightsail_database":                             {Tok: awsResource(lightsailMod, "Database")},
-			"aws_lightsail_domain_entry":                         {Tok: awsResource(lightsailMod, "DomainEntry")},
-			"aws_lightsail_lb":                                   {Tok: awsResource(lightsailMod, "Lb")},
 			"aws_lightsail_lb_attachment":                        {Tok: awsResource(lightsailMod, "LbAttachment")},
+			"aws_lightsail_lb_certificate_attachment":            {Tok: awsResource(lightsailMod, "LbCertificateAttachment")},
+			"aws_lightsail_lb_certificate":                       {Tok: awsResource(lightsailMod, "LbCertificate")},
+			"aws_lightsail_lb_stickiness_policy":                 {Tok: awsResource(lightsailMod, "LbStickinessPolicy")},
+			"aws_lightsail_lb":                                   {Tok: awsResource(lightsailMod, "Lb")},
+			"aws_lightsail_static_ip_attachment":                 {Tok: awsResource(lightsailMod, "StaticIpAttachment")},
+			"aws_lightsail_static_ip":                            {Tok: awsResource(lightsailMod, "StaticIp")},
 
 			// Location
 			"aws_location_map":                 {Tok: awsResource(locationMod, "Map")},
@@ -2625,6 +2641,7 @@ func Provider() tfbridge.ProviderInfo {
 					"name": {Name: "name"},
 				},
 			},
+			"aws_route53_resolver_config":               {Tok: awsResource(route53Mod, "ResolverConfig")},
 			"aws_route53_resolver_endpoint":             {Tok: awsResource(route53Mod, "ResolverEndpoint")},
 			"aws_route53_resolver_rule":                 {Tok: awsResource(route53Mod, "ResolverRule")},
 			"aws_route53_resolver_rule_association":     {Tok: awsResource(route53Mod, "ResolverRuleAssociation")},
@@ -2691,11 +2708,12 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_sagemaker_notebook_instance_lifecycle_configuration": {
 				Tok: awsResource(sagemakerMod, "NotebookInstanceLifecycleConfiguration"),
 			},
-			"aws_sagemaker_device_fleet":               {Tok: awsResource(sagemakerMod, "DeviceFleet")},
-			"aws_sagemaker_human_task_ui":              {Tok: awsResource(sagemakerMod, "HumanTaskUI")},
-			"aws_sagemaker_flow_definition":            {Tok: awsResource(sagemakerMod, "FlowDefinition")},
-			"aws_sagemaker_studio_lifecycle_config":    {Tok: awsResource(sagemakerMod, "StudioLifecycleConfig")},
-			"aws_sagemaker_model_package_group_policy": {Tok: awsResource(sagemakerMod, "ModelPackageGroupPolicy")},
+			"aws_sagemaker_device_fleet":                    {Tok: awsResource(sagemakerMod, "DeviceFleet")},
+			"aws_sagemaker_human_task_ui":                   {Tok: awsResource(sagemakerMod, "HumanTaskUI")},
+			"aws_sagemaker_flow_definition":                 {Tok: awsResource(sagemakerMod, "FlowDefinition")},
+			"aws_sagemaker_servicecatalog_portfolio_status": {Tok: awsResource(sagemakerMod, "ServicecatalogPortfolioStatus")},
+			"aws_sagemaker_studio_lifecycle_config":         {Tok: awsResource(sagemakerMod, "StudioLifecycleConfig")},
+			"aws_sagemaker_model_package_group_policy":      {Tok: awsResource(sagemakerMod, "ModelPackageGroupPolicy")},
 			"aws_sagemaker_device": {
 				Tok: awsResource(sagemakerMod, "Device"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -2769,8 +2787,18 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ses_event_destination":            {Tok: awsResource(sesMod, "EventDestination")},
 			"aws_ses_template":                     {Tok: awsResource(sesMod, "Template")},
 
-			"aws_sesv2_configuration_set": {Tok: awsResource(sesV2Mod, "ConfigurationSet")},
-			"aws_sesv2_dedicated_ip_pool": {Tok: awsResource(sesV2Mod, "DedicatedIpPool")},
+			"aws_sesv2_configuration_set":                  {Tok: awsResource(sesV2Mod, "ConfigurationSet")},
+			"aws_sesv2_dedicated_ip_assignment":            {Tok: awsResource(sesV2Mod, "DedicatedIpAssignment")},
+			"aws_sesv2_dedicated_ip_pool":                  {Tok: awsResource(sesV2Mod, "DedicatedIpPool")},
+			"aws_sesv2_email_identity_feedback_attributes": {Tok: awsResource(sesV2Mod, "EmailIdentityFeedbackAttributes")},
+			"aws_sesv2_email_identity":                     {
+				Tok: awsResource(sesV2Mod, "EmailIdentity"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"email_identity": {
+						CSharpName: "EmailIdentityDetails",
+					},
+				},
+			},
 
 			// Shield
 			"aws_shield_protection":                          {Tok: awsResource(shieldMod, "Protection")},
@@ -3072,6 +3100,7 @@ func Provider() tfbridge.ProviderInfo {
 			// Systems Manager (SSM)
 			"aws_ssm_activation":                {Tok: awsResource(ssmMod, "Activation")},
 			"aws_ssm_association":               {Tok: awsResource(ssmMod, "Association")},
+			"aws_ssm_default_patch_baseline":    {Tok: awsResource(ssmMod, "DefaultPatchBaseline")},
 			"aws_ssm_document":                  {Tok: awsResource(ssmMod, "Document")},
 			"aws_ssm_maintenance_window":        {Tok: awsResource(ssmMod, "MaintenanceWindow")},
 			"aws_ssm_maintenance_window_target": {Tok: awsResource(ssmMod, "MaintenanceWindowTarget")},
@@ -3531,6 +3560,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_apprunner_custom_domain_association":          {Tok: awsResource(appRunnerMod, "CustomDomainAssociation")},
 			"aws_apprunner_service":                            {Tok: awsResource(appRunnerMod, "Service")},
 			"aws_apprunner_vpc_connector":                      {Tok: awsResource(appRunnerMod, "VpcConnector")},
+			"aws_apprunner_vpc_ingress_connection":             {Tok: awsResource(appRunnerMod, "VpcIngressConnection")},
 			"aws_apprunner_observability_configuration":        {Tok: awsResource(appRunnerMod, "ObservabilityConfiguration")},
 		},
 		ExtraTypes: map[string]schema.ComplexTypeSpec{
@@ -4725,6 +4755,7 @@ func Provider() tfbridge.ProviderInfo {
 
 			// Connect
 			"aws_connect_contact_flow":                {Tok: awsDataSource(connectMod, "getContactFlow")},
+			"aws_connect_instance_storage_config":     {Tok: awsDataSource(connectMod, "getInstanceStorageConfig")},
 			"aws_connect_instance":                    {Tok: awsDataSource(connectMod, "getInstance")},
 			"aws_connect_bot_association":             {Tok: awsDataSource(connectMod, "getBotAssociation")},
 			"aws_connect_hours_of_operation":          {Tok: awsDataSource(connectMod, "getHoursOfOperation")},
@@ -4762,10 +4793,11 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			// DX
-			"aws_dx_gateway":    {Tok: awsDataSource(dxMod, "getGateway")},
-			"aws_dx_connection": {Tok: awsDataSource(dxMod, "getConnection")},
-			"aws_dx_location":   {Tok: awsDataSource(dxMod, "getLocation")},
-			"aws_dx_locations":  {Tok: awsDataSource(dxMod, "getLocations")},
+			"aws_dx_connection":           {Tok: awsDataSource(dxMod, "getConnection")},
+			"aws_dx_gateway":              {Tok: awsDataSource(dxMod, "getGateway")},
+			"aws_dx_location":             {Tok: awsDataSource(dxMod, "getLocation")},
+			"aws_dx_locations":            {Tok: awsDataSource(dxMod, "getLocations")},
+			"aws_dx_router_configuration": {Tok: awsDataSource(dxMod, "getRouterConfiguration")},
 			// EC2
 			"aws_customer_gateway":     {Tok: awsDataSource(ec2Mod, "getCustomerGateway")},
 			"aws_instance":             {Tok: awsDataSource(ec2Mod, "getInstance")},

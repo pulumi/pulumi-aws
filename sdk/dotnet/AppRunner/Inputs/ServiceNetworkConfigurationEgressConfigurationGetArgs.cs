@@ -13,13 +13,13 @@ namespace Pulumi.Aws.AppRunner.Inputs
     public sealed class ServiceNetworkConfigurationEgressConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Type of egress configuration.Set to DEFAULT for access to resources hosted on public networks.Set to VPC to associate your service to a custom VPC specified by VpcConnectorArn.
+        /// The type of egress configuration. Valid values are: `DEFAULT` and `VPC`.
         /// </summary>
         [Input("egressType")]
         public Input<string>? EgressType { get; set; }
 
         /// <summary>
-        /// ARN of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when EgressType = VPC.
+        /// The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
         /// </summary>
         [Input("vpcConnectorArn")]
         public Input<string>? VpcConnectorArn { get; set; }

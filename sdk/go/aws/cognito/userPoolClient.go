@@ -236,6 +236,8 @@ type UserPoolClient struct {
 	AllowedOauthScopes pulumi.StringArrayOutput `pulumi:"allowedOauthScopes"`
 	// Configuration block for Amazon Pinpoint analytics for collecting metrics for this user pool. Detailed below.
 	AnalyticsConfiguration UserPoolClientAnalyticsConfigurationPtrOutput `pulumi:"analyticsConfiguration"`
+	// Amazon Cognito creates a session token for each API request in an authentication flow. AuthSessionValidity is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires. Valid values between `3` and `15`. Default value is `3`.
+	AuthSessionValidity pulumi.IntPtrOutput `pulumi:"authSessionValidity"`
 	// List of allowed callback URLs for the identity providers.
 	CallbackUrls pulumi.StringArrayOutput `pulumi:"callbackUrls"`
 	// Client secret of the user pool client.
@@ -314,6 +316,8 @@ type userPoolClientState struct {
 	AllowedOauthScopes []string `pulumi:"allowedOauthScopes"`
 	// Configuration block for Amazon Pinpoint analytics for collecting metrics for this user pool. Detailed below.
 	AnalyticsConfiguration *UserPoolClientAnalyticsConfiguration `pulumi:"analyticsConfiguration"`
+	// Amazon Cognito creates a session token for each API request in an authentication flow. AuthSessionValidity is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires. Valid values between `3` and `15`. Default value is `3`.
+	AuthSessionValidity *int `pulumi:"authSessionValidity"`
 	// List of allowed callback URLs for the identity providers.
 	CallbackUrls []string `pulumi:"callbackUrls"`
 	// Client secret of the user pool client.
@@ -361,6 +365,8 @@ type UserPoolClientState struct {
 	AllowedOauthScopes pulumi.StringArrayInput
 	// Configuration block for Amazon Pinpoint analytics for collecting metrics for this user pool. Detailed below.
 	AnalyticsConfiguration UserPoolClientAnalyticsConfigurationPtrInput
+	// Amazon Cognito creates a session token for each API request in an authentication flow. AuthSessionValidity is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires. Valid values between `3` and `15`. Default value is `3`.
+	AuthSessionValidity pulumi.IntPtrInput
 	// List of allowed callback URLs for the identity providers.
 	CallbackUrls pulumi.StringArrayInput
 	// Client secret of the user pool client.
@@ -412,6 +418,8 @@ type userPoolClientArgs struct {
 	AllowedOauthScopes []string `pulumi:"allowedOauthScopes"`
 	// Configuration block for Amazon Pinpoint analytics for collecting metrics for this user pool. Detailed below.
 	AnalyticsConfiguration *UserPoolClientAnalyticsConfiguration `pulumi:"analyticsConfiguration"`
+	// Amazon Cognito creates a session token for each API request in an authentication flow. AuthSessionValidity is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires. Valid values between `3` and `15`. Default value is `3`.
+	AuthSessionValidity *int `pulumi:"authSessionValidity"`
 	// List of allowed callback URLs for the identity providers.
 	CallbackUrls []string `pulumi:"callbackUrls"`
 	// Default redirect URI. Must be in the list of callback URLs.
@@ -458,6 +466,8 @@ type UserPoolClientArgs struct {
 	AllowedOauthScopes pulumi.StringArrayInput
 	// Configuration block for Amazon Pinpoint analytics for collecting metrics for this user pool. Detailed below.
 	AnalyticsConfiguration UserPoolClientAnalyticsConfigurationPtrInput
+	// Amazon Cognito creates a session token for each API request in an authentication flow. AuthSessionValidity is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires. Valid values between `3` and `15`. Default value is `3`.
+	AuthSessionValidity pulumi.IntPtrInput
 	// List of allowed callback URLs for the identity providers.
 	CallbackUrls pulumi.StringArrayInput
 	// Default redirect URI. Must be in the list of callback URLs.
@@ -602,6 +612,11 @@ func (o UserPoolClientOutput) AllowedOauthScopes() pulumi.StringArrayOutput {
 // Configuration block for Amazon Pinpoint analytics for collecting metrics for this user pool. Detailed below.
 func (o UserPoolClientOutput) AnalyticsConfiguration() UserPoolClientAnalyticsConfigurationPtrOutput {
 	return o.ApplyT(func(v *UserPoolClient) UserPoolClientAnalyticsConfigurationPtrOutput { return v.AnalyticsConfiguration }).(UserPoolClientAnalyticsConfigurationPtrOutput)
+}
+
+// Amazon Cognito creates a session token for each API request in an authentication flow. AuthSessionValidity is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires. Valid values between `3` and `15`. Default value is `3`.
+func (o UserPoolClientOutput) AuthSessionValidity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UserPoolClient) pulumi.IntPtrOutput { return v.AuthSessionValidity }).(pulumi.IntPtrOutput)
 }
 
 // List of allowed callback URLs for the identity providers.

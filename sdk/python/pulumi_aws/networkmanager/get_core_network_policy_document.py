@@ -151,11 +151,11 @@ def get_core_network_policy_document(attachment_policies: Optional[Sequence[pulu
             asn_ranges=["64512-64555"],
             edge_locations=[
                 aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs(
-                    asn=64512,
+                    asn="64512",
                     location="us-east-1",
                 ),
                 aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs(
-                    asn=64513,
+                    asn="64513",
                     location="eu-central-1",
                 ),
             ],
@@ -261,11 +261,11 @@ def get_core_network_policy_document_output(attachment_policies: Optional[pulumi
             asn_ranges=["64512-64555"],
             edge_locations=[
                 aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs(
-                    asn=64512,
+                    asn="64512",
                     location="us-east-1",
                 ),
                 aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs(
-                    asn=64513,
+                    asn="64513",
                     location="eu-central-1",
                 ),
             ],

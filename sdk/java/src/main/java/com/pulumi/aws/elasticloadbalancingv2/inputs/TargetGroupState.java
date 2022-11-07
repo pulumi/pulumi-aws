@@ -5,11 +5,13 @@ package com.pulumi.aws.elasticloadbalancingv2.inputs;
 
 import com.pulumi.aws.elasticloadbalancingv2.inputs.TargetGroupHealthCheckArgs;
 import com.pulumi.aws.elasticloadbalancingv2.inputs.TargetGroupStickinessArgs;
+import com.pulumi.aws.elasticloadbalancingv2.inputs.TargetGroupTargetFailoverArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -306,6 +308,21 @@ public final class TargetGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Target failover block. Only applicable for Gateway Load Balancer target groups. See target_failover for more information.
+     * 
+     */
+    @Import(name="targetFailovers")
+    private @Nullable Output<List<TargetGroupTargetFailoverArgs>> targetFailovers;
+
+    /**
+     * @return Target failover block. Only applicable for Gateway Load Balancer target groups. See target_failover for more information.
+     * 
+     */
+    public Optional<Output<List<TargetGroupTargetFailoverArgs>>> targetFailovers() {
+        return Optional.ofNullable(this.targetFailovers);
+    }
+
+    /**
      * Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
      * 
      */
@@ -357,6 +374,7 @@ public final class TargetGroupState extends com.pulumi.resources.ResourceArgs {
         this.stickiness = $.stickiness;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
+        this.targetFailovers = $.targetFailovers;
         this.targetType = $.targetType;
         this.vpcId = $.vpcId;
     }
@@ -776,6 +794,37 @@ public final class TargetGroupState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
+        }
+
+        /**
+         * @param targetFailovers Target failover block. Only applicable for Gateway Load Balancer target groups. See target_failover for more information.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetFailovers(@Nullable Output<List<TargetGroupTargetFailoverArgs>> targetFailovers) {
+            $.targetFailovers = targetFailovers;
+            return this;
+        }
+
+        /**
+         * @param targetFailovers Target failover block. Only applicable for Gateway Load Balancer target groups. See target_failover for more information.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetFailovers(List<TargetGroupTargetFailoverArgs> targetFailovers) {
+            return targetFailovers(Output.of(targetFailovers));
+        }
+
+        /**
+         * @param targetFailovers Target failover block. Only applicable for Gateway Load Balancer target groups. See target_failover for more information.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetFailovers(TargetGroupTargetFailoverArgs... targetFailovers) {
+            return targetFailovers(List.of(targetFailovers));
         }
 
         /**

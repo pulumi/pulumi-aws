@@ -186,18 +186,18 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
     }
 
     /**
-     * A list of EC2 security group that are associated with instances launched in the compute environment.
+     * A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
      * 
      */
-    @Import(name="securityGroupIds", required=true)
-    private Output<List<String>> securityGroupIds;
+    @Import(name="securityGroupIds")
+    private @Nullable Output<List<String>> securityGroupIds;
 
     /**
-     * @return A list of EC2 security group that are associated with instances launched in the compute environment.
+     * @return A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
      * 
      */
-    public Output<List<String>> securityGroupIds() {
-        return this.securityGroupIds;
+    public Optional<Output<List<String>>> securityGroupIds() {
+        return Optional.ofNullable(this.securityGroupIds);
     }
 
     /**
@@ -541,18 +541,18 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param securityGroupIds A list of EC2 security group that are associated with instances launched in the compute environment.
+         * @param securityGroupIds A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
          * 
          * @return builder
          * 
          */
-        public Builder securityGroupIds(Output<List<String>> securityGroupIds) {
+        public Builder securityGroupIds(@Nullable Output<List<String>> securityGroupIds) {
             $.securityGroupIds = securityGroupIds;
             return this;
         }
 
         /**
-         * @param securityGroupIds A list of EC2 security group that are associated with instances launched in the compute environment.
+         * @param securityGroupIds A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
          * 
          * @return builder
          * 
@@ -562,7 +562,7 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param securityGroupIds A list of EC2 security group that are associated with instances launched in the compute environment.
+         * @param securityGroupIds A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
          * 
          * @return builder
          * 
@@ -667,7 +667,6 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
 
         public ComputeEnvironmentComputeResourcesArgs build() {
             $.maxVcpus = Objects.requireNonNull($.maxVcpus, "expected parameter 'maxVcpus' to be non-null");
-            $.securityGroupIds = Objects.requireNonNull($.securityGroupIds, "expected parameter 'securityGroupIds' to be non-null");
             $.subnets = Objects.requireNonNull($.subnets, "expected parameter 'subnets' to be non-null");
             $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
             return $;

@@ -14,6 +14,7 @@ __all__ = [
     'ComputeEnvironmentComputeResources',
     'ComputeEnvironmentComputeResourcesEc2Configuration',
     'ComputeEnvironmentComputeResourcesLaunchTemplate',
+    'ComputeEnvironmentEksConfiguration',
     'JobDefinitionRetryStrategy',
     'JobDefinitionRetryStrategyEvaluateOnExit',
     'JobDefinitionTimeout',
@@ -31,8 +32,6 @@ class ComputeEnvironmentComputeResources(dict):
         suggest = None
         if key == "maxVcpus":
             suggest = "max_vcpus"
-        elif key == "securityGroupIds":
-            suggest = "security_group_ids"
         elif key == "allocationStrategy":
             suggest = "allocation_strategy"
         elif key == "bidPercentage":
@@ -53,6 +52,8 @@ class ComputeEnvironmentComputeResources(dict):
             suggest = "launch_template"
         elif key == "minVcpus":
             suggest = "min_vcpus"
+        elif key == "securityGroupIds":
+            suggest = "security_group_ids"
         elif key == "spotIamFleetRole":
             suggest = "spot_iam_fleet_role"
 
@@ -69,7 +70,6 @@ class ComputeEnvironmentComputeResources(dict):
 
     def __init__(__self__, *,
                  max_vcpus: int,
-                 security_group_ids: Sequence[str],
                  subnets: Sequence[str],
                  type: str,
                  allocation_strategy: Optional[str] = None,
@@ -82,11 +82,11 @@ class ComputeEnvironmentComputeResources(dict):
                  instance_types: Optional[Sequence[str]] = None,
                  launch_template: Optional['outputs.ComputeEnvironmentComputeResourcesLaunchTemplate'] = None,
                  min_vcpus: Optional[int] = None,
+                 security_group_ids: Optional[Sequence[str]] = None,
                  spot_iam_fleet_role: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None):
         """
         :param int max_vcpus: The maximum number of EC2 vCPUs that an environment can reach.
-        :param Sequence[str] security_group_ids: A list of EC2 security group that are associated with instances launched in the compute environment.
         :param Sequence[str] subnets: A list of VPC subnets into which the compute resources are launched.
         :param str type: The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
         :param str allocation_strategy: The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. Valid items are `BEST_FIT_PROGRESSIVE`, `SPOT_CAPACITY_OPTIMIZED` or `BEST_FIT`. Defaults to `BEST_FIT`. See [AWS docs](https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html) for details. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
@@ -99,11 +99,11 @@ class ComputeEnvironmentComputeResources(dict):
         :param Sequence[str] instance_types: A list of instance types that may be launched. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         :param 'ComputeEnvironmentComputeResourcesLaunchTemplateArgs' launch_template: The launch template to use for your compute resources. See details below. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         :param int min_vcpus: The minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+        :param Sequence[str] security_group_ids: A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
         :param str spot_iam_fleet_role: The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         :param Mapping[str, str] tags: Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         """
         pulumi.set(__self__, "max_vcpus", max_vcpus)
-        pulumi.set(__self__, "security_group_ids", security_group_ids)
         pulumi.set(__self__, "subnets", subnets)
         pulumi.set(__self__, "type", type)
         if allocation_strategy is not None:
@@ -126,6 +126,8 @@ class ComputeEnvironmentComputeResources(dict):
             pulumi.set(__self__, "launch_template", launch_template)
         if min_vcpus is not None:
             pulumi.set(__self__, "min_vcpus", min_vcpus)
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
         if spot_iam_fleet_role is not None:
             pulumi.set(__self__, "spot_iam_fleet_role", spot_iam_fleet_role)
         if tags is not None:
@@ -138,14 +140,6 @@ class ComputeEnvironmentComputeResources(dict):
         The maximum number of EC2 vCPUs that an environment can reach.
         """
         return pulumi.get(self, "max_vcpus")
-
-    @property
-    @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Sequence[str]:
-        """
-        A list of EC2 security group that are associated with instances launched in the compute environment.
-        """
-        return pulumi.get(self, "security_group_ids")
 
     @property
     @pulumi.getter
@@ -242,6 +236,14 @@ class ComputeEnvironmentComputeResources(dict):
         The minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         """
         return pulumi.get(self, "min_vcpus")
+
+    @property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Optional[Sequence[str]]:
+        """
+        A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
+        """
+        return pulumi.get(self, "security_group_ids")
 
     @property
     @pulumi.getter(name="spotIamFleetRole")
@@ -370,6 +372,54 @@ class ComputeEnvironmentComputeResourcesLaunchTemplate(dict):
         The version number of the launch template. Default: The default version of the launch template.
         """
         return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class ComputeEnvironmentEksConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eksClusterArn":
+            suggest = "eks_cluster_arn"
+        elif key == "kubernetesNamespace":
+            suggest = "kubernetes_namespace"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComputeEnvironmentEksConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComputeEnvironmentEksConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComputeEnvironmentEksConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 eks_cluster_arn: str,
+                 kubernetes_namespace: str):
+        """
+        :param str eks_cluster_arn: The Amazon Resource Name (ARN) of the Amazon EKS cluster.
+        :param str kubernetes_namespace: The namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace.
+        """
+        pulumi.set(__self__, "eks_cluster_arn", eks_cluster_arn)
+        pulumi.set(__self__, "kubernetes_namespace", kubernetes_namespace)
+
+    @property
+    @pulumi.getter(name="eksClusterArn")
+    def eks_cluster_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the Amazon EKS cluster.
+        """
+        return pulumi.get(self, "eks_cluster_arn")
+
+    @property
+    @pulumi.getter(name="kubernetesNamespace")
+    def kubernetes_namespace(self) -> str:
+        """
+        The namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace.
+        """
+        return pulumi.get(self, "kubernetes_namespace")
 
 
 @pulumi.output_type

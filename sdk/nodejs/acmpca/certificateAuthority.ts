@@ -30,6 +30,23 @@ import * as utilities from "../utilities";
  *     permanentDeletionTimeInDays: 7,
  * });
  * ```
+ * ### Short-lived certificate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.acmpca.CertificateAuthority("example", {
+ *     certificateAuthorityConfiguration: {
+ *         keyAlgorithm: "RSA_4096",
+ *         signingAlgorithm: "SHA512WITHRSA",
+ *         subject: {
+ *             commonName: "example.com",
+ *         },
+ *     },
+ *     usageMode: "SHORT_LIVED_CERTIFICATE",
+ * });
+ * ```
  * ### Enable Certificate Revocation List
  *
  * ```typescript
@@ -178,6 +195,10 @@ export class CertificateAuthority extends pulumi.CustomResource {
      * Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
      */
     public readonly type!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
+     */
+    public readonly usageMode!: pulumi.Output<string>;
 
     /**
      * Create a CertificateAuthority resource with the given unique name, arguments, and options.
@@ -207,6 +228,7 @@ export class CertificateAuthority extends pulumi.CustomResource {
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["usageMode"] = state ? state.usageMode : undefined;
         } else {
             const args = argsOrState as CertificateAuthorityArgs | undefined;
             if ((!args || args.certificateAuthorityConfiguration === undefined) && !opts.urn) {
@@ -218,6 +240,7 @@ export class CertificateAuthority extends pulumi.CustomResource {
             resourceInputs["revocationConfiguration"] = args ? args.revocationConfiguration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["usageMode"] = args ? args.usageMode : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["certificate"] = undefined /*out*/;
             resourceInputs["certificateChain"] = undefined /*out*/;
@@ -299,6 +322,10 @@ export interface CertificateAuthorityState {
      * Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
      */
     type?: pulumi.Input<string>;
+    /**
+     * Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
+     */
+    usageMode?: pulumi.Input<string>;
 }
 
 /**
@@ -329,4 +356,8 @@ export interface CertificateAuthorityArgs {
      * Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
      */
     type?: pulumi.Input<string>;
+    /**
+     * Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
+     */
+    usageMode?: pulumi.Input<string>;
 }

@@ -21,15 +21,16 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides an SSM Patch Baseline resource
+ * Provides an SSM Patch Baseline resource.
  * 
  * &gt; **NOTE on Patch Baselines:** The `approved_patches` and `approval_rule` are
  * both marked as optional fields, but the Patch Baseline requires that at least one
  * of them is specified.
  * 
  * ## Example Usage
+ * ### Basic Usage
  * 
- * Basic usage using `approved_patches` only
+ * Using `approved_patches` only.
  * ```java
  * package generated_program;
  * 
@@ -58,8 +59,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * 
- * Advanced usage, specifying patch filters
+ * ### Advanced Usage, specifying patch filters
  * ```java
  * package generated_program;
  * 
@@ -138,8 +138,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * 
- * Advanced usage, specifying Microsoft application and Windows patch rules
+ * ### Advanced usage, specifying Microsoft application and Windows patch rules
  * ```java
  * package generated_program;
  * 
@@ -201,8 +200,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * 
- * Advanced usage, specifying alternate patch source repository
+ * ### Advanced usage, specifying alternate patch source repository
  * ```java
  * package generated_program;
  * 
@@ -269,14 +267,18 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ssm/patchBaseline:PatchBaseline")
 public class PatchBaseline extends com.pulumi.resources.CustomResource {
     /**
-     * A set of rules used to include patches in the baseline. up to 10 approval rules can be specified. Each approval_rule block requires the fields documented below.
+     * A set of rules used to include patches in the baseline.
+     * Up to 10 approval rules can be specified.
+     * See `approval_rule` below.
      * 
      */
     @Export(name="approvalRules", type=List.class, parameters={PatchBaselineApprovalRule.class})
     private Output</* @Nullable */ List<PatchBaselineApprovalRule>> approvalRules;
 
     /**
-     * @return A set of rules used to include patches in the baseline. up to 10 approval rules can be specified. Each approval_rule block requires the fields documented below.
+     * @return A set of rules used to include patches in the baseline.
+     * Up to 10 approval rules can be specified.
+     * See `approval_rule` below.
      * 
      */
     public Output<Optional<List<PatchBaselineApprovalRule>>> approvalRules() {
@@ -284,6 +286,7 @@ public class PatchBaseline extends com.pulumi.resources.CustomResource {
     }
     /**
      * A list of explicitly approved patches for the baseline.
+     * Cannot be specified with `approval_rule`.
      * 
      */
     @Export(name="approvedPatches", type=List.class, parameters={String.class})
@@ -291,34 +294,43 @@ public class PatchBaseline extends com.pulumi.resources.CustomResource {
 
     /**
      * @return A list of explicitly approved patches for the baseline.
+     * Cannot be specified with `approval_rule`.
      * 
      */
     public Output<Optional<List<String>>> approvedPatches() {
         return Codegen.optional(this.approvedPatches);
     }
     /**
-     * Defines the compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. Valid compliance levels include the following: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
+     * The compliance level for approved patches.
+     * This means that if an approved patch is reported as missing, this is the severity of the compliance violation.
+     * Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`.
+     * The default value is `UNSPECIFIED`.
      * 
      */
     @Export(name="approvedPatchesComplianceLevel", type=String.class, parameters={})
     private Output</* @Nullable */ String> approvedPatchesComplianceLevel;
 
     /**
-     * @return Defines the compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. Valid compliance levels include the following: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
+     * @return The compliance level for approved patches.
+     * This means that if an approved patch is reported as missing, this is the severity of the compliance violation.
+     * Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`.
+     * The default value is `UNSPECIFIED`.
      * 
      */
     public Output<Optional<String>> approvedPatchesComplianceLevel() {
         return Codegen.optional(this.approvedPatchesComplianceLevel);
     }
     /**
-     * Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. Applies to Linux instances only.
+     * Indicates whether the list of approved patches includes non-security updates that should be applied to the instances.
+     * Applies to Linux instances only.
      * 
      */
     @Export(name="approvedPatchesEnableNonSecurity", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> approvedPatchesEnableNonSecurity;
 
     /**
-     * @return Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. Applies to Linux instances only.
+     * @return Indicates whether the list of approved patches includes non-security updates that should be applied to the instances.
+     * Applies to Linux instances only.
      * 
      */
     public Output<Optional<Boolean>> approvedPatchesEnableNonSecurity() {
@@ -353,14 +365,18 @@ public class PatchBaseline extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * A set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`.
+     * A set of global filters used to exclude patches from the baseline.
+     * Up to 4 global filters can be specified using Key/Value pairs.
+     * Valid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.
      * 
      */
     @Export(name="globalFilters", type=List.class, parameters={PatchBaselineGlobalFilter.class})
     private Output</* @Nullable */ List<PatchBaselineGlobalFilter>> globalFilters;
 
     /**
-     * @return A set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`.
+     * @return A set of global filters used to exclude patches from the baseline.
+     * Up to 4 global filters can be specified using Key/Value pairs.
+     * Valid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.
      * 
      */
     public Output<Optional<List<PatchBaselineGlobalFilter>>> globalFilters() {
@@ -381,14 +397,44 @@ public class PatchBaseline extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Defines the operating system the patch baseline applies to. Supported operating systems are `AMAZON_LINUX`, `AMAZON_LINUX_2`, `UBUNTU`, `REDHAT_ENTERPRISE_LINUX`, `SUSE`, `CENTOS`, `ORACLE_LINUX`, `DEBIAN`, `MACOS`, `RASPBIAN` and `ROCKY_LINUX`. The Default value is `WINDOWS`.
+     * The operating system the patch baseline applies to.
+     * Valid values are
+     * `AMAZON_LINUX`,
+     * `AMAZON_LINUX_2`,
+     * `AMAZON_LINUX_2022`,
+     * `CENTOS`,
+     * `DEBIAN`,
+     * `MACOS`,
+     * `ORACLE_LINUX`,
+     * `RASPBIAN`,
+     * `REDHAT_ENTERPRISE_LINUX`,
+     * `ROCKY_LINUX`,
+     * `SUSE`,
+     * `UBUNTU`, and
+     * `WINDOWS`.
+     * The default value is `WINDOWS`.
      * 
      */
     @Export(name="operatingSystem", type=String.class, parameters={})
     private Output</* @Nullable */ String> operatingSystem;
 
     /**
-     * @return Defines the operating system the patch baseline applies to. Supported operating systems are `AMAZON_LINUX`, `AMAZON_LINUX_2`, `UBUNTU`, `REDHAT_ENTERPRISE_LINUX`, `SUSE`, `CENTOS`, `ORACLE_LINUX`, `DEBIAN`, `MACOS`, `RASPBIAN` and `ROCKY_LINUX`. The Default value is `WINDOWS`.
+     * @return The operating system the patch baseline applies to.
+     * Valid values are
+     * `AMAZON_LINUX`,
+     * `AMAZON_LINUX_2`,
+     * `AMAZON_LINUX_2022`,
+     * `CENTOS`,
+     * `DEBIAN`,
+     * `MACOS`,
+     * `ORACLE_LINUX`,
+     * `RASPBIAN`,
+     * `REDHAT_ENTERPRISE_LINUX`,
+     * `ROCKY_LINUX`,
+     * `SUSE`,
+     * `UBUNTU`, and
+     * `WINDOWS`.
+     * The default value is `WINDOWS`.
      * 
      */
     public Output<Optional<String>> operatingSystem() {
@@ -409,42 +455,48 @@ public class PatchBaseline extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.rejectedPatches);
     }
     /**
-     * The action for Patch Manager to take on patches included in the `rejected_patches` list. Allow values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
+     * The action for Patch Manager to take on patches included in the `rejected_patches` list.
+     * Valid values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
      * 
      */
     @Export(name="rejectedPatchesAction", type=String.class, parameters={})
     private Output<String> rejectedPatchesAction;
 
     /**
-     * @return The action for Patch Manager to take on patches included in the `rejected_patches` list. Allow values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
+     * @return The action for Patch Manager to take on patches included in the `rejected_patches` list.
+     * Valid values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
      * 
      */
     public Output<String> rejectedPatchesAction() {
         return this.rejectedPatchesAction;
     }
     /**
-     * Configuration block(s) with alternate sources for patches. Applies to Linux instances only. Documented below.
+     * Configuration block with alternate sources for patches.
+     * Applies to Linux instances only.
+     * See `source` below.
      * 
      */
     @Export(name="sources", type=List.class, parameters={PatchBaselineSource.class})
     private Output</* @Nullable */ List<PatchBaselineSource>> sources;
 
     /**
-     * @return Configuration block(s) with alternate sources for patches. Applies to Linux instances only. Documented below.
+     * @return Configuration block with alternate sources for patches.
+     * Applies to Linux instances only.
+     * See `source` below.
      * 
      */
     public Output<Optional<List<PatchBaselineSource>>> sources() {
         return Codegen.optional(this.sources);
     }
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

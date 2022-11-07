@@ -109,12 +109,17 @@ export class Workforce extends pulumi.CustomResource {
     public readonly sourceIpConfig!: pulumi.Output<outputs.sagemaker.WorkforceSourceIpConfig>;
     /**
      * The subdomain for your OIDC Identity Provider.
+     * * `workforce_vpc_config.0.vpc_endpoint_id` - The IDs for the VPC service endpoints of your VPC workforce.
      */
     public /*out*/ readonly subdomain!: pulumi.Output<string>;
     /**
      * The name of the Workforce (must be unique).
      */
     public readonly workforceName!: pulumi.Output<string>;
+    /**
+     * configure a workforce using VPC. see Workforce VPC Config details below.
+     */
+    public readonly workforceVpcConfig!: pulumi.Output<outputs.sagemaker.WorkforceWorkforceVpcConfig | undefined>;
 
     /**
      * Create a Workforce resource with the given unique name, arguments, and options.
@@ -135,6 +140,7 @@ export class Workforce extends pulumi.CustomResource {
             resourceInputs["sourceIpConfig"] = state ? state.sourceIpConfig : undefined;
             resourceInputs["subdomain"] = state ? state.subdomain : undefined;
             resourceInputs["workforceName"] = state ? state.workforceName : undefined;
+            resourceInputs["workforceVpcConfig"] = state ? state.workforceVpcConfig : undefined;
         } else {
             const args = argsOrState as WorkforceArgs | undefined;
             if ((!args || args.workforceName === undefined) && !opts.urn) {
@@ -144,6 +150,7 @@ export class Workforce extends pulumi.CustomResource {
             resourceInputs["oidcConfig"] = args ? args.oidcConfig : undefined;
             resourceInputs["sourceIpConfig"] = args ? args.sourceIpConfig : undefined;
             resourceInputs["workforceName"] = args ? args.workforceName : undefined;
+            resourceInputs["workforceVpcConfig"] = args ? args.workforceVpcConfig : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["subdomain"] = undefined /*out*/;
         }
@@ -174,12 +181,17 @@ export interface WorkforceState {
     sourceIpConfig?: pulumi.Input<inputs.sagemaker.WorkforceSourceIpConfig>;
     /**
      * The subdomain for your OIDC Identity Provider.
+     * * `workforce_vpc_config.0.vpc_endpoint_id` - The IDs for the VPC service endpoints of your VPC workforce.
      */
     subdomain?: pulumi.Input<string>;
     /**
      * The name of the Workforce (must be unique).
      */
     workforceName?: pulumi.Input<string>;
+    /**
+     * configure a workforce using VPC. see Workforce VPC Config details below.
+     */
+    workforceVpcConfig?: pulumi.Input<inputs.sagemaker.WorkforceWorkforceVpcConfig>;
 }
 
 /**
@@ -202,4 +214,8 @@ export interface WorkforceArgs {
      * The name of the Workforce (must be unique).
      */
     workforceName: pulumi.Input<string>;
+    /**
+     * configure a workforce using VPC. see Workforce VPC Config details below.
+     */
+    workforceVpcConfig?: pulumi.Input<inputs.sagemaker.WorkforceWorkforceVpcConfig>;
 }

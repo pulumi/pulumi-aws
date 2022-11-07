@@ -40,6 +40,31 @@ namespace Pulumi.Aws.Acmpca
     /// 
     /// });
     /// ```
+    /// ### Short-lived certificate
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Acmpca.CertificateAuthority("example", new()
+    ///     {
+    ///         CertificateAuthorityConfiguration = new Aws.Acmpca.Inputs.CertificateAuthorityCertificateAuthorityConfigurationArgs
+    ///         {
+    ///             KeyAlgorithm = "RSA_4096",
+    ///             SigningAlgorithm = "SHA512WITHRSA",
+    ///             Subject = new Aws.Acmpca.Inputs.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs
+    ///             {
+    ///                 CommonName = "example.com",
+    ///             },
+    ///         },
+    ///         UsageMode = "SHORT_LIVED_CERTIFICATE",
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ### Enable Certificate Revocation List
     /// 
     /// ```csharp
@@ -223,6 +248,12 @@ namespace Pulumi.Aws.Acmpca
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
+        /// </summary>
+        [Output("usageMode")]
+        public Output<string> UsageMode { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a CertificateAuthority resource with the given unique name, arguments, and options.
@@ -310,6 +341,12 @@ namespace Pulumi.Aws.Acmpca
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
+
+        /// <summary>
+        /// Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
+        /// </summary>
+        [Input("usageMode")]
+        public Input<string>? UsageMode { get; set; }
 
         public CertificateAuthorityArgs()
         {
@@ -420,6 +457,12 @@ namespace Pulumi.Aws.Acmpca
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
+
+        /// <summary>
+        /// Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
+        /// </summary>
+        [Input("usageMode")]
+        public Input<string>? UsageMode { get; set; }
 
         public CertificateAuthorityState()
         {

@@ -51,6 +51,28 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * Create a budget with planned budget limits.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const cost = new aws.budgets.Budget("cost", {
+ *     plannedLimits: [
+ *         {
+ *             amount: "100",
+ *             startTime: "2017-07-01_00:00",
+ *             unit: "USD",
+ *         },
+ *         {
+ *             amount: "200",
+ *             startTime: "2017-08-01_00:00",
+ *             unit: "USD",
+ *         },
+ *     ],
+ * });
+ * ```
+ *
  * Create a budget for s3 with a limit of *3 GB* of storage.
  *
  * ```typescript
@@ -168,6 +190,10 @@ export class Budget extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
+     */
+    public readonly autoAdjustData!: pulumi.Output<outputs.budgets.BudgetAutoAdjustData | undefined>;
+    /**
      * Whether this budget tracks monetary cost or usage.
      */
     public readonly budgetType!: pulumi.Output<string>;
@@ -202,9 +228,13 @@ export class Budget extends pulumi.CustomResource {
      */
     public readonly namePrefix!: pulumi.Output<string>;
     /**
-     * Object containing Budget Notifications. Can be used multiple times to define more than one budget notification
+     * Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
      */
     public readonly notifications!: pulumi.Output<outputs.budgets.BudgetNotification[] | undefined>;
+    /**
+     * Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
+     */
+    public readonly plannedLimits!: pulumi.Output<outputs.budgets.BudgetPlannedLimit[] | undefined>;
     /**
      * The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
      */
@@ -233,6 +263,7 @@ export class Budget extends pulumi.CustomResource {
             const state = argsOrState as BudgetState | undefined;
             resourceInputs["accountId"] = state ? state.accountId : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["autoAdjustData"] = state ? state.autoAdjustData : undefined;
             resourceInputs["budgetType"] = state ? state.budgetType : undefined;
             resourceInputs["costFilterLegacy"] = state ? state.costFilterLegacy : undefined;
             resourceInputs["costFilters"] = state ? state.costFilters : undefined;
@@ -242,6 +273,7 @@ export class Budget extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
             resourceInputs["notifications"] = state ? state.notifications : undefined;
+            resourceInputs["plannedLimits"] = state ? state.plannedLimits : undefined;
             resourceInputs["timePeriodEnd"] = state ? state.timePeriodEnd : undefined;
             resourceInputs["timePeriodStart"] = state ? state.timePeriodStart : undefined;
             resourceInputs["timeUnit"] = state ? state.timeUnit : undefined;
@@ -250,16 +282,11 @@ export class Budget extends pulumi.CustomResource {
             if ((!args || args.budgetType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'budgetType'");
             }
-            if ((!args || args.limitAmount === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'limitAmount'");
-            }
-            if ((!args || args.limitUnit === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'limitUnit'");
-            }
             if ((!args || args.timeUnit === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'timeUnit'");
             }
             resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["autoAdjustData"] = args ? args.autoAdjustData : undefined;
             resourceInputs["budgetType"] = args ? args.budgetType : undefined;
             resourceInputs["costFilterLegacy"] = args ? args.costFilterLegacy : undefined;
             resourceInputs["costFilters"] = args ? args.costFilters : undefined;
@@ -269,6 +296,7 @@ export class Budget extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
             resourceInputs["notifications"] = args ? args.notifications : undefined;
+            resourceInputs["plannedLimits"] = args ? args.plannedLimits : undefined;
             resourceInputs["timePeriodEnd"] = args ? args.timePeriodEnd : undefined;
             resourceInputs["timePeriodStart"] = args ? args.timePeriodStart : undefined;
             resourceInputs["timeUnit"] = args ? args.timeUnit : undefined;
@@ -291,6 +319,10 @@ export interface BudgetState {
      * The ARN of the budget.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
+     */
+    autoAdjustData?: pulumi.Input<inputs.budgets.BudgetAutoAdjustData>;
     /**
      * Whether this budget tracks monetary cost or usage.
      */
@@ -326,9 +358,13 @@ export interface BudgetState {
      */
     namePrefix?: pulumi.Input<string>;
     /**
-     * Object containing Budget Notifications. Can be used multiple times to define more than one budget notification
+     * Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
      */
     notifications?: pulumi.Input<pulumi.Input<inputs.budgets.BudgetNotification>[]>;
+    /**
+     * Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
+     */
+    plannedLimits?: pulumi.Input<pulumi.Input<inputs.budgets.BudgetPlannedLimit>[]>;
     /**
      * The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
      */
@@ -352,6 +388,10 @@ export interface BudgetArgs {
      */
     accountId?: pulumi.Input<string>;
     /**
+     * Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
+     */
+    autoAdjustData?: pulumi.Input<inputs.budgets.BudgetAutoAdjustData>;
+    /**
      * Whether this budget tracks monetary cost or usage.
      */
     budgetType: pulumi.Input<string>;
@@ -372,11 +412,11 @@ export interface BudgetArgs {
     /**
      * The amount of cost or usage being measured for a budget.
      */
-    limitAmount: pulumi.Input<string>;
+    limitAmount?: pulumi.Input<string>;
     /**
      * The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
      */
-    limitUnit: pulumi.Input<string>;
+    limitUnit?: pulumi.Input<string>;
     /**
      * The name of a budget. Unique within accounts.
      */
@@ -386,9 +426,13 @@ export interface BudgetArgs {
      */
     namePrefix?: pulumi.Input<string>;
     /**
-     * Object containing Budget Notifications. Can be used multiple times to define more than one budget notification
+     * Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
      */
     notifications?: pulumi.Input<pulumi.Input<inputs.budgets.BudgetNotification>[]>;
+    /**
+     * Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
+     */
+    plannedLimits?: pulumi.Input<pulumi.Input<inputs.budgets.BudgetPlannedLimit>[]>;
     /**
      * The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
      */

@@ -119,9 +119,12 @@ type Workforce struct {
 	// A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
 	SourceIpConfig WorkforceSourceIpConfigOutput `pulumi:"sourceIpConfig"`
 	// The subdomain for your OIDC Identity Provider.
+	// * `workforce_vpc_config.0.vpc_endpoint_id` - The IDs for the VPC service endpoints of your VPC workforce.
 	Subdomain pulumi.StringOutput `pulumi:"subdomain"`
 	// The name of the Workforce (must be unique).
 	WorkforceName pulumi.StringOutput `pulumi:"workforceName"`
+	// configure a workforce using VPC. see Workforce VPC Config details below.
+	WorkforceVpcConfig WorkforceWorkforceVpcConfigPtrOutput `pulumi:"workforceVpcConfig"`
 }
 
 // NewWorkforce registers a new resource with the given unique name, arguments, and options.
@@ -165,9 +168,12 @@ type workforceState struct {
 	// A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
 	SourceIpConfig *WorkforceSourceIpConfig `pulumi:"sourceIpConfig"`
 	// The subdomain for your OIDC Identity Provider.
+	// * `workforce_vpc_config.0.vpc_endpoint_id` - The IDs for the VPC service endpoints of your VPC workforce.
 	Subdomain *string `pulumi:"subdomain"`
 	// The name of the Workforce (must be unique).
 	WorkforceName *string `pulumi:"workforceName"`
+	// configure a workforce using VPC. see Workforce VPC Config details below.
+	WorkforceVpcConfig *WorkforceWorkforceVpcConfig `pulumi:"workforceVpcConfig"`
 }
 
 type WorkforceState struct {
@@ -180,9 +186,12 @@ type WorkforceState struct {
 	// A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
 	SourceIpConfig WorkforceSourceIpConfigPtrInput
 	// The subdomain for your OIDC Identity Provider.
+	// * `workforce_vpc_config.0.vpc_endpoint_id` - The IDs for the VPC service endpoints of your VPC workforce.
 	Subdomain pulumi.StringPtrInput
 	// The name of the Workforce (must be unique).
 	WorkforceName pulumi.StringPtrInput
+	// configure a workforce using VPC. see Workforce VPC Config details below.
+	WorkforceVpcConfig WorkforceWorkforceVpcConfigPtrInput
 }
 
 func (WorkforceState) ElementType() reflect.Type {
@@ -198,6 +207,8 @@ type workforceArgs struct {
 	SourceIpConfig *WorkforceSourceIpConfig `pulumi:"sourceIpConfig"`
 	// The name of the Workforce (must be unique).
 	WorkforceName string `pulumi:"workforceName"`
+	// configure a workforce using VPC. see Workforce VPC Config details below.
+	WorkforceVpcConfig *WorkforceWorkforceVpcConfig `pulumi:"workforceVpcConfig"`
 }
 
 // The set of arguments for constructing a Workforce resource.
@@ -210,6 +221,8 @@ type WorkforceArgs struct {
 	SourceIpConfig WorkforceSourceIpConfigPtrInput
 	// The name of the Workforce (must be unique).
 	WorkforceName pulumi.StringInput
+	// configure a workforce using VPC. see Workforce VPC Config details below.
+	WorkforceVpcConfig WorkforceWorkforceVpcConfigPtrInput
 }
 
 func (WorkforceArgs) ElementType() reflect.Type {
@@ -320,6 +333,7 @@ func (o WorkforceOutput) SourceIpConfig() WorkforceSourceIpConfigOutput {
 }
 
 // The subdomain for your OIDC Identity Provider.
+// * `workforce_vpc_config.0.vpc_endpoint_id` - The IDs for the VPC service endpoints of your VPC workforce.
 func (o WorkforceOutput) Subdomain() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workforce) pulumi.StringOutput { return v.Subdomain }).(pulumi.StringOutput)
 }
@@ -327,6 +341,11 @@ func (o WorkforceOutput) Subdomain() pulumi.StringOutput {
 // The name of the Workforce (must be unique).
 func (o WorkforceOutput) WorkforceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workforce) pulumi.StringOutput { return v.WorkforceName }).(pulumi.StringOutput)
+}
+
+// configure a workforce using VPC. see Workforce VPC Config details below.
+func (o WorkforceOutput) WorkforceVpcConfig() WorkforceWorkforceVpcConfigPtrOutput {
+	return o.ApplyT(func(v *Workforce) WorkforceWorkforceVpcConfigPtrOutput { return v.WorkforceVpcConfig }).(WorkforceWorkforceVpcConfigPtrOutput)
 }
 
 type WorkforceArrayOutput struct{ *pulumi.OutputState }

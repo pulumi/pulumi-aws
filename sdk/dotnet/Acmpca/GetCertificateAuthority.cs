@@ -216,6 +216,10 @@ namespace Pulumi.Aws.Acmpca
         /// Type of the certificate authority.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly.
+        /// </summary>
+        public readonly string UsageMode;
 
         [OutputConstructor]
         private GetCertificateAuthorityResult(
@@ -241,7 +245,9 @@ namespace Pulumi.Aws.Acmpca
 
             ImmutableDictionary<string, string> tags,
 
-            string type)
+            string type,
+
+            string usageMode)
         {
             Arn = arn;
             Certificate = certificate;
@@ -255,6 +261,7 @@ namespace Pulumi.Aws.Acmpca
             Status = status;
             Tags = tags;
             Type = type;
+            UsageMode = usageMode;
         }
     }
 }

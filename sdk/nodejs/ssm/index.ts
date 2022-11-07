@@ -13,6 +13,10 @@ export { AssociationArgs, AssociationState } from "./association";
 export type Association = import("./association").Association;
 export const Association: typeof import("./association").Association = null as any;
 
+export { DefaultPatchBaselineArgs, DefaultPatchBaselineState } from "./defaultPatchBaseline";
+export type DefaultPatchBaseline = import("./defaultPatchBaseline").DefaultPatchBaseline;
+export const DefaultPatchBaseline: typeof import("./defaultPatchBaseline").DefaultPatchBaseline = null as any;
+
 export { DocumentArgs, DocumentState } from "./document";
 export type Document = import("./document").Document;
 export const Document: typeof import("./document").Document = null as any;
@@ -76,6 +80,7 @@ export const ServiceSetting: typeof import("./serviceSetting").ServiceSetting = 
 
 utilities.lazyLoad(exports, ["Activation"], () => require("./activation"));
 utilities.lazyLoad(exports, ["Association"], () => require("./association"));
+utilities.lazyLoad(exports, ["DefaultPatchBaseline"], () => require("./defaultPatchBaseline"));
 utilities.lazyLoad(exports, ["Document"], () => require("./document"));
 utilities.lazyLoad(exports, ["getDocument","getDocumentOutput"], () => require("./getDocument"));
 utilities.lazyLoad(exports, ["getInstances","getInstancesOutput"], () => require("./getInstances"));
@@ -103,6 +108,8 @@ const _module = {
                 return new Activation(name, <any>undefined, { urn })
             case "aws:ssm/association:Association":
                 return new Association(name, <any>undefined, { urn })
+            case "aws:ssm/defaultPatchBaseline:DefaultPatchBaseline":
+                return new DefaultPatchBaseline(name, <any>undefined, { urn })
             case "aws:ssm/document:Document":
                 return new Document(name, <any>undefined, { urn })
             case "aws:ssm/maintenanceWindow:MaintenanceWindow":
@@ -128,6 +135,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "ssm/activation", _module)
 pulumi.runtime.registerResourceModule("aws", "ssm/association", _module)
+pulumi.runtime.registerResourceModule("aws", "ssm/defaultPatchBaseline", _module)
 pulumi.runtime.registerResourceModule("aws", "ssm/document", _module)
 pulumi.runtime.registerResourceModule("aws", "ssm/maintenanceWindow", _module)
 pulumi.runtime.registerResourceModule("aws", "ssm/maintenanceWindowTarget", _module)

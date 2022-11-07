@@ -98,14 +98,14 @@ public final class GetCertificateArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED` and `IMPORTED`.
+     * List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED`, `PRIVATE`, and `IMPORTED`.
      * 
      */
     @Import(name="types")
     private @Nullable Output<List<String>> types;
 
     /**
-     * @return List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED` and `IMPORTED`.
+     * @return List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED`, `PRIVATE`, and `IMPORTED`.
      * 
      */
     public Optional<Output<List<String>>> types() {
@@ -273,7 +273,7 @@ public final class GetCertificateArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param types List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED` and `IMPORTED`.
+         * @param types List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED`, `PRIVATE`, and `IMPORTED`.
          * 
          * @return builder
          * 
@@ -284,7 +284,7 @@ public final class GetCertificateArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param types List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED` and `IMPORTED`.
+         * @param types List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED`, `PRIVATE`, and `IMPORTED`.
          * 
          * @return builder
          * 
@@ -294,7 +294,7 @@ public final class GetCertificateArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param types List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED` and `IMPORTED`.
+         * @param types List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED`, `PRIVATE`, and `IMPORTED`.
          * 
          * @return builder
          * 

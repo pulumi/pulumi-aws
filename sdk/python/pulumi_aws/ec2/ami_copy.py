@@ -226,6 +226,7 @@ class _AmiCopyState:
                  image_location: Optional[pulumi.Input[str]] = None,
                  image_owner_alias: Optional[pulumi.Input[str]] = None,
                  image_type: Optional[pulumi.Input[str]] = None,
+                 imds_support: Optional[pulumi.Input[str]] = None,
                  kernel_id: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  manage_ebs_snapshots: Optional[pulumi.Input[bool]] = None,
@@ -262,6 +263,7 @@ class _AmiCopyState:
                should be attached to created instances. The structure of this block is described below.
         :param pulumi.Input[str] image_location: Path to an S3 object containing an image manifest, e.g., created
                by the `ec2-upload-bundle` command in the EC2 command line tools.
+        :param pulumi.Input[str] imds_support: If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
         :param pulumi.Input[str] kernel_id: ID of the kernel image (AKI) that will be used as the paravirtual
                kernel in created instances.
         :param pulumi.Input[str] kms_key_id: Full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
@@ -311,6 +313,8 @@ class _AmiCopyState:
             pulumi.set(__self__, "image_owner_alias", image_owner_alias)
         if image_type is not None:
             pulumi.set(__self__, "image_type", image_type)
+        if imds_support is not None:
+            pulumi.set(__self__, "imds_support", imds_support)
         if kernel_id is not None:
             pulumi.set(__self__, "kernel_id", kernel_id)
         if kms_key_id is not None:
@@ -512,6 +516,18 @@ class _AmiCopyState:
     @image_type.setter
     def image_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "image_type", value)
+
+    @property
+    @pulumi.getter(name="imdsSupport")
+    def imds_support(self) -> Optional[pulumi.Input[str]]:
+        """
+        If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
+        """
+        return pulumi.get(self, "imds_support")
+
+    @imds_support.setter
+    def imds_support(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "imds_support", value)
 
     @property
     @pulumi.getter(name="kernelId")
@@ -885,6 +901,7 @@ class AmiCopy(pulumi.CustomResource):
             __props__.__dict__["image_location"] = None
             __props__.__dict__["image_owner_alias"] = None
             __props__.__dict__["image_type"] = None
+            __props__.__dict__["imds_support"] = None
             __props__.__dict__["kernel_id"] = None
             __props__.__dict__["manage_ebs_snapshots"] = None
             __props__.__dict__["owner_id"] = None
@@ -923,6 +940,7 @@ class AmiCopy(pulumi.CustomResource):
             image_location: Optional[pulumi.Input[str]] = None,
             image_owner_alias: Optional[pulumi.Input[str]] = None,
             image_type: Optional[pulumi.Input[str]] = None,
+            imds_support: Optional[pulumi.Input[str]] = None,
             kernel_id: Optional[pulumi.Input[str]] = None,
             kms_key_id: Optional[pulumi.Input[str]] = None,
             manage_ebs_snapshots: Optional[pulumi.Input[bool]] = None,
@@ -964,6 +982,7 @@ class AmiCopy(pulumi.CustomResource):
                should be attached to created instances. The structure of this block is described below.
         :param pulumi.Input[str] image_location: Path to an S3 object containing an image manifest, e.g., created
                by the `ec2-upload-bundle` command in the EC2 command line tools.
+        :param pulumi.Input[str] imds_support: If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
         :param pulumi.Input[str] kernel_id: ID of the kernel image (AKI) that will be used as the paravirtual
                kernel in created instances.
         :param pulumi.Input[str] kms_key_id: Full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
@@ -1003,6 +1022,7 @@ class AmiCopy(pulumi.CustomResource):
         __props__.__dict__["image_location"] = image_location
         __props__.__dict__["image_owner_alias"] = image_owner_alias
         __props__.__dict__["image_type"] = image_type
+        __props__.__dict__["imds_support"] = imds_support
         __props__.__dict__["kernel_id"] = kernel_id
         __props__.__dict__["kms_key_id"] = kms_key_id
         __props__.__dict__["manage_ebs_snapshots"] = manage_ebs_snapshots
@@ -1130,6 +1150,14 @@ class AmiCopy(pulumi.CustomResource):
     @pulumi.getter(name="imageType")
     def image_type(self) -> pulumi.Output[str]:
         return pulumi.get(self, "image_type")
+
+    @property
+    @pulumi.getter(name="imdsSupport")
+    def imds_support(self) -> pulumi.Output[str]:
+        """
+        If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
+        """
+        return pulumi.get(self, "imds_support")
 
     @property
     @pulumi.getter(name="kernelId")

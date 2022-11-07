@@ -252,6 +252,112 @@ func (o ClusterLogDeliveryConfigurationArrayOutput) Index(i pulumi.IntInput) Clu
 	}).(ClusterLogDeliveryConfigurationOutput)
 }
 
+type GlobalReplicationGroupGlobalNodeGroup struct {
+	// The ID of the global node group.
+	GlobalNodeGroupId *string `pulumi:"globalNodeGroupId"`
+	// The keyspace for this node group.
+	Slots *string `pulumi:"slots"`
+}
+
+// GlobalReplicationGroupGlobalNodeGroupInput is an input type that accepts GlobalReplicationGroupGlobalNodeGroupArgs and GlobalReplicationGroupGlobalNodeGroupOutput values.
+// You can construct a concrete instance of `GlobalReplicationGroupGlobalNodeGroupInput` via:
+//
+//	GlobalReplicationGroupGlobalNodeGroupArgs{...}
+type GlobalReplicationGroupGlobalNodeGroupInput interface {
+	pulumi.Input
+
+	ToGlobalReplicationGroupGlobalNodeGroupOutput() GlobalReplicationGroupGlobalNodeGroupOutput
+	ToGlobalReplicationGroupGlobalNodeGroupOutputWithContext(context.Context) GlobalReplicationGroupGlobalNodeGroupOutput
+}
+
+type GlobalReplicationGroupGlobalNodeGroupArgs struct {
+	// The ID of the global node group.
+	GlobalNodeGroupId pulumi.StringPtrInput `pulumi:"globalNodeGroupId"`
+	// The keyspace for this node group.
+	Slots pulumi.StringPtrInput `pulumi:"slots"`
+}
+
+func (GlobalReplicationGroupGlobalNodeGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalReplicationGroupGlobalNodeGroup)(nil)).Elem()
+}
+
+func (i GlobalReplicationGroupGlobalNodeGroupArgs) ToGlobalReplicationGroupGlobalNodeGroupOutput() GlobalReplicationGroupGlobalNodeGroupOutput {
+	return i.ToGlobalReplicationGroupGlobalNodeGroupOutputWithContext(context.Background())
+}
+
+func (i GlobalReplicationGroupGlobalNodeGroupArgs) ToGlobalReplicationGroupGlobalNodeGroupOutputWithContext(ctx context.Context) GlobalReplicationGroupGlobalNodeGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalReplicationGroupGlobalNodeGroupOutput)
+}
+
+// GlobalReplicationGroupGlobalNodeGroupArrayInput is an input type that accepts GlobalReplicationGroupGlobalNodeGroupArray and GlobalReplicationGroupGlobalNodeGroupArrayOutput values.
+// You can construct a concrete instance of `GlobalReplicationGroupGlobalNodeGroupArrayInput` via:
+//
+//	GlobalReplicationGroupGlobalNodeGroupArray{ GlobalReplicationGroupGlobalNodeGroupArgs{...} }
+type GlobalReplicationGroupGlobalNodeGroupArrayInput interface {
+	pulumi.Input
+
+	ToGlobalReplicationGroupGlobalNodeGroupArrayOutput() GlobalReplicationGroupGlobalNodeGroupArrayOutput
+	ToGlobalReplicationGroupGlobalNodeGroupArrayOutputWithContext(context.Context) GlobalReplicationGroupGlobalNodeGroupArrayOutput
+}
+
+type GlobalReplicationGroupGlobalNodeGroupArray []GlobalReplicationGroupGlobalNodeGroupInput
+
+func (GlobalReplicationGroupGlobalNodeGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GlobalReplicationGroupGlobalNodeGroup)(nil)).Elem()
+}
+
+func (i GlobalReplicationGroupGlobalNodeGroupArray) ToGlobalReplicationGroupGlobalNodeGroupArrayOutput() GlobalReplicationGroupGlobalNodeGroupArrayOutput {
+	return i.ToGlobalReplicationGroupGlobalNodeGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GlobalReplicationGroupGlobalNodeGroupArray) ToGlobalReplicationGroupGlobalNodeGroupArrayOutputWithContext(ctx context.Context) GlobalReplicationGroupGlobalNodeGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalReplicationGroupGlobalNodeGroupArrayOutput)
+}
+
+type GlobalReplicationGroupGlobalNodeGroupOutput struct{ *pulumi.OutputState }
+
+func (GlobalReplicationGroupGlobalNodeGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalReplicationGroupGlobalNodeGroup)(nil)).Elem()
+}
+
+func (o GlobalReplicationGroupGlobalNodeGroupOutput) ToGlobalReplicationGroupGlobalNodeGroupOutput() GlobalReplicationGroupGlobalNodeGroupOutput {
+	return o
+}
+
+func (o GlobalReplicationGroupGlobalNodeGroupOutput) ToGlobalReplicationGroupGlobalNodeGroupOutputWithContext(ctx context.Context) GlobalReplicationGroupGlobalNodeGroupOutput {
+	return o
+}
+
+// The ID of the global node group.
+func (o GlobalReplicationGroupGlobalNodeGroupOutput) GlobalNodeGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GlobalReplicationGroupGlobalNodeGroup) *string { return v.GlobalNodeGroupId }).(pulumi.StringPtrOutput)
+}
+
+// The keyspace for this node group.
+func (o GlobalReplicationGroupGlobalNodeGroupOutput) Slots() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GlobalReplicationGroupGlobalNodeGroup) *string { return v.Slots }).(pulumi.StringPtrOutput)
+}
+
+type GlobalReplicationGroupGlobalNodeGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GlobalReplicationGroupGlobalNodeGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GlobalReplicationGroupGlobalNodeGroup)(nil)).Elem()
+}
+
+func (o GlobalReplicationGroupGlobalNodeGroupArrayOutput) ToGlobalReplicationGroupGlobalNodeGroupArrayOutput() GlobalReplicationGroupGlobalNodeGroupArrayOutput {
+	return o
+}
+
+func (o GlobalReplicationGroupGlobalNodeGroupArrayOutput) ToGlobalReplicationGroupGlobalNodeGroupArrayOutputWithContext(ctx context.Context) GlobalReplicationGroupGlobalNodeGroupArrayOutput {
+	return o
+}
+
+func (o GlobalReplicationGroupGlobalNodeGroupArrayOutput) Index(i pulumi.IntInput) GlobalReplicationGroupGlobalNodeGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GlobalReplicationGroupGlobalNodeGroup {
+		return vs[0].([]GlobalReplicationGroupGlobalNodeGroup)[vs[1].(int)]
+	}).(GlobalReplicationGroupGlobalNodeGroupOutput)
+}
+
 type ParameterGroupParameter struct {
 	// The name of the ElastiCache parameter.
 	Name string `pulumi:"name"`
@@ -1004,6 +1110,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCacheNodeArrayInput)(nil)).Elem(), ClusterCacheNodeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLogDeliveryConfigurationInput)(nil)).Elem(), ClusterLogDeliveryConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLogDeliveryConfigurationArrayInput)(nil)).Elem(), ClusterLogDeliveryConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalReplicationGroupGlobalNodeGroupInput)(nil)).Elem(), GlobalReplicationGroupGlobalNodeGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalReplicationGroupGlobalNodeGroupArrayInput)(nil)).Elem(), GlobalReplicationGroupGlobalNodeGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ParameterGroupParameterInput)(nil)).Elem(), ParameterGroupParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ParameterGroupParameterArrayInput)(nil)).Elem(), ParameterGroupParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationGroupClusterModeInput)(nil)).Elem(), ReplicationGroupClusterModeArgs{})
@@ -1020,6 +1128,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterCacheNodeArrayOutput{})
 	pulumi.RegisterOutputType(ClusterLogDeliveryConfigurationOutput{})
 	pulumi.RegisterOutputType(ClusterLogDeliveryConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GlobalReplicationGroupGlobalNodeGroupOutput{})
+	pulumi.RegisterOutputType(GlobalReplicationGroupGlobalNodeGroupArrayOutput{})
 	pulumi.RegisterOutputType(ParameterGroupParameterOutput{})
 	pulumi.RegisterOutputType(ParameterGroupParameterArrayOutput{})
 	pulumi.RegisterOutputType(ReplicationGroupClusterModeOutput{})

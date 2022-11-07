@@ -109,6 +109,10 @@ export class CapacityReservation extends pulumi.CustomResource {
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
+     * The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
+     */
+    public readonly placementGroupArn!: pulumi.Output<string | undefined>;
+    /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -143,6 +147,7 @@ export class CapacityReservation extends pulumi.CustomResource {
             resourceInputs["instanceType"] = state ? state.instanceType : undefined;
             resourceInputs["outpostArn"] = state ? state.outpostArn : undefined;
             resourceInputs["ownerId"] = state ? state.ownerId : undefined;
+            resourceInputs["placementGroupArn"] = state ? state.placementGroupArn : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["tenancy"] = state ? state.tenancy : undefined;
@@ -170,6 +175,7 @@ export class CapacityReservation extends pulumi.CustomResource {
             resourceInputs["instancePlatform"] = args ? args.instancePlatform : undefined;
             resourceInputs["instanceType"] = args ? args.instanceType : undefined;
             resourceInputs["outpostArn"] = args ? args.outpostArn : undefined;
+            resourceInputs["placementGroupArn"] = args ? args.placementGroupArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tenancy"] = args ? args.tenancy : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -234,6 +240,10 @@ export interface CapacityReservationState {
      */
     ownerId?: pulumi.Input<string>;
     /**
+     * The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
+     */
+    placementGroupArn?: pulumi.Input<string>;
+    /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -288,6 +298,10 @@ export interface CapacityReservationArgs {
      * The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
      */
     outpostArn?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
+     */
+    placementGroupArn?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

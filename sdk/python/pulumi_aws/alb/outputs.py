@@ -39,6 +39,7 @@ __all__ = [
     'LoadBalancerSubnetMapping',
     'TargetGroupHealthCheck',
     'TargetGroupStickiness',
+    'TargetGroupTargetFailover',
     'GetListenerDefaultActionResult',
     'GetListenerDefaultActionAuthenticateCognitoResult',
     'GetListenerDefaultActionAuthenticateOidcResult',
@@ -1963,7 +1964,7 @@ class TargetGroupStickiness(dict):
                  cookie_name: Optional[str] = None,
                  enabled: Optional[bool] = None):
         """
-        :param str type: The type of sticky sessions. The only current possible values are `lb_cookie`, `app_cookie` for ALBs, and `source_ip` for NLBs.
+        :param str type: The type of sticky sessions. The only current possible values are `lb_cookie`, `app_cookie` for ALBs, `source_ip` for NLBs, and `source_ip_dest_ip`, `source_ip_dest_ip_proto` for GWLBs.
         :param int cookie_duration: Only used when the type is `lb_cookie`. The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
         :param str cookie_name: Name of the application based cookie. AWSALB, AWSALBAPP, and AWSALBTG prefixes are reserved and cannot be used. Only needed when type is `app_cookie`.
         :param bool enabled: Boolean to enable / disable `stickiness`. Default is `true`.
@@ -1980,7 +1981,7 @@ class TargetGroupStickiness(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of sticky sessions. The only current possible values are `lb_cookie`, `app_cookie` for ALBs, and `source_ip` for NLBs.
+        The type of sticky sessions. The only current possible values are `lb_cookie`, `app_cookie` for ALBs, `source_ip` for NLBs, and `source_ip_dest_ip`, `source_ip_dest_ip_proto` for GWLBs.
         """
         return pulumi.get(self, "type")
 
@@ -2007,6 +2008,54 @@ class TargetGroupStickiness(dict):
         Boolean to enable / disable `stickiness`. Default is `true`.
         """
         return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class TargetGroupTargetFailover(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "onDeregistration":
+            suggest = "on_deregistration"
+        elif key == "onUnhealthy":
+            suggest = "on_unhealthy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TargetGroupTargetFailover. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TargetGroupTargetFailover.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TargetGroupTargetFailover.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 on_deregistration: str,
+                 on_unhealthy: str):
+        """
+        :param str on_deregistration: Indicates how the GWLB handles existing flows when a target is deregistered. Possible values are `rebalance` and `no_rebalance`. Must match the attribute value set for `on_unhealthy`. Default: `no_rebalance`.
+        :param str on_unhealthy: Indicates how the GWLB handles existing flows when a target is unhealthy. Possible values are `rebalance` and `no_rebalance`. Must match the attribute value set for `on_deregistration`. Default: `no_rebalance`.
+        """
+        pulumi.set(__self__, "on_deregistration", on_deregistration)
+        pulumi.set(__self__, "on_unhealthy", on_unhealthy)
+
+    @property
+    @pulumi.getter(name="onDeregistration")
+    def on_deregistration(self) -> str:
+        """
+        Indicates how the GWLB handles existing flows when a target is deregistered. Possible values are `rebalance` and `no_rebalance`. Must match the attribute value set for `on_unhealthy`. Default: `no_rebalance`.
+        """
+        return pulumi.get(self, "on_deregistration")
+
+    @property
+    @pulumi.getter(name="onUnhealthy")
+    def on_unhealthy(self) -> str:
+        """
+        Indicates how the GWLB handles existing flows when a target is unhealthy. Possible values are `rebalance` and `no_rebalance`. Must match the attribute value set for `on_deregistration`. Default: `no_rebalance`.
+        """
+        return pulumi.get(self, "on_unhealthy")
 
 
 @pulumi.output_type

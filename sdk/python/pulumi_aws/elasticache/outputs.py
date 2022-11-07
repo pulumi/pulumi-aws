@@ -12,6 +12,7 @@ from .. import _utilities
 __all__ = [
     'ClusterCacheNode',
     'ClusterLogDeliveryConfiguration',
+    'GlobalReplicationGroupGlobalNodeGroup',
     'ParameterGroupParameter',
     'ReplicationGroupClusterMode',
     'ReplicationGroupLogDeliveryConfiguration',
@@ -154,6 +155,54 @@ class ClusterLogDeliveryConfiguration(dict):
         Valid values are  `slow-log` or `engine-log`. Max 1 of each.
         """
         return pulumi.get(self, "log_type")
+
+
+@pulumi.output_type
+class GlobalReplicationGroupGlobalNodeGroup(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "globalNodeGroupId":
+            suggest = "global_node_group_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GlobalReplicationGroupGlobalNodeGroup. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GlobalReplicationGroupGlobalNodeGroup.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GlobalReplicationGroupGlobalNodeGroup.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 global_node_group_id: Optional[str] = None,
+                 slots: Optional[str] = None):
+        """
+        :param str global_node_group_id: The ID of the global node group.
+        :param str slots: The keyspace for this node group.
+        """
+        if global_node_group_id is not None:
+            pulumi.set(__self__, "global_node_group_id", global_node_group_id)
+        if slots is not None:
+            pulumi.set(__self__, "slots", slots)
+
+    @property
+    @pulumi.getter(name="globalNodeGroupId")
+    def global_node_group_id(self) -> Optional[str]:
+        """
+        The ID of the global node group.
+        """
+        return pulumi.get(self, "global_node_group_id")
+
+    @property
+    @pulumi.getter
+    def slots(self) -> Optional[str]:
+        """
+        The keyspace for this node group.
+        """
+        return pulumi.get(self, "slots")
 
 
 @pulumi.output_type

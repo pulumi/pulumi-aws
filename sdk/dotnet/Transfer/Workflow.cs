@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Transfer
     /// Provides a AWS Transfer Workflow resource.
     /// 
     /// ## Example Usage
+    /// ### Basic single step example
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -33,6 +34,52 @@ namespace Pulumi.Aws.Transfer
     ///                     SourceFileLocation = original.File,
     ///                 },
     ///                 Type = "DELETE",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Multistep example
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Transfer.Workflow("example", new()
+    ///     {
+    ///         Steps = new[]
+    ///         {
+    ///             new Aws.Transfer.Inputs.WorkflowStepArgs
+    ///             {
+    ///                 CustomStepDetails = new Aws.Transfer.Inputs.WorkflowStepCustomStepDetailsArgs
+    ///                 {
+    ///                     Name = "example",
+    ///                     SourceFileLocation = original.File,
+    ///                     Target = aws_lambda_function.Example.Arn,
+    ///                     TimeoutSeconds = 60,
+    ///                 },
+    ///                 Type = "CUSTOM",
+    ///             },
+    ///             new Aws.Transfer.Inputs.WorkflowStepArgs
+    ///             {
+    ///                 TagStepDetails = new Aws.Transfer.Inputs.WorkflowStepTagStepDetailsArgs
+    ///                 {
+    ///                     Name = "example",
+    ///                     SourceFileLocation = original.File,
+    ///                     Tags = new[]
+    ///                     {
+    ///                         new Aws.Transfer.Inputs.WorkflowStepTagStepDetailsTagArgs
+    ///                         {
+    ///                             Key = "Name",
+    ///                             Value = "Hello World",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Type = "TAG",
     ///             },
     ///         },
     ///     });

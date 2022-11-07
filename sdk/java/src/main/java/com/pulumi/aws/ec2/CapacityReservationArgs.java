@@ -173,6 +173,21 @@ public final class CapacityReservationArgs extends com.pulumi.resources.Resource
     }
 
     /**
+     * The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
+     * 
+     */
+    @Import(name="placementGroupArn")
+    private @Nullable Output<String> placementGroupArn;
+
+    /**
+     * @return The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
+     * 
+     */
+    public Optional<Output<String>> placementGroupArn() {
+        return Optional.ofNullable(this.placementGroupArn);
+    }
+
+    /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -215,6 +230,7 @@ public final class CapacityReservationArgs extends com.pulumi.resources.Resource
         this.instancePlatform = $.instancePlatform;
         this.instanceType = $.instanceType;
         this.outpostArn = $.outpostArn;
+        this.placementGroupArn = $.placementGroupArn;
         this.tags = $.tags;
         this.tenancy = $.tenancy;
     }
@@ -485,6 +501,27 @@ public final class CapacityReservationArgs extends com.pulumi.resources.Resource
          */
         public Builder outpostArn(String outpostArn) {
             return outpostArn(Output.of(outpostArn));
+        }
+
+        /**
+         * @param placementGroupArn The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder placementGroupArn(@Nullable Output<String> placementGroupArn) {
+            $.placementGroupArn = placementGroupArn;
+            return this;
+        }
+
+        /**
+         * @param placementGroupArn The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder placementGroupArn(String placementGroupArn) {
+            return placementGroupArn(Output.of(placementGroupArn));
         }
 
         /**

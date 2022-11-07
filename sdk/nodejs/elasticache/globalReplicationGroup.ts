@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -88,6 +91,11 @@ export class GlobalReplicationGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly engineVersionActual!: pulumi.Output<string>;
     /**
+     * Set of node groups (shards) on the global replication group.
+     * Has the values:
+     */
+    public /*out*/ readonly globalNodeGroups!: pulumi.Output<outputs.elasticache.GlobalReplicationGroupGlobalNodeGroup[]>;
+    /**
      * A user-created description for the global replication group.
      */
     public readonly globalReplicationGroupDescription!: pulumi.Output<string | undefined>;
@@ -99,6 +107,10 @@ export class GlobalReplicationGroup extends pulumi.CustomResource {
      * The suffix name of a Global Datastore. If `globalReplicationGroupIdSuffix` is changed, creates a new resource.
      */
     public readonly globalReplicationGroupIdSuffix!: pulumi.Output<string>;
+    /**
+     * The number of node groups (shards) on the global replication group.
+     */
+    public readonly numNodeGroups!: pulumi.Output<number>;
     /**
      * An ElastiCache Parameter Group to use for the Global Replication Group.
      * Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
@@ -137,9 +149,11 @@ export class GlobalReplicationGroup extends pulumi.CustomResource {
             resourceInputs["engine"] = state ? state.engine : undefined;
             resourceInputs["engineVersion"] = state ? state.engineVersion : undefined;
             resourceInputs["engineVersionActual"] = state ? state.engineVersionActual : undefined;
+            resourceInputs["globalNodeGroups"] = state ? state.globalNodeGroups : undefined;
             resourceInputs["globalReplicationGroupDescription"] = state ? state.globalReplicationGroupDescription : undefined;
             resourceInputs["globalReplicationGroupId"] = state ? state.globalReplicationGroupId : undefined;
             resourceInputs["globalReplicationGroupIdSuffix"] = state ? state.globalReplicationGroupIdSuffix : undefined;
+            resourceInputs["numNodeGroups"] = state ? state.numNodeGroups : undefined;
             resourceInputs["parameterGroupName"] = state ? state.parameterGroupName : undefined;
             resourceInputs["primaryReplicationGroupId"] = state ? state.primaryReplicationGroupId : undefined;
             resourceInputs["transitEncryptionEnabled"] = state ? state.transitEncryptionEnabled : undefined;
@@ -156,6 +170,7 @@ export class GlobalReplicationGroup extends pulumi.CustomResource {
             resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
             resourceInputs["globalReplicationGroupDescription"] = args ? args.globalReplicationGroupDescription : undefined;
             resourceInputs["globalReplicationGroupIdSuffix"] = args ? args.globalReplicationGroupIdSuffix : undefined;
+            resourceInputs["numNodeGroups"] = args ? args.numNodeGroups : undefined;
             resourceInputs["parameterGroupName"] = args ? args.parameterGroupName : undefined;
             resourceInputs["primaryReplicationGroupId"] = args ? args.primaryReplicationGroupId : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -164,6 +179,7 @@ export class GlobalReplicationGroup extends pulumi.CustomResource {
             resourceInputs["clusterEnabled"] = undefined /*out*/;
             resourceInputs["engine"] = undefined /*out*/;
             resourceInputs["engineVersionActual"] = undefined /*out*/;
+            resourceInputs["globalNodeGroups"] = undefined /*out*/;
             resourceInputs["globalReplicationGroupId"] = undefined /*out*/;
             resourceInputs["transitEncryptionEnabled"] = undefined /*out*/;
         }
@@ -223,6 +239,11 @@ export interface GlobalReplicationGroupState {
      */
     engineVersionActual?: pulumi.Input<string>;
     /**
+     * Set of node groups (shards) on the global replication group.
+     * Has the values:
+     */
+    globalNodeGroups?: pulumi.Input<pulumi.Input<inputs.elasticache.GlobalReplicationGroupGlobalNodeGroup>[]>;
+    /**
      * A user-created description for the global replication group.
      */
     globalReplicationGroupDescription?: pulumi.Input<string>;
@@ -234,6 +255,10 @@ export interface GlobalReplicationGroupState {
      * The suffix name of a Global Datastore. If `globalReplicationGroupIdSuffix` is changed, creates a new resource.
      */
     globalReplicationGroupIdSuffix?: pulumi.Input<string>;
+    /**
+     * The number of node groups (shards) on the global replication group.
+     */
+    numNodeGroups?: pulumi.Input<number>;
     /**
      * An ElastiCache Parameter Group to use for the Global Replication Group.
      * Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
@@ -285,6 +310,10 @@ export interface GlobalReplicationGroupArgs {
      * The suffix name of a Global Datastore. If `globalReplicationGroupIdSuffix` is changed, creates a new resource.
      */
     globalReplicationGroupIdSuffix: pulumi.Input<string>;
+    /**
+     * The number of node groups (shards) on the global replication group.
+     */
+    numNodeGroups?: pulumi.Input<number>;
     /**
      * An ElastiCache Parameter Group to use for the Global Replication Group.
      * Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.

@@ -17,6 +17,7 @@ __all__ = [
     'ServiceInstanceConfigurationArgs',
     'ServiceNetworkConfigurationArgs',
     'ServiceNetworkConfigurationEgressConfigurationArgs',
+    'ServiceNetworkConfigurationIngressConfigurationArgs',
     'ServiceObservabilityConfigurationArgs',
     'ServiceSourceConfigurationArgs',
     'ServiceSourceConfigurationAuthenticationConfigurationArgs',
@@ -26,6 +27,7 @@ __all__ = [
     'ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs',
     'ServiceSourceConfigurationImageRepositoryArgs',
     'ServiceSourceConfigurationImageRepositoryImageConfigurationArgs',
+    'VpcIngressConnectionIngressVpcConfigurationArgs',
 ]
 
 @pulumi.input_type
@@ -305,24 +307,40 @@ class ServiceInstanceConfigurationArgs:
 @pulumi.input_type
 class ServiceNetworkConfigurationArgs:
     def __init__(__self__, *,
-                 egress_configuration: Optional[pulumi.Input['ServiceNetworkConfigurationEgressConfigurationArgs']] = None):
+                 egress_configuration: Optional[pulumi.Input['ServiceNetworkConfigurationEgressConfigurationArgs']] = None,
+                 ingress_configuration: Optional[pulumi.Input['ServiceNetworkConfigurationIngressConfigurationArgs']] = None):
         """
-        :param pulumi.Input['ServiceNetworkConfigurationEgressConfigurationArgs'] egress_configuration: Network configuration settings for outbound message traffic.
+        :param pulumi.Input['ServiceNetworkConfigurationEgressConfigurationArgs'] egress_configuration: Network configuration settings for outbound message traffic. See Egress Configuration below for more details.
+        :param pulumi.Input['ServiceNetworkConfigurationIngressConfigurationArgs'] ingress_configuration: Network configuration settings for inbound network traffic. See Ingress Configuration below for more details.
         """
         if egress_configuration is not None:
             pulumi.set(__self__, "egress_configuration", egress_configuration)
+        if ingress_configuration is not None:
+            pulumi.set(__self__, "ingress_configuration", ingress_configuration)
 
     @property
     @pulumi.getter(name="egressConfiguration")
     def egress_configuration(self) -> Optional[pulumi.Input['ServiceNetworkConfigurationEgressConfigurationArgs']]:
         """
-        Network configuration settings for outbound message traffic.
+        Network configuration settings for outbound message traffic. See Egress Configuration below for more details.
         """
         return pulumi.get(self, "egress_configuration")
 
     @egress_configuration.setter
     def egress_configuration(self, value: Optional[pulumi.Input['ServiceNetworkConfigurationEgressConfigurationArgs']]):
         pulumi.set(self, "egress_configuration", value)
+
+    @property
+    @pulumi.getter(name="ingressConfiguration")
+    def ingress_configuration(self) -> Optional[pulumi.Input['ServiceNetworkConfigurationIngressConfigurationArgs']]:
+        """
+        Network configuration settings for inbound network traffic. See Ingress Configuration below for more details.
+        """
+        return pulumi.get(self, "ingress_configuration")
+
+    @ingress_configuration.setter
+    def ingress_configuration(self, value: Optional[pulumi.Input['ServiceNetworkConfigurationIngressConfigurationArgs']]):
+        pulumi.set(self, "ingress_configuration", value)
 
 
 @pulumi.input_type
@@ -331,8 +349,8 @@ class ServiceNetworkConfigurationEgressConfigurationArgs:
                  egress_type: Optional[pulumi.Input[str]] = None,
                  vpc_connector_arn: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] egress_type: Type of egress configuration.Set to DEFAULT for access to resources hosted on public networks.Set to VPC to associate your service to a custom VPC specified by VpcConnectorArn.
-        :param pulumi.Input[str] vpc_connector_arn: ARN of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when EgressType = VPC.
+        :param pulumi.Input[str] egress_type: The type of egress configuration. Valid values are: `DEFAULT` and `VPC`.
+        :param pulumi.Input[str] vpc_connector_arn: The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
         """
         if egress_type is not None:
             pulumi.set(__self__, "egress_type", egress_type)
@@ -343,7 +361,7 @@ class ServiceNetworkConfigurationEgressConfigurationArgs:
     @pulumi.getter(name="egressType")
     def egress_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Type of egress configuration.Set to DEFAULT for access to resources hosted on public networks.Set to VPC to associate your service to a custom VPC specified by VpcConnectorArn.
+        The type of egress configuration. Valid values are: `DEFAULT` and `VPC`.
         """
         return pulumi.get(self, "egress_type")
 
@@ -355,13 +373,36 @@ class ServiceNetworkConfigurationEgressConfigurationArgs:
     @pulumi.getter(name="vpcConnectorArn")
     def vpc_connector_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        ARN of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when EgressType = VPC.
+        The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
         """
         return pulumi.get(self, "vpc_connector_arn")
 
     @vpc_connector_arn.setter
     def vpc_connector_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vpc_connector_arn", value)
+
+
+@pulumi.input_type
+class ServiceNetworkConfigurationIngressConfigurationArgs:
+    def __init__(__self__, *,
+                 is_publicly_accessible: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] is_publicly_accessible: Specifies whether your App Runner service is publicly accessible. To make the service publicly accessible set it to True. To make the service privately accessible, from only within an Amazon VPC set it to False.
+        """
+        if is_publicly_accessible is not None:
+            pulumi.set(__self__, "is_publicly_accessible", is_publicly_accessible)
+
+    @property
+    @pulumi.getter(name="isPubliclyAccessible")
+    def is_publicly_accessible(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether your App Runner service is publicly accessible. To make the service publicly accessible set it to True. To make the service privately accessible, from only within an Amazon VPC set it to False.
+        """
+        return pulumi.get(self, "is_publicly_accessible")
+
+    @is_publicly_accessible.setter
+    def is_publicly_accessible(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_publicly_accessible", value)
 
 
 @pulumi.input_type
@@ -611,7 +652,7 @@ class ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfiguration
                  runtime_environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  start_command: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] runtime: Runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`.
+        :param pulumi.Input[str] runtime: Runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`, `NODEJS_14`, `NODEJS_16`, `CORRETTO_8`, `CORRETTO_11`, `GO_1`, `DOTNET_6`, `PHP_81`, `RUBY_31`.
         :param pulumi.Input[str] build_command: Command App Runner runs to build your application.
         :param pulumi.Input[str] port: Port that your application listens to in the container. Defaults to `"8080"`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] runtime_environment_variables: Environment variables available to your running App Runner service. A map of key/value pairs. Keys with a prefix of `AWSAPPRUNNER` are reserved for system use and aren't valid.
@@ -631,7 +672,7 @@ class ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfiguration
     @pulumi.getter
     def runtime(self) -> pulumi.Input[str]:
         """
-        Runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`.
+        Runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`, `NODEJS_14`, `NODEJS_16`, `CORRETTO_8`, `CORRETTO_11`, `GO_1`, `DOTNET_6`, `PHP_81`, `RUBY_31`.
         """
         return pulumi.get(self, "runtime")
 
@@ -833,5 +874,44 @@ class ServiceSourceConfigurationImageRepositoryImageConfigurationArgs:
     @start_command.setter
     def start_command(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "start_command", value)
+
+
+@pulumi.input_type
+class VpcIngressConnectionIngressVpcConfigurationArgs:
+    def __init__(__self__, *,
+                 vpc_endpoint_id: Optional[pulumi.Input[str]] = None,
+                 vpc_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] vpc_endpoint_id: The ID of the VPC endpoint that your App Runner service connects to.
+        :param pulumi.Input[str] vpc_id: The ID of the VPC that is used for the VPC endpoint.
+        """
+        if vpc_endpoint_id is not None:
+            pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
+        if vpc_id is not None:
+            pulumi.set(__self__, "vpc_id", vpc_id)
+
+    @property
+    @pulumi.getter(name="vpcEndpointId")
+    def vpc_endpoint_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the VPC endpoint that your App Runner service connects to.
+        """
+        return pulumi.get(self, "vpc_endpoint_id")
+
+    @vpc_endpoint_id.setter
+    def vpc_endpoint_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vpc_endpoint_id", value)
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the VPC that is used for the VPC endpoint.
+        """
+        return pulumi.get(self, "vpc_id")
+
+    @vpc_id.setter
+    def vpc_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vpc_id", value)
 
 

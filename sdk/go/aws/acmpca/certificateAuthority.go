@@ -48,6 +48,38 @@ import (
 //	}
 //
 // ```
+// ### Short-lived certificate
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/acmpca"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := acmpca.NewCertificateAuthority(ctx, "example", &acmpca.CertificateAuthorityArgs{
+//				CertificateAuthorityConfiguration: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs{
+//					KeyAlgorithm:     pulumi.String("RSA_4096"),
+//					SigningAlgorithm: pulumi.String("SHA512WITHRSA"),
+//					Subject: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs{
+//						CommonName: pulumi.String("example.com"),
+//					},
+//				},
+//				UsageMode: pulumi.String("SHORT_LIVED_CERTIFICATE"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 // ### Enable Certificate Revocation List
 //
 // ```go
@@ -177,6 +209,8 @@ type CertificateAuthority struct {
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
+	// Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
+	UsageMode pulumi.StringOutput `pulumi:"usageMode"`
 }
 
 // NewCertificateAuthority registers a new resource with the given unique name, arguments, and options.
@@ -243,6 +277,8 @@ type certificateAuthorityState struct {
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
 	Type *string `pulumi:"type"`
+	// Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
+	UsageMode *string `pulumi:"usageMode"`
 }
 
 type CertificateAuthorityState struct {
@@ -278,6 +314,8 @@ type CertificateAuthorityState struct {
 	TagsAll pulumi.StringMapInput
 	// Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
 	Type pulumi.StringPtrInput
+	// Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
+	UsageMode pulumi.StringPtrInput
 }
 
 func (CertificateAuthorityState) ElementType() reflect.Type {
@@ -297,6 +335,8 @@ type certificateAuthorityArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
 	Type *string `pulumi:"type"`
+	// Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
+	UsageMode *string `pulumi:"usageMode"`
 }
 
 // The set of arguments for constructing a CertificateAuthority resource.
@@ -313,6 +353,8 @@ type CertificateAuthorityArgs struct {
 	Tags pulumi.StringMapInput
 	// Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
 	Type pulumi.StringPtrInput
+	// Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
+	UsageMode pulumi.StringPtrInput
 }
 
 func (CertificateAuthorityArgs) ElementType() reflect.Type {
@@ -481,6 +523,11 @@ func (o CertificateAuthorityOutput) TagsAll() pulumi.StringMapOutput {
 // Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
 func (o CertificateAuthorityOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateAuthority) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
+func (o CertificateAuthorityOutput) UsageMode() pulumi.StringOutput {
+	return o.ApplyT(func(v *CertificateAuthority) pulumi.StringOutput { return v.UsageMode }).(pulumi.StringOutput)
 }
 
 type CertificateAuthorityArrayOutput struct{ *pulumi.OutputState }

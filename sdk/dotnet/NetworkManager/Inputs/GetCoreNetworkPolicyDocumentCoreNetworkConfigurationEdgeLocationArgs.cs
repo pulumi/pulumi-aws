@@ -16,7 +16,7 @@ namespace Pulumi.Aws.NetworkManager.Inputs
         /// ASN of the Core Network Edge in an AWS Region. By default, the ASN will be a single integer automatically assigned from `asn_ranges`
         /// </summary>
         [Input("asn")]
-        public Input<int>? Asn { get; set; }
+        public Input<string>? Asn { get; set; }
 
         [Input("insideCidrBlocks")]
         private InputList<string>? _insideCidrBlocks;

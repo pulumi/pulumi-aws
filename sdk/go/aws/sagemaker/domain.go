@@ -156,6 +156,8 @@ type Domain struct {
 
 	// Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
 	AppNetworkAccessType pulumi.StringPtrOutput `pulumi:"appNetworkAccessType"`
+	// The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
+	AppSecurityGroupManagement pulumi.StringPtrOutput `pulumi:"appSecurityGroupManagement"`
 	// The Amazon Resource Name (ARN) assigned by AWS to this Domain.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
@@ -164,17 +166,21 @@ type Domain struct {
 	DefaultUserSettings DomainDefaultUserSettingsOutput `pulumi:"defaultUserSettings"`
 	// The domain name.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
+	// The domain settings. See Domain Settings below.
+	DomainSettings DomainDomainSettingsPtrOutput `pulumi:"domainSettings"`
 	// The ID of the Amazon Elastic File System (EFS) managed by this Domain.
 	HomeEfsFileSystemId pulumi.StringOutput `pulumi:"homeEfsFileSystemId"`
 	// The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
 	RetentionPolicy DomainRetentionPolicyPtrOutput `pulumi:"retentionPolicy"`
+	// The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
+	SecurityGroupIdForDomainBoundary pulumi.StringOutput `pulumi:"securityGroupIdForDomainBoundary"`
 	// The SSO managed application instance ID.
 	SingleSignOnManagedApplicationInstanceId pulumi.StringOutput `pulumi:"singleSignOnManagedApplicationInstanceId"`
 	// The VPC subnets that Studio uses for communication.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -230,6 +236,8 @@ func GetDomain(ctx *pulumi.Context,
 type domainState struct {
 	// Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
 	AppNetworkAccessType *string `pulumi:"appNetworkAccessType"`
+	// The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
+	AppSecurityGroupManagement *string `pulumi:"appSecurityGroupManagement"`
 	// The Amazon Resource Name (ARN) assigned by AWS to this Domain.
 	Arn *string `pulumi:"arn"`
 	// The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
@@ -238,17 +246,21 @@ type domainState struct {
 	DefaultUserSettings *DomainDefaultUserSettings `pulumi:"defaultUserSettings"`
 	// The domain name.
 	DomainName *string `pulumi:"domainName"`
+	// The domain settings. See Domain Settings below.
+	DomainSettings *DomainDomainSettings `pulumi:"domainSettings"`
 	// The ID of the Amazon Elastic File System (EFS) managed by this Domain.
 	HomeEfsFileSystemId *string `pulumi:"homeEfsFileSystemId"`
 	// The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
 	RetentionPolicy *DomainRetentionPolicy `pulumi:"retentionPolicy"`
+	// The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
+	SecurityGroupIdForDomainBoundary *string `pulumi:"securityGroupIdForDomainBoundary"`
 	// The SSO managed application instance ID.
 	SingleSignOnManagedApplicationInstanceId *string `pulumi:"singleSignOnManagedApplicationInstanceId"`
 	// The VPC subnets that Studio uses for communication.
 	SubnetIds []string `pulumi:"subnetIds"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -261,6 +273,8 @@ type domainState struct {
 type DomainState struct {
 	// Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
 	AppNetworkAccessType pulumi.StringPtrInput
+	// The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
+	AppSecurityGroupManagement pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) assigned by AWS to this Domain.
 	Arn pulumi.StringPtrInput
 	// The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
@@ -269,17 +283,21 @@ type DomainState struct {
 	DefaultUserSettings DomainDefaultUserSettingsPtrInput
 	// The domain name.
 	DomainName pulumi.StringPtrInput
+	// The domain settings. See Domain Settings below.
+	DomainSettings DomainDomainSettingsPtrInput
 	// The ID of the Amazon Elastic File System (EFS) managed by this Domain.
 	HomeEfsFileSystemId pulumi.StringPtrInput
 	// The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
 	KmsKeyId pulumi.StringPtrInput
 	// The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
 	RetentionPolicy DomainRetentionPolicyPtrInput
+	// The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
+	SecurityGroupIdForDomainBoundary pulumi.StringPtrInput
 	// The SSO managed application instance ID.
 	SingleSignOnManagedApplicationInstanceId pulumi.StringPtrInput
 	// The VPC subnets that Studio uses for communication.
 	SubnetIds pulumi.StringArrayInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -296,19 +314,23 @@ func (DomainState) ElementType() reflect.Type {
 type domainArgs struct {
 	// Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
 	AppNetworkAccessType *string `pulumi:"appNetworkAccessType"`
+	// The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
+	AppSecurityGroupManagement *string `pulumi:"appSecurityGroupManagement"`
 	// The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
 	AuthMode string `pulumi:"authMode"`
 	// The default user settings. See Default User Settings below.
 	DefaultUserSettings DomainDefaultUserSettings `pulumi:"defaultUserSettings"`
 	// The domain name.
 	DomainName string `pulumi:"domainName"`
+	// The domain settings. See Domain Settings below.
+	DomainSettings *DomainDomainSettings `pulumi:"domainSettings"`
 	// The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
 	RetentionPolicy *DomainRetentionPolicy `pulumi:"retentionPolicy"`
 	// The VPC subnets that Studio uses for communication.
 	SubnetIds []string `pulumi:"subnetIds"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
 	VpcId string `pulumi:"vpcId"`
@@ -318,19 +340,23 @@ type domainArgs struct {
 type DomainArgs struct {
 	// Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
 	AppNetworkAccessType pulumi.StringPtrInput
+	// The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
+	AppSecurityGroupManagement pulumi.StringPtrInput
 	// The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
 	AuthMode pulumi.StringInput
 	// The default user settings. See Default User Settings below.
 	DefaultUserSettings DomainDefaultUserSettingsInput
 	// The domain name.
 	DomainName pulumi.StringInput
+	// The domain settings. See Domain Settings below.
+	DomainSettings DomainDomainSettingsPtrInput
 	// The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
 	KmsKeyId pulumi.StringPtrInput
 	// The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
 	RetentionPolicy DomainRetentionPolicyPtrInput
 	// The VPC subnets that Studio uses for communication.
 	SubnetIds pulumi.StringArrayInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
 	VpcId pulumi.StringInput
@@ -428,6 +454,11 @@ func (o DomainOutput) AppNetworkAccessType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.AppNetworkAccessType }).(pulumi.StringPtrOutput)
 }
 
+// The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
+func (o DomainOutput) AppSecurityGroupManagement() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.AppSecurityGroupManagement }).(pulumi.StringPtrOutput)
+}
+
 // The Amazon Resource Name (ARN) assigned by AWS to this Domain.
 func (o DomainOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
@@ -448,6 +479,11 @@ func (o DomainOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
+// The domain settings. See Domain Settings below.
+func (o DomainOutput) DomainSettings() DomainDomainSettingsPtrOutput {
+	return o.ApplyT(func(v *Domain) DomainDomainSettingsPtrOutput { return v.DomainSettings }).(DomainDomainSettingsPtrOutput)
+}
+
 // The ID of the Amazon Elastic File System (EFS) managed by this Domain.
 func (o DomainOutput) HomeEfsFileSystemId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.HomeEfsFileSystemId }).(pulumi.StringOutput)
@@ -463,6 +499,11 @@ func (o DomainOutput) RetentionPolicy() DomainRetentionPolicyPtrOutput {
 	return o.ApplyT(func(v *Domain) DomainRetentionPolicyPtrOutput { return v.RetentionPolicy }).(DomainRetentionPolicyPtrOutput)
 }
 
+// The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
+func (o DomainOutput) SecurityGroupIdForDomainBoundary() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.SecurityGroupIdForDomainBoundary }).(pulumi.StringOutput)
+}
+
 // The SSO managed application instance ID.
 func (o DomainOutput) SingleSignOnManagedApplicationInstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.SingleSignOnManagedApplicationInstanceId }).(pulumi.StringOutput)
@@ -473,7 +514,7 @@ func (o DomainOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o DomainOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

@@ -733,6 +733,276 @@ func (o ConfigurationSetTrackingOptionsPtrOutput) CustomRedirectDomain() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
+type EmailIdentityDkimSigningAttributes struct {
+	// [Easy DKIM] The key length of the DKIM key pair in use.
+	CurrentSigningKeyLength *string `pulumi:"currentSigningKeyLength"`
+	// [Bring Your Own DKIM] A private key that's used to generate a DKIM signature. The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding.
+	DomainSigningPrivateKey *string `pulumi:"domainSigningPrivateKey"`
+	// [Bring Your Own DKIM] A string that's used to identify a public key in the DNS configuration for a domain.
+	DomainSigningSelector *string `pulumi:"domainSigningSelector"`
+	// [Easy DKIM] The last time a key pair was generated for this identity.
+	LastKeyGenerationTimestamp *string `pulumi:"lastKeyGenerationTimestamp"`
+	// [Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day. Valid values: `RSA_1024_BIT`, `RSA_2048_BIT`.
+	NextSigningKeyLength *string `pulumi:"nextSigningKeyLength"`
+	// A string that indicates how DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
+	SigningAttributesOrigin *string `pulumi:"signingAttributesOrigin"`
+	// Describes whether or not Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
+	Status *string `pulumi:"status"`
+	// If you used Easy DKIM to configure DKIM authentication for the domain, then this object contains a set of unique strings that you use to create a set of CNAME records that you add to the DNS configuration for your domain. When Amazon SES detects these records in the DNS configuration for your domain, the DKIM authentication process is complete. If you configured DKIM authentication for the domain by providing your own public-private key pair, then this object contains the selector for the public key.
+	Tokens []string `pulumi:"tokens"`
+}
+
+// EmailIdentityDkimSigningAttributesInput is an input type that accepts EmailIdentityDkimSigningAttributesArgs and EmailIdentityDkimSigningAttributesOutput values.
+// You can construct a concrete instance of `EmailIdentityDkimSigningAttributesInput` via:
+//
+//	EmailIdentityDkimSigningAttributesArgs{...}
+type EmailIdentityDkimSigningAttributesInput interface {
+	pulumi.Input
+
+	ToEmailIdentityDkimSigningAttributesOutput() EmailIdentityDkimSigningAttributesOutput
+	ToEmailIdentityDkimSigningAttributesOutputWithContext(context.Context) EmailIdentityDkimSigningAttributesOutput
+}
+
+type EmailIdentityDkimSigningAttributesArgs struct {
+	// [Easy DKIM] The key length of the DKIM key pair in use.
+	CurrentSigningKeyLength pulumi.StringPtrInput `pulumi:"currentSigningKeyLength"`
+	// [Bring Your Own DKIM] A private key that's used to generate a DKIM signature. The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding.
+	DomainSigningPrivateKey pulumi.StringPtrInput `pulumi:"domainSigningPrivateKey"`
+	// [Bring Your Own DKIM] A string that's used to identify a public key in the DNS configuration for a domain.
+	DomainSigningSelector pulumi.StringPtrInput `pulumi:"domainSigningSelector"`
+	// [Easy DKIM] The last time a key pair was generated for this identity.
+	LastKeyGenerationTimestamp pulumi.StringPtrInput `pulumi:"lastKeyGenerationTimestamp"`
+	// [Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day. Valid values: `RSA_1024_BIT`, `RSA_2048_BIT`.
+	NextSigningKeyLength pulumi.StringPtrInput `pulumi:"nextSigningKeyLength"`
+	// A string that indicates how DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
+	SigningAttributesOrigin pulumi.StringPtrInput `pulumi:"signingAttributesOrigin"`
+	// Describes whether or not Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+	// If you used Easy DKIM to configure DKIM authentication for the domain, then this object contains a set of unique strings that you use to create a set of CNAME records that you add to the DNS configuration for your domain. When Amazon SES detects these records in the DNS configuration for your domain, the DKIM authentication process is complete. If you configured DKIM authentication for the domain by providing your own public-private key pair, then this object contains the selector for the public key.
+	Tokens pulumi.StringArrayInput `pulumi:"tokens"`
+}
+
+func (EmailIdentityDkimSigningAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EmailIdentityDkimSigningAttributes)(nil)).Elem()
+}
+
+func (i EmailIdentityDkimSigningAttributesArgs) ToEmailIdentityDkimSigningAttributesOutput() EmailIdentityDkimSigningAttributesOutput {
+	return i.ToEmailIdentityDkimSigningAttributesOutputWithContext(context.Background())
+}
+
+func (i EmailIdentityDkimSigningAttributesArgs) ToEmailIdentityDkimSigningAttributesOutputWithContext(ctx context.Context) EmailIdentityDkimSigningAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EmailIdentityDkimSigningAttributesOutput)
+}
+
+func (i EmailIdentityDkimSigningAttributesArgs) ToEmailIdentityDkimSigningAttributesPtrOutput() EmailIdentityDkimSigningAttributesPtrOutput {
+	return i.ToEmailIdentityDkimSigningAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i EmailIdentityDkimSigningAttributesArgs) ToEmailIdentityDkimSigningAttributesPtrOutputWithContext(ctx context.Context) EmailIdentityDkimSigningAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EmailIdentityDkimSigningAttributesOutput).ToEmailIdentityDkimSigningAttributesPtrOutputWithContext(ctx)
+}
+
+// EmailIdentityDkimSigningAttributesPtrInput is an input type that accepts EmailIdentityDkimSigningAttributesArgs, EmailIdentityDkimSigningAttributesPtr and EmailIdentityDkimSigningAttributesPtrOutput values.
+// You can construct a concrete instance of `EmailIdentityDkimSigningAttributesPtrInput` via:
+//
+//	        EmailIdentityDkimSigningAttributesArgs{...}
+//
+//	or:
+//
+//	        nil
+type EmailIdentityDkimSigningAttributesPtrInput interface {
+	pulumi.Input
+
+	ToEmailIdentityDkimSigningAttributesPtrOutput() EmailIdentityDkimSigningAttributesPtrOutput
+	ToEmailIdentityDkimSigningAttributesPtrOutputWithContext(context.Context) EmailIdentityDkimSigningAttributesPtrOutput
+}
+
+type emailIdentityDkimSigningAttributesPtrType EmailIdentityDkimSigningAttributesArgs
+
+func EmailIdentityDkimSigningAttributesPtr(v *EmailIdentityDkimSigningAttributesArgs) EmailIdentityDkimSigningAttributesPtrInput {
+	return (*emailIdentityDkimSigningAttributesPtrType)(v)
+}
+
+func (*emailIdentityDkimSigningAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EmailIdentityDkimSigningAttributes)(nil)).Elem()
+}
+
+func (i *emailIdentityDkimSigningAttributesPtrType) ToEmailIdentityDkimSigningAttributesPtrOutput() EmailIdentityDkimSigningAttributesPtrOutput {
+	return i.ToEmailIdentityDkimSigningAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *emailIdentityDkimSigningAttributesPtrType) ToEmailIdentityDkimSigningAttributesPtrOutputWithContext(ctx context.Context) EmailIdentityDkimSigningAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EmailIdentityDkimSigningAttributesPtrOutput)
+}
+
+type EmailIdentityDkimSigningAttributesOutput struct{ *pulumi.OutputState }
+
+func (EmailIdentityDkimSigningAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EmailIdentityDkimSigningAttributes)(nil)).Elem()
+}
+
+func (o EmailIdentityDkimSigningAttributesOutput) ToEmailIdentityDkimSigningAttributesOutput() EmailIdentityDkimSigningAttributesOutput {
+	return o
+}
+
+func (o EmailIdentityDkimSigningAttributesOutput) ToEmailIdentityDkimSigningAttributesOutputWithContext(ctx context.Context) EmailIdentityDkimSigningAttributesOutput {
+	return o
+}
+
+func (o EmailIdentityDkimSigningAttributesOutput) ToEmailIdentityDkimSigningAttributesPtrOutput() EmailIdentityDkimSigningAttributesPtrOutput {
+	return o.ToEmailIdentityDkimSigningAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o EmailIdentityDkimSigningAttributesOutput) ToEmailIdentityDkimSigningAttributesPtrOutputWithContext(ctx context.Context) EmailIdentityDkimSigningAttributesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EmailIdentityDkimSigningAttributes) *EmailIdentityDkimSigningAttributes {
+		return &v
+	}).(EmailIdentityDkimSigningAttributesPtrOutput)
+}
+
+// [Easy DKIM] The key length of the DKIM key pair in use.
+func (o EmailIdentityDkimSigningAttributesOutput) CurrentSigningKeyLength() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EmailIdentityDkimSigningAttributes) *string { return v.CurrentSigningKeyLength }).(pulumi.StringPtrOutput)
+}
+
+// [Bring Your Own DKIM] A private key that's used to generate a DKIM signature. The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding.
+func (o EmailIdentityDkimSigningAttributesOutput) DomainSigningPrivateKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EmailIdentityDkimSigningAttributes) *string { return v.DomainSigningPrivateKey }).(pulumi.StringPtrOutput)
+}
+
+// [Bring Your Own DKIM] A string that's used to identify a public key in the DNS configuration for a domain.
+func (o EmailIdentityDkimSigningAttributesOutput) DomainSigningSelector() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EmailIdentityDkimSigningAttributes) *string { return v.DomainSigningSelector }).(pulumi.StringPtrOutput)
+}
+
+// [Easy DKIM] The last time a key pair was generated for this identity.
+func (o EmailIdentityDkimSigningAttributesOutput) LastKeyGenerationTimestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EmailIdentityDkimSigningAttributes) *string { return v.LastKeyGenerationTimestamp }).(pulumi.StringPtrOutput)
+}
+
+// [Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day. Valid values: `RSA_1024_BIT`, `RSA_2048_BIT`.
+func (o EmailIdentityDkimSigningAttributesOutput) NextSigningKeyLength() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EmailIdentityDkimSigningAttributes) *string { return v.NextSigningKeyLength }).(pulumi.StringPtrOutput)
+}
+
+// A string that indicates how DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
+func (o EmailIdentityDkimSigningAttributesOutput) SigningAttributesOrigin() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EmailIdentityDkimSigningAttributes) *string { return v.SigningAttributesOrigin }).(pulumi.StringPtrOutput)
+}
+
+// Describes whether or not Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
+func (o EmailIdentityDkimSigningAttributesOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EmailIdentityDkimSigningAttributes) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// If you used Easy DKIM to configure DKIM authentication for the domain, then this object contains a set of unique strings that you use to create a set of CNAME records that you add to the DNS configuration for your domain. When Amazon SES detects these records in the DNS configuration for your domain, the DKIM authentication process is complete. If you configured DKIM authentication for the domain by providing your own public-private key pair, then this object contains the selector for the public key.
+func (o EmailIdentityDkimSigningAttributesOutput) Tokens() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EmailIdentityDkimSigningAttributes) []string { return v.Tokens }).(pulumi.StringArrayOutput)
+}
+
+type EmailIdentityDkimSigningAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (EmailIdentityDkimSigningAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EmailIdentityDkimSigningAttributes)(nil)).Elem()
+}
+
+func (o EmailIdentityDkimSigningAttributesPtrOutput) ToEmailIdentityDkimSigningAttributesPtrOutput() EmailIdentityDkimSigningAttributesPtrOutput {
+	return o
+}
+
+func (o EmailIdentityDkimSigningAttributesPtrOutput) ToEmailIdentityDkimSigningAttributesPtrOutputWithContext(ctx context.Context) EmailIdentityDkimSigningAttributesPtrOutput {
+	return o
+}
+
+func (o EmailIdentityDkimSigningAttributesPtrOutput) Elem() EmailIdentityDkimSigningAttributesOutput {
+	return o.ApplyT(func(v *EmailIdentityDkimSigningAttributes) EmailIdentityDkimSigningAttributes {
+		if v != nil {
+			return *v
+		}
+		var ret EmailIdentityDkimSigningAttributes
+		return ret
+	}).(EmailIdentityDkimSigningAttributesOutput)
+}
+
+// [Easy DKIM] The key length of the DKIM key pair in use.
+func (o EmailIdentityDkimSigningAttributesPtrOutput) CurrentSigningKeyLength() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EmailIdentityDkimSigningAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CurrentSigningKeyLength
+	}).(pulumi.StringPtrOutput)
+}
+
+// [Bring Your Own DKIM] A private key that's used to generate a DKIM signature. The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding.
+func (o EmailIdentityDkimSigningAttributesPtrOutput) DomainSigningPrivateKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EmailIdentityDkimSigningAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DomainSigningPrivateKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// [Bring Your Own DKIM] A string that's used to identify a public key in the DNS configuration for a domain.
+func (o EmailIdentityDkimSigningAttributesPtrOutput) DomainSigningSelector() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EmailIdentityDkimSigningAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DomainSigningSelector
+	}).(pulumi.StringPtrOutput)
+}
+
+// [Easy DKIM] The last time a key pair was generated for this identity.
+func (o EmailIdentityDkimSigningAttributesPtrOutput) LastKeyGenerationTimestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EmailIdentityDkimSigningAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastKeyGenerationTimestamp
+	}).(pulumi.StringPtrOutput)
+}
+
+// [Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day. Valid values: `RSA_1024_BIT`, `RSA_2048_BIT`.
+func (o EmailIdentityDkimSigningAttributesPtrOutput) NextSigningKeyLength() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EmailIdentityDkimSigningAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NextSigningKeyLength
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that indicates how DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
+func (o EmailIdentityDkimSigningAttributesPtrOutput) SigningAttributesOrigin() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EmailIdentityDkimSigningAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SigningAttributesOrigin
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes whether or not Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
+func (o EmailIdentityDkimSigningAttributesPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EmailIdentityDkimSigningAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// If you used Easy DKIM to configure DKIM authentication for the domain, then this object contains a set of unique strings that you use to create a set of CNAME records that you add to the DNS configuration for your domain. When Amazon SES detects these records in the DNS configuration for your domain, the DKIM authentication process is complete. If you configured DKIM authentication for the domain by providing your own public-private key pair, then this object contains the selector for the public key.
+func (o EmailIdentityDkimSigningAttributesPtrOutput) Tokens() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *EmailIdentityDkimSigningAttributes) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Tokens
+	}).(pulumi.StringArrayOutput)
+}
+
 type GetDedicatedIpPoolDedicatedIp struct {
 	// IPv4 address.
 	Ip string `pulumi:"ip"`
@@ -859,6 +1129,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetSuppressionOptionsPtrInput)(nil)).Elem(), ConfigurationSetSuppressionOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetTrackingOptionsInput)(nil)).Elem(), ConfigurationSetTrackingOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetTrackingOptionsPtrInput)(nil)).Elem(), ConfigurationSetTrackingOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EmailIdentityDkimSigningAttributesInput)(nil)).Elem(), EmailIdentityDkimSigningAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EmailIdentityDkimSigningAttributesPtrInput)(nil)).Elem(), EmailIdentityDkimSigningAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDedicatedIpPoolDedicatedIpInput)(nil)).Elem(), GetDedicatedIpPoolDedicatedIpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDedicatedIpPoolDedicatedIpArrayInput)(nil)).Elem(), GetDedicatedIpPoolDedicatedIpArray{})
 	pulumi.RegisterOutputType(ConfigurationSetDeliveryOptionsOutput{})
@@ -871,6 +1143,8 @@ func init() {
 	pulumi.RegisterOutputType(ConfigurationSetSuppressionOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetTrackingOptionsOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetTrackingOptionsPtrOutput{})
+	pulumi.RegisterOutputType(EmailIdentityDkimSigningAttributesOutput{})
+	pulumi.RegisterOutputType(EmailIdentityDkimSigningAttributesPtrOutput{})
 	pulumi.RegisterOutputType(GetDedicatedIpPoolDedicatedIpOutput{})
 	pulumi.RegisterOutputType(GetDedicatedIpPoolDedicatedIpArrayOutput{})
 }

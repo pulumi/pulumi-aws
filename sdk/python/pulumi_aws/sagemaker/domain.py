@@ -22,6 +22,8 @@ class DomainArgs:
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  vpc_id: pulumi.Input[str],
                  app_network_access_type: Optional[pulumi.Input[str]] = None,
+                 app_security_group_management: Optional[pulumi.Input[str]] = None,
+                 domain_settings: Optional[pulumi.Input['DomainDomainSettingsArgs']] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  retention_policy: Optional[pulumi.Input['DomainRetentionPolicyArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -33,9 +35,11 @@ class DomainArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The VPC subnets that Studio uses for communication.
         :param pulumi.Input[str] vpc_id: The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
         :param pulumi.Input[str] app_network_access_type: Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
+        :param pulumi.Input[str] app_security_group_management: The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
+        :param pulumi.Input['DomainDomainSettingsArgs'] domain_settings: The domain settings. See Domain Settings below.
         :param pulumi.Input[str] kms_key_id: The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
         :param pulumi.Input['DomainRetentionPolicyArgs'] retention_policy: The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "auth_mode", auth_mode)
         pulumi.set(__self__, "default_user_settings", default_user_settings)
@@ -44,6 +48,10 @@ class DomainArgs:
         pulumi.set(__self__, "vpc_id", vpc_id)
         if app_network_access_type is not None:
             pulumi.set(__self__, "app_network_access_type", app_network_access_type)
+        if app_security_group_management is not None:
+            pulumi.set(__self__, "app_security_group_management", app_security_group_management)
+        if domain_settings is not None:
+            pulumi.set(__self__, "domain_settings", domain_settings)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if retention_policy is not None:
@@ -124,6 +132,30 @@ class DomainArgs:
         pulumi.set(self, "app_network_access_type", value)
 
     @property
+    @pulumi.getter(name="appSecurityGroupManagement")
+    def app_security_group_management(self) -> Optional[pulumi.Input[str]]:
+        """
+        The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
+        """
+        return pulumi.get(self, "app_security_group_management")
+
+    @app_security_group_management.setter
+    def app_security_group_management(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_security_group_management", value)
+
+    @property
+    @pulumi.getter(name="domainSettings")
+    def domain_settings(self) -> Optional[pulumi.Input['DomainDomainSettingsArgs']]:
+        """
+        The domain settings. See Domain Settings below.
+        """
+        return pulumi.get(self, "domain_settings")
+
+    @domain_settings.setter
+    def domain_settings(self, value: Optional[pulumi.Input['DomainDomainSettingsArgs']]):
+        pulumi.set(self, "domain_settings", value)
+
+    @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -151,7 +183,7 @@ class DomainArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -164,13 +196,16 @@ class DomainArgs:
 class _DomainState:
     def __init__(__self__, *,
                  app_network_access_type: Optional[pulumi.Input[str]] = None,
+                 app_security_group_management: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  auth_mode: Optional[pulumi.Input[str]] = None,
                  default_user_settings: Optional[pulumi.Input['DomainDefaultUserSettingsArgs']] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
+                 domain_settings: Optional[pulumi.Input['DomainDomainSettingsArgs']] = None,
                  home_efs_file_system_id: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  retention_policy: Optional[pulumi.Input['DomainRetentionPolicyArgs']] = None,
+                 security_group_id_for_domain_boundary: Optional[pulumi.Input[str]] = None,
                  single_sign_on_managed_application_instance_id: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -180,22 +215,27 @@ class _DomainState:
         """
         Input properties used for looking up and filtering Domain resources.
         :param pulumi.Input[str] app_network_access_type: Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
+        :param pulumi.Input[str] app_security_group_management: The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Domain.
         :param pulumi.Input[str] auth_mode: The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
         :param pulumi.Input['DomainDefaultUserSettingsArgs'] default_user_settings: The default user settings. See Default User Settings below.
         :param pulumi.Input[str] domain_name: The domain name.
+        :param pulumi.Input['DomainDomainSettingsArgs'] domain_settings: The domain settings. See Domain Settings below.
         :param pulumi.Input[str] home_efs_file_system_id: The ID of the Amazon Elastic File System (EFS) managed by this Domain.
         :param pulumi.Input[str] kms_key_id: The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
         :param pulumi.Input['DomainRetentionPolicyArgs'] retention_policy: The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
+        :param pulumi.Input[str] security_group_id_for_domain_boundary: The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
         :param pulumi.Input[str] single_sign_on_managed_application_instance_id: The SSO managed application instance ID.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The VPC subnets that Studio uses for communication.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] url: The domain's URL.
         :param pulumi.Input[str] vpc_id: The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
         """
         if app_network_access_type is not None:
             pulumi.set(__self__, "app_network_access_type", app_network_access_type)
+        if app_security_group_management is not None:
+            pulumi.set(__self__, "app_security_group_management", app_security_group_management)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if auth_mode is not None:
@@ -204,12 +244,16 @@ class _DomainState:
             pulumi.set(__self__, "default_user_settings", default_user_settings)
         if domain_name is not None:
             pulumi.set(__self__, "domain_name", domain_name)
+        if domain_settings is not None:
+            pulumi.set(__self__, "domain_settings", domain_settings)
         if home_efs_file_system_id is not None:
             pulumi.set(__self__, "home_efs_file_system_id", home_efs_file_system_id)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if retention_policy is not None:
             pulumi.set(__self__, "retention_policy", retention_policy)
+        if security_group_id_for_domain_boundary is not None:
+            pulumi.set(__self__, "security_group_id_for_domain_boundary", security_group_id_for_domain_boundary)
         if single_sign_on_managed_application_instance_id is not None:
             pulumi.set(__self__, "single_sign_on_managed_application_instance_id", single_sign_on_managed_application_instance_id)
         if subnet_ids is not None:
@@ -234,6 +278,18 @@ class _DomainState:
     @app_network_access_type.setter
     def app_network_access_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "app_network_access_type", value)
+
+    @property
+    @pulumi.getter(name="appSecurityGroupManagement")
+    def app_security_group_management(self) -> Optional[pulumi.Input[str]]:
+        """
+        The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
+        """
+        return pulumi.get(self, "app_security_group_management")
+
+    @app_security_group_management.setter
+    def app_security_group_management(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_security_group_management", value)
 
     @property
     @pulumi.getter
@@ -284,6 +340,18 @@ class _DomainState:
         pulumi.set(self, "domain_name", value)
 
     @property
+    @pulumi.getter(name="domainSettings")
+    def domain_settings(self) -> Optional[pulumi.Input['DomainDomainSettingsArgs']]:
+        """
+        The domain settings. See Domain Settings below.
+        """
+        return pulumi.get(self, "domain_settings")
+
+    @domain_settings.setter
+    def domain_settings(self, value: Optional[pulumi.Input['DomainDomainSettingsArgs']]):
+        pulumi.set(self, "domain_settings", value)
+
+    @property
     @pulumi.getter(name="homeEfsFileSystemId")
     def home_efs_file_system_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -320,6 +388,18 @@ class _DomainState:
         pulumi.set(self, "retention_policy", value)
 
     @property
+    @pulumi.getter(name="securityGroupIdForDomainBoundary")
+    def security_group_id_for_domain_boundary(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
+        """
+        return pulumi.get(self, "security_group_id_for_domain_boundary")
+
+    @security_group_id_for_domain_boundary.setter
+    def security_group_id_for_domain_boundary(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "security_group_id_for_domain_boundary", value)
+
+    @property
     @pulumi.getter(name="singleSignOnManagedApplicationInstanceId")
     def single_sign_on_managed_application_instance_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -347,7 +427,7 @@ class _DomainState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -398,9 +478,11 @@ class Domain(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_network_access_type: Optional[pulumi.Input[str]] = None,
+                 app_security_group_management: Optional[pulumi.Input[str]] = None,
                  auth_mode: Optional[pulumi.Input[str]] = None,
                  default_user_settings: Optional[pulumi.Input[pulumi.InputType['DomainDefaultUserSettingsArgs']]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
+                 domain_settings: Optional[pulumi.Input[pulumi.InputType['DomainDomainSettingsArgs']]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  retention_policy: Optional[pulumi.Input[pulumi.InputType['DomainRetentionPolicyArgs']]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -482,13 +564,15 @@ class Domain(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_network_access_type: Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
+        :param pulumi.Input[str] app_security_group_management: The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
         :param pulumi.Input[str] auth_mode: The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
         :param pulumi.Input[pulumi.InputType['DomainDefaultUserSettingsArgs']] default_user_settings: The default user settings. See Default User Settings below.
         :param pulumi.Input[str] domain_name: The domain name.
+        :param pulumi.Input[pulumi.InputType['DomainDomainSettingsArgs']] domain_settings: The domain settings. See Domain Settings below.
         :param pulumi.Input[str] kms_key_id: The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
         :param pulumi.Input[pulumi.InputType['DomainRetentionPolicyArgs']] retention_policy: The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The VPC subnets that Studio uses for communication.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] vpc_id: The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
         """
         ...
@@ -585,9 +669,11 @@ class Domain(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_network_access_type: Optional[pulumi.Input[str]] = None,
+                 app_security_group_management: Optional[pulumi.Input[str]] = None,
                  auth_mode: Optional[pulumi.Input[str]] = None,
                  default_user_settings: Optional[pulumi.Input[pulumi.InputType['DomainDefaultUserSettingsArgs']]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
+                 domain_settings: Optional[pulumi.Input[pulumi.InputType['DomainDomainSettingsArgs']]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  retention_policy: Optional[pulumi.Input[pulumi.InputType['DomainRetentionPolicyArgs']]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -603,6 +689,7 @@ class Domain(pulumi.CustomResource):
             __props__ = DomainArgs.__new__(DomainArgs)
 
             __props__.__dict__["app_network_access_type"] = app_network_access_type
+            __props__.__dict__["app_security_group_management"] = app_security_group_management
             if auth_mode is None and not opts.urn:
                 raise TypeError("Missing required property 'auth_mode'")
             __props__.__dict__["auth_mode"] = auth_mode
@@ -612,6 +699,7 @@ class Domain(pulumi.CustomResource):
             if domain_name is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_name'")
             __props__.__dict__["domain_name"] = domain_name
+            __props__.__dict__["domain_settings"] = domain_settings
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["retention_policy"] = retention_policy
             if subnet_ids is None and not opts.urn:
@@ -623,6 +711,7 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["vpc_id"] = vpc_id
             __props__.__dict__["arn"] = None
             __props__.__dict__["home_efs_file_system_id"] = None
+            __props__.__dict__["security_group_id_for_domain_boundary"] = None
             __props__.__dict__["single_sign_on_managed_application_instance_id"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["url"] = None
@@ -637,13 +726,16 @@ class Domain(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             app_network_access_type: Optional[pulumi.Input[str]] = None,
+            app_security_group_management: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             auth_mode: Optional[pulumi.Input[str]] = None,
             default_user_settings: Optional[pulumi.Input[pulumi.InputType['DomainDefaultUserSettingsArgs']]] = None,
             domain_name: Optional[pulumi.Input[str]] = None,
+            domain_settings: Optional[pulumi.Input[pulumi.InputType['DomainDomainSettingsArgs']]] = None,
             home_efs_file_system_id: Optional[pulumi.Input[str]] = None,
             kms_key_id: Optional[pulumi.Input[str]] = None,
             retention_policy: Optional[pulumi.Input[pulumi.InputType['DomainRetentionPolicyArgs']]] = None,
+            security_group_id_for_domain_boundary: Optional[pulumi.Input[str]] = None,
             single_sign_on_managed_application_instance_id: Optional[pulumi.Input[str]] = None,
             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -658,16 +750,19 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_network_access_type: Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
+        :param pulumi.Input[str] app_security_group_management: The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Domain.
         :param pulumi.Input[str] auth_mode: The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
         :param pulumi.Input[pulumi.InputType['DomainDefaultUserSettingsArgs']] default_user_settings: The default user settings. See Default User Settings below.
         :param pulumi.Input[str] domain_name: The domain name.
+        :param pulumi.Input[pulumi.InputType['DomainDomainSettingsArgs']] domain_settings: The domain settings. See Domain Settings below.
         :param pulumi.Input[str] home_efs_file_system_id: The ID of the Amazon Elastic File System (EFS) managed by this Domain.
         :param pulumi.Input[str] kms_key_id: The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
         :param pulumi.Input[pulumi.InputType['DomainRetentionPolicyArgs']] retention_policy: The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
+        :param pulumi.Input[str] security_group_id_for_domain_boundary: The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
         :param pulumi.Input[str] single_sign_on_managed_application_instance_id: The SSO managed application instance ID.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The VPC subnets that Studio uses for communication.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] url: The domain's URL.
         :param pulumi.Input[str] vpc_id: The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
@@ -677,13 +772,16 @@ class Domain(pulumi.CustomResource):
         __props__ = _DomainState.__new__(_DomainState)
 
         __props__.__dict__["app_network_access_type"] = app_network_access_type
+        __props__.__dict__["app_security_group_management"] = app_security_group_management
         __props__.__dict__["arn"] = arn
         __props__.__dict__["auth_mode"] = auth_mode
         __props__.__dict__["default_user_settings"] = default_user_settings
         __props__.__dict__["domain_name"] = domain_name
+        __props__.__dict__["domain_settings"] = domain_settings
         __props__.__dict__["home_efs_file_system_id"] = home_efs_file_system_id
         __props__.__dict__["kms_key_id"] = kms_key_id
         __props__.__dict__["retention_policy"] = retention_policy
+        __props__.__dict__["security_group_id_for_domain_boundary"] = security_group_id_for_domain_boundary
         __props__.__dict__["single_sign_on_managed_application_instance_id"] = single_sign_on_managed_application_instance_id
         __props__.__dict__["subnet_ids"] = subnet_ids
         __props__.__dict__["tags"] = tags
@@ -699,6 +797,14 @@ class Domain(pulumi.CustomResource):
         Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
         """
         return pulumi.get(self, "app_network_access_type")
+
+    @property
+    @pulumi.getter(name="appSecurityGroupManagement")
+    def app_security_group_management(self) -> pulumi.Output[Optional[str]]:
+        """
+        The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
+        """
+        return pulumi.get(self, "app_security_group_management")
 
     @property
     @pulumi.getter
@@ -733,6 +839,14 @@ class Domain(pulumi.CustomResource):
         return pulumi.get(self, "domain_name")
 
     @property
+    @pulumi.getter(name="domainSettings")
+    def domain_settings(self) -> pulumi.Output[Optional['outputs.DomainDomainSettings']]:
+        """
+        The domain settings. See Domain Settings below.
+        """
+        return pulumi.get(self, "domain_settings")
+
+    @property
     @pulumi.getter(name="homeEfsFileSystemId")
     def home_efs_file_system_id(self) -> pulumi.Output[str]:
         """
@@ -757,6 +871,14 @@ class Domain(pulumi.CustomResource):
         return pulumi.get(self, "retention_policy")
 
     @property
+    @pulumi.getter(name="securityGroupIdForDomainBoundary")
+    def security_group_id_for_domain_boundary(self) -> pulumi.Output[str]:
+        """
+        The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
+        """
+        return pulumi.get(self, "security_group_id_for_domain_boundary")
+
+    @property
     @pulumi.getter(name="singleSignOnManagedApplicationInstanceId")
     def single_sign_on_managed_application_instance_id(self) -> pulumi.Output[str]:
         """
@@ -776,7 +898,7 @@ class Domain(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

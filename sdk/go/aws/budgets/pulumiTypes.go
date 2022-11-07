@@ -978,6 +978,317 @@ func (o BudgetActionSubscriberArrayOutput) Index(i pulumi.IntInput) BudgetAction
 	}).(BudgetActionSubscriberOutput)
 }
 
+type BudgetAutoAdjustData struct {
+	AutoAdjustType     string                                 `pulumi:"autoAdjustType"`
+	HistoricalOptions  *BudgetAutoAdjustDataHistoricalOptions `pulumi:"historicalOptions"`
+	LastAutoAdjustTime *string                                `pulumi:"lastAutoAdjustTime"`
+}
+
+// BudgetAutoAdjustDataInput is an input type that accepts BudgetAutoAdjustDataArgs and BudgetAutoAdjustDataOutput values.
+// You can construct a concrete instance of `BudgetAutoAdjustDataInput` via:
+//
+//	BudgetAutoAdjustDataArgs{...}
+type BudgetAutoAdjustDataInput interface {
+	pulumi.Input
+
+	ToBudgetAutoAdjustDataOutput() BudgetAutoAdjustDataOutput
+	ToBudgetAutoAdjustDataOutputWithContext(context.Context) BudgetAutoAdjustDataOutput
+}
+
+type BudgetAutoAdjustDataArgs struct {
+	AutoAdjustType     pulumi.StringInput                            `pulumi:"autoAdjustType"`
+	HistoricalOptions  BudgetAutoAdjustDataHistoricalOptionsPtrInput `pulumi:"historicalOptions"`
+	LastAutoAdjustTime pulumi.StringPtrInput                         `pulumi:"lastAutoAdjustTime"`
+}
+
+func (BudgetAutoAdjustDataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetAutoAdjustData)(nil)).Elem()
+}
+
+func (i BudgetAutoAdjustDataArgs) ToBudgetAutoAdjustDataOutput() BudgetAutoAdjustDataOutput {
+	return i.ToBudgetAutoAdjustDataOutputWithContext(context.Background())
+}
+
+func (i BudgetAutoAdjustDataArgs) ToBudgetAutoAdjustDataOutputWithContext(ctx context.Context) BudgetAutoAdjustDataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetAutoAdjustDataOutput)
+}
+
+func (i BudgetAutoAdjustDataArgs) ToBudgetAutoAdjustDataPtrOutput() BudgetAutoAdjustDataPtrOutput {
+	return i.ToBudgetAutoAdjustDataPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetAutoAdjustDataArgs) ToBudgetAutoAdjustDataPtrOutputWithContext(ctx context.Context) BudgetAutoAdjustDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetAutoAdjustDataOutput).ToBudgetAutoAdjustDataPtrOutputWithContext(ctx)
+}
+
+// BudgetAutoAdjustDataPtrInput is an input type that accepts BudgetAutoAdjustDataArgs, BudgetAutoAdjustDataPtr and BudgetAutoAdjustDataPtrOutput values.
+// You can construct a concrete instance of `BudgetAutoAdjustDataPtrInput` via:
+//
+//	        BudgetAutoAdjustDataArgs{...}
+//
+//	or:
+//
+//	        nil
+type BudgetAutoAdjustDataPtrInput interface {
+	pulumi.Input
+
+	ToBudgetAutoAdjustDataPtrOutput() BudgetAutoAdjustDataPtrOutput
+	ToBudgetAutoAdjustDataPtrOutputWithContext(context.Context) BudgetAutoAdjustDataPtrOutput
+}
+
+type budgetAutoAdjustDataPtrType BudgetAutoAdjustDataArgs
+
+func BudgetAutoAdjustDataPtr(v *BudgetAutoAdjustDataArgs) BudgetAutoAdjustDataPtrInput {
+	return (*budgetAutoAdjustDataPtrType)(v)
+}
+
+func (*budgetAutoAdjustDataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetAutoAdjustData)(nil)).Elem()
+}
+
+func (i *budgetAutoAdjustDataPtrType) ToBudgetAutoAdjustDataPtrOutput() BudgetAutoAdjustDataPtrOutput {
+	return i.ToBudgetAutoAdjustDataPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetAutoAdjustDataPtrType) ToBudgetAutoAdjustDataPtrOutputWithContext(ctx context.Context) BudgetAutoAdjustDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetAutoAdjustDataPtrOutput)
+}
+
+type BudgetAutoAdjustDataOutput struct{ *pulumi.OutputState }
+
+func (BudgetAutoAdjustDataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetAutoAdjustData)(nil)).Elem()
+}
+
+func (o BudgetAutoAdjustDataOutput) ToBudgetAutoAdjustDataOutput() BudgetAutoAdjustDataOutput {
+	return o
+}
+
+func (o BudgetAutoAdjustDataOutput) ToBudgetAutoAdjustDataOutputWithContext(ctx context.Context) BudgetAutoAdjustDataOutput {
+	return o
+}
+
+func (o BudgetAutoAdjustDataOutput) ToBudgetAutoAdjustDataPtrOutput() BudgetAutoAdjustDataPtrOutput {
+	return o.ToBudgetAutoAdjustDataPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetAutoAdjustDataOutput) ToBudgetAutoAdjustDataPtrOutputWithContext(ctx context.Context) BudgetAutoAdjustDataPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetAutoAdjustData) *BudgetAutoAdjustData {
+		return &v
+	}).(BudgetAutoAdjustDataPtrOutput)
+}
+
+func (o BudgetAutoAdjustDataOutput) AutoAdjustType() pulumi.StringOutput {
+	return o.ApplyT(func(v BudgetAutoAdjustData) string { return v.AutoAdjustType }).(pulumi.StringOutput)
+}
+
+func (o BudgetAutoAdjustDataOutput) HistoricalOptions() BudgetAutoAdjustDataHistoricalOptionsPtrOutput {
+	return o.ApplyT(func(v BudgetAutoAdjustData) *BudgetAutoAdjustDataHistoricalOptions { return v.HistoricalOptions }).(BudgetAutoAdjustDataHistoricalOptionsPtrOutput)
+}
+
+func (o BudgetAutoAdjustDataOutput) LastAutoAdjustTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BudgetAutoAdjustData) *string { return v.LastAutoAdjustTime }).(pulumi.StringPtrOutput)
+}
+
+type BudgetAutoAdjustDataPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetAutoAdjustDataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetAutoAdjustData)(nil)).Elem()
+}
+
+func (o BudgetAutoAdjustDataPtrOutput) ToBudgetAutoAdjustDataPtrOutput() BudgetAutoAdjustDataPtrOutput {
+	return o
+}
+
+func (o BudgetAutoAdjustDataPtrOutput) ToBudgetAutoAdjustDataPtrOutputWithContext(ctx context.Context) BudgetAutoAdjustDataPtrOutput {
+	return o
+}
+
+func (o BudgetAutoAdjustDataPtrOutput) Elem() BudgetAutoAdjustDataOutput {
+	return o.ApplyT(func(v *BudgetAutoAdjustData) BudgetAutoAdjustData {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetAutoAdjustData
+		return ret
+	}).(BudgetAutoAdjustDataOutput)
+}
+
+func (o BudgetAutoAdjustDataPtrOutput) AutoAdjustType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetAutoAdjustData) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AutoAdjustType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o BudgetAutoAdjustDataPtrOutput) HistoricalOptions() BudgetAutoAdjustDataHistoricalOptionsPtrOutput {
+	return o.ApplyT(func(v *BudgetAutoAdjustData) *BudgetAutoAdjustDataHistoricalOptions {
+		if v == nil {
+			return nil
+		}
+		return v.HistoricalOptions
+	}).(BudgetAutoAdjustDataHistoricalOptionsPtrOutput)
+}
+
+func (o BudgetAutoAdjustDataPtrOutput) LastAutoAdjustTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetAutoAdjustData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastAutoAdjustTime
+	}).(pulumi.StringPtrOutput)
+}
+
+type BudgetAutoAdjustDataHistoricalOptions struct {
+	BudgetAdjustmentPeriod   int  `pulumi:"budgetAdjustmentPeriod"`
+	LookbackAvailablePeriods *int `pulumi:"lookbackAvailablePeriods"`
+}
+
+// BudgetAutoAdjustDataHistoricalOptionsInput is an input type that accepts BudgetAutoAdjustDataHistoricalOptionsArgs and BudgetAutoAdjustDataHistoricalOptionsOutput values.
+// You can construct a concrete instance of `BudgetAutoAdjustDataHistoricalOptionsInput` via:
+//
+//	BudgetAutoAdjustDataHistoricalOptionsArgs{...}
+type BudgetAutoAdjustDataHistoricalOptionsInput interface {
+	pulumi.Input
+
+	ToBudgetAutoAdjustDataHistoricalOptionsOutput() BudgetAutoAdjustDataHistoricalOptionsOutput
+	ToBudgetAutoAdjustDataHistoricalOptionsOutputWithContext(context.Context) BudgetAutoAdjustDataHistoricalOptionsOutput
+}
+
+type BudgetAutoAdjustDataHistoricalOptionsArgs struct {
+	BudgetAdjustmentPeriod   pulumi.IntInput    `pulumi:"budgetAdjustmentPeriod"`
+	LookbackAvailablePeriods pulumi.IntPtrInput `pulumi:"lookbackAvailablePeriods"`
+}
+
+func (BudgetAutoAdjustDataHistoricalOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetAutoAdjustDataHistoricalOptions)(nil)).Elem()
+}
+
+func (i BudgetAutoAdjustDataHistoricalOptionsArgs) ToBudgetAutoAdjustDataHistoricalOptionsOutput() BudgetAutoAdjustDataHistoricalOptionsOutput {
+	return i.ToBudgetAutoAdjustDataHistoricalOptionsOutputWithContext(context.Background())
+}
+
+func (i BudgetAutoAdjustDataHistoricalOptionsArgs) ToBudgetAutoAdjustDataHistoricalOptionsOutputWithContext(ctx context.Context) BudgetAutoAdjustDataHistoricalOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetAutoAdjustDataHistoricalOptionsOutput)
+}
+
+func (i BudgetAutoAdjustDataHistoricalOptionsArgs) ToBudgetAutoAdjustDataHistoricalOptionsPtrOutput() BudgetAutoAdjustDataHistoricalOptionsPtrOutput {
+	return i.ToBudgetAutoAdjustDataHistoricalOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetAutoAdjustDataHistoricalOptionsArgs) ToBudgetAutoAdjustDataHistoricalOptionsPtrOutputWithContext(ctx context.Context) BudgetAutoAdjustDataHistoricalOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetAutoAdjustDataHistoricalOptionsOutput).ToBudgetAutoAdjustDataHistoricalOptionsPtrOutputWithContext(ctx)
+}
+
+// BudgetAutoAdjustDataHistoricalOptionsPtrInput is an input type that accepts BudgetAutoAdjustDataHistoricalOptionsArgs, BudgetAutoAdjustDataHistoricalOptionsPtr and BudgetAutoAdjustDataHistoricalOptionsPtrOutput values.
+// You can construct a concrete instance of `BudgetAutoAdjustDataHistoricalOptionsPtrInput` via:
+//
+//	        BudgetAutoAdjustDataHistoricalOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type BudgetAutoAdjustDataHistoricalOptionsPtrInput interface {
+	pulumi.Input
+
+	ToBudgetAutoAdjustDataHistoricalOptionsPtrOutput() BudgetAutoAdjustDataHistoricalOptionsPtrOutput
+	ToBudgetAutoAdjustDataHistoricalOptionsPtrOutputWithContext(context.Context) BudgetAutoAdjustDataHistoricalOptionsPtrOutput
+}
+
+type budgetAutoAdjustDataHistoricalOptionsPtrType BudgetAutoAdjustDataHistoricalOptionsArgs
+
+func BudgetAutoAdjustDataHistoricalOptionsPtr(v *BudgetAutoAdjustDataHistoricalOptionsArgs) BudgetAutoAdjustDataHistoricalOptionsPtrInput {
+	return (*budgetAutoAdjustDataHistoricalOptionsPtrType)(v)
+}
+
+func (*budgetAutoAdjustDataHistoricalOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetAutoAdjustDataHistoricalOptions)(nil)).Elem()
+}
+
+func (i *budgetAutoAdjustDataHistoricalOptionsPtrType) ToBudgetAutoAdjustDataHistoricalOptionsPtrOutput() BudgetAutoAdjustDataHistoricalOptionsPtrOutput {
+	return i.ToBudgetAutoAdjustDataHistoricalOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetAutoAdjustDataHistoricalOptionsPtrType) ToBudgetAutoAdjustDataHistoricalOptionsPtrOutputWithContext(ctx context.Context) BudgetAutoAdjustDataHistoricalOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetAutoAdjustDataHistoricalOptionsPtrOutput)
+}
+
+type BudgetAutoAdjustDataHistoricalOptionsOutput struct{ *pulumi.OutputState }
+
+func (BudgetAutoAdjustDataHistoricalOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetAutoAdjustDataHistoricalOptions)(nil)).Elem()
+}
+
+func (o BudgetAutoAdjustDataHistoricalOptionsOutput) ToBudgetAutoAdjustDataHistoricalOptionsOutput() BudgetAutoAdjustDataHistoricalOptionsOutput {
+	return o
+}
+
+func (o BudgetAutoAdjustDataHistoricalOptionsOutput) ToBudgetAutoAdjustDataHistoricalOptionsOutputWithContext(ctx context.Context) BudgetAutoAdjustDataHistoricalOptionsOutput {
+	return o
+}
+
+func (o BudgetAutoAdjustDataHistoricalOptionsOutput) ToBudgetAutoAdjustDataHistoricalOptionsPtrOutput() BudgetAutoAdjustDataHistoricalOptionsPtrOutput {
+	return o.ToBudgetAutoAdjustDataHistoricalOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetAutoAdjustDataHistoricalOptionsOutput) ToBudgetAutoAdjustDataHistoricalOptionsPtrOutputWithContext(ctx context.Context) BudgetAutoAdjustDataHistoricalOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetAutoAdjustDataHistoricalOptions) *BudgetAutoAdjustDataHistoricalOptions {
+		return &v
+	}).(BudgetAutoAdjustDataHistoricalOptionsPtrOutput)
+}
+
+func (o BudgetAutoAdjustDataHistoricalOptionsOutput) BudgetAdjustmentPeriod() pulumi.IntOutput {
+	return o.ApplyT(func(v BudgetAutoAdjustDataHistoricalOptions) int { return v.BudgetAdjustmentPeriod }).(pulumi.IntOutput)
+}
+
+func (o BudgetAutoAdjustDataHistoricalOptionsOutput) LookbackAvailablePeriods() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BudgetAutoAdjustDataHistoricalOptions) *int { return v.LookbackAvailablePeriods }).(pulumi.IntPtrOutput)
+}
+
+type BudgetAutoAdjustDataHistoricalOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetAutoAdjustDataHistoricalOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetAutoAdjustDataHistoricalOptions)(nil)).Elem()
+}
+
+func (o BudgetAutoAdjustDataHistoricalOptionsPtrOutput) ToBudgetAutoAdjustDataHistoricalOptionsPtrOutput() BudgetAutoAdjustDataHistoricalOptionsPtrOutput {
+	return o
+}
+
+func (o BudgetAutoAdjustDataHistoricalOptionsPtrOutput) ToBudgetAutoAdjustDataHistoricalOptionsPtrOutputWithContext(ctx context.Context) BudgetAutoAdjustDataHistoricalOptionsPtrOutput {
+	return o
+}
+
+func (o BudgetAutoAdjustDataHistoricalOptionsPtrOutput) Elem() BudgetAutoAdjustDataHistoricalOptionsOutput {
+	return o.ApplyT(func(v *BudgetAutoAdjustDataHistoricalOptions) BudgetAutoAdjustDataHistoricalOptions {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetAutoAdjustDataHistoricalOptions
+		return ret
+	}).(BudgetAutoAdjustDataHistoricalOptionsOutput)
+}
+
+func (o BudgetAutoAdjustDataHistoricalOptionsPtrOutput) BudgetAdjustmentPeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BudgetAutoAdjustDataHistoricalOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.BudgetAdjustmentPeriod
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o BudgetAutoAdjustDataHistoricalOptionsPtrOutput) LookbackAvailablePeriods() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BudgetAutoAdjustDataHistoricalOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.LookbackAvailablePeriods
+	}).(pulumi.IntPtrOutput)
+}
+
 type BudgetCostFilter struct {
 	// The name of a budget. Unique within accounts.
 	Name   string   `pulumi:"name"`
@@ -1550,6 +1861,121 @@ func (o BudgetNotificationArrayOutput) Index(i pulumi.IntInput) BudgetNotificati
 	}).(BudgetNotificationOutput)
 }
 
+type BudgetPlannedLimit struct {
+	// (Required) The amount of cost or usage being measured for a budget.
+	Amount string `pulumi:"amount"`
+	// (Required) The start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
+	StartTime string `pulumi:"startTime"`
+	// (Required) The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
+	Unit string `pulumi:"unit"`
+}
+
+// BudgetPlannedLimitInput is an input type that accepts BudgetPlannedLimitArgs and BudgetPlannedLimitOutput values.
+// You can construct a concrete instance of `BudgetPlannedLimitInput` via:
+//
+//	BudgetPlannedLimitArgs{...}
+type BudgetPlannedLimitInput interface {
+	pulumi.Input
+
+	ToBudgetPlannedLimitOutput() BudgetPlannedLimitOutput
+	ToBudgetPlannedLimitOutputWithContext(context.Context) BudgetPlannedLimitOutput
+}
+
+type BudgetPlannedLimitArgs struct {
+	// (Required) The amount of cost or usage being measured for a budget.
+	Amount pulumi.StringInput `pulumi:"amount"`
+	// (Required) The start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
+	StartTime pulumi.StringInput `pulumi:"startTime"`
+	// (Required) The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
+	Unit pulumi.StringInput `pulumi:"unit"`
+}
+
+func (BudgetPlannedLimitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetPlannedLimit)(nil)).Elem()
+}
+
+func (i BudgetPlannedLimitArgs) ToBudgetPlannedLimitOutput() BudgetPlannedLimitOutput {
+	return i.ToBudgetPlannedLimitOutputWithContext(context.Background())
+}
+
+func (i BudgetPlannedLimitArgs) ToBudgetPlannedLimitOutputWithContext(ctx context.Context) BudgetPlannedLimitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetPlannedLimitOutput)
+}
+
+// BudgetPlannedLimitArrayInput is an input type that accepts BudgetPlannedLimitArray and BudgetPlannedLimitArrayOutput values.
+// You can construct a concrete instance of `BudgetPlannedLimitArrayInput` via:
+//
+//	BudgetPlannedLimitArray{ BudgetPlannedLimitArgs{...} }
+type BudgetPlannedLimitArrayInput interface {
+	pulumi.Input
+
+	ToBudgetPlannedLimitArrayOutput() BudgetPlannedLimitArrayOutput
+	ToBudgetPlannedLimitArrayOutputWithContext(context.Context) BudgetPlannedLimitArrayOutput
+}
+
+type BudgetPlannedLimitArray []BudgetPlannedLimitInput
+
+func (BudgetPlannedLimitArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BudgetPlannedLimit)(nil)).Elem()
+}
+
+func (i BudgetPlannedLimitArray) ToBudgetPlannedLimitArrayOutput() BudgetPlannedLimitArrayOutput {
+	return i.ToBudgetPlannedLimitArrayOutputWithContext(context.Background())
+}
+
+func (i BudgetPlannedLimitArray) ToBudgetPlannedLimitArrayOutputWithContext(ctx context.Context) BudgetPlannedLimitArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetPlannedLimitArrayOutput)
+}
+
+type BudgetPlannedLimitOutput struct{ *pulumi.OutputState }
+
+func (BudgetPlannedLimitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetPlannedLimit)(nil)).Elem()
+}
+
+func (o BudgetPlannedLimitOutput) ToBudgetPlannedLimitOutput() BudgetPlannedLimitOutput {
+	return o
+}
+
+func (o BudgetPlannedLimitOutput) ToBudgetPlannedLimitOutputWithContext(ctx context.Context) BudgetPlannedLimitOutput {
+	return o
+}
+
+// (Required) The amount of cost or usage being measured for a budget.
+func (o BudgetPlannedLimitOutput) Amount() pulumi.StringOutput {
+	return o.ApplyT(func(v BudgetPlannedLimit) string { return v.Amount }).(pulumi.StringOutput)
+}
+
+// (Required) The start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
+func (o BudgetPlannedLimitOutput) StartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v BudgetPlannedLimit) string { return v.StartTime }).(pulumi.StringOutput)
+}
+
+// (Required) The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
+func (o BudgetPlannedLimitOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v BudgetPlannedLimit) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+type BudgetPlannedLimitArrayOutput struct{ *pulumi.OutputState }
+
+func (BudgetPlannedLimitArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BudgetPlannedLimit)(nil)).Elem()
+}
+
+func (o BudgetPlannedLimitArrayOutput) ToBudgetPlannedLimitArrayOutput() BudgetPlannedLimitArrayOutput {
+	return o
+}
+
+func (o BudgetPlannedLimitArrayOutput) ToBudgetPlannedLimitArrayOutputWithContext(ctx context.Context) BudgetPlannedLimitArrayOutput {
+	return o
+}
+
+func (o BudgetPlannedLimitArrayOutput) Index(i pulumi.IntInput) BudgetPlannedLimitOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BudgetPlannedLimit {
+		return vs[0].([]BudgetPlannedLimit)[vs[1].(int)]
+	}).(BudgetPlannedLimitOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetActionActionThresholdInput)(nil)).Elem(), BudgetActionActionThresholdArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetActionActionThresholdPtrInput)(nil)).Elem(), BudgetActionActionThresholdArgs{})
@@ -1563,12 +1989,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetActionDefinitionSsmActionDefinitionPtrInput)(nil)).Elem(), BudgetActionDefinitionSsmActionDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetActionSubscriberInput)(nil)).Elem(), BudgetActionSubscriberArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetActionSubscriberArrayInput)(nil)).Elem(), BudgetActionSubscriberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetAutoAdjustDataInput)(nil)).Elem(), BudgetAutoAdjustDataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetAutoAdjustDataPtrInput)(nil)).Elem(), BudgetAutoAdjustDataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetAutoAdjustDataHistoricalOptionsInput)(nil)).Elem(), BudgetAutoAdjustDataHistoricalOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetAutoAdjustDataHistoricalOptionsPtrInput)(nil)).Elem(), BudgetAutoAdjustDataHistoricalOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetCostFilterInput)(nil)).Elem(), BudgetCostFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetCostFilterArrayInput)(nil)).Elem(), BudgetCostFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetCostTypesInput)(nil)).Elem(), BudgetCostTypesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetCostTypesPtrInput)(nil)).Elem(), BudgetCostTypesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetNotificationInput)(nil)).Elem(), BudgetNotificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetNotificationArrayInput)(nil)).Elem(), BudgetNotificationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetPlannedLimitInput)(nil)).Elem(), BudgetPlannedLimitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetPlannedLimitArrayInput)(nil)).Elem(), BudgetPlannedLimitArray{})
 	pulumi.RegisterOutputType(BudgetActionActionThresholdOutput{})
 	pulumi.RegisterOutputType(BudgetActionActionThresholdPtrOutput{})
 	pulumi.RegisterOutputType(BudgetActionDefinitionOutput{})
@@ -1581,10 +2013,16 @@ func init() {
 	pulumi.RegisterOutputType(BudgetActionDefinitionSsmActionDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(BudgetActionSubscriberOutput{})
 	pulumi.RegisterOutputType(BudgetActionSubscriberArrayOutput{})
+	pulumi.RegisterOutputType(BudgetAutoAdjustDataOutput{})
+	pulumi.RegisterOutputType(BudgetAutoAdjustDataPtrOutput{})
+	pulumi.RegisterOutputType(BudgetAutoAdjustDataHistoricalOptionsOutput{})
+	pulumi.RegisterOutputType(BudgetAutoAdjustDataHistoricalOptionsPtrOutput{})
 	pulumi.RegisterOutputType(BudgetCostFilterOutput{})
 	pulumi.RegisterOutputType(BudgetCostFilterArrayOutput{})
 	pulumi.RegisterOutputType(BudgetCostTypesOutput{})
 	pulumi.RegisterOutputType(BudgetCostTypesPtrOutput{})
 	pulumi.RegisterOutputType(BudgetNotificationOutput{})
 	pulumi.RegisterOutputType(BudgetNotificationArrayOutput{})
+	pulumi.RegisterOutputType(BudgetPlannedLimitOutput{})
+	pulumi.RegisterOutputType(BudgetPlannedLimitArrayOutput{})
 }

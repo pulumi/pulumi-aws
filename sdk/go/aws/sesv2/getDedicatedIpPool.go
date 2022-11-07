@@ -62,6 +62,8 @@ type LookupDedicatedIpPoolResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id       string `pulumi:"id"`
 	PoolName string `pulumi:"poolName"`
+	// (Optional) IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`.
+	ScalingMode string `pulumi:"scalingMode"`
 	// A map of tags attached to the pool.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -123,6 +125,11 @@ func (o LookupDedicatedIpPoolResultOutput) Id() pulumi.StringOutput {
 
 func (o LookupDedicatedIpPoolResultOutput) PoolName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDedicatedIpPoolResult) string { return v.PoolName }).(pulumi.StringOutput)
+}
+
+// (Optional) IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`.
+func (o LookupDedicatedIpPoolResultOutput) ScalingMode() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDedicatedIpPoolResult) string { return v.ScalingMode }).(pulumi.StringOutput)
 }
 
 // A map of tags attached to the pool.

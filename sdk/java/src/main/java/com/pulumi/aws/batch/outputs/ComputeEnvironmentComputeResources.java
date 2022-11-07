@@ -72,10 +72,10 @@ public final class ComputeEnvironmentComputeResources {
      */
     private @Nullable Integer minVcpus;
     /**
-     * @return A list of EC2 security group that are associated with instances launched in the compute environment.
+     * @return A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
      * 
      */
-    private List<String> securityGroupIds;
+    private @Nullable List<String> securityGroupIds;
     /**
      * @return The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
@@ -176,11 +176,11 @@ public final class ComputeEnvironmentComputeResources {
         return Optional.ofNullable(this.minVcpus);
     }
     /**
-     * @return A list of EC2 security group that are associated with instances launched in the compute environment.
+     * @return A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
      * 
      */
     public List<String> securityGroupIds() {
-        return this.securityGroupIds;
+        return this.securityGroupIds == null ? List.of() : this.securityGroupIds;
     }
     /**
      * @return The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
@@ -231,7 +231,7 @@ public final class ComputeEnvironmentComputeResources {
         private @Nullable ComputeEnvironmentComputeResourcesLaunchTemplate launchTemplate;
         private Integer maxVcpus;
         private @Nullable Integer minVcpus;
-        private List<String> securityGroupIds;
+        private @Nullable List<String> securityGroupIds;
         private @Nullable String spotIamFleetRole;
         private List<String> subnets;
         private @Nullable Map<String,String> tags;
@@ -316,8 +316,8 @@ public final class ComputeEnvironmentComputeResources {
             return this;
         }
         @CustomType.Setter
-        public Builder securityGroupIds(List<String> securityGroupIds) {
-            this.securityGroupIds = Objects.requireNonNull(securityGroupIds);
+        public Builder securityGroupIds(@Nullable List<String> securityGroupIds) {
+            this.securityGroupIds = securityGroupIds;
             return this;
         }
         public Builder securityGroupIds(String... securityGroupIds) {

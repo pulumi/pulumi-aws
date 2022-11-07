@@ -4,6 +4,22 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Use this data source to retrieve information for an Amazon CloudFront origin access identity.
+ *
+ * ## Example Usage
+ *
+ * The following example below creates a CloudFront origin access identity.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = pulumi.output(aws.cloudfront.getOriginAccessIdentity({
+ *     id: "EDFDVBD632BHDS5",
+ * }));
+ * ```
+ */
 export function getOriginAccessIdentity(args: GetOriginAccessIdentityArgs, opts?: pulumi.InvokeOptions): Promise<GetOriginAccessIdentityResult> {
     if (!opts) {
         opts = {}

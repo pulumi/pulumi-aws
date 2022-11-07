@@ -12,6 +12,7 @@ from .. import _utilities
 __all__ = [
     'ClusterCacheNodeArgs',
     'ClusterLogDeliveryConfigurationArgs',
+    'GlobalReplicationGroupGlobalNodeGroupArgs',
     'ParameterGroupParameterArgs',
     'ReplicationGroupClusterModeArgs',
     'ReplicationGroupLogDeliveryConfigurationArgs',
@@ -145,6 +146,45 @@ class ClusterLogDeliveryConfigurationArgs:
     @log_type.setter
     def log_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "log_type", value)
+
+
+@pulumi.input_type
+class GlobalReplicationGroupGlobalNodeGroupArgs:
+    def __init__(__self__, *,
+                 global_node_group_id: Optional[pulumi.Input[str]] = None,
+                 slots: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] global_node_group_id: The ID of the global node group.
+        :param pulumi.Input[str] slots: The keyspace for this node group.
+        """
+        if global_node_group_id is not None:
+            pulumi.set(__self__, "global_node_group_id", global_node_group_id)
+        if slots is not None:
+            pulumi.set(__self__, "slots", slots)
+
+    @property
+    @pulumi.getter(name="globalNodeGroupId")
+    def global_node_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the global node group.
+        """
+        return pulumi.get(self, "global_node_group_id")
+
+    @global_node_group_id.setter
+    def global_node_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "global_node_group_id", value)
+
+    @property
+    @pulumi.getter
+    def slots(self) -> Optional[pulumi.Input[str]]:
+        """
+        The keyspace for this node group.
+        """
+        return pulumi.get(self, "slots")
+
+    @slots.setter
+    def slots(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "slots", value)
 
 
 @pulumi.input_type

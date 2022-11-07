@@ -1294,6 +1294,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "apprunner/vpcIngressConnection",
+  "fqn": "pulumi_aws.apprunner",
+  "classes": {
+   "aws:apprunner/vpcIngressConnection:VpcIngressConnection": "VpcIngressConnection"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "appstream/directoryConfig",
   "fqn": "pulumi_aws.appstream",
   "classes": {
@@ -2498,6 +2506,14 @@ _utilities.register(
   "fqn": "pulumi_aws.connect",
   "classes": {
    "aws:connect/lambdaFunctionAssociation:LambdaFunctionAssociation": "LambdaFunctionAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "connect/phoneNumber",
+  "fqn": "pulumi_aws.connect",
+  "classes": {
+   "aws:connect/phoneNumber:PhoneNumber": "PhoneNumber"
   }
  },
  {
@@ -4750,6 +4766,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "evidently/segment",
+  "fqn": "pulumi_aws.evidently",
+  "classes": {
+   "aws:evidently/segment:Segment": "Segment"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "fis/experimentTemplate",
   "fqn": "pulumi_aws.fis",
   "classes": {
@@ -4786,6 +4810,14 @@ _utilities.register(
   "fqn": "pulumi_aws.fsx",
   "classes": {
    "aws:fsx/dataRepositoryAssociation:DataRepositoryAssociation": "DataRepositoryAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "fsx/fileCache",
+  "fqn": "pulumi_aws.fsx",
+  "classes": {
+   "aws:fsx/fileCache:FileCache": "FileCache"
   }
  },
  {
@@ -5518,6 +5550,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "inspector2/enabler",
+  "fqn": "pulumi_aws.inspector2",
+  "classes": {
+   "aws:inspector2/enabler:Enabler": "Enabler"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "inspector2/organizationConfiguration",
   "fqn": "pulumi_aws.inspector2",
   "classes": {
@@ -6086,6 +6126,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "lightsail/disk",
+  "fqn": "pulumi_aws.lightsail",
+  "classes": {
+   "aws:lightsail/disk:Disk": "Disk"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "lightsail/disk_attachment",
+  "fqn": "pulumi_aws.lightsail",
+  "classes": {
+   "aws:lightsail/disk_attachment:Disk_attachment": "Disk_attachment"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "lightsail/domain",
   "fqn": "pulumi_aws.lightsail",
   "classes": {
@@ -6138,6 +6194,30 @@ _utilities.register(
   "fqn": "pulumi_aws.lightsail",
   "classes": {
    "aws:lightsail/lbAttachment:LbAttachment": "LbAttachment"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "lightsail/lbCertificate",
+  "fqn": "pulumi_aws.lightsail",
+  "classes": {
+   "aws:lightsail/lbCertificate:LbCertificate": "LbCertificate"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "lightsail/lbCertificateAttachment",
+  "fqn": "pulumi_aws.lightsail",
+  "classes": {
+   "aws:lightsail/lbCertificateAttachment:LbCertificateAttachment": "LbCertificateAttachment"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "lightsail/lbStickinessPolicy",
+  "fqn": "pulumi_aws.lightsail",
+  "classes": {
+   "aws:lightsail/lbStickinessPolicy:LbStickinessPolicy": "LbStickinessPolicy"
   }
  },
  {
@@ -7470,6 +7550,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "route53/resolverConfig",
+  "fqn": "pulumi_aws.route53",
+  "classes": {
+   "aws:route53/resolverConfig:ResolverConfig": "ResolverConfig"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "route53/resolverDnsSecConfig",
   "fqn": "pulumi_aws.route53",
   "classes": {
@@ -8118,6 +8206,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "sagemaker/servicecatalogPortfolioStatus",
+  "fqn": "pulumi_aws.sagemaker",
+  "classes": {
+   "aws:sagemaker/servicecatalogPortfolioStatus:ServicecatalogPortfolioStatus": "ServicecatalogPortfolioStatus"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "sagemaker/studioLifecycleConfig",
   "fqn": "pulumi_aws.sagemaker",
   "classes": {
@@ -8582,10 +8678,34 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "sesv2/dedicatedIpAssignment",
+  "fqn": "pulumi_aws.sesv2",
+  "classes": {
+   "aws:sesv2/dedicatedIpAssignment:DedicatedIpAssignment": "DedicatedIpAssignment"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "sesv2/dedicatedIpPool",
   "fqn": "pulumi_aws.sesv2",
   "classes": {
    "aws:sesv2/dedicatedIpPool:DedicatedIpPool": "DedicatedIpPool"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "sesv2/emailIdentity",
+  "fqn": "pulumi_aws.sesv2",
+  "classes": {
+   "aws:sesv2/emailIdentity:EmailIdentity": "EmailIdentity"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "sesv2/emailIdentityFeedbackAttributes",
+  "fqn": "pulumi_aws.sesv2",
+  "classes": {
+   "aws:sesv2/emailIdentityFeedbackAttributes:EmailIdentityFeedbackAttributes": "EmailIdentityFeedbackAttributes"
   }
  },
  {
@@ -8746,6 +8866,14 @@ _utilities.register(
   "fqn": "pulumi_aws.ssm",
   "classes": {
    "aws:ssm/association:Association": "Association"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ssm/defaultPatchBaseline",
+  "fqn": "pulumi_aws.ssm",
+  "classes": {
+   "aws:ssm/defaultPatchBaseline:DefaultPatchBaseline": "DefaultPatchBaseline"
   }
  },
  {

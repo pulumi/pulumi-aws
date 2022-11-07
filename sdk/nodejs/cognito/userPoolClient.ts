@@ -163,6 +163,10 @@ export class UserPoolClient extends pulumi.CustomResource {
      */
     public readonly analyticsConfiguration!: pulumi.Output<outputs.cognito.UserPoolClientAnalyticsConfiguration | undefined>;
     /**
+     * Amazon Cognito creates a session token for each API request in an authentication flow. AuthSessionValidity is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires. Valid values between `3` and `15`. Default value is `3`.
+     */
+    public readonly authSessionValidity!: pulumi.Output<number | undefined>;
+    /**
      * List of allowed callback URLs for the identity providers.
      */
     public readonly callbackUrls!: pulumi.Output<string[]>;
@@ -249,6 +253,7 @@ export class UserPoolClient extends pulumi.CustomResource {
             resourceInputs["allowedOauthFlowsUserPoolClient"] = state ? state.allowedOauthFlowsUserPoolClient : undefined;
             resourceInputs["allowedOauthScopes"] = state ? state.allowedOauthScopes : undefined;
             resourceInputs["analyticsConfiguration"] = state ? state.analyticsConfiguration : undefined;
+            resourceInputs["authSessionValidity"] = state ? state.authSessionValidity : undefined;
             resourceInputs["callbackUrls"] = state ? state.callbackUrls : undefined;
             resourceInputs["clientSecret"] = state ? state.clientSecret : undefined;
             resourceInputs["defaultRedirectUri"] = state ? state.defaultRedirectUri : undefined;
@@ -276,6 +281,7 @@ export class UserPoolClient extends pulumi.CustomResource {
             resourceInputs["allowedOauthFlowsUserPoolClient"] = args ? args.allowedOauthFlowsUserPoolClient : undefined;
             resourceInputs["allowedOauthScopes"] = args ? args.allowedOauthScopes : undefined;
             resourceInputs["analyticsConfiguration"] = args ? args.analyticsConfiguration : undefined;
+            resourceInputs["authSessionValidity"] = args ? args.authSessionValidity : undefined;
             resourceInputs["callbackUrls"] = args ? args.callbackUrls : undefined;
             resourceInputs["defaultRedirectUri"] = args ? args.defaultRedirectUri : undefined;
             resourceInputs["enablePropagateAdditionalUserContextData"] = args ? args.enablePropagateAdditionalUserContextData : undefined;
@@ -323,6 +329,10 @@ export interface UserPoolClientState {
      * Configuration block for Amazon Pinpoint analytics for collecting metrics for this user pool. Detailed below.
      */
     analyticsConfiguration?: pulumi.Input<inputs.cognito.UserPoolClientAnalyticsConfiguration>;
+    /**
+     * Amazon Cognito creates a session token for each API request in an authentication flow. AuthSessionValidity is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires. Valid values between `3` and `15`. Default value is `3`.
+     */
+    authSessionValidity?: pulumi.Input<number>;
     /**
      * List of allowed callback URLs for the identity providers.
      */
@@ -417,6 +427,10 @@ export interface UserPoolClientArgs {
      * Configuration block for Amazon Pinpoint analytics for collecting metrics for this user pool. Detailed below.
      */
     analyticsConfiguration?: pulumi.Input<inputs.cognito.UserPoolClientAnalyticsConfiguration>;
+    /**
+     * Amazon Cognito creates a session token for each API request in an authentication flow. AuthSessionValidity is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires. Valid values between `3` and `15`. Default value is `3`.
+     */
+    authSessionValidity?: pulumi.Input<number>;
     /**
      * List of allowed callback URLs for the identity providers.
      */

@@ -4,6 +4,7 @@
 package com.pulumi.aws.sagemaker.inputs;
 
 import com.pulumi.aws.sagemaker.inputs.DomainDefaultUserSettingsArgs;
+import com.pulumi.aws.sagemaker.inputs.DomainDomainSettingsArgs;
 import com.pulumi.aws.sagemaker.inputs.DomainRetentionPolicyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -32,6 +33,21 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> appNetworkAccessType() {
         return Optional.ofNullable(this.appNetworkAccessType);
+    }
+
+    /**
+     * The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
+     * 
+     */
+    @Import(name="appSecurityGroupManagement")
+    private @Nullable Output<String> appSecurityGroupManagement;
+
+    /**
+     * @return The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
+     * 
+     */
+    public Optional<Output<String>> appSecurityGroupManagement() {
+        return Optional.ofNullable(this.appSecurityGroupManagement);
     }
 
     /**
@@ -95,6 +111,21 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The domain settings. See Domain Settings below.
+     * 
+     */
+    @Import(name="domainSettings")
+    private @Nullable Output<DomainDomainSettingsArgs> domainSettings;
+
+    /**
+     * @return The domain settings. See Domain Settings below.
+     * 
+     */
+    public Optional<Output<DomainDomainSettingsArgs>> domainSettings() {
+        return Optional.ofNullable(this.domainSettings);
+    }
+
+    /**
      * The ID of the Amazon Elastic File System (EFS) managed by this Domain.
      * 
      */
@@ -140,6 +171,21 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
+     * 
+     */
+    @Import(name="securityGroupIdForDomainBoundary")
+    private @Nullable Output<String> securityGroupIdForDomainBoundary;
+
+    /**
+     * @return The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
+     * 
+     */
+    public Optional<Output<String>> securityGroupIdForDomainBoundary() {
+        return Optional.ofNullable(this.securityGroupIdForDomainBoundary);
+    }
+
+    /**
      * The SSO managed application instance ID.
      * 
      */
@@ -170,14 +216,14 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -233,13 +279,16 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
 
     private DomainState(DomainState $) {
         this.appNetworkAccessType = $.appNetworkAccessType;
+        this.appSecurityGroupManagement = $.appSecurityGroupManagement;
         this.arn = $.arn;
         this.authMode = $.authMode;
         this.defaultUserSettings = $.defaultUserSettings;
         this.domainName = $.domainName;
+        this.domainSettings = $.domainSettings;
         this.homeEfsFileSystemId = $.homeEfsFileSystemId;
         this.kmsKeyId = $.kmsKeyId;
         this.retentionPolicy = $.retentionPolicy;
+        this.securityGroupIdForDomainBoundary = $.securityGroupIdForDomainBoundary;
         this.singleSignOnManagedApplicationInstanceId = $.singleSignOnManagedApplicationInstanceId;
         this.subnetIds = $.subnetIds;
         this.tags = $.tags;
@@ -285,6 +334,27 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder appNetworkAccessType(String appNetworkAccessType) {
             return appNetworkAccessType(Output.of(appNetworkAccessType));
+        }
+
+        /**
+         * @param appSecurityGroupManagement The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder appSecurityGroupManagement(@Nullable Output<String> appSecurityGroupManagement) {
+            $.appSecurityGroupManagement = appSecurityGroupManagement;
+            return this;
+        }
+
+        /**
+         * @param appSecurityGroupManagement The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder appSecurityGroupManagement(String appSecurityGroupManagement) {
+            return appSecurityGroupManagement(Output.of(appSecurityGroupManagement));
         }
 
         /**
@@ -372,6 +442,27 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param domainSettings The domain settings. See Domain Settings below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder domainSettings(@Nullable Output<DomainDomainSettingsArgs> domainSettings) {
+            $.domainSettings = domainSettings;
+            return this;
+        }
+
+        /**
+         * @param domainSettings The domain settings. See Domain Settings below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder domainSettings(DomainDomainSettingsArgs domainSettings) {
+            return domainSettings(Output.of(domainSettings));
+        }
+
+        /**
          * @param homeEfsFileSystemId The ID of the Amazon Elastic File System (EFS) managed by this Domain.
          * 
          * @return builder
@@ -435,6 +526,27 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param securityGroupIdForDomainBoundary The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder securityGroupIdForDomainBoundary(@Nullable Output<String> securityGroupIdForDomainBoundary) {
+            $.securityGroupIdForDomainBoundary = securityGroupIdForDomainBoundary;
+            return this;
+        }
+
+        /**
+         * @param securityGroupIdForDomainBoundary The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder securityGroupIdForDomainBoundary(String securityGroupIdForDomainBoundary) {
+            return securityGroupIdForDomainBoundary(Output.of(securityGroupIdForDomainBoundary));
+        }
+
+        /**
          * @param singleSignOnManagedApplicationInstanceId The SSO managed application instance ID.
          * 
          * @return builder
@@ -487,7 +599,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -498,7 +610,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

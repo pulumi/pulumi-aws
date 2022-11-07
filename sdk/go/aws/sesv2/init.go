@@ -23,8 +23,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:sesv2/configurationSet:ConfigurationSet":
 		r = &ConfigurationSet{}
+	case "aws:sesv2/dedicatedIpAssignment:DedicatedIpAssignment":
+		r = &DedicatedIpAssignment{}
 	case "aws:sesv2/dedicatedIpPool:DedicatedIpPool":
 		r = &DedicatedIpPool{}
+	case "aws:sesv2/emailIdentity:EmailIdentity":
+		r = &EmailIdentity{}
+	case "aws:sesv2/emailIdentityFeedbackAttributes:EmailIdentityFeedbackAttributes":
+		r = &EmailIdentityFeedbackAttributes{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -45,7 +51,22 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"sesv2/dedicatedIpAssignment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"sesv2/dedicatedIpPool",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"sesv2/emailIdentity",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"sesv2/emailIdentityFeedbackAttributes",
 		&module{version},
 	)
 }

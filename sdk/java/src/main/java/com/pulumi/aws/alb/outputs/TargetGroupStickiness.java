@@ -29,7 +29,7 @@ public final class TargetGroupStickiness {
      */
     private @Nullable Boolean enabled;
     /**
-     * @return The type of sticky sessions. The only current possible values are `lb_cookie`, `app_cookie` for ALBs, and `source_ip` for NLBs.
+     * @return The type of sticky sessions. The only current possible values are `lb_cookie`, `app_cookie` for ALBs, `source_ip` for NLBs, and `source_ip_dest_ip`, `source_ip_dest_ip_proto` for GWLBs.
      * 
      */
     private String type;
@@ -57,7 +57,7 @@ public final class TargetGroupStickiness {
         return Optional.ofNullable(this.enabled);
     }
     /**
-     * @return The type of sticky sessions. The only current possible values are `lb_cookie`, `app_cookie` for ALBs, and `source_ip` for NLBs.
+     * @return The type of sticky sessions. The only current possible values are `lb_cookie`, `app_cookie` for ALBs, `source_ip` for NLBs, and `source_ip_dest_ip`, `source_ip_dest_ip_proto` for GWLBs.
      * 
      */
     public String type() {

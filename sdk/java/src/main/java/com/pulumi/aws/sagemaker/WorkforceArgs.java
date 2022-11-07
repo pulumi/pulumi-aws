@@ -6,6 +6,7 @@ package com.pulumi.aws.sagemaker;
 import com.pulumi.aws.sagemaker.inputs.WorkforceCognitoConfigArgs;
 import com.pulumi.aws.sagemaker.inputs.WorkforceOidcConfigArgs;
 import com.pulumi.aws.sagemaker.inputs.WorkforceSourceIpConfigArgs;
+import com.pulumi.aws.sagemaker.inputs.WorkforceWorkforceVpcConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -78,6 +79,21 @@ public final class WorkforceArgs extends com.pulumi.resources.ResourceArgs {
         return this.workforceName;
     }
 
+    /**
+     * configure a workforce using VPC. see Workforce VPC Config details below.
+     * 
+     */
+    @Import(name="workforceVpcConfig")
+    private @Nullable Output<WorkforceWorkforceVpcConfigArgs> workforceVpcConfig;
+
+    /**
+     * @return configure a workforce using VPC. see Workforce VPC Config details below.
+     * 
+     */
+    public Optional<Output<WorkforceWorkforceVpcConfigArgs>> workforceVpcConfig() {
+        return Optional.ofNullable(this.workforceVpcConfig);
+    }
+
     private WorkforceArgs() {}
 
     private WorkforceArgs(WorkforceArgs $) {
@@ -85,6 +101,7 @@ public final class WorkforceArgs extends com.pulumi.resources.ResourceArgs {
         this.oidcConfig = $.oidcConfig;
         this.sourceIpConfig = $.sourceIpConfig;
         this.workforceName = $.workforceName;
+        this.workforceVpcConfig = $.workforceVpcConfig;
     }
 
     public static Builder builder() {
@@ -187,6 +204,27 @@ public final class WorkforceArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder workforceName(String workforceName) {
             return workforceName(Output.of(workforceName));
+        }
+
+        /**
+         * @param workforceVpcConfig configure a workforce using VPC. see Workforce VPC Config details below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder workforceVpcConfig(@Nullable Output<WorkforceWorkforceVpcConfigArgs> workforceVpcConfig) {
+            $.workforceVpcConfig = workforceVpcConfig;
+            return this;
+        }
+
+        /**
+         * @param workforceVpcConfig configure a workforce using VPC. see Workforce VPC Config details below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder workforceVpcConfig(WorkforceWorkforceVpcConfigArgs workforceVpcConfig) {
+            return workforceVpcConfig(Output.of(workforceVpcConfig));
         }
 
         public WorkforceArgs build() {

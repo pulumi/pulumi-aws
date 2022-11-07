@@ -205,6 +205,12 @@ namespace Pulumi.Aws.Cognito
         public Output<Outputs.UserPoolClientAnalyticsConfiguration?> AnalyticsConfiguration { get; private set; } = null!;
 
         /// <summary>
+        /// Amazon Cognito creates a session token for each API request in an authentication flow. AuthSessionValidity is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires. Valid values between `3` and `15`. Default value is `3`.
+        /// </summary>
+        [Output("authSessionValidity")]
+        public Output<int?> AuthSessionValidity { get; private set; } = null!;
+
+        /// <summary>
         /// List of allowed callback URLs for the identity providers.
         /// </summary>
         [Output("callbackUrls")]
@@ -394,6 +400,12 @@ namespace Pulumi.Aws.Cognito
         [Input("analyticsConfiguration")]
         public Input<Inputs.UserPoolClientAnalyticsConfigurationArgs>? AnalyticsConfiguration { get; set; }
 
+        /// <summary>
+        /// Amazon Cognito creates a session token for each API request in an authentication flow. AuthSessionValidity is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires. Valid values between `3` and `15`. Default value is `3`.
+        /// </summary>
+        [Input("authSessionValidity")]
+        public Input<int>? AuthSessionValidity { get; set; }
+
         [Input("callbackUrls")]
         private InputList<string>? _callbackUrls;
 
@@ -575,6 +587,12 @@ namespace Pulumi.Aws.Cognito
         /// </summary>
         [Input("analyticsConfiguration")]
         public Input<Inputs.UserPoolClientAnalyticsConfigurationGetArgs>? AnalyticsConfiguration { get; set; }
+
+        /// <summary>
+        /// Amazon Cognito creates a session token for each API request in an authentication flow. AuthSessionValidity is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires. Valid values between `3` and `15`. Default value is `3`.
+        /// </summary>
+        [Input("authSessionValidity")]
+        public Input<int>? AuthSessionValidity { get; set; }
 
         [Input("callbackUrls")]
         private InputList<string>? _callbackUrls;

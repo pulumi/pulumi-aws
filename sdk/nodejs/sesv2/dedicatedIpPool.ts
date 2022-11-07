@@ -16,6 +16,17 @@ import * as utilities from "../utilities";
  *     poolName: "my-pool",
  * });
  * ```
+ * ### Managed Pool
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.sesv2.DedicatedIpPool("example", {
+ *     poolName: "my-managed-pool",
+ *     scalingMode: "MANAGED",
+ * });
+ * ```
  *
  * ## Import
  *
@@ -61,6 +72,10 @@ export class DedicatedIpPool extends pulumi.CustomResource {
      * Name of the dedicated IP pool.
      */
     public readonly poolName!: pulumi.Output<string>;
+    /**
+     * IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
+     */
+    public readonly scalingMode!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -79,6 +94,7 @@ export class DedicatedIpPool extends pulumi.CustomResource {
             const state = argsOrState as DedicatedIpPoolState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["poolName"] = state ? state.poolName : undefined;
+            resourceInputs["scalingMode"] = state ? state.scalingMode : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
@@ -87,6 +103,7 @@ export class DedicatedIpPool extends pulumi.CustomResource {
                 throw new Error("Missing required property 'poolName'");
             }
             resourceInputs["poolName"] = args ? args.poolName : undefined;
+            resourceInputs["scalingMode"] = args ? args.scalingMode : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -108,6 +125,10 @@ export interface DedicatedIpPoolState {
      * Name of the dedicated IP pool.
      */
     poolName?: pulumi.Input<string>;
+    /**
+     * IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
+     */
+    scalingMode?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -120,6 +141,10 @@ export interface DedicatedIpPoolArgs {
      * Name of the dedicated IP pool.
      */
     poolName: pulumi.Input<string>;
+    /**
+     * IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
+     */
+    scalingMode?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

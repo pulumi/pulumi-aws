@@ -96,6 +96,21 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * Amazon Cognito creates a session token for each API request in an authentication flow. AuthSessionValidity is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires. Valid values between `3` and `15`. Default value is `3`.
+     * 
+     */
+    @Import(name="authSessionValidity")
+    private @Nullable Output<Integer> authSessionValidity;
+
+    /**
+     * @return Amazon Cognito creates a session token for each API request in an authentication flow. AuthSessionValidity is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires. Valid values between `3` and `15`. Default value is `3`.
+     * 
+     */
+    public Optional<Output<Integer>> authSessionValidity() {
+        return Optional.ofNullable(this.authSessionValidity);
+    }
+
+    /**
      * List of allowed callback URLs for the identity providers.
      * 
      */
@@ -343,6 +358,7 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
         this.allowedOauthFlowsUserPoolClient = $.allowedOauthFlowsUserPoolClient;
         this.allowedOauthScopes = $.allowedOauthScopes;
         this.analyticsConfiguration = $.analyticsConfiguration;
+        this.authSessionValidity = $.authSessionValidity;
         this.callbackUrls = $.callbackUrls;
         this.defaultRedirectUri = $.defaultRedirectUri;
         this.enablePropagateAdditionalUserContextData = $.enablePropagateAdditionalUserContextData;
@@ -502,6 +518,27 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder analyticsConfiguration(UserPoolClientAnalyticsConfigurationArgs analyticsConfiguration) {
             return analyticsConfiguration(Output.of(analyticsConfiguration));
+        }
+
+        /**
+         * @param authSessionValidity Amazon Cognito creates a session token for each API request in an authentication flow. AuthSessionValidity is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires. Valid values between `3` and `15`. Default value is `3`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authSessionValidity(@Nullable Output<Integer> authSessionValidity) {
+            $.authSessionValidity = authSessionValidity;
+            return this;
+        }
+
+        /**
+         * @param authSessionValidity Amazon Cognito creates a session token for each API request in an authentication flow. AuthSessionValidity is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires. Valid values between `3` and `15`. Default value is `3`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authSessionValidity(Integer authSessionValidity) {
+            return authSessionValidity(Output.of(authSessionValidity));
         }
 
         /**

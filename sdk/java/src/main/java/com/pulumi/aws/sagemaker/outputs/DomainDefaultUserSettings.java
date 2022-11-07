@@ -3,8 +3,10 @@
 
 package com.pulumi.aws.sagemaker.outputs;
 
+import com.pulumi.aws.sagemaker.outputs.DomainDefaultUserSettingsCanvasAppSettings;
 import com.pulumi.aws.sagemaker.outputs.DomainDefaultUserSettingsJupyterServerAppSettings;
 import com.pulumi.aws.sagemaker.outputs.DomainDefaultUserSettingsKernelGatewayAppSettings;
+import com.pulumi.aws.sagemaker.outputs.DomainDefaultUserSettingsRSessionAppSettings;
 import com.pulumi.aws.sagemaker.outputs.DomainDefaultUserSettingsSharingSettings;
 import com.pulumi.aws.sagemaker.outputs.DomainDefaultUserSettingsTensorBoardAppSettings;
 import com.pulumi.core.annotations.CustomType;
@@ -16,6 +18,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainDefaultUserSettings {
+    /**
+     * @return The Canvas app settings. See Canvas App Settings below.
+     * 
+     */
+    private @Nullable DomainDefaultUserSettingsCanvasAppSettings canvasAppSettings;
     /**
      * @return The execution role ARN for the user.
      * 
@@ -31,6 +38,11 @@ public final class DomainDefaultUserSettings {
      * 
      */
     private @Nullable DomainDefaultUserSettingsKernelGatewayAppSettings kernelGatewayAppSettings;
+    /**
+     * @return The RSession app settings. See RSession App Settings below.
+     * 
+     */
+    private @Nullable DomainDefaultUserSettingsRSessionAppSettings rSessionAppSettings;
     /**
      * @return A list of security group IDs that will be attached to the user.
      * 
@@ -48,6 +60,13 @@ public final class DomainDefaultUserSettings {
     private @Nullable DomainDefaultUserSettingsTensorBoardAppSettings tensorBoardAppSettings;
 
     private DomainDefaultUserSettings() {}
+    /**
+     * @return The Canvas app settings. See Canvas App Settings below.
+     * 
+     */
+    public Optional<DomainDefaultUserSettingsCanvasAppSettings> canvasAppSettings() {
+        return Optional.ofNullable(this.canvasAppSettings);
+    }
     /**
      * @return The execution role ARN for the user.
      * 
@@ -68,6 +87,13 @@ public final class DomainDefaultUserSettings {
      */
     public Optional<DomainDefaultUserSettingsKernelGatewayAppSettings> kernelGatewayAppSettings() {
         return Optional.ofNullable(this.kernelGatewayAppSettings);
+    }
+    /**
+     * @return The RSession app settings. See RSession App Settings below.
+     * 
+     */
+    public Optional<DomainDefaultUserSettingsRSessionAppSettings> rSessionAppSettings() {
+        return Optional.ofNullable(this.rSessionAppSettings);
     }
     /**
      * @return A list of security group IDs that will be attached to the user.
@@ -100,23 +126,32 @@ public final class DomainDefaultUserSettings {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable DomainDefaultUserSettingsCanvasAppSettings canvasAppSettings;
         private String executionRole;
         private @Nullable DomainDefaultUserSettingsJupyterServerAppSettings jupyterServerAppSettings;
         private @Nullable DomainDefaultUserSettingsKernelGatewayAppSettings kernelGatewayAppSettings;
+        private @Nullable DomainDefaultUserSettingsRSessionAppSettings rSessionAppSettings;
         private @Nullable List<String> securityGroups;
         private @Nullable DomainDefaultUserSettingsSharingSettings sharingSettings;
         private @Nullable DomainDefaultUserSettingsTensorBoardAppSettings tensorBoardAppSettings;
         public Builder() {}
         public Builder(DomainDefaultUserSettings defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.canvasAppSettings = defaults.canvasAppSettings;
     	      this.executionRole = defaults.executionRole;
     	      this.jupyterServerAppSettings = defaults.jupyterServerAppSettings;
     	      this.kernelGatewayAppSettings = defaults.kernelGatewayAppSettings;
+    	      this.rSessionAppSettings = defaults.rSessionAppSettings;
     	      this.securityGroups = defaults.securityGroups;
     	      this.sharingSettings = defaults.sharingSettings;
     	      this.tensorBoardAppSettings = defaults.tensorBoardAppSettings;
         }
 
+        @CustomType.Setter
+        public Builder canvasAppSettings(@Nullable DomainDefaultUserSettingsCanvasAppSettings canvasAppSettings) {
+            this.canvasAppSettings = canvasAppSettings;
+            return this;
+        }
         @CustomType.Setter
         public Builder executionRole(String executionRole) {
             this.executionRole = Objects.requireNonNull(executionRole);
@@ -130,6 +165,11 @@ public final class DomainDefaultUserSettings {
         @CustomType.Setter
         public Builder kernelGatewayAppSettings(@Nullable DomainDefaultUserSettingsKernelGatewayAppSettings kernelGatewayAppSettings) {
             this.kernelGatewayAppSettings = kernelGatewayAppSettings;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder rSessionAppSettings(@Nullable DomainDefaultUserSettingsRSessionAppSettings rSessionAppSettings) {
+            this.rSessionAppSettings = rSessionAppSettings;
             return this;
         }
         @CustomType.Setter
@@ -152,9 +192,11 @@ public final class DomainDefaultUserSettings {
         }
         public DomainDefaultUserSettings build() {
             final var o = new DomainDefaultUserSettings();
+            o.canvasAppSettings = canvasAppSettings;
             o.executionRole = executionRole;
             o.jupyterServerAppSettings = jupyterServerAppSettings;
             o.kernelGatewayAppSettings = kernelGatewayAppSettings;
+            o.rSessionAppSettings = rSessionAppSettings;
             o.securityGroups = securityGroups;
             o.sharingSettings = sharingSettings;
             o.tensorBoardAppSettings = tensorBoardAppSettings;

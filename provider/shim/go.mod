@@ -7,38 +7,39 @@ require (
 	github.com/hashicorp/terraform-provider-aws v1.60.1-0.20220923175450-ca71523cdc36
 )
 
-replace github.com/hashicorp/terraform-provider-aws => github.com/pulumi/terraform-provider-aws v1.38.1-0.20221026192341-60af2e29cb04
+replace github.com/hashicorp/terraform-provider-aws => github.com/pulumi/terraform-provider-aws v1.38.1-0.20221104100938-1c9fb6c08d4e
 
 require (
 	github.com/ProtonMail/go-crypto v0.0.0-20210428141323-04723f9f07d7 // indirect
 	github.com/agext/levenshtein v1.2.2 // indirect
 	github.com/apparentlymart/go-textseg/v13 v13.0.0 // indirect
-	github.com/aws/aws-sdk-go v1.44.117 // indirect
-	github.com/aws/aws-sdk-go-v2 v1.16.16 // indirect
+	github.com/aws/aws-sdk-go v1.44.129 // indirect
+	github.com/aws/aws-sdk-go-v2 v1.17.1 // indirect
 	github.com/aws/aws-sdk-go-v2/config v1.15.4 // indirect
 	github.com/aws/aws-sdk-go-v2/credentials v1.12.0 // indirect
-	github.com/aws/aws-sdk-go-v2/feature/ec2/imds v1.12.17 // indirect
-	github.com/aws/aws-sdk-go-v2/internal/configsources v1.1.23 // indirect
-	github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 v2.4.17 // indirect
+	github.com/aws/aws-sdk-go-v2/feature/ec2/imds v1.12.19 // indirect
+	github.com/aws/aws-sdk-go-v2/internal/configsources v1.1.25 // indirect
+	github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 v2.4.19 // indirect
 	github.com/aws/aws-sdk-go-v2/internal/ini v1.3.11 // indirect
-	github.com/aws/aws-sdk-go-v2/service/comprehend v1.19.0 // indirect
-	github.com/aws/aws-sdk-go-v2/service/computeoptimizer v1.17.19 // indirect
-	github.com/aws/aws-sdk-go-v2/service/fis v1.13.1 // indirect
+	github.com/aws/aws-sdk-go-v2/service/comprehend v1.19.2 // indirect
+	github.com/aws/aws-sdk-go-v2/service/computeoptimizer v1.17.21 // indirect
+	github.com/aws/aws-sdk-go-v2/service/fis v1.13.3 // indirect
 	github.com/aws/aws-sdk-go-v2/service/iam v1.18.4 // indirect
-	github.com/aws/aws-sdk-go-v2/service/identitystore v1.15.5 // indirect
-	github.com/aws/aws-sdk-go-v2/service/inspector2 v1.8.1 // indirect
+	github.com/aws/aws-sdk-go-v2/service/identitystore v1.15.7 // indirect
+	github.com/aws/aws-sdk-go-v2/service/inspector2 v1.8.3 // indirect
 	github.com/aws/aws-sdk-go-v2/service/internal/presigned-url v1.9.4 // indirect
-	github.com/aws/aws-sdk-go-v2/service/internal/s3shared v1.13.17 // indirect
-	github.com/aws/aws-sdk-go-v2/service/kendra v1.35.0 // indirect
-	github.com/aws/aws-sdk-go-v2/service/medialive v1.24.0 // indirect
-	github.com/aws/aws-sdk-go-v2/service/rolesanywhere v1.0.10 // indirect
-	github.com/aws/aws-sdk-go-v2/service/route53domains v1.12.17 // indirect
-	github.com/aws/aws-sdk-go-v2/service/s3control v1.24.0 // indirect
-	github.com/aws/aws-sdk-go-v2/service/sesv2 v1.14.0 // indirect
+	github.com/aws/aws-sdk-go-v2/service/internal/s3shared v1.13.19 // indirect
+	github.com/aws/aws-sdk-go-v2/service/kendra v1.35.2 // indirect
+	github.com/aws/aws-sdk-go-v2/service/medialive v1.24.2 // indirect
+	github.com/aws/aws-sdk-go-v2/service/rolesanywhere v1.0.12 // indirect
+	github.com/aws/aws-sdk-go-v2/service/route53domains v1.12.19 // indirect
+	github.com/aws/aws-sdk-go-v2/service/s3control v1.25.0 // indirect
+	github.com/aws/aws-sdk-go-v2/service/sesv2 v1.15.0 // indirect
+	github.com/aws/aws-sdk-go-v2/service/ssm v1.31.3 // indirect
 	github.com/aws/aws-sdk-go-v2/service/sso v1.11.4 // indirect
 	github.com/aws/aws-sdk-go-v2/service/sts v1.16.4 // indirect
-	github.com/aws/aws-sdk-go-v2/service/transcribe v1.21.9 // indirect
-	github.com/aws/smithy-go v1.13.3 // indirect
+	github.com/aws/aws-sdk-go-v2/service/transcribe v1.21.11 // indirect
+	github.com/aws/smithy-go v1.13.4 // indirect
 	github.com/beevik/etree v1.1.0 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/fatih/color v1.13.0 // indirect

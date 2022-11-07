@@ -22,7 +22,7 @@ namespace Pulumi.Aws.AppRunner.Outputs
         /// </summary>
         public readonly string? Port;
         /// <summary>
-        /// Runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`.
+        /// Runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`, `NODEJS_14`, `NODEJS_16`, `CORRETTO_8`, `CORRETTO_11`, `GO_1`, `DOTNET_6`, `PHP_81`, `RUBY_31`.
         /// </summary>
         public readonly string Runtime;
         /// <summary>

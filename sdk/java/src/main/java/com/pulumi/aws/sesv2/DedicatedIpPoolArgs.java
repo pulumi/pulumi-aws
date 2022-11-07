@@ -31,6 +31,21 @@ public final class DedicatedIpPoolArgs extends com.pulumi.resources.ResourceArgs
         return this.poolName;
     }
 
+    /**
+     * IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
+     * 
+     */
+    @Import(name="scalingMode")
+    private @Nullable Output<String> scalingMode;
+
+    /**
+     * @return IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
+     * 
+     */
+    public Optional<Output<String>> scalingMode() {
+        return Optional.ofNullable(this.scalingMode);
+    }
+
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
@@ -49,6 +64,7 @@ public final class DedicatedIpPoolArgs extends com.pulumi.resources.ResourceArgs
 
     private DedicatedIpPoolArgs(DedicatedIpPoolArgs $) {
         this.poolName = $.poolName;
+        this.scalingMode = $.scalingMode;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
     }
@@ -90,6 +106,27 @@ public final class DedicatedIpPoolArgs extends com.pulumi.resources.ResourceArgs
          */
         public Builder poolName(String poolName) {
             return poolName(Output.of(poolName));
+        }
+
+        /**
+         * @param scalingMode IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scalingMode(@Nullable Output<String> scalingMode) {
+            $.scalingMode = scalingMode;
+            return this;
+        }
+
+        /**
+         * @param scalingMode IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scalingMode(String scalingMode) {
+            return scalingMode(Output.of(scalingMode));
         }
 
         public Builder tags(@Nullable Output<Map<String,String>> tags) {

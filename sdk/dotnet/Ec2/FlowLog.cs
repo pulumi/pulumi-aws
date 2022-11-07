@@ -11,7 +11,7 @@ namespace Pulumi.Aws.Ec2
 {
     /// <summary>
     /// Provides a VPC/Subnet/ENI/Transit Gateway/Transit Gateway Attachment Flow Log to capture IP traffic for a specific network
-    /// interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group or a S3 Bucket.
+    /// interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group, a S3 Bucket, or Amazon Kinesis Data Firehose
     /// 
     /// ## Example Usage
     /// ### CloudWatch Logging
@@ -64,6 +64,67 @@ namespace Pulumi.Aws.Ec2
     ///         ""logs:PutLogEvents"",
     ///         ""logs:DescribeLogGroups"",
     ///         ""logs:DescribeLogStreams""
+    ///       ],
+    ///       ""Effect"": ""Allow"",
+    ///       ""Resource"": ""*""
+    ///     }
+    ///   ]
+    /// }
+    /// ",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Amazon Kinesis Data Firehose logging
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup");
+    /// 
+    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
+    ///     {
+    ///         AssumeRolePolicy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Sid"": """",
+    ///       ""Effect"": ""Allow"",
+    ///       ""Principal"": {
+    ///         ""Service"": ""delivery.logs.amazonaws.com""
+    ///       },
+    ///       ""Action"": ""sts:AssumeRole""
+    ///     }
+    ///   ]
+    /// }
+    /// ",
+    ///     });
+    /// 
+    ///     var exampleFlowLog = new Aws.Ec2.FlowLog("exampleFlowLog", new()
+    ///     {
+    ///         IamRoleArn = exampleRole.Arn,
+    ///         LogDestination = exampleLogGroup.Arn,
+    ///         TrafficType = "ALL",
+    ///         VpcId = aws_vpc.Example.Id,
+    ///     });
+    /// 
+    ///     var exampleRolePolicy = new Aws.Iam.RolePolicy("exampleRolePolicy", new()
+    ///     {
+    ///         Role = exampleRole.Id,
+    ///         Policy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Action"": [
+    ///         ""logs:CreateLogDelivery"",
+    ///         ""logs:DeleteLogDelivery"",
+    ///         ""logs:ListLogDeliveries"",
+    ///         ""logs:GetLogDelivery"",
+    ///         ""firehose:TagDeliveryStream""
     ///       ],
     ///       ""Effect"": ""Allow"",
     ///       ""Resource"": ""*""
@@ -165,7 +226,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> LogDestination { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`. Default: `cloud-watch-logs`.
+        /// The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
         /// </summary>
         [Output("logDestinationType")]
         public Output<string?> LogDestinationType { get; private set; } = null!;
@@ -304,7 +365,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? LogDestination { get; set; }
 
         /// <summary>
-        /// The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`. Default: `cloud-watch-logs`.
+        /// The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
         /// </summary>
         [Input("logDestinationType")]
         public Input<string>? LogDestinationType { get; set; }
@@ -411,7 +472,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? LogDestination { get; set; }
 
         /// <summary>
-        /// The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`. Default: `cloud-watch-logs`.
+        /// The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
         /// </summary>
         [Input("logDestinationType")]
         public Input<string>? LogDestinationType { get; set; }

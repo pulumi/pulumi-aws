@@ -14,6 +14,11 @@ __all__ = [
     'DataRepositoryAssociationS3',
     'DataRepositoryAssociationS3AutoExportPolicy',
     'DataRepositoryAssociationS3AutoImportPolicy',
+    'FileCacheDataRepositoryAssociation',
+    'FileCacheDataRepositoryAssociationNf',
+    'FileCacheLustreConfiguration',
+    'FileCacheLustreConfigurationLogConfiguration',
+    'FileCacheLustreConfigurationMetadataConfiguration',
     'LustreFileSystemLogConfiguration',
     'OntapFileSystemDiskIopsConfiguration',
     'OntapFileSystemEndpoint',
@@ -127,6 +132,350 @@ class DataRepositoryAssociationS3AutoImportPolicy(dict):
         A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
         """
         return pulumi.get(self, "events")
+
+
+@pulumi.output_type
+class FileCacheDataRepositoryAssociation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataRepositoryPath":
+            suggest = "data_repository_path"
+        elif key == "fileCachePath":
+            suggest = "file_cache_path"
+        elif key == "associationId":
+            suggest = "association_id"
+        elif key == "dataRepositorySubdirectories":
+            suggest = "data_repository_subdirectories"
+        elif key == "fileCacheId":
+            suggest = "file_cache_id"
+        elif key == "fileSystemId":
+            suggest = "file_system_id"
+        elif key == "fileSystemPath":
+            suggest = "file_system_path"
+        elif key == "importedFileChunkSize":
+            suggest = "imported_file_chunk_size"
+        elif key == "resourceArn":
+            suggest = "resource_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FileCacheDataRepositoryAssociation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FileCacheDataRepositoryAssociation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FileCacheDataRepositoryAssociation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_repository_path: str,
+                 file_cache_path: str,
+                 association_id: Optional[str] = None,
+                 data_repository_subdirectories: Optional[Sequence[str]] = None,
+                 file_cache_id: Optional[str] = None,
+                 file_system_id: Optional[str] = None,
+                 file_system_path: Optional[str] = None,
+                 imported_file_chunk_size: Optional[int] = None,
+                 nfs: Optional[Sequence['outputs.FileCacheDataRepositoryAssociationNf']] = None,
+                 resource_arn: Optional[str] = None,
+                 tags: Optional[Mapping[str, str]] = None):
+        """
+        :param str data_repository_path: The path to the S3 or NFS data repository that links to the cache.
+        :param str file_cache_path: A path on the cache that points to a high-level directory (such as /ns1/) or subdirectory (such as /ns1/subdir/) that will be mapped 1-1 with DataRepositoryPath. The leading forward slash in the name is required. Two data repository associations cannot have overlapping cache paths. For example, if a data repository is associated with cache path /ns1/, then you cannot link another data repository with cache path /ns1/ns2. This path specifies where in your cache files will be exported from. This cache directory can be linked to only one data repository, and no data repository other can be linked to the directory. Note: The cache path can only be set to root (/) on an NFS DRA when DataRepositorySubdirectories is specified. If you specify root (/) as the cache path, you can create only one DRA on the cache. The cache path cannot be set to root (/) for an S3 DRA.
+        :param Sequence[str] data_repository_subdirectories: A list of NFS Exports that will be linked with this data repository association. The Export paths are in the format /exportpath1. To use this parameter, you must configure DataRepositoryPath as the domain name of the NFS file system. The NFS file system domain name in effect is the root of the subdirectories. Note that DataRepositorySubdirectories is not supported for S3 data repositories. Max of 500.
+        :param str file_cache_id: The system-generated, unique ID of the cache.
+        :param Sequence['FileCacheDataRepositoryAssociationNfArgs'] nfs: - (Optional) See the `nfs` configuration block.
+        """
+        pulumi.set(__self__, "data_repository_path", data_repository_path)
+        pulumi.set(__self__, "file_cache_path", file_cache_path)
+        if association_id is not None:
+            pulumi.set(__self__, "association_id", association_id)
+        if data_repository_subdirectories is not None:
+            pulumi.set(__self__, "data_repository_subdirectories", data_repository_subdirectories)
+        if file_cache_id is not None:
+            pulumi.set(__self__, "file_cache_id", file_cache_id)
+        if file_system_id is not None:
+            pulumi.set(__self__, "file_system_id", file_system_id)
+        if file_system_path is not None:
+            pulumi.set(__self__, "file_system_path", file_system_path)
+        if imported_file_chunk_size is not None:
+            pulumi.set(__self__, "imported_file_chunk_size", imported_file_chunk_size)
+        if nfs is not None:
+            pulumi.set(__self__, "nfs", nfs)
+        if resource_arn is not None:
+            pulumi.set(__self__, "resource_arn", resource_arn)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="dataRepositoryPath")
+    def data_repository_path(self) -> str:
+        """
+        The path to the S3 or NFS data repository that links to the cache.
+        """
+        return pulumi.get(self, "data_repository_path")
+
+    @property
+    @pulumi.getter(name="fileCachePath")
+    def file_cache_path(self) -> str:
+        """
+        A path on the cache that points to a high-level directory (such as /ns1/) or subdirectory (such as /ns1/subdir/) that will be mapped 1-1 with DataRepositoryPath. The leading forward slash in the name is required. Two data repository associations cannot have overlapping cache paths. For example, if a data repository is associated with cache path /ns1/, then you cannot link another data repository with cache path /ns1/ns2. This path specifies where in your cache files will be exported from. This cache directory can be linked to only one data repository, and no data repository other can be linked to the directory. Note: The cache path can only be set to root (/) on an NFS DRA when DataRepositorySubdirectories is specified. If you specify root (/) as the cache path, you can create only one DRA on the cache. The cache path cannot be set to root (/) for an S3 DRA.
+        """
+        return pulumi.get(self, "file_cache_path")
+
+    @property
+    @pulumi.getter(name="associationId")
+    def association_id(self) -> Optional[str]:
+        return pulumi.get(self, "association_id")
+
+    @property
+    @pulumi.getter(name="dataRepositorySubdirectories")
+    def data_repository_subdirectories(self) -> Optional[Sequence[str]]:
+        """
+        A list of NFS Exports that will be linked with this data repository association. The Export paths are in the format /exportpath1. To use this parameter, you must configure DataRepositoryPath as the domain name of the NFS file system. The NFS file system domain name in effect is the root of the subdirectories. Note that DataRepositorySubdirectories is not supported for S3 data repositories. Max of 500.
+        """
+        return pulumi.get(self, "data_repository_subdirectories")
+
+    @property
+    @pulumi.getter(name="fileCacheId")
+    def file_cache_id(self) -> Optional[str]:
+        """
+        The system-generated, unique ID of the cache.
+        """
+        return pulumi.get(self, "file_cache_id")
+
+    @property
+    @pulumi.getter(name="fileSystemId")
+    def file_system_id(self) -> Optional[str]:
+        return pulumi.get(self, "file_system_id")
+
+    @property
+    @pulumi.getter(name="fileSystemPath")
+    def file_system_path(self) -> Optional[str]:
+        return pulumi.get(self, "file_system_path")
+
+    @property
+    @pulumi.getter(name="importedFileChunkSize")
+    def imported_file_chunk_size(self) -> Optional[int]:
+        return pulumi.get(self, "imported_file_chunk_size")
+
+    @property
+    @pulumi.getter
+    def nfs(self) -> Optional[Sequence['outputs.FileCacheDataRepositoryAssociationNf']]:
+        """
+        - (Optional) See the `nfs` configuration block.
+        """
+        return pulumi.get(self, "nfs")
+
+    @property
+    @pulumi.getter(name="resourceArn")
+    def resource_arn(self) -> Optional[str]:
+        return pulumi.get(self, "resource_arn")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class FileCacheDataRepositoryAssociationNf(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dnsIps":
+            suggest = "dns_ips"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FileCacheDataRepositoryAssociationNf. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FileCacheDataRepositoryAssociationNf.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FileCacheDataRepositoryAssociationNf.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 version: str,
+                 dns_ips: Optional[Sequence[str]] = None):
+        """
+        :param str version: - The version of the NFS (Network File System) protocol of the NFS data repository. The only supported value is NFS3, which indicates that the data repository must support the NFSv3 protocol. The only supported value is `NFS3`.
+        :param Sequence[str] dns_ips: - A list of up to 2 IP addresses of DNS servers used to resolve the NFS file system domain name. The provided IP addresses can either be the IP addresses of a DNS forwarder or resolver that the customer manages and runs inside the customer VPC, or the IP addresses of the on-premises DNS servers.
+        """
+        pulumi.set(__self__, "version", version)
+        if dns_ips is not None:
+            pulumi.set(__self__, "dns_ips", dns_ips)
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        """
+        - The version of the NFS (Network File System) protocol of the NFS data repository. The only supported value is NFS3, which indicates that the data repository must support the NFSv3 protocol. The only supported value is `NFS3`.
+        """
+        return pulumi.get(self, "version")
+
+    @property
+    @pulumi.getter(name="dnsIps")
+    def dns_ips(self) -> Optional[Sequence[str]]:
+        """
+        - A list of up to 2 IP addresses of DNS servers used to resolve the NFS file system domain name. The provided IP addresses can either be the IP addresses of a DNS forwarder or resolver that the customer manages and runs inside the customer VPC, or the IP addresses of the on-premises DNS servers.
+        """
+        return pulumi.get(self, "dns_ips")
+
+
+@pulumi.output_type
+class FileCacheLustreConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deploymentType":
+            suggest = "deployment_type"
+        elif key == "metadataConfigurations":
+            suggest = "metadata_configurations"
+        elif key == "perUnitStorageThroughput":
+            suggest = "per_unit_storage_throughput"
+        elif key == "logConfigurations":
+            suggest = "log_configurations"
+        elif key == "mountName":
+            suggest = "mount_name"
+        elif key == "weeklyMaintenanceStartTime":
+            suggest = "weekly_maintenance_start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FileCacheLustreConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FileCacheLustreConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FileCacheLustreConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 deployment_type: str,
+                 metadata_configurations: Sequence['outputs.FileCacheLustreConfigurationMetadataConfiguration'],
+                 per_unit_storage_throughput: int,
+                 log_configurations: Optional[Sequence['outputs.FileCacheLustreConfigurationLogConfiguration']] = None,
+                 mount_name: Optional[str] = None,
+                 weekly_maintenance_start_time: Optional[str] = None):
+        """
+        :param str deployment_type: Specifies the cache deployment type. The only supported value is `CACHE_1`.
+        :param Sequence['FileCacheLustreConfigurationMetadataConfigurationArgs'] metadata_configurations: The configuration for a Lustre MDT (Metadata Target) storage volume. See the `metadata_configuration` block.
+        :param int per_unit_storage_throughput: Provisions the amount of read and write throughput for each 1 tebibyte (TiB) of cache storage capacity, in MB/s/TiB. The only supported value is `1000`.
+        :param str weekly_maintenance_start_time: A recurring weekly time, in the format `D:HH:MM`. `D` is the day of the week, for which `1` represents Monday and `7` represents Sunday. `HH` is the zero-padded hour of the day (0-23), and `MM` is the zero-padded minute of the hour. For example, 1:05:00 specifies maintenance at 5 AM Monday. See the [ISO week date](https://en.wikipedia.org/wiki/ISO_week_date) for more information.
+        """
+        pulumi.set(__self__, "deployment_type", deployment_type)
+        pulumi.set(__self__, "metadata_configurations", metadata_configurations)
+        pulumi.set(__self__, "per_unit_storage_throughput", per_unit_storage_throughput)
+        if log_configurations is not None:
+            pulumi.set(__self__, "log_configurations", log_configurations)
+        if mount_name is not None:
+            pulumi.set(__self__, "mount_name", mount_name)
+        if weekly_maintenance_start_time is not None:
+            pulumi.set(__self__, "weekly_maintenance_start_time", weekly_maintenance_start_time)
+
+    @property
+    @pulumi.getter(name="deploymentType")
+    def deployment_type(self) -> str:
+        """
+        Specifies the cache deployment type. The only supported value is `CACHE_1`.
+        """
+        return pulumi.get(self, "deployment_type")
+
+    @property
+    @pulumi.getter(name="metadataConfigurations")
+    def metadata_configurations(self) -> Sequence['outputs.FileCacheLustreConfigurationMetadataConfiguration']:
+        """
+        The configuration for a Lustre MDT (Metadata Target) storage volume. See the `metadata_configuration` block.
+        """
+        return pulumi.get(self, "metadata_configurations")
+
+    @property
+    @pulumi.getter(name="perUnitStorageThroughput")
+    def per_unit_storage_throughput(self) -> int:
+        """
+        Provisions the amount of read and write throughput for each 1 tebibyte (TiB) of cache storage capacity, in MB/s/TiB. The only supported value is `1000`.
+        """
+        return pulumi.get(self, "per_unit_storage_throughput")
+
+    @property
+    @pulumi.getter(name="logConfigurations")
+    def log_configurations(self) -> Optional[Sequence['outputs.FileCacheLustreConfigurationLogConfiguration']]:
+        return pulumi.get(self, "log_configurations")
+
+    @property
+    @pulumi.getter(name="mountName")
+    def mount_name(self) -> Optional[str]:
+        return pulumi.get(self, "mount_name")
+
+    @property
+    @pulumi.getter(name="weeklyMaintenanceStartTime")
+    def weekly_maintenance_start_time(self) -> Optional[str]:
+        """
+        A recurring weekly time, in the format `D:HH:MM`. `D` is the day of the week, for which `1` represents Monday and `7` represents Sunday. `HH` is the zero-padded hour of the day (0-23), and `MM` is the zero-padded minute of the hour. For example, 1:05:00 specifies maintenance at 5 AM Monday. See the [ISO week date](https://en.wikipedia.org/wiki/ISO_week_date) for more information.
+        """
+        return pulumi.get(self, "weekly_maintenance_start_time")
+
+
+@pulumi.output_type
+class FileCacheLustreConfigurationLogConfiguration(dict):
+    def __init__(__self__, *,
+                 destination: Optional[str] = None,
+                 level: Optional[str] = None):
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> Optional[str]:
+        return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+
+@pulumi.output_type
+class FileCacheLustreConfigurationMetadataConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageCapacity":
+            suggest = "storage_capacity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FileCacheLustreConfigurationMetadataConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FileCacheLustreConfigurationMetadataConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FileCacheLustreConfigurationMetadataConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 storage_capacity: int):
+        """
+        :param int storage_capacity: The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
+        """
+        pulumi.set(__self__, "storage_capacity", storage_capacity)
+
+    @property
+    @pulumi.getter(name="storageCapacity")
+    def storage_capacity(self) -> int:
+        """
+        The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
+        """
+        return pulumi.get(self, "storage_capacity")
 
 
 @pulumi.output_type

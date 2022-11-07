@@ -10,10 +10,13 @@ import com.pulumi.aws.directconnect.inputs.GetGatewayArgs;
 import com.pulumi.aws.directconnect.inputs.GetGatewayPlainArgs;
 import com.pulumi.aws.directconnect.inputs.GetLocationArgs;
 import com.pulumi.aws.directconnect.inputs.GetLocationPlainArgs;
+import com.pulumi.aws.directconnect.inputs.GetRouterConfigurationArgs;
+import com.pulumi.aws.directconnect.inputs.GetRouterConfigurationPlainArgs;
 import com.pulumi.aws.directconnect.outputs.GetConnectionResult;
 import com.pulumi.aws.directconnect.outputs.GetGatewayResult;
 import com.pulumi.aws.directconnect.outputs.GetLocationResult;
 import com.pulumi.aws.directconnect.outputs.GetLocationsResult;
+import com.pulumi.aws.directconnect.outputs.GetRouterConfigurationResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
@@ -699,5 +702,153 @@ public final class DirectconnectFunctions {
      */
     public static CompletableFuture<GetLocationsResult> getLocationsPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:directconnect/getLocations:getLocations", TypeShape.of(GetLocationsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.directconnect.DirectconnectFunctions;
+     * import com.pulumi.aws.directconnect.inputs.GetRouterConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DirectconnectFunctions.getRouterConfiguration(GetRouterConfigurationArgs.builder()
+     *             .routerTypeIdentifier(&#34;CiscoSystemsInc-2900SeriesRouters-IOS124&#34;)
+     *             .virtualInterfaceId(&#34;dxvif-abcde123&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetRouterConfigurationResult> getRouterConfiguration(GetRouterConfigurationArgs args) {
+        return getRouterConfiguration(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.directconnect.DirectconnectFunctions;
+     * import com.pulumi.aws.directconnect.inputs.GetRouterConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DirectconnectFunctions.getRouterConfiguration(GetRouterConfigurationArgs.builder()
+     *             .routerTypeIdentifier(&#34;CiscoSystemsInc-2900SeriesRouters-IOS124&#34;)
+     *             .virtualInterfaceId(&#34;dxvif-abcde123&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetRouterConfigurationResult> getRouterConfigurationPlain(GetRouterConfigurationPlainArgs args) {
+        return getRouterConfigurationPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.directconnect.DirectconnectFunctions;
+     * import com.pulumi.aws.directconnect.inputs.GetRouterConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DirectconnectFunctions.getRouterConfiguration(GetRouterConfigurationArgs.builder()
+     *             .routerTypeIdentifier(&#34;CiscoSystemsInc-2900SeriesRouters-IOS124&#34;)
+     *             .virtualInterfaceId(&#34;dxvif-abcde123&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetRouterConfigurationResult> getRouterConfiguration(GetRouterConfigurationArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:directconnect/getRouterConfiguration:getRouterConfiguration", TypeShape.of(GetRouterConfigurationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.directconnect.DirectconnectFunctions;
+     * import com.pulumi.aws.directconnect.inputs.GetRouterConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DirectconnectFunctions.getRouterConfiguration(GetRouterConfigurationArgs.builder()
+     *             .routerTypeIdentifier(&#34;CiscoSystemsInc-2900SeriesRouters-IOS124&#34;)
+     *             .virtualInterfaceId(&#34;dxvif-abcde123&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetRouterConfigurationResult> getRouterConfigurationPlain(GetRouterConfigurationPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:directconnect/getRouterConfiguration:getRouterConfiguration", TypeShape.of(GetRouterConfigurationResult.class), args, Utilities.withVersion(options));
     }
 }

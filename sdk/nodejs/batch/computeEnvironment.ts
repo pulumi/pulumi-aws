@@ -169,6 +169,10 @@ export class ComputeEnvironment extends pulumi.CustomResource {
      */
     public /*out*/ readonly ecsClusterArn!: pulumi.Output<string>;
     /**
+     * Details for the Amazon EKS cluster that supports the compute environment. See details below.
+     */
+    public readonly eksConfiguration!: pulumi.Output<outputs.batch.ComputeEnvironmentEksConfiguration | undefined>;
+    /**
      * The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
      */
     public readonly serviceRole!: pulumi.Output<string>;
@@ -215,6 +219,7 @@ export class ComputeEnvironment extends pulumi.CustomResource {
             resourceInputs["computeEnvironmentNamePrefix"] = state ? state.computeEnvironmentNamePrefix : undefined;
             resourceInputs["computeResources"] = state ? state.computeResources : undefined;
             resourceInputs["ecsClusterArn"] = state ? state.ecsClusterArn : undefined;
+            resourceInputs["eksConfiguration"] = state ? state.eksConfiguration : undefined;
             resourceInputs["serviceRole"] = state ? state.serviceRole : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
@@ -230,6 +235,7 @@ export class ComputeEnvironment extends pulumi.CustomResource {
             resourceInputs["computeEnvironmentName"] = args ? args.computeEnvironmentName : undefined;
             resourceInputs["computeEnvironmentNamePrefix"] = args ? args.computeEnvironmentNamePrefix : undefined;
             resourceInputs["computeResources"] = args ? args.computeResources : undefined;
+            resourceInputs["eksConfiguration"] = args ? args.eksConfiguration : undefined;
             resourceInputs["serviceRole"] = args ? args.serviceRole : undefined;
             resourceInputs["state"] = args ? args.state : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -269,6 +275,10 @@ export interface ComputeEnvironmentState {
      * The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
      */
     ecsClusterArn?: pulumi.Input<string>;
+    /**
+     * Details for the Amazon EKS cluster that supports the compute environment. See details below.
+     */
+    eksConfiguration?: pulumi.Input<inputs.batch.ComputeEnvironmentEksConfiguration>;
     /**
      * The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
      */
@@ -315,6 +325,10 @@ export interface ComputeEnvironmentArgs {
      * Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
      */
     computeResources?: pulumi.Input<inputs.batch.ComputeEnvironmentComputeResources>;
+    /**
+     * Details for the Amazon EKS cluster that supports the compute environment. See details below.
+     */
+    eksConfiguration?: pulumi.Input<inputs.batch.ComputeEnvironmentEksConfiguration>;
     /**
      * The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
      */

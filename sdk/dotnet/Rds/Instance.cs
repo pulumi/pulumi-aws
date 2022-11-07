@@ -283,8 +283,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> HostedZoneId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether or
-        /// mappings of AWS Identity and Access Management (IAM) accounts to database
+        /// Specifies whether mappings of AWS Identity and Access Management (IAM) accounts to database
         /// accounts is enabled.
         /// </summary>
         [Output("iamDatabaseAuthenticationEnabled")]
@@ -791,8 +790,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? FinalSnapshotIdentifier { get; set; }
 
         /// <summary>
-        /// Specifies whether or
-        /// mappings of AWS Identity and Access Management (IAM) accounts to database
+        /// Specifies whether mappings of AWS Identity and Access Management (IAM) accounts to database
         /// accounts is enabled.
         /// </summary>
         [Input("iamDatabaseAuthenticationEnabled")]
@@ -1284,8 +1282,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? HostedZoneId { get; set; }
 
         /// <summary>
-        /// Specifies whether or
-        /// mappings of AWS Identity and Access Management (IAM) accounts to database
+        /// Specifies whether mappings of AWS Identity and Access Management (IAM) accounts to database
         /// accounts is enabled.
         /// </summary>
         [Input("iamDatabaseAuthenticationEnabled")]

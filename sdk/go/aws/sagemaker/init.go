@@ -59,6 +59,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &NotebookInstanceLifecycleConfiguration{}
 	case "aws:sagemaker/project:Project":
 		r = &Project{}
+	case "aws:sagemaker/servicecatalogPortfolioStatus:ServicecatalogPortfolioStatus":
+		r = &ServicecatalogPortfolioStatus{}
 	case "aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig":
 		r = &StudioLifecycleConfig{}
 	case "aws:sagemaker/userProfile:UserProfile":
@@ -173,6 +175,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"sagemaker/project",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"sagemaker/servicecatalogPortfolioStatus",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

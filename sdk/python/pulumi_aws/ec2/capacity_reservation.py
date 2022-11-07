@@ -25,6 +25,7 @@ class CapacityReservationArgs:
                  ephemeral_storage: Optional[pulumi.Input[bool]] = None,
                  instance_match_criteria: Optional[pulumi.Input[str]] = None,
                  outpost_arn: Optional[pulumi.Input[str]] = None,
+                 placement_group_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tenancy: Optional[pulumi.Input[Union[str, 'Tenancy']]] = None):
         """
@@ -39,6 +40,7 @@ class CapacityReservationArgs:
         :param pulumi.Input[bool] ephemeral_storage: Indicates whether the Capacity Reservation supports instances with temporary, block-level storage.
         :param pulumi.Input[str] instance_match_criteria: Indicates the type of instance launches that the Capacity Reservation accepts. Specify either `open` or `targeted`.
         :param pulumi.Input[str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
+        :param pulumi.Input[str] placement_group_arn: The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Union[str, 'Tenancy']] tenancy: Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
         """
@@ -58,6 +60,8 @@ class CapacityReservationArgs:
             pulumi.set(__self__, "instance_match_criteria", instance_match_criteria)
         if outpost_arn is not None:
             pulumi.set(__self__, "outpost_arn", outpost_arn)
+        if placement_group_arn is not None:
+            pulumi.set(__self__, "placement_group_arn", placement_group_arn)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tenancy is not None:
@@ -184,6 +188,18 @@ class CapacityReservationArgs:
         pulumi.set(self, "outpost_arn", value)
 
     @property
+    @pulumi.getter(name="placementGroupArn")
+    def placement_group_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
+        """
+        return pulumi.get(self, "placement_group_arn")
+
+    @placement_group_arn.setter
+    def placement_group_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "placement_group_arn", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -223,6 +239,7 @@ class _CapacityReservationState:
                  instance_type: Optional[pulumi.Input[Union[str, 'InstanceType']]] = None,
                  outpost_arn: Optional[pulumi.Input[str]] = None,
                  owner_id: Optional[pulumi.Input[str]] = None,
+                 placement_group_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tenancy: Optional[pulumi.Input[Union[str, 'Tenancy']]] = None):
@@ -240,6 +257,7 @@ class _CapacityReservationState:
         :param pulumi.Input[Union[str, 'InstanceType']] instance_type: The instance type for which to reserve capacity.
         :param pulumi.Input[str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
         :param pulumi.Input[str] owner_id: The ID of the AWS account that owns the Capacity Reservation.
+        :param pulumi.Input[str] placement_group_arn: The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Union[str, 'Tenancy']] tenancy: Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
         """
@@ -267,6 +285,8 @@ class _CapacityReservationState:
             pulumi.set(__self__, "outpost_arn", outpost_arn)
         if owner_id is not None:
             pulumi.set(__self__, "owner_id", owner_id)
+        if placement_group_arn is not None:
+            pulumi.set(__self__, "placement_group_arn", placement_group_arn)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -419,6 +439,18 @@ class _CapacityReservationState:
         pulumi.set(self, "owner_id", value)
 
     @property
+    @pulumi.getter(name="placementGroupArn")
+    def placement_group_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
+        """
+        return pulumi.get(self, "placement_group_arn")
+
+    @placement_group_arn.setter
+    def placement_group_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "placement_group_arn", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -467,6 +499,7 @@ class CapacityReservation(pulumi.CustomResource):
                  instance_platform: Optional[pulumi.Input[Union[str, 'InstancePlatform']]] = None,
                  instance_type: Optional[pulumi.Input[Union[str, 'InstanceType']]] = None,
                  outpost_arn: Optional[pulumi.Input[str]] = None,
+                 placement_group_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tenancy: Optional[pulumi.Input[Union[str, 'Tenancy']]] = None,
                  __props__=None):
@@ -506,6 +539,7 @@ class CapacityReservation(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'InstancePlatform']] instance_platform: The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
         :param pulumi.Input[Union[str, 'InstanceType']] instance_type: The instance type for which to reserve capacity.
         :param pulumi.Input[str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
+        :param pulumi.Input[str] placement_group_arn: The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Union[str, 'Tenancy']] tenancy: Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
         """
@@ -564,6 +598,7 @@ class CapacityReservation(pulumi.CustomResource):
                  instance_platform: Optional[pulumi.Input[Union[str, 'InstancePlatform']]] = None,
                  instance_type: Optional[pulumi.Input[Union[str, 'InstanceType']]] = None,
                  outpost_arn: Optional[pulumi.Input[str]] = None,
+                 placement_group_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tenancy: Optional[pulumi.Input[Union[str, 'Tenancy']]] = None,
                  __props__=None):
@@ -593,6 +628,7 @@ class CapacityReservation(pulumi.CustomResource):
                 raise TypeError("Missing required property 'instance_type'")
             __props__.__dict__["instance_type"] = instance_type
             __props__.__dict__["outpost_arn"] = outpost_arn
+            __props__.__dict__["placement_group_arn"] = placement_group_arn
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tenancy"] = tenancy
             __props__.__dict__["arn"] = None
@@ -620,6 +656,7 @@ class CapacityReservation(pulumi.CustomResource):
             instance_type: Optional[pulumi.Input[Union[str, 'InstanceType']]] = None,
             outpost_arn: Optional[pulumi.Input[str]] = None,
             owner_id: Optional[pulumi.Input[str]] = None,
+            placement_group_arn: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tenancy: Optional[pulumi.Input[Union[str, 'Tenancy']]] = None) -> 'CapacityReservation':
@@ -642,6 +679,7 @@ class CapacityReservation(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'InstanceType']] instance_type: The instance type for which to reserve capacity.
         :param pulumi.Input[str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
         :param pulumi.Input[str] owner_id: The ID of the AWS account that owns the Capacity Reservation.
+        :param pulumi.Input[str] placement_group_arn: The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Union[str, 'Tenancy']] tenancy: Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
         """
@@ -661,6 +699,7 @@ class CapacityReservation(pulumi.CustomResource):
         __props__.__dict__["instance_type"] = instance_type
         __props__.__dict__["outpost_arn"] = outpost_arn
         __props__.__dict__["owner_id"] = owner_id
+        __props__.__dict__["placement_group_arn"] = placement_group_arn
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["tenancy"] = tenancy
@@ -761,6 +800,14 @@ class CapacityReservation(pulumi.CustomResource):
         The ID of the AWS account that owns the Capacity Reservation.
         """
         return pulumi.get(self, "owner_id")
+
+    @property
+    @pulumi.getter(name="placementGroupArn")
+    def placement_group_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
+        """
+        return pulumi.get(self, "placement_group_arn")
 
     @property
     @pulumi.getter

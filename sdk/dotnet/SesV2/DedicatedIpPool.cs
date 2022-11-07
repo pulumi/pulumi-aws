@@ -27,6 +27,23 @@ namespace Pulumi.Aws.SesV2
     /// 
     /// });
     /// ```
+    /// ### Managed Pool
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.SesV2.DedicatedIpPool("example", new()
+    ///     {
+    ///         PoolName = "my-managed-pool",
+    ///         ScalingMode = "MANAGED",
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -50,6 +67,12 @@ namespace Pulumi.Aws.SesV2
         /// </summary>
         [Output("poolName")]
         public Output<string> PoolName { get; private set; } = null!;
+
+        /// <summary>
+        /// IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
+        /// </summary>
+        [Output("scalingMode")]
+        public Output<string> ScalingMode { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -109,6 +132,12 @@ namespace Pulumi.Aws.SesV2
         [Input("poolName", required: true)]
         public Input<string> PoolName { get; set; } = null!;
 
+        /// <summary>
+        /// IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
+        /// </summary>
+        [Input("scalingMode")]
+        public Input<string>? ScalingMode { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
         public InputMap<string> Tags
@@ -144,6 +173,12 @@ namespace Pulumi.Aws.SesV2
         /// </summary>
         [Input("poolName")]
         public Input<string>? PoolName { get; set; }
+
+        /// <summary>
+        /// IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
+        /// </summary>
+        [Input("scalingMode")]
+        public Input<string>? ScalingMode { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.batch.ComputeEnvironmentArgs;
 import com.pulumi.aws.batch.inputs.ComputeEnvironmentState;
 import com.pulumi.aws.batch.outputs.ComputeEnvironmentComputeResources;
+import com.pulumi.aws.batch.outputs.ComputeEnvironmentEksConfiguration;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -274,6 +275,20 @@ public class ComputeEnvironment extends com.pulumi.resources.CustomResource {
      */
     public Output<String> ecsClusterArn() {
         return this.ecsClusterArn;
+    }
+    /**
+     * Details for the Amazon EKS cluster that supports the compute environment. See details below.
+     * 
+     */
+    @Export(name="eksConfiguration", type=ComputeEnvironmentEksConfiguration.class, parameters={})
+    private Output</* @Nullable */ ComputeEnvironmentEksConfiguration> eksConfiguration;
+
+    /**
+     * @return Details for the Amazon EKS cluster that supports the compute environment. See details below.
+     * 
+     */
+    public Output<Optional<ComputeEnvironmentEksConfiguration>> eksConfiguration() {
+        return Codegen.optional(this.eksConfiguration);
     }
     /**
      * The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.

@@ -139,6 +139,12 @@ namespace Pulumi.Aws.Cognito
         public Output<string> CustomDomain { get; private set; } = null!;
 
         /// <summary>
+        /// When active, DeletionProtection prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature. Valid values are `ACTIVE` and `INACTIVE`, Default value is `INACTIVE`.
+        /// </summary>
+        [Output("deletionProtection")]
+        public Output<string?> DeletionProtection { get; private set; } = null!;
+
+        /// <summary>
         /// Configuration block for the user pool's device tracking. Detailed below.
         /// </summary>
         [Output("deviceConfiguration")]
@@ -365,6 +371,12 @@ namespace Pulumi.Aws.Cognito
         }
 
         /// <summary>
+        /// When active, DeletionProtection prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature. Valid values are `ACTIVE` and `INACTIVE`, Default value is `INACTIVE`.
+        /// </summary>
+        [Input("deletionProtection")]
+        public Input<string>? DeletionProtection { get; set; }
+
+        /// <summary>
         /// Configuration block for the user pool's device tracking. Detailed below.
         /// </summary>
         [Input("deviceConfiguration")]
@@ -557,6 +569,12 @@ namespace Pulumi.Aws.Cognito
         /// </summary>
         [Input("customDomain")]
         public Input<string>? CustomDomain { get; set; }
+
+        /// <summary>
+        /// When active, DeletionProtection prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature. Valid values are `ACTIVE` and `INACTIVE`, Default value is `INACTIVE`.
+        /// </summary>
+        [Input("deletionProtection")]
+        public Input<string>? DeletionProtection { get; set; }
 
         /// <summary>
         /// Configuration block for the user pool's device tracking. Detailed below.

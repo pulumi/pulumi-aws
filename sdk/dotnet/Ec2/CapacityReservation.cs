@@ -116,6 +116,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string> OwnerId { get; private set; } = null!;
 
         /// <summary>
+        /// The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
+        /// </summary>
+        [Output("placementGroupArn")]
+        public Output<string?> PlacementGroupArn { get; private set; } = null!;
+
+        /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
@@ -236,6 +242,12 @@ namespace Pulumi.Aws.Ec2
         [Input("outpostArn")]
         public Input<string>? OutpostArn { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
+        /// </summary>
+        [Input("placementGroupArn")]
+        public Input<string>? PlacementGroupArn { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -333,6 +345,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("ownerId")]
         public Input<string>? OwnerId { get; set; }
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
+        /// </summary>
+        [Input("placementGroupArn")]
+        public Input<string>? PlacementGroupArn { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

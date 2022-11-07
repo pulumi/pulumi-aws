@@ -17,9 +17,12 @@ __all__ = [
     'BudgetActionDefinitionScpActionDefinition',
     'BudgetActionDefinitionSsmActionDefinition',
     'BudgetActionSubscriber',
+    'BudgetAutoAdjustData',
+    'BudgetAutoAdjustDataHistoricalOptions',
     'BudgetCostFilter',
     'BudgetCostTypes',
     'BudgetNotification',
+    'BudgetPlannedLimit',
 ]
 
 @pulumi.output_type
@@ -359,6 +362,94 @@ class BudgetActionSubscriber(dict):
 
 
 @pulumi.output_type
+class BudgetAutoAdjustData(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoAdjustType":
+            suggest = "auto_adjust_type"
+        elif key == "historicalOptions":
+            suggest = "historical_options"
+        elif key == "lastAutoAdjustTime":
+            suggest = "last_auto_adjust_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BudgetAutoAdjustData. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BudgetAutoAdjustData.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BudgetAutoAdjustData.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auto_adjust_type: str,
+                 historical_options: Optional['outputs.BudgetAutoAdjustDataHistoricalOptions'] = None,
+                 last_auto_adjust_time: Optional[str] = None):
+        pulumi.set(__self__, "auto_adjust_type", auto_adjust_type)
+        if historical_options is not None:
+            pulumi.set(__self__, "historical_options", historical_options)
+        if last_auto_adjust_time is not None:
+            pulumi.set(__self__, "last_auto_adjust_time", last_auto_adjust_time)
+
+    @property
+    @pulumi.getter(name="autoAdjustType")
+    def auto_adjust_type(self) -> str:
+        return pulumi.get(self, "auto_adjust_type")
+
+    @property
+    @pulumi.getter(name="historicalOptions")
+    def historical_options(self) -> Optional['outputs.BudgetAutoAdjustDataHistoricalOptions']:
+        return pulumi.get(self, "historical_options")
+
+    @property
+    @pulumi.getter(name="lastAutoAdjustTime")
+    def last_auto_adjust_time(self) -> Optional[str]:
+        return pulumi.get(self, "last_auto_adjust_time")
+
+
+@pulumi.output_type
+class BudgetAutoAdjustDataHistoricalOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "budgetAdjustmentPeriod":
+            suggest = "budget_adjustment_period"
+        elif key == "lookbackAvailablePeriods":
+            suggest = "lookback_available_periods"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BudgetAutoAdjustDataHistoricalOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BudgetAutoAdjustDataHistoricalOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BudgetAutoAdjustDataHistoricalOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 budget_adjustment_period: int,
+                 lookback_available_periods: Optional[int] = None):
+        pulumi.set(__self__, "budget_adjustment_period", budget_adjustment_period)
+        if lookback_available_periods is not None:
+            pulumi.set(__self__, "lookback_available_periods", lookback_available_periods)
+
+    @property
+    @pulumi.getter(name="budgetAdjustmentPeriod")
+    def budget_adjustment_period(self) -> int:
+        return pulumi.get(self, "budget_adjustment_period")
+
+    @property
+    @pulumi.getter(name="lookbackAvailablePeriods")
+    def lookback_available_periods(self) -> Optional[int]:
+        return pulumi.get(self, "lookback_available_periods")
+
+
+@pulumi.output_type
 class BudgetCostFilter(dict):
     def __init__(__self__, *,
                  name: str,
@@ -657,5 +748,62 @@ class BudgetNotification(dict):
         (Optional) SNS topics to notify. Either this or `subscriber_email_addresses` is required.
         """
         return pulumi.get(self, "subscriber_sns_topic_arns")
+
+
+@pulumi.output_type
+class BudgetPlannedLimit(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "startTime":
+            suggest = "start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BudgetPlannedLimit. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BudgetPlannedLimit.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BudgetPlannedLimit.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 amount: str,
+                 start_time: str,
+                 unit: str):
+        """
+        :param str amount: (Required) The amount of cost or usage being measured for a budget.
+        :param str start_time: (Required) The start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
+        :param str unit: (Required) The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
+        """
+        pulumi.set(__self__, "amount", amount)
+        pulumi.set(__self__, "start_time", start_time)
+        pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter
+    def amount(self) -> str:
+        """
+        (Required) The amount of cost or usage being measured for a budget.
+        """
+        return pulumi.get(self, "amount")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> str:
+        """
+        (Required) The start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
+        """
+        return pulumi.get(self, "start_time")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> str:
+        """
+        (Required) The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
+        """
+        return pulumi.get(self, "unit")
 
 

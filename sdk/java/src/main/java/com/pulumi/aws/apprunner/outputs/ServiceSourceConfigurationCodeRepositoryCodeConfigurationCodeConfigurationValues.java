@@ -23,7 +23,7 @@ public final class ServiceSourceConfigurationCodeRepositoryCodeConfigurationCode
      */
     private @Nullable String port;
     /**
-     * @return Runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`.
+     * @return Runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`, `NODEJS_14`, `NODEJS_16`, `CORRETTO_8`, `CORRETTO_11`, `GO_1`, `DOTNET_6`, `PHP_81`, `RUBY_31`.
      * 
      */
     private String runtime;
@@ -54,7 +54,7 @@ public final class ServiceSourceConfigurationCodeRepositoryCodeConfigurationCode
         return Optional.ofNullable(this.port);
     }
     /**
-     * @return Runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`.
+     * @return Runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`, `NODEJS_14`, `NODEJS_16`, `CORRETTO_8`, `CORRETTO_11`, `GO_1`, `DOTNET_6`, `PHP_81`, `RUBY_31`.
      * 
      */
     public String runtime() {

@@ -78,6 +78,37 @@ namespace Pulumi.Aws.Budgets
     /// });
     /// ```
     /// 
+    /// Create a budget with planned budget limits.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var cost = new Aws.Budgets.Budget("cost", new()
+    ///     {
+    ///         PlannedLimits = new[]
+    ///         {
+    ///             new Aws.Budgets.Inputs.BudgetPlannedLimitArgs
+    ///             {
+    ///                 Amount = "100",
+    ///                 StartTime = "2017-07-01_00:00",
+    ///                 Unit = "USD",
+    ///             },
+    ///             new Aws.Budgets.Inputs.BudgetPlannedLimitArgs
+    ///             {
+    ///                 Amount = "200",
+    ///                 StartTime = "2017-08-01_00:00",
+    ///                 Unit = "USD",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// Create a budget for s3 with a limit of *3 GB* of storage.
     /// 
     /// ```csharp
@@ -196,6 +227,12 @@ namespace Pulumi.Aws.Budgets
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
+        /// </summary>
+        [Output("autoAdjustData")]
+        public Output<Outputs.BudgetAutoAdjustData?> AutoAdjustData { get; private set; } = null!;
+
+        /// <summary>
         /// Whether this budget tracks monetary cost or usage.
         /// </summary>
         [Output("budgetType")]
@@ -244,10 +281,16 @@ namespace Pulumi.Aws.Budgets
         public Output<string> NamePrefix { get; private set; } = null!;
 
         /// <summary>
-        /// Object containing Budget Notifications. Can be used multiple times to define more than one budget notification
+        /// Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
         /// </summary>
         [Output("notifications")]
         public Output<ImmutableArray<Outputs.BudgetNotification>> Notifications { get; private set; } = null!;
+
+        /// <summary>
+        /// Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
+        /// </summary>
+        [Output("plannedLimits")]
+        public Output<ImmutableArray<Outputs.BudgetPlannedLimit>> PlannedLimits { get; private set; } = null!;
 
         /// <summary>
         /// The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
@@ -320,6 +363,12 @@ namespace Pulumi.Aws.Budgets
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
+        /// Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
+        /// </summary>
+        [Input("autoAdjustData")]
+        public Input<Inputs.BudgetAutoAdjustDataArgs>? AutoAdjustData { get; set; }
+
+        /// <summary>
         /// Whether this budget tracks monetary cost or usage.
         /// </summary>
         [Input("budgetType", required: true)]
@@ -359,14 +408,14 @@ namespace Pulumi.Aws.Budgets
         /// <summary>
         /// The amount of cost or usage being measured for a budget.
         /// </summary>
-        [Input("limitAmount", required: true)]
-        public Input<string> LimitAmount { get; set; } = null!;
+        [Input("limitAmount")]
+        public Input<string>? LimitAmount { get; set; }
 
         /// <summary>
         /// The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
         /// </summary>
-        [Input("limitUnit", required: true)]
-        public Input<string> LimitUnit { get; set; } = null!;
+        [Input("limitUnit")]
+        public Input<string>? LimitUnit { get; set; }
 
         /// <summary>
         /// The name of a budget. Unique within accounts.
@@ -384,12 +433,24 @@ namespace Pulumi.Aws.Budgets
         private InputList<Inputs.BudgetNotificationArgs>? _notifications;
 
         /// <summary>
-        /// Object containing Budget Notifications. Can be used multiple times to define more than one budget notification
+        /// Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
         /// </summary>
         public InputList<Inputs.BudgetNotificationArgs> Notifications
         {
             get => _notifications ?? (_notifications = new InputList<Inputs.BudgetNotificationArgs>());
             set => _notifications = value;
+        }
+
+        [Input("plannedLimits")]
+        private InputList<Inputs.BudgetPlannedLimitArgs>? _plannedLimits;
+
+        /// <summary>
+        /// Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
+        /// </summary>
+        public InputList<Inputs.BudgetPlannedLimitArgs> PlannedLimits
+        {
+            get => _plannedLimits ?? (_plannedLimits = new InputList<Inputs.BudgetPlannedLimitArgs>());
+            set => _plannedLimits = value;
         }
 
         /// <summary>
@@ -429,6 +490,12 @@ namespace Pulumi.Aws.Budgets
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
+        /// </summary>
+        [Input("autoAdjustData")]
+        public Input<Inputs.BudgetAutoAdjustDataGetArgs>? AutoAdjustData { get; set; }
 
         /// <summary>
         /// Whether this budget tracks monetary cost or usage.
@@ -495,12 +562,24 @@ namespace Pulumi.Aws.Budgets
         private InputList<Inputs.BudgetNotificationGetArgs>? _notifications;
 
         /// <summary>
-        /// Object containing Budget Notifications. Can be used multiple times to define more than one budget notification
+        /// Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
         /// </summary>
         public InputList<Inputs.BudgetNotificationGetArgs> Notifications
         {
             get => _notifications ?? (_notifications = new InputList<Inputs.BudgetNotificationGetArgs>());
             set => _notifications = value;
+        }
+
+        [Input("plannedLimits")]
+        private InputList<Inputs.BudgetPlannedLimitGetArgs>? _plannedLimits;
+
+        /// <summary>
+        /// Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
+        /// </summary>
+        public InputList<Inputs.BudgetPlannedLimitGetArgs> PlannedLimits
+        {
+            get => _plannedLimits ?? (_plannedLimits = new InputList<Inputs.BudgetPlannedLimitGetArgs>());
+            set => _plannedLimits = value;
         }
 
         /// <summary>

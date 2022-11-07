@@ -16,9 +16,12 @@ __all__ = [
     'BudgetActionDefinitionScpActionDefinitionArgs',
     'BudgetActionDefinitionSsmActionDefinitionArgs',
     'BudgetActionSubscriberArgs',
+    'BudgetAutoAdjustDataArgs',
+    'BudgetAutoAdjustDataHistoricalOptionsArgs',
     'BudgetCostFilterArgs',
     'BudgetCostTypesArgs',
     'BudgetNotificationArgs',
+    'BudgetPlannedLimitArgs',
 ]
 
 @pulumi.input_type
@@ -307,6 +310,74 @@ class BudgetActionSubscriberArgs:
     @subscription_type.setter
     def subscription_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "subscription_type", value)
+
+
+@pulumi.input_type
+class BudgetAutoAdjustDataArgs:
+    def __init__(__self__, *,
+                 auto_adjust_type: pulumi.Input[str],
+                 historical_options: Optional[pulumi.Input['BudgetAutoAdjustDataHistoricalOptionsArgs']] = None,
+                 last_auto_adjust_time: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "auto_adjust_type", auto_adjust_type)
+        if historical_options is not None:
+            pulumi.set(__self__, "historical_options", historical_options)
+        if last_auto_adjust_time is not None:
+            pulumi.set(__self__, "last_auto_adjust_time", last_auto_adjust_time)
+
+    @property
+    @pulumi.getter(name="autoAdjustType")
+    def auto_adjust_type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "auto_adjust_type")
+
+    @auto_adjust_type.setter
+    def auto_adjust_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "auto_adjust_type", value)
+
+    @property
+    @pulumi.getter(name="historicalOptions")
+    def historical_options(self) -> Optional[pulumi.Input['BudgetAutoAdjustDataHistoricalOptionsArgs']]:
+        return pulumi.get(self, "historical_options")
+
+    @historical_options.setter
+    def historical_options(self, value: Optional[pulumi.Input['BudgetAutoAdjustDataHistoricalOptionsArgs']]):
+        pulumi.set(self, "historical_options", value)
+
+    @property
+    @pulumi.getter(name="lastAutoAdjustTime")
+    def last_auto_adjust_time(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "last_auto_adjust_time")
+
+    @last_auto_adjust_time.setter
+    def last_auto_adjust_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_auto_adjust_time", value)
+
+
+@pulumi.input_type
+class BudgetAutoAdjustDataHistoricalOptionsArgs:
+    def __init__(__self__, *,
+                 budget_adjustment_period: pulumi.Input[int],
+                 lookback_available_periods: Optional[pulumi.Input[int]] = None):
+        pulumi.set(__self__, "budget_adjustment_period", budget_adjustment_period)
+        if lookback_available_periods is not None:
+            pulumi.set(__self__, "lookback_available_periods", lookback_available_periods)
+
+    @property
+    @pulumi.getter(name="budgetAdjustmentPeriod")
+    def budget_adjustment_period(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "budget_adjustment_period")
+
+    @budget_adjustment_period.setter
+    def budget_adjustment_period(self, value: pulumi.Input[int]):
+        pulumi.set(self, "budget_adjustment_period", value)
+
+    @property
+    @pulumi.getter(name="lookbackAvailablePeriods")
+    def lookback_available_periods(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "lookback_available_periods")
+
+    @lookback_available_periods.setter
+    def lookback_available_periods(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "lookback_available_periods", value)
 
 
 @pulumi.input_type
@@ -622,5 +693,57 @@ class BudgetNotificationArgs:
     @subscriber_sns_topic_arns.setter
     def subscriber_sns_topic_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "subscriber_sns_topic_arns", value)
+
+
+@pulumi.input_type
+class BudgetPlannedLimitArgs:
+    def __init__(__self__, *,
+                 amount: pulumi.Input[str],
+                 start_time: pulumi.Input[str],
+                 unit: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] amount: (Required) The amount of cost or usage being measured for a budget.
+        :param pulumi.Input[str] start_time: (Required) The start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
+        :param pulumi.Input[str] unit: (Required) The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
+        """
+        pulumi.set(__self__, "amount", amount)
+        pulumi.set(__self__, "start_time", start_time)
+        pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter
+    def amount(self) -> pulumi.Input[str]:
+        """
+        (Required) The amount of cost or usage being measured for a budget.
+        """
+        return pulumi.get(self, "amount")
+
+    @amount.setter
+    def amount(self, value: pulumi.Input[str]):
+        pulumi.set(self, "amount", value)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> pulumi.Input[str]:
+        """
+        (Required) The start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: pulumi.Input[str]):
+        pulumi.set(self, "start_time", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> pulumi.Input[str]:
+        """
+        (Required) The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
+        """
+        return pulumi.get(self, "unit")
+
+    @unit.setter
+    def unit(self, value: pulumi.Input[str]):
+        pulumi.set(self, "unit", value)
 
 

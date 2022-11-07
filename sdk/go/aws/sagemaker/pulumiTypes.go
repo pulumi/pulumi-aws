@@ -1202,12 +1202,16 @@ func (o DeviceFleetOutputConfigPtrOutput) S3OutputLocation() pulumi.StringPtrOut
 }
 
 type DomainDefaultUserSettings struct {
+	// The Canvas app settings. See Canvas App Settings below.
+	CanvasAppSettings *DomainDefaultUserSettingsCanvasAppSettings `pulumi:"canvasAppSettings"`
 	// The execution role ARN for the user.
 	ExecutionRole string `pulumi:"executionRole"`
 	// The Jupyter server's app settings. See Jupyter Server App Settings below.
 	JupyterServerAppSettings *DomainDefaultUserSettingsJupyterServerAppSettings `pulumi:"jupyterServerAppSettings"`
 	// The kernel gateway app settings. See Kernel Gateway App Settings below.
 	KernelGatewayAppSettings *DomainDefaultUserSettingsKernelGatewayAppSettings `pulumi:"kernelGatewayAppSettings"`
+	// The RSession app settings. See RSession App Settings below.
+	RSessionAppSettings *DomainDefaultUserSettingsRSessionAppSettings `pulumi:"rSessionAppSettings"`
 	// A list of security group IDs that will be attached to the user.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// The sharing settings. See Sharing Settings below.
@@ -1228,12 +1232,16 @@ type DomainDefaultUserSettingsInput interface {
 }
 
 type DomainDefaultUserSettingsArgs struct {
+	// The Canvas app settings. See Canvas App Settings below.
+	CanvasAppSettings DomainDefaultUserSettingsCanvasAppSettingsPtrInput `pulumi:"canvasAppSettings"`
 	// The execution role ARN for the user.
 	ExecutionRole pulumi.StringInput `pulumi:"executionRole"`
 	// The Jupyter server's app settings. See Jupyter Server App Settings below.
 	JupyterServerAppSettings DomainDefaultUserSettingsJupyterServerAppSettingsPtrInput `pulumi:"jupyterServerAppSettings"`
 	// The kernel gateway app settings. See Kernel Gateway App Settings below.
 	KernelGatewayAppSettings DomainDefaultUserSettingsKernelGatewayAppSettingsPtrInput `pulumi:"kernelGatewayAppSettings"`
+	// The RSession app settings. See RSession App Settings below.
+	RSessionAppSettings DomainDefaultUserSettingsRSessionAppSettingsPtrInput `pulumi:"rSessionAppSettings"`
 	// A list of security group IDs that will be attached to the user.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
 	// The sharing settings. See Sharing Settings below.
@@ -1319,6 +1327,13 @@ func (o DomainDefaultUserSettingsOutput) ToDomainDefaultUserSettingsPtrOutputWit
 	}).(DomainDefaultUserSettingsPtrOutput)
 }
 
+// The Canvas app settings. See Canvas App Settings below.
+func (o DomainDefaultUserSettingsOutput) CanvasAppSettings() DomainDefaultUserSettingsCanvasAppSettingsPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettings) *DomainDefaultUserSettingsCanvasAppSettings {
+		return v.CanvasAppSettings
+	}).(DomainDefaultUserSettingsCanvasAppSettingsPtrOutput)
+}
+
 // The execution role ARN for the user.
 func (o DomainDefaultUserSettingsOutput) ExecutionRole() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettings) string { return v.ExecutionRole }).(pulumi.StringOutput)
@@ -1336,6 +1351,13 @@ func (o DomainDefaultUserSettingsOutput) KernelGatewayAppSettings() DomainDefaul
 	return o.ApplyT(func(v DomainDefaultUserSettings) *DomainDefaultUserSettingsKernelGatewayAppSettings {
 		return v.KernelGatewayAppSettings
 	}).(DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput)
+}
+
+// The RSession app settings. See RSession App Settings below.
+func (o DomainDefaultUserSettingsOutput) RSessionAppSettings() DomainDefaultUserSettingsRSessionAppSettingsPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettings) *DomainDefaultUserSettingsRSessionAppSettings {
+		return v.RSessionAppSettings
+	}).(DomainDefaultUserSettingsRSessionAppSettingsPtrOutput)
 }
 
 // A list of security group IDs that will be attached to the user.
@@ -1379,6 +1401,16 @@ func (o DomainDefaultUserSettingsPtrOutput) Elem() DomainDefaultUserSettingsOutp
 	}).(DomainDefaultUserSettingsOutput)
 }
 
+// The Canvas app settings. See Canvas App Settings below.
+func (o DomainDefaultUserSettingsPtrOutput) CanvasAppSettings() DomainDefaultUserSettingsCanvasAppSettingsPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettings) *DomainDefaultUserSettingsCanvasAppSettings {
+		if v == nil {
+			return nil
+		}
+		return v.CanvasAppSettings
+	}).(DomainDefaultUserSettingsCanvasAppSettingsPtrOutput)
+}
+
 // The execution role ARN for the user.
 func (o DomainDefaultUserSettingsPtrOutput) ExecutionRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettings) *string {
@@ -1409,6 +1441,16 @@ func (o DomainDefaultUserSettingsPtrOutput) KernelGatewayAppSettings() DomainDef
 	}).(DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput)
 }
 
+// The RSession app settings. See RSession App Settings below.
+func (o DomainDefaultUserSettingsPtrOutput) RSessionAppSettings() DomainDefaultUserSettingsRSessionAppSettingsPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettings) *DomainDefaultUserSettingsRSessionAppSettings {
+		if v == nil {
+			return nil
+		}
+		return v.RSessionAppSettings
+	}).(DomainDefaultUserSettingsRSessionAppSettingsPtrOutput)
+}
+
 // A list of security group IDs that will be attached to the user.
 func (o DomainDefaultUserSettingsPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettings) []string {
@@ -1437,6 +1479,305 @@ func (o DomainDefaultUserSettingsPtrOutput) TensorBoardAppSettings() DomainDefau
 		}
 		return v.TensorBoardAppSettings
 	}).(DomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput)
+}
+
+type DomainDefaultUserSettingsCanvasAppSettings struct {
+	// Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
+	TimeSeriesForecastingSettings *DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings `pulumi:"timeSeriesForecastingSettings"`
+}
+
+// DomainDefaultUserSettingsCanvasAppSettingsInput is an input type that accepts DomainDefaultUserSettingsCanvasAppSettingsArgs and DomainDefaultUserSettingsCanvasAppSettingsOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsCanvasAppSettingsInput` via:
+//
+//	DomainDefaultUserSettingsCanvasAppSettingsArgs{...}
+type DomainDefaultUserSettingsCanvasAppSettingsInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsCanvasAppSettingsOutput() DomainDefaultUserSettingsCanvasAppSettingsOutput
+	ToDomainDefaultUserSettingsCanvasAppSettingsOutputWithContext(context.Context) DomainDefaultUserSettingsCanvasAppSettingsOutput
+}
+
+type DomainDefaultUserSettingsCanvasAppSettingsArgs struct {
+	// Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
+	TimeSeriesForecastingSettings DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrInput `pulumi:"timeSeriesForecastingSettings"`
+}
+
+func (DomainDefaultUserSettingsCanvasAppSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettings)(nil)).Elem()
+}
+
+func (i DomainDefaultUserSettingsCanvasAppSettingsArgs) ToDomainDefaultUserSettingsCanvasAppSettingsOutput() DomainDefaultUserSettingsCanvasAppSettingsOutput {
+	return i.ToDomainDefaultUserSettingsCanvasAppSettingsOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsCanvasAppSettingsArgs) ToDomainDefaultUserSettingsCanvasAppSettingsOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCanvasAppSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsCanvasAppSettingsOutput)
+}
+
+func (i DomainDefaultUserSettingsCanvasAppSettingsArgs) ToDomainDefaultUserSettingsCanvasAppSettingsPtrOutput() DomainDefaultUserSettingsCanvasAppSettingsPtrOutput {
+	return i.ToDomainDefaultUserSettingsCanvasAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsCanvasAppSettingsArgs) ToDomainDefaultUserSettingsCanvasAppSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCanvasAppSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsCanvasAppSettingsOutput).ToDomainDefaultUserSettingsCanvasAppSettingsPtrOutputWithContext(ctx)
+}
+
+// DomainDefaultUserSettingsCanvasAppSettingsPtrInput is an input type that accepts DomainDefaultUserSettingsCanvasAppSettingsArgs, DomainDefaultUserSettingsCanvasAppSettingsPtr and DomainDefaultUserSettingsCanvasAppSettingsPtrOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsCanvasAppSettingsPtrInput` via:
+//
+//	        DomainDefaultUserSettingsCanvasAppSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainDefaultUserSettingsCanvasAppSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsCanvasAppSettingsPtrOutput() DomainDefaultUserSettingsCanvasAppSettingsPtrOutput
+	ToDomainDefaultUserSettingsCanvasAppSettingsPtrOutputWithContext(context.Context) DomainDefaultUserSettingsCanvasAppSettingsPtrOutput
+}
+
+type domainDefaultUserSettingsCanvasAppSettingsPtrType DomainDefaultUserSettingsCanvasAppSettingsArgs
+
+func DomainDefaultUserSettingsCanvasAppSettingsPtr(v *DomainDefaultUserSettingsCanvasAppSettingsArgs) DomainDefaultUserSettingsCanvasAppSettingsPtrInput {
+	return (*domainDefaultUserSettingsCanvasAppSettingsPtrType)(v)
+}
+
+func (*domainDefaultUserSettingsCanvasAppSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsCanvasAppSettings)(nil)).Elem()
+}
+
+func (i *domainDefaultUserSettingsCanvasAppSettingsPtrType) ToDomainDefaultUserSettingsCanvasAppSettingsPtrOutput() DomainDefaultUserSettingsCanvasAppSettingsPtrOutput {
+	return i.ToDomainDefaultUserSettingsCanvasAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainDefaultUserSettingsCanvasAppSettingsPtrType) ToDomainDefaultUserSettingsCanvasAppSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCanvasAppSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsCanvasAppSettingsPtrOutput)
+}
+
+type DomainDefaultUserSettingsCanvasAppSettingsOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsCanvasAppSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettings)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsOutput) ToDomainDefaultUserSettingsCanvasAppSettingsOutput() DomainDefaultUserSettingsCanvasAppSettingsOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsOutput) ToDomainDefaultUserSettingsCanvasAppSettingsOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCanvasAppSettingsOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsOutput) ToDomainDefaultUserSettingsCanvasAppSettingsPtrOutput() DomainDefaultUserSettingsCanvasAppSettingsPtrOutput {
+	return o.ToDomainDefaultUserSettingsCanvasAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsOutput) ToDomainDefaultUserSettingsCanvasAppSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCanvasAppSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainDefaultUserSettingsCanvasAppSettings) *DomainDefaultUserSettingsCanvasAppSettings {
+		return &v
+	}).(DomainDefaultUserSettingsCanvasAppSettingsPtrOutput)
+}
+
+// Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
+func (o DomainDefaultUserSettingsCanvasAppSettingsOutput) TimeSeriesForecastingSettings() DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsCanvasAppSettings) *DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings {
+		return v.TimeSeriesForecastingSettings
+	}).(DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput)
+}
+
+type DomainDefaultUserSettingsCanvasAppSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsCanvasAppSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsCanvasAppSettings)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsPtrOutput) ToDomainDefaultUserSettingsCanvasAppSettingsPtrOutput() DomainDefaultUserSettingsCanvasAppSettingsPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsPtrOutput) ToDomainDefaultUserSettingsCanvasAppSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCanvasAppSettingsPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsPtrOutput) Elem() DomainDefaultUserSettingsCanvasAppSettingsOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsCanvasAppSettings) DomainDefaultUserSettingsCanvasAppSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DomainDefaultUserSettingsCanvasAppSettings
+		return ret
+	}).(DomainDefaultUserSettingsCanvasAppSettingsOutput)
+}
+
+// Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
+func (o DomainDefaultUserSettingsCanvasAppSettingsPtrOutput) TimeSeriesForecastingSettings() DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsCanvasAppSettings) *DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings {
+		if v == nil {
+			return nil
+		}
+		return v.TimeSeriesForecastingSettings
+	}).(DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput)
+}
+
+type DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings struct {
+	// The IAM role that Canvas passes to Amazon Forecast for time series forecasting. By default, Canvas uses the execution role specified in the UserProfile that launches the Canvas app. If an execution role is not specified in the UserProfile, Canvas uses the execution role specified in the Domain that owns the UserProfile. To allow time series forecasting, this IAM role should have the [AmazonSageMakerCanvasForecastAccess](https://docs.aws.amazon.com/sagemaker/latest/dg/security-iam-awsmanpol-canvas.html#security-iam-awsmanpol-AmazonSageMakerCanvasForecastAccess) policy attached and forecast.amazonaws.com added in the trust relationship as a service principal.
+	AmazonForecastRoleArn *string `pulumi:"amazonForecastRoleArn"`
+	// Describes whether time series forecasting is enabled or disabled in the Canvas app. Valid values are `ENABLED` and `DISABLED`.
+	Status *string `pulumi:"status"`
+}
+
+// DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsInput is an input type that accepts DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs and DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsInput` via:
+//
+//	DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs{...}
+type DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput() DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput
+	ToDomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutputWithContext(context.Context) DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput
+}
+
+type DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs struct {
+	// The IAM role that Canvas passes to Amazon Forecast for time series forecasting. By default, Canvas uses the execution role specified in the UserProfile that launches the Canvas app. If an execution role is not specified in the UserProfile, Canvas uses the execution role specified in the Domain that owns the UserProfile. To allow time series forecasting, this IAM role should have the [AmazonSageMakerCanvasForecastAccess](https://docs.aws.amazon.com/sagemaker/latest/dg/security-iam-awsmanpol-canvas.html#security-iam-awsmanpol-AmazonSageMakerCanvasForecastAccess) policy attached and forecast.amazonaws.com added in the trust relationship as a service principal.
+	AmazonForecastRoleArn pulumi.StringPtrInput `pulumi:"amazonForecastRoleArn"`
+	// Describes whether time series forecasting is enabled or disabled in the Canvas app. Valid values are `ENABLED` and `DISABLED`.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings)(nil)).Elem()
+}
+
+func (i DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs) ToDomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput() DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput {
+	return i.ToDomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs) ToDomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput)
+}
+
+func (i DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs) ToDomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput() DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput {
+	return i.ToDomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs) ToDomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput).ToDomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutputWithContext(ctx)
+}
+
+// DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrInput is an input type that accepts DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs, DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtr and DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrInput` via:
+//
+//	        DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput() DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput
+	ToDomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutputWithContext(context.Context) DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput
+}
+
+type domainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrType DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs
+
+func DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtr(v *DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs) DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrInput {
+	return (*domainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrType)(v)
+}
+
+func (*domainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings)(nil)).Elem()
+}
+
+func (i *domainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrType) ToDomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput() DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput {
+	return i.ToDomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrType) ToDomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput)
+}
+
+type DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput) ToDomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput() DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput) ToDomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput) ToDomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput() DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput {
+	return o.ToDomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput) ToDomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings) *DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings {
+		return &v
+	}).(DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput)
+}
+
+// The IAM role that Canvas passes to Amazon Forecast for time series forecasting. By default, Canvas uses the execution role specified in the UserProfile that launches the Canvas app. If an execution role is not specified in the UserProfile, Canvas uses the execution role specified in the Domain that owns the UserProfile. To allow time series forecasting, this IAM role should have the [AmazonSageMakerCanvasForecastAccess](https://docs.aws.amazon.com/sagemaker/latest/dg/security-iam-awsmanpol-canvas.html#security-iam-awsmanpol-AmazonSageMakerCanvasForecastAccess) policy attached and forecast.amazonaws.com added in the trust relationship as a service principal.
+func (o DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput) AmazonForecastRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings) *string {
+		return v.AmazonForecastRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes whether time series forecasting is enabled or disabled in the Canvas app. Valid values are `ENABLED` and `DISABLED`.
+func (o DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings) *string {
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput) ToDomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput() DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput) ToDomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput) Elem() DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings) DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings
+		return ret
+	}).(DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput)
+}
+
+// The IAM role that Canvas passes to Amazon Forecast for time series forecasting. By default, Canvas uses the execution role specified in the UserProfile that launches the Canvas app. If an execution role is not specified in the UserProfile, Canvas uses the execution role specified in the Domain that owns the UserProfile. To allow time series forecasting, this IAM role should have the [AmazonSageMakerCanvasForecastAccess](https://docs.aws.amazon.com/sagemaker/latest/dg/security-iam-awsmanpol-canvas.html#security-iam-awsmanpol-AmazonSageMakerCanvasForecastAccess) policy attached and forecast.amazonaws.com added in the trust relationship as a service principal.
+func (o DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput) AmazonForecastRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AmazonForecastRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes whether time series forecasting is enabled or disabled in the Canvas app. Valid values are `ENABLED` and `DISABLED`.
+func (o DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
 }
 
 type DomainDefaultUserSettingsJupyterServerAppSettings struct {
@@ -2297,6 +2638,481 @@ func (o DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+type DomainDefaultUserSettingsRSessionAppSettings struct {
+	// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+	CustomImages []DomainDefaultUserSettingsRSessionAppSettingsCustomImage `pulumi:"customImages"`
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+	DefaultResourceSpec *DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
+}
+
+// DomainDefaultUserSettingsRSessionAppSettingsInput is an input type that accepts DomainDefaultUserSettingsRSessionAppSettingsArgs and DomainDefaultUserSettingsRSessionAppSettingsOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsRSessionAppSettingsInput` via:
+//
+//	DomainDefaultUserSettingsRSessionAppSettingsArgs{...}
+type DomainDefaultUserSettingsRSessionAppSettingsInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsRSessionAppSettingsOutput() DomainDefaultUserSettingsRSessionAppSettingsOutput
+	ToDomainDefaultUserSettingsRSessionAppSettingsOutputWithContext(context.Context) DomainDefaultUserSettingsRSessionAppSettingsOutput
+}
+
+type DomainDefaultUserSettingsRSessionAppSettingsArgs struct {
+	// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+	CustomImages DomainDefaultUserSettingsRSessionAppSettingsCustomImageArrayInput `pulumi:"customImages"`
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+	DefaultResourceSpec DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
+}
+
+func (DomainDefaultUserSettingsRSessionAppSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsRSessionAppSettings)(nil)).Elem()
+}
+
+func (i DomainDefaultUserSettingsRSessionAppSettingsArgs) ToDomainDefaultUserSettingsRSessionAppSettingsOutput() DomainDefaultUserSettingsRSessionAppSettingsOutput {
+	return i.ToDomainDefaultUserSettingsRSessionAppSettingsOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsRSessionAppSettingsArgs) ToDomainDefaultUserSettingsRSessionAppSettingsOutputWithContext(ctx context.Context) DomainDefaultUserSettingsRSessionAppSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsRSessionAppSettingsOutput)
+}
+
+func (i DomainDefaultUserSettingsRSessionAppSettingsArgs) ToDomainDefaultUserSettingsRSessionAppSettingsPtrOutput() DomainDefaultUserSettingsRSessionAppSettingsPtrOutput {
+	return i.ToDomainDefaultUserSettingsRSessionAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsRSessionAppSettingsArgs) ToDomainDefaultUserSettingsRSessionAppSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsRSessionAppSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsRSessionAppSettingsOutput).ToDomainDefaultUserSettingsRSessionAppSettingsPtrOutputWithContext(ctx)
+}
+
+// DomainDefaultUserSettingsRSessionAppSettingsPtrInput is an input type that accepts DomainDefaultUserSettingsRSessionAppSettingsArgs, DomainDefaultUserSettingsRSessionAppSettingsPtr and DomainDefaultUserSettingsRSessionAppSettingsPtrOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsRSessionAppSettingsPtrInput` via:
+//
+//	        DomainDefaultUserSettingsRSessionAppSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainDefaultUserSettingsRSessionAppSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsRSessionAppSettingsPtrOutput() DomainDefaultUserSettingsRSessionAppSettingsPtrOutput
+	ToDomainDefaultUserSettingsRSessionAppSettingsPtrOutputWithContext(context.Context) DomainDefaultUserSettingsRSessionAppSettingsPtrOutput
+}
+
+type domainDefaultUserSettingsRSessionAppSettingsPtrType DomainDefaultUserSettingsRSessionAppSettingsArgs
+
+func DomainDefaultUserSettingsRSessionAppSettingsPtr(v *DomainDefaultUserSettingsRSessionAppSettingsArgs) DomainDefaultUserSettingsRSessionAppSettingsPtrInput {
+	return (*domainDefaultUserSettingsRSessionAppSettingsPtrType)(v)
+}
+
+func (*domainDefaultUserSettingsRSessionAppSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsRSessionAppSettings)(nil)).Elem()
+}
+
+func (i *domainDefaultUserSettingsRSessionAppSettingsPtrType) ToDomainDefaultUserSettingsRSessionAppSettingsPtrOutput() DomainDefaultUserSettingsRSessionAppSettingsPtrOutput {
+	return i.ToDomainDefaultUserSettingsRSessionAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainDefaultUserSettingsRSessionAppSettingsPtrType) ToDomainDefaultUserSettingsRSessionAppSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsRSessionAppSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsRSessionAppSettingsPtrOutput)
+}
+
+type DomainDefaultUserSettingsRSessionAppSettingsOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsRSessionAppSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsRSessionAppSettings)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsRSessionAppSettingsOutput) ToDomainDefaultUserSettingsRSessionAppSettingsOutput() DomainDefaultUserSettingsRSessionAppSettingsOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsRSessionAppSettingsOutput) ToDomainDefaultUserSettingsRSessionAppSettingsOutputWithContext(ctx context.Context) DomainDefaultUserSettingsRSessionAppSettingsOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsRSessionAppSettingsOutput) ToDomainDefaultUserSettingsRSessionAppSettingsPtrOutput() DomainDefaultUserSettingsRSessionAppSettingsPtrOutput {
+	return o.ToDomainDefaultUserSettingsRSessionAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainDefaultUserSettingsRSessionAppSettingsOutput) ToDomainDefaultUserSettingsRSessionAppSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsRSessionAppSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainDefaultUserSettingsRSessionAppSettings) *DomainDefaultUserSettingsRSessionAppSettings {
+		return &v
+	}).(DomainDefaultUserSettingsRSessionAppSettingsPtrOutput)
+}
+
+// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+func (o DomainDefaultUserSettingsRSessionAppSettingsOutput) CustomImages() DomainDefaultUserSettingsRSessionAppSettingsCustomImageArrayOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsRSessionAppSettings) []DomainDefaultUserSettingsRSessionAppSettingsCustomImage {
+		return v.CustomImages
+	}).(DomainDefaultUserSettingsRSessionAppSettingsCustomImageArrayOutput)
+}
+
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+func (o DomainDefaultUserSettingsRSessionAppSettingsOutput) DefaultResourceSpec() DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsRSessionAppSettings) *DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec {
+		return v.DefaultResourceSpec
+	}).(DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput)
+}
+
+type DomainDefaultUserSettingsRSessionAppSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsRSessionAppSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsRSessionAppSettings)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsRSessionAppSettingsPtrOutput) ToDomainDefaultUserSettingsRSessionAppSettingsPtrOutput() DomainDefaultUserSettingsRSessionAppSettingsPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsRSessionAppSettingsPtrOutput) ToDomainDefaultUserSettingsRSessionAppSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsRSessionAppSettingsPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsRSessionAppSettingsPtrOutput) Elem() DomainDefaultUserSettingsRSessionAppSettingsOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsRSessionAppSettings) DomainDefaultUserSettingsRSessionAppSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DomainDefaultUserSettingsRSessionAppSettings
+		return ret
+	}).(DomainDefaultUserSettingsRSessionAppSettingsOutput)
+}
+
+// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+func (o DomainDefaultUserSettingsRSessionAppSettingsPtrOutput) CustomImages() DomainDefaultUserSettingsRSessionAppSettingsCustomImageArrayOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsRSessionAppSettings) []DomainDefaultUserSettingsRSessionAppSettingsCustomImage {
+		if v == nil {
+			return nil
+		}
+		return v.CustomImages
+	}).(DomainDefaultUserSettingsRSessionAppSettingsCustomImageArrayOutput)
+}
+
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+func (o DomainDefaultUserSettingsRSessionAppSettingsPtrOutput) DefaultResourceSpec() DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsRSessionAppSettings) *DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultResourceSpec
+	}).(DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput)
+}
+
+type DomainDefaultUserSettingsRSessionAppSettingsCustomImage struct {
+	// The name of the App Image Config.
+	AppImageConfigName string `pulumi:"appImageConfigName"`
+	// The name of the Custom Image.
+	ImageName string `pulumi:"imageName"`
+	// The version number of the Custom Image.
+	ImageVersionNumber *int `pulumi:"imageVersionNumber"`
+}
+
+// DomainDefaultUserSettingsRSessionAppSettingsCustomImageInput is an input type that accepts DomainDefaultUserSettingsRSessionAppSettingsCustomImageArgs and DomainDefaultUserSettingsRSessionAppSettingsCustomImageOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsRSessionAppSettingsCustomImageInput` via:
+//
+//	DomainDefaultUserSettingsRSessionAppSettingsCustomImageArgs{...}
+type DomainDefaultUserSettingsRSessionAppSettingsCustomImageInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsRSessionAppSettingsCustomImageOutput() DomainDefaultUserSettingsRSessionAppSettingsCustomImageOutput
+	ToDomainDefaultUserSettingsRSessionAppSettingsCustomImageOutputWithContext(context.Context) DomainDefaultUserSettingsRSessionAppSettingsCustomImageOutput
+}
+
+type DomainDefaultUserSettingsRSessionAppSettingsCustomImageArgs struct {
+	// The name of the App Image Config.
+	AppImageConfigName pulumi.StringInput `pulumi:"appImageConfigName"`
+	// The name of the Custom Image.
+	ImageName pulumi.StringInput `pulumi:"imageName"`
+	// The version number of the Custom Image.
+	ImageVersionNumber pulumi.IntPtrInput `pulumi:"imageVersionNumber"`
+}
+
+func (DomainDefaultUserSettingsRSessionAppSettingsCustomImageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsRSessionAppSettingsCustomImage)(nil)).Elem()
+}
+
+func (i DomainDefaultUserSettingsRSessionAppSettingsCustomImageArgs) ToDomainDefaultUserSettingsRSessionAppSettingsCustomImageOutput() DomainDefaultUserSettingsRSessionAppSettingsCustomImageOutput {
+	return i.ToDomainDefaultUserSettingsRSessionAppSettingsCustomImageOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsRSessionAppSettingsCustomImageArgs) ToDomainDefaultUserSettingsRSessionAppSettingsCustomImageOutputWithContext(ctx context.Context) DomainDefaultUserSettingsRSessionAppSettingsCustomImageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsRSessionAppSettingsCustomImageOutput)
+}
+
+// DomainDefaultUserSettingsRSessionAppSettingsCustomImageArrayInput is an input type that accepts DomainDefaultUserSettingsRSessionAppSettingsCustomImageArray and DomainDefaultUserSettingsRSessionAppSettingsCustomImageArrayOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsRSessionAppSettingsCustomImageArrayInput` via:
+//
+//	DomainDefaultUserSettingsRSessionAppSettingsCustomImageArray{ DomainDefaultUserSettingsRSessionAppSettingsCustomImageArgs{...} }
+type DomainDefaultUserSettingsRSessionAppSettingsCustomImageArrayInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsRSessionAppSettingsCustomImageArrayOutput() DomainDefaultUserSettingsRSessionAppSettingsCustomImageArrayOutput
+	ToDomainDefaultUserSettingsRSessionAppSettingsCustomImageArrayOutputWithContext(context.Context) DomainDefaultUserSettingsRSessionAppSettingsCustomImageArrayOutput
+}
+
+type DomainDefaultUserSettingsRSessionAppSettingsCustomImageArray []DomainDefaultUserSettingsRSessionAppSettingsCustomImageInput
+
+func (DomainDefaultUserSettingsRSessionAppSettingsCustomImageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainDefaultUserSettingsRSessionAppSettingsCustomImage)(nil)).Elem()
+}
+
+func (i DomainDefaultUserSettingsRSessionAppSettingsCustomImageArray) ToDomainDefaultUserSettingsRSessionAppSettingsCustomImageArrayOutput() DomainDefaultUserSettingsRSessionAppSettingsCustomImageArrayOutput {
+	return i.ToDomainDefaultUserSettingsRSessionAppSettingsCustomImageArrayOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsRSessionAppSettingsCustomImageArray) ToDomainDefaultUserSettingsRSessionAppSettingsCustomImageArrayOutputWithContext(ctx context.Context) DomainDefaultUserSettingsRSessionAppSettingsCustomImageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsRSessionAppSettingsCustomImageArrayOutput)
+}
+
+type DomainDefaultUserSettingsRSessionAppSettingsCustomImageOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsRSessionAppSettingsCustomImageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsRSessionAppSettingsCustomImage)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsRSessionAppSettingsCustomImageOutput) ToDomainDefaultUserSettingsRSessionAppSettingsCustomImageOutput() DomainDefaultUserSettingsRSessionAppSettingsCustomImageOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsRSessionAppSettingsCustomImageOutput) ToDomainDefaultUserSettingsRSessionAppSettingsCustomImageOutputWithContext(ctx context.Context) DomainDefaultUserSettingsRSessionAppSettingsCustomImageOutput {
+	return o
+}
+
+// The name of the App Image Config.
+func (o DomainDefaultUserSettingsRSessionAppSettingsCustomImageOutput) AppImageConfigName() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsRSessionAppSettingsCustomImage) string { return v.AppImageConfigName }).(pulumi.StringOutput)
+}
+
+// The name of the Custom Image.
+func (o DomainDefaultUserSettingsRSessionAppSettingsCustomImageOutput) ImageName() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsRSessionAppSettingsCustomImage) string { return v.ImageName }).(pulumi.StringOutput)
+}
+
+// The version number of the Custom Image.
+func (o DomainDefaultUserSettingsRSessionAppSettingsCustomImageOutput) ImageVersionNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsRSessionAppSettingsCustomImage) *int { return v.ImageVersionNumber }).(pulumi.IntPtrOutput)
+}
+
+type DomainDefaultUserSettingsRSessionAppSettingsCustomImageArrayOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsRSessionAppSettingsCustomImageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainDefaultUserSettingsRSessionAppSettingsCustomImage)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsRSessionAppSettingsCustomImageArrayOutput) ToDomainDefaultUserSettingsRSessionAppSettingsCustomImageArrayOutput() DomainDefaultUserSettingsRSessionAppSettingsCustomImageArrayOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsRSessionAppSettingsCustomImageArrayOutput) ToDomainDefaultUserSettingsRSessionAppSettingsCustomImageArrayOutputWithContext(ctx context.Context) DomainDefaultUserSettingsRSessionAppSettingsCustomImageArrayOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsRSessionAppSettingsCustomImageArrayOutput) Index(i pulumi.IntInput) DomainDefaultUserSettingsRSessionAppSettingsCustomImageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainDefaultUserSettingsRSessionAppSettingsCustomImage {
+		return vs[0].([]DomainDefaultUserSettingsRSessionAppSettingsCustomImage)[vs[1].(int)]
+	}).(DomainDefaultUserSettingsRSessionAppSettingsCustomImageOutput)
+}
+
+type DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec struct {
+	// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+	InstanceType *string `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
+	// The ARN of the SageMaker image that the image version belongs to.
+	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
+	// The ARN of the image version created on the instance.
+	SagemakerImageVersionArn *string `pulumi:"sagemakerImageVersionArn"`
+}
+
+// DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecInput is an input type that accepts DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecArgs and DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecInput` via:
+//
+//	DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecArgs{...}
+type DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecOutput() DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecOutput
+	ToDomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecOutputWithContext(context.Context) DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecOutput
+}
+
+type DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecArgs struct {
+	// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
+	// The ARN of the SageMaker image that the image version belongs to.
+	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
+	// The ARN of the image version created on the instance.
+	SagemakerImageVersionArn pulumi.StringPtrInput `pulumi:"sagemakerImageVersionArn"`
+}
+
+func (DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (i DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecArgs) ToDomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecOutput() DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecOutput {
+	return i.ToDomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecArgs) ToDomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecOutputWithContext(ctx context.Context) DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecOutput)
+}
+
+func (i DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecArgs) ToDomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput() DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput {
+	return i.ToDomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecArgs) ToDomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecOutput).ToDomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx)
+}
+
+// DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrInput is an input type that accepts DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecArgs, DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtr and DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrInput` via:
+//
+//	        DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput() DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput
+	ToDomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutputWithContext(context.Context) DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput
+}
+
+type domainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrType DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecArgs
+
+func DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtr(v *DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecArgs) DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrInput {
+	return (*domainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrType)(v)
+}
+
+func (*domainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (i *domainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrType) ToDomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput() DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput {
+	return i.ToDomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (i *domainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrType) ToDomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput)
+}
+
+type DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecOutput) ToDomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecOutput() DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecOutput) ToDomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecOutputWithContext(ctx context.Context) DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecOutput) ToDomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput() DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput {
+	return o.ToDomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (o DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecOutput) ToDomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec) *DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec {
+		return &v
+	}).(DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput)
+}
+
+// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+func (o DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+func (o DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec) *string {
+		return v.LifecycleConfigArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the SageMaker image that the image version belongs to.
+func (o DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecOutput) SagemakerImageArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec) *string {
+		return v.SagemakerImageArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the image version created on the instance.
+func (o DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecOutput) SagemakerImageVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec) *string {
+		return v.SagemakerImageVersionArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput) ToDomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput() DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput) ToDomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput) Elem() DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec) DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec {
+		if v != nil {
+			return *v
+		}
+		var ret DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec
+		return ret
+	}).(DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecOutput)
+}
+
+// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+func (o DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+func (o DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LifecycleConfigArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the SageMaker image that the image version belongs to.
+func (o DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SagemakerImageArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the image version created on the instance.
+func (o DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SagemakerImageVersionArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type DomainDefaultUserSettingsSharingSettings struct {
 	// Whether to include the notebook cell output when sharing the notebook. The default is `Disabled`. Valid values are `Allowed` and `Disabled`.
 	NotebookOutputOption *string `pulumi:"notebookOutputOption"`
@@ -2811,6 +3627,162 @@ func (o DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOut
 		}
 		return v.SagemakerImageVersionArn
 	}).(pulumi.StringPtrOutput)
+}
+
+type DomainDomainSettings struct {
+	// The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key [AWS Docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html). Valid values are `USER_PROFILE_NAME` and `DISABLED`.
+	ExecutionRoleIdentityConfig *string `pulumi:"executionRoleIdentityConfig"`
+	// The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+}
+
+// DomainDomainSettingsInput is an input type that accepts DomainDomainSettingsArgs and DomainDomainSettingsOutput values.
+// You can construct a concrete instance of `DomainDomainSettingsInput` via:
+//
+//	DomainDomainSettingsArgs{...}
+type DomainDomainSettingsInput interface {
+	pulumi.Input
+
+	ToDomainDomainSettingsOutput() DomainDomainSettingsOutput
+	ToDomainDomainSettingsOutputWithContext(context.Context) DomainDomainSettingsOutput
+}
+
+type DomainDomainSettingsArgs struct {
+	// The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key [AWS Docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html). Valid values are `USER_PROFILE_NAME` and `DISABLED`.
+	ExecutionRoleIdentityConfig pulumi.StringPtrInput `pulumi:"executionRoleIdentityConfig"`
+	// The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+}
+
+func (DomainDomainSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDomainSettings)(nil)).Elem()
+}
+
+func (i DomainDomainSettingsArgs) ToDomainDomainSettingsOutput() DomainDomainSettingsOutput {
+	return i.ToDomainDomainSettingsOutputWithContext(context.Background())
+}
+
+func (i DomainDomainSettingsArgs) ToDomainDomainSettingsOutputWithContext(ctx context.Context) DomainDomainSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDomainSettingsOutput)
+}
+
+func (i DomainDomainSettingsArgs) ToDomainDomainSettingsPtrOutput() DomainDomainSettingsPtrOutput {
+	return i.ToDomainDomainSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainDomainSettingsArgs) ToDomainDomainSettingsPtrOutputWithContext(ctx context.Context) DomainDomainSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDomainSettingsOutput).ToDomainDomainSettingsPtrOutputWithContext(ctx)
+}
+
+// DomainDomainSettingsPtrInput is an input type that accepts DomainDomainSettingsArgs, DomainDomainSettingsPtr and DomainDomainSettingsPtrOutput values.
+// You can construct a concrete instance of `DomainDomainSettingsPtrInput` via:
+//
+//	        DomainDomainSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainDomainSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDomainDomainSettingsPtrOutput() DomainDomainSettingsPtrOutput
+	ToDomainDomainSettingsPtrOutputWithContext(context.Context) DomainDomainSettingsPtrOutput
+}
+
+type domainDomainSettingsPtrType DomainDomainSettingsArgs
+
+func DomainDomainSettingsPtr(v *DomainDomainSettingsArgs) DomainDomainSettingsPtrInput {
+	return (*domainDomainSettingsPtrType)(v)
+}
+
+func (*domainDomainSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDomainSettings)(nil)).Elem()
+}
+
+func (i *domainDomainSettingsPtrType) ToDomainDomainSettingsPtrOutput() DomainDomainSettingsPtrOutput {
+	return i.ToDomainDomainSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainDomainSettingsPtrType) ToDomainDomainSettingsPtrOutputWithContext(ctx context.Context) DomainDomainSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDomainSettingsPtrOutput)
+}
+
+type DomainDomainSettingsOutput struct{ *pulumi.OutputState }
+
+func (DomainDomainSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDomainSettings)(nil)).Elem()
+}
+
+func (o DomainDomainSettingsOutput) ToDomainDomainSettingsOutput() DomainDomainSettingsOutput {
+	return o
+}
+
+func (o DomainDomainSettingsOutput) ToDomainDomainSettingsOutputWithContext(ctx context.Context) DomainDomainSettingsOutput {
+	return o
+}
+
+func (o DomainDomainSettingsOutput) ToDomainDomainSettingsPtrOutput() DomainDomainSettingsPtrOutput {
+	return o.ToDomainDomainSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainDomainSettingsOutput) ToDomainDomainSettingsPtrOutputWithContext(ctx context.Context) DomainDomainSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainDomainSettings) *DomainDomainSettings {
+		return &v
+	}).(DomainDomainSettingsPtrOutput)
+}
+
+// The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key [AWS Docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html). Valid values are `USER_PROFILE_NAME` and `DISABLED`.
+func (o DomainDomainSettingsOutput) ExecutionRoleIdentityConfig() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDomainSettings) *string { return v.ExecutionRoleIdentityConfig }).(pulumi.StringPtrOutput)
+}
+
+// The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
+func (o DomainDomainSettingsOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DomainDomainSettings) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+type DomainDomainSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainDomainSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDomainSettings)(nil)).Elem()
+}
+
+func (o DomainDomainSettingsPtrOutput) ToDomainDomainSettingsPtrOutput() DomainDomainSettingsPtrOutput {
+	return o
+}
+
+func (o DomainDomainSettingsPtrOutput) ToDomainDomainSettingsPtrOutputWithContext(ctx context.Context) DomainDomainSettingsPtrOutput {
+	return o
+}
+
+func (o DomainDomainSettingsPtrOutput) Elem() DomainDomainSettingsOutput {
+	return o.ApplyT(func(v *DomainDomainSettings) DomainDomainSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DomainDomainSettings
+		return ret
+	}).(DomainDomainSettingsOutput)
+}
+
+// The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key [AWS Docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html). Valid values are `USER_PROFILE_NAME` and `DISABLED`.
+func (o DomainDomainSettingsPtrOutput) ExecutionRoleIdentityConfig() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDomainSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExecutionRoleIdentityConfig
+	}).(pulumi.StringPtrOutput)
+}
+
+// The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
+func (o DomainDomainSettingsPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DomainDomainSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
 }
 
 type DomainRetentionPolicy struct {
@@ -9447,12 +10419,16 @@ func (o ProjectServiceCatalogProvisioningDetailsProvisioningParameterArrayOutput
 }
 
 type UserProfileUserSettings struct {
+	// The Canvas app settings. See Canvas App Settings below.
+	CanvasAppSettings *UserProfileUserSettingsCanvasAppSettings `pulumi:"canvasAppSettings"`
 	// The execution role ARN for the user.
 	ExecutionRole string `pulumi:"executionRole"`
 	// The Jupyter server's app settings. See Jupyter Server App Settings below.
 	JupyterServerAppSettings *UserProfileUserSettingsJupyterServerAppSettings `pulumi:"jupyterServerAppSettings"`
 	// The kernel gateway app settings. See Kernel Gateway App Settings below.
 	KernelGatewayAppSettings *UserProfileUserSettingsKernelGatewayAppSettings `pulumi:"kernelGatewayAppSettings"`
+	// The RSession app settings. See RSession App Settings below.
+	RSessionAppSettings *UserProfileUserSettingsRSessionAppSettings `pulumi:"rSessionAppSettings"`
 	// The security groups.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// The sharing settings. See Sharing Settings below.
@@ -9473,12 +10449,16 @@ type UserProfileUserSettingsInput interface {
 }
 
 type UserProfileUserSettingsArgs struct {
+	// The Canvas app settings. See Canvas App Settings below.
+	CanvasAppSettings UserProfileUserSettingsCanvasAppSettingsPtrInput `pulumi:"canvasAppSettings"`
 	// The execution role ARN for the user.
 	ExecutionRole pulumi.StringInput `pulumi:"executionRole"`
 	// The Jupyter server's app settings. See Jupyter Server App Settings below.
 	JupyterServerAppSettings UserProfileUserSettingsJupyterServerAppSettingsPtrInput `pulumi:"jupyterServerAppSettings"`
 	// The kernel gateway app settings. See Kernel Gateway App Settings below.
 	KernelGatewayAppSettings UserProfileUserSettingsKernelGatewayAppSettingsPtrInput `pulumi:"kernelGatewayAppSettings"`
+	// The RSession app settings. See RSession App Settings below.
+	RSessionAppSettings UserProfileUserSettingsRSessionAppSettingsPtrInput `pulumi:"rSessionAppSettings"`
 	// The security groups.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
 	// The sharing settings. See Sharing Settings below.
@@ -9564,6 +10544,11 @@ func (o UserProfileUserSettingsOutput) ToUserProfileUserSettingsPtrOutputWithCon
 	}).(UserProfileUserSettingsPtrOutput)
 }
 
+// The Canvas app settings. See Canvas App Settings below.
+func (o UserProfileUserSettingsOutput) CanvasAppSettings() UserProfileUserSettingsCanvasAppSettingsPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettings) *UserProfileUserSettingsCanvasAppSettings { return v.CanvasAppSettings }).(UserProfileUserSettingsCanvasAppSettingsPtrOutput)
+}
+
 // The execution role ARN for the user.
 func (o UserProfileUserSettingsOutput) ExecutionRole() pulumi.StringOutput {
 	return o.ApplyT(func(v UserProfileUserSettings) string { return v.ExecutionRole }).(pulumi.StringOutput)
@@ -9581,6 +10566,13 @@ func (o UserProfileUserSettingsOutput) KernelGatewayAppSettings() UserProfileUse
 	return o.ApplyT(func(v UserProfileUserSettings) *UserProfileUserSettingsKernelGatewayAppSettings {
 		return v.KernelGatewayAppSettings
 	}).(UserProfileUserSettingsKernelGatewayAppSettingsPtrOutput)
+}
+
+// The RSession app settings. See RSession App Settings below.
+func (o UserProfileUserSettingsOutput) RSessionAppSettings() UserProfileUserSettingsRSessionAppSettingsPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettings) *UserProfileUserSettingsRSessionAppSettings {
+		return v.RSessionAppSettings
+	}).(UserProfileUserSettingsRSessionAppSettingsPtrOutput)
 }
 
 // The security groups.
@@ -9624,6 +10616,16 @@ func (o UserProfileUserSettingsPtrOutput) Elem() UserProfileUserSettingsOutput {
 	}).(UserProfileUserSettingsOutput)
 }
 
+// The Canvas app settings. See Canvas App Settings below.
+func (o UserProfileUserSettingsPtrOutput) CanvasAppSettings() UserProfileUserSettingsCanvasAppSettingsPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettings) *UserProfileUserSettingsCanvasAppSettings {
+		if v == nil {
+			return nil
+		}
+		return v.CanvasAppSettings
+	}).(UserProfileUserSettingsCanvasAppSettingsPtrOutput)
+}
+
 // The execution role ARN for the user.
 func (o UserProfileUserSettingsPtrOutput) ExecutionRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettings) *string {
@@ -9654,6 +10656,16 @@ func (o UserProfileUserSettingsPtrOutput) KernelGatewayAppSettings() UserProfile
 	}).(UserProfileUserSettingsKernelGatewayAppSettingsPtrOutput)
 }
 
+// The RSession app settings. See RSession App Settings below.
+func (o UserProfileUserSettingsPtrOutput) RSessionAppSettings() UserProfileUserSettingsRSessionAppSettingsPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettings) *UserProfileUserSettingsRSessionAppSettings {
+		if v == nil {
+			return nil
+		}
+		return v.RSessionAppSettings
+	}).(UserProfileUserSettingsRSessionAppSettingsPtrOutput)
+}
+
 // The security groups.
 func (o UserProfileUserSettingsPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UserProfileUserSettings) []string {
@@ -9682,6 +10694,303 @@ func (o UserProfileUserSettingsPtrOutput) TensorBoardAppSettings() UserProfileUs
 		}
 		return v.TensorBoardAppSettings
 	}).(UserProfileUserSettingsTensorBoardAppSettingsPtrOutput)
+}
+
+type UserProfileUserSettingsCanvasAppSettings struct {
+	// Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
+	TimeSeriesForecastingSettings *UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings `pulumi:"timeSeriesForecastingSettings"`
+}
+
+// UserProfileUserSettingsCanvasAppSettingsInput is an input type that accepts UserProfileUserSettingsCanvasAppSettingsArgs and UserProfileUserSettingsCanvasAppSettingsOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsCanvasAppSettingsInput` via:
+//
+//	UserProfileUserSettingsCanvasAppSettingsArgs{...}
+type UserProfileUserSettingsCanvasAppSettingsInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsCanvasAppSettingsOutput() UserProfileUserSettingsCanvasAppSettingsOutput
+	ToUserProfileUserSettingsCanvasAppSettingsOutputWithContext(context.Context) UserProfileUserSettingsCanvasAppSettingsOutput
+}
+
+type UserProfileUserSettingsCanvasAppSettingsArgs struct {
+	// Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
+	TimeSeriesForecastingSettings UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrInput `pulumi:"timeSeriesForecastingSettings"`
+}
+
+func (UserProfileUserSettingsCanvasAppSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettings)(nil)).Elem()
+}
+
+func (i UserProfileUserSettingsCanvasAppSettingsArgs) ToUserProfileUserSettingsCanvasAppSettingsOutput() UserProfileUserSettingsCanvasAppSettingsOutput {
+	return i.ToUserProfileUserSettingsCanvasAppSettingsOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsCanvasAppSettingsArgs) ToUserProfileUserSettingsCanvasAppSettingsOutputWithContext(ctx context.Context) UserProfileUserSettingsCanvasAppSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsCanvasAppSettingsOutput)
+}
+
+func (i UserProfileUserSettingsCanvasAppSettingsArgs) ToUserProfileUserSettingsCanvasAppSettingsPtrOutput() UserProfileUserSettingsCanvasAppSettingsPtrOutput {
+	return i.ToUserProfileUserSettingsCanvasAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsCanvasAppSettingsArgs) ToUserProfileUserSettingsCanvasAppSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsCanvasAppSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsCanvasAppSettingsOutput).ToUserProfileUserSettingsCanvasAppSettingsPtrOutputWithContext(ctx)
+}
+
+// UserProfileUserSettingsCanvasAppSettingsPtrInput is an input type that accepts UserProfileUserSettingsCanvasAppSettingsArgs, UserProfileUserSettingsCanvasAppSettingsPtr and UserProfileUserSettingsCanvasAppSettingsPtrOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsCanvasAppSettingsPtrInput` via:
+//
+//	        UserProfileUserSettingsCanvasAppSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserProfileUserSettingsCanvasAppSettingsPtrInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsCanvasAppSettingsPtrOutput() UserProfileUserSettingsCanvasAppSettingsPtrOutput
+	ToUserProfileUserSettingsCanvasAppSettingsPtrOutputWithContext(context.Context) UserProfileUserSettingsCanvasAppSettingsPtrOutput
+}
+
+type userProfileUserSettingsCanvasAppSettingsPtrType UserProfileUserSettingsCanvasAppSettingsArgs
+
+func UserProfileUserSettingsCanvasAppSettingsPtr(v *UserProfileUserSettingsCanvasAppSettingsArgs) UserProfileUserSettingsCanvasAppSettingsPtrInput {
+	return (*userProfileUserSettingsCanvasAppSettingsPtrType)(v)
+}
+
+func (*userProfileUserSettingsCanvasAppSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsCanvasAppSettings)(nil)).Elem()
+}
+
+func (i *userProfileUserSettingsCanvasAppSettingsPtrType) ToUserProfileUserSettingsCanvasAppSettingsPtrOutput() UserProfileUserSettingsCanvasAppSettingsPtrOutput {
+	return i.ToUserProfileUserSettingsCanvasAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *userProfileUserSettingsCanvasAppSettingsPtrType) ToUserProfileUserSettingsCanvasAppSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsCanvasAppSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsCanvasAppSettingsPtrOutput)
+}
+
+type UserProfileUserSettingsCanvasAppSettingsOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsCanvasAppSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettings)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsOutput) ToUserProfileUserSettingsCanvasAppSettingsOutput() UserProfileUserSettingsCanvasAppSettingsOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsOutput) ToUserProfileUserSettingsCanvasAppSettingsOutputWithContext(ctx context.Context) UserProfileUserSettingsCanvasAppSettingsOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsOutput) ToUserProfileUserSettingsCanvasAppSettingsPtrOutput() UserProfileUserSettingsCanvasAppSettingsPtrOutput {
+	return o.ToUserProfileUserSettingsCanvasAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsOutput) ToUserProfileUserSettingsCanvasAppSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsCanvasAppSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfileUserSettingsCanvasAppSettings) *UserProfileUserSettingsCanvasAppSettings {
+		return &v
+	}).(UserProfileUserSettingsCanvasAppSettingsPtrOutput)
+}
+
+// Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
+func (o UserProfileUserSettingsCanvasAppSettingsOutput) TimeSeriesForecastingSettings() UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsCanvasAppSettings) *UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings {
+		return v.TimeSeriesForecastingSettings
+	}).(UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput)
+}
+
+type UserProfileUserSettingsCanvasAppSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsCanvasAppSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsCanvasAppSettings)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsPtrOutput) ToUserProfileUserSettingsCanvasAppSettingsPtrOutput() UserProfileUserSettingsCanvasAppSettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsPtrOutput) ToUserProfileUserSettingsCanvasAppSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsCanvasAppSettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsPtrOutput) Elem() UserProfileUserSettingsCanvasAppSettingsOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsCanvasAppSettings) UserProfileUserSettingsCanvasAppSettings {
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileUserSettingsCanvasAppSettings
+		return ret
+	}).(UserProfileUserSettingsCanvasAppSettingsOutput)
+}
+
+// Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
+func (o UserProfileUserSettingsCanvasAppSettingsPtrOutput) TimeSeriesForecastingSettings() UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsCanvasAppSettings) *UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings {
+		if v == nil {
+			return nil
+		}
+		return v.TimeSeriesForecastingSettings
+	}).(UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput)
+}
+
+type UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings struct {
+	// The IAM role that Canvas passes to Amazon Forecast for time series forecasting. By default, Canvas uses the execution role specified in the UserProfile that launches the Canvas app. If an execution role is not specified in the UserProfile, Canvas uses the execution role specified in the Domain that owns the UserProfile. To allow time series forecasting, this IAM role should have the [AmazonSageMakerCanvasForecastAccess](https://docs.aws.amazon.com/sagemaker/latest/dg/security-iam-awsmanpol-canvas.html#security-iam-awsmanpol-AmazonSageMakerCanvasForecastAccess) policy attached and forecast.amazonaws.com added in the trust relationship as a service principal.
+	AmazonForecastRoleArn *string `pulumi:"amazonForecastRoleArn"`
+	// Describes whether time series forecasting is enabled or disabled in the Canvas app. Valid values are `ENABLED` and `DISABLED`.
+	Status *string `pulumi:"status"`
+}
+
+// UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsInput is an input type that accepts UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs and UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsInput` via:
+//
+//	UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs{...}
+type UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput() UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput
+	ToUserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutputWithContext(context.Context) UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput
+}
+
+type UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs struct {
+	// The IAM role that Canvas passes to Amazon Forecast for time series forecasting. By default, Canvas uses the execution role specified in the UserProfile that launches the Canvas app. If an execution role is not specified in the UserProfile, Canvas uses the execution role specified in the Domain that owns the UserProfile. To allow time series forecasting, this IAM role should have the [AmazonSageMakerCanvasForecastAccess](https://docs.aws.amazon.com/sagemaker/latest/dg/security-iam-awsmanpol-canvas.html#security-iam-awsmanpol-AmazonSageMakerCanvasForecastAccess) policy attached and forecast.amazonaws.com added in the trust relationship as a service principal.
+	AmazonForecastRoleArn pulumi.StringPtrInput `pulumi:"amazonForecastRoleArn"`
+	// Describes whether time series forecasting is enabled or disabled in the Canvas app. Valid values are `ENABLED` and `DISABLED`.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings)(nil)).Elem()
+}
+
+func (i UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs) ToUserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput() UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput {
+	return i.ToUserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs) ToUserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutputWithContext(ctx context.Context) UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput)
+}
+
+func (i UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs) ToUserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput() UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput {
+	return i.ToUserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs) ToUserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput).ToUserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutputWithContext(ctx)
+}
+
+// UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrInput is an input type that accepts UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs, UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtr and UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrInput` via:
+//
+//	        UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput() UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput
+	ToUserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutputWithContext(context.Context) UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput
+}
+
+type userProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrType UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs
+
+func UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtr(v *UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs) UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrInput {
+	return (*userProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrType)(v)
+}
+
+func (*userProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings)(nil)).Elem()
+}
+
+func (i *userProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrType) ToUserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput() UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput {
+	return i.ToUserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *userProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrType) ToUserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput)
+}
+
+type UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput) ToUserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput() UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput) ToUserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutputWithContext(ctx context.Context) UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput) ToUserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput() UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput {
+	return o.ToUserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput) ToUserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings) *UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings {
+		return &v
+	}).(UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput)
+}
+
+// The IAM role that Canvas passes to Amazon Forecast for time series forecasting. By default, Canvas uses the execution role specified in the UserProfile that launches the Canvas app. If an execution role is not specified in the UserProfile, Canvas uses the execution role specified in the Domain that owns the UserProfile. To allow time series forecasting, this IAM role should have the [AmazonSageMakerCanvasForecastAccess](https://docs.aws.amazon.com/sagemaker/latest/dg/security-iam-awsmanpol-canvas.html#security-iam-awsmanpol-AmazonSageMakerCanvasForecastAccess) policy attached and forecast.amazonaws.com added in the trust relationship as a service principal.
+func (o UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput) AmazonForecastRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings) *string {
+		return v.AmazonForecastRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes whether time series forecasting is enabled or disabled in the Canvas app. Valid values are `ENABLED` and `DISABLED`.
+func (o UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput) ToUserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput() UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput) ToUserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput) Elem() UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings) UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings {
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings
+		return ret
+	}).(UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput)
+}
+
+// The IAM role that Canvas passes to Amazon Forecast for time series forecasting. By default, Canvas uses the execution role specified in the UserProfile that launches the Canvas app. If an execution role is not specified in the UserProfile, Canvas uses the execution role specified in the Domain that owns the UserProfile. To allow time series forecasting, this IAM role should have the [AmazonSageMakerCanvasForecastAccess](https://docs.aws.amazon.com/sagemaker/latest/dg/security-iam-awsmanpol-canvas.html#security-iam-awsmanpol-AmazonSageMakerCanvasForecastAccess) policy attached and forecast.amazonaws.com added in the trust relationship as a service principal.
+func (o UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput) AmazonForecastRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AmazonForecastRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes whether time series forecasting is enabled or disabled in the Canvas app. Valid values are `ENABLED` and `DISABLED`.
+func (o UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
 }
 
 type UserProfileUserSettingsJupyterServerAppSettings struct {
@@ -10533,6 +11842,481 @@ func (o UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOut
 // The ARN of the image version created on the instance.
 func (o UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageVersionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SagemakerImageVersionArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserProfileUserSettingsRSessionAppSettings struct {
+	// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+	CustomImages []UserProfileUserSettingsRSessionAppSettingsCustomImage `pulumi:"customImages"`
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+	DefaultResourceSpec *UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
+}
+
+// UserProfileUserSettingsRSessionAppSettingsInput is an input type that accepts UserProfileUserSettingsRSessionAppSettingsArgs and UserProfileUserSettingsRSessionAppSettingsOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsRSessionAppSettingsInput` via:
+//
+//	UserProfileUserSettingsRSessionAppSettingsArgs{...}
+type UserProfileUserSettingsRSessionAppSettingsInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsRSessionAppSettingsOutput() UserProfileUserSettingsRSessionAppSettingsOutput
+	ToUserProfileUserSettingsRSessionAppSettingsOutputWithContext(context.Context) UserProfileUserSettingsRSessionAppSettingsOutput
+}
+
+type UserProfileUserSettingsRSessionAppSettingsArgs struct {
+	// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+	CustomImages UserProfileUserSettingsRSessionAppSettingsCustomImageArrayInput `pulumi:"customImages"`
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+	DefaultResourceSpec UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
+}
+
+func (UserProfileUserSettingsRSessionAppSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsRSessionAppSettings)(nil)).Elem()
+}
+
+func (i UserProfileUserSettingsRSessionAppSettingsArgs) ToUserProfileUserSettingsRSessionAppSettingsOutput() UserProfileUserSettingsRSessionAppSettingsOutput {
+	return i.ToUserProfileUserSettingsRSessionAppSettingsOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsRSessionAppSettingsArgs) ToUserProfileUserSettingsRSessionAppSettingsOutputWithContext(ctx context.Context) UserProfileUserSettingsRSessionAppSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsRSessionAppSettingsOutput)
+}
+
+func (i UserProfileUserSettingsRSessionAppSettingsArgs) ToUserProfileUserSettingsRSessionAppSettingsPtrOutput() UserProfileUserSettingsRSessionAppSettingsPtrOutput {
+	return i.ToUserProfileUserSettingsRSessionAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsRSessionAppSettingsArgs) ToUserProfileUserSettingsRSessionAppSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsRSessionAppSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsRSessionAppSettingsOutput).ToUserProfileUserSettingsRSessionAppSettingsPtrOutputWithContext(ctx)
+}
+
+// UserProfileUserSettingsRSessionAppSettingsPtrInput is an input type that accepts UserProfileUserSettingsRSessionAppSettingsArgs, UserProfileUserSettingsRSessionAppSettingsPtr and UserProfileUserSettingsRSessionAppSettingsPtrOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsRSessionAppSettingsPtrInput` via:
+//
+//	        UserProfileUserSettingsRSessionAppSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserProfileUserSettingsRSessionAppSettingsPtrInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsRSessionAppSettingsPtrOutput() UserProfileUserSettingsRSessionAppSettingsPtrOutput
+	ToUserProfileUserSettingsRSessionAppSettingsPtrOutputWithContext(context.Context) UserProfileUserSettingsRSessionAppSettingsPtrOutput
+}
+
+type userProfileUserSettingsRSessionAppSettingsPtrType UserProfileUserSettingsRSessionAppSettingsArgs
+
+func UserProfileUserSettingsRSessionAppSettingsPtr(v *UserProfileUserSettingsRSessionAppSettingsArgs) UserProfileUserSettingsRSessionAppSettingsPtrInput {
+	return (*userProfileUserSettingsRSessionAppSettingsPtrType)(v)
+}
+
+func (*userProfileUserSettingsRSessionAppSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsRSessionAppSettings)(nil)).Elem()
+}
+
+func (i *userProfileUserSettingsRSessionAppSettingsPtrType) ToUserProfileUserSettingsRSessionAppSettingsPtrOutput() UserProfileUserSettingsRSessionAppSettingsPtrOutput {
+	return i.ToUserProfileUserSettingsRSessionAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *userProfileUserSettingsRSessionAppSettingsPtrType) ToUserProfileUserSettingsRSessionAppSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsRSessionAppSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsRSessionAppSettingsPtrOutput)
+}
+
+type UserProfileUserSettingsRSessionAppSettingsOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsRSessionAppSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsRSessionAppSettings)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsRSessionAppSettingsOutput) ToUserProfileUserSettingsRSessionAppSettingsOutput() UserProfileUserSettingsRSessionAppSettingsOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsRSessionAppSettingsOutput) ToUserProfileUserSettingsRSessionAppSettingsOutputWithContext(ctx context.Context) UserProfileUserSettingsRSessionAppSettingsOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsRSessionAppSettingsOutput) ToUserProfileUserSettingsRSessionAppSettingsPtrOutput() UserProfileUserSettingsRSessionAppSettingsPtrOutput {
+	return o.ToUserProfileUserSettingsRSessionAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileUserSettingsRSessionAppSettingsOutput) ToUserProfileUserSettingsRSessionAppSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsRSessionAppSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfileUserSettingsRSessionAppSettings) *UserProfileUserSettingsRSessionAppSettings {
+		return &v
+	}).(UserProfileUserSettingsRSessionAppSettingsPtrOutput)
+}
+
+// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+func (o UserProfileUserSettingsRSessionAppSettingsOutput) CustomImages() UserProfileUserSettingsRSessionAppSettingsCustomImageArrayOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsRSessionAppSettings) []UserProfileUserSettingsRSessionAppSettingsCustomImage {
+		return v.CustomImages
+	}).(UserProfileUserSettingsRSessionAppSettingsCustomImageArrayOutput)
+}
+
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+func (o UserProfileUserSettingsRSessionAppSettingsOutput) DefaultResourceSpec() UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsRSessionAppSettings) *UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec {
+		return v.DefaultResourceSpec
+	}).(UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput)
+}
+
+type UserProfileUserSettingsRSessionAppSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsRSessionAppSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsRSessionAppSettings)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsRSessionAppSettingsPtrOutput) ToUserProfileUserSettingsRSessionAppSettingsPtrOutput() UserProfileUserSettingsRSessionAppSettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsRSessionAppSettingsPtrOutput) ToUserProfileUserSettingsRSessionAppSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsRSessionAppSettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsRSessionAppSettingsPtrOutput) Elem() UserProfileUserSettingsRSessionAppSettingsOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsRSessionAppSettings) UserProfileUserSettingsRSessionAppSettings {
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileUserSettingsRSessionAppSettings
+		return ret
+	}).(UserProfileUserSettingsRSessionAppSettingsOutput)
+}
+
+// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+func (o UserProfileUserSettingsRSessionAppSettingsPtrOutput) CustomImages() UserProfileUserSettingsRSessionAppSettingsCustomImageArrayOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsRSessionAppSettings) []UserProfileUserSettingsRSessionAppSettingsCustomImage {
+		if v == nil {
+			return nil
+		}
+		return v.CustomImages
+	}).(UserProfileUserSettingsRSessionAppSettingsCustomImageArrayOutput)
+}
+
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+func (o UserProfileUserSettingsRSessionAppSettingsPtrOutput) DefaultResourceSpec() UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsRSessionAppSettings) *UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultResourceSpec
+	}).(UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput)
+}
+
+type UserProfileUserSettingsRSessionAppSettingsCustomImage struct {
+	// The name of the App Image Config.
+	AppImageConfigName string `pulumi:"appImageConfigName"`
+	// The name of the Custom Image.
+	ImageName string `pulumi:"imageName"`
+	// The version number of the Custom Image.
+	ImageVersionNumber *int `pulumi:"imageVersionNumber"`
+}
+
+// UserProfileUserSettingsRSessionAppSettingsCustomImageInput is an input type that accepts UserProfileUserSettingsRSessionAppSettingsCustomImageArgs and UserProfileUserSettingsRSessionAppSettingsCustomImageOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsRSessionAppSettingsCustomImageInput` via:
+//
+//	UserProfileUserSettingsRSessionAppSettingsCustomImageArgs{...}
+type UserProfileUserSettingsRSessionAppSettingsCustomImageInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsRSessionAppSettingsCustomImageOutput() UserProfileUserSettingsRSessionAppSettingsCustomImageOutput
+	ToUserProfileUserSettingsRSessionAppSettingsCustomImageOutputWithContext(context.Context) UserProfileUserSettingsRSessionAppSettingsCustomImageOutput
+}
+
+type UserProfileUserSettingsRSessionAppSettingsCustomImageArgs struct {
+	// The name of the App Image Config.
+	AppImageConfigName pulumi.StringInput `pulumi:"appImageConfigName"`
+	// The name of the Custom Image.
+	ImageName pulumi.StringInput `pulumi:"imageName"`
+	// The version number of the Custom Image.
+	ImageVersionNumber pulumi.IntPtrInput `pulumi:"imageVersionNumber"`
+}
+
+func (UserProfileUserSettingsRSessionAppSettingsCustomImageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsRSessionAppSettingsCustomImage)(nil)).Elem()
+}
+
+func (i UserProfileUserSettingsRSessionAppSettingsCustomImageArgs) ToUserProfileUserSettingsRSessionAppSettingsCustomImageOutput() UserProfileUserSettingsRSessionAppSettingsCustomImageOutput {
+	return i.ToUserProfileUserSettingsRSessionAppSettingsCustomImageOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsRSessionAppSettingsCustomImageArgs) ToUserProfileUserSettingsRSessionAppSettingsCustomImageOutputWithContext(ctx context.Context) UserProfileUserSettingsRSessionAppSettingsCustomImageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsRSessionAppSettingsCustomImageOutput)
+}
+
+// UserProfileUserSettingsRSessionAppSettingsCustomImageArrayInput is an input type that accepts UserProfileUserSettingsRSessionAppSettingsCustomImageArray and UserProfileUserSettingsRSessionAppSettingsCustomImageArrayOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsRSessionAppSettingsCustomImageArrayInput` via:
+//
+//	UserProfileUserSettingsRSessionAppSettingsCustomImageArray{ UserProfileUserSettingsRSessionAppSettingsCustomImageArgs{...} }
+type UserProfileUserSettingsRSessionAppSettingsCustomImageArrayInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsRSessionAppSettingsCustomImageArrayOutput() UserProfileUserSettingsRSessionAppSettingsCustomImageArrayOutput
+	ToUserProfileUserSettingsRSessionAppSettingsCustomImageArrayOutputWithContext(context.Context) UserProfileUserSettingsRSessionAppSettingsCustomImageArrayOutput
+}
+
+type UserProfileUserSettingsRSessionAppSettingsCustomImageArray []UserProfileUserSettingsRSessionAppSettingsCustomImageInput
+
+func (UserProfileUserSettingsRSessionAppSettingsCustomImageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserProfileUserSettingsRSessionAppSettingsCustomImage)(nil)).Elem()
+}
+
+func (i UserProfileUserSettingsRSessionAppSettingsCustomImageArray) ToUserProfileUserSettingsRSessionAppSettingsCustomImageArrayOutput() UserProfileUserSettingsRSessionAppSettingsCustomImageArrayOutput {
+	return i.ToUserProfileUserSettingsRSessionAppSettingsCustomImageArrayOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsRSessionAppSettingsCustomImageArray) ToUserProfileUserSettingsRSessionAppSettingsCustomImageArrayOutputWithContext(ctx context.Context) UserProfileUserSettingsRSessionAppSettingsCustomImageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsRSessionAppSettingsCustomImageArrayOutput)
+}
+
+type UserProfileUserSettingsRSessionAppSettingsCustomImageOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsRSessionAppSettingsCustomImageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsRSessionAppSettingsCustomImage)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsRSessionAppSettingsCustomImageOutput) ToUserProfileUserSettingsRSessionAppSettingsCustomImageOutput() UserProfileUserSettingsRSessionAppSettingsCustomImageOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsRSessionAppSettingsCustomImageOutput) ToUserProfileUserSettingsRSessionAppSettingsCustomImageOutputWithContext(ctx context.Context) UserProfileUserSettingsRSessionAppSettingsCustomImageOutput {
+	return o
+}
+
+// The name of the App Image Config.
+func (o UserProfileUserSettingsRSessionAppSettingsCustomImageOutput) AppImageConfigName() pulumi.StringOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsRSessionAppSettingsCustomImage) string { return v.AppImageConfigName }).(pulumi.StringOutput)
+}
+
+// The name of the Custom Image.
+func (o UserProfileUserSettingsRSessionAppSettingsCustomImageOutput) ImageName() pulumi.StringOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsRSessionAppSettingsCustomImage) string { return v.ImageName }).(pulumi.StringOutput)
+}
+
+// The version number of the Custom Image.
+func (o UserProfileUserSettingsRSessionAppSettingsCustomImageOutput) ImageVersionNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsRSessionAppSettingsCustomImage) *int { return v.ImageVersionNumber }).(pulumi.IntPtrOutput)
+}
+
+type UserProfileUserSettingsRSessionAppSettingsCustomImageArrayOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsRSessionAppSettingsCustomImageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserProfileUserSettingsRSessionAppSettingsCustomImage)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsRSessionAppSettingsCustomImageArrayOutput) ToUserProfileUserSettingsRSessionAppSettingsCustomImageArrayOutput() UserProfileUserSettingsRSessionAppSettingsCustomImageArrayOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsRSessionAppSettingsCustomImageArrayOutput) ToUserProfileUserSettingsRSessionAppSettingsCustomImageArrayOutputWithContext(ctx context.Context) UserProfileUserSettingsRSessionAppSettingsCustomImageArrayOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsRSessionAppSettingsCustomImageArrayOutput) Index(i pulumi.IntInput) UserProfileUserSettingsRSessionAppSettingsCustomImageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserProfileUserSettingsRSessionAppSettingsCustomImage {
+		return vs[0].([]UserProfileUserSettingsRSessionAppSettingsCustomImage)[vs[1].(int)]
+	}).(UserProfileUserSettingsRSessionAppSettingsCustomImageOutput)
+}
+
+type UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec struct {
+	// The instance type.
+	InstanceType *string `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
+	// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
+	// The ARN of the image version created on the instance.
+	SagemakerImageVersionArn *string `pulumi:"sagemakerImageVersionArn"`
+}
+
+// UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecInput is an input type that accepts UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecArgs and UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecInput` via:
+//
+//	UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecArgs{...}
+type UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecOutput() UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecOutput
+	ToUserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecOutputWithContext(context.Context) UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecOutput
+}
+
+type UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecArgs struct {
+	// The instance type.
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
+	// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
+	// The ARN of the image version created on the instance.
+	SagemakerImageVersionArn pulumi.StringPtrInput `pulumi:"sagemakerImageVersionArn"`
+}
+
+func (UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (i UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecArgs) ToUserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecOutput() UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecOutput {
+	return i.ToUserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecArgs) ToUserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecOutputWithContext(ctx context.Context) UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecOutput)
+}
+
+func (i UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecArgs) ToUserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput() UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput {
+	return i.ToUserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecArgs) ToUserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecOutput).ToUserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx)
+}
+
+// UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrInput is an input type that accepts UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecArgs, UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtr and UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrInput` via:
+//
+//	        UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput() UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput
+	ToUserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutputWithContext(context.Context) UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput
+}
+
+type userProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrType UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecArgs
+
+func UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtr(v *UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecArgs) UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrInput {
+	return (*userProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrType)(v)
+}
+
+func (*userProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (i *userProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrType) ToUserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput() UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput {
+	return i.ToUserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (i *userProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrType) ToUserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput)
+}
+
+type UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecOutput) ToUserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecOutput() UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecOutput) ToUserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecOutputWithContext(ctx context.Context) UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecOutput) ToUserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput() UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput {
+	return o.ToUserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecOutput) ToUserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec) *UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec {
+		return &v
+	}).(UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput)
+}
+
+// The instance type.
+func (o UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+func (o UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec) *string {
+		return v.LifecycleConfigArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+func (o UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecOutput) SagemakerImageArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec) *string {
+		return v.SagemakerImageArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the image version created on the instance.
+func (o UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecOutput) SagemakerImageVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec) *string {
+		return v.SagemakerImageVersionArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput) ToUserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput() UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput) ToUserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput) Elem() UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec) UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec {
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec
+		return ret
+	}).(UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecOutput)
+}
+
+// The instance type.
+func (o UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+func (o UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LifecycleConfigArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+func (o UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SagemakerImageArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the image version created on the instance.
+func (o UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
 			return nil
 		}
@@ -11619,6 +13403,196 @@ func (o WorkforceSourceIpConfigPtrOutput) Cidrs() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+type WorkforceWorkforceVpcConfig struct {
+	// The VPC security group IDs. The security groups must be for the same VPC as specified in the subnet.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// The ID of the subnets in the VPC that you want to connect.
+	Subnets       []string `pulumi:"subnets"`
+	VpcEndpointId *string  `pulumi:"vpcEndpointId"`
+	// The ID of the VPC that the workforce uses for communication.
+	VpcId *string `pulumi:"vpcId"`
+}
+
+// WorkforceWorkforceVpcConfigInput is an input type that accepts WorkforceWorkforceVpcConfigArgs and WorkforceWorkforceVpcConfigOutput values.
+// You can construct a concrete instance of `WorkforceWorkforceVpcConfigInput` via:
+//
+//	WorkforceWorkforceVpcConfigArgs{...}
+type WorkforceWorkforceVpcConfigInput interface {
+	pulumi.Input
+
+	ToWorkforceWorkforceVpcConfigOutput() WorkforceWorkforceVpcConfigOutput
+	ToWorkforceWorkforceVpcConfigOutputWithContext(context.Context) WorkforceWorkforceVpcConfigOutput
+}
+
+type WorkforceWorkforceVpcConfigArgs struct {
+	// The VPC security group IDs. The security groups must be for the same VPC as specified in the subnet.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// The ID of the subnets in the VPC that you want to connect.
+	Subnets       pulumi.StringArrayInput `pulumi:"subnets"`
+	VpcEndpointId pulumi.StringPtrInput   `pulumi:"vpcEndpointId"`
+	// The ID of the VPC that the workforce uses for communication.
+	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
+}
+
+func (WorkforceWorkforceVpcConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkforceWorkforceVpcConfig)(nil)).Elem()
+}
+
+func (i WorkforceWorkforceVpcConfigArgs) ToWorkforceWorkforceVpcConfigOutput() WorkforceWorkforceVpcConfigOutput {
+	return i.ToWorkforceWorkforceVpcConfigOutputWithContext(context.Background())
+}
+
+func (i WorkforceWorkforceVpcConfigArgs) ToWorkforceWorkforceVpcConfigOutputWithContext(ctx context.Context) WorkforceWorkforceVpcConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkforceWorkforceVpcConfigOutput)
+}
+
+func (i WorkforceWorkforceVpcConfigArgs) ToWorkforceWorkforceVpcConfigPtrOutput() WorkforceWorkforceVpcConfigPtrOutput {
+	return i.ToWorkforceWorkforceVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i WorkforceWorkforceVpcConfigArgs) ToWorkforceWorkforceVpcConfigPtrOutputWithContext(ctx context.Context) WorkforceWorkforceVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkforceWorkforceVpcConfigOutput).ToWorkforceWorkforceVpcConfigPtrOutputWithContext(ctx)
+}
+
+// WorkforceWorkforceVpcConfigPtrInput is an input type that accepts WorkforceWorkforceVpcConfigArgs, WorkforceWorkforceVpcConfigPtr and WorkforceWorkforceVpcConfigPtrOutput values.
+// You can construct a concrete instance of `WorkforceWorkforceVpcConfigPtrInput` via:
+//
+//	        WorkforceWorkforceVpcConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkforceWorkforceVpcConfigPtrInput interface {
+	pulumi.Input
+
+	ToWorkforceWorkforceVpcConfigPtrOutput() WorkforceWorkforceVpcConfigPtrOutput
+	ToWorkforceWorkforceVpcConfigPtrOutputWithContext(context.Context) WorkforceWorkforceVpcConfigPtrOutput
+}
+
+type workforceWorkforceVpcConfigPtrType WorkforceWorkforceVpcConfigArgs
+
+func WorkforceWorkforceVpcConfigPtr(v *WorkforceWorkforceVpcConfigArgs) WorkforceWorkforceVpcConfigPtrInput {
+	return (*workforceWorkforceVpcConfigPtrType)(v)
+}
+
+func (*workforceWorkforceVpcConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkforceWorkforceVpcConfig)(nil)).Elem()
+}
+
+func (i *workforceWorkforceVpcConfigPtrType) ToWorkforceWorkforceVpcConfigPtrOutput() WorkforceWorkforceVpcConfigPtrOutput {
+	return i.ToWorkforceWorkforceVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *workforceWorkforceVpcConfigPtrType) ToWorkforceWorkforceVpcConfigPtrOutputWithContext(ctx context.Context) WorkforceWorkforceVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkforceWorkforceVpcConfigPtrOutput)
+}
+
+type WorkforceWorkforceVpcConfigOutput struct{ *pulumi.OutputState }
+
+func (WorkforceWorkforceVpcConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkforceWorkforceVpcConfig)(nil)).Elem()
+}
+
+func (o WorkforceWorkforceVpcConfigOutput) ToWorkforceWorkforceVpcConfigOutput() WorkforceWorkforceVpcConfigOutput {
+	return o
+}
+
+func (o WorkforceWorkforceVpcConfigOutput) ToWorkforceWorkforceVpcConfigOutputWithContext(ctx context.Context) WorkforceWorkforceVpcConfigOutput {
+	return o
+}
+
+func (o WorkforceWorkforceVpcConfigOutput) ToWorkforceWorkforceVpcConfigPtrOutput() WorkforceWorkforceVpcConfigPtrOutput {
+	return o.ToWorkforceWorkforceVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (o WorkforceWorkforceVpcConfigOutput) ToWorkforceWorkforceVpcConfigPtrOutputWithContext(ctx context.Context) WorkforceWorkforceVpcConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkforceWorkforceVpcConfig) *WorkforceWorkforceVpcConfig {
+		return &v
+	}).(WorkforceWorkforceVpcConfigPtrOutput)
+}
+
+// The VPC security group IDs. The security groups must be for the same VPC as specified in the subnet.
+func (o WorkforceWorkforceVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WorkforceWorkforceVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+// The ID of the subnets in the VPC that you want to connect.
+func (o WorkforceWorkforceVpcConfigOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WorkforceWorkforceVpcConfig) []string { return v.Subnets }).(pulumi.StringArrayOutput)
+}
+
+func (o WorkforceWorkforceVpcConfigOutput) VpcEndpointId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkforceWorkforceVpcConfig) *string { return v.VpcEndpointId }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the VPC that the workforce uses for communication.
+func (o WorkforceWorkforceVpcConfigOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkforceWorkforceVpcConfig) *string { return v.VpcId }).(pulumi.StringPtrOutput)
+}
+
+type WorkforceWorkforceVpcConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkforceWorkforceVpcConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkforceWorkforceVpcConfig)(nil)).Elem()
+}
+
+func (o WorkforceWorkforceVpcConfigPtrOutput) ToWorkforceWorkforceVpcConfigPtrOutput() WorkforceWorkforceVpcConfigPtrOutput {
+	return o
+}
+
+func (o WorkforceWorkforceVpcConfigPtrOutput) ToWorkforceWorkforceVpcConfigPtrOutputWithContext(ctx context.Context) WorkforceWorkforceVpcConfigPtrOutput {
+	return o
+}
+
+func (o WorkforceWorkforceVpcConfigPtrOutput) Elem() WorkforceWorkforceVpcConfigOutput {
+	return o.ApplyT(func(v *WorkforceWorkforceVpcConfig) WorkforceWorkforceVpcConfig {
+		if v != nil {
+			return *v
+		}
+		var ret WorkforceWorkforceVpcConfig
+		return ret
+	}).(WorkforceWorkforceVpcConfigOutput)
+}
+
+// The VPC security group IDs. The security groups must be for the same VPC as specified in the subnet.
+func (o WorkforceWorkforceVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WorkforceWorkforceVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The ID of the subnets in the VPC that you want to connect.
+func (o WorkforceWorkforceVpcConfigPtrOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WorkforceWorkforceVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Subnets
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o WorkforceWorkforceVpcConfigPtrOutput) VpcEndpointId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkforceWorkforceVpcConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VpcEndpointId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the VPC that the workforce uses for communication.
+func (o WorkforceWorkforceVpcConfigPtrOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkforceWorkforceVpcConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VpcId
+	}).(pulumi.StringPtrOutput)
+}
+
 type WorkteamMemberDefinition struct {
 	// The Amazon Cognito user group that is part of the work team. See Cognito Member Definition details below.
 	CognitoMemberDefinition *WorkteamMemberDefinitionCognitoMemberDefinition `pulumi:"cognitoMemberDefinition"`
@@ -12195,6 +14169,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceFleetOutputConfigPtrInput)(nil)).Elem(), DeviceFleetOutputConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsInput)(nil)).Elem(), DomainDefaultUserSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsPtrInput)(nil)).Elem(), DomainDefaultUserSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsInput)(nil)).Elem(), DomainDefaultUserSettingsCanvasAppSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsPtrInput)(nil)).Elem(), DomainDefaultUserSettingsCanvasAppSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsInput)(nil)).Elem(), DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrInput)(nil)).Elem(), DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsJupyterServerAppSettingsInput)(nil)).Elem(), DomainDefaultUserSettingsJupyterServerAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsJupyterServerAppSettingsPtrInput)(nil)).Elem(), DomainDefaultUserSettingsJupyterServerAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecInput)(nil)).Elem(), DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs{})
@@ -12205,12 +14183,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArrayInput)(nil)).Elem(), DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecInput)(nil)).Elem(), DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrInput)(nil)).Elem(), DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsRSessionAppSettingsInput)(nil)).Elem(), DomainDefaultUserSettingsRSessionAppSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsRSessionAppSettingsPtrInput)(nil)).Elem(), DomainDefaultUserSettingsRSessionAppSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsRSessionAppSettingsCustomImageInput)(nil)).Elem(), DomainDefaultUserSettingsRSessionAppSettingsCustomImageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsRSessionAppSettingsCustomImageArrayInput)(nil)).Elem(), DomainDefaultUserSettingsRSessionAppSettingsCustomImageArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecInput)(nil)).Elem(), DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrInput)(nil)).Elem(), DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsSharingSettingsInput)(nil)).Elem(), DomainDefaultUserSettingsSharingSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsSharingSettingsPtrInput)(nil)).Elem(), DomainDefaultUserSettingsSharingSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsTensorBoardAppSettingsInput)(nil)).Elem(), DomainDefaultUserSettingsTensorBoardAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsTensorBoardAppSettingsPtrInput)(nil)).Elem(), DomainDefaultUserSettingsTensorBoardAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecInput)(nil)).Elem(), DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrInput)(nil)).Elem(), DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDomainSettingsInput)(nil)).Elem(), DomainDomainSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDomainSettingsPtrInput)(nil)).Elem(), DomainDomainSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainRetentionPolicyInput)(nil)).Elem(), DomainRetentionPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainRetentionPolicyPtrInput)(nil)).Elem(), DomainRetentionPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigurationAsyncInferenceConfigInput)(nil)).Elem(), EndpointConfigurationAsyncInferenceConfigArgs{})
@@ -12297,6 +14283,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectServiceCatalogProvisioningDetailsProvisioningParameterArrayInput)(nil)).Elem(), ProjectServiceCatalogProvisioningDetailsProvisioningParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsInput)(nil)).Elem(), UserProfileUserSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsPtrInput)(nil)).Elem(), UserProfileUserSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsInput)(nil)).Elem(), UserProfileUserSettingsCanvasAppSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsPtrInput)(nil)).Elem(), UserProfileUserSettingsCanvasAppSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsInput)(nil)).Elem(), UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrInput)(nil)).Elem(), UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsJupyterServerAppSettingsInput)(nil)).Elem(), UserProfileUserSettingsJupyterServerAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsJupyterServerAppSettingsPtrInput)(nil)).Elem(), UserProfileUserSettingsJupyterServerAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecInput)(nil)).Elem(), UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs{})
@@ -12307,6 +14297,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArrayInput)(nil)).Elem(), UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecInput)(nil)).Elem(), UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrInput)(nil)).Elem(), UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsRSessionAppSettingsInput)(nil)).Elem(), UserProfileUserSettingsRSessionAppSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsRSessionAppSettingsPtrInput)(nil)).Elem(), UserProfileUserSettingsRSessionAppSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsRSessionAppSettingsCustomImageInput)(nil)).Elem(), UserProfileUserSettingsRSessionAppSettingsCustomImageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsRSessionAppSettingsCustomImageArrayInput)(nil)).Elem(), UserProfileUserSettingsRSessionAppSettingsCustomImageArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecInput)(nil)).Elem(), UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrInput)(nil)).Elem(), UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsSharingSettingsInput)(nil)).Elem(), UserProfileUserSettingsSharingSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsSharingSettingsPtrInput)(nil)).Elem(), UserProfileUserSettingsSharingSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsTensorBoardAppSettingsInput)(nil)).Elem(), UserProfileUserSettingsTensorBoardAppSettingsArgs{})
@@ -12319,6 +14315,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkforceOidcConfigPtrInput)(nil)).Elem(), WorkforceOidcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkforceSourceIpConfigInput)(nil)).Elem(), WorkforceSourceIpConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkforceSourceIpConfigPtrInput)(nil)).Elem(), WorkforceSourceIpConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkforceWorkforceVpcConfigInput)(nil)).Elem(), WorkforceWorkforceVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkforceWorkforceVpcConfigPtrInput)(nil)).Elem(), WorkforceWorkforceVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkteamMemberDefinitionInput)(nil)).Elem(), WorkteamMemberDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkteamMemberDefinitionArrayInput)(nil)).Elem(), WorkteamMemberDefinitionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkteamMemberDefinitionCognitoMemberDefinitionInput)(nil)).Elem(), WorkteamMemberDefinitionCognitoMemberDefinitionArgs{})
@@ -12343,6 +14341,10 @@ func init() {
 	pulumi.RegisterOutputType(DeviceFleetOutputConfigPtrOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsPtrOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsCanvasAppSettingsOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsCanvasAppSettingsPtrOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsJupyterServerAppSettingsOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput{})
@@ -12353,12 +14355,20 @@ func init() {
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsRSessionAppSettingsOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsRSessionAppSettingsPtrOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsRSessionAppSettingsCustomImageOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsRSessionAppSettingsCustomImageArrayOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsSharingSettingsOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsSharingSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsTensorBoardAppSettingsOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput{})
+	pulumi.RegisterOutputType(DomainDomainSettingsOutput{})
+	pulumi.RegisterOutputType(DomainDomainSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainRetentionPolicyOutput{})
 	pulumi.RegisterOutputType(DomainRetentionPolicyPtrOutput{})
 	pulumi.RegisterOutputType(EndpointConfigurationAsyncInferenceConfigOutput{})
@@ -12445,6 +14455,10 @@ func init() {
 	pulumi.RegisterOutputType(ProjectServiceCatalogProvisioningDetailsProvisioningParameterArrayOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsPtrOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsCanvasAppSettingsOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsCanvasAppSettingsPtrOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsJupyterServerAppSettingsOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsJupyterServerAppSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput{})
@@ -12455,6 +14469,12 @@ func init() {
 	pulumi.RegisterOutputType(UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsRSessionAppSettingsOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsRSessionAppSettingsPtrOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsRSessionAppSettingsCustomImageOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsRSessionAppSettingsCustomImageArrayOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsSharingSettingsOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsSharingSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsTensorBoardAppSettingsOutput{})
@@ -12467,6 +14487,8 @@ func init() {
 	pulumi.RegisterOutputType(WorkforceOidcConfigPtrOutput{})
 	pulumi.RegisterOutputType(WorkforceSourceIpConfigOutput{})
 	pulumi.RegisterOutputType(WorkforceSourceIpConfigPtrOutput{})
+	pulumi.RegisterOutputType(WorkforceWorkforceVpcConfigOutput{})
+	pulumi.RegisterOutputType(WorkforceWorkforceVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(WorkteamMemberDefinitionOutput{})
 	pulumi.RegisterOutputType(WorkteamMemberDefinitionArrayOutput{})
 	pulumi.RegisterOutputType(WorkteamMemberDefinitionCognitoMemberDefinitionOutput{})

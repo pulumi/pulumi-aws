@@ -9,6 +9,7 @@ import com.pulumi.aws.sagemaker.inputs.WorkforceState;
 import com.pulumi.aws.sagemaker.outputs.WorkforceCognitoConfig;
 import com.pulumi.aws.sagemaker.outputs.WorkforceOidcConfig;
 import com.pulumi.aws.sagemaker.outputs.WorkforceSourceIpConfig;
+import com.pulumi.aws.sagemaker.outputs.WorkforceWorkforceVpcConfig;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -182,6 +183,7 @@ public class Workforce extends com.pulumi.resources.CustomResource {
     }
     /**
      * The subdomain for your OIDC Identity Provider.
+     * * `workforce_vpc_config.0.vpc_endpoint_id` - The IDs for the VPC service endpoints of your VPC workforce.
      * 
      */
     @Export(name="subdomain", type=String.class, parameters={})
@@ -189,6 +191,7 @@ public class Workforce extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The subdomain for your OIDC Identity Provider.
+     * * `workforce_vpc_config.0.vpc_endpoint_id` - The IDs for the VPC service endpoints of your VPC workforce.
      * 
      */
     public Output<String> subdomain() {
@@ -207,6 +210,20 @@ public class Workforce extends com.pulumi.resources.CustomResource {
      */
     public Output<String> workforceName() {
         return this.workforceName;
+    }
+    /**
+     * configure a workforce using VPC. see Workforce VPC Config details below.
+     * 
+     */
+    @Export(name="workforceVpcConfig", type=WorkforceWorkforceVpcConfig.class, parameters={})
+    private Output</* @Nullable */ WorkforceWorkforceVpcConfig> workforceVpcConfig;
+
+    /**
+     * @return configure a workforce using VPC. see Workforce VPC Config details below.
+     * 
+     */
+    public Output<Optional<WorkforceWorkforceVpcConfig>> workforceVpcConfig() {
+        return Codegen.optional(this.workforceVpcConfig);
     }
 
     /**

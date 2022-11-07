@@ -85,6 +85,10 @@ export { ProjectArgs, ProjectState } from "./project";
 export type Project = import("./project").Project;
 export const Project: typeof import("./project").Project = null as any;
 
+export { ServicecatalogPortfolioStatusArgs, ServicecatalogPortfolioStatusState } from "./servicecatalogPortfolioStatus";
+export type ServicecatalogPortfolioStatus = import("./servicecatalogPortfolioStatus").ServicecatalogPortfolioStatus;
+export const ServicecatalogPortfolioStatus: typeof import("./servicecatalogPortfolioStatus").ServicecatalogPortfolioStatus = null as any;
+
 export { StudioLifecycleConfigArgs, StudioLifecycleConfigState } from "./studioLifecycleConfig";
 export type StudioLifecycleConfig = import("./studioLifecycleConfig").StudioLifecycleConfig;
 export const StudioLifecycleConfig: typeof import("./studioLifecycleConfig").StudioLifecycleConfig = null as any;
@@ -121,6 +125,7 @@ utilities.lazyLoad(exports, ["ModelPackageGroupPolicy"], () => require("./modelP
 utilities.lazyLoad(exports, ["NotebookInstance"], () => require("./notebookInstance"));
 utilities.lazyLoad(exports, ["NotebookInstanceLifecycleConfiguration"], () => require("./notebookInstanceLifecycleConfiguration"));
 utilities.lazyLoad(exports, ["Project"], () => require("./project"));
+utilities.lazyLoad(exports, ["ServicecatalogPortfolioStatus"], () => require("./servicecatalogPortfolioStatus"));
 utilities.lazyLoad(exports, ["StudioLifecycleConfig"], () => require("./studioLifecycleConfig"));
 utilities.lazyLoad(exports, ["UserProfile"], () => require("./userProfile"));
 utilities.lazyLoad(exports, ["Workforce"], () => require("./workforce"));
@@ -168,6 +173,8 @@ const _module = {
                 return new NotebookInstanceLifecycleConfiguration(name, <any>undefined, { urn })
             case "aws:sagemaker/project:Project":
                 return new Project(name, <any>undefined, { urn })
+            case "aws:sagemaker/servicecatalogPortfolioStatus:ServicecatalogPortfolioStatus":
+                return new ServicecatalogPortfolioStatus(name, <any>undefined, { urn })
             case "aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig":
                 return new StudioLifecycleConfig(name, <any>undefined, { urn })
             case "aws:sagemaker/userProfile:UserProfile":
@@ -200,6 +207,7 @@ pulumi.runtime.registerResourceModule("aws", "sagemaker/modelPackageGroupPolicy"
 pulumi.runtime.registerResourceModule("aws", "sagemaker/notebookInstance", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/notebookInstanceLifecycleConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/project", _module)
+pulumi.runtime.registerResourceModule("aws", "sagemaker/servicecatalogPortfolioStatus", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/studioLifecycleConfig", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/userProfile", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/workforce", _module)

@@ -26,7 +26,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing.Outputs
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// The type of sticky sessions. The only current possible values are `lb_cookie`, `app_cookie` for ALBs, and `source_ip` for NLBs.
+        /// The type of sticky sessions. The only current possible values are `lb_cookie`, `app_cookie` for ALBs, `source_ip` for NLBs, and `source_ip_dest_ip`, `source_ip_dest_ip_proto` for GWLBs.
         /// </summary>
         public readonly string Type;
 

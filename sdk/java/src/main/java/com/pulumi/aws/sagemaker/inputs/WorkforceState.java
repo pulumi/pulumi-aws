@@ -6,6 +6,7 @@ package com.pulumi.aws.sagemaker.inputs;
 import com.pulumi.aws.sagemaker.inputs.WorkforceCognitoConfigArgs;
 import com.pulumi.aws.sagemaker.inputs.WorkforceOidcConfigArgs;
 import com.pulumi.aws.sagemaker.inputs.WorkforceSourceIpConfigArgs;
+import com.pulumi.aws.sagemaker.inputs.WorkforceWorkforceVpcConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -80,6 +81,7 @@ public final class WorkforceState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * The subdomain for your OIDC Identity Provider.
+     * * `workforce_vpc_config.0.vpc_endpoint_id` - The IDs for the VPC service endpoints of your VPC workforce.
      * 
      */
     @Import(name="subdomain")
@@ -87,6 +89,7 @@ public final class WorkforceState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return The subdomain for your OIDC Identity Provider.
+     * * `workforce_vpc_config.0.vpc_endpoint_id` - The IDs for the VPC service endpoints of your VPC workforce.
      * 
      */
     public Optional<Output<String>> subdomain() {
@@ -108,6 +111,21 @@ public final class WorkforceState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.workforceName);
     }
 
+    /**
+     * configure a workforce using VPC. see Workforce VPC Config details below.
+     * 
+     */
+    @Import(name="workforceVpcConfig")
+    private @Nullable Output<WorkforceWorkforceVpcConfigArgs> workforceVpcConfig;
+
+    /**
+     * @return configure a workforce using VPC. see Workforce VPC Config details below.
+     * 
+     */
+    public Optional<Output<WorkforceWorkforceVpcConfigArgs>> workforceVpcConfig() {
+        return Optional.ofNullable(this.workforceVpcConfig);
+    }
+
     private WorkforceState() {}
 
     private WorkforceState(WorkforceState $) {
@@ -117,6 +135,7 @@ public final class WorkforceState extends com.pulumi.resources.ResourceArgs {
         this.sourceIpConfig = $.sourceIpConfig;
         this.subdomain = $.subdomain;
         this.workforceName = $.workforceName;
+        this.workforceVpcConfig = $.workforceVpcConfig;
     }
 
     public static Builder builder() {
@@ -223,6 +242,7 @@ public final class WorkforceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param subdomain The subdomain for your OIDC Identity Provider.
+         * * `workforce_vpc_config.0.vpc_endpoint_id` - The IDs for the VPC service endpoints of your VPC workforce.
          * 
          * @return builder
          * 
@@ -234,6 +254,7 @@ public final class WorkforceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param subdomain The subdomain for your OIDC Identity Provider.
+         * * `workforce_vpc_config.0.vpc_endpoint_id` - The IDs for the VPC service endpoints of your VPC workforce.
          * 
          * @return builder
          * 
@@ -261,6 +282,27 @@ public final class WorkforceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder workforceName(String workforceName) {
             return workforceName(Output.of(workforceName));
+        }
+
+        /**
+         * @param workforceVpcConfig configure a workforce using VPC. see Workforce VPC Config details below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder workforceVpcConfig(@Nullable Output<WorkforceWorkforceVpcConfigArgs> workforceVpcConfig) {
+            $.workforceVpcConfig = workforceVpcConfig;
+            return this;
+        }
+
+        /**
+         * @param workforceVpcConfig configure a workforce using VPC. see Workforce VPC Config details below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder workforceVpcConfig(WorkforceWorkforceVpcConfigArgs workforceVpcConfig) {
+            return workforceVpcConfig(Output.of(workforceVpcConfig));
         }
 
         public WorkforceState build() {

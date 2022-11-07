@@ -152,6 +152,21 @@ public final class TaskOptionsArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Determines which components of the SMB security descriptor are copied from source to destination objects. This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. Valid values: `NONE`, `OWNER_DACL`, `OWNER_DACL_SACL`.
+     * 
+     */
+    @Import(name="securityDescriptorCopyFlags")
+    private @Nullable Output<String> securityDescriptorCopyFlags;
+
+    /**
+     * @return Determines which components of the SMB security descriptor are copied from source to destination objects. This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. Valid values: `NONE`, `OWNER_DACL`, `OWNER_DACL_SACL`.
+     * 
+     */
+    public Optional<Output<String>> securityDescriptorCopyFlags() {
+        return Optional.ofNullable(this.securityDescriptorCopyFlags);
+    }
+
+    /**
      * Determines whether tasks should be queued before executing the tasks. Valid values: `ENABLED`, `DISABLED`. Default `ENABLED`.
      * 
      */
@@ -223,6 +238,7 @@ public final class TaskOptionsArgs extends com.pulumi.resources.ResourceArgs {
         this.posixPermissions = $.posixPermissions;
         this.preserveDeletedFiles = $.preserveDeletedFiles;
         this.preserveDevices = $.preserveDevices;
+        this.securityDescriptorCopyFlags = $.securityDescriptorCopyFlags;
         this.taskQueueing = $.taskQueueing;
         this.transferMode = $.transferMode;
         this.uid = $.uid;
@@ -434,6 +450,27 @@ public final class TaskOptionsArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder preserveDevices(String preserveDevices) {
             return preserveDevices(Output.of(preserveDevices));
+        }
+
+        /**
+         * @param securityDescriptorCopyFlags Determines which components of the SMB security descriptor are copied from source to destination objects. This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. Valid values: `NONE`, `OWNER_DACL`, `OWNER_DACL_SACL`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder securityDescriptorCopyFlags(@Nullable Output<String> securityDescriptorCopyFlags) {
+            $.securityDescriptorCopyFlags = securityDescriptorCopyFlags;
+            return this;
+        }
+
+        /**
+         * @param securityDescriptorCopyFlags Determines which components of the SMB security descriptor are copied from source to destination objects. This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. Valid values: `NONE`, `OWNER_DACL`, `OWNER_DACL_SACL`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder securityDescriptorCopyFlags(String securityDescriptorCopyFlags) {
+            return securityDescriptorCopyFlags(Output.of(securityDescriptorCopyFlags));
         }
 
         /**

@@ -22,6 +22,7 @@ import javax.annotation.Nullable;
  * Provides a AWS Transfer Workflow resource.
  * 
  * ## Example Usage
+ * ### Basic single step example
  * ```java
  * package generated_program;
  * 
@@ -53,6 +54,58 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .type(&#34;DELETE&#34;)
  *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Multistep example
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.transfer.Workflow;
+ * import com.pulumi.aws.transfer.WorkflowArgs;
+ * import com.pulumi.aws.transfer.inputs.WorkflowStepArgs;
+ * import com.pulumi.aws.transfer.inputs.WorkflowStepCustomStepDetailsArgs;
+ * import com.pulumi.aws.transfer.inputs.WorkflowStepTagStepDetailsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Workflow(&#34;example&#34;, WorkflowArgs.builder()        
+ *             .steps(            
+ *                 WorkflowStepArgs.builder()
+ *                     .customStepDetails(WorkflowStepCustomStepDetailsArgs.builder()
+ *                         .name(&#34;example&#34;)
+ *                         .sourceFileLocation(original.file())
+ *                         .target(aws_lambda_function.example().arn())
+ *                         .timeoutSeconds(60)
+ *                         .build())
+ *                     .type(&#34;CUSTOM&#34;)
+ *                     .build(),
+ *                 WorkflowStepArgs.builder()
+ *                     .tagStepDetails(WorkflowStepTagStepDetailsArgs.builder()
+ *                         .name(&#34;example&#34;)
+ *                         .sourceFileLocation(original.file())
+ *                         .tags(WorkflowStepTagStepDetailsTagArgs.builder()
+ *                             .key(&#34;Name&#34;)
+ *                             .value(&#34;Hello World&#34;)
+ *                             .build())
+ *                         .build())
+ *                     .type(&#34;TAG&#34;)
+ *                     .build())
  *             .build());
  * 
  *     }

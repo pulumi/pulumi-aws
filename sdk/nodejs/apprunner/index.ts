@@ -29,12 +29,17 @@ export { VpcConnectorArgs, VpcConnectorState } from "./vpcConnector";
 export type VpcConnector = import("./vpcConnector").VpcConnector;
 export const VpcConnector: typeof import("./vpcConnector").VpcConnector = null as any;
 
+export { VpcIngressConnectionArgs, VpcIngressConnectionState } from "./vpcIngressConnection";
+export type VpcIngressConnection = import("./vpcIngressConnection").VpcIngressConnection;
+export const VpcIngressConnection: typeof import("./vpcIngressConnection").VpcIngressConnection = null as any;
+
 utilities.lazyLoad(exports, ["AutoScalingConfigurationVersion"], () => require("./autoScalingConfigurationVersion"));
 utilities.lazyLoad(exports, ["Connection"], () => require("./connection"));
 utilities.lazyLoad(exports, ["CustomDomainAssociation"], () => require("./customDomainAssociation"));
 utilities.lazyLoad(exports, ["ObservabilityConfiguration"], () => require("./observabilityConfiguration"));
 utilities.lazyLoad(exports, ["Service"], () => require("./service"));
 utilities.lazyLoad(exports, ["VpcConnector"], () => require("./vpcConnector"));
+utilities.lazyLoad(exports, ["VpcIngressConnection"], () => require("./vpcIngressConnection"));
 
 const _module = {
     version: utilities.getVersion(),
@@ -52,6 +57,8 @@ const _module = {
                 return new Service(name, <any>undefined, { urn })
             case "aws:apprunner/vpcConnector:VpcConnector":
                 return new VpcConnector(name, <any>undefined, { urn })
+            case "aws:apprunner/vpcIngressConnection:VpcIngressConnection":
+                return new VpcIngressConnection(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -63,3 +70,4 @@ pulumi.runtime.registerResourceModule("aws", "apprunner/customDomainAssociation"
 pulumi.runtime.registerResourceModule("aws", "apprunner/observabilityConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "apprunner/service", _module)
 pulumi.runtime.registerResourceModule("aws", "apprunner/vpcConnector", _module)
+pulumi.runtime.registerResourceModule("aws", "apprunner/vpcIngressConnection", _module)

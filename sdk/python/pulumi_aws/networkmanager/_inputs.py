@@ -531,10 +531,10 @@ class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs:
 class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs:
     def __init__(__self__, *,
                  location: str,
-                 asn: Optional[int] = None,
+                 asn: Optional[str] = None,
                  inside_cidr_blocks: Optional[Sequence[str]] = None):
         """
-        :param int asn: ASN of the Core Network Edge in an AWS Region. By default, the ASN will be a single integer automatically assigned from `asn_ranges`
+        :param str asn: ASN of the Core Network Edge in an AWS Region. By default, the ASN will be a single integer automatically assigned from `asn_ranges`
         :param Sequence[str] inside_cidr_blocks: The local CIDR blocks for this Core Network Edge for AWS Transit Gateway Connect attachments. By default, this CIDR block will be one or more optional IPv4 and IPv6 CIDR prefixes auto-assigned from `inside_cidr_blocks`.
         """
         pulumi.set(__self__, "location", location)
@@ -554,14 +554,14 @@ class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs:
 
     @property
     @pulumi.getter
-    def asn(self) -> Optional[int]:
+    def asn(self) -> Optional[str]:
         """
         ASN of the Core Network Edge in an AWS Region. By default, the ASN will be a single integer automatically assigned from `asn_ranges`
         """
         return pulumi.get(self, "asn")
 
     @asn.setter
-    def asn(self, value: Optional[int]):
+    def asn(self, value: Optional[str]):
         pulumi.set(self, "asn", value)
 
     @property

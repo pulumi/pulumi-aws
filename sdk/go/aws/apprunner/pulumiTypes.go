@@ -816,8 +816,10 @@ func (o ServiceInstanceConfigurationPtrOutput) Memory() pulumi.StringPtrOutput {
 }
 
 type ServiceNetworkConfiguration struct {
-	// Network configuration settings for outbound message traffic.
+	// Network configuration settings for outbound message traffic. See Egress Configuration below for more details.
 	EgressConfiguration *ServiceNetworkConfigurationEgressConfiguration `pulumi:"egressConfiguration"`
+	// Network configuration settings for inbound network traffic. See Ingress Configuration below for more details.
+	IngressConfiguration *ServiceNetworkConfigurationIngressConfiguration `pulumi:"ingressConfiguration"`
 }
 
 // ServiceNetworkConfigurationInput is an input type that accepts ServiceNetworkConfigurationArgs and ServiceNetworkConfigurationOutput values.
@@ -832,8 +834,10 @@ type ServiceNetworkConfigurationInput interface {
 }
 
 type ServiceNetworkConfigurationArgs struct {
-	// Network configuration settings for outbound message traffic.
+	// Network configuration settings for outbound message traffic. See Egress Configuration below for more details.
 	EgressConfiguration ServiceNetworkConfigurationEgressConfigurationPtrInput `pulumi:"egressConfiguration"`
+	// Network configuration settings for inbound network traffic. See Ingress Configuration below for more details.
+	IngressConfiguration ServiceNetworkConfigurationIngressConfigurationPtrInput `pulumi:"ingressConfiguration"`
 }
 
 func (ServiceNetworkConfigurationArgs) ElementType() reflect.Type {
@@ -913,11 +917,18 @@ func (o ServiceNetworkConfigurationOutput) ToServiceNetworkConfigurationPtrOutpu
 	}).(ServiceNetworkConfigurationPtrOutput)
 }
 
-// Network configuration settings for outbound message traffic.
+// Network configuration settings for outbound message traffic. See Egress Configuration below for more details.
 func (o ServiceNetworkConfigurationOutput) EgressConfiguration() ServiceNetworkConfigurationEgressConfigurationPtrOutput {
 	return o.ApplyT(func(v ServiceNetworkConfiguration) *ServiceNetworkConfigurationEgressConfiguration {
 		return v.EgressConfiguration
 	}).(ServiceNetworkConfigurationEgressConfigurationPtrOutput)
+}
+
+// Network configuration settings for inbound network traffic. See Ingress Configuration below for more details.
+func (o ServiceNetworkConfigurationOutput) IngressConfiguration() ServiceNetworkConfigurationIngressConfigurationPtrOutput {
+	return o.ApplyT(func(v ServiceNetworkConfiguration) *ServiceNetworkConfigurationIngressConfiguration {
+		return v.IngressConfiguration
+	}).(ServiceNetworkConfigurationIngressConfigurationPtrOutput)
 }
 
 type ServiceNetworkConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -944,7 +955,7 @@ func (o ServiceNetworkConfigurationPtrOutput) Elem() ServiceNetworkConfiguration
 	}).(ServiceNetworkConfigurationOutput)
 }
 
-// Network configuration settings for outbound message traffic.
+// Network configuration settings for outbound message traffic. See Egress Configuration below for more details.
 func (o ServiceNetworkConfigurationPtrOutput) EgressConfiguration() ServiceNetworkConfigurationEgressConfigurationPtrOutput {
 	return o.ApplyT(func(v *ServiceNetworkConfiguration) *ServiceNetworkConfigurationEgressConfiguration {
 		if v == nil {
@@ -954,10 +965,20 @@ func (o ServiceNetworkConfigurationPtrOutput) EgressConfiguration() ServiceNetwo
 	}).(ServiceNetworkConfigurationEgressConfigurationPtrOutput)
 }
 
+// Network configuration settings for inbound network traffic. See Ingress Configuration below for more details.
+func (o ServiceNetworkConfigurationPtrOutput) IngressConfiguration() ServiceNetworkConfigurationIngressConfigurationPtrOutput {
+	return o.ApplyT(func(v *ServiceNetworkConfiguration) *ServiceNetworkConfigurationIngressConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.IngressConfiguration
+	}).(ServiceNetworkConfigurationIngressConfigurationPtrOutput)
+}
+
 type ServiceNetworkConfigurationEgressConfiguration struct {
-	// Type of egress configuration.Set to DEFAULT for access to resources hosted on public networks.Set to VPC to associate your service to a custom VPC specified by VpcConnectorArn.
+	// The type of egress configuration. Valid values are: `DEFAULT` and `VPC`.
 	EgressType *string `pulumi:"egressType"`
-	// ARN of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when EgressType = VPC.
+	// The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
 	VpcConnectorArn *string `pulumi:"vpcConnectorArn"`
 }
 
@@ -973,9 +994,9 @@ type ServiceNetworkConfigurationEgressConfigurationInput interface {
 }
 
 type ServiceNetworkConfigurationEgressConfigurationArgs struct {
-	// Type of egress configuration.Set to DEFAULT for access to resources hosted on public networks.Set to VPC to associate your service to a custom VPC specified by VpcConnectorArn.
+	// The type of egress configuration. Valid values are: `DEFAULT` and `VPC`.
 	EgressType pulumi.StringPtrInput `pulumi:"egressType"`
-	// ARN of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when EgressType = VPC.
+	// The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
 	VpcConnectorArn pulumi.StringPtrInput `pulumi:"vpcConnectorArn"`
 }
 
@@ -1056,12 +1077,12 @@ func (o ServiceNetworkConfigurationEgressConfigurationOutput) ToServiceNetworkCo
 	}).(ServiceNetworkConfigurationEgressConfigurationPtrOutput)
 }
 
-// Type of egress configuration.Set to DEFAULT for access to resources hosted on public networks.Set to VPC to associate your service to a custom VPC specified by VpcConnectorArn.
+// The type of egress configuration. Valid values are: `DEFAULT` and `VPC`.
 func (o ServiceNetworkConfigurationEgressConfigurationOutput) EgressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceNetworkConfigurationEgressConfiguration) *string { return v.EgressType }).(pulumi.StringPtrOutput)
 }
 
-// ARN of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when EgressType = VPC.
+// The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
 func (o ServiceNetworkConfigurationEgressConfigurationOutput) VpcConnectorArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceNetworkConfigurationEgressConfiguration) *string { return v.VpcConnectorArn }).(pulumi.StringPtrOutput)
 }
@@ -1090,7 +1111,7 @@ func (o ServiceNetworkConfigurationEgressConfigurationPtrOutput) Elem() ServiceN
 	}).(ServiceNetworkConfigurationEgressConfigurationOutput)
 }
 
-// Type of egress configuration.Set to DEFAULT for access to resources hosted on public networks.Set to VPC to associate your service to a custom VPC specified by VpcConnectorArn.
+// The type of egress configuration. Valid values are: `DEFAULT` and `VPC`.
 func (o ServiceNetworkConfigurationEgressConfigurationPtrOutput) EgressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceNetworkConfigurationEgressConfiguration) *string {
 		if v == nil {
@@ -1100,7 +1121,7 @@ func (o ServiceNetworkConfigurationEgressConfigurationPtrOutput) EgressType() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// ARN of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when EgressType = VPC.
+// The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
 func (o ServiceNetworkConfigurationEgressConfigurationPtrOutput) VpcConnectorArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceNetworkConfigurationEgressConfiguration) *string {
 		if v == nil {
@@ -1108,6 +1129,143 @@ func (o ServiceNetworkConfigurationEgressConfigurationPtrOutput) VpcConnectorArn
 		}
 		return v.VpcConnectorArn
 	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceNetworkConfigurationIngressConfiguration struct {
+	// Specifies whether your App Runner service is publicly accessible. To make the service publicly accessible set it to True. To make the service privately accessible, from only within an Amazon VPC set it to False.
+	IsPubliclyAccessible *bool `pulumi:"isPubliclyAccessible"`
+}
+
+// ServiceNetworkConfigurationIngressConfigurationInput is an input type that accepts ServiceNetworkConfigurationIngressConfigurationArgs and ServiceNetworkConfigurationIngressConfigurationOutput values.
+// You can construct a concrete instance of `ServiceNetworkConfigurationIngressConfigurationInput` via:
+//
+//	ServiceNetworkConfigurationIngressConfigurationArgs{...}
+type ServiceNetworkConfigurationIngressConfigurationInput interface {
+	pulumi.Input
+
+	ToServiceNetworkConfigurationIngressConfigurationOutput() ServiceNetworkConfigurationIngressConfigurationOutput
+	ToServiceNetworkConfigurationIngressConfigurationOutputWithContext(context.Context) ServiceNetworkConfigurationIngressConfigurationOutput
+}
+
+type ServiceNetworkConfigurationIngressConfigurationArgs struct {
+	// Specifies whether your App Runner service is publicly accessible. To make the service publicly accessible set it to True. To make the service privately accessible, from only within an Amazon VPC set it to False.
+	IsPubliclyAccessible pulumi.BoolPtrInput `pulumi:"isPubliclyAccessible"`
+}
+
+func (ServiceNetworkConfigurationIngressConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceNetworkConfigurationIngressConfiguration)(nil)).Elem()
+}
+
+func (i ServiceNetworkConfigurationIngressConfigurationArgs) ToServiceNetworkConfigurationIngressConfigurationOutput() ServiceNetworkConfigurationIngressConfigurationOutput {
+	return i.ToServiceNetworkConfigurationIngressConfigurationOutputWithContext(context.Background())
+}
+
+func (i ServiceNetworkConfigurationIngressConfigurationArgs) ToServiceNetworkConfigurationIngressConfigurationOutputWithContext(ctx context.Context) ServiceNetworkConfigurationIngressConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkConfigurationIngressConfigurationOutput)
+}
+
+func (i ServiceNetworkConfigurationIngressConfigurationArgs) ToServiceNetworkConfigurationIngressConfigurationPtrOutput() ServiceNetworkConfigurationIngressConfigurationPtrOutput {
+	return i.ToServiceNetworkConfigurationIngressConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceNetworkConfigurationIngressConfigurationArgs) ToServiceNetworkConfigurationIngressConfigurationPtrOutputWithContext(ctx context.Context) ServiceNetworkConfigurationIngressConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkConfigurationIngressConfigurationOutput).ToServiceNetworkConfigurationIngressConfigurationPtrOutputWithContext(ctx)
+}
+
+// ServiceNetworkConfigurationIngressConfigurationPtrInput is an input type that accepts ServiceNetworkConfigurationIngressConfigurationArgs, ServiceNetworkConfigurationIngressConfigurationPtr and ServiceNetworkConfigurationIngressConfigurationPtrOutput values.
+// You can construct a concrete instance of `ServiceNetworkConfigurationIngressConfigurationPtrInput` via:
+//
+//	        ServiceNetworkConfigurationIngressConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceNetworkConfigurationIngressConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToServiceNetworkConfigurationIngressConfigurationPtrOutput() ServiceNetworkConfigurationIngressConfigurationPtrOutput
+	ToServiceNetworkConfigurationIngressConfigurationPtrOutputWithContext(context.Context) ServiceNetworkConfigurationIngressConfigurationPtrOutput
+}
+
+type serviceNetworkConfigurationIngressConfigurationPtrType ServiceNetworkConfigurationIngressConfigurationArgs
+
+func ServiceNetworkConfigurationIngressConfigurationPtr(v *ServiceNetworkConfigurationIngressConfigurationArgs) ServiceNetworkConfigurationIngressConfigurationPtrInput {
+	return (*serviceNetworkConfigurationIngressConfigurationPtrType)(v)
+}
+
+func (*serviceNetworkConfigurationIngressConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceNetworkConfigurationIngressConfiguration)(nil)).Elem()
+}
+
+func (i *serviceNetworkConfigurationIngressConfigurationPtrType) ToServiceNetworkConfigurationIngressConfigurationPtrOutput() ServiceNetworkConfigurationIngressConfigurationPtrOutput {
+	return i.ToServiceNetworkConfigurationIngressConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceNetworkConfigurationIngressConfigurationPtrType) ToServiceNetworkConfigurationIngressConfigurationPtrOutputWithContext(ctx context.Context) ServiceNetworkConfigurationIngressConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkConfigurationIngressConfigurationPtrOutput)
+}
+
+type ServiceNetworkConfigurationIngressConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ServiceNetworkConfigurationIngressConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceNetworkConfigurationIngressConfiguration)(nil)).Elem()
+}
+
+func (o ServiceNetworkConfigurationIngressConfigurationOutput) ToServiceNetworkConfigurationIngressConfigurationOutput() ServiceNetworkConfigurationIngressConfigurationOutput {
+	return o
+}
+
+func (o ServiceNetworkConfigurationIngressConfigurationOutput) ToServiceNetworkConfigurationIngressConfigurationOutputWithContext(ctx context.Context) ServiceNetworkConfigurationIngressConfigurationOutput {
+	return o
+}
+
+func (o ServiceNetworkConfigurationIngressConfigurationOutput) ToServiceNetworkConfigurationIngressConfigurationPtrOutput() ServiceNetworkConfigurationIngressConfigurationPtrOutput {
+	return o.ToServiceNetworkConfigurationIngressConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceNetworkConfigurationIngressConfigurationOutput) ToServiceNetworkConfigurationIngressConfigurationPtrOutputWithContext(ctx context.Context) ServiceNetworkConfigurationIngressConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceNetworkConfigurationIngressConfiguration) *ServiceNetworkConfigurationIngressConfiguration {
+		return &v
+	}).(ServiceNetworkConfigurationIngressConfigurationPtrOutput)
+}
+
+// Specifies whether your App Runner service is publicly accessible. To make the service publicly accessible set it to True. To make the service privately accessible, from only within an Amazon VPC set it to False.
+func (o ServiceNetworkConfigurationIngressConfigurationOutput) IsPubliclyAccessible() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceNetworkConfigurationIngressConfiguration) *bool { return v.IsPubliclyAccessible }).(pulumi.BoolPtrOutput)
+}
+
+type ServiceNetworkConfigurationIngressConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceNetworkConfigurationIngressConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceNetworkConfigurationIngressConfiguration)(nil)).Elem()
+}
+
+func (o ServiceNetworkConfigurationIngressConfigurationPtrOutput) ToServiceNetworkConfigurationIngressConfigurationPtrOutput() ServiceNetworkConfigurationIngressConfigurationPtrOutput {
+	return o
+}
+
+func (o ServiceNetworkConfigurationIngressConfigurationPtrOutput) ToServiceNetworkConfigurationIngressConfigurationPtrOutputWithContext(ctx context.Context) ServiceNetworkConfigurationIngressConfigurationPtrOutput {
+	return o
+}
+
+func (o ServiceNetworkConfigurationIngressConfigurationPtrOutput) Elem() ServiceNetworkConfigurationIngressConfigurationOutput {
+	return o.ApplyT(func(v *ServiceNetworkConfigurationIngressConfiguration) ServiceNetworkConfigurationIngressConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceNetworkConfigurationIngressConfiguration
+		return ret
+	}).(ServiceNetworkConfigurationIngressConfigurationOutput)
+}
+
+// Specifies whether your App Runner service is publicly accessible. To make the service publicly accessible set it to True. To make the service privately accessible, from only within an Amazon VPC set it to False.
+func (o ServiceNetworkConfigurationIngressConfigurationPtrOutput) IsPubliclyAccessible() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceNetworkConfigurationIngressConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsPubliclyAccessible
+	}).(pulumi.BoolPtrOutput)
 }
 
 type ServiceObservabilityConfiguration struct {
@@ -1962,7 +2120,7 @@ type ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationV
 	BuildCommand *string `pulumi:"buildCommand"`
 	// Port that your application listens to in the container. Defaults to `"8080"`.
 	Port *string `pulumi:"port"`
-	// Runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`.
+	// Runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`, `NODEJS_14`, `NODEJS_16`, `CORRETTO_8`, `CORRETTO_11`, `GO_1`, `DOTNET_6`, `PHP_81`, `RUBY_31`.
 	Runtime string `pulumi:"runtime"`
 	// Environment variables available to your running App Runner service. A map of key/value pairs. Keys with a prefix of `AWSAPPRUNNER` are reserved for system use and aren't valid.
 	RuntimeEnvironmentVariables map[string]string `pulumi:"runtimeEnvironmentVariables"`
@@ -1986,7 +2144,7 @@ type ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationV
 	BuildCommand pulumi.StringPtrInput `pulumi:"buildCommand"`
 	// Port that your application listens to in the container. Defaults to `"8080"`.
 	Port pulumi.StringPtrInput `pulumi:"port"`
-	// Runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`.
+	// Runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`, `NODEJS_14`, `NODEJS_16`, `CORRETTO_8`, `CORRETTO_11`, `GO_1`, `DOTNET_6`, `PHP_81`, `RUBY_31`.
 	Runtime pulumi.StringInput `pulumi:"runtime"`
 	// Environment variables available to your running App Runner service. A map of key/value pairs. Keys with a prefix of `AWSAPPRUNNER` are reserved for system use and aren't valid.
 	RuntimeEnvironmentVariables pulumi.StringMapInput `pulumi:"runtimeEnvironmentVariables"`
@@ -2085,7 +2243,7 @@ func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurati
 	}).(pulumi.StringPtrOutput)
 }
 
-// Runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`.
+// Runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`, `NODEJS_14`, `NODEJS_16`, `CORRETTO_8`, `CORRETTO_11`, `GO_1`, `DOTNET_6`, `PHP_81`, `RUBY_31`.
 func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesOutput) Runtime() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues) string {
 		return v.Runtime
@@ -2150,7 +2308,7 @@ func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurati
 	}).(pulumi.StringPtrOutput)
 }
 
-// Runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`.
+// Runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`, `NODEJS_14`, `NODEJS_16`, `CORRETTO_8`, `CORRETTO_11`, `GO_1`, `DOTNET_6`, `PHP_81`, `RUBY_31`.
 func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesPtrOutput) Runtime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues) *string {
 		if v == nil {
@@ -2694,6 +2852,162 @@ func (o ServiceSourceConfigurationImageRepositoryImageConfigurationPtrOutput) St
 	}).(pulumi.StringPtrOutput)
 }
 
+type VpcIngressConnectionIngressVpcConfiguration struct {
+	// The ID of the VPC endpoint that your App Runner service connects to.
+	VpcEndpointId *string `pulumi:"vpcEndpointId"`
+	// The ID of the VPC that is used for the VPC endpoint.
+	VpcId *string `pulumi:"vpcId"`
+}
+
+// VpcIngressConnectionIngressVpcConfigurationInput is an input type that accepts VpcIngressConnectionIngressVpcConfigurationArgs and VpcIngressConnectionIngressVpcConfigurationOutput values.
+// You can construct a concrete instance of `VpcIngressConnectionIngressVpcConfigurationInput` via:
+//
+//	VpcIngressConnectionIngressVpcConfigurationArgs{...}
+type VpcIngressConnectionIngressVpcConfigurationInput interface {
+	pulumi.Input
+
+	ToVpcIngressConnectionIngressVpcConfigurationOutput() VpcIngressConnectionIngressVpcConfigurationOutput
+	ToVpcIngressConnectionIngressVpcConfigurationOutputWithContext(context.Context) VpcIngressConnectionIngressVpcConfigurationOutput
+}
+
+type VpcIngressConnectionIngressVpcConfigurationArgs struct {
+	// The ID of the VPC endpoint that your App Runner service connects to.
+	VpcEndpointId pulumi.StringPtrInput `pulumi:"vpcEndpointId"`
+	// The ID of the VPC that is used for the VPC endpoint.
+	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
+}
+
+func (VpcIngressConnectionIngressVpcConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcIngressConnectionIngressVpcConfiguration)(nil)).Elem()
+}
+
+func (i VpcIngressConnectionIngressVpcConfigurationArgs) ToVpcIngressConnectionIngressVpcConfigurationOutput() VpcIngressConnectionIngressVpcConfigurationOutput {
+	return i.ToVpcIngressConnectionIngressVpcConfigurationOutputWithContext(context.Background())
+}
+
+func (i VpcIngressConnectionIngressVpcConfigurationArgs) ToVpcIngressConnectionIngressVpcConfigurationOutputWithContext(ctx context.Context) VpcIngressConnectionIngressVpcConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcIngressConnectionIngressVpcConfigurationOutput)
+}
+
+func (i VpcIngressConnectionIngressVpcConfigurationArgs) ToVpcIngressConnectionIngressVpcConfigurationPtrOutput() VpcIngressConnectionIngressVpcConfigurationPtrOutput {
+	return i.ToVpcIngressConnectionIngressVpcConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i VpcIngressConnectionIngressVpcConfigurationArgs) ToVpcIngressConnectionIngressVpcConfigurationPtrOutputWithContext(ctx context.Context) VpcIngressConnectionIngressVpcConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcIngressConnectionIngressVpcConfigurationOutput).ToVpcIngressConnectionIngressVpcConfigurationPtrOutputWithContext(ctx)
+}
+
+// VpcIngressConnectionIngressVpcConfigurationPtrInput is an input type that accepts VpcIngressConnectionIngressVpcConfigurationArgs, VpcIngressConnectionIngressVpcConfigurationPtr and VpcIngressConnectionIngressVpcConfigurationPtrOutput values.
+// You can construct a concrete instance of `VpcIngressConnectionIngressVpcConfigurationPtrInput` via:
+//
+//	        VpcIngressConnectionIngressVpcConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type VpcIngressConnectionIngressVpcConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToVpcIngressConnectionIngressVpcConfigurationPtrOutput() VpcIngressConnectionIngressVpcConfigurationPtrOutput
+	ToVpcIngressConnectionIngressVpcConfigurationPtrOutputWithContext(context.Context) VpcIngressConnectionIngressVpcConfigurationPtrOutput
+}
+
+type vpcIngressConnectionIngressVpcConfigurationPtrType VpcIngressConnectionIngressVpcConfigurationArgs
+
+func VpcIngressConnectionIngressVpcConfigurationPtr(v *VpcIngressConnectionIngressVpcConfigurationArgs) VpcIngressConnectionIngressVpcConfigurationPtrInput {
+	return (*vpcIngressConnectionIngressVpcConfigurationPtrType)(v)
+}
+
+func (*vpcIngressConnectionIngressVpcConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcIngressConnectionIngressVpcConfiguration)(nil)).Elem()
+}
+
+func (i *vpcIngressConnectionIngressVpcConfigurationPtrType) ToVpcIngressConnectionIngressVpcConfigurationPtrOutput() VpcIngressConnectionIngressVpcConfigurationPtrOutput {
+	return i.ToVpcIngressConnectionIngressVpcConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *vpcIngressConnectionIngressVpcConfigurationPtrType) ToVpcIngressConnectionIngressVpcConfigurationPtrOutputWithContext(ctx context.Context) VpcIngressConnectionIngressVpcConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcIngressConnectionIngressVpcConfigurationPtrOutput)
+}
+
+type VpcIngressConnectionIngressVpcConfigurationOutput struct{ *pulumi.OutputState }
+
+func (VpcIngressConnectionIngressVpcConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcIngressConnectionIngressVpcConfiguration)(nil)).Elem()
+}
+
+func (o VpcIngressConnectionIngressVpcConfigurationOutput) ToVpcIngressConnectionIngressVpcConfigurationOutput() VpcIngressConnectionIngressVpcConfigurationOutput {
+	return o
+}
+
+func (o VpcIngressConnectionIngressVpcConfigurationOutput) ToVpcIngressConnectionIngressVpcConfigurationOutputWithContext(ctx context.Context) VpcIngressConnectionIngressVpcConfigurationOutput {
+	return o
+}
+
+func (o VpcIngressConnectionIngressVpcConfigurationOutput) ToVpcIngressConnectionIngressVpcConfigurationPtrOutput() VpcIngressConnectionIngressVpcConfigurationPtrOutput {
+	return o.ToVpcIngressConnectionIngressVpcConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o VpcIngressConnectionIngressVpcConfigurationOutput) ToVpcIngressConnectionIngressVpcConfigurationPtrOutputWithContext(ctx context.Context) VpcIngressConnectionIngressVpcConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcIngressConnectionIngressVpcConfiguration) *VpcIngressConnectionIngressVpcConfiguration {
+		return &v
+	}).(VpcIngressConnectionIngressVpcConfigurationPtrOutput)
+}
+
+// The ID of the VPC endpoint that your App Runner service connects to.
+func (o VpcIngressConnectionIngressVpcConfigurationOutput) VpcEndpointId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpcIngressConnectionIngressVpcConfiguration) *string { return v.VpcEndpointId }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the VPC that is used for the VPC endpoint.
+func (o VpcIngressConnectionIngressVpcConfigurationOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpcIngressConnectionIngressVpcConfiguration) *string { return v.VpcId }).(pulumi.StringPtrOutput)
+}
+
+type VpcIngressConnectionIngressVpcConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (VpcIngressConnectionIngressVpcConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcIngressConnectionIngressVpcConfiguration)(nil)).Elem()
+}
+
+func (o VpcIngressConnectionIngressVpcConfigurationPtrOutput) ToVpcIngressConnectionIngressVpcConfigurationPtrOutput() VpcIngressConnectionIngressVpcConfigurationPtrOutput {
+	return o
+}
+
+func (o VpcIngressConnectionIngressVpcConfigurationPtrOutput) ToVpcIngressConnectionIngressVpcConfigurationPtrOutputWithContext(ctx context.Context) VpcIngressConnectionIngressVpcConfigurationPtrOutput {
+	return o
+}
+
+func (o VpcIngressConnectionIngressVpcConfigurationPtrOutput) Elem() VpcIngressConnectionIngressVpcConfigurationOutput {
+	return o.ApplyT(func(v *VpcIngressConnectionIngressVpcConfiguration) VpcIngressConnectionIngressVpcConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret VpcIngressConnectionIngressVpcConfiguration
+		return ret
+	}).(VpcIngressConnectionIngressVpcConfigurationOutput)
+}
+
+// The ID of the VPC endpoint that your App Runner service connects to.
+func (o VpcIngressConnectionIngressVpcConfigurationPtrOutput) VpcEndpointId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcIngressConnectionIngressVpcConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VpcEndpointId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the VPC that is used for the VPC endpoint.
+func (o VpcIngressConnectionIngressVpcConfigurationPtrOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcIngressConnectionIngressVpcConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VpcId
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomDomainAssociationCertificateValidationRecordInput)(nil)).Elem(), CustomDomainAssociationCertificateValidationRecordArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomDomainAssociationCertificateValidationRecordArrayInput)(nil)).Elem(), CustomDomainAssociationCertificateValidationRecordArray{})
@@ -2709,6 +3023,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkConfigurationPtrInput)(nil)).Elem(), ServiceNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkConfigurationEgressConfigurationInput)(nil)).Elem(), ServiceNetworkConfigurationEgressConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkConfigurationEgressConfigurationPtrInput)(nil)).Elem(), ServiceNetworkConfigurationEgressConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkConfigurationIngressConfigurationInput)(nil)).Elem(), ServiceNetworkConfigurationIngressConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkConfigurationIngressConfigurationPtrInput)(nil)).Elem(), ServiceNetworkConfigurationIngressConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceObservabilityConfigurationInput)(nil)).Elem(), ServiceObservabilityConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceObservabilityConfigurationPtrInput)(nil)).Elem(), ServiceObservabilityConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceSourceConfigurationInput)(nil)).Elem(), ServiceSourceConfigurationArgs{})
@@ -2727,6 +3043,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceSourceConfigurationImageRepositoryPtrInput)(nil)).Elem(), ServiceSourceConfigurationImageRepositoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceSourceConfigurationImageRepositoryImageConfigurationInput)(nil)).Elem(), ServiceSourceConfigurationImageRepositoryImageConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceSourceConfigurationImageRepositoryImageConfigurationPtrInput)(nil)).Elem(), ServiceSourceConfigurationImageRepositoryImageConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcIngressConnectionIngressVpcConfigurationInput)(nil)).Elem(), VpcIngressConnectionIngressVpcConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcIngressConnectionIngressVpcConfigurationPtrInput)(nil)).Elem(), VpcIngressConnectionIngressVpcConfigurationArgs{})
 	pulumi.RegisterOutputType(CustomDomainAssociationCertificateValidationRecordOutput{})
 	pulumi.RegisterOutputType(CustomDomainAssociationCertificateValidationRecordArrayOutput{})
 	pulumi.RegisterOutputType(ObservabilityConfigurationTraceConfigurationOutput{})
@@ -2741,6 +3059,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceNetworkConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceNetworkConfigurationEgressConfigurationOutput{})
 	pulumi.RegisterOutputType(ServiceNetworkConfigurationEgressConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ServiceNetworkConfigurationIngressConfigurationOutput{})
+	pulumi.RegisterOutputType(ServiceNetworkConfigurationIngressConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceObservabilityConfigurationOutput{})
 	pulumi.RegisterOutputType(ServiceObservabilityConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceSourceConfigurationOutput{})
@@ -2759,4 +3079,6 @@ func init() {
 	pulumi.RegisterOutputType(ServiceSourceConfigurationImageRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(ServiceSourceConfigurationImageRepositoryImageConfigurationOutput{})
 	pulumi.RegisterOutputType(ServiceSourceConfigurationImageRepositoryImageConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(VpcIngressConnectionIngressVpcConfigurationOutput{})
+	pulumi.RegisterOutputType(VpcIngressConnectionIngressVpcConfigurationPtrOutput{})
 }

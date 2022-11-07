@@ -222,6 +222,20 @@ public class AmiFromInstance extends com.pulumi.resources.CustomResource {
         return this.imageType;
     }
     /**
+     * If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
+     * 
+     */
+    @Export(name="imdsSupport", type=String.class, parameters={})
+    private Output<String> imdsSupport;
+
+    /**
+     * @return If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
+     * 
+     */
+    public Output<String> imdsSupport() {
+        return this.imdsSupport;
+    }
+    /**
      * ID of the kernel image (AKI) that will be used as the paravirtual
      * kernel in created instances.
      * 

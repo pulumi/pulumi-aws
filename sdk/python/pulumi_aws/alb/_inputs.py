@@ -38,6 +38,7 @@ __all__ = [
     'LoadBalancerSubnetMappingArgs',
     'TargetGroupHealthCheckArgs',
     'TargetGroupStickinessArgs',
+    'TargetGroupTargetFailoverArgs',
 ]
 
 @pulumi.input_type
@@ -2023,7 +2024,7 @@ class TargetGroupStickinessArgs:
                  cookie_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[str] type: The type of sticky sessions. The only current possible values are `lb_cookie`, `app_cookie` for ALBs, and `source_ip` for NLBs.
+        :param pulumi.Input[str] type: The type of sticky sessions. The only current possible values are `lb_cookie`, `app_cookie` for ALBs, `source_ip` for NLBs, and `source_ip_dest_ip`, `source_ip_dest_ip_proto` for GWLBs.
         :param pulumi.Input[int] cookie_duration: Only used when the type is `lb_cookie`. The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
         :param pulumi.Input[str] cookie_name: Name of the application based cookie. AWSALB, AWSALBAPP, and AWSALBTG prefixes are reserved and cannot be used. Only needed when type is `app_cookie`.
         :param pulumi.Input[bool] enabled: Boolean to enable / disable `stickiness`. Default is `true`.
@@ -2040,7 +2041,7 @@ class TargetGroupStickinessArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The type of sticky sessions. The only current possible values are `lb_cookie`, `app_cookie` for ALBs, and `source_ip` for NLBs.
+        The type of sticky sessions. The only current possible values are `lb_cookie`, `app_cookie` for ALBs, `source_ip` for NLBs, and `source_ip_dest_ip`, `source_ip_dest_ip_proto` for GWLBs.
         """
         return pulumi.get(self, "type")
 
@@ -2083,5 +2084,42 @@ class TargetGroupStickinessArgs:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
+
+
+@pulumi.input_type
+class TargetGroupTargetFailoverArgs:
+    def __init__(__self__, *,
+                 on_deregistration: pulumi.Input[str],
+                 on_unhealthy: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] on_deregistration: Indicates how the GWLB handles existing flows when a target is deregistered. Possible values are `rebalance` and `no_rebalance`. Must match the attribute value set for `on_unhealthy`. Default: `no_rebalance`.
+        :param pulumi.Input[str] on_unhealthy: Indicates how the GWLB handles existing flows when a target is unhealthy. Possible values are `rebalance` and `no_rebalance`. Must match the attribute value set for `on_deregistration`. Default: `no_rebalance`.
+        """
+        pulumi.set(__self__, "on_deregistration", on_deregistration)
+        pulumi.set(__self__, "on_unhealthy", on_unhealthy)
+
+    @property
+    @pulumi.getter(name="onDeregistration")
+    def on_deregistration(self) -> pulumi.Input[str]:
+        """
+        Indicates how the GWLB handles existing flows when a target is deregistered. Possible values are `rebalance` and `no_rebalance`. Must match the attribute value set for `on_unhealthy`. Default: `no_rebalance`.
+        """
+        return pulumi.get(self, "on_deregistration")
+
+    @on_deregistration.setter
+    def on_deregistration(self, value: pulumi.Input[str]):
+        pulumi.set(self, "on_deregistration", value)
+
+    @property
+    @pulumi.getter(name="onUnhealthy")
+    def on_unhealthy(self) -> pulumi.Input[str]:
+        """
+        Indicates how the GWLB handles existing flows when a target is unhealthy. Possible values are `rebalance` and `no_rebalance`. Must match the attribute value set for `on_deregistration`. Default: `no_rebalance`.
+        """
+        return pulumi.get(self, "on_unhealthy")
+
+    @on_unhealthy.setter
+    def on_unhealthy(self, value: pulumi.Input[str]):
+        pulumi.set(self, "on_unhealthy", value)
 
 

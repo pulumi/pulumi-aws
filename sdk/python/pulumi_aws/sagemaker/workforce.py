@@ -19,13 +19,15 @@ class WorkforceArgs:
                  workforce_name: pulumi.Input[str],
                  cognito_config: Optional[pulumi.Input['WorkforceCognitoConfigArgs']] = None,
                  oidc_config: Optional[pulumi.Input['WorkforceOidcConfigArgs']] = None,
-                 source_ip_config: Optional[pulumi.Input['WorkforceSourceIpConfigArgs']] = None):
+                 source_ip_config: Optional[pulumi.Input['WorkforceSourceIpConfigArgs']] = None,
+                 workforce_vpc_config: Optional[pulumi.Input['WorkforceWorkforceVpcConfigArgs']] = None):
         """
         The set of arguments for constructing a Workforce resource.
         :param pulumi.Input[str] workforce_name: The name of the Workforce (must be unique).
         :param pulumi.Input['WorkforceCognitoConfigArgs'] cognito_config: Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `oidc_config`. see Cognito Config details below.
         :param pulumi.Input['WorkforceOidcConfigArgs'] oidc_config: Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognito_config`. see OIDC Config details below.
         :param pulumi.Input['WorkforceSourceIpConfigArgs'] source_ip_config: A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
+        :param pulumi.Input['WorkforceWorkforceVpcConfigArgs'] workforce_vpc_config: configure a workforce using VPC. see Workforce VPC Config details below.
         """
         pulumi.set(__self__, "workforce_name", workforce_name)
         if cognito_config is not None:
@@ -34,6 +36,8 @@ class WorkforceArgs:
             pulumi.set(__self__, "oidc_config", oidc_config)
         if source_ip_config is not None:
             pulumi.set(__self__, "source_ip_config", source_ip_config)
+        if workforce_vpc_config is not None:
+            pulumi.set(__self__, "workforce_vpc_config", workforce_vpc_config)
 
     @property
     @pulumi.getter(name="workforceName")
@@ -83,6 +87,18 @@ class WorkforceArgs:
     def source_ip_config(self, value: Optional[pulumi.Input['WorkforceSourceIpConfigArgs']]):
         pulumi.set(self, "source_ip_config", value)
 
+    @property
+    @pulumi.getter(name="workforceVpcConfig")
+    def workforce_vpc_config(self) -> Optional[pulumi.Input['WorkforceWorkforceVpcConfigArgs']]:
+        """
+        configure a workforce using VPC. see Workforce VPC Config details below.
+        """
+        return pulumi.get(self, "workforce_vpc_config")
+
+    @workforce_vpc_config.setter
+    def workforce_vpc_config(self, value: Optional[pulumi.Input['WorkforceWorkforceVpcConfigArgs']]):
+        pulumi.set(self, "workforce_vpc_config", value)
+
 
 @pulumi.input_type
 class _WorkforceState:
@@ -92,7 +108,8 @@ class _WorkforceState:
                  oidc_config: Optional[pulumi.Input['WorkforceOidcConfigArgs']] = None,
                  source_ip_config: Optional[pulumi.Input['WorkforceSourceIpConfigArgs']] = None,
                  subdomain: Optional[pulumi.Input[str]] = None,
-                 workforce_name: Optional[pulumi.Input[str]] = None):
+                 workforce_name: Optional[pulumi.Input[str]] = None,
+                 workforce_vpc_config: Optional[pulumi.Input['WorkforceWorkforceVpcConfigArgs']] = None):
         """
         Input properties used for looking up and filtering Workforce resources.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Workforce.
@@ -100,7 +117,9 @@ class _WorkforceState:
         :param pulumi.Input['WorkforceOidcConfigArgs'] oidc_config: Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognito_config`. see OIDC Config details below.
         :param pulumi.Input['WorkforceSourceIpConfigArgs'] source_ip_config: A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
         :param pulumi.Input[str] subdomain: The subdomain for your OIDC Identity Provider.
+               * `workforce_vpc_config.0.vpc_endpoint_id` - The IDs for the VPC service endpoints of your VPC workforce.
         :param pulumi.Input[str] workforce_name: The name of the Workforce (must be unique).
+        :param pulumi.Input['WorkforceWorkforceVpcConfigArgs'] workforce_vpc_config: configure a workforce using VPC. see Workforce VPC Config details below.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -114,6 +133,8 @@ class _WorkforceState:
             pulumi.set(__self__, "subdomain", subdomain)
         if workforce_name is not None:
             pulumi.set(__self__, "workforce_name", workforce_name)
+        if workforce_vpc_config is not None:
+            pulumi.set(__self__, "workforce_vpc_config", workforce_vpc_config)
 
     @property
     @pulumi.getter
@@ -168,6 +189,7 @@ class _WorkforceState:
     def subdomain(self) -> Optional[pulumi.Input[str]]:
         """
         The subdomain for your OIDC Identity Provider.
+        * `workforce_vpc_config.0.vpc_endpoint_id` - The IDs for the VPC service endpoints of your VPC workforce.
         """
         return pulumi.get(self, "subdomain")
 
@@ -187,6 +209,18 @@ class _WorkforceState:
     def workforce_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "workforce_name", value)
 
+    @property
+    @pulumi.getter(name="workforceVpcConfig")
+    def workforce_vpc_config(self) -> Optional[pulumi.Input['WorkforceWorkforceVpcConfigArgs']]:
+        """
+        configure a workforce using VPC. see Workforce VPC Config details below.
+        """
+        return pulumi.get(self, "workforce_vpc_config")
+
+    @workforce_vpc_config.setter
+    def workforce_vpc_config(self, value: Optional[pulumi.Input['WorkforceWorkforceVpcConfigArgs']]):
+        pulumi.set(self, "workforce_vpc_config", value)
+
 
 class Workforce(pulumi.CustomResource):
     @overload
@@ -197,6 +231,7 @@ class Workforce(pulumi.CustomResource):
                  oidc_config: Optional[pulumi.Input[pulumi.InputType['WorkforceOidcConfigArgs']]] = None,
                  source_ip_config: Optional[pulumi.Input[pulumi.InputType['WorkforceSourceIpConfigArgs']]] = None,
                  workforce_name: Optional[pulumi.Input[str]] = None,
+                 workforce_vpc_config: Optional[pulumi.Input[pulumi.InputType['WorkforceWorkforceVpcConfigArgs']]] = None,
                  __props__=None):
         """
         Provides a SageMaker Workforce resource.
@@ -256,6 +291,7 @@ class Workforce(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['WorkforceOidcConfigArgs']] oidc_config: Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognito_config`. see OIDC Config details below.
         :param pulumi.Input[pulumi.InputType['WorkforceSourceIpConfigArgs']] source_ip_config: A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
         :param pulumi.Input[str] workforce_name: The name of the Workforce (must be unique).
+        :param pulumi.Input[pulumi.InputType['WorkforceWorkforceVpcConfigArgs']] workforce_vpc_config: configure a workforce using VPC. see Workforce VPC Config details below.
         """
         ...
     @overload
@@ -334,6 +370,7 @@ class Workforce(pulumi.CustomResource):
                  oidc_config: Optional[pulumi.Input[pulumi.InputType['WorkforceOidcConfigArgs']]] = None,
                  source_ip_config: Optional[pulumi.Input[pulumi.InputType['WorkforceSourceIpConfigArgs']]] = None,
                  workforce_name: Optional[pulumi.Input[str]] = None,
+                 workforce_vpc_config: Optional[pulumi.Input[pulumi.InputType['WorkforceWorkforceVpcConfigArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -349,6 +386,7 @@ class Workforce(pulumi.CustomResource):
             if workforce_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workforce_name'")
             __props__.__dict__["workforce_name"] = workforce_name
+            __props__.__dict__["workforce_vpc_config"] = workforce_vpc_config
             __props__.__dict__["arn"] = None
             __props__.__dict__["subdomain"] = None
         super(Workforce, __self__).__init__(
@@ -366,7 +404,8 @@ class Workforce(pulumi.CustomResource):
             oidc_config: Optional[pulumi.Input[pulumi.InputType['WorkforceOidcConfigArgs']]] = None,
             source_ip_config: Optional[pulumi.Input[pulumi.InputType['WorkforceSourceIpConfigArgs']]] = None,
             subdomain: Optional[pulumi.Input[str]] = None,
-            workforce_name: Optional[pulumi.Input[str]] = None) -> 'Workforce':
+            workforce_name: Optional[pulumi.Input[str]] = None,
+            workforce_vpc_config: Optional[pulumi.Input[pulumi.InputType['WorkforceWorkforceVpcConfigArgs']]] = None) -> 'Workforce':
         """
         Get an existing Workforce resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -379,7 +418,9 @@ class Workforce(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['WorkforceOidcConfigArgs']] oidc_config: Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognito_config`. see OIDC Config details below.
         :param pulumi.Input[pulumi.InputType['WorkforceSourceIpConfigArgs']] source_ip_config: A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
         :param pulumi.Input[str] subdomain: The subdomain for your OIDC Identity Provider.
+               * `workforce_vpc_config.0.vpc_endpoint_id` - The IDs for the VPC service endpoints of your VPC workforce.
         :param pulumi.Input[str] workforce_name: The name of the Workforce (must be unique).
+        :param pulumi.Input[pulumi.InputType['WorkforceWorkforceVpcConfigArgs']] workforce_vpc_config: configure a workforce using VPC. see Workforce VPC Config details below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -391,6 +432,7 @@ class Workforce(pulumi.CustomResource):
         __props__.__dict__["source_ip_config"] = source_ip_config
         __props__.__dict__["subdomain"] = subdomain
         __props__.__dict__["workforce_name"] = workforce_name
+        __props__.__dict__["workforce_vpc_config"] = workforce_vpc_config
         return Workforce(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -430,6 +472,7 @@ class Workforce(pulumi.CustomResource):
     def subdomain(self) -> pulumi.Output[str]:
         """
         The subdomain for your OIDC Identity Provider.
+        * `workforce_vpc_config.0.vpc_endpoint_id` - The IDs for the VPC service endpoints of your VPC workforce.
         """
         return pulumi.get(self, "subdomain")
 
@@ -440,4 +483,12 @@ class Workforce(pulumi.CustomResource):
         The name of the Workforce (must be unique).
         """
         return pulumi.get(self, "workforce_name")
+
+    @property
+    @pulumi.getter(name="workforceVpcConfig")
+    def workforce_vpc_config(self) -> pulumi.Output[Optional['outputs.WorkforceWorkforceVpcConfig']]:
+        """
+        configure a workforce using VPC. see Workforce VPC Config details below.
+        """
+        return pulumi.get(self, "workforce_vpc_config")
 

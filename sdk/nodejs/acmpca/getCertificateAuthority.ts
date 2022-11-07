@@ -117,6 +117,10 @@ export interface GetCertificateAuthorityResult {
      * Type of the certificate authority.
      */
     readonly type: string;
+    /**
+     * Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly.
+     */
+    readonly usageMode: string;
 }
 
 export function getCertificateAuthorityOutput(args: GetCertificateAuthorityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateAuthorityResult> {

@@ -54,6 +54,10 @@ export type Record = import("./record").Record;
 export const Record: typeof import("./record").Record = null as any;
 
 export * from "./recordType";
+export { ResolverConfigArgs, ResolverConfigState } from "./resolverConfig";
+export type ResolverConfig = import("./resolverConfig").ResolverConfig;
+export const ResolverConfig: typeof import("./resolverConfig").ResolverConfig = null as any;
+
 export { ResolverDnsSecConfigArgs, ResolverDnsSecConfigState } from "./resolverDnsSecConfig";
 export type ResolverDnsSecConfig = import("./resolverDnsSecConfig").ResolverDnsSecConfig;
 export const ResolverDnsSecConfig: typeof import("./resolverDnsSecConfig").ResolverDnsSecConfig = null as any;
@@ -130,6 +134,7 @@ utilities.lazyLoad(exports, ["HostedZoneDnsSec"], () => require("./hostedZoneDns
 utilities.lazyLoad(exports, ["KeySigningKey"], () => require("./keySigningKey"));
 utilities.lazyLoad(exports, ["QueryLog"], () => require("./queryLog"));
 utilities.lazyLoad(exports, ["Record"], () => require("./record"));
+utilities.lazyLoad(exports, ["ResolverConfig"], () => require("./resolverConfig"));
 utilities.lazyLoad(exports, ["ResolverDnsSecConfig"], () => require("./resolverDnsSecConfig"));
 utilities.lazyLoad(exports, ["ResolverEndpoint"], () => require("./resolverEndpoint"));
 utilities.lazyLoad(exports, ["ResolverFirewallConfig"], () => require("./resolverFirewallConfig"));
@@ -166,6 +171,8 @@ const _module = {
                 return new QueryLog(name, <any>undefined, { urn })
             case "aws:route53/record:Record":
                 return new Record(name, <any>undefined, { urn })
+            case "aws:route53/resolverConfig:ResolverConfig":
+                return new ResolverConfig(name, <any>undefined, { urn })
             case "aws:route53/resolverDnsSecConfig:ResolverDnsSecConfig":
                 return new ResolverDnsSecConfig(name, <any>undefined, { urn })
             case "aws:route53/resolverEndpoint:ResolverEndpoint":
@@ -209,6 +216,7 @@ pulumi.runtime.registerResourceModule("aws", "route53/hostedZoneDnsSec", _module
 pulumi.runtime.registerResourceModule("aws", "route53/keySigningKey", _module)
 pulumi.runtime.registerResourceModule("aws", "route53/queryLog", _module)
 pulumi.runtime.registerResourceModule("aws", "route53/record", _module)
+pulumi.runtime.registerResourceModule("aws", "route53/resolverConfig", _module)
 pulumi.runtime.registerResourceModule("aws", "route53/resolverDnsSecConfig", _module)
 pulumi.runtime.registerResourceModule("aws", "route53/resolverEndpoint", _module)
 pulumi.runtime.registerResourceModule("aws", "route53/resolverFirewallConfig", _module)

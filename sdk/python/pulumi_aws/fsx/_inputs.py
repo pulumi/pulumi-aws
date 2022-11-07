@@ -13,6 +13,11 @@ __all__ = [
     'DataRepositoryAssociationS3Args',
     'DataRepositoryAssociationS3AutoExportPolicyArgs',
     'DataRepositoryAssociationS3AutoImportPolicyArgs',
+    'FileCacheDataRepositoryAssociationArgs',
+    'FileCacheDataRepositoryAssociationNfArgs',
+    'FileCacheLustreConfigurationArgs',
+    'FileCacheLustreConfigurationLogConfigurationArgs',
+    'FileCacheLustreConfigurationMetadataConfigurationArgs',
     'LustreFileSystemLogConfigurationArgs',
     'OntapFileSystemDiskIopsConfigurationArgs',
     'OntapFileSystemEndpointArgs',
@@ -123,6 +128,344 @@ class DataRepositoryAssociationS3AutoImportPolicyArgs:
     @events.setter
     def events(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "events", value)
+
+
+@pulumi.input_type
+class FileCacheDataRepositoryAssociationArgs:
+    def __init__(__self__, *,
+                 data_repository_path: pulumi.Input[str],
+                 file_cache_path: pulumi.Input[str],
+                 association_id: Optional[pulumi.Input[str]] = None,
+                 data_repository_subdirectories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 file_cache_id: Optional[pulumi.Input[str]] = None,
+                 file_system_id: Optional[pulumi.Input[str]] = None,
+                 file_system_path: Optional[pulumi.Input[str]] = None,
+                 imported_file_chunk_size: Optional[pulumi.Input[int]] = None,
+                 nfs: Optional[pulumi.Input[Sequence[pulumi.Input['FileCacheDataRepositoryAssociationNfArgs']]]] = None,
+                 resource_arn: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] data_repository_path: The path to the S3 or NFS data repository that links to the cache.
+        :param pulumi.Input[str] file_cache_path: A path on the cache that points to a high-level directory (such as /ns1/) or subdirectory (such as /ns1/subdir/) that will be mapped 1-1 with DataRepositoryPath. The leading forward slash in the name is required. Two data repository associations cannot have overlapping cache paths. For example, if a data repository is associated with cache path /ns1/, then you cannot link another data repository with cache path /ns1/ns2. This path specifies where in your cache files will be exported from. This cache directory can be linked to only one data repository, and no data repository other can be linked to the directory. Note: The cache path can only be set to root (/) on an NFS DRA when DataRepositorySubdirectories is specified. If you specify root (/) as the cache path, you can create only one DRA on the cache. The cache path cannot be set to root (/) for an S3 DRA.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] data_repository_subdirectories: A list of NFS Exports that will be linked with this data repository association. The Export paths are in the format /exportpath1. To use this parameter, you must configure DataRepositoryPath as the domain name of the NFS file system. The NFS file system domain name in effect is the root of the subdirectories. Note that DataRepositorySubdirectories is not supported for S3 data repositories. Max of 500.
+        :param pulumi.Input[str] file_cache_id: The system-generated, unique ID of the cache.
+        :param pulumi.Input[Sequence[pulumi.Input['FileCacheDataRepositoryAssociationNfArgs']]] nfs: - (Optional) See the `nfs` configuration block.
+        """
+        pulumi.set(__self__, "data_repository_path", data_repository_path)
+        pulumi.set(__self__, "file_cache_path", file_cache_path)
+        if association_id is not None:
+            pulumi.set(__self__, "association_id", association_id)
+        if data_repository_subdirectories is not None:
+            pulumi.set(__self__, "data_repository_subdirectories", data_repository_subdirectories)
+        if file_cache_id is not None:
+            pulumi.set(__self__, "file_cache_id", file_cache_id)
+        if file_system_id is not None:
+            pulumi.set(__self__, "file_system_id", file_system_id)
+        if file_system_path is not None:
+            pulumi.set(__self__, "file_system_path", file_system_path)
+        if imported_file_chunk_size is not None:
+            pulumi.set(__self__, "imported_file_chunk_size", imported_file_chunk_size)
+        if nfs is not None:
+            pulumi.set(__self__, "nfs", nfs)
+        if resource_arn is not None:
+            pulumi.set(__self__, "resource_arn", resource_arn)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="dataRepositoryPath")
+    def data_repository_path(self) -> pulumi.Input[str]:
+        """
+        The path to the S3 or NFS data repository that links to the cache.
+        """
+        return pulumi.get(self, "data_repository_path")
+
+    @data_repository_path.setter
+    def data_repository_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_repository_path", value)
+
+    @property
+    @pulumi.getter(name="fileCachePath")
+    def file_cache_path(self) -> pulumi.Input[str]:
+        """
+        A path on the cache that points to a high-level directory (such as /ns1/) or subdirectory (such as /ns1/subdir/) that will be mapped 1-1 with DataRepositoryPath. The leading forward slash in the name is required. Two data repository associations cannot have overlapping cache paths. For example, if a data repository is associated with cache path /ns1/, then you cannot link another data repository with cache path /ns1/ns2. This path specifies where in your cache files will be exported from. This cache directory can be linked to only one data repository, and no data repository other can be linked to the directory. Note: The cache path can only be set to root (/) on an NFS DRA when DataRepositorySubdirectories is specified. If you specify root (/) as the cache path, you can create only one DRA on the cache. The cache path cannot be set to root (/) for an S3 DRA.
+        """
+        return pulumi.get(self, "file_cache_path")
+
+    @file_cache_path.setter
+    def file_cache_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "file_cache_path", value)
+
+    @property
+    @pulumi.getter(name="associationId")
+    def association_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "association_id")
+
+    @association_id.setter
+    def association_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "association_id", value)
+
+    @property
+    @pulumi.getter(name="dataRepositorySubdirectories")
+    def data_repository_subdirectories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of NFS Exports that will be linked with this data repository association. The Export paths are in the format /exportpath1. To use this parameter, you must configure DataRepositoryPath as the domain name of the NFS file system. The NFS file system domain name in effect is the root of the subdirectories. Note that DataRepositorySubdirectories is not supported for S3 data repositories. Max of 500.
+        """
+        return pulumi.get(self, "data_repository_subdirectories")
+
+    @data_repository_subdirectories.setter
+    def data_repository_subdirectories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "data_repository_subdirectories", value)
+
+    @property
+    @pulumi.getter(name="fileCacheId")
+    def file_cache_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The system-generated, unique ID of the cache.
+        """
+        return pulumi.get(self, "file_cache_id")
+
+    @file_cache_id.setter
+    def file_cache_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "file_cache_id", value)
+
+    @property
+    @pulumi.getter(name="fileSystemId")
+    def file_system_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "file_system_id")
+
+    @file_system_id.setter
+    def file_system_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "file_system_id", value)
+
+    @property
+    @pulumi.getter(name="fileSystemPath")
+    def file_system_path(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "file_system_path")
+
+    @file_system_path.setter
+    def file_system_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "file_system_path", value)
+
+    @property
+    @pulumi.getter(name="importedFileChunkSize")
+    def imported_file_chunk_size(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "imported_file_chunk_size")
+
+    @imported_file_chunk_size.setter
+    def imported_file_chunk_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "imported_file_chunk_size", value)
+
+    @property
+    @pulumi.getter
+    def nfs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FileCacheDataRepositoryAssociationNfArgs']]]]:
+        """
+        - (Optional) See the `nfs` configuration block.
+        """
+        return pulumi.get(self, "nfs")
+
+    @nfs.setter
+    def nfs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FileCacheDataRepositoryAssociationNfArgs']]]]):
+        pulumi.set(self, "nfs", value)
+
+    @property
+    @pulumi.getter(name="resourceArn")
+    def resource_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "resource_arn")
+
+    @resource_arn.setter
+    def resource_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_arn", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class FileCacheDataRepositoryAssociationNfArgs:
+    def __init__(__self__, *,
+                 version: pulumi.Input[str],
+                 dns_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] version: - The version of the NFS (Network File System) protocol of the NFS data repository. The only supported value is NFS3, which indicates that the data repository must support the NFSv3 protocol. The only supported value is `NFS3`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_ips: - A list of up to 2 IP addresses of DNS servers used to resolve the NFS file system domain name. The provided IP addresses can either be the IP addresses of a DNS forwarder or resolver that the customer manages and runs inside the customer VPC, or the IP addresses of the on-premises DNS servers.
+        """
+        pulumi.set(__self__, "version", version)
+        if dns_ips is not None:
+            pulumi.set(__self__, "dns_ips", dns_ips)
+
+    @property
+    @pulumi.getter
+    def version(self) -> pulumi.Input[str]:
+        """
+        - The version of the NFS (Network File System) protocol of the NFS data repository. The only supported value is NFS3, which indicates that the data repository must support the NFSv3 protocol. The only supported value is `NFS3`.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: pulumi.Input[str]):
+        pulumi.set(self, "version", value)
+
+    @property
+    @pulumi.getter(name="dnsIps")
+    def dns_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        - A list of up to 2 IP addresses of DNS servers used to resolve the NFS file system domain name. The provided IP addresses can either be the IP addresses of a DNS forwarder or resolver that the customer manages and runs inside the customer VPC, or the IP addresses of the on-premises DNS servers.
+        """
+        return pulumi.get(self, "dns_ips")
+
+    @dns_ips.setter
+    def dns_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "dns_ips", value)
+
+
+@pulumi.input_type
+class FileCacheLustreConfigurationArgs:
+    def __init__(__self__, *,
+                 deployment_type: pulumi.Input[str],
+                 metadata_configurations: pulumi.Input[Sequence[pulumi.Input['FileCacheLustreConfigurationMetadataConfigurationArgs']]],
+                 per_unit_storage_throughput: pulumi.Input[int],
+                 log_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['FileCacheLustreConfigurationLogConfigurationArgs']]]] = None,
+                 mount_name: Optional[pulumi.Input[str]] = None,
+                 weekly_maintenance_start_time: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] deployment_type: Specifies the cache deployment type. The only supported value is `CACHE_1`.
+        :param pulumi.Input[Sequence[pulumi.Input['FileCacheLustreConfigurationMetadataConfigurationArgs']]] metadata_configurations: The configuration for a Lustre MDT (Metadata Target) storage volume. See the `metadata_configuration` block.
+        :param pulumi.Input[int] per_unit_storage_throughput: Provisions the amount of read and write throughput for each 1 tebibyte (TiB) of cache storage capacity, in MB/s/TiB. The only supported value is `1000`.
+        :param pulumi.Input[str] weekly_maintenance_start_time: A recurring weekly time, in the format `D:HH:MM`. `D` is the day of the week, for which `1` represents Monday and `7` represents Sunday. `HH` is the zero-padded hour of the day (0-23), and `MM` is the zero-padded minute of the hour. For example, 1:05:00 specifies maintenance at 5 AM Monday. See the [ISO week date](https://en.wikipedia.org/wiki/ISO_week_date) for more information.
+        """
+        pulumi.set(__self__, "deployment_type", deployment_type)
+        pulumi.set(__self__, "metadata_configurations", metadata_configurations)
+        pulumi.set(__self__, "per_unit_storage_throughput", per_unit_storage_throughput)
+        if log_configurations is not None:
+            pulumi.set(__self__, "log_configurations", log_configurations)
+        if mount_name is not None:
+            pulumi.set(__self__, "mount_name", mount_name)
+        if weekly_maintenance_start_time is not None:
+            pulumi.set(__self__, "weekly_maintenance_start_time", weekly_maintenance_start_time)
+
+    @property
+    @pulumi.getter(name="deploymentType")
+    def deployment_type(self) -> pulumi.Input[str]:
+        """
+        Specifies the cache deployment type. The only supported value is `CACHE_1`.
+        """
+        return pulumi.get(self, "deployment_type")
+
+    @deployment_type.setter
+    def deployment_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "deployment_type", value)
+
+    @property
+    @pulumi.getter(name="metadataConfigurations")
+    def metadata_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['FileCacheLustreConfigurationMetadataConfigurationArgs']]]:
+        """
+        The configuration for a Lustre MDT (Metadata Target) storage volume. See the `metadata_configuration` block.
+        """
+        return pulumi.get(self, "metadata_configurations")
+
+    @metadata_configurations.setter
+    def metadata_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['FileCacheLustreConfigurationMetadataConfigurationArgs']]]):
+        pulumi.set(self, "metadata_configurations", value)
+
+    @property
+    @pulumi.getter(name="perUnitStorageThroughput")
+    def per_unit_storage_throughput(self) -> pulumi.Input[int]:
+        """
+        Provisions the amount of read and write throughput for each 1 tebibyte (TiB) of cache storage capacity, in MB/s/TiB. The only supported value is `1000`.
+        """
+        return pulumi.get(self, "per_unit_storage_throughput")
+
+    @per_unit_storage_throughput.setter
+    def per_unit_storage_throughput(self, value: pulumi.Input[int]):
+        pulumi.set(self, "per_unit_storage_throughput", value)
+
+    @property
+    @pulumi.getter(name="logConfigurations")
+    def log_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FileCacheLustreConfigurationLogConfigurationArgs']]]]:
+        return pulumi.get(self, "log_configurations")
+
+    @log_configurations.setter
+    def log_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FileCacheLustreConfigurationLogConfigurationArgs']]]]):
+        pulumi.set(self, "log_configurations", value)
+
+    @property
+    @pulumi.getter(name="mountName")
+    def mount_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "mount_name")
+
+    @mount_name.setter
+    def mount_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mount_name", value)
+
+    @property
+    @pulumi.getter(name="weeklyMaintenanceStartTime")
+    def weekly_maintenance_start_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        A recurring weekly time, in the format `D:HH:MM`. `D` is the day of the week, for which `1` represents Monday and `7` represents Sunday. `HH` is the zero-padded hour of the day (0-23), and `MM` is the zero-padded minute of the hour. For example, 1:05:00 specifies maintenance at 5 AM Monday. See the [ISO week date](https://en.wikipedia.org/wiki/ISO_week_date) for more information.
+        """
+        return pulumi.get(self, "weekly_maintenance_start_time")
+
+    @weekly_maintenance_start_time.setter
+    def weekly_maintenance_start_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "weekly_maintenance_start_time", value)
+
+
+@pulumi.input_type
+class FileCacheLustreConfigurationLogConfigurationArgs:
+    def __init__(__self__, *,
+                 destination: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None):
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "destination")
+
+    @destination.setter
+    def destination(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "destination", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+
+@pulumi.input_type
+class FileCacheLustreConfigurationMetadataConfigurationArgs:
+    def __init__(__self__, *,
+                 storage_capacity: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] storage_capacity: The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
+        """
+        pulumi.set(__self__, "storage_capacity", storage_capacity)
+
+    @property
+    @pulumi.getter(name="storageCapacity")
+    def storage_capacity(self) -> pulumi.Input[int]:
+        """
+        The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
+        """
+        return pulumi.get(self, "storage_capacity")
+
+    @storage_capacity.setter
+    def storage_capacity(self, value: pulumi.Input[int]):
+        pulumi.set(self, "storage_capacity", value)
 
 
 @pulumi.input_type

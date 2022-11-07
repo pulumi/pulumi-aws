@@ -50,11 +50,11 @@ import * as utilities from "../utilities";
  *         asnRanges: ["64512-64555"],
  *         edgeLocations: [
  *             {
- *                 asn: 64512,
+ *                 asn: "64512",
  *                 location: "us-east-1",
  *             },
  *             {
- *                 asn: 64513,
+ *                 asn: "64513",
  *                 location: "eu-central-1",
  *             },
  *         ],

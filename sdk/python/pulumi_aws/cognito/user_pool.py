@@ -20,6 +20,7 @@ class UserPoolArgs:
                  admin_create_user_config: Optional[pulumi.Input['UserPoolAdminCreateUserConfigArgs']] = None,
                  alias_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  auto_verified_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 deletion_protection: Optional[pulumi.Input[str]] = None,
                  device_configuration: Optional[pulumi.Input['UserPoolDeviceConfigurationArgs']] = None,
                  email_configuration: Optional[pulumi.Input['UserPoolEmailConfigurationArgs']] = None,
                  email_verification_message: Optional[pulumi.Input[str]] = None,
@@ -45,6 +46,7 @@ class UserPoolArgs:
         :param pulumi.Input['UserPoolAdminCreateUserConfigArgs'] admin_create_user_config: Configuration block for creating a new user profile. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] alias_attributes: Attributes supported as an alias for this user pool. Valid values: `phone_number`, `email`, or `preferred_username`. Conflicts with `username_attributes`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] auto_verified_attributes: Attributes to be auto-verified. Valid values: `email`, `phone_number`.
+        :param pulumi.Input[str] deletion_protection: When active, DeletionProtection prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature. Valid values are `ACTIVE` and `INACTIVE`, Default value is `INACTIVE`.
         :param pulumi.Input['UserPoolDeviceConfigurationArgs'] device_configuration: Configuration block for the user pool's device tracking. Detailed below.
         :param pulumi.Input['UserPoolEmailConfigurationArgs'] email_configuration: Configuration block for configuring email. Detailed below.
         :param pulumi.Input[str] email_verification_message: String representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
@@ -73,6 +75,8 @@ class UserPoolArgs:
             pulumi.set(__self__, "alias_attributes", alias_attributes)
         if auto_verified_attributes is not None:
             pulumi.set(__self__, "auto_verified_attributes", auto_verified_attributes)
+        if deletion_protection is not None:
+            pulumi.set(__self__, "deletion_protection", deletion_protection)
         if device_configuration is not None:
             pulumi.set(__self__, "device_configuration", device_configuration)
         if email_configuration is not None:
@@ -159,6 +163,18 @@ class UserPoolArgs:
     @auto_verified_attributes.setter
     def auto_verified_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "auto_verified_attributes", value)
+
+    @property
+    @pulumi.getter(name="deletionProtection")
+    def deletion_protection(self) -> Optional[pulumi.Input[str]]:
+        """
+        When active, DeletionProtection prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature. Valid values are `ACTIVE` and `INACTIVE`, Default value is `INACTIVE`.
+        """
+        return pulumi.get(self, "deletion_protection")
+
+    @deletion_protection.setter
+    def deletion_protection(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "deletion_protection", value)
 
     @property
     @pulumi.getter(name="deviceConfiguration")
@@ -399,6 +415,7 @@ class _UserPoolState:
                  auto_verified_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  creation_date: Optional[pulumi.Input[str]] = None,
                  custom_domain: Optional[pulumi.Input[str]] = None,
+                 deletion_protection: Optional[pulumi.Input[str]] = None,
                  device_configuration: Optional[pulumi.Input['UserPoolDeviceConfigurationArgs']] = None,
                  domain: Optional[pulumi.Input[str]] = None,
                  email_configuration: Optional[pulumi.Input['UserPoolEmailConfigurationArgs']] = None,
@@ -432,6 +449,7 @@ class _UserPoolState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] auto_verified_attributes: Attributes to be auto-verified. Valid values: `email`, `phone_number`.
         :param pulumi.Input[str] creation_date: Date the user pool was created.
         :param pulumi.Input[str] custom_domain: A custom domain name that you provide to Amazon Cognito. This parameter applies only if you use a custom domain to host the sign-up and sign-in pages for your application. For example: `auth.example.com`.
+        :param pulumi.Input[str] deletion_protection: When active, DeletionProtection prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature. Valid values are `ACTIVE` and `INACTIVE`, Default value is `INACTIVE`.
         :param pulumi.Input['UserPoolDeviceConfigurationArgs'] device_configuration: Configuration block for the user pool's device tracking. Detailed below.
         :param pulumi.Input[str] domain: Holds the domain prefix if the user pool has a domain associated with it.
         :param pulumi.Input['UserPoolEmailConfigurationArgs'] email_configuration: Configuration block for configuring email. Detailed below.
@@ -471,6 +489,8 @@ class _UserPoolState:
             pulumi.set(__self__, "creation_date", creation_date)
         if custom_domain is not None:
             pulumi.set(__self__, "custom_domain", custom_domain)
+        if deletion_protection is not None:
+            pulumi.set(__self__, "deletion_protection", deletion_protection)
         if device_configuration is not None:
             pulumi.set(__self__, "device_configuration", device_configuration)
         if domain is not None:
@@ -603,6 +623,18 @@ class _UserPoolState:
     @custom_domain.setter
     def custom_domain(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "custom_domain", value)
+
+    @property
+    @pulumi.getter(name="deletionProtection")
+    def deletion_protection(self) -> Optional[pulumi.Input[str]]:
+        """
+        When active, DeletionProtection prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature. Valid values are `ACTIVE` and `INACTIVE`, Default value is `INACTIVE`.
+        """
+        return pulumi.get(self, "deletion_protection")
+
+    @deletion_protection.setter
+    def deletion_protection(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "deletion_protection", value)
 
     @property
     @pulumi.getter(name="deviceConfiguration")
@@ -902,6 +934,7 @@ class UserPool(pulumi.CustomResource):
                  admin_create_user_config: Optional[pulumi.Input[pulumi.InputType['UserPoolAdminCreateUserConfigArgs']]] = None,
                  alias_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  auto_verified_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 deletion_protection: Optional[pulumi.Input[str]] = None,
                  device_configuration: Optional[pulumi.Input[pulumi.InputType['UserPoolDeviceConfigurationArgs']]] = None,
                  email_configuration: Optional[pulumi.Input[pulumi.InputType['UserPoolEmailConfigurationArgs']]] = None,
                  email_verification_message: Optional[pulumi.Input[str]] = None,
@@ -986,6 +1019,7 @@ class UserPool(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['UserPoolAdminCreateUserConfigArgs']] admin_create_user_config: Configuration block for creating a new user profile. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] alias_attributes: Attributes supported as an alias for this user pool. Valid values: `phone_number`, `email`, or `preferred_username`. Conflicts with `username_attributes`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] auto_verified_attributes: Attributes to be auto-verified. Valid values: `email`, `phone_number`.
+        :param pulumi.Input[str] deletion_protection: When active, DeletionProtection prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature. Valid values are `ACTIVE` and `INACTIVE`, Default value is `INACTIVE`.
         :param pulumi.Input[pulumi.InputType['UserPoolDeviceConfigurationArgs']] device_configuration: Configuration block for the user pool's device tracking. Detailed below.
         :param pulumi.Input[pulumi.InputType['UserPoolEmailConfigurationArgs']] email_configuration: Configuration block for configuring email. Detailed below.
         :param pulumi.Input[str] email_verification_message: String representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
@@ -1089,6 +1123,7 @@ class UserPool(pulumi.CustomResource):
                  admin_create_user_config: Optional[pulumi.Input[pulumi.InputType['UserPoolAdminCreateUserConfigArgs']]] = None,
                  alias_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  auto_verified_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 deletion_protection: Optional[pulumi.Input[str]] = None,
                  device_configuration: Optional[pulumi.Input[pulumi.InputType['UserPoolDeviceConfigurationArgs']]] = None,
                  email_configuration: Optional[pulumi.Input[pulumi.InputType['UserPoolEmailConfigurationArgs']]] = None,
                  email_verification_message: Optional[pulumi.Input[str]] = None,
@@ -1121,6 +1156,7 @@ class UserPool(pulumi.CustomResource):
             __props__.__dict__["admin_create_user_config"] = admin_create_user_config
             __props__.__dict__["alias_attributes"] = alias_attributes
             __props__.__dict__["auto_verified_attributes"] = auto_verified_attributes
+            __props__.__dict__["deletion_protection"] = deletion_protection
             __props__.__dict__["device_configuration"] = device_configuration
             __props__.__dict__["email_configuration"] = email_configuration
             __props__.__dict__["email_verification_message"] = email_verification_message
@@ -1165,6 +1201,7 @@ class UserPool(pulumi.CustomResource):
             auto_verified_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             creation_date: Optional[pulumi.Input[str]] = None,
             custom_domain: Optional[pulumi.Input[str]] = None,
+            deletion_protection: Optional[pulumi.Input[str]] = None,
             device_configuration: Optional[pulumi.Input[pulumi.InputType['UserPoolDeviceConfigurationArgs']]] = None,
             domain: Optional[pulumi.Input[str]] = None,
             email_configuration: Optional[pulumi.Input[pulumi.InputType['UserPoolEmailConfigurationArgs']]] = None,
@@ -1203,6 +1240,7 @@ class UserPool(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] auto_verified_attributes: Attributes to be auto-verified. Valid values: `email`, `phone_number`.
         :param pulumi.Input[str] creation_date: Date the user pool was created.
         :param pulumi.Input[str] custom_domain: A custom domain name that you provide to Amazon Cognito. This parameter applies only if you use a custom domain to host the sign-up and sign-in pages for your application. For example: `auth.example.com`.
+        :param pulumi.Input[str] deletion_protection: When active, DeletionProtection prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature. Valid values are `ACTIVE` and `INACTIVE`, Default value is `INACTIVE`.
         :param pulumi.Input[pulumi.InputType['UserPoolDeviceConfigurationArgs']] device_configuration: Configuration block for the user pool's device tracking. Detailed below.
         :param pulumi.Input[str] domain: Holds the domain prefix if the user pool has a domain associated with it.
         :param pulumi.Input[pulumi.InputType['UserPoolEmailConfigurationArgs']] email_configuration: Configuration block for configuring email. Detailed below.
@@ -1239,6 +1277,7 @@ class UserPool(pulumi.CustomResource):
         __props__.__dict__["auto_verified_attributes"] = auto_verified_attributes
         __props__.__dict__["creation_date"] = creation_date
         __props__.__dict__["custom_domain"] = custom_domain
+        __props__.__dict__["deletion_protection"] = deletion_protection
         __props__.__dict__["device_configuration"] = device_configuration
         __props__.__dict__["domain"] = domain
         __props__.__dict__["email_configuration"] = email_configuration
@@ -1320,6 +1359,14 @@ class UserPool(pulumi.CustomResource):
         A custom domain name that you provide to Amazon Cognito. This parameter applies only if you use a custom domain to host the sign-up and sign-in pages for your application. For example: `auth.example.com`.
         """
         return pulumi.get(self, "custom_domain")
+
+    @property
+    @pulumi.getter(name="deletionProtection")
+    def deletion_protection(self) -> pulumi.Output[Optional[str]]:
+        """
+        When active, DeletionProtection prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature. Valid values are `ACTIVE` and `INACTIVE`, Default value is `INACTIVE`.
+        """
+        return pulumi.get(self, "deletion_protection")
 
     @property
     @pulumi.getter(name="deviceConfiguration")

@@ -989,7 +989,7 @@ class Distribution(pulumi.CustomResource):
             origins=[aws.cloudfront.DistributionOriginArgs(
                 domain_name=bucket_v2.bucket_regional_domain_name,
                 origin_access_control_id=aws_cloudfront_origin_access_control["default"]["id"],
-                origin_id=locals["s3_origin_id"],
+                origin_id=s3_origin_id,
             )],
             enabled=True,
             is_ipv6_enabled=True,
@@ -1244,7 +1244,7 @@ class Distribution(pulumi.CustomResource):
             origins=[aws.cloudfront.DistributionOriginArgs(
                 domain_name=bucket_v2.bucket_regional_domain_name,
                 origin_access_control_id=aws_cloudfront_origin_access_control["default"]["id"],
-                origin_id=locals["s3_origin_id"],
+                origin_id=s3_origin_id,
             )],
             enabled=True,
             is_ipv6_enabled=True,

@@ -224,6 +224,12 @@ namespace Pulumi.Aws.Batch
         public Output<string> EcsClusterArn { get; private set; } = null!;
 
         /// <summary>
+        /// Details for the Amazon EKS cluster that supports the compute environment. See details below.
+        /// </summary>
+        [Output("eksConfiguration")]
+        public Output<Outputs.ComputeEnvironmentEksConfiguration?> EksConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
         /// </summary>
         [Output("serviceRole")]
@@ -330,6 +336,12 @@ namespace Pulumi.Aws.Batch
         public Input<Inputs.ComputeEnvironmentComputeResourcesArgs>? ComputeResources { get; set; }
 
         /// <summary>
+        /// Details for the Amazon EKS cluster that supports the compute environment. See details below.
+        /// </summary>
+        [Input("eksConfiguration")]
+        public Input<Inputs.ComputeEnvironmentEksConfigurationArgs>? EksConfiguration { get; set; }
+
+        /// <summary>
         /// The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
         /// </summary>
         [Input("serviceRole")]
@@ -396,6 +408,12 @@ namespace Pulumi.Aws.Batch
         /// </summary>
         [Input("ecsClusterArn")]
         public Input<string>? EcsClusterArn { get; set; }
+
+        /// <summary>
+        /// Details for the Amazon EKS cluster that supports the compute environment. See details below.
+        /// </summary>
+        [Input("eksConfiguration")]
+        public Input<Inputs.ComputeEnvironmentEksConfigurationGetArgs>? EksConfiguration { get; set; }
 
         /// <summary>
         /// The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.

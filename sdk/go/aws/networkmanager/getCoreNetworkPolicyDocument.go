@@ -67,11 +67,11 @@ import (
 //						},
 //						EdgeLocations: []networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation{
 //							networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation{
-//								Asn:      pulumi.IntRef(64512),
+//								Asn:      pulumi.StringRef("64512"),
 //								Location: "us-east-1",
 //							},
 //							networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation{
-//								Asn:      pulumi.IntRef(64513),
+//								Asn:      pulumi.StringRef("64513"),
 //								Location: "eu-central-1",
 //							},
 //						},

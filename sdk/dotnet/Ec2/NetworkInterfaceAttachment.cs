@@ -30,6 +30,14 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Elastic network interface (ENI) Attachments can be imported using its Attachment ID e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment secondary_nic eni-attach-0a33842b4ec347c4c
+    /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment")]
     public partial class NetworkInterfaceAttachment : global::Pulumi.CustomResource

@@ -64,10 +64,10 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * CloudWatch Evidently Project can be imported using the `name`, e.g.,
+ * CloudWatch Evidently Project can be imported using the `arn`, e.g.,
  *
  * ```sh
- *  $ pulumi import aws:evidently/project:Project example example
+ *  $ pulumi import aws:evidently/project:Project example arn:aws:evidently:us-east-1:123456789012:segment/example
  * ```
  */
 export class Project extends pulumi.CustomResource {

@@ -159,7 +159,7 @@ export class DefaultNetworkAcl extends pulumi.CustomResource {
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
-     * List of Subnet IDs to apply the ACL to. See the notes below on managing Subnets in the Default Network ACL
+     * List of Subnet IDs to apply the ACL to. See the notes above on Managing Subnets in the Default Network ACL
      */
     public readonly subnetIds!: pulumi.Output<string[] | undefined>;
     /**
@@ -242,7 +242,7 @@ export interface DefaultNetworkAclState {
      */
     ownerId?: pulumi.Input<string>;
     /**
-     * List of Subnet IDs to apply the ACL to. See the notes below on managing Subnets in the Default Network ACL
+     * List of Subnet IDs to apply the ACL to. See the notes above on Managing Subnets in the Default Network ACL
      */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -276,7 +276,7 @@ export interface DefaultNetworkAclArgs {
      */
     ingress?: pulumi.Input<pulumi.Input<inputs.ec2.DefaultNetworkAclIngress>[]>;
     /**
-     * List of Subnet IDs to apply the ACL to. See the notes below on managing Subnets in the Default Network ACL
+     * List of Subnet IDs to apply the ACL to. See the notes above on Managing Subnets in the Default Network ACL
      */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**

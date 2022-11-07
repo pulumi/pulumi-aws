@@ -95,7 +95,7 @@ import javax.annotation.Nullable;
  *             .origins(DistributionOriginArgs.builder()
  *                 .domainName(bucketV2.bucketRegionalDomainName())
  *                 .originAccessControlId(aws_cloudfront_origin_access_control.default().id())
- *                 .originId(locals.s3_origin_id())
+ *                 .originId(s3OriginId)
  *                 .build())
  *             .enabled(true)
  *             .isIpv6Enabled(true)

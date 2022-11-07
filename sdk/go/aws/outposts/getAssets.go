@@ -13,6 +13,7 @@ import (
 // Information about hardware assets in an Outpost.
 //
 // ## Example Usage
+// ### Basic
 //
 // ```go
 // package main
@@ -37,6 +38,62 @@ import (
 //	}
 //
 // ```
+// ### With Host ID Filter
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/outposts"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := outposts.GetAssets(ctx, &outposts.GetAssetsArgs{
+//				Arn: data.Aws_outposts_outpost.Example.Arn,
+//				HostIdFilters: []string{
+//					"h-x38g5n0yd2a0ueb61",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### With Status ID Filter
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/outposts"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := outposts.GetAssets(ctx, &outposts.GetAssetsArgs{
+//				Arn: data.Aws_outposts_outpost.Example.Arn,
+//				StatusIdFilters: []string{
+//					"ACTIVE",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetAssets(ctx *pulumi.Context, args *GetAssetsArgs, opts ...pulumi.InvokeOption) (*GetAssetsResult, error) {
 	var rv GetAssetsResult
 	err := ctx.Invoke("aws:outposts/getAssets:getAssets", args, &rv, opts...)
@@ -50,15 +107,21 @@ func GetAssets(ctx *pulumi.Context, args *GetAssetsArgs, opts ...pulumi.InvokeOp
 type GetAssetsArgs struct {
 	// Outpost ARN.
 	Arn string `pulumi:"arn"`
+	// Filters by list of Host IDs of a Dedicated Host.
+	HostIdFilters []string `pulumi:"hostIdFilters"`
+	// Filters by list of state status. Valid values: "ACTIVE", "RETIRING".
+	StatusIdFilters []string `pulumi:"statusIdFilters"`
 }
 
 // A collection of values returned by getAssets.
 type GetAssetsResult struct {
 	Arn string `pulumi:"arn"`
-	// List of all the subnet ids found. This data source will fail if none are found.
-	AssetIds []string `pulumi:"assetIds"`
+	// List of all the asset ids found. This data source will fail if none are found.
+	AssetIds      []string `pulumi:"assetIds"`
+	HostIdFilters []string `pulumi:"hostIdFilters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id              string   `pulumi:"id"`
+	StatusIdFilters []string `pulumi:"statusIdFilters"`
 }
 
 func GetAssetsOutput(ctx *pulumi.Context, args GetAssetsOutputArgs, opts ...pulumi.InvokeOption) GetAssetsResultOutput {
@@ -78,6 +141,10 @@ func GetAssetsOutput(ctx *pulumi.Context, args GetAssetsOutputArgs, opts ...pulu
 type GetAssetsOutputArgs struct {
 	// Outpost ARN.
 	Arn pulumi.StringInput `pulumi:"arn"`
+	// Filters by list of Host IDs of a Dedicated Host.
+	HostIdFilters pulumi.StringArrayInput `pulumi:"hostIdFilters"`
+	// Filters by list of state status. Valid values: "ACTIVE", "RETIRING".
+	StatusIdFilters pulumi.StringArrayInput `pulumi:"statusIdFilters"`
 }
 
 func (GetAssetsOutputArgs) ElementType() reflect.Type {
@@ -103,14 +170,22 @@ func (o GetAssetsResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAssetsResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// List of all the subnet ids found. This data source will fail if none are found.
+// List of all the asset ids found. This data source will fail if none are found.
 func (o GetAssetsResultOutput) AssetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetAssetsResult) []string { return v.AssetIds }).(pulumi.StringArrayOutput)
+}
+
+func (o GetAssetsResultOutput) HostIdFilters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAssetsResult) []string { return v.HostIdFilters }).(pulumi.StringArrayOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
 func (o GetAssetsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAssetsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetAssetsResultOutput) StatusIdFilters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAssetsResult) []string { return v.StatusIdFilters }).(pulumi.StringArrayOutput)
 }
 
 func init() {

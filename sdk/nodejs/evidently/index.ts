@@ -9,7 +9,12 @@ export { ProjectArgs, ProjectState } from "./project";
 export type Project = import("./project").Project;
 export const Project: typeof import("./project").Project = null as any;
 
+export { SegmentArgs, SegmentState } from "./segment";
+export type Segment = import("./segment").Segment;
+export const Segment: typeof import("./segment").Segment = null as any;
+
 utilities.lazyLoad(exports, ["Project"], () => require("./project"));
+utilities.lazyLoad(exports, ["Segment"], () => require("./segment"));
 
 const _module = {
     version: utilities.getVersion(),
@@ -17,9 +22,12 @@ const _module = {
         switch (type) {
             case "aws:evidently/project:Project":
                 return new Project(name, <any>undefined, { urn })
+            case "aws:evidently/segment:Segment":
+                return new Segment(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("aws", "evidently/project", _module)
+pulumi.runtime.registerResourceModule("aws", "evidently/segment", _module)

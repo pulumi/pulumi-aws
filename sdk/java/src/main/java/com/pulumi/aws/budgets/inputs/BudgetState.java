@@ -3,9 +3,11 @@
 
 package com.pulumi.aws.budgets.inputs;
 
+import com.pulumi.aws.budgets.inputs.BudgetAutoAdjustDataArgs;
 import com.pulumi.aws.budgets.inputs.BudgetCostFilterArgs;
 import com.pulumi.aws.budgets.inputs.BudgetCostTypesArgs;
 import com.pulumi.aws.budgets.inputs.BudgetNotificationArgs;
+import com.pulumi.aws.budgets.inputs.BudgetPlannedLimitArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -48,6 +50,21 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
+    }
+
+    /**
+     * Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
+     * 
+     */
+    @Import(name="autoAdjustData")
+    private @Nullable Output<BudgetAutoAdjustDataArgs> autoAdjustData;
+
+    /**
+     * @return Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
+     * 
+     */
+    public Optional<Output<BudgetAutoAdjustDataArgs>> autoAdjustData() {
+        return Optional.ofNullable(this.autoAdjustData);
     }
 
     /**
@@ -179,18 +196,33 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Object containing Budget Notifications. Can be used multiple times to define more than one budget notification
+     * Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
      * 
      */
     @Import(name="notifications")
     private @Nullable Output<List<BudgetNotificationArgs>> notifications;
 
     /**
-     * @return Object containing Budget Notifications. Can be used multiple times to define more than one budget notification
+     * @return Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
      * 
      */
     public Optional<Output<List<BudgetNotificationArgs>>> notifications() {
         return Optional.ofNullable(this.notifications);
+    }
+
+    /**
+     * Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
+     * 
+     */
+    @Import(name="plannedLimits")
+    private @Nullable Output<List<BudgetPlannedLimitArgs>> plannedLimits;
+
+    /**
+     * @return Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
+     * 
+     */
+    public Optional<Output<List<BudgetPlannedLimitArgs>>> plannedLimits() {
+        return Optional.ofNullable(this.plannedLimits);
     }
 
     /**
@@ -243,6 +275,7 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
     private BudgetState(BudgetState $) {
         this.accountId = $.accountId;
         this.arn = $.arn;
+        this.autoAdjustData = $.autoAdjustData;
         this.budgetType = $.budgetType;
         this.costFilterLegacy = $.costFilterLegacy;
         this.costFilters = $.costFilters;
@@ -252,6 +285,7 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.namePrefix = $.namePrefix;
         this.notifications = $.notifications;
+        this.plannedLimits = $.plannedLimits;
         this.timePeriodEnd = $.timePeriodEnd;
         this.timePeriodStart = $.timePeriodStart;
         this.timeUnit = $.timeUnit;
@@ -315,6 +349,27 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
+        }
+
+        /**
+         * @param autoAdjustData Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder autoAdjustData(@Nullable Output<BudgetAutoAdjustDataArgs> autoAdjustData) {
+            $.autoAdjustData = autoAdjustData;
+            return this;
+        }
+
+        /**
+         * @param autoAdjustData Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder autoAdjustData(BudgetAutoAdjustDataArgs autoAdjustData) {
+            return autoAdjustData(Output.of(autoAdjustData));
         }
 
         /**
@@ -504,7 +559,7 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param notifications Object containing Budget Notifications. Can be used multiple times to define more than one budget notification
+         * @param notifications Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
          * 
          * @return builder
          * 
@@ -515,7 +570,7 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param notifications Object containing Budget Notifications. Can be used multiple times to define more than one budget notification
+         * @param notifications Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
          * 
          * @return builder
          * 
@@ -525,13 +580,44 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param notifications Object containing Budget Notifications. Can be used multiple times to define more than one budget notification
+         * @param notifications Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
          * 
          * @return builder
          * 
          */
         public Builder notifications(BudgetNotificationArgs... notifications) {
             return notifications(List.of(notifications));
+        }
+
+        /**
+         * @param plannedLimits Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder plannedLimits(@Nullable Output<List<BudgetPlannedLimitArgs>> plannedLimits) {
+            $.plannedLimits = plannedLimits;
+            return this;
+        }
+
+        /**
+         * @param plannedLimits Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder plannedLimits(List<BudgetPlannedLimitArgs> plannedLimits) {
+            return plannedLimits(Output.of(plannedLimits));
+        }
+
+        /**
+         * @param plannedLimits Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder plannedLimits(BudgetPlannedLimitArgs... plannedLimits) {
+            return plannedLimits(List.of(plannedLimits));
         }
 
         /**

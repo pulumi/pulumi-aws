@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Provides a AWS Transfer Workflow resource.
  *
  * ## Example Usage
+ * ### Basic single step example
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -25,6 +26,35 @@ import * as utilities from "../utilities";
  *         type: "DELETE",
  *     }],
  * });
+ * ```
+ * ### Multistep example
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.transfer.Workflow("example", {steps: [
+ *     {
+ *         customStepDetails: {
+ *             name: "example",
+ *             sourceFileLocation: original.file,
+ *             target: aws_lambda_function.example.arn,
+ *             timeoutSeconds: 60,
+ *         },
+ *         type: "CUSTOM",
+ *     },
+ *     {
+ *         tagStepDetails: {
+ *             name: "example",
+ *             sourceFileLocation: original.file,
+ *             tags: [{
+ *                 key: "Name",
+ *                 value: "Hello World",
+ *             }],
+ *         },
+ *         type: "TAG",
+ *     },
+ * ]});
  * ```
  *
  * ## Import

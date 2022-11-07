@@ -75,6 +75,105 @@ namespace Pulumi.Aws.Route53
         /// });
         /// ```
         /// {{% /example %}}
+        /// {{% example %}}
+        /// ### Complex Example
+        /// 
+        /// The following example showcases the use of nested rules within the traffic policy document and introduces the `geoproximity` rule type.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var exampleTrafficPolicyDocument = Aws.Route53.GetTrafficPolicyDocument.Invoke(new()
+        ///     {
+        ///         RecordType = "A",
+        ///         StartRule = "geoproximity_rule",
+        ///         Endpoints = new[]
+        ///         {
+        ///             new Aws.Route53.Inputs.GetTrafficPolicyDocumentEndpointInputArgs
+        ///             {
+        ///                 Id = "na_endpoint_a",
+        ///                 Type = "elastic-load-balancer",
+        ///                 Value = "elb-111111.us-west-1.elb.amazonaws.com",
+        ///             },
+        ///             new Aws.Route53.Inputs.GetTrafficPolicyDocumentEndpointInputArgs
+        ///             {
+        ///                 Id = "na_endpoint_b",
+        ///                 Type = "elastic-load-balancer",
+        ///                 Value = "elb-222222.us-west-1.elb.amazonaws.com",
+        ///             },
+        ///             new Aws.Route53.Inputs.GetTrafficPolicyDocumentEndpointInputArgs
+        ///             {
+        ///                 Id = "eu_endpoint",
+        ///                 Type = "elastic-load-balancer",
+        ///                 Value = "elb-333333.eu-west-1.elb.amazonaws.com",
+        ///             },
+        ///             new Aws.Route53.Inputs.GetTrafficPolicyDocumentEndpointInputArgs
+        ///             {
+        ///                 Id = "ap_endpoint",
+        ///                 Type = "elastic-load-balancer",
+        ///                 Value = "elb-444444.ap-northeast-2.elb.amazonaws.com",
+        ///             },
+        ///         },
+        ///         Rules = new[]
+        ///         {
+        ///             new Aws.Route53.Inputs.GetTrafficPolicyDocumentRuleInputArgs
+        ///             {
+        ///                 Id = "na_rule",
+        ///                 Type = "failover",
+        ///                 Primary = new Aws.Route53.Inputs.GetTrafficPolicyDocumentRulePrimaryInputArgs
+        ///                 {
+        ///                     EndpointReference = "na_endpoint_a",
+        ///                 },
+        ///                 Secondary = new Aws.Route53.Inputs.GetTrafficPolicyDocumentRuleSecondaryInputArgs
+        ///                 {
+        ///                     EndpointReference = "na_endpoint_b",
+        ///                 },
+        ///             },
+        ///             new Aws.Route53.Inputs.GetTrafficPolicyDocumentRuleInputArgs
+        ///             {
+        ///                 Id = "geoproximity_rule",
+        ///                 Type = "geoproximity",
+        ///                 GeoProximityLocations = new[]
+        ///                 {
+        ///                     new Aws.Route53.Inputs.GetTrafficPolicyDocumentRuleGeoProximityLocationInputArgs
+        ///                     {
+        ///                         Region = "aws:route53:us-west-1",
+        ///                         Bias = "10",
+        ///                         EvaluateTargetHealth = true,
+        ///                         RuleReference = "na_rule",
+        ///                     },
+        ///                     new Aws.Route53.Inputs.GetTrafficPolicyDocumentRuleGeoProximityLocationInputArgs
+        ///                     {
+        ///                         Region = "aws:route53:eu-west-1",
+        ///                         Bias = "10",
+        ///                         EvaluateTargetHealth = true,
+        ///                         EndpointReference = "eu_endpoint",
+        ///                     },
+        ///                     new Aws.Route53.Inputs.GetTrafficPolicyDocumentRuleGeoProximityLocationInputArgs
+        ///                     {
+        ///                         Region = "aws:route53:ap-northeast-2",
+        ///                         Bias = "0",
+        ///                         EvaluateTargetHealth = true,
+        ///                         EndpointReference = "ap_endpoint",
+        ///                     },
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     var exampleTrafficPolicy = new Aws.Route53.TrafficPolicy("exampleTrafficPolicy", new()
+        ///     {
+        ///         Comment = "example comment",
+        ///         Document = exampleTrafficPolicyDocument.Apply(getTrafficPolicyDocumentResult =&gt; getTrafficPolicyDocumentResult.Json),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetTrafficPolicyDocumentResult> InvokeAsync(GetTrafficPolicyDocumentArgs? args = null, InvokeOptions? options = null)
@@ -130,6 +229,105 @@ namespace Pulumi.Aws.Route53
         ///                 Secondary = new Aws.Route53.Inputs.GetTrafficPolicyDocumentRuleSecondaryInputArgs
         ///                 {
         ///                     EndpointReference = "site_down_banner",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     var exampleTrafficPolicy = new Aws.Route53.TrafficPolicy("exampleTrafficPolicy", new()
+        ///     {
+        ///         Comment = "example comment",
+        ///         Document = exampleTrafficPolicyDocument.Apply(getTrafficPolicyDocumentResult =&gt; getTrafficPolicyDocumentResult.Json),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### Complex Example
+        /// 
+        /// The following example showcases the use of nested rules within the traffic policy document and introduces the `geoproximity` rule type.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var exampleTrafficPolicyDocument = Aws.Route53.GetTrafficPolicyDocument.Invoke(new()
+        ///     {
+        ///         RecordType = "A",
+        ///         StartRule = "geoproximity_rule",
+        ///         Endpoints = new[]
+        ///         {
+        ///             new Aws.Route53.Inputs.GetTrafficPolicyDocumentEndpointInputArgs
+        ///             {
+        ///                 Id = "na_endpoint_a",
+        ///                 Type = "elastic-load-balancer",
+        ///                 Value = "elb-111111.us-west-1.elb.amazonaws.com",
+        ///             },
+        ///             new Aws.Route53.Inputs.GetTrafficPolicyDocumentEndpointInputArgs
+        ///             {
+        ///                 Id = "na_endpoint_b",
+        ///                 Type = "elastic-load-balancer",
+        ///                 Value = "elb-222222.us-west-1.elb.amazonaws.com",
+        ///             },
+        ///             new Aws.Route53.Inputs.GetTrafficPolicyDocumentEndpointInputArgs
+        ///             {
+        ///                 Id = "eu_endpoint",
+        ///                 Type = "elastic-load-balancer",
+        ///                 Value = "elb-333333.eu-west-1.elb.amazonaws.com",
+        ///             },
+        ///             new Aws.Route53.Inputs.GetTrafficPolicyDocumentEndpointInputArgs
+        ///             {
+        ///                 Id = "ap_endpoint",
+        ///                 Type = "elastic-load-balancer",
+        ///                 Value = "elb-444444.ap-northeast-2.elb.amazonaws.com",
+        ///             },
+        ///         },
+        ///         Rules = new[]
+        ///         {
+        ///             new Aws.Route53.Inputs.GetTrafficPolicyDocumentRuleInputArgs
+        ///             {
+        ///                 Id = "na_rule",
+        ///                 Type = "failover",
+        ///                 Primary = new Aws.Route53.Inputs.GetTrafficPolicyDocumentRulePrimaryInputArgs
+        ///                 {
+        ///                     EndpointReference = "na_endpoint_a",
+        ///                 },
+        ///                 Secondary = new Aws.Route53.Inputs.GetTrafficPolicyDocumentRuleSecondaryInputArgs
+        ///                 {
+        ///                     EndpointReference = "na_endpoint_b",
+        ///                 },
+        ///             },
+        ///             new Aws.Route53.Inputs.GetTrafficPolicyDocumentRuleInputArgs
+        ///             {
+        ///                 Id = "geoproximity_rule",
+        ///                 Type = "geoproximity",
+        ///                 GeoProximityLocations = new[]
+        ///                 {
+        ///                     new Aws.Route53.Inputs.GetTrafficPolicyDocumentRuleGeoProximityLocationInputArgs
+        ///                     {
+        ///                         Region = "aws:route53:us-west-1",
+        ///                         Bias = "10",
+        ///                         EvaluateTargetHealth = true,
+        ///                         RuleReference = "na_rule",
+        ///                     },
+        ///                     new Aws.Route53.Inputs.GetTrafficPolicyDocumentRuleGeoProximityLocationInputArgs
+        ///                     {
+        ///                         Region = "aws:route53:eu-west-1",
+        ///                         Bias = "10",
+        ///                         EvaluateTargetHealth = true,
+        ///                         EndpointReference = "eu_endpoint",
+        ///                     },
+        ///                     new Aws.Route53.Inputs.GetTrafficPolicyDocumentRuleGeoProximityLocationInputArgs
+        ///                     {
+        ///                         Region = "aws:route53:ap-northeast-2",
+        ///                         Bias = "0",
+        ///                         EvaluateTargetHealth = true,
+        ///                         EndpointReference = "ap_endpoint",
+        ///                     },
         ///                 },
         ///             },
         ///         },

@@ -91,6 +91,21 @@ public final class UserPoolArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * When active, DeletionProtection prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature. Valid values are `ACTIVE` and `INACTIVE`, Default value is `INACTIVE`.
+     * 
+     */
+    @Import(name="deletionProtection")
+    private @Nullable Output<String> deletionProtection;
+
+    /**
+     * @return When active, DeletionProtection prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature. Valid values are `ACTIVE` and `INACTIVE`, Default value is `INACTIVE`.
+     * 
+     */
+    public Optional<Output<String>> deletionProtection() {
+        return Optional.ofNullable(this.deletionProtection);
+    }
+
+    /**
      * Configuration block for the user pool&#39;s device tracking. Detailed below.
      * 
      */
@@ -382,6 +397,7 @@ public final class UserPoolArgs extends com.pulumi.resources.ResourceArgs {
         this.adminCreateUserConfig = $.adminCreateUserConfig;
         this.aliasAttributes = $.aliasAttributes;
         this.autoVerifiedAttributes = $.autoVerifiedAttributes;
+        this.deletionProtection = $.deletionProtection;
         this.deviceConfiguration = $.deviceConfiguration;
         this.emailConfiguration = $.emailConfiguration;
         this.emailVerificationMessage = $.emailVerificationMessage;
@@ -523,6 +539,27 @@ public final class UserPoolArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder autoVerifiedAttributes(String... autoVerifiedAttributes) {
             return autoVerifiedAttributes(List.of(autoVerifiedAttributes));
+        }
+
+        /**
+         * @param deletionProtection When active, DeletionProtection prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature. Valid values are `ACTIVE` and `INACTIVE`, Default value is `INACTIVE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deletionProtection(@Nullable Output<String> deletionProtection) {
+            $.deletionProtection = deletionProtection;
+            return this;
+        }
+
+        /**
+         * @param deletionProtection When active, DeletionProtection prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature. Valid values are `ACTIVE` and `INACTIVE`, Default value is `INACTIVE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deletionProtection(String deletionProtection) {
+            return deletionProtection(Output.of(deletionProtection));
         }
 
         /**

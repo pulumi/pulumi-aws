@@ -86,6 +86,13 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string> EngineVersionActual { get; private set; } = null!;
 
         /// <summary>
+        /// Set of node groups (shards) on the global replication group.
+        /// Has the values:
+        /// </summary>
+        [Output("globalNodeGroups")]
+        public Output<ImmutableArray<Outputs.GlobalReplicationGroupGlobalNodeGroup>> GlobalNodeGroups { get; private set; } = null!;
+
+        /// <summary>
         /// A user-created description for the global replication group.
         /// </summary>
         [Output("globalReplicationGroupDescription")]
@@ -102,6 +109,12 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         [Output("globalReplicationGroupIdSuffix")]
         public Output<string> GlobalReplicationGroupIdSuffix { get; private set; } = null!;
+
+        /// <summary>
+        /// The number of node groups (shards) on the global replication group.
+        /// </summary>
+        [Output("numNodeGroups")]
+        public Output<int> NumNodeGroups { get; private set; } = null!;
 
         /// <summary>
         /// An ElastiCache Parameter Group to use for the Global Replication Group.
@@ -211,6 +224,12 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string> GlobalReplicationGroupIdSuffix { get; set; } = null!;
 
         /// <summary>
+        /// The number of node groups (shards) on the global replication group.
+        /// </summary>
+        [Input("numNodeGroups")]
+        public Input<int>? NumNodeGroups { get; set; }
+
+        /// <summary>
         /// An ElastiCache Parameter Group to use for the Global Replication Group.
         /// Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
         /// Specifying without a major version upgrade will fail.
@@ -297,6 +316,19 @@ namespace Pulumi.Aws.ElastiCache
         [Input("engineVersionActual")]
         public Input<string>? EngineVersionActual { get; set; }
 
+        [Input("globalNodeGroups")]
+        private InputList<Inputs.GlobalReplicationGroupGlobalNodeGroupGetArgs>? _globalNodeGroups;
+
+        /// <summary>
+        /// Set of node groups (shards) on the global replication group.
+        /// Has the values:
+        /// </summary>
+        public InputList<Inputs.GlobalReplicationGroupGlobalNodeGroupGetArgs> GlobalNodeGroups
+        {
+            get => _globalNodeGroups ?? (_globalNodeGroups = new InputList<Inputs.GlobalReplicationGroupGlobalNodeGroupGetArgs>());
+            set => _globalNodeGroups = value;
+        }
+
         /// <summary>
         /// A user-created description for the global replication group.
         /// </summary>
@@ -314,6 +346,12 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         [Input("globalReplicationGroupIdSuffix")]
         public Input<string>? GlobalReplicationGroupIdSuffix { get; set; }
+
+        /// <summary>
+        /// The number of node groups (shards) on the global replication group.
+        /// </summary>
+        [Input("numNodeGroups")]
+        public Input<int>? NumNodeGroups { get; set; }
 
         /// <summary>
         /// An ElastiCache Parameter Group to use for the Global Replication Group.

@@ -221,6 +221,8 @@ type ComputeEnvironment struct {
 	ComputeResources ComputeEnvironmentComputeResourcesPtrOutput `pulumi:"computeResources"`
 	// The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
 	EcsClusterArn pulumi.StringOutput `pulumi:"ecsClusterArn"`
+	// Details for the Amazon EKS cluster that supports the compute environment. See details below.
+	EksConfiguration ComputeEnvironmentEksConfigurationPtrOutput `pulumi:"eksConfiguration"`
 	// The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
 	ServiceRole pulumi.StringOutput `pulumi:"serviceRole"`
 	// The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
@@ -279,6 +281,8 @@ type computeEnvironmentState struct {
 	ComputeResources *ComputeEnvironmentComputeResources `pulumi:"computeResources"`
 	// The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
 	EcsClusterArn *string `pulumi:"ecsClusterArn"`
+	// Details for the Amazon EKS cluster that supports the compute environment. See details below.
+	EksConfiguration *ComputeEnvironmentEksConfiguration `pulumi:"eksConfiguration"`
 	// The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
 	ServiceRole *string `pulumi:"serviceRole"`
 	// The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
@@ -306,6 +310,8 @@ type ComputeEnvironmentState struct {
 	ComputeResources ComputeEnvironmentComputeResourcesPtrInput
 	// The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
 	EcsClusterArn pulumi.StringPtrInput
+	// Details for the Amazon EKS cluster that supports the compute environment. See details below.
+	EksConfiguration ComputeEnvironmentEksConfigurationPtrInput
 	// The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
 	ServiceRole pulumi.StringPtrInput
 	// The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
@@ -333,6 +339,8 @@ type computeEnvironmentArgs struct {
 	ComputeEnvironmentNamePrefix *string `pulumi:"computeEnvironmentNamePrefix"`
 	// Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
 	ComputeResources *ComputeEnvironmentComputeResources `pulumi:"computeResources"`
+	// Details for the Amazon EKS cluster that supports the compute environment. See details below.
+	EksConfiguration *ComputeEnvironmentEksConfiguration `pulumi:"eksConfiguration"`
 	// The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
 	ServiceRole *string `pulumi:"serviceRole"`
 	// The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
@@ -351,6 +359,8 @@ type ComputeEnvironmentArgs struct {
 	ComputeEnvironmentNamePrefix pulumi.StringPtrInput
 	// Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
 	ComputeResources ComputeEnvironmentComputeResourcesPtrInput
+	// Details for the Amazon EKS cluster that supports the compute environment. See details below.
+	EksConfiguration ComputeEnvironmentEksConfigurationPtrInput
 	// The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
 	ServiceRole pulumi.StringPtrInput
 	// The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
@@ -471,6 +481,11 @@ func (o ComputeEnvironmentOutput) ComputeResources() ComputeEnvironmentComputeRe
 // The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
 func (o ComputeEnvironmentOutput) EcsClusterArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ComputeEnvironment) pulumi.StringOutput { return v.EcsClusterArn }).(pulumi.StringOutput)
+}
+
+// Details for the Amazon EKS cluster that supports the compute environment. See details below.
+func (o ComputeEnvironmentOutput) EksConfiguration() ComputeEnvironmentEksConfigurationPtrOutput {
+	return o.ApplyT(func(v *ComputeEnvironment) ComputeEnvironmentEksConfigurationPtrOutput { return v.EksConfiguration }).(ComputeEnvironmentEksConfigurationPtrOutput)
 }
 
 // The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.

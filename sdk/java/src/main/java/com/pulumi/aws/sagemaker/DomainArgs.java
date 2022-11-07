@@ -4,6 +4,7 @@
 package com.pulumi.aws.sagemaker;
 
 import com.pulumi.aws.sagemaker.inputs.DomainDefaultUserSettingsArgs;
+import com.pulumi.aws.sagemaker.inputs.DomainDomainSettingsArgs;
 import com.pulumi.aws.sagemaker.inputs.DomainRetentionPolicyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -32,6 +33,21 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> appNetworkAccessType() {
         return Optional.ofNullable(this.appNetworkAccessType);
+    }
+
+    /**
+     * The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
+     * 
+     */
+    @Import(name="appSecurityGroupManagement")
+    private @Nullable Output<String> appSecurityGroupManagement;
+
+    /**
+     * @return The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
+     * 
+     */
+    public Optional<Output<String>> appSecurityGroupManagement() {
+        return Optional.ofNullable(this.appSecurityGroupManagement);
     }
 
     /**
@@ -80,6 +96,21 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The domain settings. See Domain Settings below.
+     * 
+     */
+    @Import(name="domainSettings")
+    private @Nullable Output<DomainDomainSettingsArgs> domainSettings;
+
+    /**
+     * @return The domain settings. See Domain Settings below.
+     * 
+     */
+    public Optional<Output<DomainDomainSettingsArgs>> domainSettings() {
+        return Optional.ofNullable(this.domainSettings);
+    }
+
+    /**
      * The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
      * 
      */
@@ -125,14 +156,14 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -158,9 +189,11 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
 
     private DomainArgs(DomainArgs $) {
         this.appNetworkAccessType = $.appNetworkAccessType;
+        this.appSecurityGroupManagement = $.appSecurityGroupManagement;
         this.authMode = $.authMode;
         this.defaultUserSettings = $.defaultUserSettings;
         this.domainName = $.domainName;
+        this.domainSettings = $.domainSettings;
         this.kmsKeyId = $.kmsKeyId;
         this.retentionPolicy = $.retentionPolicy;
         this.subnetIds = $.subnetIds;
@@ -205,6 +238,27 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder appNetworkAccessType(String appNetworkAccessType) {
             return appNetworkAccessType(Output.of(appNetworkAccessType));
+        }
+
+        /**
+         * @param appSecurityGroupManagement The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder appSecurityGroupManagement(@Nullable Output<String> appSecurityGroupManagement) {
+            $.appSecurityGroupManagement = appSecurityGroupManagement;
+            return this;
+        }
+
+        /**
+         * @param appSecurityGroupManagement The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder appSecurityGroupManagement(String appSecurityGroupManagement) {
+            return appSecurityGroupManagement(Output.of(appSecurityGroupManagement));
         }
 
         /**
@@ -268,6 +322,27 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder domainName(String domainName) {
             return domainName(Output.of(domainName));
+        }
+
+        /**
+         * @param domainSettings The domain settings. See Domain Settings below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder domainSettings(@Nullable Output<DomainDomainSettingsArgs> domainSettings) {
+            $.domainSettings = domainSettings;
+            return this;
+        }
+
+        /**
+         * @param domainSettings The domain settings. See Domain Settings below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder domainSettings(DomainDomainSettingsArgs domainSettings) {
+            return domainSettings(Output.of(domainSettings));
         }
 
         /**
@@ -344,7 +419,7 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -355,7 +430,7 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

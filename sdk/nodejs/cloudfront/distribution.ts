@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  *     origins: [{
  *         domainName: bucketV2.bucketRegionalDomainName,
  *         originAccessControlId: aws_cloudfront_origin_access_control["default"].id,
- *         originId: locals.s3_origin_id,
+ *         originId: s3OriginId,
  *     }],
  *     enabled: true,
  *     isIpv6Enabled: true,

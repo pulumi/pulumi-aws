@@ -5,7 +5,10 @@ package com.pulumi.aws.outposts.inputs;
 
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetAssetsPlainArgs extends com.pulumi.resources.InvokeArgs {
@@ -27,10 +30,42 @@ public final class GetAssetsPlainArgs extends com.pulumi.resources.InvokeArgs {
         return this.arn;
     }
 
+    /**
+     * Filters by list of Host IDs of a Dedicated Host.
+     * 
+     */
+    @Import(name="hostIdFilters")
+    private @Nullable List<String> hostIdFilters;
+
+    /**
+     * @return Filters by list of Host IDs of a Dedicated Host.
+     * 
+     */
+    public Optional<List<String>> hostIdFilters() {
+        return Optional.ofNullable(this.hostIdFilters);
+    }
+
+    /**
+     * Filters by list of state status. Valid values: &#34;ACTIVE&#34;, &#34;RETIRING&#34;.
+     * 
+     */
+    @Import(name="statusIdFilters")
+    private @Nullable List<String> statusIdFilters;
+
+    /**
+     * @return Filters by list of state status. Valid values: &#34;ACTIVE&#34;, &#34;RETIRING&#34;.
+     * 
+     */
+    public Optional<List<String>> statusIdFilters() {
+        return Optional.ofNullable(this.statusIdFilters);
+    }
+
     private GetAssetsPlainArgs() {}
 
     private GetAssetsPlainArgs(GetAssetsPlainArgs $) {
         this.arn = $.arn;
+        this.hostIdFilters = $.hostIdFilters;
+        this.statusIdFilters = $.statusIdFilters;
     }
 
     public static Builder builder() {
@@ -60,6 +95,48 @@ public final class GetAssetsPlainArgs extends com.pulumi.resources.InvokeArgs {
         public Builder arn(String arn) {
             $.arn = arn;
             return this;
+        }
+
+        /**
+         * @param hostIdFilters Filters by list of Host IDs of a Dedicated Host.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hostIdFilters(@Nullable List<String> hostIdFilters) {
+            $.hostIdFilters = hostIdFilters;
+            return this;
+        }
+
+        /**
+         * @param hostIdFilters Filters by list of Host IDs of a Dedicated Host.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hostIdFilters(String... hostIdFilters) {
+            return hostIdFilters(List.of(hostIdFilters));
+        }
+
+        /**
+         * @param statusIdFilters Filters by list of state status. Valid values: &#34;ACTIVE&#34;, &#34;RETIRING&#34;.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder statusIdFilters(@Nullable List<String> statusIdFilters) {
+            $.statusIdFilters = statusIdFilters;
+            return this;
+        }
+
+        /**
+         * @param statusIdFilters Filters by list of state status. Valid values: &#34;ACTIVE&#34;, &#34;RETIRING&#34;.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder statusIdFilters(String... statusIdFilters) {
+            return statusIdFilters(List.of(statusIdFilters));
         }
 
         public GetAssetsPlainArgs build() {

@@ -224,6 +224,12 @@ namespace Pulumi.Aws.LB
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
+        /// Target failover block. Only applicable for Gateway Load Balancer target groups. See target_failover for more information.
+        /// </summary>
+        [Output("targetFailovers")]
+        public Output<ImmutableArray<Outputs.TargetGroupTargetFailover>> TargetFailovers { get; private set; } = null!;
+
+        /// <summary>
         /// Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
         /// </summary>
         [Output("targetType")]
@@ -387,6 +393,18 @@ namespace Pulumi.Aws.LB
             set => _tags = value;
         }
 
+        [Input("targetFailovers")]
+        private InputList<Inputs.TargetGroupTargetFailoverArgs>? _targetFailovers;
+
+        /// <summary>
+        /// Target failover block. Only applicable for Gateway Load Balancer target groups. See target_failover for more information.
+        /// </summary>
+        public InputList<Inputs.TargetGroupTargetFailoverArgs> TargetFailovers
+        {
+            get => _targetFailovers ?? (_targetFailovers = new InputList<Inputs.TargetGroupTargetFailoverArgs>());
+            set => _targetFailovers = value;
+        }
+
         /// <summary>
         /// Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
         /// </summary>
@@ -531,6 +549,18 @@ namespace Pulumi.Aws.LB
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
+        }
+
+        [Input("targetFailovers")]
+        private InputList<Inputs.TargetGroupTargetFailoverGetArgs>? _targetFailovers;
+
+        /// <summary>
+        /// Target failover block. Only applicable for Gateway Load Balancer target groups. See target_failover for more information.
+        /// </summary>
+        public InputList<Inputs.TargetGroupTargetFailoverGetArgs> TargetFailovers
+        {
+            get => _targetFailovers ?? (_targetFailovers = new InputList<Inputs.TargetGroupTargetFailoverGetArgs>());
+            set => _targetFailovers = value;
         }
 
         /// <summary>

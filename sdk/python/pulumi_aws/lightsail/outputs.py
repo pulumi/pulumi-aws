@@ -20,6 +20,7 @@ __all__ = [
     'ContainerServicePublicDomainNames',
     'ContainerServicePublicDomainNamesCertificate',
     'InstancePublicPortsPortInfo',
+    'LbCertificateDomainValidationRecord',
 ]
 
 @pulumi.output_type
@@ -536,5 +537,71 @@ class InstancePublicPortsPortInfo(dict):
         Set of CIDR blocks.
         """
         return pulumi.get(self, "cidrs")
+
+
+@pulumi.output_type
+class LbCertificateDomainValidationRecord(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "domainName":
+            suggest = "domain_name"
+        elif key == "resourceRecordName":
+            suggest = "resource_record_name"
+        elif key == "resourceRecordType":
+            suggest = "resource_record_type"
+        elif key == "resourceRecordValue":
+            suggest = "resource_record_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LbCertificateDomainValidationRecord. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LbCertificateDomainValidationRecord.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LbCertificateDomainValidationRecord.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 domain_name: Optional[str] = None,
+                 resource_record_name: Optional[str] = None,
+                 resource_record_type: Optional[str] = None,
+                 resource_record_value: Optional[str] = None):
+        """
+        :param str domain_name: The domain name (e.g., example.com) for your SSL/TLS certificate.
+        """
+        if domain_name is not None:
+            pulumi.set(__self__, "domain_name", domain_name)
+        if resource_record_name is not None:
+            pulumi.set(__self__, "resource_record_name", resource_record_name)
+        if resource_record_type is not None:
+            pulumi.set(__self__, "resource_record_type", resource_record_type)
+        if resource_record_value is not None:
+            pulumi.set(__self__, "resource_record_value", resource_record_value)
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> Optional[str]:
+        """
+        The domain name (e.g., example.com) for your SSL/TLS certificate.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @property
+    @pulumi.getter(name="resourceRecordName")
+    def resource_record_name(self) -> Optional[str]:
+        return pulumi.get(self, "resource_record_name")
+
+    @property
+    @pulumi.getter(name="resourceRecordType")
+    def resource_record_type(self) -> Optional[str]:
+        return pulumi.get(self, "resource_record_type")
+
+    @property
+    @pulumi.getter(name="resourceRecordValue")
+    def resource_record_value(self) -> Optional[str]:
+        return pulumi.get(self, "resource_record_value")
 
 

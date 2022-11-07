@@ -84,11 +84,11 @@ namespace Pulumi.Aws.Batch.Inputs
         [Input("minVcpus")]
         public Input<int>? MinVcpus { get; set; }
 
-        [Input("securityGroupIds", required: true)]
+        [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
 
         /// <summary>
-        /// A list of EC2 security group that are associated with instances launched in the compute environment.
+        /// A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
         /// </summary>
         public InputList<string> SecurityGroupIds
         {

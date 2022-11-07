@@ -19,6 +19,7 @@ __all__ = [
     'ContainerServicePublicDomainNamesArgs',
     'ContainerServicePublicDomainNamesCertificateArgs',
     'InstancePublicPortsPortInfoArgs',
+    'LbCertificateDomainValidationRecordArgs',
 ]
 
 @pulumi.input_type
@@ -487,5 +488,64 @@ class InstancePublicPortsPortInfoArgs:
     @cidrs.setter
     def cidrs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "cidrs", value)
+
+
+@pulumi.input_type
+class LbCertificateDomainValidationRecordArgs:
+    def __init__(__self__, *,
+                 domain_name: Optional[pulumi.Input[str]] = None,
+                 resource_record_name: Optional[pulumi.Input[str]] = None,
+                 resource_record_type: Optional[pulumi.Input[str]] = None,
+                 resource_record_value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] domain_name: The domain name (e.g., example.com) for your SSL/TLS certificate.
+        """
+        if domain_name is not None:
+            pulumi.set(__self__, "domain_name", domain_name)
+        if resource_record_name is not None:
+            pulumi.set(__self__, "resource_record_name", resource_record_name)
+        if resource_record_type is not None:
+            pulumi.set(__self__, "resource_record_type", resource_record_type)
+        if resource_record_value is not None:
+            pulumi.set(__self__, "resource_record_value", resource_record_value)
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The domain name (e.g., example.com) for your SSL/TLS certificate.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @domain_name.setter
+    def domain_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain_name", value)
+
+    @property
+    @pulumi.getter(name="resourceRecordName")
+    def resource_record_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "resource_record_name")
+
+    @resource_record_name.setter
+    def resource_record_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_record_name", value)
+
+    @property
+    @pulumi.getter(name="resourceRecordType")
+    def resource_record_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "resource_record_type")
+
+    @resource_record_type.setter
+    def resource_record_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_record_type", value)
+
+    @property
+    @pulumi.getter(name="resourceRecordValue")
+    def resource_record_value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "resource_record_value")
+
+    @resource_record_value.setter
+    def resource_record_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_record_value", value)
 
 

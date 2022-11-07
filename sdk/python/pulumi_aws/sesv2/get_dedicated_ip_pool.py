@@ -22,7 +22,7 @@ class GetDedicatedIpPoolResult:
     """
     A collection of values returned by getDedicatedIpPool.
     """
-    def __init__(__self__, arn=None, dedicated_ips=None, id=None, pool_name=None, tags=None):
+    def __init__(__self__, arn=None, dedicated_ips=None, id=None, pool_name=None, scaling_mode=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -35,6 +35,9 @@ class GetDedicatedIpPoolResult:
         if pool_name and not isinstance(pool_name, str):
             raise TypeError("Expected argument 'pool_name' to be a str")
         pulumi.set(__self__, "pool_name", pool_name)
+        if scaling_mode and not isinstance(scaling_mode, str):
+            raise TypeError("Expected argument 'scaling_mode' to be a str")
+        pulumi.set(__self__, "scaling_mode", scaling_mode)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -69,6 +72,14 @@ class GetDedicatedIpPoolResult:
         return pulumi.get(self, "pool_name")
 
     @property
+    @pulumi.getter(name="scalingMode")
+    def scaling_mode(self) -> str:
+        """
+        (Optional) IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`.
+        """
+        return pulumi.get(self, "scaling_mode")
+
+    @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
@@ -87,6 +98,7 @@ class AwaitableGetDedicatedIpPoolResult(GetDedicatedIpPoolResult):
             dedicated_ips=self.dedicated_ips,
             id=self.id,
             pool_name=self.pool_name,
+            scaling_mode=self.scaling_mode,
             tags=self.tags)
 
 
@@ -119,6 +131,7 @@ def get_dedicated_ip_pool(pool_name: Optional[str] = None,
         dedicated_ips=__ret__.dedicated_ips,
         id=__ret__.id,
         pool_name=__ret__.pool_name,
+        scaling_mode=__ret__.scaling_mode,
         tags=__ret__.tags)
 
 

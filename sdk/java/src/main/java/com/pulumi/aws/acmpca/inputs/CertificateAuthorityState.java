@@ -253,6 +253,21 @@ public final class CertificateAuthorityState extends com.pulumi.resources.Resour
         return Optional.ofNullable(this.type);
     }
 
+    /**
+     * Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
+     * 
+     */
+    @Import(name="usageMode")
+    private @Nullable Output<String> usageMode;
+
+    /**
+     * @return Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
+     * 
+     */
+    public Optional<Output<String>> usageMode() {
+        return Optional.ofNullable(this.usageMode);
+    }
+
     private CertificateAuthorityState() {}
 
     private CertificateAuthorityState(CertificateAuthorityState $) {
@@ -271,6 +286,7 @@ public final class CertificateAuthorityState extends com.pulumi.resources.Resour
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
         this.type = $.type;
+        this.usageMode = $.usageMode;
     }
 
     public static Builder builder() {
@@ -612,6 +628,27 @@ public final class CertificateAuthorityState extends com.pulumi.resources.Resour
          */
         public Builder type(String type) {
             return type(Output.of(type));
+        }
+
+        /**
+         * @param usageMode Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder usageMode(@Nullable Output<String> usageMode) {
+            $.usageMode = usageMode;
+            return this;
+        }
+
+        /**
+         * @param usageMode Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder usageMode(String usageMode) {
+            return usageMode(Output.of(usageMode));
         }
 
         public CertificateAuthorityState build() {

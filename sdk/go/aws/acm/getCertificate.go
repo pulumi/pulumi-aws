@@ -84,7 +84,7 @@ type LookupCertificateArgs struct {
 	Statuses []string `pulumi:"statuses"`
 	// Mapping of tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED` and `IMPORTED`.
+	// List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED`, `PRIVATE`, and `IMPORTED`.
 	Types []string `pulumi:"types"`
 }
 
@@ -136,7 +136,7 @@ type LookupCertificateOutputArgs struct {
 	Statuses pulumi.StringArrayInput `pulumi:"statuses"`
 	// Mapping of tags for the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED` and `IMPORTED`.
+	// List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED`, `PRIVATE`, and `IMPORTED`.
 	Types pulumi.StringArrayInput `pulumi:"types"`
 }
 
