@@ -1921,6 +1921,7 @@ func Provider() tfbridge.ProviderInfo {
 						CSharpName: "Alias",
 					},
 				},
+				DeleteBeforeReplace: true,
 			},
 			"aws_iam_account_password_policy": {Tok: awsResource(iamMod, "AccountPasswordPolicy")},
 			"aws_iam_group_policy": {
