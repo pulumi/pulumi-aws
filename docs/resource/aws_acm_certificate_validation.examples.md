@@ -112,9 +112,9 @@ cert_validation = aws.route53.Record("certValidation",
                                      type=example_certificate.domain_validation_options[0].resource_record_type,
                                      zone_id=example_zone.zone_id)
 
-cert_certificate_validation = aws.route53.CertificateValidation("cert",
+cert_certificate_validation = aws.acm.CertificateValidation("cert",
                                                               certificate_arn=example_certificate.arn,
-                                                              validation_record_fdqns=[cert_validation.fdqn])
+                                                              validation_record_fqdns=[cert_validation.fdqn])
 
 pulumi.export("certificate_arn", cert_certificate_validation.certificate_arn)
 ```
