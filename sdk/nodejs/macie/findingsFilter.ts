@@ -84,6 +84,9 @@ export class FindingsFilter extends pulumi.CustomResource {
      * The criteria to use to filter findings.
      */
     public readonly findingCriteria!: pulumi.Output<outputs.macie.FindingsFilterFindingCriteria>;
+    /**
+     * A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+     */
     public readonly name!: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -164,6 +167,9 @@ export interface FindingsFilterState {
      * The criteria to use to filter findings.
      */
     findingCriteria?: pulumi.Input<inputs.macie.FindingsFilterFindingCriteria>;
+    /**
+     * A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+     */
     name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -196,6 +202,9 @@ export interface FindingsFilterArgs {
      * The criteria to use to filter findings.
      */
     findingCriteria: pulumi.Input<inputs.macie.FindingsFilterFindingCriteria>;
+    /**
+     * A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+     */
     name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.

@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  *         description: "This is my thing group",
  *     },
  *     tags: {
- *         terraform: "true",
+ *         managed: "true",
  *     },
  * });
  * ```

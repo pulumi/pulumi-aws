@@ -83,6 +83,9 @@ export class VpcIpamScope extends pulumi.CustomResource {
      * Count of pools under this scope
      */
     public /*out*/ readonly poolCount!: pulumi.Output<number>;
+    /**
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -154,6 +157,9 @@ export interface VpcIpamScopeState {
      * Count of pools under this scope
      */
     poolCount?: pulumi.Input<number>;
+    /**
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -170,5 +176,8 @@ export interface VpcIpamScopeArgs {
      * The ID of the IPAM for which you're creating this scope.
      */
     ipamId: pulumi.Input<string>;
+    /**
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

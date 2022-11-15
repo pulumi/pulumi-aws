@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const tftest = new aws.elasticbeanstalk.Application("tftest", {description: "tf-test-desc"});
- * const tfTemplate = new aws.elasticbeanstalk.ConfigurationTemplate("tfTemplate", {
+ * const myTemplate = new aws.elasticbeanstalk.ConfigurationTemplate("myTemplate", {
  *     application: tftest.name,
  *     solutionStackName: "64bit Amazon Linux 2015.09 v2.0.8 running Go 1.4",
  * });
@@ -85,7 +85,7 @@ export class ConfigurationTemplate extends pulumi.CustomResource {
     public readonly settings!: pulumi.Output<outputs.elasticbeanstalk.ConfigurationTemplateSetting[]>;
     /**
      * A solution stack to base your Template
-     * off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
+     * off of. Example stacks can be found in the [Amazon API documentation][1]
      */
     public readonly solutionStackName!: pulumi.Output<string | undefined>;
 
@@ -153,7 +153,7 @@ export interface ConfigurationTemplateState {
     settings?: pulumi.Input<pulumi.Input<inputs.elasticbeanstalk.ConfigurationTemplateSetting>[]>;
     /**
      * A solution stack to base your Template
-     * off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
+     * off of. Example stacks can be found in the [Amazon API documentation][1]
      */
     solutionStackName?: pulumi.Input<string>;
 }
@@ -186,7 +186,7 @@ export interface ConfigurationTemplateArgs {
     settings?: pulumi.Input<pulumi.Input<inputs.elasticbeanstalk.ConfigurationTemplateSetting>[]>;
     /**
      * A solution stack to base your Template
-     * off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
+     * off of. Example stacks can be found in the [Amazon API documentation][1]
      */
     solutionStackName?: pulumi.Input<string>;
 }

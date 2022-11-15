@@ -71,9 +71,12 @@ export class KeyPair extends pulumi.CustomResource {
      */
     public /*out*/ readonly fingerprint!: pulumi.Output<string>;
     /**
-     * The key pair name.
+     * The name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
      */
     public readonly keyName!: pulumi.Output<string>;
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `keyName`. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
+     */
     public readonly keyNamePrefix!: pulumi.Output<string>;
     /**
      * The key pair ID.
@@ -151,9 +154,12 @@ export interface KeyPairState {
      */
     fingerprint?: pulumi.Input<string>;
     /**
-     * The key pair name.
+     * The name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
      */
     keyName?: pulumi.Input<string>;
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `keyName`. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
+     */
     keyNamePrefix?: pulumi.Input<string>;
     /**
      * The key pair ID.
@@ -182,9 +188,12 @@ export interface KeyPairState {
  */
 export interface KeyPairArgs {
     /**
-     * The key pair name.
+     * The name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
      */
     keyName?: pulumi.Input<string>;
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `keyName`. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
+     */
     keyNamePrefix?: pulumi.Input<string>;
     /**
      * The public key material.

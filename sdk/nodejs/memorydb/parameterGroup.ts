@@ -67,6 +67,9 @@ export class ParameterGroup extends pulumi.CustomResource {
      * The ARN of the parameter group.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Description for the parameter group.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The engine version that the parameter group can be used with.
@@ -141,6 +144,9 @@ export interface ParameterGroupState {
      * The ARN of the parameter group.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * Description for the parameter group.
+     */
     description?: pulumi.Input<string>;
     /**
      * The engine version that the parameter group can be used with.
@@ -172,6 +178,9 @@ export interface ParameterGroupState {
  * The set of arguments for constructing a ParameterGroup resource.
  */
 export interface ParameterGroupArgs {
+    /**
+     * Description for the parameter group.
+     */
     description?: pulumi.Input<string>;
     /**
      * The engine version that the parameter group can be used with.

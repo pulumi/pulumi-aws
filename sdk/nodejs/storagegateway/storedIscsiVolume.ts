@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Manages an AWS Storage Gateway stored iSCSI volume.
  *
- * > **NOTE:** The gateway must have a working storage added (e.g. via the `aws.storagegateway.WorkingStorage` resource) before the volume is operational to clients, however the Storage Gateway API will allow volume creation without error in that case and return volume status as `WORKING STORAGE NOT CONFIGURED`.
+ * > **NOTE:** The gateway must have a working storage added (e.g., via the `aws.storagegateway.WorkingStorage` resource) before the volume is operational to clients, however the Storage Gateway API will allow volume creation without error in that case and return volume status as `WORKING STORAGE NOT CONFIGURED`.
  *
  * ## Example Usage
  * ### Create Empty Stored iSCSI Volume
@@ -129,7 +129,7 @@ export class StoredIscsiVolume extends pulumi.CustomResource {
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * Target Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
+     * Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
      */
     public /*out*/ readonly targetArn!: pulumi.Output<string>;
     /**
@@ -141,7 +141,7 @@ export class StoredIscsiVolume extends pulumi.CustomResource {
      */
     public /*out*/ readonly volumeAttachmentStatus!: pulumi.Output<string>;
     /**
-     * Volume ID, e.g. `vol-12345678`.
+     * Volume ID, e.g., `vol-12345678`.
      */
     public /*out*/ readonly volumeId!: pulumi.Output<string>;
     /**
@@ -290,7 +290,7 @@ export interface StoredIscsiVolumeState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Target Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
+     * Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
      */
     targetArn?: pulumi.Input<string>;
     /**
@@ -302,7 +302,7 @@ export interface StoredIscsiVolumeState {
      */
     volumeAttachmentStatus?: pulumi.Input<string>;
     /**
-     * Volume ID, e.g. `vol-12345678`.
+     * Volume ID, e.g., `vol-12345678`.
      */
     volumeId?: pulumi.Input<string>;
     /**

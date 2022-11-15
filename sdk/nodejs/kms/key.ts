@@ -86,7 +86,7 @@ export class Key extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string>;
     /**
-     * Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to false.
+     * Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to `false`.
      */
     public readonly enableKeyRotation!: pulumi.Output<boolean | undefined>;
     /**
@@ -203,7 +203,7 @@ export interface KeyState {
      */
     description?: pulumi.Input<string>;
     /**
-     * Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to false.
+     * Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to `false`.
      */
     enableKeyRotation?: pulumi.Input<boolean>;
     /**
@@ -268,7 +268,7 @@ export interface KeyArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to false.
+     * Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to `false`.
      */
     enableKeyRotation?: pulumi.Input<boolean>;
     /**

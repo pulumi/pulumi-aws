@@ -5,6 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * Resource for registering an AWS Systems Manager Default Patch Baseline.
+ *
  * ## Example Usage
  * ### Basic Usage
  *

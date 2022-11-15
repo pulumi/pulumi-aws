@@ -76,7 +76,7 @@ export class EndpointConfiguration extends pulumi.CustomResource {
      */
     public readonly asyncInferenceConfig!: pulumi.Output<outputs.sagemaker.EndpointConfigurationAsyncInferenceConfig | undefined>;
     /**
-     * Specifies the parameters to capture input/output of Sagemaker models endpoints. Fields are documented below.
+     * Specifies the parameters to capture input/output of SageMaker models endpoints. Fields are documented below.
      */
     public readonly dataCaptureConfig!: pulumi.Output<outputs.sagemaker.EndpointConfigurationDataCaptureConfig | undefined>;
     /**
@@ -153,7 +153,7 @@ export interface EndpointConfigurationState {
      */
     asyncInferenceConfig?: pulumi.Input<inputs.sagemaker.EndpointConfigurationAsyncInferenceConfig>;
     /**
-     * Specifies the parameters to capture input/output of Sagemaker models endpoints. Fields are documented below.
+     * Specifies the parameters to capture input/output of SageMaker models endpoints. Fields are documented below.
      */
     dataCaptureConfig?: pulumi.Input<inputs.sagemaker.EndpointConfigurationDataCaptureConfig>;
     /**
@@ -187,7 +187,7 @@ export interface EndpointConfigurationArgs {
      */
     asyncInferenceConfig?: pulumi.Input<inputs.sagemaker.EndpointConfigurationAsyncInferenceConfig>;
     /**
-     * Specifies the parameters to capture input/output of Sagemaker models endpoints. Fields are documented below.
+     * Specifies the parameters to capture input/output of SageMaker models endpoints. Fields are documented below.
      */
     dataCaptureConfig?: pulumi.Input<inputs.sagemaker.EndpointConfigurationDataCaptureConfig>;
     /**

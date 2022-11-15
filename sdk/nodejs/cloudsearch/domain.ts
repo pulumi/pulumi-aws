@@ -8,6 +8,10 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Provides an CloudSearch domain resource.
+ *
+ * The provider waits for the domain to become `Active` when applying a configuration.
+ *
  * ## Example Usage
  *
  * ```typescript

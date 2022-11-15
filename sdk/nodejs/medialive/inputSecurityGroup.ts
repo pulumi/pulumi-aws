@@ -8,6 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Resource for managing an AWS MediaLive InputSecurityGroup.
+ *
  * ## Example Usage
  * ### Basic Usage
  *
@@ -70,7 +72,7 @@ export class InputSecurityGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly inputs!: pulumi.Output<string[]>;
     /**
-     * A map of tags to assign to the InputSecurityGroup. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the InputSecurityGroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
@@ -126,7 +128,7 @@ export interface InputSecurityGroupState {
      */
     inputs?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A map of tags to assign to the InputSecurityGroup. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the InputSecurityGroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -141,7 +143,7 @@ export interface InputSecurityGroupState {
  */
 export interface InputSecurityGroupArgs {
     /**
-     * A map of tags to assign to the InputSecurityGroup. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the InputSecurityGroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

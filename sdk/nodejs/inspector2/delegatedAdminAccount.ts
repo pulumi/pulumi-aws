@@ -5,6 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * Resource for managing an AWS Inspector V2 Delegated Admin Account.
+ *
  * ## Example Usage
  * ### Basic Usage
  *

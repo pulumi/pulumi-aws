@@ -142,6 +142,10 @@ export class Instance extends pulumi.CustomResource {
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
+     * The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
+     */
+    public readonly ipAddressType!: pulumi.Output<string | undefined>;
+    /**
      * (**Deprecated**) The first IPv6 address of the Lightsail instance. Use `ipv6Addresses` attribute instead.
      *
      * @deprecated use `ipv6_addresses` attribute instead
@@ -212,6 +216,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["bundleId"] = state ? state.bundleId : undefined;
             resourceInputs["cpuCount"] = state ? state.cpuCount : undefined;
             resourceInputs["createdAt"] = state ? state.createdAt : undefined;
+            resourceInputs["ipAddressType"] = state ? state.ipAddressType : undefined;
             resourceInputs["ipv6Address"] = state ? state.ipv6Address : undefined;
             resourceInputs["ipv6Addresses"] = state ? state.ipv6Addresses : undefined;
             resourceInputs["isStaticIp"] = state ? state.isStaticIp : undefined;
@@ -238,6 +243,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
             resourceInputs["blueprintId"] = args ? args.blueprintId : undefined;
             resourceInputs["bundleId"] = args ? args.bundleId : undefined;
+            resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
             resourceInputs["keyPairName"] = args ? args.keyPairName : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -288,6 +294,10 @@ export interface InstanceState {
      * The timestamp when the instance was created.
      */
     createdAt?: pulumi.Input<string>;
+    /**
+     * The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
+     */
+    ipAddressType?: pulumi.Input<string>;
     /**
      * (**Deprecated**) The first IPv6 address of the Lightsail instance. Use `ipv6Addresses` attribute instead.
      *
@@ -358,6 +368,10 @@ export interface InstanceArgs {
      * The bundle of specification information (see list below)
      */
     bundleId: pulumi.Input<string>;
+    /**
+     * The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
+     */
+    ipAddressType?: pulumi.Input<string>;
     /**
      * The name of your key pair. Created in the
      * Lightsail console (cannot use `aws.ec2.KeyPair` at this time)

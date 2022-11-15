@@ -86,6 +86,9 @@ export class Account extends pulumi.CustomResource {
      * If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
      */
     public readonly closeOnDeletion!: pulumi.Output<boolean | undefined>;
+    /**
+     * Whether to also create a GovCloud account. The GovCloud account is tied to the main (commercial) account this resource creates. If `true`, the GovCloud account ID is available in the `govcloudId` attribute. The only way to manage the GovCloud account with the provider is to subsequently import the account using this resource.
+     */
     public readonly createGovcloud!: pulumi.Output<boolean | undefined>;
     /**
      * Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
@@ -187,6 +190,9 @@ export interface AccountState {
      * If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
      */
     closeOnDeletion?: pulumi.Input<boolean>;
+    /**
+     * Whether to also create a GovCloud account. The GovCloud account is tied to the main (commercial) account this resource creates. If `true`, the GovCloud account ID is available in the `govcloudId` attribute. The only way to manage the GovCloud account with the provider is to subsequently import the account using this resource.
+     */
     createGovcloud?: pulumi.Input<boolean>;
     /**
      * Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
@@ -233,6 +239,9 @@ export interface AccountArgs {
      * If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
      */
     closeOnDeletion?: pulumi.Input<boolean>;
+    /**
+     * Whether to also create a GovCloud account. The GovCloud account is tied to the main (commercial) account this resource creates. If `true`, the GovCloud account ID is available in the `govcloudId` attribute. The only way to manage the GovCloud account with the provider is to subsequently import the account using this resource.
+     */
     createGovcloud?: pulumi.Input<boolean>;
     /**
      * Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.

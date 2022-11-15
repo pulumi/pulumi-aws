@@ -118,6 +118,7 @@ export class RouteTable extends pulumi.CustomResource {
     public readonly propagatingVgws!: pulumi.Output<string[]>;
     /**
      * A list of route objects. Their keys are documented below.
+     * This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
      */
     public readonly routes!: pulumi.Output<outputs.ec2.RouteTableRoute[]>;
     /**
@@ -189,6 +190,7 @@ export interface RouteTableState {
     propagatingVgws?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A list of route objects. Their keys are documented below.
+     * This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
      */
     routes?: pulumi.Input<pulumi.Input<inputs.ec2.RouteTableRoute>[]>;
     /**
@@ -215,6 +217,7 @@ export interface RouteTableArgs {
     propagatingVgws?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A list of route objects. Their keys are documented below.
+     * This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
      */
     routes?: pulumi.Input<pulumi.Input<inputs.ec2.RouteTableRoute>[]>;
     /**

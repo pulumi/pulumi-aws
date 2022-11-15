@@ -82,6 +82,9 @@ export interface GetConnectionResult {
      * Name of the CodeStar Connection. The name is unique in the calling AWS account.
      */
     readonly name: string;
+    /**
+     * Name of the external provider where your third-party code repository is configured. Possible values are `Bitbucket` and `GitHub`. For connections to a GitHub Enterprise Server instance, you must create an aws.codestarconnections.Host resource and use `hostArn` instead.
+     */
     readonly providerType: string;
     /**
      * Map of key-value resource tags to associate with the resource.

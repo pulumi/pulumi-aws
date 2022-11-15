@@ -67,7 +67,7 @@ export class UserPolicy extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the policy. If omitted, this provider will assign a random, unique name.
+     * The name of the policy. If omitted, the provider will assign a random, unique name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -123,7 +123,7 @@ export class UserPolicy extends pulumi.CustomResource {
  */
 export interface UserPolicyState {
     /**
-     * The name of the policy. If omitted, this provider will assign a random, unique name.
+     * The name of the policy. If omitted, the provider will assign a random, unique name.
      */
     name?: pulumi.Input<string>;
     /**
@@ -145,7 +145,7 @@ export interface UserPolicyState {
  */
 export interface UserPolicyArgs {
     /**
-     * The name of the policy. If omitted, this provider will assign a random, unique name.
+     * The name of the policy. If omitted, the provider will assign a random, unique name.
      */
     name?: pulumi.Input<string>;
     /**

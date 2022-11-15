@@ -8,6 +8,43 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Provides an ECS task set - effectively a task that is expected to run until an error occurs or a user terminates it (typically a webserver or a database).
+ *
+ * See [ECS Task Set section in AWS developer guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-external.html).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.ecs.TaskSet("example", {
+ *     service: aws_ecs_service.example.id,
+ *     cluster: aws_ecs_cluster.example.id,
+ *     taskDefinition: aws_ecs_task_definition.example.arn,
+ *     loadBalancers: [{
+ *         targetGroupArn: aws_lb_target_group.example.arn,
+ *         containerName: "mongo",
+ *         containerPort: 8080,
+ *     }],
+ * });
+ * ```
+ * ### Ignoring Changes to Scale
+ *
+ * You can utilize the generic resource lifecycle configuration block with `ignoreChanges` to create an ECS service with an initial count of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.ecs.TaskSet("example", {
+ *     // Example: Run 50% of the servcie's desired count
+ *     scale: {
+ *         value: 50,
+ *     },
+ * }, { ignoreChanges: ["scale"] });
+ * ```
+ *
  * ## Import
  *
  * ECS Task Sets can be imported via the `task_set_id`, `service`, and `cluster` separated by commas (`,`) e.g.
@@ -60,6 +97,9 @@ export class TaskSet extends pulumi.CustomResource {
      * The external ID associated with the task set.
      */
     public readonly externalId!: pulumi.Output<string>;
+    /**
+     * Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it's in the process of scaling a resource. Normally, the provider drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling.
+     */
     public readonly forceDelete!: pulumi.Output<boolean | undefined>;
     /**
      * The launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
@@ -113,6 +153,9 @@ export class TaskSet extends pulumi.CustomResource {
      * The ID of the task set.
      */
     public /*out*/ readonly taskSetId!: pulumi.Output<string>;
+    /**
+     * Whether the provider should wait until the task set has reached `STEADY_STATE`.
+     */
     public readonly waitUntilStable!: pulumi.Output<boolean | undefined>;
     /**
      * Wait timeout for task set to reach `STEADY_STATE`. Valid time units include `ns`, `us` (or `µs`), `ms`, `s`, `m`, and `h`. Default `10m`.
@@ -209,6 +252,9 @@ export interface TaskSetState {
      * The external ID associated with the task set.
      */
     externalId?: pulumi.Input<string>;
+    /**
+     * Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it's in the process of scaling a resource. Normally, the provider drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling.
+     */
     forceDelete?: pulumi.Input<boolean>;
     /**
      * The launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
@@ -262,6 +308,9 @@ export interface TaskSetState {
      * The ID of the task set.
      */
     taskSetId?: pulumi.Input<string>;
+    /**
+     * Whether the provider should wait until the task set has reached `STEADY_STATE`.
+     */
     waitUntilStable?: pulumi.Input<boolean>;
     /**
      * Wait timeout for task set to reach `STEADY_STATE`. Valid time units include `ns`, `us` (or `µs`), `ms`, `s`, `m`, and `h`. Default `10m`.
@@ -285,6 +334,9 @@ export interface TaskSetArgs {
      * The external ID associated with the task set.
      */
     externalId?: pulumi.Input<string>;
+    /**
+     * Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it's in the process of scaling a resource. Normally, the provider drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling.
+     */
     forceDelete?: pulumi.Input<boolean>;
     /**
      * The launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
@@ -322,6 +374,9 @@ export interface TaskSetArgs {
      * The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
      */
     taskDefinition: pulumi.Input<string>;
+    /**
+     * Whether the provider should wait until the task set has reached `STEADY_STATE`.
+     */
     waitUntilStable?: pulumi.Input<boolean>;
     /**
      * Wait timeout for task set to reach `STEADY_STATE`. Valid time units include `ns`, `us` (or `µs`), `ms`, `s`, `m`, and `h`. Default `10m`.

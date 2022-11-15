@@ -224,6 +224,12 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * For JSON syntax, use an array instead of defining the `queue` key twice.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * ```
+ *
  * ## Import
  *
  * S3 bucket notification can be imported using the `bucket`, e.g.,

@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * with `loadBalancers` and `targetGroupArns` defined in-line. These two methods are not
  * mutually-exclusive. If `aws.autoscaling.Attachment` resources are used, either alone or with inline
  * `loadBalancers` or `targetGroupArns`, the `aws.autoscaling.Group` resource must be configured
- * to [ignore changes](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to the `loadBalancers` and `targetGroupArns` arguments.
+ * to ignore changes to the `loadBalancers` and `targetGroupArns` arguments.
  *
  * ## Example Usage
  *

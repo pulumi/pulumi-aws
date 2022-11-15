@@ -8,6 +8,14 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Provides an AutoScaling Scaling Policy resource.
+ *
+ * > **NOTE:** You may want to omit `desiredCapacity` attribute from attached `aws.autoscaling.Group`
+ * when using autoscaling policies. It's good practice to pick either
+ * [manual](https://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-manual-scaling.html)
+ * or [dynamic](https://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-scale-based-on-demand.html)
+ * (policy-based) scaling.
+ *
  * ## Example Usage
  *
  * ```typescript

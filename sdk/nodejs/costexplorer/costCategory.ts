@@ -121,6 +121,9 @@ export class CostCategory extends pulumi.CustomResource {
      * Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
      */
     public readonly splitChargeRules!: pulumi.Output<outputs.costexplorer.CostCategorySplitChargeRule[] | undefined>;
+    /**
+     * Configuration block for the specific `Tag` to use for `Expression`. See below.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -210,6 +213,9 @@ export interface CostCategoryState {
      * Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
      */
     splitChargeRules?: pulumi.Input<pulumi.Input<inputs.costexplorer.CostCategorySplitChargeRule>[]>;
+    /**
+     * Configuration block for the specific `Tag` to use for `Expression`. See below.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -241,5 +247,8 @@ export interface CostCategoryArgs {
      * Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
      */
     splitChargeRules?: pulumi.Input<pulumi.Input<inputs.costexplorer.CostCategorySplitChargeRule>[]>;
+    /**
+     * Configuration block for the specific `Tag` to use for `Expression`. See below.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

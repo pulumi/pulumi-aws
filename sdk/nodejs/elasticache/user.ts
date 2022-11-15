@@ -5,6 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * Provides an ElastiCache user resource.
+ *
  * ## Example Usage
  *
  * ```typescript

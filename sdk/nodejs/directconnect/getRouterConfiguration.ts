@@ -8,6 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Data source for retrieving Router Configuration instructions for a given AWS Direct Connect Virtual Interface and Router Type.
+ *
  * ## Example Usage
  * ### Basic Usage
  *

@@ -85,6 +85,9 @@ export class Connection extends pulumi.CustomResource {
      * The ID of the link for the first device.
      */
     public readonly linkId!: pulumi.Output<string | undefined>;
+    /**
+     * Key-value tags for the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -171,6 +174,9 @@ export interface ConnectionState {
      * The ID of the link for the first device.
      */
     linkId?: pulumi.Input<string>;
+    /**
+     * Key-value tags for the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -206,5 +212,8 @@ export interface ConnectionArgs {
      * The ID of the link for the first device.
      */
     linkId?: pulumi.Input<string>;
+    /**
+     * Key-value tags for the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

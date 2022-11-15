@@ -112,6 +112,10 @@ export class UserHierarchyGroup extends pulumi.CustomResource {
      * The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
      */
     public readonly parentGroupId!: pulumi.Output<string | undefined>;
+    /**
+     * Tags to apply to the hierarchy group. If configured with a provider
+     * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -192,6 +196,10 @@ export interface UserHierarchyGroupState {
      * The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
      */
     parentGroupId?: pulumi.Input<string>;
+    /**
+     * Tags to apply to the hierarchy group. If configured with a provider
+     * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -215,5 +223,9 @@ export interface UserHierarchyGroupArgs {
      * The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
      */
     parentGroupId?: pulumi.Input<string>;
+    /**
+     * Tags to apply to the hierarchy group. If configured with a provider
+     * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

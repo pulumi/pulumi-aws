@@ -181,7 +181,7 @@ export class BucketObject extends pulumi.CustomResource {
      */
     public readonly contentType!: pulumi.Output<string>;
     /**
-     * Triggers updates when the value changes. The only meaningful value is `filemd5("path/to/file")`. This attribute is not compatible with KMS encryption, `kmsKeyId` or `serverSideEncryption = "aws:kms"` (see `sourceHash` instead).
+     * Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kmsKeyId` or `serverSideEncryption = "aws:kms"` (see `sourceHash` instead).
      */
     public readonly etag!: pulumi.Output<string>;
     /**
@@ -193,7 +193,7 @@ export class BucketObject extends pulumi.CustomResource {
      */
     public readonly key!: pulumi.Output<string>;
     /**
-     * ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `aws.kms.Key` resource, use the `arn` attribute. If referencing the `aws.kms.Alias` data source or resource, use the `targetKeyArn` attribute. This provider will only perform drift detection if a configuration value is provided.
+     * ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `aws.kms.Key` resource, use the `arn` attribute. If referencing the `aws.kms.Alias` data source or resource, use the `targetKeyArn` attribute. The provider will only perform drift detection if a configuration value is provided.
      */
     public readonly kmsKeyId!: pulumi.Output<string>;
     /**
@@ -221,7 +221,7 @@ export class BucketObject extends pulumi.CustomResource {
      */
     public readonly source!: pulumi.Output<pulumi.asset.Asset | pulumi.asset.Archive | undefined>;
     /**
-     * Triggers updates like `etag` but useful to address `etag` encryption limitations. Set using `filemd5("path/to/source")`. (The value is only stored in state and not saved by AWS.)
+     * Triggers updates like `etag` but useful to address `etag` encryption limitations.
      */
     public readonly sourceHash!: pulumi.Output<string | undefined>;
     /**
@@ -366,7 +366,7 @@ export interface BucketObjectState {
      */
     contentType?: pulumi.Input<string>;
     /**
-     * Triggers updates when the value changes. The only meaningful value is `filemd5("path/to/file")`. This attribute is not compatible with KMS encryption, `kmsKeyId` or `serverSideEncryption = "aws:kms"` (see `sourceHash` instead).
+     * Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kmsKeyId` or `serverSideEncryption = "aws:kms"` (see `sourceHash` instead).
      */
     etag?: pulumi.Input<string>;
     /**
@@ -378,7 +378,7 @@ export interface BucketObjectState {
      */
     key?: pulumi.Input<string>;
     /**
-     * ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `aws.kms.Key` resource, use the `arn` attribute. If referencing the `aws.kms.Alias` data source or resource, use the `targetKeyArn` attribute. This provider will only perform drift detection if a configuration value is provided.
+     * ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `aws.kms.Key` resource, use the `arn` attribute. If referencing the `aws.kms.Alias` data source or resource, use the `targetKeyArn` attribute. The provider will only perform drift detection if a configuration value is provided.
      */
     kmsKeyId?: pulumi.Input<string>;
     /**
@@ -406,7 +406,7 @@ export interface BucketObjectState {
      */
     source?: pulumi.Input<pulumi.asset.Asset | pulumi.asset.Archive>;
     /**
-     * Triggers updates like `etag` but useful to address `etag` encryption limitations. Set using `filemd5("path/to/source")`. (The value is only stored in state and not saved by AWS.)
+     * Triggers updates like `etag` but useful to address `etag` encryption limitations.
      */
     sourceHash?: pulumi.Input<string>;
     /**
@@ -476,7 +476,7 @@ export interface BucketObjectArgs {
      */
     contentType?: pulumi.Input<string>;
     /**
-     * Triggers updates when the value changes. The only meaningful value is `filemd5("path/to/file")`. This attribute is not compatible with KMS encryption, `kmsKeyId` or `serverSideEncryption = "aws:kms"` (see `sourceHash` instead).
+     * Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kmsKeyId` or `serverSideEncryption = "aws:kms"` (see `sourceHash` instead).
      */
     etag?: pulumi.Input<string>;
     /**
@@ -488,7 +488,7 @@ export interface BucketObjectArgs {
      */
     key?: pulumi.Input<string>;
     /**
-     * ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `aws.kms.Key` resource, use the `arn` attribute. If referencing the `aws.kms.Alias` data source or resource, use the `targetKeyArn` attribute. This provider will only perform drift detection if a configuration value is provided.
+     * ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `aws.kms.Key` resource, use the `arn` attribute. If referencing the `aws.kms.Alias` data source or resource, use the `targetKeyArn` attribute. The provider will only perform drift detection if a configuration value is provided.
      */
     kmsKeyId?: pulumi.Input<string>;
     /**
@@ -516,7 +516,7 @@ export interface BucketObjectArgs {
      */
     source?: pulumi.Input<pulumi.asset.Asset | pulumi.asset.Archive>;
     /**
-     * Triggers updates like `etag` but useful to address `etag` encryption limitations. Set using `filemd5("path/to/source")`. (The value is only stored in state and not saved by AWS.)
+     * Triggers updates like `etag` but useful to address `etag` encryption limitations.
      */
     sourceHash?: pulumi.Input<string>;
     /**

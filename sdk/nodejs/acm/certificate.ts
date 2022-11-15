@@ -233,7 +233,7 @@ export class Certificate extends pulumi.CustomResource {
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * Set of domains that should be SANs in the issued certificate.
-     * To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+     * To remove all elements of a previously configured list, set this value equal to an empty list (`[]`)
      */
     public readonly subjectAlternativeNames!: pulumi.Output<string[]>;
     /**
@@ -252,6 +252,9 @@ export class Certificate extends pulumi.CustomResource {
      * List of addresses that received a validation email. Only set if `EMAIL` validation was used.
      */
     public /*out*/ readonly validationEmails!: pulumi.Output<string[]>;
+    /**
+     * Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
+     */
     public readonly validationMethod!: pulumi.Output<string>;
     /**
      * Configuration block used to specify information about the initial validation of each domain name. Detailed below.
@@ -397,7 +400,7 @@ export interface CertificateState {
     status?: pulumi.Input<string>;
     /**
      * Set of domains that should be SANs in the issued certificate.
-     * To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+     * To remove all elements of a previously configured list, set this value equal to an empty list (`[]`)
      */
     subjectAlternativeNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -416,6 +419,9 @@ export interface CertificateState {
      * List of addresses that received a validation email. Only set if `EMAIL` validation was used.
      */
     validationEmails?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
+     */
     validationMethod?: pulumi.Input<string>;
     /**
      * Configuration block used to specify information about the initial validation of each domain name. Detailed below.
@@ -463,13 +469,16 @@ export interface CertificateArgs {
     privateKey?: pulumi.Input<string>;
     /**
      * Set of domains that should be SANs in the issued certificate.
-     * To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+     * To remove all elements of a previously configured list, set this value equal to an empty list (`[]`)
      */
     subjectAlternativeNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
+     */
     validationMethod?: pulumi.Input<string>;
     /**
      * Configuration block used to specify information about the initial validation of each domain name. Detailed below.

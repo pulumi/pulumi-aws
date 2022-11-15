@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * Provides a resource to manage whether serial console access is enabled for your AWS account in the current AWS region.
+ *
+ * > **NOTE:** Removing this resource disables serial console access.
+ *
  * ## Example Usage
  *
  * ```typescript

@@ -88,7 +88,7 @@ export class RolePolicy extends pulumi.CustomResource {
      */
     public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
-     * The policy document. This is a JSON formatted string.
+     * The inline policy document. This is a JSON formatted string. For more information about building IAM policy documents with the provider, see the AWS IAM Policy Document Guide
      */
     public readonly policy!: pulumi.Output<string>;
     /**
@@ -146,7 +146,7 @@ export interface RolePolicyState {
      */
     namePrefix?: pulumi.Input<string>;
     /**
-     * The policy document. This is a JSON formatted string.
+     * The inline policy document. This is a JSON formatted string. For more information about building IAM policy documents with the provider, see the AWS IAM Policy Document Guide
      */
     policy?: pulumi.Input<string | PolicyDocument>;
     /**
@@ -170,7 +170,7 @@ export interface RolePolicyArgs {
      */
     namePrefix?: pulumi.Input<string>;
     /**
-     * The policy document. This is a JSON formatted string.
+     * The inline policy document. This is a JSON formatted string. For more information about building IAM policy documents with the provider, see the AWS IAM Policy Document Guide
      */
     policy: pulumi.Input<string | PolicyDocument>;
     /**

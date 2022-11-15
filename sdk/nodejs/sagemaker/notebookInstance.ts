@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  * const example = new aws.sagemaker.CodeRepository("example", {
  *     codeRepositoryName: "my-notebook-instance-code-repo",
  *     gitConfig: {
- *         repositoryUrl: "https://github.com/hashicorp/terraform-provider-aws.git",
+ *         repositoryUrl: "https://github.com/github/docs.git",
  *     },
  * });
  * const ni = new aws.sagemaker.NotebookInstance("ni", {

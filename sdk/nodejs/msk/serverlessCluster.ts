@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Manages an Amazon MSK Serverless cluster.
  *
- * > **Note:** To manage a _provisioned_ Amazon MSK cluster, use the [`aws.msk.Cluster`](https://www.terraform.io/docs/providers/aws/r/msk_cluster.html) resource.
+ * > **Note:** To manage a _provisioned_ Amazon MSK cluster, use the `aws.msk.Cluster` resource.
  *
  * ## Import
  *
@@ -60,6 +60,9 @@ export class ServerlessCluster extends pulumi.CustomResource {
      * The name of the serverless cluster.
      */
     public readonly clusterName!: pulumi.Output<string>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -125,6 +128,9 @@ export interface ServerlessClusterState {
      * The name of the serverless cluster.
      */
     clusterName?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -148,6 +154,9 @@ export interface ServerlessClusterArgs {
      * The name of the serverless cluster.
      */
     clusterName?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * VPC configuration information. See below.

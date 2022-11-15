@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.backup.Plan("example", {
  *     rules: [{
- *         ruleName: "tf_example_backup_rule",
+ *         ruleName: "my_example_backup_rule",
  *         targetVaultName: aws_backup_vault.test.name,
  *         schedule: "cron(0 12 * * ? *)",
  *         lifecycle: {

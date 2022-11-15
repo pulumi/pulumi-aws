@@ -73,8 +73,6 @@ import * as utilities from "../utilities";
  * ```sh
  *  $ pulumi import aws:appmesh/virtualGateway:VirtualGateway example mesh/gw1
  * ```
- *
- *  [1]/docs/providers/aws/index.html
  */
 export class VirtualGateway extends pulumi.CustomResource {
     /**

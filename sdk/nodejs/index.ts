@@ -195,6 +195,7 @@ import * as imagebuilder from "./imagebuilder";
 import * as inspector from "./inspector";
 import * as inspector2 from "./inspector2";
 import * as iot from "./iot";
+import * as ivs from "./ivs";
 import * as kendra from "./kendra";
 import * as keyspaces from "./keyspaces";
 import * as kinesis from "./kinesis";
@@ -373,6 +374,7 @@ export {
     inspector,
     inspector2,
     iot,
+    ivs,
     kendra,
     keyspaces,
     kinesis,

@@ -8,8 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to get IDs and VPC membership of Security Groups that are created
- * outside of this provider.
+ * Use this data source to get IDs and VPC membership of Security Groups that are created outside this provider.
  *
  * ## Example Usage
  *

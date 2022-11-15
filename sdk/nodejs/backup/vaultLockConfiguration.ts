@@ -66,7 +66,7 @@ export class VaultLockConfiguration extends pulumi.CustomResource {
      */
     public readonly backupVaultName!: pulumi.Output<string>;
     /**
-     * The number of days before the lock date.
+     * The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
      */
     public readonly changeableForDays!: pulumi.Output<number | undefined>;
     /**
@@ -125,7 +125,7 @@ export interface VaultLockConfigurationState {
      */
     backupVaultName?: pulumi.Input<string>;
     /**
-     * The number of days before the lock date.
+     * The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
      */
     changeableForDays?: pulumi.Input<number>;
     /**
@@ -147,7 +147,7 @@ export interface VaultLockConfigurationArgs {
      */
     backupVaultName: pulumi.Input<string>;
     /**
-     * The number of days before the lock date.
+     * The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
      */
     changeableForDays?: pulumi.Input<number>;
     /**

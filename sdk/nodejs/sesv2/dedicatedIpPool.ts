@@ -5,6 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * Resource for managing an AWS SESv2 (Simple Email V2) Dedicated IP Pool.
+ *
  * ## Example Usage
  * ### Basic Usage
  *
@@ -76,8 +78,11 @@ export class DedicatedIpPool extends pulumi.CustomResource {
      * IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
      */
     public readonly scalingMode!: pulumi.Output<string>;
+    /**
+     * A map of tags to assign to the pool. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a DedicatedIpPool resource with the given unique name, arguments, and options.
@@ -105,8 +110,8 @@ export class DedicatedIpPool extends pulumi.CustomResource {
             resourceInputs["poolName"] = args ? args.poolName : undefined;
             resourceInputs["scalingMode"] = args ? args.scalingMode : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DedicatedIpPool.__pulumiType, name, resourceInputs, opts);
@@ -129,6 +134,9 @@ export interface DedicatedIpPoolState {
      * IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
      */
     scalingMode?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the pool. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -145,6 +153,8 @@ export interface DedicatedIpPoolArgs {
      * IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
      */
     scalingMode?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the pool. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

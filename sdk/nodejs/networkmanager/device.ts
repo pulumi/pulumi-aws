@@ -91,6 +91,9 @@ export class Device extends pulumi.CustomResource {
      * The ID of the site.
      */
     public readonly siteId!: pulumi.Output<string | undefined>;
+    /**
+     * Key-value tags for the device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -189,6 +192,9 @@ export interface DeviceState {
      * The ID of the site.
      */
     siteId?: pulumi.Input<string>;
+    /**
+     * Key-value tags for the device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -236,6 +242,9 @@ export interface DeviceArgs {
      * The ID of the site.
      */
     siteId?: pulumi.Input<string>;
+    /**
+     * Key-value tags for the device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of device.

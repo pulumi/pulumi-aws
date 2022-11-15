@@ -21,6 +21,10 @@ export { EndpointAccessArgs, EndpointAccessState } from "./endpointAccess";
 export type EndpointAccess = import("./endpointAccess").EndpointAccess;
 export const EndpointAccess: typeof import("./endpointAccess").EndpointAccess = null as any;
 
+export { EndpointAuthorizationArgs, EndpointAuthorizationState } from "./endpointAuthorization";
+export type EndpointAuthorization = import("./endpointAuthorization").EndpointAuthorization;
+export const EndpointAuthorization: typeof import("./endpointAuthorization").EndpointAuthorization = null as any;
+
 export { EventSubscriptionArgs, EventSubscriptionState } from "./eventSubscription";
 export type EventSubscription = import("./eventSubscription").EventSubscription;
 export const EventSubscription: typeof import("./eventSubscription").EventSubscription = null as any;
@@ -57,6 +61,10 @@ export { ParameterGroupArgs, ParameterGroupState } from "./parameterGroup";
 export type ParameterGroup = import("./parameterGroup").ParameterGroup;
 export const ParameterGroup: typeof import("./parameterGroup").ParameterGroup = null as any;
 
+export { PartnerArgs, PartnerState } from "./partner";
+export type Partner = import("./partner").Partner;
+export const Partner: typeof import("./partner").Partner = null as any;
+
 export { ScheduledActionArgs, ScheduledActionState } from "./scheduledAction";
 export type ScheduledAction = import("./scheduledAction").ScheduledAction;
 export const ScheduledAction: typeof import("./scheduledAction").ScheduledAction = null as any;
@@ -89,6 +97,7 @@ utilities.lazyLoad(exports, ["AuthenticationProfile"], () => require("./authenti
 utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
 utilities.lazyLoad(exports, ["ClusterIamRoles"], () => require("./clusterIamRoles"));
 utilities.lazyLoad(exports, ["EndpointAccess"], () => require("./endpointAccess"));
+utilities.lazyLoad(exports, ["EndpointAuthorization"], () => require("./endpointAuthorization"));
 utilities.lazyLoad(exports, ["EventSubscription"], () => require("./eventSubscription"));
 utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
 utilities.lazyLoad(exports, ["getClusterCredentials","getClusterCredentialsOutput"], () => require("./getClusterCredentials"));
@@ -98,6 +107,7 @@ utilities.lazyLoad(exports, ["getSubnetGroup","getSubnetGroupOutput"], () => req
 utilities.lazyLoad(exports, ["HsmClientCertificate"], () => require("./hsmClientCertificate"));
 utilities.lazyLoad(exports, ["HsmConfiguration"], () => require("./hsmConfiguration"));
 utilities.lazyLoad(exports, ["ParameterGroup"], () => require("./parameterGroup"));
+utilities.lazyLoad(exports, ["Partner"], () => require("./partner"));
 utilities.lazyLoad(exports, ["ScheduledAction"], () => require("./scheduledAction"));
 utilities.lazyLoad(exports, ["SecurityGroup"], () => require("./securityGroup"));
 utilities.lazyLoad(exports, ["SnapshotCopyGrant"], () => require("./snapshotCopyGrant"));
@@ -118,6 +128,8 @@ const _module = {
                 return new ClusterIamRoles(name, <any>undefined, { urn })
             case "aws:redshift/endpointAccess:EndpointAccess":
                 return new EndpointAccess(name, <any>undefined, { urn })
+            case "aws:redshift/endpointAuthorization:EndpointAuthorization":
+                return new EndpointAuthorization(name, <any>undefined, { urn })
             case "aws:redshift/eventSubscription:EventSubscription":
                 return new EventSubscription(name, <any>undefined, { urn })
             case "aws:redshift/hsmClientCertificate:HsmClientCertificate":
@@ -126,6 +138,8 @@ const _module = {
                 return new HsmConfiguration(name, <any>undefined, { urn })
             case "aws:redshift/parameterGroup:ParameterGroup":
                 return new ParameterGroup(name, <any>undefined, { urn })
+            case "aws:redshift/partner:Partner":
+                return new Partner(name, <any>undefined, { urn })
             case "aws:redshift/scheduledAction:ScheduledAction":
                 return new ScheduledAction(name, <any>undefined, { urn })
             case "aws:redshift/securityGroup:SecurityGroup":
@@ -149,10 +163,12 @@ pulumi.runtime.registerResourceModule("aws", "redshift/authenticationProfile", _
 pulumi.runtime.registerResourceModule("aws", "redshift/cluster", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/clusterIamRoles", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/endpointAccess", _module)
+pulumi.runtime.registerResourceModule("aws", "redshift/endpointAuthorization", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/eventSubscription", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/hsmClientCertificate", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/hsmConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/parameterGroup", _module)
+pulumi.runtime.registerResourceModule("aws", "redshift/partner", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/scheduledAction", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/securityGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/snapshotCopyGrant", _module)

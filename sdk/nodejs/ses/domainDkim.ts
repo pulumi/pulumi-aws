@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Provides an SES domain DKIM generation resource.
  *
- * Domain ownership needs to be confirmed first using `aws.ses.DomainIdentity` resource.
+ * Domain ownership needs to be confirmed first using sesDomainIdentity Resource
  *
  * ## Example Usage
  *

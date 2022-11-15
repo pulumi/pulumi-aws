@@ -25,8 +25,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const current = aws.getCallerIdentity({});
- * const bucketV2 = new aws.s3.BucketV2("bucketV2", {});
  * const fooBucketV2 = new aws.s3.BucketV2("fooBucketV2", {forceDestroy: true});
+ * const foobar = new aws.cloudtrail.Trail("foobar", {
+ *     s3BucketName: fooBucketV2.id,
+ *     s3KeyPrefix: "prefix",
+ *     includeGlobalServiceEvents: false,
+ * });
  * const fooBucketPolicy = new aws.s3.BucketPolicy("fooBucketPolicy", {
  *     bucket: fooBucketV2.id,
  *     policy: pulumi.all([fooBucketV2.arn, fooBucketV2.arn, current]).apply(([fooBucketV2Arn, fooBucketV2Arn1, current]) => `{
@@ -57,13 +61,7 @@ import * as utilities from "../utilities";
  *         }
  *     ]
  * }
- * }
  * `),
- * });
- * const foobar = new aws.cloudtrail.Trail("foobar", {
- *     s3BucketName: bucketV2.id,
- *     s3KeyPrefix: "prefix",
- *     includeGlobalServiceEvents: false,
  * });
  * ```
  * ### Data Event Logging
@@ -78,17 +76,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bucketV2 = new aws.s3.BucketV2("bucketV2", {});
  * const example = new aws.cloudtrail.Trail("example", {
- *     s3BucketName: bucketV2.id,
- *     s3KeyPrefix: "prefix",
  *     eventSelectors: [{
- *         readWriteType: "All",
- *         includeManagementEvents: true,
  *         dataResources: [{
  *             type: "AWS::Lambda::Function",
  *             values: ["arn:aws:lambda"],
  *         }],
+ *         includeManagementEvents: true,
+ *         readWriteType: "All",
  *     }],
  * });
  * ```
@@ -98,17 +93,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bucketV2 = new aws.s3.BucketV2("bucketV2", {});
  * const example = new aws.cloudtrail.Trail("example", {
- *     s3BucketName: bucketV2.id,
- *     s3KeyPrefix: "prefix",
  *     eventSelectors: [{
- *         readWriteType: "All",
- *         includeManagementEvents: true,
  *         dataResources: [{
  *             type: "AWS::S3::Object",
  *             values: ["arn:aws:s3"],
  *         }],
+ *         includeManagementEvents: true,
+ *         readWriteType: "All",
  *     }],
  * });
  * ```
@@ -118,19 +110,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const important-bucket = aws.s3.getBucket({
+ * const important_bucket = pulumi.output(aws.s3.getBucket({
  *     bucket: "important-bucket",
- * });
+ * }));
  * const example = new aws.cloudtrail.Trail("example", {
- *     s3BucketName: important_bucket.then(important_bucket => important_bucket.id),
- *     s3KeyPrefix: "prefix",
  *     eventSelectors: [{
- *         readWriteType: "All",
- *         includeManagementEvents: true,
  *         dataResources: [{
  *             type: "AWS::S3::Object",
- *             values: [important_bucket.then(important_bucket => `${important_bucket.arn}/`)],
+ *             // Make sure to append a trailing '/' to your ARN if you want
+ *             // to monitor all objects in a bucket.
+ *             values: [pulumi.interpolate`${important_bucket.arn}/`],
  *         }],
+ *         includeManagementEvents: true,
+ *         readWriteType: "All",
  *     }],
  * });
  * ```
@@ -262,48 +254,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const current = aws.getPartition({});
- * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {});
- * const testRole = new aws.iam.Role("testRole", {assumeRolePolicy: current.then(current => `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Sid": "",
- *       "Effect": "Allow",
- *       "Principal": {
- *         "Service": "cloudtrail.${current.dnsSuffix}"
- *       },
- *       "Action": "sts:AssumeRole"
- *     }
- *   ]
- * }
- * `)});
- * const testRolePolicy = new aws.iam.RolePolicy("testRolePolicy", {
- *     role: testRole.id,
- *     policy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Sid": "AWSCloudTrailCreateLogStream",
- *       "Effect": "Allow",
- *       "Action": [
- *         "logs:CreateLogStream",
- *         "logs:PutLogEvents"
- *       ],
- *       "Resource": "${aws_cloudwatch_log_group.test.arn}:*"
- *     }
- *   ]
- * }
- * `,
- * });
- * const bucketV2 = new aws.s3.BucketV2("bucketV2", {});
- * const exampleTrail = new aws.cloudtrail.Trail("exampleTrail", {
- *     s3BucketName: data.aws_s3_bucket["important-bucket"].id,
- *     s3KeyPrefix: "prefix",
- *     cloudWatchLogsRoleArn: testRole.arn,
+ * const exampleLogGroup = new aws.cloudwatch.LogGroup("example", {});
+ * const exampleTrail = new aws.cloudtrail.Trail("example", {
  *     cloudWatchLogsGroupArn: pulumi.interpolate`${exampleLogGroup.arn}:*`,
  * });
- * // CloudTrail requires the Log Stream wildcard
  * ```
  *
  * ## Import
@@ -411,7 +365,7 @@ export class Trail extends pulumi.CustomResource {
      */
     public readonly snsTopicName!: pulumi.Output<string | undefined>;
     /**
-     * Map of tags to assign to the trail. If configured with provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the trail. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -554,7 +508,7 @@ export interface TrailState {
      */
     snsTopicName?: pulumi.Input<string>;
     /**
-     * Map of tags to assign to the trail. If configured with provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the trail. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -628,7 +582,7 @@ export interface TrailArgs {
      */
     snsTopicName?: pulumi.Input<string>;
     /**
-     * Map of tags to assign to the trail. If configured with provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the trail. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

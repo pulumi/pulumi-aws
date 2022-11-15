@@ -8,6 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Resource for managing an AWS SESv2 (Simple Email V2) Configuration Set.
+ *
  * ## Example Usage
  * ### Basic Usage
  *
@@ -23,9 +25,9 @@ import * as utilities from "../utilities";
  *     reputationOptions: {
  *         reputationMetricsEnabled: false,
  *     },
- *     sendigOptions: [{
+ *     sendingOptions: {
  *         sendingEnabled: true,
- *     }],
+ *     },
  *     suppressionOptions: {
  *         suppressedReasons: [
  *             "BOUNCE",
@@ -98,8 +100,11 @@ export class ConfigurationSet extends pulumi.CustomResource {
      * An object that contains information about the suppression list preferences for your account.
      */
     public readonly suppressionOptions!: pulumi.Output<outputs.sesv2.ConfigurationSetSuppressionOptions | undefined>;
+    /**
+     * A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * An object that defines the open and click tracking options for emails that you send using the configuration set.
      */
@@ -138,9 +143,9 @@ export class ConfigurationSet extends pulumi.CustomResource {
             resourceInputs["sendingOptions"] = args ? args.sendingOptions : undefined;
             resourceInputs["suppressionOptions"] = args ? args.suppressionOptions : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["trackingOptions"] = args ? args.trackingOptions : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ConfigurationSet.__pulumiType, name, resourceInputs, opts);
@@ -175,6 +180,9 @@ export interface ConfigurationSetState {
      * An object that contains information about the suppression list preferences for your account.
      */
     suppressionOptions?: pulumi.Input<inputs.sesv2.ConfigurationSetSuppressionOptions>;
+    /**
+     * A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -207,8 +215,10 @@ export interface ConfigurationSetArgs {
      * An object that contains information about the suppression list preferences for your account.
      */
     suppressionOptions?: pulumi.Input<inputs.sesv2.ConfigurationSetSuppressionOptions>;
+    /**
+     * A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * An object that defines the open and click tracking options for emails that you send using the configuration set.
      */

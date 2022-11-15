@@ -8,6 +8,19 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Provides an network ACL resource. You might set up network ACLs with rules similar
+ * to your security groups in order to add an additional layer of security to your VPC.
+ *
+ * > **NOTE on Network ACLs and Network ACL Rules:** This provider currently
+ * provides both a standalone Network ACL Rule resource and a Network ACL resource with rules
+ * defined in-line. At this time you cannot use a Network ACL with in-line rules
+ * in conjunction with any Network ACL Rule resources. Doing so will cause
+ * a conflict of rule settings and will overwrite rules.
+ *
+ * > **NOTE on Network ACLs and Network ACL Associations:** the provider provides both a standalone network ACL association
+ * resource and a network ACL resource with a `subnetIds` attribute. Do not use the same subnet ID in both a network ACL
+ * resource and a network ACL association resource. Doing so will cause a conflict of associations and will overwrite the association.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -95,7 +108,7 @@ export class NetworkAcl extends pulumi.CustomResource {
      */
     public readonly subnetIds!: pulumi.Output<string[]>;
     /**
-     * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -172,7 +185,7 @@ export interface NetworkAclState {
      */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -202,7 +215,7 @@ export interface NetworkAclArgs {
      */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

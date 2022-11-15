@@ -8,6 +8,16 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Provides a VPC Endpoint resource.
+ *
+ * > **NOTE on VPC Endpoints and VPC Endpoint Associations:** The provider provides both standalone VPC Endpoint Associations for
+ * Route Tables - (an association between a VPC endpoint and a single `routeTableId`),
+ * Security Groups - (an association between a VPC endpoint and a single `securityGroupId`),
+ * and Subnets - (an association between a VPC endpoint and a single `subnetId`) and
+ * a VPC Endpoint resource with `routeTableIds` and `subnetIds` attributes.
+ * Do not use the same resource ID in both a VPC Endpoint resource and a VPC Endpoint Association resource.
+ * Doing so will cause a conflict of associations and will overwrite the association.
+ *
  * ## Example Usage
  * ### Basic
  *

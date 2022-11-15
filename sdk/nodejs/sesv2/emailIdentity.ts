@@ -8,6 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Resource for managing an AWS SESv2 (Simple Email V2) Email Identity.
+ *
  * ## Example Usage
  *
  * ### Basic Usage
@@ -100,8 +102,11 @@ export class EmailIdentity extends pulumi.CustomResource {
      * The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
      */
     public /*out*/ readonly identityType!: pulumi.Output<string>;
+    /**
+     * (Optional) A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Specifies whether or not the identity is verified.
      */
@@ -137,9 +142,9 @@ export class EmailIdentity extends pulumi.CustomResource {
             resourceInputs["dkimSigningAttributes"] = args ? args.dkimSigningAttributes : undefined;
             resourceInputs["emailIdentity"] = args ? args.emailIdentity : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["identityType"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["verifiedForSendingStatus"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -171,6 +176,9 @@ export interface EmailIdentityState {
      * The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
      */
     identityType?: pulumi.Input<string>;
+    /**
+     * (Optional) A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -195,6 +203,8 @@ export interface EmailIdentityArgs {
      * The email address or domain to verify.
      */
     emailIdentity: pulumi.Input<string>;
+    /**
+     * (Optional) A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

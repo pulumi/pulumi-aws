@@ -62,7 +62,7 @@ import * as utilities from "../utilities";
  * const exampleGateway = new aws.directconnect.Gateway("exampleGateway", {amazonSideAsn: "64512"});
  * const exampleTransitGateway = new aws.ec2transitgateway.TransitGateway("exampleTransitGateway", {
  *     amazonSideAsn: 64513,
- *     description: "terraform_ipsec_vpn_example",
+ *     description: "example_ipsec_vpn_example",
  *     transitGatewayCidrBlocks: ["10.0.0.0/24"],
  * });
  * const exampleCustomerGateway = new aws.ec2.CustomerGateway("exampleCustomerGateway", {
@@ -70,7 +70,7 @@ import * as utilities from "../utilities";
  *     ipAddress: "10.0.0.1",
  *     type: "ipsec.1",
  *     tags: {
- *         Name: "terraform_ipsec_vpn_example",
+ *         Name: "example_ipsec_vpn_example",
  *     },
  * });
  * const exampleGatewayAssociation = new aws.directconnect.GatewayAssociation("exampleGatewayAssociation", {
@@ -89,7 +89,7 @@ import * as utilities from "../utilities";
  *     transportTransitGatewayAttachmentId: exampleDirectConnectGatewayAttachment.apply(exampleDirectConnectGatewayAttachment => exampleDirectConnectGatewayAttachment.id),
  *     type: "ipsec.1",
  *     tags: {
- *         Name: "terraform_ipsec_vpn_example",
+ *         Name: "example_ipsec_vpn_example",
  *     },
  * });
  * ```
@@ -191,7 +191,7 @@ export class VpnConnection extends pulumi.CustomResource {
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * When associated with an EC2 Transit Gateway (`transitGatewayId` argument), the attachment ID. See also the `aws.ec2.Tag` for tagging the EC2 Transit Gateway VPN Attachment.
+     * When associated with an EC2 Transit Gateway (`transitGatewayId` argument), the attachment ID. See also the `aws.ec2.Tag` resource for tagging the EC2 Transit Gateway VPN Attachment.
      */
     public /*out*/ readonly transitGatewayAttachmentId!: pulumi.Output<string>;
     /**
@@ -643,7 +643,7 @@ export interface VpnConnectionState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * When associated with an EC2 Transit Gateway (`transitGatewayId` argument), the attachment ID. See also the `aws.ec2.Tag` for tagging the EC2 Transit Gateway VPN Attachment.
+     * When associated with an EC2 Transit Gateway (`transitGatewayId` argument), the attachment ID. See also the `aws.ec2.Tag` resource for tagging the EC2 Transit Gateway VPN Attachment.
      */
     transitGatewayAttachmentId?: pulumi.Input<string>;
     /**

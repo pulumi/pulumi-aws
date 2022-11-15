@@ -5,6 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * Resource for managing an AWS SESv2 (Simple Email V2) Email Identity Feedback Attributes.
+ *
  * ## Example Usage
  * ### Basic Usage
  *

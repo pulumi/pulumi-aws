@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Provides information about a "classic" Elastic Load Balancer (ELB).
- * See `LB` Data Source if you are looking for "v2"
+ * See LB Data Source if you are looking for "v2"
  * Application Load Balancer (ALB) or Network Load Balancer (NLB).
  *
  * This data source can prove useful when a module accepts an LB as an input

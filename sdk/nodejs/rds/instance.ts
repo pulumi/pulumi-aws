@@ -22,9 +22,6 @@ import * as utilities from "../utilities";
  * When upgrading the major version of an engine, `allowMajorVersionUpgrade`
  * must be set to `true`.
  *
- * > **Note:** using `applyImmediately` can result in a brief downtime as the
- * server reboots. See the AWS Docs on [RDS Maintenance][2] for more information.
- *
  * ## RDS Instance Class Types
  *
  * Amazon RDS supports three types of instance classes: Standard, Memory Optimized,
@@ -246,7 +243,7 @@ export class Instance extends pulumi.CustomResource {
     public readonly iamDatabaseAuthenticationEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the RDS instance,
-     * if omitted, this provider will assign a random, unique identifier.
+     * if omitted, this provider will assign a random, unique identifier. Required if `restoreToPointInTime` is specified.
      */
     public readonly identifier!: pulumi.Output<string>;
     /**
@@ -429,7 +426,7 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly storageType!: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -765,7 +762,7 @@ export interface InstanceState {
     iamDatabaseAuthenticationEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the RDS instance,
-     * if omitted, this provider will assign a random, unique identifier.
+     * if omitted, this provider will assign a random, unique identifier. Required if `restoreToPointInTime` is specified.
      */
     identifier?: pulumi.Input<string>;
     /**
@@ -948,7 +945,7 @@ export interface InstanceState {
      */
     storageType?: pulumi.Input<string | enums.rds.StorageType>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -1104,7 +1101,7 @@ export interface InstanceArgs {
     iamDatabaseAuthenticationEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the RDS instance,
-     * if omitted, this provider will assign a random, unique identifier.
+     * if omitted, this provider will assign a random, unique identifier. Required if `restoreToPointInTime` is specified.
      */
     identifier?: pulumi.Input<string>;
     /**
@@ -1274,7 +1271,7 @@ export interface InstanceArgs {
      */
     storageType?: pulumi.Input<string | enums.rds.StorageType>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

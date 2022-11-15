@@ -67,6 +67,9 @@ export class Acl extends pulumi.CustomResource {
      * The minimum engine version supported by the ACL.
      */
     public /*out*/ readonly minimumEngineVersion!: pulumi.Output<string>;
+    /**
+     * Name of the ACL. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+     */
     public readonly name!: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -132,6 +135,9 @@ export interface AclState {
      * The minimum engine version supported by the ACL.
      */
     minimumEngineVersion?: pulumi.Input<string>;
+    /**
+     * Name of the ACL. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+     */
     name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -155,6 +161,9 @@ export interface AclState {
  * The set of arguments for constructing a Acl resource.
  */
 export interface AclArgs {
+    /**
+     * Name of the ACL. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+     */
     name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.

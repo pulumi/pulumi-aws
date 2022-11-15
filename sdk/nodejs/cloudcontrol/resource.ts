@@ -53,7 +53,13 @@ export class Resource extends pulumi.CustomResource {
         return obj['__pulumiType'] === Resource.__pulumiType;
     }
 
+    /**
+     * JSON string matching the CloudFormation resource type schema with desired configuration.
+     */
     public readonly desiredState!: pulumi.Output<string>;
+    /**
+     * JSON string matching the CloudFormation resource type schema with current configuration. Underlying attributes can be referenced via the `jsondecode()` function, for example, `jsondecode(data.aws_cloudcontrolapi_resource.example.properties)["example"]`.
+     */
     public /*out*/ readonly properties!: pulumi.Output<string>;
     /**
      * Amazon Resource Name (ARN) of the IAM Role to assume for operations.
@@ -115,7 +121,13 @@ export class Resource extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Resource resources.
  */
 export interface ResourceState {
+    /**
+     * JSON string matching the CloudFormation resource type schema with desired configuration.
+     */
     desiredState?: pulumi.Input<string>;
+    /**
+     * JSON string matching the CloudFormation resource type schema with current configuration. Underlying attributes can be referenced via the `jsondecode()` function, for example, `jsondecode(data.aws_cloudcontrolapi_resource.example.properties)["example"]`.
+     */
     properties?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of the IAM Role to assume for operations.
@@ -139,6 +151,9 @@ export interface ResourceState {
  * The set of arguments for constructing a Resource resource.
  */
 export interface ResourceArgs {
+    /**
+     * JSON string matching the CloudFormation resource type schema with desired configuration.
+     */
     desiredState: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of the IAM Role to assume for operations.

@@ -8,6 +8,14 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Provides a resource for controlling versioning on an S3 bucket.
+ * Deleting this resource will either suspend versioning on the associated S3 bucket or
+ * simply remove the resource from state if the associated S3 bucket is unversioned.
+ *
+ * For more information, see [How S3 versioning works](https://docs.aws.amazon.com/AmazonS3/latest/userguide/manage-versioning-examples.html).
+ *
+ * > **NOTE:** If you are enabling versioning on the bucket for the first time, AWS recommends that you wait for 15 minutes after enabling versioning before issuing write operations (PUT or DELETE) on objects in the bucket.
+ *
  * ## Example Usage
  * ### With Versioning Enabled
  *
@@ -73,13 +81,13 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * S3 bucket versioning can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the Terraform AWS Provider, the S3 bucket versioning resource should be imported using the `bucket` e.g.,
+ * S3 bucket versioning can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, the S3 bucket versioning resource should be imported using the `bucket` e.g.,
  *
  * ```sh
  *  $ pulumi import aws:s3/bucketVersioningV2:BucketVersioningV2 example bucket-name
  * ```
  *
- *  If the owner (account ID) of the source bucket differs from the account used to configure the Terraform AWS Provider, the S3 bucket versioning resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
+ *  If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, the S3 bucket versioning resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
  *
  * ```sh
  *  $ pulumi import aws:s3/bucketVersioningV2:BucketVersioningV2 example bucket-name,123456789012

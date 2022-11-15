@@ -153,7 +153,7 @@ export class Deployment extends pulumi.CustomResource {
      */
     public readonly stageDescription!: pulumi.Output<string | undefined>;
     /**
-     * Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. It is recommended to use the `aws.apigateway.Stage` resource instead to manage stages.
+     * Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. We recommend using the `aws.apigateway.Stage` resource instead to manage stages.
      */
     public readonly stageName!: pulumi.Output<string | undefined>;
     /**
@@ -239,7 +239,7 @@ export interface DeploymentState {
      */
     stageDescription?: pulumi.Input<string>;
     /**
-     * Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. It is recommended to use the `aws.apigateway.Stage` resource instead to manage stages.
+     * Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. We recommend using the `aws.apigateway.Stage` resource instead to manage stages.
      */
     stageName?: pulumi.Input<string>;
     /**
@@ -269,7 +269,7 @@ export interface DeploymentArgs {
      */
     stageDescription?: pulumi.Input<string>;
     /**
-     * Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. It is recommended to use the `aws.apigateway.Stage` resource instead to manage stages.
+     * Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. We recommend using the `aws.apigateway.Stage` resource instead to manage stages.
      */
     stageName?: pulumi.Input<string>;
     /**

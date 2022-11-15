@@ -179,7 +179,17 @@ export class ContainerService extends pulumi.CustomResource {
      * The current state of the container service.
      */
     public /*out*/ readonly state!: pulumi.Output<string>;
+    /**
+     * Map of container service tags. To tag at launch, specify the tags in the Launch Template. If
+     * configured with a provider
+     * `defaultTags` configuration block
+     * present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider
+     * `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The publicly accessible URL of the container service. If no public endpoint is specified in the
@@ -314,7 +324,17 @@ export interface ContainerServiceState {
      * The current state of the container service.
      */
     state?: pulumi.Input<string>;
+    /**
+     * Map of container service tags. To tag at launch, specify the tags in the Launch Template. If
+     * configured with a provider
+     * `defaultTags` configuration block
+     * present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider
+     * `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The publicly accessible URL of the container service. If no public endpoint is specified in the
@@ -359,5 +379,11 @@ export interface ContainerServiceArgs {
      * nodes of the container service.
      */
     scale: pulumi.Input<number>;
+    /**
+     * Map of container service tags. To tag at launch, specify the tags in the Launch Template. If
+     * configured with a provider
+     * `defaultTags` configuration block
+     * present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

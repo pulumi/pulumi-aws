@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * Resource for enabling AWS Inspector V2 resource scans.
+ *
+ * > **NOTE:** Due to testing limitations, we provide this resource as best effort. If you use it or have the ability to test it, and notice problems, please consider reaching out to us on GitHub.
+ *
  * ## Example Usage
  * ### Basic Usage
  *
@@ -65,6 +69,9 @@ export class Enabler extends pulumi.CustomResource {
      * Set of account IDs.
      */
     public readonly accountIds!: pulumi.Output<string[]>;
+    /**
+     * Type of resources to scan. Valid values are `EC2` and `ECR`. If you only use one type, the provider will ignore the status of the other type.
+     */
     public readonly resourceTypes!: pulumi.Output<string[]>;
 
     /**
@@ -106,6 +113,9 @@ export interface EnablerState {
      * Set of account IDs.
      */
     accountIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Type of resources to scan. Valid values are `EC2` and `ECR`. If you only use one type, the provider will ignore the status of the other type.
+     */
     resourceTypes?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
@@ -117,5 +127,8 @@ export interface EnablerArgs {
      * Set of account IDs.
      */
     accountIds: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Type of resources to scan. Valid values are `EC2` and `ECR`. If you only use one type, the provider will ignore the status of the other type.
+     */
     resourceTypes: pulumi.Input<pulumi.Input<string>[]>;
 }

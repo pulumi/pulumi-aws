@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  *
  * const exampleUserPool = new aws.cognito.UserPool("exampleUserPool", {schemas: [
  *     {
- *         name: "terraform",
+ *         name: "example",
  *         attributeDataType: "Boolean",
  *         mutable: false,
  *         required: false,
@@ -47,9 +47,9 @@ import * as utilities from "../utilities";
  *     userPoolId: exampleUserPool.id,
  *     username: "example",
  *     attributes: {
- *         terraform: "true",
+ *         example: "true",
  *         foo: "bar",
- *         email: "no-reply@hashicorp.com",
+ *         email: "no-reply@domain.example",
  *         email_verified: "true",
  *     },
  * });

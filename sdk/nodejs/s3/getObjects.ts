@@ -4,6 +4,11 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * > **NOTE on `maxKeys`:** Retrieving very large numbers of keys can adversely affect the provider's performance.
+ *
+ * The objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
+ */
 export function getObjects(args: GetObjectsArgs, opts?: pulumi.InvokeOptions): Promise<GetObjectsResult> {
     if (!opts) {
         opts = {}

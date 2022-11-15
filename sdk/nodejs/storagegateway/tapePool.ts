@@ -56,7 +56,7 @@ export class TapePool extends pulumi.CustomResource {
     }
 
     /**
-     * Volume Amazon Resource Name (ARN), e.g. `aws_storagegateway_tape_pool.example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678`.
+     * Volume Amazon Resource Name (ARN), e.g., `aws_storagegateway_tape_pool.example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678`.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -130,7 +130,7 @@ export class TapePool extends pulumi.CustomResource {
  */
 export interface TapePoolState {
     /**
-     * Volume Amazon Resource Name (ARN), e.g. `aws_storagegateway_tape_pool.example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678`.
+     * Volume Amazon Resource Name (ARN), e.g., `aws_storagegateway_tape_pool.example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678`.
      */
     arn?: pulumi.Input<string>;
     /**

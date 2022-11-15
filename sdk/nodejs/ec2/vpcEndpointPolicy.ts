@@ -74,6 +74,9 @@ export class VpcEndpointPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === VpcEndpointPolicy.__pulumiType;
     }
 
+    /**
+     * A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
+     */
     public readonly policy!: pulumi.Output<string>;
     /**
      * The VPC Endpoint ID.
@@ -112,6 +115,9 @@ export class VpcEndpointPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VpcEndpointPolicy resources.
  */
 export interface VpcEndpointPolicyState {
+    /**
+     * A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
+     */
     policy?: pulumi.Input<string>;
     /**
      * The VPC Endpoint ID.
@@ -123,6 +129,9 @@ export interface VpcEndpointPolicyState {
  * The set of arguments for constructing a VpcEndpointPolicy resource.
  */
 export interface VpcEndpointPolicyArgs {
+    /**
+     * A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
+     */
     policy?: pulumi.Input<string>;
     /**
      * The VPC Endpoint ID.

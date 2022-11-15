@@ -8,6 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Resource for managing an AWS IdentityStore Group.
+ *
  * ## Example Usage
  *
  * ## Import

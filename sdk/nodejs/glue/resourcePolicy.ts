@@ -65,6 +65,9 @@ export class ResourcePolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === ResourcePolicy.__pulumiType;
     }
 
+    /**
+     * Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
+     */
     public readonly enableHybrid!: pulumi.Output<string | undefined>;
     /**
      * The policy to be applied to the aws glue data catalog.
@@ -103,6 +106,9 @@ export class ResourcePolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ResourcePolicy resources.
  */
 export interface ResourcePolicyState {
+    /**
+     * Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
+     */
     enableHybrid?: pulumi.Input<string>;
     /**
      * The policy to be applied to the aws glue data catalog.
@@ -114,6 +120,9 @@ export interface ResourcePolicyState {
  * The set of arguments for constructing a ResourcePolicy resource.
  */
 export interface ResourcePolicyArgs {
+    /**
+     * Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
+     */
     enableHybrid?: pulumi.Input<string>;
     /**
      * The policy to be applied to the aws glue data catalog.

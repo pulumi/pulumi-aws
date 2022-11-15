@@ -8,6 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Manages a version of a CloudFormation Type.
+ *
  * ## Example Usage
  *
  * ```typescript

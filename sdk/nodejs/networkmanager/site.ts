@@ -72,6 +72,9 @@ export class Site extends pulumi.CustomResource {
      * The site location as documented below.
      */
     public readonly location!: pulumi.Output<outputs.networkmanager.SiteLocation | undefined>;
+    /**
+     * Key-value tags for the Site. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -134,6 +137,9 @@ export interface SiteState {
      * The site location as documented below.
      */
     location?: pulumi.Input<inputs.networkmanager.SiteLocation>;
+    /**
+     * Key-value tags for the Site. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -157,5 +163,8 @@ export interface SiteArgs {
      * The site location as documented below.
      */
     location?: pulumi.Input<inputs.networkmanager.SiteLocation>;
+    /**
+     * Key-value tags for the Site. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

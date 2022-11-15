@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  *                 "PUT",
  *                 "POST",
  *             ],
- *             allowedOrigins: ["https://s3-website-test.hashicorp.com"],
+ *             allowedOrigins: ["https://s3-website-test.domain.example"],
  *             exposeHeaders: ["ETag"],
  *             maxAgeSeconds: 3000,
  *         },
@@ -42,13 +42,13 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * S3 bucket CORS configuration can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the Terraform AWS Provider, the S3 bucket CORS configuration resource should be imported using the `bucket` e.g.,
+ * S3 bucket CORS configuration can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, the S3 bucket CORS configuration resource should be imported using the `bucket` e.g.,
  *
  * ```sh
  *  $ pulumi import aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2 example bucket-name
  * ```
  *
- *  If the owner (account ID) of the source bucket differs from the account used to configure the Terraform AWS Provider, the S3 bucket CORS configuration resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
+ *  If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, the S3 bucket CORS configuration resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
  *
  * ```sh
  *  $ pulumi import aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2 example bucket-name,123456789012

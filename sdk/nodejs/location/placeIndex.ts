@@ -82,6 +82,9 @@ export class PlaceIndex extends pulumi.CustomResource {
      * The name of the place index resource.
      */
     public readonly indexName!: pulumi.Output<string>;
+    /**
+     * Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -165,6 +168,9 @@ export interface PlaceIndexState {
      * The name of the place index resource.
      */
     indexName?: pulumi.Input<string>;
+    /**
+     * Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -196,5 +202,8 @@ export interface PlaceIndexArgs {
      * The name of the place index resource.
      */
     indexName: pulumi.Input<string>;
+    /**
+     * Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

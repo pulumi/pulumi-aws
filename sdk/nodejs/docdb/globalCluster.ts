@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  *  $ pulumi import aws:docdb/globalCluster:GlobalCluster example example
  * ```
  *
- *  Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use [`ignore_changes`](https://www.terraform.io/docs/configuration/meta-arguments/lifecycle.html#ignore_changes) to hide the difference, e.g. terraform resource "aws_docdb_global_cluster" "example" {
+ *  Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the the provider configuration on an imported resource, the provider will always show a difference. To workaround this behavior, either omit the argument from the the provider configuration or use `ignore_changes` to hide the difference, e.g. terraform resource "aws_docdb_global_cluster" "example" {
  *
  * # ... other configuration ...
  *
@@ -87,6 +87,9 @@ export class GlobalCluster extends pulumi.CustomResource {
      * If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
      */
     public readonly deletionProtection!: pulumi.Output<boolean | undefined>;
+    /**
+     * Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Current Valid values: `docdb`. Defaults to `docdb`. Conflicts with `sourceDbClusterIdentifier`.
+     */
     public readonly engine!: pulumi.Output<string>;
     /**
      * Engine version of the global database. Upgrading the engine version will result in all cluster members being immediately updated and will.
@@ -105,8 +108,14 @@ export class GlobalCluster extends pulumi.CustomResource {
      * AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
      */
     public /*out*/ readonly globalClusterResourceId!: pulumi.Output<string>;
+    /**
+     * Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
+     */
     public readonly sourceDbClusterIdentifier!: pulumi.Output<string>;
     public /*out*/ readonly status!: pulumi.Output<string>;
+    /**
+     * Specifies whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
+     */
     public readonly storageEncrypted!: pulumi.Output<boolean>;
 
     /**
@@ -171,6 +180,9 @@ export interface GlobalClusterState {
      * If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
      */
     deletionProtection?: pulumi.Input<boolean>;
+    /**
+     * Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Current Valid values: `docdb`. Defaults to `docdb`. Conflicts with `sourceDbClusterIdentifier`.
+     */
     engine?: pulumi.Input<string>;
     /**
      * Engine version of the global database. Upgrading the engine version will result in all cluster members being immediately updated and will.
@@ -189,8 +201,14 @@ export interface GlobalClusterState {
      * AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
      */
     globalClusterResourceId?: pulumi.Input<string>;
+    /**
+     * Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
+     */
     sourceDbClusterIdentifier?: pulumi.Input<string>;
     status?: pulumi.Input<string>;
+    /**
+     * Specifies whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
+     */
     storageEncrypted?: pulumi.Input<boolean>;
 }
 
@@ -206,6 +224,9 @@ export interface GlobalClusterArgs {
      * If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
      */
     deletionProtection?: pulumi.Input<boolean>;
+    /**
+     * Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Current Valid values: `docdb`. Defaults to `docdb`. Conflicts with `sourceDbClusterIdentifier`.
+     */
     engine?: pulumi.Input<string>;
     /**
      * Engine version of the global database. Upgrading the engine version will result in all cluster members being immediately updated and will.
@@ -216,6 +237,12 @@ export interface GlobalClusterArgs {
      * The global cluster identifier.
      */
     globalClusterIdentifier: pulumi.Input<string>;
+    /**
+     * Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
+     */
     sourceDbClusterIdentifier?: pulumi.Input<string>;
+    /**
+     * Specifies whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
+     */
     storageEncrypted?: pulumi.Input<boolean>;
 }

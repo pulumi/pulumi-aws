@@ -160,6 +160,9 @@ export class EventBusPolicy extends pulumi.CustomResource {
      * The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
      */
     public readonly eventBusName!: pulumi.Output<string | undefined>;
+    /**
+     * The text of the policy.
+     */
     public readonly policy!: pulumi.Output<string>;
 
     /**
@@ -198,6 +201,9 @@ export interface EventBusPolicyState {
      * The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
      */
     eventBusName?: pulumi.Input<string>;
+    /**
+     * The text of the policy.
+     */
     policy?: pulumi.Input<string>;
 }
 
@@ -209,5 +215,8 @@ export interface EventBusPolicyArgs {
      * The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
      */
     eventBusName?: pulumi.Input<string>;
+    /**
+     * The text of the policy.
+     */
     policy: pulumi.Input<string>;
 }

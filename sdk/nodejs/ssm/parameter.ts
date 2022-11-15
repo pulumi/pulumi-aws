@@ -8,6 +8,10 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Provides an SSM Parameter resource.
+ *
+ * > **Note:** `overwrite` also makes it possible to overwrite an existing SSM Parameter that's not created by the provider before.
+ *
  * ## Example Usage
  * ### Basic example
  *
@@ -100,6 +104,9 @@ export class Parameter extends pulumi.CustomResource {
      * Description of the parameter.
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the preview. This argument is not valid with a `type` of `SecureString`.
+     */
     public readonly insecureValue!: pulumi.Output<string>;
     /**
      * KMS key ID or ARN for encrypting a SecureString.
@@ -110,7 +117,7 @@ export class Parameter extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise (lifecycle rules should then be used to manage the update behavior).
+     * Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise.
      */
     public readonly overwrite!: pulumi.Output<boolean | undefined>;
     /**
@@ -210,6 +217,9 @@ export interface ParameterState {
      * Description of the parameter.
      */
     description?: pulumi.Input<string>;
+    /**
+     * Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the preview. This argument is not valid with a `type` of `SecureString`.
+     */
     insecureValue?: pulumi.Input<string>;
     /**
      * KMS key ID or ARN for encrypting a SecureString.
@@ -220,7 +230,7 @@ export interface ParameterState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise (lifecycle rules should then be used to manage the update behavior).
+     * Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise.
      */
     overwrite?: pulumi.Input<boolean>;
     /**
@@ -269,6 +279,9 @@ export interface ParameterArgs {
      * Description of the parameter.
      */
     description?: pulumi.Input<string>;
+    /**
+     * Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the preview. This argument is not valid with a `type` of `SecureString`.
+     */
     insecureValue?: pulumi.Input<string>;
     /**
      * KMS key ID or ARN for encrypting a SecureString.
@@ -279,7 +292,7 @@ export interface ParameterArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise (lifecycle rules should then be used to manage the update behavior).
+     * Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise.
      */
     overwrite?: pulumi.Input<boolean>;
     /**

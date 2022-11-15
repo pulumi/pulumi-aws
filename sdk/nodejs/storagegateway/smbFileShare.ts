@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * ### Active Directory Authentication
  *
- * > **NOTE:** The gateway must have already joined the Active Directory domain prior to SMB file share creation. e.g. via "SMB Settings" in the AWS Storage Gateway console or `smbActiveDirectorySettings` in the `aws.storagegateway.Gateway` resource.
+ * > **NOTE:** The gateway must have already joined the Active Directory domain prior to SMB file share creationE.g., via "SMB Settings" in the AWS Storage Gateway console or `smbActiveDirectorySettings` in the `aws.storagegateway.Gateway` resource.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * ```
  * ### Guest Authentication
  *
- * > **NOTE:** The gateway must have already had the SMB guest password set prior to SMB file share creation. e.g. via "SMB Settings" in the AWS Storage Gateway console or `smbGuestPassword` in the `aws.storagegateway.Gateway` resource.
+ * > **NOTE:** The gateway must have already had the SMB guest password set prior to SMB file share creationE.g., via "SMB Settings" in the AWS Storage Gateway console or `smbGuestPassword` in the `aws.storagegateway.Gateway` resource.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

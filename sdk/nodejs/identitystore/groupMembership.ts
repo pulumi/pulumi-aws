@@ -5,6 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * Resource for managing an AWS IdentityStore Group Membership.
+ *
  * ## Import
  *
  * `aws_identitystore_group_membership` can be imported using the `identity_store_id/membership_id`, e.g.,

@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = pulumi.output(aws.backup.getReportPlan({
- *     name: "tf_example_backup_report_plan_name",
+ *     name: "my_example_backup_report_plan_name",
  * }));
  * ```
  */

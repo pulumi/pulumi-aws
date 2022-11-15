@@ -129,7 +129,7 @@ import * as utilities from "../utilities";
  *                     statements: [
  *                         {
  *                             regexMatchStatement: {
- *                                 regexString: "[a-z]([a-z0-9_-]*[a-z0-9])?",
+ *                                 regexString: "a-z?",
  *                                 fieldToMatch: {
  *                                     singleHeader: {
  *                                         name: "user-agent",

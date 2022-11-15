@@ -42,7 +42,7 @@ export interface GetCostCategoryArgs {
      */
     costCategoryArn: string;
     /**
-     * Resource tags.
+     * Configuration block for the specific `Tag` to use for `Expression`. See below.
      */
     tags?: {[key: string]: string};
 }
@@ -78,7 +78,7 @@ export interface GetCostCategoryResult {
      */
     readonly splitChargeRules: outputs.costexplorer.GetCostCategorySplitChargeRule[];
     /**
-     * Resource tags.
+     * Configuration block for the specific `Tag` to use for `Expression`. See below.
      */
     readonly tags: {[key: string]: string};
 }
@@ -96,7 +96,7 @@ export interface GetCostCategoryOutputArgs {
      */
     costCategoryArn: pulumi.Input<string>;
     /**
-     * Resource tags.
+     * Configuration block for the specific `Tag` to use for `Expression`. See below.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -5,6 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * Resource for managing a Roles Anywhere Profile.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -100,6 +102,9 @@ export class Profile extends pulumi.CustomResource {
      * A session policy that applies to the trust boundary of the vended session credentials.
      */
     public readonly sessionPolicy!: pulumi.Output<string | undefined>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -186,6 +191,9 @@ export interface ProfileState {
      * A session policy that applies to the trust boundary of the vended session credentials.
      */
     sessionPolicy?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -225,5 +233,8 @@ export interface ProfileArgs {
      * A session policy that applies to the trust boundary of the vended session credentials.
      */
     sessionPolicy?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
