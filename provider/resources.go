@@ -134,6 +134,7 @@ const (
 	inspectorMod                = "Inspector"                // Inspector
 	inspector2Mod               = "Inspector2"               // Inspector V2
 	iotMod                      = "Iot"                      // Internet of Things (IoT)
+	ivsMod                      = "Ivs"                      // Interactive Video Service
 	kendraMod                   = "Kendra"                   // Kendra
 	keyspacesMod                = "Keyspaces"                // Keyspaces
 	kinesisMod                  = "Kinesis"                  // Kinesis
@@ -2157,6 +2158,10 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_iot_provisioning_template":  {Tok: awsResource(iotMod, "ProvisioningTemplate")},
 			"aws_iot_topic_rule_destination": {Tok: awsResource(iotMod, "TopicRuleDestination")},
 
+			// IVS
+			"aws_ivs_playback_key_pair":       {Tok: awsResource(ivsMod, "PlaybackKeyPair")},
+			"aws_ivs_recording_configuration": {Tok: awsResource(ivsMod, "RecordingConfiguration")},
+
 			// Kendra
 			"aws_kendra_index":                        {Tok: awsResource(kendraMod, "Index")},
 			"aws_kendra_experience":                   {Tok: awsResource(kendraMod, "Experience")},
@@ -2303,6 +2308,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_lightsail_lb_attachment":                        {Tok: awsResource(lightsailMod, "LbAttachment")},
 			"aws_lightsail_lb_certificate_attachment":            {Tok: awsResource(lightsailMod, "LbCertificateAttachment")},
 			"aws_lightsail_lb_certificate":                       {Tok: awsResource(lightsailMod, "LbCertificate")},
+			"aws_lightsail_lb_https_redirection_policy":          {Tok: awsResource(lightsailMod, "LbHttpsRedirectionPolicy")},
 			"aws_lightsail_lb_stickiness_policy":                 {Tok: awsResource(lightsailMod, "LbStickinessPolicy")},
 			"aws_lightsail_lb":                                   {Tok: awsResource(lightsailMod, "Lb")},
 			"aws_lightsail_static_ip_attachment":                 {Tok: awsResource(lightsailMod, "StaticIpAttachment")},
@@ -2341,6 +2347,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_media_convert_queue": {Tok: awsResource(mediaconvertMod, "Queue")},
 
 			// MediaLive
+			"aws_medialive_channel":              {Tok: awsResource(medialiveMod, "Channel")},
 			"aws_medialive_input":                {Tok: awsResource(medialiveMod, "Input")},
 			"aws_medialive_input_security_group": {Tok: awsResource(medialiveMod, "InputSecurityGroup")},
 			"aws_medialive_multiplex":            {Tok: awsResource(medialiveMod, "Multiplex")},
@@ -2401,6 +2408,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_networkmanager_global_network":                           {Tok: awsResource(networkManagerMod, "GlobalNetwork")},
 			"aws_networkmanager_link":                                     {Tok: awsResource(networkManagerMod, "Link")},
 			"aws_networkmanager_link_association":                         {Tok: awsResource(networkManagerMod, "LinkAssociation")},
+			"aws_networkmanager_site_to_site_vpn_attachment":              {Tok: awsResource(networkManagerMod, "SiteToSiteVpnAttachment")},
 			"aws_networkmanager_site":                                     {Tok: awsResource(networkManagerMod, "Site")},
 			"aws_networkmanager_transit_gateway_connect_peer_association": {Tok: awsResource(networkManagerMod, "TransitGatewayConnectPeerAssociation")},
 			"aws_networkmanager_transit_gateway_registration":             {Tok: awsResource(networkManagerMod, "TransitGatewayRegistration")},
@@ -2611,17 +2619,20 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_redshift_snapshot_schedule_association": {Tok: awsResource(redshiftMod, "SnapshotScheduleAssociation")},
 			"aws_redshift_authentication_profile":        {Tok: awsResource(redshiftMod, "AuthenticationProfile")},
 			"aws_redshift_endpoint_access":               {Tok: awsResource(redshiftMod, "EndpointAccess")},
+			"aws_redshift_endpoint_authorization":        {Tok: awsResource(redshiftMod, "EndpointAuthorization")},
 			"aws_redshift_hsm_client_certificate":        {Tok: awsResource(redshiftMod, "HsmClientCertificate")},
 			"aws_redshift_usage_limit":                   {Tok: awsResource(redshiftMod, "UsageLimit")},
 			"aws_redshift_cluster_iam_roles":             {Tok: awsResource(redshiftMod, "ClusterIamRoles")},
 			"aws_redshift_hsm_configuration":             {Tok: awsResource(redshiftMod, "HsmConfiguration")},
+			"aws_redshift_partner":                       {Tok: awsResource(redshiftMod, "Partner")},
 			// RedshiftData
 			"aws_redshiftdata_statement": {Tok: awsResource(redshiftDataMod, "Statement")},
 			// Redshift serverless
-			"aws_redshiftserverless_namespace":       {Tok: awsResource(redshiftServerlessMod, "Namespace")},
-			"aws_redshiftserverless_workgroup":       {Tok: awsResource(redshiftServerlessMod, "Workgroup")},
 			"aws_redshiftserverless_endpoint_access": {Tok: awsResource(redshiftServerlessMod, "EndpointAccess")},
+			"aws_redshiftserverless_namespace":       {Tok: awsResource(redshiftServerlessMod, "Namespace")},
+			"aws_redshiftserverless_snapshot":        {Tok: awsResource(redshiftServerlessMod, "Snapshot")},
 			"aws_redshiftserverless_usage_limit":     {Tok: awsResource(redshiftServerlessMod, "UsageLimit")},
+			"aws_redshiftserverless_workgroup":       {Tok: awsResource(redshiftServerlessMod, "Workgroup")},
 			// Resource Groups
 			"aws_resourcegroups_group": {Tok: awsResource(resourcegroupsMod, "Group")},
 			// Roles Anywhere
@@ -2791,7 +2802,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_sesv2_dedicated_ip_assignment":            {Tok: awsResource(sesV2Mod, "DedicatedIpAssignment")},
 			"aws_sesv2_dedicated_ip_pool":                  {Tok: awsResource(sesV2Mod, "DedicatedIpPool")},
 			"aws_sesv2_email_identity_feedback_attributes": {Tok: awsResource(sesV2Mod, "EmailIdentityFeedbackAttributes")},
-			"aws_sesv2_email_identity":                     {
+			"aws_sesv2_email_identity": {
 				Tok: awsResource(sesV2Mod, "EmailIdentity"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"email_identity": {
@@ -4792,6 +4803,8 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
+			"aws_dynamodb_table_item": {Tok: awsDataSource(dynamodbMod, "getTableItem")},
+
 			// DX
 			"aws_dx_connection":           {Tok: awsDataSource(dxMod, "getConnection")},
 			"aws_dx_gateway":              {Tok: awsDataSource(dxMod, "getGateway")},
@@ -5113,12 +5126,17 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_redshift_subnet_group":        {Tok: awsDataSource(redshiftMod, "getSubnetGroup")},
 			"aws_redshift_cluster_credentials": {Tok: awsDataSource(redshiftMod, "getClusterCredentials")},
 			// Route53
-			"aws_route53_zone":                    {Tok: awsDataSource(route53Mod, "getZone")},
-			"aws_route53_delegation_set":          {Tok: awsDataSource(route53Mod, "getDelegationSet")},
-			"aws_route53_resolver_rule":           {Tok: awsDataSource(route53Mod, "getResolverRule")},
-			"aws_route53_resolver_rules":          {Tok: awsDataSource(route53Mod, "getResolverRules")},
-			"aws_route53_resolver_endpoint":       {Tok: awsDataSource(route53Mod, "getResolverEndpoint")},
-			"aws_route53_traffic_policy_document": {Tok: awsDataSource(route53Mod, "getTrafficPolicyDocument")},
+			"aws_route53_zone":                                     {Tok: awsDataSource(route53Mod, "getZone")},
+			"aws_route53_delegation_set":                           {Tok: awsDataSource(route53Mod, "getDelegationSet")},
+			"aws_route53_resolver_firewall_config":                 {Tok: awsDataSource(route53Mod, "getResolverFirewallConfig")},
+			"aws_route53_resolver_firewall_domain_list":            {Tok: awsDataSource(route53Mod, "getResolverFirewallDomainList")},
+			"aws_route53_resolver_firewall_rule_group":             {Tok: awsDataSource(route53Mod, "getResolverFirewallRuleGroup")},
+			"aws_route53_resolver_firewall_rule_group_association": {Tok: awsDataSource(route53Mod, "getResolverFirewallRuleGroupAssociation")},
+			"aws_route53_resolver_firewall_rules":                  {Tok: awsDataSource(route53Mod, "getResolverFirewallRules")},
+			"aws_route53_resolver_rule":                            {Tok: awsDataSource(route53Mod, "getResolverRule")},
+			"aws_route53_resolver_rules":                           {Tok: awsDataSource(route53Mod, "getResolverRules")},
+			"aws_route53_resolver_endpoint":                        {Tok: awsDataSource(route53Mod, "getResolverEndpoint")},
+			"aws_route53_traffic_policy_document":                  {Tok: awsDataSource(route53Mod, "getTrafficPolicyDocument")},
 			// S3
 			"aws_s3_bucket":                      {Tok: awsDataSource(s3Mod, "getBucket")},
 			"aws_s3_bucket_object":               {Tok: awsDataSource(s3Mod, "getBucketObject")},
