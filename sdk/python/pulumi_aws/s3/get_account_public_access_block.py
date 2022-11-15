@@ -114,6 +114,9 @@ def get_account_public_access_block(account_id: Optional[str] = None,
 
     example = aws.s3.get_account_public_access_block()
     ```
+
+
+    :param str account_id: AWS account ID to configure. Defaults to automatically determined account ID of the AWS provider.
     """
     __args__ = dict()
     __args__['accountId'] = account_id
@@ -143,5 +146,8 @@ def get_account_public_access_block_output(account_id: Optional[pulumi.Input[Opt
 
     example = aws.s3.get_account_public_access_block()
     ```
+
+
+    :param str account_id: AWS account ID to configure. Defaults to automatically determined account ID of the AWS provider.
     """
     ...

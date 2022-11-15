@@ -31,7 +31,8 @@ class EipArgs:
         :param pulumi.Input[str] instance: EC2 instance ID.
         :param pulumi.Input[str] network_border_group: Location from which the IP address is advertised. Use this parameter to limit the address to this location.
         :param pulumi.Input[str] network_interface: Network interface ID to associate with.
-        :param pulumi.Input[str] public_ipv4_pool: EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
+        :param pulumi.Input[str] public_ipv4_pool: EC2 IPv4 address pool identifier or `amazon`.
+               This option is only available for VPC EIPs.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[bool] vpc: Boolean if the EIP is in a VPC or not.
                Defaults to `true` unless the region supports EC2-Classic.
@@ -131,7 +132,8 @@ class EipArgs:
     @pulumi.getter(name="publicIpv4Pool")
     def public_ipv4_pool(self) -> Optional[pulumi.Input[str]]:
         """
-        EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
+        EC2 IPv4 address pool identifier or `amazon`.
+        This option is only available for VPC EIPs.
         """
         return pulumi.get(self, "public_ipv4_pool")
 
@@ -204,7 +206,8 @@ class _EipState:
         :param pulumi.Input[str] private_ip: Contains the private IP address (if in VPC).
         :param pulumi.Input[str] public_dns: Public DNS associated with the Elastic IP address.
         :param pulumi.Input[str] public_ip: Contains the public IP address.
-        :param pulumi.Input[str] public_ipv4_pool: EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
+        :param pulumi.Input[str] public_ipv4_pool: EC2 IPv4 address pool identifier or `amazon`.
+               This option is only available for VPC EIPs.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[bool] vpc: Boolean if the EIP is in a VPC or not.
@@ -433,7 +436,8 @@ class _EipState:
     @pulumi.getter(name="publicIpv4Pool")
     def public_ipv4_pool(self) -> Optional[pulumi.Input[str]]:
         """
-        EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
+        EC2 IPv4 address pool identifier or `amazon`.
+        This option is only available for VPC EIPs.
         """
         return pulumi.get(self, "public_ipv4_pool")
 
@@ -543,7 +547,7 @@ class Eip(pulumi.CustomResource):
             cidr_block="10.0.0.0/16",
             enable_dns_hostnames=True)
         gw = aws.ec2.InternetGateway("gw", vpc_id=default.id)
-        tf_test_subnet = aws.ec2.Subnet("tfTestSubnet",
+        my_test_subnet = aws.ec2.Subnet("myTestSubnet",
             vpc_id=default.id,
             cidr_block="10.0.0.0/24",
             map_public_ip_on_launch=True,
@@ -552,7 +556,7 @@ class Eip(pulumi.CustomResource):
             ami="ami-5189a661",
             instance_type="t2.micro",
             private_ip="10.0.0.12",
-            subnet_id=tf_test_subnet.id)
+            subnet_id=my_test_subnet.id)
         bar = aws.ec2.Eip("bar",
             vpc=True,
             instance=foo.id,
@@ -584,8 +588,6 @@ class Eip(pulumi.CustomResource):
          $ pulumi import aws:ec2/eip:Eip bar 52.0.0.0
         ```
 
-         [1]https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateAddress.html
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address: IP address from an EC2 BYOIP pool. This option is only available for VPC EIPs.
@@ -594,7 +596,8 @@ class Eip(pulumi.CustomResource):
         :param pulumi.Input[str] instance: EC2 instance ID.
         :param pulumi.Input[str] network_border_group: Location from which the IP address is advertised. Use this parameter to limit the address to this location.
         :param pulumi.Input[str] network_interface: Network interface ID to associate with.
-        :param pulumi.Input[str] public_ipv4_pool: EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
+        :param pulumi.Input[str] public_ipv4_pool: EC2 IPv4 address pool identifier or `amazon`.
+               This option is only available for VPC EIPs.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[bool] vpc: Boolean if the EIP is in a VPC or not.
                Defaults to `true` unless the region supports EC2-Classic.
@@ -654,7 +657,7 @@ class Eip(pulumi.CustomResource):
             cidr_block="10.0.0.0/16",
             enable_dns_hostnames=True)
         gw = aws.ec2.InternetGateway("gw", vpc_id=default.id)
-        tf_test_subnet = aws.ec2.Subnet("tfTestSubnet",
+        my_test_subnet = aws.ec2.Subnet("myTestSubnet",
             vpc_id=default.id,
             cidr_block="10.0.0.0/24",
             map_public_ip_on_launch=True,
@@ -663,7 +666,7 @@ class Eip(pulumi.CustomResource):
             ami="ami-5189a661",
             instance_type="t2.micro",
             private_ip="10.0.0.12",
-            subnet_id=tf_test_subnet.id)
+            subnet_id=my_test_subnet.id)
         bar = aws.ec2.Eip("bar",
             vpc=True,
             instance=foo.id,
@@ -694,8 +697,6 @@ class Eip(pulumi.CustomResource):
         ```sh
          $ pulumi import aws:ec2/eip:Eip bar 52.0.0.0
         ```
-
-         [1]https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateAddress.html
 
         :param str resource_name: The name of the resource.
         :param EipArgs args: The arguments to use to populate this resource's properties.
@@ -800,7 +801,8 @@ class Eip(pulumi.CustomResource):
         :param pulumi.Input[str] private_ip: Contains the private IP address (if in VPC).
         :param pulumi.Input[str] public_dns: Public DNS associated with the Elastic IP address.
         :param pulumi.Input[str] public_ip: Contains the public IP address.
-        :param pulumi.Input[str] public_ipv4_pool: EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
+        :param pulumi.Input[str] public_ipv4_pool: EC2 IPv4 address pool identifier or `amazon`.
+               This option is only available for VPC EIPs.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[bool] vpc: Boolean if the EIP is in a VPC or not.
@@ -955,7 +957,8 @@ class Eip(pulumi.CustomResource):
     @pulumi.getter(name="publicIpv4Pool")
     def public_ipv4_pool(self) -> pulumi.Output[str]:
         """
-        EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
+        EC2 IPv4 address pool identifier or `amazon`.
+        This option is only available for VPC EIPs.
         """
         return pulumi.get(self, "public_ipv4_pool")
 

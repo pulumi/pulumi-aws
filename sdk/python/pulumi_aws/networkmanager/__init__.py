@@ -24,6 +24,7 @@ from .global_network import *
 from .link import *
 from .link_association import *
 from .site import *
+from .site_to_site_vpn_attachment import *
 from .transit_gateway_connect_peer_association import *
 from .transit_gateway_peering import *
 from .transit_gateway_registration import *

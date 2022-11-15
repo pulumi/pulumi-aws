@@ -5334,7 +5334,7 @@ class StackCustomCookbooksSource(dict):
         :param str url: The URL where the cookbooks resource can be found.
         :param str password: Password to use when authenticating to the source. The provider cannot perform drift detection of this configuration.
         :param str revision: For sources that are version-aware, the revision to use.
-        :param str ssh_key: SSH key to use when authenticating to the source. The provider cannot perform drift detection of this configuration.
+        :param str ssh_key: SSH key to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
         :param str username: Username to use when authenticating to the source.
         """
         pulumi.set(__self__, "type", type)
@@ -5384,7 +5384,7 @@ class StackCustomCookbooksSource(dict):
     @pulumi.getter(name="sshKey")
     def ssh_key(self) -> Optional[str]:
         """
-        SSH key to use when authenticating to the source. The provider cannot perform drift detection of this configuration.
+        SSH key to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
         """
         return pulumi.get(self, "ssh_key")
 

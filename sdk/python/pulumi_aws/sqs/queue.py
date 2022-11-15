@@ -49,6 +49,7 @@ class QueueArgs:
         :param pulumi.Input[int] receive_wait_time_seconds: The time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.
         :param pulumi.Input[str] redrive_allow_policy: The JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html).
         :param pulumi.Input[str] redrive_policy: The JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
+        :param pulumi.Input[bool] sqs_managed_sse_enabled: Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html). The provider will only perform drift detection of its value when present in a configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the queue. If configured with a provider `default_tags` configuration block) present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[int] visibility_timeout_seconds: The visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html).
         """
@@ -272,6 +273,9 @@ class QueueArgs:
     @property
     @pulumi.getter(name="sqsManagedSseEnabled")
     def sqs_managed_sse_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html). The provider will only perform drift detection of its value when present in a configuration.
+        """
         return pulumi.get(self, "sqs_managed_sse_enabled")
 
     @sqs_managed_sse_enabled.setter
@@ -345,6 +349,7 @@ class _QueueState:
         :param pulumi.Input[int] receive_wait_time_seconds: The time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.
         :param pulumi.Input[str] redrive_allow_policy: The JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html).
         :param pulumi.Input[str] redrive_policy: The JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
+        :param pulumi.Input[bool] sqs_managed_sse_enabled: Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html). The provider will only perform drift detection of its value when present in a configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the queue. If configured with a provider `default_tags` configuration block) present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] url: Same as `id`: The URL for the created Amazon SQS queue.
@@ -588,6 +593,9 @@ class _QueueState:
     @property
     @pulumi.getter(name="sqsManagedSseEnabled")
     def sqs_managed_sse_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html). The provider will only perform drift detection of its value when present in a configuration.
+        """
         return pulumi.get(self, "sqs_managed_sse_enabled")
 
     @sqs_managed_sse_enabled.setter
@@ -705,7 +713,7 @@ class Queue(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        terraform_queue = aws.sqs.Queue("terraformQueue",
+        queue = aws.sqs.Queue("queue",
             deduplication_scope="messageGroup",
             fifo_queue=True,
             fifo_throughput_limit="perMessageGroupId")
@@ -718,9 +726,9 @@ class Queue(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        terraform_queue_deadletter = aws.sqs.Queue("terraformQueueDeadletter", redrive_allow_policy=json.dumps({
+        example_queue_deadletter = aws.sqs.Queue("exampleQueueDeadletter", redrive_allow_policy=json.dumps({
             "redrivePermission": "byQueue",
-            "sourceQueueArns": [aws_sqs_queue["terraform_queue"]["arn"]],
+            "sourceQueueArns": [aws_sqs_queue["example_queue"]["arn"]],
         }))
         ```
 
@@ -732,7 +740,7 @@ class Queue(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        terraform_queue = aws.sqs.Queue("terraformQueue", sqs_managed_sse_enabled=True)
+        queue = aws.sqs.Queue("queue", sqs_managed_sse_enabled=True)
         ```
 
         Using [SSE-KMS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html):
@@ -771,6 +779,7 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[int] receive_wait_time_seconds: The time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.
         :param pulumi.Input[str] redrive_allow_policy: The JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html).
         :param pulumi.Input[str] redrive_policy: The JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
+        :param pulumi.Input[bool] sqs_managed_sse_enabled: Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html). The provider will only perform drift detection of its value when present in a configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the queue. If configured with a provider `default_tags` configuration block) present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[int] visibility_timeout_seconds: The visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html).
         """
@@ -818,7 +827,7 @@ class Queue(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        terraform_queue = aws.sqs.Queue("terraformQueue",
+        queue = aws.sqs.Queue("queue",
             deduplication_scope="messageGroup",
             fifo_queue=True,
             fifo_throughput_limit="perMessageGroupId")
@@ -831,9 +840,9 @@ class Queue(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        terraform_queue_deadletter = aws.sqs.Queue("terraformQueueDeadletter", redrive_allow_policy=json.dumps({
+        example_queue_deadletter = aws.sqs.Queue("exampleQueueDeadletter", redrive_allow_policy=json.dumps({
             "redrivePermission": "byQueue",
-            "sourceQueueArns": [aws_sqs_queue["terraform_queue"]["arn"]],
+            "sourceQueueArns": [aws_sqs_queue["example_queue"]["arn"]],
         }))
         ```
 
@@ -845,7 +854,7 @@ class Queue(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        terraform_queue = aws.sqs.Queue("terraformQueue", sqs_managed_sse_enabled=True)
+        queue = aws.sqs.Queue("queue", sqs_managed_sse_enabled=True)
         ```
 
         Using [SSE-KMS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html):
@@ -984,6 +993,7 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[int] receive_wait_time_seconds: The time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.
         :param pulumi.Input[str] redrive_allow_policy: The JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html).
         :param pulumi.Input[str] redrive_policy: The JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
+        :param pulumi.Input[bool] sqs_managed_sse_enabled: Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html). The provider will only perform drift detection of its value when present in a configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the queue. If configured with a provider `default_tags` configuration block) present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] url: Same as `id`: The URL for the created Amazon SQS queue.
@@ -1147,6 +1157,9 @@ class Queue(pulumi.CustomResource):
     @property
     @pulumi.getter(name="sqsManagedSseEnabled")
     def sqs_managed_sse_enabled(self) -> pulumi.Output[bool]:
+        """
+        Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html). The provider will only perform drift detection of its value when present in a configuration.
+        """
         return pulumi.get(self, "sqs_managed_sse_enabled")
 
     @property

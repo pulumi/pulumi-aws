@@ -203,6 +203,13 @@ class SecurityGroup(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
+        Provides an RDS security group resource. This is only for DB instances in the
+        EC2-Classic Platform. For instances inside a VPC, use the
+        `aws_db_instance.vpc_security_group_ids`
+        attribute instead.
+
+        !> **WARNING:** With the retirement of EC2-Classic the `rds.SecurityGroup` resource has been deprecated and will be removed in a future version.
+
         ## Example Usage
 
         ```python
@@ -236,6 +243,13 @@ class SecurityGroup(pulumi.CustomResource):
                  args: SecurityGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Provides an RDS security group resource. This is only for DB instances in the
+        EC2-Classic Platform. For instances inside a VPC, use the
+        `aws_db_instance.vpc_security_group_ids`
+        attribute instead.
+
+        !> **WARNING:** With the retirement of EC2-Classic the `rds.SecurityGroup` resource has been deprecated and will be removed in a future version.
+
         ## Example Usage
 
         ```python

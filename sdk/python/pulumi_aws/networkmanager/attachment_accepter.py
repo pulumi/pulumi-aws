@@ -226,8 +226,10 @@ class AttachmentAccepter(pulumi.CustomResource):
                  attachment_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        Resource for managing an AWS NetworkManager Attachment Accepter.
+
         ## Example Usage
-        ### Basic Usage
+        ### Example with VPC attachment
 
         ```python
         import pulumi
@@ -236,6 +238,16 @@ class AttachmentAccepter(pulumi.CustomResource):
         test = aws.networkmanager.AttachmentAccepter("test",
             attachment_id=aws_networkmanager_vpc_attachment["vpc"]["id"],
             attachment_type=aws_networkmanager_vpc_attachment["vpc"]["attachment_type"])
+        ```
+        ### Example with site-to-site VPN attachment
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.networkmanager.AttachmentAccepter("test",
+            attachment_id=aws_networkmanager_site_to_site_vpn_attachment["vpn"]["id"],
+            attachment_type=aws_networkmanager_site_to_site_vpn_attachment["vpn"]["attachment_type"])
         ```
 
         :param str resource_name: The name of the resource.
@@ -250,8 +262,10 @@ class AttachmentAccepter(pulumi.CustomResource):
                  args: AttachmentAccepterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Resource for managing an AWS NetworkManager Attachment Accepter.
+
         ## Example Usage
-        ### Basic Usage
+        ### Example with VPC attachment
 
         ```python
         import pulumi
@@ -260,6 +274,16 @@ class AttachmentAccepter(pulumi.CustomResource):
         test = aws.networkmanager.AttachmentAccepter("test",
             attachment_id=aws_networkmanager_vpc_attachment["vpc"]["id"],
             attachment_type=aws_networkmanager_vpc_attachment["vpc"]["attachment_type"])
+        ```
+        ### Example with site-to-site VPN attachment
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.networkmanager.AttachmentAccepter("test",
+            attachment_id=aws_networkmanager_site_to_site_vpn_attachment["vpn"]["id"],
+            attachment_type=aws_networkmanager_site_to_site_vpn_attachment["vpn"]["attachment_type"])
         ```
 
         :param str resource_name: The name of the resource.

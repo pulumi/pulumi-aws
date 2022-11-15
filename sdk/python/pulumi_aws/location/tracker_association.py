@@ -98,6 +98,8 @@ class TrackerAssociation(pulumi.CustomResource):
                  tracker_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        Resource for managing an AWS Location Tracker Association.
+
         ## Example Usage
 
         ```python
@@ -131,6 +133,8 @@ class TrackerAssociation(pulumi.CustomResource):
                  args: TrackerAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Resource for managing an AWS Location Tracker Association.
+
         ## Example Usage
 
         ```python

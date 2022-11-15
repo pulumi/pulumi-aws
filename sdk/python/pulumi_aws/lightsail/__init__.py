@@ -20,6 +20,7 @@ from .lb import *
 from .lb_attachment import *
 from .lb_certificate import *
 from .lb_certificate_attachment import *
+from .lb_https_redirection_policy import *
 from .lb_stickiness_policy import *
 from .static_ip import *
 from .static_ip_attachment import *

@@ -265,6 +265,10 @@ class Domain(pulumi.CustomResource):
                  scaling_parameters: Optional[pulumi.Input[pulumi.InputType['DomainScalingParametersArgs']]] = None,
                  __props__=None):
         """
+        Provides an CloudSearch domain resource.
+
+        The provider waits for the domain to become `Active` when applying a configuration.
+
         ## Example Usage
 
         ```python
@@ -320,6 +324,10 @@ class Domain(pulumi.CustomResource):
                  args: Optional[DomainArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Provides an CloudSearch domain resource.
+
+        The provider waits for the domain to become `Active` when applying a configuration.
+
         ## Example Usage
 
         ```python

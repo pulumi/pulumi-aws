@@ -47,8 +47,8 @@ class ClusterArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: A list of EC2 Availability Zones that
                instances in the DB cluster can be created in.
         :param pulumi.Input[int] backup_retention_period: The days to retain backups for. Default `1`
-        :param pulumi.Input[str] cluster_identifier: The cluster identifier. If omitted, this provider will assign a random, unique identifier.
-        :param pulumi.Input[str] cluster_identifier_prefix: Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifer`.
+        :param pulumi.Input[str] cluster_identifier: The cluster identifier. If omitted, the provider will assign a random, unique identifier.
+        :param pulumi.Input[str] cluster_identifier_prefix: Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_members: List of DocDB Instances that are a part of this cluster
         :param pulumi.Input[str] db_cluster_parameter_group_name: A cluster parameter group to associate with the cluster.
         :param pulumi.Input[str] db_subnet_group_name: A DB subnet group to associate with this DB instance.
@@ -170,7 +170,7 @@ class ClusterArgs:
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> Optional[pulumi.Input[str]]:
         """
-        The cluster identifier. If omitted, this provider will assign a random, unique identifier.
+        The cluster identifier. If omitted, the provider will assign a random, unique identifier.
         """
         return pulumi.get(self, "cluster_identifier")
 
@@ -182,7 +182,7 @@ class ClusterArgs:
     @pulumi.getter(name="clusterIdentifierPrefix")
     def cluster_identifier_prefix(self) -> Optional[pulumi.Input[str]]:
         """
-        Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifer`.
+        Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
         """
         return pulumi.get(self, "cluster_identifier_prefix")
 
@@ -480,8 +480,8 @@ class _ClusterState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: A list of EC2 Availability Zones that
                instances in the DB cluster can be created in.
         :param pulumi.Input[int] backup_retention_period: The days to retain backups for. Default `1`
-        :param pulumi.Input[str] cluster_identifier: The cluster identifier. If omitted, this provider will assign a random, unique identifier.
-        :param pulumi.Input[str] cluster_identifier_prefix: Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifer`.
+        :param pulumi.Input[str] cluster_identifier: The cluster identifier. If omitted, the provider will assign a random, unique identifier.
+        :param pulumi.Input[str] cluster_identifier_prefix: Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_members: List of DocDB Instances that are a part of this cluster
         :param pulumi.Input[str] cluster_resource_id: The DocDB Cluster Resource ID
         :param pulumi.Input[str] db_cluster_parameter_group_name: A cluster parameter group to associate with the cluster.
@@ -632,7 +632,7 @@ class _ClusterState:
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> Optional[pulumi.Input[str]]:
         """
-        The cluster identifier. If omitted, this provider will assign a random, unique identifier.
+        The cluster identifier. If omitted, the provider will assign a random, unique identifier.
         """
         return pulumi.get(self, "cluster_identifier")
 
@@ -644,7 +644,7 @@ class _ClusterState:
     @pulumi.getter(name="clusterIdentifierPrefix")
     def cluster_identifier_prefix(self) -> Optional[pulumi.Input[str]]:
         """
-        Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifer`.
+        Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
         """
         return pulumi.get(self, "cluster_identifier_prefix")
 
@@ -1034,8 +1034,8 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: A list of EC2 Availability Zones that
                instances in the DB cluster can be created in.
         :param pulumi.Input[int] backup_retention_period: The days to retain backups for. Default `1`
-        :param pulumi.Input[str] cluster_identifier: The cluster identifier. If omitted, this provider will assign a random, unique identifier.
-        :param pulumi.Input[str] cluster_identifier_prefix: Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifer`.
+        :param pulumi.Input[str] cluster_identifier: The cluster identifier. If omitted, the provider will assign a random, unique identifier.
+        :param pulumi.Input[str] cluster_identifier_prefix: Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_members: List of DocDB Instances that are a part of this cluster
         :param pulumi.Input[str] db_cluster_parameter_group_name: A cluster parameter group to associate with the cluster.
         :param pulumi.Input[str] db_subnet_group_name: A DB subnet group to associate with this DB instance.
@@ -1240,8 +1240,8 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: A list of EC2 Availability Zones that
                instances in the DB cluster can be created in.
         :param pulumi.Input[int] backup_retention_period: The days to retain backups for. Default `1`
-        :param pulumi.Input[str] cluster_identifier: The cluster identifier. If omitted, this provider will assign a random, unique identifier.
-        :param pulumi.Input[str] cluster_identifier_prefix: Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifer`.
+        :param pulumi.Input[str] cluster_identifier: The cluster identifier. If omitted, the provider will assign a random, unique identifier.
+        :param pulumi.Input[str] cluster_identifier_prefix: Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_members: List of DocDB Instances that are a part of this cluster
         :param pulumi.Input[str] cluster_resource_id: The DocDB Cluster Resource ID
         :param pulumi.Input[str] db_cluster_parameter_group_name: A cluster parameter group to associate with the cluster.
@@ -1350,7 +1350,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> pulumi.Output[str]:
         """
-        The cluster identifier. If omitted, this provider will assign a random, unique identifier.
+        The cluster identifier. If omitted, the provider will assign a random, unique identifier.
         """
         return pulumi.get(self, "cluster_identifier")
 
@@ -1358,7 +1358,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="clusterIdentifierPrefix")
     def cluster_identifier_prefix(self) -> pulumi.Output[str]:
         """
-        Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifer`.
+        Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
         """
         return pulumi.get(self, "cluster_identifier_prefix")
 

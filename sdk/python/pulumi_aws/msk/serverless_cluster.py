@@ -25,6 +25,7 @@ class ServerlessClusterArgs:
         :param pulumi.Input['ServerlessClusterClientAuthenticationArgs'] client_authentication: Specifies client authentication information for the serverless cluster. See below.
         :param pulumi.Input[Sequence[pulumi.Input['ServerlessClusterVpcConfigArgs']]] vpc_configs: VPC configuration information. See below.
         :param pulumi.Input[str] cluster_name: The name of the serverless cluster.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "client_authentication", client_authentication)
         pulumi.set(__self__, "vpc_configs", vpc_configs)
@@ -72,6 +73,9 @@ class ServerlessClusterArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -93,6 +97,7 @@ class _ServerlessClusterState:
         :param pulumi.Input[str] arn: The ARN of the serverless cluster.
         :param pulumi.Input['ServerlessClusterClientAuthenticationArgs'] client_authentication: Specifies client authentication information for the serverless cluster. See below.
         :param pulumi.Input[str] cluster_name: The name of the serverless cluster.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input['ServerlessClusterVpcConfigArgs']]] vpc_configs: VPC configuration information. See below.
         """
@@ -148,6 +153,9 @@ class _ServerlessClusterState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -192,7 +200,7 @@ class ServerlessCluster(pulumi.CustomResource):
         """
         Manages an Amazon MSK Serverless cluster.
 
-        > **Note:** To manage a _provisioned_ Amazon MSK cluster, use the [`msk.Cluster`](https://www.terraform.io/docs/providers/aws/r/msk_cluster.html) resource.
+        > **Note:** To manage a _provisioned_ Amazon MSK cluster, use the `msk.Cluster` resource.
 
         ## Import
 
@@ -206,6 +214,7 @@ class ServerlessCluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ServerlessClusterClientAuthenticationArgs']] client_authentication: Specifies client authentication information for the serverless cluster. See below.
         :param pulumi.Input[str] cluster_name: The name of the serverless cluster.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerlessClusterVpcConfigArgs']]]] vpc_configs: VPC configuration information. See below.
         """
         ...
@@ -217,7 +226,7 @@ class ServerlessCluster(pulumi.CustomResource):
         """
         Manages an Amazon MSK Serverless cluster.
 
-        > **Note:** To manage a _provisioned_ Amazon MSK cluster, use the [`msk.Cluster`](https://www.terraform.io/docs/providers/aws/r/msk_cluster.html) resource.
+        > **Note:** To manage a _provisioned_ Amazon MSK cluster, use the `msk.Cluster` resource.
 
         ## Import
 
@@ -291,6 +300,7 @@ class ServerlessCluster(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN of the serverless cluster.
         :param pulumi.Input[pulumi.InputType['ServerlessClusterClientAuthenticationArgs']] client_authentication: Specifies client authentication information for the serverless cluster. See below.
         :param pulumi.Input[str] cluster_name: The name of the serverless cluster.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerlessClusterVpcConfigArgs']]]] vpc_configs: VPC configuration information. See below.
         """
@@ -333,6 +343,9 @@ class ServerlessCluster(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property

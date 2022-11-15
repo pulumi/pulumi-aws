@@ -17,7 +17,7 @@ class ResourceGroupArgs:
                  tags: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
         """
         The set of arguments for constructing a ResourceGroup resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of tags that are used to select the EC2 instances to be included in an `Amazon Inspector assessment target` resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
         """
         pulumi.set(__self__, "tags", tags)
 
@@ -25,7 +25,7 @@ class ResourceGroupArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
         """
-        Key-value map of tags that are used to select the EC2 instances to be included in an `Amazon Inspector assessment target` resource.
+        Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
         """
         return pulumi.get(self, "tags")
 
@@ -42,7 +42,7 @@ class _ResourceGroupState:
         """
         Input properties used for looking up and filtering ResourceGroup resources.
         :param pulumi.Input[str] arn: The resource group ARN.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of tags that are used to select the EC2 instances to be included in an `Amazon Inspector assessment target` resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -65,7 +65,7 @@ class _ResourceGroupState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Key-value map of tags that are used to select the EC2 instances to be included in an `Amazon Inspector assessment target` resource.
+        Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
         """
         return pulumi.get(self, "tags")
 
@@ -98,7 +98,7 @@ class ResourceGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of tags that are used to select the EC2 instances to be included in an `Amazon Inspector assessment target` resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
         """
         ...
     @overload
@@ -170,7 +170,7 @@ class ResourceGroup(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The resource group ARN.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of tags that are used to select the EC2 instances to be included in an `Amazon Inspector assessment target` resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -192,7 +192,7 @@ class ResourceGroup(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Mapping[str, str]]:
         """
-        Key-value map of tags that are used to select the EC2 instances to be included in an `Amazon Inspector assessment target` resource.
+        Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
         """
         return pulumi.get(self, "tags")
 

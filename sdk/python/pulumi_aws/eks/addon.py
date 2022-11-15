@@ -31,7 +31,7 @@ class AddonArgs:
         :param pulumi.Input[bool] preserve: Indicates if you want to preserve the created resources when deleting the EKS add-on.
         :param pulumi.Input[str] resolve_conflicts: Define how to resolve parameter value conflicts
                when migrating an existing add-on to an Amazon EKS add-on or when applying
-               version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`.
+               version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
         :param pulumi.Input[str] service_account_role_arn: The Amazon Resource Name (ARN) of an
                existing IAM role to bind to the add-on's service account. The role must be
                assigned the IAM permissions required by the add-on. If you don't specify
@@ -109,7 +109,7 @@ class AddonArgs:
         """
         Define how to resolve parameter value conflicts
         when migrating an existing add-on to an Amazon EKS add-on or when applying
-        version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`.
+        version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
         """
         return pulumi.get(self, "resolve_conflicts")
 
@@ -174,7 +174,7 @@ class _AddonState:
         :param pulumi.Input[bool] preserve: Indicates if you want to preserve the created resources when deleting the EKS add-on.
         :param pulumi.Input[str] resolve_conflicts: Define how to resolve parameter value conflicts
                when migrating an existing add-on to an Amazon EKS add-on or when applying
-               version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`.
+               version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
         :param pulumi.Input[str] service_account_role_arn: The Amazon Resource Name (ARN) of an
                existing IAM role to bind to the add-on's service account. The role must be
                assigned the IAM permissions required by the add-on. If you don't specify
@@ -299,7 +299,7 @@ class _AddonState:
         """
         Define how to resolve parameter value conflicts
         when migrating an existing add-on to an Amazon EKS add-on or when applying
-        version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`.
+        version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
         """
         return pulumi.get(self, "resolve_conflicts")
 
@@ -415,7 +415,7 @@ class Addon(pulumi.CustomResource):
         :param pulumi.Input[bool] preserve: Indicates if you want to preserve the created resources when deleting the EKS add-on.
         :param pulumi.Input[str] resolve_conflicts: Define how to resolve parameter value conflicts
                when migrating an existing add-on to an Amazon EKS add-on or when applying
-               version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`.
+               version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
         :param pulumi.Input[str] service_account_role_arn: The Amazon Resource Name (ARN) of an
                existing IAM role to bind to the add-on's service account. The role must be
                assigned the IAM permissions required by the add-on. If you don't specify
@@ -558,7 +558,7 @@ class Addon(pulumi.CustomResource):
         :param pulumi.Input[bool] preserve: Indicates if you want to preserve the created resources when deleting the EKS add-on.
         :param pulumi.Input[str] resolve_conflicts: Define how to resolve parameter value conflicts
                when migrating an existing add-on to an Amazon EKS add-on or when applying
-               version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`.
+               version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
         :param pulumi.Input[str] service_account_role_arn: The Amazon Resource Name (ARN) of an
                existing IAM role to bind to the add-on's service account. The role must be
                assigned the IAM permissions required by the add-on. If you don't specify
@@ -649,7 +649,7 @@ class Addon(pulumi.CustomResource):
         """
         Define how to resolve parameter value conflicts
         when migrating an existing add-on to an Amazon EKS add-on or when applying
-        version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`.
+        version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
         """
         return pulumi.get(self, "resolve_conflicts")
 

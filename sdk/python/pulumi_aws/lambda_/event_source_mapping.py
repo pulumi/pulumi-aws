@@ -944,18 +944,6 @@ class EventSourceMapping(pulumi.CustomResource):
                 ),
             ])
         ```
-        ### Managed Streaming for Kafka (MSK)
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lambda_.EventSourceMapping("example",
-            event_source_arn=aws_msk_cluster["example"]["arn"],
-            function_name=aws_lambda_function["example"]["arn"],
-            topics=["Example"],
-            starting_position="TRIM_HORIZON")
-        ```
 
         ## Import
 
@@ -1143,18 +1131,6 @@ class EventSourceMapping(pulumi.CustomResource):
                     uri=aws_secretsmanager_secret_version["example"]["arn"],
                 ),
             ])
-        ```
-        ### Managed Streaming for Kafka (MSK)
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lambda_.EventSourceMapping("example",
-            event_source_arn=aws_msk_cluster["example"]["arn"],
-            function_name=aws_lambda_function["example"]["arn"],
-            topics=["Example"],
-            starting_position="TRIM_HORIZON")
         ```
 
         ## Import

@@ -430,8 +430,6 @@ class VirtualNode(pulumi.CustomResource):
          $ pulumi import aws:appmesh/virtualNode:VirtualNode serviceb1 simpleapp/serviceBv1
         ```
 
-         [1]/docs/providers/aws/index.html
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] mesh_name: Name of the service mesh in which to create the virtual node. Must be between 1 and 255 characters in length.
@@ -597,8 +595,6 @@ class VirtualNode(pulumi.CustomResource):
         ```sh
          $ pulumi import aws:appmesh/virtualNode:VirtualNode serviceb1 simpleapp/serviceBv1
         ```
-
-         [1]/docs/providers/aws/index.html
 
         :param str resource_name: The name of the resource.
         :param VirtualNodeArgs args: The arguments to use to populate this resource's properties.

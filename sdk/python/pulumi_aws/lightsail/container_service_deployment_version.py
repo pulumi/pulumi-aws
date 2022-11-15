@@ -181,6 +181,12 @@ class ContainerServiceDeploymentVersion(pulumi.CustomResource):
                  service_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        Provides a resource to manage a deployment version for your Amazon Lightsail container service.
+
+        > **NOTE:** The Amazon Lightsail container service must be enabled to create a deployment.
+
+        > **NOTE:** This resource allows you to manage an Amazon Lightsail container service deployment version but the provider cannot destroy it. Removing this resource from your configuration will remove it from your statefile.
+
         ## Example Usage
         ### Basic Usage
 
@@ -236,6 +242,12 @@ class ContainerServiceDeploymentVersion(pulumi.CustomResource):
                  args: ContainerServiceDeploymentVersionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Provides a resource to manage a deployment version for your Amazon Lightsail container service.
+
+        > **NOTE:** The Amazon Lightsail container service must be enabled to create a deployment.
+
+        > **NOTE:** This resource allows you to manage an Amazon Lightsail container service deployment version but the provider cannot destroy it. Removing this resource from your configuration will remove it from your statefile.
+
         ## Example Usage
         ### Basic Usage
 

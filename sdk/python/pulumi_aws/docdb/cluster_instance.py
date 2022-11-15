@@ -681,10 +681,10 @@ class ClusterInstance(pulumi.CustomResource):
                  __props__=None):
         """
         Provides an DocDB Cluster Resource Instance. A Cluster Instance Resource defines
-        attributes that are specific to a single instance in a [DocDB Cluster](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html).
+        attributes that are specific to a single instance in a DocDB Cluster.
 
         You do not designate a primary and subsequent replicas. Instead, you simply add DocDB
-        Instances and DocDB manages the replication. You can use the [count](https://www.terraform.io/docs/configuration/meta-arguments/count.html)
+        Instances and DocDB manages the replication. You can use the count
         meta-parameter to make multiple instances and join them all to the same DocDB
         Cluster, or you may specify different Cluster Instance resources with various
         `instance_class` sizes.
@@ -759,10 +759,10 @@ class ClusterInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an DocDB Cluster Resource Instance. A Cluster Instance Resource defines
-        attributes that are specific to a single instance in a [DocDB Cluster](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html).
+        attributes that are specific to a single instance in a DocDB Cluster.
 
         You do not designate a primary and subsequent replicas. Instead, you simply add DocDB
-        Instances and DocDB manages the replication. You can use the [count](https://www.terraform.io/docs/configuration/meta-arguments/count.html)
+        Instances and DocDB manages the replication. You can use the count
         meta-parameter to make multiple instances and join them all to the same DocDB
         Cluster, or you may specify different Cluster Instance resources with various
         `instance_class` sizes.

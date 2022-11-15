@@ -489,7 +489,7 @@ class User(pulumi.CustomResource):
 
         example_user_pool = aws.cognito.UserPool("exampleUserPool", schemas=[
             aws.cognito.UserPoolSchemaArgs(
-                name="terraform",
+                name="example",
                 attribute_data_type="Boolean",
                 mutable=False,
                 required=False,
@@ -508,9 +508,9 @@ class User(pulumi.CustomResource):
             user_pool_id=example_user_pool.id,
             username="example",
             attributes={
-                "terraform": "true",
+                "example": "true",
                 "foo": "bar",
-                "email": "no-reply@hashicorp.com",
+                "email": "no-reply@domain.example",
                 "email_verified": "true",
             })
         ```
@@ -565,7 +565,7 @@ class User(pulumi.CustomResource):
 
         example_user_pool = aws.cognito.UserPool("exampleUserPool", schemas=[
             aws.cognito.UserPoolSchemaArgs(
-                name="terraform",
+                name="example",
                 attribute_data_type="Boolean",
                 mutable=False,
                 required=False,
@@ -584,9 +584,9 @@ class User(pulumi.CustomResource):
             user_pool_id=example_user_pool.id,
             username="example",
             attributes={
-                "terraform": "true",
+                "example": "true",
                 "foo": "bar",
-                "email": "no-reply@hashicorp.com",
+                "email": "no-reply@domain.example",
                 "email_verified": "true",
             })
         ```

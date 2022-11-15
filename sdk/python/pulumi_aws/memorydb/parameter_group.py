@@ -25,6 +25,7 @@ class ParameterGroupArgs:
         """
         The set of arguments for constructing a ParameterGroup resource.
         :param pulumi.Input[str] family: The engine version that the parameter group can be used with.
+        :param pulumi.Input[str] description: Description for the parameter group.
         :param pulumi.Input[str] name: The name of the parameter.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Sequence[pulumi.Input['ParameterGroupParameterArgs']]] parameters: Set of MemoryDB parameters to apply. Any parameters not specified will fall back to their family defaults. Detailed below.
@@ -57,6 +58,9 @@ class ParameterGroupArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description for the parameter group.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -126,6 +130,7 @@ class _ParameterGroupState:
         """
         Input properties used for looking up and filtering ParameterGroup resources.
         :param pulumi.Input[str] arn: The ARN of the parameter group.
+        :param pulumi.Input[str] description: Description for the parameter group.
         :param pulumi.Input[str] family: The engine version that the parameter group can be used with.
         :param pulumi.Input[str] name: The name of the parameter.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -165,6 +170,9 @@ class _ParameterGroupState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description for the parameter group.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -285,6 +293,7 @@ class ParameterGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: Description for the parameter group.
         :param pulumi.Input[str] family: The engine version that the parameter group can be used with.
         :param pulumi.Input[str] name: The name of the parameter.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -390,6 +399,7 @@ class ParameterGroup(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the parameter group.
+        :param pulumi.Input[str] description: Description for the parameter group.
         :param pulumi.Input[str] family: The engine version that the parameter group can be used with.
         :param pulumi.Input[str] name: The name of the parameter.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -422,6 +432,9 @@ class ParameterGroup(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        Description for the parameter group.
+        """
         return pulumi.get(self, "description")
 
     @property

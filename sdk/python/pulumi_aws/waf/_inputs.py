@@ -313,9 +313,9 @@ class RegexMatchSetRegexMatchTupleArgs:
                  text_transformation: pulumi.Input[str]):
         """
         :param pulumi.Input['RegexMatchSetRegexMatchTupleFieldToMatchArgs'] field_to_match: The part of a web request that you want to search, such as a specified header or a query string.
-        :param pulumi.Input[str] regex_pattern_set_id: The ID of a `WAF Regex Pattern Set`.
+        :param pulumi.Input[str] regex_pattern_set_id: The ID of a Regex Pattern Set.
         :param pulumi.Input[str] text_transformation: Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
-               e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
+               e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
                See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
                for all supported values.
         """
@@ -339,7 +339,7 @@ class RegexMatchSetRegexMatchTupleArgs:
     @pulumi.getter(name="regexPatternSetId")
     def regex_pattern_set_id(self) -> pulumi.Input[str]:
         """
-        The ID of a `WAF Regex Pattern Set`.
+        The ID of a Regex Pattern Set.
         """
         return pulumi.get(self, "regex_pattern_set_id")
 
@@ -352,7 +352,7 @@ class RegexMatchSetRegexMatchTupleArgs:
     def text_transformation(self) -> pulumi.Input[str]:
         """
         Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
-        e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
+        e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
         See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
         for all supported values.
         """
@@ -419,7 +419,7 @@ class RuleGroupActivatedRuleArgs:
         """
         :param pulumi.Input['RuleGroupActivatedRuleActionArgs'] action: Specifies the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.
         :param pulumi.Input[int] priority: Specifies the order in which the rules are evaluated. Rules with a lower value are evaluated before rules with a higher value.
-        :param pulumi.Input[str] rule_id: The ID of a `waf_rule`
+        :param pulumi.Input[str] rule_id: The ID of a rule
         :param pulumi.Input[str] type: The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
         """
         pulumi.set(__self__, "action", action)
@@ -456,7 +456,7 @@ class RuleGroupActivatedRuleArgs:
     @pulumi.getter(name="ruleId")
     def rule_id(self) -> pulumi.Input[str]:
         """
-        The ID of a `waf_rule`
+        The ID of a rule
         """
         return pulumi.get(self, "rule_id")
 
@@ -508,7 +508,7 @@ class RulePredicateArgs:
         """
         :param pulumi.Input[str] data_id: A unique identifier for a predicate in the rule, such as Byte Match Set ID or IPSet ID.
         :param pulumi.Input[bool] negated: Set this to `false` if you want to allow, block, or count requests
-               based on the settings in the specified `waf_byte_match_set`, `waf_ipset`, `waf.SizeConstraintSet`, `waf.SqlInjectionMatchSet` or `waf.XssMatchSet`.
+               based on the settings in the specified waf_byte_match_set, waf_ipset, aws_waf_size_constraint_set, waf.SqlInjectionMatchSet or aws_waf_xss_match_set.
                For example, if an IPSet includes the IP address `192.0.2.44`, AWS WAF will allow or block requests based on that IP address.
                If set to `true`, AWS WAF will allow, block, or count requests based on all IP addresses except `192.0.2.44`.
         :param pulumi.Input[str] type: The type of predicate in a rule. Valid values: `ByteMatch`, `GeoMatch`, `IPMatch`, `RegexMatch`, `SizeConstraint`, `SqlInjectionMatch`, or `XssMatch`.
@@ -534,7 +534,7 @@ class RulePredicateArgs:
     def negated(self) -> pulumi.Input[bool]:
         """
         Set this to `false` if you want to allow, block, or count requests
-        based on the settings in the specified `waf_byte_match_set`, `waf_ipset`, `waf.SizeConstraintSet`, `waf.SqlInjectionMatchSet` or `waf.XssMatchSet`.
+        based on the settings in the specified waf_byte_match_set, waf_ipset, aws_waf_size_constraint_set, waf.SqlInjectionMatchSet or aws_waf_xss_match_set.
         For example, if an IPSet includes the IP address `192.0.2.44`, AWS WAF will allow or block requests based on that IP address.
         If set to `true`, AWS WAF will allow, block, or count requests based on all IP addresses except `192.0.2.44`.
         """
@@ -908,7 +908,7 @@ class WebAclRuleArgs:
         """
         :param pulumi.Input[int] priority: Specifies the order in which the rules in a WebACL are evaluated.
                Rules with a lower value are evaluated before rules with a higher value.
-        :param pulumi.Input[str] rule_id: ID of the associated WAF (Global) rule (e.g. `waf.Rule`). WAF (Regional) rules cannot be used.
+        :param pulumi.Input[str] rule_id: ID of the associated WAF (Global) rule (e.g., `waf.Rule`). WAF (Regional) rules cannot be used.
         :param pulumi.Input['WebAclRuleActionArgs'] action: The action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule. Not used if `type` is `GROUP`.
         :param pulumi.Input['WebAclRuleOverrideActionArgs'] override_action: Override the action that a group requests CloudFront or AWS WAF takes when a web request matches the conditions in the rule. Only used if `type` is `GROUP`.
         :param pulumi.Input[str] type: The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
@@ -939,7 +939,7 @@ class WebAclRuleArgs:
     @pulumi.getter(name="ruleId")
     def rule_id(self) -> pulumi.Input[str]:
         """
-        ID of the associated WAF (Global) rule (e.g. `waf.Rule`). WAF (Regional) rules cannot be used.
+        ID of the associated WAF (Global) rule (e.g., `waf.Rule`). WAF (Regional) rules cannot be used.
         """
         return pulumi.get(self, "rule_id")
 

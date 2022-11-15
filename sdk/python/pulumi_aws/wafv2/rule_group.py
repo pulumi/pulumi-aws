@@ -459,7 +459,7 @@ class RuleGroup(pulumi.CustomResource):
                             statements=[
                                 aws.wafv2.RuleGroupRuleStatementOrStatementStatementArgs(
                                     regex_match_statement=aws.wafv2.RuleGroupRuleStatementOrStatementStatementRegexMatchStatementArgs(
-                                        regex_string="[a-z]([a-z0-9_-]*[a-z0-9])?",
+                                        regex_string="a-z?",
                                         field_to_match=aws.wafv2.RuleGroupRuleStatementOrStatementStatementRegexMatchStatementFieldToMatchArgs(
                                             single_header=aws.wafv2.RuleGroupRuleStatementOrStatementStatementRegexMatchStatementFieldToMatchSingleHeaderArgs(
                                                 name="user-agent",
@@ -732,7 +732,7 @@ class RuleGroup(pulumi.CustomResource):
                             statements=[
                                 aws.wafv2.RuleGroupRuleStatementOrStatementStatementArgs(
                                     regex_match_statement=aws.wafv2.RuleGroupRuleStatementOrStatementStatementRegexMatchStatementArgs(
-                                        regex_string="[a-z]([a-z0-9_-]*[a-z0-9])?",
+                                        regex_string="a-z?",
                                         field_to_match=aws.wafv2.RuleGroupRuleStatementOrStatementStatementRegexMatchStatementFieldToMatchArgs(
                                             single_header=aws.wafv2.RuleGroupRuleStatementOrStatementStatementRegexMatchStatementFieldToMatchSingleHeaderArgs(
                                                 name="user-agent",

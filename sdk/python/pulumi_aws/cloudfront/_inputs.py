@@ -1702,7 +1702,7 @@ class DistributionOriginArgs:
         :param pulumi.Input['DistributionOriginCustomOriginConfigArgs'] custom_origin_config: The CloudFront custom
                origin configuration information. If an S3
                origin is required, use `origin_access_control_id` or `s3_origin_config` instead.
-        :param pulumi.Input[str] origin_access_control_id: The unique identifier of a [CloudFront origin access control](https://www.terraform.io/docs/providers/aws/r/cloudfront_origin_access_control.html) for this origin.
+        :param pulumi.Input[str] origin_access_control_id: The unique identifier of a CloudFront origin access control for this origin.
         :param pulumi.Input[str] origin_path: An optional element that causes CloudFront to
                request your content from a directory in your Amazon S3 bucket or your
                custom origin.
@@ -1812,7 +1812,7 @@ class DistributionOriginArgs:
     @pulumi.getter(name="originAccessControlId")
     def origin_access_control_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The unique identifier of a [CloudFront origin access control](https://www.terraform.io/docs/providers/aws/r/cloudfront_origin_access_control.html) for this origin.
+        The unique identifier of a CloudFront origin access control for this origin.
         """
         return pulumi.get(self, "origin_access_control_id")
 
@@ -2132,7 +2132,7 @@ class DistributionOriginS3OriginConfigArgs:
     def __init__(__self__, *,
                  origin_access_identity: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] origin_access_identity: The [CloudFront origin access identity](https://www.terraform.io/docs/providers/aws/r/cloudfront_origin_access_identity.html) to associate with the origin.
+        :param pulumi.Input[str] origin_access_identity: The CloudFront origin access identity to associate with the origin.
         """
         pulumi.set(__self__, "origin_access_identity", origin_access_identity)
 
@@ -2140,7 +2140,7 @@ class DistributionOriginS3OriginConfigArgs:
     @pulumi.getter(name="originAccessIdentity")
     def origin_access_identity(self) -> pulumi.Input[str]:
         """
-        The [CloudFront origin access identity](https://www.terraform.io/docs/providers/aws/r/cloudfront_origin_access_identity.html) to associate with the origin.
+        The CloudFront origin access identity to associate with the origin.
         """
         return pulumi.get(self, "origin_access_identity")
 

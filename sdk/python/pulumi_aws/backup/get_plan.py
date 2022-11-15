@@ -113,7 +113,7 @@ def get_plan(plan_id: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.backup.get_plan(plan_id="tf_example_backup_plan_id")
+    example = aws.backup.get_plan(plan_id="my_example_backup_plan_id")
     ```
 
 
@@ -148,7 +148,7 @@ def get_plan_output(plan_id: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.backup.get_plan(plan_id="tf_example_backup_plan_id")
+    example = aws.backup.get_plan(plan_id="my_example_backup_plan_id")
     ```
 
 

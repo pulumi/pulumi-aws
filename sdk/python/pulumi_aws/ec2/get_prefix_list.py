@@ -93,6 +93,16 @@ def get_prefix_list(filters: Optional[Sequence[pulumi.InputType['GetPrefixListFi
                     prefix_list_id: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrefixListResult:
     """
+    `ec2.get_prefix_list` provides details about a specific AWS prefix list (PL)
+    in the current region.
+
+    This can be used both to validate a prefix list given in a variable
+    and to obtain the CIDR blocks (IP address ranges) for the associated
+    AWS service. The latter may be useful e.g., for adding network ACL
+    rules.
+
+    The ec2.ManagedPrefixList data source is normally more appropriate to use given it can return customer-managed prefix list info, as well as additional attributes.
+
     ## Example Usage
 
     ```python
@@ -152,6 +162,16 @@ def get_prefix_list_output(filters: Optional[pulumi.Input[Optional[Sequence[pulu
                            prefix_list_id: Optional[pulumi.Input[Optional[str]]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrefixListResult]:
     """
+    `ec2.get_prefix_list` provides details about a specific AWS prefix list (PL)
+    in the current region.
+
+    This can be used both to validate a prefix list given in a variable
+    and to obtain the CIDR blocks (IP address ranges) for the associated
+    AWS service. The latter may be useful e.g., for adding network ACL
+    rules.
+
+    The ec2.ManagedPrefixList data source is normally more appropriate to use given it can return customer-managed prefix list info, as well as additional attributes.
+
     ## Example Usage
 
     ```python

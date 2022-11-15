@@ -84,6 +84,9 @@ class GetConnectionResult:
     @property
     @pulumi.getter(name="providerType")
     def provider_type(self) -> str:
+        """
+        Name of the external provider where your third-party code repository is configured. Possible values are `Bitbucket` and `GitHub`. For connections to a GitHub Enterprise Server instance, you must create an codestarconnections.Host resource and use `host_arn` instead.
+        """
         return pulumi.get(self, "provider_type")
 
     @property

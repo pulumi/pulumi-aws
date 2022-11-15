@@ -106,6 +106,8 @@ def get_dedicated_ip_pool(pool_name: Optional[str] = None,
                           tags: Optional[Mapping[str, str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDedicatedIpPoolResult:
     """
+    Data source for managing an AWS SESv2 (Simple Email V2) Dedicated IP Pool.
+
     ## Example Usage
     ### Basic Usage
 
@@ -140,6 +142,8 @@ def get_dedicated_ip_pool_output(pool_name: Optional[pulumi.Input[str]] = None,
                                  tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDedicatedIpPoolResult]:
     """
+    Data source for managing an AWS SESv2 (Simple Email V2) Dedicated IP Pool.
+
     ## Example Usage
     ### Basic Usage
 

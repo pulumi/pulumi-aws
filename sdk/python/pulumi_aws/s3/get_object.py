@@ -368,7 +368,7 @@ def get_object(bucket: Optional[str] = None,
     file stored in S3, which is then used to pass the most recent `version_id`
     to AWS Lambda for use as a function implementation. More information about
     Lambda functions is available in the documentation for
-    [`lambda.Function`](https://www.terraform.io/docs/providers/aws/r/lambda_function.html).
+    `lambda.Function`.
 
     ```python
     import pulumi
@@ -462,7 +462,7 @@ def get_object_output(bucket: Optional[pulumi.Input[str]] = None,
     file stored in S3, which is then used to pass the most recent `version_id`
     to AWS Lambda for use as a function implementation. More information about
     Lambda functions is available in the documentation for
-    [`lambda.Function`](https://www.terraform.io/docs/providers/aws/r/lambda_function.html).
+    `lambda.Function`.
 
     ```python
     import pulumi

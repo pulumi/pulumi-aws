@@ -314,7 +314,7 @@ class ClusterVpcConfig(dict):
         :param str cluster_security_group_id: Cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.
         :param bool endpoint_private_access: Whether the Amazon EKS private API server endpoint is enabled. Default is `false`.
         :param bool endpoint_public_access: Whether the Amazon EKS public API server endpoint is enabled. Default is `true`.
-        :param Sequence[str] public_access_cidrs: List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint when enabled. EKS defaults this to a list with `0.0.0.0/0`. This provider will only perform drift detection of its value when present in a configuration.
+        :param Sequence[str] public_access_cidrs: List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint when enabled. EKS defaults this to a list with `0.0.0.0/0`. The provider will only perform drift detection of its value when present in a configuration.
         :param Sequence[str] security_group_ids: List of security group IDs for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane.
         :param str vpc_id: ID of the VPC associated with your cluster.
         """
@@ -368,7 +368,7 @@ class ClusterVpcConfig(dict):
     @pulumi.getter(name="publicAccessCidrs")
     def public_access_cidrs(self) -> Optional[Sequence[str]]:
         """
-        List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint when enabled. EKS defaults this to a list with `0.0.0.0/0`. This provider will only perform drift detection of its value when present in a configuration.
+        List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint when enabled. EKS defaults this to a list with `0.0.0.0/0`. The provider will only perform drift detection of its value when present in a configuration.
         """
         return pulumi.get(self, "public_access_cidrs")
 
@@ -557,7 +557,7 @@ class NodeGroupLaunchTemplate(dict):
                  id: Optional[str] = None,
                  name: Optional[str] = None):
         """
-        :param str version: EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `default_version` or `latest_version` attribute of the `ec2.LaunchTemplate` resource or data source is recommended for this argument.
+        :param str version: EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g., `1`) on read and the provider will show a difference on next plan. Using the `default_version` or `latest_version` attribute of the `ec2.LaunchTemplate` resource or data source is recommended for this argument.
         :param str id: Identifier of the EC2 Launch Template. Conflicts with `name`.
         :param str name: Name of the EC2 Launch Template. Conflicts with `id`.
         """
@@ -571,7 +571,7 @@ class NodeGroupLaunchTemplate(dict):
     @pulumi.getter
     def version(self) -> str:
         """
-        EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `default_version` or `latest_version` attribute of the `ec2.LaunchTemplate` resource or data source is recommended for this argument.
+        EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g., `1`) on read and the provider will show a difference on next plan. Using the `default_version` or `latest_version` attribute of the `ec2.LaunchTemplate` resource or data source is recommended for this argument.
         """
         return pulumi.get(self, "version")
 

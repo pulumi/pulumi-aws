@@ -59,7 +59,7 @@ class _MainRouteTableAssociationState:
                  vpc_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering MainRouteTableAssociation resources.
-        :param pulumi.Input[str] original_route_table_id: Used internally, see __Notes__ below
+        :param pulumi.Input[str] original_route_table_id: Used internally, see **Notes** below
         :param pulumi.Input[str] route_table_id: The ID of the Route Table to set as the new
                main route table for the target VPC
         :param pulumi.Input[str] vpc_id: The ID of the VPC whose main route table should be set
@@ -75,7 +75,7 @@ class _MainRouteTableAssociationState:
     @pulumi.getter(name="originalRouteTableId")
     def original_route_table_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Used internally, see __Notes__ below
+        Used internally, see **Notes** below
         """
         return pulumi.get(self, "original_route_table_id")
 
@@ -118,6 +118,11 @@ class MainRouteTableAssociation(pulumi.CustomResource):
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        Provides a resource for managing the main routing table of a VPC.
+
+        > **NOTE:** **Do not** use both `ec2.DefaultRouteTable` to manage a default route table **and** `ec2.MainRouteTableAssociation` with the same VPC due to possible route conflicts. See ec2.DefaultRouteTable documentation for more details.
+        For more information, see the Amazon VPC User Guide on [Route Tables](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html). For information about managing normal route tables in the provider, see `ec2.RouteTable`.
+
         ## Example Usage
 
         ```python
@@ -136,10 +141,6 @@ class MainRouteTableAssociation(pulumi.CustomResource):
         this original table as the Main Route Table for the VPC. You'll see this
         additional Route Table in the AWS console; it must remain intact in order for
         the `main_route_table_association` delete to work properly.
-
-        [aws-route-tables]: http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html#Route_Replacing_Main_Table
-        [tf-route-tables]: /docs/providers/aws/r/route_table.html
-        [tf-default-route-table]: /docs/providers/aws/r/default_route_table.html
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -154,6 +155,11 @@ class MainRouteTableAssociation(pulumi.CustomResource):
                  args: MainRouteTableAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Provides a resource for managing the main routing table of a VPC.
+
+        > **NOTE:** **Do not** use both `ec2.DefaultRouteTable` to manage a default route table **and** `ec2.MainRouteTableAssociation` with the same VPC due to possible route conflicts. See ec2.DefaultRouteTable documentation for more details.
+        For more information, see the Amazon VPC User Guide on [Route Tables](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html). For information about managing normal route tables in the provider, see `ec2.RouteTable`.
+
         ## Example Usage
 
         ```python
@@ -172,10 +178,6 @@ class MainRouteTableAssociation(pulumi.CustomResource):
         this original table as the Main Route Table for the VPC. You'll see this
         additional Route Table in the AWS console; it must remain intact in order for
         the `main_route_table_association` delete to work properly.
-
-        [aws-route-tables]: http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html#Route_Replacing_Main_Table
-        [tf-route-tables]: /docs/providers/aws/r/route_table.html
-        [tf-default-route-table]: /docs/providers/aws/r/default_route_table.html
 
         :param str resource_name: The name of the resource.
         :param MainRouteTableAssociationArgs args: The arguments to use to populate this resource's properties.
@@ -230,7 +232,7 @@ class MainRouteTableAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] original_route_table_id: Used internally, see __Notes__ below
+        :param pulumi.Input[str] original_route_table_id: Used internally, see **Notes** below
         :param pulumi.Input[str] route_table_id: The ID of the Route Table to set as the new
                main route table for the target VPC
         :param pulumi.Input[str] vpc_id: The ID of the VPC whose main route table should be set
@@ -248,7 +250,7 @@ class MainRouteTableAssociation(pulumi.CustomResource):
     @pulumi.getter(name="originalRouteTableId")
     def original_route_table_id(self) -> pulumi.Output[str]:
         """
-        Used internally, see __Notes__ below
+        Used internally, see **Notes** below
         """
         return pulumi.get(self, "original_route_table_id")
 

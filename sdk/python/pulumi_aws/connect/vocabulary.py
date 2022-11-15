@@ -25,6 +25,8 @@ class VocabularyArgs:
         :param pulumi.Input[str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
         :param pulumi.Input[str] language_code: The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see [What is Amazon Transcribe?](https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html). Valid Values are `ar-AE`, `de-CH`, `de-DE`, `en-AB`, `en-AU`, `en-GB`, `en-IE`, `en-IN`, `en-US`, `en-WL`, `es-ES`, `es-US`, `fr-CA`, `fr-FR`, `hi-IN`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `pt-PT`, `zh-CN`.
         :param pulumi.Input[str] name: A unique name of the custom vocabulary. Must not be more than 140 characters.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the vocabulary. If configured with a provider
+               `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "content", content)
         pulumi.set(__self__, "instance_id", instance_id)
@@ -85,6 +87,10 @@ class VocabularyArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Tags to apply to the vocabulary. If configured with a provider
+        `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -116,6 +122,8 @@ class _VocabularyState:
         :param pulumi.Input[str] last_modified_time: The timestamp when the custom vocabulary was last modified.
         :param pulumi.Input[str] name: A unique name of the custom vocabulary. Must not be more than 140 characters.
         :param pulumi.Input[str] state: The current state of the custom vocabulary. Valid values are `CREATION_IN_PROGRESS`, `ACTIVE`, `CREATION_FAILED`, `DELETE_IN_PROGRESS`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the vocabulary. If configured with a provider
+               `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] vocabulary_id: The identifier of the custom vocabulary.
         """
@@ -241,6 +249,10 @@ class _VocabularyState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Tags to apply to the vocabulary. If configured with a provider
+        `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -320,6 +332,8 @@ class Vocabulary(pulumi.CustomResource):
         :param pulumi.Input[str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
         :param pulumi.Input[str] language_code: The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see [What is Amazon Transcribe?](https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html). Valid Values are `ar-AE`, `de-CH`, `de-DE`, `en-AB`, `en-AU`, `en-GB`, `en-IE`, `en-IN`, `en-US`, `en-WL`, `es-ES`, `es-US`, `fr-CA`, `fr-FR`, `hi-IN`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `pt-PT`, `zh-CN`.
         :param pulumi.Input[str] name: A unique name of the custom vocabulary. Must not be more than 140 characters.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the vocabulary. If configured with a provider
+               `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -440,6 +454,8 @@ class Vocabulary(pulumi.CustomResource):
         :param pulumi.Input[str] last_modified_time: The timestamp when the custom vocabulary was last modified.
         :param pulumi.Input[str] name: A unique name of the custom vocabulary. Must not be more than 140 characters.
         :param pulumi.Input[str] state: The current state of the custom vocabulary. Valid values are `CREATION_IN_PROGRESS`, `ACTIVE`, `CREATION_FAILED`, `DELETE_IN_PROGRESS`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the vocabulary. If configured with a provider
+               `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] vocabulary_id: The identifier of the custom vocabulary.
         """
@@ -527,6 +543,10 @@ class Vocabulary(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Tags to apply to the vocabulary. If configured with a provider
+        `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property

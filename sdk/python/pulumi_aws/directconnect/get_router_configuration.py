@@ -103,6 +103,8 @@ def get_router_configuration(router_type_identifier: Optional[str] = None,
                              virtual_interface_id: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRouterConfigurationResult:
     """
+    Data source for retrieving Router Configuration instructions for a given AWS Direct Connect Virtual Interface and Router Type.
+
     ## Example Usage
     ### Basic Usage
 
@@ -138,6 +140,8 @@ def get_router_configuration_output(router_type_identifier: Optional[pulumi.Inpu
                                     virtual_interface_id: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouterConfigurationResult]:
     """
+    Data source for retrieving Router Configuration instructions for a given AWS Direct Connect Virtual Interface and Router Type.
+
     ## Example Usage
     ### Basic Usage
 

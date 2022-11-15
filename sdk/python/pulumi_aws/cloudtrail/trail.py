@@ -49,7 +49,7 @@ class TrailArgs:
         :param pulumi.Input[str] name: Name of the advanced event selector.
         :param pulumi.Input[str] s3_key_prefix: S3 key prefix that follows the name of the bucket you have designated for log file delivery.
         :param pulumi.Input[str] sns_topic_name: Name of the Amazon SNS topic defined for notification of log file delivery.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the trail. If configured with provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the trail. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
         if advanced_event_selectors is not None:
@@ -267,7 +267,7 @@ class TrailArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Map of tags to assign to the trail. If configured with provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the trail. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -317,7 +317,7 @@ class _TrailState:
         :param pulumi.Input[str] s3_bucket_name: Name of the S3 bucket designated for publishing log files.
         :param pulumi.Input[str] s3_key_prefix: S3 key prefix that follows the name of the bucket you have designated for log file delivery.
         :param pulumi.Input[str] sns_topic_name: Name of the Amazon SNS topic defined for notification of log file delivery.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the trail. If configured with provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the trail. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if advanced_event_selectors is not None:
@@ -567,7 +567,7 @@ class _TrailState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Map of tags to assign to the trail. If configured with provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the trail. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -628,8 +628,11 @@ class Trail(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_caller_identity()
-        bucket_v2 = aws.s3.BucketV2("bucketV2")
         foo_bucket_v2 = aws.s3.BucketV2("fooBucketV2", force_destroy=True)
+        foobar = aws.cloudtrail.Trail("foobar",
+            s3_bucket_name=foo_bucket_v2.id,
+            s3_key_prefix="prefix",
+            include_global_service_events=False)
         foo_bucket_policy = aws.s3.BucketPolicy("fooBucketPolicy",
             bucket=foo_bucket_v2.id,
             policy=pulumi.Output.all(foo_bucket_v2.arn, foo_bucket_v2.arn).apply(lambda fooBucketV2Arn, fooBucketV2Arn1: f\"\"\"{{
@@ -660,12 +663,7 @@ class Trail(pulumi.CustomResource):
                 }}
             ]
         }}
-        }}
         \"\"\"))
-        foobar = aws.cloudtrail.Trail("foobar",
-            s3_bucket_name=bucket_v2.id,
-            s3_key_prefix="prefix",
-            include_global_service_events=False)
         ```
         ### Data Event Logging
 
@@ -679,18 +677,14 @@ class Trail(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        bucket_v2 = aws.s3.BucketV2("bucketV2")
-        example = aws.cloudtrail.Trail("example",
-            s3_bucket_name=bucket_v2.id,
-            s3_key_prefix="prefix",
-            event_selectors=[aws.cloudtrail.TrailEventSelectorArgs(
-                read_write_type="All",
-                include_management_events=True,
-                data_resources=[aws.cloudtrail.TrailEventSelectorDataResourceArgs(
-                    type="AWS::Lambda::Function",
-                    values=["arn:aws:lambda"],
-                )],
-            )])
+        example = aws.cloudtrail.Trail("example", event_selectors=[aws.cloudtrail.TrailEventSelectorArgs(
+            data_resources=[aws.cloudtrail.TrailEventSelectorDataResourceArgs(
+                type="AWS::Lambda::Function",
+                values=["arn:aws:lambda"],
+            )],
+            include_management_events=True,
+            read_write_type="All",
+        )])
         ```
         ### Logging All S3 Object Events By Using Basic Event Selectors
 
@@ -698,18 +692,14 @@ class Trail(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        bucket_v2 = aws.s3.BucketV2("bucketV2")
-        example = aws.cloudtrail.Trail("example",
-            s3_bucket_name=bucket_v2.id,
-            s3_key_prefix="prefix",
-            event_selectors=[aws.cloudtrail.TrailEventSelectorArgs(
-                read_write_type="All",
-                include_management_events=True,
-                data_resources=[aws.cloudtrail.TrailEventSelectorDataResourceArgs(
-                    type="AWS::S3::Object",
-                    values=["arn:aws:s3"],
-                )],
-            )])
+        example = aws.cloudtrail.Trail("example", event_selectors=[aws.cloudtrail.TrailEventSelectorArgs(
+            data_resources=[aws.cloudtrail.TrailEventSelectorDataResourceArgs(
+                type="AWS::S3::Object",
+                values=["arn:aws:s3"],
+            )],
+            include_management_events=True,
+            read_write_type="All",
+        )])
         ```
         ### Logging Individual S3 Bucket Events By Using Basic Event Selectors
 
@@ -718,17 +708,14 @@ class Trail(pulumi.CustomResource):
         import pulumi_aws as aws
 
         important_bucket = aws.s3.get_bucket(bucket="important-bucket")
-        example = aws.cloudtrail.Trail("example",
-            s3_bucket_name=important_bucket.id,
-            s3_key_prefix="prefix",
-            event_selectors=[aws.cloudtrail.TrailEventSelectorArgs(
-                read_write_type="All",
-                include_management_events=True,
-                data_resources=[aws.cloudtrail.TrailEventSelectorDataResourceArgs(
-                    type="AWS::S3::Object",
-                    values=[f"{important_bucket.arn}/"],
-                )],
-            )])
+        example = aws.cloudtrail.Trail("example", event_selectors=[aws.cloudtrail.TrailEventSelectorArgs(
+            data_resources=[aws.cloudtrail.TrailEventSelectorDataResourceArgs(
+                type="AWS::S3::Object",
+                values=[f"{important_bucket.arn}/"],
+            )],
+            include_management_events=True,
+            read_write_type="All",
+        )])
         ```
         ### Logging All S3 Object Events Except For Two S3 Buckets By Using Advanced Event Selectors
 
@@ -774,45 +761,8 @@ class Trail(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        current = aws.get_partition()
         example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
-        test_role = aws.iam.Role("testRole", assume_role_policy=f\"\"\"{{
-          "Version": "2012-10-17",
-          "Statement": [
-            {{
-              "Sid": "",
-              "Effect": "Allow",
-              "Principal": {{
-                "Service": "cloudtrail.{current.dns_suffix}"
-              }},
-              "Action": "sts:AssumeRole"
-            }}
-          ]
-        }}
-        \"\"\")
-        test_role_policy = aws.iam.RolePolicy("testRolePolicy",
-            role=test_role.id,
-            policy=f\"\"\"{{
-          "Version": "2012-10-17",
-          "Statement": [
-            {{
-              "Sid": "AWSCloudTrailCreateLogStream",
-              "Effect": "Allow",
-              "Action": [
-                "logs:CreateLogStream",
-                "logs:PutLogEvents"
-              ],
-              "Resource": "{aws_cloudwatch_log_group["test"]["arn"]}:*"
-            }}
-          ]
-        }}
-        \"\"\")
-        bucket_v2 = aws.s3.BucketV2("bucketV2")
-        example_trail = aws.cloudtrail.Trail("exampleTrail",
-            s3_bucket_name=data["aws_s3_bucket"]["important-bucket"]["id"],
-            s3_key_prefix="prefix",
-            cloud_watch_logs_role_arn=test_role.arn,
-            cloud_watch_logs_group_arn=example_log_group.arn.apply(lambda arn: f"{arn}:*"))
+        example_trail = aws.cloudtrail.Trail("exampleTrail", cloud_watch_logs_group_arn=example_log_group.arn.apply(lambda arn: f"{arn}:*"))
         # CloudTrail requires the Log Stream wildcard
         ```
 
@@ -841,7 +791,7 @@ class Trail(pulumi.CustomResource):
         :param pulumi.Input[str] s3_bucket_name: Name of the S3 bucket designated for publishing log files.
         :param pulumi.Input[str] s3_key_prefix: S3 key prefix that follows the name of the bucket you have designated for log file delivery.
         :param pulumi.Input[str] sns_topic_name: Name of the Amazon SNS topic defined for notification of log file delivery.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the trail. If configured with provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the trail. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -867,8 +817,11 @@ class Trail(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_caller_identity()
-        bucket_v2 = aws.s3.BucketV2("bucketV2")
         foo_bucket_v2 = aws.s3.BucketV2("fooBucketV2", force_destroy=True)
+        foobar = aws.cloudtrail.Trail("foobar",
+            s3_bucket_name=foo_bucket_v2.id,
+            s3_key_prefix="prefix",
+            include_global_service_events=False)
         foo_bucket_policy = aws.s3.BucketPolicy("fooBucketPolicy",
             bucket=foo_bucket_v2.id,
             policy=pulumi.Output.all(foo_bucket_v2.arn, foo_bucket_v2.arn).apply(lambda fooBucketV2Arn, fooBucketV2Arn1: f\"\"\"{{
@@ -899,12 +852,7 @@ class Trail(pulumi.CustomResource):
                 }}
             ]
         }}
-        }}
         \"\"\"))
-        foobar = aws.cloudtrail.Trail("foobar",
-            s3_bucket_name=bucket_v2.id,
-            s3_key_prefix="prefix",
-            include_global_service_events=False)
         ```
         ### Data Event Logging
 
@@ -918,18 +866,14 @@ class Trail(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        bucket_v2 = aws.s3.BucketV2("bucketV2")
-        example = aws.cloudtrail.Trail("example",
-            s3_bucket_name=bucket_v2.id,
-            s3_key_prefix="prefix",
-            event_selectors=[aws.cloudtrail.TrailEventSelectorArgs(
-                read_write_type="All",
-                include_management_events=True,
-                data_resources=[aws.cloudtrail.TrailEventSelectorDataResourceArgs(
-                    type="AWS::Lambda::Function",
-                    values=["arn:aws:lambda"],
-                )],
-            )])
+        example = aws.cloudtrail.Trail("example", event_selectors=[aws.cloudtrail.TrailEventSelectorArgs(
+            data_resources=[aws.cloudtrail.TrailEventSelectorDataResourceArgs(
+                type="AWS::Lambda::Function",
+                values=["arn:aws:lambda"],
+            )],
+            include_management_events=True,
+            read_write_type="All",
+        )])
         ```
         ### Logging All S3 Object Events By Using Basic Event Selectors
 
@@ -937,18 +881,14 @@ class Trail(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        bucket_v2 = aws.s3.BucketV2("bucketV2")
-        example = aws.cloudtrail.Trail("example",
-            s3_bucket_name=bucket_v2.id,
-            s3_key_prefix="prefix",
-            event_selectors=[aws.cloudtrail.TrailEventSelectorArgs(
-                read_write_type="All",
-                include_management_events=True,
-                data_resources=[aws.cloudtrail.TrailEventSelectorDataResourceArgs(
-                    type="AWS::S3::Object",
-                    values=["arn:aws:s3"],
-                )],
-            )])
+        example = aws.cloudtrail.Trail("example", event_selectors=[aws.cloudtrail.TrailEventSelectorArgs(
+            data_resources=[aws.cloudtrail.TrailEventSelectorDataResourceArgs(
+                type="AWS::S3::Object",
+                values=["arn:aws:s3"],
+            )],
+            include_management_events=True,
+            read_write_type="All",
+        )])
         ```
         ### Logging Individual S3 Bucket Events By Using Basic Event Selectors
 
@@ -957,17 +897,14 @@ class Trail(pulumi.CustomResource):
         import pulumi_aws as aws
 
         important_bucket = aws.s3.get_bucket(bucket="important-bucket")
-        example = aws.cloudtrail.Trail("example",
-            s3_bucket_name=important_bucket.id,
-            s3_key_prefix="prefix",
-            event_selectors=[aws.cloudtrail.TrailEventSelectorArgs(
-                read_write_type="All",
-                include_management_events=True,
-                data_resources=[aws.cloudtrail.TrailEventSelectorDataResourceArgs(
-                    type="AWS::S3::Object",
-                    values=[f"{important_bucket.arn}/"],
-                )],
-            )])
+        example = aws.cloudtrail.Trail("example", event_selectors=[aws.cloudtrail.TrailEventSelectorArgs(
+            data_resources=[aws.cloudtrail.TrailEventSelectorDataResourceArgs(
+                type="AWS::S3::Object",
+                values=[f"{important_bucket.arn}/"],
+            )],
+            include_management_events=True,
+            read_write_type="All",
+        )])
         ```
         ### Logging All S3 Object Events Except For Two S3 Buckets By Using Advanced Event Selectors
 
@@ -1013,45 +950,8 @@ class Trail(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        current = aws.get_partition()
         example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
-        test_role = aws.iam.Role("testRole", assume_role_policy=f\"\"\"{{
-          "Version": "2012-10-17",
-          "Statement": [
-            {{
-              "Sid": "",
-              "Effect": "Allow",
-              "Principal": {{
-                "Service": "cloudtrail.{current.dns_suffix}"
-              }},
-              "Action": "sts:AssumeRole"
-            }}
-          ]
-        }}
-        \"\"\")
-        test_role_policy = aws.iam.RolePolicy("testRolePolicy",
-            role=test_role.id,
-            policy=f\"\"\"{{
-          "Version": "2012-10-17",
-          "Statement": [
-            {{
-              "Sid": "AWSCloudTrailCreateLogStream",
-              "Effect": "Allow",
-              "Action": [
-                "logs:CreateLogStream",
-                "logs:PutLogEvents"
-              ],
-              "Resource": "{aws_cloudwatch_log_group["test"]["arn"]}:*"
-            }}
-          ]
-        }}
-        \"\"\")
-        bucket_v2 = aws.s3.BucketV2("bucketV2")
-        example_trail = aws.cloudtrail.Trail("exampleTrail",
-            s3_bucket_name=data["aws_s3_bucket"]["important-bucket"]["id"],
-            s3_key_prefix="prefix",
-            cloud_watch_logs_role_arn=test_role.arn,
-            cloud_watch_logs_group_arn=example_log_group.arn.apply(lambda arn: f"{arn}:*"))
+        example_trail = aws.cloudtrail.Trail("exampleTrail", cloud_watch_logs_group_arn=example_log_group.arn.apply(lambda arn: f"{arn}:*"))
         # CloudTrail requires the Log Stream wildcard
         ```
 
@@ -1177,7 +1077,7 @@ class Trail(pulumi.CustomResource):
         :param pulumi.Input[str] s3_bucket_name: Name of the S3 bucket designated for publishing log files.
         :param pulumi.Input[str] s3_key_prefix: S3 key prefix that follows the name of the bucket you have designated for log file delivery.
         :param pulumi.Input[str] sns_topic_name: Name of the Amazon SNS topic defined for notification of log file delivery.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the trail. If configured with provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the trail. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1345,7 +1245,7 @@ class Trail(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Map of tags to assign to the trail. If configured with provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the trail. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

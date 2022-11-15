@@ -37,7 +37,14 @@ class EntityRecognizerArgs:
         :param pulumi.Input[str] name: Name for the Entity Recognizer.
                Has a maximum length of 63 characters.
                Can contain upper- and lower-case letters, numbers, and hypen (`-`).
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` Configuration Block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] version_name: Name for the version of the Entity Recognizer.
+               Each version must have a unique name within the Entity Recognizer.
+               If omitted, the provider will assign a random, unique version name.
+               If explicitly set to `""`, no version name will be set.
+               Has a maximum length of 63 characters.
+               Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+               Conflicts with `version_name_prefix`.
         :param pulumi.Input[str] version_name_prefix: Creates a unique version name beginning with the specified prefix.
                Has a maximum length of 37 characters.
                Can contain upper- and lower-case letters, numbers, and hypen (`-`).
@@ -132,7 +139,7 @@ class EntityRecognizerArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider [`default_tags` Configuration Block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -143,6 +150,15 @@ class EntityRecognizerArgs:
     @property
     @pulumi.getter(name="versionName")
     def version_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name for the version of the Entity Recognizer.
+        Each version must have a unique name within the Entity Recognizer.
+        If omitted, the provider will assign a random, unique version name.
+        If explicitly set to `""`, no version name will be set.
+        Has a maximum length of 63 characters.
+        Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+        Conflicts with `version_name_prefix`.
+        """
         return pulumi.get(self, "version_name")
 
     @version_name.setter
@@ -217,8 +233,15 @@ class _EntityRecognizerState:
         :param pulumi.Input[str] name: Name for the Entity Recognizer.
                Has a maximum length of 63 characters.
                Can contain upper- and lower-case letters, numbers, and hypen (`-`).
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` Configuration Block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] version_name: Name for the version of the Entity Recognizer.
+               Each version must have a unique name within the Entity Recognizer.
+               If omitted, the provider will assign a random, unique version name.
+               If explicitly set to `""`, no version name will be set.
+               Has a maximum length of 63 characters.
+               Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+               Conflicts with `version_name_prefix`.
         :param pulumi.Input[str] version_name_prefix: Creates a unique version name beginning with the specified prefix.
                Has a maximum length of 37 characters.
                Can contain upper- and lower-case letters, numbers, and hypen (`-`).
@@ -332,7 +355,7 @@ class _EntityRecognizerState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider [`default_tags` Configuration Block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -344,7 +367,7 @@ class _EntityRecognizerState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -355,6 +378,15 @@ class _EntityRecognizerState:
     @property
     @pulumi.getter(name="versionName")
     def version_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name for the version of the Entity Recognizer.
+        Each version must have a unique name within the Entity Recognizer.
+        If omitted, the provider will assign a random, unique version name.
+        If explicitly set to `""`, no version name will be set.
+        Has a maximum length of 63 characters.
+        Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+        Conflicts with `version_name_prefix`.
+        """
         return pulumi.get(self, "version_name")
 
     @version_name.setter
@@ -419,6 +451,8 @@ class EntityRecognizer(pulumi.CustomResource):
                  vpc_config: Optional[pulumi.Input[pulumi.InputType['EntityRecognizerVpcConfigArgs']]] = None,
                  __props__=None):
         """
+        Resource for managing an AWS Comprehend Entity Recognizer.
+
         ## Example Usage
         ### Basic Usage
 
@@ -471,7 +505,14 @@ class EntityRecognizer(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name for the Entity Recognizer.
                Has a maximum length of 63 characters.
                Can contain upper- and lower-case letters, numbers, and hypen (`-`).
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` Configuration Block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] version_name: Name for the version of the Entity Recognizer.
+               Each version must have a unique name within the Entity Recognizer.
+               If omitted, the provider will assign a random, unique version name.
+               If explicitly set to `""`, no version name will be set.
+               Has a maximum length of 63 characters.
+               Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+               Conflicts with `version_name_prefix`.
         :param pulumi.Input[str] version_name_prefix: Creates a unique version name beginning with the specified prefix.
                Has a maximum length of 37 characters.
                Can contain upper- and lower-case letters, numbers, and hypen (`-`).
@@ -487,6 +528,8 @@ class EntityRecognizer(pulumi.CustomResource):
                  args: EntityRecognizerArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Resource for managing an AWS Comprehend Entity Recognizer.
+
         ## Example Usage
         ### Basic Usage
 
@@ -619,8 +662,15 @@ class EntityRecognizer(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name for the Entity Recognizer.
                Has a maximum length of 63 characters.
                Can contain upper- and lower-case letters, numbers, and hypen (`-`).
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` Configuration Block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] version_name: Name for the version of the Entity Recognizer.
+               Each version must have a unique name within the Entity Recognizer.
+               If omitted, the provider will assign a random, unique version name.
+               If explicitly set to `""`, no version name will be set.
+               Has a maximum length of 63 characters.
+               Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+               Conflicts with `version_name_prefix`.
         :param pulumi.Input[str] version_name_prefix: Creates a unique version name beginning with the specified prefix.
                Has a maximum length of 37 characters.
                Can contain upper- and lower-case letters, numbers, and hypen (`-`).
@@ -703,7 +753,7 @@ class EntityRecognizer(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider [`default_tags` Configuration Block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -711,13 +761,22 @@ class EntityRecognizer(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter(name="versionName")
     def version_name(self) -> pulumi.Output[str]:
+        """
+        Name for the version of the Entity Recognizer.
+        Each version must have a unique name within the Entity Recognizer.
+        If omitted, the provider will assign a random, unique version name.
+        If explicitly set to `""`, no version name will be set.
+        Has a maximum length of 63 characters.
+        Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+        Conflicts with `version_name_prefix`.
+        """
         return pulumi.get(self, "version_name")
 
     @property

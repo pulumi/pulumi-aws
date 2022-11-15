@@ -545,7 +545,7 @@ class SnapshotCopy(pulumi.CustomResource):
                  target_db_snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages an RDS database instance snapshot copy. For managing RDS database cluster snapshots, see the [`rds.ClusterSnapshot` resource](https://www.terraform.io/docs/providers/aws/r/db_cluster_snapshot.html).
+        Manages an RDS database instance snapshot copy. For managing RDS database cluster snapshots, see the `rds.ClusterSnapshot` resource.
 
         ## Example Usage
 
@@ -599,7 +599,7 @@ class SnapshotCopy(pulumi.CustomResource):
                  args: SnapshotCopyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an RDS database instance snapshot copy. For managing RDS database cluster snapshots, see the [`rds.ClusterSnapshot` resource](https://www.terraform.io/docs/providers/aws/r/db_cluster_snapshot.html).
+        Manages an RDS database instance snapshot copy. For managing RDS database cluster snapshots, see the `rds.ClusterSnapshot` resource.
 
         ## Example Usage
 

@@ -158,7 +158,7 @@ class GetFirewallResult:
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
-        Map of resource tags to associate with the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -238,7 +238,7 @@ def get_firewall(arn: Optional[str] = None,
 
     :param str arn: ARN of the firewall.
     :param str name: Descriptive name of the firewall.
-    :param Mapping[str, str] tags: Map of resource tags to associate with the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+    :param Mapping[str, str] tags: Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -302,6 +302,6 @@ def get_firewall_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
 
     :param str arn: ARN of the firewall.
     :param str name: Descriptive name of the firewall.
-    :param Mapping[str, str] tags: Map of resource tags to associate with the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+    :param Mapping[str, str] tags: Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
     """
     ...

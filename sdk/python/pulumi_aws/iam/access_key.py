@@ -81,6 +81,8 @@ class _AccessKeyState:
         """
         Input properties used for looking up and filtering AccessKey resources.
         :param pulumi.Input[str] create_date: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the access key was created.
+        :param pulumi.Input[str] encrypted_secret: Encrypted secret, base64 encoded, if `pgp_key` was specified. This attribute is not available for imported resources. The encrypted secret may be decrypted using the command line.
+        :param pulumi.Input[str] encrypted_ses_smtp_password_v4: Encrypted SES SMTP password, base64 encoded, if `pgp_key` was specified. This attribute is not available for imported resources. The encrypted password may be decrypted using the command line.
         :param pulumi.Input[str] key_fingerprint: Fingerprint of the PGP key used to encrypt the secret. This attribute is not available for imported resources.
         :param pulumi.Input[str] pgp_key: Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:some_person_that_exists`, for use in the `encrypted_secret` output attribute. If providing a base-64 encoded PGP public key, make sure to provide the "raw" version and not the "armored" one (e.g. avoid passing the `-a` option to `gpg --export`).
         :param pulumi.Input[str] secret: Secret access key. This attribute is not available for imported resources. Note that this will be written to the state file. If you use this, please protect your backend state file judiciously. Alternatively, you may supply a `pgp_key` instead, which will prevent the secret from being stored in plaintext, at the cost of preventing the use of the secret key in automation.
@@ -122,6 +124,9 @@ class _AccessKeyState:
     @property
     @pulumi.getter(name="encryptedSecret")
     def encrypted_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        Encrypted secret, base64 encoded, if `pgp_key` was specified. This attribute is not available for imported resources. The encrypted secret may be decrypted using the command line.
+        """
         return pulumi.get(self, "encrypted_secret")
 
     @encrypted_secret.setter
@@ -131,6 +136,9 @@ class _AccessKeyState:
     @property
     @pulumi.getter(name="encryptedSesSmtpPasswordV4")
     def encrypted_ses_smtp_password_v4(self) -> Optional[pulumi.Input[str]]:
+        """
+        Encrypted SES SMTP password, base64 encoded, if `pgp_key` was specified. This attribute is not available for imported resources. The encrypted password may be decrypted using the command line.
+        """
         return pulumi.get(self, "encrypted_ses_smtp_password_v4")
 
     @encrypted_ses_smtp_password_v4.setter
@@ -396,6 +404,8 @@ class AccessKey(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] create_date: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the access key was created.
+        :param pulumi.Input[str] encrypted_secret: Encrypted secret, base64 encoded, if `pgp_key` was specified. This attribute is not available for imported resources. The encrypted secret may be decrypted using the command line.
+        :param pulumi.Input[str] encrypted_ses_smtp_password_v4: Encrypted SES SMTP password, base64 encoded, if `pgp_key` was specified. This attribute is not available for imported resources. The encrypted password may be decrypted using the command line.
         :param pulumi.Input[str] key_fingerprint: Fingerprint of the PGP key used to encrypt the secret. This attribute is not available for imported resources.
         :param pulumi.Input[str] pgp_key: Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:some_person_that_exists`, for use in the `encrypted_secret` output attribute. If providing a base-64 encoded PGP public key, make sure to provide the "raw" version and not the "armored" one (e.g. avoid passing the `-a` option to `gpg --export`).
         :param pulumi.Input[str] secret: Secret access key. This attribute is not available for imported resources. Note that this will be written to the state file. If you use this, please protect your backend state file judiciously. Alternatively, you may supply a `pgp_key` instead, which will prevent the secret from being stored in plaintext, at the cost of preventing the use of the secret key in automation.
@@ -429,11 +439,17 @@ class AccessKey(pulumi.CustomResource):
     @property
     @pulumi.getter(name="encryptedSecret")
     def encrypted_secret(self) -> pulumi.Output[str]:
+        """
+        Encrypted secret, base64 encoded, if `pgp_key` was specified. This attribute is not available for imported resources. The encrypted secret may be decrypted using the command line.
+        """
         return pulumi.get(self, "encrypted_secret")
 
     @property
     @pulumi.getter(name="encryptedSesSmtpPasswordV4")
     def encrypted_ses_smtp_password_v4(self) -> pulumi.Output[str]:
+        """
+        Encrypted SES SMTP password, base64 encoded, if `pgp_key` was specified. This attribute is not available for imported resources. The encrypted password may be decrypted using the command line.
+        """
         return pulumi.get(self, "encrypted_ses_smtp_password_v4")
 
     @property

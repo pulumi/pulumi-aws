@@ -87,6 +87,7 @@ class LaunchTemplateArgs:
         :param pulumi.Input['LaunchTemplateMaintenanceOptionsArgs'] maintenance_options: The maintenance options for the instance. See Maintenance Options below for more details.
         :param pulumi.Input['LaunchTemplateMetadataOptionsArgs'] metadata_options: Customize the metadata options for the instance. See Metadata Options below for more details.
         :param pulumi.Input['LaunchTemplateMonitoringArgs'] monitoring: The monitoring option for the instance. See Monitoring below for more details.
+        :param pulumi.Input[str] name: The name of the launch template. If you leave this blank, the provider will auto-generate a unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Sequence[pulumi.Input['LaunchTemplateNetworkInterfaceArgs']]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network
                Interfaces below for more details.
@@ -486,6 +487,9 @@ class LaunchTemplateArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the launch template. If you leave this blank, the provider will auto-generate a unique name.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -706,6 +710,7 @@ class _LaunchTemplateState:
         :param pulumi.Input['LaunchTemplateMaintenanceOptionsArgs'] maintenance_options: The maintenance options for the instance. See Maintenance Options below for more details.
         :param pulumi.Input['LaunchTemplateMetadataOptionsArgs'] metadata_options: Customize the metadata options for the instance. See Metadata Options below for more details.
         :param pulumi.Input['LaunchTemplateMonitoringArgs'] monitoring: The monitoring option for the instance. See Monitoring below for more details.
+        :param pulumi.Input[str] name: The name of the launch template. If you leave this blank, the provider will auto-generate a unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Sequence[pulumi.Input['LaunchTemplateNetworkInterfaceArgs']]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network
                Interfaces below for more details.
@@ -1136,6 +1141,9 @@ class _LaunchTemplateState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the launch template. If you leave this blank, the provider will auto-generate a unique name.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -1450,6 +1458,7 @@ class LaunchTemplate(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['LaunchTemplateMaintenanceOptionsArgs']] maintenance_options: The maintenance options for the instance. See Maintenance Options below for more details.
         :param pulumi.Input[pulumi.InputType['LaunchTemplateMetadataOptionsArgs']] metadata_options: Customize the metadata options for the instance. See Metadata Options below for more details.
         :param pulumi.Input[pulumi.InputType['LaunchTemplateMonitoringArgs']] monitoring: The monitoring option for the instance. See Monitoring below for more details.
+        :param pulumi.Input[str] name: The name of the launch template. If you leave this blank, the provider will auto-generate a unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchTemplateNetworkInterfaceArgs']]]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network
                Interfaces below for more details.
@@ -1746,6 +1755,7 @@ class LaunchTemplate(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['LaunchTemplateMaintenanceOptionsArgs']] maintenance_options: The maintenance options for the instance. See Maintenance Options below for more details.
         :param pulumi.Input[pulumi.InputType['LaunchTemplateMetadataOptionsArgs']] metadata_options: Customize the metadata options for the instance. See Metadata Options below for more details.
         :param pulumi.Input[pulumi.InputType['LaunchTemplateMonitoringArgs']] monitoring: The monitoring option for the instance. See Monitoring below for more details.
+        :param pulumi.Input[str] name: The name of the launch template. If you leave this blank, the provider will auto-generate a unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchTemplateNetworkInterfaceArgs']]]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network
                Interfaces below for more details.
@@ -2033,6 +2043,9 @@ class LaunchTemplate(pulumi.CustomResource):
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the launch template. If you leave this blank, the provider will auto-generate a unique name.
+        """
         return pulumi.get(self, "name")
 
     @property

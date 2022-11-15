@@ -25,6 +25,7 @@ class ExperienceArgs:
         The set of arguments for constructing a Experience resource.
         :param pulumi.Input[str] index_id: The identifier of the index for your Amazon Kendra experience.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+        :param pulumi.Input['ExperienceConfigurationArgs'] configuration: Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
         :param pulumi.Input[str] description: A description for your Amazon Kendra experience.
         :param pulumi.Input[str] name: A name for your Amazon Kendra experience.
         """
@@ -64,6 +65,9 @@ class ExperienceArgs:
     @property
     @pulumi.getter
     def configuration(self) -> Optional[pulumi.Input['ExperienceConfigurationArgs']]:
+        """
+        Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+        """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
@@ -110,6 +114,7 @@ class _ExperienceState:
         """
         Input properties used for looking up and filtering Experience resources.
         :param pulumi.Input[str] arn: ARN of the Experience.
+        :param pulumi.Input['ExperienceConfigurationArgs'] configuration: Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
         :param pulumi.Input[str] description: A description for your Amazon Kendra experience.
         :param pulumi.Input[Sequence[pulumi.Input['ExperienceEndpointArgs']]] endpoints: Shows the endpoint URLs for your Amazon Kendra experiences. The URLs are unique and fully hosted by AWS.
         :param pulumi.Input[str] experience_id: The unique identifier of the experience.
@@ -152,6 +157,9 @@ class _ExperienceState:
     @property
     @pulumi.getter
     def configuration(self) -> Optional[pulumi.Input['ExperienceConfigurationArgs']]:
+        """
+        Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+        """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
@@ -255,6 +263,8 @@ class Experience(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        Resource for managing an AWS Kendra Experience.
+
         ## Example Usage
         ### Basic Usage
 
@@ -287,6 +297,7 @@ class Experience(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['ExperienceConfigurationArgs']] configuration: Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
         :param pulumi.Input[str] description: A description for your Amazon Kendra experience.
         :param pulumi.Input[str] index_id: The identifier of the index for your Amazon Kendra experience.
         :param pulumi.Input[str] name: A name for your Amazon Kendra experience.
@@ -299,6 +310,8 @@ class Experience(pulumi.CustomResource):
                  args: ExperienceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Resource for managing an AWS Kendra Experience.
+
         ## Example Usage
         ### Basic Usage
 
@@ -398,6 +411,7 @@ class Experience(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the Experience.
+        :param pulumi.Input[pulumi.InputType['ExperienceConfigurationArgs']] configuration: Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
         :param pulumi.Input[str] description: A description for your Amazon Kendra experience.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperienceEndpointArgs']]]] endpoints: Shows the endpoint URLs for your Amazon Kendra experiences. The URLs are unique and fully hosted by AWS.
         :param pulumi.Input[str] experience_id: The unique identifier of the experience.
@@ -432,6 +446,9 @@ class Experience(pulumi.CustomResource):
     @property
     @pulumi.getter
     def configuration(self) -> pulumi.Output['outputs.ExperienceConfiguration']:
+        """
+        Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+        """
         return pulumi.get(self, "configuration")
 
     @property

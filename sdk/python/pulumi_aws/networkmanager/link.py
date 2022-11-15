@@ -30,6 +30,7 @@ class LinkArgs:
         :param pulumi.Input[str] site_id: The ID of the site.
         :param pulumi.Input[str] description: A description of the link.
         :param pulumi.Input[str] provider_name: The provider of the link.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the link. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] type: The type of the link.
         """
         pulumi.set(__self__, "bandwidth", bandwidth)
@@ -107,6 +108,9 @@ class LinkArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value tags for the link. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -146,6 +150,7 @@ class _LinkState:
         :param pulumi.Input[str] global_network_id: The ID of the global network.
         :param pulumi.Input[str] provider_name: The provider of the link.
         :param pulumi.Input[str] site_id: The ID of the site.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the link. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: The type of the link.
         """
@@ -243,6 +248,9 @@ class _LinkState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value tags for the link. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -321,6 +329,7 @@ class Link(pulumi.CustomResource):
         :param pulumi.Input[str] global_network_id: The ID of the global network.
         :param pulumi.Input[str] provider_name: The provider of the link.
         :param pulumi.Input[str] site_id: The ID of the site.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the link. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] type: The type of the link.
         """
         ...
@@ -434,6 +443,7 @@ class Link(pulumi.CustomResource):
         :param pulumi.Input[str] global_network_id: The ID of the global network.
         :param pulumi.Input[str] provider_name: The provider of the link.
         :param pulumi.Input[str] site_id: The ID of the site.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the link. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: The type of the link.
         """
@@ -503,6 +513,9 @@ class Link(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Key-value tags for the link. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property

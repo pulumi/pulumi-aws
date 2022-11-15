@@ -29,6 +29,7 @@ class CostCategoryArgs:
         :param pulumi.Input[str] default_value: Default value for the cost category.
         :param pulumi.Input[str] name: Unique name for the Cost Category.
         :param pulumi.Input[Sequence[pulumi.Input['CostCategorySplitChargeRuleArgs']]] split_charge_rules: Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Configuration block for the specific `Tag` to use for `Expression`. See below.
         """
         pulumi.set(__self__, "rule_version", rule_version)
         pulumi.set(__self__, "rules", rules)
@@ -104,6 +105,9 @@ class CostCategoryArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Configuration block for the specific `Tag` to use for `Expression`. See below.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -134,6 +138,7 @@ class _CostCategoryState:
         :param pulumi.Input[str] rule_version: Rule schema version in this particular Cost Category.
         :param pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleArgs']]] rules: Configuration block for the `Expression` object used to categorize costs. See below.
         :param pulumi.Input[Sequence[pulumi.Input['CostCategorySplitChargeRuleArgs']]] split_charge_rules: Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Configuration block for the specific `Tag` to use for `Expression`. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
@@ -256,6 +261,9 @@ class _CostCategoryState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Configuration block for the specific `Tag` to use for `Expression`. See below.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -347,6 +355,7 @@ class CostCategory(pulumi.CustomResource):
         :param pulumi.Input[str] rule_version: Rule schema version in this particular Cost Category.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CostCategoryRuleArgs']]]] rules: Configuration block for the `Expression` object used to categorize costs. See below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CostCategorySplitChargeRuleArgs']]]] split_charge_rules: Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Configuration block for the specific `Tag` to use for `Expression`. See below.
         """
         ...
     @overload
@@ -486,6 +495,7 @@ class CostCategory(pulumi.CustomResource):
         :param pulumi.Input[str] rule_version: Rule schema version in this particular Cost Category.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CostCategoryRuleArgs']]]] rules: Configuration block for the `Expression` object used to categorize costs. See below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CostCategorySplitChargeRuleArgs']]]] split_charge_rules: Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Configuration block for the specific `Tag` to use for `Expression`. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -571,6 +581,9 @@ class CostCategory(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Configuration block for the specific `Tag` to use for `Expression`. See below.
+        """
         return pulumi.get(self, "tags")
 
     @property

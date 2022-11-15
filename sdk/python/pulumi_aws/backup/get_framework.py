@@ -153,7 +153,7 @@ def get_framework(name: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.backup.get_framework(name="tf_example_backup_framework_name")
+    example = aws.backup.get_framework(name="my_example_backup_framework_name")
     ```
 
 
@@ -191,7 +191,7 @@ def get_framework_output(name: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.backup.get_framework(name="tf_example_backup_framework_name")
+    example = aws.backup.get_framework(name="my_example_backup_framework_name")
     ```
 
 

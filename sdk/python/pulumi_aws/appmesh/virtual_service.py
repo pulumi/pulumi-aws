@@ -323,8 +323,6 @@ class VirtualService(pulumi.CustomResource):
          $ pulumi import aws:appmesh/virtualService:VirtualService servicea simpleapp/servicea.simpleapp.local
         ```
 
-         [1]/docs/providers/aws/index.html
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] mesh_name: Name of the service mesh in which to create the virtual service. Must be between 1 and 255 characters in length.
@@ -383,8 +381,6 @@ class VirtualService(pulumi.CustomResource):
         ```sh
          $ pulumi import aws:appmesh/virtualService:VirtualService servicea simpleapp/servicea.simpleapp.local
         ```
-
-         [1]/docs/providers/aws/index.html
 
         :param str resource_name: The name of the resource.
         :param VirtualServiceArgs args: The arguments to use to populate this resource's properties.

@@ -140,6 +140,15 @@ class SecurityGroup(pulumi.CustomResource):
                  security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
+        Provides an ElastiCache Security Group to control access to one or more cache
+        clusters.
+
+        > **NOTE:** ElastiCache Security Groups are for use only when working with an
+        ElastiCache cluster **outside** of a VPC. If you are using a VPC, see the
+        ElastiCache Subnet Group resource.
+
+        !> **WARNING:** With the retirement of EC2-Classic the `elasticache.SecurityGroup` resource has been deprecated and will be removed in a future version.
+
         ## Example Usage
 
         ```python
@@ -172,6 +181,15 @@ class SecurityGroup(pulumi.CustomResource):
                  args: SecurityGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Provides an ElastiCache Security Group to control access to one or more cache
+        clusters.
+
+        > **NOTE:** ElastiCache Security Groups are for use only when working with an
+        ElastiCache cluster **outside** of a VPC. If you are using a VPC, see the
+        ElastiCache Subnet Group resource.
+
+        !> **WARNING:** With the retirement of EC2-Classic the `elasticache.SecurityGroup` resource has been deprecated and will be removed in a future version.
+
         ## Example Usage
 
         ```python

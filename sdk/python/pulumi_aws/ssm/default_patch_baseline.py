@@ -162,6 +162,8 @@ class DefaultPatchBaseline(pulumi.CustomResource):
                  operating_system: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        Resource for registering an AWS Systems Manager Default Patch Baseline.
+
         ## Example Usage
         ### Basic Usage
 
@@ -219,6 +221,8 @@ class DefaultPatchBaseline(pulumi.CustomResource):
                  args: DefaultPatchBaselineArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Resource for registering an AWS Systems Manager Default Patch Baseline.
+
         ## Example Usage
         ### Basic Usage
 

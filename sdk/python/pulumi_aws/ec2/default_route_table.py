@@ -284,8 +284,6 @@ class DefaultRouteTable(pulumi.CustomResource):
          $ pulumi import aws:ec2/defaultRouteTable:DefaultRouteTable example vpc-33cc44dd
         ```
 
-         [aws-route-tables]http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html#Route_Replacing_Main_Table [tf-route-tables]/docs/providers/aws/r/route_table.html [tf-main-route-table-association]/docs/providers/aws/r/main_route_table_association.html
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default_route_table_id: ID of the default route table.
@@ -352,8 +350,6 @@ class DefaultRouteTable(pulumi.CustomResource):
         ```sh
          $ pulumi import aws:ec2/defaultRouteTable:DefaultRouteTable example vpc-33cc44dd
         ```
-
-         [aws-route-tables]http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html#Route_Replacing_Main_Table [tf-route-tables]/docs/providers/aws/r/route_table.html [tf-main-route-table-association]/docs/providers/aws/r/main_route_table_association.html
 
         :param str resource_name: The name of the resource.
         :param DefaultRouteTableArgs args: The arguments to use to populate this resource's properties.

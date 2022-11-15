@@ -67,6 +67,10 @@ class SerialConsoleAccess(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
+        Provides a resource to manage whether serial console access is enabled for your AWS account in the current AWS region.
+
+        > **NOTE:** Removing this resource disables serial console access.
+
         ## Example Usage
 
         ```python
@@ -95,6 +99,10 @@ class SerialConsoleAccess(pulumi.CustomResource):
                  args: Optional[SerialConsoleAccessArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Provides a resource to manage whether serial console access is enabled for your AWS account in the current AWS region.
+
+        > **NOTE:** Removing this resource disables serial console access.
+
         ## Example Usage
 
         ```python

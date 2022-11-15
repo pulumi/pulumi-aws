@@ -130,6 +130,12 @@ class Tag(pulumi.CustomResource):
                  value: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        Manages an individual DynamoDB resource tag. This resource should only be used in cases where DynamoDB resources are created outside the provider (e.g., Table replicas in other regions).
+
+        > **NOTE:** This tagging resource should not be combined with the resource for managing the parent resource. For example, using `dynamodb.Table` and `dynamodb.Tag` to manage tags of the same DynamoDB Table in the same region will cause a perpetual difference where the `aws_dynamodb_cluster` resource will try to remove the tag being added by the `dynamodb.Tag` resource.
+
+        > **NOTE:** This tagging resource does not use the provider `ignore_tags` configuration.
+
         ## Import
 
         `aws_dynamodb_tag` can be imported by using the DynamoDB resource identifier and key, separated by a comma (`,`), e.g.,
@@ -151,6 +157,12 @@ class Tag(pulumi.CustomResource):
                  args: TagArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Manages an individual DynamoDB resource tag. This resource should only be used in cases where DynamoDB resources are created outside the provider (e.g., Table replicas in other regions).
+
+        > **NOTE:** This tagging resource should not be combined with the resource for managing the parent resource. For example, using `dynamodb.Table` and `dynamodb.Tag` to manage tags of the same DynamoDB Table in the same region will cause a perpetual difference where the `aws_dynamodb_cluster` resource will try to remove the tag being added by the `dynamodb.Tag` resource.
+
+        > **NOTE:** This tagging resource does not use the provider `ignore_tags` configuration.
+
         ## Import
 
         `aws_dynamodb_tag` can be imported by using the DynamoDB resource identifier and key, separated by a comma (`,`), e.g.,

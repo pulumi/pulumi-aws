@@ -19,6 +19,7 @@ class ResourcePolicyArgs:
         """
         The set of arguments for constructing a ResourcePolicy resource.
         :param pulumi.Input[str] policy: The policy to be applied to the aws glue data catalog.
+        :param pulumi.Input[str] enable_hybrid: Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
         """
         pulumi.set(__self__, "policy", policy)
         if enable_hybrid is not None:
@@ -39,6 +40,9 @@ class ResourcePolicyArgs:
     @property
     @pulumi.getter(name="enableHybrid")
     def enable_hybrid(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
+        """
         return pulumi.get(self, "enable_hybrid")
 
     @enable_hybrid.setter
@@ -53,6 +57,7 @@ class _ResourcePolicyState:
                  policy: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ResourcePolicy resources.
+        :param pulumi.Input[str] enable_hybrid: Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
         :param pulumi.Input[str] policy: The policy to be applied to the aws glue data catalog.
         """
         if enable_hybrid is not None:
@@ -63,6 +68,9 @@ class _ResourcePolicyState:
     @property
     @pulumi.getter(name="enableHybrid")
     def enable_hybrid(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
+        """
         return pulumi.get(self, "enable_hybrid")
 
     @enable_hybrid.setter
@@ -123,6 +131,7 @@ class ResourcePolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] enable_hybrid: Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
         :param pulumi.Input[str] policy: The policy to be applied to the aws glue data catalog.
         """
         ...
@@ -211,6 +220,7 @@ class ResourcePolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] enable_hybrid: Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
         :param pulumi.Input[str] policy: The policy to be applied to the aws glue data catalog.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -224,6 +234,9 @@ class ResourcePolicy(pulumi.CustomResource):
     @property
     @pulumi.getter(name="enableHybrid")
     def enable_hybrid(self) -> pulumi.Output[Optional[str]]:
+        """
+        Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
+        """
         return pulumi.get(self, "enable_hybrid")
 
     @property

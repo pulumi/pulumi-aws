@@ -245,7 +245,7 @@ class ThingGroup(pulumi.CustomResource):
                 description="This is my thing group",
             ),
             tags={
-                "terraform": "true",
+                "managed": "true",
             })
         ```
 
@@ -292,7 +292,7 @@ class ThingGroup(pulumi.CustomResource):
                 description="This is my thing group",
             ),
             tags={
-                "terraform": "true",
+                "managed": "true",
             })
         ```
 

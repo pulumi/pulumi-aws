@@ -18,6 +18,7 @@ class EventBusPolicyArgs:
                  event_bus_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a EventBusPolicy resource.
+        :param pulumi.Input[str] policy: The text of the policy.
         :param pulumi.Input[str] event_bus_name: The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
         """
         pulumi.set(__self__, "policy", policy)
@@ -27,6 +28,9 @@ class EventBusPolicyArgs:
     @property
     @pulumi.getter
     def policy(self) -> pulumi.Input[str]:
+        """
+        The text of the policy.
+        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -54,6 +58,7 @@ class _EventBusPolicyState:
         """
         Input properties used for looking up and filtering EventBusPolicy resources.
         :param pulumi.Input[str] event_bus_name: The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+        :param pulumi.Input[str] policy: The text of the policy.
         """
         if event_bus_name is not None:
             pulumi.set(__self__, "event_bus_name", event_bus_name)
@@ -75,6 +80,9 @@ class _EventBusPolicyState:
     @property
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The text of the policy.
+        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -208,6 +216,7 @@ class EventBusPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] event_bus_name: The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+        :param pulumi.Input[str] policy: The text of the policy.
         """
         ...
     @overload
@@ -380,6 +389,7 @@ class EventBusPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] event_bus_name: The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+        :param pulumi.Input[str] policy: The text of the policy.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -400,5 +410,8 @@ class EventBusPolicy(pulumi.CustomResource):
     @property
     @pulumi.getter
     def policy(self) -> pulumi.Output[str]:
+        """
+        The text of the policy.
+        """
         return pulumi.get(self, "policy")
 

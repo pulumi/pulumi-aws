@@ -7,6 +7,7 @@ import typing
 # Export this package's modules as members:
 from .endpoint_access import *
 from .namespace import *
+from .snapshot import *
 from .usage_limit import *
 from .workgroup import *
 from ._inputs import *

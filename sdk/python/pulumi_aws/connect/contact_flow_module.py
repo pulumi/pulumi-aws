@@ -25,6 +25,7 @@ class ContactFlowModuleArgs:
         The set of arguments for constructing a ContactFlowModule resource.
         :param pulumi.Input[str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
         :param pulumi.Input[str] content: Specifies the content of the Contact Flow Module, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
+        :param pulumi.Input[str] content_hash: Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow Module source specified with `filename`.
         :param pulumi.Input[str] description: Specifies the description of the Contact Flow Module.
         :param pulumi.Input[str] filename: The path to the Contact Flow Module source within the local filesystem. Conflicts with `content`.
         :param pulumi.Input[str] name: Specifies the name of the Contact Flow Module.
@@ -71,6 +72,9 @@ class ContactFlowModuleArgs:
     @property
     @pulumi.getter(name="contentHash")
     def content_hash(self) -> Optional[pulumi.Input[str]]:
+        """
+        Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow Module source specified with `filename`.
+        """
         return pulumi.get(self, "content_hash")
 
     @content_hash.setter
@@ -144,6 +148,7 @@ class _ContactFlowModuleState:
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the Contact Flow Module.
         :param pulumi.Input[str] contact_flow_module_id: The identifier of the Contact Flow Module.
         :param pulumi.Input[str] content: Specifies the content of the Contact Flow Module, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
+        :param pulumi.Input[str] content_hash: Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow Module source specified with `filename`.
         :param pulumi.Input[str] description: Specifies the description of the Contact Flow Module.
         :param pulumi.Input[str] filename: The path to the Contact Flow Module source within the local filesystem. Conflicts with `content`.
         :param pulumi.Input[str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
@@ -211,6 +216,9 @@ class _ContactFlowModuleState:
     @property
     @pulumi.getter(name="contentHash")
     def content_hash(self) -> Optional[pulumi.Input[str]]:
+        """
+        Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow Module source specified with `filename`.
+        """
         return pulumi.get(self, "content_hash")
 
     @content_hash.setter
@@ -366,7 +374,7 @@ class ContactFlowModule(pulumi.CustomResource):
             description="Example Contact Flow Module Description",
             instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
             tags={
-                "Application": "Terraform",
+                "Application": "Example",
                 "Method": "Create",
                 "Name": "Example Contact Flow Module",
             })
@@ -383,6 +391,7 @@ class ContactFlowModule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] content: Specifies the content of the Contact Flow Module, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
+        :param pulumi.Input[str] content_hash: Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow Module source specified with `filename`.
         :param pulumi.Input[str] description: Specifies the description of the Contact Flow Module.
         :param pulumi.Input[str] filename: The path to the Contact Flow Module source within the local filesystem. Conflicts with `content`.
         :param pulumi.Input[str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
@@ -458,7 +467,7 @@ class ContactFlowModule(pulumi.CustomResource):
             description="Example Contact Flow Module Description",
             instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
             tags={
-                "Application": "Terraform",
+                "Application": "Example",
                 "Method": "Create",
                 "Name": "Example Contact Flow Module",
             })
@@ -545,6 +554,7 @@ class ContactFlowModule(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the Contact Flow Module.
         :param pulumi.Input[str] contact_flow_module_id: The identifier of the Contact Flow Module.
         :param pulumi.Input[str] content: Specifies the content of the Contact Flow Module, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
+        :param pulumi.Input[str] content_hash: Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow Module source specified with `filename`.
         :param pulumi.Input[str] description: Specifies the description of the Contact Flow Module.
         :param pulumi.Input[str] filename: The path to the Contact Flow Module source within the local filesystem. Conflicts with `content`.
         :param pulumi.Input[str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
@@ -595,6 +605,9 @@ class ContactFlowModule(pulumi.CustomResource):
     @property
     @pulumi.getter(name="contentHash")
     def content_hash(self) -> pulumi.Output[Optional[str]]:
+        """
+        Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow Module source specified with `filename`.
+        """
         return pulumi.get(self, "content_hash")
 
     @property

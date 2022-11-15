@@ -23,10 +23,13 @@ class GetEngineVersionResult:
     """
     A collection of values returned by getEngineVersion.
     """
-    def __init__(__self__, default_character_set=None, engine=None, engine_description=None, exportable_log_types=None, filters=None, id=None, parameter_group_family=None, preferred_versions=None, status=None, supported_character_sets=None, supported_feature_names=None, supported_modes=None, supported_timezones=None, supports_global_databases=None, supports_log_exports_to_cloudwatch=None, supports_parallel_query=None, supports_read_replica=None, valid_upgrade_targets=None, version=None, version_description=None):
+    def __init__(__self__, default_character_set=None, default_only=None, engine=None, engine_description=None, exportable_log_types=None, filters=None, id=None, include_all=None, parameter_group_family=None, preferred_versions=None, status=None, supported_character_sets=None, supported_feature_names=None, supported_modes=None, supported_timezones=None, supports_global_databases=None, supports_log_exports_to_cloudwatch=None, supports_parallel_query=None, supports_read_replica=None, valid_upgrade_targets=None, version=None, version_description=None):
         if default_character_set and not isinstance(default_character_set, str):
             raise TypeError("Expected argument 'default_character_set' to be a str")
         pulumi.set(__self__, "default_character_set", default_character_set)
+        if default_only and not isinstance(default_only, bool):
+            raise TypeError("Expected argument 'default_only' to be a bool")
+        pulumi.set(__self__, "default_only", default_only)
         if engine and not isinstance(engine, str):
             raise TypeError("Expected argument 'engine' to be a str")
         pulumi.set(__self__, "engine", engine)
@@ -42,6 +45,9 @@ class GetEngineVersionResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if include_all and not isinstance(include_all, bool):
+            raise TypeError("Expected argument 'include_all' to be a bool")
+        pulumi.set(__self__, "include_all", include_all)
         if parameter_group_family and not isinstance(parameter_group_family, str):
             raise TypeError("Expected argument 'parameter_group_family' to be a str")
         pulumi.set(__self__, "parameter_group_family", parameter_group_family)
@@ -94,6 +100,11 @@ class GetEngineVersionResult:
         return pulumi.get(self, "default_character_set")
 
     @property
+    @pulumi.getter(name="defaultOnly")
+    def default_only(self) -> Optional[bool]:
+        return pulumi.get(self, "default_only")
+
+    @property
     @pulumi.getter
     def engine(self) -> str:
         return pulumi.get(self, "engine")
@@ -126,6 +137,11 @@ class GetEngineVersionResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="includeAll")
+    def include_all(self) -> Optional[bool]:
+        return pulumi.get(self, "include_all")
 
     @property
     @pulumi.getter(name="parameterGroupFamily")
@@ -238,11 +254,13 @@ class AwaitableGetEngineVersionResult(GetEngineVersionResult):
             yield self
         return GetEngineVersionResult(
             default_character_set=self.default_character_set,
+            default_only=self.default_only,
             engine=self.engine,
             engine_description=self.engine_description,
             exportable_log_types=self.exportable_log_types,
             filters=self.filters,
             id=self.id,
+            include_all=self.include_all,
             parameter_group_family=self.parameter_group_family,
             preferred_versions=self.preferred_versions,
             status=self.status,
@@ -259,8 +277,10 @@ class AwaitableGetEngineVersionResult(GetEngineVersionResult):
             version_description=self.version_description)
 
 
-def get_engine_version(engine: Optional[str] = None,
+def get_engine_version(default_only: Optional[bool] = None,
+                       engine: Optional[str] = None,
                        filters: Optional[Sequence[pulumi.InputType['GetEngineVersionFilterArgs']]] = None,
+                       include_all: Optional[bool] = None,
                        parameter_group_family: Optional[str] = None,
                        preferred_versions: Optional[Sequence[str]] = None,
                        version: Optional[str] = None,
@@ -269,32 +289,47 @@ def get_engine_version(engine: Optional[str] = None,
     Information about an RDS engine version.
 
     ## Example Usage
+    ### Basic Usage
 
     ```python
     import pulumi
     import pulumi_aws as aws
 
     test = aws.rds.get_engine_version(engine="mysql",
+        preferred_versions=[
+            "8.0.27",
+            "8.0.26",
+        ])
+    ```
+    ### With `filter`
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    test = aws.rds.get_engine_version(engine="aurora-postgresql",
         filters=[aws.rds.GetEngineVersionFilterArgs(
             name="engine-mode",
-            values=["provisioned"],
+            values=["serverless"],
         )],
-        preferred_versions=[
-            "5.7.42",
-            "5.7.19",
-            "5.7.17",
-        ])
+        include_all=True,
+        version="10.14")
     ```
 
 
+    :param bool default_only: When set to `true`, the default version for the specified `engine` or combination of `engine` and major `version` will be returned. Can be used to limit responses to a single version when they would otherwise fail for returning multiple versions.
     :param str engine: DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
+    :param Sequence[pulumi.InputType['GetEngineVersionFilterArgs']] filters: One or more name/value pairs to filter off of. There are several valid keys; for a full reference, check out [describe-db-engine-versions in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
+    :param bool include_all: When set to `true`, the specified `version` or member of `preferred_versions` will be returned even if it is `deprecated`. Otherwise, only `available` versions will be returned.
     :param str parameter_group_family: Name of a specific DB parameter group family. Examples of parameter group families are `mysql8.0`, `mariadb10.4`, and `postgres12`.
     :param Sequence[str] preferred_versions: Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
     :param str version: Version of the DB engine. For example, `5.7.22`, `10.1.34`, and `12.3`. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
     """
     __args__ = dict()
+    __args__['defaultOnly'] = default_only
     __args__['engine'] = engine
     __args__['filters'] = filters
+    __args__['includeAll'] = include_all
     __args__['parameterGroupFamily'] = parameter_group_family
     __args__['preferredVersions'] = preferred_versions
     __args__['version'] = version
@@ -303,11 +338,13 @@ def get_engine_version(engine: Optional[str] = None,
 
     return AwaitableGetEngineVersionResult(
         default_character_set=__ret__.default_character_set,
+        default_only=__ret__.default_only,
         engine=__ret__.engine,
         engine_description=__ret__.engine_description,
         exportable_log_types=__ret__.exportable_log_types,
         filters=__ret__.filters,
         id=__ret__.id,
+        include_all=__ret__.include_all,
         parameter_group_family=__ret__.parameter_group_family,
         preferred_versions=__ret__.preferred_versions,
         status=__ret__.status,
@@ -325,8 +362,10 @@ def get_engine_version(engine: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_engine_version)
-def get_engine_version_output(engine: Optional[pulumi.Input[str]] = None,
+def get_engine_version_output(default_only: Optional[pulumi.Input[Optional[bool]]] = None,
+                              engine: Optional[pulumi.Input[str]] = None,
                               filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetEngineVersionFilterArgs']]]]] = None,
+                              include_all: Optional[pulumi.Input[Optional[bool]]] = None,
                               parameter_group_family: Optional[pulumi.Input[Optional[str]]] = None,
                               preferred_versions: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                               version: Optional[pulumi.Input[Optional[str]]] = None,
@@ -335,25 +374,38 @@ def get_engine_version_output(engine: Optional[pulumi.Input[str]] = None,
     Information about an RDS engine version.
 
     ## Example Usage
+    ### Basic Usage
 
     ```python
     import pulumi
     import pulumi_aws as aws
 
     test = aws.rds.get_engine_version(engine="mysql",
+        preferred_versions=[
+            "8.0.27",
+            "8.0.26",
+        ])
+    ```
+    ### With `filter`
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    test = aws.rds.get_engine_version(engine="aurora-postgresql",
         filters=[aws.rds.GetEngineVersionFilterArgs(
             name="engine-mode",
-            values=["provisioned"],
+            values=["serverless"],
         )],
-        preferred_versions=[
-            "5.7.42",
-            "5.7.19",
-            "5.7.17",
-        ])
+        include_all=True,
+        version="10.14")
     ```
 
 
+    :param bool default_only: When set to `true`, the default version for the specified `engine` or combination of `engine` and major `version` will be returned. Can be used to limit responses to a single version when they would otherwise fail for returning multiple versions.
     :param str engine: DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
+    :param Sequence[pulumi.InputType['GetEngineVersionFilterArgs']] filters: One or more name/value pairs to filter off of. There are several valid keys; for a full reference, check out [describe-db-engine-versions in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
+    :param bool include_all: When set to `true`, the specified `version` or member of `preferred_versions` will be returned even if it is `deprecated`. Otherwise, only `available` versions will be returned.
     :param str parameter_group_family: Name of a specific DB parameter group family. Examples of parameter group families are `mysql8.0`, `mariadb10.4`, and `postgres12`.
     :param Sequence[str] preferred_versions: Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
     :param str version: Version of the DB engine. For example, `5.7.22`, `10.1.34`, and `12.3`. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.

@@ -21,6 +21,7 @@ class VpcIpamScopeArgs:
         The set of arguments for constructing a VpcIpamScope resource.
         :param pulumi.Input[str] ipam_id: The ID of the IPAM for which you're creating this scope.
         :param pulumi.Input[str] description: A description for the scope you're creating.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "ipam_id", ipam_id)
         if description is not None:
@@ -55,6 +56,9 @@ class VpcIpamScopeArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -81,6 +85,7 @@ class _VpcIpamScopeState:
         :param pulumi.Input[str] ipam_id: The ID of the IPAM for which you're creating this scope.
         :param pulumi.Input[bool] is_default: Defines if the scope is the default scope or not.
         :param pulumi.Input[int] pool_count: Count of pools under this scope
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -182,6 +187,9 @@ class _VpcIpamScopeState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -239,6 +247,7 @@ class VpcIpamScope(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description for the scope you're creating.
         :param pulumi.Input[str] ipam_id: The ID of the IPAM for which you're creating this scope.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -343,6 +352,7 @@ class VpcIpamScope(pulumi.CustomResource):
         :param pulumi.Input[str] ipam_id: The ID of the IPAM for which you're creating this scope.
         :param pulumi.Input[bool] is_default: Defines if the scope is the default scope or not.
         :param pulumi.Input[int] pool_count: Count of pools under this scope
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -412,6 +422,9 @@ class VpcIpamScope(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property

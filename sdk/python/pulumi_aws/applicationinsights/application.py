@@ -30,10 +30,8 @@ class ApplicationArgs:
         :param pulumi.Input[bool] cwe_monitor_enabled: Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
         :param pulumi.Input[str] grouping_type: Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
         :param pulumi.Input[bool] ops_center_enabled: When set to `true`, creates opsItems for any problems detected on an application.
-               <<<<<<< HEAD
         :param pulumi.Input[str] ops_item_sns_topic_arn: SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               >>>>>>> v4.29.0
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if auto_config_enabled is not None:
@@ -116,7 +114,6 @@ class ApplicationArgs:
     def ops_center_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         When set to `true`, creates opsItems for any problems detected on an application.
-        <<<<<<< HEAD
         """
         return pulumi.get(self, "ops_center_enabled")
 
@@ -141,7 +138,6 @@ class ApplicationArgs:
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        >>>>>>> v4.29.0
         """
         return pulumi.get(self, "tags")
 
@@ -171,11 +167,9 @@ class _ApplicationState:
         :param pulumi.Input[bool] cwe_monitor_enabled: Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
         :param pulumi.Input[str] grouping_type: Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
         :param pulumi.Input[bool] ops_center_enabled: When set to `true`, creates opsItems for any problems detected on an application.
-               <<<<<<< HEAD
         :param pulumi.Input[str] ops_item_sns_topic_arn: SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
         :param pulumi.Input[str] resource_group_name: Name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               >>>>>>> v4.29.0
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
@@ -264,7 +258,6 @@ class _ApplicationState:
     def ops_center_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         When set to `true`, creates opsItems for any problems detected on an application.
-        <<<<<<< HEAD
         """
         return pulumi.get(self, "ops_center_enabled")
 
@@ -301,7 +294,6 @@ class _ApplicationState:
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        >>>>>>> v4.29.0
         """
         return pulumi.get(self, "tags")
 
@@ -379,11 +371,9 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[bool] cwe_monitor_enabled: Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
         :param pulumi.Input[str] grouping_type: Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
         :param pulumi.Input[bool] ops_center_enabled: When set to `true`, creates opsItems for any problems detected on an application.
-               <<<<<<< HEAD
         :param pulumi.Input[str] ops_item_sns_topic_arn: SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
         :param pulumi.Input[str] resource_group_name: Name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               >>>>>>> v4.29.0
         """
         ...
     @overload
@@ -504,11 +494,9 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[bool] cwe_monitor_enabled: Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
         :param pulumi.Input[str] grouping_type: Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
         :param pulumi.Input[bool] ops_center_enabled: When set to `true`, creates opsItems for any problems detected on an application.
-               <<<<<<< HEAD
         :param pulumi.Input[str] ops_item_sns_topic_arn: SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
         :param pulumi.Input[str] resource_group_name: Name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               >>>>>>> v4.29.0
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -572,7 +560,6 @@ class Application(pulumi.CustomResource):
     def ops_center_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         When set to `true`, creates opsItems for any problems detected on an application.
-        <<<<<<< HEAD
         """
         return pulumi.get(self, "ops_center_enabled")
 
@@ -597,7 +584,6 @@ class Application(pulumi.CustomResource):
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        >>>>>>> v4.29.0
         """
         return pulumi.get(self, "tags")
 

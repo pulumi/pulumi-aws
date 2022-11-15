@@ -19,6 +19,7 @@ class GlobalNetworkArgs:
         """
         The set of arguments for constructing a GlobalNetwork resource.
         :param pulumi.Input[str] description: Description of the Global Network.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the Global Network. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -40,6 +41,9 @@ class GlobalNetworkArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value tags for the Global Network. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -58,6 +62,7 @@ class _GlobalNetworkState:
         Input properties used for looking up and filtering GlobalNetwork resources.
         :param pulumi.Input[str] arn: Global Network Amazon Resource Name (ARN)
         :param pulumi.Input[str] description: Description of the Global Network.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the Global Network. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
@@ -96,6 +101,9 @@ class _GlobalNetworkState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value tags for the Global Network. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -146,6 +154,7 @@ class GlobalNetwork(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the Global Network.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the Global Network. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -226,6 +235,7 @@ class GlobalNetwork(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: Global Network Amazon Resource Name (ARN)
         :param pulumi.Input[str] description: Description of the Global Network.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the Global Network. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -257,6 +267,9 @@ class GlobalNetwork(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Key-value tags for the Global Network. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
