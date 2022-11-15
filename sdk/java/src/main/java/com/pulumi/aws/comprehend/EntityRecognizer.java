@@ -18,6 +18,8 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Resource for managing an AWS Comprehend Entity Recognizer.
+ * 
  * ## Example Usage
  * ### Basic Usage
  * ```java
@@ -180,36 +182,56 @@ public class EntityRecognizer extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider [`default_tags` Configuration Block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider [`default_tags` Configuration Block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
+    /**
+     * Name for the version of the Entity Recognizer.
+     * Each version must have a unique name within the Entity Recognizer.
+     * If omitted, the provider will assign a random, unique version name.
+     * If explicitly set to `&#34;&#34;`, no version name will be set.
+     * Has a maximum length of 63 characters.
+     * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+     * Conflicts with `version_name_prefix`.
+     * 
+     */
     @Export(name="versionName", type=String.class, parameters={})
     private Output<String> versionName;
 
+    /**
+     * @return Name for the version of the Entity Recognizer.
+     * Each version must have a unique name within the Entity Recognizer.
+     * If omitted, the provider will assign a random, unique version name.
+     * If explicitly set to `&#34;&#34;`, no version name will be set.
+     * Has a maximum length of 63 characters.
+     * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+     * Conflicts with `version_name_prefix`.
+     * 
+     */
     public Output<String> versionName() {
         return this.versionName;
     }

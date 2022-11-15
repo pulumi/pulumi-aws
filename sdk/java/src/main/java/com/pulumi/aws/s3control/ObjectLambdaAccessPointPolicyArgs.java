@@ -15,9 +15,17 @@ public final class ObjectLambdaAccessPointPolicyArgs extends com.pulumi.resource
 
     public static final ObjectLambdaAccessPointPolicyArgs Empty = new ObjectLambdaAccessPointPolicyArgs();
 
+    /**
+     * The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
+     * 
+     */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
+    /**
+     * @return The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
+     * 
+     */
     public Optional<Output<String>> accountId() {
         return Optional.ofNullable(this.accountId);
     }
@@ -78,11 +86,23 @@ public final class ObjectLambdaAccessPointPolicyArgs extends com.pulumi.resource
             $ = new ObjectLambdaAccessPointPolicyArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param accountId The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accountId(@Nullable Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
 
+        /**
+         * @param accountId The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }

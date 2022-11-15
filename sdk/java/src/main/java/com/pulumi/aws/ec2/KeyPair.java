@@ -96,22 +96,30 @@ public class KeyPair extends com.pulumi.resources.CustomResource {
         return this.fingerprint;
     }
     /**
-     * The key pair name.
+     * The name for the key pair. If neither `key_name` nor `key_name_prefix` is provided, the provider will create a unique key name.
      * 
      */
     @Export(name="keyName", type=String.class, parameters={})
     private Output<String> keyName;
 
     /**
-     * @return The key pair name.
+     * @return The name for the key pair. If neither `key_name` nor `key_name_prefix` is provided, the provider will create a unique key name.
      * 
      */
     public Output<String> keyName() {
         return this.keyName;
     }
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `key_name`. If neither `key_name` nor `key_name_prefix` is provided, the provider will create a unique key name.
+     * 
+     */
     @Export(name="keyNamePrefix", type=String.class, parameters={})
     private Output<String> keyNamePrefix;
 
+    /**
+     * @return Creates a unique name beginning with the specified prefix. Conflicts with `key_name`. If neither `key_name` nor `key_name_prefix` is provided, the provider will create a unique key name.
+     * 
+     */
     public Output<String> keyNamePrefix() {
         return this.keyNamePrefix;
     }

@@ -30,16 +30,32 @@ public final class AccessKeyState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.createDate);
     }
 
+    /**
+     * Encrypted secret, base64 encoded, if `pgp_key` was specified. This attribute is not available for imported resources. The encrypted secret may be decrypted using the command line.
+     * 
+     */
     @Import(name="encryptedSecret")
     private @Nullable Output<String> encryptedSecret;
 
+    /**
+     * @return Encrypted secret, base64 encoded, if `pgp_key` was specified. This attribute is not available for imported resources. The encrypted secret may be decrypted using the command line.
+     * 
+     */
     public Optional<Output<String>> encryptedSecret() {
         return Optional.ofNullable(this.encryptedSecret);
     }
 
+    /**
+     * Encrypted SES SMTP password, base64 encoded, if `pgp_key` was specified. This attribute is not available for imported resources. The encrypted password may be decrypted using the command line.
+     * 
+     */
     @Import(name="encryptedSesSmtpPasswordV4")
     private @Nullable Output<String> encryptedSesSmtpPasswordV4;
 
+    /**
+     * @return Encrypted SES SMTP password, base64 encoded, if `pgp_key` was specified. This attribute is not available for imported resources. The encrypted password may be decrypted using the command line.
+     * 
+     */
     public Optional<Output<String>> encryptedSesSmtpPasswordV4() {
         return Optional.ofNullable(this.encryptedSesSmtpPasswordV4);
     }
@@ -187,20 +203,44 @@ public final class AccessKeyState extends com.pulumi.resources.ResourceArgs {
             return createDate(Output.of(createDate));
         }
 
+        /**
+         * @param encryptedSecret Encrypted secret, base64 encoded, if `pgp_key` was specified. This attribute is not available for imported resources. The encrypted secret may be decrypted using the command line.
+         * 
+         * @return builder
+         * 
+         */
         public Builder encryptedSecret(@Nullable Output<String> encryptedSecret) {
             $.encryptedSecret = encryptedSecret;
             return this;
         }
 
+        /**
+         * @param encryptedSecret Encrypted secret, base64 encoded, if `pgp_key` was specified. This attribute is not available for imported resources. The encrypted secret may be decrypted using the command line.
+         * 
+         * @return builder
+         * 
+         */
         public Builder encryptedSecret(String encryptedSecret) {
             return encryptedSecret(Output.of(encryptedSecret));
         }
 
+        /**
+         * @param encryptedSesSmtpPasswordV4 Encrypted SES SMTP password, base64 encoded, if `pgp_key` was specified. This attribute is not available for imported resources. The encrypted password may be decrypted using the command line.
+         * 
+         * @return builder
+         * 
+         */
         public Builder encryptedSesSmtpPasswordV4(@Nullable Output<String> encryptedSesSmtpPasswordV4) {
             $.encryptedSesSmtpPasswordV4 = encryptedSesSmtpPasswordV4;
             return this;
         }
 
+        /**
+         * @param encryptedSesSmtpPasswordV4 Encrypted SES SMTP password, base64 encoded, if `pgp_key` was specified. This attribute is not available for imported resources. The encrypted password may be decrypted using the command line.
+         * 
+         * @return builder
+         * 
+         */
         public Builder encryptedSesSmtpPasswordV4(String encryptedSesSmtpPasswordV4) {
             return encryptedSesSmtpPasswordV4(Output.of(encryptedSesSmtpPasswordV4));
         }

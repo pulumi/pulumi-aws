@@ -16,6 +16,16 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Manages RDS Aurora Cluster Database Activity Streams.
+ * 
+ * Database Activity Streams have some limits and requirements, refer to the [Monitoring Amazon Aurora using Database Activity Streams](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html) documentation for detailed limitations and requirements.
+ * 
+ * &gt; **Note:** This resource always calls the RDS [`StartActivityStream`][2] API with the `ApplyImmediately` parameter set to `true`. This is because the provider needs the activity stream to be started in order for it to get the associated attributes.
+ * 
+ * &gt; **Note:** This resource depends on having at least one `aws.rds.ClusterInstance` created. To avoid race conditions when all resources are being created together, add an explicit resource reference using the resource `depends_on` meta-argument.
+ * 
+ * &gt; **Note:** This resource is available in all regions except the following: `cn-north-1`, `cn-northwest-1`, `us-gov-east-1`, `us-gov-west-1`
+ * 
  * ## Example Usage
  * ```java
  * package generated_program;

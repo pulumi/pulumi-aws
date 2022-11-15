@@ -24,7 +24,7 @@ public final class RuleGroupActivatedRule {
      */
     private Integer priority;
     /**
-     * @return The ID of a `waf_regional_rule`
+     * @return The ID of a rule
      * 
      */
     private String ruleId;
@@ -50,7 +50,7 @@ public final class RuleGroupActivatedRule {
         return this.priority;
     }
     /**
-     * @return The ID of a `waf_regional_rule`
+     * @return The ID of a rule
      * 
      */
     public String ruleId() {

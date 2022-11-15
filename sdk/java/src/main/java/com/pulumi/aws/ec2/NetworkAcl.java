@@ -19,6 +19,19 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Provides an network ACL resource. You might set up network ACLs with rules similar
+ * to your security groups in order to add an additional layer of security to your VPC.
+ * 
+ * &gt; **NOTE on Network ACLs and Network ACL Rules:** This provider currently
+ * provides both a standalone Network ACL Rule resource and a Network ACL resource with rules
+ * defined in-line. At this time you cannot use a Network ACL with in-line rules
+ * in conjunction with any Network ACL Rule resources. Doing so will cause
+ * a conflict of rule settings and will overwrite rules.
+ * 
+ * &gt; **NOTE on Network ACLs and Network ACL Associations:** the provider provides both a standalone network ACL association
+ * resource and a network ACL resource with a `subnet_ids` attribute. Do not use the same subnet ID in both a network ACL
+ * resource and a network ACL association resource. Doing so will cause a conflict of associations and will overwrite the association.
+ * 
  * ## Example Usage
  * ```java
  * package generated_program;
@@ -150,14 +163,14 @@ public class NetworkAcl extends com.pulumi.resources.CustomResource {
         return this.subnetIds;
     }
     /**
-     * A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

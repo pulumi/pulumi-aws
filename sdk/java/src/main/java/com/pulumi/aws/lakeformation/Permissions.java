@@ -23,6 +23,144 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Grants permissions to the principal to access metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3. Permissions are granted to a principal, in a Data Catalog, relative to a Lake Formation resource, which includes the Data Catalog, databases, tables, LF-tags, and LF-tag policies. For more information, see [Security and Access Control to Metadata and Data in Lake Formation](https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html).
+ * 
+ * !&gt; **WARNING:** Lake Formation permissions are not in effect by default within AWS. Using this resource will not secure your data and will result in errors if you do not change the security settings for existing resources and the default security settings for new resources. See Default Behavior and `IAMAllowedPrincipals` for additional details.
+ * 
+ * &gt; **NOTE:** In general, the `principal` should _NOT_ be a Lake Formation administrator or the entity (e.g., IAM role) that is running the deployment. Administrators have implicit permissions. These should be managed by granting or not granting administrator rights using `aws.lakeformation.DataLakeSettings`, _not_ with this resource.
+ * 
+ * ## Default Behavior and `IAMAllowedPrincipals`
+ * 
+ * **_Lake Formation permissions are not in effect by default within AWS._** `IAMAllowedPrincipals` (i.e., `IAM_ALLOWED_PRINCIPALS`) conflicts with individual Lake Formation permissions (i.e., non-`IAMAllowedPrincipals` permissions), will cause unexpected behavior, and may result in errors.
+ * 
+ * When using Lake Formation, choose ONE of the following options as they are mutually exclusive:
+ * 
+ * 1. Use this resource (`aws.lakeformation.Permissions`), change the default security settings using `aws.lakeformation.DataLakeSettings`, and remove existing `IAMAllowedPrincipals` permissions
+ * 2. Use `IAMAllowedPrincipals` without `aws.lakeformation.Permissions`
+ * 
+ * This example shows removing the `IAMAllowedPrincipals` default security settings and making the caller a Lake Formation admin. Since `create_database_default_permissions` and `create_table_default_permissions` are not set in the `aws.lakeformation.DataLakeSettings` resource, they are cleared.
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetSessionContextArgs;
+ * import com.pulumi.aws.lakeformation.DataLakeSettings;
+ * import com.pulumi.aws.lakeformation.DataLakeSettingsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var currentCallerIdentity = AwsFunctions.getCallerIdentity();
+ * 
+ *         final var currentSessionContext = IamFunctions.getSessionContext(GetSessionContextArgs.builder()
+ *             .arn(currentCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()))
+ *             .build());
+ * 
+ *         var test = new DataLakeSettings(&#34;test&#34;, DataLakeSettingsArgs.builder()        
+ *             .admins(currentSessionContext.applyValue(getSessionContextResult -&gt; getSessionContextResult.issuerArn()))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * To remove existing `IAMAllowedPrincipals` permissions, use the [AWS Lake Formation Console](https://console.aws.amazon.com/lakeformation/) or [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lakeformation/batch-revoke-permissions.html).
+ * 
+ * `IAMAllowedPrincipals` is a hook to maintain backwards compatibility with AWS Glue. `IAMAllowedPrincipals` is a pseudo-entity group that acts like a Lake Formation principal. The group includes any IAM users and roles that are allowed access to your Data Catalog resources by your IAM policies.
+ * 
+ * This is Lake Formation&#39;s default behavior:
+ * 
+ * * Lake Formation grants `Super` permission to `IAMAllowedPrincipals` on all existing AWS Glue Data Catalog resources.
+ * * Lake Formation enables &#34;Use only IAM access control&#34; for new Data Catalog resources.
+ * 
+ * For more details, see [Changing the Default Security Settings for Your Data Lake](https://docs.aws.amazon.com/lake-formation/latest/dg/change-settings.html).
+ * 
+ * ### Problem Using `IAMAllowedPrincipals`
+ * 
+ * AWS does not support combining `IAMAllowedPrincipals` permissions and non-`IAMAllowedPrincipals` permissions. Doing so results in unexpected permissions and behaviors. For example, this configuration grants a user `SELECT` on a column in a table.
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.glue.CatalogDatabase;
+ * import com.pulumi.aws.glue.CatalogDatabaseArgs;
+ * import com.pulumi.aws.glue.CatalogTable;
+ * import com.pulumi.aws.glue.CatalogTableArgs;
+ * import com.pulumi.aws.glue.inputs.CatalogTableStorageDescriptorArgs;
+ * import com.pulumi.aws.lakeformation.Permissions;
+ * import com.pulumi.aws.lakeformation.PermissionsArgs;
+ * import com.pulumi.aws.lakeformation.inputs.PermissionsTableWithColumnsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleCatalogDatabase = new CatalogDatabase(&#34;exampleCatalogDatabase&#34;, CatalogDatabaseArgs.builder()        
+ *             .name(&#34;sadabate&#34;)
+ *             .build());
+ * 
+ *         var exampleCatalogTable = new CatalogTable(&#34;exampleCatalogTable&#34;, CatalogTableArgs.builder()        
+ *             .name(&#34;abelt&#34;)
+ *             .databaseName(aws_glue_catalog_database.test().name())
+ *             .storageDescriptor(CatalogTableStorageDescriptorArgs.builder()
+ *                 .columns(CatalogTableStorageDescriptorColumnArgs.builder()
+ *                     .name(&#34;event&#34;)
+ *                     .type(&#34;string&#34;)
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         var examplePermissions = new Permissions(&#34;examplePermissions&#34;, PermissionsArgs.builder()        
+ *             .permissions(&#34;SELECT&#34;)
+ *             .principal(&#34;arn:aws:iam:us-east-1:123456789012:user/SanHolo&#34;)
+ *             .tableWithColumns(PermissionsTableWithColumnsArgs.builder()
+ *                 .databaseName(exampleCatalogTable.databaseName())
+ *                 .name(exampleCatalogTable.name())
+ *                 .columnNames(&#34;event&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * The resulting permissions depend on whether the table had `IAMAllowedPrincipals` (IAP) permissions or not.
+ * 
+ * | Result With IAP | Result Without IAP |
+ * | ---- | ---- |
+ * | `SELECT` column wildcard (i.e., all columns) | `SELECT` on `&#34;event&#34;` (as expected) |
+ * 
+ * ## Using Lake Formation Permissions
+ * 
+ * Lake Formation grants implicit permissions to data lake administrators, database creators, and table creators. These implicit permissions cannot be revoked _per se_. If this resource reads implicit permissions, it will attempt to revoke them, which causes an error when the resource is destroyed.
+ * 
+ * There are two ways to avoid these errors. First, and the way we recommend, is to avoid using this resource with principals that have implicit permissions. A second, error-prone option, is to grant explicit permissions (and `permissions_with_grant_option`) to &#34;overwrite&#34; a principal&#39;s implicit permissions, which you can then revoke with this resource. For more information, see [Implicit Lake Formation Permissions](https://docs.aws.amazon.com/lake-formation/latest/dg/implicit-permissions.html).
+ * 
+ * If the `principal` is also a data lake administrator, AWS grants implicit permissions that can cause errors using this resource. For example, AWS implicitly grants a `principal`/administrator `permissions` and `permissions_with_grant_option` of `ALL`, `ALTER`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT` on a table. If you use this resource to explicitly grant the `principal`/administrator `permissions` but _not_ `permissions_with_grant_option` of `ALL`, `ALTER`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT` on the table, this resource will read the implicit `permissions_with_grant_option` and attempt to revoke them when the resource is destroyed. Doing so will cause an `InvalidInputException: No permissions revoked` error because you cannot revoke implicit permissions _per se_. To workaround this problem, explicitly grant the `principal`/administrator `permissions` _and_ `permissions_with_grant_option`, which can then be revoked. Similarly, granting a `principal`/administrator permissions on a table with columns and providing `column_names`, will result in a `InvalidInputException: Permissions modification is invalid` error because you are narrowing the implicit permissions. Instead, set `wildcard` to `true` and remove the `column_names`.
+ * 
  * ## Example Usage
  * ### Grant Permissions For A Lake Formation S3 Resource
  * ```java

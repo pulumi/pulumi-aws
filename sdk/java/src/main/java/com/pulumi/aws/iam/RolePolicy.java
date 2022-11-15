@@ -120,14 +120,14 @@ public class RolePolicy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.namePrefix);
     }
     /**
-     * The policy document. This is a JSON formatted string.
+     * The inline policy document. This is a JSON formatted string. For more information about building IAM policy documents with the provider, see the AWS IAM Policy Document Guide
      * 
      */
     @Export(name="policy", type=String.class, parameters={})
     private Output<String> policy;
 
     /**
-     * @return The policy document. This is a JSON formatted string.
+     * @return The inline policy document. This is a JSON formatted string. For more information about building IAM policy documents with the provider, see the AWS IAM Policy Document Guide
      * 
      */
     public Output<String> policy() {

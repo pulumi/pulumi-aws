@@ -22,7 +22,7 @@ public final class StackCustomCookbooksSource {
      */
     private @Nullable String revision;
     /**
-     * @return SSH key to use when authenticating to the source. The provider cannot perform drift detection of this configuration.
+     * @return SSH key to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
      * 
      */
     private @Nullable String sshKey;
@@ -58,7 +58,7 @@ public final class StackCustomCookbooksSource {
         return Optional.ofNullable(this.revision);
     }
     /**
-     * @return SSH key to use when authenticating to the source. The provider cannot perform drift detection of this configuration.
+     * @return SSH key to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
      * 
      */
     public Optional<String> sshKey() {

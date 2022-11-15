@@ -101,14 +101,14 @@ public class EndpointConfiguration extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.asyncInferenceConfig);
     }
     /**
-     * Specifies the parameters to capture input/output of Sagemaker models endpoints. Fields are documented below.
+     * Specifies the parameters to capture input/output of SageMaker models endpoints. Fields are documented below.
      * 
      */
     @Export(name="dataCaptureConfig", type=EndpointConfigurationDataCaptureConfig.class, parameters={})
     private Output</* @Nullable */ EndpointConfigurationDataCaptureConfig> dataCaptureConfig;
 
     /**
-     * @return Specifies the parameters to capture input/output of Sagemaker models endpoints. Fields are documented below.
+     * @return Specifies the parameters to capture input/output of SageMaker models endpoints. Fields are documented below.
      * 
      */
     public Output<Optional<EndpointConfigurationDataCaptureConfig>> dataCaptureConfig() {

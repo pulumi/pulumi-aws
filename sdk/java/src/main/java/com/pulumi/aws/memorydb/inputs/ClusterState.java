@@ -75,9 +75,17 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.clusterEndpoints);
     }
 
+    /**
+     * Description for the cluster.
+     * 
+     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
+    /**
+     * @return Description for the cluster.
+     * 
+     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
@@ -158,16 +166,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of this node.
-     * * `endpoint`
+     * Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of this node.
-     * * `endpoint`
+     * @return Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -558,11 +564,23 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
             return clusterEndpoints(List.of(clusterEndpoints));
         }
 
+        /**
+         * @param description Description for the cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param description Description for the cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
@@ -673,8 +691,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of this node.
-         * * `endpoint`
+         * @param name Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
          * 
          * @return builder
          * 
@@ -685,8 +702,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of this node.
-         * * `endpoint`
+         * @param name Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
          * 
          * @return builder
          * 

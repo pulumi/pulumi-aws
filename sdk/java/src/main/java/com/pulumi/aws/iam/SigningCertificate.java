@@ -15,6 +15,8 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Provides an IAM Signing Certificate resource to upload Signing Certificates.
+ * 
  * ## Example Usage
  * 
  * **Using certs on file:**

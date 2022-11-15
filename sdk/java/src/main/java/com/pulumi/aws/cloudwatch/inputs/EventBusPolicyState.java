@@ -30,9 +30,17 @@ public final class EventBusPolicyState extends com.pulumi.resources.ResourceArgs
         return Optional.ofNullable(this.eventBusName);
     }
 
+    /**
+     * The text of the policy.
+     * 
+     */
     @Import(name="policy")
     private @Nullable Output<String> policy;
 
+    /**
+     * @return The text of the policy.
+     * 
+     */
     public Optional<Output<String>> policy() {
         return Optional.ofNullable(this.policy);
     }
@@ -83,11 +91,23 @@ public final class EventBusPolicyState extends com.pulumi.resources.ResourceArgs
             return eventBusName(Output.of(eventBusName));
         }
 
+        /**
+         * @param policy The text of the policy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder policy(@Nullable Output<String> policy) {
             $.policy = policy;
             return this;
         }
 
+        /**
+         * @param policy The text of the policy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder policy(String policy) {
             return policy(Output.of(policy));
         }

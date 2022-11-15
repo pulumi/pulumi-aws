@@ -106,14 +106,14 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
         return this.endpointConfigName;
     }
     /**
-     * The name of the endpoint.
+     * The name of the endpoint. If omitted, the provider will assign a random, unique name.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name of the endpoint.
+     * @return The name of the endpoint. If omitted, the provider will assign a random, unique name.
      * 
      */
     public Output<String> name() {

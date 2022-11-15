@@ -16,6 +16,8 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
+ * Provides a CodeCommit Trigger Resource.
+ * 
  * ## Example Usage
  * ```java
  * package generated_program;

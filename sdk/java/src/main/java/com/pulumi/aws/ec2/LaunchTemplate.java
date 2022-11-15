@@ -548,9 +548,17 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
     public Output<Optional<LaunchTemplateMonitoring>> monitoring() {
         return Codegen.optional(this.monitoring);
     }
+    /**
+     * The name of the launch template. If you leave this blank, the provider will auto-generate a unique name.
+     * 
+     */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
+    /**
+     * @return The name of the launch template. If you leave this blank, the provider will auto-generate a unique name.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }

@@ -62,9 +62,17 @@ public final class ResourceLfTagsTableWithColumnsArgs extends com.pulumi.resourc
         return this.databaseName;
     }
 
+    /**
+     * Set of column names for the table to exclude. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+     * 
+     */
     @Import(name="excludedColumnNames")
     private @Nullable Output<List<String>> excludedColumnNames;
 
+    /**
+     * @return Set of column names for the table to exclude. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+     * 
+     */
     public Optional<Output<List<String>>> excludedColumnNames() {
         return Optional.ofNullable(this.excludedColumnNames);
     }
@@ -84,9 +92,17 @@ public final class ResourceLfTagsTableWithColumnsArgs extends com.pulumi.resourc
         return this.name;
     }
 
+    /**
+     * Whether to use a column wildcard. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+     * 
+     */
     @Import(name="wildcard")
     private @Nullable Output<Boolean> wildcard;
 
+    /**
+     * @return Whether to use a column wildcard. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+     * 
+     */
     public Optional<Output<Boolean>> wildcard() {
         return Optional.ofNullable(this.wildcard);
     }
@@ -193,15 +209,33 @@ public final class ResourceLfTagsTableWithColumnsArgs extends com.pulumi.resourc
             return databaseName(Output.of(databaseName));
         }
 
+        /**
+         * @param excludedColumnNames Set of column names for the table to exclude. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+         * 
+         * @return builder
+         * 
+         */
         public Builder excludedColumnNames(@Nullable Output<List<String>> excludedColumnNames) {
             $.excludedColumnNames = excludedColumnNames;
             return this;
         }
 
+        /**
+         * @param excludedColumnNames Set of column names for the table to exclude. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+         * 
+         * @return builder
+         * 
+         */
         public Builder excludedColumnNames(List<String> excludedColumnNames) {
             return excludedColumnNames(Output.of(excludedColumnNames));
         }
 
+        /**
+         * @param excludedColumnNames Set of column names for the table to exclude. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+         * 
+         * @return builder
+         * 
+         */
         public Builder excludedColumnNames(String... excludedColumnNames) {
             return excludedColumnNames(List.of(excludedColumnNames));
         }
@@ -227,11 +261,23 @@ public final class ResourceLfTagsTableWithColumnsArgs extends com.pulumi.resourc
             return name(Output.of(name));
         }
 
+        /**
+         * @param wildcard Whether to use a column wildcard. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+         * 
+         * @return builder
+         * 
+         */
         public Builder wildcard(@Nullable Output<Boolean> wildcard) {
             $.wildcard = wildcard;
             return this;
         }
 
+        /**
+         * @param wildcard Whether to use a column wildcard. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+         * 
+         * @return builder
+         * 
+         */
         public Builder wildcard(Boolean wildcard) {
             return wildcard(Output.of(wildcard));
         }

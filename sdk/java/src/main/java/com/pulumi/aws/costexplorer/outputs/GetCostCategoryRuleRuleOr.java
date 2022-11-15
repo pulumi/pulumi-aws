@@ -23,7 +23,7 @@ public final class GetCostCategoryRuleRuleOr {
      */
     private List<GetCostCategoryRuleRuleOrDimension> dimensions;
     /**
-     * @return Resource tags.
+     * @return Configuration block for the specific `Tag` to use for `Expression`. See below.
      * 
      */
     private List<GetCostCategoryRuleRuleOrTag> tags;
@@ -44,7 +44,7 @@ public final class GetCostCategoryRuleRuleOr {
         return this.dimensions;
     }
     /**
-     * @return Resource tags.
+     * @return Configuration block for the specific `Tag` to use for `Expression`. See below.
      * 
      */
     public List<GetCostCategoryRuleRuleOrTag> tags() {

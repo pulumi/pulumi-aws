@@ -66,14 +66,14 @@ public final class WebAclRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ID of the associated WAF (Regional) rule (e.g. `aws.wafregional.Rule`). WAF (Global) rules cannot be used.
+     * ID of the associated WAF (Regional) rule (e.g., `aws.wafregional.Rule`). WAF (Global) rules cannot be used.
      * 
      */
     @Import(name="ruleId", required=true)
     private Output<String> ruleId;
 
     /**
-     * @return ID of the associated WAF (Regional) rule (e.g. `aws.wafregional.Rule`). WAF (Global) rules cannot be used.
+     * @return ID of the associated WAF (Regional) rule (e.g., `aws.wafregional.Rule`). WAF (Global) rules cannot be used.
      * 
      */
     public Output<String> ruleId() {
@@ -189,7 +189,7 @@ public final class WebAclRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ruleId ID of the associated WAF (Regional) rule (e.g. `aws.wafregional.Rule`). WAF (Global) rules cannot be used.
+         * @param ruleId ID of the associated WAF (Regional) rule (e.g., `aws.wafregional.Rule`). WAF (Global) rules cannot be used.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class WebAclRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ruleId ID of the associated WAF (Regional) rule (e.g. `aws.wafregional.Rule`). WAF (Global) rules cannot be used.
+         * @param ruleId ID of the associated WAF (Regional) rule (e.g., `aws.wafregional.Rule`). WAF (Global) rules cannot be used.
          * 
          * @return builder
          * 

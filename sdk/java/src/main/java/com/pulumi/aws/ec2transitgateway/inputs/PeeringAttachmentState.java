@@ -17,14 +17,14 @@ public final class PeeringAttachmentState extends com.pulumi.resources.ResourceA
     public static final PeeringAttachmentState Empty = new PeeringAttachmentState();
 
     /**
-     * Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the current provider is currently connected to.
+     * Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
      * 
      */
     @Import(name="peerAccountId")
     private @Nullable Output<String> peerAccountId;
 
     /**
-     * @return Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the current provider is currently connected to.
+     * @return Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
      * 
      */
     public Optional<Output<String>> peerAccountId() {
@@ -136,7 +136,7 @@ public final class PeeringAttachmentState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param peerAccountId Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the current provider is currently connected to.
+         * @param peerAccountId Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class PeeringAttachmentState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param peerAccountId Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the current provider is currently connected to.
+         * @param peerAccountId Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
          * 
          * @return builder
          * 

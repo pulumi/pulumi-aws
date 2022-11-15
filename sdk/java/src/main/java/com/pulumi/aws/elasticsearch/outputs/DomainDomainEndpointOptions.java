@@ -32,6 +32,10 @@ public final class DomainDomainEndpointOptions {
      * 
      */
     private @Nullable Boolean enforceHttps;
+    /**
+     * @return Name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07` and `Policy-Min-TLS-1-2-2019-07`. The provider will only perform drift detection if a configuration value is provided.
+     * 
+     */
     private @Nullable String tlsSecurityPolicy;
 
     private DomainDomainEndpointOptions() {}
@@ -63,6 +67,10 @@ public final class DomainDomainEndpointOptions {
     public Optional<Boolean> enforceHttps() {
         return Optional.ofNullable(this.enforceHttps);
     }
+    /**
+     * @return Name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07` and `Policy-Min-TLS-1-2-2019-07`. The provider will only perform drift detection if a configuration value is provided.
+     * 
+     */
     public Optional<String> tlsSecurityPolicy() {
         return Optional.ofNullable(this.tlsSecurityPolicy);
     }

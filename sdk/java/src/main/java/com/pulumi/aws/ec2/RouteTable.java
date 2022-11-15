@@ -167,6 +167,7 @@ public class RouteTable extends com.pulumi.resources.CustomResource {
     }
     /**
      * A list of route objects. Their keys are documented below.
+     * This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
      * 
      */
     @Export(name="routes", type=List.class, parameters={RouteTableRoute.class})
@@ -174,6 +175,7 @@ public class RouteTable extends com.pulumi.resources.CustomResource {
 
     /**
      * @return A list of route objects. Their keys are documented below.
+     * This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
      * 
      */
     public Output<List<RouteTableRoute>> routes() {

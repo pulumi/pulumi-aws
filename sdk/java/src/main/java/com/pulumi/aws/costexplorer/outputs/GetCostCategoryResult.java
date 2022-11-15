@@ -46,7 +46,7 @@ public final class GetCostCategoryResult {
      */
     private List<GetCostCategorySplitChargeRule> splitChargeRules;
     /**
-     * @return Resource tags.
+     * @return Configuration block for the specific `Tag` to use for `Expression`. See below.
      * 
      */
     private Map<String,String> tags;
@@ -101,7 +101,7 @@ public final class GetCostCategoryResult {
         return this.splitChargeRules;
     }
     /**
-     * @return Resource tags.
+     * @return Configuration block for the specific `Tag` to use for `Expression`. See below.
      * 
      */
     public Map<String,String> tags() {

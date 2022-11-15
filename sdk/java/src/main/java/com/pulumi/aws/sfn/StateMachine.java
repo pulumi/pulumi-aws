@@ -224,9 +224,17 @@ public class StateMachine extends com.pulumi.resources.CustomResource {
     public Output<StateMachineLoggingConfiguration> loggingConfiguration() {
         return this.loggingConfiguration;
     }
+    /**
+     * The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
+     * 
+     */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
+    /**
+     * @return The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }

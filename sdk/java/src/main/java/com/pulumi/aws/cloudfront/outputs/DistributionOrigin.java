@@ -48,7 +48,7 @@ public final class DistributionOrigin {
      */
     private String domainName;
     /**
-     * @return The unique identifier of a [CloudFront origin access control](https://www.terraform.io/docs/providers/aws/r/cloudfront_origin_access_control.html) for this origin.
+     * @return The unique identifier of a CloudFront origin access control for this origin.
      * 
      */
     private @Nullable String originAccessControlId;
@@ -120,7 +120,7 @@ public final class DistributionOrigin {
         return this.domainName;
     }
     /**
-     * @return The unique identifier of a [CloudFront origin access control](https://www.terraform.io/docs/providers/aws/r/cloudfront_origin_access_control.html) for this origin.
+     * @return The unique identifier of a CloudFront origin access control for this origin.
      * 
      */
     public Optional<String> originAccessControlId() {

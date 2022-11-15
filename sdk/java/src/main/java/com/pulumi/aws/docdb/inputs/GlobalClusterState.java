@@ -63,9 +63,17 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.deletionProtection);
     }
 
+    /**
+     * Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Current Valid values: `docdb`. Defaults to `docdb`. Conflicts with `source_db_cluster_identifier`.
+     * 
+     */
     @Import(name="engine")
     private @Nullable Output<String> engine;
 
+    /**
+     * @return Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Current Valid values: `docdb`. Defaults to `docdb`. Conflicts with `source_db_cluster_identifier`.
+     * 
+     */
     public Optional<Output<String>> engine() {
         return Optional.ofNullable(this.engine);
     }
@@ -132,9 +140,17 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.globalClusterResourceId);
     }
 
+    /**
+     * Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
+     * 
+     */
     @Import(name="sourceDbClusterIdentifier")
     private @Nullable Output<String> sourceDbClusterIdentifier;
 
+    /**
+     * @return Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
+     * 
+     */
     public Optional<Output<String>> sourceDbClusterIdentifier() {
         return Optional.ofNullable(this.sourceDbClusterIdentifier);
     }
@@ -146,9 +162,17 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.status);
     }
 
+    /**
+     * Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
+     * 
+     */
     @Import(name="storageEncrypted")
     private @Nullable Output<Boolean> storageEncrypted;
 
+    /**
+     * @return Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
+     * 
+     */
     public Optional<Output<Boolean>> storageEncrypted() {
         return Optional.ofNullable(this.storageEncrypted);
     }
@@ -250,11 +274,23 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
             return deletionProtection(Output.of(deletionProtection));
         }
 
+        /**
+         * @param engine Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Current Valid values: `docdb`. Defaults to `docdb`. Conflicts with `source_db_cluster_identifier`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder engine(@Nullable Output<String> engine) {
             $.engine = engine;
             return this;
         }
 
+        /**
+         * @param engine Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Current Valid values: `docdb`. Defaults to `docdb`. Conflicts with `source_db_cluster_identifier`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder engine(String engine) {
             return engine(Output.of(engine));
         }
@@ -355,11 +391,23 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
             return globalClusterResourceId(Output.of(globalClusterResourceId));
         }
 
+        /**
+         * @param sourceDbClusterIdentifier Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceDbClusterIdentifier(@Nullable Output<String> sourceDbClusterIdentifier) {
             $.sourceDbClusterIdentifier = sourceDbClusterIdentifier;
             return this;
         }
 
+        /**
+         * @param sourceDbClusterIdentifier Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceDbClusterIdentifier(String sourceDbClusterIdentifier) {
             return sourceDbClusterIdentifier(Output.of(sourceDbClusterIdentifier));
         }
@@ -373,11 +421,23 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
             return status(Output.of(status));
         }
 
+        /**
+         * @param storageEncrypted Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
+         * 
+         * @return builder
+         * 
+         */
         public Builder storageEncrypted(@Nullable Output<Boolean> storageEncrypted) {
             $.storageEncrypted = storageEncrypted;
             return this;
         }
 
+        /**
+         * @param storageEncrypted Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
+         * 
+         * @return builder
+         * 
+         */
         public Builder storageEncrypted(Boolean storageEncrypted) {
             return storageEncrypted(Output.of(storageEncrypted));
         }

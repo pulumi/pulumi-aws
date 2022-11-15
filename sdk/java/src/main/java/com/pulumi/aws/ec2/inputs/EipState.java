@@ -243,14 +243,16 @@ public final class EipState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
+     * EC2 IPv4 address pool identifier or `amazon`.
+     * This option is only available for VPC EIPs.
      * 
      */
     @Import(name="publicIpv4Pool")
     private @Nullable Output<String> publicIpv4Pool;
 
     /**
-     * @return EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
+     * @return EC2 IPv4 address pool identifier or `amazon`.
+     * This option is only available for VPC EIPs.
      * 
      */
     public Optional<Output<String>> publicIpv4Pool() {
@@ -662,7 +664,8 @@ public final class EipState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicIpv4Pool EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
+         * @param publicIpv4Pool EC2 IPv4 address pool identifier or `amazon`.
+         * This option is only available for VPC EIPs.
          * 
          * @return builder
          * 
@@ -673,7 +676,8 @@ public final class EipState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicIpv4Pool EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
+         * @param publicIpv4Pool EC2 IPv4 address pool identifier or `amazon`.
+         * This option is only available for VPC EIPs.
          * 
          * @return builder
          * 

@@ -14,6 +14,8 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
+ * Resource for registering an AWS Systems Manager Default Patch Baseline.
+ * 
  * ## Example Usage
  * ### Basic Usage
  * ```java

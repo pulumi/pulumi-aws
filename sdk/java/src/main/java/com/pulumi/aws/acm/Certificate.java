@@ -418,7 +418,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
     }
     /**
      * Set of domains that should be SANs in the issued certificate.
-     * To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+     * To remove all elements of a previously configured list, set this value equal to an empty list (`[]`)
      * 
      */
     @Export(name="subjectAlternativeNames", type=List.class, parameters={String.class})
@@ -426,7 +426,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Set of domains that should be SANs in the issued certificate.
-     * To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+     * To remove all elements of a previously configured list, set this value equal to an empty list (`[]`)
      * 
      */
     public Output<List<String>> subjectAlternativeNames() {
@@ -488,9 +488,17 @@ public class Certificate extends com.pulumi.resources.CustomResource {
     public Output<List<String>> validationEmails() {
         return this.validationEmails;
     }
+    /**
+     * Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
+     * 
+     */
     @Export(name="validationMethod", type=String.class, parameters={})
     private Output<String> validationMethod;
 
+    /**
+     * @return Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
+     * 
+     */
     public Output<String> validationMethod() {
         return this.validationMethod;
     }

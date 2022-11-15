@@ -137,15 +137,31 @@ public class AccessKey extends com.pulumi.resources.CustomResource {
     public Output<String> createDate() {
         return this.createDate;
     }
+    /**
+     * Encrypted secret, base64 encoded, if `pgp_key` was specified. This attribute is not available for imported resources. The encrypted secret may be decrypted using the command line.
+     * 
+     */
     @Export(name="encryptedSecret", type=String.class, parameters={})
     private Output<String> encryptedSecret;
 
+    /**
+     * @return Encrypted secret, base64 encoded, if `pgp_key` was specified. This attribute is not available for imported resources. The encrypted secret may be decrypted using the command line.
+     * 
+     */
     public Output<String> encryptedSecret() {
         return this.encryptedSecret;
     }
+    /**
+     * Encrypted SES SMTP password, base64 encoded, if `pgp_key` was specified. This attribute is not available for imported resources. The encrypted password may be decrypted using the command line.
+     * 
+     */
     @Export(name="encryptedSesSmtpPasswordV4", type=String.class, parameters={})
     private Output<String> encryptedSesSmtpPasswordV4;
 
+    /**
+     * @return Encrypted SES SMTP password, base64 encoded, if `pgp_key` was specified. This attribute is not available for imported resources. The encrypted password may be decrypted using the command line.
+     * 
+     */
     public Output<String> encryptedSesSmtpPasswordV4() {
         return this.encryptedSesSmtpPasswordV4;
     }

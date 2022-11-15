@@ -41,10 +41,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.AwsFunctions;
  * import com.pulumi.aws.s3.BucketV2;
  * import com.pulumi.aws.s3.BucketV2Args;
- * import com.pulumi.aws.s3.BucketPolicy;
- * import com.pulumi.aws.s3.BucketPolicyArgs;
  * import com.pulumi.aws.cloudtrail.Trail;
  * import com.pulumi.aws.cloudtrail.TrailArgs;
+ * import com.pulumi.aws.s3.BucketPolicy;
+ * import com.pulumi.aws.s3.BucketPolicyArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -60,10 +60,14 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = AwsFunctions.getCallerIdentity();
  * 
- *         var bucketV2 = new BucketV2(&#34;bucketV2&#34;);
- * 
  *         var fooBucketV2 = new BucketV2(&#34;fooBucketV2&#34;, BucketV2Args.builder()        
  *             .forceDestroy(true)
+ *             .build());
+ * 
+ *         var foobar = new Trail(&#34;foobar&#34;, TrailArgs.builder()        
+ *             .s3BucketName(fooBucketV2.id())
+ *             .s3KeyPrefix(&#34;prefix&#34;)
+ *             .includeGlobalServiceEvents(false)
  *             .build());
  * 
  *         var fooBucketPolicy = new BucketPolicy(&#34;fooBucketPolicy&#34;, BucketPolicyArgs.builder()        
@@ -100,15 +104,8 @@ import javax.annotation.Nullable;
  *         }
  *     ]
  * }
- * }
  * &#34;, fooBucketV2Arn,fooBucketV2Arn1,current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()));
  *             }))
- *             .build());
- * 
- *         var foobar = new Trail(&#34;foobar&#34;, TrailArgs.builder()        
- *             .s3BucketName(bucketV2.id())
- *             .s3KeyPrefix(&#34;prefix&#34;)
- *             .includeGlobalServiceEvents(false)
  *             .build());
  * 
  *     }
@@ -127,7 +124,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketV2;
  * import com.pulumi.aws.cloudtrail.Trail;
  * import com.pulumi.aws.cloudtrail.TrailArgs;
  * import com.pulumi.aws.cloudtrail.inputs.TrailEventSelectorArgs;
@@ -144,18 +140,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var bucketV2 = new BucketV2(&#34;bucketV2&#34;);
- * 
  *         var example = new Trail(&#34;example&#34;, TrailArgs.builder()        
- *             .s3BucketName(bucketV2.id())
- *             .s3KeyPrefix(&#34;prefix&#34;)
  *             .eventSelectors(TrailEventSelectorArgs.builder()
- *                 .readWriteType(&#34;All&#34;)
- *                 .includeManagementEvents(true)
  *                 .dataResources(TrailEventSelectorDataResourceArgs.builder()
  *                     .type(&#34;AWS::Lambda::Function&#34;)
  *                     .values(&#34;arn:aws:lambda&#34;)
  *                     .build())
+ *                 .includeManagementEvents(true)
+ *                 .readWriteType(&#34;All&#34;)
  *                 .build())
  *             .build());
  * 
@@ -169,7 +161,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketV2;
  * import com.pulumi.aws.cloudtrail.Trail;
  * import com.pulumi.aws.cloudtrail.TrailArgs;
  * import com.pulumi.aws.cloudtrail.inputs.TrailEventSelectorArgs;
@@ -186,18 +177,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var bucketV2 = new BucketV2(&#34;bucketV2&#34;);
- * 
  *         var example = new Trail(&#34;example&#34;, TrailArgs.builder()        
- *             .s3BucketName(bucketV2.id())
- *             .s3KeyPrefix(&#34;prefix&#34;)
  *             .eventSelectors(TrailEventSelectorArgs.builder()
- *                 .readWriteType(&#34;All&#34;)
- *                 .includeManagementEvents(true)
  *                 .dataResources(TrailEventSelectorDataResourceArgs.builder()
  *                     .type(&#34;AWS::S3::Object&#34;)
  *                     .values(&#34;arn:aws:s3&#34;)
  *                     .build())
+ *                 .includeManagementEvents(true)
+ *                 .readWriteType(&#34;All&#34;)
  *                 .build())
  *             .build());
  * 
@@ -234,15 +221,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new Trail(&#34;example&#34;, TrailArgs.builder()        
- *             .s3BucketName(important_bucket.id())
- *             .s3KeyPrefix(&#34;prefix&#34;)
  *             .eventSelectors(TrailEventSelectorArgs.builder()
- *                 .readWriteType(&#34;All&#34;)
- *                 .includeManagementEvents(true)
  *                 .dataResources(TrailEventSelectorDataResourceArgs.builder()
  *                     .type(&#34;AWS::S3::Object&#34;)
  *                     .values(String.format(&#34;%s/&#34;, important_bucket.arn()))
  *                     .build())
+ *                 .includeManagementEvents(true)
+ *                 .readWriteType(&#34;All&#34;)
  *                 .build())
  *             .build());
  * 
@@ -417,13 +402,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
  * import com.pulumi.aws.cloudwatch.LogGroup;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.iam.RolePolicy;
- * import com.pulumi.aws.iam.RolePolicyArgs;
- * import com.pulumi.aws.s3.BucketV2;
  * import com.pulumi.aws.cloudtrail.Trail;
  * import com.pulumi.aws.cloudtrail.TrailArgs;
  * import java.util.List;
@@ -439,54 +418,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getPartition();
- * 
  *         var exampleLogGroup = new LogGroup(&#34;exampleLogGroup&#34;);
  * 
- *         var testRole = new Role(&#34;testRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(&#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Sid&#34;: &#34;&#34;,
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Principal&#34;: {
- *         &#34;Service&#34;: &#34;cloudtrail.%s&#34;
- *       },
- *       &#34;Action&#34;: &#34;sts:AssumeRole&#34;
- *     }
- *   ]
- * }
- * &#34;, current.applyValue(getPartitionResult -&gt; getPartitionResult.dnsSuffix())))
- *             .build());
- * 
- *         var testRolePolicy = new RolePolicy(&#34;testRolePolicy&#34;, RolePolicyArgs.builder()        
- *             .role(testRole.id())
- *             .policy(&#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Sid&#34;: &#34;AWSCloudTrailCreateLogStream&#34;,
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Action&#34;: [
- *         &#34;logs:CreateLogStream&#34;,
- *         &#34;logs:PutLogEvents&#34;
- *       ],
- *       &#34;Resource&#34;: &#34;%s:*&#34;
- *     }
- *   ]
- * }
- * &#34;, aws_cloudwatch_log_group.test().arn()))
- *             .build());
- * 
- *         var bucketV2 = new BucketV2(&#34;bucketV2&#34;);
- * 
  *         var exampleTrail = new Trail(&#34;exampleTrail&#34;, TrailArgs.builder()        
- *             .s3BucketName(data.aws_s3_bucket().important-bucket().id())
- *             .s3KeyPrefix(&#34;prefix&#34;)
- *             .cloudWatchLogsRoleArn(testRole.arn())
  *             .cloudWatchLogsGroupArn(exampleLogGroup.arn().applyValue(arn -&gt; String.format(&#34;%s:*&#34;, arn)))
  *             .build());
  * 
@@ -744,14 +678,14 @@ public class Trail extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.snsTopicName);
     }
     /**
-     * Map of tags to assign to the trail. If configured with provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the trail. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Map of tags to assign to the trail. If configured with provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the trail. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

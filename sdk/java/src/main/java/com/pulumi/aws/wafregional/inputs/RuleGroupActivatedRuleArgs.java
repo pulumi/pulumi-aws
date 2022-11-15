@@ -48,14 +48,14 @@ public final class RuleGroupActivatedRuleArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The ID of a `waf_regional_rule`
+     * The ID of a rule
      * 
      */
     @Import(name="ruleId", required=true)
     private Output<String> ruleId;
 
     /**
-     * @return The ID of a `waf_regional_rule`
+     * @return The ID of a rule
      * 
      */
     public Output<String> ruleId() {
@@ -147,7 +147,7 @@ public final class RuleGroupActivatedRuleArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param ruleId The ID of a `waf_regional_rule`
+         * @param ruleId The ID of a rule
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class RuleGroupActivatedRuleArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param ruleId The ID of a `waf_regional_rule`
+         * @param ruleId The ID of a rule
          * 
          * @return builder
          * 

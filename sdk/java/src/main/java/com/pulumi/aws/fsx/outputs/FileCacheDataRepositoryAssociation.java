@@ -45,6 +45,10 @@ public final class FileCacheDataRepositoryAssociation {
      */
     private @Nullable List<FileCacheDataRepositoryAssociationNf> nfs;
     private @Nullable String resourceArn;
+    /**
+     * @return A map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     private @Nullable Map<String,String> tags;
 
     private FileCacheDataRepositoryAssociation() {}
@@ -98,6 +102,10 @@ public final class FileCacheDataRepositoryAssociation {
     public Optional<String> resourceArn() {
         return Optional.ofNullable(this.resourceArn);
     }
+    /**
+     * @return A map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Map<String,String> tags() {
         return this.tags == null ? Map.of() : this.tags;
     }

@@ -68,9 +68,17 @@ public final class TaskSetArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.externalId);
     }
 
+    /**
+     * Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it&#39;s in the process of scaling a resource. Normally, the provider drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling.
+     * 
+     */
     @Import(name="forceDelete")
     private @Nullable Output<Boolean> forceDelete;
 
+    /**
+     * @return Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it&#39;s in the process of scaling a resource. Normally, the provider drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling.
+     * 
+     */
     public Optional<Output<Boolean>> forceDelete() {
         return Optional.ofNullable(this.forceDelete);
     }
@@ -210,9 +218,17 @@ public final class TaskSetArgs extends com.pulumi.resources.ResourceArgs {
         return this.taskDefinition;
     }
 
+    /**
+     * Whether the provider should wait until the task set has reached `STEADY_STATE`.
+     * 
+     */
     @Import(name="waitUntilStable")
     private @Nullable Output<Boolean> waitUntilStable;
 
+    /**
+     * @return Whether the provider should wait until the task set has reached `STEADY_STATE`.
+     * 
+     */
     public Optional<Output<Boolean>> waitUntilStable() {
         return Optional.ofNullable(this.waitUntilStable);
     }
@@ -343,11 +359,23 @@ public final class TaskSetArgs extends com.pulumi.resources.ResourceArgs {
             return externalId(Output.of(externalId));
         }
 
+        /**
+         * @param forceDelete Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it&#39;s in the process of scaling a resource. Normally, the provider drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling.
+         * 
+         * @return builder
+         * 
+         */
         public Builder forceDelete(@Nullable Output<Boolean> forceDelete) {
             $.forceDelete = forceDelete;
             return this;
         }
 
+        /**
+         * @param forceDelete Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it&#39;s in the process of scaling a resource. Normally, the provider drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling.
+         * 
+         * @return builder
+         * 
+         */
         public Builder forceDelete(Boolean forceDelete) {
             return forceDelete(Output.of(forceDelete));
         }
@@ -551,11 +579,23 @@ public final class TaskSetArgs extends com.pulumi.resources.ResourceArgs {
             return taskDefinition(Output.of(taskDefinition));
         }
 
+        /**
+         * @param waitUntilStable Whether the provider should wait until the task set has reached `STEADY_STATE`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder waitUntilStable(@Nullable Output<Boolean> waitUntilStable) {
             $.waitUntilStable = waitUntilStable;
             return this;
         }
 
+        /**
+         * @param waitUntilStable Whether the provider should wait until the task set has reached `STEADY_STATE`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder waitUntilStable(Boolean waitUntilStable) {
             return waitUntilStable(Output.of(waitUntilStable));
         }

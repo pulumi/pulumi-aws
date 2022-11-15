@@ -20,7 +20,7 @@ public final class EventTargetInputTransformer {
      */
     private @Nullable Map<String,String> inputPaths;
     /**
-     * @return Template to customize data sent to the target. Must be valid JSON. To send a string value, the string value must include double quotes. Values must be escaped for both JSON and the provider, e.g., `&#34;\&#34;Your string goes here.\\nA new line.\&#34;&#34;`
+     * @return Template to customize data sent to the target. Must be valid JSON. To send a string value, the string value must include double quotes.
      * 
      */
     private String inputTemplate;
@@ -37,7 +37,7 @@ public final class EventTargetInputTransformer {
         return this.inputPaths == null ? Map.of() : this.inputPaths;
     }
     /**
-     * @return Template to customize data sent to the target. Must be valid JSON. To send a string value, the string value must include double quotes. Values must be escaped for both JSON and the provider, e.g., `&#34;\&#34;Your string goes here.\\nA new line.\&#34;&#34;`
+     * @return Template to customize data sent to the target. Must be valid JSON. To send a string value, the string value must include double quotes.
      * 
      */
     public String inputTemplate() {

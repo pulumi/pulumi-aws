@@ -62,14 +62,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:storagegateway/tapePool:TapePool")
 public class TapePool extends com.pulumi.resources.CustomResource {
     /**
-     * Volume Amazon Resource Name (ARN), e.g. `aws_storagegateway_tape_pool.example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678`.
+     * Volume Amazon Resource Name (ARN), e.g., `aws_storagegateway_tape_pool.example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678`.
      * 
      */
     @Export(name="arn", type=String.class, parameters={})
     private Output<String> arn;
 
     /**
-     * @return Volume Amazon Resource Name (ARN), e.g. `aws_storagegateway_tape_pool.example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678`.
+     * @return Volume Amazon Resource Name (ARN), e.g., `aws_storagegateway_tape_pool.example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678`.
      * 
      */
     public Output<String> arn() {

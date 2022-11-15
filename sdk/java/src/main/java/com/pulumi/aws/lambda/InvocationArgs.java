@@ -61,9 +61,17 @@ public final class InvocationArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.qualifier);
     }
 
+    /**
+     * Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
+     * 
+     */
     @Import(name="triggers")
     private @Nullable Output<Map<String,String>> triggers;
 
+    /**
+     * @return Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
+     * 
+     */
     public Optional<Output<Map<String,String>>> triggers() {
         return Optional.ofNullable(this.triggers);
     }
@@ -158,11 +166,23 @@ public final class InvocationArgs extends com.pulumi.resources.ResourceArgs {
             return qualifier(Output.of(qualifier));
         }
 
+        /**
+         * @param triggers Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
+         * 
+         * @return builder
+         * 
+         */
         public Builder triggers(@Nullable Output<Map<String,String>> triggers) {
             $.triggers = triggers;
             return this;
         }
 
+        /**
+         * @param triggers Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
+         * 
+         * @return builder
+         * 
+         */
         public Builder triggers(Map<String,String> triggers) {
             return triggers(Output.of(triggers));
         }

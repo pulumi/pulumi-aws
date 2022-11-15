@@ -334,38 +334,6 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### Managed Streaming for Kafka (MSK)
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lambda.EventSourceMapping;
- * import com.pulumi.aws.lambda.EventSourceMappingArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new EventSourceMapping(&#34;example&#34;, EventSourceMappingArgs.builder()        
- *             .eventSourceArn(aws_msk_cluster.example().arn())
- *             .functionName(aws_lambda_function.example().arn())
- *             .topics(&#34;Example&#34;)
- *             .startingPosition(&#34;TRIM_HORIZON&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
  * 
  * ## Import
  * 

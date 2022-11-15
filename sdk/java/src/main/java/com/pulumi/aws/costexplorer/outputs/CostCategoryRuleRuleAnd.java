@@ -23,6 +23,10 @@ public final class CostCategoryRuleRuleAnd {
      * 
      */
     private @Nullable CostCategoryRuleRuleAndDimension dimension;
+    /**
+     * @return Configuration block for the specific `Tag` to use for `Expression`. See below.
+     * 
+     */
     private @Nullable CostCategoryRuleRuleAndTags tags;
 
     private CostCategoryRuleRuleAnd() {}
@@ -40,6 +44,10 @@ public final class CostCategoryRuleRuleAnd {
     public Optional<CostCategoryRuleRuleAndDimension> dimension() {
         return Optional.ofNullable(this.dimension);
     }
+    /**
+     * @return Configuration block for the specific `Tag` to use for `Expression`. See below.
+     * 
+     */
     public Optional<CostCategoryRuleRuleAndTags> tags() {
         return Optional.ofNullable(this.tags);
     }

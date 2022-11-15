@@ -90,15 +90,31 @@ public class SubnetGroup extends com.pulumi.resources.CustomResource {
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * Description for the subnet group.
+     * 
+     */
     @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return Description for the subnet group.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * Name of the subnet group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+     * 
+     */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
+    /**
+     * @return Name of the subnet group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }

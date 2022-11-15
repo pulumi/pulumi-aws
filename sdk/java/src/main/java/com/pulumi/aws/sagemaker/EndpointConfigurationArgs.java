@@ -36,14 +36,14 @@ public final class EndpointConfigurationArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Specifies the parameters to capture input/output of Sagemaker models endpoints. Fields are documented below.
+     * Specifies the parameters to capture input/output of SageMaker models endpoints. Fields are documented below.
      * 
      */
     @Import(name="dataCaptureConfig")
     private @Nullable Output<EndpointConfigurationDataCaptureConfigArgs> dataCaptureConfig;
 
     /**
-     * @return Specifies the parameters to capture input/output of Sagemaker models endpoints. Fields are documented below.
+     * @return Specifies the parameters to capture input/output of SageMaker models endpoints. Fields are documented below.
      * 
      */
     public Optional<Output<EndpointConfigurationDataCaptureConfigArgs>> dataCaptureConfig() {
@@ -161,7 +161,7 @@ public final class EndpointConfigurationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param dataCaptureConfig Specifies the parameters to capture input/output of Sagemaker models endpoints. Fields are documented below.
+         * @param dataCaptureConfig Specifies the parameters to capture input/output of SageMaker models endpoints. Fields are documented below.
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class EndpointConfigurationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param dataCaptureConfig Specifies the parameters to capture input/output of Sagemaker models endpoints. Fields are documented below.
+         * @param dataCaptureConfig Specifies the parameters to capture input/output of SageMaker models endpoints. Fields are documented below.
          * 
          * @return builder
          * 

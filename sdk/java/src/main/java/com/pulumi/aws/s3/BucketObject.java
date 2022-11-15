@@ -378,14 +378,14 @@ public class BucketObject extends com.pulumi.resources.CustomResource {
         return this.contentType;
     }
     /**
-     * Triggers updates when the value changes. The only meaningful value is `filemd5(&#34;path/to/file&#34;)`. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = &#34;aws:kms&#34;` (see `source_hash` instead).
+     * Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = &#34;aws:kms&#34;` (see `source_hash` instead).
      * 
      */
     @Export(name="etag", type=String.class, parameters={})
     private Output<String> etag;
 
     /**
-     * @return Triggers updates when the value changes. The only meaningful value is `filemd5(&#34;path/to/file&#34;)`. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = &#34;aws:kms&#34;` (see `source_hash` instead).
+     * @return Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = &#34;aws:kms&#34;` (see `source_hash` instead).
      * 
      */
     public Output<String> etag() {
@@ -420,14 +420,14 @@ public class BucketObject extends com.pulumi.resources.CustomResource {
         return this.key;
     }
     /**
-     * ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `aws.kms.Key` resource, use the `arn` attribute. If referencing the `aws.kms.Alias` data source or resource, use the `target_key_arn` attribute. This provider will only perform drift detection if a configuration value is provided.
+     * ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `aws.kms.Key` resource, use the `arn` attribute. If referencing the `aws.kms.Alias` data source or resource, use the `target_key_arn` attribute. The provider will only perform drift detection if a configuration value is provided.
      * 
      */
     @Export(name="kmsKeyId", type=String.class, parameters={})
     private Output<String> kmsKeyId;
 
     /**
-     * @return ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `aws.kms.Key` resource, use the `arn` attribute. If referencing the `aws.kms.Alias` data source or resource, use the `target_key_arn` attribute. This provider will only perform drift detection if a configuration value is provided.
+     * @return ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `aws.kms.Key` resource, use the `arn` attribute. If referencing the `aws.kms.Alias` data source or resource, use the `target_key_arn` attribute. The provider will only perform drift detection if a configuration value is provided.
      * 
      */
     public Output<String> kmsKeyId() {
@@ -518,14 +518,14 @@ public class BucketObject extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.source);
     }
     /**
-     * Triggers updates like `etag` but useful to address `etag` encryption limitations. Set using `filemd5(&#34;path/to/source&#34;)`. (The value is only stored in state and not saved by AWS.)
+     * Triggers updates like `etag` but useful to address `etag` encryption limitations.
      * 
      */
     @Export(name="sourceHash", type=String.class, parameters={})
     private Output</* @Nullable */ String> sourceHash;
 
     /**
-     * @return Triggers updates like `etag` but useful to address `etag` encryption limitations. Set using `filemd5(&#34;path/to/source&#34;)`. (The value is only stored in state and not saved by AWS.)
+     * @return Triggers updates like `etag` but useful to address `etag` encryption limitations.
      * 
      */
     public Output<Optional<String>> sourceHash() {

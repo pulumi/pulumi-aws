@@ -31,7 +31,7 @@ public final class WebAclRule {
      */
     private Integer priority;
     /**
-     * @return ID of the associated WAF (Regional) rule (e.g. `aws.wafregional.Rule`). WAF (Global) rules cannot be used.
+     * @return ID of the associated WAF (Regional) rule (e.g., `aws.wafregional.Rule`). WAF (Global) rules cannot be used.
      * 
      */
     private String ruleId;
@@ -65,7 +65,7 @@ public final class WebAclRule {
         return this.priority;
     }
     /**
-     * @return ID of the associated WAF (Regional) rule (e.g. `aws.wafregional.Rule`). WAF (Global) rules cannot be used.
+     * @return ID of the associated WAF (Regional) rule (e.g., `aws.wafregional.Rule`). WAF (Global) rules cannot be used.
      * 
      */
     public String ruleId() {

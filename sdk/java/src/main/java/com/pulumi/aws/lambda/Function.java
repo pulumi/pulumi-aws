@@ -31,8 +31,6 @@ import javax.annotation.Nullable;
  * 
  * For information about Lambda and how to use it, see [What is AWS Lambda?](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html)
  * 
- * &gt; To give an external source (like a CloudWatch Event Rule, SNS, or S3) permission to access the Lambda function, use the `aws.lambda.Permission` resource. See [Lambda ****Permission Model][4] for more details. On the other hand, the `role` argument of this resource is the function&#39;s execution role for identity and access to AWS services and resources.
- * 
  * &gt; **NOTE:** Due to [AWS Lambda improved VPC networking changes that began deploying in September 2019](https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/), EC2 subnets and security groups associated with Lambda Functions can take up to 45 minutes to successfully delete.
  * 
  * &gt; To give an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function, use the `aws.lambda.Permission` resource. See [Lambda Permission Model](https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html) for more details. On the other hand, the `role` argument of this resource is the function&#39;s execution role for identity and access to AWS services and resources.
@@ -264,7 +262,10 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### CloudWatch Logging and Permissions
+ * ### Lambda retries
+ * 
+ * Lambda Functions allow you to configure error handling for asynchronous invocation. The settings that it supports are `Maximum age of event` and `Retry attempts` as stated in [Lambda documentation for Configuring error handling for asynchronous invocation](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-errors). To configure these settings, refer to the aws.lambda.FunctionEventInvokeConfig resource.
+ * ## CloudWatch Logging and Permissions
  * 
  * For more information about CloudWatch Logs for Lambda, see the [Lambda User Guide](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions-logs.html).
  * ```java
@@ -336,66 +337,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### Lambda with Targetted Architecture
- * ```java
- * package generated_program;
  * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.lambda.Function;
- * import com.pulumi.aws.lambda.FunctionArgs;
- * import com.pulumi.aws.lambda.inputs.FunctionEnvironmentArgs;
- * import com.pulumi.asset.FileArchive;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
+ * ## Specifying the Deployment Package
  * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var iamForLambda = new Role(&#34;iamForLambda&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(&#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Action&#34;: &#34;sts:AssumeRole&#34;,
- *       &#34;Principal&#34;: {
- *         &#34;Service&#34;: &#34;lambda.amazonaws.com&#34;
- *       },
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Sid&#34;: &#34;&#34;
- *     }
- *   ]
- * }
- *             &#34;&#34;&#34;)
- *             .build());
- * 
- *         var testLambda = new Function(&#34;testLambda&#34;, FunctionArgs.builder()        
- *             .code(new FileArchive(&#34;lambda_function_payload.zip&#34;))
- *             .role(iamForLambda.arn())
- *             .handler(&#34;index.test&#34;)
- *             .runtime(&#34;nodejs12.x&#34;)
- *             .architectures(&#34;arm64&#34;)
- *             .environment(FunctionEnvironmentArgs.builder()
- *                 .variables(Map.of(&#34;foo&#34;, &#34;bar&#34;))
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
+ * AWS Lambda expects source code to be provided as a deployment package whose structure varies depending on which `runtime` is in use. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for the valid values of `runtime`. The expected structure of the deployment package can be found in [the AWS Lambda documentation for each runtime](https://docs.aws.amazon.com/lambda/latest/dg/deployment-package-v2.html).
  * 
  * Once you have created your deployment package you can specify it either directly as a local file (using the `filename` argument) or indirectly via Amazon S3 (using the `s3_bucket`, `s3_key` and `s3_object_version` arguments). When providing the deployment package via S3 it may be useful to use the `aws.s3.BucketObjectv2` resource to upload it.
+ * 
+ * For larger deployment packages it is recommended by Amazon to upload via S3, since the S3 API has better support for uploading large files efficiently.
  * 
  * ## Import
  * 
@@ -703,14 +652,14 @@ public class Function extends com.pulumi.resources.CustomResource {
         return this.qualifiedArn;
     }
     /**
-     * Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in [`aws.apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)&#39;s `uri`.
+     * Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`&#39;s `uri`.
      * 
      */
     @Export(name="qualifiedInvokeArn", type=String.class, parameters={})
     private Output<String> qualifiedInvokeArn;
 
     /**
-     * @return Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in [`aws.apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)&#39;s `uri`.
+     * @return Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`&#39;s `uri`.
      * 
      */
     public Output<String> qualifiedInvokeArn() {
@@ -829,14 +778,14 @@ public class Function extends com.pulumi.resources.CustomResource {
         return this.signingProfileVersionArn;
     }
     /**
-     * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `filebase64sha256(&#34;file.zip&#34;)`, where &#34;file.zip&#34; is the local filename of the lambda function source archive.
+     * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
      * 
      */
     @Export(name="sourceCodeHash", type=String.class, parameters={})
     private Output<String> sourceCodeHash;
 
     /**
-     * @return Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `filebase64sha256(&#34;file.zip&#34;)`, where &#34;file.zip&#34; is the local filename of the lambda function source archive.
+     * @return Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
      * 
      */
     public Output<String> sourceCodeHash() {

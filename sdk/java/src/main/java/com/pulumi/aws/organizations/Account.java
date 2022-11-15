@@ -112,9 +112,17 @@ public class Account extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> closeOnDeletion() {
         return Codegen.optional(this.closeOnDeletion);
     }
+    /**
+     * Whether to also create a GovCloud account. The GovCloud account is tied to the main (commercial) account this resource creates. If `true`, the GovCloud account ID is available in the `govcloud_id` attribute. The only way to manage the GovCloud account with the provider is to subsequently import the account using this resource.
+     * 
+     */
     @Export(name="createGovcloud", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> createGovcloud;
 
+    /**
+     * @return Whether to also create a GovCloud account. The GovCloud account is tied to the main (commercial) account this resource creates. If `true`, the GovCloud account ID is available in the `govcloud_id` attribute. The only way to manage the GovCloud account with the provider is to subsequently import the account using this resource.
+     * 
+     */
     public Output<Optional<Boolean>> createGovcloud() {
         return Codegen.optional(this.createGovcloud);
     }

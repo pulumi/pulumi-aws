@@ -81,7 +81,7 @@ import javax.annotation.Nullable;
  *         var example = new CodeRepository(&#34;example&#34;, CodeRepositoryArgs.builder()        
  *             .codeRepositoryName(&#34;my-notebook-instance-code-repo&#34;)
  *             .gitConfig(CodeRepositoryGitConfigArgs.builder()
- *                 .repositoryUrl(&#34;https://github.com/hashicorp/terraform-provider-aws.git&#34;)
+ *                 .repositoryUrl(&#34;https://github.com/github/docs.git&#34;)
  *                 .build())
  *             .build());
  * 

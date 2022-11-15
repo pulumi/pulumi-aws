@@ -21,17 +21,9 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ClusterArgs Empty = new ClusterArgs();
 
-    /**
-     * List of addons to remove upon creation. Any addon listed will be &#34;adopted&#34; and then removed. This allows for the creation of a baremetal cluster where no addon is deployed and direct management of addons via Pulumi Kubernetes resources. Valid entries are `kube-proxy`, `coredns` and `vpc-cni`. **Only** works on first creation of a cluster.
-     * 
-     */
     @Import(name="defaultAddonsToRemoves")
     private @Nullable Output<List<String>> defaultAddonsToRemoves;
 
-    /**
-     * @return List of addons to remove upon creation. Any addon listed will be &#34;adopted&#34; and then removed. This allows for the creation of a baremetal cluster where no addon is deployed and direct management of addons via Pulumi Kubernetes resources. Valid entries are `kube-proxy`, `coredns` and `vpc-cni`. **Only** works on first creation of a cluster.
-     * 
-     */
     public Optional<Output<List<String>>> defaultAddonsToRemoves() {
         return Optional.ofNullable(this.defaultAddonsToRemoves);
     }
@@ -112,14 +104,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
+     * ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `depends_on` if using the `aws.iam.RolePolicy` resource or `aws.iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
      * 
      */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
     /**
-     * @return ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
+     * @return ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `depends_on` if using the `aws.iam.RolePolicy` resource or `aws.iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
      * 
      */
     public Output<String> roleArn() {
@@ -204,33 +196,15 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ClusterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param defaultAddonsToRemoves List of addons to remove upon creation. Any addon listed will be &#34;adopted&#34; and then removed. This allows for the creation of a baremetal cluster where no addon is deployed and direct management of addons via Pulumi Kubernetes resources. Valid entries are `kube-proxy`, `coredns` and `vpc-cni`. **Only** works on first creation of a cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultAddonsToRemoves(@Nullable Output<List<String>> defaultAddonsToRemoves) {
             $.defaultAddonsToRemoves = defaultAddonsToRemoves;
             return this;
         }
 
-        /**
-         * @param defaultAddonsToRemoves List of addons to remove upon creation. Any addon listed will be &#34;adopted&#34; and then removed. This allows for the creation of a baremetal cluster where no addon is deployed and direct management of addons via Pulumi Kubernetes resources. Valid entries are `kube-proxy`, `coredns` and `vpc-cni`. **Only** works on first creation of a cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultAddonsToRemoves(List<String> defaultAddonsToRemoves) {
             return defaultAddonsToRemoves(Output.of(defaultAddonsToRemoves));
         }
 
-        /**
-         * @param defaultAddonsToRemoves List of addons to remove upon creation. Any addon listed will be &#34;adopted&#34; and then removed. This allows for the creation of a baremetal cluster where no addon is deployed and direct management of addons via Pulumi Kubernetes resources. Valid entries are `kube-proxy`, `coredns` and `vpc-cni`. **Only** works on first creation of a cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultAddonsToRemoves(String... defaultAddonsToRemoves) {
             return defaultAddonsToRemoves(List.of(defaultAddonsToRemoves));
         }
@@ -351,7 +325,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
+         * @param roleArn ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `depends_on` if using the `aws.iam.RolePolicy` resource or `aws.iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
          * 
          * @return builder
          * 
@@ -362,7 +336,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
+         * @param roleArn ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `depends_on` if using the `aws.iam.RolePolicy` resource or `aws.iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
          * 
          * @return builder
          * 

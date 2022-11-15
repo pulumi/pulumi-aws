@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
  * Manages a Kinesis Analytics v2 Application.
  * This resource can be used to manage both Kinesis Data Analytics for SQL applications and Kinesis Data Analytics for Apache Flink applications.
  * 
- * &gt; **Note:** Kinesis Data Analytics for SQL applications created using this resource cannot currently be viewed in the AWS Console. To manage Kinesis Data Analytics for SQL applications that can also be viewed in the AWS Console, use the `aws.kinesis.AnalyticsApplication`resource.
+ * &gt; **Note:** Kinesis Data Analytics for SQL applications created using this resource cannot currently be viewed in the AWS Console. To manage Kinesis Data Analytics for SQL applications that can also be viewed in the AWS Console, use the `aws.kinesis.AnalyticsApplication` resource.
  * 
  * ## Example Usage
  * ### Apache Flink Application
@@ -453,14 +453,14 @@ public class Application extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`.
+     * The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`.
      * 
      */
     @Export(name="runtimeEnvironment", type=String.class, parameters={})
     private Output<String> runtimeEnvironment;
 
     /**
-     * @return The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`.
+     * @return The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`.
      * 
      */
     public Output<String> runtimeEnvironment() {

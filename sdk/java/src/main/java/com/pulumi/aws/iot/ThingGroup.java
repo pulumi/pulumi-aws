@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .description(&#34;This is my thing group&#34;)
  *                 .build())
- *             .tags(Map.of(&#34;terraform&#34;, &#34;true&#34;))
+ *             .tags(Map.of(&#34;managed&#34;, &#34;true&#34;))
  *             .build());
  * 
  *     }

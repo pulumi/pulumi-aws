@@ -216,9 +216,17 @@ public class EventBusPolicy extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> eventBusName() {
         return Codegen.optional(this.eventBusName);
     }
+    /**
+     * The text of the policy.
+     * 
+     */
     @Export(name="policy", type=String.class, parameters={})
     private Output<String> policy;
 
+    /**
+     * @return The text of the policy.
+     * 
+     */
     public Output<String> policy() {
         return this.policy;
     }

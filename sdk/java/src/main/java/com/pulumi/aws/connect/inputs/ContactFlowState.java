@@ -61,9 +61,17 @@ public final class ContactFlowState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.content);
     }
 
+    /**
+     * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow source specified with `filename`.
+     * 
+     */
     @Import(name="contentHash")
     private @Nullable Output<String> contentHash;
 
+    /**
+     * @return Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow source specified with `filename`.
+     * 
+     */
     public Optional<Output<String>> contentHash() {
         return Optional.ofNullable(this.contentHash);
     }
@@ -270,11 +278,23 @@ public final class ContactFlowState extends com.pulumi.resources.ResourceArgs {
             return content(Output.of(content));
         }
 
+        /**
+         * @param contentHash Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow source specified with `filename`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder contentHash(@Nullable Output<String> contentHash) {
             $.contentHash = contentHash;
             return this;
         }
 
+        /**
+         * @param contentHash Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow source specified with `filename`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder contentHash(String contentHash) {
             return contentHash(Output.of(contentHash));
         }

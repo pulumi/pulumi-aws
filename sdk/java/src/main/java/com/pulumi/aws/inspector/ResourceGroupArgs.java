@@ -15,14 +15,14 @@ public final class ResourceGroupArgs extends com.pulumi.resources.ResourceArgs {
     public static final ResourceGroupArgs Empty = new ResourceGroupArgs();
 
     /**
-     * Key-value map of tags that are used to select the EC2 instances to be included in an `Amazon Inspector assessment target` resource.
+     * Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
      * 
      */
     @Import(name="tags", required=true)
     private Output<Map<String,String>> tags;
 
     /**
-     * @return Key-value map of tags that are used to select the EC2 instances to be included in an `Amazon Inspector assessment target` resource.
+     * @return Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
      * 
      */
     public Output<Map<String,String>> tags() {
@@ -54,7 +54,7 @@ public final class ResourceGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value map of tags that are used to select the EC2 instances to be included in an `Amazon Inspector assessment target` resource.
+         * @param tags Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class ResourceGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value map of tags that are used to select the EC2 instances to be included in an `Amazon Inspector assessment target` resource.
+         * @param tags Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
          * 
          * @return builder
          * 

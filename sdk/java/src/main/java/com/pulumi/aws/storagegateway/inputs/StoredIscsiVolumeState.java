@@ -214,14 +214,14 @@ public final class StoredIscsiVolumeState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Target Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
+     * Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
      * 
      */
     @Import(name="targetArn")
     private @Nullable Output<String> targetArn;
 
     /**
-     * @return Target Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
+     * @return Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
      * 
      */
     public Optional<Output<String>> targetArn() {
@@ -259,14 +259,14 @@ public final class StoredIscsiVolumeState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Volume ID, e.g. `vol-12345678`.
+     * Volume ID, e.g., `vol-12345678`.
      * 
      */
     @Import(name="volumeId")
     private @Nullable Output<String> volumeId;
 
     /**
-     * @return Volume ID, e.g. `vol-12345678`.
+     * @return Volume ID, e.g., `vol-12345678`.
      * 
      */
     public Optional<Output<String>> volumeId() {
@@ -635,7 +635,7 @@ public final class StoredIscsiVolumeState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param targetArn Target Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
+         * @param targetArn Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
          * 
          * @return builder
          * 
@@ -646,7 +646,7 @@ public final class StoredIscsiVolumeState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param targetArn Target Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
+         * @param targetArn Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
          * 
          * @return builder
          * 
@@ -698,7 +698,7 @@ public final class StoredIscsiVolumeState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param volumeId Volume ID, e.g. `vol-12345678`.
+         * @param volumeId Volume ID, e.g., `vol-12345678`.
          * 
          * @return builder
          * 
@@ -709,7 +709,7 @@ public final class StoredIscsiVolumeState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param volumeId Volume ID, e.g. `vol-12345678`.
+         * @param volumeId Volume ID, e.g., `vol-12345678`.
          * 
          * @return builder
          * 

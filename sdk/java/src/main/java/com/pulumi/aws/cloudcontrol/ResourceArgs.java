@@ -15,9 +15,17 @@ public final class ResourceArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ResourceArgs Empty = new ResourceArgs();
 
+    /**
+     * JSON string matching the CloudFormation resource type schema with desired configuration.
+     * 
+     */
     @Import(name="desiredState", required=true)
     private Output<String> desiredState;
 
+    /**
+     * @return JSON string matching the CloudFormation resource type schema with desired configuration.
+     * 
+     */
     public Output<String> desiredState() {
         return this.desiredState;
     }
@@ -110,11 +118,23 @@ public final class ResourceArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ResourceArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param desiredState JSON string matching the CloudFormation resource type schema with desired configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder desiredState(Output<String> desiredState) {
             $.desiredState = desiredState;
             return this;
         }
 
+        /**
+         * @param desiredState JSON string matching the CloudFormation resource type schema with desired configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder desiredState(String desiredState) {
             return desiredState(Output.of(desiredState));
         }

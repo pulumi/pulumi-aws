@@ -63,14 +63,14 @@ public final class ClusterVpcConfigArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint when enabled. EKS defaults this to a list with `0.0.0.0/0`. This provider will only perform drift detection of its value when present in a configuration.
+     * List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint when enabled. EKS defaults this to a list with `0.0.0.0/0`. The provider will only perform drift detection of its value when present in a configuration.
      * 
      */
     @Import(name="publicAccessCidrs")
     private @Nullable Output<List<String>> publicAccessCidrs;
 
     /**
-     * @return List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint when enabled. EKS defaults this to a list with `0.0.0.0/0`. This provider will only perform drift detection of its value when present in a configuration.
+     * @return List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint when enabled. EKS defaults this to a list with `0.0.0.0/0`. The provider will only perform drift detection of its value when present in a configuration.
      * 
      */
     public Optional<Output<List<String>>> publicAccessCidrs() {
@@ -216,7 +216,7 @@ public final class ClusterVpcConfigArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param publicAccessCidrs List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint when enabled. EKS defaults this to a list with `0.0.0.0/0`. This provider will only perform drift detection of its value when present in a configuration.
+         * @param publicAccessCidrs List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint when enabled. EKS defaults this to a list with `0.0.0.0/0`. The provider will only perform drift detection of its value when present in a configuration.
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class ClusterVpcConfigArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param publicAccessCidrs List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint when enabled. EKS defaults this to a list with `0.0.0.0/0`. This provider will only perform drift detection of its value when present in a configuration.
+         * @param publicAccessCidrs List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint when enabled. EKS defaults this to a list with `0.0.0.0/0`. The provider will only perform drift detection of its value when present in a configuration.
          * 
          * @return builder
          * 
@@ -237,7 +237,7 @@ public final class ClusterVpcConfigArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param publicAccessCidrs List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint when enabled. EKS defaults this to a list with `0.0.0.0/0`. This provider will only perform drift detection of its value when present in a configuration.
+         * @param publicAccessCidrs List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint when enabled. EKS defaults this to a list with `0.0.0.0/0`. The provider will only perform drift detection of its value when present in a configuration.
          * 
          * @return builder
          * 

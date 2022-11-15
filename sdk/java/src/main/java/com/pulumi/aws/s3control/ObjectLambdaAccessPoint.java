@@ -79,9 +79,17 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:s3control/objectLambdaAccessPoint:ObjectLambdaAccessPoint")
 public class ObjectLambdaAccessPoint extends com.pulumi.resources.CustomResource {
+    /**
+     * The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
+     * 
+     */
     @Export(name="accountId", type=String.class, parameters={})
     private Output<String> accountId;
 
+    /**
+     * @return The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
+     * 
+     */
     public Output<String> accountId() {
         return this.accountId;
     }

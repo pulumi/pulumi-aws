@@ -135,9 +135,17 @@ public class Volume extends com.pulumi.resources.CustomResource {
     public Output<Integer> iops() {
         return this.iops;
     }
+    /**
+     * The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
+     * 
+     */
     @Export(name="kmsKeyId", type=String.class, parameters={})
     private Output<String> kmsKeyId;
 
+    /**
+     * @return The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
+     * 
+     */
     public Output<String> kmsKeyId() {
         return this.kmsKeyId;
     }

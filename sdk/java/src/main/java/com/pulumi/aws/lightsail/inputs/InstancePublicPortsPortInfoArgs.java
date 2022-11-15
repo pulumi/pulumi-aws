@@ -47,6 +47,13 @@ public final class InstancePublicPortsPortInfoArgs extends com.pulumi.resources.
         return this.fromPort;
     }
 
+    @Import(name="ipv6Cidrs")
+    private @Nullable Output<List<String>> ipv6Cidrs;
+
+    public Optional<Output<List<String>>> ipv6Cidrs() {
+        return Optional.ofNullable(this.ipv6Cidrs);
+    }
+
     /**
      * IP protocol name. Valid values are `tcp`, `all`, `udp`, and `icmp`.
      * 
@@ -82,6 +89,7 @@ public final class InstancePublicPortsPortInfoArgs extends com.pulumi.resources.
     private InstancePublicPortsPortInfoArgs(InstancePublicPortsPortInfoArgs $) {
         this.cidrs = $.cidrs;
         this.fromPort = $.fromPort;
+        this.ipv6Cidrs = $.ipv6Cidrs;
         this.protocol = $.protocol;
         this.toPort = $.toPort;
     }
@@ -154,6 +162,19 @@ public final class InstancePublicPortsPortInfoArgs extends com.pulumi.resources.
          */
         public Builder fromPort(Integer fromPort) {
             return fromPort(Output.of(fromPort));
+        }
+
+        public Builder ipv6Cidrs(@Nullable Output<List<String>> ipv6Cidrs) {
+            $.ipv6Cidrs = ipv6Cidrs;
+            return this;
+        }
+
+        public Builder ipv6Cidrs(List<String> ipv6Cidrs) {
+            return ipv6Cidrs(Output.of(ipv6Cidrs));
+        }
+
+        public Builder ipv6Cidrs(String... ipv6Cidrs) {
+            return ipv6Cidrs(List.of(ipv6Cidrs));
         }
 
         /**

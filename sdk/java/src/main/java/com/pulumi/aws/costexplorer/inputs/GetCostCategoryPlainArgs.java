@@ -31,14 +31,14 @@ public final class GetCostCategoryPlainArgs extends com.pulumi.resources.InvokeA
     }
 
     /**
-     * Resource tags.
+     * Configuration block for the specific `Tag` to use for `Expression`. See below.
      * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return Resource tags.
+     * @return Configuration block for the specific `Tag` to use for `Expression`. See below.
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -82,7 +82,7 @@ public final class GetCostCategoryPlainArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param tags Resource tags.
+         * @param tags Configuration block for the specific `Tag` to use for `Expression`. See below.
          * 
          * @return builder
          * 

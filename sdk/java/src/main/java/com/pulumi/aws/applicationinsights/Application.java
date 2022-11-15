@@ -155,7 +155,6 @@ public class Application extends com.pulumi.resources.CustomResource {
     }
     /**
      * When set to `true`, creates opsItems for any problems detected on an application.
-     * &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
      * 
      */
     @Export(name="opsCenterEnabled", type=Boolean.class, parameters={})
@@ -163,7 +162,6 @@ public class Application extends com.pulumi.resources.CustomResource {
 
     /**
      * @return When set to `true`, creates opsItems for any problems detected on an application.
-     * &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
      * 
      */
     public Output<Optional<Boolean>> opsCenterEnabled() {
@@ -199,7 +197,6 @@ public class Application extends com.pulumi.resources.CustomResource {
     }
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * &gt; &gt; &gt; &gt; &gt; &gt; &gt; v4.29.0
      * 
      */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
@@ -207,7 +204,6 @@ public class Application extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * &gt; &gt; &gt; &gt; &gt; &gt; &gt; v4.29.0
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

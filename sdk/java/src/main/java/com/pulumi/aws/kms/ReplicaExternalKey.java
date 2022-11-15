@@ -232,9 +232,17 @@ public class ReplicaExternalKey extends com.pulumi.resources.CustomResource {
     public Output<String> keyUsage() {
         return this.keyUsage;
     }
+    /**
+     * The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
+     * 
+     */
     @Export(name="policy", type=String.class, parameters={})
     private Output<String> policy;
 
+    /**
+     * @return The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
+     * 
+     */
     public Output<String> policy() {
         return this.policy;
     }

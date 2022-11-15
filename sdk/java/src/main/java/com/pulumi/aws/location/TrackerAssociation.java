@@ -14,6 +14,8 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
+ * Resource for managing an AWS Location Tracker Association.
+ * 
  * ## Example Usage
  * ```java
  * package generated_program;

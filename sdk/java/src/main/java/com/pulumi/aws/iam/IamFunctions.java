@@ -6679,15 +6679,299 @@ public final class IamFunctions {
     public static CompletableFuture<GetServerCertificateResult> getServerCertificatePlain(GetServerCertificatePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:iam/getServerCertificate:getServerCertificate", TypeShape.of(GetServerCertificateResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * This data source provides information on the IAM source role of an STS assumed role. For non-role ARNs, this data source simply passes the ARN through in `issuer_arn`.
+     * 
+     * For some AWS resources, multiple types of principals are allowed in the same argument (e.g., IAM users and IAM roles). However, these arguments often do not allow assumed-role (i.e., STS, temporary credential) principals. Given an STS ARN, this data source provides the ARN for the source IAM role.
+     * 
+     * ## Example Usage
+     * ### Basic Example
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetSessionContextArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = IamFunctions.getSessionContext(GetSessionContextArgs.builder()
+     *             .arn(&#34;arn:aws:sts::123456789012:assumed-role/Audien-Heaven/MatyNoyes&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Find the Provider&#39;s Source Role
+     * 
+     * Combined with `aws.getCallerIdentity`, you can get the current user&#39;s source IAM role ARN (`issuer_arn`) if you&#39;re using an assumed role. If you&#39;re not using an assumed role, the caller&#39;s (e.g., an IAM user&#39;s) ARN will simply be passed through. In environments where both IAM users and individuals using assumed roles need to apply the same configurations, this data source enables seamless use.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetSessionContextArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getCallerIdentity();
+     * 
+     *         final var example = IamFunctions.getSessionContext(GetSessionContextArgs.builder()
+     *             .arn(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetSessionContextResult> getSessionContext(GetSessionContextArgs args) {
         return getSessionContext(args, InvokeOptions.Empty);
     }
+    /**
+     * This data source provides information on the IAM source role of an STS assumed role. For non-role ARNs, this data source simply passes the ARN through in `issuer_arn`.
+     * 
+     * For some AWS resources, multiple types of principals are allowed in the same argument (e.g., IAM users and IAM roles). However, these arguments often do not allow assumed-role (i.e., STS, temporary credential) principals. Given an STS ARN, this data source provides the ARN for the source IAM role.
+     * 
+     * ## Example Usage
+     * ### Basic Example
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetSessionContextArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = IamFunctions.getSessionContext(GetSessionContextArgs.builder()
+     *             .arn(&#34;arn:aws:sts::123456789012:assumed-role/Audien-Heaven/MatyNoyes&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Find the Provider&#39;s Source Role
+     * 
+     * Combined with `aws.getCallerIdentity`, you can get the current user&#39;s source IAM role ARN (`issuer_arn`) if you&#39;re using an assumed role. If you&#39;re not using an assumed role, the caller&#39;s (e.g., an IAM user&#39;s) ARN will simply be passed through. In environments where both IAM users and individuals using assumed roles need to apply the same configurations, this data source enables seamless use.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetSessionContextArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getCallerIdentity();
+     * 
+     *         final var example = IamFunctions.getSessionContext(GetSessionContextArgs.builder()
+     *             .arn(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetSessionContextResult> getSessionContextPlain(GetSessionContextPlainArgs args) {
         return getSessionContextPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * This data source provides information on the IAM source role of an STS assumed role. For non-role ARNs, this data source simply passes the ARN through in `issuer_arn`.
+     * 
+     * For some AWS resources, multiple types of principals are allowed in the same argument (e.g., IAM users and IAM roles). However, these arguments often do not allow assumed-role (i.e., STS, temporary credential) principals. Given an STS ARN, this data source provides the ARN for the source IAM role.
+     * 
+     * ## Example Usage
+     * ### Basic Example
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetSessionContextArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = IamFunctions.getSessionContext(GetSessionContextArgs.builder()
+     *             .arn(&#34;arn:aws:sts::123456789012:assumed-role/Audien-Heaven/MatyNoyes&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Find the Provider&#39;s Source Role
+     * 
+     * Combined with `aws.getCallerIdentity`, you can get the current user&#39;s source IAM role ARN (`issuer_arn`) if you&#39;re using an assumed role. If you&#39;re not using an assumed role, the caller&#39;s (e.g., an IAM user&#39;s) ARN will simply be passed through. In environments where both IAM users and individuals using assumed roles need to apply the same configurations, this data source enables seamless use.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetSessionContextArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getCallerIdentity();
+     * 
+     *         final var example = IamFunctions.getSessionContext(GetSessionContextArgs.builder()
+     *             .arn(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetSessionContextResult> getSessionContext(GetSessionContextArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:iam/getSessionContext:getSessionContext", TypeShape.of(GetSessionContextResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * This data source provides information on the IAM source role of an STS assumed role. For non-role ARNs, this data source simply passes the ARN through in `issuer_arn`.
+     * 
+     * For some AWS resources, multiple types of principals are allowed in the same argument (e.g., IAM users and IAM roles). However, these arguments often do not allow assumed-role (i.e., STS, temporary credential) principals. Given an STS ARN, this data source provides the ARN for the source IAM role.
+     * 
+     * ## Example Usage
+     * ### Basic Example
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetSessionContextArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = IamFunctions.getSessionContext(GetSessionContextArgs.builder()
+     *             .arn(&#34;arn:aws:sts::123456789012:assumed-role/Audien-Heaven/MatyNoyes&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Find the Provider&#39;s Source Role
+     * 
+     * Combined with `aws.getCallerIdentity`, you can get the current user&#39;s source IAM role ARN (`issuer_arn`) if you&#39;re using an assumed role. If you&#39;re not using an assumed role, the caller&#39;s (e.g., an IAM user&#39;s) ARN will simply be passed through. In environments where both IAM users and individuals using assumed roles need to apply the same configurations, this data source enables seamless use.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetSessionContextArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getCallerIdentity();
+     * 
+     *         final var example = IamFunctions.getSessionContext(GetSessionContextArgs.builder()
+     *             .arn(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetSessionContextResult> getSessionContextPlain(GetSessionContextPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:iam/getSessionContext:getSessionContext", TypeShape.of(GetSessionContextResult.class), args, Utilities.withVersion(options));
     }

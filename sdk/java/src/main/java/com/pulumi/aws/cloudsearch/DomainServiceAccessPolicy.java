@@ -14,6 +14,10 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
+ * Provides an CloudSearch domain service access policy resource.
+ * 
+ * The provider waits for the domain service access policy to become `Active` when applying a configuration.
+ * 
  * ## Example Usage
  * ```java
  * package generated_program;

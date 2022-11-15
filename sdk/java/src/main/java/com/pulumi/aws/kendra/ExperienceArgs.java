@@ -16,9 +16,17 @@ public final class ExperienceArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ExperienceArgs Empty = new ExperienceArgs();
 
+    /**
+     * Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+     * 
+     */
     @Import(name="configuration")
     private @Nullable Output<ExperienceConfigurationArgs> configuration;
 
+    /**
+     * @return Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+     * 
+     */
     public Optional<Output<ExperienceConfigurationArgs>> configuration() {
         return Optional.ofNullable(this.configuration);
     }
@@ -111,11 +119,23 @@ public final class ExperienceArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ExperienceArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param configuration Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder configuration(@Nullable Output<ExperienceConfigurationArgs> configuration) {
             $.configuration = configuration;
             return this;
         }
 
+        /**
+         * @param configuration Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder configuration(ExperienceConfigurationArgs configuration) {
             return configuration(Output.of(configuration));
         }

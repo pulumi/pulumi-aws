@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
 /**
  * Manages an Amazon API Gateway Version 2 API.
  * 
- * &gt; **Note:** Amazon API Gateway Version 2 resources are used for creating and deploying WebSocket and HTTP APIs. To create and deploy REST APIs, use Amazon API Gateway Version 1.
+ * &gt; **Note:** Amazon API Gateway Version 2 resources are used for creating and deploying WebSocket and HTTP APIs. To create and deploy REST APIs, use Amazon API Gateway Version 1 resources.
  * 
  * ## Example Usage
  * ### Basic WebSocket API

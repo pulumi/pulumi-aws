@@ -46,18 +46,19 @@ public final class DedicatedIpPoolArgs extends com.pulumi.resources.ResourceArgs
         return Optional.ofNullable(this.scalingMode);
     }
 
+    /**
+     * A map of tags to assign to the pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return A map of tags to assign to the pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
-    }
-
-    @Import(name="tagsAll")
-    private @Nullable Output<Map<String,String>> tagsAll;
-
-    public Optional<Output<Map<String,String>>> tagsAll() {
-        return Optional.ofNullable(this.tagsAll);
     }
 
     private DedicatedIpPoolArgs() {}
@@ -66,7 +67,6 @@ public final class DedicatedIpPoolArgs extends com.pulumi.resources.ResourceArgs
         this.poolName = $.poolName;
         this.scalingMode = $.scalingMode;
         this.tags = $.tags;
-        this.tagsAll = $.tagsAll;
     }
 
     public static Builder builder() {
@@ -129,22 +129,25 @@ public final class DedicatedIpPoolArgs extends com.pulumi.resources.ResourceArgs
             return scalingMode(Output.of(scalingMode));
         }
 
+        /**
+         * @param tags A map of tags to assign to the pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags A map of tags to assign to the pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
-        }
-
-        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
-            $.tagsAll = tagsAll;
-            return this;
-        }
-
-        public Builder tagsAll(Map<String,String> tagsAll) {
-            return tagsAll(Output.of(tagsAll));
         }
 
         public DedicatedIpPoolArgs build() {

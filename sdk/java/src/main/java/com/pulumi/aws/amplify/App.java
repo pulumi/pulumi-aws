@@ -21,6 +21,10 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Provides an Amplify App resource, a fullstack serverless app hosted on the [AWS Amplify Console](https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html).
+ * 
+ * &gt; **Note:** When you create/update an Amplify App from the provider, you may end up with the error &#34;BadRequestException: You should at least provide one valid token&#34; because of authentication issues. See the section &#34;Repository with Tokens&#34; below.
+ * 
  * ## Example Usage
  * ```java
  * package generated_program;
@@ -496,7 +500,6 @@ public class App extends com.pulumi.resources.CustomResource {
     }
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * &gt; &gt; &gt; &gt; &gt; &gt; &gt; v4.29.0
      * 
      */
     @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
@@ -504,7 +507,6 @@ public class App extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * &gt; &gt; &gt; &gt; &gt; &gt; &gt; v4.29.0
      * 
      */
     public Output<Map<String,String>> tagsAll() {

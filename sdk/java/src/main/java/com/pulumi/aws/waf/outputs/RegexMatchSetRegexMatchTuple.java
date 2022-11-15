@@ -16,13 +16,13 @@ public final class RegexMatchSetRegexMatchTuple {
      */
     private RegexMatchSetRegexMatchTupleFieldToMatch fieldToMatch;
     /**
-     * @return The ID of a `WAF Regex Pattern Set`.
+     * @return The ID of a Regex Pattern Set.
      * 
      */
     private String regexPatternSetId;
     /**
      * @return Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
-     * e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
+     * e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
      * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
      * for all supported values.
      * 
@@ -38,7 +38,7 @@ public final class RegexMatchSetRegexMatchTuple {
         return this.fieldToMatch;
     }
     /**
-     * @return The ID of a `WAF Regex Pattern Set`.
+     * @return The ID of a Regex Pattern Set.
      * 
      */
     public String regexPatternSetId() {
@@ -46,7 +46,7 @@ public final class RegexMatchSetRegexMatchTuple {
     }
     /**
      * @return Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
-     * e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
+     * e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
      * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
      * for all supported values.
      * 

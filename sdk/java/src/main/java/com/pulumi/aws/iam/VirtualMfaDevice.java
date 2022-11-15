@@ -16,6 +16,8 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Provides an IAM Virtual MFA Device.
+ * 
  * ## Example Usage
  * 
  * **Using certs on file:**

@@ -15,9 +15,17 @@ public final class RepositoryPolicyState extends com.pulumi.resources.ResourceAr
 
     public static final RepositoryPolicyState Empty = new RepositoryPolicyState();
 
+    /**
+     * The policy document. This is a JSON formatted string.
+     * 
+     */
     @Import(name="policy")
     private @Nullable Output<String> policy;
 
+    /**
+     * @return The policy document. This is a JSON formatted string.
+     * 
+     */
     public Optional<Output<String>> policy() {
         return Optional.ofNullable(this.policy);
     }
@@ -78,11 +86,23 @@ public final class RepositoryPolicyState extends com.pulumi.resources.ResourceAr
             $ = new RepositoryPolicyState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param policy The policy document. This is a JSON formatted string.
+         * 
+         * @return builder
+         * 
+         */
         public Builder policy(@Nullable Output<String> policy) {
             $.policy = policy;
             return this;
         }
 
+        /**
+         * @param policy The policy document. This is a JSON formatted string.
+         * 
+         * @return builder
+         * 
+         */
         public Builder policy(String policy) {
             return policy(Output.of(policy));
         }

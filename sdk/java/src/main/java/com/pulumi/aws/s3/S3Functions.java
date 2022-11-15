@@ -1520,7 +1520,7 @@ public final class S3Functions {
      * file stored in S3, which is then used to pass the most recent `version_id`
      * to AWS Lambda for use as a function implementation. More information about
      * Lambda functions is available in the documentation for
-     * [`aws.lambda.Function`](https://www.terraform.io/docs/providers/aws/r/lambda_function.html).
+     * `aws.lambda.Function`.
      * ```java
      * package generated_program;
      * 
@@ -1617,7 +1617,7 @@ public final class S3Functions {
      * file stored in S3, which is then used to pass the most recent `version_id`
      * to AWS Lambda for use as a function implementation. More information about
      * Lambda functions is available in the documentation for
-     * [`aws.lambda.Function`](https://www.terraform.io/docs/providers/aws/r/lambda_function.html).
+     * `aws.lambda.Function`.
      * ```java
      * package generated_program;
      * 
@@ -1714,7 +1714,7 @@ public final class S3Functions {
      * file stored in S3, which is then used to pass the most recent `version_id`
      * to AWS Lambda for use as a function implementation. More information about
      * Lambda functions is available in the documentation for
-     * [`aws.lambda.Function`](https://www.terraform.io/docs/providers/aws/r/lambda_function.html).
+     * `aws.lambda.Function`.
      * ```java
      * package generated_program;
      * 
@@ -1811,7 +1811,7 @@ public final class S3Functions {
      * file stored in S3, which is then used to pass the most recent `version_id`
      * to AWS Lambda for use as a function implementation. More information about
      * Lambda functions is available in the documentation for
-     * [`aws.lambda.Function`](https://www.terraform.io/docs/providers/aws/r/lambda_function.html).
+     * `aws.lambda.Function`.
      * ```java
      * package generated_program;
      * 
@@ -1856,15 +1856,39 @@ public final class S3Functions {
     public static CompletableFuture<GetObjectResult> getObjectPlain(GetObjectPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:s3/getObject:getObject", TypeShape.of(GetObjectResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * &gt; **NOTE on `max_keys`:** Retrieving very large numbers of keys can adversely affect the provider&#39;s performance.
+     * 
+     * The objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
+     * 
+     */
     public static Output<GetObjectsResult> getObjects(GetObjectsArgs args) {
         return getObjects(args, InvokeOptions.Empty);
     }
+    /**
+     * &gt; **NOTE on `max_keys`:** Retrieving very large numbers of keys can adversely affect the provider&#39;s performance.
+     * 
+     * The objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
+     * 
+     */
     public static CompletableFuture<GetObjectsResult> getObjectsPlain(GetObjectsPlainArgs args) {
         return getObjectsPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * &gt; **NOTE on `max_keys`:** Retrieving very large numbers of keys can adversely affect the provider&#39;s performance.
+     * 
+     * The objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
+     * 
+     */
     public static Output<GetObjectsResult> getObjects(GetObjectsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:s3/getObjects:getObjects", TypeShape.of(GetObjectsResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * &gt; **NOTE on `max_keys`:** Retrieving very large numbers of keys can adversely affect the provider&#39;s performance.
+     * 
+     * The objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
+     * 
+     */
     public static CompletableFuture<GetObjectsResult> getObjectsPlain(GetObjectsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:s3/getObjects:getObjects", TypeShape.of(GetObjectsResult.class), args, Utilities.withVersion(options));
     }

@@ -317,9 +317,17 @@ public class MetricStream extends com.pulumi.resources.CustomResource {
     public Output<String> lastUpdateDate() {
         return this.lastUpdateDate;
     }
+    /**
+     * Friendly name of the metric stream. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+     * 
+     */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
+    /**
+     * @return Friendly name of the metric stream. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }

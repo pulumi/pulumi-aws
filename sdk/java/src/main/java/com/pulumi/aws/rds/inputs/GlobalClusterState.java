@@ -63,16 +63,32 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.deletionProtection);
     }
 
+    /**
+     * Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `source_db_cluster_identifier`.
+     * 
+     */
     @Import(name="engine")
     private @Nullable Output<String> engine;
 
+    /**
+     * @return Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `source_db_cluster_identifier`.
+     * 
+     */
     public Optional<Output<String>> engine() {
         return Optional.ofNullable(this.engine);
     }
 
+    /**
+     * Engine version of the Aurora global database. The `engine`, `engine_version`, and `instance_class` (on the `aws.rds.ClusterInstance`) must together support global databases. See [Using Amazon Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html) for more information. By upgrading the engine version, the provider will upgrade cluster members. **NOTE:** To avoid an `inconsistent final plan` error while upgrading, use the `lifecycle` `ignore_changes` for `engine_version` meta argument on the associated `aws.rds.Cluster` resource as shown above in Upgrading Engine Versions example.
+     * 
+     */
     @Import(name="engineVersion")
     private @Nullable Output<String> engineVersion;
 
+    /**
+     * @return Engine version of the Aurora global database. The `engine`, `engine_version`, and `instance_class` (on the `aws.rds.ClusterInstance`) must together support global databases. See [Using Amazon Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html) for more information. By upgrading the engine version, the provider will upgrade cluster members. **NOTE:** To avoid an `inconsistent final plan` error while upgrading, use the `lifecycle` `ignore_changes` for `engine_version` meta argument on the associated `aws.rds.Cluster` resource as shown above in Upgrading Engine Versions example.
+     * 
+     */
     public Optional<Output<String>> engineVersion() {
         return Optional.ofNullable(this.engineVersion);
     }
@@ -272,20 +288,44 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
             return deletionProtection(Output.of(deletionProtection));
         }
 
+        /**
+         * @param engine Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `source_db_cluster_identifier`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder engine(@Nullable Output<String> engine) {
             $.engine = engine;
             return this;
         }
 
+        /**
+         * @param engine Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `source_db_cluster_identifier`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder engine(String engine) {
             return engine(Output.of(engine));
         }
 
+        /**
+         * @param engineVersion Engine version of the Aurora global database. The `engine`, `engine_version`, and `instance_class` (on the `aws.rds.ClusterInstance`) must together support global databases. See [Using Amazon Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html) for more information. By upgrading the engine version, the provider will upgrade cluster members. **NOTE:** To avoid an `inconsistent final plan` error while upgrading, use the `lifecycle` `ignore_changes` for `engine_version` meta argument on the associated `aws.rds.Cluster` resource as shown above in Upgrading Engine Versions example.
+         * 
+         * @return builder
+         * 
+         */
         public Builder engineVersion(@Nullable Output<String> engineVersion) {
             $.engineVersion = engineVersion;
             return this;
         }
 
+        /**
+         * @param engineVersion Engine version of the Aurora global database. The `engine`, `engine_version`, and `instance_class` (on the `aws.rds.ClusterInstance`) must together support global databases. See [Using Amazon Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html) for more information. By upgrading the engine version, the provider will upgrade cluster members. **NOTE:** To avoid an `inconsistent final plan` error while upgrading, use the `lifecycle` `ignore_changes` for `engine_version` meta argument on the associated `aws.rds.Cluster` resource as shown above in Upgrading Engine Versions example.
+         * 
+         * @return builder
+         * 
+         */
         public Builder engineVersion(String engineVersion) {
             return engineVersion(Output.of(engineVersion));
         }

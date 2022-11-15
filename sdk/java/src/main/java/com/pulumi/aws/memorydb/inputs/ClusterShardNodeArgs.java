@@ -55,16 +55,14 @@ public final class ClusterShardNodeArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Name of this node.
-     * * `endpoint`
+     * Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of this node.
-     * * `endpoint`
+     * @return Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -154,8 +152,7 @@ public final class ClusterShardNodeArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name Name of this node.
-         * * `endpoint`
+         * @param name Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
          * 
          * @return builder
          * 
@@ -166,8 +163,7 @@ public final class ClusterShardNodeArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name Name of this node.
-         * * `endpoint`
+         * @param name Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
          * 
          * @return builder
          * 

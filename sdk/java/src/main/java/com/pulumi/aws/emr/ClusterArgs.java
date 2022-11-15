@@ -28,9 +28,17 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ClusterArgs Empty = new ClusterArgs();
 
+    /**
+     * JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore the provider cannot detect drift from the actual EMR cluster if its value is changed outside the provider.
+     * 
+     */
     @Import(name="additionalInfo")
     private @Nullable Output<String> additionalInfo;
 
+    /**
+     * @return JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore the provider cannot detect drift from the actual EMR cluster if its value is changed outside the provider.
+     * 
+     */
     public Optional<Output<String>> additionalInfo() {
         return Optional.ofNullable(this.additionalInfo);
     }
@@ -507,11 +515,23 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ClusterArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param additionalInfo JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore the provider cannot detect drift from the actual EMR cluster if its value is changed outside the provider.
+         * 
+         * @return builder
+         * 
+         */
         public Builder additionalInfo(@Nullable Output<String> additionalInfo) {
             $.additionalInfo = additionalInfo;
             return this;
         }
 
+        /**
+         * @param additionalInfo JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore the provider cannot detect drift from the actual EMR cluster if its value is changed outside the provider.
+         * 
+         * @return builder
+         * 
+         */
         public Builder additionalInfo(String additionalInfo) {
             return additionalInfo(Output.of(additionalInfo));
         }

@@ -46,14 +46,14 @@ public final class GetServiceQuotaArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Service code for the quota. Available values can be found with the `aws.servicequotas.getService` or [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
+     * Service code for the quota. Available values can be found with the `aws.servicequotas.getService` data source or [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
      * 
      */
     @Import(name="serviceCode", required=true)
     private Output<String> serviceCode;
 
     /**
-     * @return Service code for the quota. Available values can be found with the `aws.servicequotas.getService` or [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
+     * @return Service code for the quota. Available values can be found with the `aws.servicequotas.getService` data source or [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
      * 
      */
     public Output<String> serviceCode() {
@@ -129,7 +129,7 @@ public final class GetServiceQuotaArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param serviceCode Service code for the quota. Available values can be found with the `aws.servicequotas.getService` or [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
+         * @param serviceCode Service code for the quota. Available values can be found with the `aws.servicequotas.getService` data source or [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class GetServiceQuotaArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param serviceCode Service code for the quota. Available values can be found with the `aws.servicequotas.getService` or [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
+         * @param serviceCode Service code for the quota. Available values can be found with the `aws.servicequotas.getService` data source or [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
          * 
          * @return builder
          * 

@@ -40,11 +40,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
  * import com.pulumi.aws.iam.InstanceProfile;
  * import com.pulumi.aws.iam.InstanceProfileArgs;
- * import com.pulumi.aws.ec2.Vpc;
- * import com.pulumi.aws.ec2.VpcArgs;
  * import com.pulumi.aws.ec2.SecurityGroup;
  * import com.pulumi.aws.ec2.SecurityGroupArgs;
  * import com.pulumi.aws.ec2.inputs.SecurityGroupEgressArgs;
+ * import com.pulumi.aws.ec2.Vpc;
+ * import com.pulumi.aws.ec2.VpcArgs;
  * import com.pulumi.aws.ec2.Subnet;
  * import com.pulumi.aws.ec2.SubnetArgs;
  * import com.pulumi.aws.batch.ComputeEnvironment;
@@ -112,18 +112,17 @@ import javax.annotation.Nullable;
  *             .policyArn(&#34;arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole&#34;)
  *             .build());
  * 
- *         var sampleVpc = new Vpc(&#34;sampleVpc&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.1.0.0/16&#34;)
- *             .build());
- * 
  *         var sampleSecurityGroup = new SecurityGroup(&#34;sampleSecurityGroup&#34;, SecurityGroupArgs.builder()        
- *             .vpcId(sampleVpc.id())
  *             .egress(SecurityGroupEgressArgs.builder()
  *                 .fromPort(0)
  *                 .toPort(0)
  *                 .protocol(&#34;-1&#34;)
  *                 .cidrBlocks(&#34;0.0.0.0/0&#34;)
  *                 .build())
+ *             .build());
+ * 
+ *         var sampleVpc = new Vpc(&#34;sampleVpc&#34;, VpcArgs.builder()        
+ *             .cidrBlock(&#34;10.1.0.0/16&#34;)
  *             .build());
  * 
  *         var sampleSubnet = new Subnet(&#34;sampleSubnet&#34;, SubnetArgs.builder()        
@@ -221,14 +220,14 @@ public class ComputeEnvironment extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, this provider will assign a random, unique name.
+     * The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
      * 
      */
     @Export(name="computeEnvironmentName", type=String.class, parameters={})
     private Output<String> computeEnvironmentName;
 
     /**
-     * @return The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, this provider will assign a random, unique name.
+     * @return The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
      * 
      */
     public Output<String> computeEnvironmentName() {

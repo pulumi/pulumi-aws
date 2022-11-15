@@ -199,7 +199,7 @@ import javax.annotation.Nullable;
  *                             .statements(                            
  *                                 RuleGroupRuleStatementOrStatementStatementArgs.builder()
  *                                     .regexMatchStatement(RuleGroupRuleStatementOrStatementStatementRegexMatchStatementArgs.builder()
- *                                         .regexString(&#34;[a-z]([a-z0-9_-]*[a-z0-9])?&#34;)
+ *                                         .regexString(&#34;a-z?&#34;)
  *                                         .fieldToMatch(RuleGroupRuleStatementOrStatementStatementRegexMatchStatementFieldToMatchArgs.builder()
  *                                             .singleHeader(RuleGroupRuleStatementOrStatementStatementRegexMatchStatementFieldToMatchSingleHeaderArgs.builder()
  *                                                 .name(&#34;user-agent&#34;)

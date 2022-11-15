@@ -159,14 +159,14 @@ public class Key extends com.pulumi.resources.CustomResource {
         return this.description;
     }
     /**
-     * Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to false.
+     * Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to `false`.
      * 
      */
     @Export(name="enableKeyRotation", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enableKeyRotation;
 
     /**
-     * @return Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to false.
+     * @return Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> enableKeyRotation() {

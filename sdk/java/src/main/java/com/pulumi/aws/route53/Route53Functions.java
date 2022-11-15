@@ -8,6 +8,16 @@ import com.pulumi.aws.route53.inputs.GetDelegationSetArgs;
 import com.pulumi.aws.route53.inputs.GetDelegationSetPlainArgs;
 import com.pulumi.aws.route53.inputs.GetResolverEndpointArgs;
 import com.pulumi.aws.route53.inputs.GetResolverEndpointPlainArgs;
+import com.pulumi.aws.route53.inputs.GetResolverFirewallConfigArgs;
+import com.pulumi.aws.route53.inputs.GetResolverFirewallConfigPlainArgs;
+import com.pulumi.aws.route53.inputs.GetResolverFirewallDomainListArgs;
+import com.pulumi.aws.route53.inputs.GetResolverFirewallDomainListPlainArgs;
+import com.pulumi.aws.route53.inputs.GetResolverFirewallRuleGroupArgs;
+import com.pulumi.aws.route53.inputs.GetResolverFirewallRuleGroupAssociationArgs;
+import com.pulumi.aws.route53.inputs.GetResolverFirewallRuleGroupAssociationPlainArgs;
+import com.pulumi.aws.route53.inputs.GetResolverFirewallRuleGroupPlainArgs;
+import com.pulumi.aws.route53.inputs.GetResolverFirewallRulesArgs;
+import com.pulumi.aws.route53.inputs.GetResolverFirewallRulesPlainArgs;
 import com.pulumi.aws.route53.inputs.GetResolverRuleArgs;
 import com.pulumi.aws.route53.inputs.GetResolverRulePlainArgs;
 import com.pulumi.aws.route53.inputs.GetResolverRulesArgs;
@@ -18,6 +28,11 @@ import com.pulumi.aws.route53.inputs.GetZoneArgs;
 import com.pulumi.aws.route53.inputs.GetZonePlainArgs;
 import com.pulumi.aws.route53.outputs.GetDelegationSetResult;
 import com.pulumi.aws.route53.outputs.GetResolverEndpointResult;
+import com.pulumi.aws.route53.outputs.GetResolverFirewallConfigResult;
+import com.pulumi.aws.route53.outputs.GetResolverFirewallDomainListResult;
+import com.pulumi.aws.route53.outputs.GetResolverFirewallRuleGroupAssociationResult;
+import com.pulumi.aws.route53.outputs.GetResolverFirewallRuleGroupResult;
+import com.pulumi.aws.route53.outputs.GetResolverFirewallRulesResult;
 import com.pulumi.aws.route53.outputs.GetResolverRuleResult;
 import com.pulumi.aws.route53.outputs.GetResolverRulesResult;
 import com.pulumi.aws.route53.outputs.GetTrafficPolicyDocumentResult;
@@ -612,6 +627,818 @@ public final class Route53Functions {
      */
     public static CompletableFuture<GetResolverEndpointResult> getResolverEndpointPlain(GetResolverEndpointPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:route53/getResolverEndpoint:getResolverEndpoint", TypeShape.of(GetResolverEndpointResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * `aws.route53.ResolverFirewallConfig` provides details about a specific a Route 53 Resolver DNS Firewall config.
+     * 
+     * This data source allows to find a details about a specific a Route 53 Resolver DNS Firewall config.
+     * 
+     * ## Example Usage
+     * 
+     * The following example shows how to get a firewall config using the VPC ID.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetResolverFirewallConfigArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Route53Functions.getResolverFirewallConfig(GetResolverFirewallConfigArgs.builder()
+     *             .resourceId(&#34;vpc-exampleid&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetResolverFirewallConfigResult> getResolverFirewallConfig(GetResolverFirewallConfigArgs args) {
+        return getResolverFirewallConfig(args, InvokeOptions.Empty);
+    }
+    /**
+     * `aws.route53.ResolverFirewallConfig` provides details about a specific a Route 53 Resolver DNS Firewall config.
+     * 
+     * This data source allows to find a details about a specific a Route 53 Resolver DNS Firewall config.
+     * 
+     * ## Example Usage
+     * 
+     * The following example shows how to get a firewall config using the VPC ID.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetResolverFirewallConfigArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Route53Functions.getResolverFirewallConfig(GetResolverFirewallConfigArgs.builder()
+     *             .resourceId(&#34;vpc-exampleid&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetResolverFirewallConfigResult> getResolverFirewallConfigPlain(GetResolverFirewallConfigPlainArgs args) {
+        return getResolverFirewallConfigPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * `aws.route53.ResolverFirewallConfig` provides details about a specific a Route 53 Resolver DNS Firewall config.
+     * 
+     * This data source allows to find a details about a specific a Route 53 Resolver DNS Firewall config.
+     * 
+     * ## Example Usage
+     * 
+     * The following example shows how to get a firewall config using the VPC ID.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetResolverFirewallConfigArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Route53Functions.getResolverFirewallConfig(GetResolverFirewallConfigArgs.builder()
+     *             .resourceId(&#34;vpc-exampleid&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetResolverFirewallConfigResult> getResolverFirewallConfig(GetResolverFirewallConfigArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:route53/getResolverFirewallConfig:getResolverFirewallConfig", TypeShape.of(GetResolverFirewallConfigResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * `aws.route53.ResolverFirewallConfig` provides details about a specific a Route 53 Resolver DNS Firewall config.
+     * 
+     * This data source allows to find a details about a specific a Route 53 Resolver DNS Firewall config.
+     * 
+     * ## Example Usage
+     * 
+     * The following example shows how to get a firewall config using the VPC ID.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetResolverFirewallConfigArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Route53Functions.getResolverFirewallConfig(GetResolverFirewallConfigArgs.builder()
+     *             .resourceId(&#34;vpc-exampleid&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetResolverFirewallConfigResult> getResolverFirewallConfigPlain(GetResolverFirewallConfigPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:route53/getResolverFirewallConfig:getResolverFirewallConfig", TypeShape.of(GetResolverFirewallConfigResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * `aws.route53.ResolverFirewallDomainList` Retrieves the specified firewall domain list.
+     * 
+     * This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall domain list.
+     * 
+     * ## Example Usage
+     * 
+     * The following example shows how to get a firewall domain list from its ID.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetResolverFirewallDomainListArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Route53Functions.getResolverFirewallDomainList(GetResolverFirewallDomainListArgs.builder()
+     *             .firewallDomainListId(&#34;rslvr-fdl-example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetResolverFirewallDomainListResult> getResolverFirewallDomainList(GetResolverFirewallDomainListArgs args) {
+        return getResolverFirewallDomainList(args, InvokeOptions.Empty);
+    }
+    /**
+     * `aws.route53.ResolverFirewallDomainList` Retrieves the specified firewall domain list.
+     * 
+     * This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall domain list.
+     * 
+     * ## Example Usage
+     * 
+     * The following example shows how to get a firewall domain list from its ID.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetResolverFirewallDomainListArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Route53Functions.getResolverFirewallDomainList(GetResolverFirewallDomainListArgs.builder()
+     *             .firewallDomainListId(&#34;rslvr-fdl-example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetResolverFirewallDomainListResult> getResolverFirewallDomainListPlain(GetResolverFirewallDomainListPlainArgs args) {
+        return getResolverFirewallDomainListPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * `aws.route53.ResolverFirewallDomainList` Retrieves the specified firewall domain list.
+     * 
+     * This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall domain list.
+     * 
+     * ## Example Usage
+     * 
+     * The following example shows how to get a firewall domain list from its ID.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetResolverFirewallDomainListArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Route53Functions.getResolverFirewallDomainList(GetResolverFirewallDomainListArgs.builder()
+     *             .firewallDomainListId(&#34;rslvr-fdl-example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetResolverFirewallDomainListResult> getResolverFirewallDomainList(GetResolverFirewallDomainListArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:route53/getResolverFirewallDomainList:getResolverFirewallDomainList", TypeShape.of(GetResolverFirewallDomainListResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * `aws.route53.ResolverFirewallDomainList` Retrieves the specified firewall domain list.
+     * 
+     * This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall domain list.
+     * 
+     * ## Example Usage
+     * 
+     * The following example shows how to get a firewall domain list from its ID.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetResolverFirewallDomainListArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Route53Functions.getResolverFirewallDomainList(GetResolverFirewallDomainListArgs.builder()
+     *             .firewallDomainListId(&#34;rslvr-fdl-example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetResolverFirewallDomainListResult> getResolverFirewallDomainListPlain(GetResolverFirewallDomainListPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:route53/getResolverFirewallDomainList:getResolverFirewallDomainList", TypeShape.of(GetResolverFirewallDomainListResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * `aws.route53.ResolverFirewallRuleGroup` Retrieves the specified firewall rule group.
+     * 
+     * This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall rule group.
+     * 
+     * ## Example Usage
+     * 
+     * The following example shows how to get a firewall rule group from its ID.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetResolverFirewallRuleGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Route53Functions.getResolverFirewallRuleGroup(GetResolverFirewallRuleGroupArgs.builder()
+     *             .firewallRuleGroupId(&#34;rslvr-frg-example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetResolverFirewallRuleGroupResult> getResolverFirewallRuleGroup(GetResolverFirewallRuleGroupArgs args) {
+        return getResolverFirewallRuleGroup(args, InvokeOptions.Empty);
+    }
+    /**
+     * `aws.route53.ResolverFirewallRuleGroup` Retrieves the specified firewall rule group.
+     * 
+     * This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall rule group.
+     * 
+     * ## Example Usage
+     * 
+     * The following example shows how to get a firewall rule group from its ID.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetResolverFirewallRuleGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Route53Functions.getResolverFirewallRuleGroup(GetResolverFirewallRuleGroupArgs.builder()
+     *             .firewallRuleGroupId(&#34;rslvr-frg-example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetResolverFirewallRuleGroupResult> getResolverFirewallRuleGroupPlain(GetResolverFirewallRuleGroupPlainArgs args) {
+        return getResolverFirewallRuleGroupPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * `aws.route53.ResolverFirewallRuleGroup` Retrieves the specified firewall rule group.
+     * 
+     * This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall rule group.
+     * 
+     * ## Example Usage
+     * 
+     * The following example shows how to get a firewall rule group from its ID.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetResolverFirewallRuleGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Route53Functions.getResolverFirewallRuleGroup(GetResolverFirewallRuleGroupArgs.builder()
+     *             .firewallRuleGroupId(&#34;rslvr-frg-example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetResolverFirewallRuleGroupResult> getResolverFirewallRuleGroup(GetResolverFirewallRuleGroupArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:route53/getResolverFirewallRuleGroup:getResolverFirewallRuleGroup", TypeShape.of(GetResolverFirewallRuleGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * `aws.route53.ResolverFirewallRuleGroup` Retrieves the specified firewall rule group.
+     * 
+     * This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall rule group.
+     * 
+     * ## Example Usage
+     * 
+     * The following example shows how to get a firewall rule group from its ID.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetResolverFirewallRuleGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Route53Functions.getResolverFirewallRuleGroup(GetResolverFirewallRuleGroupArgs.builder()
+     *             .firewallRuleGroupId(&#34;rslvr-frg-example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetResolverFirewallRuleGroupResult> getResolverFirewallRuleGroupPlain(GetResolverFirewallRuleGroupPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:route53/getResolverFirewallRuleGroup:getResolverFirewallRuleGroup", TypeShape.of(GetResolverFirewallRuleGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * `aws.route53.ResolverFirewallRuleGroupAssociation` Retrieves the specified firewall rule group association.
+     * 
+     * This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall rule group association.
+     * 
+     * ## Example Usage
+     * 
+     * The following example shows how to get a firewall rule group association from its id.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetResolverFirewallRuleGroupAssociationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Route53Functions.getResolverFirewallRuleGroupAssociation(GetResolverFirewallRuleGroupAssociationArgs.builder()
+     *             .firewallRuleGroupAssociationId(&#34;rslvr-frgassoc-example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetResolverFirewallRuleGroupAssociationResult> getResolverFirewallRuleGroupAssociation(GetResolverFirewallRuleGroupAssociationArgs args) {
+        return getResolverFirewallRuleGroupAssociation(args, InvokeOptions.Empty);
+    }
+    /**
+     * `aws.route53.ResolverFirewallRuleGroupAssociation` Retrieves the specified firewall rule group association.
+     * 
+     * This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall rule group association.
+     * 
+     * ## Example Usage
+     * 
+     * The following example shows how to get a firewall rule group association from its id.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetResolverFirewallRuleGroupAssociationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Route53Functions.getResolverFirewallRuleGroupAssociation(GetResolverFirewallRuleGroupAssociationArgs.builder()
+     *             .firewallRuleGroupAssociationId(&#34;rslvr-frgassoc-example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetResolverFirewallRuleGroupAssociationResult> getResolverFirewallRuleGroupAssociationPlain(GetResolverFirewallRuleGroupAssociationPlainArgs args) {
+        return getResolverFirewallRuleGroupAssociationPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * `aws.route53.ResolverFirewallRuleGroupAssociation` Retrieves the specified firewall rule group association.
+     * 
+     * This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall rule group association.
+     * 
+     * ## Example Usage
+     * 
+     * The following example shows how to get a firewall rule group association from its id.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetResolverFirewallRuleGroupAssociationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Route53Functions.getResolverFirewallRuleGroupAssociation(GetResolverFirewallRuleGroupAssociationArgs.builder()
+     *             .firewallRuleGroupAssociationId(&#34;rslvr-frgassoc-example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetResolverFirewallRuleGroupAssociationResult> getResolverFirewallRuleGroupAssociation(GetResolverFirewallRuleGroupAssociationArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:route53/getResolverFirewallRuleGroupAssociation:getResolverFirewallRuleGroupAssociation", TypeShape.of(GetResolverFirewallRuleGroupAssociationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * `aws.route53.ResolverFirewallRuleGroupAssociation` Retrieves the specified firewall rule group association.
+     * 
+     * This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall rule group association.
+     * 
+     * ## Example Usage
+     * 
+     * The following example shows how to get a firewall rule group association from its id.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetResolverFirewallRuleGroupAssociationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Route53Functions.getResolverFirewallRuleGroupAssociation(GetResolverFirewallRuleGroupAssociationArgs.builder()
+     *             .firewallRuleGroupAssociationId(&#34;rslvr-frgassoc-example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetResolverFirewallRuleGroupAssociationResult> getResolverFirewallRuleGroupAssociationPlain(GetResolverFirewallRuleGroupAssociationPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:route53/getResolverFirewallRuleGroupAssociation:getResolverFirewallRuleGroupAssociation", TypeShape.of(GetResolverFirewallRuleGroupAssociationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * `aws.route53.getResolverFirewallRules` Provides details about rules in a specific Route53 Resolver Firewall rule group.
+     * 
+     * ## Example Usage
+     * 
+     * The following example shows how to get Route53 Resolver Firewall rules based on its associated firewall group id.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetResolverFirewallRulesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Route53Functions.getResolverFirewallRules(GetResolverFirewallRulesArgs.builder()
+     *             .firewallRuleGroupId(aws_route53_resolver_firewall_rule_group.example().id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetResolverFirewallRulesResult> getResolverFirewallRules(GetResolverFirewallRulesArgs args) {
+        return getResolverFirewallRules(args, InvokeOptions.Empty);
+    }
+    /**
+     * `aws.route53.getResolverFirewallRules` Provides details about rules in a specific Route53 Resolver Firewall rule group.
+     * 
+     * ## Example Usage
+     * 
+     * The following example shows how to get Route53 Resolver Firewall rules based on its associated firewall group id.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetResolverFirewallRulesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Route53Functions.getResolverFirewallRules(GetResolverFirewallRulesArgs.builder()
+     *             .firewallRuleGroupId(aws_route53_resolver_firewall_rule_group.example().id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetResolverFirewallRulesResult> getResolverFirewallRulesPlain(GetResolverFirewallRulesPlainArgs args) {
+        return getResolverFirewallRulesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * `aws.route53.getResolverFirewallRules` Provides details about rules in a specific Route53 Resolver Firewall rule group.
+     * 
+     * ## Example Usage
+     * 
+     * The following example shows how to get Route53 Resolver Firewall rules based on its associated firewall group id.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetResolverFirewallRulesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Route53Functions.getResolverFirewallRules(GetResolverFirewallRulesArgs.builder()
+     *             .firewallRuleGroupId(aws_route53_resolver_firewall_rule_group.example().id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetResolverFirewallRulesResult> getResolverFirewallRules(GetResolverFirewallRulesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:route53/getResolverFirewallRules:getResolverFirewallRules", TypeShape.of(GetResolverFirewallRulesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * `aws.route53.getResolverFirewallRules` Provides details about rules in a specific Route53 Resolver Firewall rule group.
+     * 
+     * ## Example Usage
+     * 
+     * The following example shows how to get Route53 Resolver Firewall rules based on its associated firewall group id.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetResolverFirewallRulesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Route53Functions.getResolverFirewallRules(GetResolverFirewallRulesArgs.builder()
+     *             .firewallRuleGroupId(aws_route53_resolver_firewall_rule_group.example().id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetResolverFirewallRulesResult> getResolverFirewallRulesPlain(GetResolverFirewallRulesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:route53/getResolverFirewallRules:getResolverFirewallRules", TypeShape.of(GetResolverFirewallRulesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * `aws.route53.ResolverRule` provides details about a specific Route53 Resolver rule.
@@ -1460,7 +2287,7 @@ public final class Route53Functions {
         return Deployment.getInstance().invokeAsync("aws:route53/getResolverRules:getResolverRules", TypeShape.of(GetResolverRulesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Generates an Route53 traffic policy document in JSON format for use with resources that expect policy documents such as [`aws.route53.TrafficPolicy`](https://www.terraform.io/docs/providers/aws/r/route53_traffic_policy.html).
+     * Generates an Route53 traffic policy document in JSON format for use with resources that expect policy documents such as `aws.route53.TrafficPolicy`.
      * 
      * ## Example Usage
      * ### Basic Example
@@ -1626,7 +2453,7 @@ public final class Route53Functions {
         return getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Generates an Route53 traffic policy document in JSON format for use with resources that expect policy documents such as [`aws.route53.TrafficPolicy`](https://www.terraform.io/docs/providers/aws/r/route53_traffic_policy.html).
+     * Generates an Route53 traffic policy document in JSON format for use with resources that expect policy documents such as `aws.route53.TrafficPolicy`.
      * 
      * ## Example Usage
      * ### Basic Example
@@ -1792,7 +2619,7 @@ public final class Route53Functions {
         return getTrafficPolicyDocumentPlain(GetTrafficPolicyDocumentPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Generates an Route53 traffic policy document in JSON format for use with resources that expect policy documents such as [`aws.route53.TrafficPolicy`](https://www.terraform.io/docs/providers/aws/r/route53_traffic_policy.html).
+     * Generates an Route53 traffic policy document in JSON format for use with resources that expect policy documents such as `aws.route53.TrafficPolicy`.
      * 
      * ## Example Usage
      * ### Basic Example
@@ -1958,7 +2785,7 @@ public final class Route53Functions {
         return getTrafficPolicyDocument(args, InvokeOptions.Empty);
     }
     /**
-     * Generates an Route53 traffic policy document in JSON format for use with resources that expect policy documents such as [`aws.route53.TrafficPolicy`](https://www.terraform.io/docs/providers/aws/r/route53_traffic_policy.html).
+     * Generates an Route53 traffic policy document in JSON format for use with resources that expect policy documents such as `aws.route53.TrafficPolicy`.
      * 
      * ## Example Usage
      * ### Basic Example
@@ -2124,7 +2951,7 @@ public final class Route53Functions {
         return getTrafficPolicyDocumentPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Generates an Route53 traffic policy document in JSON format for use with resources that expect policy documents such as [`aws.route53.TrafficPolicy`](https://www.terraform.io/docs/providers/aws/r/route53_traffic_policy.html).
+     * Generates an Route53 traffic policy document in JSON format for use with resources that expect policy documents such as `aws.route53.TrafficPolicy`.
      * 
      * ## Example Usage
      * ### Basic Example
@@ -2290,7 +3117,7 @@ public final class Route53Functions {
         return Deployment.getInstance().invoke("aws:route53/getTrafficPolicyDocument:getTrafficPolicyDocument", TypeShape.of(GetTrafficPolicyDocumentResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Generates an Route53 traffic policy document in JSON format for use with resources that expect policy documents such as [`aws.route53.TrafficPolicy`](https://www.terraform.io/docs/providers/aws/r/route53_traffic_policy.html).
+     * Generates an Route53 traffic policy document in JSON format for use with resources that expect policy documents such as `aws.route53.TrafficPolicy`.
      * 
      * ## Example Usage
      * ### Basic Example

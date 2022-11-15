@@ -17,23 +17,31 @@ public final class KeyPairArgs extends com.pulumi.resources.ResourceArgs {
     public static final KeyPairArgs Empty = new KeyPairArgs();
 
     /**
-     * The key pair name.
+     * The name for the key pair. If neither `key_name` nor `key_name_prefix` is provided, the provider will create a unique key name.
      * 
      */
     @Import(name="keyName")
     private @Nullable Output<String> keyName;
 
     /**
-     * @return The key pair name.
+     * @return The name for the key pair. If neither `key_name` nor `key_name_prefix` is provided, the provider will create a unique key name.
      * 
      */
     public Optional<Output<String>> keyName() {
         return Optional.ofNullable(this.keyName);
     }
 
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `key_name`. If neither `key_name` nor `key_name_prefix` is provided, the provider will create a unique key name.
+     * 
+     */
     @Import(name="keyNamePrefix")
     private @Nullable Output<String> keyNamePrefix;
 
+    /**
+     * @return Creates a unique name beginning with the specified prefix. Conflicts with `key_name`. If neither `key_name` nor `key_name_prefix` is provided, the provider will create a unique key name.
+     * 
+     */
     public Optional<Output<String>> keyNamePrefix() {
         return Optional.ofNullable(this.keyNamePrefix);
     }
@@ -96,7 +104,7 @@ public final class KeyPairArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyName The key pair name.
+         * @param keyName The name for the key pair. If neither `key_name` nor `key_name_prefix` is provided, the provider will create a unique key name.
          * 
          * @return builder
          * 
@@ -107,7 +115,7 @@ public final class KeyPairArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyName The key pair name.
+         * @param keyName The name for the key pair. If neither `key_name` nor `key_name_prefix` is provided, the provider will create a unique key name.
          * 
          * @return builder
          * 
@@ -116,11 +124,23 @@ public final class KeyPairArgs extends com.pulumi.resources.ResourceArgs {
             return keyName(Output.of(keyName));
         }
 
+        /**
+         * @param keyNamePrefix Creates a unique name beginning with the specified prefix. Conflicts with `key_name`. If neither `key_name` nor `key_name_prefix` is provided, the provider will create a unique key name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder keyNamePrefix(@Nullable Output<String> keyNamePrefix) {
             $.keyNamePrefix = keyNamePrefix;
             return this;
         }
 
+        /**
+         * @param keyNamePrefix Creates a unique name beginning with the specified prefix. Conflicts with `key_name`. If neither `key_name` nor `key_name_prefix` is provided, the provider will create a unique key name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder keyNamePrefix(String keyNamePrefix) {
             return keyNamePrefix(Output.of(keyNamePrefix));
         }

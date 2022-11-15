@@ -107,14 +107,14 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The unique identifier of a [CloudFront origin access control](https://www.terraform.io/docs/providers/aws/r/cloudfront_origin_access_control.html) for this origin.
+     * The unique identifier of a CloudFront origin access control for this origin.
      * 
      */
     @Import(name="originAccessControlId")
     private @Nullable Output<String> originAccessControlId;
 
     /**
-     * @return The unique identifier of a [CloudFront origin access control](https://www.terraform.io/docs/providers/aws/r/cloudfront_origin_access_control.html) for this origin.
+     * @return The unique identifier of a CloudFront origin access control for this origin.
      * 
      */
     public Optional<Output<String>> originAccessControlId() {
@@ -352,7 +352,7 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param originAccessControlId The unique identifier of a [CloudFront origin access control](https://www.terraform.io/docs/providers/aws/r/cloudfront_origin_access_control.html) for this origin.
+         * @param originAccessControlId The unique identifier of a CloudFront origin access control for this origin.
          * 
          * @return builder
          * 
@@ -363,7 +363,7 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param originAccessControlId The unique identifier of a [CloudFront origin access control](https://www.terraform.io/docs/providers/aws/r/cloudfront_origin_access_control.html) for this origin.
+         * @param originAccessControlId The unique identifier of a CloudFront origin access control for this origin.
          * 
          * @return builder
          * 

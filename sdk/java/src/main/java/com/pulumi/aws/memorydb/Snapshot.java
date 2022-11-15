@@ -120,14 +120,14 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.kmsKeyArn);
     }
     /**
-     * Name of the cluster.
+     * Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return Name of the cluster.
+     * @return Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
     public Output<String> name() {

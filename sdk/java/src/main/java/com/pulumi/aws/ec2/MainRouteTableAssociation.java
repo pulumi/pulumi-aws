@@ -14,6 +14,11 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
+ * Provides a resource for managing the main routing table of a VPC.
+ * 
+ * &gt; **NOTE:** **Do not** use both `aws.ec2.DefaultRouteTable` to manage a default route table **and** `aws.ec2.MainRouteTableAssociation` with the same VPC due to possible route conflicts. See aws.ec2.DefaultRouteTable documentation for more details.
+ * For more information, see the Amazon VPC User Guide on [Route Tables](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html). For information about managing normal route tables in the provider, see `aws.ec2.RouteTable`.
+ * 
  * ## Example Usage
  * ```java
  * package generated_program;
@@ -53,22 +58,18 @@ import javax.annotation.Nullable;
  * additional Route Table in the AWS console; it must remain intact in order for
  * the `main_route_table_association` delete to work properly.
  * 
- * [aws-route-tables]: http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html#Route_Replacing_Main_Table
- * [tf-route-tables]: /docs/providers/aws/r/route_table.html
- * [tf-default-route-table]: /docs/providers/aws/r/default_route_table.html
- * 
  */
 @ResourceType(type="aws:ec2/mainRouteTableAssociation:MainRouteTableAssociation")
 public class MainRouteTableAssociation extends com.pulumi.resources.CustomResource {
     /**
-     * Used internally, see __Notes__ below
+     * Used internally, see **Notes** below
      * 
      */
     @Export(name="originalRouteTableId", type=String.class, parameters={})
     private Output<String> originalRouteTableId;
 
     /**
-     * @return Used internally, see __Notes__ below
+     * @return Used internally, see **Notes** below
      * 
      */
     public Output<String> originalRouteTableId() {

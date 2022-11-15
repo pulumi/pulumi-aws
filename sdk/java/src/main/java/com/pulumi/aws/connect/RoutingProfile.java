@@ -197,9 +197,19 @@ public class RoutingProfile extends com.pulumi.resources.CustomResource {
     public Output<String> routingProfileId() {
         return this.routingProfileId;
     }
+    /**
+     * Tags to apply to the Routing Profile. If configured with a provider
+     * `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Tags to apply to the Routing Profile. If configured with a provider
+     * `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }

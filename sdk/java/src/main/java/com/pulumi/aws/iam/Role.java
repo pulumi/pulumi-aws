@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
 /**
  * Provides an IAM role.
  * 
- * &gt; **NOTE:** If policies are attached to the role via the `aws.iam.PolicyAttachment` resource and you are modifying the role `name` or `path`, the `force_detach_policies` argument must be set to `true` and applied before attempting the operation otherwise you will encounter a `DeleteConflict` error. The `aws.iam.RolePolicyAttachment` resource does not have this requirement.
+ * &gt; **NOTE:** If policies are attached to the role via the `aws.iam.PolicyAttachment` resource and you are modifying the role `name` or `path`, the `force_detach_policies` argument must be set to `true` and applied before attempting the operation otherwise you will encounter a `DeleteConflict` error. The `aws.iam.RolePolicyAttachment` resource (recommended) does not have this requirement.
  * 
  * &gt; **NOTE:** If you use this resource&#39;s `managed_policy_arns` argument or `inline_policy` configuration blocks, this resource will take over exclusive management of the role&#39;s respective policy types (e.g., both policy types if both arguments are used). These arguments are incompatible with other ways of managing a role&#39;s policies, such as `aws.iam.PolicyAttachment`, `aws.iam.RolePolicyAttachment`, and `aws.iam.RolePolicy`. If you attempt to manage a role&#39;s policies by multiple means, you will get resource cycling and/or errors.
  * 
@@ -113,7 +113,7 @@ import javax.annotation.Nullable;
  * ```
  * ### Example of Exclusive Inline Policies
  * 
- * This example creates an IAM role with two inline IAM policies. If someone adds another inline policy out-of-band, on the next apply, the provider will remove that policy. If someone deletes these policies out-of-band, the provider will recreate them.
+ * This example creates an IAM role with two inline IAM policies. If someone adds another inline policy out-of-band, on the next apply, this provider will remove that policy. If someone deletes these policies out-of-band, this provider will recreate them.
  * ```java
  * package generated_program;
  * 
@@ -172,7 +172,7 @@ import javax.annotation.Nullable;
  * ```
  * ### Example of Removing Inline Policies
  * 
- * This example creates an IAM role with what appears to be empty IAM `inline_policy` argument instead of using `inline_policy` as a configuration block. The result is that if someone were to add an inline policy out-of-band, on the next apply, the provider will remove that policy.
+ * This example creates an IAM role with what appears to be empty IAM `inline_policy` argument instead of using `inline_policy` as a configuration block. The result is that if someone were to add an inline policy out-of-band, on the next apply, this provider will remove that policy.
  * ```java
  * package generated_program;
  * 
@@ -205,7 +205,7 @@ import javax.annotation.Nullable;
  * ```
  * ### Example of Exclusive Managed Policies
  * 
- * This example creates an IAM role and attaches two managed IAM policies. If someone attaches another managed policy out-of-band, on the next apply, the provider will detach that policy. If someone detaches these policies out-of-band, the provider will attach them again.
+ * This example creates an IAM role and attaches two managed IAM policies. If someone attaches another managed policy out-of-band, on the next apply, this provider will detach that policy. If someone detaches these policies out-of-band, this provider will attach them again.
  * ```java
  * package generated_program;
  * 
@@ -270,7 +270,7 @@ import javax.annotation.Nullable;
  * ```
  * ### Example of Removing Managed Policies
  * 
- * This example creates an IAM role with an empty `managed_policy_arns` argument. If someone attaches a policy out-of-band, on the next apply, the provider will detach that policy.
+ * This example creates an IAM role with an empty `managed_policy_arns` argument. If someone attaches a policy out-of-band, on the next apply, this provider will detach that policy.
  * ```java
  * package generated_program;
  * 
@@ -383,30 +383,22 @@ public class Role extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.forceDetachPolicies);
     }
     /**
-     * Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, this provider will not manage any inline policies in this resource. Configuring one empty block (i.e., `inline_policy {}`) will cause the provider to remove _all_ inline policies added out of band on `apply`.
+     * Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, the provider will not manage any inline policies in this resource. Configuring one empty block (i.e., `inline_policy {}`) will cause the provider to remove _all_ inline policies added out of band on `apply`.
      * 
      */
     @Export(name="inlinePolicies", type=List.class, parameters={RoleInlinePolicy.class})
     private Output<List<RoleInlinePolicy>> inlinePolicies;
 
     /**
-     * @return Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, this provider will not manage any inline policies in this resource. Configuring one empty block (i.e., `inline_policy {}`) will cause the provider to remove _all_ inline policies added out of band on `apply`.
+     * @return Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, the provider will not manage any inline policies in this resource. Configuring one empty block (i.e., `inline_policy {}`) will cause the provider to remove _all_ inline policies added out of band on `apply`.
      * 
      */
     public Output<List<RoleInlinePolicy>> inlinePolicies() {
         return this.inlinePolicies;
     }
-    /**
-     * Set of exclusive IAM managed policy ARNs to attach to the IAM role. If this attribute is not configured, this provider will ignore policy attachments to this resource. When configured, the provider will align the role&#39;s managed policy attachments with this set by attaching or detaching managed policies. Configuring an empty set (i.e., `managed_policy_arns = []`) will cause the provider to remove _all_ managed policy attachments.
-     * 
-     */
     @Export(name="managedPolicyArns", type=List.class, parameters={String.class})
     private Output<List<String>> managedPolicyArns;
 
-    /**
-     * @return Set of exclusive IAM managed policy ARNs to attach to the IAM role. If this attribute is not configured, this provider will ignore policy attachments to this resource. When configured, the provider will align the role&#39;s managed policy attachments with this set by attaching or detaching managed policies. Configuring an empty set (i.e., `managed_policy_arns = []`) will cause the provider to remove _all_ managed policy attachments.
-     * 
-     */
     public Output<List<String>> managedPolicyArns() {
         return this.managedPolicyArns;
     }

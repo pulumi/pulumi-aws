@@ -64,6 +64,21 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
+     * 
+     */
+    @Import(name="ipAddressType")
+    private @Nullable Output<String> ipAddressType;
+
+    /**
+     * @return The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
+     * 
+     */
+    public Optional<Output<String>> ipAddressType() {
+        return Optional.ofNullable(this.ipAddressType);
+    }
+
+    /**
      * The name of your key pair. Created in the
      * Lightsail console (cannot use `aws.ec2.KeyPair` at this time)
      * 
@@ -131,6 +146,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         this.availabilityZone = $.availabilityZone;
         this.blueprintId = $.blueprintId;
         this.bundleId = $.bundleId;
+        this.ipAddressType = $.ipAddressType;
         this.keyPairName = $.keyPairName;
         this.name = $.name;
         this.tags = $.tags;
@@ -218,6 +234,27 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder bundleId(String bundleId) {
             return bundleId(Output.of(bundleId));
+        }
+
+        /**
+         * @param ipAddressType The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipAddressType(@Nullable Output<String> ipAddressType) {
+            $.ipAddressType = ipAddressType;
+            return this;
+        }
+
+        /**
+         * @param ipAddressType The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipAddressType(String ipAddressType) {
+            return ipAddressType(Output.of(ipAddressType));
         }
 
         /**

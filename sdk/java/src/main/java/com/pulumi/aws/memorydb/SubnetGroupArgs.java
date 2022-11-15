@@ -17,16 +17,32 @@ public final class SubnetGroupArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final SubnetGroupArgs Empty = new SubnetGroupArgs();
 
+    /**
+     * Description for the subnet group.
+     * 
+     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
+    /**
+     * @return Description for the subnet group.
+     * 
+     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * Name of the subnet group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return Name of the subnet group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -104,20 +120,44 @@ public final class SubnetGroupArgs extends com.pulumi.resources.ResourceArgs {
             $ = new SubnetGroupArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param description Description for the subnet group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param description Description for the subnet group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
+        /**
+         * @param name Name of the subnet group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Name of the subnet group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

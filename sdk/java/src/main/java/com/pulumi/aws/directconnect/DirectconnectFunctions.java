@@ -323,9 +323,9 @@ public final class DirectconnectFunctions {
     }
     /**
      * Retrieve information about a specific AWS Direct Connect location in the current AWS Region.
-     * These are the locations that can be specified when configuring [`aws.directconnect.Connection`](https://www.terraform.io/docs/providers/aws/r/dx_connection.html) or [`aws.directconnect.LinkAggregationGroup`](https://www.terraform.io/docs/providers/aws/r/dx_lag.html) resources.
+     * These are the locations that can be specified when configuring `aws.directconnect.Connection` or `aws.directconnect.LinkAggregationGroup` resources.
      * 
-     * &gt; **Note:** This data source is different from the [`aws.directconnect.getLocations`](https://www.terraform.io/docs/providers/aws/d/dx_locations.html) data source which retrieves information about all the AWS Direct Connect locations in the current AWS Region.
+     * &gt; **Note:** This data source is different from the `aws.directconnect.getLocations` data source which retrieves information about all the AWS Direct Connect locations in the current AWS Region.
      * 
      * ## Example Usage
      * ```java
@@ -363,9 +363,9 @@ public final class DirectconnectFunctions {
     }
     /**
      * Retrieve information about a specific AWS Direct Connect location in the current AWS Region.
-     * These are the locations that can be specified when configuring [`aws.directconnect.Connection`](https://www.terraform.io/docs/providers/aws/r/dx_connection.html) or [`aws.directconnect.LinkAggregationGroup`](https://www.terraform.io/docs/providers/aws/r/dx_lag.html) resources.
+     * These are the locations that can be specified when configuring `aws.directconnect.Connection` or `aws.directconnect.LinkAggregationGroup` resources.
      * 
-     * &gt; **Note:** This data source is different from the [`aws.directconnect.getLocations`](https://www.terraform.io/docs/providers/aws/d/dx_locations.html) data source which retrieves information about all the AWS Direct Connect locations in the current AWS Region.
+     * &gt; **Note:** This data source is different from the `aws.directconnect.getLocations` data source which retrieves information about all the AWS Direct Connect locations in the current AWS Region.
      * 
      * ## Example Usage
      * ```java
@@ -403,9 +403,9 @@ public final class DirectconnectFunctions {
     }
     /**
      * Retrieve information about a specific AWS Direct Connect location in the current AWS Region.
-     * These are the locations that can be specified when configuring [`aws.directconnect.Connection`](https://www.terraform.io/docs/providers/aws/r/dx_connection.html) or [`aws.directconnect.LinkAggregationGroup`](https://www.terraform.io/docs/providers/aws/r/dx_lag.html) resources.
+     * These are the locations that can be specified when configuring `aws.directconnect.Connection` or `aws.directconnect.LinkAggregationGroup` resources.
      * 
-     * &gt; **Note:** This data source is different from the [`aws.directconnect.getLocations`](https://www.terraform.io/docs/providers/aws/d/dx_locations.html) data source which retrieves information about all the AWS Direct Connect locations in the current AWS Region.
+     * &gt; **Note:** This data source is different from the `aws.directconnect.getLocations` data source which retrieves information about all the AWS Direct Connect locations in the current AWS Region.
      * 
      * ## Example Usage
      * ```java
@@ -443,9 +443,9 @@ public final class DirectconnectFunctions {
     }
     /**
      * Retrieve information about a specific AWS Direct Connect location in the current AWS Region.
-     * These are the locations that can be specified when configuring [`aws.directconnect.Connection`](https://www.terraform.io/docs/providers/aws/r/dx_connection.html) or [`aws.directconnect.LinkAggregationGroup`](https://www.terraform.io/docs/providers/aws/r/dx_lag.html) resources.
+     * These are the locations that can be specified when configuring `aws.directconnect.Connection` or `aws.directconnect.LinkAggregationGroup` resources.
      * 
-     * &gt; **Note:** This data source is different from the [`aws.directconnect.getLocations`](https://www.terraform.io/docs/providers/aws/d/dx_locations.html) data source which retrieves information about all the AWS Direct Connect locations in the current AWS Region.
+     * &gt; **Note:** This data source is different from the `aws.directconnect.getLocations` data source which retrieves information about all the AWS Direct Connect locations in the current AWS Region.
      * 
      * ## Example Usage
      * ```java
@@ -483,9 +483,9 @@ public final class DirectconnectFunctions {
     }
     /**
      * Retrieve information about the AWS Direct Connect locations in the current AWS Region.
-     * These are the locations that can be specified when configuring [`aws.directconnect.Connection`](https://www.terraform.io/docs/providers/aws/r/dx_connection.html) or [`aws.directconnect.LinkAggregationGroup`](https://www.terraform.io/docs/providers/aws/r/dx_lag.html) resources.
+     * These are the locations that can be specified when configuring `aws.directconnect.Connection` or `aws.directconnect.LinkAggregationGroup` resources.
      * 
-     * &gt; **Note:** This data source is different from the [`aws.directconnect.getLocation`](https://www.terraform.io/docs/providers/aws/d/dx_location.html) data source which retrieves information about a specific AWS Direct Connect location in the current AWS Region.
+     * &gt; **Note:** This data source is different from the `aws.directconnect.getLocation` data source which retrieves information about a specific AWS Direct Connect location in the current AWS Region.
      * 
      * ## Example Usage
      * ```java
@@ -520,9 +520,9 @@ public final class DirectconnectFunctions {
     }
     /**
      * Retrieve information about the AWS Direct Connect locations in the current AWS Region.
-     * These are the locations that can be specified when configuring [`aws.directconnect.Connection`](https://www.terraform.io/docs/providers/aws/r/dx_connection.html) or [`aws.directconnect.LinkAggregationGroup`](https://www.terraform.io/docs/providers/aws/r/dx_lag.html) resources.
+     * These are the locations that can be specified when configuring `aws.directconnect.Connection` or `aws.directconnect.LinkAggregationGroup` resources.
      * 
-     * &gt; **Note:** This data source is different from the [`aws.directconnect.getLocation`](https://www.terraform.io/docs/providers/aws/d/dx_location.html) data source which retrieves information about a specific AWS Direct Connect location in the current AWS Region.
+     * &gt; **Note:** This data source is different from the `aws.directconnect.getLocation` data source which retrieves information about a specific AWS Direct Connect location in the current AWS Region.
      * 
      * ## Example Usage
      * ```java
@@ -557,9 +557,9 @@ public final class DirectconnectFunctions {
     }
     /**
      * Retrieve information about the AWS Direct Connect locations in the current AWS Region.
-     * These are the locations that can be specified when configuring [`aws.directconnect.Connection`](https://www.terraform.io/docs/providers/aws/r/dx_connection.html) or [`aws.directconnect.LinkAggregationGroup`](https://www.terraform.io/docs/providers/aws/r/dx_lag.html) resources.
+     * These are the locations that can be specified when configuring `aws.directconnect.Connection` or `aws.directconnect.LinkAggregationGroup` resources.
      * 
-     * &gt; **Note:** This data source is different from the [`aws.directconnect.getLocation`](https://www.terraform.io/docs/providers/aws/d/dx_location.html) data source which retrieves information about a specific AWS Direct Connect location in the current AWS Region.
+     * &gt; **Note:** This data source is different from the `aws.directconnect.getLocation` data source which retrieves information about a specific AWS Direct Connect location in the current AWS Region.
      * 
      * ## Example Usage
      * ```java
@@ -594,9 +594,9 @@ public final class DirectconnectFunctions {
     }
     /**
      * Retrieve information about the AWS Direct Connect locations in the current AWS Region.
-     * These are the locations that can be specified when configuring [`aws.directconnect.Connection`](https://www.terraform.io/docs/providers/aws/r/dx_connection.html) or [`aws.directconnect.LinkAggregationGroup`](https://www.terraform.io/docs/providers/aws/r/dx_lag.html) resources.
+     * These are the locations that can be specified when configuring `aws.directconnect.Connection` or `aws.directconnect.LinkAggregationGroup` resources.
      * 
-     * &gt; **Note:** This data source is different from the [`aws.directconnect.getLocation`](https://www.terraform.io/docs/providers/aws/d/dx_location.html) data source which retrieves information about a specific AWS Direct Connect location in the current AWS Region.
+     * &gt; **Note:** This data source is different from the `aws.directconnect.getLocation` data source which retrieves information about a specific AWS Direct Connect location in the current AWS Region.
      * 
      * ## Example Usage
      * ```java
@@ -631,9 +631,9 @@ public final class DirectconnectFunctions {
     }
     /**
      * Retrieve information about the AWS Direct Connect locations in the current AWS Region.
-     * These are the locations that can be specified when configuring [`aws.directconnect.Connection`](https://www.terraform.io/docs/providers/aws/r/dx_connection.html) or [`aws.directconnect.LinkAggregationGroup`](https://www.terraform.io/docs/providers/aws/r/dx_lag.html) resources.
+     * These are the locations that can be specified when configuring `aws.directconnect.Connection` or `aws.directconnect.LinkAggregationGroup` resources.
      * 
-     * &gt; **Note:** This data source is different from the [`aws.directconnect.getLocation`](https://www.terraform.io/docs/providers/aws/d/dx_location.html) data source which retrieves information about a specific AWS Direct Connect location in the current AWS Region.
+     * &gt; **Note:** This data source is different from the `aws.directconnect.getLocation` data source which retrieves information about a specific AWS Direct Connect location in the current AWS Region.
      * 
      * ## Example Usage
      * ```java
@@ -668,9 +668,9 @@ public final class DirectconnectFunctions {
     }
     /**
      * Retrieve information about the AWS Direct Connect locations in the current AWS Region.
-     * These are the locations that can be specified when configuring [`aws.directconnect.Connection`](https://www.terraform.io/docs/providers/aws/r/dx_connection.html) or [`aws.directconnect.LinkAggregationGroup`](https://www.terraform.io/docs/providers/aws/r/dx_lag.html) resources.
+     * These are the locations that can be specified when configuring `aws.directconnect.Connection` or `aws.directconnect.LinkAggregationGroup` resources.
      * 
-     * &gt; **Note:** This data source is different from the [`aws.directconnect.getLocation`](https://www.terraform.io/docs/providers/aws/d/dx_location.html) data source which retrieves information about a specific AWS Direct Connect location in the current AWS Region.
+     * &gt; **Note:** This data source is different from the `aws.directconnect.getLocation` data source which retrieves information about a specific AWS Direct Connect location in the current AWS Region.
      * 
      * ## Example Usage
      * ```java
@@ -704,6 +704,8 @@ public final class DirectconnectFunctions {
         return Deployment.getInstance().invokeAsync("aws:directconnect/getLocations:getLocations", TypeShape.of(GetLocationsResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Data source for retrieving Router Configuration instructions for a given AWS Direct Connect Virtual Interface and Router Type.
+     * 
      * ## Example Usage
      * ### Basic Usage
      * ```java
@@ -741,6 +743,8 @@ public final class DirectconnectFunctions {
         return getRouterConfiguration(args, InvokeOptions.Empty);
     }
     /**
+     * Data source for retrieving Router Configuration instructions for a given AWS Direct Connect Virtual Interface and Router Type.
+     * 
      * ## Example Usage
      * ### Basic Usage
      * ```java
@@ -778,6 +782,8 @@ public final class DirectconnectFunctions {
         return getRouterConfigurationPlain(args, InvokeOptions.Empty);
     }
     /**
+     * Data source for retrieving Router Configuration instructions for a given AWS Direct Connect Virtual Interface and Router Type.
+     * 
      * ## Example Usage
      * ### Basic Usage
      * ```java
@@ -815,6 +821,8 @@ public final class DirectconnectFunctions {
         return Deployment.getInstance().invoke("aws:directconnect/getRouterConfiguration:getRouterConfiguration", TypeShape.of(GetRouterConfigurationResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Data source for retrieving Router Configuration instructions for a given AWS Direct Connect Virtual Interface and Router Type.
+     * 
      * ## Example Usage
      * ### Basic Usage
      * ```java

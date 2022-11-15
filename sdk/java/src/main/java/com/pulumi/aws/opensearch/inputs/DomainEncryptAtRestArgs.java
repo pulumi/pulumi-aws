@@ -31,9 +31,17 @@ public final class DomainEncryptAtRestArgs extends com.pulumi.resources.Resource
         return this.enabled;
     }
 
+    /**
+     * KMS key ARN to encrypt the Elasticsearch domain with. If not specified then it defaults to using the `aws/es` service KMS key. Note that KMS will accept a KMS key ID but will return the key ARN. To prevent the provider detecting unwanted changes, use the key ARN instead.
+     * 
+     */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
+    /**
+     * @return KMS key ARN to encrypt the Elasticsearch domain with. If not specified then it defaults to using the `aws/es` service KMS key. Note that KMS will accept a KMS key ID but will return the key ARN. To prevent the provider detecting unwanted changes, use the key ARN instead.
+     * 
+     */
     public Optional<Output<String>> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
     }
@@ -84,11 +92,23 @@ public final class DomainEncryptAtRestArgs extends com.pulumi.resources.Resource
             return enabled(Output.of(enabled));
         }
 
+        /**
+         * @param kmsKeyId KMS key ARN to encrypt the Elasticsearch domain with. If not specified then it defaults to using the `aws/es` service KMS key. Note that KMS will accept a KMS key ID but will return the key ARN. To prevent the provider detecting unwanted changes, use the key ARN instead.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kmsKeyId(@Nullable Output<String> kmsKeyId) {
             $.kmsKeyId = kmsKeyId;
             return this;
         }
 
+        /**
+         * @param kmsKeyId KMS key ARN to encrypt the Elasticsearch domain with. If not specified then it defaults to using the `aws/es` service KMS key. Note that KMS will accept a KMS key ID but will return the key ARN. To prevent the provider detecting unwanted changes, use the key ARN instead.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kmsKeyId(String kmsKeyId) {
             return kmsKeyId(Output.of(kmsKeyId));
         }

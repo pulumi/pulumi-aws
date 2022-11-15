@@ -86,14 +86,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The cluster identifier. If omitted, this provider will assign a random, unique identifier.
+     * The cluster identifier. If omitted, the provider will assign a random, unique identifier.
      * 
      */
     @Import(name="clusterIdentifier")
     private @Nullable Output<String> clusterIdentifier;
 
     /**
-     * @return The cluster identifier. If omitted, this provider will assign a random, unique identifier.
+     * @return The cluster identifier. If omitted, the provider will assign a random, unique identifier.
      * 
      */
     public Optional<Output<String>> clusterIdentifier() {
@@ -101,14 +101,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifer`.
+     * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
      * 
      */
     @Import(name="clusterIdentifierPrefix")
     private @Nullable Output<String> clusterIdentifierPrefix;
 
     /**
-     * @return Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifer`.
+     * @return Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
      * 
      */
     public Optional<Output<String>> clusterIdentifierPrefix() {
@@ -658,7 +658,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clusterIdentifier The cluster identifier. If omitted, this provider will assign a random, unique identifier.
+         * @param clusterIdentifier The cluster identifier. If omitted, the provider will assign a random, unique identifier.
          * 
          * @return builder
          * 
@@ -669,7 +669,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clusterIdentifier The cluster identifier. If omitted, this provider will assign a random, unique identifier.
+         * @param clusterIdentifier The cluster identifier. If omitted, the provider will assign a random, unique identifier.
          * 
          * @return builder
          * 
@@ -679,7 +679,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clusterIdentifierPrefix Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifer`.
+         * @param clusterIdentifierPrefix Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
          * 
          * @return builder
          * 
@@ -690,7 +690,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clusterIdentifierPrefix Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifer`.
+         * @param clusterIdentifierPrefix Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
          * 
          * @return builder
          * 

@@ -341,14 +341,16 @@ public class Stack extends com.pulumi.resources.CustomResource {
         return this.stackEndpoint;
     }
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource.
+     * If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource.
+     * If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
@@ -369,32 +371,28 @@ public class Stack extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * Boolean value controlling whether the custom cookbook settings are
-     * enabled.
+     * Boolean value controlling whether the custom cookbook settings are enabled.
      * 
      */
     @Export(name="useCustomCookbooks", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> useCustomCookbooks;
 
     /**
-     * @return Boolean value controlling whether the custom cookbook settings are
-     * enabled.
+     * @return Boolean value controlling whether the custom cookbook settings are enabled.
      * 
      */
     public Output<Optional<Boolean>> useCustomCookbooks() {
         return Codegen.optional(this.useCustomCookbooks);
     }
     /**
-     * Boolean value controlling whether the standard OpsWorks
-     * security groups apply to created instances.
+     * Boolean value controlling whether the standard OpsWorks security groups apply to created instances.
      * 
      */
     @Export(name="useOpsworksSecurityGroups", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> useOpsworksSecurityGroups;
 
     /**
-     * @return Boolean value controlling whether the standard OpsWorks
-     * security groups apply to created instances.
+     * @return Boolean value controlling whether the standard OpsWorks security groups apply to created instances.
      * 
      */
     public Output<Optional<Boolean>> useOpsworksSecurityGroups() {

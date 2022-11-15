@@ -31,7 +31,7 @@ public final class GroupPolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the policy. If omitted, this provider will
+     * The name of the policy. If omitted, the provider will
      * assign a random, unique name.
      * 
      */
@@ -39,7 +39,7 @@ public final class GroupPolicyArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the policy. If omitted, this provider will
+     * @return The name of the policy. If omitted, the provider will
      * assign a random, unique name.
      * 
      */
@@ -128,7 +128,7 @@ public final class GroupPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the policy. If omitted, this provider will
+         * @param name The name of the policy. If omitted, the provider will
          * assign a random, unique name.
          * 
          * @return builder
@@ -140,7 +140,7 @@ public final class GroupPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the policy. If omitted, this provider will
+         * @param name The name of the policy. If omitted, the provider will
          * assign a random, unique name.
          * 
          * @return builder

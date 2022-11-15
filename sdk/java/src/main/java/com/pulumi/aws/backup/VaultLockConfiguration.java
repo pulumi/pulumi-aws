@@ -91,14 +91,14 @@ public class VaultLockConfiguration extends com.pulumi.resources.CustomResource 
         return this.backupVaultName;
     }
     /**
-     * The number of days before the lock date.
+     * The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
      * 
      */
     @Export(name="changeableForDays", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> changeableForDays;
 
     /**
-     * @return The number of days before the lock date.
+     * @return The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
      * 
      */
     public Output<Optional<Integer>> changeableForDays() {

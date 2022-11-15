@@ -375,14 +375,14 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `filebase64sha256(&#34;file.zip&#34;)`, where &#34;file.zip&#34; is the local filename of the lambda function source archive.
+     * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
      * 
      */
     @Import(name="sourceCodeHash")
     private @Nullable Output<String> sourceCodeHash;
 
     /**
-     * @return Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `filebase64sha256(&#34;file.zip&#34;)`, where &#34;file.zip&#34; is the local filename of the lambda function source archive.
+     * @return Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
      * 
      */
     public Optional<Output<String>> sourceCodeHash() {
@@ -402,21 +402,6 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
-    }
-
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    @Import(name="tagsAll")
-    private @Nullable Output<Map<String,String>> tagsAll;
-
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    public Optional<Output<Map<String,String>>> tagsAll() {
-        return Optional.ofNullable(this.tagsAll);
     }
 
     /**
@@ -492,7 +477,6 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         this.s3ObjectVersion = $.s3ObjectVersion;
         this.sourceCodeHash = $.sourceCodeHash;
         this.tags = $.tags;
-        this.tagsAll = $.tagsAll;
         this.timeout = $.timeout;
         this.tracingConfig = $.tracingConfig;
         this.vpcConfig = $.vpcConfig;
@@ -1040,7 +1024,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceCodeHash Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `filebase64sha256(&#34;file.zip&#34;)`, where &#34;file.zip&#34; is the local filename of the lambda function source archive.
+         * @param sourceCodeHash Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
          * 
          * @return builder
          * 
@@ -1051,7 +1035,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceCodeHash Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `filebase64sha256(&#34;file.zip&#34;)`, where &#34;file.zip&#34; is the local filename of the lambda function source archive.
+         * @param sourceCodeHash Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
          * 
          * @return builder
          * 
@@ -1079,27 +1063,6 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
-        }
-
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
-            $.tagsAll = tagsAll;
-            return this;
-        }
-
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(Map<String,String> tagsAll) {
-            return tagsAll(Output.of(tagsAll));
         }
 
         /**

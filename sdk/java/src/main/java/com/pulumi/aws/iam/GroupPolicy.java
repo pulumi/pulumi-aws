@@ -89,7 +89,7 @@ public class GroupPolicy extends com.pulumi.resources.CustomResource {
         return this.group;
     }
     /**
-     * The name of the policy. If omitted, this provider will
+     * The name of the policy. If omitted, the provider will
      * assign a random, unique name.
      * 
      */
@@ -97,7 +97,7 @@ public class GroupPolicy extends com.pulumi.resources.CustomResource {
     private Output<String> name;
 
     /**
-     * @return The name of the policy. If omitted, this provider will
+     * @return The name of the policy. If omitted, the provider will
      * assign a random, unique name.
      * 
      */

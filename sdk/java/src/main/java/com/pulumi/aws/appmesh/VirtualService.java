@@ -107,8 +107,6 @@ import javax.annotation.Nullable;
  *  $ pulumi import aws:appmesh/virtualService:VirtualService servicea simpleapp/servicea.simpleapp.local
  * ```
  * 
- *  [1]/docs/providers/aws/index.html
- * 
  */
 @ResourceType(type="aws:appmesh/virtualService:VirtualService")
 public class VirtualService extends com.pulumi.resources.CustomResource {

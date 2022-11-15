@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *             .description(&#34;tf-test-desc&#34;)
  *             .build());
  * 
- *         var tfTemplate = new ConfigurationTemplate(&#34;tfTemplate&#34;, ConfigurationTemplateArgs.builder()        
+ *         var myTemplate = new ConfigurationTemplate(&#34;myTemplate&#34;, ConfigurationTemplateArgs.builder()        
  *             .application(tftest.name())
  *             .solutionStackName(&#34;64bit Amazon Linux 2015.09 v2.0.8 running Go 1.4&#34;)
  *             .build());
@@ -145,7 +145,7 @@ public class ConfigurationTemplate extends com.pulumi.resources.CustomResource {
     }
     /**
      * A solution stack to base your Template
-     * off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
+     * off of. Example stacks can be found in the [Amazon API documentation][1]
      * 
      */
     @Export(name="solutionStackName", type=String.class, parameters={})
@@ -153,7 +153,7 @@ public class ConfigurationTemplate extends com.pulumi.resources.CustomResource {
 
     /**
      * @return A solution stack to base your Template
-     * off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
+     * off of. Example stacks can be found in the [Amazon API documentation][1]
      * 
      */
     public Output<Optional<String>> solutionStackName() {

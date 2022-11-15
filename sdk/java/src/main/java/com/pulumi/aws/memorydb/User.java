@@ -17,6 +17,10 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Provides a MemoryDB User.
+ * 
+ * More information about users and ACL-s can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/clusters.acls.html).
+ * 
  * ## Example Usage
  * ```java
  * package generated_program;

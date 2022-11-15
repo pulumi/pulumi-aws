@@ -13,9 +13,17 @@ public final class ResourcePolicyArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final ResourcePolicyArgs Empty = new ResourcePolicyArgs();
 
+    /**
+     * JSON formatted policy document that controls access to the Network Firewall resource. The policy must be provided **without whitespaces**.  We recommend using jsonencode for formatting as seen in the examples above. For more details, including available policy statement Actions, see the [Policy](https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_PutResourcePolicy.html#API_PutResourcePolicy_RequestSyntax) parameter in the AWS API documentation.
+     * 
+     */
     @Import(name="policy", required=true)
     private Output<String> policy;
 
+    /**
+     * @return JSON formatted policy document that controls access to the Network Firewall resource. The policy must be provided **without whitespaces**.  We recommend using jsonencode for formatting as seen in the examples above. For more details, including available policy statement Actions, see the [Policy](https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_PutResourcePolicy.html#API_PutResourcePolicy_RequestSyntax) parameter in the AWS API documentation.
+     * 
+     */
     public Output<String> policy() {
         return this.policy;
     }
@@ -60,11 +68,23 @@ public final class ResourcePolicyArgs extends com.pulumi.resources.ResourceArgs 
             $ = new ResourcePolicyArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param policy JSON formatted policy document that controls access to the Network Firewall resource. The policy must be provided **without whitespaces**.  We recommend using jsonencode for formatting as seen in the examples above. For more details, including available policy statement Actions, see the [Policy](https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_PutResourcePolicy.html#API_PutResourcePolicy_RequestSyntax) parameter in the AWS API documentation.
+         * 
+         * @return builder
+         * 
+         */
         public Builder policy(Output<String> policy) {
             $.policy = policy;
             return this;
         }
 
+        /**
+         * @param policy JSON formatted policy document that controls access to the Network Firewall resource. The policy must be provided **without whitespaces**.  We recommend using jsonencode for formatting as seen in the examples above. For more details, including available policy statement Actions, see the [Policy](https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_PutResourcePolicy.html#API_PutResourcePolicy_RequestSyntax) parameter in the AWS API documentation.
+         * 
+         * @return builder
+         * 
+         */
         public Builder policy(String policy) {
             return policy(Output.of(policy));
         }

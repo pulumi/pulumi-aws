@@ -760,6 +760,7 @@ public final class RdsFunctions {
      * Information about an RDS engine version.
      * 
      * ## Example Usage
+     * ### Basic Usage
      * ```java
      * package generated_program;
      * 
@@ -783,11 +784,41 @@ public final class RdsFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = RdsFunctions.getEngineVersion(GetEngineVersionArgs.builder()
      *             .engine(&#34;mysql&#34;)
-     *             .filters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .preferredVersions(            
-     *                 &#34;5.7.42&#34;,
-     *                 &#34;5.7.19&#34;,
-     *                 &#34;5.7.17&#34;)
+     *                 &#34;8.0.27&#34;,
+     *                 &#34;8.0.26&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### With `filter`
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.docdb.inputs.GetEngineVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = RdsFunctions.getEngineVersion(GetEngineVersionArgs.builder()
+     *             .engine(&#34;aurora-postgresql&#34;)
+     *             .filters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .includeAll(true)
+     *             .version(&#34;10.14&#34;)
      *             .build());
      * 
      *     }
@@ -802,6 +833,7 @@ public final class RdsFunctions {
      * Information about an RDS engine version.
      * 
      * ## Example Usage
+     * ### Basic Usage
      * ```java
      * package generated_program;
      * 
@@ -825,11 +857,41 @@ public final class RdsFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = RdsFunctions.getEngineVersion(GetEngineVersionArgs.builder()
      *             .engine(&#34;mysql&#34;)
-     *             .filters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .preferredVersions(            
-     *                 &#34;5.7.42&#34;,
-     *                 &#34;5.7.19&#34;,
-     *                 &#34;5.7.17&#34;)
+     *                 &#34;8.0.27&#34;,
+     *                 &#34;8.0.26&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### With `filter`
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.docdb.inputs.GetEngineVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = RdsFunctions.getEngineVersion(GetEngineVersionArgs.builder()
+     *             .engine(&#34;aurora-postgresql&#34;)
+     *             .filters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .includeAll(true)
+     *             .version(&#34;10.14&#34;)
      *             .build());
      * 
      *     }
@@ -844,6 +906,7 @@ public final class RdsFunctions {
      * Information about an RDS engine version.
      * 
      * ## Example Usage
+     * ### Basic Usage
      * ```java
      * package generated_program;
      * 
@@ -867,11 +930,41 @@ public final class RdsFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = RdsFunctions.getEngineVersion(GetEngineVersionArgs.builder()
      *             .engine(&#34;mysql&#34;)
-     *             .filters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .preferredVersions(            
-     *                 &#34;5.7.42&#34;,
-     *                 &#34;5.7.19&#34;,
-     *                 &#34;5.7.17&#34;)
+     *                 &#34;8.0.27&#34;,
+     *                 &#34;8.0.26&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### With `filter`
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.docdb.inputs.GetEngineVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = RdsFunctions.getEngineVersion(GetEngineVersionArgs.builder()
+     *             .engine(&#34;aurora-postgresql&#34;)
+     *             .filters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .includeAll(true)
+     *             .version(&#34;10.14&#34;)
      *             .build());
      * 
      *     }
@@ -886,6 +979,7 @@ public final class RdsFunctions {
      * Information about an RDS engine version.
      * 
      * ## Example Usage
+     * ### Basic Usage
      * ```java
      * package generated_program;
      * 
@@ -909,11 +1003,41 @@ public final class RdsFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = RdsFunctions.getEngineVersion(GetEngineVersionArgs.builder()
      *             .engine(&#34;mysql&#34;)
-     *             .filters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .preferredVersions(            
-     *                 &#34;5.7.42&#34;,
-     *                 &#34;5.7.19&#34;,
-     *                 &#34;5.7.17&#34;)
+     *                 &#34;8.0.27&#34;,
+     *                 &#34;8.0.26&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### With `filter`
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.docdb.inputs.GetEngineVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = RdsFunctions.getEngineVersion(GetEngineVersionArgs.builder()
+     *             .engine(&#34;aurora-postgresql&#34;)
+     *             .filters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .includeAll(true)
+     *             .version(&#34;10.14&#34;)
      *             .build());
      * 
      *     }

@@ -86,14 +86,14 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Disk size in GiB for worker nodes. Defaults to `20`. This provider will only perform drift detection if a configuration value is provided.
+     * Disk size in GiB for worker nodes. Defaults to `20`. The provider will only perform drift detection if a configuration value is provided.
      * 
      */
     @Import(name="diskSize")
     private @Nullable Output<Integer> diskSize;
 
     /**
-     * @return Disk size in GiB for worker nodes. Defaults to `20`. This provider will only perform drift detection if a configuration value is provided.
+     * @return Disk size in GiB for worker nodes. Defaults to `20`. The provider will only perform drift detection if a configuration value is provided.
      * 
      */
     public Optional<Output<Integer>> diskSize() {
@@ -116,14 +116,14 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of instance types associated with the EKS Node Group. Defaults to `[&#34;t3.medium&#34;]`. This provider will only perform drift detection if a configuration value is provided.
+     * List of instance types associated with the EKS Node Group. Defaults to `[&#34;t3.medium&#34;]`. The provider will only perform drift detection if a configuration value is provided.
      * 
      */
     @Import(name="instanceTypes")
     private @Nullable Output<List<String>> instanceTypes;
 
     /**
-     * @return List of instance types associated with the EKS Node Group. Defaults to `[&#34;t3.medium&#34;]`. This provider will only perform drift detection if a configuration value is provided.
+     * @return List of instance types associated with the EKS Node Group. Defaults to `[&#34;t3.medium&#34;]`. The provider will only perform drift detection if a configuration value is provided.
      * 
      */
     public Optional<Output<List<String>>> instanceTypes() {
@@ -161,14 +161,14 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the EKS Node Group. If omitted, this provider will assign a random, unique name. Conflicts with `node_group_name_prefix`.
+     * Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `node_group_name_prefix`.
      * 
      */
     @Import(name="nodeGroupName")
     private @Nullable Output<String> nodeGroupName;
 
     /**
-     * @return Name of the EKS Node Group. If omitted, this provider will assign a random, unique name. Conflicts with `node_group_name_prefix`.
+     * @return Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `node_group_name_prefix`.
      * 
      */
     public Optional<Output<String>> nodeGroupName() {
@@ -296,14 +296,14 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Key-value map of resource tags. If configured with a provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Key-value map of resource tags. If configured with a provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -348,14 +348,14 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `default_version` or `latest_version` attribute of the `aws.ec2.LaunchTemplate` resource or data source is recommended for this argument.
+     * EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g., `1`) on read and the provider will show a difference on next plan. Using the `default_version` or `latest_version` attribute of the `aws.ec2.LaunchTemplate` resource or data source is recommended for this argument.
      * 
      */
     @Import(name="version")
     private @Nullable Output<String> version;
 
     /**
-     * @return EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `default_version` or `latest_version` attribute of the `aws.ec2.LaunchTemplate` resource or data source is recommended for this argument.
+     * @return EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g., `1`) on read and the provider will show a difference on next plan. Using the `default_version` or `latest_version` attribute of the `aws.ec2.LaunchTemplate` resource or data source is recommended for this argument.
      * 
      */
     public Optional<Output<String>> version() {
@@ -493,7 +493,7 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param diskSize Disk size in GiB for worker nodes. Defaults to `20`. This provider will only perform drift detection if a configuration value is provided.
+         * @param diskSize Disk size in GiB for worker nodes. Defaults to `20`. The provider will only perform drift detection if a configuration value is provided.
          * 
          * @return builder
          * 
@@ -504,7 +504,7 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param diskSize Disk size in GiB for worker nodes. Defaults to `20`. This provider will only perform drift detection if a configuration value is provided.
+         * @param diskSize Disk size in GiB for worker nodes. Defaults to `20`. The provider will only perform drift detection if a configuration value is provided.
          * 
          * @return builder
          * 
@@ -535,7 +535,7 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instanceTypes List of instance types associated with the EKS Node Group. Defaults to `[&#34;t3.medium&#34;]`. This provider will only perform drift detection if a configuration value is provided.
+         * @param instanceTypes List of instance types associated with the EKS Node Group. Defaults to `[&#34;t3.medium&#34;]`. The provider will only perform drift detection if a configuration value is provided.
          * 
          * @return builder
          * 
@@ -546,7 +546,7 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instanceTypes List of instance types associated with the EKS Node Group. Defaults to `[&#34;t3.medium&#34;]`. This provider will only perform drift detection if a configuration value is provided.
+         * @param instanceTypes List of instance types associated with the EKS Node Group. Defaults to `[&#34;t3.medium&#34;]`. The provider will only perform drift detection if a configuration value is provided.
          * 
          * @return builder
          * 
@@ -556,7 +556,7 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instanceTypes List of instance types associated with the EKS Node Group. Defaults to `[&#34;t3.medium&#34;]`. This provider will only perform drift detection if a configuration value is provided.
+         * @param instanceTypes List of instance types associated with the EKS Node Group. Defaults to `[&#34;t3.medium&#34;]`. The provider will only perform drift detection if a configuration value is provided.
          * 
          * @return builder
          * 
@@ -608,7 +608,7 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nodeGroupName Name of the EKS Node Group. If omitted, this provider will assign a random, unique name. Conflicts with `node_group_name_prefix`.
+         * @param nodeGroupName Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `node_group_name_prefix`.
          * 
          * @return builder
          * 
@@ -619,7 +619,7 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nodeGroupName Name of the EKS Node Group. If omitted, this provider will assign a random, unique name. Conflicts with `node_group_name_prefix`.
+         * @param nodeGroupName Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `node_group_name_prefix`.
          * 
          * @return builder
          * 
@@ -817,7 +817,7 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value map of resource tags. If configured with a provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -828,7 +828,7 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value map of resource tags. If configured with a provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -899,7 +899,7 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param version EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `default_version` or `latest_version` attribute of the `aws.ec2.LaunchTemplate` resource or data source is recommended for this argument.
+         * @param version EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g., `1`) on read and the provider will show a difference on next plan. Using the `default_version` or `latest_version` attribute of the `aws.ec2.LaunchTemplate` resource or data source is recommended for this argument.
          * 
          * @return builder
          * 
@@ -910,7 +910,7 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param version EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `default_version` or `latest_version` attribute of the `aws.ec2.LaunchTemplate` resource or data source is recommended for this argument.
+         * @param version EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g., `1`) on read and the provider will show a difference on next plan. Using the `default_version` or `latest_version` attribute of the `aws.ec2.LaunchTemplate` resource or data source is recommended for this argument.
          * 
          * @return builder
          * 

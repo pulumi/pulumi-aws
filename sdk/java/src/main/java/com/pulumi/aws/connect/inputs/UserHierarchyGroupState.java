@@ -123,9 +123,19 @@ public final class UserHierarchyGroupState extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.parentGroupId);
     }
 
+    /**
+     * Tags to apply to the hierarchy group. If configured with a provider
+     * `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return Tags to apply to the hierarchy group. If configured with a provider
+     * `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -334,11 +344,25 @@ public final class UserHierarchyGroupState extends com.pulumi.resources.Resource
             return parentGroupId(Output.of(parentGroupId));
         }
 
+        /**
+         * @param tags Tags to apply to the hierarchy group. If configured with a provider
+         * `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Tags to apply to the hierarchy group. If configured with a provider
+         * `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

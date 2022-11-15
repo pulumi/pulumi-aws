@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 /**
  * Provides an AWS Config Configuration Recorder. Please note that this resource **does not start** the created recorder automatically.
  * 
- * &gt; **Note:** _Starting_ the Configuration Recorder requires a `delivery channel` (while delivery channel creation requires Configuration Recorder). This is why `aws.cfg.RecorderStatus` is a separate resource.
+ * &gt; **Note:** _Starting_ the Configuration Recorder requires a delivery channel (while delivery channel creation requires Configuration Recorder). This is why `aws.cfg.RecorderStatus` is a separate resource.
  * 
  * ## Example Usage
  * ```java

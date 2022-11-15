@@ -59,15 +59,31 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:cloudcontrol/resource:Resource")
 public class Resource extends com.pulumi.resources.CustomResource {
+    /**
+     * JSON string matching the CloudFormation resource type schema with desired configuration.
+     * 
+     */
     @Export(name="desiredState", type=String.class, parameters={})
     private Output<String> desiredState;
 
+    /**
+     * @return JSON string matching the CloudFormation resource type schema with desired configuration.
+     * 
+     */
     public Output<String> desiredState() {
         return this.desiredState;
     }
+    /**
+     * JSON string matching the CloudFormation resource type schema with current configuration. Underlying attributes can be referenced via the `jsondecode()` function, for example, `jsondecode(data.aws_cloudcontrolapi_resource.example.properties)[&#34;example&#34;]`.
+     * 
+     */
     @Export(name="properties", type=String.class, parameters={})
     private Output<String> properties;
 
+    /**
+     * @return JSON string matching the CloudFormation resource type schema with current configuration. Underlying attributes can be referenced via the `jsondecode()` function, for example, `jsondecode(data.aws_cloudcontrolapi_resource.example.properties)[&#34;example&#34;]`.
+     * 
+     */
     public Output<String> properties() {
         return this.properties;
     }

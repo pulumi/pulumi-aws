@@ -80,8 +80,6 @@ import javax.annotation.Nullable;
  *  $ pulumi import aws:appmesh/virtualRouter:VirtualRouter serviceb simpleapp/serviceB
  * ```
  * 
- *  [1]/docs/providers/aws/index.html
- * 
  */
 @ResourceType(type="aws:appmesh/virtualRouter:VirtualRouter")
 public class VirtualRouter extends com.pulumi.resources.CustomResource {

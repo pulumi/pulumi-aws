@@ -55,25 +55,18 @@ public final class ReservedInstanceArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Map of tags to assign to the DB reservation. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the DB reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Map of tags to assign to the DB reservation. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the DB reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
-    }
-
-    @Import(name="tagsAll")
-    private @Nullable Output<Map<String,String>> tagsAll;
-
-    public Optional<Output<Map<String,String>>> tagsAll() {
-        return Optional.ofNullable(this.tagsAll);
     }
 
     private ReservedInstanceArgs() {}
@@ -83,7 +76,6 @@ public final class ReservedInstanceArgs extends com.pulumi.resources.ResourceArg
         this.offeringId = $.offeringId;
         this.reservationId = $.reservationId;
         this.tags = $.tags;
-        this.tagsAll = $.tagsAll;
     }
 
     public static Builder builder() {
@@ -156,7 +148,7 @@ public final class ReservedInstanceArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tags Map of tags to assign to the DB reservation. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the DB reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -167,22 +159,13 @@ public final class ReservedInstanceArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tags Map of tags to assign to the DB reservation. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the DB reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
-        }
-
-        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
-            $.tagsAll = tagsAll;
-            return this;
-        }
-
-        public Builder tagsAll(Map<String,String> tagsAll) {
-            return tagsAll(Output.of(tagsAll));
         }
 
         public ReservedInstanceArgs build() {

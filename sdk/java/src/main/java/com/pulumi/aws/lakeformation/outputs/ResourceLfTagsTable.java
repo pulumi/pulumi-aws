@@ -27,6 +27,10 @@ public final class ResourceLfTagsTable {
      * 
      */
     private @Nullable String name;
+    /**
+     * @return Whether to use a column wildcard. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+     * 
+     */
     private @Nullable Boolean wildcard;
 
     private ResourceLfTagsTable() {}
@@ -51,6 +55,10 @@ public final class ResourceLfTagsTable {
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
+    /**
+     * @return Whether to use a column wildcard. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+     * 
+     */
     public Optional<Boolean> wildcard() {
         return Optional.ofNullable(this.wildcard);
     }

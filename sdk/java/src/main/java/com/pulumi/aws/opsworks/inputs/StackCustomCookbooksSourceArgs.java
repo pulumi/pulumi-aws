@@ -46,14 +46,14 @@ public final class StackCustomCookbooksSourceArgs extends com.pulumi.resources.R
     }
 
     /**
-     * SSH key to use when authenticating to the source. The provider cannot perform drift detection of this configuration.
+     * SSH key to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
      * 
      */
     @Import(name="sshKey")
     private @Nullable Output<String> sshKey;
 
     /**
-     * @return SSH key to use when authenticating to the source. The provider cannot perform drift detection of this configuration.
+     * @return SSH key to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
      * 
      */
     public Optional<Output<String>> sshKey() {
@@ -177,7 +177,7 @@ public final class StackCustomCookbooksSourceArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param sshKey SSH key to use when authenticating to the source. The provider cannot perform drift detection of this configuration.
+         * @param sshKey SSH key to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class StackCustomCookbooksSourceArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param sshKey SSH key to use when authenticating to the source. The provider cannot perform drift detection of this configuration.
+         * @param sshKey SSH key to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
          * 
          * @return builder
          * 

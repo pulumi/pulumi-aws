@@ -19,6 +19,20 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Provides a managed prefix list resource.
+ * 
+ * &gt; **NOTE on Managed Prefix Lists and Managed Prefix List Entries:** The provider
+ * currently provides both a standalone Managed Prefix List Entry resource (a single entry),
+ * and a Managed Prefix List resource with entries defined in-line. At this time you
+ * cannot use a Managed Prefix List with in-line rules in conjunction with any Managed
+ * Prefix List Entry resources. Doing so will cause a conflict of entries and will overwrite entries.
+ * 
+ * &gt; **NOTE on `max_entries`:** When you reference a Prefix List in a resource,
+ * the maximum number of entries for the prefix lists counts as the same number of rules
+ * or entries for the resource. For example, if you create a prefix list with a maximum
+ * of 20 entries and you reference that prefix list in a security group rule, this counts
+ * as 20 rules for the security group.
+ * 
  * ## Example Usage
  * 
  * Basic usage
@@ -172,9 +186,17 @@ public class ManagedPrefixList extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

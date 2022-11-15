@@ -23,6 +23,83 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Provides an ECS task set - effectively a task that is expected to run until an error occurs or a user terminates it (typically a webserver or a database).
+ * 
+ * See [ECS Task Set section in AWS developer guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-external.html).
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ecs.TaskSet;
+ * import com.pulumi.aws.ecs.TaskSetArgs;
+ * import com.pulumi.aws.ecs.inputs.TaskSetLoadBalancerArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new TaskSet(&#34;example&#34;, TaskSetArgs.builder()        
+ *             .service(aws_ecs_service.example().id())
+ *             .cluster(aws_ecs_cluster.example().id())
+ *             .taskDefinition(aws_ecs_task_definition.example().arn())
+ *             .loadBalancers(TaskSetLoadBalancerArgs.builder()
+ *                 .targetGroupArn(aws_lb_target_group.example().arn())
+ *                 .containerName(&#34;mongo&#34;)
+ *                 .containerPort(8080)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Ignoring Changes to Scale
+ * 
+ * You can utilize the generic resource lifecycle configuration block with `ignore_changes` to create an ECS service with an initial count of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ecs.TaskSet;
+ * import com.pulumi.aws.ecs.TaskSetArgs;
+ * import com.pulumi.aws.ecs.inputs.TaskSetScaleArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new TaskSet(&#34;example&#34;, TaskSetArgs.builder()        
+ *             .lifecycle(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .scale(TaskSetScaleArgs.builder()
+ *                 .value(50)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * ## Import
  * 
  * ECS Task Sets can be imported via the `task_set_id`, `service`, and `cluster` separated by commas (`,`) e.g.
@@ -90,9 +167,17 @@ public class TaskSet extends com.pulumi.resources.CustomResource {
     public Output<String> externalId() {
         return this.externalId;
     }
+    /**
+     * Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it&#39;s in the process of scaling a resource. Normally, the provider drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling.
+     * 
+     */
     @Export(name="forceDelete", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> forceDelete;
 
+    /**
+     * @return Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it&#39;s in the process of scaling a resource. Normally, the provider drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling.
+     * 
+     */
     public Output<Optional<Boolean>> forceDelete() {
         return Codegen.optional(this.forceDelete);
     }
@@ -278,9 +363,17 @@ public class TaskSet extends com.pulumi.resources.CustomResource {
     public Output<String> taskSetId() {
         return this.taskSetId;
     }
+    /**
+     * Whether the provider should wait until the task set has reached `STEADY_STATE`.
+     * 
+     */
     @Export(name="waitUntilStable", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> waitUntilStable;
 
+    /**
+     * @return Whether the provider should wait until the task set has reached `STEADY_STATE`.
+     * 
+     */
     public Output<Optional<Boolean>> waitUntilStable() {
         return Codegen.optional(this.waitUntilStable);
     }

@@ -68,7 +68,7 @@ public final class VpcPeeringConnectionState extends com.pulumi.resources.Resour
 
     /**
      * The AWS account ID of the owner of the peer VPC.
-     * Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+     * Defaults to the account ID the AWS provider is currently connected to.
      * 
      */
     @Import(name="peerOwnerId")
@@ -76,7 +76,7 @@ public final class VpcPeeringConnectionState extends com.pulumi.resources.Resour
 
     /**
      * @return The AWS account ID of the owner of the peer VPC.
-     * Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+     * Defaults to the account ID the AWS provider is currently connected to.
      * 
      */
     public Optional<Output<String>> peerOwnerId() {
@@ -277,7 +277,7 @@ public final class VpcPeeringConnectionState extends com.pulumi.resources.Resour
 
         /**
          * @param peerOwnerId The AWS account ID of the owner of the peer VPC.
-         * Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+         * Defaults to the account ID the AWS provider is currently connected to.
          * 
          * @return builder
          * 
@@ -289,7 +289,7 @@ public final class VpcPeeringConnectionState extends com.pulumi.resources.Resour
 
         /**
          * @param peerOwnerId The AWS account ID of the owner of the peer VPC.
-         * Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+         * Defaults to the account ID the AWS provider is currently connected to.
          * 
          * @return builder
          * 

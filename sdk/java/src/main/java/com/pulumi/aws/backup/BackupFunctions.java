@@ -52,7 +52,7 @@ public final class BackupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BackupFunctions.getFramework(GetFrameworkArgs.builder()
-     *             .name(&#34;tf_example_backup_framework_name&#34;)
+     *             .name(&#34;my_example_backup_framework_name&#34;)
      *             .build());
      * 
      *     }
@@ -89,7 +89,7 @@ public final class BackupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BackupFunctions.getFramework(GetFrameworkArgs.builder()
-     *             .name(&#34;tf_example_backup_framework_name&#34;)
+     *             .name(&#34;my_example_backup_framework_name&#34;)
      *             .build());
      * 
      *     }
@@ -126,7 +126,7 @@ public final class BackupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BackupFunctions.getFramework(GetFrameworkArgs.builder()
-     *             .name(&#34;tf_example_backup_framework_name&#34;)
+     *             .name(&#34;my_example_backup_framework_name&#34;)
      *             .build());
      * 
      *     }
@@ -163,7 +163,7 @@ public final class BackupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BackupFunctions.getFramework(GetFrameworkArgs.builder()
-     *             .name(&#34;tf_example_backup_framework_name&#34;)
+     *             .name(&#34;my_example_backup_framework_name&#34;)
      *             .build());
      * 
      *     }
@@ -200,7 +200,7 @@ public final class BackupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BackupFunctions.getPlan(GetPlanArgs.builder()
-     *             .planId(&#34;tf_example_backup_plan_id&#34;)
+     *             .planId(&#34;my_example_backup_plan_id&#34;)
      *             .build());
      * 
      *     }
@@ -237,7 +237,7 @@ public final class BackupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BackupFunctions.getPlan(GetPlanArgs.builder()
-     *             .planId(&#34;tf_example_backup_plan_id&#34;)
+     *             .planId(&#34;my_example_backup_plan_id&#34;)
      *             .build());
      * 
      *     }
@@ -274,7 +274,7 @@ public final class BackupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BackupFunctions.getPlan(GetPlanArgs.builder()
-     *             .planId(&#34;tf_example_backup_plan_id&#34;)
+     *             .planId(&#34;my_example_backup_plan_id&#34;)
      *             .build());
      * 
      *     }
@@ -311,7 +311,7 @@ public final class BackupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BackupFunctions.getPlan(GetPlanArgs.builder()
-     *             .planId(&#34;tf_example_backup_plan_id&#34;)
+     *             .planId(&#34;my_example_backup_plan_id&#34;)
      *             .build());
      * 
      *     }
@@ -348,7 +348,7 @@ public final class BackupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BackupFunctions.getReportPlan(GetReportPlanArgs.builder()
-     *             .name(&#34;tf_example_backup_report_plan_name&#34;)
+     *             .name(&#34;my_example_backup_report_plan_name&#34;)
      *             .build());
      * 
      *     }
@@ -385,7 +385,7 @@ public final class BackupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BackupFunctions.getReportPlan(GetReportPlanArgs.builder()
-     *             .name(&#34;tf_example_backup_report_plan_name&#34;)
+     *             .name(&#34;my_example_backup_report_plan_name&#34;)
      *             .build());
      * 
      *     }
@@ -422,7 +422,7 @@ public final class BackupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BackupFunctions.getReportPlan(GetReportPlanArgs.builder()
-     *             .name(&#34;tf_example_backup_report_plan_name&#34;)
+     *             .name(&#34;my_example_backup_report_plan_name&#34;)
      *             .build());
      * 
      *     }
@@ -459,7 +459,7 @@ public final class BackupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BackupFunctions.getReportPlan(GetReportPlanArgs.builder()
-     *             .name(&#34;tf_example_backup_report_plan_name&#34;)
+     *             .name(&#34;my_example_backup_report_plan_name&#34;)
      *             .build());
      * 
      *     }

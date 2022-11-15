@@ -14,6 +14,8 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
+ * Resource for managing an AWS KMS (Key Management) Custom Key Store.
+ * 
  * ## Example Usage
  * ### Basic Usage
  * ```java

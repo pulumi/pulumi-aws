@@ -113,14 +113,14 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. It is recommended to use the `aws.apigateway.Stage` resource instead to manage stages.
+     * Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. We recommend using the `aws.apigateway.Stage` resource instead to manage stages.
      * 
      */
     @Import(name="stageName")
     private @Nullable Output<String> stageName;
 
     /**
-     * @return Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. It is recommended to use the `aws.apigateway.Stage` resource instead to manage stages.
+     * @return Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. We recommend using the `aws.apigateway.Stage` resource instead to manage stages.
      * 
      */
     public Optional<Output<String>> stageName() {
@@ -322,7 +322,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param stageName Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. It is recommended to use the `aws.apigateway.Stage` resource instead to manage stages.
+         * @param stageName Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. We recommend using the `aws.apigateway.Stage` resource instead to manage stages.
          * 
          * @return builder
          * 
@@ -333,7 +333,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param stageName Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. It is recommended to use the `aws.apigateway.Stage` resource instead to manage stages.
+         * @param stageName Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. We recommend using the `aws.apigateway.Stage` resource instead to manage stages.
          * 
          * @return builder
          * 

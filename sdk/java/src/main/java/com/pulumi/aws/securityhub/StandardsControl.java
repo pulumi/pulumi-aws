@@ -15,6 +15,12 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
+ * Disable/enable Security Hub standards control in the current region.
+ * 
+ * The `aws.securityhub.StandardsControl` behaves differently from normal resources, in that
+ * The provider does not _create_ this resource, but instead &#34;adopts&#34; it
+ * into management. When you _delete_ this resource configuration, the provider &#34;abandons&#34; resource as is and just removes it from the state.
+ * 
  * ## Example Usage
  * ```java
  * package generated_program;

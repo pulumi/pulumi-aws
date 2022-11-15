@@ -75,7 +75,7 @@ import javax.annotation.Nullable;
  * 
  *         var testDataSource = new DataSource(&#34;testDataSource&#34;, DataSourceArgs.builder()        
  *             .apiId(testGraphQLApi.id())
- *             .name(&#34;tf_example&#34;)
+ *             .name(&#34;my_example&#34;)
  *             .type(&#34;HTTP&#34;)
  *             .httpConfig(DataSourceHttpConfigArgs.builder()
  *                 .endpoint(&#34;http://example.com&#34;)

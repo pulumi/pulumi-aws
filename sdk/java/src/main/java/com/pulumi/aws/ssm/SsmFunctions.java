@@ -830,8 +830,6 @@ public final class SsmFunctions {
      * }
      * ```
      * 
-     * &gt; **Note:** The data source is currently following the behavior of the [SSM API](https://docs.aws.amazon.com/sdk-for-go/api/service/ssm/#Parameter) to return a string value, regardless of parameter type.
-     * 
      */
     public static Output<GetParameterResult> getParameter(GetParameterArgs args) {
         return getParameter(args, InvokeOptions.Empty);
@@ -868,8 +866,6 @@ public final class SsmFunctions {
      *     }
      * }
      * ```
-     * 
-     * &gt; **Note:** The data source is currently following the behavior of the [SSM API](https://docs.aws.amazon.com/sdk-for-go/api/service/ssm/#Parameter) to return a string value, regardless of parameter type.
      * 
      */
     public static CompletableFuture<GetParameterResult> getParameterPlain(GetParameterPlainArgs args) {
@@ -908,8 +904,6 @@ public final class SsmFunctions {
      * }
      * ```
      * 
-     * &gt; **Note:** The data source is currently following the behavior of the [SSM API](https://docs.aws.amazon.com/sdk-for-go/api/service/ssm/#Parameter) to return a string value, regardless of parameter type.
-     * 
      */
     public static Output<GetParameterResult> getParameter(GetParameterArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ssm/getParameter:getParameter", TypeShape.of(GetParameterResult.class), args, Utilities.withVersion(options));
@@ -947,21 +941,163 @@ public final class SsmFunctions {
      * }
      * ```
      * 
-     * &gt; **Note:** The data source is currently following the behavior of the [SSM API](https://docs.aws.amazon.com/sdk-for-go/api/service/ssm/#Parameter) to return a string value, regardless of parameter type.
-     * 
      */
     public static CompletableFuture<GetParameterResult> getParameterPlain(GetParameterPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ssm/getParameter:getParameter", TypeShape.of(GetParameterResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Provides SSM Parameters by path.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ssm.inputs.GetParametersByPathArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = SsmFunctions.getParametersByPath(GetParametersByPathArgs.builder()
+     *             .path(&#34;/foo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * &gt; **Note:** The data source is currently following the behavior of the [SSM API](https://docs.aws.amazon.com/sdk-for-go/api/service/ssm/#Parameter) to return a string value, regardless of parameter type. For type `StringList`, we can use the built-in split() function to get values in a list. Example: `split(&#34;,&#34;, data.aws_ssm_parameter.subnets.value)`
+     * 
+     */
     public static Output<GetParametersByPathResult> getParametersByPath(GetParametersByPathArgs args) {
         return getParametersByPath(args, InvokeOptions.Empty);
     }
+    /**
+     * Provides SSM Parameters by path.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ssm.inputs.GetParametersByPathArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = SsmFunctions.getParametersByPath(GetParametersByPathArgs.builder()
+     *             .path(&#34;/foo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * &gt; **Note:** The data source is currently following the behavior of the [SSM API](https://docs.aws.amazon.com/sdk-for-go/api/service/ssm/#Parameter) to return a string value, regardless of parameter type. For type `StringList`, we can use the built-in split() function to get values in a list. Example: `split(&#34;,&#34;, data.aws_ssm_parameter.subnets.value)`
+     * 
+     */
     public static CompletableFuture<GetParametersByPathResult> getParametersByPathPlain(GetParametersByPathPlainArgs args) {
         return getParametersByPathPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Provides SSM Parameters by path.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ssm.inputs.GetParametersByPathArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = SsmFunctions.getParametersByPath(GetParametersByPathArgs.builder()
+     *             .path(&#34;/foo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * &gt; **Note:** The data source is currently following the behavior of the [SSM API](https://docs.aws.amazon.com/sdk-for-go/api/service/ssm/#Parameter) to return a string value, regardless of parameter type. For type `StringList`, we can use the built-in split() function to get values in a list. Example: `split(&#34;,&#34;, data.aws_ssm_parameter.subnets.value)`
+     * 
+     */
     public static Output<GetParametersByPathResult> getParametersByPath(GetParametersByPathArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ssm/getParametersByPath:getParametersByPath", TypeShape.of(GetParametersByPathResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Provides SSM Parameters by path.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ssm.inputs.GetParametersByPathArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = SsmFunctions.getParametersByPath(GetParametersByPathArgs.builder()
+     *             .path(&#34;/foo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * &gt; **Note:** The data source is currently following the behavior of the [SSM API](https://docs.aws.amazon.com/sdk-for-go/api/service/ssm/#Parameter) to return a string value, regardless of parameter type. For type `StringList`, we can use the built-in split() function to get values in a list. Example: `split(&#34;,&#34;, data.aws_ssm_parameter.subnets.value)`
+     * 
+     */
     public static CompletableFuture<GetParametersByPathResult> getParametersByPathPlain(GetParametersByPathPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ssm/getParametersByPath:getParametersByPath", TypeShape.of(GetParametersByPathResult.class), args, Utilities.withVersion(options));
     }

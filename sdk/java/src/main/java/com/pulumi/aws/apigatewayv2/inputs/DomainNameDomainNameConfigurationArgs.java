@@ -16,14 +16,14 @@ public final class DomainNameDomainNameConfigurationArgs extends com.pulumi.reso
     public static final DomainNameDomainNameConfigurationArgs Empty = new DomainNameDomainNameConfigurationArgs();
 
     /**
-     * ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source. Use the [`aws.acm.Certificate`](https://www.terraform.io/docs/providers/aws/r/acm_certificate.html) resource to configure an ACM certificate.
+     * ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source. Use the `aws.acm.Certificate` resource to configure an ACM certificate.
      * 
      */
     @Import(name="certificateArn", required=true)
     private Output<String> certificateArn;
 
     /**
-     * @return ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source. Use the [`aws.acm.Certificate`](https://www.terraform.io/docs/providers/aws/r/acm_certificate.html) resource to configure an ACM certificate.
+     * @return ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source. Use the `aws.acm.Certificate` resource to configure an ACM certificate.
      * 
      */
     public Output<String> certificateArn() {
@@ -135,7 +135,7 @@ public final class DomainNameDomainNameConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param certificateArn ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source. Use the [`aws.acm.Certificate`](https://www.terraform.io/docs/providers/aws/r/acm_certificate.html) resource to configure an ACM certificate.
+         * @param certificateArn ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source. Use the `aws.acm.Certificate` resource to configure an ACM certificate.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class DomainNameDomainNameConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param certificateArn ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source. Use the [`aws.acm.Certificate`](https://www.terraform.io/docs/providers/aws/r/acm_certificate.html) resource to configure an ACM certificate.
+         * @param certificateArn ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source. Use the `aws.acm.Certificate` resource to configure an ACM certificate.
          * 
          * @return builder
          * 

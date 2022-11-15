@@ -14,6 +14,8 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
+ * Resource for managing an AWS Inspector V2 Delegated Admin Account.
+ * 
  * ## Example Usage
  * ### Basic Usage
  * ```java

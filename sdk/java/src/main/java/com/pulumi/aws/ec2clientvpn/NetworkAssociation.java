@@ -15,6 +15,11 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
+ * Provides network associations for AWS Client VPN endpoints. For more information on usage, please see the
+ * [AWS Client VPN Administrator&#39;s Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
+ * 
+ * &gt; **NOTE on Client VPN endpoint target network security groups:** The provider provides both a standalone Client VPN endpoint network association resource with a (deprecated) `security_groups` argument and a Client VPN endpoint resource with a `security_group_ids` argument. Do not specify security groups in both resources. Doing so will cause a conflict and will overwrite the target network security group association.
+ * 
  * ## Example Usage
  * ### Using default security group
  * ```java

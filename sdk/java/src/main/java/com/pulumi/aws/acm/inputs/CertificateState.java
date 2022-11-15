@@ -263,7 +263,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Set of domains that should be SANs in the issued certificate.
-     * To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+     * To remove all elements of a previously configured list, set this value equal to an empty list (`[]`)
      * 
      */
     @Import(name="subjectAlternativeNames")
@@ -271,7 +271,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Set of domains that should be SANs in the issued certificate.
-     * To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+     * To remove all elements of a previously configured list, set this value equal to an empty list (`[]`)
      * 
      */
     public Optional<Output<List<String>>> subjectAlternativeNames() {
@@ -338,9 +338,17 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.validationEmails);
     }
 
+    /**
+     * Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
+     * 
+     */
     @Import(name="validationMethod")
     private @Nullable Output<String> validationMethod;
 
+    /**
+     * @return Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
+     * 
+     */
     public Optional<Output<String>> validationMethod() {
         return Optional.ofNullable(this.validationMethod);
     }
@@ -760,7 +768,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param subjectAlternativeNames Set of domains that should be SANs in the issued certificate.
-         * To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+         * To remove all elements of a previously configured list, set this value equal to an empty list (`[]`)
          * 
          * @return builder
          * 
@@ -772,7 +780,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param subjectAlternativeNames Set of domains that should be SANs in the issued certificate.
-         * To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+         * To remove all elements of a previously configured list, set this value equal to an empty list (`[]`)
          * 
          * @return builder
          * 
@@ -783,7 +791,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param subjectAlternativeNames Set of domains that should be SANs in the issued certificate.
-         * To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+         * To remove all elements of a previously configured list, set this value equal to an empty list (`[]`)
          * 
          * @return builder
          * 
@@ -886,11 +894,23 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
             return validationEmails(List.of(validationEmails));
         }
 
+        /**
+         * @param validationMethod Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
+         * 
+         * @return builder
+         * 
+         */
         public Builder validationMethod(@Nullable Output<String> validationMethod) {
             $.validationMethod = validationMethod;
             return this;
         }
 
+        /**
+         * @param validationMethod Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
+         * 
+         * @return builder
+         * 
+         */
         public Builder validationMethod(String validationMethod) {
             return validationMethod(Output.of(validationMethod));
         }

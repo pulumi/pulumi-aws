@@ -338,7 +338,6 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * &gt; &gt; &gt; &gt; &gt; &gt; &gt; v4.29.0
      * 
      */
     @Import(name="tagsAll")
@@ -346,7 +345,6 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * &gt; &gt; &gt; &gt; &gt; &gt; &gt; v4.29.0
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -871,7 +869,6 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * &gt; &gt; &gt; &gt; &gt; &gt; &gt; v4.29.0
          * 
          * @return builder
          * 
@@ -883,7 +880,6 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * &gt; &gt; &gt; &gt; &gt; &gt; &gt; v4.29.0
          * 
          * @return builder
          * 

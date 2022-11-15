@@ -139,9 +139,17 @@ public final class CostCategoryState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.splitChargeRules);
     }
 
+    /**
+     * Configuration block for the specific `Tag` to use for `Expression`. See below.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return Configuration block for the specific `Tag` to use for `Expression`. See below.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -382,11 +390,23 @@ public final class CostCategoryState extends com.pulumi.resources.ResourceArgs {
             return splitChargeRules(List.of(splitChargeRules));
         }
 
+        /**
+         * @param tags Configuration block for the specific `Tag` to use for `Expression`. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Configuration block for the specific `Tag` to use for `Expression`. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

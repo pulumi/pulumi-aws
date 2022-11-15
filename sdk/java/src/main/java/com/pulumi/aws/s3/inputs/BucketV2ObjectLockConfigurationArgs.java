@@ -18,7 +18,7 @@ public final class BucketV2ObjectLockConfigurationArgs extends com.pulumi.resour
     public static final BucketV2ObjectLockConfigurationArgs Empty = new BucketV2ObjectLockConfigurationArgs();
 
     /**
-     * Indicates whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`. Use the top-level argument `object_lock_enabled` instead.
+     * Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
      * 
      * @deprecated
      * Use the top-level parameter object_lock_enabled instead
@@ -29,7 +29,7 @@ public final class BucketV2ObjectLockConfigurationArgs extends com.pulumi.resour
     private @Nullable Output<String> objectLockEnabled;
 
     /**
-     * @return Indicates whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`. Use the top-level argument `object_lock_enabled` instead.
+     * @return Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
      * 
      * @deprecated
      * Use the top-level parameter object_lock_enabled instead
@@ -89,7 +89,7 @@ public final class BucketV2ObjectLockConfigurationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param objectLockEnabled Indicates whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`. Use the top-level argument `object_lock_enabled` instead.
+         * @param objectLockEnabled Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class BucketV2ObjectLockConfigurationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param objectLockEnabled Indicates whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`. Use the top-level argument `object_lock_enabled` instead.
+         * @param objectLockEnabled Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
          * 
          * @return builder
          * 

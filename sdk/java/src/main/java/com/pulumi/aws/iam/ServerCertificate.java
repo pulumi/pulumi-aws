@@ -104,9 +104,9 @@ import javax.annotation.Nullable;
  * **Use in combination with an AWS ELB resource:**
  * 
  * Some properties of an IAM Server Certificates cannot be updated while they are
- * in use. In order for this provider to effectively manage a Certificate in this situation, it is
+ * in use. In order for the provider to effectively manage a Certificate in this situation, it is
  * recommended you utilize the `name_prefix` attribute and enable the
- * `create_before_destroy` [lifecycle block][lifecycle]. This will allow this provider
+ * `create_before_destroy`. This will allow this provider
  * to create a new, updated `aws.iam.ServerCertificate` resource and replace it in
  * dependant resources before attempting to destroy the old version.
  * ```java
@@ -163,7 +163,7 @@ import javax.annotation.Nullable;
  *  $ pulumi import aws:iam/serverCertificate:ServerCertificate certificate example.com-certificate-until-2018
  * ```
  * 
- *  [1]https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html [2]https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html [lifecycle]/docs/configuration/resources.html
+ *  [1]https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html [2]https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html
  * 
  */
 @ResourceType(type="aws:iam/serverCertificate:ServerCertificate")
@@ -297,14 +297,14 @@ public class ServerCertificate extends com.pulumi.resources.CustomResource {
         return this.privateKey;
     }
     /**
-     * Map of resource tags for the server certificate. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of resource tags for the server certificate. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Map of resource tags for the server certificate. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of resource tags for the server certificate. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

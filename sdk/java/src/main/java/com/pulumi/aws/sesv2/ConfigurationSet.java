@@ -21,6 +21,8 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Resource for managing an AWS SESv2 (Simple Email V2) Configuration Set.
+ * 
  * ## Example Usage
  * ### Basic Usage
  * ```java
@@ -33,6 +35,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.sesv2.ConfigurationSetArgs;
  * import com.pulumi.aws.sesv2.inputs.ConfigurationSetDeliveryOptionsArgs;
  * import com.pulumi.aws.sesv2.inputs.ConfigurationSetReputationOptionsArgs;
+ * import com.pulumi.aws.sesv2.inputs.ConfigurationSetSendingOptionsArgs;
  * import com.pulumi.aws.sesv2.inputs.ConfigurationSetSuppressionOptionsArgs;
  * import com.pulumi.aws.sesv2.inputs.ConfigurationSetTrackingOptionsArgs;
  * import java.util.List;
@@ -56,7 +59,9 @@ import javax.annotation.Nullable;
  *             .reputationOptions(ConfigurationSetReputationOptionsArgs.builder()
  *                 .reputationMetricsEnabled(false)
  *                 .build())
- *             .sendigOptions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .sendingOptions(ConfigurationSetSendingOptionsArgs.builder()
+ *                 .sendingEnabled(true)
+ *                 .build())
  *             .suppressionOptions(ConfigurationSetSuppressionOptionsArgs.builder()
  *                 .suppressedReasons(                
  *                     &#34;BOUNCE&#34;,
@@ -166,9 +171,17 @@ public class ConfigurationSet extends com.pulumi.resources.CustomResource {
     public Output<Optional<ConfigurationSetSuppressionOptions>> suppressionOptions() {
         return Codegen.optional(this.suppressionOptions);
     }
+    /**
+     * A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }

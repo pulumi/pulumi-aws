@@ -19,8 +19,13 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Provides a Lambda Layer Version resource. Lambda Layers allow you to reuse shared bits of code across multiple lambda functions.
+ * 
+ * For information about Lambda Layers and how to use them, see [AWS Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html).
+ * 
+ * &gt; **NOTE:** Setting `skip_destroy` to `true` means that the AWS Provider will _not_ destroy any layer version, even when running destroy. Layer versions are thus intentional dangling resources that are _not_ managed by the provider and may incur extra expense in your AWS account.
+ * 
  * ## Example Usage
- * ### Basic Example
  * ```java
  * package generated_program;
  * 
@@ -45,41 +50,6 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var lambdaLayer = new LayerVersion(&#34;lambdaLayer&#34;, LayerVersionArgs.builder()        
  *             .compatibleRuntimes(&#34;nodejs16.x&#34;)
- *             .code(new FileArchive(&#34;lambda_layer_payload.zip&#34;))
- *             .layerName(&#34;lambda_layer_name&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Lambda Layer with Compatible Architectures
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lambda.LayerVersion;
- * import com.pulumi.aws.lambda.LayerVersionArgs;
- * import com.pulumi.asset.FileArchive;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var lambdaLayer = new LayerVersion(&#34;lambdaLayer&#34;, LayerVersionArgs.builder()        
- *             .compatibleArchitectures(            
- *                 &#34;arm64&#34;,
- *                 &#34;x86_64&#34;)
- *             .compatibleRuntimes(&#34;nodejs12.x&#34;)
  *             .code(new FileArchive(&#34;lambda_layer_payload.zip&#34;))
  *             .layerName(&#34;lambda_layer_name&#34;)
  *             .build());
@@ -323,9 +293,17 @@ public class LayerVersion extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> skipDestroy() {
         return Codegen.optional(this.skipDestroy);
     }
+    /**
+     * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+     * 
+     */
     @Export(name="sourceCodeHash", type=String.class, parameters={})
     private Output<String> sourceCodeHash;
 
+    /**
+     * @return Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+     * 
+     */
     public Output<String> sourceCodeHash() {
         return this.sourceCodeHash;
     }

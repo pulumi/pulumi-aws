@@ -2928,6 +2928,10 @@ public final class AwsFunctions {
         return Deployment.getInstance().invokeAsync("aws:index/getCanonicalUserId:getCanonicalUserId", TypeShape.of(GetCanonicalUserIdResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to get the default tags configured on the provider.
+     * 
+     * With this data source, you can apply default tags to resources not _directly_ managed by a resource, such as the instances underneath an Auto Scaling group or the volumes created for an EC2 instance.
+     * 
      * ## Example Usage
      * ### Basic Usage
      * ```java
@@ -2996,6 +3000,10 @@ public final class AwsFunctions {
         return getDefaultTags(GetDefaultTagsArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * Use this data source to get the default tags configured on the provider.
+     * 
+     * With this data source, you can apply default tags to resources not _directly_ managed by a resource, such as the instances underneath an Auto Scaling group or the volumes created for an EC2 instance.
+     * 
      * ## Example Usage
      * ### Basic Usage
      * ```java
@@ -3064,6 +3072,10 @@ public final class AwsFunctions {
         return getDefaultTagsPlain(GetDefaultTagsPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * Use this data source to get the default tags configured on the provider.
+     * 
+     * With this data source, you can apply default tags to resources not _directly_ managed by a resource, such as the instances underneath an Auto Scaling group or the volumes created for an EC2 instance.
+     * 
      * ## Example Usage
      * ### Basic Usage
      * ```java
@@ -3132,6 +3144,10 @@ public final class AwsFunctions {
         return getDefaultTags(args, InvokeOptions.Empty);
     }
     /**
+     * Use this data source to get the default tags configured on the provider.
+     * 
+     * With this data source, you can apply default tags to resources not _directly_ managed by a resource, such as the instances underneath an Auto Scaling group or the volumes created for an EC2 instance.
+     * 
      * ## Example Usage
      * ### Basic Usage
      * ```java
@@ -3200,6 +3216,10 @@ public final class AwsFunctions {
         return getDefaultTagsPlain(args, InvokeOptions.Empty);
     }
     /**
+     * Use this data source to get the default tags configured on the provider.
+     * 
+     * With this data source, you can apply default tags to resources not _directly_ managed by a resource, such as the instances underneath an Auto Scaling group or the volumes created for an EC2 instance.
+     * 
      * ## Example Usage
      * ### Basic Usage
      * ```java
@@ -3268,6 +3288,10 @@ public final class AwsFunctions {
         return Deployment.getInstance().invoke("aws:index/getDefaultTags:getDefaultTags", TypeShape.of(GetDefaultTagsResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to get the default tags configured on the provider.
+     * 
+     * With this data source, you can apply default tags to resources not _directly_ managed by a resource, such as the instances underneath an Auto Scaling group or the volumes created for an EC2 instance.
+     * 
      * ## Example Usage
      * ### Basic Usage
      * ```java
@@ -4356,7 +4380,8 @@ public final class AwsFunctions {
         return Deployment.getInstance().invokeAsync("aws:index/getIpRanges:getIpRanges", TypeShape.of(GetIpRangesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to lookup current AWS partition in which this provider is working
+     * Use this data source to lookup information about the current AWS partition in
+     * which the provider is working.
      * 
      * ## Example Usage
      * ```java
@@ -4400,7 +4425,8 @@ public final class AwsFunctions {
         return getPartition(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to lookup current AWS partition in which this provider is working
+     * Use this data source to lookup information about the current AWS partition in
+     * which the provider is working.
      * 
      * ## Example Usage
      * ```java
@@ -4444,7 +4470,8 @@ public final class AwsFunctions {
         return getPartitionPlain(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to lookup current AWS partition in which this provider is working
+     * Use this data source to lookup information about the current AWS partition in
+     * which the provider is working.
      * 
      * ## Example Usage
      * ```java
@@ -4488,7 +4515,8 @@ public final class AwsFunctions {
         return getPartition(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to lookup current AWS partition in which this provider is working
+     * Use this data source to lookup information about the current AWS partition in
+     * which the provider is working.
      * 
      * ## Example Usage
      * ```java
@@ -4532,7 +4560,8 @@ public final class AwsFunctions {
         return getPartitionPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to lookup current AWS partition in which this provider is working
+     * Use this data source to lookup information about the current AWS partition in
+     * which the provider is working.
      * 
      * ## Example Usage
      * ```java
@@ -4576,7 +4605,8 @@ public final class AwsFunctions {
         return Deployment.getInstance().invoke("aws:index/getPartition:getPartition", TypeShape.of(GetPartitionResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to lookup current AWS partition in which this provider is working
+     * Use this data source to lookup information about the current AWS partition in
+     * which the provider is working.
      * 
      * ## Example Usage
      * ```java
@@ -4620,6 +4650,16 @@ public final class AwsFunctions {
         return Deployment.getInstance().invokeAsync("aws:index/getPartition:getPartition", TypeShape.of(GetPartitionResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * `aws.ec2.getPrefixList` provides details about a specific AWS prefix list (PL)
+     * in the current region.
+     * 
+     * This can be used both to validate a prefix list given in a variable
+     * and to obtain the CIDR blocks (IP address ranges) for the associated
+     * AWS service. The latter may be useful e.g., for adding network ACL
+     * rules.
+     * 
+     * The aws.ec2.ManagedPrefixList data source is normally more appropriate to use given it can return customer-managed prefix list info, as well as additional attributes.
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -4717,6 +4757,16 @@ public final class AwsFunctions {
         return getPrefixList(GetPrefixListArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * `aws.ec2.getPrefixList` provides details about a specific AWS prefix list (PL)
+     * in the current region.
+     * 
+     * This can be used both to validate a prefix list given in a variable
+     * and to obtain the CIDR blocks (IP address ranges) for the associated
+     * AWS service. The latter may be useful e.g., for adding network ACL
+     * rules.
+     * 
+     * The aws.ec2.ManagedPrefixList data source is normally more appropriate to use given it can return customer-managed prefix list info, as well as additional attributes.
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -4814,6 +4864,16 @@ public final class AwsFunctions {
         return getPrefixListPlain(GetPrefixListPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * `aws.ec2.getPrefixList` provides details about a specific AWS prefix list (PL)
+     * in the current region.
+     * 
+     * This can be used both to validate a prefix list given in a variable
+     * and to obtain the CIDR blocks (IP address ranges) for the associated
+     * AWS service. The latter may be useful e.g., for adding network ACL
+     * rules.
+     * 
+     * The aws.ec2.ManagedPrefixList data source is normally more appropriate to use given it can return customer-managed prefix list info, as well as additional attributes.
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -4911,6 +4971,16 @@ public final class AwsFunctions {
         return getPrefixList(args, InvokeOptions.Empty);
     }
     /**
+     * `aws.ec2.getPrefixList` provides details about a specific AWS prefix list (PL)
+     * in the current region.
+     * 
+     * This can be used both to validate a prefix list given in a variable
+     * and to obtain the CIDR blocks (IP address ranges) for the associated
+     * AWS service. The latter may be useful e.g., for adding network ACL
+     * rules.
+     * 
+     * The aws.ec2.ManagedPrefixList data source is normally more appropriate to use given it can return customer-managed prefix list info, as well as additional attributes.
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -5008,6 +5078,16 @@ public final class AwsFunctions {
         return getPrefixListPlain(args, InvokeOptions.Empty);
     }
     /**
+     * `aws.ec2.getPrefixList` provides details about a specific AWS prefix list (PL)
+     * in the current region.
+     * 
+     * This can be used both to validate a prefix list given in a variable
+     * and to obtain the CIDR blocks (IP address ranges) for the associated
+     * AWS service. The latter may be useful e.g., for adding network ACL
+     * rules.
+     * 
+     * The aws.ec2.ManagedPrefixList data source is normally more appropriate to use given it can return customer-managed prefix list info, as well as additional attributes.
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -5105,6 +5185,16 @@ public final class AwsFunctions {
         return Deployment.getInstance().invoke("aws:index/getPrefixList:getPrefixList", TypeShape.of(GetPrefixListResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * `aws.ec2.getPrefixList` provides details about a specific AWS prefix list (PL)
+     * in the current region.
+     * 
+     * This can be used both to validate a prefix list given in a variable
+     * and to obtain the CIDR blocks (IP address ranges) for the associated
+     * AWS service. The latter may be useful e.g., for adding network ACL
+     * rules.
+     * 
+     * The aws.ec2.ManagedPrefixList data source is normally more appropriate to use given it can return customer-managed prefix list info, as well as additional attributes.
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;

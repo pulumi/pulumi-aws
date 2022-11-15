@@ -61,18 +61,19 @@ public final class PhoneNumberArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.prefix);
     }
 
+    /**
+     * Tags to apply to the Phone Number. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return Tags to apply to the Phone Number. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
-    }
-
-    @Import(name="tagsAll")
-    private @Nullable Output<Map<String,String>> tagsAll;
-
-    public Optional<Output<Map<String,String>>> tagsAll() {
-        return Optional.ofNullable(this.tagsAll);
     }
 
     /**
@@ -112,7 +113,6 @@ public final class PhoneNumberArgs extends com.pulumi.resources.ResourceArgs {
         this.description = $.description;
         this.prefix = $.prefix;
         this.tags = $.tags;
-        this.tagsAll = $.tagsAll;
         this.targetArn = $.targetArn;
         this.type = $.type;
     }
@@ -198,22 +198,25 @@ public final class PhoneNumberArgs extends com.pulumi.resources.ResourceArgs {
             return prefix(Output.of(prefix));
         }
 
+        /**
+         * @param tags Tags to apply to the Phone Number. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Tags to apply to the Phone Number. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
-        }
-
-        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
-            $.tagsAll = tagsAll;
-            return this;
-        }
-
-        public Builder tagsAll(Map<String,String> tagsAll) {
-            return tagsAll(Output.of(tagsAll));
         }
 
         /**

@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * [AWS Config Rules Repository](https://github.com/awslabs/aws-config-rules/tree/master/aws-config-conformance-packs).
  * 
  * &gt; **NOTE:** The account must have a Configuration Recorder with proper IAM permissions before the Conformance Pack will
- * successfully create or update. See also the `aws.cfg.Recorder` resource.
+ * successfully create or update. See also the
+ * `aws.cfg.Recorder` resource.
  * 
  * ## Example Usage
  * ### Template Body

@@ -95,14 +95,14 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`.
+     * The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`.
      * 
      */
     @Import(name="runtimeEnvironment", required=true)
     private Output<String> runtimeEnvironment;
 
     /**
-     * @return The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`.
+     * @return The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`.
      * 
      */
     public Output<String> runtimeEnvironment() {
@@ -292,7 +292,7 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param runtimeEnvironment The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`.
+         * @param runtimeEnvironment The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`.
          * 
          * @return builder
          * 
@@ -303,7 +303,7 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param runtimeEnvironment The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`.
+         * @param runtimeEnvironment The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`.
          * 
          * @return builder
          * 

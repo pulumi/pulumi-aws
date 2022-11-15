@@ -79,9 +79,17 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:glue/resourcePolicy:ResourcePolicy")
 public class ResourcePolicy extends com.pulumi.resources.CustomResource {
+    /**
+     * Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
+     * 
+     */
     @Export(name="enableHybrid", type=String.class, parameters={})
     private Output</* @Nullable */ String> enableHybrid;
 
+    /**
+     * @return Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
+     * 
+     */
     public Output<Optional<String>> enableHybrid() {
         return Codegen.optional(this.enableHybrid);
     }

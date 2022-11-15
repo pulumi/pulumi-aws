@@ -42,6 +42,10 @@ public final class CostCategoryRuleRule {
      * 
      */
     private @Nullable List<CostCategoryRuleRuleOr> ors;
+    /**
+     * @return Configuration block for the specific `Tag` to use for `Expression`. See below.
+     * 
+     */
     private @Nullable CostCategoryRuleRuleTags tags;
 
     private CostCategoryRuleRule() {}
@@ -80,6 +84,10 @@ public final class CostCategoryRuleRule {
     public List<CostCategoryRuleRuleOr> ors() {
         return this.ors == null ? List.of() : this.ors;
     }
+    /**
+     * @return Configuration block for the specific `Tag` to use for `Expression`. See below.
+     * 
+     */
     public Optional<CostCategoryRuleRuleTags> tags() {
         return Optional.ofNullable(this.tags);
     }

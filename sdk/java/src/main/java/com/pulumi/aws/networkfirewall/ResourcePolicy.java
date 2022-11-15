@@ -122,9 +122,17 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:networkfirewall/resourcePolicy:ResourcePolicy")
 public class ResourcePolicy extends com.pulumi.resources.CustomResource {
+    /**
+     * JSON formatted policy document that controls access to the Network Firewall resource. The policy must be provided **without whitespaces**.  We recommend using jsonencode for formatting as seen in the examples above. For more details, including available policy statement Actions, see the [Policy](https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_PutResourcePolicy.html#API_PutResourcePolicy_RequestSyntax) parameter in the AWS API documentation.
+     * 
+     */
     @Export(name="policy", type=String.class, parameters={})
     private Output<String> policy;
 
+    /**
+     * @return JSON formatted policy document that controls access to the Network Firewall resource. The policy must be provided **without whitespaces**.  We recommend using jsonencode for formatting as seen in the examples above. For more details, including available policy statement Actions, see the [Policy](https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_PutResourcePolicy.html#API_PutResourcePolicy_RequestSyntax) parameter in the AWS API documentation.
+     * 
+     */
     public Output<String> policy() {
         return this.policy;
     }

@@ -79,9 +79,17 @@ public final class ParameterArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the preview. This argument is not valid with a `type` of `SecureString`.
+     * 
+     */
     @Import(name="insecureValue")
     private @Nullable Output<String> insecureValue;
 
+    /**
+     * @return Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the preview. This argument is not valid with a `type` of `SecureString`.
+     * 
+     */
     public Optional<Output<String>> insecureValue() {
         return Optional.ofNullable(this.insecureValue);
     }
@@ -117,14 +125,14 @@ public final class ParameterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise (lifecycle rules should then be used to manage the update behavior).
+     * Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise.
      * 
      */
     @Import(name="overwrite")
     private @Nullable Output<Boolean> overwrite;
 
     /**
-     * @return Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise (lifecycle rules should then be used to manage the update behavior).
+     * @return Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise.
      * 
      */
     public Optional<Output<Boolean>> overwrite() {
@@ -310,11 +318,23 @@ public final class ParameterArgs extends com.pulumi.resources.ResourceArgs {
             return description(Output.of(description));
         }
 
+        /**
+         * @param insecureValue Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the preview. This argument is not valid with a `type` of `SecureString`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder insecureValue(@Nullable Output<String> insecureValue) {
             $.insecureValue = insecureValue;
             return this;
         }
 
+        /**
+         * @param insecureValue Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the preview. This argument is not valid with a `type` of `SecureString`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder insecureValue(String insecureValue) {
             return insecureValue(Output.of(insecureValue));
         }
@@ -362,7 +382,7 @@ public final class ParameterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param overwrite Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise (lifecycle rules should then be used to manage the update behavior).
+         * @param overwrite Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise.
          * 
          * @return builder
          * 
@@ -373,7 +393,7 @@ public final class ParameterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param overwrite Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise (lifecycle rules should then be used to manage the update behavior).
+         * @param overwrite Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise.
          * 
          * @return builder
          * 
