@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Sns
     /// Provides an SNS topic resource
     /// 
     /// ## Example Usage
-    /// ### Basic Example
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -26,7 +25,7 @@ namespace Pulumi.Aws.Sns
     /// 
     /// });
     /// ```
-    /// ### Example with Delivery Policy
+    /// ## Example with Delivery Policy
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -60,7 +59,8 @@ namespace Pulumi.Aws.Sns
     /// 
     /// });
     /// ```
-    /// ### Example with Server-side encryption (SSE)
+    /// 
+    /// ## Example with Server-side encryption (SSE)
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -76,7 +76,8 @@ namespace Pulumi.Aws.Sns
     /// 
     /// });
     /// ```
-    /// ### Example with First-In-First-Out (FIFO)
+    /// 
+    /// ## Example with First-In-First-Out (FIFO)
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -93,6 +94,7 @@ namespace Pulumi.Aws.Sns
     /// 
     /// });
     /// ```
+    /// 
     /// ## Message Delivery Status Arguments
     /// 
     /// The `&lt;endpoint&gt;_success_feedback_role_arn` and `&lt;endpoint&gt;_failure_feedback_role_arn` arguments are used to give Amazon SNS write access to use CloudWatch Logs on your behalf. The `&lt;endpoint&gt;_success_feedback_sample_rate` argument is for specifying the sample rate percentage (0-100) of successfully delivered messages. After you configure the  `&lt;endpoint&gt;_failure_feedback_role_arn` argument, then all failed message deliveries generate CloudWatch Logs.
@@ -259,7 +261,7 @@ namespace Pulumi.Aws.Sns
         public Output<int?> SqsSuccessFeedbackSampleRate { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -458,7 +460,7 @@ namespace Pulumi.Aws.Sns
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -628,7 +630,7 @@ namespace Pulumi.Aws.Sns
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

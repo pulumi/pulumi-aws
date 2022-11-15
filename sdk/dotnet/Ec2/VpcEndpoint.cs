@@ -10,6 +10,16 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2
 {
     /// <summary>
+    /// Provides a VPC Endpoint resource.
+    /// 
+    /// &gt; **NOTE on VPC Endpoints and VPC Endpoint Associations:** The provider provides both standalone VPC Endpoint Associations for
+    /// Route Tables - (an association between a VPC endpoint and a single `route_table_id`),
+    /// Security Groups - (an association between a VPC endpoint and a single `security_group_id`),
+    /// and Subnets - (an association between a VPC endpoint and a single `subnet_id`) and
+    /// a VPC Endpoint resource with `route_table_ids` and `subnet_ids` attributes.
+    /// Do not use the same resource ID in both a VPC Endpoint resource and a VPC Endpoint Association resource.
+    /// Doing so will cause a conflict of associations and will overwrite the association.
+    /// 
     /// ## Example Usage
     /// ### Basic
     /// 

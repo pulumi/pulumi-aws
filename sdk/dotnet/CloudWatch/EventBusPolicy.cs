@@ -235,6 +235,9 @@ namespace Pulumi.Aws.CloudWatch
         [Output("eventBusName")]
         public Output<string?> EventBusName { get; private set; } = null!;
 
+        /// <summary>
+        /// The text of the policy.
+        /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
 
@@ -290,6 +293,9 @@ namespace Pulumi.Aws.CloudWatch
         [Input("eventBusName")]
         public Input<string>? EventBusName { get; set; }
 
+        /// <summary>
+        /// The text of the policy.
+        /// </summary>
         [Input("policy", required: true)]
         public Input<string> Policy { get; set; } = null!;
 
@@ -307,6 +313,9 @@ namespace Pulumi.Aws.CloudWatch
         [Input("eventBusName")]
         public Input<string>? EventBusName { get; set; }
 
+        /// <summary>
+        /// The text of the policy.
+        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 

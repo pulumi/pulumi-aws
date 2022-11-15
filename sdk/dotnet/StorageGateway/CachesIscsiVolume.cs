@@ -12,9 +12,9 @@ namespace Pulumi.Aws.StorageGateway
     /// <summary>
     /// Manages an AWS Storage Gateway cached iSCSI volume.
     /// 
-    /// &gt; **NOTE:** The gateway must have cache added (e.g. via the `aws.storagegateway.Cache` resource) before creating volumes otherwise the Storage Gateway API will return an error.
+    /// &gt; **NOTE:** The gateway must have cache added (e.g., via the `aws.storagegateway.Cache` resource) before creating volumes otherwise the Storage Gateway API will return an error.
     /// 
-    /// &gt; **NOTE:** The gateway must have an upload buffer added (e.g. via the `aws.storagegateway.UploadBuffer` resource) before the volume is operational to clients, however the Storage Gateway API will allow volume creation without error in that case and return volume status as `UPLOAD BUFFER NOT CONFIGURED`.
+    /// &gt; **NOTE:** The gateway must have an upload buffer added (e.g., via the `aws.storagegateway.UploadBuffer` resource) before the volume is operational to clients, however the Storage Gateway API will allow volume creation without error in that case and return volume status as `UPLOAD BUFFER NOT CONFIGURED`.
     /// 
     /// ## Example Usage
     /// 
@@ -164,7 +164,7 @@ namespace Pulumi.Aws.StorageGateway
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Target Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
+        /// Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
         /// </summary>
         [Output("targetArn")]
         public Output<string> TargetArn { get; private set; } = null!;
@@ -176,13 +176,13 @@ namespace Pulumi.Aws.StorageGateway
         public Output<string> TargetName { get; private set; } = null!;
 
         /// <summary>
-        /// Volume Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
+        /// Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
         /// </summary>
         [Output("volumeArn")]
         public Output<string> VolumeArn { get; private set; } = null!;
 
         /// <summary>
-        /// Volume ID, e.g. `vol-12345678`.
+        /// Volume ID, e.g., `vol-12345678`.
         /// </summary>
         [Output("volumeId")]
         public Output<string> VolumeId { get; private set; } = null!;
@@ -392,7 +392,7 @@ namespace Pulumi.Aws.StorageGateway
         }
 
         /// <summary>
-        /// Target Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
+        /// Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
         /// </summary>
         [Input("targetArn")]
         public Input<string>? TargetArn { get; set; }
@@ -404,13 +404,13 @@ namespace Pulumi.Aws.StorageGateway
         public Input<string>? TargetName { get; set; }
 
         /// <summary>
-        /// Volume Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
+        /// Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
         /// </summary>
         [Input("volumeArn")]
         public Input<string>? VolumeArn { get; set; }
 
         /// <summary>
-        /// Volume ID, e.g. `vol-12345678`.
+        /// Volume ID, e.g., `vol-12345678`.
         /// </summary>
         [Input("volumeId")]
         public Input<string>? VolumeId { get; set; }

@@ -79,14 +79,8 @@ namespace Pulumi.Aws.Batch
     ///         PolicyArn = "arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole",
     ///     });
     /// 
-    ///     var sampleVpc = new Aws.Ec2.Vpc("sampleVpc", new()
-    ///     {
-    ///         CidrBlock = "10.1.0.0/16",
-    ///     });
-    /// 
     ///     var sampleSecurityGroup = new Aws.Ec2.SecurityGroup("sampleSecurityGroup", new()
     ///     {
-    ///         VpcId = sampleVpc.Id,
     ///         Egress = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.SecurityGroupEgressArgs
@@ -100,6 +94,11 @@ namespace Pulumi.Aws.Batch
     ///                 },
     ///             },
     ///         },
+    ///     });
+    /// 
+    ///     var sampleVpc = new Aws.Ec2.Vpc("sampleVpc", new()
+    ///     {
+    ///         CidrBlock = "10.1.0.0/16",
     ///     });
     /// 
     ///     var sampleSubnet = new Aws.Ec2.Subnet("sampleSubnet", new()
@@ -200,7 +199,7 @@ namespace Pulumi.Aws.Batch
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, this provider will assign a random, unique name.
+        /// The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
         /// </summary>
         [Output("computeEnvironmentName")]
         public Output<string> ComputeEnvironmentName { get; private set; } = null!;
@@ -318,7 +317,7 @@ namespace Pulumi.Aws.Batch
     public sealed class ComputeEnvironmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, this provider will assign a random, unique name.
+        /// The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
         /// </summary>
         [Input("computeEnvironmentName")]
         public Input<string>? ComputeEnvironmentName { get; set; }
@@ -386,7 +385,7 @@ namespace Pulumi.Aws.Batch
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, this provider will assign a random, unique name.
+        /// The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
         /// </summary>
         [Input("computeEnvironmentName")]
         public Input<string>? ComputeEnvironmentName { get; set; }

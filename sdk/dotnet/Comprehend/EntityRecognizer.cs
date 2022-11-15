@@ -10,6 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Comprehend
 {
     /// <summary>
+    /// Resource for managing an AWS Comprehend Entity Recognizer.
+    /// 
     /// ## Example Usage
     /// ### Basic Usage
     /// 
@@ -115,17 +117,26 @@ namespace Pulumi.Aws.Comprehend
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider [`default_tags` Configuration Block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
+        /// <summary>
+        /// Name for the version of the Entity Recognizer.
+        /// Each version must have a unique name within the Entity Recognizer.
+        /// If omitted, the provider will assign a random, unique version name.
+        /// If explicitly set to `""`, no version name will be set.
+        /// Has a maximum length of 63 characters.
+        /// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+        /// Conflicts with `version_name_prefix`.
+        /// </summary>
         [Output("versionName")]
         public Output<string> VersionName { get; private set; } = null!;
 
@@ -235,7 +246,7 @@ namespace Pulumi.Aws.Comprehend
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider [`default_tags` Configuration Block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -243,6 +254,15 @@ namespace Pulumi.Aws.Comprehend
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Name for the version of the Entity Recognizer.
+        /// Each version must have a unique name within the Entity Recognizer.
+        /// If omitted, the provider will assign a random, unique version name.
+        /// If explicitly set to `""`, no version name will be set.
+        /// Has a maximum length of 63 characters.
+        /// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+        /// Conflicts with `version_name_prefix`.
+        /// </summary>
         [Input("versionName")]
         public Input<string>? VersionName { get; set; }
 
@@ -320,7 +340,7 @@ namespace Pulumi.Aws.Comprehend
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider [`default_tags` Configuration Block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -332,7 +352,7 @@ namespace Pulumi.Aws.Comprehend
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -340,6 +360,15 @@ namespace Pulumi.Aws.Comprehend
             set => _tagsAll = value;
         }
 
+        /// <summary>
+        /// Name for the version of the Entity Recognizer.
+        /// Each version must have a unique name within the Entity Recognizer.
+        /// If omitted, the provider will assign a random, unique version name.
+        /// If explicitly set to `""`, no version name will be set.
+        /// Has a maximum length of 63 characters.
+        /// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+        /// Conflicts with `version_name_prefix`.
+        /// </summary>
         [Input("versionName")]
         public Input<string>? VersionName { get; set; }
 

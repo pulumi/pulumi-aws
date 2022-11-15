@@ -71,6 +71,9 @@ namespace Pulumi.Aws.Iam
     [AwsResourceType("aws:iam/userLoginProfile:UserLoginProfile")]
     public partial class UserLoginProfile : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The encrypted password, base64 encoded. Only available if password was handled on resource creation, not import.
+        /// </summary>
         [Output("encryptedPassword")]
         public Output<string> EncryptedPassword { get; private set; } = null!;
 
@@ -188,6 +191,9 @@ namespace Pulumi.Aws.Iam
 
     public sealed class UserLoginProfileState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The encrypted password, base64 encoded. Only available if password was handled on resource creation, not import.
+        /// </summary>
         [Input("encryptedPassword")]
         public Input<string>? EncryptedPassword { get; set; }
 

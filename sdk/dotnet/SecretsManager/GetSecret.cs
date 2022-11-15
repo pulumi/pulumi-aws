@@ -12,7 +12,7 @@ namespace Pulumi.Aws.SecretsManager
     public static class GetSecret
     {
         /// <summary>
-        /// Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion`.
+        /// Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion` data source.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -58,7 +58,7 @@ namespace Pulumi.Aws.SecretsManager
             => Pulumi.Deployment.Instance.InvokeAsync<GetSecretResult>("aws:secretsmanager/getSecret:getSecret", args ?? new GetSecretArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion`.
+        /// Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion` data source.
         /// 
         /// {{% examples %}}
         /// ## Example Usage

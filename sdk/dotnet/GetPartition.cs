@@ -12,7 +12,8 @@ namespace Pulumi.Aws
     public static class GetPartition
     {
         /// <summary>
-        /// Use this data source to lookup current AWS partition in which this provider is working
+        /// Use this data source to lookup information about the current AWS partition in
+        /// which the provider is working.
         /// 
         /// {{% examples %}}
         /// ## Example Usage

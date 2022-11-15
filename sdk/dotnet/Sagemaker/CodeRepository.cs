@@ -27,7 +27,7 @@ namespace Pulumi.Aws.Sagemaker
     ///         CodeRepositoryName = "example",
     ///         GitConfig = new Aws.Sagemaker.Inputs.CodeRepositoryGitConfigArgs
     ///         {
-    ///             RepositoryUrl = "https://github.com/hashicorp/terraform-provider-aws.git",
+    ///             RepositoryUrl = "https://github.com/github/docs.git",
     ///         },
     ///     });
     /// 
@@ -60,7 +60,7 @@ namespace Pulumi.Aws.Sagemaker
     ///         CodeRepositoryName = "example",
     ///         GitConfig = new Aws.Sagemaker.Inputs.CodeRepositoryGitConfigArgs
     ///         {
-    ///             RepositoryUrl = "https://github.com/hashicorp/terraform-provider-aws.git",
+    ///             RepositoryUrl = "https://github.com/github/docs.git",
     ///             SecretArn = exampleSecret.Arn,
     ///         },
     ///     }, new CustomResourceOptions

@@ -311,6 +311,9 @@ namespace Pulumi.Aws.Ec2
         [Output("monitoring")]
         public Output<Outputs.LaunchTemplateMonitoring?> Monitoring { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the launch template. If you leave this blank, the provider will auto-generate a unique name.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -609,6 +612,9 @@ namespace Pulumi.Aws.Ec2
         [Input("monitoring")]
         public Input<Inputs.LaunchTemplateMonitoringArgs>? Monitoring { get; set; }
 
+        /// <summary>
+        /// The name of the launch template. If you leave this blank, the provider will auto-generate a unique name.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -905,6 +911,9 @@ namespace Pulumi.Aws.Ec2
         [Input("monitoring")]
         public Input<Inputs.LaunchTemplateMonitoringGetArgs>? Monitoring { get; set; }
 
+        /// <summary>
+        /// The name of the launch template. If you leave this blank, the provider will auto-generate a unique name.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

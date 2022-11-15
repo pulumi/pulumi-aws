@@ -77,7 +77,7 @@ namespace Pulumi.Aws.Connect
     ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
     ///         Tags = 
     ///         {
-    ///             { "Application", "Terraform" },
+    ///             { "Application", "Example" },
     ///             { "Method", "Create" },
     ///             { "Name", "Example Contact Flow Module" },
     ///         },
@@ -115,6 +115,9 @@ namespace Pulumi.Aws.Connect
         [Output("content")]
         public Output<string> Content { get; private set; } = null!;
 
+        /// <summary>
+        /// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow Module source specified with `filename`.
+        /// </summary>
         [Output("contentHash")]
         public Output<string?> ContentHash { get; private set; } = null!;
 
@@ -206,6 +209,9 @@ namespace Pulumi.Aws.Connect
         [Input("content")]
         public Input<string>? Content { get; set; }
 
+        /// <summary>
+        /// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow Module source specified with `filename`.
+        /// </summary>
         [Input("contentHash")]
         public Input<string>? ContentHash { get; set; }
 
@@ -271,6 +277,9 @@ namespace Pulumi.Aws.Connect
         [Input("content")]
         public Input<string>? Content { get; set; }
 
+        /// <summary>
+        /// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow Module source specified with `filename`.
+        /// </summary>
         [Input("contentHash")]
         public Input<string>? ContentHash { get; set; }
 

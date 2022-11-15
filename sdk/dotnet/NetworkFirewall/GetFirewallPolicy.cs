@@ -225,7 +225,7 @@ namespace Pulumi.Aws.NetworkFirewall
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// The [policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/networkfirewall_firewall_policy) for the specified firewall policy.
+        /// The [policy][2] for the specified firewall policy.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFirewallPolicyFirewallPolicyResult> FirewallPolicies;
         /// <summary>

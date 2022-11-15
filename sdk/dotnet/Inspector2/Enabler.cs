@@ -10,6 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Inspector2
 {
     /// <summary>
+    /// Resource for enabling AWS Inspector V2 resource scans.
+    /// 
+    /// &gt; **NOTE:** Due to testing limitations, we provide this resource as best effort. If you use it or have the ability to test it, and notice problems, please consider reaching out to us on GitHub.
+    /// 
     /// ## Example Usage
     /// ### Basic Usage
     /// 
@@ -70,6 +74,9 @@ namespace Pulumi.Aws.Inspector2
         [Output("accountIds")]
         public Output<ImmutableArray<string>> AccountIds { get; private set; } = null!;
 
+        /// <summary>
+        /// Type of resources to scan. Valid values are `EC2` and `ECR`. If you only use one type, the provider will ignore the status of the other type.
+        /// </summary>
         [Output("resourceTypes")]
         public Output<ImmutableArray<string>> ResourceTypes { get; private set; } = null!;
 
@@ -133,6 +140,10 @@ namespace Pulumi.Aws.Inspector2
 
         [Input("resourceTypes", required: true)]
         private InputList<string>? _resourceTypes;
+
+        /// <summary>
+        /// Type of resources to scan. Valid values are `EC2` and `ECR`. If you only use one type, the provider will ignore the status of the other type.
+        /// </summary>
         public InputList<string> ResourceTypes
         {
             get => _resourceTypes ?? (_resourceTypes = new InputList<string>());
@@ -161,6 +172,10 @@ namespace Pulumi.Aws.Inspector2
 
         [Input("resourceTypes")]
         private InputList<string>? _resourceTypes;
+
+        /// <summary>
+        /// Type of resources to scan. Valid values are `EC2` and `ECR`. If you only use one type, the provider will ignore the status of the other type.
+        /// </summary>
         public InputList<string> ResourceTypes
         {
             get => _resourceTypes ?? (_resourceTypes = new InputList<string>());

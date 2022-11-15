@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Inspector
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of tags that are used to select the EC2 instances to be included in an `Amazon Inspector assessment target` resource.
+        /// Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
@@ -98,7 +98,7 @@ namespace Pulumi.Aws.Inspector
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of tags that are used to select the EC2 instances to be included in an `Amazon Inspector assessment target` resource.
+        /// Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -124,7 +124,7 @@ namespace Pulumi.Aws.Inspector
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of tags that are used to select the EC2 instances to be included in an `Amazon Inspector assessment target` resource.
+        /// Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
         /// </summary>
         public InputMap<string> Tags
         {

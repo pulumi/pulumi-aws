@@ -13,7 +13,7 @@ namespace Pulumi.Aws.ApiGatewayV2.Inputs
     public sealed class DomainNameDomainNameConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source. Use the [`aws.acm.Certificate`](https://www.terraform.io/docs/providers/aws/r/acm_certificate.html) resource to configure an ACM certificate.
+        /// ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source. Use the `aws.acm.Certificate` resource to configure an ACM certificate.
         /// </summary>
         [Input("certificateArn", required: true)]
         public Input<string> CertificateArn { get; set; } = null!;

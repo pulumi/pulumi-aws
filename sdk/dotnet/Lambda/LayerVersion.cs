@@ -10,8 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Lambda
 {
     /// <summary>
+    /// Provides a Lambda Layer Version resource. Lambda Layers allow you to reuse shared bits of code across multiple lambda functions.
+    /// 
+    /// For information about Lambda Layers and how to use them, see [AWS Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html).
+    /// 
+    /// &gt; **NOTE:** Setting `skip_destroy` to `true` means that the AWS Provider will _not_ destroy any layer version, even when running destroy. Layer versions are thus intentional dangling resources that are _not_ managed by the provider and may incur extra expense in your AWS account.
+    /// 
     /// ## Example Usage
-    /// ### Basic Example
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -25,32 +30,6 @@ namespace Pulumi.Aws.Lambda
     ///         CompatibleRuntimes = new[]
     ///         {
     ///             "nodejs16.x",
-    ///         },
-    ///         Code = new FileArchive("lambda_layer_payload.zip"),
-    ///         LayerName = "lambda_layer_name",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Lambda Layer with Compatible Architectures
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var lambdaLayer = new Aws.Lambda.LayerVersion("lambdaLayer", new()
-    ///     {
-    ///         CompatibleArchitectures = new[]
-    ///         {
-    ///             "arm64",
-    ///             "x86_64",
-    ///         },
-    ///         CompatibleRuntimes = new[]
-    ///         {
-    ///             "nodejs12.x",
     ///         },
     ///         Code = new FileArchive("lambda_layer_payload.zip"),
     ///         LayerName = "lambda_layer_name",
@@ -174,6 +153,9 @@ namespace Pulumi.Aws.Lambda
         [Output("skipDestroy")]
         public Output<bool?> SkipDestroy { get; private set; } = null!;
 
+        /// <summary>
+        /// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+        /// </summary>
         [Output("sourceCodeHash")]
         public Output<string> SourceCodeHash { get; private set; } = null!;
 
@@ -307,6 +289,9 @@ namespace Pulumi.Aws.Lambda
         [Input("skipDestroy")]
         public Input<bool>? SkipDestroy { get; set; }
 
+        /// <summary>
+        /// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+        /// </summary>
         [Input("sourceCodeHash")]
         public Input<string>? SourceCodeHash { get; set; }
 
@@ -420,6 +405,9 @@ namespace Pulumi.Aws.Lambda
         [Input("skipDestroy")]
         public Input<bool>? SkipDestroy { get; set; }
 
+        /// <summary>
+        /// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+        /// </summary>
         [Input("sourceCodeHash")]
         public Input<string>? SourceCodeHash { get; set; }
 

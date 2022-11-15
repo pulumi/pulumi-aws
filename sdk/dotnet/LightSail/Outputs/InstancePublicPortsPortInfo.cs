@@ -21,6 +21,7 @@ namespace Pulumi.Aws.LightSail.Outputs
         /// First port in a range of open ports on an instance.
         /// </summary>
         public readonly int FromPort;
+        public readonly ImmutableArray<string> Ipv6Cidrs;
         /// <summary>
         /// IP protocol name. Valid values are `tcp`, `all`, `udp`, and `icmp`.
         /// </summary>
@@ -36,12 +37,15 @@ namespace Pulumi.Aws.LightSail.Outputs
 
             int fromPort,
 
+            ImmutableArray<string> ipv6Cidrs,
+
             string protocol,
 
             int toPort)
         {
             Cidrs = cidrs;
             FromPort = fromPort;
+            Ipv6Cidrs = ipv6Cidrs;
             Protocol = protocol;
             ToPort = toPort;
         }

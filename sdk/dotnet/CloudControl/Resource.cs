@@ -45,9 +45,15 @@ namespace Pulumi.Aws.CloudControl
     [AwsResourceType("aws:cloudcontrol/resource:Resource")]
     public partial class Resource : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// JSON string matching the CloudFormation resource type schema with desired configuration.
+        /// </summary>
         [Output("desiredState")]
         public Output<string> DesiredState { get; private set; } = null!;
 
+        /// <summary>
+        /// JSON string matching the CloudFormation resource type schema with current configuration. Underlying attributes can be referenced via the `jsondecode()` function, for example, `jsondecode(data.aws_cloudcontrolapi_resource.example.properties)["example"]`.
+        /// </summary>
         [Output("properties")]
         public Output<string> Properties { get; private set; } = null!;
 
@@ -121,6 +127,9 @@ namespace Pulumi.Aws.CloudControl
 
     public sealed class ResourceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// JSON string matching the CloudFormation resource type schema with desired configuration.
+        /// </summary>
         [Input("desiredState", required: true)]
         public Input<string> DesiredState { get; set; } = null!;
 
@@ -156,9 +165,15 @@ namespace Pulumi.Aws.CloudControl
 
     public sealed class ResourceState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// JSON string matching the CloudFormation resource type schema with desired configuration.
+        /// </summary>
         [Input("desiredState")]
         public Input<string>? DesiredState { get; set; }
 
+        /// <summary>
+        /// JSON string matching the CloudFormation resource type schema with current configuration. Underlying attributes can be referenced via the `jsondecode()` function, for example, `jsondecode(data.aws_cloudcontrolapi_resource.example.properties)["example"]`.
+        /// </summary>
         [Input("properties")]
         public Input<string>? Properties { get; set; }
 

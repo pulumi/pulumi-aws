@@ -141,6 +141,12 @@ namespace Pulumi.Aws.LightSail
         public Output<string> CreatedAt { get; private set; } = null!;
 
         /// <summary>
+        /// The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
+        /// </summary>
+        [Output("ipAddressType")]
+        public Output<string?> IpAddressType { get; private set; } = null!;
+
+        /// <summary>
         /// (**Deprecated**) The first IPv6 address of the Lightsail instance. Use `ipv6_addresses` attribute instead.
         /// </summary>
         [Output("ipv6Address")]
@@ -279,6 +285,12 @@ namespace Pulumi.Aws.LightSail
         public Input<string> BundleId { get; set; } = null!;
 
         /// <summary>
+        /// The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
+        /// </summary>
+        [Input("ipAddressType")]
+        public Input<string>? IpAddressType { get; set; }
+
+        /// <summary>
         /// The name of your key pair. Created in the
         /// Lightsail console (cannot use `aws.ec2.KeyPair` at this time)
         /// </summary>
@@ -353,6 +365,12 @@ namespace Pulumi.Aws.LightSail
         /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
+
+        /// <summary>
+        /// The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
+        /// </summary>
+        [Input("ipAddressType")]
+        public Input<string>? IpAddressType { get; set; }
 
         /// <summary>
         /// (**Deprecated**) The first IPv6 address of the Lightsail instance. Use `ipv6_addresses` attribute instead.

@@ -200,8 +200,6 @@ namespace Pulumi.Aws.AppMesh
     /// ```sh
     ///  $ pulumi import aws:appmesh/route:Route serviceb simpleapp/serviceB/serviceB-route
     /// ```
-    /// 
-    ///  [1]/docs/providers/aws/index.html
     /// </summary>
     [AwsResourceType("aws:appmesh/route:Route")]
     public partial class Route : global::Pulumi.CustomResource

@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Lambda
     /// <summary>
     /// Use this resource to invoke a lambda function. The lambda function is invoked with the [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax) invocation type.
     /// 
-    /// &gt; **NOTE:** This resource _only_ invokes the function when the arguments call for a create or update. In other words, after an initial invocation on _apply_, if the arguments do not change, a subsequent _apply_ does not invoke the function again. To dynamically invoke the function, see the `triggers` example below. To always invoke a function on each _apply_, see the [`aws.lambda.Invocation`](https://www.terraform.io/docs/providers/aws/d/lambda_invocation.html) data source.
+    /// &gt; **NOTE:** This resource _only_ invokes the function when the arguments call for a create or update. In other words, after an initial invocation on _apply_, if the arguments do not change, a subsequent _apply_ does not invoke the function again. To dynamically invoke the function, see the `triggers` example below. To always invoke a function on each _apply_, see the `aws.lambda.Invocation` data source.
     /// 
     /// ## Example Usage
     /// ### Dynamic Invocation Example Using Triggers
@@ -80,6 +80,9 @@ namespace Pulumi.Aws.Lambda
         [Output("result")]
         public Output<string> Result { get; private set; } = null!;
 
+        /// <summary>
+        /// Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
+        /// </summary>
         [Output("triggers")]
         public Output<ImmutableDictionary<string, string>?> Triggers { get; private set; } = null!;
 
@@ -149,6 +152,10 @@ namespace Pulumi.Aws.Lambda
 
         [Input("triggers")]
         private InputMap<string>? _triggers;
+
+        /// <summary>
+        /// Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
+        /// </summary>
         public InputMap<string> Triggers
         {
             get => _triggers ?? (_triggers = new InputMap<string>());
@@ -189,6 +196,10 @@ namespace Pulumi.Aws.Lambda
 
         [Input("triggers")]
         private InputMap<string>? _triggers;
+
+        /// <summary>
+        /// Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
+        /// </summary>
         public InputMap<string> Triggers
         {
             get => _triggers ?? (_triggers = new InputMap<string>());

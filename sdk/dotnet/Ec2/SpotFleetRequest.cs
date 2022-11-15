@@ -10,6 +10,175 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2
 {
     /// <summary>
+    /// Provides an EC2 Spot Fleet Request resource. This allows a fleet of Spot
+    /// instances to be requested on the Spot market.
+    /// 
+    /// ## Example Usage
+    /// ### Using launch specifications
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Request a Spot fleet
+    ///     var cheapCompute = new Aws.Ec2.SpotFleetRequest("cheapCompute", new()
+    ///     {
+    ///         IamFleetRole = "arn:aws:iam::12345678:role/spot-fleet",
+    ///         SpotPrice = "0.03",
+    ///         AllocationStrategy = "diversified",
+    ///         TargetCapacity = 6,
+    ///         ValidUntil = "2019-11-04T20:44:20Z",
+    ///         LaunchSpecifications = new[]
+    ///         {
+    ///             new Aws.Ec2.Inputs.SpotFleetRequestLaunchSpecificationArgs
+    ///             {
+    ///                 InstanceType = "m4.10xlarge",
+    ///                 Ami = "ami-1234",
+    ///                 SpotPrice = "2.793",
+    ///                 PlacementTenancy = "dedicated",
+    ///                 IamInstanceProfileArn = aws_iam_instance_profile.Example.Arn,
+    ///             },
+    ///             new Aws.Ec2.Inputs.SpotFleetRequestLaunchSpecificationArgs
+    ///             {
+    ///                 InstanceType = "m4.4xlarge",
+    ///                 Ami = "ami-5678",
+    ///                 KeyName = "my-key",
+    ///                 SpotPrice = "1.117",
+    ///                 IamInstanceProfileArn = aws_iam_instance_profile.Example.Arn,
+    ///                 AvailabilityZone = "us-west-1a",
+    ///                 SubnetId = "subnet-1234",
+    ///                 WeightedCapacity = "35",
+    ///                 RootBlockDevices = new[]
+    ///                 {
+    ///                     new Aws.Ec2.Inputs.SpotFleetRequestLaunchSpecificationRootBlockDeviceArgs
+    ///                     {
+    ///                         VolumeSize = 300,
+    ///                         VolumeType = "gp2",
+    ///                     },
+    ///                 },
+    ///                 Tags = 
+    ///                 {
+    ///                     { "Name", "spot-fleet-example" },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Using launch templates
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var fooLaunchTemplate = new Aws.Ec2.LaunchTemplate("fooLaunchTemplate", new()
+    ///     {
+    ///         ImageId = "ami-516b9131",
+    ///         InstanceType = "m1.small",
+    ///         KeyName = "some-key",
+    ///     });
+    /// 
+    ///     var fooSpotFleetRequest = new Aws.Ec2.SpotFleetRequest("fooSpotFleetRequest", new()
+    ///     {
+    ///         IamFleetRole = "arn:aws:iam::12345678:role/spot-fleet",
+    ///         SpotPrice = "0.005",
+    ///         TargetCapacity = 2,
+    ///         ValidUntil = "2019-11-04T20:44:20Z",
+    ///         LaunchTemplateConfigs = new[]
+    ///         {
+    ///             new Aws.Ec2.Inputs.SpotFleetRequestLaunchTemplateConfigArgs
+    ///             {
+    ///                 LaunchTemplateSpecification = new Aws.Ec2.Inputs.SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs
+    ///                 {
+    ///                     Id = fooLaunchTemplate.Id,
+    ///                     Version = fooLaunchTemplate.LatestVersion,
+    ///                 },
+    ///             },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             aws_iam_policy_attachment.Test_attach,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// &gt; **NOTE:** This provider does not support the functionality where multiple `subnet_id` or `availability_zone` parameters can be specified in the same
+    /// launch configuration block. If you want to specify multiple values, then separate launch configuration blocks should be used or launch template overrides should be configured, one per subnet:
+    /// ### Using multiple launch configurations
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = Aws.Ec2.GetSubnetIds.Invoke(new()
+    ///     {
+    ///         VpcId = @var.Vpc_id,
+    ///     });
+    /// 
+    ///     var fooLaunchTemplate = new Aws.Ec2.LaunchTemplate("fooLaunchTemplate", new()
+    ///     {
+    ///         ImageId = "ami-516b9131",
+    ///         InstanceType = "m1.small",
+    ///         KeyName = "some-key",
+    ///     });
+    /// 
+    ///     var fooSpotFleetRequest = new Aws.Ec2.SpotFleetRequest("fooSpotFleetRequest", new()
+    ///     {
+    ///         IamFleetRole = "arn:aws:iam::12345678:role/spot-fleet",
+    ///         SpotPrice = "0.005",
+    ///         TargetCapacity = 2,
+    ///         ValidUntil = "2019-11-04T20:44:20Z",
+    ///         LaunchTemplateConfigs = new[]
+    ///         {
+    ///             new Aws.Ec2.Inputs.SpotFleetRequestLaunchTemplateConfigArgs
+    ///             {
+    ///                 LaunchTemplateSpecification = new Aws.Ec2.Inputs.SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs
+    ///                 {
+    ///                     Id = fooLaunchTemplate.Id,
+    ///                     Version = fooLaunchTemplate.LatestVersion,
+    ///                 },
+    ///                 Overrides = new[]
+    ///                 {
+    ///                     new Aws.Ec2.Inputs.SpotFleetRequestLaunchTemplateConfigOverrideArgs
+    ///                     {
+    ///                         SubnetId = data.Aws_subnets.Example.Ids[0],
+    ///                     },
+    ///                     new Aws.Ec2.Inputs.SpotFleetRequestLaunchTemplateConfigOverrideArgs
+    ///                     {
+    ///                         SubnetId = data.Aws_subnets.Example.Ids[1],
+    ///                     },
+    ///                     new Aws.Ec2.Inputs.SpotFleetRequestLaunchTemplateConfigOverrideArgs
+    ///                     {
+    ///                         SubnetId = data.Aws_subnets.Example.Ids[2],
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             aws_iam_policy_attachment.Test_attach,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Spot Fleet Requests can be imported using `id`, e.g.,

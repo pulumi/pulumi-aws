@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Rds
 {
     /// <summary>
-    /// Manages a [RDS Aurora Cluster](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html). To manage cluster instances that inherit configuration from the cluster (when not running the cluster in `serverless` engine mode), see the `aws.rds.ClusterInstance` resource. To manage non-Aurora databases (e.g. MySQL, PostgreSQL, SQL Server, etc.), see the `aws.rds.Instance` resource.
+    /// Manages a [RDS Aurora Cluster](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html). To manage cluster instances that inherit configuration from the cluster (when not running the cluster in `serverless` engine mode), see the `aws.rds.ClusterInstance` resource. To manage non-Aurora databases (e.g., MySQL, PostgreSQL, SQL Server, etc.), see the `aws.rds.Instance` resource.
     /// 
     /// For information on the difference between the available Aurora MySQL engines
     /// see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
@@ -244,7 +244,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// A list of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next apply. It is recommended to specify 3 AZs.
+        /// List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next apply. We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
         /// </summary>
         [Output("availabilityZones")]
         public Output<ImmutableArray<string>> AvailabilityZones { get; private set; } = null!;
@@ -394,7 +394,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> HostedZoneId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html) for availability and limitations.
+        /// Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html) for availability and limitations.
         /// </summary>
         [Output("iamDatabaseAuthenticationEnabled")]
         public Output<bool?> IamDatabaseAuthenticationEnabled { get; private set; } = null!;
@@ -442,13 +442,13 @@ namespace Pulumi.Aws.Rds
         public Output<int> Port { get; private set; } = null!;
 
         /// <summary>
-        /// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
+        /// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
         /// </summary>
         [Output("preferredBackupWindow")]
         public Output<string> PreferredBackupWindow { get; private set; } = null!;
 
         /// <summary>
-        /// The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
+        /// The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
         /// </summary>
         [Output("preferredMaintenanceWindow")]
         public Output<string> PreferredMaintenanceWindow { get; private set; } = null!;
@@ -461,7 +461,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> ReaderEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use `ignore_changes`.
+        /// ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use the `lifecycle` configuration block `ignore_changes` argument to prevent this provider from showing differences for this argument instead of configuring this value.
         /// </summary>
         [Output("replicationSourceIdentifier")]
         public Output<string?> ReplicationSourceIdentifier { get; private set; } = null!;
@@ -506,7 +506,7 @@ namespace Pulumi.Aws.Rds
         public Output<string?> SourceRegion { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the DB cluster is encrypted
+        /// Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`. When restoring an unencrypted `snapshot_identifier`, the `kms_key_id` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Output("storageEncrypted")]
         public Output<bool> StorageEncrypted { get; private set; } = null!;
@@ -603,7 +603,7 @@ namespace Pulumi.Aws.Rds
         private InputList<string>? _availabilityZones;
 
         /// <summary>
-        /// A list of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next apply. It is recommended to specify 3 AZs.
+        /// List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next apply. We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
         /// </summary>
         public InputList<string> AvailabilityZones
         {
@@ -744,7 +744,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? GlobalClusterIdentifier { get; set; }
 
         /// <summary>
-        /// Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html) for availability and limitations.
+        /// Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html) for availability and limitations.
         /// </summary>
         [Input("iamDatabaseAuthenticationEnabled")]
         public Input<bool>? IamDatabaseAuthenticationEnabled { get; set; }
@@ -798,19 +798,19 @@ namespace Pulumi.Aws.Rds
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
+        /// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
         /// </summary>
         [Input("preferredBackupWindow")]
         public Input<string>? PreferredBackupWindow { get; set; }
 
         /// <summary>
-        /// The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
+        /// The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
         /// </summary>
         [Input("preferredMaintenanceWindow")]
         public Input<string>? PreferredMaintenanceWindow { get; set; }
 
         /// <summary>
-        /// ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use `ignore_changes`.
+        /// ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use the `lifecycle` configuration block `ignore_changes` argument to prevent this provider from showing differences for this argument instead of configuring this value.
         /// </summary>
         [Input("replicationSourceIdentifier")]
         public Input<string>? ReplicationSourceIdentifier { get; set; }
@@ -855,7 +855,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? SourceRegion { get; set; }
 
         /// <summary>
-        /// Specifies whether the DB cluster is encrypted
+        /// Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`. When restoring an unencrypted `snapshot_identifier`, the `kms_key_id` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Input("storageEncrypted")]
         public Input<bool>? StorageEncrypted { get; set; }
@@ -926,7 +926,7 @@ namespace Pulumi.Aws.Rds
         private InputList<string>? _availabilityZones;
 
         /// <summary>
-        /// A list of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next apply. It is recommended to specify 3 AZs.
+        /// List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next apply. We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
         /// </summary>
         public InputList<string> AvailabilityZones
         {
@@ -1091,7 +1091,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? HostedZoneId { get; set; }
 
         /// <summary>
-        /// Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html) for availability and limitations.
+        /// Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html) for availability and limitations.
         /// </summary>
         [Input("iamDatabaseAuthenticationEnabled")]
         public Input<bool>? IamDatabaseAuthenticationEnabled { get; set; }
@@ -1145,13 +1145,13 @@ namespace Pulumi.Aws.Rds
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
+        /// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
         /// </summary>
         [Input("preferredBackupWindow")]
         public Input<string>? PreferredBackupWindow { get; set; }
 
         /// <summary>
-        /// The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
+        /// The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
         /// </summary>
         [Input("preferredMaintenanceWindow")]
         public Input<string>? PreferredMaintenanceWindow { get; set; }
@@ -1164,7 +1164,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? ReaderEndpoint { get; set; }
 
         /// <summary>
-        /// ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use `ignore_changes`.
+        /// ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use the `lifecycle` configuration block `ignore_changes` argument to prevent this provider from showing differences for this argument instead of configuring this value.
         /// </summary>
         [Input("replicationSourceIdentifier")]
         public Input<string>? ReplicationSourceIdentifier { get; set; }
@@ -1209,7 +1209,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? SourceRegion { get; set; }
 
         /// <summary>
-        /// Specifies whether the DB cluster is encrypted
+        /// Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`. When restoring an unencrypted `snapshot_identifier`, the `kms_key_id` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Input("storageEncrypted")]
         public Input<bool>? StorageEncrypted { get; set; }

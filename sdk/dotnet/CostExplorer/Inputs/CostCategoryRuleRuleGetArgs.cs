@@ -54,6 +54,9 @@ namespace Pulumi.Aws.CostExplorer.Inputs
             set => _ors = value;
         }
 
+        /// <summary>
+        /// Configuration block for the specific `Tag` to use for `Expression`. See below.
+        /// </summary>
         [Input("tags")]
         public Input<Inputs.CostCategoryRuleRuleTagsGetArgs>? Tags { get; set; }
 

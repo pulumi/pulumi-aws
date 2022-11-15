@@ -89,7 +89,7 @@ namespace Pulumi.Aws.Ec2
     ///         VpcId = @default.Id,
     ///     });
     /// 
-    ///     var tfTestSubnet = new Aws.Ec2.Subnet("tfTestSubnet", new()
+    ///     var myTestSubnet = new Aws.Ec2.Subnet("myTestSubnet", new()
     ///     {
     ///         VpcId = @default.Id,
     ///         CidrBlock = "10.0.0.0/24",
@@ -107,7 +107,7 @@ namespace Pulumi.Aws.Ec2
     ///         Ami = "ami-5189a661",
     ///         InstanceType = "t2.micro",
     ///         PrivateIp = "10.0.0.12",
-    ///         SubnetId = tfTestSubnet.Id,
+    ///         SubnetId = myTestSubnet.Id,
     ///     });
     /// 
     ///     var bar = new Aws.Ec2.Eip("bar", new()
@@ -156,8 +156,6 @@ namespace Pulumi.Aws.Ec2
     /// ```sh
     ///  $ pulumi import aws:ec2/eip:Eip bar 52.0.0.0
     /// ```
-    /// 
-    ///  [1]https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateAddress.html
     /// </summary>
     [AwsResourceType("aws:ec2/eip:Eip")]
     public partial class Eip : global::Pulumi.CustomResource
@@ -253,7 +251,8 @@ namespace Pulumi.Aws.Ec2
         public Output<string> PublicIp { get; private set; } = null!;
 
         /// <summary>
-        /// EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
+        /// EC2 IPv4 address pool identifier or `amazon`.
+        /// This option is only available for VPC EIPs.
         /// </summary>
         [Output("publicIpv4Pool")]
         public Output<string> PublicIpv4Pool { get; private set; } = null!;
@@ -360,7 +359,8 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? NetworkInterface { get; set; }
 
         /// <summary>
-        /// EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
+        /// EC2 IPv4 address pool identifier or `amazon`.
+        /// This option is only available for VPC EIPs.
         /// </summary>
         [Input("publicIpv4Pool")]
         public Input<string>? PublicIpv4Pool { get; set; }
@@ -483,7 +483,8 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? PublicIp { get; set; }
 
         /// <summary>
-        /// EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
+        /// EC2 IPv4 address pool identifier or `amazon`.
+        /// This option is only available for VPC EIPs.
         /// </summary>
         [Input("publicIpv4Pool")]
         public Input<string>? PublicIpv4Pool { get; set; }

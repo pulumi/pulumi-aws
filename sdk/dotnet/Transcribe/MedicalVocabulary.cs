@@ -10,6 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Transcribe
 {
     /// <summary>
+    /// Resource for managing an AWS Transcribe MedicalVocabulary.
+    /// 
     /// ## Example Usage
     /// ### Basic Usage
     /// 

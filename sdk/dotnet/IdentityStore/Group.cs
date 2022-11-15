@@ -10,6 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.IdentityStore
 {
     /// <summary>
+    /// Resource for managing an AWS IdentityStore Group.
+    /// 
     /// ## Example Usage
     /// 
     /// ## Import

@@ -104,6 +104,9 @@ namespace Pulumi.Aws.Macie2
         [Output("jobType")]
         public Output<string> JobType { get; private set; } = null!;
 
+        /// <summary>
+        /// A custom name for the job. The name can contain as many as 500 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -228,6 +231,9 @@ namespace Pulumi.Aws.Macie2
         [Input("jobType", required: true)]
         public Input<string> JobType { get; set; } = null!;
 
+        /// <summary>
+        /// A custom name for the job. The name can contain as many as 500 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -323,6 +329,9 @@ namespace Pulumi.Aws.Macie2
         [Input("jobType")]
         public Input<string>? JobType { get; set; }
 
+        /// <summary>
+        /// A custom name for the job. The name can contain as many as 500 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

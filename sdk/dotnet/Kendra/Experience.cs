@@ -10,6 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Kendra
 {
     /// <summary>
+    /// Resource for managing an AWS Kendra Experience.
+    /// 
     /// ## Example Usage
     /// ### Basic Usage
     /// 
@@ -62,6 +64,9 @@ namespace Pulumi.Aws.Kendra
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+        /// </summary>
         [Output("configuration")]
         public Output<Outputs.ExperienceConfiguration> Configuration { get; private set; } = null!;
 
@@ -153,6 +158,9 @@ namespace Pulumi.Aws.Kendra
 
     public sealed class ExperienceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+        /// </summary>
         [Input("configuration")]
         public Input<Inputs.ExperienceConfigurationArgs>? Configuration { get; set; }
 
@@ -194,6 +202,9 @@ namespace Pulumi.Aws.Kendra
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+        /// </summary>
         [Input("configuration")]
         public Input<Inputs.ExperienceConfigurationGetArgs>? Configuration { get; set; }
 

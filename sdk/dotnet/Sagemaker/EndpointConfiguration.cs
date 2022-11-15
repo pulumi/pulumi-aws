@@ -68,7 +68,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<Outputs.EndpointConfigurationAsyncInferenceConfig?> AsyncInferenceConfig { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the parameters to capture input/output of Sagemaker models endpoints. Fields are documented below.
+        /// Specifies the parameters to capture input/output of SageMaker models endpoints. Fields are documented below.
         /// </summary>
         [Output("dataCaptureConfig")]
         public Output<Outputs.EndpointConfigurationDataCaptureConfig?> DataCaptureConfig { get; private set; } = null!;
@@ -156,7 +156,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<Inputs.EndpointConfigurationAsyncInferenceConfigArgs>? AsyncInferenceConfig { get; set; }
 
         /// <summary>
-        /// Specifies the parameters to capture input/output of Sagemaker models endpoints. Fields are documented below.
+        /// Specifies the parameters to capture input/output of SageMaker models endpoints. Fields are documented below.
         /// </summary>
         [Input("dataCaptureConfig")]
         public Input<Inputs.EndpointConfigurationDataCaptureConfigArgs>? DataCaptureConfig { get; set; }
@@ -218,7 +218,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<Inputs.EndpointConfigurationAsyncInferenceConfigGetArgs>? AsyncInferenceConfig { get; set; }
 
         /// <summary>
-        /// Specifies the parameters to capture input/output of Sagemaker models endpoints. Fields are documented below.
+        /// Specifies the parameters to capture input/output of SageMaker models endpoints. Fields are documented below.
         /// </summary>
         [Input("dataCaptureConfig")]
         public Input<Inputs.EndpointConfigurationDataCaptureConfigGetArgs>? DataCaptureConfig { get; set; }

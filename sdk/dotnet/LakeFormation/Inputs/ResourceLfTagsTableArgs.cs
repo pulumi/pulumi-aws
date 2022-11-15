@@ -30,6 +30,9 @@ namespace Pulumi.Aws.LakeFormation.Inputs
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Whether to use a column wildcard. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+        /// </summary>
         [Input("wildcard")]
         public Input<bool>? Wildcard { get; set; }
 

@@ -81,10 +81,10 @@ namespace Pulumi.Aws.Evidently
     /// 
     /// ## Import
     /// 
-    /// CloudWatch Evidently Segment can be imported using the `name`, e.g.,
+    /// CloudWatch Evidently Segment can be imported using the `arn`, e.g.,
     /// 
     /// ```sh
-    ///  $ pulumi import aws:evidently/segment:Segment example example
+    ///  $ pulumi import aws:evidently/segment:Segment example arn:aws:evidently:us-west-2:123456789012:segment/example
     /// ```
     /// </summary>
     [AwsResourceType("aws:evidently/segment:Segment")]
@@ -139,13 +139,13 @@ namespace Pulumi.Aws.Evidently
         public Output<string> Pattern { get; private set; } = null!;
 
         /// <summary>
-        /// Tags to apply to the segment. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Tags to apply to the segment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -218,24 +218,12 @@ namespace Pulumi.Aws.Evidently
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Tags to apply to the segment. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Tags to apply to the segment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
-        }
-
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
         }
 
         public SegmentArgs()
@@ -298,7 +286,7 @@ namespace Pulumi.Aws.Evidently
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Tags to apply to the segment. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Tags to apply to the segment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -310,7 +298,7 @@ namespace Pulumi.Aws.Evidently
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

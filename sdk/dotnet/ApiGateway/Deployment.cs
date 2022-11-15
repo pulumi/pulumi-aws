@@ -201,7 +201,7 @@ namespace Pulumi.Aws.ApiGateway
         public Output<string?> StageDescription { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. It is recommended to use the `aws.apigateway.Stage` resource instead to manage stages.
+        /// Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. We recommend using the `aws.apigateway.Stage` resource instead to manage stages.
         /// </summary>
         [Output("stageName")]
         public Output<string?> StageName { get; private set; } = null!;
@@ -283,7 +283,7 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? StageDescription { get; set; }
 
         /// <summary>
-        /// Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. It is recommended to use the `aws.apigateway.Stage` resource instead to manage stages.
+        /// Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. We recommend using the `aws.apigateway.Stage` resource instead to manage stages.
         /// </summary>
         [Input("stageName")]
         public Input<string>? StageName { get; set; }
@@ -360,7 +360,7 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? StageDescription { get; set; }
 
         /// <summary>
-        /// Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. It is recommended to use the `aws.apigateway.Stage` resource instead to manage stages.
+        /// Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. We recommend using the `aws.apigateway.Stage` resource instead to manage stages.
         /// </summary>
         [Input("stageName")]
         public Input<string>? StageName { get; set; }

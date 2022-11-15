@@ -10,6 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudSearch
 {
     /// <summary>
+    /// Provides an CloudSearch domain resource.
+    /// 
+    /// The provider waits for the domain to become `Active` when applying a configuration.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

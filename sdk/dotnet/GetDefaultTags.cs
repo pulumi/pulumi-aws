@@ -12,6 +12,10 @@ namespace Pulumi.Aws
     public static class GetDefaultTags
     {
         /// <summary>
+        /// Use this data source to get the default tags configured on the provider.
+        /// 
+        /// With this data source, you can apply default tags to resources not _directly_ managed by a resource, such as the instances underneath an Auto Scaling group or the volumes created for an EC2 instance.
+        /// 
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}
@@ -35,6 +39,10 @@ namespace Pulumi.Aws
             => Pulumi.Deployment.Instance.InvokeAsync<GetDefaultTagsResult>("aws:index/getDefaultTags:getDefaultTags", args ?? new GetDefaultTagsArgs(), options.WithDefaults());
 
         /// <summary>
+        /// Use this data source to get the default tags configured on the provider.
+        /// 
+        /// With this data source, you can apply default tags to resources not _directly_ managed by a resource, such as the instances underneath an Auto Scaling group or the volumes created for an EC2 instance.
+        /// 
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}

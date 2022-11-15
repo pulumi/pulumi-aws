@@ -125,6 +125,9 @@ namespace Pulumi.Aws.Ebs
         [Output("storageTier")]
         public Output<string> StorageTier { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags for the snapshot.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -239,6 +242,10 @@ namespace Pulumi.Aws.Ebs
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags for the snapshot.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -330,6 +337,10 @@ namespace Pulumi.Aws.Ebs
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags for the snapshot.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

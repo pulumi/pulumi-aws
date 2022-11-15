@@ -65,7 +65,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> EndpointConfigName { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the endpoint.
+        /// The name of the endpoint. If omitted, the provider will assign a random, unique name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -141,7 +141,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string> EndpointConfigName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the endpoint.
+        /// The name of the endpoint. If omitted, the provider will assign a random, unique name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -185,7 +185,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? EndpointConfigName { get; set; }
 
         /// <summary>
-        /// The name of the endpoint.
+        /// The name of the endpoint. If omitted, the provider will assign a random, unique name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

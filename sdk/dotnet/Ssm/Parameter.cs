@@ -10,6 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ssm
 {
     /// <summary>
+    /// Provides an SSM Parameter resource.
+    /// 
+    /// &gt; **Note:** `overwrite` also makes it possible to overwrite an existing SSM Parameter that's not created by the provider before.
+    /// 
     /// ## Example Usage
     /// ### Basic example
     /// 
@@ -100,6 +104,9 @@ namespace Pulumi.Aws.Ssm
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the preview. This argument is not valid with a `type` of `SecureString`.
+        /// </summary>
         [Output("insecureValue")]
         public Output<string> InsecureValue { get; private set; } = null!;
 
@@ -116,7 +123,7 @@ namespace Pulumi.Aws.Ssm
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise (lifecycle rules should then be used to manage the update behavior).
+        /// Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise.
         /// </summary>
         [Output("overwrite")]
         public Output<bool?> Overwrite { get; private set; } = null!;
@@ -227,6 +234,9 @@ namespace Pulumi.Aws.Ssm
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the preview. This argument is not valid with a `type` of `SecureString`.
+        /// </summary>
         [Input("insecureValue")]
         public Input<string>? InsecureValue { get; set; }
 
@@ -243,7 +253,7 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise (lifecycle rules should then be used to manage the update behavior).
+        /// Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise.
         /// </summary>
         [Input("overwrite")]
         public Input<bool>? Overwrite { get; set; }
@@ -310,6 +320,9 @@ namespace Pulumi.Aws.Ssm
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the preview. This argument is not valid with a `type` of `SecureString`.
+        /// </summary>
         [Input("insecureValue")]
         public Input<string>? InsecureValue { get; set; }
 
@@ -326,7 +339,7 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise (lifecycle rules should then be used to manage the update behavior).
+        /// Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise.
         /// </summary>
         [Input("overwrite")]
         public Input<bool>? Overwrite { get; set; }

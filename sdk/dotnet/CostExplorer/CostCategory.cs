@@ -148,6 +148,9 @@ namespace Pulumi.Aws.CostExplorer
         [Output("splitChargeRules")]
         public Output<ImmutableArray<Outputs.CostCategorySplitChargeRule>> SplitChargeRules { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration block for the specific `Tag` to use for `Expression`. See below.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -247,6 +250,10 @@ namespace Pulumi.Aws.CostExplorer
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Configuration block for the specific `Tag` to use for `Expression`. See below.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -323,6 +330,10 @@ namespace Pulumi.Aws.CostExplorer
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Configuration block for the specific `Tag` to use for `Expression`. See below.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

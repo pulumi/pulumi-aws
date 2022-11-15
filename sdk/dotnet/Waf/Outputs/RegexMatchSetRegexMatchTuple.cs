@@ -18,12 +18,12 @@ namespace Pulumi.Aws.Waf.Outputs
         /// </summary>
         public readonly Outputs.RegexMatchSetRegexMatchTupleFieldToMatch FieldToMatch;
         /// <summary>
-        /// The ID of a `WAF Regex Pattern Set`.
+        /// The ID of a Regex Pattern Set.
         /// </summary>
         public readonly string RegexPatternSetId;
         /// <summary>
         /// Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
-        /// e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
+        /// e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
         /// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
         /// for all supported values.
         /// </summary>

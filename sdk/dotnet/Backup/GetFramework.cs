@@ -27,7 +27,7 @@ namespace Pulumi.Aws.Backup
         /// {
         ///     var example = Aws.Backup.GetFramework.Invoke(new()
         ///     {
-        ///         Name = "tf_example_backup_framework_name",
+        ///         Name = "my_example_backup_framework_name",
         ///     });
         /// 
         /// });
@@ -54,7 +54,7 @@ namespace Pulumi.Aws.Backup
         /// {
         ///     var example = Aws.Backup.GetFramework.Invoke(new()
         ///     {
-        ///         Name = "tf_example_backup_framework_name",
+        ///         Name = "my_example_backup_framework_name",
         ///     });
         /// 
         /// });

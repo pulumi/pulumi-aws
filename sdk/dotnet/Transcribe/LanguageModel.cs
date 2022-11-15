@@ -10,6 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Transcribe
 {
     /// <summary>
+    /// Resource for managing an AWS Transcribe LanguageModel.
+    /// 
+    /// &gt; This resource can take a significant amount of time to provision. See Language Model [FAQ](https://aws.amazon.com/transcribe/faqs/) for more details.
+    /// 
     /// ## Example Usage
     /// ### Basic Usage
     /// 
@@ -149,7 +153,7 @@ namespace Pulumi.Aws.Transcribe
         public Output<string> ModelName { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the LanguageModel. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the LanguageModel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -231,7 +235,7 @@ namespace Pulumi.Aws.Transcribe
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the LanguageModel. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the LanguageModel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -281,7 +285,7 @@ namespace Pulumi.Aws.Transcribe
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the LanguageModel. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the LanguageModel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

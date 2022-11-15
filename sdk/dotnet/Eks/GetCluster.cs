@@ -152,7 +152,7 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         public readonly ImmutableArray<string> EnabledClusterLogTypes;
         /// <summary>
-        /// The endpoint for your Kubernetes API server.
+        /// Endpoint for your Kubernetes API server.
         /// </summary>
         public readonly string Endpoint;
         /// <summary>

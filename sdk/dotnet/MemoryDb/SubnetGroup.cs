@@ -63,9 +63,15 @@ namespace Pulumi.Aws.MemoryDb
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Description for the subnet group.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of the subnet group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -145,9 +151,15 @@ namespace Pulumi.Aws.MemoryDb
 
     public sealed class SubnetGroupArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Description for the subnet group.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Name of the subnet group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -195,9 +207,15 @@ namespace Pulumi.Aws.MemoryDb
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// Description for the subnet group.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Name of the subnet group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

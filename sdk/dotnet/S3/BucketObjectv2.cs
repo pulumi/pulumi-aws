@@ -227,7 +227,7 @@ namespace Pulumi.Aws.S3
         public Output<string> ContentType { get; private set; } = null!;
 
         /// <summary>
-        /// ETag generated for the object (an MD5 sum of the object content). For plaintext objects or objects encrypted with an AWS-managed key, the hash is an MD5 digest of the object data. For objects encrypted with a KMS key or objects created by either the Multipart Upload or Part Copy operation, the hash is not an MD5 digest, regardless of the method of encryption. More information on possible values can be found on [Common Response Headers](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonResponseHeaders.html).
+        /// Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"`, also if an object is larger than 16 MB, the AWS Management Console will upload or copy that object as a Multipart Upload, and therefore the ETag will not be an MD5 digest (see `source_hash` instead).
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
@@ -244,6 +244,9 @@ namespace Pulumi.Aws.S3
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
 
+        /// <summary>
+        /// ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `aws.kms.Key` resource, use the `arn` attribute. If referencing the `aws.kms.Alias` data source or resource, use the `target_key_arn` attribute. The provider will only perform drift detection if a configuration value is provided.
+        /// </summary>
         [Output("kmsKeyId")]
         public Output<string> KmsKeyId { get; private set; } = null!;
 
@@ -283,6 +286,9 @@ namespace Pulumi.Aws.S3
         [Output("source")]
         public Output<AssetOrArchive?> Source { get; private set; } = null!;
 
+        /// <summary>
+        /// Triggers updates like `etag` but useful to address `etag` encryption limitations. (The value is only stored in state and not saved by AWS.)
+        /// </summary>
         [Output("sourceHash")]
         public Output<string?> SourceHash { get; private set; } = null!;
 
@@ -298,6 +304,9 @@ namespace Pulumi.Aws.S3
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -424,7 +433,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? ContentType { get; set; }
 
         /// <summary>
-        /// ETag generated for the object (an MD5 sum of the object content). For plaintext objects or objects encrypted with an AWS-managed key, the hash is an MD5 digest of the object data. For objects encrypted with a KMS key or objects created by either the Multipart Upload or Part Copy operation, the hash is not an MD5 digest, regardless of the method of encryption. More information on possible values can be found on [Common Response Headers](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonResponseHeaders.html).
+        /// Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"`, also if an object is larger than 16 MB, the AWS Management Console will upload or copy that object as a Multipart Upload, and therefore the ETag will not be an MD5 digest (see `source_hash` instead).
         /// </summary>
         [Input("etag")]
         public Input<string>? Etag { get; set; }
@@ -441,6 +450,9 @@ namespace Pulumi.Aws.S3
         [Input("key")]
         public Input<string>? Key { get; set; }
 
+        /// <summary>
+        /// ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `aws.kms.Key` resource, use the `arn` attribute. If referencing the `aws.kms.Alias` data source or resource, use the `target_key_arn` attribute. The provider will only perform drift detection if a configuration value is provided.
+        /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
@@ -486,6 +498,9 @@ namespace Pulumi.Aws.S3
         [Input("source")]
         public Input<AssetOrArchive>? Source { get; set; }
 
+        /// <summary>
+        /// Triggers updates like `etag` but useful to address `etag` encryption limitations. (The value is only stored in state and not saved by AWS.)
+        /// </summary>
         [Input("sourceHash")]
         public Input<string>? SourceHash { get; set; }
 
@@ -582,7 +597,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? ContentType { get; set; }
 
         /// <summary>
-        /// ETag generated for the object (an MD5 sum of the object content). For plaintext objects or objects encrypted with an AWS-managed key, the hash is an MD5 digest of the object data. For objects encrypted with a KMS key or objects created by either the Multipart Upload or Part Copy operation, the hash is not an MD5 digest, regardless of the method of encryption. More information on possible values can be found on [Common Response Headers](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonResponseHeaders.html).
+        /// Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"`, also if an object is larger than 16 MB, the AWS Management Console will upload or copy that object as a Multipart Upload, and therefore the ETag will not be an MD5 digest (see `source_hash` instead).
         /// </summary>
         [Input("etag")]
         public Input<string>? Etag { get; set; }
@@ -599,6 +614,9 @@ namespace Pulumi.Aws.S3
         [Input("key")]
         public Input<string>? Key { get; set; }
 
+        /// <summary>
+        /// ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `aws.kms.Key` resource, use the `arn` attribute. If referencing the `aws.kms.Alias` data source or resource, use the `target_key_arn` attribute. The provider will only perform drift detection if a configuration value is provided.
+        /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
@@ -644,6 +662,9 @@ namespace Pulumi.Aws.S3
         [Input("source")]
         public Input<AssetOrArchive>? Source { get; set; }
 
+        /// <summary>
+        /// Triggers updates like `etag` but useful to address `etag` encryption limitations. (The value is only stored in state and not saved by AWS.)
+        /// </summary>
         [Input("sourceHash")]
         public Input<string>? SourceHash { get; set; }
 
@@ -667,6 +688,10 @@ namespace Pulumi.Aws.S3
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

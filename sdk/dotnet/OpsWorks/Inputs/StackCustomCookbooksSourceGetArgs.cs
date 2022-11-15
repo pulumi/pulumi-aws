@@ -25,7 +25,7 @@ namespace Pulumi.Aws.OpsWorks.Inputs
         public Input<string>? Revision { get; set; }
 
         /// <summary>
-        /// SSH key to use when authenticating to the source. The provider cannot perform drift detection of this configuration.
+        /// SSH key to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
         /// </summary>
         [Input("sshKey")]
         public Input<string>? SshKey { get; set; }

@@ -10,7 +10,49 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.SesV2
 {
     /// <summary>
+    /// Resource for managing an AWS SESv2 (Simple Email V2) Configuration Set.
+    /// 
     /// ## Example Usage
+    /// ### Basic Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.SesV2.ConfigurationSet("example", new()
+    ///     {
+    ///         ConfigurationSetName = "example",
+    ///         DeliveryOptions = new Aws.SesV2.Inputs.ConfigurationSetDeliveryOptionsArgs
+    ///         {
+    ///             TlsPolicy = "REQUIRE",
+    ///         },
+    ///         ReputationOptions = new Aws.SesV2.Inputs.ConfigurationSetReputationOptionsArgs
+    ///         {
+    ///             ReputationMetricsEnabled = false,
+    ///         },
+    ///         SendingOptions = new Aws.SesV2.Inputs.ConfigurationSetSendingOptionsArgs
+    ///         {
+    ///             SendingEnabled = true,
+    ///         },
+    ///         SuppressionOptions = new Aws.SesV2.Inputs.ConfigurationSetSuppressionOptionsArgs
+    ///         {
+    ///             SuppressedReasons = new[]
+    ///             {
+    ///                 "BOUNCE",
+    ///                 "COMPLAINT",
+    ///             },
+    ///         },
+    ///         TrackingOptions = new Aws.SesV2.Inputs.ConfigurationSetTrackingOptionsArgs
+    ///         {
+    ///             CustomRedirectDomain = "example.com",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -59,6 +101,9 @@ namespace Pulumi.Aws.SesV2
         [Output("suppressionOptions")]
         public Output<Outputs.ConfigurationSetSuppressionOptions?> SuppressionOptions { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -149,18 +194,14 @@ namespace Pulumi.Aws.SesV2
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
-        }
-
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
         }
 
         /// <summary>
@@ -215,6 +256,10 @@ namespace Pulumi.Aws.SesV2
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

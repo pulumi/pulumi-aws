@@ -89,8 +89,8 @@ namespace Pulumi.Aws.Ec2
     /// });
     /// ```
     /// 
-    /// You can also find a specific Prefix List using the [`aws.ec2.getPrefixList`](https://www.terraform.io/docs/providers/aws/d/prefix_list.html)
-    /// or [`ec2_managed_prefix_list`](https://www.terraform.io/docs/providers/aws/d/ec2_managed_prefix_list.html) data sources:
+    /// You can also find a specific Prefix List using the `aws.ec2.getPrefixList`
+    /// or `ec2_managed_prefix_list` data sources:
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

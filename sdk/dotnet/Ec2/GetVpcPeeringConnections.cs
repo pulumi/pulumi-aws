@@ -13,14 +13,20 @@ namespace Pulumi.Aws.Ec2
     {
         /// <summary>
         /// Use this data source to get IDs of Amazon VPC peering connections
-        /// To get more details on each connection, use the data resource `aws.ec2.VpcPeeringConnection`
+        /// To get more details on each connection, use the data resource aws.ec2.VpcPeeringConnection
+        /// 
+        /// Note: To use this data source in a count, the resources should exist before trying to access
+        /// the data source.
         /// </summary>
         public static Task<GetVpcPeeringConnectionsResult> InvokeAsync(GetVpcPeeringConnectionsArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVpcPeeringConnectionsResult>("aws:ec2/getVpcPeeringConnections:getVpcPeeringConnections", args ?? new GetVpcPeeringConnectionsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get IDs of Amazon VPC peering connections
-        /// To get more details on each connection, use the data resource `aws.ec2.VpcPeeringConnection`
+        /// To get more details on each connection, use the data resource aws.ec2.VpcPeeringConnection
+        /// 
+        /// Note: To use this data source in a count, the resources should exist before trying to access
+        /// the data source.
         /// </summary>
         public static Output<GetVpcPeeringConnectionsResult> Invoke(GetVpcPeeringConnectionsInvokeArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetVpcPeeringConnectionsResult>("aws:ec2/getVpcPeeringConnections:getVpcPeeringConnections", args ?? new GetVpcPeeringConnectionsInvokeArgs(), options.WithDefaults());

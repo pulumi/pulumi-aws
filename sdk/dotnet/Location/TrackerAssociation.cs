@@ -10,6 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Location
 {
     /// <summary>
+    /// Resource for managing an AWS Location Tracker Association.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

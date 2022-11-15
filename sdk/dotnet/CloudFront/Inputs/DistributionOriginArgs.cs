@@ -54,7 +54,7 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public Input<string> DomainName { get; set; } = null!;
 
         /// <summary>
-        /// The unique identifier of a [CloudFront origin access control](https://www.terraform.io/docs/providers/aws/r/cloudfront_origin_access_control.html) for this origin.
+        /// The unique identifier of a CloudFront origin access control for this origin.
         /// </summary>
         [Input("originAccessControlId")]
         public Input<string>? OriginAccessControlId { get; set; }

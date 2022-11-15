@@ -22,7 +22,7 @@ namespace Pulumi.Aws.CostExplorer.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCostCategoryRuleRuleAndDimensionResult> Dimensions;
         /// <summary>
-        /// Resource tags.
+        /// Configuration block for the specific `Tag` to use for `Expression`. See below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCostCategoryRuleRuleAndTagResult> Tags;
 

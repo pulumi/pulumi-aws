@@ -11,9 +11,19 @@ namespace Pulumi.Aws.S3
 {
     public static class GetObjects
     {
+        /// <summary>
+        /// &gt; **NOTE on `max_keys`:** Retrieving very large numbers of keys can adversely affect the provider's performance.
+        /// 
+        /// The objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
+        /// </summary>
         public static Task<GetObjectsResult> InvokeAsync(GetObjectsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetObjectsResult>("aws:s3/getObjects:getObjects", args ?? new GetObjectsArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// &gt; **NOTE on `max_keys`:** Retrieving very large numbers of keys can adversely affect the provider's performance.
+        /// 
+        /// The objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
+        /// </summary>
         public static Output<GetObjectsResult> Invoke(GetObjectsInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetObjectsResult>("aws:s3/getObjects:getObjects", args ?? new GetObjectsInvokeArgs(), options.WithDefaults());
     }

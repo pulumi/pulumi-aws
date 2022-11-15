@@ -56,6 +56,9 @@ namespace Pulumi.Aws.MemoryDb
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Description for the parameter group.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
@@ -141,6 +144,9 @@ namespace Pulumi.Aws.MemoryDb
 
     public sealed class ParameterGroupArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Description for the parameter group.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -200,6 +206,9 @@ namespace Pulumi.Aws.MemoryDb
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// Description for the parameter group.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 

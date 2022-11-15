@@ -10,6 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Amplify
 {
     /// <summary>
+    /// Provides an Amplify App resource, a fullstack serverless app hosted on the [AWS Amplify Console](https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html).
+    /// 
+    /// &gt; **Note:** When you create/update an Amplify App from the provider, you may end up with the error "BadRequestException: You should at least provide one valid token" because of authentication issues. See the section "Repository with Tokens" below.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -275,7 +279,6 @@ namespace Pulumi.Aws.Amplify
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// &gt;&gt;&gt;&gt;&gt;&gt;&gt; v4.29.0
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -627,7 +630,6 @@ namespace Pulumi.Aws.Amplify
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// &gt;&gt;&gt;&gt;&gt;&gt;&gt; v4.29.0
         /// </summary>
         public InputMap<string> TagsAll
         {

@@ -69,7 +69,7 @@ namespace Pulumi.Aws.Iam
         public Output<string> Group { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the policy. If omitted, this provider will
+        /// The name of the policy. If omitted, the provider will
         /// assign a random, unique name.
         /// </summary>
         [Output("name")]
@@ -141,7 +141,7 @@ namespace Pulumi.Aws.Iam
         public Input<string> Group { get; set; } = null!;
 
         /// <summary>
-        /// The name of the policy. If omitted, this provider will
+        /// The name of the policy. If omitted, the provider will
         /// assign a random, unique name.
         /// </summary>
         [Input("name")]
@@ -175,7 +175,7 @@ namespace Pulumi.Aws.Iam
         public Input<string>? Group { get; set; }
 
         /// <summary>
-        /// The name of the policy. If omitted, this provider will
+        /// The name of the policy. If omitted, the provider will
         /// assign a random, unique name.
         /// </summary>
         [Input("name")]

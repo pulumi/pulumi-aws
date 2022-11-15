@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Route53
     public static class GetTrafficPolicyDocument
     {
         /// <summary>
-        /// Generates an Route53 traffic policy document in JSON format for use with resources that expect policy documents such as [`aws.route53.TrafficPolicy`](https://www.terraform.io/docs/providers/aws/r/route53_traffic_policy.html).
+        /// Generates an Route53 traffic policy document in JSON format for use with resources that expect policy documents such as `aws.route53.TrafficPolicy`.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -180,7 +180,7 @@ namespace Pulumi.Aws.Route53
             => Pulumi.Deployment.Instance.InvokeAsync<GetTrafficPolicyDocumentResult>("aws:route53/getTrafficPolicyDocument:getTrafficPolicyDocument", args ?? new GetTrafficPolicyDocumentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Generates an Route53 traffic policy document in JSON format for use with resources that expect policy documents such as [`aws.route53.TrafficPolicy`](https://www.terraform.io/docs/providers/aws/r/route53_traffic_policy.html).
+        /// Generates an Route53 traffic policy document in JSON format for use with resources that expect policy documents such as `aws.route53.TrafficPolicy`.
         /// 
         /// {{% examples %}}
         /// ## Example Usage

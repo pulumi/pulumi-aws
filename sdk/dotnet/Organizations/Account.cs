@@ -76,6 +76,9 @@ namespace Pulumi.Aws.Organizations
         [Output("closeOnDeletion")]
         public Output<bool?> CloseOnDeletion { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether to also create a GovCloud account. The GovCloud account is tied to the main (commercial) account this resource creates. If `true`, the GovCloud account ID is available in the `govcloud_id` attribute. The only way to manage the GovCloud account with the provider is to subsequently import the account using this resource.
+        /// </summary>
         [Output("createGovcloud")]
         public Output<bool?> CreateGovcloud { get; private set; } = null!;
 
@@ -188,6 +191,9 @@ namespace Pulumi.Aws.Organizations
         [Input("closeOnDeletion")]
         public Input<bool>? CloseOnDeletion { get; set; }
 
+        /// <summary>
+        /// Whether to also create a GovCloud account. The GovCloud account is tied to the main (commercial) account this resource creates. If `true`, the GovCloud account ID is available in the `govcloud_id` attribute. The only way to manage the GovCloud account with the provider is to subsequently import the account using this resource.
+        /// </summary>
         [Input("createGovcloud")]
         public Input<bool>? CreateGovcloud { get; set; }
 
@@ -253,6 +259,9 @@ namespace Pulumi.Aws.Organizations
         [Input("closeOnDeletion")]
         public Input<bool>? CloseOnDeletion { get; set; }
 
+        /// <summary>
+        /// Whether to also create a GovCloud account. The GovCloud account is tied to the main (commercial) account this resource creates. If `true`, the GovCloud account ID is available in the `govcloud_id` attribute. The only way to manage the GovCloud account with the provider is to subsequently import the account using this resource.
+        /// </summary>
         [Input("createGovcloud")]
         public Input<bool>? CreateGovcloud { get; set; }
 

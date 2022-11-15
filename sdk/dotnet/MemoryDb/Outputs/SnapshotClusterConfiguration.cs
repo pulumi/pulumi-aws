@@ -26,7 +26,7 @@ namespace Pulumi.Aws.MemoryDb.Outputs
         /// </summary>
         public readonly string? MaintenanceWindow;
         /// <summary>
-        /// Name of the cluster.
+        /// Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         /// </summary>
         public readonly string? Name;
         /// <summary>

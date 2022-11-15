@@ -10,6 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Transcribe
 {
     /// <summary>
+    /// Resource for managing an AWS Transcribe VocabularyFilter.
+    /// 
     /// ## Example Usage
     /// ### Basic Usage
     /// 
@@ -68,6 +70,9 @@ namespace Pulumi.Aws.Transcribe
         [Output("languageCode")]
         public Output<string> LanguageCode { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags to assign to the VocabularyFilter. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -146,6 +151,10 @@ namespace Pulumi.Aws.Transcribe
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the VocabularyFilter. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -204,6 +213,10 @@ namespace Pulumi.Aws.Transcribe
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the VocabularyFilter. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

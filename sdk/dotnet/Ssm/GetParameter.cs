@@ -32,8 +32,6 @@ namespace Pulumi.Aws.Ssm
         /// 
         /// });
         /// ```
-        /// 
-        /// &gt; **Note:** The data source is currently following the behavior of the [SSM API](https://docs.aws.amazon.com/sdk-for-go/api/service/ssm/#Parameter) to return a string value, regardless of parameter type.
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
@@ -61,8 +59,6 @@ namespace Pulumi.Aws.Ssm
         /// 
         /// });
         /// ```
-        /// 
-        /// &gt; **Note:** The data source is currently following the behavior of the [SSM API](https://docs.aws.amazon.com/sdk-for-go/api/service/ssm/#Parameter) to return a string value, regardless of parameter type.
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

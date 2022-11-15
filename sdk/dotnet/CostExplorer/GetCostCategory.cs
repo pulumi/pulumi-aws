@@ -79,7 +79,7 @@ namespace Pulumi.Aws.CostExplorer
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// Resource tags.
+        /// Configuration block for the specific `Tag` to use for `Expression`. See below.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -105,7 +105,7 @@ namespace Pulumi.Aws.CostExplorer
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Resource tags.
+        /// Configuration block for the specific `Tag` to use for `Expression`. See below.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -150,7 +150,7 @@ namespace Pulumi.Aws.CostExplorer
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCostCategorySplitChargeRuleResult> SplitChargeRules;
         /// <summary>
-        /// Resource tags.
+        /// Configuration block for the specific `Tag` to use for `Expression`. See below.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 

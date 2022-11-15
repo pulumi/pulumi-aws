@@ -58,6 +58,9 @@ namespace Pulumi.Aws.MemoryDb
         [Output("minimumEngineVersion")]
         public Output<string> MinimumEngineVersion { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of the ACL. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -131,6 +134,9 @@ namespace Pulumi.Aws.MemoryDb
 
     public sealed class AclArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of the ACL. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -184,6 +190,9 @@ namespace Pulumi.Aws.MemoryDb
         [Input("minimumEngineVersion")]
         public Input<string>? MinimumEngineVersion { get; set; }
 
+        /// <summary>
+        /// Name of the ACL. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

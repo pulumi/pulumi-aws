@@ -227,7 +227,7 @@ namespace Pulumi.Aws.S3
         public Output<string> ContentType { get; private set; } = null!;
 
         /// <summary>
-        /// Triggers updates when the value changes. The only meaningful value is `filemd5("path/to/file")`. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"` (see `source_hash` instead).
+        /// Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"` (see `source_hash` instead).
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
@@ -245,7 +245,7 @@ namespace Pulumi.Aws.S3
         public Output<string> Key { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `aws.kms.Key` resource, use the `arn` attribute. If referencing the `aws.kms.Alias` data source or resource, use the `target_key_arn` attribute. This provider will only perform drift detection if a configuration value is provided.
+        /// ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `aws.kms.Key` resource, use the `arn` attribute. If referencing the `aws.kms.Alias` data source or resource, use the `target_key_arn` attribute. The provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Output("kmsKeyId")]
         public Output<string> KmsKeyId { get; private set; } = null!;
@@ -287,7 +287,7 @@ namespace Pulumi.Aws.S3
         public Output<AssetOrArchive?> Source { get; private set; } = null!;
 
         /// <summary>
-        /// Triggers updates like `etag` but useful to address `etag` encryption limitations. Set using `filemd5("path/to/source")`. (The value is only stored in state and not saved by AWS.)
+        /// Triggers updates like `etag` but useful to address `etag` encryption limitations.
         /// </summary>
         [Output("sourceHash")]
         public Output<string?> SourceHash { get; private set; } = null!;
@@ -429,7 +429,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? ContentType { get; set; }
 
         /// <summary>
-        /// Triggers updates when the value changes. The only meaningful value is `filemd5("path/to/file")`. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"` (see `source_hash` instead).
+        /// Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"` (see `source_hash` instead).
         /// </summary>
         [Input("etag")]
         public Input<string>? Etag { get; set; }
@@ -447,7 +447,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? Key { get; set; }
 
         /// <summary>
-        /// ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `aws.kms.Key` resource, use the `arn` attribute. If referencing the `aws.kms.Alias` data source or resource, use the `target_key_arn` attribute. This provider will only perform drift detection if a configuration value is provided.
+        /// ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `aws.kms.Key` resource, use the `arn` attribute. If referencing the `aws.kms.Alias` data source or resource, use the `target_key_arn` attribute. The provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
@@ -495,7 +495,7 @@ namespace Pulumi.Aws.S3
         public Input<AssetOrArchive>? Source { get; set; }
 
         /// <summary>
-        /// Triggers updates like `etag` but useful to address `etag` encryption limitations. Set using `filemd5("path/to/source")`. (The value is only stored in state and not saved by AWS.)
+        /// Triggers updates like `etag` but useful to address `etag` encryption limitations.
         /// </summary>
         [Input("sourceHash")]
         public Input<string>? SourceHash { get; set; }
@@ -593,7 +593,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? ContentType { get; set; }
 
         /// <summary>
-        /// Triggers updates when the value changes. The only meaningful value is `filemd5("path/to/file")`. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"` (see `source_hash` instead).
+        /// Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"` (see `source_hash` instead).
         /// </summary>
         [Input("etag")]
         public Input<string>? Etag { get; set; }
@@ -611,7 +611,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? Key { get; set; }
 
         /// <summary>
-        /// ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `aws.kms.Key` resource, use the `arn` attribute. If referencing the `aws.kms.Alias` data source or resource, use the `target_key_arn` attribute. This provider will only perform drift detection if a configuration value is provided.
+        /// ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `aws.kms.Key` resource, use the `arn` attribute. If referencing the `aws.kms.Alias` data source or resource, use the `target_key_arn` attribute. The provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
@@ -659,7 +659,7 @@ namespace Pulumi.Aws.S3
         public Input<AssetOrArchive>? Source { get; set; }
 
         /// <summary>
-        /// Triggers updates like `etag` but useful to address `etag` encryption limitations. Set using `filemd5("path/to/source")`. (The value is only stored in state and not saved by AWS.)
+        /// Triggers updates like `etag` but useful to address `etag` encryption limitations.
         /// </summary>
         [Input("sourceHash")]
         public Input<string>? SourceHash { get; set; }

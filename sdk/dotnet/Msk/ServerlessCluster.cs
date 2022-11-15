@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Msk
     /// <summary>
     /// Manages an Amazon MSK Serverless cluster.
     /// 
-    /// &gt; **Note:** To manage a _provisioned_ Amazon MSK cluster, use the [`aws.msk.Cluster`](https://www.terraform.io/docs/providers/aws/r/msk_cluster.html) resource.
+    /// &gt; **Note:** To manage a _provisioned_ Amazon MSK cluster, use the `aws.msk.Cluster` resource.
     /// 
     /// ## Import
     /// 
@@ -43,6 +43,9 @@ namespace Pulumi.Aws.Msk
         [Output("clusterName")]
         public Output<string> ClusterName { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -118,6 +121,10 @@ namespace Pulumi.Aws.Msk
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -164,6 +171,10 @@ namespace Pulumi.Aws.Msk
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

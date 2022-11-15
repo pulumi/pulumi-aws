@@ -10,6 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.MediaLive
 {
     /// <summary>
+    /// Resource for managing an AWS MediaLive Multiplex.
+    /// 
     /// ## Example Usage
     /// ### Basic Usage
     /// 
@@ -91,7 +93,7 @@ namespace Pulumi.Aws.MediaLive
         public Output<bool?> StartMultiplex { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the Multiplex. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the Multiplex. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -179,20 +181,12 @@ namespace Pulumi.Aws.MediaLive
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the Multiplex. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the Multiplex. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
-        }
-
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
         }
 
         public MultiplexArgs()
@@ -243,7 +237,7 @@ namespace Pulumi.Aws.MediaLive
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the Multiplex. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the Multiplex. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

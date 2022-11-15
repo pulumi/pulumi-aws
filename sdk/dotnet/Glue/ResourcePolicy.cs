@@ -75,6 +75,9 @@ namespace Pulumi.Aws.Glue
     [AwsResourceType("aws:glue/resourcePolicy:ResourcePolicy")]
     public partial class ResourcePolicy : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
+        /// </summary>
         [Output("enableHybrid")]
         public Output<string?> EnableHybrid { get; private set; } = null!;
 
@@ -130,6 +133,9 @@ namespace Pulumi.Aws.Glue
 
     public sealed class ResourcePolicyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
+        /// </summary>
         [Input("enableHybrid")]
         public Input<string>? EnableHybrid { get; set; }
 
@@ -147,6 +153,9 @@ namespace Pulumi.Aws.Glue
 
     public sealed class ResourcePolicyState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
+        /// </summary>
         [Input("enableHybrid")]
         public Input<string>? EnableHybrid { get; set; }
 

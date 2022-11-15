@@ -12,7 +12,7 @@ namespace Pulumi.Aws.ElasticLoadBalancing
     /// <summary>
     /// Provides an Elastic Load Balancer resource, also known as a "Classic
     /// Load Balancer" after the release of
-    /// `Application/Network Load Balancers`.
+    /// Application/Network Load Balancers.
     /// 
     /// &gt; **NOTE on ELB Instances and ELB Attachments:** This provider currently
     /// provides both a standalone ELB Attachment resource
