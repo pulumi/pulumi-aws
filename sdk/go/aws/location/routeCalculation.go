@@ -62,7 +62,8 @@ type RouteCalculation struct {
 	DataSource pulumi.StringOutput `pulumi:"dataSource"`
 	// The optional description for the route calculator resource.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	Tags        pulumi.StringMapOutput `pulumi:"tags"`
+	// Key-value tags for the route calculator. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The timestamp for when the route calculator resource was last update in ISO 8601.
@@ -113,8 +114,9 @@ type routeCalculationState struct {
 	// Specifies the data provider of traffic and road network data.
 	DataSource *string `pulumi:"dataSource"`
 	// The optional description for the route calculator resource.
-	Description *string           `pulumi:"description"`
-	Tags        map[string]string `pulumi:"tags"`
+	Description *string `pulumi:"description"`
+	// Key-value tags for the route calculator. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The timestamp for when the route calculator resource was last update in ISO 8601.
@@ -132,7 +134,8 @@ type RouteCalculationState struct {
 	DataSource pulumi.StringPtrInput
 	// The optional description for the route calculator resource.
 	Description pulumi.StringPtrInput
-	Tags        pulumi.StringMapInput
+	// Key-value tags for the route calculator. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The timestamp for when the route calculator resource was last update in ISO 8601.
@@ -149,8 +152,9 @@ type routeCalculationArgs struct {
 	// Specifies the data provider of traffic and road network data.
 	DataSource string `pulumi:"dataSource"`
 	// The optional description for the route calculator resource.
-	Description *string           `pulumi:"description"`
-	Tags        map[string]string `pulumi:"tags"`
+	Description *string `pulumi:"description"`
+	// Key-value tags for the route calculator. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a RouteCalculation resource.
@@ -161,7 +165,8 @@ type RouteCalculationArgs struct {
 	DataSource pulumi.StringInput
 	// The optional description for the route calculator resource.
 	Description pulumi.StringPtrInput
-	Tags        pulumi.StringMapInput
+	// Key-value tags for the route calculator. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (RouteCalculationArgs) ElementType() reflect.Type {
@@ -276,6 +281,7 @@ func (o RouteCalculationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteCalculation) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Key-value tags for the route calculator. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o RouteCalculationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RouteCalculation) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

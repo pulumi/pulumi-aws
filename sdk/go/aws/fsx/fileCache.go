@@ -11,6 +11,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Resource for managing an AWS FSx File Cache.
+// See the [Create File Cache](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileCache.html) for more information.
 // ## Example Usage
 //
 // ```go
@@ -115,8 +117,9 @@ type FileCache struct {
 	StorageCapacity pulumi.IntOutput `pulumi:"storageCapacity"`
 	// A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
-	Tags      pulumi.StringMapOutput   `pulumi:"tags"`
-	TagsAll   pulumi.StringMapOutput   `pulumi:"tagsAll"`
+	// A map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The ID of your virtual private cloud (VPC).
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
@@ -191,9 +194,10 @@ type fileCacheState struct {
 	// The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
 	StorageCapacity *int `pulumi:"storageCapacity"`
 	// A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
-	SubnetIds []string          `pulumi:"subnetIds"`
-	Tags      map[string]string `pulumi:"tags"`
-	TagsAll   map[string]string `pulumi:"tagsAll"`
+	SubnetIds []string `pulumi:"subnetIds"`
+	// A map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The ID of your virtual private cloud (VPC).
 	VpcId *string `pulumi:"vpcId"`
 }
@@ -229,8 +233,9 @@ type FileCacheState struct {
 	StorageCapacity pulumi.IntPtrInput
 	// A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
 	SubnetIds pulumi.StringArrayInput
-	Tags      pulumi.StringMapInput
-	TagsAll   pulumi.StringMapInput
+	// A map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 	// The ID of your virtual private cloud (VPC).
 	VpcId pulumi.StringPtrInput
 }
@@ -258,9 +263,9 @@ type fileCacheArgs struct {
 	// The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
 	StorageCapacity int `pulumi:"storageCapacity"`
 	// A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
-	SubnetIds []string          `pulumi:"subnetIds"`
-	Tags      map[string]string `pulumi:"tags"`
-	TagsAll   map[string]string `pulumi:"tagsAll"`
+	SubnetIds []string `pulumi:"subnetIds"`
+	// A map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a FileCache resource.
@@ -284,8 +289,8 @@ type FileCacheArgs struct {
 	StorageCapacity pulumi.IntInput
 	// A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
 	SubnetIds pulumi.StringArrayInput
-	Tags      pulumi.StringMapInput
-	TagsAll   pulumi.StringMapInput
+	// A map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (FileCacheArgs) ElementType() reflect.Type {
@@ -450,6 +455,7 @@ func (o FileCacheOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FileCache) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
+// A map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o FileCacheOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FileCache) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

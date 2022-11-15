@@ -105,8 +105,8 @@ import (
 //
 // ```
 //
-// You can also find a specific Prefix List using the [`ec2.getPrefixList`](https://www.terraform.io/docs/providers/aws/d/prefix_list.html)
-// or [`ec2ManagedPrefixList`](https://www.terraform.io/docs/providers/aws/d/ec2_managed_prefix_list.html) data sources:
+// You can also find a specific Prefix List using the `ec2.getPrefixList`
+// or `ec2ManagedPrefixList` data sources:
 //
 // ```go
 // package main

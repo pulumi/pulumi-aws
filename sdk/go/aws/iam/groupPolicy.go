@@ -78,7 +78,7 @@ type GroupPolicy struct {
 
 	// The IAM group to attach to the policy.
 	Group pulumi.StringOutput `pulumi:"group"`
-	// The name of the policy. If omitted, this provider will
+	// The name of the policy. If omitted, the provider will
 	// assign a random, unique name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified
@@ -125,7 +125,7 @@ func GetGroupPolicy(ctx *pulumi.Context,
 type groupPolicyState struct {
 	// The IAM group to attach to the policy.
 	Group *string `pulumi:"group"`
-	// The name of the policy. If omitted, this provider will
+	// The name of the policy. If omitted, the provider will
 	// assign a random, unique name.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified
@@ -138,7 +138,7 @@ type groupPolicyState struct {
 type GroupPolicyState struct {
 	// The IAM group to attach to the policy.
 	Group pulumi.StringPtrInput
-	// The name of the policy. If omitted, this provider will
+	// The name of the policy. If omitted, the provider will
 	// assign a random, unique name.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified
@@ -155,7 +155,7 @@ func (GroupPolicyState) ElementType() reflect.Type {
 type groupPolicyArgs struct {
 	// The IAM group to attach to the policy.
 	Group string `pulumi:"group"`
-	// The name of the policy. If omitted, this provider will
+	// The name of the policy. If omitted, the provider will
 	// assign a random, unique name.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified
@@ -169,7 +169,7 @@ type groupPolicyArgs struct {
 type GroupPolicyArgs struct {
 	// The IAM group to attach to the policy.
 	Group pulumi.StringInput
-	// The name of the policy. If omitted, this provider will
+	// The name of the policy. If omitted, the provider will
 	// assign a random, unique name.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified
@@ -271,7 +271,7 @@ func (o GroupPolicyOutput) Group() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupPolicy) pulumi.StringOutput { return v.Group }).(pulumi.StringOutput)
 }
 
-// The name of the policy. If omitted, this provider will
+// The name of the policy. If omitted, the provider will
 // assign a random, unique name.
 func (o GroupPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)

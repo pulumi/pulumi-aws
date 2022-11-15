@@ -80,9 +80,10 @@ type VpcIpamScope struct {
 	// Defines if the scope is the default scope or not.
 	IsDefault pulumi.BoolOutput `pulumi:"isDefault"`
 	// Count of pools under this scope
-	PoolCount pulumi.IntOutput       `pulumi:"poolCount"`
-	Tags      pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll   pulumi.StringMapOutput `pulumi:"tagsAll"`
+	PoolCount pulumi.IntOutput `pulumi:"poolCount"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewVpcIpamScope registers a new resource with the given unique name, arguments, and options.
@@ -128,9 +129,10 @@ type vpcIpamScopeState struct {
 	// Defines if the scope is the default scope or not.
 	IsDefault *bool `pulumi:"isDefault"`
 	// Count of pools under this scope
-	PoolCount *int              `pulumi:"poolCount"`
-	Tags      map[string]string `pulumi:"tags"`
-	TagsAll   map[string]string `pulumi:"tagsAll"`
+	PoolCount *int `pulumi:"poolCount"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type VpcIpamScopeState struct {
@@ -146,8 +148,9 @@ type VpcIpamScopeState struct {
 	IsDefault pulumi.BoolPtrInput
 	// Count of pools under this scope
 	PoolCount pulumi.IntPtrInput
-	Tags      pulumi.StringMapInput
-	TagsAll   pulumi.StringMapInput
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 }
 
 func (VpcIpamScopeState) ElementType() reflect.Type {
@@ -158,8 +161,9 @@ type vpcIpamScopeArgs struct {
 	// A description for the scope you're creating.
 	Description *string `pulumi:"description"`
 	// The ID of the IPAM for which you're creating this scope.
-	IpamId string            `pulumi:"ipamId"`
-	Tags   map[string]string `pulumi:"tags"`
+	IpamId string `pulumi:"ipamId"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a VpcIpamScope resource.
@@ -168,7 +172,8 @@ type VpcIpamScopeArgs struct {
 	Description pulumi.StringPtrInput
 	// The ID of the IPAM for which you're creating this scope.
 	IpamId pulumi.StringInput
-	Tags   pulumi.StringMapInput
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (VpcIpamScopeArgs) ElementType() reflect.Type {
@@ -291,6 +296,7 @@ func (o VpcIpamScopeOutput) PoolCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *VpcIpamScope) pulumi.IntOutput { return v.PoolCount }).(pulumi.IntOutput)
 }
 
+// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o VpcIpamScopeOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcIpamScope) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

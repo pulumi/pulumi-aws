@@ -63,8 +63,9 @@ type Map struct {
 	// The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS.
 	MapArn pulumi.StringOutput `pulumi:"mapArn"`
 	// The name for the map resource.
-	MapName pulumi.StringOutput    `pulumi:"mapName"`
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	MapName pulumi.StringOutput `pulumi:"mapName"`
+	// Key-value tags for the map. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The timestamp for when the map resource was last updated in ISO 8601 format.
@@ -115,8 +116,9 @@ type mapState struct {
 	// The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS.
 	MapArn *string `pulumi:"mapArn"`
 	// The name for the map resource.
-	MapName *string           `pulumi:"mapName"`
-	Tags    map[string]string `pulumi:"tags"`
+	MapName *string `pulumi:"mapName"`
+	// Key-value tags for the map. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The timestamp for when the map resource was last updated in ISO 8601 format.
@@ -134,7 +136,8 @@ type MapState struct {
 	MapArn pulumi.StringPtrInput
 	// The name for the map resource.
 	MapName pulumi.StringPtrInput
-	Tags    pulumi.StringMapInput
+	// Key-value tags for the map. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The timestamp for when the map resource was last updated in ISO 8601 format.
@@ -151,8 +154,9 @@ type mapArgs struct {
 	// An optional description for the map resource.
 	Description *string `pulumi:"description"`
 	// The name for the map resource.
-	MapName string            `pulumi:"mapName"`
-	Tags    map[string]string `pulumi:"tags"`
+	MapName string `pulumi:"mapName"`
+	// Key-value tags for the map. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Map resource.
@@ -163,7 +167,8 @@ type MapArgs struct {
 	Description pulumi.StringPtrInput
 	// The name for the map resource.
 	MapName pulumi.StringInput
-	Tags    pulumi.StringMapInput
+	// Key-value tags for the map. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (MapArgs) ElementType() reflect.Type {
@@ -278,6 +283,7 @@ func (o MapOutput) MapName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Map) pulumi.StringOutput { return v.MapName }).(pulumi.StringOutput)
 }
 
+// Key-value tags for the map. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o MapOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Map) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

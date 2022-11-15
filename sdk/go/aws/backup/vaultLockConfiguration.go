@@ -58,7 +58,7 @@ type VaultLockConfiguration struct {
 	BackupVaultArn pulumi.StringOutput `pulumi:"backupVaultArn"`
 	// Name of the backup vault to add a lock configuration for.
 	BackupVaultName pulumi.StringOutput `pulumi:"backupVaultName"`
-	// The number of days before the lock date.
+	// The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
 	ChangeableForDays pulumi.IntPtrOutput `pulumi:"changeableForDays"`
 	// The maximum retention period that the vault retains its recovery points.
 	MaxRetentionDays pulumi.IntPtrOutput `pulumi:"maxRetentionDays"`
@@ -102,7 +102,7 @@ type vaultLockConfigurationState struct {
 	BackupVaultArn *string `pulumi:"backupVaultArn"`
 	// Name of the backup vault to add a lock configuration for.
 	BackupVaultName *string `pulumi:"backupVaultName"`
-	// The number of days before the lock date.
+	// The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
 	ChangeableForDays *int `pulumi:"changeableForDays"`
 	// The maximum retention period that the vault retains its recovery points.
 	MaxRetentionDays *int `pulumi:"maxRetentionDays"`
@@ -115,7 +115,7 @@ type VaultLockConfigurationState struct {
 	BackupVaultArn pulumi.StringPtrInput
 	// Name of the backup vault to add a lock configuration for.
 	BackupVaultName pulumi.StringPtrInput
-	// The number of days before the lock date.
+	// The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
 	ChangeableForDays pulumi.IntPtrInput
 	// The maximum retention period that the vault retains its recovery points.
 	MaxRetentionDays pulumi.IntPtrInput
@@ -130,7 +130,7 @@ func (VaultLockConfigurationState) ElementType() reflect.Type {
 type vaultLockConfigurationArgs struct {
 	// Name of the backup vault to add a lock configuration for.
 	BackupVaultName string `pulumi:"backupVaultName"`
-	// The number of days before the lock date.
+	// The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
 	ChangeableForDays *int `pulumi:"changeableForDays"`
 	// The maximum retention period that the vault retains its recovery points.
 	MaxRetentionDays *int `pulumi:"maxRetentionDays"`
@@ -142,7 +142,7 @@ type vaultLockConfigurationArgs struct {
 type VaultLockConfigurationArgs struct {
 	// Name of the backup vault to add a lock configuration for.
 	BackupVaultName pulumi.StringInput
-	// The number of days before the lock date.
+	// The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
 	ChangeableForDays pulumi.IntPtrInput
 	// The maximum retention period that the vault retains its recovery points.
 	MaxRetentionDays pulumi.IntPtrInput
@@ -247,7 +247,7 @@ func (o VaultLockConfigurationOutput) BackupVaultName() pulumi.StringOutput {
 	return o.ApplyT(func(v *VaultLockConfiguration) pulumi.StringOutput { return v.BackupVaultName }).(pulumi.StringOutput)
 }
 
-// The number of days before the lock date.
+// The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
 func (o VaultLockConfigurationOutput) ChangeableForDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VaultLockConfiguration) pulumi.IntPtrOutput { return v.ChangeableForDays }).(pulumi.IntPtrOutput)
 }

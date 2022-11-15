@@ -209,8 +209,6 @@ import (
 //	$ pulumi import aws:appmesh/route:Route serviceb simpleapp/serviceB/serviceB-route
 //
 // ```
-//
-//	[1]/docs/providers/aws/index.html
 type Route struct {
 	pulumi.CustomResourceState
 

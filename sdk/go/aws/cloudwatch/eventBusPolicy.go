@@ -85,7 +85,8 @@ type EventBusPolicy struct {
 
 	// The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
 	EventBusName pulumi.StringPtrOutput `pulumi:"eventBusName"`
-	Policy       pulumi.StringOutput    `pulumi:"policy"`
+	// The text of the policy.
+	Policy pulumi.StringOutput `pulumi:"policy"`
 }
 
 // NewEventBusPolicy registers a new resource with the given unique name, arguments, and options.
@@ -122,13 +123,15 @@ func GetEventBusPolicy(ctx *pulumi.Context,
 type eventBusPolicyState struct {
 	// The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
 	EventBusName *string `pulumi:"eventBusName"`
-	Policy       *string `pulumi:"policy"`
+	// The text of the policy.
+	Policy *string `pulumi:"policy"`
 }
 
 type EventBusPolicyState struct {
 	// The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
 	EventBusName pulumi.StringPtrInput
-	Policy       pulumi.StringPtrInput
+	// The text of the policy.
+	Policy pulumi.StringPtrInput
 }
 
 func (EventBusPolicyState) ElementType() reflect.Type {
@@ -138,14 +141,16 @@ func (EventBusPolicyState) ElementType() reflect.Type {
 type eventBusPolicyArgs struct {
 	// The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
 	EventBusName *string `pulumi:"eventBusName"`
-	Policy       string  `pulumi:"policy"`
+	// The text of the policy.
+	Policy string `pulumi:"policy"`
 }
 
 // The set of arguments for constructing a EventBusPolicy resource.
 type EventBusPolicyArgs struct {
 	// The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
 	EventBusName pulumi.StringPtrInput
-	Policy       pulumi.StringInput
+	// The text of the policy.
+	Policy pulumi.StringInput
 }
 
 func (EventBusPolicyArgs) ElementType() reflect.Type {
@@ -240,6 +245,7 @@ func (o EventBusPolicyOutput) EventBusName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventBusPolicy) pulumi.StringPtrOutput { return v.EventBusName }).(pulumi.StringPtrOutput)
 }
 
+// The text of the policy.
 func (o EventBusPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventBusPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }

@@ -11,6 +11,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an IAM Signing Certificate resource to upload Signing Certificates.
+//
 // ## Import
 //
 // IAM Signing Certificates can be imported using the `id`, e.g.,

@@ -13,6 +13,7 @@ import (
 // Information about an RDS engine version.
 //
 // ## Example Usage
+// ### Basic Usage
 //
 // ```go
 // package main
@@ -28,19 +29,45 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := rds.GetEngineVersion(ctx, &rds.GetEngineVersionArgs{
 //				Engine: "mysql",
+//				PreferredVersions: []string{
+//					"8.0.27",
+//					"8.0.26",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### With `filter`
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := rds.GetEngineVersion(ctx, &rds.GetEngineVersionArgs{
+//				Engine: "aurora-postgresql",
 //				Filters: []rds.GetEngineVersionFilter{
 //					rds.GetEngineVersionFilter{
 //						Name: "engine-mode",
 //						Values: []string{
-//							"provisioned",
+//							"serverless",
 //						},
 //					},
 //				},
-//				PreferredVersions: []string{
-//					"5.7.42",
-//					"5.7.19",
-//					"5.7.17",
-//				},
+//				IncludeAll: pulumi.BoolRef(true),
+//				Version:    pulumi.StringRef("10.14"),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -61,9 +88,14 @@ func GetEngineVersion(ctx *pulumi.Context, args *GetEngineVersionArgs, opts ...p
 
 // A collection of arguments for invoking getEngineVersion.
 type GetEngineVersionArgs struct {
+	// When set to `true`, the default version for the specified `engine` or combination of `engine` and major `version` will be returned. Can be used to limit responses to a single version when they would otherwise fail for returning multiple versions.
+	DefaultOnly *bool `pulumi:"defaultOnly"`
 	// DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
-	Engine  string                   `pulumi:"engine"`
+	Engine string `pulumi:"engine"`
+	// One or more name/value pairs to filter off of. There are several valid keys; for a full reference, check out [describe-db-engine-versions in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
 	Filters []GetEngineVersionFilter `pulumi:"filters"`
+	// When set to `true`, the specified `version` or member of `preferredVersions` will be returned even if it is `deprecated`. Otherwise, only `available` versions will be returned.
+	IncludeAll *bool `pulumi:"includeAll"`
 	// Name of a specific DB parameter group family. Examples of parameter group families are `mysql8.0`, `mariadb10.4`, and `postgres12`.
 	ParameterGroupFamily *string `pulumi:"parameterGroupFamily"`
 	// Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferredVersions` arguments are not configured, the data source will return the default version for the engine.
@@ -76,6 +108,7 @@ type GetEngineVersionArgs struct {
 type GetEngineVersionResult struct {
 	// The default character set for new instances of this engine version.
 	DefaultCharacterSet string `pulumi:"defaultCharacterSet"`
+	DefaultOnly         *bool  `pulumi:"defaultOnly"`
 	Engine              string `pulumi:"engine"`
 	// Description of the database engine.
 	EngineDescription string `pulumi:"engineDescription"`
@@ -84,6 +117,7 @@ type GetEngineVersionResult struct {
 	Filters            []GetEngineVersionFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                   string   `pulumi:"id"`
+	IncludeAll           *bool    `pulumi:"includeAll"`
 	ParameterGroupFamily string   `pulumi:"parameterGroupFamily"`
 	PreferredVersions    []string `pulumi:"preferredVersions"`
 	// Status of the DB engine version, either available or deprecated.
@@ -126,9 +160,14 @@ func GetEngineVersionOutput(ctx *pulumi.Context, args GetEngineVersionOutputArgs
 
 // A collection of arguments for invoking getEngineVersion.
 type GetEngineVersionOutputArgs struct {
+	// When set to `true`, the default version for the specified `engine` or combination of `engine` and major `version` will be returned. Can be used to limit responses to a single version when they would otherwise fail for returning multiple versions.
+	DefaultOnly pulumi.BoolPtrInput `pulumi:"defaultOnly"`
 	// DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
-	Engine  pulumi.StringInput               `pulumi:"engine"`
+	Engine pulumi.StringInput `pulumi:"engine"`
+	// One or more name/value pairs to filter off of. There are several valid keys; for a full reference, check out [describe-db-engine-versions in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
 	Filters GetEngineVersionFilterArrayInput `pulumi:"filters"`
+	// When set to `true`, the specified `version` or member of `preferredVersions` will be returned even if it is `deprecated`. Otherwise, only `available` versions will be returned.
+	IncludeAll pulumi.BoolPtrInput `pulumi:"includeAll"`
 	// Name of a specific DB parameter group family. Examples of parameter group families are `mysql8.0`, `mariadb10.4`, and `postgres12`.
 	ParameterGroupFamily pulumi.StringPtrInput `pulumi:"parameterGroupFamily"`
 	// Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferredVersions` arguments are not configured, the data source will return the default version for the engine.
@@ -161,6 +200,10 @@ func (o GetEngineVersionResultOutput) DefaultCharacterSet() pulumi.StringOutput 
 	return o.ApplyT(func(v GetEngineVersionResult) string { return v.DefaultCharacterSet }).(pulumi.StringOutput)
 }
 
+func (o GetEngineVersionResultOutput) DefaultOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetEngineVersionResult) *bool { return v.DefaultOnly }).(pulumi.BoolPtrOutput)
+}
+
 func (o GetEngineVersionResultOutput) Engine() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEngineVersionResult) string { return v.Engine }).(pulumi.StringOutput)
 }
@@ -182,6 +225,10 @@ func (o GetEngineVersionResultOutput) Filters() GetEngineVersionFilterArrayOutpu
 // The provider-assigned unique ID for this managed resource.
 func (o GetEngineVersionResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEngineVersionResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetEngineVersionResultOutput) IncludeAll() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetEngineVersionResult) *bool { return v.IncludeAll }).(pulumi.BoolPtrOutput)
 }
 
 func (o GetEngineVersionResultOutput) ParameterGroupFamily() pulumi.StringOutput {

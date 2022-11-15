@@ -11,6 +11,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a resource to create a new launch configuration, used for autoscaling groups.
+//
+// > **Note** When using `ec2.LaunchConfiguration` with `autoscaling.Group`, it is recommended to use the `namePrefix` (Optional) instead of the `name` (Optional) attribute.
+//
 // ## Example Usage
 //
 // ```go
@@ -65,8 +69,8 @@ import (
 // Launch Configurations cannot be updated after creation with the Amazon
 // Web Service API. In order to update a Launch Configuration, this provider will
 // destroy the existing resource and create a replacement. In order to effectively
-// use a Launch Configuration resource with an [AutoScaling Group resource](https://www.terraform.io/docs/providers/aws/r/autoscaling_group.html),
-// it's recommended to specify `createBeforeDestroy` in a [lifecycle](https://www.terraform.io/docs/configuration/meta-arguments/lifecycle.html) block.
+// use a Launch Configuration resource with an AutoScaling Group resource,
+// it's recommended to specify `createBeforeDestroy` in a lifecycle block.
 // Either omit the Launch Configuration `name` attribute, or specify a partial name
 // with `namePrefix`.  Example:
 //
@@ -139,7 +143,7 @@ import (
 // parameter will set the price on the Launch Configuration which will attempt to
 // reserve your instances at this price.  See the [AWS Spot Instance
 // documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
-// for more information or how to launch [Spot Instances](https://www.terraform.io/docs/providers/aws/r/spot_instance_request.html) with this provider.
+// for more information or how to launch [Spot Instances][3] with this provider.
 //
 // ```go
 // package main

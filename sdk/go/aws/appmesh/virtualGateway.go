@@ -108,8 +108,6 @@ import (
 //	$ pulumi import aws:appmesh/virtualGateway:VirtualGateway example mesh/gw1
 //
 // ```
-//
-//	[1]/docs/providers/aws/index.html
 type VirtualGateway struct {
 	pulumi.CustomResourceState
 

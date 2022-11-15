@@ -79,7 +79,8 @@ type Account struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
 	CloseOnDeletion pulumi.BoolPtrOutput `pulumi:"closeOnDeletion"`
-	CreateGovcloud  pulumi.BoolPtrOutput `pulumi:"createGovcloud"`
+	// Whether to also create a GovCloud account. The GovCloud account is tied to the main (commercial) account this resource creates. If `true`, the GovCloud account ID is available in the `govcloudId` attribute. The only way to manage the GovCloud account with the provider is to subsequently import the account using this resource.
+	CreateGovcloud pulumi.BoolPtrOutput `pulumi:"createGovcloud"`
 	// Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
 	Email pulumi.StringOutput `pulumi:"email"`
 	// ID for a GovCloud account created with the account.
@@ -137,7 +138,8 @@ type accountState struct {
 	Arn *string `pulumi:"arn"`
 	// If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
 	CloseOnDeletion *bool `pulumi:"closeOnDeletion"`
-	CreateGovcloud  *bool `pulumi:"createGovcloud"`
+	// Whether to also create a GovCloud account. The GovCloud account is tied to the main (commercial) account this resource creates. If `true`, the GovCloud account ID is available in the `govcloudId` attribute. The only way to manage the GovCloud account with the provider is to subsequently import the account using this resource.
+	CreateGovcloud *bool `pulumi:"createGovcloud"`
 	// Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
 	Email *string `pulumi:"email"`
 	// ID for a GovCloud account created with the account.
@@ -164,7 +166,8 @@ type AccountState struct {
 	Arn pulumi.StringPtrInput
 	// If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
 	CloseOnDeletion pulumi.BoolPtrInput
-	CreateGovcloud  pulumi.BoolPtrInput
+	// Whether to also create a GovCloud account. The GovCloud account is tied to the main (commercial) account this resource creates. If `true`, the GovCloud account ID is available in the `govcloudId` attribute. The only way to manage the GovCloud account with the provider is to subsequently import the account using this resource.
+	CreateGovcloud pulumi.BoolPtrInput
 	// Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
 	Email pulumi.StringPtrInput
 	// ID for a GovCloud account created with the account.
@@ -193,7 +196,8 @@ func (AccountState) ElementType() reflect.Type {
 type accountArgs struct {
 	// If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
 	CloseOnDeletion *bool `pulumi:"closeOnDeletion"`
-	CreateGovcloud  *bool `pulumi:"createGovcloud"`
+	// Whether to also create a GovCloud account. The GovCloud account is tied to the main (commercial) account this resource creates. If `true`, the GovCloud account ID is available in the `govcloudId` attribute. The only way to manage the GovCloud account with the provider is to subsequently import the account using this resource.
+	CreateGovcloud *bool `pulumi:"createGovcloud"`
 	// Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
 	Email string `pulumi:"email"`
 	// If set to `ALLOW`, the new account enables IAM users and roles to access account billing information if they have the required permissions. If set to `DENY`, then only the root user (and no roles) of the new account can access account billing information. If this is unset, the AWS API will default this to `ALLOW`. If the resource is created and this option is changed, it will try to recreate the account.
@@ -212,7 +216,8 @@ type accountArgs struct {
 type AccountArgs struct {
 	// If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
 	CloseOnDeletion pulumi.BoolPtrInput
-	CreateGovcloud  pulumi.BoolPtrInput
+	// Whether to also create a GovCloud account. The GovCloud account is tied to the main (commercial) account this resource creates. If `true`, the GovCloud account ID is available in the `govcloudId` attribute. The only way to manage the GovCloud account with the provider is to subsequently import the account using this resource.
+	CreateGovcloud pulumi.BoolPtrInput
 	// Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
 	Email pulumi.StringInput
 	// If set to `ALLOW`, the new account enables IAM users and roles to access account billing information if they have the required permissions. If set to `DENY`, then only the root user (and no roles) of the new account can access account billing information. If this is unset, the AWS API will default this to `ALLOW`. If the resource is created and this option is changed, it will try to recreate the account.
@@ -324,6 +329,7 @@ func (o AccountOutput) CloseOnDeletion() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.CloseOnDeletion }).(pulumi.BoolPtrOutput)
 }
 
+// Whether to also create a GovCloud account. The GovCloud account is tied to the main (commercial) account this resource creates. If `true`, the GovCloud account ID is available in the `govcloudId` attribute. The only way to manage the GovCloud account with the provider is to subsequently import the account using this resource.
 func (o AccountOutput) CreateGovcloud() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.CreateGovcloud }).(pulumi.BoolPtrOutput)
 }

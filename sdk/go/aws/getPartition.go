@@ -7,7 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to lookup current AWS partition in which this provider is working
+// Use this data source to lookup information about the current AWS partition in
+// which the provider is working.
 //
 // ## Example Usage
 //

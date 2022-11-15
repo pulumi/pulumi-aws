@@ -65,8 +65,9 @@ type TransitGatewayPeering struct {
 	// The type of peering. This will be `TRANSIT_GATEWAY`.
 	PeeringType pulumi.StringOutput `pulumi:"peeringType"`
 	// The resource ARN of the peer.
-	ResourceArn pulumi.StringOutput    `pulumi:"resourceArn"`
-	Tags        pulumi.StringMapOutput `pulumi:"tags"`
+	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
+	// Key-value tags for the peering. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The ARN of the transit gateway for the peering request.
@@ -123,8 +124,9 @@ type transitGatewayPeeringState struct {
 	// The type of peering. This will be `TRANSIT_GATEWAY`.
 	PeeringType *string `pulumi:"peeringType"`
 	// The resource ARN of the peer.
-	ResourceArn *string           `pulumi:"resourceArn"`
-	Tags        map[string]string `pulumi:"tags"`
+	ResourceArn *string `pulumi:"resourceArn"`
+	// Key-value tags for the peering. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The ARN of the transit gateway for the peering request.
@@ -148,7 +150,8 @@ type TransitGatewayPeeringState struct {
 	PeeringType pulumi.StringPtrInput
 	// The resource ARN of the peer.
 	ResourceArn pulumi.StringPtrInput
-	Tags        pulumi.StringMapInput
+	// Key-value tags for the peering. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The ARN of the transit gateway for the peering request.
@@ -163,8 +166,9 @@ func (TransitGatewayPeeringState) ElementType() reflect.Type {
 
 type transitGatewayPeeringArgs struct {
 	// The ID of a core network.
-	CoreNetworkId string            `pulumi:"coreNetworkId"`
-	Tags          map[string]string `pulumi:"tags"`
+	CoreNetworkId string `pulumi:"coreNetworkId"`
+	// Key-value tags for the peering. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// The ARN of the transit gateway for the peering request.
 	TransitGatewayArn string `pulumi:"transitGatewayArn"`
 }
@@ -173,7 +177,8 @@ type transitGatewayPeeringArgs struct {
 type TransitGatewayPeeringArgs struct {
 	// The ID of a core network.
 	CoreNetworkId pulumi.StringInput
-	Tags          pulumi.StringMapInput
+	// Key-value tags for the peering. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// The ARN of the transit gateway for the peering request.
 	TransitGatewayArn pulumi.StringInput
 }
@@ -300,6 +305,7 @@ func (o TransitGatewayPeeringOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TransitGatewayPeering) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
 }
 
+// Key-value tags for the peering. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o TransitGatewayPeeringOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TransitGatewayPeering) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

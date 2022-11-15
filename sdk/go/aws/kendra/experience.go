@@ -11,6 +11,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Resource for managing an AWS Kendra Experience.
+//
 // ## Example Usage
 // ### Basic Usage
 //
@@ -64,7 +66,8 @@ type Experience struct {
 	pulumi.CustomResourceState
 
 	// ARN of the Experience.
-	Arn           pulumi.StringOutput           `pulumi:"arn"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
 	Configuration ExperienceConfigurationOutput `pulumi:"configuration"`
 	// A description for your Amazon Kendra experience.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -118,7 +121,8 @@ func GetExperience(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Experience resources.
 type experienceState struct {
 	// ARN of the Experience.
-	Arn           *string                  `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
+	// Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
 	Configuration *ExperienceConfiguration `pulumi:"configuration"`
 	// A description for your Amazon Kendra experience.
 	Description *string `pulumi:"description"`
@@ -138,7 +142,8 @@ type experienceState struct {
 
 type ExperienceState struct {
 	// ARN of the Experience.
-	Arn           pulumi.StringPtrInput
+	Arn pulumi.StringPtrInput
+	// Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
 	Configuration ExperienceConfigurationPtrInput
 	// A description for your Amazon Kendra experience.
 	Description pulumi.StringPtrInput
@@ -161,6 +166,7 @@ func (ExperienceState) ElementType() reflect.Type {
 }
 
 type experienceArgs struct {
+	// Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
 	Configuration *ExperienceConfiguration `pulumi:"configuration"`
 	// A description for your Amazon Kendra experience.
 	Description *string `pulumi:"description"`
@@ -174,6 +180,7 @@ type experienceArgs struct {
 
 // The set of arguments for constructing a Experience resource.
 type ExperienceArgs struct {
+	// Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
 	Configuration ExperienceConfigurationPtrInput
 	// A description for your Amazon Kendra experience.
 	Description pulumi.StringPtrInput
@@ -277,6 +284,7 @@ func (o ExperienceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Experience) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
 func (o ExperienceOutput) Configuration() ExperienceConfigurationOutput {
 	return o.ApplyT(func(v *Experience) ExperienceConfigurationOutput { return v.Configuration }).(ExperienceConfigurationOutput)
 }

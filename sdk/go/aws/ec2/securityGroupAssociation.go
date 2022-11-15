@@ -11,6 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a resource to create an association between a VPC endpoint and a security group.
+//
+// > **NOTE on VPC Endpoints and VPC Endpoint Security Group Associations:** The provider provides
+// both a standalone VPC Endpoint Security Group Association (an association between a VPC endpoint
+// and a single `securityGroupId`) and a VPC Endpoint resource with a `securityGroupIds`
+// attribute. Do not use the same security group ID in both a VPC Endpoint resource and a VPC Endpoint Security
+// Group Association resource. Doing so will cause a conflict of associations and will overwrite the association.
+//
 // ## Example Usage
 //
 // Basic usage:

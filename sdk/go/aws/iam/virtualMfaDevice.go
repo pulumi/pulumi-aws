@@ -11,6 +11,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an IAM Virtual MFA Device.
+//
 // ## Example Usage
 //
 // **Using certs on file:**

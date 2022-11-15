@@ -57,8 +57,9 @@ type PolicyTable struct {
 	// EC2 Transit Gateway Policy Table Amazon Resource Name (ARN).
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The state of the EC2 Transit Gateway Policy Table.
-	State pulumi.StringOutput    `pulumi:"state"`
-	Tags  pulumi.StringMapOutput `pulumi:"tags"`
+	State pulumi.StringOutput `pulumi:"state"`
+	// Key-value tags for the EC2 Transit Gateway Policy Table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// EC2 Transit Gateway identifier.
@@ -100,8 +101,9 @@ type policyTableState struct {
 	// EC2 Transit Gateway Policy Table Amazon Resource Name (ARN).
 	Arn *string `pulumi:"arn"`
 	// The state of the EC2 Transit Gateway Policy Table.
-	State *string           `pulumi:"state"`
-	Tags  map[string]string `pulumi:"tags"`
+	State *string `pulumi:"state"`
+	// Key-value tags for the EC2 Transit Gateway Policy Table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// EC2 Transit Gateway identifier.
@@ -113,7 +115,8 @@ type PolicyTableState struct {
 	Arn pulumi.StringPtrInput
 	// The state of the EC2 Transit Gateway Policy Table.
 	State pulumi.StringPtrInput
-	Tags  pulumi.StringMapInput
+	// Key-value tags for the EC2 Transit Gateway Policy Table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// EC2 Transit Gateway identifier.
@@ -125,6 +128,7 @@ func (PolicyTableState) ElementType() reflect.Type {
 }
 
 type policyTableArgs struct {
+	// Key-value tags for the EC2 Transit Gateway Policy Table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// EC2 Transit Gateway identifier.
 	TransitGatewayId string `pulumi:"transitGatewayId"`
@@ -132,6 +136,7 @@ type policyTableArgs struct {
 
 // The set of arguments for constructing a PolicyTable resource.
 type PolicyTableArgs struct {
+	// Key-value tags for the EC2 Transit Gateway Policy Table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// EC2 Transit Gateway identifier.
 	TransitGatewayId pulumi.StringInput
@@ -234,6 +239,7 @@ func (o PolicyTableOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyTable) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }
 
+// Key-value tags for the EC2 Transit Gateway Policy Table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o PolicyTableOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PolicyTable) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

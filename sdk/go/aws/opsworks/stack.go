@@ -99,15 +99,14 @@ type Stack struct {
 	// The ARN of an IAM role that the OpsWorks service will act as.
 	ServiceRoleArn pulumi.StringOutput `pulumi:"serviceRoleArn"`
 	StackEndpoint  pulumi.StringOutput `pulumi:"stackEndpoint"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource.
+	// If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Boolean value controlling whether the custom cookbook settings are
-	// enabled.
+	// Boolean value controlling whether the custom cookbook settings are enabled.
 	UseCustomCookbooks pulumi.BoolPtrOutput `pulumi:"useCustomCookbooks"`
-	// Boolean value controlling whether the standard OpsWorks
-	// security groups apply to created instances.
+	// Boolean value controlling whether the standard OpsWorks security groups apply to created instances.
 	UseOpsworksSecurityGroups pulumi.BoolPtrOutput `pulumi:"useOpsworksSecurityGroups"`
 	// ID of the VPC that this stack belongs to.
 	// Defaults to the region's default VPC.
@@ -192,15 +191,14 @@ type stackState struct {
 	// The ARN of an IAM role that the OpsWorks service will act as.
 	ServiceRoleArn *string `pulumi:"serviceRoleArn"`
 	StackEndpoint  *string `pulumi:"stackEndpoint"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource.
+	// If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Boolean value controlling whether the custom cookbook settings are
-	// enabled.
+	// Boolean value controlling whether the custom cookbook settings are enabled.
 	UseCustomCookbooks *bool `pulumi:"useCustomCookbooks"`
-	// Boolean value controlling whether the standard OpsWorks
-	// security groups apply to created instances.
+	// Boolean value controlling whether the standard OpsWorks security groups apply to created instances.
 	UseOpsworksSecurityGroups *bool `pulumi:"useOpsworksSecurityGroups"`
 	// ID of the VPC that this stack belongs to.
 	// Defaults to the region's default VPC.
@@ -248,15 +246,14 @@ type StackState struct {
 	// The ARN of an IAM role that the OpsWorks service will act as.
 	ServiceRoleArn pulumi.StringPtrInput
 	StackEndpoint  pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource.
+	// If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// Boolean value controlling whether the custom cookbook settings are
-	// enabled.
+	// Boolean value controlling whether the custom cookbook settings are enabled.
 	UseCustomCookbooks pulumi.BoolPtrInput
-	// Boolean value controlling whether the standard OpsWorks
-	// security groups apply to created instances.
+	// Boolean value controlling whether the standard OpsWorks security groups apply to created instances.
 	UseOpsworksSecurityGroups pulumi.BoolPtrInput
 	// ID of the VPC that this stack belongs to.
 	// Defaults to the region's default VPC.
@@ -306,13 +303,12 @@ type stackArgs struct {
 	Region string `pulumi:"region"`
 	// The ARN of an IAM role that the OpsWorks service will act as.
 	ServiceRoleArn string `pulumi:"serviceRoleArn"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource.
+	// If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// Boolean value controlling whether the custom cookbook settings are
-	// enabled.
+	// Boolean value controlling whether the custom cookbook settings are enabled.
 	UseCustomCookbooks *bool `pulumi:"useCustomCookbooks"`
-	// Boolean value controlling whether the standard OpsWorks
-	// security groups apply to created instances.
+	// Boolean value controlling whether the standard OpsWorks security groups apply to created instances.
 	UseOpsworksSecurityGroups *bool `pulumi:"useOpsworksSecurityGroups"`
 	// ID of the VPC that this stack belongs to.
 	// Defaults to the region's default VPC.
@@ -359,13 +355,12 @@ type StackArgs struct {
 	Region pulumi.StringInput
 	// The ARN of an IAM role that the OpsWorks service will act as.
 	ServiceRoleArn pulumi.StringInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource.
+	// If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// Boolean value controlling whether the custom cookbook settings are
-	// enabled.
+	// Boolean value controlling whether the custom cookbook settings are enabled.
 	UseCustomCookbooks pulumi.BoolPtrInput
-	// Boolean value controlling whether the standard OpsWorks
-	// security groups apply to created instances.
+	// Boolean value controlling whether the standard OpsWorks security groups apply to created instances.
 	UseOpsworksSecurityGroups pulumi.BoolPtrInput
 	// ID of the VPC that this stack belongs to.
 	// Defaults to the region's default VPC.
@@ -559,7 +554,8 @@ func (o StackOutput) StackEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringOutput { return v.StackEndpoint }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// A map of tags to assign to the resource.
+// If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o StackOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -569,14 +565,12 @@ func (o StackOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Boolean value controlling whether the custom cookbook settings are
-// enabled.
+// Boolean value controlling whether the custom cookbook settings are enabled.
 func (o StackOutput) UseCustomCookbooks() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Stack) pulumi.BoolPtrOutput { return v.UseCustomCookbooks }).(pulumi.BoolPtrOutput)
 }
 
-// Boolean value controlling whether the standard OpsWorks
-// security groups apply to created instances.
+// Boolean value controlling whether the standard OpsWorks security groups apply to created instances.
 func (o StackOutput) UseOpsworksSecurityGroups() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Stack) pulumi.BoolPtrOutput { return v.UseOpsworksSecurityGroups }).(pulumi.BoolPtrOutput)
 }

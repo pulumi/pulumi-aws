@@ -1197,7 +1197,8 @@ type InstancePublicPortsPortInfo struct {
 	// Set of CIDR blocks.
 	Cidrs []string `pulumi:"cidrs"`
 	// First port in a range of open ports on an instance.
-	FromPort int `pulumi:"fromPort"`
+	FromPort  int      `pulumi:"fromPort"`
+	Ipv6Cidrs []string `pulumi:"ipv6Cidrs"`
 	// IP protocol name. Valid values are `tcp`, `all`, `udp`, and `icmp`.
 	Protocol string `pulumi:"protocol"`
 	// Last port in a range of open ports on an instance.
@@ -1219,7 +1220,8 @@ type InstancePublicPortsPortInfoArgs struct {
 	// Set of CIDR blocks.
 	Cidrs pulumi.StringArrayInput `pulumi:"cidrs"`
 	// First port in a range of open ports on an instance.
-	FromPort pulumi.IntInput `pulumi:"fromPort"`
+	FromPort  pulumi.IntInput         `pulumi:"fromPort"`
+	Ipv6Cidrs pulumi.StringArrayInput `pulumi:"ipv6Cidrs"`
 	// IP protocol name. Valid values are `tcp`, `all`, `udp`, and `icmp`.
 	Protocol pulumi.StringInput `pulumi:"protocol"`
 	// Last port in a range of open ports on an instance.
@@ -1285,6 +1287,10 @@ func (o InstancePublicPortsPortInfoOutput) Cidrs() pulumi.StringArrayOutput {
 // First port in a range of open ports on an instance.
 func (o InstancePublicPortsPortInfoOutput) FromPort() pulumi.IntOutput {
 	return o.ApplyT(func(v InstancePublicPortsPortInfo) int { return v.FromPort }).(pulumi.IntOutput)
+}
+
+func (o InstancePublicPortsPortInfoOutput) Ipv6Cidrs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v InstancePublicPortsPortInfo) []string { return v.Ipv6Cidrs }).(pulumi.StringArrayOutput)
 }
 
 // IP protocol name. Valid values are `tcp`, `all`, `udp`, and `icmp`.

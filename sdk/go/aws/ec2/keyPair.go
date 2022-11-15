@@ -63,8 +63,9 @@ type KeyPair struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The MD5 public key fingerprint as specified in section 4 of RFC 4716.
 	Fingerprint pulumi.StringOutput `pulumi:"fingerprint"`
-	// The key pair name.
-	KeyName       pulumi.StringOutput `pulumi:"keyName"`
+	// The name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
+	KeyName pulumi.StringOutput `pulumi:"keyName"`
+	// Creates a unique name beginning with the specified prefix. Conflicts with `keyName`. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
 	KeyNamePrefix pulumi.StringOutput `pulumi:"keyNamePrefix"`
 	// The key pair ID.
 	KeyPairId pulumi.StringOutput `pulumi:"keyPairId"`
@@ -114,8 +115,9 @@ type keyPairState struct {
 	Arn *string `pulumi:"arn"`
 	// The MD5 public key fingerprint as specified in section 4 of RFC 4716.
 	Fingerprint *string `pulumi:"fingerprint"`
-	// The key pair name.
-	KeyName       *string `pulumi:"keyName"`
+	// The name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
+	KeyName *string `pulumi:"keyName"`
+	// Creates a unique name beginning with the specified prefix. Conflicts with `keyName`. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
 	KeyNamePrefix *string `pulumi:"keyNamePrefix"`
 	// The key pair ID.
 	KeyPairId *string `pulumi:"keyPairId"`
@@ -134,8 +136,9 @@ type KeyPairState struct {
 	Arn pulumi.StringPtrInput
 	// The MD5 public key fingerprint as specified in section 4 of RFC 4716.
 	Fingerprint pulumi.StringPtrInput
-	// The key pair name.
-	KeyName       pulumi.StringPtrInput
+	// The name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
+	KeyName pulumi.StringPtrInput
+	// Creates a unique name beginning with the specified prefix. Conflicts with `keyName`. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
 	KeyNamePrefix pulumi.StringPtrInput
 	// The key pair ID.
 	KeyPairId pulumi.StringPtrInput
@@ -154,8 +157,9 @@ func (KeyPairState) ElementType() reflect.Type {
 }
 
 type keyPairArgs struct {
-	// The key pair name.
-	KeyName       *string `pulumi:"keyName"`
+	// The name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
+	KeyName *string `pulumi:"keyName"`
+	// Creates a unique name beginning with the specified prefix. Conflicts with `keyName`. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
 	KeyNamePrefix *string `pulumi:"keyNamePrefix"`
 	// The public key material.
 	PublicKey string `pulumi:"publicKey"`
@@ -165,8 +169,9 @@ type keyPairArgs struct {
 
 // The set of arguments for constructing a KeyPair resource.
 type KeyPairArgs struct {
-	// The key pair name.
-	KeyName       pulumi.StringPtrInput
+	// The name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
+	KeyName pulumi.StringPtrInput
+	// Creates a unique name beginning with the specified prefix. Conflicts with `keyName`. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
 	KeyNamePrefix pulumi.StringPtrInput
 	// The public key material.
 	PublicKey pulumi.StringInput
@@ -271,11 +276,12 @@ func (o KeyPairOutput) Fingerprint() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyPair) pulumi.StringOutput { return v.Fingerprint }).(pulumi.StringOutput)
 }
 
-// The key pair name.
+// The name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
 func (o KeyPairOutput) KeyName() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyPair) pulumi.StringOutput { return v.KeyName }).(pulumi.StringOutput)
 }
 
+// Creates a unique name beginning with the specified prefix. Conflicts with `keyName`. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
 func (o KeyPairOutput) KeyNamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyPair) pulumi.StringOutput { return v.KeyNamePrefix }).(pulumi.StringOutput)
 }

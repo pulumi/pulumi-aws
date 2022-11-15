@@ -107,7 +107,7 @@ type Addon struct {
 	Preserve pulumi.BoolPtrOutput `pulumi:"preserve"`
 	// Define how to resolve parameter value conflicts
 	// when migrating an existing add-on to an Amazon EKS add-on or when applying
-	// version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`.
+	// version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
 	ResolveConflicts pulumi.StringPtrOutput `pulumi:"resolveConflicts"`
 	// The Amazon Resource Name (ARN) of an
 	// existing IAM role to bind to the add-on's service account. The role must be
@@ -175,7 +175,7 @@ type addonState struct {
 	Preserve *bool `pulumi:"preserve"`
 	// Define how to resolve parameter value conflicts
 	// when migrating an existing add-on to an Amazon EKS add-on or when applying
-	// version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`.
+	// version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
 	ResolveConflicts *string `pulumi:"resolveConflicts"`
 	// The Amazon Resource Name (ARN) of an
 	// existing IAM role to bind to the add-on's service account. The role must be
@@ -209,7 +209,7 @@ type AddonState struct {
 	Preserve pulumi.BoolPtrInput
 	// Define how to resolve parameter value conflicts
 	// when migrating an existing add-on to an Amazon EKS add-on or when applying
-	// version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`.
+	// version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
 	ResolveConflicts pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of an
 	// existing IAM role to bind to the add-on's service account. The role must be
@@ -241,7 +241,7 @@ type addonArgs struct {
 	Preserve *bool `pulumi:"preserve"`
 	// Define how to resolve parameter value conflicts
 	// when migrating an existing add-on to an Amazon EKS add-on or when applying
-	// version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`.
+	// version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
 	ResolveConflicts *string `pulumi:"resolveConflicts"`
 	// The Amazon Resource Name (ARN) of an
 	// existing IAM role to bind to the add-on's service account. The role must be
@@ -268,7 +268,7 @@ type AddonArgs struct {
 	Preserve pulumi.BoolPtrInput
 	// Define how to resolve parameter value conflicts
 	// when migrating an existing add-on to an Amazon EKS add-on or when applying
-	// version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`.
+	// version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
 	ResolveConflicts pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of an
 	// existing IAM role to bind to the add-on's service account. The role must be
@@ -407,7 +407,7 @@ func (o AddonOutput) Preserve() pulumi.BoolPtrOutput {
 
 // Define how to resolve parameter value conflicts
 // when migrating an existing add-on to an Amazon EKS add-on or when applying
-// version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`.
+// version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
 func (o AddonOutput) ResolveConflicts() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Addon) pulumi.StringPtrOutput { return v.ResolveConflicts }).(pulumi.StringPtrOutput)
 }

@@ -27,7 +27,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := backup.LookupFramework(ctx, &backup.LookupFrameworkArgs{
-//				Name: "tf_example_backup_framework_name",
+//				Name: "my_example_backup_framework_name",
 //			}, nil)
 //			if err != nil {
 //				return err

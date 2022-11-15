@@ -13,7 +13,7 @@ import (
 
 // Provides an SES domain DKIM generation resource.
 //
-// Domain ownership needs to be confirmed first using `ses.DomainIdentity` resource.
+// # Domain ownership needs to be confirmed first using sesDomainIdentity Resource
 //
 // ## Example Usage
 //

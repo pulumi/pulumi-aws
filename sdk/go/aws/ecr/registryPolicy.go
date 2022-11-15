@@ -89,6 +89,7 @@ import (
 type RegistryPolicy struct {
 	pulumi.CustomResourceState
 
+	// The policy document. This is a JSON formatted string.
 	Policy pulumi.StringOutput `pulumi:"policy"`
 	// The registry ID where the registry was created.
 	RegistryId pulumi.StringOutput `pulumi:"registryId"`
@@ -126,12 +127,14 @@ func GetRegistryPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RegistryPolicy resources.
 type registryPolicyState struct {
+	// The policy document. This is a JSON formatted string.
 	Policy *string `pulumi:"policy"`
 	// The registry ID where the registry was created.
 	RegistryId *string `pulumi:"registryId"`
 }
 
 type RegistryPolicyState struct {
+	// The policy document. This is a JSON formatted string.
 	Policy pulumi.StringPtrInput
 	// The registry ID where the registry was created.
 	RegistryId pulumi.StringPtrInput
@@ -142,11 +145,13 @@ func (RegistryPolicyState) ElementType() reflect.Type {
 }
 
 type registryPolicyArgs struct {
+	// The policy document. This is a JSON formatted string.
 	Policy string `pulumi:"policy"`
 }
 
 // The set of arguments for constructing a RegistryPolicy resource.
 type RegistryPolicyArgs struct {
+	// The policy document. This is a JSON formatted string.
 	Policy pulumi.StringInput
 }
 
@@ -237,6 +242,7 @@ func (o RegistryPolicyOutput) ToRegistryPolicyOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The policy document. This is a JSON formatted string.
 func (o RegistryPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *RegistryPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }

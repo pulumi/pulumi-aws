@@ -11,6 +11,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Resource for managing a Roles Anywhere Profile.
+//
 // ## Example Usage
 //
 // ```go
@@ -98,7 +100,8 @@ type Profile struct {
 	RoleArns pulumi.StringArrayOutput `pulumi:"roleArns"`
 	// A session policy that applies to the trust boundary of the vended session credentials.
 	SessionPolicy pulumi.StringPtrOutput `pulumi:"sessionPolicy"`
-	Tags          pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
@@ -150,8 +153,9 @@ type profileState struct {
 	// A list of IAM roles that this profile can assume
 	RoleArns []string `pulumi:"roleArns"`
 	// A session policy that applies to the trust boundary of the vended session credentials.
-	SessionPolicy *string           `pulumi:"sessionPolicy"`
-	Tags          map[string]string `pulumi:"tags"`
+	SessionPolicy *string `pulumi:"sessionPolicy"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
@@ -173,7 +177,8 @@ type ProfileState struct {
 	RoleArns pulumi.StringArrayInput
 	// A session policy that applies to the trust boundary of the vended session credentials.
 	SessionPolicy pulumi.StringPtrInput
-	Tags          pulumi.StringMapInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
@@ -196,8 +201,9 @@ type profileArgs struct {
 	// A list of IAM roles that this profile can assume
 	RoleArns []string `pulumi:"roleArns"`
 	// A session policy that applies to the trust boundary of the vended session credentials.
-	SessionPolicy *string           `pulumi:"sessionPolicy"`
-	Tags          map[string]string `pulumi:"tags"`
+	SessionPolicy *string `pulumi:"sessionPolicy"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Profile resource.
@@ -216,7 +222,8 @@ type ProfileArgs struct {
 	RoleArns pulumi.StringArrayInput
 	// A session policy that applies to the trust boundary of the vended session credentials.
 	SessionPolicy pulumi.StringPtrInput
-	Tags          pulumi.StringMapInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (ProfileArgs) ElementType() reflect.Type {
@@ -346,6 +353,7 @@ func (o ProfileOutput) SessionPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringPtrOutput { return v.SessionPolicy }).(pulumi.StringPtrOutput)
 }
 
+// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ProfileOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

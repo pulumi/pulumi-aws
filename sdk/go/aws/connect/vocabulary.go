@@ -74,8 +74,10 @@ type Vocabulary struct {
 	// A unique name of the custom vocabulary. Must not be more than 140 characters.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The current state of the custom vocabulary. Valid values are `CREATION_IN_PROGRESS`, `ACTIVE`, `CREATION_FAILED`, `DELETE_IN_PROGRESS`.
-	State pulumi.StringOutput    `pulumi:"state"`
-	Tags  pulumi.StringMapOutput `pulumi:"tags"`
+	State pulumi.StringOutput `pulumi:"state"`
+	// Tags to apply to the vocabulary. If configured with a provider
+	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The identifier of the custom vocabulary.
@@ -135,8 +137,10 @@ type vocabularyState struct {
 	// A unique name of the custom vocabulary. Must not be more than 140 characters.
 	Name *string `pulumi:"name"`
 	// The current state of the custom vocabulary. Valid values are `CREATION_IN_PROGRESS`, `ACTIVE`, `CREATION_FAILED`, `DELETE_IN_PROGRESS`.
-	State *string           `pulumi:"state"`
-	Tags  map[string]string `pulumi:"tags"`
+	State *string `pulumi:"state"`
+	// Tags to apply to the vocabulary. If configured with a provider
+	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The identifier of the custom vocabulary.
@@ -160,7 +164,9 @@ type VocabularyState struct {
 	Name pulumi.StringPtrInput
 	// The current state of the custom vocabulary. Valid values are `CREATION_IN_PROGRESS`, `ACTIVE`, `CREATION_FAILED`, `DELETE_IN_PROGRESS`.
 	State pulumi.StringPtrInput
-	Tags  pulumi.StringMapInput
+	// Tags to apply to the vocabulary. If configured with a provider
+	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The identifier of the custom vocabulary.
@@ -179,7 +185,9 @@ type vocabularyArgs struct {
 	// The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see [What is Amazon Transcribe?](https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html). Valid Values are `ar-AE`, `de-CH`, `de-DE`, `en-AB`, `en-AU`, `en-GB`, `en-IE`, `en-IN`, `en-US`, `en-WL`, `es-ES`, `es-US`, `fr-CA`, `fr-FR`, `hi-IN`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `pt-PT`, `zh-CN`.
 	LanguageCode string `pulumi:"languageCode"`
 	// A unique name of the custom vocabulary. Must not be more than 140 characters.
-	Name *string           `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Tags to apply to the vocabulary. If configured with a provider
+	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -193,6 +201,8 @@ type VocabularyArgs struct {
 	LanguageCode pulumi.StringInput
 	// A unique name of the custom vocabulary. Must not be more than 140 characters.
 	Name pulumi.StringPtrInput
+	// Tags to apply to the vocabulary. If configured with a provider
+	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -323,6 +333,8 @@ func (o VocabularyOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *Vocabulary) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }
 
+// Tags to apply to the vocabulary. If configured with a provider
+// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o VocabularyOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Vocabulary) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

@@ -96,9 +96,11 @@ type Repository struct {
 	// Name of the repository.
 	RepositoryName pulumi.StringOutput `pulumi:"repositoryName"`
 	// The URI of the repository.
-	RepositoryUri pulumi.StringOutput    `pulumi:"repositoryUri"`
-	Tags          pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll       pulumi.StringMapOutput `pulumi:"tagsAll"`
+	RepositoryUri pulumi.StringOutput `pulumi:"repositoryUri"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewRepository registers a new resource with the given unique name, arguments, and options.
@@ -143,9 +145,11 @@ type repositoryState struct {
 	// Name of the repository.
 	RepositoryName *string `pulumi:"repositoryName"`
 	// The URI of the repository.
-	RepositoryUri *string           `pulumi:"repositoryUri"`
-	Tags          map[string]string `pulumi:"tags"`
-	TagsAll       map[string]string `pulumi:"tagsAll"`
+	RepositoryUri *string `pulumi:"repositoryUri"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type RepositoryState struct {
@@ -160,8 +164,10 @@ type RepositoryState struct {
 	RepositoryName pulumi.StringPtrInput
 	// The URI of the repository.
 	RepositoryUri pulumi.StringPtrInput
-	Tags          pulumi.StringMapInput
-	TagsAll       pulumi.StringMapInput
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (RepositoryState) ElementType() reflect.Type {
@@ -173,8 +179,9 @@ type repositoryArgs struct {
 	CatalogData  *RepositoryCatalogData `pulumi:"catalogData"`
 	ForceDestroy *bool                  `pulumi:"forceDestroy"`
 	// Name of the repository.
-	RepositoryName string            `pulumi:"repositoryName"`
-	Tags           map[string]string `pulumi:"tags"`
+	RepositoryName string `pulumi:"repositoryName"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Repository resource.
@@ -184,7 +191,8 @@ type RepositoryArgs struct {
 	ForceDestroy pulumi.BoolPtrInput
 	// Name of the repository.
 	RepositoryName pulumi.StringInput
-	Tags           pulumi.StringMapInput
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (RepositoryArgs) ElementType() reflect.Type {
@@ -303,10 +311,12 @@ func (o RepositoryOutput) RepositoryUri() pulumi.StringOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.RepositoryUri }).(pulumi.StringOutput)
 }
 
+// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o RepositoryOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o RepositoryOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -13,7 +13,7 @@ import (
 
 // Provides an AWS Config Configuration Recorder. Please note that this resource **does not start** the created recorder automatically.
 //
-// > **Note:** _Starting_ the Configuration Recorder requires a `delivery channel` (while delivery channel creation requires Configuration Recorder). This is why `cfg.RecorderStatus` is a separate resource.
+// > **Note:** _Starting_ the Configuration Recorder requires a delivery channel (while delivery channel creation requires Configuration Recorder). This is why `cfg.RecorderStatus` is a separate resource.
 //
 // ## Example Usage
 //

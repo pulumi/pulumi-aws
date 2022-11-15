@@ -46,6 +46,7 @@ func LookupAccountPublicAccessBlock(ctx *pulumi.Context, args *LookupAccountPubl
 
 // A collection of arguments for invoking getAccountPublicAccessBlock.
 type LookupAccountPublicAccessBlockArgs struct {
+	// AWS account ID to configure. Defaults to automatically determined account ID of the AWS provider.
 	AccountId *string `pulumi:"accountId"`
 }
 
@@ -79,6 +80,7 @@ func LookupAccountPublicAccessBlockOutput(ctx *pulumi.Context, args LookupAccoun
 
 // A collection of arguments for invoking getAccountPublicAccessBlock.
 type LookupAccountPublicAccessBlockOutputArgs struct {
+	// AWS account ID to configure. Defaults to automatically determined account ID of the AWS provider.
 	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 }
 

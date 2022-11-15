@@ -31,7 +31,7 @@ import (
 //			_, err := sagemaker.NewCodeRepository(ctx, "example", &sagemaker.CodeRepositoryArgs{
 //				CodeRepositoryName: pulumi.String("example"),
 //				GitConfig: &sagemaker.CodeRepositoryGitConfigArgs{
-//					RepositoryUrl: pulumi.String("https://github.com/hashicorp/terraform-provider-aws.git"),
+//					RepositoryUrl: pulumi.String("https://github.com/github/docs.git"),
 //				},
 //			})
 //			if err != nil {
@@ -81,7 +81,7 @@ import (
 //			_, err = sagemaker.NewCodeRepository(ctx, "exampleCodeRepository", &sagemaker.CodeRepositoryArgs{
 //				CodeRepositoryName: pulumi.String("example"),
 //				GitConfig: &sagemaker.CodeRepositoryGitConfigArgs{
-//					RepositoryUrl: pulumi.String("https://github.com/hashicorp/terraform-provider-aws.git"),
+//					RepositoryUrl: pulumi.String("https://github.com/github/docs.git"),
 //					SecretArn:     exampleSecret.Arn,
 //				},
 //			}, pulumi.DependsOn([]pulumi.Resource{

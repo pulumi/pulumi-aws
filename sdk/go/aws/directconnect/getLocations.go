@@ -8,9 +8,9 @@ import (
 )
 
 // Retrieve information about the AWS Direct Connect locations in the current AWS Region.
-// These are the locations that can be specified when configuring [`directconnect.Connection`](https://www.terraform.io/docs/providers/aws/r/dx_connection.html) or [`directconnect.LinkAggregationGroup`](https://www.terraform.io/docs/providers/aws/r/dx_lag.html) resources.
+// These are the locations that can be specified when configuring `directconnect.Connection` or `directconnect.LinkAggregationGroup` resources.
 //
-// > **Note:** This data source is different from the [`directconnect.getLocation`](https://www.terraform.io/docs/providers/aws/d/dx_location.html) data source which retrieves information about a specific AWS Direct Connect location in the current AWS Region.
+// > **Note:** This data source is different from the `directconnect.getLocation` data source which retrieves information about a specific AWS Direct Connect location in the current AWS Region.
 //
 // ## Example Usage
 //

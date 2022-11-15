@@ -11,6 +11,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Resource for managing an AWS Transcribe MedicalVocabulary.
+//
 // ## Example Usage
 // ### Basic Usage
 //

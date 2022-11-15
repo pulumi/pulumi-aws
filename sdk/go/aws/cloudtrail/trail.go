@@ -44,12 +44,16 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			bucketV2, err := s3.NewBucketV2(ctx, "bucketV2", nil)
+//			fooBucketV2, err := s3.NewBucketV2(ctx, "fooBucketV2", &s3.BucketV2Args{
+//				ForceDestroy: pulumi.Bool(true),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			fooBucketV2, err := s3.NewBucketV2(ctx, "fooBucketV2", &s3.BucketV2Args{
-//				ForceDestroy: pulumi.Bool(true),
+//			_, err = cloudtrail.NewTrail(ctx, "foobar", &cloudtrail.TrailArgs{
+//				S3BucketName:               fooBucketV2.ID(),
+//				S3KeyPrefix:                pulumi.String("prefix"),
+//				IncludeGlobalServiceEvents: pulumi.Bool(false),
 //			})
 //			if err != nil {
 //				return err
@@ -88,18 +92,9 @@ import (
 //	    ]
 //	}
 //
-// }
 // `, fooBucketV2Arn, fooBucketV2Arn1, current.AccountId), nil
 //
 //				}).(pulumi.StringOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cloudtrail.NewTrail(ctx, "foobar", &cloudtrail.TrailArgs{
-//				S3BucketName:               bucketV2.ID(),
-//				S3KeyPrefix:                pulumi.String("prefix"),
-//				IncludeGlobalServiceEvents: pulumi.Bool(false),
 //			})
 //			if err != nil {
 //				return err
@@ -123,24 +118,15 @@ import (
 // import (
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudtrail"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			bucketV2, err := s3.NewBucketV2(ctx, "bucketV2", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cloudtrail.NewTrail(ctx, "example", &cloudtrail.TrailArgs{
-//				S3BucketName: bucketV2.ID(),
-//				S3KeyPrefix:  pulumi.String("prefix"),
+//			_, err := cloudtrail.NewTrail(ctx, "example", &cloudtrail.TrailArgs{
 //				EventSelectors: cloudtrail.TrailEventSelectorArray{
 //					&cloudtrail.TrailEventSelectorArgs{
-//						ReadWriteType:           pulumi.String("All"),
-//						IncludeManagementEvents: pulumi.Bool(true),
 //						DataResources: cloudtrail.TrailEventSelectorDataResourceArray{
 //							&cloudtrail.TrailEventSelectorDataResourceArgs{
 //								Type: pulumi.String("AWS::Lambda::Function"),
@@ -149,6 +135,8 @@ import (
 //								},
 //							},
 //						},
+//						IncludeManagementEvents: pulumi.Bool(true),
+//						ReadWriteType:           pulumi.String("All"),
 //					},
 //				},
 //			})
@@ -168,24 +156,15 @@ import (
 // import (
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudtrail"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			bucketV2, err := s3.NewBucketV2(ctx, "bucketV2", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cloudtrail.NewTrail(ctx, "example", &cloudtrail.TrailArgs{
-//				S3BucketName: bucketV2.ID(),
-//				S3KeyPrefix:  pulumi.String("prefix"),
+//			_, err := cloudtrail.NewTrail(ctx, "example", &cloudtrail.TrailArgs{
 //				EventSelectors: cloudtrail.TrailEventSelectorArray{
 //					&cloudtrail.TrailEventSelectorArgs{
-//						ReadWriteType:           pulumi.String("All"),
-//						IncludeManagementEvents: pulumi.Bool(true),
 //						DataResources: cloudtrail.TrailEventSelectorDataResourceArray{
 //							&cloudtrail.TrailEventSelectorDataResourceArgs{
 //								Type: pulumi.String("AWS::S3::Object"),
@@ -194,6 +173,8 @@ import (
 //								},
 //							},
 //						},
+//						IncludeManagementEvents: pulumi.Bool(true),
+//						ReadWriteType:           pulumi.String("All"),
 //					},
 //				},
 //			})
@@ -229,12 +210,8 @@ import (
 //				return err
 //			}
 //			_, err = cloudtrail.NewTrail(ctx, "example", &cloudtrail.TrailArgs{
-//				S3BucketName: pulumi.String(important_bucket.Id),
-//				S3KeyPrefix:  pulumi.String("prefix"),
 //				EventSelectors: cloudtrail.TrailEventSelectorArray{
 //					&cloudtrail.TrailEventSelectorArgs{
-//						ReadWriteType:           pulumi.String("All"),
-//						IncludeManagementEvents: pulumi.Bool(true),
 //						DataResources: cloudtrail.TrailEventSelectorDataResourceArray{
 //							&cloudtrail.TrailEventSelectorDataResourceArgs{
 //								Type: pulumi.String("AWS::S3::Object"),
@@ -243,6 +220,8 @@ import (
 //								},
 //							},
 //						},
+//						IncludeManagementEvents: pulumi.Bool(true),
+//						ReadWriteType:           pulumi.String("All"),
 //					},
 //				},
 //			})
@@ -339,77 +318,19 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudtrail"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetPartition(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
 //			exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "exampleLogGroup", nil)
 //			if err != nil {
 //				return err
 //			}
-//			testRole, err := iam.NewRole(ctx, "testRole", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
-//	  "Version": "2012-10-17",
-//	  "Statement": [
-//	    {
-//	      "Sid": "",
-//	      "Effect": "Allow",
-//	      "Principal": {
-//	        "Service": "cloudtrail.%v"
-//	      },
-//	      "Action": "sts:AssumeRole"
-//	    }
-//	  ]
-//	}
-//
-// `, current.DnsSuffix)),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewRolePolicy(ctx, "testRolePolicy", &iam.RolePolicyArgs{
-//				Role: testRole.ID(),
-//				Policy: pulumi.Any(fmt.Sprintf(`{
-//	  "Version": "2012-10-17",
-//	  "Statement": [
-//	    {
-//	      "Sid": "AWSCloudTrailCreateLogStream",
-//	      "Effect": "Allow",
-//	      "Action": [
-//	        "logs:CreateLogStream",
-//	        "logs:PutLogEvents"
-//	      ],
-//	      "Resource": "%v:*"
-//	    }
-//	  ]
-//	}
-//
-// `, aws_cloudwatch_log_group.Test.Arn)),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketV2(ctx, "bucketV2", nil)
-//			if err != nil {
-//				return err
-//			}
 //			_, err = cloudtrail.NewTrail(ctx, "exampleTrail", &cloudtrail.TrailArgs{
-//				S3BucketName:          pulumi.Any(data.Aws_s3_bucket.Important - bucket.Id),
-//				S3KeyPrefix:           pulumi.String("prefix"),
-//				CloudWatchLogsRoleArn: testRole.Arn,
 //				CloudWatchLogsGroupArn: exampleLogGroup.Arn.ApplyT(func(arn string) (string, error) {
 //					return fmt.Sprintf("%v:*", arn), nil
 //				}).(pulumi.StringOutput),
@@ -469,7 +390,7 @@ type Trail struct {
 	S3KeyPrefix pulumi.StringPtrOutput `pulumi:"s3KeyPrefix"`
 	// Name of the Amazon SNS topic defined for notification of log file delivery.
 	SnsTopicName pulumi.StringPtrOutput `pulumi:"snsTopicName"`
-	// Map of tags to assign to the trail. If configured with provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the trail. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -541,7 +462,7 @@ type trailState struct {
 	S3KeyPrefix *string `pulumi:"s3KeyPrefix"`
 	// Name of the Amazon SNS topic defined for notification of log file delivery.
 	SnsTopicName *string `pulumi:"snsTopicName"`
-	// Map of tags to assign to the trail. If configured with provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the trail. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -582,7 +503,7 @@ type TrailState struct {
 	S3KeyPrefix pulumi.StringPtrInput
 	// Name of the Amazon SNS topic defined for notification of log file delivery.
 	SnsTopicName pulumi.StringPtrInput
-	// Map of tags to assign to the trail. If configured with provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the trail. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -623,7 +544,7 @@ type trailArgs struct {
 	S3KeyPrefix *string `pulumi:"s3KeyPrefix"`
 	// Name of the Amazon SNS topic defined for notification of log file delivery.
 	SnsTopicName *string `pulumi:"snsTopicName"`
-	// Map of tags to assign to the trail. If configured with provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the trail. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -659,7 +580,7 @@ type TrailArgs struct {
 	S3KeyPrefix pulumi.StringPtrInput
 	// Name of the Amazon SNS topic defined for notification of log file delivery.
 	SnsTopicName pulumi.StringPtrInput
-	// Map of tags to assign to the trail. If configured with provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the trail. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -835,7 +756,7 @@ func (o TrailOutput) SnsTopicName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Trail) pulumi.StringPtrOutput { return v.SnsTopicName }).(pulumi.StringPtrOutput)
 }
 
-// Map of tags to assign to the trail. If configured with provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags to assign to the trail. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o TrailOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Trail) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

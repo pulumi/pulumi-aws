@@ -11,6 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a DynamoDB table replica resource for [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html).
+//
+// > **Note:** Use `lifecycle` `ignoreChanges` for `replica` in the associated dynamodb.Table configuration.
+//
+// > **Note:** Do not use the `replica` configuration block of dynamodb.Table together with this resource as the two configuration options are mutually exclusive.
+//
 // ## Example Usage
 // ### Basic Example
 //
@@ -92,8 +98,10 @@ type TableReplica struct {
 	PointInTimeRecovery pulumi.BoolPtrOutput `pulumi:"pointInTimeRecovery"`
 	// Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
 	TableClassOverride pulumi.StringPtrOutput `pulumi:"tableClassOverride"`
-	Tags               pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll            pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// Map of tags to populate on the created table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewTableReplica registers a new resource with the given unique name, arguments, and options.
@@ -137,9 +145,11 @@ type tableReplicaState struct {
 	// Whether to enable Point In Time Recovery for the replica. Default is `false`.
 	PointInTimeRecovery *bool `pulumi:"pointInTimeRecovery"`
 	// Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
-	TableClassOverride *string           `pulumi:"tableClassOverride"`
-	Tags               map[string]string `pulumi:"tags"`
-	TagsAll            map[string]string `pulumi:"tagsAll"`
+	TableClassOverride *string `pulumi:"tableClassOverride"`
+	// Map of tags to populate on the created table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type TableReplicaState struct {
@@ -153,8 +163,10 @@ type TableReplicaState struct {
 	PointInTimeRecovery pulumi.BoolPtrInput
 	// Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
 	TableClassOverride pulumi.StringPtrInput
-	Tags               pulumi.StringMapInput
-	TagsAll            pulumi.StringMapInput
+	// Map of tags to populate on the created table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (TableReplicaState) ElementType() reflect.Type {
@@ -169,8 +181,9 @@ type tableReplicaArgs struct {
 	// Whether to enable Point In Time Recovery for the replica. Default is `false`.
 	PointInTimeRecovery *bool `pulumi:"pointInTimeRecovery"`
 	// Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
-	TableClassOverride *string           `pulumi:"tableClassOverride"`
-	Tags               map[string]string `pulumi:"tags"`
+	TableClassOverride *string `pulumi:"tableClassOverride"`
+	// Map of tags to populate on the created table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a TableReplica resource.
@@ -183,7 +196,8 @@ type TableReplicaArgs struct {
 	PointInTimeRecovery pulumi.BoolPtrInput
 	// Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
 	TableClassOverride pulumi.StringPtrInput
-	Tags               pulumi.StringMapInput
+	// Map of tags to populate on the created table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (TableReplicaArgs) ElementType() reflect.Type {
@@ -298,10 +312,12 @@ func (o TableReplicaOutput) TableClassOverride() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableReplica) pulumi.StringPtrOutput { return v.TableClassOverride }).(pulumi.StringPtrOutput)
 }
 
+// Map of tags to populate on the created table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o TableReplicaOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TableReplica) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o TableReplicaOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TableReplica) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

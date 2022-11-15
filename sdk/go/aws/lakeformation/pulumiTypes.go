@@ -996,8 +996,9 @@ type PermissionsTable struct {
 	// Name of the database for the table with columns resource. Unique to the Data Catalog.
 	DatabaseName string `pulumi:"databaseName"`
 	// Name of the table resource.
-	Name     *string `pulumi:"name"`
-	Wildcard *bool   `pulumi:"wildcard"`
+	Name *string `pulumi:"name"`
+	// Whether to use a column wildcard. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+	Wildcard *bool `pulumi:"wildcard"`
 }
 
 // PermissionsTableInput is an input type that accepts PermissionsTableArgs and PermissionsTableOutput values.
@@ -1017,8 +1018,9 @@ type PermissionsTableArgs struct {
 	// Name of the database for the table with columns resource. Unique to the Data Catalog.
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
 	// Name of the table resource.
-	Name     pulumi.StringPtrInput `pulumi:"name"`
-	Wildcard pulumi.BoolPtrInput   `pulumi:"wildcard"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Whether to use a column wildcard. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+	Wildcard pulumi.BoolPtrInput `pulumi:"wildcard"`
 }
 
 func (PermissionsTableArgs) ElementType() reflect.Type {
@@ -1113,6 +1115,7 @@ func (o PermissionsTableOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PermissionsTable) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Whether to use a column wildcard. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
 func (o PermissionsTableOutput) Wildcard() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PermissionsTable) *bool { return v.Wildcard }).(pulumi.BoolPtrOutput)
 }
@@ -1171,6 +1174,7 @@ func (o PermissionsTablePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Whether to use a column wildcard. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
 func (o PermissionsTablePtrOutput) Wildcard() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PermissionsTable) *bool {
 		if v == nil {
@@ -1186,11 +1190,13 @@ type PermissionsTableWithColumns struct {
 	// Set of column names for the table.
 	ColumnNames []string `pulumi:"columnNames"`
 	// Name of the database for the table with columns resource. Unique to the Data Catalog.
-	DatabaseName        string   `pulumi:"databaseName"`
+	DatabaseName string `pulumi:"databaseName"`
+	// Set of column names for the table to exclude. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
 	ExcludedColumnNames []string `pulumi:"excludedColumnNames"`
 	// Name of the table resource.
-	Name     string `pulumi:"name"`
-	Wildcard *bool  `pulumi:"wildcard"`
+	Name string `pulumi:"name"`
+	// Whether to use a column wildcard. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+	Wildcard *bool `pulumi:"wildcard"`
 }
 
 // PermissionsTableWithColumnsInput is an input type that accepts PermissionsTableWithColumnsArgs and PermissionsTableWithColumnsOutput values.
@@ -1210,10 +1216,12 @@ type PermissionsTableWithColumnsArgs struct {
 	// Set of column names for the table.
 	ColumnNames pulumi.StringArrayInput `pulumi:"columnNames"`
 	// Name of the database for the table with columns resource. Unique to the Data Catalog.
-	DatabaseName        pulumi.StringInput      `pulumi:"databaseName"`
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// Set of column names for the table to exclude. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
 	ExcludedColumnNames pulumi.StringArrayInput `pulumi:"excludedColumnNames"`
 	// Name of the table resource.
-	Name     pulumi.StringInput  `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// Whether to use a column wildcard. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
 	Wildcard pulumi.BoolPtrInput `pulumi:"wildcard"`
 }
 
@@ -1309,6 +1317,7 @@ func (o PermissionsTableWithColumnsOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v PermissionsTableWithColumns) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
+// Set of column names for the table to exclude. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
 func (o PermissionsTableWithColumnsOutput) ExcludedColumnNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionsTableWithColumns) []string { return v.ExcludedColumnNames }).(pulumi.StringArrayOutput)
 }
@@ -1318,6 +1327,7 @@ func (o PermissionsTableWithColumnsOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PermissionsTableWithColumns) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Whether to use a column wildcard. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
 func (o PermissionsTableWithColumnsOutput) Wildcard() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PermissionsTableWithColumns) *bool { return v.Wildcard }).(pulumi.BoolPtrOutput)
 }
@@ -1376,6 +1386,7 @@ func (o PermissionsTableWithColumnsPtrOutput) DatabaseName() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// Set of column names for the table to exclude. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
 func (o PermissionsTableWithColumnsPtrOutput) ExcludedColumnNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PermissionsTableWithColumns) []string {
 		if v == nil {
@@ -1395,6 +1406,7 @@ func (o PermissionsTableWithColumnsPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Whether to use a column wildcard. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
 func (o PermissionsTableWithColumnsPtrOutput) Wildcard() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PermissionsTableWithColumns) *bool {
 		if v == nil {
@@ -1681,8 +1693,9 @@ type ResourceLfTagsTable struct {
 	// Name of the database for the table with columns resource. Unique to the Data Catalog.
 	DatabaseName string `pulumi:"databaseName"`
 	// Name of the table resource.
-	Name     *string `pulumi:"name"`
-	Wildcard *bool   `pulumi:"wildcard"`
+	Name *string `pulumi:"name"`
+	// Whether to use a column wildcard. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+	Wildcard *bool `pulumi:"wildcard"`
 }
 
 // ResourceLfTagsTableInput is an input type that accepts ResourceLfTagsTableArgs and ResourceLfTagsTableOutput values.
@@ -1702,8 +1715,9 @@ type ResourceLfTagsTableArgs struct {
 	// Name of the database for the table with columns resource. Unique to the Data Catalog.
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
 	// Name of the table resource.
-	Name     pulumi.StringPtrInput `pulumi:"name"`
-	Wildcard pulumi.BoolPtrInput   `pulumi:"wildcard"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Whether to use a column wildcard. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+	Wildcard pulumi.BoolPtrInput `pulumi:"wildcard"`
 }
 
 func (ResourceLfTagsTableArgs) ElementType() reflect.Type {
@@ -1798,6 +1812,7 @@ func (o ResourceLfTagsTableOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceLfTagsTable) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Whether to use a column wildcard. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
 func (o ResourceLfTagsTableOutput) Wildcard() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ResourceLfTagsTable) *bool { return v.Wildcard }).(pulumi.BoolPtrOutput)
 }
@@ -1856,6 +1871,7 @@ func (o ResourceLfTagsTablePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Whether to use a column wildcard. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
 func (o ResourceLfTagsTablePtrOutput) Wildcard() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ResourceLfTagsTable) *bool {
 		if v == nil {
@@ -1871,11 +1887,13 @@ type ResourceLfTagsTableWithColumns struct {
 	// Set of column names for the table.
 	ColumnNames []string `pulumi:"columnNames"`
 	// Name of the database for the table with columns resource. Unique to the Data Catalog.
-	DatabaseName        string   `pulumi:"databaseName"`
+	DatabaseName string `pulumi:"databaseName"`
+	// Set of column names for the table to exclude. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
 	ExcludedColumnNames []string `pulumi:"excludedColumnNames"`
 	// Name of the table resource.
-	Name     string `pulumi:"name"`
-	Wildcard *bool  `pulumi:"wildcard"`
+	Name string `pulumi:"name"`
+	// Whether to use a column wildcard. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+	Wildcard *bool `pulumi:"wildcard"`
 }
 
 // ResourceLfTagsTableWithColumnsInput is an input type that accepts ResourceLfTagsTableWithColumnsArgs and ResourceLfTagsTableWithColumnsOutput values.
@@ -1895,10 +1913,12 @@ type ResourceLfTagsTableWithColumnsArgs struct {
 	// Set of column names for the table.
 	ColumnNames pulumi.StringArrayInput `pulumi:"columnNames"`
 	// Name of the database for the table with columns resource. Unique to the Data Catalog.
-	DatabaseName        pulumi.StringInput      `pulumi:"databaseName"`
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// Set of column names for the table to exclude. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
 	ExcludedColumnNames pulumi.StringArrayInput `pulumi:"excludedColumnNames"`
 	// Name of the table resource.
-	Name     pulumi.StringInput  `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// Whether to use a column wildcard. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
 	Wildcard pulumi.BoolPtrInput `pulumi:"wildcard"`
 }
 
@@ -1994,6 +2014,7 @@ func (o ResourceLfTagsTableWithColumnsOutput) DatabaseName() pulumi.StringOutput
 	return o.ApplyT(func(v ResourceLfTagsTableWithColumns) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
+// Set of column names for the table to exclude. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
 func (o ResourceLfTagsTableWithColumnsOutput) ExcludedColumnNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResourceLfTagsTableWithColumns) []string { return v.ExcludedColumnNames }).(pulumi.StringArrayOutput)
 }
@@ -2003,6 +2024,7 @@ func (o ResourceLfTagsTableWithColumnsOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceLfTagsTableWithColumns) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Whether to use a column wildcard. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
 func (o ResourceLfTagsTableWithColumnsOutput) Wildcard() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ResourceLfTagsTableWithColumns) *bool { return v.Wildcard }).(pulumi.BoolPtrOutput)
 }
@@ -2061,6 +2083,7 @@ func (o ResourceLfTagsTableWithColumnsPtrOutput) DatabaseName() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// Set of column names for the table to exclude. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
 func (o ResourceLfTagsTableWithColumnsPtrOutput) ExcludedColumnNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResourceLfTagsTableWithColumns) []string {
 		if v == nil {
@@ -2080,6 +2103,7 @@ func (o ResourceLfTagsTableWithColumnsPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Whether to use a column wildcard. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
 func (o ResourceLfTagsTableWithColumnsPtrOutput) Wildcard() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ResourceLfTagsTableWithColumns) *bool {
 		if v == nil {

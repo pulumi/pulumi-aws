@@ -235,7 +235,9 @@ type User struct {
 	RoutingProfileId pulumi.StringOutput `pulumi:"routingProfileId"`
 	// A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile ids. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
 	SecurityProfileIds pulumi.StringArrayOutput `pulumi:"securityProfileIds"`
-	Tags               pulumi.StringMapOutput   `pulumi:"tags"`
+	// Tags to apply to the user. If configured with a provider
+	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The identifier for the user.
@@ -302,8 +304,10 @@ type userState struct {
 	// The identifier of the routing profile for the user.
 	RoutingProfileId *string `pulumi:"routingProfileId"`
 	// A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile ids. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
-	SecurityProfileIds []string          `pulumi:"securityProfileIds"`
-	Tags               map[string]string `pulumi:"tags"`
+	SecurityProfileIds []string `pulumi:"securityProfileIds"`
+	// Tags to apply to the user. If configured with a provider
+	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The identifier for the user.
@@ -331,7 +335,9 @@ type UserState struct {
 	RoutingProfileId pulumi.StringPtrInput
 	// A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile ids. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
 	SecurityProfileIds pulumi.StringArrayInput
-	Tags               pulumi.StringMapInput
+	// Tags to apply to the user. If configured with a provider
+	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The identifier for the user.
@@ -360,8 +366,10 @@ type userArgs struct {
 	// The identifier of the routing profile for the user.
 	RoutingProfileId string `pulumi:"routingProfileId"`
 	// A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile ids. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
-	SecurityProfileIds []string          `pulumi:"securityProfileIds"`
-	Tags               map[string]string `pulumi:"tags"`
+	SecurityProfileIds []string `pulumi:"securityProfileIds"`
+	// Tags to apply to the user. If configured with a provider
+	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a User resource.
@@ -384,7 +392,9 @@ type UserArgs struct {
 	RoutingProfileId pulumi.StringInput
 	// A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile ids. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
 	SecurityProfileIds pulumi.StringArrayInput
-	Tags               pulumi.StringMapInput
+	// Tags to apply to the user. If configured with a provider
+	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (UserArgs) ElementType() reflect.Type {
@@ -524,6 +534,8 @@ func (o UserOutput) SecurityProfileIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *User) pulumi.StringArrayOutput { return v.SecurityProfileIds }).(pulumi.StringArrayOutput)
 }
 
+// Tags to apply to the user. If configured with a provider
+// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o UserOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *User) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

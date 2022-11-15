@@ -93,9 +93,9 @@ import (
 // **Use in combination with an AWS ELB resource:**
 //
 // Some properties of an IAM Server Certificates cannot be updated while they are
-// in use. In order for this provider to effectively manage a Certificate in this situation, it is
+// in use. In order for the provider to effectively manage a Certificate in this situation, it is
 // recommended you utilize the `namePrefix` attribute and enable the
-// `createBeforeDestroy` [lifecycle block][lifecycle]. This will allow this provider
+// `createBeforeDestroy`. This will allow this provider
 // to create a new, updated `iam.ServerCertificate` resource and replace it in
 // dependant resources before attempting to destroy the old version.
 //
@@ -164,7 +164,7 @@ import (
 //
 // ```
 //
-//	[1]https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html [2]https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html [lifecycle]/docs/configuration/resources.html
+//	[1]https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html [2]https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html
 type ServerCertificate struct {
 	pulumi.CustomResourceState
 
@@ -192,7 +192,7 @@ type ServerCertificate struct {
 	Path pulumi.StringPtrOutput `pulumi:"path"`
 	// The contents of the private key in PEM-encoded format.
 	PrivateKey pulumi.StringOutput `pulumi:"privateKey"`
-	// Map of resource tags for the server certificate. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of resource tags for the server certificate. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -259,7 +259,7 @@ type serverCertificateState struct {
 	Path *string `pulumi:"path"`
 	// The contents of the private key in PEM-encoded format.
 	PrivateKey *string `pulumi:"privateKey"`
-	// Map of resource tags for the server certificate. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of resource tags for the server certificate. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -292,7 +292,7 @@ type ServerCertificateState struct {
 	Path pulumi.StringPtrInput
 	// The contents of the private key in PEM-encoded format.
 	PrivateKey pulumi.StringPtrInput
-	// Map of resource tags for the server certificate. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of resource tags for the server certificate. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -325,7 +325,7 @@ type serverCertificateArgs struct {
 	Path *string `pulumi:"path"`
 	// The contents of the private key in PEM-encoded format.
 	PrivateKey string `pulumi:"privateKey"`
-	// Map of resource tags for the server certificate. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of resource tags for the server certificate. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -351,7 +351,7 @@ type ServerCertificateArgs struct {
 	Path pulumi.StringPtrInput
 	// The contents of the private key in PEM-encoded format.
 	PrivateKey pulumi.StringInput
-	// Map of resource tags for the server certificate. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of resource tags for the server certificate. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -490,7 +490,7 @@ func (o ServerCertificateOutput) PrivateKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerCertificate) pulumi.StringOutput { return v.PrivateKey }).(pulumi.StringOutput)
 }
 
-// Map of resource tags for the server certificate. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of resource tags for the server certificate. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ServerCertificateOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServerCertificate) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

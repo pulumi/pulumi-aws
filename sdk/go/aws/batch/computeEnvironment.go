@@ -98,14 +98,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			sampleVpc, err := ec2.NewVpc(ctx, "sampleVpc", &ec2.VpcArgs{
-//				CidrBlock: pulumi.String("10.1.0.0/16"),
-//			})
-//			if err != nil {
-//				return err
-//			}
 //			sampleSecurityGroup, err := ec2.NewSecurityGroup(ctx, "sampleSecurityGroup", &ec2.SecurityGroupArgs{
-//				VpcId: sampleVpc.ID(),
 //				Egress: ec2.SecurityGroupEgressArray{
 //					&ec2.SecurityGroupEgressArgs{
 //						FromPort: pulumi.Int(0),
@@ -116,6 +109,12 @@ import (
 //						},
 //					},
 //				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			sampleVpc, err := ec2.NewVpc(ctx, "sampleVpc", &ec2.VpcArgs{
+//				CidrBlock: pulumi.String("10.1.0.0/16"),
 //			})
 //			if err != nil {
 //				return err
@@ -213,7 +212,7 @@ type ComputeEnvironment struct {
 
 	// The Amazon Resource Name (ARN) of the compute environment.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, this provider will assign a random, unique name.
+	// The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
 	ComputeEnvironmentName pulumi.StringOutput `pulumi:"computeEnvironmentName"`
 	// Creates a unique compute environment name beginning with the specified prefix. Conflicts with `computeEnvironmentName`.
 	ComputeEnvironmentNamePrefix pulumi.StringOutput `pulumi:"computeEnvironmentNamePrefix"`
@@ -273,7 +272,7 @@ func GetComputeEnvironment(ctx *pulumi.Context,
 type computeEnvironmentState struct {
 	// The Amazon Resource Name (ARN) of the compute environment.
 	Arn *string `pulumi:"arn"`
-	// The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, this provider will assign a random, unique name.
+	// The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
 	ComputeEnvironmentName *string `pulumi:"computeEnvironmentName"`
 	// Creates a unique compute environment name beginning with the specified prefix. Conflicts with `computeEnvironmentName`.
 	ComputeEnvironmentNamePrefix *string `pulumi:"computeEnvironmentNamePrefix"`
@@ -302,7 +301,7 @@ type computeEnvironmentState struct {
 type ComputeEnvironmentState struct {
 	// The Amazon Resource Name (ARN) of the compute environment.
 	Arn pulumi.StringPtrInput
-	// The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, this provider will assign a random, unique name.
+	// The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
 	ComputeEnvironmentName pulumi.StringPtrInput
 	// Creates a unique compute environment name beginning with the specified prefix. Conflicts with `computeEnvironmentName`.
 	ComputeEnvironmentNamePrefix pulumi.StringPtrInput
@@ -333,7 +332,7 @@ func (ComputeEnvironmentState) ElementType() reflect.Type {
 }
 
 type computeEnvironmentArgs struct {
-	// The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, this provider will assign a random, unique name.
+	// The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
 	ComputeEnvironmentName *string `pulumi:"computeEnvironmentName"`
 	// Creates a unique compute environment name beginning with the specified prefix. Conflicts with `computeEnvironmentName`.
 	ComputeEnvironmentNamePrefix *string `pulumi:"computeEnvironmentNamePrefix"`
@@ -353,7 +352,7 @@ type computeEnvironmentArgs struct {
 
 // The set of arguments for constructing a ComputeEnvironment resource.
 type ComputeEnvironmentArgs struct {
-	// The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, this provider will assign a random, unique name.
+	// The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
 	ComputeEnvironmentName pulumi.StringPtrInput
 	// Creates a unique compute environment name beginning with the specified prefix. Conflicts with `computeEnvironmentName`.
 	ComputeEnvironmentNamePrefix pulumi.StringPtrInput
@@ -463,7 +462,7 @@ func (o ComputeEnvironmentOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ComputeEnvironment) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, this provider will assign a random, unique name.
+// The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
 func (o ComputeEnvironmentOutput) ComputeEnvironmentName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ComputeEnvironment) pulumi.StringOutput { return v.ComputeEnvironmentName }).(pulumi.StringOutput)
 }

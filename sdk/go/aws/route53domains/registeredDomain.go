@@ -11,6 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a resource to manage a domain that has been [registered](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html) and associated with the current AWS account.
+//
+// **This is an advanced resource** and has special caveats to be aware of when using it. Please read this document in its entirety before using this resource.
+//
+// The `route53domains.RegisteredDomain` resource behaves differently from normal resources in that if a domain has been registered, the provider does not _register_ this domain, but instead "adopts" it into management. A destroy does not delete the domain but does remove the resource from state.
+//
 // ## Example Usage
 //
 // ```go
@@ -242,8 +248,6 @@ type registeredDomainArgs struct {
 	RegistrantPrivacy *bool `pulumi:"registrantPrivacy"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Details about the domain technical contact.
 	TechContact *RegisteredDomainTechContact `pulumi:"techContact"`
 	// Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.
@@ -270,8 +274,6 @@ type RegisteredDomainArgs struct {
 	RegistrantPrivacy pulumi.BoolPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 	// Details about the domain technical contact.
 	TechContact RegisteredDomainTechContactPtrInput
 	// Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.

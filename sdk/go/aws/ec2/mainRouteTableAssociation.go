@@ -11,6 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a resource for managing the main routing table of a VPC.
+//
+// > **NOTE:** **Do not** use both `ec2.DefaultRouteTable` to manage a default route table **and** `ec2.MainRouteTableAssociation` with the same VPC due to possible route conflicts. See ec2.DefaultRouteTable documentation for more details.
+// For more information, see the Amazon VPC User Guide on [Route Tables](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html). For information about managing normal route tables in the provider, see `ec2.RouteTable`.
+//
 // ## Example Usage
 //
 // ```go
@@ -45,14 +50,10 @@ import (
 // this original table as the Main Route Table for the VPC. You'll see this
 // additional Route Table in the AWS console; it must remain intact in order for
 // the `mainRouteTableAssociation` delete to work properly.
-//
-// [aws-route-tables]: http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html#Route_Replacing_Main_Table
-// [tf-route-tables]: /docs/providers/aws/r/route_table.html
-// [tf-default-route-table]: /docs/providers/aws/r/default_route_table.html
 type MainRouteTableAssociation struct {
 	pulumi.CustomResourceState
 
-	// Used internally, see __Notes__ below
+	// Used internally, see **Notes** below
 	OriginalRouteTableId pulumi.StringOutput `pulumi:"originalRouteTableId"`
 	// The ID of the Route Table to set as the new
 	// main route table for the target VPC
@@ -96,7 +97,7 @@ func GetMainRouteTableAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MainRouteTableAssociation resources.
 type mainRouteTableAssociationState struct {
-	// Used internally, see __Notes__ below
+	// Used internally, see **Notes** below
 	OriginalRouteTableId *string `pulumi:"originalRouteTableId"`
 	// The ID of the Route Table to set as the new
 	// main route table for the target VPC
@@ -106,7 +107,7 @@ type mainRouteTableAssociationState struct {
 }
 
 type MainRouteTableAssociationState struct {
-	// Used internally, see __Notes__ below
+	// Used internally, see **Notes** below
 	OriginalRouteTableId pulumi.StringPtrInput
 	// The ID of the Route Table to set as the new
 	// main route table for the target VPC
@@ -223,7 +224,7 @@ func (o MainRouteTableAssociationOutput) ToMainRouteTableAssociationOutputWithCo
 	return o
 }
 
-// Used internally, see __Notes__ below
+// Used internally, see **Notes** below
 func (o MainRouteTableAssociationOutput) OriginalRouteTableId() pulumi.StringOutput {
 	return o.ApplyT(func(v *MainRouteTableAssociation) pulumi.StringOutput { return v.OriginalRouteTableId }).(pulumi.StringOutput)
 }

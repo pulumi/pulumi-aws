@@ -76,8 +76,9 @@ type CustomDataIdentifier struct {
 	// An array that lists specific character sequences (keywords), one of which must be within proximity (`maximumMatchDistance`) of the regular expression to match. The array can contain as many as 50 keywords. Each keyword can contain 3 - 90 characters. Keywords aren't case sensitive.
 	Keywords pulumi.StringArrayOutput `pulumi:"keywords"`
 	// The maximum number of characters that can exist between text that matches the regex pattern and the character sequences specified by the keywords array. Macie includes or excludes a result based on the proximity of a keyword to text that matches the regex pattern. The distance can be 1 - 300 characters. The default value is 50.
-	MaximumMatchDistance pulumi.IntOutput    `pulumi:"maximumMatchDistance"`
-	Name                 pulumi.StringOutput `pulumi:"name"`
+	MaximumMatchDistance pulumi.IntOutput `pulumi:"maximumMatchDistance"`
+	// A custom name for the custom data identifier. The name can contain as many as 128 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
 	// The regular expression (regex) that defines the pattern to match. The expression can contain as many as 512 characters.
@@ -127,8 +128,9 @@ type customDataIdentifierState struct {
 	// An array that lists specific character sequences (keywords), one of which must be within proximity (`maximumMatchDistance`) of the regular expression to match. The array can contain as many as 50 keywords. Each keyword can contain 3 - 90 characters. Keywords aren't case sensitive.
 	Keywords []string `pulumi:"keywords"`
 	// The maximum number of characters that can exist between text that matches the regex pattern and the character sequences specified by the keywords array. Macie includes or excludes a result based on the proximity of a keyword to text that matches the regex pattern. The distance can be 1 - 300 characters. The default value is 50.
-	MaximumMatchDistance *int    `pulumi:"maximumMatchDistance"`
-	Name                 *string `pulumi:"name"`
+	MaximumMatchDistance *int `pulumi:"maximumMatchDistance"`
+	// A custom name for the custom data identifier. The name can contain as many as 128 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
 	// The regular expression (regex) that defines the pattern to match. The expression can contain as many as 512 characters.
@@ -151,7 +153,8 @@ type CustomDataIdentifierState struct {
 	Keywords pulumi.StringArrayInput
 	// The maximum number of characters that can exist between text that matches the regex pattern and the character sequences specified by the keywords array. Macie includes or excludes a result based on the proximity of a keyword to text that matches the regex pattern. The distance can be 1 - 300 characters. The default value is 50.
 	MaximumMatchDistance pulumi.IntPtrInput
-	Name                 pulumi.StringPtrInput
+	// A custom name for the custom data identifier. The name can contain as many as 128 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
 	// The regular expression (regex) that defines the pattern to match. The expression can contain as many as 512 characters.
@@ -173,8 +176,9 @@ type customDataIdentifierArgs struct {
 	// An array that lists specific character sequences (keywords), one of which must be within proximity (`maximumMatchDistance`) of the regular expression to match. The array can contain as many as 50 keywords. Each keyword can contain 3 - 90 characters. Keywords aren't case sensitive.
 	Keywords []string `pulumi:"keywords"`
 	// The maximum number of characters that can exist between text that matches the regex pattern and the character sequences specified by the keywords array. Macie includes or excludes a result based on the proximity of a keyword to text that matches the regex pattern. The distance can be 1 - 300 characters. The default value is 50.
-	MaximumMatchDistance *int    `pulumi:"maximumMatchDistance"`
-	Name                 *string `pulumi:"name"`
+	MaximumMatchDistance *int `pulumi:"maximumMatchDistance"`
+	// A custom name for the custom data identifier. The name can contain as many as 128 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
 	// The regular expression (regex) that defines the pattern to match. The expression can contain as many as 512 characters.
@@ -193,7 +197,8 @@ type CustomDataIdentifierArgs struct {
 	Keywords pulumi.StringArrayInput
 	// The maximum number of characters that can exist between text that matches the regex pattern and the character sequences specified by the keywords array. Macie includes or excludes a result based on the proximity of a keyword to text that matches the regex pattern. The distance can be 1 - 300 characters. The default value is 50.
 	MaximumMatchDistance pulumi.IntPtrInput
-	Name                 pulumi.StringPtrInput
+	// A custom name for the custom data identifier. The name can contain as many as 128 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
 	// The regular expression (regex) that defines the pattern to match. The expression can contain as many as 512 characters.
@@ -319,6 +324,7 @@ func (o CustomDataIdentifierOutput) MaximumMatchDistance() pulumi.IntOutput {
 	return o.ApplyT(func(v *CustomDataIdentifier) pulumi.IntOutput { return v.MaximumMatchDistance }).(pulumi.IntOutput)
 }
 
+// A custom name for the custom data identifier. The name can contain as many as 128 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 func (o CustomDataIdentifierOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomDataIdentifier) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

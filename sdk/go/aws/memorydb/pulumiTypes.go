@@ -117,8 +117,7 @@ func (o ClusterClusterEndpointArrayOutput) Index(i pulumi.IntInput) ClusterClust
 }
 
 type ClusterShard struct {
-	// Name of this node.
-	// * `endpoint`
+	// Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
 	// Set of nodes in this shard.
 	Nodes []ClusterShardNode `pulumi:"nodes"`
@@ -140,8 +139,7 @@ type ClusterShardInput interface {
 }
 
 type ClusterShardArgs struct {
-	// Name of this node.
-	// * `endpoint`
+	// Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Set of nodes in this shard.
 	Nodes ClusterShardNodeArrayInput `pulumi:"nodes"`
@@ -202,8 +200,7 @@ func (o ClusterShardOutput) ToClusterShardOutputWithContext(ctx context.Context)
 	return o
 }
 
-// Name of this node.
-// * `endpoint`
+// Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 func (o ClusterShardOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterShard) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -249,8 +246,7 @@ type ClusterShardNode struct {
 	// The date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
 	CreateTime *string                    `pulumi:"createTime"`
 	Endpoints  []ClusterShardNodeEndpoint `pulumi:"endpoints"`
-	// Name of this node.
-	// * `endpoint`
+	// Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
 }
 
@@ -271,8 +267,7 @@ type ClusterShardNodeArgs struct {
 	// The date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
 	CreateTime pulumi.StringPtrInput              `pulumi:"createTime"`
 	Endpoints  ClusterShardNodeEndpointArrayInput `pulumi:"endpoints"`
-	// Name of this node.
-	// * `endpoint`
+	// Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -341,8 +336,7 @@ func (o ClusterShardNodeOutput) Endpoints() ClusterShardNodeEndpointArrayOutput 
 	return o.ApplyT(func(v ClusterShardNode) []ClusterShardNodeEndpoint { return v.Endpoints }).(ClusterShardNodeEndpointArrayOutput)
 }
 
-// Name of this node.
-// * `endpoint`
+// Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 func (o ClusterShardNodeOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterShardNode) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -586,7 +580,7 @@ type SnapshotClusterConfiguration struct {
 	EngineVersion *string `pulumi:"engineVersion"`
 	// The weekly time range during which maintenance on the cluster is performed.
 	MaintenanceWindow *string `pulumi:"maintenanceWindow"`
-	// Name of the cluster.
+	// Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
 	// Compute and memory capacity of the nodes in the cluster.
 	NodeType *string `pulumi:"nodeType"`
@@ -626,7 +620,7 @@ type SnapshotClusterConfigurationArgs struct {
 	EngineVersion pulumi.StringPtrInput `pulumi:"engineVersion"`
 	// The weekly time range during which maintenance on the cluster is performed.
 	MaintenanceWindow pulumi.StringPtrInput `pulumi:"maintenanceWindow"`
-	// Name of the cluster.
+	// Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Compute and memory capacity of the nodes in the cluster.
 	NodeType pulumi.StringPtrInput `pulumi:"nodeType"`
@@ -714,7 +708,7 @@ func (o SnapshotClusterConfigurationOutput) MaintenanceWindow() pulumi.StringPtr
 	return o.ApplyT(func(v SnapshotClusterConfiguration) *string { return v.MaintenanceWindow }).(pulumi.StringPtrOutput)
 }
 
-// Name of the cluster.
+// Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 func (o SnapshotClusterConfigurationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SnapshotClusterConfiguration) *string { return v.Name }).(pulumi.StringPtrOutput)
 }

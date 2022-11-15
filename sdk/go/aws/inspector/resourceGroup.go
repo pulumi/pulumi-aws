@@ -46,7 +46,7 @@ type ResourceGroup struct {
 
 	// The resource group ARN.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Key-value map of tags that are used to select the EC2 instances to be included in an `Amazon Inspector assessment target` resource.
+	// Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
@@ -84,14 +84,14 @@ func GetResourceGroup(ctx *pulumi.Context,
 type resourceGroupState struct {
 	// The resource group ARN.
 	Arn *string `pulumi:"arn"`
-	// Key-value map of tags that are used to select the EC2 instances to be included in an `Amazon Inspector assessment target` resource.
+	// Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 type ResourceGroupState struct {
 	// The resource group ARN.
 	Arn pulumi.StringPtrInput
-	// Key-value map of tags that are used to select the EC2 instances to be included in an `Amazon Inspector assessment target` resource.
+	// Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
 	Tags pulumi.StringMapInput
 }
 
@@ -100,13 +100,13 @@ func (ResourceGroupState) ElementType() reflect.Type {
 }
 
 type resourceGroupArgs struct {
-	// Key-value map of tags that are used to select the EC2 instances to be included in an `Amazon Inspector assessment target` resource.
+	// Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ResourceGroup resource.
 type ResourceGroupArgs struct {
-	// Key-value map of tags that are used to select the EC2 instances to be included in an `Amazon Inspector assessment target` resource.
+	// Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
 	Tags pulumi.StringMapInput
 }
 
@@ -202,7 +202,7 @@ func (o ResourceGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Key-value map of tags that are used to select the EC2 instances to be included in an `Amazon Inspector assessment target` resource.
+// Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
 func (o ResourceGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ResourceGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

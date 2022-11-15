@@ -215,7 +215,7 @@ type Deployment struct {
 	RestApi pulumi.StringOutput `pulumi:"restApi"`
 	// Description to set on the stage managed by the `stageName` argument.
 	StageDescription pulumi.StringPtrOutput `pulumi:"stageDescription"`
-	// Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. It is recommended to use the `apigateway.Stage` resource instead to manage stages.
+	// Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. We recommend using the `apigateway.Stage` resource instead to manage stages.
 	StageName pulumi.StringPtrOutput `pulumi:"stageName"`
 	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
 	Triggers pulumi.StringMapOutput `pulumi:"triggers"`
@@ -270,7 +270,7 @@ type deploymentState struct {
 	RestApi interface{} `pulumi:"restApi"`
 	// Description to set on the stage managed by the `stageName` argument.
 	StageDescription *string `pulumi:"stageDescription"`
-	// Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. It is recommended to use the `apigateway.Stage` resource instead to manage stages.
+	// Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. We recommend using the `apigateway.Stage` resource instead to manage stages.
 	StageName *string `pulumi:"stageName"`
 	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
 	Triggers map[string]string `pulumi:"triggers"`
@@ -294,7 +294,7 @@ type DeploymentState struct {
 	RestApi pulumi.Input
 	// Description to set on the stage managed by the `stageName` argument.
 	StageDescription pulumi.StringPtrInput
-	// Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. It is recommended to use the `apigateway.Stage` resource instead to manage stages.
+	// Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. We recommend using the `apigateway.Stage` resource instead to manage stages.
 	StageName pulumi.StringPtrInput
 	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
 	Triggers pulumi.StringMapInput
@@ -313,7 +313,7 @@ type deploymentArgs struct {
 	RestApi interface{} `pulumi:"restApi"`
 	// Description to set on the stage managed by the `stageName` argument.
 	StageDescription *string `pulumi:"stageDescription"`
-	// Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. It is recommended to use the `apigateway.Stage` resource instead to manage stages.
+	// Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. We recommend using the `apigateway.Stage` resource instead to manage stages.
 	StageName *string `pulumi:"stageName"`
 	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
 	Triggers map[string]string `pulumi:"triggers"`
@@ -329,7 +329,7 @@ type DeploymentArgs struct {
 	RestApi pulumi.Input
 	// Description to set on the stage managed by the `stageName` argument.
 	StageDescription pulumi.StringPtrInput
-	// Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. It is recommended to use the `apigateway.Stage` resource instead to manage stages.
+	// Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. We recommend using the `apigateway.Stage` resource instead to manage stages.
 	StageName pulumi.StringPtrInput
 	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
 	Triggers pulumi.StringMapInput
@@ -457,7 +457,7 @@ func (o DeploymentOutput) StageDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringPtrOutput { return v.StageDescription }).(pulumi.StringPtrOutput)
 }
 
-// Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. It is recommended to use the `apigateway.Stage` resource instead to manage stages.
+// Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. We recommend using the `apigateway.Stage` resource instead to manage stages.
 func (o DeploymentOutput) StageName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringPtrOutput { return v.StageName }).(pulumi.StringPtrOutput)
 }

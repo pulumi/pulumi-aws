@@ -11,6 +11,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Resource for managing an AWS IdentityStore Group Membership.
+//
 // ## Import
 //
 // `aws_identitystore_group_membership` can be imported using the `identity_store_id/membership_id`, e.g.,

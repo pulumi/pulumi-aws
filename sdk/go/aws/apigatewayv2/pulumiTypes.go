@@ -399,7 +399,7 @@ func (o AuthorizerJwtConfigurationPtrOutput) Issuer() pulumi.StringPtrOutput {
 }
 
 type DomainNameDomainNameConfiguration struct {
-	// ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source. Use the [`acm.Certificate`](https://www.terraform.io/docs/providers/aws/r/acm_certificate.html) resource to configure an ACM certificate.
+	// ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source. Use the `acm.Certificate` resource to configure an ACM certificate.
 	CertificateArn string `pulumi:"certificateArn"`
 	// Endpoint type. Valid values: `REGIONAL`.
 	EndpointType string `pulumi:"endpointType"`
@@ -425,7 +425,7 @@ type DomainNameDomainNameConfigurationInput interface {
 }
 
 type DomainNameDomainNameConfigurationArgs struct {
-	// ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source. Use the [`acm.Certificate`](https://www.terraform.io/docs/providers/aws/r/acm_certificate.html) resource to configure an ACM certificate.
+	// ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source. Use the `acm.Certificate` resource to configure an ACM certificate.
 	CertificateArn pulumi.StringInput `pulumi:"certificateArn"`
 	// Endpoint type. Valid values: `REGIONAL`.
 	EndpointType pulumi.StringInput `pulumi:"endpointType"`
@@ -516,7 +516,7 @@ func (o DomainNameDomainNameConfigurationOutput) ToDomainNameDomainNameConfigura
 	}).(DomainNameDomainNameConfigurationPtrOutput)
 }
 
-// ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source. Use the [`acm.Certificate`](https://www.terraform.io/docs/providers/aws/r/acm_certificate.html) resource to configure an ACM certificate.
+// ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source. Use the `acm.Certificate` resource to configure an ACM certificate.
 func (o DomainNameDomainNameConfigurationOutput) CertificateArn() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainNameDomainNameConfiguration) string { return v.CertificateArn }).(pulumi.StringOutput)
 }
@@ -570,7 +570,7 @@ func (o DomainNameDomainNameConfigurationPtrOutput) Elem() DomainNameDomainNameC
 	}).(DomainNameDomainNameConfigurationOutput)
 }
 
-// ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source. Use the [`acm.Certificate`](https://www.terraform.io/docs/providers/aws/r/acm_certificate.html) resource to configure an ACM certificate.
+// ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source. Use the `acm.Certificate` resource to configure an ACM certificate.
 func (o DomainNameDomainNameConfigurationPtrOutput) CertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainNameDomainNameConfiguration) *string {
 		if v == nil {

@@ -125,6 +125,8 @@ type Instance struct {
 	CpuCount pulumi.IntOutput `pulumi:"cpuCount"`
 	// The timestamp when the instance was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
+	IpAddressType pulumi.StringPtrOutput `pulumi:"ipAddressType"`
 	// (**Deprecated**) The first IPv6 address of the Lightsail instance. Use `ipv6Addresses` attribute instead.
 	//
 	// Deprecated: use `ipv6_addresses` attribute instead
@@ -205,6 +207,8 @@ type instanceState struct {
 	CpuCount *int `pulumi:"cpuCount"`
 	// The timestamp when the instance was created.
 	CreatedAt *string `pulumi:"createdAt"`
+	// The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
+	IpAddressType *string `pulumi:"ipAddressType"`
 	// (**Deprecated**) The first IPv6 address of the Lightsail instance. Use `ipv6Addresses` attribute instead.
 	//
 	// Deprecated: use `ipv6_addresses` attribute instead
@@ -248,6 +252,8 @@ type InstanceState struct {
 	CpuCount pulumi.IntPtrInput
 	// The timestamp when the instance was created.
 	CreatedAt pulumi.StringPtrInput
+	// The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
+	IpAddressType pulumi.StringPtrInput
 	// (**Deprecated**) The first IPv6 address of the Lightsail instance. Use `ipv6Addresses` attribute instead.
 	//
 	// Deprecated: use `ipv6_addresses` attribute instead
@@ -289,6 +295,8 @@ type instanceArgs struct {
 	BlueprintId string `pulumi:"blueprintId"`
 	// The bundle of specification information (see list below)
 	BundleId string `pulumi:"bundleId"`
+	// The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
+	IpAddressType *string `pulumi:"ipAddressType"`
 	// The name of your key pair. Created in the
 	// Lightsail console (cannot use `ec2.KeyPair` at this time)
 	KeyPairName *string `pulumi:"keyPairName"`
@@ -309,6 +317,8 @@ type InstanceArgs struct {
 	BlueprintId pulumi.StringInput
 	// The bundle of specification information (see list below)
 	BundleId pulumi.StringInput
+	// The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
+	IpAddressType pulumi.StringPtrInput
 	// The name of your key pair. Created in the
 	// Lightsail console (cannot use `ec2.KeyPair` at this time)
 	KeyPairName pulumi.StringPtrInput
@@ -436,6 +446,11 @@ func (o InstanceOutput) CpuCount() pulumi.IntOutput {
 // The timestamp when the instance was created.
 func (o InstanceOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
+func (o InstanceOutput) IpAddressType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.IpAddressType }).(pulumi.StringPtrOutput)
 }
 
 // (**Deprecated**) The first IPv6 address of the Lightsail instance. Use `ipv6Addresses` attribute instead.

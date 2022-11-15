@@ -81,7 +81,8 @@ type ClassificationJob struct {
 	JobStatus pulumi.StringOutput `pulumi:"jobStatus"`
 	// The schedule for running the job. Valid values are: `ONE_TIME` - Run the job only once. If you specify this value, don't specify a value for the `scheduleFrequency` property. `SCHEDULED` - Run the job on a daily, weekly, or monthly basis. If you specify this value, use the `scheduleFrequency` property to define the recurrence pattern for the job.
 	JobType pulumi.StringOutput `pulumi:"jobType"`
-	Name    pulumi.StringOutput `pulumi:"name"`
+	// A custom name for the job. The name can contain as many as 500 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
 	// The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
@@ -146,7 +147,8 @@ type classificationJobState struct {
 	JobStatus *string `pulumi:"jobStatus"`
 	// The schedule for running the job. Valid values are: `ONE_TIME` - Run the job only once. If you specify this value, don't specify a value for the `scheduleFrequency` property. `SCHEDULED` - Run the job on a daily, weekly, or monthly basis. If you specify this value, use the `scheduleFrequency` property to define the recurrence pattern for the job.
 	JobType *string `pulumi:"jobType"`
-	Name    *string `pulumi:"name"`
+	// A custom name for the job. The name can contain as many as 500 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
 	// The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
@@ -177,7 +179,8 @@ type ClassificationJobState struct {
 	JobStatus pulumi.StringPtrInput
 	// The schedule for running the job. Valid values are: `ONE_TIME` - Run the job only once. If you specify this value, don't specify a value for the `scheduleFrequency` property. `SCHEDULED` - Run the job on a daily, weekly, or monthly basis. If you specify this value, use the `scheduleFrequency` property to define the recurrence pattern for the job.
 	JobType pulumi.StringPtrInput
-	Name    pulumi.StringPtrInput
+	// A custom name for the job. The name can contain as many as 500 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
 	// The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
@@ -207,8 +210,9 @@ type classificationJobArgs struct {
 	// The status for the job. Valid values are: `CANCELLED`, `RUNNING` and `USER_PAUSED`
 	JobStatus *string `pulumi:"jobStatus"`
 	// The schedule for running the job. Valid values are: `ONE_TIME` - Run the job only once. If you specify this value, don't specify a value for the `scheduleFrequency` property. `SCHEDULED` - Run the job on a daily, weekly, or monthly basis. If you specify this value, use the `scheduleFrequency` property to define the recurrence pattern for the job.
-	JobType string  `pulumi:"jobType"`
-	Name    *string `pulumi:"name"`
+	JobType string `pulumi:"jobType"`
+	// A custom name for the job. The name can contain as many as 500 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
 	// The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
@@ -233,7 +237,8 @@ type ClassificationJobArgs struct {
 	JobStatus pulumi.StringPtrInput
 	// The schedule for running the job. Valid values are: `ONE_TIME` - Run the job only once. If you specify this value, don't specify a value for the `scheduleFrequency` property. `SCHEDULED` - Run the job on a daily, weekly, or monthly basis. If you specify this value, use the `scheduleFrequency` property to define the recurrence pattern for the job.
 	JobType pulumi.StringInput
-	Name    pulumi.StringPtrInput
+	// A custom name for the job. The name can contain as many as 500 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
 	// The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
@@ -371,6 +376,7 @@ func (o ClassificationJobOutput) JobType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClassificationJob) pulumi.StringOutput { return v.JobType }).(pulumi.StringOutput)
 }
 
+// A custom name for the job. The name can contain as many as 500 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 func (o ClassificationJobOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClassificationJob) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

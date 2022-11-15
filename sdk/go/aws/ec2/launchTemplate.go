@@ -197,7 +197,8 @@ type LaunchTemplate struct {
 	MetadataOptions LaunchTemplateMetadataOptionsOutput `pulumi:"metadataOptions"`
 	// The monitoring option for the instance. See Monitoring below for more details.
 	Monitoring LaunchTemplateMonitoringPtrOutput `pulumi:"monitoring"`
-	Name       pulumi.StringOutput               `pulumi:"name"`
+	// The name of the launch template. If you leave this blank, the provider will auto-generate a unique name.
+	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
 	// Customize network interfaces to be attached at instance boot time. See Network
@@ -316,7 +317,8 @@ type launchTemplateState struct {
 	MetadataOptions *LaunchTemplateMetadataOptions `pulumi:"metadataOptions"`
 	// The monitoring option for the instance. See Monitoring below for more details.
 	Monitoring *LaunchTemplateMonitoring `pulumi:"monitoring"`
-	Name       *string                   `pulumi:"name"`
+	// The name of the launch template. If you leave this blank, the provider will auto-generate a unique name.
+	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
 	// Customize network interfaces to be attached at instance boot time. See Network
@@ -407,7 +409,8 @@ type LaunchTemplateState struct {
 	MetadataOptions LaunchTemplateMetadataOptionsPtrInput
 	// The monitoring option for the instance. See Monitoring below for more details.
 	Monitoring LaunchTemplateMonitoringPtrInput
-	Name       pulumi.StringPtrInput
+	// The name of the launch template. If you leave this blank, the provider will auto-generate a unique name.
+	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
 	// Customize network interfaces to be attached at instance boot time. See Network
@@ -498,7 +501,8 @@ type launchTemplateArgs struct {
 	MetadataOptions *LaunchTemplateMetadataOptions `pulumi:"metadataOptions"`
 	// The monitoring option for the instance. See Monitoring below for more details.
 	Monitoring *LaunchTemplateMonitoring `pulumi:"monitoring"`
-	Name       *string                   `pulumi:"name"`
+	// The name of the launch template. If you leave this blank, the provider will auto-generate a unique name.
+	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
 	// Customize network interfaces to be attached at instance boot time. See Network
@@ -584,7 +588,8 @@ type LaunchTemplateArgs struct {
 	MetadataOptions LaunchTemplateMetadataOptionsPtrInput
 	// The monitoring option for the instance. See Monitoring below for more details.
 	Monitoring LaunchTemplateMonitoringPtrInput
-	Name       pulumi.StringPtrInput
+	// The name of the launch template. If you leave this blank, the provider will auto-generate a unique name.
+	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
 	// Customize network interfaces to be attached at instance boot time. See Network
@@ -846,6 +851,7 @@ func (o LaunchTemplateOutput) Monitoring() LaunchTemplateMonitoringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplate) LaunchTemplateMonitoringPtrOutput { return v.Monitoring }).(LaunchTemplateMonitoringPtrOutput)
 }
 
+// The name of the launch template. If you leave this blank, the provider will auto-generate a unique name.
 func (o LaunchTemplateOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LaunchTemplate) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

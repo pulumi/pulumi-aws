@@ -460,7 +460,8 @@ type FileCacheDataRepositoryAssociation struct {
 	// - (Optional) See the `nfs` configuration block.
 	Nfs         []FileCacheDataRepositoryAssociationNf `pulumi:"nfs"`
 	ResourceArn *string                                `pulumi:"resourceArn"`
-	Tags        map[string]string                      `pulumi:"tags"`
+	// A map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // FileCacheDataRepositoryAssociationInput is an input type that accepts FileCacheDataRepositoryAssociationArgs and FileCacheDataRepositoryAssociationOutput values.
@@ -490,7 +491,8 @@ type FileCacheDataRepositoryAssociationArgs struct {
 	// - (Optional) See the `nfs` configuration block.
 	Nfs         FileCacheDataRepositoryAssociationNfArrayInput `pulumi:"nfs"`
 	ResourceArn pulumi.StringPtrInput                          `pulumi:"resourceArn"`
-	Tags        pulumi.StringMapInput                          `pulumi:"tags"`
+	// A map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (FileCacheDataRepositoryAssociationArgs) ElementType() reflect.Type {
@@ -589,6 +591,7 @@ func (o FileCacheDataRepositoryAssociationOutput) ResourceArn() pulumi.StringPtr
 	return o.ApplyT(func(v FileCacheDataRepositoryAssociation) *string { return v.ResourceArn }).(pulumi.StringPtrOutput)
 }
 
+// A map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o FileCacheDataRepositoryAssociationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v FileCacheDataRepositoryAssociation) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

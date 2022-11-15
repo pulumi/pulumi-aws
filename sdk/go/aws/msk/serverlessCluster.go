@@ -13,7 +13,7 @@ import (
 
 // Manages an Amazon MSK Serverless cluster.
 //
-// > **Note:** To manage a _provisioned_ Amazon MSK cluster, use the [`msk.Cluster`](https://www.terraform.io/docs/providers/aws/r/msk_cluster.html) resource.
+// > **Note:** To manage a _provisioned_ Amazon MSK cluster, use the `msk.Cluster` resource.
 //
 // ## Import
 //
@@ -32,8 +32,9 @@ type ServerlessCluster struct {
 	// Specifies client authentication information for the serverless cluster. See below.
 	ClientAuthentication ServerlessClusterClientAuthenticationOutput `pulumi:"clientAuthentication"`
 	// The name of the serverless cluster.
-	ClusterName pulumi.StringOutput    `pulumi:"clusterName"`
-	Tags        pulumi.StringMapOutput `pulumi:"tags"`
+	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// VPC configuration information. See below.
@@ -80,8 +81,9 @@ type serverlessClusterState struct {
 	// Specifies client authentication information for the serverless cluster. See below.
 	ClientAuthentication *ServerlessClusterClientAuthentication `pulumi:"clientAuthentication"`
 	// The name of the serverless cluster.
-	ClusterName *string           `pulumi:"clusterName"`
-	Tags        map[string]string `pulumi:"tags"`
+	ClusterName *string `pulumi:"clusterName"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// VPC configuration information. See below.
@@ -95,7 +97,8 @@ type ServerlessClusterState struct {
 	ClientAuthentication ServerlessClusterClientAuthenticationPtrInput
 	// The name of the serverless cluster.
 	ClusterName pulumi.StringPtrInput
-	Tags        pulumi.StringMapInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// VPC configuration information. See below.
@@ -110,8 +113,9 @@ type serverlessClusterArgs struct {
 	// Specifies client authentication information for the serverless cluster. See below.
 	ClientAuthentication ServerlessClusterClientAuthentication `pulumi:"clientAuthentication"`
 	// The name of the serverless cluster.
-	ClusterName *string           `pulumi:"clusterName"`
-	Tags        map[string]string `pulumi:"tags"`
+	ClusterName *string `pulumi:"clusterName"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// VPC configuration information. See below.
 	VpcConfigs []ServerlessClusterVpcConfig `pulumi:"vpcConfigs"`
 }
@@ -122,7 +126,8 @@ type ServerlessClusterArgs struct {
 	ClientAuthentication ServerlessClusterClientAuthenticationInput
 	// The name of the serverless cluster.
 	ClusterName pulumi.StringPtrInput
-	Tags        pulumi.StringMapInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// VPC configuration information. See below.
 	VpcConfigs ServerlessClusterVpcConfigArrayInput
 }
@@ -229,6 +234,7 @@ func (o ServerlessClusterOutput) ClusterName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessCluster) pulumi.StringOutput { return v.ClusterName }).(pulumi.StringOutput)
 }
 
+// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ServerlessClusterOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServerlessCluster) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

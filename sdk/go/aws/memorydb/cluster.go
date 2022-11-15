@@ -68,7 +68,8 @@ type Cluster struct {
 	// When set to `true`, the cluster will automatically receive minor engine version upgrades after launch. Defaults to `true`.
 	AutoMinorVersionUpgrade pulumi.BoolPtrOutput              `pulumi:"autoMinorVersionUpgrade"`
 	ClusterEndpoints        ClusterClusterEndpointArrayOutput `pulumi:"clusterEndpoints"`
-	Description             pulumi.StringPtrOutput            `pulumi:"description"`
+	// Description for the cluster.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Patch version number of the Redis engine used by the cluster.
 	EnginePatchVersion pulumi.StringOutput `pulumi:"enginePatchVersion"`
 	// Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
@@ -79,8 +80,7 @@ type Cluster struct {
 	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
 	// Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
 	MaintenanceWindow pulumi.StringOutput `pulumi:"maintenanceWindow"`
-	// Name of this node.
-	// * `endpoint`
+	// Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
@@ -161,7 +161,8 @@ type clusterState struct {
 	// When set to `true`, the cluster will automatically receive minor engine version upgrades after launch. Defaults to `true`.
 	AutoMinorVersionUpgrade *bool                    `pulumi:"autoMinorVersionUpgrade"`
 	ClusterEndpoints        []ClusterClusterEndpoint `pulumi:"clusterEndpoints"`
-	Description             *string                  `pulumi:"description"`
+	// Description for the cluster.
+	Description *string `pulumi:"description"`
 	// Patch version number of the Redis engine used by the cluster.
 	EnginePatchVersion *string `pulumi:"enginePatchVersion"`
 	// Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
@@ -172,8 +173,7 @@ type clusterState struct {
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
 	MaintenanceWindow *string `pulumi:"maintenanceWindow"`
-	// Name of this node.
-	// * `endpoint`
+	// Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
@@ -220,7 +220,8 @@ type ClusterState struct {
 	// When set to `true`, the cluster will automatically receive minor engine version upgrades after launch. Defaults to `true`.
 	AutoMinorVersionUpgrade pulumi.BoolPtrInput
 	ClusterEndpoints        ClusterClusterEndpointArrayInput
-	Description             pulumi.StringPtrInput
+	// Description for the cluster.
+	Description pulumi.StringPtrInput
 	// Patch version number of the Redis engine used by the cluster.
 	EnginePatchVersion pulumi.StringPtrInput
 	// Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
@@ -231,8 +232,7 @@ type ClusterState struct {
 	KmsKeyArn pulumi.StringPtrInput
 	// Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
 	MaintenanceWindow pulumi.StringPtrInput
-	// Name of this node.
-	// * `endpoint`
+	// Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
@@ -278,8 +278,9 @@ type clusterArgs struct {
 	// The name of the Access Control List to associate with the cluster.
 	AclName string `pulumi:"aclName"`
 	// When set to `true`, the cluster will automatically receive minor engine version upgrades after launch. Defaults to `true`.
-	AutoMinorVersionUpgrade *bool   `pulumi:"autoMinorVersionUpgrade"`
-	Description             *string `pulumi:"description"`
+	AutoMinorVersionUpgrade *bool `pulumi:"autoMinorVersionUpgrade"`
+	// Description for the cluster.
+	Description *string `pulumi:"description"`
 	// Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
 	EngineVersion *string `pulumi:"engineVersion"`
 	// Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.
@@ -288,8 +289,7 @@ type clusterArgs struct {
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
 	MaintenanceWindow *string `pulumi:"maintenanceWindow"`
-	// Name of this node.
-	// * `endpoint`
+	// Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
@@ -329,7 +329,8 @@ type ClusterArgs struct {
 	AclName pulumi.StringInput
 	// When set to `true`, the cluster will automatically receive minor engine version upgrades after launch. Defaults to `true`.
 	AutoMinorVersionUpgrade pulumi.BoolPtrInput
-	Description             pulumi.StringPtrInput
+	// Description for the cluster.
+	Description pulumi.StringPtrInput
 	// Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
 	EngineVersion pulumi.StringPtrInput
 	// Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.
@@ -338,8 +339,7 @@ type ClusterArgs struct {
 	KmsKeyArn pulumi.StringPtrInput
 	// Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
 	MaintenanceWindow pulumi.StringPtrInput
-	// Name of this node.
-	// * `endpoint`
+	// Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
@@ -480,6 +480,7 @@ func (o ClusterOutput) ClusterEndpoints() ClusterClusterEndpointArrayOutput {
 	return o.ApplyT(func(v *Cluster) ClusterClusterEndpointArrayOutput { return v.ClusterEndpoints }).(ClusterClusterEndpointArrayOutput)
 }
 
+// Description for the cluster.
 func (o ClusterOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -509,8 +510,7 @@ func (o ClusterOutput) MaintenanceWindow() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.MaintenanceWindow }).(pulumi.StringOutput)
 }
 
-// Name of this node.
-// * `endpoint`
+// Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 func (o ClusterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

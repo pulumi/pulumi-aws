@@ -11,7 +11,52 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Resource for managing an AWS SESv2 (Simple Email V2) Configuration Set.
+//
 // ## Example Usage
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sesv2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := sesv2.NewConfigurationSet(ctx, "example", &sesv2.ConfigurationSetArgs{
+//				ConfigurationSetName: pulumi.String("example"),
+//				DeliveryOptions: &sesv2.ConfigurationSetDeliveryOptionsArgs{
+//					TlsPolicy: pulumi.String("REQUIRE"),
+//				},
+//				ReputationOptions: &sesv2.ConfigurationSetReputationOptionsArgs{
+//					ReputationMetricsEnabled: pulumi.Bool(false),
+//				},
+//				SendingOptions: &sesv2.ConfigurationSetSendingOptionsArgs{
+//					SendingEnabled: pulumi.Bool(true),
+//				},
+//				SuppressionOptions: &sesv2.ConfigurationSetSuppressionOptionsArgs{
+//					SuppressedReasons: pulumi.StringArray{
+//						pulumi.String("BOUNCE"),
+//						pulumi.String("COMPLAINT"),
+//					},
+//				},
+//				TrackingOptions: &sesv2.ConfigurationSetTrackingOptionsArgs{
+//					CustomRedirectDomain: pulumi.String("example.com"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //
@@ -37,8 +82,9 @@ type ConfigurationSet struct {
 	SendingOptions ConfigurationSetSendingOptionsOutput `pulumi:"sendingOptions"`
 	// An object that contains information about the suppression list preferences for your account.
 	SuppressionOptions ConfigurationSetSuppressionOptionsPtrOutput `pulumi:"suppressionOptions"`
-	Tags               pulumi.StringMapOutput                      `pulumi:"tags"`
-	TagsAll            pulumi.StringMapOutput                      `pulumi:"tagsAll"`
+	// A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// An object that defines the open and click tracking options for emails that you send using the configuration set.
 	TrackingOptions ConfigurationSetTrackingOptionsPtrOutput `pulumi:"trackingOptions"`
 }
@@ -87,8 +133,9 @@ type configurationSetState struct {
 	SendingOptions *ConfigurationSetSendingOptions `pulumi:"sendingOptions"`
 	// An object that contains information about the suppression list preferences for your account.
 	SuppressionOptions *ConfigurationSetSuppressionOptions `pulumi:"suppressionOptions"`
-	Tags               map[string]string                   `pulumi:"tags"`
-	TagsAll            map[string]string                   `pulumi:"tagsAll"`
+	// A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// An object that defines the open and click tracking options for emails that you send using the configuration set.
 	TrackingOptions *ConfigurationSetTrackingOptions `pulumi:"trackingOptions"`
 }
@@ -106,8 +153,9 @@ type ConfigurationSetState struct {
 	SendingOptions ConfigurationSetSendingOptionsPtrInput
 	// An object that contains information about the suppression list preferences for your account.
 	SuppressionOptions ConfigurationSetSuppressionOptionsPtrInput
-	Tags               pulumi.StringMapInput
-	TagsAll            pulumi.StringMapInput
+	// A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 	// An object that defines the open and click tracking options for emails that you send using the configuration set.
 	TrackingOptions ConfigurationSetTrackingOptionsPtrInput
 }
@@ -127,8 +175,8 @@ type configurationSetArgs struct {
 	SendingOptions *ConfigurationSetSendingOptions `pulumi:"sendingOptions"`
 	// An object that contains information about the suppression list preferences for your account.
 	SuppressionOptions *ConfigurationSetSuppressionOptions `pulumi:"suppressionOptions"`
-	Tags               map[string]string                   `pulumi:"tags"`
-	TagsAll            map[string]string                   `pulumi:"tagsAll"`
+	// A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// An object that defines the open and click tracking options for emails that you send using the configuration set.
 	TrackingOptions *ConfigurationSetTrackingOptions `pulumi:"trackingOptions"`
 }
@@ -145,8 +193,8 @@ type ConfigurationSetArgs struct {
 	SendingOptions ConfigurationSetSendingOptionsPtrInput
 	// An object that contains information about the suppression list preferences for your account.
 	SuppressionOptions ConfigurationSetSuppressionOptionsPtrInput
-	Tags               pulumi.StringMapInput
-	TagsAll            pulumi.StringMapInput
+	// A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// An object that defines the open and click tracking options for emails that you send using the configuration set.
 	TrackingOptions ConfigurationSetTrackingOptionsPtrInput
 }
@@ -268,6 +316,7 @@ func (o ConfigurationSetOutput) SuppressionOptions() ConfigurationSetSuppression
 	return o.ApplyT(func(v *ConfigurationSet) ConfigurationSetSuppressionOptionsPtrOutput { return v.SuppressionOptions }).(ConfigurationSetSuppressionOptionsPtrOutput)
 }
 
+// A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ConfigurationSetOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ConfigurationSet) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

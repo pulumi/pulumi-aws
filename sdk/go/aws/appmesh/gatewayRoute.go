@@ -66,8 +66,6 @@ import (
 //	$ pulumi import aws:appmesh/gatewayRoute:GatewayRoute example mesh/gw1/example-gateway-route
 //
 // ```
-//
-//	[1]/docs/providers/aws/index.html
 type GatewayRoute struct {
 	pulumi.CustomResourceState
 

@@ -70,8 +70,9 @@ type Namespace struct {
 	// The Redshift Namespace ID.
 	NamespaceId pulumi.StringOutput `pulumi:"namespaceId"`
 	// The name of the namespace.
-	NamespaceName pulumi.StringOutput    `pulumi:"namespaceName"`
-	Tags          pulumi.StringMapOutput `pulumi:"tags"`
+	NamespaceName pulumi.StringOutput `pulumi:"namespaceName"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
@@ -127,8 +128,9 @@ type namespaceState struct {
 	// The Redshift Namespace ID.
 	NamespaceId *string `pulumi:"namespaceId"`
 	// The name of the namespace.
-	NamespaceName *string           `pulumi:"namespaceName"`
-	Tags          map[string]string `pulumi:"tags"`
+	NamespaceName *string `pulumi:"namespaceName"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
@@ -154,7 +156,8 @@ type NamespaceState struct {
 	NamespaceId pulumi.StringPtrInput
 	// The name of the namespace.
 	NamespaceName pulumi.StringPtrInput
-	Tags          pulumi.StringMapInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
@@ -179,8 +182,9 @@ type namespaceArgs struct {
 	// The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
 	LogExports []string `pulumi:"logExports"`
 	// The name of the namespace.
-	NamespaceName string            `pulumi:"namespaceName"`
-	Tags          map[string]string `pulumi:"tags"`
+	NamespaceName string `pulumi:"namespaceName"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Namespace resource.
@@ -201,7 +205,8 @@ type NamespaceArgs struct {
 	LogExports pulumi.StringArrayInput
 	// The name of the namespace.
 	NamespaceName pulumi.StringInput
-	Tags          pulumi.StringMapInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (NamespaceArgs) ElementType() reflect.Type {
@@ -341,6 +346,7 @@ func (o NamespaceOutput) NamespaceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.NamespaceName }).(pulumi.StringOutput)
 }
 
+// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o NamespaceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

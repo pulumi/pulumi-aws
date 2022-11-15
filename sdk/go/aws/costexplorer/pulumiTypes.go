@@ -406,7 +406,8 @@ type CostCategoryRuleRule struct {
 	// Return results that match both `Dimension` object.
 	Not *CostCategoryRuleRuleNot `pulumi:"not"`
 	// Return results that match both `Dimension` object.
-	Ors  []CostCategoryRuleRuleOr  `pulumi:"ors"`
+	Ors []CostCategoryRuleRuleOr `pulumi:"ors"`
+	// Configuration block for the specific `Tag` to use for `Expression`. See below.
 	Tags *CostCategoryRuleRuleTags `pulumi:"tags"`
 }
 
@@ -431,7 +432,8 @@ type CostCategoryRuleRuleArgs struct {
 	// Return results that match both `Dimension` object.
 	Not CostCategoryRuleRuleNotPtrInput `pulumi:"not"`
 	// Return results that match both `Dimension` object.
-	Ors  CostCategoryRuleRuleOrArrayInput `pulumi:"ors"`
+	Ors CostCategoryRuleRuleOrArrayInput `pulumi:"ors"`
+	// Configuration block for the specific `Tag` to use for `Expression`. See below.
 	Tags CostCategoryRuleRuleTagsPtrInput `pulumi:"tags"`
 }
 
@@ -537,6 +539,7 @@ func (o CostCategoryRuleRuleOutput) Ors() CostCategoryRuleRuleOrArrayOutput {
 	return o.ApplyT(func(v CostCategoryRuleRule) []CostCategoryRuleRuleOr { return v.Ors }).(CostCategoryRuleRuleOrArrayOutput)
 }
 
+// Configuration block for the specific `Tag` to use for `Expression`. See below.
 func (o CostCategoryRuleRuleOutput) Tags() CostCategoryRuleRuleTagsPtrOutput {
 	return o.ApplyT(func(v CostCategoryRuleRule) *CostCategoryRuleRuleTags { return v.Tags }).(CostCategoryRuleRuleTagsPtrOutput)
 }
@@ -615,6 +618,7 @@ func (o CostCategoryRuleRulePtrOutput) Ors() CostCategoryRuleRuleOrArrayOutput {
 	}).(CostCategoryRuleRuleOrArrayOutput)
 }
 
+// Configuration block for the specific `Tag` to use for `Expression`. See below.
 func (o CostCategoryRuleRulePtrOutput) Tags() CostCategoryRuleRuleTagsPtrOutput {
 	return o.ApplyT(func(v *CostCategoryRuleRule) *CostCategoryRuleRuleTags {
 		if v == nil {
@@ -629,7 +633,8 @@ type CostCategoryRuleRuleAnd struct {
 	CostCategory *CostCategoryRuleRuleAndCostCategory `pulumi:"costCategory"`
 	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
 	Dimension *CostCategoryRuleRuleAndDimension `pulumi:"dimension"`
-	Tags      *CostCategoryRuleRuleAndTags      `pulumi:"tags"`
+	// Configuration block for the specific `Tag` to use for `Expression`. See below.
+	Tags *CostCategoryRuleRuleAndTags `pulumi:"tags"`
 }
 
 // CostCategoryRuleRuleAndInput is an input type that accepts CostCategoryRuleRuleAndArgs and CostCategoryRuleRuleAndOutput values.
@@ -648,7 +653,8 @@ type CostCategoryRuleRuleAndArgs struct {
 	CostCategory CostCategoryRuleRuleAndCostCategoryPtrInput `pulumi:"costCategory"`
 	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
 	Dimension CostCategoryRuleRuleAndDimensionPtrInput `pulumi:"dimension"`
-	Tags      CostCategoryRuleRuleAndTagsPtrInput      `pulumi:"tags"`
+	// Configuration block for the specific `Tag` to use for `Expression`. See below.
+	Tags CostCategoryRuleRuleAndTagsPtrInput `pulumi:"tags"`
 }
 
 func (CostCategoryRuleRuleAndArgs) ElementType() reflect.Type {
@@ -712,6 +718,7 @@ func (o CostCategoryRuleRuleAndOutput) Dimension() CostCategoryRuleRuleAndDimens
 	return o.ApplyT(func(v CostCategoryRuleRuleAnd) *CostCategoryRuleRuleAndDimension { return v.Dimension }).(CostCategoryRuleRuleAndDimensionPtrOutput)
 }
 
+// Configuration block for the specific `Tag` to use for `Expression`. See below.
 func (o CostCategoryRuleRuleAndOutput) Tags() CostCategoryRuleRuleAndTagsPtrOutput {
 	return o.ApplyT(func(v CostCategoryRuleRuleAnd) *CostCategoryRuleRuleAndTags { return v.Tags }).(CostCategoryRuleRuleAndTagsPtrOutput)
 }
@@ -1616,7 +1623,8 @@ type CostCategoryRuleRuleNot struct {
 	CostCategory *CostCategoryRuleRuleNotCostCategory `pulumi:"costCategory"`
 	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
 	Dimension *CostCategoryRuleRuleNotDimension `pulumi:"dimension"`
-	Tags      *CostCategoryRuleRuleNotTags      `pulumi:"tags"`
+	// Configuration block for the specific `Tag` to use for `Expression`. See below.
+	Tags *CostCategoryRuleRuleNotTags `pulumi:"tags"`
 }
 
 // CostCategoryRuleRuleNotInput is an input type that accepts CostCategoryRuleRuleNotArgs and CostCategoryRuleRuleNotOutput values.
@@ -1635,7 +1643,8 @@ type CostCategoryRuleRuleNotArgs struct {
 	CostCategory CostCategoryRuleRuleNotCostCategoryPtrInput `pulumi:"costCategory"`
 	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
 	Dimension CostCategoryRuleRuleNotDimensionPtrInput `pulumi:"dimension"`
-	Tags      CostCategoryRuleRuleNotTagsPtrInput      `pulumi:"tags"`
+	// Configuration block for the specific `Tag` to use for `Expression`. See below.
+	Tags CostCategoryRuleRuleNotTagsPtrInput `pulumi:"tags"`
 }
 
 func (CostCategoryRuleRuleNotArgs) ElementType() reflect.Type {
@@ -1725,6 +1734,7 @@ func (o CostCategoryRuleRuleNotOutput) Dimension() CostCategoryRuleRuleNotDimens
 	return o.ApplyT(func(v CostCategoryRuleRuleNot) *CostCategoryRuleRuleNotDimension { return v.Dimension }).(CostCategoryRuleRuleNotDimensionPtrOutput)
 }
 
+// Configuration block for the specific `Tag` to use for `Expression`. See below.
 func (o CostCategoryRuleRuleNotOutput) Tags() CostCategoryRuleRuleNotTagsPtrOutput {
 	return o.ApplyT(func(v CostCategoryRuleRuleNot) *CostCategoryRuleRuleNotTags { return v.Tags }).(CostCategoryRuleRuleNotTagsPtrOutput)
 }
@@ -1773,6 +1783,7 @@ func (o CostCategoryRuleRuleNotPtrOutput) Dimension() CostCategoryRuleRuleNotDim
 	}).(CostCategoryRuleRuleNotDimensionPtrOutput)
 }
 
+// Configuration block for the specific `Tag` to use for `Expression`. See below.
 func (o CostCategoryRuleRuleNotPtrOutput) Tags() CostCategoryRuleRuleNotTagsPtrOutput {
 	return o.ApplyT(func(v *CostCategoryRuleRuleNot) *CostCategoryRuleRuleNotTags {
 		if v == nil {
@@ -2312,7 +2323,8 @@ type CostCategoryRuleRuleOr struct {
 	CostCategory *CostCategoryRuleRuleOrCostCategory `pulumi:"costCategory"`
 	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
 	Dimension *CostCategoryRuleRuleOrDimension `pulumi:"dimension"`
-	Tags      *CostCategoryRuleRuleOrTags      `pulumi:"tags"`
+	// Configuration block for the specific `Tag` to use for `Expression`. See below.
+	Tags *CostCategoryRuleRuleOrTags `pulumi:"tags"`
 }
 
 // CostCategoryRuleRuleOrInput is an input type that accepts CostCategoryRuleRuleOrArgs and CostCategoryRuleRuleOrOutput values.
@@ -2331,7 +2343,8 @@ type CostCategoryRuleRuleOrArgs struct {
 	CostCategory CostCategoryRuleRuleOrCostCategoryPtrInput `pulumi:"costCategory"`
 	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
 	Dimension CostCategoryRuleRuleOrDimensionPtrInput `pulumi:"dimension"`
-	Tags      CostCategoryRuleRuleOrTagsPtrInput      `pulumi:"tags"`
+	// Configuration block for the specific `Tag` to use for `Expression`. See below.
+	Tags CostCategoryRuleRuleOrTagsPtrInput `pulumi:"tags"`
 }
 
 func (CostCategoryRuleRuleOrArgs) ElementType() reflect.Type {
@@ -2395,6 +2408,7 @@ func (o CostCategoryRuleRuleOrOutput) Dimension() CostCategoryRuleRuleOrDimensio
 	return o.ApplyT(func(v CostCategoryRuleRuleOr) *CostCategoryRuleRuleOrDimension { return v.Dimension }).(CostCategoryRuleRuleOrDimensionPtrOutput)
 }
 
+// Configuration block for the specific `Tag` to use for `Expression`. See below.
 func (o CostCategoryRuleRuleOrOutput) Tags() CostCategoryRuleRuleOrTagsPtrOutput {
 	return o.ApplyT(func(v CostCategoryRuleRuleOr) *CostCategoryRuleRuleOrTags { return v.Tags }).(CostCategoryRuleRuleOrTagsPtrOutput)
 }
@@ -3590,7 +3604,7 @@ type GetCostCategoryRuleRule struct {
 	Nots []GetCostCategoryRuleRuleNot `pulumi:"nots"`
 	// Return results that match both `Dimension` object.
 	Ors []GetCostCategoryRuleRuleOr `pulumi:"ors"`
-	// Resource tags.
+	// Configuration block for the specific `Tag` to use for `Expression`. See below.
 	Tags []GetCostCategoryRuleRuleTag `pulumi:"tags"`
 }
 
@@ -3616,7 +3630,7 @@ type GetCostCategoryRuleRuleArgs struct {
 	Nots GetCostCategoryRuleRuleNotArrayInput `pulumi:"nots"`
 	// Return results that match both `Dimension` object.
 	Ors GetCostCategoryRuleRuleOrArrayInput `pulumi:"ors"`
-	// Resource tags.
+	// Configuration block for the specific `Tag` to use for `Expression`. See below.
 	Tags GetCostCategoryRuleRuleTagArrayInput `pulumi:"tags"`
 }
 
@@ -3696,7 +3710,7 @@ func (o GetCostCategoryRuleRuleOutput) Ors() GetCostCategoryRuleRuleOrArrayOutpu
 	return o.ApplyT(func(v GetCostCategoryRuleRule) []GetCostCategoryRuleRuleOr { return v.Ors }).(GetCostCategoryRuleRuleOrArrayOutput)
 }
 
-// Resource tags.
+// Configuration block for the specific `Tag` to use for `Expression`. See below.
 func (o GetCostCategoryRuleRuleOutput) Tags() GetCostCategoryRuleRuleTagArrayOutput {
 	return o.ApplyT(func(v GetCostCategoryRuleRule) []GetCostCategoryRuleRuleTag { return v.Tags }).(GetCostCategoryRuleRuleTagArrayOutput)
 }
@@ -3726,7 +3740,7 @@ type GetCostCategoryRuleRuleAnd struct {
 	CostCategories []GetCostCategoryRuleRuleAndCostCategory `pulumi:"costCategories"`
 	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
 	Dimensions []GetCostCategoryRuleRuleAndDimension `pulumi:"dimensions"`
-	// Resource tags.
+	// Configuration block for the specific `Tag` to use for `Expression`. See below.
 	Tags []GetCostCategoryRuleRuleAndTag `pulumi:"tags"`
 }
 
@@ -3746,7 +3760,7 @@ type GetCostCategoryRuleRuleAndArgs struct {
 	CostCategories GetCostCategoryRuleRuleAndCostCategoryArrayInput `pulumi:"costCategories"`
 	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
 	Dimensions GetCostCategoryRuleRuleAndDimensionArrayInput `pulumi:"dimensions"`
-	// Resource tags.
+	// Configuration block for the specific `Tag` to use for `Expression`. See below.
 	Tags GetCostCategoryRuleRuleAndTagArrayInput `pulumi:"tags"`
 }
 
@@ -3811,7 +3825,7 @@ func (o GetCostCategoryRuleRuleAndOutput) Dimensions() GetCostCategoryRuleRuleAn
 	return o.ApplyT(func(v GetCostCategoryRuleRuleAnd) []GetCostCategoryRuleRuleAndDimension { return v.Dimensions }).(GetCostCategoryRuleRuleAndDimensionArrayOutput)
 }
 
-// Resource tags.
+// Configuration block for the specific `Tag` to use for `Expression`. See below.
 func (o GetCostCategoryRuleRuleAndOutput) Tags() GetCostCategoryRuleRuleAndTagArrayOutput {
 	return o.ApplyT(func(v GetCostCategoryRuleRuleAnd) []GetCostCategoryRuleRuleAndTag { return v.Tags }).(GetCostCategoryRuleRuleAndTagArrayOutput)
 }
@@ -4416,7 +4430,7 @@ type GetCostCategoryRuleRuleNot struct {
 	CostCategories []GetCostCategoryRuleRuleNotCostCategory `pulumi:"costCategories"`
 	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
 	Dimensions []GetCostCategoryRuleRuleNotDimension `pulumi:"dimensions"`
-	// Resource tags.
+	// Configuration block for the specific `Tag` to use for `Expression`. See below.
 	Tags []GetCostCategoryRuleRuleNotTag `pulumi:"tags"`
 }
 
@@ -4436,7 +4450,7 @@ type GetCostCategoryRuleRuleNotArgs struct {
 	CostCategories GetCostCategoryRuleRuleNotCostCategoryArrayInput `pulumi:"costCategories"`
 	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
 	Dimensions GetCostCategoryRuleRuleNotDimensionArrayInput `pulumi:"dimensions"`
-	// Resource tags.
+	// Configuration block for the specific `Tag` to use for `Expression`. See below.
 	Tags GetCostCategoryRuleRuleNotTagArrayInput `pulumi:"tags"`
 }
 
@@ -4501,7 +4515,7 @@ func (o GetCostCategoryRuleRuleNotOutput) Dimensions() GetCostCategoryRuleRuleNo
 	return o.ApplyT(func(v GetCostCategoryRuleRuleNot) []GetCostCategoryRuleRuleNotDimension { return v.Dimensions }).(GetCostCategoryRuleRuleNotDimensionArrayOutput)
 }
 
-// Resource tags.
+// Configuration block for the specific `Tag` to use for `Expression`. See below.
 func (o GetCostCategoryRuleRuleNotOutput) Tags() GetCostCategoryRuleRuleNotTagArrayOutput {
 	return o.ApplyT(func(v GetCostCategoryRuleRuleNot) []GetCostCategoryRuleRuleNotTag { return v.Tags }).(GetCostCategoryRuleRuleNotTagArrayOutput)
 }
@@ -4876,7 +4890,7 @@ type GetCostCategoryRuleRuleOr struct {
 	CostCategories []GetCostCategoryRuleRuleOrCostCategory `pulumi:"costCategories"`
 	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
 	Dimensions []GetCostCategoryRuleRuleOrDimension `pulumi:"dimensions"`
-	// Resource tags.
+	// Configuration block for the specific `Tag` to use for `Expression`. See below.
 	Tags []GetCostCategoryRuleRuleOrTag `pulumi:"tags"`
 }
 
@@ -4896,7 +4910,7 @@ type GetCostCategoryRuleRuleOrArgs struct {
 	CostCategories GetCostCategoryRuleRuleOrCostCategoryArrayInput `pulumi:"costCategories"`
 	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
 	Dimensions GetCostCategoryRuleRuleOrDimensionArrayInput `pulumi:"dimensions"`
-	// Resource tags.
+	// Configuration block for the specific `Tag` to use for `Expression`. See below.
 	Tags GetCostCategoryRuleRuleOrTagArrayInput `pulumi:"tags"`
 }
 
@@ -4961,7 +4975,7 @@ func (o GetCostCategoryRuleRuleOrOutput) Dimensions() GetCostCategoryRuleRuleOrD
 	return o.ApplyT(func(v GetCostCategoryRuleRuleOr) []GetCostCategoryRuleRuleOrDimension { return v.Dimensions }).(GetCostCategoryRuleRuleOrDimensionArrayOutput)
 }
 
-// Resource tags.
+// Configuration block for the specific `Tag` to use for `Expression`. See below.
 func (o GetCostCategoryRuleRuleOrOutput) Tags() GetCostCategoryRuleRuleOrTagArrayOutput {
 	return o.ApplyT(func(v GetCostCategoryRuleRuleOr) []GetCostCategoryRuleRuleOrTag { return v.Tags }).(GetCostCategoryRuleRuleOrTagArrayOutput)
 }

@@ -169,7 +169,7 @@ import (
 //								Statements: wafv2.RuleGroupRuleStatementOrStatementStatementArray{
 //									&wafv2.RuleGroupRuleStatementOrStatementStatementArgs{
 //										RegexMatchStatement: &wafv2.RuleGroupRuleStatementOrStatementStatementRegexMatchStatementArgs{
-//											RegexString: pulumi.String("[a-z]([a-z0-9_-]*[a-z0-9])?"),
+//											RegexString: pulumi.String("a-z?"),
 //											FieldToMatch: &wafv2.RuleGroupRuleStatementOrStatementStatementRegexMatchStatementFieldToMatchArgs{
 //												SingleHeader: &wafv2.RuleGroupRuleStatementOrStatementStatementRegexMatchStatementFieldToMatchSingleHeaderArgs{
 //													Name: pulumi.String("user-agent"),

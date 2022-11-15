@@ -98,7 +98,7 @@ import (
 //			}
 //			_, err = appsync.NewDataSource(ctx, "exampleDataSource", &appsync.DataSourceArgs{
 //				ApiId:          exampleGraphQLApi.ID(),
-//				Name:           pulumi.String("tf_appsync_example"),
+//				Name:           pulumi.String("my_appsync_example"),
 //				ServiceRoleArn: exampleRole.Arn,
 //				Type:           pulumi.String("AMAZON_DYNAMODB"),
 //				DynamodbConfig: &appsync.DataSourceDynamodbConfigArgs{

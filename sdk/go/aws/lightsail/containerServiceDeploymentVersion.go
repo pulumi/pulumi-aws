@@ -11,6 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a resource to manage a deployment version for your Amazon Lightsail container service.
+//
+// > **NOTE:** The Amazon Lightsail container service must be enabled to create a deployment.
+//
+// > **NOTE:** This resource allows you to manage an Amazon Lightsail container service deployment version but the provider cannot destroy it. Removing this resource from your configuration will remove it from your statefile.
+//
 // ## Example Usage
 // ### Basic Usage
 //

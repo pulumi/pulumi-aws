@@ -86,8 +86,9 @@ type SnapshotCopy struct {
 	// The ARN for the snapshot to be copied.
 	SourceSnapshotId pulumi.StringOutput `pulumi:"sourceSnapshotId"`
 	// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
-	StorageTier pulumi.StringOutput    `pulumi:"storageTier"`
-	Tags        pulumi.StringMapOutput `pulumi:"tags"`
+	StorageTier pulumi.StringOutput `pulumi:"storageTier"`
+	// A map of tags for the snapshot.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
@@ -154,8 +155,9 @@ type snapshotCopyState struct {
 	// The ARN for the snapshot to be copied.
 	SourceSnapshotId *string `pulumi:"sourceSnapshotId"`
 	// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
-	StorageTier *string           `pulumi:"storageTier"`
-	Tags        map[string]string `pulumi:"tags"`
+	StorageTier *string `pulumi:"storageTier"`
+	// A map of tags for the snapshot.
+	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
@@ -189,7 +191,8 @@ type SnapshotCopyState struct {
 	SourceSnapshotId pulumi.StringPtrInput
 	// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
 	StorageTier pulumi.StringPtrInput
-	Tags        pulumi.StringMapInput
+	// A map of tags for the snapshot.
+	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
@@ -217,8 +220,9 @@ type snapshotCopyArgs struct {
 	// The ARN for the snapshot to be copied.
 	SourceSnapshotId string `pulumi:"sourceSnapshotId"`
 	// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
-	StorageTier *string           `pulumi:"storageTier"`
-	Tags        map[string]string `pulumi:"tags"`
+	StorageTier *string `pulumi:"storageTier"`
+	// A map of tags for the snapshot.
+	Tags map[string]string `pulumi:"tags"`
 	// Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
 	TemporaryRestoreDays *int `pulumi:"temporaryRestoreDays"`
 }
@@ -239,7 +243,8 @@ type SnapshotCopyArgs struct {
 	SourceSnapshotId pulumi.StringInput
 	// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
 	StorageTier pulumi.StringPtrInput
-	Tags        pulumi.StringMapInput
+	// A map of tags for the snapshot.
+	Tags pulumi.StringMapInput
 	// Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
 	TemporaryRestoreDays pulumi.IntPtrInput
 }
@@ -390,6 +395,7 @@ func (o SnapshotCopyOutput) StorageTier() pulumi.StringOutput {
 	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringOutput { return v.StorageTier }).(pulumi.StringOutput)
 }
 
+// A map of tags for the snapshot.
 func (o SnapshotCopyOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

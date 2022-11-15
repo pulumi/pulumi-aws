@@ -213,7 +213,7 @@ type Certificate struct {
 	// Status of the certificate.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Set of domains that should be SANs in the issued certificate.
-	// To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+	// To remove all elements of a previously configured list, set this value equal to an empty list (`[]`)
 	SubjectAlternativeNames pulumi.StringArrayOutput `pulumi:"subjectAlternativeNames"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -223,7 +223,8 @@ type Certificate struct {
 	Type pulumi.StringOutput `pulumi:"type"`
 	// List of addresses that received a validation email. Only set if `EMAIL` validation was used.
 	ValidationEmails pulumi.StringArrayOutput `pulumi:"validationEmails"`
-	ValidationMethod pulumi.StringOutput      `pulumi:"validationMethod"`
+	// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
+	ValidationMethod pulumi.StringOutput `pulumi:"validationMethod"`
 	// Configuration block used to specify information about the initial validation of each domain name. Detailed below.
 	// * Importing an existing certificate
 	ValidationOptions CertificateValidationOptionArrayOutput `pulumi:"validationOptions"`
@@ -296,7 +297,7 @@ type certificateState struct {
 	// Status of the certificate.
 	Status *string `pulumi:"status"`
 	// Set of domains that should be SANs in the issued certificate.
-	// To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+	// To remove all elements of a previously configured list, set this value equal to an empty list (`[]`)
 	SubjectAlternativeNames []string `pulumi:"subjectAlternativeNames"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -306,7 +307,8 @@ type certificateState struct {
 	Type *string `pulumi:"type"`
 	// List of addresses that received a validation email. Only set if `EMAIL` validation was used.
 	ValidationEmails []string `pulumi:"validationEmails"`
-	ValidationMethod *string  `pulumi:"validationMethod"`
+	// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
+	ValidationMethod *string `pulumi:"validationMethod"`
 	// Configuration block used to specify information about the initial validation of each domain name. Detailed below.
 	// * Importing an existing certificate
 	ValidationOptions []CertificateValidationOption `pulumi:"validationOptions"`
@@ -351,7 +353,7 @@ type CertificateState struct {
 	// Status of the certificate.
 	Status pulumi.StringPtrInput
 	// Set of domains that should be SANs in the issued certificate.
-	// To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+	// To remove all elements of a previously configured list, set this value equal to an empty list (`[]`)
 	SubjectAlternativeNames pulumi.StringArrayInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -361,6 +363,7 @@ type CertificateState struct {
 	Type pulumi.StringPtrInput
 	// List of addresses that received a validation email. Only set if `EMAIL` validation was used.
 	ValidationEmails pulumi.StringArrayInput
+	// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
 	ValidationMethod pulumi.StringPtrInput
 	// Configuration block used to specify information about the initial validation of each domain name. Detailed below.
 	// * Importing an existing certificate
@@ -392,11 +395,12 @@ type certificateArgs struct {
 	// Certificate's PEM-formatted private key
 	PrivateKey *string `pulumi:"privateKey"`
 	// Set of domains that should be SANs in the issued certificate.
-	// To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+	// To remove all elements of a previously configured list, set this value equal to an empty list (`[]`)
 	SubjectAlternativeNames []string `pulumi:"subjectAlternativeNames"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags             map[string]string `pulumi:"tags"`
-	ValidationMethod *string           `pulumi:"validationMethod"`
+	Tags map[string]string `pulumi:"tags"`
+	// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
+	ValidationMethod *string `pulumi:"validationMethod"`
 	// Configuration block used to specify information about the initial validation of each domain name. Detailed below.
 	// * Importing an existing certificate
 	ValidationOptions []CertificateValidationOption `pulumi:"validationOptions"`
@@ -424,10 +428,11 @@ type CertificateArgs struct {
 	// Certificate's PEM-formatted private key
 	PrivateKey pulumi.StringPtrInput
 	// Set of domains that should be SANs in the issued certificate.
-	// To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+	// To remove all elements of a previously configured list, set this value equal to an empty list (`[]`)
 	SubjectAlternativeNames pulumi.StringArrayInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags             pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
 	ValidationMethod pulumi.StringPtrInput
 	// Configuration block used to specify information about the initial validation of each domain name. Detailed below.
 	// * Importing an existing certificate
@@ -604,7 +609,7 @@ func (o CertificateOutput) Status() pulumi.StringOutput {
 }
 
 // Set of domains that should be SANs in the issued certificate.
-// To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+// To remove all elements of a previously configured list, set this value equal to an empty list (`[]`)
 func (o CertificateOutput) SubjectAlternativeNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringArrayOutput { return v.SubjectAlternativeNames }).(pulumi.StringArrayOutput)
 }
@@ -629,6 +634,7 @@ func (o CertificateOutput) ValidationEmails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringArrayOutput { return v.ValidationEmails }).(pulumi.StringArrayOutput)
 }
 
+// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
 func (o CertificateOutput) ValidationMethod() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.ValidationMethod }).(pulumi.StringOutput)
 }

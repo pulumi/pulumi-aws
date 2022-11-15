@@ -231,7 +231,8 @@ type MulticastDomain struct {
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
 	StaticSourcesSupport pulumi.StringPtrOutput `pulumi:"staticSourcesSupport"`
-	Tags                 pulumi.StringMapOutput `pulumi:"tags"`
+	// Key-value tags for the EC2 Transit Gateway Multicast Domain. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// EC2 Transit Gateway identifier. The EC2 Transit Gateway must have `multicastSupport` enabled.
@@ -279,8 +280,9 @@ type multicastDomainState struct {
 	// Identifier of the AWS account that owns the EC2 Transit Gateway Multicast Domain.
 	OwnerId *string `pulumi:"ownerId"`
 	// Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
-	StaticSourcesSupport *string           `pulumi:"staticSourcesSupport"`
-	Tags                 map[string]string `pulumi:"tags"`
+	StaticSourcesSupport *string `pulumi:"staticSourcesSupport"`
+	// Key-value tags for the EC2 Transit Gateway Multicast Domain. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// EC2 Transit Gateway identifier. The EC2 Transit Gateway must have `multicastSupport` enabled.
@@ -298,7 +300,8 @@ type MulticastDomainState struct {
 	OwnerId pulumi.StringPtrInput
 	// Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
 	StaticSourcesSupport pulumi.StringPtrInput
-	Tags                 pulumi.StringMapInput
+	// Key-value tags for the EC2 Transit Gateway Multicast Domain. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// EC2 Transit Gateway identifier. The EC2 Transit Gateway must have `multicastSupport` enabled.
@@ -315,8 +318,9 @@ type multicastDomainArgs struct {
 	// Whether to enable Internet Group Management Protocol (IGMP) version 2 for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
 	Igmpv2Support *string `pulumi:"igmpv2Support"`
 	// Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
-	StaticSourcesSupport *string           `pulumi:"staticSourcesSupport"`
-	Tags                 map[string]string `pulumi:"tags"`
+	StaticSourcesSupport *string `pulumi:"staticSourcesSupport"`
+	// Key-value tags for the EC2 Transit Gateway Multicast Domain. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// EC2 Transit Gateway identifier. The EC2 Transit Gateway must have `multicastSupport` enabled.
 	TransitGatewayId string `pulumi:"transitGatewayId"`
 }
@@ -329,7 +333,8 @@ type MulticastDomainArgs struct {
 	Igmpv2Support pulumi.StringPtrInput
 	// Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
 	StaticSourcesSupport pulumi.StringPtrInput
-	Tags                 pulumi.StringMapInput
+	// Key-value tags for the EC2 Transit Gateway Multicast Domain. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// EC2 Transit Gateway identifier. The EC2 Transit Gateway must have `multicastSupport` enabled.
 	TransitGatewayId pulumi.StringInput
 }
@@ -446,6 +451,7 @@ func (o MulticastDomainOutput) StaticSourcesSupport() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MulticastDomain) pulumi.StringPtrOutput { return v.StaticSourcesSupport }).(pulumi.StringPtrOutput)
 }
 
+// Key-value tags for the EC2 Transit Gateway Multicast Domain. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o MulticastDomainOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *MulticastDomain) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

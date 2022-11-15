@@ -10,6 +10,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a resource to manage whether serial console access is enabled for your AWS account in the current AWS region.
+//
+// > **NOTE:** Removing this resource disables serial console access.
+//
 // ## Example Usage
 //
 // ```go

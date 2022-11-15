@@ -59,7 +59,8 @@ type Tracker struct {
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// The position filtering method of the tracker resource. Valid values: `TimeBased`, `DistanceBased`, `AccuracyBased`. Default: `TimeBased`.
 	PositionFiltering pulumi.StringPtrOutput `pulumi:"positionFiltering"`
-	Tags              pulumi.StringMapOutput `pulumi:"tags"`
+	// Key-value tags for the tracker. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS.
@@ -109,8 +110,9 @@ type trackerState struct {
 	// A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The position filtering method of the tracker resource. Valid values: `TimeBased`, `DistanceBased`, `AccuracyBased`. Default: `TimeBased`.
-	PositionFiltering *string           `pulumi:"positionFiltering"`
-	Tags              map[string]string `pulumi:"tags"`
+	PositionFiltering *string `pulumi:"positionFiltering"`
+	// Key-value tags for the tracker. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS.
@@ -130,7 +132,8 @@ type TrackerState struct {
 	KmsKeyId pulumi.StringPtrInput
 	// The position filtering method of the tracker resource. Valid values: `TimeBased`, `DistanceBased`, `AccuracyBased`. Default: `TimeBased`.
 	PositionFiltering pulumi.StringPtrInput
-	Tags              pulumi.StringMapInput
+	// Key-value tags for the tracker. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS.
@@ -151,8 +154,9 @@ type trackerArgs struct {
 	// A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The position filtering method of the tracker resource. Valid values: `TimeBased`, `DistanceBased`, `AccuracyBased`. Default: `TimeBased`.
-	PositionFiltering *string           `pulumi:"positionFiltering"`
-	Tags              map[string]string `pulumi:"tags"`
+	PositionFiltering *string `pulumi:"positionFiltering"`
+	// Key-value tags for the tracker. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// The name of the tracker resource.
 	TrackerName string `pulumi:"trackerName"`
 }
@@ -165,7 +169,8 @@ type TrackerArgs struct {
 	KmsKeyId pulumi.StringPtrInput
 	// The position filtering method of the tracker resource. Valid values: `TimeBased`, `DistanceBased`, `AccuracyBased`. Default: `TimeBased`.
 	PositionFiltering pulumi.StringPtrInput
-	Tags              pulumi.StringMapInput
+	// Key-value tags for the tracker. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// The name of the tracker resource.
 	TrackerName pulumi.StringInput
 }
@@ -277,6 +282,7 @@ func (o TrackerOutput) PositionFiltering() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Tracker) pulumi.StringPtrOutput { return v.PositionFiltering }).(pulumi.StringPtrOutput)
 }
 
+// Key-value tags for the tracker. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o TrackerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Tracker) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

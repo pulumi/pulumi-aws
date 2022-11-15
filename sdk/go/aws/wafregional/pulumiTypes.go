@@ -540,10 +540,10 @@ func (o RateBasedRulePredicateArrayOutput) Index(i pulumi.IntInput) RateBasedRul
 type RegexMatchSetRegexMatchTuple struct {
 	// The part of a web request that you want to search, such as a specified header or a query string.
 	FieldToMatch RegexMatchSetRegexMatchTupleFieldToMatch `pulumi:"fieldToMatch"`
-	// The ID of a `WAF Regex Pattern Set`.
+	// The ID of a Regex Pattern Set.
 	RegexPatternSetId string `pulumi:"regexPatternSetId"`
 	// Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
-	// e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
+	// e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
 	// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
 	// for all supported values.
 	TextTransformation string `pulumi:"textTransformation"`
@@ -563,10 +563,10 @@ type RegexMatchSetRegexMatchTupleInput interface {
 type RegexMatchSetRegexMatchTupleArgs struct {
 	// The part of a web request that you want to search, such as a specified header or a query string.
 	FieldToMatch RegexMatchSetRegexMatchTupleFieldToMatchInput `pulumi:"fieldToMatch"`
-	// The ID of a `WAF Regex Pattern Set`.
+	// The ID of a Regex Pattern Set.
 	RegexPatternSetId pulumi.StringInput `pulumi:"regexPatternSetId"`
 	// Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
-	// e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
+	// e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
 	// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
 	// for all supported values.
 	TextTransformation pulumi.StringInput `pulumi:"textTransformation"`
@@ -628,13 +628,13 @@ func (o RegexMatchSetRegexMatchTupleOutput) FieldToMatch() RegexMatchSetRegexMat
 	return o.ApplyT(func(v RegexMatchSetRegexMatchTuple) RegexMatchSetRegexMatchTupleFieldToMatch { return v.FieldToMatch }).(RegexMatchSetRegexMatchTupleFieldToMatchOutput)
 }
 
-// The ID of a `WAF Regex Pattern Set`.
+// The ID of a Regex Pattern Set.
 func (o RegexMatchSetRegexMatchTupleOutput) RegexPatternSetId() pulumi.StringOutput {
 	return o.ApplyT(func(v RegexMatchSetRegexMatchTuple) string { return v.RegexPatternSetId }).(pulumi.StringOutput)
 }
 
 // Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
-// e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
+// e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
 // See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
 // for all supported values.
 func (o RegexMatchSetRegexMatchTupleOutput) TextTransformation() pulumi.StringOutput {
@@ -739,7 +739,7 @@ type RuleGroupActivatedRule struct {
 	Action RuleGroupActivatedRuleAction `pulumi:"action"`
 	// Specifies the order in which the rules are evaluated. Rules with a lower value are evaluated before rules with a higher value.
 	Priority int `pulumi:"priority"`
-	// The ID of a `wafRegionalRule`
+	// The ID of a rule
 	RuleId string `pulumi:"ruleId"`
 	// The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
 	Type *string `pulumi:"type"`
@@ -761,7 +761,7 @@ type RuleGroupActivatedRuleArgs struct {
 	Action RuleGroupActivatedRuleActionInput `pulumi:"action"`
 	// Specifies the order in which the rules are evaluated. Rules with a lower value are evaluated before rules with a higher value.
 	Priority pulumi.IntInput `pulumi:"priority"`
-	// The ID of a `wafRegionalRule`
+	// The ID of a rule
 	RuleId pulumi.StringInput `pulumi:"ruleId"`
 	// The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
@@ -828,7 +828,7 @@ func (o RuleGroupActivatedRuleOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v RuleGroupActivatedRule) int { return v.Priority }).(pulumi.IntOutput)
 }
 
-// The ID of a `wafRegionalRule`
+// The ID of a rule
 func (o RuleGroupActivatedRuleOutput) RuleId() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupActivatedRule) string { return v.RuleId }).(pulumi.StringOutput)
 }
@@ -1978,7 +1978,7 @@ type WebAclRule struct {
 	// Specifies the order in which the rules in a WebACL are evaluated.
 	// Rules with a lower value are evaluated before rules with a higher value.
 	Priority int `pulumi:"priority"`
-	// ID of the associated WAF (Regional) rule (e.g. `wafregional.Rule`). WAF (Global) rules cannot be used.
+	// ID of the associated WAF (Regional) rule (e.g., `wafregional.Rule`). WAF (Global) rules cannot be used.
 	RuleId string `pulumi:"ruleId"`
 	// Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `overrideAction` are `COUNT` and `NONE`.
 	Type *string `pulumi:"type"`
@@ -2003,7 +2003,7 @@ type WebAclRuleArgs struct {
 	// Specifies the order in which the rules in a WebACL are evaluated.
 	// Rules with a lower value are evaluated before rules with a higher value.
 	Priority pulumi.IntInput `pulumi:"priority"`
-	// ID of the associated WAF (Regional) rule (e.g. `wafregional.Rule`). WAF (Global) rules cannot be used.
+	// ID of the associated WAF (Regional) rule (e.g., `wafregional.Rule`). WAF (Global) rules cannot be used.
 	RuleId pulumi.StringInput `pulumi:"ruleId"`
 	// Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `overrideAction` are `COUNT` and `NONE`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
@@ -2076,7 +2076,7 @@ func (o WebAclRuleOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v WebAclRule) int { return v.Priority }).(pulumi.IntOutput)
 }
 
-// ID of the associated WAF (Regional) rule (e.g. `wafregional.Rule`). WAF (Global) rules cannot be used.
+// ID of the associated WAF (Regional) rule (e.g., `wafregional.Rule`). WAF (Global) rules cannot be used.
 func (o WebAclRuleOutput) RuleId() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRule) string { return v.RuleId }).(pulumi.StringOutput)
 }

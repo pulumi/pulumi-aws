@@ -68,8 +68,9 @@ type Link struct {
 	// The provider of the link.
 	ProviderName pulumi.StringPtrOutput `pulumi:"providerName"`
 	// The ID of the site.
-	SiteId pulumi.StringOutput    `pulumi:"siteId"`
-	Tags   pulumi.StringMapOutput `pulumi:"tags"`
+	SiteId pulumi.StringOutput `pulumi:"siteId"`
+	// Key-value tags for the link. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The type of the link.
@@ -125,8 +126,9 @@ type linkState struct {
 	// The provider of the link.
 	ProviderName *string `pulumi:"providerName"`
 	// The ID of the site.
-	SiteId *string           `pulumi:"siteId"`
-	Tags   map[string]string `pulumi:"tags"`
+	SiteId *string `pulumi:"siteId"`
+	// Key-value tags for the link. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The type of the link.
@@ -146,7 +148,8 @@ type LinkState struct {
 	ProviderName pulumi.StringPtrInput
 	// The ID of the site.
 	SiteId pulumi.StringPtrInput
-	Tags   pulumi.StringMapInput
+	// Key-value tags for the link. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The type of the link.
@@ -167,8 +170,9 @@ type linkArgs struct {
 	// The provider of the link.
 	ProviderName *string `pulumi:"providerName"`
 	// The ID of the site.
-	SiteId string            `pulumi:"siteId"`
-	Tags   map[string]string `pulumi:"tags"`
+	SiteId string `pulumi:"siteId"`
+	// Key-value tags for the link. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// The type of the link.
 	Type *string `pulumi:"type"`
 }
@@ -185,7 +189,8 @@ type LinkArgs struct {
 	ProviderName pulumi.StringPtrInput
 	// The ID of the site.
 	SiteId pulumi.StringInput
-	Tags   pulumi.StringMapInput
+	// Key-value tags for the link. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// The type of the link.
 	Type pulumi.StringPtrInput
 }
@@ -307,6 +312,7 @@ func (o LinkOutput) SiteId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Link) pulumi.StringOutput { return v.SiteId }).(pulumi.StringOutput)
 }
 
+// Key-value tags for the link. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o LinkOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Link) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

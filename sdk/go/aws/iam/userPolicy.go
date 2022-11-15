@@ -82,7 +82,7 @@ import (
 type UserPolicy struct {
 	pulumi.CustomResourceState
 
-	// The name of the policy. If omitted, this provider will assign a random, unique name.
+	// The name of the policy. If omitted, the provider will assign a random, unique name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
@@ -127,7 +127,7 @@ func GetUserPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering UserPolicy resources.
 type userPolicyState struct {
-	// The name of the policy. If omitted, this provider will assign a random, unique name.
+	// The name of the policy. If omitted, the provider will assign a random, unique name.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
@@ -138,7 +138,7 @@ type userPolicyState struct {
 }
 
 type UserPolicyState struct {
-	// The name of the policy. If omitted, this provider will assign a random, unique name.
+	// The name of the policy. If omitted, the provider will assign a random, unique name.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
@@ -153,7 +153,7 @@ func (UserPolicyState) ElementType() reflect.Type {
 }
 
 type userPolicyArgs struct {
-	// The name of the policy. If omitted, this provider will assign a random, unique name.
+	// The name of the policy. If omitted, the provider will assign a random, unique name.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
@@ -165,7 +165,7 @@ type userPolicyArgs struct {
 
 // The set of arguments for constructing a UserPolicy resource.
 type UserPolicyArgs struct {
-	// The name of the policy. If omitted, this provider will assign a random, unique name.
+	// The name of the policy. If omitted, the provider will assign a random, unique name.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
@@ -262,7 +262,7 @@ func (o UserPolicyOutput) ToUserPolicyOutputWithContext(ctx context.Context) Use
 	return o
 }
 
-// The name of the policy. If omitted, this provider will assign a random, unique name.
+// The name of the policy. If omitted, the provider will assign a random, unique name.
 func (o UserPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

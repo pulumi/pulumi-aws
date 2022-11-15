@@ -11,6 +11,45 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an ECS task set - effectively a task that is expected to run until an error occurs or a user terminates it (typically a webserver or a database).
+//
+// See [ECS Task Set section in AWS developer guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-external.html).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ecs.NewTaskSet(ctx, "example", &ecs.TaskSetArgs{
+//				Service:        pulumi.Any(aws_ecs_service.Example.Id),
+//				Cluster:        pulumi.Any(aws_ecs_cluster.Example.Id),
+//				TaskDefinition: pulumi.Any(aws_ecs_task_definition.Example.Arn),
+//				LoadBalancers: ecs.TaskSetLoadBalancerArray{
+//					&ecs.TaskSetLoadBalancerArgs{
+//						TargetGroupArn: pulumi.Any(aws_lb_target_group.Example.Arn),
+//						ContainerName:  pulumi.String("mongo"),
+//						ContainerPort:  pulumi.Int(8080),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // ECS Task Sets can be imported via the `task_set_id`, `service`, and `cluster` separated by commas (`,`) e.g.
@@ -30,7 +69,8 @@ type TaskSet struct {
 	// The short name or ARN of the cluster that hosts the service to create the task set in.
 	Cluster pulumi.StringOutput `pulumi:"cluster"`
 	// The external ID associated with the task set.
-	ExternalId  pulumi.StringOutput  `pulumi:"externalId"`
+	ExternalId pulumi.StringOutput `pulumi:"externalId"`
+	// Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it's in the process of scaling a resource. Normally, the provider drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling.
 	ForceDelete pulumi.BoolPtrOutput `pulumi:"forceDelete"`
 	// The launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
 	LaunchType pulumi.StringOutput `pulumi:"launchType"`
@@ -57,7 +97,8 @@ type TaskSet struct {
 	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
 	TaskDefinition pulumi.StringOutput `pulumi:"taskDefinition"`
 	// The ID of the task set.
-	TaskSetId       pulumi.StringOutput  `pulumi:"taskSetId"`
+	TaskSetId pulumi.StringOutput `pulumi:"taskSetId"`
+	// Whether the provider should wait until the task set has reached `STEADY_STATE`.
 	WaitUntilStable pulumi.BoolPtrOutput `pulumi:"waitUntilStable"`
 	// Wait timeout for task set to reach `STEADY_STATE`. Valid time units include `ns`, `us` (or `µs`), `ms`, `s`, `m`, and `h`. Default `10m`.
 	WaitUntilStableTimeout pulumi.StringPtrOutput `pulumi:"waitUntilStableTimeout"`
@@ -108,8 +149,9 @@ type taskSetState struct {
 	// The short name or ARN of the cluster that hosts the service to create the task set in.
 	Cluster *string `pulumi:"cluster"`
 	// The external ID associated with the task set.
-	ExternalId  *string `pulumi:"externalId"`
-	ForceDelete *bool   `pulumi:"forceDelete"`
+	ExternalId *string `pulumi:"externalId"`
+	// Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it's in the process of scaling a resource. Normally, the provider drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling.
+	ForceDelete *bool `pulumi:"forceDelete"`
 	// The launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
 	LaunchType *string `pulumi:"launchType"`
 	// Details on load balancers that are used with a task set. Detailed below.
@@ -135,8 +177,9 @@ type taskSetState struct {
 	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
 	TaskDefinition *string `pulumi:"taskDefinition"`
 	// The ID of the task set.
-	TaskSetId       *string `pulumi:"taskSetId"`
-	WaitUntilStable *bool   `pulumi:"waitUntilStable"`
+	TaskSetId *string `pulumi:"taskSetId"`
+	// Whether the provider should wait until the task set has reached `STEADY_STATE`.
+	WaitUntilStable *bool `pulumi:"waitUntilStable"`
 	// Wait timeout for task set to reach `STEADY_STATE`. Valid time units include `ns`, `us` (or `µs`), `ms`, `s`, `m`, and `h`. Default `10m`.
 	WaitUntilStableTimeout *string `pulumi:"waitUntilStableTimeout"`
 }
@@ -149,7 +192,8 @@ type TaskSetState struct {
 	// The short name or ARN of the cluster that hosts the service to create the task set in.
 	Cluster pulumi.StringPtrInput
 	// The external ID associated with the task set.
-	ExternalId  pulumi.StringPtrInput
+	ExternalId pulumi.StringPtrInput
+	// Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it's in the process of scaling a resource. Normally, the provider drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling.
 	ForceDelete pulumi.BoolPtrInput
 	// The launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
 	LaunchType pulumi.StringPtrInput
@@ -176,7 +220,8 @@ type TaskSetState struct {
 	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
 	TaskDefinition pulumi.StringPtrInput
 	// The ID of the task set.
-	TaskSetId       pulumi.StringPtrInput
+	TaskSetId pulumi.StringPtrInput
+	// Whether the provider should wait until the task set has reached `STEADY_STATE`.
 	WaitUntilStable pulumi.BoolPtrInput
 	// Wait timeout for task set to reach `STEADY_STATE`. Valid time units include `ns`, `us` (or `µs`), `ms`, `s`, `m`, and `h`. Default `10m`.
 	WaitUntilStableTimeout pulumi.StringPtrInput
@@ -192,8 +237,9 @@ type taskSetArgs struct {
 	// The short name or ARN of the cluster that hosts the service to create the task set in.
 	Cluster string `pulumi:"cluster"`
 	// The external ID associated with the task set.
-	ExternalId  *string `pulumi:"externalId"`
-	ForceDelete *bool   `pulumi:"forceDelete"`
+	ExternalId *string `pulumi:"externalId"`
+	// Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it's in the process of scaling a resource. Normally, the provider drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling.
+	ForceDelete *bool `pulumi:"forceDelete"`
 	// The launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
 	LaunchType *string `pulumi:"launchType"`
 	// Details on load balancers that are used with a task set. Detailed below.
@@ -211,8 +257,9 @@ type taskSetArgs struct {
 	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
 	Tags map[string]string `pulumi:"tags"`
 	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
-	TaskDefinition  string `pulumi:"taskDefinition"`
-	WaitUntilStable *bool  `pulumi:"waitUntilStable"`
+	TaskDefinition string `pulumi:"taskDefinition"`
+	// Whether the provider should wait until the task set has reached `STEADY_STATE`.
+	WaitUntilStable *bool `pulumi:"waitUntilStable"`
 	// Wait timeout for task set to reach `STEADY_STATE`. Valid time units include `ns`, `us` (or `µs`), `ms`, `s`, `m`, and `h`. Default `10m`.
 	WaitUntilStableTimeout *string `pulumi:"waitUntilStableTimeout"`
 }
@@ -224,7 +271,8 @@ type TaskSetArgs struct {
 	// The short name or ARN of the cluster that hosts the service to create the task set in.
 	Cluster pulumi.StringInput
 	// The external ID associated with the task set.
-	ExternalId  pulumi.StringPtrInput
+	ExternalId pulumi.StringPtrInput
+	// Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it's in the process of scaling a resource. Normally, the provider drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling.
 	ForceDelete pulumi.BoolPtrInput
 	// The launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
 	LaunchType pulumi.StringPtrInput
@@ -243,7 +291,8 @@ type TaskSetArgs struct {
 	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
 	Tags pulumi.StringMapInput
 	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
-	TaskDefinition  pulumi.StringInput
+	TaskDefinition pulumi.StringInput
+	// Whether the provider should wait until the task set has reached `STEADY_STATE`.
 	WaitUntilStable pulumi.BoolPtrInput
 	// Wait timeout for task set to reach `STEADY_STATE`. Valid time units include `ns`, `us` (or `µs`), `ms`, `s`, `m`, and `h`. Default `10m`.
 	WaitUntilStableTimeout pulumi.StringPtrInput
@@ -356,6 +405,7 @@ func (o TaskSetOutput) ExternalId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TaskSet) pulumi.StringOutput { return v.ExternalId }).(pulumi.StringOutput)
 }
 
+// Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it's in the process of scaling a resource. Normally, the provider drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling.
 func (o TaskSetOutput) ForceDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TaskSet) pulumi.BoolPtrOutput { return v.ForceDelete }).(pulumi.BoolPtrOutput)
 }
@@ -425,6 +475,7 @@ func (o TaskSetOutput) TaskSetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TaskSet) pulumi.StringOutput { return v.TaskSetId }).(pulumi.StringOutput)
 }
 
+// Whether the provider should wait until the task set has reached `STEADY_STATE`.
 func (o TaskSetOutput) WaitUntilStable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TaskSet) pulumi.BoolPtrOutput { return v.WaitUntilStable }).(pulumi.BoolPtrOutput)
 }
